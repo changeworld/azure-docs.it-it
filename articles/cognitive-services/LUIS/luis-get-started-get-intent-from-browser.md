@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: Eseguire query per la stima con un browser - LUIS'
-description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo in un browser.
+title: Come eseguire query per le previsioni con un browser - LUIS
+description: In questo articolo si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo in un browser.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 04/21/2020
-ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316274"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436913"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Guida introduttiva: Eseguire query sul runtime di stima con un testo dell'utente
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Come eseguire query sul runtime di previsione con il testo dell'utente
 
 Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un risultato di stima in un Web browser.
 
