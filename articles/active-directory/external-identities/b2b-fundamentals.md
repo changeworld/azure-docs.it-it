@@ -5,31 +5,32 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442168"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547764"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedure consigliate per Azure Active Directory B2B
 Questo articolo contiene indicazioni e procedure consigliate per la collaborazione business-to-business (B2B) in Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partire dal 31 marzo 2021** Microsoft non supporterà più il riscatto degli inviti tramite la creazione di account e tenant di Azure AD non gestiti per gli scenari di collaborazione B2B. Nel frattempo, i clienti sono invitati ad acconsentire esplicitamente all'[autenticazione con passcode monouso tramite posta elettronica](one-time-passcode.md). Saremo lieti di ricevere feedback su questa funzionalità di anteprima pubblica e di creare ancora altri modi per collaborare.
+   > **A partire dal 2021 marzo**, Microsoft non supporterà più il riscatto degli inviti mediante la creazione di account Azure ad e tenant non gestiti, per gli scenari di collaborazione B2B. In quel momento, la funzionalità di accesso monouso per il codice di posta elettronica verrà attivata per tutti i tenant esistenti e abilitata per impostazione predefinita per i nuovi tenant. È in corso l'abilitazione della funzionalità di accesso monouso per la posta elettronica perché fornisce un metodo di autenticazione di fallback semplice per gli utenti guest. Tuttavia, è possibile disabilitare questa funzionalità se si sceglie di non usarla. Per informazioni dettagliate, vedere la pagina relativa all' [autenticazione del codice di posta elettronica una volta](one-time-passcode.md)
+
 
 ## <a name="b2b-recommendations"></a>Raccomandazioni B2B
 | Recommendation | Commenti |
 | --- | --- |
 | Per un'esperienza di accesso ottimale, Federazione con i provider di identità | Quando possibile, eseguire la Federazione direttamente con i provider di identità per consentire agli utenti invitati di accedere alle app e alle risorse condivise senza dover creare account Microsoft (MSAs) o account Azure AD. È possibile usare la [funzionalità di Federazione di Google](google-federation.md) per consentire agli utenti Guest B2B di accedere con i propri account Google. In alternativa, è possibile usare la [funzionalità Direct Federation (Preview)](direct-federation.md) per configurare la Federazione diretta con qualsiasi organizzazione il cui provider di identità (IDP) supporta il protocollo SAML 2,0 o WS-Fed. |
-| Usare la funzionalità di reimpostazione del codice di posta elettronica monouso (anteprima) per i guest B2B che non possono eseguire l'autenticazione in altri modi | La funzionalità di accesso monouso [(anteprima) di posta elettronica](one-time-passcode.md) esegue l'autenticazione degli utenti Guest B2B quando non è possibile eseguire l'autenticazione con altri strumenti, ad esempio Azure ad, un account Microsoft (MSA) o una Federazione Google. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere. |
+| Usare la funzionalità di accesso monouso per i clienti B2B che non possono eseguire l'autenticazione in altri modi | La funzionalità di accesso monouso per il [codice di posta elettronica](one-time-passcode.md) consente di autenticare gli utenti Guest B2B quando non è possibile eseguire l'autenticazione con altri strumenti, ad esempio Azure ad, un account Microsoft (MSA) o una Federazione Google. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere. |
 | Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso | È possibile personalizzare la pagina di accesso in modo che sia più intuitiva per gli utenti Guest B2B. Vedere come aggiungere informazioni personalizzate distintive dell' [azienda per l'accesso e le pagine del pannello di accesso](../fundamentals/customize-branding.md). |
 | Aggiungere la propria informativa sulla privacy all'esperienza di riscatto utente Guest B2B | È possibile aggiungere l'URL dell'informativa sulla privacy dell'organizzazione al primo processo di riscatto dell'invito, in modo che un utente invitato debba acconsentire alle condizioni di privacy per continuare. Vedere [procedura: aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Utilizzare la funzionalità di invito bulk (anteprima) per invitare più utenti Guest B2B nello stesso momento | Invitare più utenti guest nell'organizzazione allo stesso tempo usando la funzionalità di anteprima di invito bulk nel portale di Azure. Questa funzionalità consente di caricare un file CSV per creare utenti Guest B2B e inviare inviti in blocco. Vedere [esercitazione per l'invito bulk degli utenti B2B](tutorial-bulk-invite.md). |

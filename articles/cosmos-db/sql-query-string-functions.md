@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4516bb9c426355de1fa2ce19befddef896a2de3e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5e84a679f0bc26b701dc1d51db3605c452675ea3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338102"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545282"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funzioni stringa (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,4 +54,4 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di input string
 - [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)
 - [Funzioni definite dall'utente](sql-query-udfs.md)
-- [Aggregazioni](sql-query-aggregates.md)
+- [Aggregazioni](sql-query-aggregate-functions.md)

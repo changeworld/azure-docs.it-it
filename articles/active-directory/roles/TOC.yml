@@ -2,8 +2,10 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Ruoli di Azure AD
+    - name: Che cos'è il controllo degli accessi in base al ruolo di Azure AD?
       href: custom-overview.md
+    - name: Informazioni sui ruoli di Azure AD
+      href: concept-understand-roles.md
 - name: Avvii rapidi
   items:
     - name: Creare registrazioni di app illimitate
@@ -50,8 +52,6 @@
     - name: Ruoli personalizzati
       expanded: true
       items:
-        - name: Panoramica dei ruoli personalizzati
-          href: custom-overview.md
         - name: Creare un ruolo personalizzato
           href: custom-create.md
         - name: Visualizzare le assegnazioni di ruolo personalizzate

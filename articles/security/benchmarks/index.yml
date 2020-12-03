@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: ed638f6cd90abefdf5fbeaddf21ddb3a98322c07
-  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+  ms.openlocfilehash: 761fc5e86acd6fa46f1d03f960a3987e540a925a
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94409111"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96461133"
 landingContent:
 - title: Informazioni su Azure Security Benchmark
   linkLists:
@@ -82,7 +82,7 @@ landingContent:
       url: ../../hdinsight/security-baseline.md
     - text: Baseline di Analisi di flusso
       url: ../../stream-analytics/security-baseline.md
-    - text: Baseline di sicurezza di Synapse Analytics
+    - text: Baseline di sicurezza di Azure Synapse Analytics
       url: ../../synapse-analytics/security-baseline.md
 - title: Linee di base sulla sicurezza dell'ambiente di calcolo
   linkLists:

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: a77ee3c4301d278f98b571402514663dcfc9ca52
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657925"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546846"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Informazioni sui requisiti di crittografia e i gateway VPN di Azure
 
@@ -29,6 +29,8 @@ Quando si applicano le connessioni IKEv1 e IKEv2 allo stesso gateway VPN, il tra
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Informazioni sui parametri di criteri IPsec e IKE per gateway VPN di Azure
 
 Lo standard di protocollo IPsec e IKE supporta un'ampia gamma di algoritmi di crittografia in varie combinazioni. Se non si richiede una combinazione specifica di algoritmi e parametri crittografici, i gateway VPN di Azure usano un set di proposte predefinite. I set di criteri predefiniti sono stati scelti per migliorare l'interoperabilità con un'ampia gamma di dispositivi VPN di terze parti in configurazioni predefinite. Di conseguenza, i criteri e il numero di proposte non possono coprire tutte le possibili combinazioni degli algoritmi di crittografia disponibili e della complessità delle chiavi.
+
+### <a name="default-policy"></a>Criteri predefiniti
 
 Il set di criteri predefinito per il gateway VPN di Azure è riportato nell'articolo [informazioni sui dispositivi VPN e sui parametri IPSec/IKE per le connessioni del gateway VPN da sito a sito](vpn-gateway-about-vpn-devices.md).
 

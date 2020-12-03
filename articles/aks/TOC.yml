@@ -9,7 +9,7 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare un cluster del servizio Azure Kubernetes
+    - name: Distribuire un cluster del servizio Azure Kubernetes
       expanded: true
       items:
         - name: Usare l'interfaccia della riga di comando di Azure
@@ -252,6 +252,8 @@
           href: kubernetes-service-principal.md
         - name: Usare identità gestite
           href: use-managed-identity.md
+        - name: Usare l'identità dei pod di AAD (anteprima)
+          href: use-azure-ad-pod-identity.md
         - name: Limitare l'accesso al file di configurazione del cluster
           href: control-kubeconfig-access.md
         - name: Proteggere il traffico di pod con i criteri di rete

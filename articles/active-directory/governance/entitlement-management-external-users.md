@@ -16,16 +16,16 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fae7a62f062478c5fee45d172b88d0132f3a8f8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362502"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546132"
 ---
-# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
+# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Regolamentare l'accesso per gli utenti esterni nella gestione entitlement di Azure AD
 
-Azure AD gestione dei diritti utilizza [Azure ad B2B (business to business)](../external-identities/what-is-b2b.md) per collaborare con persone esterne all'organizzazione in un'altra directory. Con Azure AD B2B, gli utenti esterni eseguono l'autenticazione alla propria home directory, ma hanno una rappresentazione nella directory. La rappresentazione nella directory consente all'utente di assegnare l'accesso alle risorse.
+Azure AD gestione dei diritti utilizza [Azure ad B2B (business to business)](../external-identities/what-is-b2b.md) per collaborare con persone esterne all'organizzazione in un'altra directory. Con Azure AD B2B, gli utenti esterni eseguono l'autenticazione nella propria home directory, ma hanno una rappresentazione nella directory dell'organizzazione. La rappresentazione nella directory consente di assegnare agli utenti l'accesso alle risorse dell'organizzazione.
 
 Questo articolo descrive le impostazioni che è possibile specificare per gestire l'accesso per gli utenti esterni.
 
@@ -84,7 +84,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 - Consentire ai guest di invitare altri guest nella propria directory significa che gli inviti Guest possono verificarsi al di fuori della gestione dei diritti. Si consiglia di impostare i **Guest come invitati** a **No** per consentire solo gli inviti regolati correttamente.
 - Se si usa l'elenco Consenti B2B, è necessario assicurarsi che tutti i domini con cui si vuole collaborare con la gestione dei diritti siano aggiunti all'elenco. In alternativa, se si usa l'elenco di negazione B2B, è necessario assicurarsi che tutti i domini con cui si vuole collaborare non vengano aggiunti all'elenco.
 - Se si crea un criterio di gestione dei diritti per **tutti gli utenti** (tutte le organizzazioni connesse e i nuovi utenti esterni) e un utente non appartiene a un'organizzazione connessa nella directory, verrà creata automaticamente un'organizzazione connessa quando richiede il pacchetto. Tutte le impostazioni dell'elenco Consenti o Impedisci B2B disponibili avranno la precedenza. Quindi, assicurarsi di includere i domini che si intende includere in questo criterio nell'elenco Consenti se ne viene usato uno ed escluderli dall'elenco di negazione se si usa un elenco di accesso negato.
-- Se si vuole creare un criterio di gestione dei diritti che includa **tutti gli utenti** (tutte le organizzazioni connesse e tutti i nuovi utenti esterni), è necessario prima di tutto abilitare la posta elettronica per la password una sola volta per la directory. Per ulteriori informazioni, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Se si vuole creare un criterio di gestione dei diritti che includa **tutti gli utenti** (tutte le organizzazioni connesse e tutti i nuovi utenti esterni), è necessario prima di tutto abilitare la posta elettronica per la password una sola volta per la directory. Per ulteriori informazioni, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](../external-identities/one-time-passcode.md).
 - Per altre informazioni su Azure AD impostazioni di collaborazione esterna B2B, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../external-identities/delegate-invitations.md).
 
     ![Azure AD impostazioni di collaborazione esterna](./media/entitlement-management-external-users/collaboration-settings.png)

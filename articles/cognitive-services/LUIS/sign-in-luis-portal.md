@@ -7,14 +7,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/08/2020
 ms.topic: how-to
-ms.author: a-sakand
-author: skandil
-ms.openlocfilehash: d801971ca62c416c66608b40aab3e8052fe941a1
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.author: nitinme
+author: nitinme
+ms.openlocfilehash: ae51dca466a9aaf489ba4628e13a5e13de25b9bc
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931411"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546863"
 ---
 # <a name="sign-in-to-luis-portal"></a>Accedere al portale LUIS
 
@@ -36,7 +36,7 @@ Un account, che non è associato a una sottoscrizione di Azure, dispone dell'ico
 
 Un account associato a una sottoscrizione di Azure consente di selezionare la sottoscrizione e la risorsa da usare.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Screenshot parziale della barra di spostamento LUIS con l'icona di Azure.":::
+:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Screenshot parziale del portale LUIS con le caselle di riepilogo a discesa sottoscrizione e creazione delle risorse.":::
 
 ## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Accedere con l'account associato a una sottoscrizione di Azure
 
@@ -50,11 +50,11 @@ Un account associato a una sottoscrizione di Azure consente di selezionare la so
 
     [Altre informazioni sulle chiavi di creazione e di avvio](luis-how-to-azure-subscription.md#luis-resources). Entrambe le risorse offrono 1 milione transazioni di creazione gratuite e 1000 transazioni dell'endpoint di stima gratuite.
 
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Screenshot parziale della barra di spostamento LUIS con l'icona di Azure.":::
+    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Schermata parziale per scegliere un tipo di Language Understanding risorsa di creazione.":::
 
 1. Usa una risorsa di creazione esistente
 
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Screenshot parziale della barra di spostamento LUIS con l'icona di Azure.":::
+    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Scegliere la risorsa di creazione":::
 
     Se nella sottoscrizione sono già presenti risorse per la creazione di LUIS e si associa una con l'account LUIS durante l'accesso, scegliere l'opzione **Usa la risorsa di creazione esistente** e specificare le informazioni seguenti:
 
@@ -67,7 +67,7 @@ Un account associato a una sottoscrizione di Azure consente di selezionare la so
 
 1. Creare una nuova risorsa di creazione
 
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Screenshot parziale della barra di spostamento LUIS con l'icona di Azure.":::
+    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Creare la risorsa di creazione":::
 
     Durante la **creazione di una nuova risorsa di creazione** specificare le informazioni seguenti:
 
@@ -78,7 +78,7 @@ Un account associato a una sottoscrizione di Azure consente di selezionare la so
 
 1. Dopo aver scelto il percorso, l'utente potrebbe richiedere alcuni secondi finché non viene visualizzato un segno che indica che la migrazione dell'account è stata completata. Per completare la selezione, **continuare**.
 
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Screenshot parziale della barra di spostamento LUIS con l'icona di Azure.":::
+    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Conferma risorsa di creazione":::
 
     > [!Note]
     > Se si dispone di una sottoscrizione e di almeno una risorsa di creazione nell'area corrispondente a quella a cui si sta effettuando l'iscrizione nel portale, è possibile accedere automaticamente a LUIS migrato e associato a una risorsa senza dover scegliere il percorso da usare.
@@ -90,7 +90,7 @@ Un account associato a una sottoscrizione di Azure consente di selezionare la so
 
 1. Per completare la selezione, **continuare**. Si accederà automaticamente con una chiave di prova/Starter. Ciò significa che alla fine verrà richiesto di [eseguire la migrazione dell'account](luis-migration-authoring.md#migration-steps) e di collegare le applicazioni a una risorsa di creazione. Per eseguire il processo di migrazione, sarà necessario accedere a una versione di [valutazione gratuita di Azure](https://azure.microsoft.com/free/).
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Screenshot parziale della barra di spostamento LUIS con l'icona di Azure.":::
+    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Nessuno scenario di sottoscrizione":::
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

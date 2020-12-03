@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Concetti
   items:
-    - name: Panoramica sui lab per le classi
+    - name: Panoramica dei lab
       href: classroom-labs-overview.md
-    - name: Concetti sui lab per le classi
+    - name: Concetti sui lab
       href: classroom-labs-concepts.md
-    - name: Nozioni fondamentali sull'architettura dei lab per le classi
+    - name: Nozioni fondamentali sull'architettura dei lab
       href: classroom-labs-fundamentals.md
     - name: Limiti di capacità
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Usare i servizi lab per hackathon
           href: hackathon-labs.md
-        - name: Lab per le classi - Tipi di classe
+        - name: Lab - Tipi di classe
           items:
             - name: Panoramica dei tipi di classi
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Caricare un'immagine personalizzata in Raccolta immagini condivise
           href: upload-custom-image-shared-image-gallery.md
-    - name: Creare e configurare lab per le classi (educatore)
+    - name: Creare e configurare i lab (educatore)
       items:
-        - name: Creare e gestire i lab per le classi
+        - name: Creare e gestire lab
           href: how-to-manage-classroom-labs.md
         - name: Usare il dashboard
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Accedere alle VM degli studenti dalla visualizzazione dell'educatore
           href: instructor-access-virtual-machines.md
-    - name: Connettersi a una macchina virtuale in lab per le classi (studente)
+    - name: Connettersi alle VM nei lab (studente)
       items:
-        - name: Accedere ai lab per le classi
+        - name: Accedere ai lab
           href: how-to-use-classroom-lab.md
         - name: Connettersi a VM Linux
           href: how-to-use-remote-desktop-linux-student.md

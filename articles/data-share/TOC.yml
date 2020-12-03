@@ -45,7 +45,7 @@
       items:
         - name: Condividere da Archiviazione di Azure
           href: how-to-share-from-storage.md
-        - name: Condividere dal database SQL di Azure o da Synapse Analytics
+        - name: Condividere da Database SQL di Azure o Azure Synapse Analytics
           href: how-to-share-from-sql.md
         - name: Condividere da Esplora dati di Azure
           href: /azure/data-explorer/data-share

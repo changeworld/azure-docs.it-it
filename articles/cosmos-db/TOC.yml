@@ -898,7 +898,7 @@
           href: cassandra-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: cassandra-support.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: .NET
           href: create-cassandra-dotnet.md
@@ -1004,7 +1004,7 @@
       items:
         - name: Che cos'è l'API MongoDB in Cosmos DB?
           href: mongodb-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: .NET
           href: create-mongodb-dotnet.md
@@ -1128,7 +1128,7 @@
           href: graph-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: gremlin-support.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Console Gremlin
           href: create-graph-gremlin-console.md
@@ -1205,7 +1205,7 @@
       items:
         - name: Che cos'è l'API Tabella in Cosmos DB?
           href: table-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: .NET
           href: create-table-dotnet.md
@@ -1315,7 +1315,7 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Eseguire query con Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Eseguire query con Synapse SQL serverless
+        - name: Eseguire query con il pool SQL serverless
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Usare Power BI con Collegamento a Synapse
           href: synapse-link-power-bi.md

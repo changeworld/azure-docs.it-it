@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 71314e6999031f52ebbfc582b43684ab5a17a261
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338799"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545452"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clausola GROUP BY in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ La clausola GROUP BY consente di dividere i risultati della query in base ai val
 
 ## <a name="remarks"></a>Osservazioni
   
-  Quando una query usa una clausola GROUP BY, la clausola SELECT può contenere solo il subset di proprietà e funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è costituita dalle [funzioni di sistema di aggregazione](sql-query-aggregates.md), che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola GROUP BY. Nella clausola SELECT è inoltre possibile includere sempre valori letterali.
+  Quando una query usa una clausola GROUP BY, la clausola SELECT può contenere solo il subset di proprietà e funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è rappresentata dalle [funzioni di aggregazione](sql-query-aggregate-functions.md), che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola Group by. Nella clausola SELECT è inoltre possibile includere sempre valori letterali.
 
   La clausola GROUP BY deve seguire la clausola SELECT, FROM e WHERE e precedere la clausola OFFSET LIMIT. Al momento non è possibile usare GROUP BY con una clausola ORDER BY, ma è previsto in futuro.
 
@@ -192,4 +192,4 @@ I risultati sono:
 
 - [Introduzione](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
-- [Funzioni di aggregazione](sql-query-aggregates.md)
+- [Funzioni di aggregazione](sql-query-aggregate-functions.md)

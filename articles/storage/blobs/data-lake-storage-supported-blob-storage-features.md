@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 982f4a9cdf3984bae79cd11dad2bd637a1772f05
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 58a907a2ae17966f50a037f49a807ac0a3ad6867
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348501"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545829"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
 
@@ -35,21 +35,20 @@ La tabella seguente illustra in che modo ogni funzionalità di archiviazione BLO
 |Comandi PowerShell per l'archiviazione BLOB|Disponibile a livello generale|Disponibile a livello generale|[Avvio rapido: Caricare, scaricare ed elencare BLOB con PowerShell](storage-quickstart-blobs-powershell.md)|
 |Comandi dell'interfaccia della riga di comando di Azure per Archiviazione BLOB|Disponibile a livello generale|Disponibile a livello generale|[Avvio rapido: Creare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure](storage-quickstart-blobs-cli.md)|
 |Api di archiviazione BLOB|Disponibile a livello generale|Disponibile a livello generale|[Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per .NET](storage-quickstart-blobs-dotnet.md)<br>[Avvio rapido: Gestire i BLOB con Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Avvio rapido: Gestire i BLOB con Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Avvio rapido: Gestire i BLOB con JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|
-|Log di diagnostica|Disponibile a livello generale|Anteprima |[Registrazione di Analisi di archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Log di diagnostica|Disponibile a livello generale|Anteprima |[Registrazione di Analisi archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Livello di accesso archivio|Disponibile a livello generale|Non supportate|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
 |Criteri di gestione del ciclo di vita (suddivisione in livelli)|Disponibile a livello generale|Non ancora supportato|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
 |Criteri di gestione del ciclo di vita (eliminazione di BLOB)|Disponibile a livello generale|Disponibile a livello generale|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
 |Registrazione in Monitoraggio di Azure|Anteprima |Anteprima|[Monitoraggio di archiviazione di Azure](./monitor-blob-storage.md)|
-|Snapshot|Anteprima|Anteprima|[Snapshot BLOB](snapshots-overview.md)|
-|Siti Web statici|Anteprima|Anteprima|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
-|Archiviazione non modificabile|Anteprima|Anteprima|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
+|Snapshot|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Snapshot BLOB](snapshots-overview.md)|
+|Siti Web statici|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
+|Archiviazione non modificabile|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
 |Eliminazione temporanea del contenitore|Anteprima|Anteprima|[Eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md)|
 |Inventario di archiviazione di Azure|Anteprima|Anteprima|[Usare l'inventario di archiviazione di Azure per gestire i dati BLOB (anteprima)](blob-inventory.md)|
 |Eliminazione temporanea BLOB|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB](storage-blob-soft-delete.md)|
-|Eliminazione temporanea BLOB|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB](./soft-delete-blob-overview.md)|
 |Blobfuse|Disponibile a livello generale|Disponibile a livello generale|[Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md)|
+|Accesso pubblico Anonimo |Disponibile a livello generale|Disponibile a livello generale| Vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).|
 |Failover dell'account gestito dal cliente|Non ancora supportato|Non ancora supportato|[Ripristino di emergenza e failover dell'account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Elenco di controllo di accesso del contenitore BLOB|Non supportato<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Non supportato<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Vedere la nota correlata sotto questa tabella.|
 |Chiavi fornite dal cliente|Non ancora supportato|Non ancora supportato|[Fornire una chiave di crittografia per una richiesta all'archiviazione BLOB](encryption-customer-provided-keys.md)|
 |Domini personalizzati|Non ancora supportato|Non ancora supportato|[Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure](storage-custom-domain-name.md)|
 |Ambiti di crittografia|Non ancora supportato|Non ancora supportato|[Creare e gestire gli ambiti di crittografia (anteprima)](encryption-scope-manage.md)|
@@ -57,9 +56,7 @@ La tabella seguente illustra in che modo ogni funzionalità di archiviazione BLO
 |Replica di oggetti|Non ancora supportato|Non ancora supportato|[Configurare la replica di oggetti per i BLOB in blocchi](object-replication-configure.md)|
 |Controllo delle versioni dei BLOB|Non ancora supportato|Non ancora supportato|[Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)|
 
-<div id="blob-container-ACL"><sup>1</sup> è possibile impostare gli ACL nella cartella radice del contenitore, ma non nel contenitore stesso.</div><br>
-
-<div id="preview-form"><sup>2</sup> Per usare gli snapshot, l'archiviazione non modificabile o i siti web statici con Data Lake Storage Gen2, è necessario iscriversi all'anteprima completando il <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>modulo</a>.  </div>
+<div id="preview-form"><sup>1</sup> Per usare gli snapshot, l'archiviazione non modificabile o i siti web statici con Data Lake Storage Gen2, è necessario iscriversi all'anteprima completando il <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>modulo</a>.  </div>
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -8,17 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 314ad3838fdc35925df20f651b80e4eeecd207db
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503590"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547101"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -112,7 +112,7 @@ Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Az
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlet di Azure AD PowerShell per l'opzione ForceTakeover
 È possibile visualizzare questi cmdlet usati in [Esempio di PowerShell](#powershell-example).
 
-Cmdlet | Utilizzo
+Cmdlet | Uso
 ------- | -------
 `connect-msolservice` | Quando richiesto, accedere all'organizzazione gestita.
 `get-msoldomain` | Mostra i nomi di dominio associati all'organizzazione corrente.

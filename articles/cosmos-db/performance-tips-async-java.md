@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 1f57e14893e6f43b98b0e45cc2bd2d49e31271d0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bfbf764aaf1061808d128d16e8a96b08e75fcfe6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350348"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545571"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Async Java SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "96350348"
 
 
 > [!IMPORTANT]  
-> *Non* corrisponde alla versione più recente di Java SDK per Azure Cosmos DB. È necessario aggiornare il progetto a [Java SDK v4 per Azure Cosmos DB](sql-api-sdk-java-v4.md) e quindi leggere la [guida dei suggerimenti relativi alle prestazioni](performance-tips-java-sdk-v4-sql.md) di Java SDK v4 per Azure Cosmos DB. Seguire le istruzioni della guida alla [migrazione a Java SDK v4 per Azure Cosmos DB](migrate-java-v4-sdk.md) e la guida relativa al [confronto tra Reactor e RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
+> *Non* corrisponde alla versione più recente di Java SDK per Azure Cosmos DB. È necessario aggiornare il progetto a [Java SDK v4 per Azure Cosmos DB](sql-api-sdk-java-v4.md) e quindi leggere la [guida dei suggerimenti relativi alle prestazioni](performance-tips-java-sdk-v4-sql.md) di Java SDK v4 per Azure Cosmos DB. Seguire le istruzioni della guida alla [migrazione a Java SDK v4 per Azure Cosmos DB](migrate-java-v4-sdk.md) e la guida relativa al [confronto tra Reactor e RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md). 
 > 
 > I suggerimenti sulle prestazioni riportati in questo articolo riguardano esclusivamente Azure Cosmos DB Async Java SDK v2. Per altre informazioni, vedere le [note sulla versione](sql-api-sdk-async-java.md) di Azure Cosmos DB Async Java SDK v2, il [repository Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) e la [guida alla risoluzione dei problemi](troubleshoot-java-async-sdk.md) di Azure Cosmos DB Async Java SDK v2.
 >

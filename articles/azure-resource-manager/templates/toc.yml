@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i modelli di Azure Resource Manager?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare modelli - Portale
       href: quickstart-create-templates-use-the-portal.md
@@ -48,7 +48,7 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Analisi di flusso
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Pool SQL di Synapse Analytics
+            - name: Pool SQL dedicato (in precedenza SQL Data Warehouse)
               href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Blockchain
           items:

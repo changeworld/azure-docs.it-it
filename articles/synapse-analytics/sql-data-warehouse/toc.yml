@@ -1,12 +1,12 @@
-- name: Azure Synapse (in precedenza SQL Data Warehouse)
-  href: index.yml
-- name: Passare ad Azure Synapse (anteprima per aree di lavoro)
+- name: Pool SQL dedicato (in precedenza SQL Data Warehouse)
+  href: sql-data-warehouse-overview-what-is.md
+- name: Passare ad Azure Synapse
   href: ../overview-what-is.md
 - name: Panoramica
   items:
-    - name: Che cos'è Azure Synapse Analytics?
+    - name: Che cos'è il pool SQL dedicato?
       href: sql-data-warehouse-overview-what-is.md
-    - name: Architettura di Azure Synapse Analytics
+    - name: Architettura del pool SQL dedicato
       href: massively-parallel-processing-mpp-architecture.md
     - name: Unità di data warehouse
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -74,6 +74,12 @@
           href: pause-and-resume-compute-powershell.md
 - name: Concetti
   items:
+    - name: Esperienza dell'area di lavoro di Synapse
+      items:
+        - name: Panoramica
+          href: workspace-connected-experience.md
+        - name: Aree supportate
+          href: workspace-connected-regions.md
     - name: Sicurezza
       items:
         - name: Panoramica
@@ -272,6 +278,10 @@
           href: sql-data-warehouse-overview-integrate.md
 - name: Guide pratiche
   items:
+    - name: Esperienza dell'area di lavoro di Synapse
+      items:
+        - name: Creare un'area di lavoro di Synapse
+          href: workspace-connected-create.md
     - name: Sicurezza
       items:
         - name: Configurare l'autorizzazione di Azure AD
@@ -384,9 +394,9 @@
       items:
         - name: Informazioni di riferimento complete
           href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: Elementi del linguaggio TSQL di Azure Synapse Analytics
+        - name: Elementi del linguaggio T-SQL
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: Istruzioni TSQL di Azure Synapse Analytics
+        - name: Istruzioni T-SQL
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: Viste di sistema
       href: sql-data-warehouse-reference-tsql-system-views.md
@@ -394,6 +404,9 @@
       href: sql-data-warehouse-reference-powershell-cmdlets.md
     - name: API REST
       href: sql-data-warehouse-manage-compute-rest-api.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

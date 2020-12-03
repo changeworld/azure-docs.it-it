@@ -3,12 +3,12 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186202"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547849"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -311,6 +311,10 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 ### <a name="private-link-limits"></a>Limiti del collegamento privato
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## <a name="purview-limits"></a>Limiti di competenza
+
+I valori più recenti per le quote di Azure per le competenze sono disponibili nella [pagina quota di Azure](../../purview/how-to-manage-quotas.md)
 
 ### <a name="traffic-manager-limits"></a>Limiti relativi a Gestione traffico
 

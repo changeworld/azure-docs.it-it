@@ -6,7 +6,7 @@
       href: cdn-overview.md
     - name: Confrontare le funzionalità del prodotto
       href: cdn-features.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Integrare un account di archiviazione
       href: cdn-create-a-storage-account-with-cdn.md
@@ -111,8 +111,8 @@
     - name: Analisi
       href: cdn-log-analysis.md
       items:
-        - name: Log non elaborati HTTP
-          href: enable-raw-logs.md
+        - name: 'Log di monitoraggio, metriche e accesso'
+          href: monitoring-and-access-log.md
         - name: Log di diagnostica di Azure
           href: cdn-azure-diagnostic-logs.md
         - name: Strumenti di analisi per la rete CDN di Azure da Verizon

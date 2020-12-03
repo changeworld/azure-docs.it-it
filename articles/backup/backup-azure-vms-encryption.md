@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure crittografate
 description: Viene descritto come eseguire il backup e il ripristino di VM di Azure crittografate con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324925"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547152"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Eseguire il backup e il ripristino di macchine virtuali di Azure crittografate
 
@@ -22,7 +22,11 @@ Per impostazione predefinita, tutti i dischi delle macchine virtuali vengono cri
 
 ## <a name="encryption-using-customer-managed-keys"></a>Crittografia con chiavi gestite dal cliente
 
-Quando si crittografano i dischi con chiavi personalizzate gestite (CMK), la chiave usata per crittografare i dischi viene archiviata nel Azure Key Vault e viene gestita dall'utente. Crittografia del servizio di archiviazione (SSE) con CMK differisce dalla crittografia di crittografia dischi di Azure (ADE). ADE usa gli strumenti di crittografia del sistema operativo. SSE crittografa i dati nel servizio di archiviazione, consentendo di usare qualsiasi sistema operativo o immagine per le macchine virtuali. Per altre informazioni sulla crittografia di dischi gestiti con chiavi gestite dal cliente, vedere [questo articolo](../virtual-machines/disk-encryption.md#customer-managed-keys).
+Quando si crittografano i dischi con chiavi gestite dal cliente (CMK), la chiave usata per crittografare i dischi viene archiviata nel Azure Key Vault e viene gestita dall'utente. Crittografia del servizio di archiviazione (SSE) con CMK differisce dalla crittografia di crittografia dischi di Azure (ADE). ADE usa gli strumenti di crittografia del sistema operativo. SSE crittografa i dati nel servizio di archiviazione, consentendo di usare qualsiasi sistema operativo o immagine per le macchine virtuali.
+
+Non è necessario eseguire azioni esplicite per il backup o il ripristino di macchine virtuali che usano chiavi gestite dal cliente per la crittografia dei dischi. I dati di backup per queste VM archiviate nell'insieme di credenziali verranno crittografati con gli stessi metodi della [crittografia usata](encryption-at-rest-with-cmk.md)nell'insieme di credenziali.
+
+Per altre informazioni sulla crittografia di dischi gestiti con chiavi gestite dal cliente, vedere [questo articolo](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Supporto della crittografia tramite ADE
 
@@ -71,7 +75,7 @@ In alcune circostanze può anche essere necessario eseguire alcune operazioni:
 
       ![Riquadro scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. In **criteri di backup**  >  **scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Selezionare **OK**.
+1. In **criteri di backup**  >  **scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Quindi scegliere **OK**.
     - Un criterio di backup specifica quando vengono eseguiti i backup e per quanto tempo vengono archiviati.
     - I dettagli dei criteri predefiniti vengono elencati nel menu a discesa.
 
@@ -107,7 +111,7 @@ Il backup iniziale verrà eseguito in base alla pianificazione, ma è possibile 
 2. In **elementi di backup** selezionare **macchina virtuale di Azure**.
 3. Nell'elenco **elementi di backup selezionare i puntini** di sospensione (...).
 4. Selezionare **Esegui backup ora**.
-5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Selezionare **OK**.
+5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Quindi scegliere **OK**.
 6. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="provide-permissions"></a>Fornire le autorizzazioni

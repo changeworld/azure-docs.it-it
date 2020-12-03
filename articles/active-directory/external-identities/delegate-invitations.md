@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362927"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546172"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
 
@@ -44,16 +44,19 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
 3. Selezionare **Identità esterne** > **Impostazioni di collaborazione esterna**.
 
 4. In **restrizioni di accesso utente Guest (anteprima)** scegliere il livello di accesso che si desidera che gli utenti Guest dispongano di:
+  
+    ![Impostazioni delle restrizioni di accesso utente Guest](./media/delegate-invitations/guest-user-access.png)
 
    - **Gli utenti Guest hanno lo stesso accesso dei membri (più inclusivo)**: questa opzione consente agli utenti Guest lo stesso accesso alle risorse Azure ad e ai dati di directory come utenti membro.
 
    - **Gli utenti Guest hanno accesso limitato alle proprietà e alle appartenenze degli oggetti directory**: (impostazione predefinita) questa impostazione blocca i guest da determinate attività di directory, ad esempio l'enumerazione di utenti, gruppi o altre risorse di directory. I guest possono visualizzare l'appartenenza di tutti i gruppi non nascosti.
 
    - **L'accesso utente Guest è limitato alle proprietà e alle appartenenze dei propri oggetti directory (più restrittivi)**: con questa impostazione, i guest possono accedere solo ai propri profili. Ai guest non è consentito visualizzare i profili, i gruppi o le appartenenze ai gruppi di altri utenti.
-  
-    ![Impostazioni delle restrizioni di accesso utente Guest](./media/delegate-invitations/guest-user-access.png)
 
-5. In **Impostazioni invito Guest**scegliere le impostazioni appropriate:
+
+5. In **Impostazioni invito Guest** scegliere le impostazioni appropriate:
+
+    ![Impostazioni di invito Guest](./media/delegate-invitations/guest-invite-settings.png)
 
    - **Amministratori e utenti nel ruolo mittente dell'invito guest possono invitare**: per consentire solo agli amministratori e agli utenti del ruolo "Mittente dell'invito guest" di invitare utenti guest, impostare questo criterio su **Sì**.
 
@@ -61,17 +64,31 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
 
    - **Gli utenti guest possono invitare**: per consentire agli utenti guest di invitare altri utenti guest, impostare questo criterio su **Sì**.
 
-   - **Abilitare la posta elettronica One-Time il codice di accesso per i Guest (anteprima)**: per altre informazioni sulla funzionalità di accesso monouso, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](one-time-passcode.md).
-
-   - **Abilitare l'iscrizione self-service Guest tramite flussi utente (anteprima)**: per altre informazioni su questa impostazione, vedere [aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)](self-service-sign-up-user-flow.md).
-
    > [!NOTE]
    > Se **i membri possono invitare** è impostato su **No** e **gli amministratori e gli utenti nel ruolo mittente dell'invito Guest possono invitare** è impostato su **Sì**, gli utenti del ruolo di **invito Guest** saranno comunque in grado di invitare i guest.
 
-    ![Impostazioni di invito Guest](./media/delegate-invitations/guest-invite-settings.png)
+6. In **password** monouso per i guest scegliere le impostazioni appropriate. per ulteriori informazioni, vedere la pagina relativa all'autenticazione della password monouso per la [posta elettronica](one-time-passcode.md):
 
-6. In **restrizioni di collaborazione**scegliere se consentire o negare gli inviti ai domini specificati. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
+   ![Impostazioni di password monouso per la posta elettronica](./media/delegate-invitations/email-otp-settings.png)
 
+   - **Abilitare automaticamente il codice di accesso monouso tramite posta elettronica per i guest nel 2021 marzo**. Predefinita Se la funzionalità di accesso monouso per il messaggio di posta elettronica non è già abilitata per il tenant, verrà attivata automaticamente il 2021 marzo. Non è necessaria alcuna azione aggiuntiva se si desidera che la funzionalità sia abilitata in quel momento. Se la funzionalità è già stata abilitata o disabilitata, questa opzione non sarà disponibile.
+
+   - **Consente di abilitare il codice di posta elettronica monouso per i guest**. Attiva la funzionalità di accesso monouso della posta elettronica per il tenant.
+
+   - **Disabilitare il codice di posta elettronica monouso per i guest**. Disattiva la funzionalità di accesso monouso di un messaggio di posta elettronica per il tenant e impedisce l'attivazione della funzionalità nel 2021 marzo.
+
+   > [!NOTE]
+   > Invece delle opzioni precedenti, verrà visualizzato l'interruttore seguente se è stata abilitata o disabilitata questa funzionalità o se in precedenza è stato scelto l'anteprima:
+   >
+   >![Abilita la password monouso per la posta elettronica](media/delegate-invitations/enable-email-otp-opted-in.png)
+
+7. In **Abilita l'iscrizione self-service a Guest tramite flussi utente (anteprima)**, selezionare **Sì** se si vuole essere in grado di creare flussi utente che consentono agli utenti di iscriversi alle app. Per altre informazioni su questa impostazione, vedere [aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)](self-service-sign-up-user-flow.md).
+
+    ![Impostazione dell'iscrizione self-service tramite flussi utente](./media/delegate-invitations/self-service-sign-up-setting.png)
+
+7. In **restrizioni di collaborazione** scegliere se consentire o negare gli inviti ai domini specificati. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
+
+    ![Impostazioni delle restrizioni di collaborazione](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Assegnare il ruolo Mittente dell'invito guest a un utente
 
 Con il ruolo Mittente dell'invito guest è possibile concedere a singoli utenti la possibilità di invitare utenti guest senza assegnare loro il ruolo di amministratore globale o un altro ruolo di amministratore. Assegnare il ruolo Mittente dell'invito guest a singoli utenti. Assicurarsi che l'opzione **Amministratori e utenti nel ruolo mittente dell'invito guest possono invitare** sia impostata su **Sì**.

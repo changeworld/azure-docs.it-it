@@ -151,9 +151,9 @@
           href: security-center-network-recommendations.md
         - name: Proteggere le identità e gli accessi
           href: security-center-identity-access.md
-    - name: Avvisi di Azure Defender
+    - name: Informazioni sugli avvisi di sicurezza
       items:
-        - name: Panoramica degli avvisi di Azure Defender
+        - name: Panoramica sugli avvisi di sicurezza
           href: security-center-alerts-overview.md
         - name: Elenco di riferimento degli avvisi
           href: alerts-reference.md
@@ -244,7 +244,7 @@
           href: continuous-export.md
         - name: Scaricare un report CSV di tutti gli avvisi
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-    - name: Gestire gli avvisi di Azure Defender
+    - name: Trattare gli avvisi di sicurezza
       items:
         - name: Gestire gli avvisi di sicurezza
           href: security-center-managing-and-responding-alerts.md

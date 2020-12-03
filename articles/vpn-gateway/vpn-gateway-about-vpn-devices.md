@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318948"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546812"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito
 
@@ -112,13 +112,11 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | &lt;SP_AzureGatewayIpAddress&gt; |Questa informazione è specifica per la rete virtuale ed è disponibile in **Indirizzo IP gateway** nel portale di gestione. |
 | &lt;SP_PresharedKey&gt; |Queste informazioni sono specifiche per la rete virtuale e si trovano nel portale di gestione in chiave di gestione. |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>Parametri IPsec/IKE
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>Parametri IPsec/IKE predefiniti
 
-> [!IMPORTANT]
-> 1. Le tabelle seguenti contengono le combinazioni di algoritmi e parametri usati dal gateway VPN di Azure nella configurazione predefinita. Per i gateway VPN basati su route creati usando il modello di distribuzione Azure Resource Management, è possibile specificare un criterio personalizzato in ogni singola connessione. Per istruzioni dettagliate, vedere [Configurare criteri IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md).
->
-> 2. È anche necessario limitare TCP **MSS** a **1350**. Se invece i dispositivi VPN non supportano la limitazione di MSS, in alternativa è possibile impostare il valore **MTU** nell'interfaccia di tunnel su **1400** byte.
->
+Le tabelle seguenti contengono le combinazioni di algoritmi e parametri usati dai gateway VPN di Azure nella configurazione predefinita (**criteri predefiniti**). Per i gateway VPN basati su route creati usando il modello di distribuzione Azure Resource Management, è possibile specificare un criterio personalizzato in ogni singola connessione. Per istruzioni dettagliate, vedere [Configurare criteri IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md).
+
+Inoltre, è necessario Clamp TCP **MSS** su **1350**. Se invece i dispositivi VPN non supportano la limitazione di MSS, in alternativa è possibile impostare il valore **MTU** nell'interfaccia di tunnel su **1400** byte.
 
 Nelle tabelle seguenti:
 

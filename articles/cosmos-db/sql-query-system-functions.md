@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 71dc5b84deda04c02b6d1722b11abf6631e9aa03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340830"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546370"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funzioni di sistema (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  In Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
   
-|Gruppo di funzioni|Descrizione|Gestione operativa|  
+|Gruppo di funzioni|Descrizione|Operazioni|  
 |--------------|-----------------|-----------------| 
 |[Funzioni di matrice](sql-query-array-functions.md)|Le funzioni di matrice eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice. | [ARRAY_CONCAT](sql-query-array-concat.md), [ARRAY_CONTAINS](sql-query-array-contains.md), [ARRAY_LENGTH](sql-query-array-length.md), [ARRAY_SLICE](sql-query-array-slice.md) |
 |[Funzioni di data e ora](sql-query-date-time-functions.md)|Le funzioni di data e ora consentono di ottenere la data e l'ora UTC correnti in due formati; timestamp numerico il cui valore è l'EPOCH UNIX in millisecondi o come stringa conforme al formato ISO 8601. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md) |
@@ -47,4 +47,4 @@ La differenza principale tra funzioni Cosmos DB e funzioni SQL ANSI è che le fu
 - [Funzioni per i valori stringa](sql-query-string-functions.md)
 - [Funzioni di controllo del tipo](sql-query-type-checking-functions.md)
 - [Funzioni definite dall'utente](sql-query-udfs.md)
-- [Aggregazioni](sql-query-aggregates.md)
+- [Aggregazioni](sql-query-aggregate-functions.md)

@@ -4,48 +4,44 @@ description: Risolvere i problemi dei test Web in applicazione Azure Insights. O
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/28/2020
+ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015333"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546752"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Questo articolo consente di risolvere i problemi comuni che possono verificarsi quando si usa il monitoraggio della disponibilità.
 
-## <a name="ssltls-errors"></a>Errori SSL/TLS
+## <a name="troubleshooting-report-steps-for-ping-tests"></a>Risoluzione dei problemi relativi ai passaggi del report per i test ping
 
-|Sintomo/messaggio di errore| Possibili cause|
-|--------|------|
-|Non è stato possibile creare il canale sicuro SSL/TLS  | Versione SSL. Sono supportati solo TLS 1,0, 1,1 e 1,2. **SSLv3 non è supportato.**
-|Livello record TLSv 1.2: avviso (livello: irreversibile, Descrizione: MAC record non valido)| Per [ulteriori informazioni](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake), vedere thread stackexchange.
-|L'URL che ha avuto esito negativo è la rete CDN (rete per la distribuzione di contenuti) | Il problema potrebbe essere causato da una configurazione errata della rete CDN |  
+Il report per la risoluzione dei problemi consente di diagnosticare facilmente i problemi comuni che provocano un errore nei **test ping** .
 
-### <a name="possible-workaround"></a>Soluzione alternativa possibile
+![Animazione dell'esplorazione dalla scheda disponibilità selezionando un errore nei dettagli della transazione end-to-end per visualizzare il report sulla risoluzione dei problemi](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
-* Se gli URL in cui si verifica il problema sono sempre a risorse dipendenti, è consigliabile disabilitare le **richieste di analisi dipendenti** per il test Web.
-
-## <a name="test-fails-only-from-certain-locations"></a>Il test ha esito negativo solo da determinate posizioni
-
-|Sintomo/messaggio di errore| Possibili cause|
-|----|---------|
-|Tentativo di connessione non riuscito. risposta non corretta della parte connessa dopo un periodo di tempo  | Gli agenti di test in determinate posizioni sono bloccati da un firewall.|
-|    |Il reindirizzamento di determinati indirizzi IP avviene tramite (bilanciamenti del carico, responsabili del traffico geografico, Azure Express Route). 
-|    |Se si usa Azure ExpressRoute, esistono scenari in cui i pacchetti possono essere eliminati nei casi in cui [si verifica il routing asimmetrico](../../expressroute/expressroute-asymmetric-routing.md).|
-
-## <a name="test-failure-with-a-protocol-violation-error"></a>Errore di test con errore di violazione del protocollo
-
-|Sintomo/messaggio di errore| Possibili cause| Possibili soluzioni |
-|----|---------|-----|
-|Il server ha eseguito il commit di una violazione del protocollo. Section = ResponseHeader detail = CR deve essere seguito da LF | Questo errore si verifica quando vengono rilevate intestazioni in formato non valido. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, violando la specifica HTTP. Application Insights impone questa specifica HTTP e non genera risposte con intestazioni in formato non valido.| a. Contattare il provider host del sito Web o il provider della rete CDN per correggere i server difettosi. <br> b. Se le richieste non riuscite sono risorse (ad esempio, file di stile, immagini, script), è possibile disabilitare l'analisi delle richieste dipendenti. Tenere presente che, se si esegue questa operazione, si perderà la possibilità di monitorare la disponibilità di tali file.
+1. Nella scheda disponibilità della risorsa di Application Insights selezionare complessiva o uno dei test di disponibilità.
+2. Selezionare **non riuscito** , quindi eseguire un test in "drill into" a sinistra o selezionare uno dei punti nel grafico a dispersione.
+3. Nella pagina dettagli transazione end-to-end selezionare un evento in "risoluzione dei problemi di riepilogo report" selezionare **[Vai al passaggio]** per visualizzare il report sulla risoluzione dei problemi.
 
 > [!NOTE]
-> l'errore dell'URL potrebbe non verificarsi in browser con una convalida delle intestazioni HTTP meno rigida. Per una spiegazione dettagliata del problema, vedere questo post di blog: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+>  Se è presente il passaggio riutilizzo connessione, non saranno presenti i passaggi di risoluzione DNS, creazione connessione e trasporto TLS.
 
+|Passaggio | Messaggio di errore | Possibile causa |
+|-----|---------------|----------------|
+| Riutilizzo connessione | n/d | In genere dipende da una connessione stabilita in precedenza, ovvero il passaggio del test Web dipende. Quindi, non è necessario alcun passaggio DNS, Connection o SSL. |
+| Risoluzione DNS | Non è stato possibile risolvere il nome remoto: "URL" | Il processo di risoluzione DNS ha avuto esito negativo, probabilmente a causa di record DNS non configurati correttamente o errori temporanei del server DNS. |
+| Attivazione della connessione | Tentativo di connessione non riuscito. risposta non corretta della parte connessa dopo un periodo di tempo. | In generale, significa che il server non risponde alla richiesta HTTP. Una cause comune è che gli agenti di test sono bloccati da un firewall nel server. Se si vuole eseguire il test in una rete virtuale di Azure, è necessario aggiungere il tag del servizio di disponibilità all'ambiente.|
+| Trasporto TLS  | Il client e il server non sono in grado di comunicare perché non dispongono di un algoritmo comune.| Sono supportati solo TLS 1,0, 1,1 e 1,2. SSL non è supportato. Questo passaggio non convalida i certificati SSL e stabilisce una connessione protetta. Questo passaggio viene visualizzato solo quando si verifica un errore. |
+| Ricezione dell'intestazione della risposta | Impossibile leggere i dati dalla connessione di trasporto. La connessione è stata chiusa. | Il server ha eseguito il commit di un errore di protocollo nell'intestazione della risposta. Ad esempio, la connessione chiusa dal server quando la risposta non è completa. |
+| Ricezione del corpo della risposta | Impossibile leggere i dati dalla connessione di trasporto: la connessione è stata chiusa. | Il server ha eseguito il commit di un errore di protocollo nel corpo della risposta. Ad esempio, la connessione è stata chiusa dal server quando la risposta non è completamente letta o la dimensione del blocco non è corretta nel corpo della risposta in blocco. |
+| Convalida limite di Reindirizzamento | Questa pagina Web contiene troppi reindirizzamenti. Questo ciclo verrà terminato qui perché questa richiesta ha superato il limite per i reindirizzamenti automatici. | È previsto un limite di 10 reindirizzamenti per test. |
+| Convalida del codice di stato | `200 - OK` non corrisponde allo stato previsto `400 - BadRequest` . | codice di stato restituito che indica un'operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web. |
+| Convalida contenuto | Il testo obbligatorio ' Hello ' non è stato visualizzato nella risposta. | La stringa non è una corrispondenza esatta con distinzione tra maiuscole e minuscole nella risposta, ad esempio la stringa "Welcome!". Deve essere una stringa semplice, senza caratteri jolly, ad esempio un asterisco. Se il contenuto della pagina cambia, potrebbe essere necessario aggiornare la stringa. Con la corrispondenza del contenuto sono supportati solo i caratteri inglesi. |
+  
 ## <a name="common-troubleshooting-questions"></a>Domande comuni sulla risoluzione dei problemi
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Il sito sembra funzionare correttamente, ma i test segnalano errori. Perché Application Insights invia avvisi?
@@ -54,7 +50,7 @@ Questo articolo consente di risolvere i problemi comuni che possono verificarsi 
 
    * Per ridurre le probabilità di rumore dai blip di rete temporanei e così via, verificare che sia selezionata l'opzione Abilita tentativi per la configurazione degli errori dei test. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
 
-   * Fare clic su uno qualsiasi dei punti rossi dell'esperienza di disponibilità oppure su qualsiasi errore di disponibilità presente in Esplora ricerche per visualizzare i dettagli del motivo per cui è stato segnalato l'errore. Il risultato del test, insieme ai dati di telemetria lato server correlati (se abilitati), dovrebbe consentire di comprendere perché il test non è riuscito. Le cause più comuni dei problemi temporanei sono problemi di connessione o di rete.
+   * Fare clic su uno dei punti rossi dall'esperienza esperienza del tracciato a dispersione di disponibilità o su qualsiasi errore di disponibilità da Esplora ricerche per visualizzare i dettagli del motivo per cui è stato segnalato l'errore. Il risultato del test, insieme ai dati di telemetria lato server correlati (se abilitati), dovrebbe consentire di comprendere perché il test non è riuscito. Le cause più comuni dei problemi temporanei sono problemi di connessione o di rete.
 
    * Controllare se si è verificato il timeout del test. I test vengono interrotti dopo 2 minuti. Se il ping o il test in più passaggi richiede più di 2 minuti, verrà segnalato come errore. È consigliabile suddividere il test in più test di durata più breve.
 
@@ -134,4 +130,3 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 
 * [Test Web in più passaggi](availability-multistep.md)
 * [Test ping URL](monitor-web-app-availability.md)
-

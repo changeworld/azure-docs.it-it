@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 10/22/2020
-  ms.openlocfilehash: 741fe2c9cb2c4992b8c7b7b1905962b37b527917
-  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+  ms.date: 12/01/2020
+  ms.openlocfilehash: 5261d535170feb5c0aaac3731cd27e0af7847cfa
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96180611"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96498048"
 highlightedContent:
   items:
   - title: Informazioni su Azure AD
@@ -35,9 +35,9 @@ highlightedContent:
   - title: Elenco di controllo per la distribuzione di Azure AD
     itemType: concept
     url: ./fundamentals/active-directory-deployment-checklist-p2.md
-  - title: Aggiungere una sottoscrizione al tenant
-    itemType: how-to-guide
-    url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+  - title: Integrare la resilienza nella gestione di identità e accessi con Azure AD
+    itemType: overview
+    url: ./fundamentals/resilience-overview.md
 conceptualContent:
   items:
   - title: Gestione delle applicazioni
@@ -267,9 +267,9 @@ conceptualContent:
   - title: Ruoli
     links:
     - url: ./roles/groups-assign-role.md
-      itemType: how-to-guide
-      text: Assegnare un ruolo a un gruppo cloud
-    - url: ./roles/custom-create.md
+      itemType: concept
+      text: Informazioni sui ruoli di Azure AD
+    - url: ./roles/concept-understand-roles.md
       itemType: how-to-guide
       text: Creare un ruolo personalizzato
     - url: ./roles/groups-view-assignments.md
