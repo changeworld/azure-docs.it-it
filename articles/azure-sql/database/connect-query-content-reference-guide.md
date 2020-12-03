@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: ec40e209d522daf882b8c704c7de6a1fb6aa29f9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e25469e23358ade32e050bed0818338dc290e71f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183941"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451384"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articoli su come connettersi al database SQL di Azure e all'istanza gestita di SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ I driver che non appartengono a Microsoft potrebbero non usare TLS per impostazi
 
 È possibile usare varie librerie e diversi framework per connettersi al database SQL di Azure o all'istanza gestita di SQL di Azure. Per iniziare rapidamente a usare linguaggi di programmazione quali C#, Java, Node.js, PHP e Python, consultare le [esercitazioni introduttive](https://aka.ms/sqldev). Creare quindi un'app usando SQL Server in Linux o Windows oppure Docker in macOS.
 
-La tabella seguente elenca le librerie di connettività o *driver* che le applicazioni client possono usare, partendo da una vasta gamma di linguaggi, per connettersi SQL Server in esecuzione in locale o nel cloud. È possibile usarle in Linux, Windows o Docker per connettersi a Database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+La tabella seguente elenca le librerie di connettività o *driver* che le applicazioni client possono usare, partendo da una vasta gamma di linguaggi, per connettersi SQL Server in esecuzione in locale o nel cloud. È possibile usare le librerie in Linux, Windows o Docker per connettersi a Database SQL di Azure, a Istanza gestita di SQL di Azure e ad Azure Synapse Analytics.
 
 | Linguaggio | Piattaforma | Risorse aggiuntive | Download | Introduzione |
 | :-- | :-- | :-- | :-- | :-- |

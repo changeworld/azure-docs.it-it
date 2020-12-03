@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: bd8145c11ce73d5c5ee42d5dee17897a8520197e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 70b60d340e3af8d726915db513e30eaff26ed217
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181865"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347600"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Esercitazione: Configurare Oracle Cloud Infrastructure Console per il provisioning utenti automatico
 
@@ -106,7 +106,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatica evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali amministratore** immettere il valore di **URL tenant** in formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Ad esempio `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Oracle Cloud Infrastructure Console. Se la connessione non riesce, verificare che l'account Oracle Cloud Infrastructure Console abbia autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere l'**URL tenant** nel formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1`. Ad esempio `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Oracle Cloud Infrastructure Console. Se la connessione non riesce, verificare che l'account Oracle Cloud Infrastructure Console abbia autorizzazioni di amministratore e riprovare.
 
     ![Screenshot che mostra la finestra di dialogo Credenziali amministratore, in cui è possibile immettere l'URL del tenant e il token segreto.](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 

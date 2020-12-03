@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 754e23a7d3f4bdf27f273927a5bc3b3658940d90
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dc4ef937a032a5156164eaee59908c9ee0319fdb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359235"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350161"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>Esercitazione: Configurare Templafy per il provisioning utenti automatico
 
@@ -91,7 +91,7 @@ Per configurare Templafy per il provisioning utenti automatico con Azure AD, è 
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Templafy in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Templafy, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per Templafy](templafy-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Templafy, seguendo le istruzioni fornite nell'[esercitazione sull'accesso Single Sign-On per Templafy](templafy-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-templafy-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Templafy in Azure AD:
 

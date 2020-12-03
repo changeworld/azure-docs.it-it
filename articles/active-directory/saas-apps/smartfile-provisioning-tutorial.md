@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fca18a58ccb8d4e2f10b5db606ad01a97c2d5bac
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 03c7efd390d4714680ed2ccd54d297b8137aaafc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359930"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348671"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Esercitazione: Configurare SmartFile per il provisioning utenti automatico
 
@@ -89,7 +89,7 @@ Per configurare SmartFile per il provisioning utenti automatico con Azure AD, è
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in SmartFile in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per SmartFile, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per SmartFile](SmartFile-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per SmartFile, seguendo le istruzioni fornite nell'[esercitazione sull'accesso Single Sign-On per SmartFile](SmartFile-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartfile-in-azure-ad"></a>Per configurare il provisioning utenti automatico per SmartFile in Azure AD:
 

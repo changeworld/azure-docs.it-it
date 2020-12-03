@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 31631209a16024e4414cc19bca37166332b427de
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d3dee76ada7a9ed48813928937f8f8da8be4add1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359226"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348042"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Esercitazione: Configurare Miro per il provisioning utenti automatico
 
@@ -79,7 +79,7 @@ Prima di configurare Miro per il provisioning utenti automatico con Azure AD, è
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Miro in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Miro, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per Miro](./miro-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Miro, seguendo le istruzioni fornite nell'[esercitazione sull'accesso Single Sign-On per Miro](./miro-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
 > Per altre informazioni sull'endpoint SCIM di Miro, vedere [qui](https://help.miro.com/hc/en-us/articles/360036777814).

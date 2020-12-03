@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5579a9d96828caa1453547e7c2e11b8f0d717d2a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2ef564ae61aab10e1d100ccaf2547248e4a6a8e8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359307"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352168"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Esercitazione: Configurare Druva per il provisioning utenti automatico
 
@@ -95,7 +95,7 @@ Per configurare Druva per il provisioning utenti automatico con Azure AD, è nec
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Druva in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Druva, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per Druva](druva-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Druva, seguendo le istruzioni fornite nell'[esercitazione sull'accesso Single Sign-On per Druva](druva-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-druva-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Druva in Azure AD:
 

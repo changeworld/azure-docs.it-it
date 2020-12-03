@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f43d7b2a858c5047c40157429dc5c50b467c8efc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 419f25ee3df471bc2fc4526254f5677b8bd71856
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012391"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342738"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Esercitazione: Configurare SAP Cloud Platform Identity Authentication per il provisioning utenti automatico
 
@@ -94,7 +94,7 @@ Prima di configurare SAP Cloud Platform Identity Authentication per il provision
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in SAP Cloud Platform Identity Authentication in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per SAP Cloud Platform Identity Authentication, seguendo le istruzioni fornite nell'[esercitazione sul Single Sign-On per SAP Cloud Platform Identity Authentication](./sap-hana-cloud-platform-identity-authentication-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per SAP Cloud Platform Identity Authentication, seguendo le istruzioni fornite nell'[esercitazione sulll'accesso Single Sign-On per SAP Cloud Platform Identity Authentication](./sap-hana-cloud-platform-identity-authentication-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Per configurare il provisioning utenti automatico per SAP Cloud Platform Identity Authentication in Azure AD:
 

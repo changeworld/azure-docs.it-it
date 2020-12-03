@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f524eae791ab3944fb326b867e5f6823a35b432c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174816"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348195"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Esercitazione: Creare un endpoint SCIM e configurare il provisioning degli utenti con Azure AD
 
@@ -199,29 +199,21 @@ Questa sezione contiene esempi delle richieste SCIM generate dal client SCIM Azu
   - [Creare un utente](#create-user) ([richiesta](#request) / [risposta](#response))
   - [Ottenere un utente](#get-user) ([richiesta](#request-1) / [risposta](#response-1))
   - [Ottenere un utente tramite query](#get-user-by-query) ([richiesta](#request-2) / [risposta](#response-2))
-  - [Ottenere un utente tramite query, zero risultati](#get-user-by-query---zero-results) ([richiesta](#request-3)
-/ [risposta](#response-3))
-  - [Aggiornare un utente [proprietà multivalore]](#update-user-multi-valued-properties) ([richiesta](#request-4) /  [risposta](#response-4))
-  - [Aggiornare un utente [proprietà a valore singolo]](#update-user-single-valued-properties) ([richiesta](#request-5)
-/ [risposta](#response-5)) 
-  - [Disabilitare un utente](#disable-user) ([richiesta](#request-14) / 
-[risposta](#response-14))
-  - [Eliminare un utente](#delete-user) ([richiesta](#request-6) / 
-[risposta](#response-6))
+  - [Ottenere un utente tramite query, zero risultati](#get-user-by-query---zero-results) ([richiesta](#request-3) / [risposta](#response-3))
+  - [Aggiornare un utente [proprietà multivalore]](#update-user-multi-valued-properties) ([richiesta](#request-4) / [risposta](#response-4))
+  - [Aggiornare un utente [proprietà a valore singolo]](#update-user-single-valued-properties) ([richiesta](#request-5) / [risposta](#response-5)) 
+  - [Disabilitare un utente](#disable-user) ([richiesta](#request-14) / [risposta](#response-14))
+  - [Eliminare un utente](#delete-user) ([richiesta](#request-6) / [risposta](#response-6))
 
 
 [Operazioni relative ai gruppi](#group-operations)
   - [Creare un gruppo](#create-group) ([richiesta](#request-7) / [risposta](#response-7))
   - [Ottenere un gruppo](#get-group) ([richiesta](#request-8) / [risposta](#response-8))
   - [Ottenere un gruppo in base a displayName](#get-group-by-displayname) ([richiesta](#request-9) / [risposta](#response-9))
-  - [Aggiornare un gruppo [attributi non relativi ai membri]](#update-group-non-member-attributes) ([richiesta](#request-10) /
- [risposta](#response-10))
-  - [Aggiornare un gruppo [aggiungere membri]](#update-group-add-members) ([richiesta](#request-11) /
-[risposta](#response-11))
-  - [Aggiornare un gruppo [rimuovere membri]](#update-group-remove-members) ([richiesta](#request-12) /
-[risposta](#response-12))
-  - [Eliminare un gruppo](#delete-group) ([richiesta](#request-13) /
-[risposta](#response-13))
+  - [Aggiornare un gruppo [attributi non relativi ai membri]](#update-group-non-member-attributes) ([richiesta](#request-10) / [risposta](#response-10))
+  - [Aggiornare un gruppo [aggiungere membri]](#update-group-add-members) ([richiesta](#request-11) / [risposta](#response-11))
+  - [Aggiornare un gruppo [rimuovere membri]](#update-group-remove-members) ([richiesta](#request-12) / [risposta](#response-12))
+  - [Eliminare un gruppo](#delete-group) ([richiesta](#request-13) / [risposta](#response-13))
 
 ### <a name="user-operations"></a>Operazioni relative agli utenti
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: ab729460a676bb5daa8860b3b4a837ec276fc5db
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182340"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350705"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico
 
@@ -137,7 +137,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * **InvalidLookupReference:** Quando si effettua il provisioning di determinati attributi, ad esempio Department (Reparto) e Location (Sede) in ServiceNow, i valori devono essere già presenti in una tabella di riferimento in ServiceNow. Ad esempio, potrebbero essere presenti due sedi (Seattle, Los Angeles) e tre reparti (Vendite, Finanza, Marketing) nella tabella **nome tabella** in ServiceNow. Se si tenta di effettuare il provisioning di un utente il cui reparto è "Vendite" e la sede è "Seattle", il provisioning avrà esito positivo. Se si tenta di effettuare il provisioning di un utente con reparto "Vendite" e sede "LA", il provisioning avrà esito negativo. È necessario aggiungere la sede LA alla tabella di riferimento in ServiceNow o aggiornare l'attributo utente in Azure AD in modo che corrisponda al formato in ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Esaminare i [mapping degli attributi](../app-provisioning/customize-application-attributes.md) per identificare l'attributo corrispondente. Questo valore deve essere presente nell'utente o nel gruppo di cui si sta tentando di effettuare il provisioning. 
 * Esaminare l'[API SOAP di ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) per informazioni su eventuali requisiti o limitazioni, ad esempio, il formato per specificare il codice paese per un utente
-* Per impostazione predefinita, le richieste di provisioning vengono inviate a https://{nome-istanza}. servizio-ora. com/{nome-tabella}. Se è necessario un URL tenant personalizzato, è possibile specificare l'intero URL nel campo del nome dell'istanza.
+* Per impostazione predefinita, le richieste di provisioning vengono inviate a https://{nome-istanza}.service-now.com/{nome-tabella}. Se è necessario un URL tenant personalizzato, è possibile specificare l'intero URL nel campo del nome dell'istanza.
 * **ServiceNowInstanceInvalid** 
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              

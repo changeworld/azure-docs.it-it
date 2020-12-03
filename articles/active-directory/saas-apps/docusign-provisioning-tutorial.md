@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: d813757d5adb8cee9b83e0486baed80ae1bac874
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180932"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349906"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Esercitazione: Configurare DocuSign per il provisioning utenti automatico
 
@@ -74,7 +74,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
     b. Nella casella di testo **Password amministratore** digitare la password per questo account.
 
 > [!NOTE]
-> Se sia il Single Sign-On che provisioning utenti sono impostati, le credenziali di autorizzazione usate per il provisioning devono essere configurate per l'uso sia con SSO che con Nome utente/Password.
+> Se sia l'accesso Single Sign-On che il provisioning utenti sono impostati, le credenziali di autorizzazione usate per il provisioning devono essere configurate per l'uso sia con SSO che con nome utente/password.
 
 1. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app DocuSign.
 

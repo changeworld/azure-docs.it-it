@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8eccc3be7da201ee1e2af046c6b515871ef05adc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357556"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350773"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Esercitazione: Configurare BitaBIZ per il provisioning utenti automatico
 
@@ -92,7 +92,7 @@ Per configurare BitaBIZ per il provisioning utenti automatico con Azure AD, è n
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in BitaBIZ in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per BitaBIZ, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per BitaBIZ](BitaBIZ-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per BitaBIZ, seguendo le istruzioni fornite nell'[esercitazione sull'accesso Single Sign-On per BitaBIZ](BitaBIZ-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-bitabiz-in-azure-ad"></a>Per configurare il provisioning utenti automatico per BitaBIZ in Azure AD:
 
