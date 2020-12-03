@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096318"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548920"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender per l'architettura dell'it
 
@@ -69,7 +69,7 @@ Usando Machine Learning, il motore di rilevamento delle violazioni dei criteri a
 Il motore di rilevamento di malware industriali identifica i comportamenti che indicano la presenza di malware noto, ad esempio Conficker, energia nera, Havex, WannaCry, NotPetya e Triton. 
 
 #### <a name="anomaly-detection-engine"></a>Motore di rilevamento delle anomalie
-Il motore di rilevamento delle anomalie rileva comunicazioni e comportamenti insoliti da computer a computer (M2M). Grazie alla modellazione delle reti ICS come sequenze deterministiche di Stati e transizioni, la piattaforma richiede un periodo di apprendimento più breve rispetto agli approcci matematici generici o alle analisi sviluppate in origine, anziché ad OT. Rileva anche le anomalie più velocemente, con falsi positivi minimi. Gli avvisi del motore di rilevamento anomalie includono un numero eccessivo di tentativi di accesso SMB e avvisi di analisi del PLC
+Il motore di rilevamento delle anomalie rileva comunicazioni e comportamenti insoliti da computer a computer (M2M). Grazie alla modellazione delle reti ICS come sequenze deterministiche di Stati e transizioni, la piattaforma richiede un periodo di apprendimento più breve rispetto agli approcci matematici generici o alle analisi sviluppate in origine, anziché ad OT. Rileva anche le anomalie più velocemente, con falsi positivi minimi. Gli avvisi del motore di rilevamento anomalie includono un numero eccessivo di tentativi di accesso SMB e avvisi di analisi del PLC rilevati.
 
 #### <a name="operational-incident-detection"></a>Rilevamento dell'evento imprevisto operativo
 Il rilevamento dell'evento imprevisto operativo rileva i problemi operativi, ad esempio la connettività intermittente, che possono indicare i primi segnali degli errori delle apparecchiature. Ad esempio, si sospetta che il dispositivo sia disconnesso (non risponde) e che il comando Siemens S7 stop PLC sia stato inviato avvisi.

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612167"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549090"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replica di oggetti per BLOB in blocchi
 
@@ -43,14 +43,36 @@ Per la replica di oggetti è necessario che siano abilitate anche le funzionalit
 
 L'abilitazione del feed di modifiche e del controllo delle versioni dei BLOB può comportare costi aggiuntivi. Per informazioni più dettagliate, fare riferimento alla pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
+## <a name="how-object-replication-works"></a>Funzionamento della replica degli oggetti
+
+La replica di oggetti copia in modo asincrono i BLOB in blocchi in un contenitore in base alle regole configurate. Il contenuto del BLOB, le eventuali versioni associate al BLOB e i metadati e le proprietà del BLOB vengono copiati dal contenitore di origine al contenitore di destinazione.
+
+> [!IMPORTANT]
+> Poiché i dati BLOB in blocchi vengono replicati in modo asincrono, l'account di origine e l'account di destinazione non sono immediatamente sincronizzati. Al momento non esiste alcun contratto di servizio per il tempo necessario per replicare i dati nell'account di destinazione. Per determinare se la replica è stata completata, è possibile controllare lo stato della replica nel BLOB di origine. Per altre informazioni, vedere [controllare lo stato di replica di un BLOB](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+### <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
+
+Per la replica di oggetti è necessario che il controllo delle versioni dei BLOB sia abilitato sia negli account di origine che in quelli di destinazione Quando viene modificato un BLOB replicato nell'account di origine, viene creata una nuova versione del BLOB nell'account di origine che riflette lo stato precedente del BLOB, prima della modifica. La versione corrente (o BLOB di base) nell'account di origine riflette gli aggiornamenti più recenti. Sia la versione aggiornata che la nuova versione precedente vengono replicate nell'account di destinazione. Per altre informazioni su come le operazioni di scrittura influiscono sulle versioni dei BLOB, vedere [controllo delle versioni nelle operazioni di scrittura](versioning-overview.md#versioning-on-write-operations).
+
+Quando viene eliminato un BLOB nell'account di origine, la versione corrente del BLOB viene acquisita in una versione precedente e quindi eliminata. Tutte le versioni precedenti del BLOB vengono mantenute anche dopo l'eliminazione della versione corrente. Questo stato viene replicato nell'account di destinazione. Per altre informazioni su come le operazioni di eliminazione influiscono sulle versioni dei BLOB, vedere [controllo delle versioni in operazioni di eliminazione](versioning-overview.md#versioning-on-delete-operations).
+
+### <a name="snapshots"></a>Snapshot
+
+La replica di oggetti non supporta snapshot BLOB. Gli snapshot di un BLOB nell'account di origine non vengono replicati nell'account di destinazione.
+
+### <a name="blob-tiering"></a>Suddivisione in livelli BLOB
+
+La replica di oggetti è supportata quando gli account di origine e di destinazione si trovano nel livello ad accesso frequente o sporadico. Gli account di origine e di destinazione possono trovarsi in livelli diversi. Tuttavia, la replica di oggetti avrà esito negativo se un BLOB nell'account di origine o di destinazione è stato spostato nel livello archivio. Per altre informazioni sui livelli BLOB, vedere [livelli di accesso per l'archiviazione BLOB di Azure: frequente,](storage-blob-storage-tiers.md)accesso sporadico e archivio.
+
+### <a name="immutable-blobs"></a>BLOB non modificabili
+
+La replica di oggetti non supporta i BLOB non modificabili. Se un contenitore di origine o di destinazione ha un criterio di conservazione basato sul tempo o un periodo di attesa legale, la replica dell'oggetto ha esito negativo. Per altre informazioni sui BLOB non modificabili, vedere [archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md).
+
 ## <a name="object-replication-policies-and-rules"></a>Regole e criteri di replica di oggetti
 
 Quando si configura la replica di oggetti, si crea un criterio di replica che specifica l'account di archiviazione di origine e l'account di destinazione. Un criterio di replica include una o più regole che specificano un contenitore di origine e un contenitore di destinazione e indicano i BLOB in blocchi del contenitore di origine che verranno replicati.
 
 Dopo aver configurato la replica di oggetti, Archiviazione di Azure controlla periodicamente il feed di modifiche per l'account di origine e replica in modo asincrono le operazioni di scrittura o eliminazione nell'account di destinazione. La latenza di replica dipende dalla dimensione del BLOB in blocchi da replicare.
-
-> [!IMPORTANT]
-> Poiché i dati BLOB in blocchi vengono replicati in modo asincrono, l'account di origine e l'account di destinazione non sono immediatamente sincronizzati. Al momento non esiste alcun contratto di servizio per il tempo necessario per replicare i dati nell'account di destinazione.
 
 ### <a name="replication-policies"></a>Criteri di replica
 

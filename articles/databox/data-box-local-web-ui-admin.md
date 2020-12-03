@@ -6,34 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/01/2020
 ms.author: alkohli
-ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337288"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548955"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
 
 Questo articolo descrive alcune delle attività di configurazione e gestione eseguite sui dispositivi Data Box e Data Box Heavy. È possibile gestire i dispositivi Data Box e Data Box Heavy tramite l'interfaccia utente di portale di Azure e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività eseguite usando l'interfaccia utente Web locale.
 
-L'interfaccia utente Web locale per il Data Box e per Data Box Heavy viene usata per la configurazione iniziale del dispositivo. È anche possibile usare l'interfaccia utente Web locale per arrestare o riavviare il dispositivo, eseguire test diagnostici, aggiornare il software, visualizzare i log di copia e generare un pacchetto di log per supporto tecnico Microsoft. In un dispositivo Data Box Heavy con due nodi indipendenti, è possibile accedere a due interfacce utente Web locali separate corrispondenti a ogni nodo del dispositivo.
-
-L'articolo include le esercitazioni seguenti:
-
-- Creare un pacchetto di supporto
-- Arrestare o riavviare il dispositivo
-- Scarica la fattura del materiale (BOM) o i file manifesto
-- Visualizzare la capacità disponibile del dispositivo
-- Ignorare la convalida di checksum
+L'interfaccia utente Web locale per Data Box e per Data Box Heavy viene usata per la configurazione iniziale del dispositivo. È anche possibile usare l'interfaccia utente Web locale per arrestare o riavviare il dispositivo, eseguire test diagnostici, aggiornare il software, visualizzare i log di copia, cancellare i dati locali dal dispositivo e generare un pacchetto per il supporto per supporto tecnico Microsoft. In un dispositivo Data Box Heavy con due nodi indipendenti, è possibile accedere a due interfacce utente Web locali separate corrispondenti a ogni nodo del dispositivo.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Creare un pacchetto per il supporto
 
-Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per generare un pacchetto per il supporto, seguire questa procedura:
+Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema.
+
+Per generare un pacchetto per il supporto, seguire questa procedura:
 
 1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e selezionare **Crea pacchetto** per il supporto.
 
@@ -51,9 +45,29 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
     ![Creare un pacchetto per il supporto 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
+## <a name="erase-local-data-from-your-device"></a>Cancellare i dati locali dal dispositivo
+
+È possibile usare l'interfaccia utente Web locale per cancellare i dati locali dal dispositivo prima di restituirli al Data Center di Azure.
+
+> [!IMPORTANT]
+> Non è possibile invertire la cancellazione dei dati. Prima di cancellare i dati locali dal dispositivo, assicurarsi di eseguire il backup dei file.
+
+Per cancellare i dati locali dal dispositivo, seguire questa procedura:
+
+1. Nell'interfaccia utente Web locale passare a **cancellazione dati**.
+2. Immettere la password del dispositivo e selezionare **Cancella dati**.
+
+    ![Opzione di cancellazione dei dati per un dispositivo](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. Al prompt di conferma, selezionare **Sì** per continuare. Una cancellazione dei dati può richiedere fino a 50 minuti.
+
+   Assicurarsi di eseguire il backup dei dati locali prima di cancellarli dal dispositivo. Non è possibile invertire la cancellazione dei dati.
+
+    ![Richiesta di conferma cancellazione dati](media/data-box-local-web-ui-admin/erase-local-data-2.png)
+
 ## <a name="shut-down-or-restart-your-device"></a>Arrestare o riavviare il dispositivo
 
-È possibile arrestare o riavviare il dispositivo usando l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione riduce al minimo eventuali possibili danni ai dati. Assicurarsi che la copia dei dati non sia in corso quando si arresta il dispositivo.
+È possibile arrestare o riavviare il dispositivo usando l'interfaccia utente Web locale. Prima di riavviare, è consigliabile portare offline le condivisioni nell'host e quindi nel dispositivo. Questa operazione riduce al minimo eventuali possibili danni ai dati. Assicurarsi che la copia dei dati non sia in corso quando si arresta il dispositivo.
 
 Per arrestare il dispositivo, seguire questa procedura.
 
@@ -168,7 +182,7 @@ Questo file contiene l'elenco di tutti i file copiati nella Data Box o Data Box 
 
 I checksum vengono generati per i dati per impostazione predefinita quando si prepara la spedizione. In alcuni casi rari, a seconda del tipo di dati (file di piccole dimensioni), le prestazioni potrebbero essere lente. In questi casi, è possibile ignorare i checksum.
 
-Il calcolo del checksum durante la preparazione alla spedizione viene eseguito solo per gli ordini di importazione e non per gli ordini di esportazione. 
+Il calcolo del checksum durante la preparazione alla spedizione viene eseguito solo per gli ordini di importazione e non per gli ordini di esportazione.
 
 È consigliabile non disabilitare i checksum, a meno che le prestazioni non subiscano un notevole peggioramento.
 

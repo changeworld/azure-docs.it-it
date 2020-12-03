@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350263"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549005"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -46,8 +46,9 @@ Il tipo di cluster di servizi ML di HDInsight 3,6 sarà la fine del supporto ent
 ### <a name="disabled-vm-sizes"></a>Dimensioni VM disabilitate
 A partire dal 16 2020 novembre, HDInsight bloccherà i nuovi clienti creando cluster con standand_A8, standand_A9, standand_A10 e standand_A11 le dimensioni delle macchine virtuali. I clienti esistenti che hanno usato queste dimensioni di VM negli ultimi tre mesi non saranno interessati. A partire dal 9 2021 gennaio, HDInsight bloccherà tutti i clienti che creano cluster con standand_A8, standand_A9, standand_A10 e standand_A11 le dimensioni delle macchine virtuali. I cluster esistenti vengono eseguiti così come sono. Provare a migrare a HDInsight 4,0 per evitare potenziali interruzioni del sistema o del supporto.
 
-### <a name="behavior-changes"></a>Modifiche del comportamento
-Nessuna modifica del comportamento per questa versione.
+## <a name="behavior-changes"></a>Modifiche del comportamento
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Aggiungere il controllo delle regole NSG prima dell'operazione di ridimensionamento
+HDInsight ha aggiunto gruppi di sicurezza di rete (gruppi) e il controllo delle route definite dall'utente (UDR) con operazione di ridimensionamento. La stessa convalida viene eseguita per la scalabilità del cluster oltre alla creazione del cluster. Questa convalida consente di evitare errori imprevedibili. Se la convalida non viene superata, il ridimensionamento non riesce. Per altre informazioni su come configurare gruppi e UdR correttamente, vedere [indirizzi IP di gestione di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 Nelle versioni future verranno apportate le modifiche seguenti.

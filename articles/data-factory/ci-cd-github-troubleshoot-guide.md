@@ -7,13 +7,13 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/27/2020
-ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/03/2020
+ms.openlocfilehash: d5cf39cf91b69574fc1423cfe0942b567cf9a278
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301966"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548206"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Risolvere i problemi relativi a CI-CD, Azure DevOps e GitHub in ADF 
 
@@ -58,7 +58,7 @@ La pipeline CI/CD ha esito negativo con l'errore seguente:
 
 #### <a name="recommendation"></a>Recommendation
 
-L'errore si verifica perché spesso si elimina un trigger con parametri, di conseguenza i parametri non saranno disponibili nel modello ARM, perché il trigger non esiste più. Poiché il parametro non è più presente nel modello ARM, è necessario aggiornare i parametri sottoposti a override nella pipeline DevOps. In caso contrario, ogni volta che i parametri nel modello ARM cambiano, devono aggiornare i parametri sottoposti a override nella pipeline DevOps (nell'attività di distribuzione).
+L'errore si verifica perché spesso si elimina un trigger, che è parametrizzato, quindi i parametri non saranno disponibili nel modello ARM, perché il trigger non esiste più. Poiché il parametro non è più presente nel modello ARM, è necessario aggiornare i parametri sottoposti a override nella pipeline DevOps. In caso contrario, ogni volta che i parametri nel modello ARM cambiano, devono aggiornare i parametri sottoposti a override nella pipeline DevOps (nell'attività di distribuzione).
 
 ### <a name="updating-property-type-is-not-supported"></a>Il tipo di proprietà di aggiornamento non è supportato
 
@@ -107,7 +107,7 @@ Quando si tenta di pubblicare le modifiche in un Data Factory, viene riportato i
 
 La configurazione di Git è stata scollegata e configurata di nuovo con il flag "Importa risorse" selezionato, che imposta il Data Factory come "sincronizzato". Ciò significa che non viene modificata la pubblicazione.
 
-**Risoluzione**
+#### <a name="resolution"></a>Risoluzione
 
 Scollegare la configurazione git e configurarla di nuovo e assicurarsi di non selezionare la casella di controllo "Importa risorse esistenti".
 

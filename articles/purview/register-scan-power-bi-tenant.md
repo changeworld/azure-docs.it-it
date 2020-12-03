@@ -1,0 +1,120 @@
+---
+title: Registrare e analizzare un tenant di Power BI (anteprima)
+description: Informazioni su come usare il portale di Azure per la registrazione e l'analisi di un tenant di Power BI.
+author: viseshag
+ms.author: viseshag
+ms.service: purview
+ms.subservice: purview-data-catalog
+ms.topic: how-to
+ms.date: 11/19/2020
+ms.openlocfilehash: af394b68a943f4c89358a719c155606c264b9dc4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96554512"
+---
+# <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
+
+Questo articolo illustra come usare il portale di Azure per la registrazione e l'analisi di un tenant di Power BI.
+
+> [!Note]
+> Se l'istanza di ambito e il tenant di Power BI si trovano nello stesso tenant di Azure, è possibile usare solo l'autenticazione identità gestita (MSI) per configurare un'analisi di un tenant di Power BI. Se l'istanza di competenza e il tenant di Power BI si trovano in tenant di Azure diversi, è necessario eseguire l'autenticazione con l'autenticazione delegata ed è necessario usare PowerShell per configurare le analisi. Vedere [usare PowerShell per registrare e analizzare Power bi](powershell-register-scan-power-bi.md).
+
+## <a name="create-a-security-group-for-permissions"></a>Creare un gruppo di sicurezza per le autorizzazioni
+
+Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'identità gestita del catalogo.
+
+1. Nella [portale di Azure](https://portal.azure.com)cercare **Azure Active Directory**.
+1. Creare un nuovo gruppo di sicurezza nel Azure Active Directory, seguendo la procedura [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+
+    > [!Tip]
+    > È possibile ignorare questo passaggio se si dispone già di un gruppo di sicurezza che si desidera utilizzare.
+
+1. Selezionare **sicurezza** come **tipo di gruppo**.
+
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Tipo di gruppo di sicurezza":::
+
+1. Aggiungere l'identità gestita del catalogo a questo gruppo di sicurezza. Selezionare **membri**, quindi selezionare **+ Aggiungi membri**.
+
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Aggiungere l'istanza gestita del catalogo al gruppo.":::
+
+1. Cercare il catalogo e selezionarlo.
+
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Aggiungi catalogo eseguendo una ricerca":::
+
+    Verrà visualizzata una notifica di esito positivo che mostra che è stata aggiunta.
+
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Aggiunta del file MSI del catalogo completata":::
+
+## <a name="associate-the-security-group-with-the-tenant"></a>Associare il gruppo di sicurezza al tenant
+
+1. Accedere al [portale di amministrazione Power bi](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1). Aggiungere questo flag di funzionalità all'URI:  `allowServicePrincipalsUseReadAdminAPIsUI=1` . Questo flag Abilita la funzionalità che consente di associare il gruppo di sicurezza. ad esempio:
+
+    ```http
+    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
+    ```
+
+    > [!Important]
+    > Per visualizzare la pagina delle impostazioni del tenant, è necessario essere un amministratore Power BI.
+
+1. Selezionare **le impostazioni per gli sviluppatori**  >  **Consenti alle entità servizio di usare le API Power BI di sola lettura (anteprima)**.
+1. Selezionare **gruppi di sicurezza specifici**.
+
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Immagine che illustra come consentire alle entità servizio di ottenere le autorizzazioni di sola lettura Power BI API di amministrazione":::
+
+    > [!Caution]
+    > Quando si consente al gruppo di sicurezza creato (con l'identità gestita del catalogo dati come membro) di usare le API di amministrazione di Power BI di sola lettura, si consente anche di accedere ai metadati (ad esempio, i nomi di dashboard e report, i proprietari, le descrizioni e così via) per tutti gli elementi di Power BI in questo tenant. Una volta che i metadati sono stati inseriti nell'ambito di Azure, le autorizzazioni di competenza, non Power BI autorizzazioni, determinano chi può visualizzare tali metadati.
+
+    > [!Note]
+    > È possibile rimuovere il gruppo di sicurezza dalle impostazioni dello sviluppatore, ma i metadati estratti in precedenza non verranno rimossi dall'account di competenza. Se lo si desidera, è possibile eliminarlo separatamente.
+
+## <a name="register-your-power-bi-and-set-up-a-scan"></a>Registrare il Power BI e configurare un'analisi
+
+Ora che sono state concesse le autorizzazioni per il catalogo per connettersi all'API di amministrazione del tenant di Power BI, è possibile configurare l'analisi dal portale del catalogo.
+
+Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenza 
+
+1. Aggiungere la stringa seguente alla fine dell'URI dell'istanza di competenza: `?feature.ext.catalog={"pbi":"true"}` . In questo modo è possibile abilitare l'opzione di registrazione Power BI nel catalogo.
+
+1. Selezionare l'icona del **centro di gestione** .
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Icona del centro di gestione.":::
+
+1. Quindi selezionare **+ nuovo** nelle **origini dati**.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="Immagine del pulsante nuova origine dati":::
+
+    Selezionare **Power bi** come origine dati.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Immagine che mostra l'elenco di origini dati disponibili per la scelta":::
+
+1. Assegnare al Power BI istanza un nome descrittivo.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Immagine che mostra Power BI nome descrittivo dell'origine dati":::
+
+    Il nome deve avere una lunghezza compresa tra 3-63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini.  Gli spazi non sono consentiti.
+
+    Per impostazione predefinita, il sistema troverà il tenant Power BI esistente nella stessa sottoscrizione di Azure.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Power BI origine dati registrata":::
+
+1. Assegnare un nome all'analisi. Si noti che l'unico metodo di autenticazione supportato è **Identity gestito**.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Immagine che mostra la configurazione dell'analisi Power BI":::
+
+    Il nome dell'analisi deve avere una lunghezza compresa tra 3-63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini.  Gli spazi non sono consentiti.
+
+1. Configurare un trigger di analisi. Le opzioni disponibili sono **una sola volta**, **ogni 7 giorni** e **ogni 30 giorni**.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Immagine del trigger Scan":::
+
+1. In **Verifica nuova analisi** selezionare **Salva ed Esegui** per avviare l'analisi.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Salva ed Esegui Power BI immagine della schermata":::
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per informazioni su come usare i cmdlet di PowerShell per registrare e analizzare un tenant di Power BI, vedere:
+  
+- [Usare PowerShell per registrare e analizzare Power BI](powershell-register-scan-power-bi.md)

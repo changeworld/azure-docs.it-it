@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9dc3631b738da78df83113d89d23051033674d11
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 63d349c8cfff52932d51ce7143aba33521c43890
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338372"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549192"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Funzioni matematiche (Azure Cosmos DB)  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -69,4 +69,4 @@ Tutte le funzioni matematiche, ad eccezione di RAND, sono deterministiche, ovver
 - [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)
 - [Funzioni definite dall'utente](sql-query-udfs.md)
-- [Aggregazioni](sql-query-aggregates.md)
+- [Aggregazioni](sql-query-aggregate-functions.md)

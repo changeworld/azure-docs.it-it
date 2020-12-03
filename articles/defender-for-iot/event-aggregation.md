@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: aec750d246ce99fa65431e23ef68e70418db0017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940938"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548852"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Protezione per l'aggregazione di eventi
 
-Defender per gli agenti di sicurezza di Azure raccoglie i dati e gli eventi di sistema dal dispositivo locale e li invia al cloud di Azure per l'elaborazione e l'analisi. L'agente di sicurezza raccoglie molti tipi di eventi del dispositivo, tra cui nuovo processo e nuovi eventi di connessione. I nuovi eventi di connessione e di nuovo processo possono essere eseguiti in modo legittimo in un dispositivo entro un secondo e, sebbene sia importante per una sicurezza affidabile e completa, il numero di messaggi che gli agenti di sicurezza devono inviare potrebbero raggiungere rapidamente o superare la quota e i limiti di costo dell'hub Internet. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo.
+Defender per gli agenti di sicurezza Internet raccoglie i dati e gli eventi di sistema dal dispositivo locale e li invia al cloud di Azure per l'elaborazione e l'analisi. L'agente di sicurezza raccoglie molti tipi di eventi del dispositivo, tra cui nuovo processo e nuovi eventi di connessione. I nuovi eventi di connessione e di nuovo processo possono essere eseguiti in modo legittimo in un dispositivo entro un secondo e, sebbene sia importante per una sicurezza affidabile e completa, il numero di messaggi che gli agenti di sicurezza devono inviare potrebbero raggiungere rapidamente o superare la quota e i limiti di costo dell'hub Internet. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo.
 
 Per ridurre la quota e i costi aggiuntivi mantenendo protetti i dispositivi, il Defender per gli agenti Internet aggrega questi tipi di eventi.
 
@@ -44,7 +44,7 @@ Per ridurre il footprint di memoria dell'agente, ogni volta che l'agente raccogl
 
 Gli eventi sono considerati identici solo quando vengono soddisfatte le condizioni seguenti:
 
-* Eventi ProcessCreate-quando **CommandLine**, **Executable**, **username**e **userid** sono identici
+* Eventi ProcessCreate-quando **CommandLine**, **Executable**, **username** e **userid** sono identici
 * Eventi ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **Local Address**, **Remote Address**, * * Protocol e **Destination Port** sono identici
 * Eventi ProcessTerminate-quando **lo stato** dell' **eseguibile** e dell'uscita è identico
 
@@ -52,8 +52,8 @@ Gli eventi sono considerati identici solo quando vengono soddisfatte le condizio
 
 Durante l'aggregazione, le proprietà dell'evento non aggregate vengono scartate e visualizzate in log Analytics con un valore pari a 0.
 
-* Eventi ProcessCreate- **ProcessID**e **parentProcessId** sono impostati su 0
-* Eventi ConnectionCreate- **ProcessID**e **porta di origine** impostati su 0
+* Eventi ProcessCreate- **ProcessID** e **parentProcessId** sono impostati su 0
+* Eventi ConnectionCreate- **ProcessID** e **porta di origine** impostati su 0
 
 ## <a name="event-aggregation-based-alerts"></a>Avvisi basati sulle aggregazioni di eventi
 
@@ -67,7 +67,7 @@ Ogni evento aggregato rappresenta un periodo di 24 ore di avvisi raccolti. Utili
 
 Apportare modifiche alla configurazione di Defender per l'aggregazione di eventi Internet nell' [oggetto di configurazione dell'agente](how-to-agent-configuration.md) dell'identità del modulo gemello del modulo **azureiotsecurity** .
 
-| Nome configurazione | Valori possibili | Dettagli | Commenti |
+| Nome configurazione | Valori possibili | Dettagli | Osservazioni |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Abilita/Disabilita l'aggregazione di eventi per gli eventi di creazione del processo |
 | aggregationIntervalProcessCreate | Stringa TimeSpan ISO8601 | Intervallo di aggregazione per gli eventi di creazione del processo |
