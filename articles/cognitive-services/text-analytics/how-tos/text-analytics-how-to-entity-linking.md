@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957096"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558981"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -31,7 +31,7 @@ Il riconoscimento delle entità denominate è la possibilità di identificare en
 
 ## <a name="personally-identifiable-information-pii"></a>Informazioni personali
 
-La funzionalità informazioni personali fa parte di NER e consente di identificare e offuscare le entità riservate nel testo associate a un singolo utente, ad esempio il numero di telefono, l'indirizzo di posta elettronica, l'indirizzo postale, il numero di Passport.  
+La funzionalità informazioni personali fa parte di NER e consente di identificare e offuscare le entità riservate nel testo associate a un singolo utente, ad esempio il numero di telefono, l'indirizzo di posta elettronica, l'indirizzo postale, il numero di Passport.
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Funzionalità e versioni di riconoscimento entità denominate
 

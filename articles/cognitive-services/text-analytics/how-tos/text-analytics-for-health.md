@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: e7f017c1f3dc189af2b0fc053912decca3459478
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952761"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559015"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedura: usare Analisi del testo per l'integrità (anteprima)
 
@@ -28,6 +28,8 @@ Analisi del testo per l'integrità è una funzionalità del servizio API Analisi
 
 * API basata sul Web (asincrona) 
 * Un contenitore Docker (sincrono)   
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## <a name="features"></a>Funzionalità
 
@@ -48,7 +50,7 @@ L'estrazione di relazioni identifica connessioni significative tra i concetti in
 > ![Integrità RE](../media/ta-for-health/health-relation-extraction.png)
 
 
-### <a name="entity-linking"></a>[Collegamento delle entità](#tab/entity-linking)
+### <a name="entity-linking"></a>[Collegamento di entità](#tab/entity-linking)
 
 Il collegamento di entità ambiguità entità distinte associando entità denominate indicate in testo ai concetti trovati in un database di concetti predefiniti. Ad esempio, Unified Medical Language System (UMLS).
 
@@ -106,7 +108,7 @@ Analisi del testo per l'integrità produce un risultato di qualità superiore qu
 
 È necessario disporre di documenti JSON nel formato seguente: ID, testo e lingua. 
 
-Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento. Per il numero massimo di documenti consentiti in una raccolta, vedere l'articolo sui [limiti dei dati](../concepts/data-limits.md?tabs=version-3) in concetti. La raccolta viene inviata nel corpo della richiesta.
+Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento. Per informazioni sul numero massimo di documenti consentiti in una raccolta, vedere l'articolo sui [limiti per i dati](../concepts/data-limits.md?tabs=version-3) in Concetti. La raccolta viene inviata nel corpo della richiesta.
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Strutturare la richiesta API per l'API Web asincrona ospitata
 

@@ -4,12 +4,12 @@ description: Informazioni su come configurare un contenitore personalizzato nel 
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787058"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557927"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurare un contenitore personalizzato per il Servizio app di Azure
 
@@ -139,7 +139,17 @@ Questo metodo funziona sia per le app a contenitore singolo che per le app a pi�
 
 Quando l'archiviazione persistente è disabilitata, le Scritture nella `C:\home` Directory non sono persistenti. I [log dell'host Docker e i log del contenitore](#access-diagnostic-logs) vengono salvati in una risorsa di archiviazione condivisa persistente predefinita non collegata al contenitore. Quando è abilitata l'archiviazione persistente, tutte le Scritture nella `C:\home` Directory sono persistenti e possono essere accessibili da tutte le istanze di un'app con scalabilità orizzontale e i log sono accessibili in `C:\home\LogFiles` .
 
-Per impostazione predefinita, l'archiviazione persistente è *disabilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per abilitarla, impostare l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app tramite il [cloud Shell](https://shell.azure.com). In bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+È possibile usare la directory */Home* nell'file System dell'app per salvare in modo permanente i file tra i riavvii e condividerli tra le istanze. Il `/home` nell'app viene fornito per consentire all'app contenitore di accedere a un archivio permanente.
+
+Quando l'archiviazione persistente è disabilitata, le Scritture nella `/home` Directory non vengono rese persistenti tra i riavvii dell'app o tra più istanze. L'unica eccezione è la `/home/LogFiles` Directory, che viene usata per archiviare i log di Docker e del contenitore. Quando è abilitata l'archiviazione persistente, tutte le Scritture nella `/home` Directory sono persistenti ed è possibile accedervi da tutte le istanze di un'app con scalabilità orizzontale.
+
+::: zone-end
+
+Per impostazione predefinita, l'archiviazione persistente è disabilitata e l'impostazione non è esposta nelle impostazioni dell'app. Per abilitarla, impostare l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app tramite il [cloud Shell](https://shell.azure.com). In bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ In PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-È possibile usare la directory */Home* nell'file System dell'app per salvare in modo permanente i file tra i riavvii e condividerli tra le istanze. Il `/home` nell'app viene fornito per consentire all'app contenitore di accedere a un archivio permanente.
-
-Quando l'archiviazione persistente è disabilitata, le Scritture nella `/home` Directory non vengono rese persistenti tra i riavvii dell'app o tra più istanze. L'unica eccezione è la `/home/LogFiles` Directory, che viene usata per archiviare i log di Docker e del contenitore. Quando è abilitata l'archiviazione persistente, tutte le Scritture nella `/home` Directory sono persistenti ed è possibile accedervi da tutte le istanze di un'app con scalabilità orizzontale.
-
-Per impostazione predefinita, l'archiviazione persistente è *abilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app tramite il [cloud Shell](https://shell.azure.com). In bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-In PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > È anche possibile [configurare una risorsa di archiviazione permanente](configure-connect-to-azure-storage.md).
@@ -212,7 +200,7 @@ Sono disponibili diversi modi per accedere ai log di Docker:
 
 ### <a name="in-azure-portal"></a>Nel portale di Azure
 
-I log di Docker vengono visualizzati nel portale nella pagina delle **impostazioni del contenitore** dell'app. I log vengono troncati, ma è possibile scaricare tutti i log facendo clic su **download** . 
+I log di Docker vengono visualizzati nel portale nella pagina delle **impostazioni del contenitore** dell'app. I log vengono troncati, ma è possibile scaricare tutti i log facendo clic su **download**. 
 
 ### <a name="from-the-kudu-console"></a>Dalla console Kudu
 
@@ -288,9 +276,9 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CO
 
 Nella tabella seguente sono indicati i valori possibili:
 
-| valore | Descrizioni |
+| Valore | Descrizioni |
 | - | - |
-| **Repair** | Riavviare il contenitore dopo tre verifiche di disponibilità consecutive |
+| **Ripristinare** | Riavviare il contenitore dopo tre verifiche di disponibilità consecutive |
 | **ReportOnly** | Il valore predefinito. Non riavviare il contenitore ma creare un report nei log di Docker per il contenitore dopo tre controlli di disponibilità consecutivi. |
 | **Disattivato** | Non verificare la disponibilità. |
 

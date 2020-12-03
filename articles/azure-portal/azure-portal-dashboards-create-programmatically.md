@@ -3,21 +3,21 @@ title: Creare dashboard di Azure a livello di codice
 description: Usare un dashboard nel portale di Azure come modello per creare dashboard di Azure a livello di codice. Include il riferimento JSON.
 services: azure-portal
 documentationcenter: ''
-author: adamabmsft
+author: mgblythe
 manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 03/23/2020
+ms.date: 12/4/2020
 ms.author: mblythe
-ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7e6819b01af3fc9357417a838fefce7f2c73dcce
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089367"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558217"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -658,3 +658,49 @@ Questo esempio distribuisce solo un dashboard, ma il linguaggio del modello perm
 ```
 
 Ora che è stato illustrato un esempio di uso di un modello con parametri per distribuire un dashboard, è possibile provare a distribuire il modello usando le [API REST di Azure Resource Manager](/rest/api/), l'interfaccia della riga di comando di [Azure](/cli/azure)o i [comandi di Azure PowerShell](/powershell/azure/get-started-azureps).
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Creare un dashboard a livello di codice tramite l'interfaccia della riga di comando di Azure
+
+Preparare l'ambiente per l'interfaccia della riga di comando di Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- In questi esempi viene usato il dashboard seguente: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Sostituire il contenuto tra parentesi angolari con i valori.
+
+Eseguire il comando [AZ Portal Dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) per creare un dashboard:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+È possibile aggiornare un dashboard usando il comando [AZ Portal Dashboard Update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Per visualizzare i dettagli di un dashboard, eseguire il comando [AZ Portal Dashboard Show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) :
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+Per visualizzare tutti i dashboard per la sottoscrizione corrente, usare [AZ Portal Dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+È anche possibile visualizzare tutti i dashboard per un gruppo di risorse:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per ulteriori informazioni sui desktop, vedere [gestire le impostazioni e le preferenze di portale di Azure](set-preferences.md).
+
+Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure per i dashboard, vedere [AZ Portal Dashboard](/cli/azure/ext/portal/portal/dashboard).

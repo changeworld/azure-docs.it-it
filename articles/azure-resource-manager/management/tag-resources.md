@@ -2,14 +2,14 @@
 title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972564"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558148"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -26,9 +26,11 @@ Per indicazioni su come implementare una strategia di assegnazione di tag, veder
 
 ## <a name="required-access"></a>Accesso obbligatorio
 
-Per applicare i tag a una risorsa, è necessario disporre dell'accesso in scrittura al tipo di risorsa **Microsoft. resources/Tags** . Il ruolo di [collaboratore Tag](../../role-based-access-control/built-in-roles.md#tag-contributor) consente di applicare tag a un'entità senza avere accesso all'entità stessa. Attualmente, il ruolo Collaboratore tag non può applicare tag a risorse o gruppi di risorse tramite il portale. Può applicare tag alle sottoscrizioni tramite il portale. Supporta tutte le operazioni sui tag tramite PowerShell e l'API REST.  
+Esistono due modi per ottenere l'accesso necessario alle risorse dei tag.
 
-Il ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) concede anche l'accesso richiesto per applicare tag a qualsiasi entità. Per applicare tag a un solo tipo di risorsa, usare il ruolo di collaboratore per tale risorsa. Ad esempio, per applicare tag a macchine virtuali, usare il ruolo di [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- È possibile disporre dell'accesso in scrittura al tipo di risorsa **Microsoft. resources/Tags** . Questo accesso consente di contrassegnare qualsiasi risorsa, anche se non si ha accesso alla risorsa stessa. Il ruolo [collaboratore Tag](../../role-based-access-control/built-in-roles.md#tag-contributor) concede l'accesso. Attualmente, il ruolo Collaboratore tag non può applicare tag a risorse o gruppi di risorse tramite il portale. Può applicare tag alle sottoscrizioni tramite il portale. Supporta tutte le operazioni sui tag tramite PowerShell e l'API REST.  
+
+- È possibile avere accesso in scrittura alla risorsa stessa. Il ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) concede l'accesso richiesto per applicare tag a qualsiasi entità. Per applicare tag a un solo tipo di risorsa, usare il ruolo di collaboratore per tale risorsa. Ad esempio, per applicare tag a macchine virtuali, usare il ruolo di [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -277,7 +279,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-Per aggiungere tag a una risorsa che dispone già di tag, usare **AZ Tag Update**. Impostare il parametro **--Operation** per eseguire il **merge**.
+Per aggiungere tag a una risorsa che dispone già di tag, usare `az tag update` . Impostare il parametro `--operation` su `Merge`.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -313,7 +315,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-Quando si imposta il parametro **--Operation** su **Replace**, i tag esistenti vengono sostituiti dal nuovo set di tag.
+Quando si imposta il `--operation` parametro su `Replace` , i tag esistenti vengono sostituiti dal nuovo set di tag.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -406,7 +408,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>Rimuovi Tag
 
-Per rimuovere tag specifici, usare **AZ Tag Update** e set **--Operation** to **Delete**. Passare i tag che si desidera eliminare.
+Per rimuovere tag specifici, utilizzare `az tag update` e impostare `--operation` su `Delete` . Passare i tag che si desidera eliminare.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

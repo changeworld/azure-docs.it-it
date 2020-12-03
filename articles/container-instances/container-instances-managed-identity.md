@@ -3,12 +3,12 @@ title: Abilitare l'identità gestita nel gruppo di contenitori
 description: Informazioni su come abilitare un'identità gestita in istanze di contenitore di Azure in grado di eseguire l'autenticazione con altri servizi di Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259630"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558947"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -45,9 +45,9 @@ Per usare un'identità gestita, è necessario concedere all'identità l'accesso 
 * Attualmente non è possibile usare un'identità gestita in un gruppo di contenitori distribuito in una rete virtuale.
 * Non è possibile usare un'identità gestita per eseguire il pull di un'immagine da Azure Container Registry durante la creazione di un gruppo di contenitori. L'identità è disponibile solo all'interno di un contenitore in esecuzione.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.49 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+- Questo articolo richiede la versione 2.0.49 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-an-azure-key-vault"></a>Creare un insieme di credenziali delle chiavi di Azure
 

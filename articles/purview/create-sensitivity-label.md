@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: b286533da90565429f96c5701aaa72dab0fb21d0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/03/2020
+ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555197"
+ms.locfileid: "96558165"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -36,13 +36,7 @@ La competenza usa le stesse classificazioni, note anche come tipi di informazion
 > Mentre le classificazioni vengono confrontate direttamente (un numero di previdenza sociale ha una classificazione di un **numero di previdenza sociale**), le etichette di riservatezza vengono applicate quando vengono rilevate una o più classificazioni e scenari. 
 > 
 
-Le etichette di riservatezza in Azure possono essere usate per:
-
-- **Applicare automaticamente le etichette** ai file e alle colonne del database
-
-- **Controllare** chi può e non può accedere ai dati
-
-- **Applicare le impostazioni di protezione**, ad esempio la crittografia, sui dati con etichetta
+Le etichette di riservatezza in Azure possono essere usate per applicare automaticamente le etichette ai file e alle colonne del database.
 
 Per altre informazioni, vedere:
 

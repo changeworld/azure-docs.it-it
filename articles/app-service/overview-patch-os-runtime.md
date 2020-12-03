@@ -4,12 +4,12 @@ description: Informazioni sul modo in cui il servizio app Azure aggiorna il sist
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833487"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558488"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
@@ -51,7 +51,7 @@ Gli annunci relativi a runtime aggiornati e deprecati sono disponibili qui:
 
 ### <a name="new-patch-updates"></a>Nuove patch di aggiornamento
 
-Le patch di aggiornamento per la versione di .NET, PHP, Java SDK o Tomcat/Jetty vengono applicate automaticamente sovrascrivendo l'installazione esistente con la nuova versione. Le patch di aggiornamento di Node.js vengono installate affiancate alle versioni esistenti (in modo analogo alle versioni principale e secondaria nella sezione successiva). Le nuove versioni di patch di Python possono essere installate manualmente tramite le [estensioni del sito](https://azure.microsoft.com/blog/azure-web-sites-extensions/)affiancate alle installazioni predefinite di Python.
+La correzione degli aggiornamenti per .NET, PHP, Java SDK o Tomcat versione viene applicata automaticamente sovrascrivendo l'installazione esistente con la versione più recente. Le patch di aggiornamento di Node.js vengono installate affiancate alle versioni esistenti (in modo analogo alle versioni principale e secondaria nella sezione successiva). Le nuove versioni di patch di Python possono essere installate manualmente tramite le [estensioni del sito](https://azure.microsoft.com/blog/azure-web-sites-extensions/)affiancate alle installazioni predefinite di Python.
 
 ### <a name="new-major-and-minor-versions"></a>Nuove versioni principali e secondarie
 

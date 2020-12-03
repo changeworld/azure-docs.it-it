@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976677"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558114"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Concetti relativi alle competenze in Azure ricerca cognitiva
 
@@ -222,8 +222,6 @@ L'approccio dello shaper è più dettagliato rispetto alla definizione della for
 Per estendere l'esempio, è possibile scegliere di rimuovere la definizione della forma inline e usare una competenza di shaper per creare un nuovo nodo per le frasi chiave. Per creare una forma proiettata in tre tabelle, vale a dire `hotelReviewsDocument`, `hotelReviewsPages` e `hotelReviewsKeyPhrases`, le due opzioni sono descritte nelle sezioni riportate di seguito.
 
 #### <a name="shaper-skill-and-projection"></a>Competenza di shaper e proiezione
-
-This 
 
 > [!Note]
 > Alcune colonne della tabella del documento sono state rimosse da questo esempio per brevità.

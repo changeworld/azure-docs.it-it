@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531225"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559066"
 ---
 # <a name="azure-monitor-logs-overview"></a>Panoramica dei log di Monitoraggio di Azure
 Log di monitoraggio di Azure è una funzionalità di monitoraggio di Azure che raccoglie e organizza i dati di log e delle prestazioni dalle [risorse monitorate](../monitor-reference.md). I dati provenienti da origini diverse, ad esempio i [log della piattaforma](platform-logs-overview.md) dei servizi di Azure, i dati di log e delle prestazioni dagli [agenti delle macchine virtuali](agents-overview.md)e i dati di utilizzo e prestazioni delle [applicazioni](../app/app-insights-overview.md) possono essere consolidati in un'unica area di lavoro in modo da poter essere analizzati insieme usando un linguaggio di query sofisticato in grado di analizzare rapidamente milioni di record. È possibile eseguire una query semplice che recupera solo un set specifico di record o esegue un'analisi sofisticata dei dati per identificare i modelli critici nei dati di monitoraggio. Usare query di log e i relativi risultati in modo interattivo usando Log Analytics, usarli in una regola di avviso per ricevere notifiche proattive dei problemi o visualizzare i risultati in una cartella di lavoro o in un dashboard.
@@ -25,7 +25,7 @@ La tabella seguente descrive alcuni dei diversi modi in cui è possibile usare i
 
 |  |  |
 |:---|:---|
-| **Analizzare** | Usare [log Analytics](../log-query/log-analytics-tutorial.md) nel portale di Azure per scrivere [query di log](../log-query/log-query-overview.md) e analizzare i dati di log in modo interattivo usando un potente motore di analisi |
+| **Analisi** | Usare [log Analytics](../log-query/log-analytics-tutorial.md) nel portale di Azure per scrivere [query di log](../log-query/log-query-overview.md) e analizzare i dati di log in modo interattivo usando un potente motore di analisi |
 | **Avviso** | Configurazione di una [regola di avviso per il log](alerts-log.md) che invia una notifica o esegue un'[azione automatica](action-groups.md) quando i risultati della query corrispondono a un risultato specifico. |
 | **Visualizzazione** | Aggiungere i risultati delle query visualizzati come tabelle o grafici in un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md).<br>Creare una [cartella di lavoro](./workbooks-overview.md) per combinare più set di dati in un report interattivo. <br>Esportazione dei risultati di una query in [Power BI](powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.<br>Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati.|
 | **Insights** | Supporto di [informazioni dettagliate](../monitor-reference.md#insights-and-core-solutions) che forniscono un'esperienza di monitoraggio personalizzata per applicazioni e servizi specifici.  |
@@ -42,7 +42,7 @@ Dopo aver creato un'area di lavoro Log Analytics, è necessario configurare orig
 
 
 ## <a name="log-analytics-workspaces"></a>Aree di lavoro di Log Analytics
-I dati raccolti dai log di monitoraggio di Azure vengono archiviati in un'altra [area di lavoro log Analytics](./design-logs-deployment.md). L'area di lavoro definisce la posizione geografica dei dati, i diritti di accesso che definiscono quali utenti possono accedere ai dati e le impostazioni di configurazione quali il piano tariffario e la conservazione dei dati.  
+I dati raccolti dai log di monitoraggio di Azure vengono archiviati in una o più [aree di lavoro log Analytics](./design-logs-deployment.md). L'area di lavoro definisce la posizione geografica dei dati, i diritti di accesso che definiscono quali utenti possono accedere ai dati e le impostazioni di configurazione quali il piano tariffario e la conservazione dei dati.  
 
 Per usare i log di monitoraggio di Azure, è necessario creare almeno un'area di lavoro. Una singola area di lavoro può essere sufficiente per tutti i dati di monitoraggio oppure è possibile scegliere di creare più aree di lavoro in base alle esigenze. Ad esempio, potrebbe essere presente un'area di lavoro per i dati di produzione e un'altra per il test. 
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 3f2cbd7afe206866ae4d5b7c0925c8f3be9ab785
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530494"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558811"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -21,7 +21,7 @@ Quando si [Crea un servizio di ricerca](search-create-service-portal.md), è nec
 
 + Quantità di indici e altri oggetti (limiti massimi)
 + Dimensione e velocità delle partizioni (archiviazione fisica)
-+ Velocità fatturabile, un costo fisso che si flette anche per il numero di partizioni e repliche in uso
++ Velocità fatturabile, costo mensile fisso, ma anche costo incrementale se si aggiungono partizioni o repliche
 
 Inoltre, alcune [funzionalità Premium](#premium-features) sono caratterizzate da requisiti di livello.
 

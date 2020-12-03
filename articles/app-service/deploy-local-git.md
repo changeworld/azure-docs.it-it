@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9650633e1eaffdb588b3a31cd5a2f305c36e7a25
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 84e257111e8da0546cf104e0cc5d3ac95a9294ba
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741309"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558675"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione git locale al servizio app Azure
 
@@ -31,9 +31,9 @@ Per seguire la procedura illustrata in questa guida dettagliata:
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-with-kudu-build-server"></a>Distribuisci con server di compilazione Kudu
 
@@ -80,7 +80,7 @@ Usare l'URL che restituisce per distribuire l'app nel passaggio successivo.
    git remote add azure <url>
    ```
    
-1. Eseguire il push in Azure remote con `git push azure master` . 
+1. Eseguire il push in Azure remote con `git push azure main` . 
    
 1. Nella finestra **git Credential Manager** immettere la [password dell'utente di distribuzione](#configure-a-deployment-user)e non la password di accesso di Azure.
    
@@ -100,26 +100,26 @@ Se l'account dispone delle autorizzazioni necessarie, è possibile configurare A
 
 Per abilitare la distribuzione git locale per l'app con Azure Pipelines (anteprima):
 
-1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **Servizi app** . 
+1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **Servizi app**. 
 
 1. Selezionare l'app di servizio app Azure e selezionare **centro distribuzione** nel menu a sinistra.
    
-1. Nella pagina **centro distribuzione** selezionare **git locale** e quindi fare clic su **continua** . 
+1. Nella pagina **centro distribuzione** selezionare **git locale** e quindi fare clic su **continua**. 
    
    ![Selezionare git locale e quindi fare clic su continua.](media/app-service-deploy-local-git/portal-enable.png)
    
-1. Nella pagina **provider di compilazione** selezionare **Azure Pipelines (anteprima)** , quindi selezionare **continua** . 
+1. Nella pagina **provider di compilazione** selezionare **Azure Pipelines (anteprima)**, quindi selezionare **continua**. 
    
    ![Selezionare Azure Pipelines (anteprima), quindi selezionare continua.](media/app-service-deploy-local-git/pipeline-builds.png)
 
-1. Nella pagina **Configura** configurare una nuova organizzazione DevOps di Azure o specificare un'organizzazione esistente, quindi selezionare **continua** .
+1. Nella pagina **Configura** configurare una nuova organizzazione DevOps di Azure o specificare un'organizzazione esistente, quindi selezionare **continua**.
    
    > [!NOTE]
    > Se l'organizzazione DevOps di Azure esistente non è elencata, potrebbe essere necessario collegarla alla sottoscrizione di Azure. Per altre informazioni, vedere [definire la pipeline di rilascio del CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
-1. A seconda del piano [tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/)del piano di servizio app, è possibile che venga visualizzata una pagina **Distribuisci in staging** . Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua** .
+1. A seconda del piano [tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/)del piano di servizio app, è possibile che venga visualizzata una pagina **Distribuisci in staging** . Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua**.
    
-1. Nella pagina **Riepilogo** verificare le impostazioni e quindi fare clic su **fine** .
+1. Nella pagina **Riepilogo** verificare le impostazioni e quindi fare clic su **fine**.
    
 1. Quando la pipeline di Azure è pronta, copiare l'URL del repository git dalla pagina **centro distribuzione** da usare nel passaggio successivo. 
    
@@ -131,7 +131,7 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
    git remote add azure <url>
    ```
    
-1. Eseguire il push in Azure remote con `git push azure master` . 
+1. Eseguire il push in Azure remote con `git push azure main` . 
    
 1. Nella pagina **git Credential Manager** accedere con il nome utente di VisualStudio.com. Per altri metodi di autenticazione, vedere [Cenni preliminari sull'autenticazione Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
    
@@ -145,14 +145,14 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
 
 Quando si usa Git per la pubblicazione in un'app del servizio app in Azure, è possibile che vengano visualizzati i messaggi di errore comuni seguenti:
 
-|Message|Causa|Soluzione
+|Messaggio|Causa|Risoluzione
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|L'app non è in esecuzione.|avviare l'app nel portale di Azure. La distribuzione Git non è disponibile quando l'app Web è arrestata.|
 |`Couldn't resolve host 'hostname'`|Le informazioni sull'indirizzo per il controllo remoto ' Azure ' non sono corrette.|usare il comando `git remote -v` per elencare tutti i repository remoti, insieme agli URL associati. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Non è stato specificato un ramo durante `git push` o non è stato impostato il `push.default` valore in `.gitconfig` .|Eseguire `git push` nuovamente, specificando il ramo master: `git push azure master` .|
-|`src refspec [branchname] does not match any.`|Si è tentato di effettuare il push in un ramo diverso dal master nel computer remoto ' Azure '.|Eseguire `git push` nuovamente, specificando il ramo master: `git push azure master` .|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Non è stato specificato un ramo durante `git push` o non è stato impostato il `push.default` valore in `.gitconfig` .|Eseguire `git push` nuovamente, specificando il ramo Main: `git push azure main` .|
+|`src refspec [branchname] does not match any.`|Si è tentato di effettuare il push in un ramo diverso da Main nel computer remoto ' Azure '.|Eseguire `git push` nuovamente, specificando il ramo Main: `git push azure main` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|questo errore può verificarsi se si tenta di eseguire il push di un repository Git di grandi dimensioni tramite HTTPS.|Modificare la configurazione git nel computer locale per renderla `postBuffer` più grande. Ad esempio: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app di Node.js con un _package.jsin_ un file che specifica altri moduli necessari.|Esaminare i `npm ERR!` messaggi di errore prima di questo errore per maggiore contesto sull'errore. Di seguito sono riportate le cause note di questo errore e i `npm ERR!` messaggi corrispondenti:<br /><br />**package.jsnon valido nel file** : `npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows** :<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />oppure <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app di Node.js con un _package.jsin_ un file che specifica altri moduli necessari.|Esaminare i `npm ERR!` messaggi di errore prima di questo errore per maggiore contesto sull'errore. Di seguito sono riportate le cause note di questo errore e i `npm ERR!` messaggi corrispondenti:<br /><br />**package.jsnon valido nel file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />o <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

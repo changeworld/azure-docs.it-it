@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2cef20f38c751bb81194559aaad7994c270d1e8c
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840084"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558182"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
@@ -135,7 +135,11 @@ I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di form
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (gruppo Thales) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | Onespan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
+| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
+| Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
+| VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
+| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
+| Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 
 > [!NOTE]
 > Se si acquista e si prevede di usare le chiavi di sicurezza basate su NFC, è necessario un lettore NFC supportato per la chiave di sicurezza. Il lettore NFC non è un requisito o una limitazione di Azure. Rivolgersi al fornitore della chiave di sicurezza basata su NFC per un elenco dei lettori NFC supportati.
@@ -164,7 +168,7 @@ La scelta tra queste tre opzioni con password dipende dai requisiti di sicurezza
 
 Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tecnologia con password Microsoft:
 
-||**Windows Hello for business**|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di sicurezza FIDO2**|
+||**Windows Hello for Business**|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di sicurezza FIDO2**|
 |:-|:-|:-|:-|
 |**Prerequisiti**| Windows 10 versione 1809 o successiva<br>Azure Active Directory| App Microsoft Authenticator<br>Telefono (dispositivi iOS e Android che eseguono Android 6,0 o versione successiva).|Windows 10, versione 1903 o successiva<br>Azure Active Directory|
 |**Modalità**|Piattaforma|Software|Hardware|

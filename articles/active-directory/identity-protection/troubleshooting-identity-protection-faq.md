@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176002"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558930"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
@@ -82,9 +82,11 @@ Tutti i rilevamenti dei rischi sono documentati nell'articolo relativo al [risch
 
 - Dopo aver ricevuto il feedback, lo stato di rischio di accesso (non di rischio utente) verrà modificato in **Confermato sicuro** e il livello di rischio in **-**.
 
-- Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi.
+- Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi. 
 
     > [!NOTE]
+    >Attualmente, la selezione di Confirm safe in un accesso non impedisce a se stessa di impedire che gli accessi futuri con le stesse proprietà vengano contrassegnati come rischiosi. Il modo migliore per eseguire il training del sistema per apprendere le proprietà di un utente consiste nell'usare i criteri di accesso rischiosi con l'autenticazione a più fattori. Quando viene richiesto un accesso a rischio per l'autenticazione a più fattori e l'utente risponde correttamente alla richiesta, l'accesso può avere esito positivo e contribuire al training del sistema sul comportamento dell'utente legittimo.
+    >
     > Se si ritiene che l'utente non sia compromesso, usare **Ignora rischio utente** sul livello utente anziché **Confermato sicuro** a livello di accesso. Un **rischio** per l'utente di eliminazione a livello di utente chiude il rischio dell'utente e tutti gli accessi a rischio e i rilevamenti dei rischi precedenti.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Perché viene visualizzato un utente con un punteggio di rischio basso o superiore, anche se non vengono visualizzati accessi rischiosi o rilevamenti dei rischi in Identity Protection?
