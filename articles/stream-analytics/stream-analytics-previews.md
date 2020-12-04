@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a32491453812d74d4bd93f3f97b7e6a32036f65f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123321"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573375"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funzionalità in anteprima di Analisi di flusso di Azure
 
@@ -22,7 +22,7 @@ Questo articolo riepiloga tutte le funzionalità attualmente in anteprima per An
 
 Nell'anteprima pubblica sono disponibili le funzionalità seguenti. È possibile sfruttare queste funzionalità adesso, ma non usarle nell'ambiente di produzione.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Eseguire l'autenticazione all'output del database SQL con identità gestite
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>Eseguire l'autenticazione all'output del database SQL con identità gestite (anteprima)
 
 Analisi di flusso di Azure supporta l'[autenticazione con identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per i sink di output del database SQL di Azure. Le identità gestite eliminano le limitazioni dei metodi di autenticazione basati su utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password. 
 

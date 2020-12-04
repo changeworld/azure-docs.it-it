@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 15810e65873c685565ccaad6c2dcdc1707713f2c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182649"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570995"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Impostazioni pull per la configurazione dell'app con Azure Pipelines
 
@@ -27,7 +27,7 @@ L'attività di [configurazione app Azure](https://marketplace.visualstudio.com/i
 
 ## <a name="create-a-service-connection"></a>Creare una connessione al servizio
 
-Una connessione al servizio consente di accedere alle risorse nella sottoscrizione di Azure dal progetto DevOps di Azure.
+Una [connessione al servizio](/azure/devops/pipelines/library/service-endpoints) consente di accedere alle risorse nella sottoscrizione di Azure dal progetto DevOps di Azure.
 
 1. In Azure DevOps passare al progetto contenente la pipeline di destinazione e aprire le **impostazioni del progetto** in basso a sinistra.
 1. In **pipeline** selezionare **connessioni al servizio**.

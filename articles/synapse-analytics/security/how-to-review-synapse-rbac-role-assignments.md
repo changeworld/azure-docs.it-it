@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d6a0bdb9a6aaa2d9ca75ccd4a6d71e9046bee4a
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523548"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572185"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Come esaminare le assegnazioni di ruolo RBAC per le sinapsi
 
@@ -21,7 +21,10 @@ I ruoli di controllo degli accessi in base al ruolo vengono usati per assegnare 
 
 Questo articolo illustra come esaminare le assegnazioni di ruolo correnti per un'area di lavoro.
 
-Con qualsiasi ruolo di controllo degli accessi in base al ruolo, è possibile elencare le assegnazioni di ruolo RBAC per tutti gli ambiti, incluse le assegnazioni per gli oggetti a cui non si ha accesso. Solo un amministratore di sinapsi può concedere l'accesso a sinapsi RBAC.   
+Con qualsiasi ruolo di controllo degli accessi in base al ruolo, è possibile elencare le assegnazioni di ruolo RBAC per tutti gli ambiti, incluse le assegnazioni per gli oggetti a cui non si ha accesso. Solo un amministratore di sinapsi può concedere l'accesso a sinapsi RBAC.  
+
+>[!Note]
+>Gli utenti Guest (utenti di un tenant di Active Directory diverso) non possono visualizzare o gestire le assegnazioni di ruolo, anche se il ruolo di amministratore sinapsi è stato assegnato.    
 
 ## <a name="open-synapse-studio"></a>Aprire Synapse Studio  
 

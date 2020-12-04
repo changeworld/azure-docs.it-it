@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458498"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571386"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprendimento avanzato e Machine Learning in Azure Machine Learning
 
@@ -93,8 +93,6 @@ L'analisi del testo basata su metodi di apprendimento avanzato comporta l'analis
 
 Le aziende usano l'apprendimento avanzato per eseguire analisi del testo per rilevare il trading di insider e la conformità alle normative governative. Un altro esempio comune è la frode delle assicurazioni: l'analisi del testo è stata spesso usata per analizzare grandi quantità di documenti per riconoscere le probabilità che un reclamo assicurativo sia illecito. 
 
-Informazioni su come usare un modello TensorFlow in Azure Machine Learning: [classificare le cifre scritte a mano usando un modello TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Reti neurali artificiali
 
 Le reti neurali artificiali sono costituite da livelli di nodi connessi. I modelli di apprendimento avanzato utilizzano reti neurali con un numero elevato di livelli. 
@@ -107,7 +105,7 @@ La rete neurale feedforward è il tipo più semplice di rete neurale artificiale
 
 ### <a name="recurrent-neural-network"></a>Rete neurale ricorrente
 
-Le reti neurali ricorrenti sono una rete neurale artificiale ampiamente utilizzata. Queste reti salvano l'output di un livello e lo reinviano al livello di input per consentire la stima del risultato del livello. Le reti neurali ricorrenti hanno ottime capacità di apprendimento. Sono ampiamente usati per attività complesse, ad esempio la previsione delle serie temporali, l'apprendimento della grafia e il riconoscimento della lingua.
+Le reti neurali ricorrenti sono una rete neurale artificiale ampiamente utilizzata. Queste reti salvano l'output di un livello e lo reinviano al livello di input per consentire la stima del risultato del livello. Le reti neurali ricorrenti hanno ottime capacità di apprendimento. Sono ampiamente usati per attività complesse come la previsione delle serie temporali, la grafia di apprendimento e il riconoscimento del linguaggio.
 
 ### <a name="convolutional-neural-networks"></a>Reti neurali di convoluzione
 
@@ -118,6 +116,9 @@ Le reti neurali di convoluzione sono state usate in aree quali il riconoscimento
 ## <a name="next-steps"></a>Passaggi successivi
 
 Gli articoli seguenti illustrano altre opzioni per l'uso di modelli di apprendimento avanzato open source in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
+
+
+- [Classificare le cifre scritte a mano usando un modello TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classificare le cifre scritte a mano usando uno strumento di stima TensorFlow e keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

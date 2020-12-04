@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 82c5a246dca69c0723394e41058c4fc123bbb84e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491886"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571947"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticare analisi di flusso per Azure Data Lake Storage Gen1 usando identità gestite
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticare analisi di flusso per Azure Data Lake Storage Gen1 usando identità gestite (anteprima)
 
 Analisi di flusso di Azure supporta l'autenticazione con identità gestita con l'output di Azure Data Lake Storage (ADLS) Gen1. L'identità è un'applicazione gestita registrata in Azure Active Directory che rappresenta un determinato processo di Analisi di flusso e può essere usata per l'autenticazione in una risorsa di destinazione. Le identità gestite eliminano le limitazioni associate ai metodi di autenticazione basata sull'utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password o le scadenze dei token utente ogni 90 giorni. Inoltre, le identità gestite semplificano l'automazione delle distribuzioni dei processi di Analisi di flusso che inviano l'output ad Azure Data Lake Storage Gen1.
 
@@ -34,7 +34,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
    ![ID entità servizio di Analisi di flusso](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
-   L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è **MyASAJob** , anche il nome dell'entità servizio creata è **MyASAJob**.
+   L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è **MyASAJob**, anche il nome dell'entità servizio creata è **MyASAJob**.
 
 3. Nella finestra Proprietà output del sink di output ADLS Gen1 fare clic sull'elenco a discesa modalità di autenticazione e selezionare * * identità gestita * *.
 
@@ -54,7 +54,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
    ![Selezionare il nome di un'entità servizio](./media/stream-analytics-managed-identities-adls/stream-analytics-service-principal-name.png)
  
-8. Nel riquadro **Autorizzazioni** selezionare le autorizzazioni **Scrittura** ed **Esecuzione** , quindi assegnarle a **Questa cartella e tutti gli elementi figlio**. Quindi fare clic su **OK**.
+8. Nel riquadro **Autorizzazioni** selezionare le autorizzazioni **Scrittura** ed **Esecuzione**, quindi assegnarle a **Questa cartella e tutti gli elementi figlio**. Quindi fare clic su **OK**.
 
    ![Selezionare le autorizzazioni di scrittura ed esecuzione](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
@@ -84,7 +84,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
    * Impostano automaticamente le autorizzazioni di **scrittura** ed **esecuzione** per il percorso di prefisso di ADLS Gen1 usato nel processo e lo assegnano a questa cartella e a tutti gli elementi figlio.
 
-5. È possibile generare modelli di Resource Manager con la proprietà seguente usando il [pacchetto NuGet Stream Analytics CI.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 1.5.0 o versioni successive in un computer di compilazione (all'esterno di Visual Studio). Per ottenere l'entità servizio e concedere l'accesso all'entità servizio tramite PowerShell, seguire i passaggi della distribuzione del modello di Resource Manager nella sezione successiva.
+5. È possibile generare i modelli di Gestione risorse con la proprietà seguente usando il [pacchetto NuGet di analisi di flusso ci.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) versione 1.5.0 o successiva in un computer di compilazione (all'esterno di Visual Studio). Per ottenere l'entità servizio e concedere l'accesso all'entità servizio tramite PowerShell, seguire i passaggi della distribuzione del modello di Resource Manager nella sezione successiva.
 
 ## <a name="resource-manager-template-deployment"></a>Distribuzione del modello di Resource Manager
 
@@ -182,9 +182,9 @@ L'identità gestita creata per un processo di analisi di flusso viene eliminata 
 ## <a name="limitations"></a>Limitazioni
 Questa funzionalità non supporta quanto segue:
 
-1. **Accesso multi-tenant** : l'entità servizio creata per un determinato processo di analisi di flusso si trova nel tenant Azure Active Directory in cui è stato creato il processo e non può essere usata per una risorsa che risiede in un tenant di Azure Active Directory diverso. È quindi possibile usare l'identità del servizio gestito solo per le risorse ADLS di generazione 1 che si trovano all'interno dello stesso tenant di Azure Active Directory del processo di analisi di flusso di Azure. 
+1. **Accesso multi-tenant**: l'entità servizio creata per un determinato processo di analisi di flusso si trova nel tenant Azure Active Directory in cui è stato creato il processo e non può essere usata per una risorsa che risiede in un tenant di Azure Active Directory diverso. È quindi possibile usare l'identità del servizio gestito solo per le risorse ADLS di generazione 1 che si trovano all'interno dello stesso tenant di Azure Active Directory del processo di analisi di flusso di Azure. 
 
-2. **[Identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md)** : non supportata. Ciò significa che l'utente non è in grado di immettere la propria entità servizio per l'uso da parte del processo di analisi di flusso. L'entità servizio viene generata da analisi di flusso di Azure.
+2. **[Identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md)**: non supportata. Ciò significa che l'utente non è in grado di immettere la propria entità servizio per l'uso da parte del processo di analisi di flusso. L'entità servizio viene generata da analisi di flusso di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

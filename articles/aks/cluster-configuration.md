@@ -2,16 +2,16 @@
 title: Configurazione del cluster nei servizi Azure Kubernetes (AKS)
 description: Informazioni su come configurare un cluster nel servizio Azure Kubernetes (AKS)
 services: container-service
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dcd9ec52992da8037bb498dc09701879c4c94667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736534"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572576"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -302,7 +302,7 @@ Quando si lavora con il gruppo di risorse del nodo, tenere presente che non è p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare `Kured` per [applicare gli aggiornamenti di sicurezza e del kernel ai nodi Linux](node-updates-kured.md) nel cluster.
+- Informazioni su come [aggiornare le immagini dei nodi](node-image-upgrade.md) nel cluster.
 - Per informazioni su come aggiornare il cluster alla versione più recente di Kubernetes, vedere [Aggiornare un cluster del servizio Azure Kubernetes](upgrade-cluster.md).
 - Scopri di più su [ `containerd` e Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Per trovare le risposte ad alcune domande comuni su AKS, vedere l'elenco delle [domande frequenti su AKS](faq.md).

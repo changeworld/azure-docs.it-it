@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 3e4c793e7822021fd1690d53a2d9df5399f3e6e2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518536"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572984"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
@@ -37,21 +37,23 @@ Le offerte che raggiungono lo stato **incentivate di co-selling IP di Azure** ot
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Co-selling di passaggi e requisiti di pubblicazione
 
-La tabella seguente elenca i passaggi e i requisiti per l'offerta del Marketplace co-selling Ready o co-selling incentivate. Non tutti i tipi di offerta del Marketplace commerciale sono configurabili per la co-selling ancora nel centro per i partner. Per le informazioni più recenti, è possibile fare riferimento all' [opzione di co-selling nel centro](./partner-center-portal/commercial-marketplace-co-sell.md) per i partner.
+Questa tabella elenca i passaggi e i requisiti per l'offerta del Marketplace co-selling Ready o co-selling incentivate. Non tutti i tipi di offerta del Marketplace commerciale sono configurabili per la co-selling ancora nel centro per i partner. Per l'elenco più recente dei tipi di offerta che supportano la co-selling, vedere [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md). 
 
 |Passaggio    |Tipo di offerta    |Requisiti    |Stato di co-selling    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li>Creare un account nel centro per i partner e pubblicare l'offerta nel Marketplace commerciale.</li>|Tutti|<ul><li>L'offerta soddisfa i requisiti di pubblicazione del Marketplace commerciale.</li><li>Si dispone di un profilo business completo nel centro per i partner.</li></ul>| Nel mercato |
-|<ol start=2><li>Inviare i materiali di co-selling necessari.</li>|Offerte IP *con* [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md)|[Caricare i materiali necessari nel centro per i partner](#how-to-submit-co-sell-materials-in-partner-center)|Co-selling pronto|
-||Offerte IP *senza* [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md)|<ul><li>Richiedere [l'uso di uno specialista del cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) per fornire la documentazione di co-selling richiesta.</li></ul>|Co-selling pronto|
+|<ol start=2><li>Inviare i materiali di co-selling necessari.</li>|Offerte IP *con* [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md)|[Caricare i materiali necessari nel centro per i partner](#how-to-submit-co-sell-materials-in-partner-center)|Co-selling pronto|
+||Offerte IP *senza* [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md)|<ul><li>Richiedere [l'uso di uno specialista del cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) per fornire la documentazione di co-selling richiesta.</li></ul>|Co-selling pronto|
 ||Servizi di consulenza|<ul><li>Richiedere [l'uso di uno specialista del cloud](https://partner.microsoft.com/campaigns/ced-nomination-form/) per fornire la documentazione di co-selling richiesta.</li><li>Competenza Gold attiva.</li></ul>|Co-selling pronto|
-|<ol start=3><li>Qualifica per gli incentivi di co-selling IP</li>|Applicazioni Azure, contenitori di Azure, moduli di IoT Edge, SaaS, VM|Una volta ottenuta la co-selling, sono necessari due requisiti aggiuntivi: <ul> Requisito 1: ottenere uno degli obiettivi seguenti:<ul><li>*A livello di organizzazione:* raggiungere o superare $100.000 USD di ricavi usati da Azure per i 12 mesi finali.</li><li>*A livello di offerta:* ricavi fatturati in Marketplace cumulativi di $100.000 USD.</li></ul><br>Requisito 2: più del 50% dell'infrastruttura dell'offerta deve essere eseguito in Azure:<ul><li>Offerte IP *con* l' [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md): caricare un diagramma dell'architettura con i documenti di co-selling nel centro per i partner per la revisione.</li><li>Offerte IP *senza* [opzione di co-selling nel centro](./partner-center-portal/commercial-marketplace-co-sell.md)per i partner: caricare un diagramma dell'architettura in OCP GTM.|Co-selling IP di Azure incentivate|
+|<ol start=3><li>Qualifica per gli incentivi di co-selling IP</li>|Applicazioni Azure, contenitori di Azure, moduli di IoT Edge, SaaS, VM|Una volta ottenuta la co-selling, sono necessari due requisiti aggiuntivi: <ul> Requisito 1: ottenere uno degli obiettivi seguenti:<ul><li>*A livello di organizzazione:* raggiungere o superare $100.000 USD di ricavi usati da Azure per i 12 mesi finali.</li><li>*A livello di offerta:* ricavi fatturati in Marketplace cumulativi di $100.000 USD.</li></ul><br>Requisito 2: più del 50% dell'infrastruttura dell'offerta deve essere eseguito in Azure:<ul><li>Offerte IP *con* l' [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md): caricare un diagramma dell'architettura con i documenti di co-selling nel centro per i partner per la revisione.</li><li>Offerte IP *senza* [opzione di co-selling nel centro](commercial-marketplace-co-sell.md)per i partner: caricare un diagramma dell'architettura in OCP GTM.|Co-selling IP di Azure incentivate|
 ||Dynamics|<ul><li>Si dispone di una registrazione attiva nel livello Premium di connessione ISV.</li></ul>|Business Applications co-selling incentivate|
 |||
 
+Per altre informazioni sui requisiti per le offerte di co-selling della soluzione, vedere [requisiti di 3000 per lo stato di co-selling](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status).
+
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Come inviare i materiali di co-selling nel centro per i partner
 
-Avviare il percorso di co-selling direttamente nel centro per i partner seguendo questa procedura. Per altri dettagli, vedere [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md).
+Avviare il percorso di co-selling direttamente nel centro per i partner seguendo questa procedura. Per altri dettagli, vedere [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md).
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 1. Nel riquadro sinistro selezionare Panoramica sul **Marketplace commerciale**  >  **Overview**, quindi selezionare l'offerta che si vuole co-vendere.
@@ -88,7 +90,7 @@ Avviare il percorso di co-selling direttamente nel centro per i partner seguendo
 
 ## <a name="see-your-offers-co-sell-status"></a>Visualizza lo stato di co-selling dell'offerta
 
-Per le offerte con l' [opzione di co-selling nel centro](./partner-center-portal/commercial-marketplace-co-sell.md)per i partner, è possibile visualizzare lo stato di co-selling attuale dell'offerta nella pagina Panoramica dell'offerta:
+Per le offerte con l' [opzione di co-selling nel centro](commercial-marketplace-co-sell.md)per i partner, è possibile visualizzare lo stato di co-selling attuale dell'offerta nella pagina Panoramica dell'offerta:
 
  :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Questa immagine mostra lo stato di co-selling corrente delle offerte.":::
 
@@ -96,5 +98,5 @@ Per le offerte con l' [opzione di co-selling nel centro](./partner-center-portal
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere altre informazioni su come [vendere con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Altre informazioni sull' [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md).
+- Altre informazioni sull' [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md).
 - Leggi il [PlayBook di co-selling](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

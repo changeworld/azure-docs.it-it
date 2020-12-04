@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8884fd56cfc1e18a0a358d6902f7f8bcbfc1f5d3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 5cb2f7b3b07c20e09d61e97412bc35f03b15cb3b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96552644"
+ms.locfileid: "96572151"
 ---
 # <a name="cross-resource-query-azure-data-explorer-using-azure-monitor"></a>Eseguire query tra risorse Esplora dati di Azure con monitoraggio di Azure
 Monitoraggio di Azure supporta le query tra i servizi tra Esplora dati di Azure, [Application Insights (ai)](/azure/azure-monitor/app/app-insights-overview)e [log Analytics (la)](/azure/azure-monitor/platform/data-platform-logs). È quindi possibile eseguire query sul cluster di Esplora dati di Azure usando gli strumenti Log Analytics/Application Insights e farvi riferimento in una query tra servizi. Questo articolo illustra come eseguire una query tra servizi.
@@ -20,7 +20,7 @@ Monitoraggio di Azure supporta le query tra i servizi tra Esplora dati di Azure,
 Flusso tra i servizi di monitoraggio di Azure: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="monitoraggio di Azure e flusso di azure Esplora dati cross Service.":::
 
 >[!NOTE]
->* Il proxy di monitoraggio di Azure è in anteprima privata: è necessario AllowListing.
+>* La query tra servizi di monitoraggio di Azure è in anteprima privata: è necessario AllowListing.
 >* Per eventuali domande, contattare il [team del servizio](mailto:ADXProxy@microsoft.com) .
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Eseguire query incrociate sulle risorse Log Analytics o Application Insights e su Azure Esplora dati
 
@@ -66,9 +66,3 @@ Kusto Explorer accede automaticamente al tenant a cui appartiene originariamente
 * [Scrivere query](https://docs.microsoft.com/azure/data-explorer/write-queries)
 * [Eseguire query sui dati in monitoraggio di Azure con Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
 * [Eseguire query di log su più risorse in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
-
-
-
-
-
-

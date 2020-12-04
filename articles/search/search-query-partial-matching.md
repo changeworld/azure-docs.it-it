@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/03/2020
+ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499544"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573987"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca dei termini parziali e modelli con caratteri speciali (carattere jolly, Regex, Patterns)
+# <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Ricerca e modelli a termini parziali con caratteri speciali (trattini, caratteri jolly, espressioni regolari, modelli)
 
-Una *ricerca con termini parziali* si riferisce a query costituite da frammenti di termini, in cui invece di un termine intero può essere presente solo l'inizio, il centro o la fine del termine (talvolta definito query di prefisso, infisso o suffisso). Una ricerca con termini parziali può includere una combinazione di frammenti, spesso con caratteri speciali, ad esempio trattini o barre che fanno parte della stringa di query. Casi d'uso comuni includono parti di un numero di telefono, un URL, codici o parole composte con trattino.
+Una *ricerca con termini parziali* si riferisce a query costituite da frammenti di termini, in cui invece di un termine intero può essere presente solo l'inizio, il centro o la fine del termine (talvolta definito query di prefisso, infisso o suffisso). Una ricerca con termini parziali può includere una combinazione di frammenti, spesso con caratteri speciali, ad esempio trattini, trattini o barre che fanno parte della stringa di query. Casi d'uso comuni includono parti di un numero di telefono, un URL, codici o parole composte con trattino.
 
 La ricerca a termini parziali e le stringhe di query che includono caratteri speciali possono essere problematiche se l'indice non ha token nel formato previsto. Durante la [fase di analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) dell'indicizzazione (presupponendo l'analizzatore standard predefinito), i caratteri speciali vengono ignorati, le parole composte vengono suddivise e lo spazio vuoto viene eliminato. che può causare l'esito negativo delle query quando non viene trovata alcuna corrispondenza. Ad esempio, un numero di telefono come `+1 (425) 703-6214` (in formato token `"1"` , `"425"` , `"703"` , `"6214"` ) non verrà visualizzato in una `"3-62"` query perché tale contenuto non esiste effettivamente nell'indice. 
 
@@ -26,7 +26,7 @@ La soluzione consiste nel richiamare un analizzatore durante l'indicizzazione ch
 > [!TIP]
 > Se si ha familiarità con le API postazione e REST, [scaricare la raccolta degli esempi di query](https://github.com/Azure-Samples/azure-search-postman-samples/) per eseguire una query su termini parziali e caratteri speciali descritti in questo articolo.
 
-## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Che cos'è la ricerca a termini parziali in Azure ricerca cognitiva
+## <a name="about-partial-term-search"></a>Informazioni sulla ricerca a termini parziali
 
 Azure ricerca cognitiva analizza tutti i termini in formato token nell'indice e non trova una corrispondenza in un termine parziale a meno che non si includano operatori di segnaposto con caratteri jolly ( `*` e `?` ) oppure si formatti la query come espressione regolare. I termini parziali vengono specificati utilizzando le tecniche seguenti:
 
@@ -45,15 +45,15 @@ Per i termini parziali o i criteri di ricerca e alcuni altri moduli di query com
 
 Quando è necessario eseguire la ricerca su frammenti o modelli o caratteri speciali, è possibile eseguire l'override dell'analizzatore predefinito con un analizzatore personalizzato che opera con regole di token più semplici, mantenendo l'intera stringa nell'indice. Eseguendo un nuovo passaggio, l'approccio è simile al seguente:
 
-+ Definire un campo per archiviare una versione intatta della stringa (presupponendo che il testo analizzato e non analizzato venga utilizzato in fase di query)
-+ Valutare e scegliere tra i vari analizzatori che emettono token al livello di granularità corretto
-+ Assegnare l'analizzatore al campo
-+ Compilare e testare l'indice
+1. Definire un campo per archiviare una versione intatta della stringa (presupponendo che il testo analizzato e non analizzato venga utilizzato in fase di query)
+1. Valutare e scegliere tra i vari analizzatori che emettono token al livello di granularità corretto
+1. Assegnare l'analizzatore al campo
+1. Compilare e testare l'indice
 
 > [!TIP]
 > La valutazione degli analizzatori è un processo iterativo che richiede ricompilazioni frequenti degli indici. Per semplificare questo passaggio, è possibile usare il post, le API REST per [create index](/rest/api/searchservice/create-index), [delete index](/rest/api/searchservice/delete-index),[Load Documents](/rest/api/searchservice/addupdate-or-delete-documents)e [Search Documents](/rest/api/searchservice/search-documents). Per i documenti di caricamento, il corpo della richiesta deve contenere un set di dati di piccole dimensioni che si desidera testare, ad esempio un campo con numeri di telefono o codici prodotto. Con queste API nella stessa raccolta di messaggi, è possibile scorrere rapidamente questi passaggi.
 
-## <a name="duplicate-fields-for-different-scenarios"></a>Campi duplicati per diversi scenari
+## <a name="1---create-a-dedicated-field"></a>1-creare un campo dedicato
 
 Gli analizzatori determinano il modo in cui i termini sono in formato token in un indice. Poiché gli analizzatori vengono assegnati in base ai singoli campi, è possibile creare campi nell'indice per ottimizzarli per diversi scenari. Ad esempio, è possibile definire "featureCode" e "featureCodeRegex" per supportare la ricerca full-text regolare sul primo e i criteri di ricerca avanzati nel secondo. Gli analizzatori assegnati a ogni campo determinano il modo in cui il contenuto di ogni campo viene suddiviso in token nell'indice.  
 
@@ -74,7 +74,9 @@ Gli analizzatori determinano il modo in cui i termini sono in formato token in u
 },
 ```
 
-## <a name="choose-an-analyzer"></a>Scegliere un analizzatore
+<a name="set-an-analyzer"></a>
+
+## <a name="2---set-an-analyzer"></a>2-impostare un analizzatore
 
 Quando si sceglie un analizzatore che produce token a lungo termine, gli analizzatori seguenti sono opzioni comuni:
 
@@ -98,7 +100,7 @@ Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiu
    }
     ```
 
-1. Valutare la risposta per vedere come il testo viene suddiviso in token all'interno dell'indice. Si noti il modo in cui ogni termine viene suddiviso in lettere maiuscole e minuscole. Solo le query che corrispondono a questi token restituiranno questo documento nei risultati. Una query che include "10-NOR" avrà esito negativo.
+1. Valutare la risposta per vedere come il testo viene suddiviso in token all'interno dell'indice. Si noti che ogni termine è in lettere minuscole, i trattini rimossi e le sottostringhe suddivise in singoli token. Solo le query che corrispondono a questi token restituiranno questo documento nei risultati. Una query che include "10-NOR" avrà esito negativo.
 
     ```json
     {
@@ -152,7 +154,7 @@ Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiu
 > [!Important]
 > Tenere presente che i parser di query spesso sono minuscoli in un'espressione di ricerca durante la compilazione dell'albero della query. Questo potrebbe essere il motivo per cui si usa un analizzatore che non inserisce input di testo in lettere minuscole durante l'indicizzazione e non si ricevono risultati previsti. La soluzione consiste nell'aggiungere un filtro token in minuscolo, come descritto nella sezione "usare gli analizzatori personalizzati" di seguito.
 
-## <a name="configure-an-analyzer"></a>Configurare un analizzatore
+## <a name="3---configure-an-analyzer"></a>3-configurare un analizzatore
  
 Se si stanno valutando gli analizzatori o procedendo con una configurazione specifica, è necessario specificare l'analizzatore nella definizione del campo e possibilmente configurare l'analizzatore se non si usa un analizzatore incorporato. Quando si scambiano gli analizzatori, in genere è necessario ricompilare l'indice (drop, recreate e reload). 
 
@@ -216,7 +218,7 @@ Nell'esempio seguente viene illustrato un analizzatore personalizzato che fornis
 > [!NOTE]
 > Il `keyword_v2` Tokenizer e il `lowercase` filtro token sono noti al sistema e usano le configurazioni predefinite, motivo per cui è possibile fare riferimento a essi in base al nome senza doverli definire prima.
 
-## <a name="build-and-test"></a>Compilare e testare
+## <a name="4---build-and-test"></a>4-compilazione e test
 
 Dopo aver definito un indice con gli analizzatori e le definizioni di campo che supportano lo scenario, caricare i documenti con stringhe rappresentative per poter testare le query di stringa parziali. 
 
@@ -228,7 +230,7 @@ Nella sezione precedente è stata illustrata la logica. Questa sezione illustra 
 
 + [Load Documents](/rest/api/searchservice/addupdate-or-delete-documents) importa i documenti con la stessa struttura dell'indice, nonché il contenuto ricercabile. Dopo questo passaggio, l'indice è pronto per eseguire query o test.
 
-+ [Test Analyzer](/rest/api/searchservice/test-analyzer) è stato introdotto in [scegliere un analizzatore](#choose-an-analyzer). Testare alcune stringhe nell'indice usando un'ampia gamma di analizzatori per comprendere in che modo i termini vengono suddivisi in token.
++ [Test Analyzer](/rest/api/searchservice/test-analyzer) è stato introdotto in [impostare un analizzatore](#set-an-analyzer). Testare alcune stringhe nell'indice usando un'ampia gamma di analizzatori per comprendere in che modo i termini vengono suddivisi in token.
 
 + Nei [documenti di ricerca](/rest/api/searchservice/search-documents) viene illustrato come creare una richiesta di query, utilizzando una sintassi [semplice](query-simple-syntax.md) o una [sintassi Lucene completa](query-lucene-syntax.md) per le espressioni regolari e con caratteri jolly.
 

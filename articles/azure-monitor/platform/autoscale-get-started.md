@@ -4,12 +4,12 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: dbfffd98cd05e3ab2efbbe33e05da208fdc05600
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518703"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573307"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -59,7 +59,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
    ![Scalabilità in base alla CPU][8]
 1. Fare clic su **Salva**.
 
-La procedura è stata completata. A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
+Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
 > [!NOTE]
 > Gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.
@@ -131,10 +131,10 @@ I team di sviluppo di grandi imprese spesso devono rispettare i requisiti di sic
 
 ### <a name="behavior"></a>Comportamento
 
-Quando viene fornito il percorso di controllo integrità, il servizio app effettuerà il ping del percorso in tutte le istanze. Se dopo 5 ping non viene ricevuto un codice di risposta con esito positivo, l'istanza viene considerata "non integra". Le istanze non integre verranno escluse dalla rotazione del servizio di bilanciamento del carico. È possibile configurare il numero necessario di ping non riusciti con l' `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` impostazione dell'app. Questa impostazione dell'app può essere impostata su qualsiasi numero intero compreso tra 2 e 10. Se, ad esempio, è impostato su `2` , le istanze verranno rimosse dal servizio di bilanciamento del carico dopo due ping non riusciti. Inoltre, quando si esegue la scalabilità verticale o orizzontale, il servizio app effettuerà il ping del percorso di controllo integrità per assicurarsi che le nuove istanze siano pronte per le richieste prima di essere aggiunte al servizio di bilanciamento del carico.
+Quando viene fornito il percorso di controllo integrità, il servizio app effettuerà il ping del percorso in tutte le istanze. Se dopo 5 ping non viene ricevuto un codice di risposta con esito positivo, l'istanza viene considerata "non integra". Le istanze non integre verranno escluse dalla rotazione del servizio di bilanciamento del carico se si aumenta la scalabilità orizzontale a due o più istanze e si usa il [livello Basic](../../app-service/overview-hosting-plans.md) o superiore. È possibile configurare il numero necessario di ping non riusciti con l' `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` impostazione dell'app. Questa impostazione dell'app può essere impostata su qualsiasi numero intero compreso tra 2 e 10. Se, ad esempio, è impostato su `2` , le istanze verranno rimosse dal servizio di bilanciamento del carico dopo due ping non riusciti. Inoltre, quando si esegue la scalabilità verticale o orizzontale, il servizio app effettuerà il ping del percorso di controllo integrità per assicurarsi che le nuove istanze siano pronte per le richieste prima di essere aggiunte al servizio di bilanciamento del carico.
 
 > [!NOTE]
-> Tenere presente che il piano di servizio app deve essere scalato orizzontalmente a due o più istanze per l'esclusione del bilanciamento del carico. Se è presente solo un'istanza, non verrà rimossa dal servizio di bilanciamento del carico anche se non è integro. 
+> Tenere presente che il piano di servizio app deve essere scalato orizzontalmente a 2 o più istanze ed essere di **livello Basic o superiore** affinché venga eseguita l'esclusione del bilanciamento del carico. Se è presente solo un'istanza, non verrà rimossa dal servizio di bilanciamento del carico anche se non è integro. 
 
 Le istanze rimanenti integre potrebbero riscontrare un aumento del carico. Per evitare di sovraccaricare le istanze rimanenti, non verranno escluse più della metà delle istanze. Se, ad esempio, un piano di servizio app viene scalato in orizzontale a 4 istanze e 3 di quelle non integre, al massimo 2 verranno escluse dalla rotazione del LoadBalancer. Le altre 2 istanze (1 integro e 1 non integro) continueranno a ricevere le richieste. Nello scenario peggiore in cui tutte le istanze non sono integre, nessuna verrà esclusa. Se si vuole eseguire l'override di questo comportamento, è possibile impostare l' `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` impostazione dell'app su un valore compreso tra `0` e `100` . Se si imposta questa opzione su un valore più alto, verranno rimosse più istanze non integre (il valore predefinito è 50).
 

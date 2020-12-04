@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 45949ae11a59ad9b5459dbc3ec049743b40e55ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 1b20f7134f1b39853a78ee5b709e732ccf35acac
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80680362"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571114"
 ---
 # <a name="regions"></a>Regioni
 
@@ -18,7 +19,13 @@ Questa pagina elenca le aree attualmente disponibili per l'uso con il rendering 
 
 | Nome | Region | URL |
 |-----------|:-----------|:-----------|
-| West US 2 | westus2 | `https://remoterendering.westus2.mixedreality.azure.com` |
+| Australia orientale | australiaeast | `https://remoterendering.australiaeast.mixedreality.azure.com` |
 | Stati Uniti orientali | eastus | `https://remoterendering.eastus.mixedreality.azure.com` |
-| Europa occidentale | westeurope | `https://remoterendering.westeurope.mixedreality.azure.com` |
+| Stati Uniti orientali 2 | eastus2 | `https://remoterendering.eastus2.mixedreality.azure.com` |
+| Giappone orientale | japaneast | `https://remoterendering.japaneast.mixedreality.azure.com` |
+| Europa settentrionale | northeurope | `https://remoterendering.northeurope.mixedreality.azure.com` |
+| Stati Uniti centro-meridionali | southcentralus | `https://remoterendering.southcentralus.mixedreality.azure.com` |
 | Asia sud-orientale | southeastasia | `https://remoterendering.southeastasia.mixedreality.azure.com` |
+| Regno Unito meridionale | uksouth | `https://remoterendering.uksouth.mixedreality.azure.com` |
+| Europa occidentale | westeurope | `https://remoterendering.westeurope.mixedreality.azure.com` |
+| West US 2 | westus2 | `https://remoterendering.westus2.mixedreality.azure.com` |

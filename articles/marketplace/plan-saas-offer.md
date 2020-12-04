@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917546"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571131"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -150,7 +150,7 @@ Quando si [Crea una nuova offerta SaaS](create-new-saas-offer.md) nel centro per
 6. Informativa sulla privacy
 7. Nome offerta
 8. Riepilogo
-9. Description
+9. Descrizione
 10. Screenshot/video
 11. Documenti
 
@@ -258,7 +258,7 @@ Nell'esempio seguente viene illustrata una suddivisione di esempio di costi e pa
 
 - **Rivendere tramite CSP**: usare questa opzione per consentire ai partner di Microsoft Cloud Solution Provider (CSP) di rivendere la soluzione come parte di un'offerta in bundle. Per ulteriori informazioni, vedere il [programma Cloud Solution Provider](cloud-solution-providers.md) .
 
-- **Co-selling con Microsoft**: questa opzione consente ai team di vendita Microsoft di prendere in considerazione la soluzione di co-selling IP idonea per valutare le esigenze dei clienti. Per informazioni dettagliate su come preparare l'offerta per la valutazione, vedere [opzione di co-selling nel centro](./partner-center-portal/commercial-marketplace-co-sell.md) per i partner.
+- **Co-selling con Microsoft**: questa opzione consente ai team di vendita Microsoft di prendere in considerazione la soluzione di co-selling IP idonea per valutare le esigenze dei clienti. Per informazioni dettagliate su come preparare l'offerta per la valutazione, vedere [opzione di co-selling nel centro](commercial-marketplace-co-sell.md) per i partner.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

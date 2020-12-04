@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4016751944e5b7ec5d32dc586e9034db99c9d73
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523558"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572287"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Come gestire le assegnazioni di ruolo RBAC in sinapsi Studio
 
@@ -23,12 +23,13 @@ Questo articolo illustra come aggiungere ed eliminare le assegnazioni di ruolo R
 
 >[!Note]
 >- Per gestire le assegnazioni di ruolo RBAC RBAC è necessario avere il ruolo di amministratore sinapsi nell'area di lavoro o in un ambito di livello inferiore che includa gli oggetti da gestire. Se si è un amministratore di sinapsi nell'area di lavoro, è possibile concedere l'accesso a tutti gli oggetti nell'area di lavoro. 
->- Per consentire di riottenere l'accesso a un'area di lavoro nel caso in cui non sia stato assegnato o disponibile alcun amministratore sinapsi, gli utenti che dispongono delle autorizzazioni per gestire le assegnazioni di ruolo **RBAC di Azure** nell'area di lavoro possono gestire anche le assegnazioni di ruolo controllo degli accessi in base **al ruolo,** consentendo l'aggiunta di un amministratore di sinapsi o altre assegnazioni di ruolo
+>- **Gli utenti Guest** di un tenant di Active Directory diverso non possono visualizzare o gestire le assegnazioni di ruolo, anche se il ruolo di amministratore sinapsi è stato assegnato.
+>- Per consentire di riottenere l'accesso a un'area di lavoro nel caso in cui non sia stato assegnato o disponibile alcun amministratore sinapsi, gli utenti che dispongono delle autorizzazioni per gestire le assegnazioni di ruolo **RBAC di Azure** nell'area di lavoro possono gestire anche le assegnazioni di ruolo controllo degli accessi in base al ruolo per **le sinapsi,** consentendo l'aggiunta di un amministratore di sinapsi
 >- L'accesso ai pool SQL viene gestito tramite le autorizzazioni SQL.  Fatta eccezione per i ruoli di amministratore sinapsi e di amministratore SQL sinapsi, i ruoli di controllo degli accessi in base al ruolo sinapsi non concedono l'accesso ai pool SQL.
 
 >[!important]
 >- Per rendere effettive le modifiche apportate alle assegnazioni di ruolo di sinapsi RBAC, possono essere necessari 2-5 minuti. 
->- Se si gestiscono le autorizzazioni RBAC RBAC modificando l'appartenenza dei gruppi di sicurezza, le modifiche apportate all'appartenenza vengono gestite con Azure Active Directory.  Per rendere effettive le modifiche apportate all'appartenenza al gruppo potrebbero essere necessari alcuni minuti.
+>- Se si gestiscono le autorizzazioni RBAC RBAC modificando l'appartenenza dei gruppi di sicurezza, le modifiche apportate all'appartenenza vengono gestite con Azure Active Directory.  Per rendere effettive le modifiche alle appartenenze ai gruppi possono essere necessari 10-15 minuti o più.
 
 ## <a name="open-synapse-studio"></a>Aprire Synapse Studio  
 

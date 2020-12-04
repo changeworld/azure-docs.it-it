@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531599"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572797"
 ---
 # <a name="synapse-rbac-roles"></a>Ruoli di controllo delle sinapsi
 
@@ -28,7 +28,7 @@ Per gli utenti che hanno familiarità con i ruoli di controllo degli accessi in 
 - Sono stati introdotti **nuovi ambiti di livello inferiore** per diversi ruoli.  Questi ambiti consentono di limitare i ruoli a risorse o oggetti specifici.
 
 >[!Note]
->- I **nuovi ruoli e gli ambiti di livello inferiore sono attualmente in anteprima**.  Si consiglia di usare questi nuovi ruoli e ambiti, che sono completamente supportati, e di fornire commenti e suggerimenti sul loro utilizzo.
+>I nuovi ruoli di controllo degli accessi in base al **ruolo e gli ambiti di livello inferiore sono attualmente in anteprima**.  Si consiglia di usare questi nuovi ruoli e ambiti, che sono completamente supportati, e di fornire commenti e suggerimenti sul loro utilizzo.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Ambiti e ruoli RBAC predefiniti per le sinapsi
 

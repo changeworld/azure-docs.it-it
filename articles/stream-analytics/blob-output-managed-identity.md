@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490713"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573664"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usare l'identità gestita (anteprima) per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure
 
-[Autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'output nell'archiviazione BLOB di Azure consente ai processi di analisi di flusso di accedere direttamente a un account di archiviazione invece di usare una stringa di connessione. Oltre a una maggiore sicurezza, questa funzionalità consente anche di scrivere i dati in un account di archiviazione in una rete virtuale (VNET) in Azure.
+[Autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (anteprima) per l'output nell'archiviazione BLOB di Azure consente ai processi di analisi di flusso di accedere direttamente a un account di archiviazione invece di usare una stringa di connessione. Oltre a una maggiore sicurezza, questa funzionalità consente anche di scrivere i dati in un account di archiviazione in una rete virtuale (VNET) in Azure.
 
 Questo articolo illustra come abilitare l'identità gestita per gli output del BLOB di un processo di analisi di flusso tramite il portale di Azure e tramite una distribuzione di Azure Resource Manager.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5bd41396cf075f83fd37a4276f7a30223ec8c1f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96482944"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572865"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Come distribuire Windows 10 in Azure con Multitenant Hosting Rights 
 Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Desktop Access per utente (licenze di sottoscrizione utente o licenze di sottoscrizione utente per i componenti aggiuntivi) Multitenant Hosting Rights per Windows 10 consente di trasferire le licenze di Windows 10 nel cloud ed eseguire macchine virtuali di Windows 10 in Azure senza sostenere i costi di un'altra licenza. Per altre informazioni vedere la pagina relativa all'[hosting multi-tenant per Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -26,11 +26,11 @@ Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Deskt
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Distribuzione dell'immagine di Windows 10 da Azure Marketplace 
 Per le distribuzioni di PowerShell, dell'interfaccia della riga di comando e del modello di Azure Resource Manager, è possibile trovare l'immagine di Windows 10 con il seguente editorename, offerta, SKU.
 
-| OS  |      PublisherName      |  Offerta | Sku |
+| Sistema operativo  |      PublisherName      |  Offerta | Sku |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualifica per i diritti di hosting multi-tenant 
@@ -112,7 +112,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Altre informazioni sull'aggiunta di Azure AD
 >[!NOTE]
->Azure esegue il provisioning di tutte le macchine virtuali di Windows con l'account predefinito Administrator, che non può essere usato per l'aggiunta di AAD. Ad esempio, *Impostazioni > Account > Accedi all'azienda o all'istituto di istruzione > +Connetti* non funziona. È necessario creare e accedere come secondo account Administrator per aggiungere manualmente Azure AD. È anche possibile configurare Azure Active Directory con un pacchetto di provisioning. Per altre informazioni, usare il collegamento nella sezione *Passaggi successivi*.
+>Azure esegue il provisioning di tutte le macchine virtuali di Windows con l'account predefinito Administrator, che non può essere usato per l'aggiunta di AAD. Ad esempio, *Impostazioni > Account > Accedi all'azienda o all'istituto di istruzione > +Connetti* non funziona. È necessario creare e accedere come secondo account Administrator per aggiungere manualmente Azure AD. È anche possibile configurare Azure AD usando un pacchetto di provisioning. per altre informazioni, usare il collegamento nella sezione *passaggi successivi* .
 >
 >
 

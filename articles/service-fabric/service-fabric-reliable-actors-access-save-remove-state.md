@@ -1,17 +1,15 @@
 ---
 title: Gestire lo stato di Service Fabric di Azure
 description: Informazioni su come accedere, salvare e rimuovere lo stato di un Reliable Actor di Azure Service Fabric e considerazioni sulla progettazione di un'applicazione.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e796232719342883efc2aa5dd377d586f3039ad
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012790"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571318"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Accedere, salvare e rimuovere lo stato di Reliable Actors
 I [Reliable Actors](service-fabric-reliable-actors-introduction.md) sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato e mantenere lo stato in modo affidabile. Ogni istanza dell'attore ha un proprio [gestore di stato](service-fabric-reliable-actors-state-management.md): una struttura di dati simile a un dizionario che archivia in modo affidabile le coppie chiave/valore. Il gestore di stato è un wrapper per il provider di stato. È possibile usarlo per archiviare i dati indipendentemente dall' [impostazione di persistenza](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) usata.

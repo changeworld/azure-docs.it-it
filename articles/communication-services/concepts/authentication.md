@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832807"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571097"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Eseguire l'autenticazione in servizi di comunicazione di Azure
 
@@ -58,9 +58,9 @@ Se non si usa una libreria client per effettuare richieste HTTP alle API REST de
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Generare una firma HMAC-256 della stringa con codifica UTF-8 creata nel passaggio precedente. Quindi, codificare i risultati come Base64. Si noti che è anche necessario decodificare Base64 della chiave dell'account di archiviazione. Usare il formato seguente (mostrato come pseudo-codice):
+1. Generare una firma HMAC-256 della stringa con codifica UTF-8 creata nel passaggio precedente. Quindi, codificare i risultati come Base64. Si noti che è anche necessario decodificare la chiave di accesso Base64. Usare il formato seguente (mostrato come pseudo-codice):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Specificare l'intestazione dell'autorizzazione come indicato di seguito:
     ```

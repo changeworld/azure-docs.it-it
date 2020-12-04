@@ -1,7 +1,7 @@
 ---
 title: Novità della gestione delle applicazioni Azure Active Directory
 description: Documentazione nuova e aggiornata per la gestione delle applicazioni Azure Active Directory.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654010"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571012"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
 Ecco le novità della documentazione sulla gestione delle applicazioni Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio di gestione delle applicazioni, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembre 2020
+
+### <a name="new-articles"></a>Nuovi articoli
+- [Single Sign-On basata su intestazione per le app locali con App Azure AD proxy (anteprima)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+- [Gestione applicazioni Azure Active Directory: novità](whats-new-docs.md)
+- [Problemi di accesso ad app configurate per Single Sign-On basato su SAML](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>Ottobre 2020
 
@@ -32,9 +42,9 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Problemi di accesso alle app configurate Single Sign-On basate su SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Problemi di accesso ad app configurate per Single Sign-On basato su SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problemi di installazione del connettore dell'agente proxy dell'applicazione](application-proxy-connector-installation-problem.md)
-- [Trasferimento dell'autenticazione dell'applicazione da Active Directory Federation Services a Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Trasferimento dell'autenticazione dell'applicazione da Azure Active Directory Federation Services ad Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Configurare la modalità con cui gli utenti finali consentono le applicazioni](configure-user-consent.md)
 
 
@@ -65,7 +75,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 - [Esperienze per gli utenti finali per le applicazioni in Azure Active Directory](end-user-experiences.md)
 - [Come usare l'accesso alle applicazioni self-service](access-panel-manage-self-service-access.md)
 - [Risolvere i problemi di accesso a un'applicazione da Azure AD app personali](application-sign-in-other-problem-access-panel.md)
-- [Risolvere i problemi di Single Sign-On basata su password in Azure AD](troubleshoot-password-based-sso.md)
+- [Risolvere i problemi di Single Sign-On basato su password in Azure AD](troubleshoot-password-based-sso.md)
 - [Pianificare un Azure Active Directory la distribuzione di app personali](access-panel-deployment-plan.md)
 - [Informazioni sull'accesso Single Sign-On (SSO)](what-is-single-sign-on.md)
 - [Intervenire su applicazioni sospette o con privilegi eccessivi in Azure Active Directory](manage-application-permissions.md)

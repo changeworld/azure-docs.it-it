@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9032e4c04279d87bf4422d3a87d19fdbecec1a64
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656328"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571794"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -167,6 +167,9 @@ A questo punto si dovrebbe vedere tutto il traffico che passa attraverso il prox
 Il modo migliore per identificare e risolvere i problemi di connettività del connettore è eseguire un'acquisizione di rete durante l'avvio del servizio del connettore. Ecco alcuni semplici suggerimenti per acquisire e filtrare le tracce di rete.
 
 È possibile usare lo strumento di monitoraggio preferito. Ai fini di questo articolo, è stato usato Microsoft Message Analyzer.
+
+> [!NOTE]
+> [Microsoft Message Analyzer (MMA) è stato ritirato](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) e i pacchetti di download sono stati rimossi dai siti microsoft.com il 25 2019 novembre.  Attualmente non è disponibile alcuna sostituzione Microsoft per Microsoft Message Analyzer in fase di sviluppo.  Per una funzionalità simile, provare a usare uno strumento Analizzatore protocollo di rete di terze parti, ad esempio Wireshark.
 
 Gli esempi seguenti sono specifici di Message Analyzer, ma i principi possono essere applicati a qualsiasi strumento di analisi.
 

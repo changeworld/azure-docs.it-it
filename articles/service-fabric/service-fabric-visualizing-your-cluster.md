@@ -1,16 +1,14 @@
 ---
 title: Visualizzazione del cluster con Service Fabric Explorer di Azure
 description: Service Fabric Explorer è un'applicazione per analizzare e gestire nodi e applicazioni cloud in un cluster di Microsoft Azure Service Fabric.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: mikhegn
-ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a45aff305f97610cb2660c2e3f4b4427b905d7d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085174"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574056"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -69,7 +67,7 @@ Il cluster contiene due sotto-alberi: uno per le applicazioni e un altro per i n
 
 È possibile usare la visualizzazione delle applicazioni per spostarsi nella gerarchia logica di Service Fabric: applicazioni, servizi, partizioni e repliche.
 
-Nell'esempio seguente, l'applicazione **MyApp** è costituita da due servizi, **MyStatefulService** e **WebService** . Poiché **MyStatefulService** è con stato, include una partizione con una replica primaria e due repliche secondarie. Al contrario, il WebSvcService è senza stato e contiene una singola istanza.
+Nell'esempio seguente, l'applicazione **MyApp** è costituita da due servizi, **MyStatefulService** e **WebService**. Poiché **MyStatefulService** è con stato, include una partizione con una replica primaria e due repliche secondarie. Al contrario, il WebSvcService è senza stato e contiene una singola istanza.
 
 ![Visualizzazione delle applicazioni di Service Fabric Explorer][sfx-application-tree]
 
@@ -83,7 +81,7 @@ La visualizzazione dei nodi mostra il layout fisico del cluster. Per un determin
 ## <a name="actions"></a>Azioni
 Service Fabric Explorer offre un modo rapido per richiamare le azioni su nodi, applicazioni e servizi all'interno del cluster.
 
-Ad esempio, per eliminare un'istanza dell'applicazione, scegliere l'applicazione dall'albero a sinistra, quindi scegliere **azioni**  >  **Elimina applicazione** .
+Ad esempio, per eliminare un'istanza dell'applicazione, scegliere l'applicazione dall'albero a sinistra, quindi scegliere **azioni**  >  **Elimina applicazione**.
 
 ![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]
 

@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531424"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571607"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
@@ -38,11 +38,8 @@ Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-two-regional-iot-hubs"></a>Creare due hub IoT a livello di area
 
@@ -191,7 +188,7 @@ Per rendere più semplici le operazioni di pulizia, queste macchine virtuali ver
 
 In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK contiene un esempio che consentirà di simulare il provisioning di dispositivi del tenant da ogni area.
 
-1. Per ogni macchina virtuale, installare **CMake**, **g + +**, **GCC**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
+1. Per ogni macchina virtuale, installare **CMake**, **g + +**, **GCC** e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
 
     ```bash
     sudo apt-get update

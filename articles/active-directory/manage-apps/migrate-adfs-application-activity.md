@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835510"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573885"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usare il report delle attività dell'applicazione AD FS (anteprima) per eseguire la migrazione delle applicazioni ai Azure AD
 
@@ -26,9 +26,10 @@ Molte organizzazioni usano Active Directory Federation Services (AD FS) per forn
 
 Il AD FS report attività applicazione (anteprima) nel portale di Azure consente di identificare rapidamente quali applicazioni sono in grado di eseguire la migrazione a Azure AD. Valuta tutte le applicazioni AD FS per la compatibilità con Azure AD, verifica la presenza di eventuali problemi e fornisce indicazioni sulla preparazione delle singole applicazioni per la migrazione. Con il AD FS report attività applicazione, è possibile:
 
-* **Individuare AD FS applicazioni e definire l'ambito della migrazione.** Il report attività applicazione AD FS elenca tutte le applicazioni AD FS nell'organizzazione e ne indica la conformità alla migrazione ai Azure AD.
+* **Individuare AD FS applicazioni e definire l'ambito della migrazione.** Il report attività applicazione AD FS elenca tutte le applicazioni AD FS nell'organizzazione che hanno un account di accesso utente attivo negli ultimi 30 giorni. Il report indica una conformità delle app per la migrazione a Azure AD. Il report non visualizza relying party correlati a Microsoft in AD FS, ad esempio Office 365. Ad esempio, relying party con il nome "urn: Federation: MicrosoftOnline".
+
 * **Assegnare priorità alle applicazioni per la migrazione.** Ottenere il numero di utenti univoci che hanno eseguito l'accesso all'applicazione negli ultimi 1, 7 o 30 giorni per contribuire a determinare la criticità o il rischio di migrazione dell'applicazione.
-* **Eseguire test di migrazione e risolvere i problemi.** Il servizio di creazione report esegue automaticamente i test per determinare se un'applicazione è pronta per la migrazione. I risultati vengono visualizzati nel report attività applicazione AD FS come stato di migrazione. Se vengono identificati potenziali problemi di migrazione, vengono fornite indicazioni specifiche su come risolvere i problemi.
+* **Eseguire test di migrazione e risolvere i problemi.** Il servizio di creazione report esegue automaticamente i test per determinare se un'applicazione è pronta per la migrazione. I risultati vengono visualizzati nel report attività applicazione AD FS come stato di migrazione. Se la configurazione del AD FS non è compatibile con una configurazione Azure AD, vengono fornite indicazioni specifiche su come gestire la configurazione in Azure AD.
 
 I dati dell'attività AD FS applicazione sono disponibili per gli utenti a cui è stato assegnato uno di questi ruoli di amministratore: amministratore globale, lettore report, lettore sicurezza, amministratore dell'applicazione o amministratore di applicazioni cloud.
 
@@ -39,6 +40,9 @@ I dati dell'attività AD FS applicazione sono disponibili per gli utenti a cui �
 * È necessario installare la Azure AD Connect Health per AD FS Agent.
    * [Altre informazioni su Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
    * [Introduzione alla configurazione di Azure AD Connect Health e all'installazione dell'agente di AD FS](../hybrid/how-to-connect-health-agent-install.md)
+
+>[!IMPORTANT] 
+>Esistono due motivi per cui non vengono visualizzate tutte le applicazioni previste dopo l'installazione di Azure AD Connect Health. Il report attività AD FS applicazione Mostra solo AD FS relying party con account di accesso utente negli ultimi 30 giorni. Inoltre, il report non visualizzerà le relying party correlate a Microsoft, ad esempio Office 365.
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Individuare AD FS applicazioni di cui è possibile eseguire la migrazione 
 
@@ -74,7 +78,7 @@ Il report attività dell'applicazione AD FS è disponibile nella portale di Azur
 
 Nella tabella seguente sono elencati tutti i test di configurazione eseguiti su AD FS applicazioni.
 
-|Risultato  |Superato/avviso/esito negativo  |Descrizione  |
+|Result  |Superato/avviso/esito negativo  |Descrizione  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> È stata rilevata almeno una regola non migrazione nei per AdditionalAuthentication.       | Pass/avviso          | Il relying party dispone di regole per richiedere l'autenticazione a più fattori (multi-factor authentication). Per spostarsi in Azure AD, tradurre tali regole in criteri di accesso condizionale. Se si usa un'autenticazione a più fattori locale, si consiglia di passare a Azure AD autenticazione a più fattori. [Altre informazioni sull'accesso condizionale](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> Il valore di AdditionalWSFedEndpoint del componente è impostato su true.       | Esito positivo o negativo          | Il relying party in AD FS consente più endpoint dell'asserzione di WS-Fed.Attualmente Azure AD ne supporta solo uno.Se si dispone di uno scenario in cui il risultato è il blocco della migrazione, segnalare il [problema.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |
@@ -121,6 +125,17 @@ Nella tabella seguente sono elencati tutti i test delle regole attestazioni eseg
 |EXTERNAL_ATTRIBUTE_STORE      | L'istruzione di rilascio usa un archivio di attributi diverso da quello Active Directory. Attualmente, Azure AD non prevede l'origine di attestazioni da archivi diversi da Active Directory o Azure AD. Se il risultato è il blocco della migrazione di applicazioni a Azure AD [, segnalare](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire)il problema.          |
 |UNSUPPORTED_ISSUANCE_CLASS      | L'istruzione di rilascio USA Aggiungi per aggiungere attestazioni al set di attestazioni in ingresso. In Azure AD, questo può essere configurato come più trasformazioni di attestazioni.Per altre informazioni, vedere [personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](../develop/active-directory-claims-mapping.md).         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | L'istruzione di rilascio usa espressioni regolari per trasformare il valore dell'attestazione da emettere.Per ottenere una funzionalità simile in Azure AD, è possibile usare una trasformazione predefinita, ad esempio Extract (), Trim (), ToLower, tra gli altri. Per altre informazioni, vedere [personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](../develop/active-directory-saml-claims-customization.md).          |
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>Impossibile visualizzare tutte le applicazioni AD FS nel report
+
+ Se è stato installato Azure AD Connect Health ma viene comunque visualizzato il messaggio di richiesta per installarlo o se nel report non sono presenti tutte le applicazioni di AD FS, potrebbe essere che non si dispone di applicazioni AD FS attive o che le applicazioni di AD FS sono Microsoft Application.
+ 
+ Il report attività applicazione AD FS elenca tutte le applicazioni AD FS nell'organizzazione con accesso utenti attivi negli ultimi 30 giorni. Inoltre, nel report non vengono visualizzate le relying party correlate a Microsoft in AD FS, ad esempio Office 365. Ad esempio, le relying party con nome "urn: Federation: MicrosoftOnline", "microsoftonline", "Microsoft: winhello: Cert: prov: Server" non verranno visualizzate nell'elenco.
+
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

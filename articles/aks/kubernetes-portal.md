@@ -4,21 +4,18 @@ description: Informazioni su come interagire con le risorse di Kubernetes per ge
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635610"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571624"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Accedere alle risorse di Kubernetes dalla portale di Azure (anteprima)
 
 Il portale di Azure include un visualizzatore di risorse Kubernetes (anteprima) per semplificare l'accesso alle risorse di Kubernetes nel cluster del servizio Kubernetes di Azure (AKS). La visualizzazione delle risorse di Kubernetes dalla portale di Azure riduce il cambio di contesto tra la portale di Azure e lo `kubectl` strumento da riga di comando, semplificando l'esperienza di visualizzazione e modifica delle risorse di Kubernetes. Il Visualizzatore risorse include attualmente più tipi di risorse, ad esempio distribuzioni, Pod e set di repliche.
 
-La visualizzazione risorse Kubernetes dalla portale di Azure sostituisce il [componente aggiuntivo del dashboard AKS][kubernetes-dashboard], che è impostato per la deprecazione.
-
->[!NOTE]
->Il capabilty non è attualmente supportato nei [cluster di servizi Kubernetes di Azure privati](./private-clusters.md).
+La visualizzazione risorse Kubernetes dalla portale di Azure sostituisce il [componente aggiuntivo del dashboard AKS][kubernetes-dashboard], che è stato deprecato.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -46,21 +43,21 @@ In questo esempio verrà usato il cluster AKS di esempio per distribuire l'appli
 
 Una volta aggiunto il file YAML, il Visualizzatore risorse Mostra sia i servizi Kubernetes che sono stati creati: il servizio interno (Azure-vote-back) e il servizio esterno (Azure-vote-front) per accedere all'applicazione Azure vote. Il servizio esterno include un indirizzo IP esterno collegato per poter visualizzare facilmente l'applicazione nel browser.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informazioni Pod Kubernetes visualizzate nel portale di Azure." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informazioni sull'applicazione di voto di Azure visualizzate nel portale di Azure." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Monitorare le informazioni dettagliate sulla distribuzione
 
 I cluster AKS con [monitoraggio di Azure per i contenitori][enable-monitor] abilitati possono visualizzare rapidamente informazioni dettagliate sulla distribuzione. Dalla visualizzazione risorse di Kubernetes, gli utenti possono visualizzare lo stato attivo delle singole distribuzioni, tra cui l'utilizzo della CPU e della memoria, nonché la transizione a monitoraggio di Azure per ottenere informazioni più dettagliate. Di seguito è riportato un esempio di informazioni dettagliate sulla distribuzione da un cluster AKS di esempio:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Informazioni Pod Kubernetes visualizzate nel portale di Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Informazioni dettagliate sulla distribuzione visualizzate nel portale di Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Modifica YAML
 
 La visualizzazione risorse Kubernetes include anche un editor YAML. Un editor YAML incorporato significa che è possibile aggiornare o creare servizi e distribuzioni dall'interno del portale e applicare immediatamente le modifiche.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Informazioni Pod Kubernetes visualizzate nel portale di Azure.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Editor YAML per un servizio Kubernetes visualizzato nella portale di Azure.":::
 
-Dopo aver modificato YAML, le modifiche vengono applicate selezionando **Verifica e Salva** , confermando le modifiche e quindi salvando di nuovo.
+Dopo aver modificato YAML, le modifiche vengono applicate selezionando **Verifica e Salva**, confermando le modifiche e quindi salvando di nuovo.
 
 >[!WARNING]
 > L'esecuzione di modifiche dirette alla produzione tramite interfaccia utente o CLI non è consigliata. è consigliabile usare le [procedure consigliate per l'integrazione continua (ci) e la distribuzione continua (CD)](kubernetes-action.md). Le funzionalità di gestione di Kubernetes del portale di Azure e l'editor YAML sono compilate per l'apprendimento e il volo di nuove distribuzioni in un'impostazione di sviluppo e test.
@@ -80,7 +77,7 @@ Per accedere alle risorse di Kubernetes, è necessario avere accesso al cluster 
 
 Per i cluster esistenti, potrebbe essere necessario abilitare la visualizzazione delle risorse Kubernetes. Per abilitare la visualizzazione risorse, seguire le istruzioni nel portale per il cluster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Informazioni Pod Kubernetes visualizzate nel portale di Azure." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Portale di Azure messaggio per abilitare la visualizzazione delle risorse Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > È possibile aggiungere la funzionalità AKS per gli [**intervalli IP autorizzati del server API**](api-server-authorized-ip-ranges.md) per limitare l'accesso al server API solo all'endpoint pubblico del firewall. Un'altra opzione per questi cluster è `--api-server-authorized-ip-ranges` l'aggiornamento per includere l'accesso per un computer client locale o un intervallo di indirizzi IP (da cui viene visualizzato il portale). Per consentire l'accesso, è necessario l'indirizzo IPv4 pubblico del computer. È possibile trovare questo indirizzo con il comando seguente o eseguendo una ricerca di "Qual è l'indirizzo IP" in un browser Internet.

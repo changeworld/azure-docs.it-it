@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489506"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573409"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI (anteprima)
 
 [Autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'output in Power bi consente ai processi di analisi di flusso di accedere direttamente a un'area di lavoro all'interno dell'account di Power bi. Questa funzionalità consente di automatizzare completamente le distribuzioni dei processi di analisi di flusso, perché non è più necessario per consentire a un utente di accedere in modo interattivo a Power BI tramite il portale di Azure. Inoltre, i processi a esecuzione prolungata che scrivono in Power BI sono ora più supportati, poiché non sarà necessario riautorizzare periodicamente il processo.
 
@@ -201,7 +201,7 @@ Il processo di analisi di flusso può essere aggiunto anche come collaboratore a
 ```http
 POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 ```
-Corpo della richiesta
+Request Body
 ```json
 {
     "groupUserAccessRight": "Contributor",
