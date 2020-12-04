@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ea12bf8a8d93f14c5364864b97d1173fe8602765
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 00f72e1de230cdc68f86010b7b25d86debaa5eb5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554424"
+ms.locfileid: "96575789"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Analizza informazioni dettagliate sui dati in Azure
 
@@ -20,8 +20,9 @@ Questa guida dettagliata descrive come accedere, visualizzare e filtrare i repor
 
 In questa guida dettagliata si apprenderà come:
 
-* Visualizza informazioni approfondite dall'account di competenza.
-* Ottieni una visione d'occhio delle tue analisi.
+> [!div class="checklist"]
+> * Visualizza informazioni approfondite dall'account di competenza.
+> * Ottieni una visione d'occhio delle tue analisi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

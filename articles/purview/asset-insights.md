@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 5045a13bb932f5907584bae23e956374a5757a68
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554848"
+ms.locfileid: "96575347"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Informazioni dettagliate sulle risorse in Azure
 
@@ -20,9 +20,10 @@ Questa guida dettagliata descrive come accedere, visualizzare e filtrare i repor
 
 In questa guida dettagliata si apprenderà come:
 
-* Visualizza informazioni approfondite dall'account di competenza.
-* Ottieni una panoramica dei tuoi dati.
-* Eseguire il drill-down per ulteriori dettagli sul numero di asset.
+> [!div class="checklist"]
+> * Visualizza informazioni approfondite dall'account di competenza.
+> * Ottieni una panoramica dei tuoi dati.
+> * Eseguire il drill-down per ulteriori dettagli sul numero di asset.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

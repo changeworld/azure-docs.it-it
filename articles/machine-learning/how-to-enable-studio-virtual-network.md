@@ -11,24 +11,25 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a90b98e8be976da9ee2669ab3b5fed4a890f0fb2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960003"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576621"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
-Questo articolo illustra come usare Azure Machine Learning Studio in una rete virtuale. Si apprenderà come:
+Questo articolo illustra come usare Azure Machine Learning Studio in una rete virtuale. In studio sono incluse funzionalità come AutoML, la finestra di progettazione e l'assegnazione di etichette ai dati. Per usare queste funzionalità in una rete virtuale, è necessario seguire la procedura descritta in questo articolo.
+
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
-> - Accedere a Studio da una risorsa all'interno di una rete virtuale.
-> - Configurare endpoint privati per gli account di archiviazione.
 > - Consentire a studio di accedere ai dati archiviati all'interno di una rete virtuale.
+> - Accedere a Studio da una risorsa all'interno di una rete virtuale.
 > - Informazioni sul modo in cui lo studio influisca sulla sicurezza dell'archiviazione.
 
-Questo articolo è la parte cinque di una serie in cinque parti che illustra come proteggere un flusso di lavoro Azure Machine Learning. È consigliabile leggere prima di tutto la [parte 1: Panoramica di VNet](how-to-network-security-overview.md) per comprendere prima l'architettura complessiva. 
+Questo articolo è la parte cinque di una serie in cinque parti che illustra come proteggere un flusso di lavoro Azure Machine Learning. Si consiglia vivamente di leggere le parti precedenti per configurare un ambiente di rete virtuale.
 
 Vedere gli altri articoli di questa serie:
 
@@ -41,7 +42,7 @@ Vedere gli altri articoli di questa serie:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Leggere la [Panoramica della sicurezza di rete](how-to-network-security-overview.md) per comprendere gli scenari comuni della rete virtuale e l'architettura complessiva della rete virtuale.
++ Leggere la [Panoramica della sicurezza di rete](how-to-network-security-overview.md) per comprendere gli scenari e l'architettura comuni della rete virtuale.
 
 + Una rete virtuale e una subnet preesistenti da usare.
 
@@ -49,21 +50,16 @@ Vedere gli altri articoli di questa serie:
 
 + Un account di archiviazione di Azure esistente ha [aggiunto la rete virtuale](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
-## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Accedere a Studio da una risorsa all'interno di VNet
+## <a name="configure-data-access-in-the-studio"></a>Configurare l'accesso ai dati in studio
 
-Se si accede a Studio da una risorsa all'interno di una rete virtuale, ad esempio un'istanza di calcolo o una macchina virtuale, è necessario consentire il traffico in uscita dalla rete virtuale a Studio. 
+Alcune delle funzionalità di studio sono disabilitate per impostazione predefinita in una rete virtuale. Per abilitare di nuovo queste funzionalità, è necessario abilitare l'identità gestita per gli account di archiviazione che si intende usare in studio. 
 
-Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffico in uscita, aggiungere una regola a una destinazione di __tag del servizio__ di __AzureFrontDoor. frontend__.
-
-## <a name="access-data-using-the-studio"></a>Accedere ai dati tramite studio
-
-Dopo aver aggiunto un account di archiviazione di Azure alla rete virtuale con un [endpoint del servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), è necessario configurare l'account di archiviazione in modo da usare l' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per concedere a Studio l'accesso ai dati.
-
-Se non si Abilita l'identità gestita, verrà visualizzato questo errore, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` inoltre, verranno disabilitate le operazioni seguenti:
+Le operazioni seguenti sono disabilitate per impostazione predefinita in una rete virtuale:
 
 * Visualizzare in anteprima i dati in studio.
 * Visualizza i dati nella finestra di progettazione.
-* Inviare un esperimento AutoML.
+* Distribuire un modello nella finestra di progettazione ([account di archiviazione predefinito](#enable-managed-identity-authentication-for-default-storage-accounts)).
+* Inviare un esperimento AutoML ([account di archiviazione predefinito](#enable-managed-identity-authentication-for-default-storage-accounts)).
 * Avviare un progetto di assegnazione di etichette.
 
 Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una rete virtuale:
@@ -71,36 +67,58 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
-### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concessione dell'accesso al __lettore__ di identità gestito dell'area di lavoro al collegamento privato di archiviazione
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita dall'area di lavoro
 
-Questo passaggio è necessario solo se l'account di archiviazione di Azure è stato aggiunto alla rete virtuale con un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). Per ulteriori informazioni, vedere ruolo predefinito [Reader](../role-based-access-control/built-in-roles.md#reader) .
+Dopo aver aggiunto un account di archiviazione di Azure alla rete virtuale con un [endpoint del servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), è necessario configurare l'archivio dati per l'uso dell'autenticazione basata sull' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) . Questa operazione consente di accedere ai dati dell'account di archiviazione in studio.
 
-### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita dell'area di lavoro
-
-Azure Machine Learning usa gli [archivi dati](concept-data.md#datastores) per connettersi agli account di archiviazione. Usare la procedura seguente per configurare gli archivi dati in modo da usare l'identità gestita. 
+Azure Machine Learning usa gli [archivi dati](concept-data.md#datastores) per connettersi agli account di archiviazione. Usare la procedura seguente per configurare un archivio dati per usare l'identità gestita:
 
 1. In Studio selezionare __datastores__.
 
-1. Per creare un nuovo archivio dati, selezionare __+ nuovo archivio dati__.
+1. Per aggiornare un archivio dati esistente, selezionare l'archivio dati e selezionare __Aggiorna credenziali__.
 
-    Per aggiornare un archivio dati esistente, selezionare l'archivio dati e selezionare __Aggiorna credenziali__.
+    Per creare un nuovo archivio dati, selezionare __+ nuovo archivio dati__.
 
-1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dall'area di lavoro__.
+1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Usa identità gestita dell'area di lavoro per l'anteprima dati e la profilatura in Azure Machine Learning Studio__.
+
+    ![Screenshot che illustra come abilitare l'identità dell'area di lavoro gestita](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
+
+Questi passaggi aggiungono l'identità gestita dell'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base al ruolo Accesso __Reader__ consente all'area di lavoro di recuperare le impostazioni del firewall per assicurarsi che i dati non lascino la rete virtuale. Per rendere effettive le modifiche potrebbero essere necessari fino a 10 minuti.
+
+### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Abilitare l'autenticazione dell'identità gestita per gli account di archiviazione predefiniti
+
+Ogni area di lavoro Azure Machine Learning viene fornita con due account di archiviazione predefiniti, che vengono definiti quando si crea l'area di lavoro. Lo studio usa gli account di archiviazione predefiniti per archiviare gli artefatti dell'esperimento e del modello, che sono fondamentali per determinate funzionalità in studio.
+
+La tabella seguente descrive il motivo per cui è necessario abilitare l'autenticazione dell'identità gestita per gli account di archiviazione predefiniti dell'area di lavoro.
+
+|Account di archiviazione  | Note  |
+|---------|---------|
+|Archivio BLOB predefinito dell'area di lavoro| Archivia gli asset del modello dalla finestra di progettazione. Per distribuire i modelli nella finestra di progettazione, è necessario abilitare l'autenticazione dell'identità gestita in questo account di archiviazione. <br> <br> È possibile visualizzare ed eseguire una pipeline di progettazione se utilizza un archivio dati non predefinito configurato per l'utilizzo dell'identità gestita. Tuttavia, se si tenta di distribuire un modello sottoposto a training senza l'identità gestita abilitata nell'archivio dati predefinito, la distribuzione avrà esito negativo indipendentemente da qualsiasi altro archivio dati in uso.|
+|Archivio file predefinito dell'area di lavoro| Archivia le risorse dell'esperimento AutoML. Per inviare esperimenti AutoML, è necessario abilitare l'autenticazione dell'identità gestita in questo account di archiviazione. |
 
 
-Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Accesso in __lettura__ consente all'area di lavoro di recuperare le impostazioni del firewall e assicurarsi che i dati non lascino la rete virtuale.
+![Screenshot che mostra la posizione in cui è possibile trovare gli archivi dati predefiniti](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
-> [!NOTE]
-> Per rendere effettive queste modifiche possono essere necessari fino a 10 minuti.
+
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concessione dell'accesso al __lettore__ di identità gestito dell'area di lavoro al collegamento privato di archiviazione
+
+Se l'account di archiviazione di Azure usa un endpoint privato, è necessario concedere l'accesso del **lettore** di identità gestito dall'area di lavoro al collegamento privato. Per ulteriori informazioni, vedere ruolo predefinito [Reader](../role-based-access-control/built-in-roles.md#reader) . 
+
+Se l'account di archiviazione usa un endpoint del servizio, è possibile ignorare questo passaggio.
+
+## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Accedere a Studio da una risorsa all'interno di VNet
+
+Se si accede a Studio da una risorsa all'interno di una rete virtuale, ad esempio un'istanza di calcolo o una macchina virtuale, è necessario consentire il traffico in uscita dalla rete virtuale a Studio. 
+
+Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffico in uscita, aggiungere una regola a una destinazione di __tag del servizio__ di __AzureFrontDoor. frontend__.
 
 ## <a name="technical-notes-for-managed-identity"></a>Note tecniche per l'identità gestita
 
-L'uso dell'identità gestita per accedere ai servizi di archiviazione influisca su alcune considerazioni sulla sicurezza. Questa sezione descrive le modifiche per ogni tipo di account di archiviazione.
+L'uso dell'identità gestita per accedere ai servizi di archiviazione influisca sulle considerazioni sulla sicurezza. Questa sezione descrive le modifiche per ogni tipo di account di archiviazione. 
 
-> [!IMPORTANT]
-> Queste considerazioni sono univoche per il __tipo di account di archiviazione__ a cui si accede.
+Queste considerazioni sono univoche per il __tipo di account di archiviazione__ a cui si accede.
 
 ### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
@@ -124,23 +142,17 @@ Per accedere ai dati archiviati in un database SQL di Azure tramite identità ge
 
 Dopo aver creato un utente indipendente di SQL, concedere le autorizzazioni tramite il [comando T-SQL Grant](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
-### <a name="azure-machine-learning-designer-default-datastore"></a>Archivio dati predefinito di Azure Machine Learning Designer
+### <a name="azure-machine-learning-designer-intermediate-module-output"></a>Output del modulo intermedio di Azure Machine Learning Designer
 
-La finestra di progettazione USA l'account di archiviazione collegato all'area di lavoro per archiviare l'output per impostazione predefinita. Tuttavia, è possibile specificarlo per archiviare l'output in qualsiasi archivio dati a cui si ha accesso. Se l'ambiente USA reti virtuali, è possibile usare questi controlli per garantire che i dati rimangano protetti e accessibili.
+È possibile specificare il percorso di output per qualsiasi modulo nella finestra di progettazione. Usare questa funzionalità per archiviare i set di dati intermedi in un percorso separato a scopo di sicurezza, registrazione o controllo. Per specificare l'output:
 
-Per impostare una nuova risorsa di archiviazione predefinita per una pipeline:
+1. Selezionare il modulo di cui si vuole specificare l'output.
+1. Nel riquadro Impostazioni modulo visualizzato a destra selezionare **impostazioni di output**.
+1. Specificare l'archivio dati che si vuole usare per ogni output del modulo.
+ 
+Assicurarsi di avere accesso agli account di archiviazione intermedi nella rete virtuale. In caso contrario, la pipeline avrà esito negativo.
 
-1. In una bozza di pipeline selezionare l' **icona dell'ingranaggio impostazioni** accanto al titolo della pipeline.
-1. Selezionare l' **archivio dati predefinito**.
-1. Consente di specificare un nuovo archivio dati.
-
-È anche possibile eseguire l'override dell'archivio dati predefinito in base al modulo. Questo consente di controllare il percorso di archiviazione per ogni singolo modulo.
-
-1. Selezionare il modulo di cui si desidera specificare l'output.
-1. Espandere la sezione **impostazioni di output** .
-1. Selezionare **Sostituisci impostazioni di output predefinite**.
-1. Selezionare **imposta impostazioni di output**.
-1. Consente di specificare un nuovo archivio dati.
+È anche necessario [abilitare l'autenticazione di identità gestita](#configure-datastores-to-use-workspace-managed-identity) per gli account di archiviazione intermedi per visualizzare i dati di output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

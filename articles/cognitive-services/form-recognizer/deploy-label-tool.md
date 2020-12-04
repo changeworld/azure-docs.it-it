@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913110"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576554"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -42,8 +42,8 @@ Prima di iniziare, è importante tenere presente che esistono due modi per distr
 Seguire questa procedura per creare una nuova risorsa usando il portale di Azure: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/signin/index/).
-2. Selezionare **Crea una risorsa** . 
-3. Quindi selezionare **app Web** . 
+2. Selezionare **Crea una risorsa**. 
+3. Quindi selezionare **app Web**. 
 
    > [!div class="mx-imgBorder"]
    > ![Selezionare l'app Web](./media/quickstarts/formre-create-web-app.png)
@@ -136,7 +136,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

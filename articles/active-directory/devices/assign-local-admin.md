@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f705150f927a08b5ca2f91b702ee0853766ac23a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511118"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575823"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -24,7 +24,7 @@ Per gestire un dispositivo Windows, è necessario essere un membro del gruppo di
 
 Questo articolo illustra il funzionamento dell'aggiornamento dell'appartenenza degli amministratori locali e il modo in cui è possibile personalizzarlo durante un Azure AD join. Il contenuto di questo articolo non si applica a dispositivi **ibridi Azure ad aggiunti** .
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Quando si connette un dispositivo Windows con Azure AD usando un join Azure AD, Azure AD aggiunge le entità di sicurezza seguenti al gruppo Administrators locale nel dispositivo:
 
@@ -81,7 +81,7 @@ A partire dall'aggiornamento di Windows 10 2004, è possibile usare i gruppi di 
 
 Attualmente non è disponibile alcuna interfaccia utente in Intune per gestire questi criteri ed è necessario configurarli con [impostazioni URI OMA personalizzate](/mem/intune/configuration/custom-settings-windows-10). Di seguito sono riportate alcune considerazioni relative all'utilizzo di uno di questi criteri: 
 
-- L'aggiunta di Azure AD gruppi tramite il criterio richiede il SID del gruppo che può essere ottenuto eseguendo l'API dei gruppi. Il SID è definito dalla proprietà `securityIdentifier` nell'API dei gruppi.
+- L'aggiunta di Azure AD gruppi tramite il criterio richiede il SID del gruppo che può essere ottenuto eseguendo l' [API Microsoft Graph per i gruppi](/graph/api/resources/group?view=graph-rest-beta). Il SID è definito dalla proprietà `securityIdentifier` nella risposta dell'API.
 - Quando viene applicato un criterio di gruppi limitati, viene rimosso qualsiasi membro corrente del gruppo che non si trova nell'elenco dei membri. L'applicazione di questi criteri con nuovi membri o gruppi eliminerà quindi gli amministratori esistenti, ovvero l'utente che ha aggiunto il dispositivo, il ruolo di amministratore del dispositivo e il ruolo di amministratore globale dal dispositivo. Per evitare di rimuovere membri esistenti, è necessario configurarli come parte dell'elenco dei membri nel criterio gruppi limitati. Questa limitazione viene risolta se si usano i criteri utenti e gruppi locali che consentono aggiornamenti incrementali dell'appartenenza al gruppo
 - I privilegi di amministratore che usano entrambi i criteri vengono valutati solo per i gruppi noti seguenti in un dispositivo Windows 10: amministratori, utenti, Guest, Power Users, Desktop remoto utenti e utenti di gestione remota. 
 - La gestione degli amministratori locali con gruppi di Azure AD non è applicabile ai dispositivi Azure AD ibrido aggiunti o Azure AD registrati.

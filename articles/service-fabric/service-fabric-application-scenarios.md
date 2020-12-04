@@ -3,13 +3,12 @@ title: Scenari e progettazione di applicazioni
 description: Panoramica delle categorie di applicazioni cloud nell'infrastruttura di servizi. Illustra la progettazione di applicazioni con servizi con e senza stato.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.custom: sfrev
-ms.openlocfilehash: aaf8204158f720d8c69c98af758071cd91f6eff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248170"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575670"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
 
@@ -21,7 +20,7 @@ Per indicazioni sulla progettazione per la creazione di applicazioni, vedere [ar
 
 Provare a usare la piattaforma Service Fabric per i tipi di applicazioni seguenti:
 
-* **Raccolta dati, elaborazione e**cose: Service Fabric gestisce una grande scala e ha bassa latenza nei servizi con stato. Consente di elaborare i dati in milioni di dispositivi in cui si trovano i dati per il dispositivo e il calcolo.
+* **Raccolta dati, elaborazione e** cose: Service Fabric gestisce una grande scala e ha bassa latenza nei servizi con stato. Consente di elaborare i dati in milioni di dispositivi in cui si trovano i dati per il dispositivo e il calcolo.
 
     I clienti che hanno compilato servizi Internet con Service Fabric includono [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [costruzione PCL](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure),  [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)e [sistemi mesh](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 

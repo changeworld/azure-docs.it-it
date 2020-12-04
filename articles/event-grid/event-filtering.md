@@ -2,13 +2,13 @@
 title: Filtri eventi per Griglia di eventi di Azure
 description: Questo articolo illustra come filtrare gli eventi quando si crea una sottoscrizione di Griglia di eventi di Azure.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120093"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574907"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -72,7 +72,7 @@ Se si specifica un singolo filtro con più valori, viene eseguita un'operazione 
 ]
 ```
 
-Se si specificano più filtri diversi, viene eseguita un'operazione and, quindi è necessario soddisfare ogni condizione **di** filtro. Esempio: 
+Se si specificano più filtri diversi, viene eseguita un'operazione and, quindi è necessario soddisfare ogni condizione **di** filtro. Ecco un esempio: 
 
 ```json
 "advancedFilters": [
@@ -115,7 +115,24 @@ Gli operatori disponibili per le **stringhe** sono:
 * StringIn
 * StringNotIn
 
-Tutti i confronti di stringhe **non** fanno distinzione tra maiuscole e minuscole
+Tutti i confronti di stringhe **non** fanno distinzione tra maiuscole e minuscole.
+
+> [!NOTE]
+> Se il file JSON dell'evento non contiene la chiave di filtro avanzata, Filter è evaulated come **non corrispondente** per gli operatori seguenti: 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - NumberIn
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - StringIn
+> 
+>Il filtro è evaulated come **corrispondente** per gli operatori seguenti:
+> - NumberNotIn
+> - StringNotIn
 
 ### <a name="key"></a>Chiave
 
@@ -123,7 +140,7 @@ Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'
 
 * ID
 * Argomento
-* Subject
+* Oggetto
 * EventType
 * DataVersion
 * Dati dell'evento (ad esempio, Data.key1)
@@ -142,7 +159,7 @@ Per uno schema di input personalizzato, usare i campi dati degli eventi (ad esem
 
 I valori possibili sono i seguenti.
 
-* d'acquisto
+* Numero
 * string
 * boolean
 * array
@@ -154,7 +171,7 @@ I filtri avanzati presentano le limitazioni seguenti:
 * 5 filtri avanzati e 25 valori di filtro in tutti i filtri per ogni sottoscrizione di griglia di eventi
 * 512 caratteri per ogni valore stringa
 * Cinque valori per gli operatori **in** e **not in**
-* Chiavi con il carattere ** `.` (punto)** . Ad esempio, `http://schemas.microsoft.com/claims/authnclassreference` o `john.doe@contoso.com`. Attualmente non è disponibile alcun supporto per i caratteri di escape nelle chiavi. 
+* Chiavi con il carattere **`.` (punto)** . Ad esempio, `http://schemas.microsoft.com/claims/authnclassreference` o `john.doe@contoso.com`. Attualmente non è disponibile alcun supporto per i caratteri di escape nelle chiavi. 
 
 È possibile usare l'elemento key in più filtri.
 

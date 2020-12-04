@@ -5,19 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5063360cfe066f526d2e65ce8e84479f55af26f4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 042139a39c28ee4944a7f3f766fc61b163629843
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490885"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574395"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Scaricare un elenco di utenti nel portale Azure Active Directory
 
@@ -25,12 +26,12 @@ Azure Active Directory (Azure AD) supporta operazioni di importazione (creazione
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per scaricare l'elenco di utenti dall'interfaccia di amministrazione di Azure AD, è necessario aver eseguito l'accesso con un utente assegnato a uno o più ruoli di amministratore a livello di organizzazione in Azure AD (l'amministratore utente è il ruolo minimo richiesto). L'invito Guest e lo sviluppatore di applicazioni non sono considerati ruoli di amministratore.
+Per scaricare l'elenco di utenti dall'interfaccia di amministrazione di Azure AD, devi avere eseguito l'accesso con un utente assegnato a uno o più ruoli di tipo Amministratore a livello di organizzazione in Azure AD. Amministratore utenti è il ruolo minimo richiesto. Il mittente dell'invito guest e lo sviluppatore dell'applicazione non vengono considerati ruoli di tipo Amministratore.
 
 ## <a name="to-download-a-list-of-users"></a>Per scaricare un elenco di utenti
 
 1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore utente nell'organizzazione.
-2. Passare a Azure Active Directory > utenti. Quindi selezionare gli utenti che si desidera includere nel download selezionando la casella nella colonna a sinistra accanto a ogni utente. Nota: al momento non è possibile selezionare tutti gli utenti per l'esportazione. Ognuna di esse deve essere selezionata singolarmente.
+2. Passa ad Azure Active Directory > Utenti. Seleziona quindi gli utenti da includere nel download selezionando la casella nella colonna sinistra accanto a ogni utente. Nota: non è attualmente possibile selezionare tutti gli utenti per l'esportazione. Ogni utente deve essere selezionato singolarmente.
 3. In Azure ad selezionare **utenti**  >  **Scarica utenti**.
 4. Nella pagina **Scarica utenti** selezionare **inizia** a ricevere un file CSV che elenca le proprietà del profilo utente. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina Risultati dell'operazione in blocco. Il file contiene il motivo di ogni errore.
 

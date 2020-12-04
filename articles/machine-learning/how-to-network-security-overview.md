@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6398d23aeb0e26fbc336c0c1066078f327fa2f73
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325426"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576571"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -145,10 +145,11 @@ Se la risorsa di archiviazione si trova in una VNet, è necessario prima eseguir
 
 * Visualizzare in anteprima i dati in studio.
 * Visualizza i dati nella finestra di progettazione.
+* Distribuire un modello nella finestra di progettazione.
 * Inviare un esperimento AutoML.
 * Avviare un progetto di assegnazione di etichette.
 
-Per abilitare la funzionalità di studio completo all'interno di un VNet, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio supporta gli account di archiviazione usando gli endpoint di servizio o gli endpoint privati.
+Per abilitare la funzionalità di studio completo all'interno di un VNet, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Studio supporta gli account di archiviazione usando gli endpoint di servizio o gli endpoint privati.
 
 ### <a name="limitations"></a>Limitazioni
 - L' [assegnazione di etichette ai dati assistiti da ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) non supporta gli account di archiviazione predefiniti protetti dietro una rete virtuale. È necessario usare un account di archiviazione non predefinito per l'assegnazione di etichette ai dati assistiti da ML. Si noti che l'account di archiviazione non predefinito può essere protetto dietro la rete virtuale. 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: beaa231eddd57e29578a1d69ee30af05ce7c8d0f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554381"
+ms.locfileid: "96575755"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informazioni approfondite sull'etichetta di riservatezza sui dati in Azure
 
@@ -75,6 +75,7 @@ La competenza usa le stesse classificazioni, note anche come tipi di informazion
    |**Etichette principali applicate alle tabelle**     | Mostra le etichette di riservatezza principali applicate alle tabelle di database nei dati. |   
    |  **Attività di assegnazione di etichette**  |  Visualizza grafici distinti per i file e le tabelle, ognuno dei quali Mostra il numero di file o tabelle etichettati nell'intervallo di tempo selezionato. <br>**Impostazione predefinita**: 30 giorni<br>Selezionare il filtro **temporale** sopra i grafici per selezionare un intervallo di tempo diverso da visualizzare.    |
    |    |    |
+
 ## <a name="sensitivity-labeling-insights-drilldown"></a>Assegnazione di un'etichetta al drill-down di Insights
 
 In una delle seguenti opzioni di contrassegno dei grafici di **Insights** , selezionare il collegamento **Visualizza altro** per eseguire il drill-down per altri dettagli:
@@ -98,6 +99,7 @@ Per ulteriori informazioni, effettuare una delle operazioni seguenti:
 |**Eseguire ulteriormente il drill-down**     | Per eseguire il drill-down fino a un'etichetta specifica, selezionare un nome nella colonna **etichetta riservatezza** per visualizzare l'etichetta in base al report **di origine** . <br><br>Questo report consente di visualizzare i dati per l'etichetta selezionata, inclusi il nome dell'origine, il tipo di origine, l'ID sottoscrizione e il numero di file e tabelle classificati.      |
 |**Sfoglia asset**     |  Per esplorare le risorse trovate con un'etichetta o un'origine specifica, selezionare una o più etichette o origini, a seconda del report che si sta visualizzando, quindi selezionare **Sfoglia asset** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: sopra i filtri. <br><br>Nei risultati della ricerca vengono visualizzati tutti gli asset con etichetta trovati per il filtro selezionato.  Per ulteriori informazioni, vedere [la pagina relativa alla ricerca nel Data Catalog di competenza di Azure](how-to-search-catalog.md).       |
 | | |
+
 ## <a name="sensitivity-label-integration-with-microsoft-365-compliance"></a>Integrazione dell'etichetta di riservatezza con Microsoft 365 conformità
 
 Una soluzione di integrazione con [Microsoft Information Protection](/microsoft-365/compliance/information-protection) offerta in Microsoft 365 significa che la competenza consente di estendere in modo diretto la visibilità dei dati, nonché di classificare ed etichettare i dati.
@@ -108,15 +110,9 @@ Per altre informazioni, vedere [etichettare automaticamente i dati in Azure](cre
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sui report Insight di Azure
-> [!div class="nextstepaction"]
-> [Informazioni dettagliate sul glossario](glossary-insights.md)
+Scopri di più su questi report Insight di Azure per le competenze:
 
-> [!div class="nextstepaction"]
-> [Analizza informazioni dettagliate](scan-insights.md)
-
-> [!div class="nextstepaction"]
-> [Informazioni dettagliate sulla classificazione](./classification-insights.md)
-
-> [!div class="nextstepaction"]
-> [Informazioni dettagliate sull'estensione di file](file-extension-insights.md)
+- [Informazioni dettagliate sul glossario](glossary-insights.md)
+- [Analizza informazioni dettagliate](scan-insights.md)
+- [Informazioni dettagliate sulla classificazione](./classification-insights.md)
+- [Informazioni dettagliate sull'estensione di file](file-extension-insights.md)

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542117"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576588"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -45,25 +45,29 @@ Insieme alla gestione delle quote, è possibile ottenere informazioni su come [p
 
 In questa sezione vengono illustrati i limiti di quota predefiniti e massimi per le risorse seguenti:
 
++ Asset Azure Machine Learning
+  + Ambiente di calcolo di Azure Machine Learning
+  + Pipeline di Azure Machine Learning
 + Macchine virtuali
-+ Ambiente di calcolo di Azure Machine Learning
-+ Pipeline di Azure Machine Learning
 + Istanze di Azure Container
 + Archiviazione di Azure
 
 > [!IMPORTANT]
 > I limiti sono soggetti a modifiche. Per informazioni aggiornate, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md) per tutte le risorse di Azure.
 
-### <a name="virtual-machines"></a>Macchine virtuali
-Ogni sottoscrizione di Azure ha un limite per il numero di macchine virtuali in tutti i servizi. I core delle macchine virtuali hanno un limite totale regionale e un limite a livello di area per ogni serie di dimensioni. Entrambi i limiti vengono applicati separatamente.
+### <a name="azure-machine-learning-assets"></a>Asset Azure Machine Learning
+I limiti seguenti per le risorse si applicano in base all'area di lavoro. 
 
-Si consideri ad esempio una sottoscrizione con limite di core di VM totale per gli Stati Uniti orientali pari a 30, un limite di core di serie A pari a 30 e un limite di core di serie D pari a 30. Questa sottoscrizione sarà autorizzata a distribuire 30 VM a1 o 30 VM D1 o una combinazione dei due che non superi un totale di 30 core.
+| **Risorsa** | **Limite massimo** |
+| --- | --- |
+| Set di dati | 10 milioni |
+| Esecuzioni | 10 milioni |
+| Modelli | 10 milioni|
+| Artifacts | 10 milioni |
 
-Non è possibile aumentare i limiti per le macchine virtuali sopra i valori indicati nella tabella seguente.
+Inoltre, il tempo di **esecuzione** massimo è di 30 giorni e il numero massimo di **metriche registrate per esecuzione** è 1 milione.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
+#### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
 [Azure Machine Learning calcolo](concept-compute-target.md#azure-machine-learning-compute-managed) ha un limite di quota predefinito per il numero di core e il numero di risorse di calcolo univoche consentite per area in una sottoscrizione. Questa quota è separata dalla quota di core della VM della sezione precedente.
 
 [Richiedere un aumento della quota](#request-quota-increases) per aumentare i limiti di questa sezione fino al limite massimo indicato nella tabella.
@@ -90,7 +94,7 @@ La tabella seguente Mostra limiti aggiuntivi che non possono essere superati.
 <sup>1</sup> durata massima è la durata compresa tra l'inizio di un'esecuzione e il suo completamento. Esecuzioni completate vengono mantenute per un periodo illimitato. I dati per le esecuzioni non completate entro la durata massima non sono accessibili.
 <sup>2</sup> i processi in un nodo con priorità bassa possono essere interrotti ogni volta che è presente un vincolo di capacità. Si consiglia di implementare i checkpoint nel processo.
 
-### <a name="azure-machine-learning-pipelines"></a>Pipeline di Azure Machine Learning
+#### <a name="azure-machine-learning-pipelines"></a>Pipeline di Azure Machine Learning
 [Azure Machine Learning pipeline](concept-ml-pipelines.md) presentano i limiti seguenti.
 
 | **Risorsa** | **Limite** |
@@ -98,7 +102,16 @@ La tabella seguente Mostra limiti aggiuntivi che non possono essere superati.
 | Passaggi in una pipeline | 30.000 |
 | Aree di lavoro per gruppo di risorse | 800 |
 
-### <a name="container-instances"></a>Istanze di contenitore
+### <a name="virtual-machines"></a>Macchine virtuali
+Ogni sottoscrizione di Azure ha un limite per il numero di macchine virtuali in tutti i servizi. I core delle macchine virtuali hanno un limite totale regionale e un limite a livello di area per ogni serie di dimensioni. Entrambi i limiti vengono applicati separatamente.
+
+Si consideri ad esempio una sottoscrizione con limite di core di VM totale per gli Stati Uniti orientali pari a 30, un limite di core di serie A pari a 30 e un limite di core di serie D pari a 30. Questa sottoscrizione sarà autorizzata a distribuire 30 VM a1 o 30 VM D1 o una combinazione dei due che non superi un totale di 30 core.
+
+Non è possibile aumentare i limiti per le macchine virtuali sopra i valori indicati nella tabella seguente.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+
+### <a name="container-instances"></a>Istanze di Container
 
 Per altre informazioni, vedere [limiti delle istanze del contenitore](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 

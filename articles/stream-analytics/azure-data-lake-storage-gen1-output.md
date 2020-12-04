@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 688cd7c2e54a6b4c6b5a11705e10c33604324f09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665345"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576282"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Output di Azure Data Lake Storage generazione 1 da analisi di flusso di Azure
 
@@ -36,7 +36,7 @@ La tabella seguente elenca i nomi di proprietà e le relative descrizioni per co
 | Codifica | Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato.|
 | Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale.|
 | Format | Applicabile solo per la serializzazione JSON. **Separato da righe** specifica che l'output viene formattato separando ciascun oggetto JSON con una nuova riga. Se si seleziona **Separato da righe**, JSON viene letto un oggetto alla volta. L'intero contenuto non è di per sé un oggetto JSON valido.  **Matrice** specifica che l'output viene formattato come matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON separato da righe, perché non richiede alcuna particolare gestione durante la scrittura del file di output.|
-| Modalità di autenticazione | È possibile autorizzare l'accesso all'account di Data Lake Storage usando l'[identità gestita](stream-analytics-managed-identities-adls.md) o il token utente. Quando si concede l'accesso, è possibile revocarlo modificando la password dell'account utente, eliminando l'output di Data Lake Storage per questo processo o eliminando il processo di Analisi di flusso. |
+| Modalità di autenticazione | È possibile autorizzare l'accesso all'account di Data Lake Storage usando l' [identità gestita](stream-analytics-managed-identities-adls.md) (anteprima) o il token utente. Quando si concede l'accesso, è possibile revocarlo modificando la password dell'account utente, eliminando l'output di Data Lake Storage per questo processo o eliminando il processo di Analisi di flusso. |
 
 ## <a name="partitioning"></a>Partizionamento
 

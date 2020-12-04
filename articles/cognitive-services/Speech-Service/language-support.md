@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 27cf5fef027b1e4786c0ff77f9f673bafea15f98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ef585d83c0606bedaf4c0a05c6c87fd52423b9a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487270"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575534"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -41,12 +41,14 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Arabo (Bahrein), standard moderno  |`ar-BH` | Modello linguistico                                   |
 |Arabo (Egitto)                     |`ar-EG` | Modello linguistico                                   |
 |Arabo (Iraq)                      |`ar-IQ` | Modello linguistico                                   |
+|Arabo (Israele)                              |`ar-IL` | Modello linguistico                                                   |
 |Arabo (Giordania)                    |`ar-JO` | Modello linguistico                                   |
 |Arabo (Kuwait)                    |`ar-KW` | Modello linguistico                                   |
 |Arabo (Libano)                   |`ar-LB` | Modello linguistico                                   |
 |Arabo (Oman)                      |`ar-OM` | Modello linguistico                                   |
 |Arabo (Qatar)                     |`ar-QA` | Modello linguistico                                   |
 |Arabo (Arabia Saudita)              |`ar-SA` | Modello linguistico                                   |
+|Arabo (stato della Palestina)            |`ar-PS` | Modello linguistico                                   |
 |Arabo (Siria)                     |`ar-SY` | Modello linguistico                                   |
 |Arabo (Emirati Arabi Uniti)      |`ar-AE` | Modello linguistico                                   |
 |Bulgaro (Bulgaria)               |`bg-BG` | Modello linguistico                                   |
@@ -55,7 +57,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Cinese (mandarino, semplificato)     |`zh-CN` | Modello acustico<br>Modello linguistico                 |
 |Cinese (mandarino taiwanese)       |`zh-TW` | Modello linguistico                                   |
 |Croato (Croazia)                 |`hr-HR` | Modello linguistico                                   |
-|Ceco (Repubblica ceca)             |`cs-CZ` | Modello linguistico                                   |
+|Ceco (Repubblica Ceca)             |`cs-CZ` | Modello linguistico                                   |
 |Danese (Danimarca)                   |`da-DK` | Modello linguistico                                   |
 |Olandese (Paesi Bassi)                |`nl-NL` | Modello linguistico                                   |
 |Inglese (Australia)                |`en-AU` | Modello acustico<br>Modello linguistico                 |
@@ -64,11 +66,12 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Inglese (India)                    |`en-IN` | Modello acustico<br>Modello linguistico                 |
 |Inglese (Irlanda)                  |`en-IE` | Modello linguistico                                   |
 |Inglese (Nuova Zelanda)              |`en-NZ` | Modello acustico<br>Modello linguistico                 |
+|Inglese (Nigeria)                          |`en-NG` | Modello linguistico                                                     |
 |Inglese (Filippine)              |`en-PH` | Modello linguistico                                   |
 |Inglese (Singapore)                |`en-SG` | Modello linguistico                                   |
 |Inglese (Sudafrica)             |`en-ZA` | Modello linguistico                                   |
 |Inglese (Regno Unito)           |`en-GB` | Modello acustico<br>Modello linguistico<br>Pronuncia|
-|Italiano (Italia)            |`en-US` | Modello acustico<br>Modello linguistico<br>Pronuncia|
+|Inglese (Stati Uniti)            |`en-US` | Modello acustico<br>Modello linguistico<br>Pronuncia|
 |Estone (Estonia)                  |`et-EE` | Modello linguistico                                   |
 |Finlandese (Finlandia)                  |`fi-FI` | Modello linguistico                                   |
 |Francese (Canada)                    |`fr-CA` | Modello acustico<br>Modello linguistico                 |
@@ -103,6 +106,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Spagnolo (Repubblica dominicana)       |`es-DO` | Modello linguistico                                   |
 |Spagnolo (Ecuador)                  |`es-EC` | Modello linguistico                                   |
 |Spagnolo (El Salvador)              |`es-SV` | Modello linguistico                                   |
+|Spagnolo (Guinea Equatoriale)            |`es-GQ` | Modello linguistico                                   |
 |Spagnolo (Guatemala)                |`es-GT` | Modello linguistico                                   |
 |Spagnolo (Honduras)                 |`es-HN` | Modello linguistico                                   |
 |Spagnolo (Messico)                   |`es-MX` | Modello acustico<br>Modello linguistico                 |
@@ -158,9 +162,9 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-LibbyNeural` | Generale |
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-MiaNeural` | Generale |
 | Inglese (Regno Unito) | `en-GB` | Male | `en-GB-RyanNeural` <sup>Nuovo</sup> | Generale |
-| Italiano (Italia) | `en-US` | Female | `en-US-AriaNeural` | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Italiano (Italia) | `en-US` | Male | `en-US-GuyNeural` | Generale |
-| Italiano (Italia) | `en-US` | Female | `en-US-JennyNeural` <sup>Nuovo</sup> | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Inglese (Stati Uniti) | `en-US` | Female | `en-US-AriaNeural` | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Inglese (Stati Uniti) | `en-US` | Male | `en-US-GuyNeural` | Generale |
+| Inglese (Stati Uniti) | `en-US` | Female | `en-US-JennyNeural` <sup>Nuovo</sup> | Generale, più stili vocali disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Finlandese (Finlandia) | `fi-FI` | Female | `fi-FI-NooraNeural` | Generale |
 | Francese (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | Generale |
 | Francese (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` <sup>Nuovo</sup> | Generale |
@@ -254,7 +258,7 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 | Cinese (mandarino taiwanese) |  `zh-TW` | Female | `zh-TW-Yating`|
 | Cinese (mandarino taiwanese) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
 | Croato (Croazia) | `hr-HR` | Male | `hr-HR-Matej`|
-| Ceco (Repubblica ceca) | `cs-CZ` | Male | `cs-CZ-Jakub`|
+| Ceco (Repubblica Ceca) | `cs-CZ` | Male | `cs-CZ-Jakub`|
 | Danese (Danimarca) | `da-DK` | Female | `da-DK-HelleRUS`|
 | Olandese (Paesi Bassi) | `nl-NL` | Female | `nl-NL-HannaRUS`|
 | Inglese (Australia) | `en-AU` | Female | `en-AU-Catherine`|
@@ -268,10 +272,10 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 | Inglese (Regno Unito) | `en-GB` | Male | `en-GB-George`|
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-HazelRUS`|
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-Susan`|
-| Italiano (Italia) | `en-US` | Male | `en-US-BenjaminRUS`|
-| Italiano (Italia) | `en-US` | Male | `en-US-GuyRUS`|
-| Italiano (Italia) | `en-US` | Female | `en-US-JessaRUS`|
-| Italiano (Italia) | `en-US` | Female | `en-US-ZiraRUS`|
+| Inglese (Stati Uniti) | `en-US` | Male | `en-US-BenjaminRUS`|
+| Inglese (Stati Uniti) | `en-US` | Male | `en-US-GuyRUS`|
+| Inglese (Stati Uniti) | `en-US` | Female | `en-US-JessaRUS`|
+| Inglese (Stati Uniti) | `en-US` | Female | `en-US-ZiraRUS`|
 | Finlandese (Finlandia) | `fi-FI` | Female | `fi-FI-HeidiRUS`|
 | Francese (Canada) | `fr-CA` | Female | `fr-CA-Caroline`|
 | Francese (Canada) | `fr-CA` | Female | `fr-CA-HarmonieRUS`|

@@ -1,17 +1,15 @@
 ---
 title: Convertire le app di servizi cloud di Azure in Service Fabric
 description: Questa guida confronta i ruoli di lavoro e Web di Servizi Cloud con i servizi senza stato di Service Fabric per facilitare la migrazione da Servizi cloud a Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002284"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575738"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
 Questo articolo descrive come eseguire la migrazione di ruoli di lavoro e Web di Servizi cloud a servizi senza stato di Service Fabric. Questo è il percorso di migrazione più semplice da Servizi cloud a Service Fabric per le applicazioni la cui architettura complessiva rimarrà approssimativamente la stessa.
@@ -43,7 +41,7 @@ Le API del servizio di Service Fabric e del ruolo di lavoro offrono punti di ing
 
 | **Punto di ingresso** | **Istanze del ruolo di lavoro** | **Servizio di Service Fabric** |
 | --- | --- | --- |
-| Elaborazione in corso |`Run()` |`RunAsync()` |
+| Elaborazione |`Run()` |`RunAsync()` |
 | Avvio della macchina virtuale |`OnStart()` |N/D |
 | Arresto della macchina virtuale |`OnStop()` |N/D |
 | Apertura del listener per le richieste client |N/D |<ul><li> `CreateServiceInstanceListener()` per servizi senza stato</li><li>`CreateServiceReplicaListener()` per servizi con stato</li></ul> |

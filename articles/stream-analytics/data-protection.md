@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/03/2020
+ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011405"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576503"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
@@ -41,7 +41,7 @@ Inoltre, è possibile scegliere di archiviare tutti gli asset di dati (dati del 
 
 Analisi di flusso usa automaticamente gli standard di crittografia migliori all'interno dell'infrastruttura per crittografare e proteggere i dati. È possibile considerare semplicemente attendibile analisi di flusso per archiviare in modo sicuro tutti i dati, in modo da non dover preoccuparsi di gestire l'infrastruttura.
 
-Se si vuole usare chiavi gestite dal cliente (CMK) per crittografare i dati, è possibile usare il proprio account di archiviazione (utilizzo generico V1 o V2) per archiviare gli asset di dati privati richiesti dal runtime di analisi di flusso. L'account di archiviazione può essere crittografato in base alle esigenze. Nessuno degli asset di dati privati viene archiviato in modo permanente dall'infrastruttura di analisi di flusso. 
+Se si vuole usare chiavi gestite dal cliente per crittografare i dati, è possibile usare il proprio account di archiviazione (utilizzo generico V1 o V2) per archiviare gli asset di dati privati richiesti dal runtime di analisi di flusso. L'account di archiviazione può essere crittografato in base alle esigenze. Nessuno degli asset di dati privati viene archiviato in modo permanente dall'infrastruttura di analisi di flusso. 
 
 Questa impostazione deve essere configurata al momento della creazione del processo di analisi di flusso e non può essere modificata nel corso del ciclo di vita del processo. La modifica o l'eliminazione dello spazio di archiviazione usato dall'analisi di flusso non è consigliata. Se si elimina l'account di archiviazione, verranno eliminati definitivamente tutti gli asset di dati privati, causando un errore nel processo. 
 
@@ -50,12 +50,9 @@ Non è possibile aggiornare o ruotare le chiavi nell'account di archiviazione us
 
 ### <a name="configure-storage-account-for-private-data"></a>Configurare l'account di archiviazione per i dati privati 
 
-
 Crittografare l'account di archiviazione per proteggere tutti i dati e scegliere in modo esplicito il percorso dei dati privati. 
 
 Per soddisfare gli obblighi di conformità in qualsiasi settore o ambiente regolamentato, è possibile leggere altre informazioni sulle [offerte di conformità di Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-
 
 Usare la procedura seguente per configurare l'account di archiviazione per gli asset di dati privati. Questa configurazione viene eseguita dal processo di analisi di flusso, non dall'account di archiviazione.
 
@@ -69,9 +66,15 @@ Usare la procedura seguente per configurare l'account di archiviazione per gli a
 
 1. Selezionare la casella di controllo per *proteggere tutti gli asset di dati privati necessari per questo processo nell'account di archiviazione*.
 
-1. Selezionare un account di archiviazione dalla sottoscrizione. Si noti che questa impostazione non può essere modificata durante tutto il ciclo di vita del processo. 
+1. Selezionare un account di archiviazione dalla sottoscrizione. Si noti che questa impostazione non può essere modificata durante tutto il ciclo di vita del processo. Non è inoltre possibile aggiungere questa opzione dopo che il processo è stato creato.
+
+1. Per eseguire l'autenticazione con una stringa di connessione, selezionare **stringa di connessione** nell'elenco a discesa modalità di autenticazione. La chiave dell'account di archiviazione viene popolata automaticamente dalla sottoscrizione.
 
    ![Impostazioni dell'account di archiviazione dati privato](./media/data-protection/storage-account-create.png)
+
+1. Per eseguire l'autenticazione con identità gestita (anteprima), selezionare **identità gestita** dall'elenco a discesa modalità di autenticazione. Se si sceglie identità gestita, è necessario aggiungere il processo di analisi di flusso all'elenco di controllo di accesso dell'account di archiviazione. Se non si concede l'accesso al processo, il processo non sarà in grado di eseguire alcuna operazione. Per altre informazioni su come concedere l'accesso, vedere usare il controllo degli accessi in base al ruolo [di Azure per assegnare un'identità gestita a un'altra risorsa](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+
+   :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Impostazioni dell'account di archiviazione dati privati con autenticazione identità gestita":::
 
 ## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Asset di dati privati archiviati da analisi di flusso
 

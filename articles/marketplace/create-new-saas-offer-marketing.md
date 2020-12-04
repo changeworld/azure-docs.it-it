@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: c8fa2efe708823ff4154edfd58f1b18e0176a990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ccc5a63da40950fbf9f05e3e029393fce8814d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381001"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576690"
 ---
 # <a name="how-to-market-your-saas-offer"></a>Come commercializzare l'offerta SaaS
 
@@ -23,7 +23,7 @@ Questo articolo descrive altre opzioni di marketing che è possibile scegliere s
 
 La fornitura di informazioni nella pagina **di co-selling con Microsoft** è interamente facoltativa. Ma è necessario per ottenere lo stato pronto per la co _-selling_ e per il _co-selling IP_ . I team di vendita Microsoft utilizzano queste informazioni per ottenere ulteriori informazioni sulla soluzione durante la valutazione della propria soluzione adatta alle esigenze dei clienti. Le informazioni fornite in questa scheda non sono direttamente disponibili per i clienti.
 
-Per informazioni dettagliate e istruzioni per configurare la **co-selling con** la scheda Microsoft, vedere [opzione di co-selling nel centro per i partner](partner-center-portal/commercial-marketplace-co-sell.md).
+Per informazioni dettagliate e istruzioni per configurare la **co-selling con** la scheda Microsoft, vedere [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Rivendere tramite CSP
 

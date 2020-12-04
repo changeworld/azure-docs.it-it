@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462394"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575007"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data Science con Windows Data Science Virtual Machine
 
@@ -25,7 +25,7 @@ Il DSVM funziona a stretto contatto con i servizi di Azure. Consente di leggere 
 
 In questo articolo si apprenderà come usare il DSVM per eseguire data science attività e interagire con altri servizi di Azure. Ecco alcune attività che è possibile eseguire con DSVM:
 
-- Usare un notebook di Jupyter per sperimentare i dati in un browser usando Python 2, Python 3 e Microsoft R. Microsoft R è una versione aziendale di R progettata per migliorare le prestazioni.
+- Usare un Jupyter Notebook per sperimentare i dati in un browser usando Python 2, Python 3 e Microsoft R. Microsoft R è una versione aziendale di R progettata per migliorare le prestazioni.
 - Esplorare i dati e sviluppare modelli in locale in DSVM usando Microsoft Machine Learning Server e Python.
 - Amministrare le risorse di Azure usando il portale di Azure o PowerShell.
 - Estendi lo spazio di archiviazione e Condividi set di impostazioni/codice su larga scala nell'intero team creando una condivisione File di Azure come unità montabile nella tua DSVM.
@@ -49,8 +49,8 @@ In questo articolo si apprenderà come usare il DSVM per eseguire data science a
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## <a name="use-jupyter-notebooks"></a>Usare i notebook di Jupyter
-Il Jupyter Notebook offre un IDE basato sul browser per l'esplorazione e la modellazione dei dati. È possibile usare Python 2, Python 3 o R (sia open source che Microsoft R Server) in un notebook di Jupyter.
+## <a name="use-jupyter-notebooks"></a>Usare i notebook di Jupyter Notebook
+Il Jupyter Notebook offre un IDE basato sul browser per l'esplorazione e la modellazione dei dati. In una Jupyter Notebook è possibile usare Python 2, Python 3 o R (sia open source che Microsoft R Server).
 
 Per avviare la Jupyter Notebook, selezionare l'icona **Jupyter notebook** dal menu **Start** o sul desktop. Al prompt dei comandi di DSVM è anche possibile eseguire il comando ```jupyter notebook``` dalla directory in cui sono presenti notebook o in cui si desidera creare nuovi notebook.  
 
@@ -201,7 +201,7 @@ Dopo aver eseguito il comando AzCopy per la copia in un BLOB di Azure, il file v
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Leggere dati da un BLOB di Azure: Python ODBC
 
-È possibile usare la libreria BlobService per leggere i dati direttamente da un BLOB in un notebook di Jupyter o in un programma Python.
+È possibile usare la libreria BlobService per leggere i dati direttamente da un BLOB in un Jupyter Notebook o in un programma Python.
 
 Importare prima di tutto i pacchetti necessari:
 

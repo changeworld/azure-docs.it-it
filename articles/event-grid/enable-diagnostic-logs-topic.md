@@ -2,16 +2,16 @@
 title: 'Griglia di eventi di Azure: abilitare i log di diagnostica per argomenti o domini'
 description: Questo articolo fornisce istruzioni dettagliate su come abilitare i log di diagnostica per un argomento di griglia di eventi di Azure.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: ff00c1438c49cbc9f9e67eba0cf0acef7991a5a4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297522"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576452"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Abilitare i log di diagnostica per gli argomenti o i domini di griglia di eventi di Azure
-Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di acquisire e visualizzare i log degli **errori di pubblicazione e recapito** in un account di archiviazione, un hub eventi o un'area di lavoro log Analytics. In questo articolo vengono fornite istruzioni dettagliate per l'abilitazione di queste impostazioni in un argomento di griglia di eventi.
+In questo articolo vengono fornite istruzioni dettagliate per abilitare le impostazioni di diagnostica per gli argomenti o i domini della griglia di eventi.  Queste impostazioni consentono di acquisire e visualizzare i log degli **errori di pubblicazione e recapito** . 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
 6. Selezionare le opzioni **DeliveryFailures** e **PublishFailures** nella sezione **log** . 
     ![Selezionare gli errori](./media/enable-diagnostic-logs-topic/log-failures.png)
 7. Abilitare una o più destinazioni di acquisizione per i log, quindi configurarle selezionando una risorsa di acquisizione creata in precedenza. 
-    - Se si seleziona **archivia in un account di archiviazione**, selezionare **account di archiviazione-configura**e quindi selezionare l'account di archiviazione nella sottoscrizione di Azure. 
+    - Se si seleziona **archivia in un account di archiviazione**, selezionare **account di archiviazione-configura** e quindi selezionare l'account di archiviazione nella sottoscrizione di Azure. 
 
         ![Screenshot che mostra la pagina "impostazioni di diagnostica" con "archivia in un account di archiviazione di Azure" selezionata e un account di archiviazione selezionato.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - Se si seleziona **flusso in un hub eventi**, selezionare **Hub eventi-configura**, quindi selezionare lo spazio dei nomi di hub eventi, l'hub eventi e i criteri di accesso. 
@@ -72,7 +72,7 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
 6. Abilitare una o più destinazioni di acquisizione per i log, quindi configurarle selezionando una risorsa di acquisizione creata in precedenza. 
     - Se si seleziona **Invia a log Analytics**, selezionare l'area di lavoro log Analytics.
         ![Invia a Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
-    - Se si seleziona **archivia in un account di archiviazione**, selezionare **account di archiviazione-configura**e quindi selezionare l'account di archiviazione nella sottoscrizione di Azure. 
+    - Se si seleziona **archivia in un account di archiviazione**, selezionare **account di archiviazione-configura** e quindi selezionare l'account di archiviazione nella sottoscrizione di Azure. 
 
         ![Archivia in un account di archiviazione di Azure](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
     - Se si seleziona **flusso in un hub eventi**, selezionare **Hub eventi-configura**, quindi selezionare lo spazio dei nomi di hub eventi, l'hub eventi e i criteri di accesso. 
@@ -87,10 +87,10 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
 
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Visualizzare i log di diagnostica in archiviazione di Azure 
 
-1. Quando si Abilita un account di archiviazione come destinazione di acquisizione e griglia di eventi avvia la creazione dei log di diagnostica, verranno visualizzati i nuovi contenitori denominati **Insights-logs-deliveryfailures** e **Insights-logs-publishfailures** nell'account di archiviazione. 
+1. Quando si Abilita un account di archiviazione come destinazione di acquisizione, griglia di eventi avvia la creazione dei log di diagnostica. Verranno visualizzati i nuovi contenitori denominati **Insights-logs-deliveryfailures** e **Insights-logs-publishfailures** nell'account di archiviazione. 
 
     ![Contenitori di archiviazione per i log di diagnostica](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. Quando si Esplora uno dei contenitori, si otterrà un BLOB in formato JSON. Il file contiene le voci di log per un errore di recapito o per un errore di pubblicazione. Il percorso di navigazione rappresenta il **resourceId** dell'argomento di griglia di eventi e il timestamp (livello minuto) a partire dal momento in cui sono state emesse le voci di log. Il file BLOB/JSON, che è scaricabile, al termine aderisce allo schema descritto nella sezione successiva. 
+2. Quando si Esplora uno dei contenitori, si finisce con un BLOB in formato JSON. Il file contiene le voci di log per un errore di recapito o per un errore di pubblicazione. Il percorso di navigazione rappresenta il **resourceId** dell'argomento di griglia di eventi e il timestamp (livello minuto) a partire dal momento in cui sono state emesse le voci di log. Il file BLOB/JSON, che è scaricabile, al termine aderisce allo schema descritto nella sezione successiva. 
 
     [![File JSON nell'archiviazione ](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
 3. Nel file JSON dovrebbe essere visualizzato contenuto simile all'esempio seguente: 
@@ -102,9 +102,8 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
         "eventSubscriptionName": "SAMPLEDESTINATION",
         "category": "DeliveryFailures",
         "operationName": "Deliver",
-        "message": "Message:outcome=NotFound, latencyInMs=2635, systemId=17284f7c-0044-46fb-84b7-59fda5776017, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
+        "message": "Message:outcome=NotFound, latencyInMs=2635, id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx, systemId=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
     }
     ```
-
 ## <a name="next-steps"></a>Passaggi successivi
 Per lo schema di log e altre informazioni concettuali sui log di diagnostica per argomenti o domini, vedere [log di diagnostica](diagnostic-logs.md).

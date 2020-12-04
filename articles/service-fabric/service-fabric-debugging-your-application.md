@@ -1,17 +1,15 @@
 ---
 title: Eseguire il debug dell'applicazione in Visual Studio
 description: Migliorare l'affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Visual Studio all'interno di un cluster di sviluppo locale.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0b7d08d610c883240abedc66c55abba64a74c8e3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093396"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576316"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug dell'applicazione di Service Fabric mediante Visual Studio
 > [!div class="op_single_selector"]
@@ -46,7 +44,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-7. Nella finestra **degli**eventi di diagnostica è possibile filtrare, sospendere ed esaminare eventi in tempo reale.  Il filtro è una semplice ricerca di stringhe del messaggio dell'evento, incluso il relativo contenuto.
+7. Nella finestra **degli** eventi di diagnostica è possibile filtrare, sospendere ed esaminare eventi in tempo reale.  Il filtro è una semplice ricerca di stringhe del messaggio dell'evento, incluso il relativo contenuto.
    
     ![Filtrare, sospendere e riprendere o esaminare eventi in tempo reale][diagnosticeventsactions]
 8. Il debug dei servizi è come il debug di qualsiasi altra applicazione. In genere i punti di interruzione vengono impostati tramite Visual Studio per semplificare il debug. Anche se le raccolte Reliable Collections vengono replicate in più nodi, implementano comunque IEnumerable. Questa implementazione indica che è possibile usare la visualizzazione dei risultati in Visual Studio mentre si esegue il debug per vedere cosa è stato archiviato all'interno. A tale scopo, impostare un punto di interruzione in qualsiasi punto del codice.
