@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: alkohli
-ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548955"
+ms.locfileid: "96576858"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
 
 Questo articolo descrive alcune delle attività di configurazione e gestione eseguite sui dispositivi Data Box e Data Box Heavy. È possibile gestire i dispositivi Data Box e Data Box Heavy tramite l'interfaccia utente di portale di Azure e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività eseguite usando l'interfaccia utente Web locale.
 
-L'interfaccia utente Web locale per Data Box e per Data Box Heavy viene usata per la configurazione iniziale del dispositivo. È anche possibile usare l'interfaccia utente Web locale per arrestare o riavviare il dispositivo, eseguire test diagnostici, aggiornare il software, visualizzare i log di copia, cancellare i dati locali dal dispositivo e generare un pacchetto per il supporto per supporto tecnico Microsoft. In un dispositivo Data Box Heavy con due nodi indipendenti, è possibile accedere a due interfacce utente Web locali separate corrispondenti a ogni nodo del dispositivo.
+L'interfaccia utente Web locale per il Data Box e per Data Box Heavy viene usata per la configurazione iniziale del dispositivo. È anche possibile usare l'interfaccia utente Web locale per arrestare o riavviare il dispositivo, eseguire test diagnostici, aggiornare il software, visualizzare i log di copia, cancellare i dati locali dal dispositivo e generare un pacchetto per il supporto per supporto tecnico Microsoft. In un dispositivo Data Box Heavy con due nodi indipendenti, è possibile accedere a due interfacce utente Web locali separate corrispondenti a ogni nodo del dispositivo.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
@@ -29,21 +29,25 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
 Per generare un pacchetto per il supporto, seguire questa procedura:
 
-1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e selezionare **Crea pacchetto** per il supporto.
+1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico**. Facoltativamente, selezionare **Includi dump memoria**. Quindi selezionare **Crea pacchetto** per il supporto.
+
+    Un dump della memoria è il contenuto della memoria del dispositivo, salvato in seguito a un errore di sistema.
+
+    Non è necessario selezionare l'opzione **Includi dump memoria** , a meno che il supporto non ne chieda uno. La raccolta di un pacchetto per il supporto che include un dump della memoria richiede molto tempo e vengono inclusi i dati sensibili.
 
     ![Creare un pacchetto per il supporto 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. Viene raccolto un pacchetto di supporto. Il completamento dell'operazione richiede alcuni minuti.
+    Viene raccolto un pacchetto di supporto. Questa operazione richiede alcuni minuti se si includono solo i log di sistema. Se si include un dump della memoria, richiede molto più tempo.
 
     ![Creare un pacchetto per il supporto 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Al termine della creazione del pacchetto di supporto, selezionare **Scarica pacchetto** per il supporto.
+2. Al termine della creazione del pacchetto di supporto, selezionare **Scarica pacchetto** per il supporto.
+
+    ![Creazione del pacchetto di supporto 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
+
+3. Individuare e scegliere il percorso di download. Aprire la cartella per visualizzarne il contenuto.
 
     ![Creare un pacchetto per il supporto 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
-
-4. Individuare e scegliere il percorso di download. Aprire la cartella per visualizzarne il contenuto.
-
-    ![Creare un pacchetto per il supporto 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
 ## <a name="erase-local-data-from-your-device"></a>Cancellare i dati locali dal dispositivo
 
@@ -72,6 +76,7 @@ Per cancellare i dati locali dal dispositivo, seguire questa procedura:
 Per arrestare il dispositivo, seguire questa procedura.
 
 1. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
+
 2. Selezionare **Arresta**.
 
     ![Arrestare Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
@@ -107,7 +112,7 @@ Prima di iniziare, seguire questa procedura per scaricare i file BOM o manifest 
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. In Esplora file si noterà che vengono generati elenchi distinti di file a seconda del protocollo usato per connettersi al dispositivo e al tipo di archiviazione di Azure usato.
+3. In Esplora file vengono generati elenchi separati di file a seconda del protocollo usato per connettersi al dispositivo e al tipo di archiviazione di Azure usato.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![File per tipo di archiviazione e protocollo di connessione](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -184,7 +189,7 @@ I checksum vengono generati per i dati per impostazione predefinita quando si pr
 
 Il calcolo del checksum durante la preparazione alla spedizione viene eseguito solo per gli ordini di importazione e non per gli ordini di esportazione.
 
-È consigliabile non disabilitare i checksum, a meno che le prestazioni non subiscano un notevole peggioramento.
+Si consiglia vivamente di non disabilitare il checksum, a meno che le prestazioni non vengano influenzate gravemente.
 
 1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo passare a **Impostazioni**.
 
@@ -261,9 +266,9 @@ Per abilitare il trasferimento degli ACL per file di Azure:
 
 ## <a name="enable-tls-11"></a>Abilitare TLS 1,1
 
-Per impostazione predefinita, Azure Data Box usa Transport Layer Security (TLS) 1,2 per la crittografia perché è più sicuro di TSL 1,1. Tuttavia, se l'utente o i client utilizzano un browser per accedere ai dati che non supportano TLS 1,2, è possibile abilitare TLS 1,1.
+Per impostazione predefinita, Azure Data Box usa Transport Layer Security (TLS) 1,2 per la crittografia perché è più sicuro di TSL 1,1. Tuttavia, se l'utente o i client usano un browser per accedere ai dati che non supportano TLS 1,2, è possibile abilitare TLS 1,1.
 
-Per altre informazioni relative a TLS, vedere [Azure Data Box Gateway sicurezza](../databox-online/data-box-gateway-security.md).
+Per altre informazioni relative a TLS, vedere [Azure Data Box Gateway sicurezza](../databox-gateway/data-box-gateway-security.md).
 
 Per abilitare TLS 1,1 nel dispositivo Azure:
 

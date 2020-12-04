@@ -1,17 +1,15 @@
 ---
 title: Comunicazione del servizio con la ASP.NET Core
 description: Informazioni su come usare ASP.NET Core in applicazioni Azure Service Fabric Reliable Services con e senza stato.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022191"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576792"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Azure Service Fabric Reliable Services
 
@@ -322,7 +320,7 @@ new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listen
 Se ServiceManifest.xml non usa una `Endpoint` configurazione, omettere il nome nel `KestrelCommunicationListener` costruttore. In questo caso, utilizzerà una porta dinamica. Per ulteriori informazioni, vedere la sezione successiva.
 
 #### <a name="use-kestrel-with-a-dynamic-port"></a>Usare Kestrel con una porta dinamica
-Il gheppio non può usare l'assegnazione automatica delle porte dalla `Endpoint` configurazione in ServiceManifest.xml. Questo perché l'assegnazione automatica delle porte da una `Endpoint` configurazione assegna una porta univoca per ogni *processo host*e un singolo processo host può contenere più istanze di gheppio. Questa operazione non funziona con gheppio perché non supporta la condivisione delle porte. Ogni istanza di Gheppio deve pertanto essere aperta su una porta univoca.
+Il gheppio non può usare l'assegnazione automatica delle porte dalla `Endpoint` configurazione in ServiceManifest.xml. Questo perché l'assegnazione automatica delle porte da una `Endpoint` configurazione assegna una porta univoca per ogni *processo host* e un singolo processo host può contenere più istanze di gheppio. Questa operazione non funziona con gheppio perché non supporta la condivisione delle porte. Ogni istanza di Gheppio deve pertanto essere aperta su una porta univoca.
 
 Per usare l'assegnazione dinamica delle porte con gheppio, omettere la `Endpoint` configurazione nel ServiceManifest.xml completamente e non passare il nome di un endpoint al `KestrelCommunicationListener` costruttore, come indicato di seguito:
 
@@ -471,7 +469,7 @@ Gheppio è il server Web consigliato per i servizi front-end che espongono endpo
  
 Se esposti a Internet, un servizio senza stato deve usare un endpoint noto e stabile raggiungibile tramite un servizio di bilanciamento del carico. Questo URL verrà fornito agli utenti dell'applicazione. È consigliabile la configurazione seguente:
 
-| Type | Recommendation | Note |
+| Tipo | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | Gheppio è il server Web preferito perché è supportato in Windows e Linux. |
 | Configurazione delle porte | static | È necessario configurare una porta statica nota nella configurazione `Endpoints` di ServiceManifest.xml, ad esempio 80 per HTTP o 443 per HTTPS. |
@@ -496,7 +494,7 @@ Se più servizi esposti esternamente condividono lo stesso set di nodi, è possi
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Servizio ASP.NET Core senza stato solo interno
 I servizi senza stato che vengono chiamati solo dall'interno del cluster devono usare URL univoci e porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-| Type | Recommendation | Note |
+| Tipo | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | Sebbene sia possibile utilizzare HTTP.sys per i servizi interni senza stato, gheppio è il server migliore per consentire a più istanze del servizio di condividere un host.  |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
@@ -506,7 +504,7 @@ I servizi senza stato che vengono chiamati solo dall'interno del cluster devono 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Servizio ASP.NET Core con stato solo interno
 I servizi con stato che vengono chiamati solo dall'interno del cluster devono usare porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-| Type | Recommendation | Note |
+| Tipo | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | `HttpSysCommunicationListener`Non è progettato per l'uso da parte di servizi con stato in cui le repliche condividono un processo host. |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
