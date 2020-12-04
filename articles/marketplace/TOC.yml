@@ -50,7 +50,7 @@
         - name: Programma di co-selling per i partner
           href: marketplace-co-sell.md
         - name: Opzione di co-selling nel Centro per i partner
-          href: partner-center-portal/commercial-marketplace-co-sell.md
+          href: commercial-marketplace-co-sell.md
         - name: Rivendere tramite partner CSP
           href: cloud-solution-providers.md
         - name: Guida all'onboarding del programma Connect
@@ -382,9 +382,9 @@
     - name: Paesi e aree supportati
       href: sell-from-countries.md
     - name: Codici di paese e area per il co-selling
-      href: partner-center-portal/commercial-marketplace-co-sell-countries.md
+      href: commercial-marketplace-co-sell-countries.md
     - name: Codici di stato per il co-selling
-      href: partner-center-portal/commercial-marketplace-co-sell-states.md
+      href: commercial-marketplace-co-sell-states.md
     - name: Categorie e sottocategorie
       href: categories.md
     - name: Tag HTML supportati
