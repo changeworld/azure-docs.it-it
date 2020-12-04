@@ -3,12 +3,12 @@ title: Testing unità di Funzioni durevoli di Azure
 description: Informazioni su come eseguire lo unit test di Funzioni durevoli.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7786a0a2e2d31086e1938b70e63fe2374e16fe7f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74231232"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601357"
 ---
 # <a name="durable-functions-unit-testing"></a>Testing unità di Funzioni durevoli
 
@@ -25,7 +25,7 @@ Gli esempi di questo articolo richiedono la conoscenza dei concetti e dei framew
 
 * Funzioni permanenti
 
-* [xUnit](https://xunit.github.io/): framework di test
+* [xUnit](https://github.com/xunit/xunit): framework di test
 
 * [moq](https://github.com/moq/moq4): framework di comportamento fittizio
 
@@ -179,6 +179,6 @@ Lo unit test verificherà il formato dell'output. Gli unit test possono usare di
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni su xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [Altre informazioni su xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [Altre informazioni su moq](https://github.com/Moq/moq4/wiki/Quickstart)

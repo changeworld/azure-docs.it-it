@@ -3,13 +3,15 @@ title: Esplorare i log di traccia Java in applicazione Azure Insights
 description: Eseguire la ricerca di tracce Log4J o Logback in Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d219f4fcfd22d25babd8c9f6564f8dcd11d3144
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.author: jgol
+ms.openlocfilehash: fb91662dfcdeb404f51f91c1fef893dc72dcac73
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377922"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601051"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
 
@@ -131,7 +133,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 #### <a name="otherwise-"></a>In caso contrario...
 Seguire le linee guida per installare manualmente Application Insights SDK per Java, scaricare il file jar (dopo aver raggiunto la pagina del repository centrale Maven, fare clic sul collegamento "jar" nella sezione di download) per l'appender appropriato e aggiungere il file jar dell'appender scaricato al progetto.
 
-| Logger | Scarica | Libreria |
+| Logger | Download | Libreria |
 | --- | --- | --- |
 | Logback |[Jar dell'appender logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Jar dell'appender Log4J versione 2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |

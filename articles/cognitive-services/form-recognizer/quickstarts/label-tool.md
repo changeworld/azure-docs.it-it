@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione di documenti
-ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360871"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009331"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -32,7 +32,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
-* Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. È possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre il file *sample_data.zip* ) per questa guida di avvio rapido. Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard.
+* Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. È possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre il file *sample_data.zip*) per questa guida di avvio rapido. Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -42,8 +42,17 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 
 Per provare lo strumento di etichettatura campioni di Riconoscimento modulo online, visitare il sito Web [FOTT](https://fott-preview.azurewebsites.net/).
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Strumento di etichettatura campioni di Riconoscimento modulo](https://fott-preview.azurewebsites.net/)
+> [Provare i modelli predefiniti](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Provare i modelli predefiniti](https://fott-preview.azurewebsites.net/)
+
+---
+
+Per provare il servizio Riconoscimento modulo, è necessario avere una sottoscrizione di Azure ([crearne una gratuita](https://azure.microsoft.com/free/cognitive-services)), oltre a un endpoint e a una chiave della [risorsa Riconoscimento modulo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer). 
 
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurare lo strumento di etichettatura campioni
@@ -68,8 +77,6 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
 
 
 
-
-
 1. Ottenere il contenitore dello strumento di etichettatura campioni con il comando `docker pull`.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
@@ -78,7 +85,7 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
     ```
     # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -91,7 +98,7 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
     ```
     # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
@@ -128,9 +135,9 @@ Per creare una nuova connessione, fare clic sull'icona **Nuove connessioni** (sp
 
 Compilare i campi con i valori seguenti:
 
-* **Nome visualizzato** : il nome visualizzato della connessione.
-* **Descrizione** : la descrizione del progetto.
-* **URL di firma di accesso condiviso** : l'URL di firma di accesso condiviso del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Impostare la scadenza su un'ora successiva a quella in cui verrà terminato l'uso del servizio. Assicurarsi che le autorizzazioni **Lettura** , **Scrittura** , **Eliminazione** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Nome visualizzato**: il nome visualizzato della connessione.
+* **Descrizione**: la descrizione del progetto.
+* **URL di firma di accesso condiviso**: l'URL di firma di accesso condiviso del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Impostare la scadenza su un'ora successiva a quella in cui verrà terminato l'uso del servizio. Assicurarsi che le autorizzazioni **Lettura**, **Scrittura**, **Eliminazione** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
@@ -139,12 +146,12 @@ Compilare i campi con i valori seguenti:
 
 Nello strumento di etichettatura campioni vengono archiviate le configurazioni e le impostazioni dei progetti. Creare un nuovo progetto e compilare i campi con i valori seguenti:
 
-* **Nome visualizzato** : il nome visualizzato del progetto
-* **Token di sicurezza** : alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nella parte inferiore della barra di spostamento sinistra.
-* **Connessione protetta** : la connessione ad archiviazione BLOB di Azure creata nel passaggio precedente che si vuole usare per questo progetto.
+* **Nome visualizzato**: il nome visualizzato del progetto
+* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nella parte inferiore della barra di spostamento sinistra.
+* **Connessione protetta**: la connessione ad archiviazione BLOB di Azure creata nel passaggio precedente che si vuole usare per questo progetto.
 * **Percorso cartella** (facoltativo): se i moduli di origine si trovano in una cartella del contenitore BLOB, specificare qui il relativo nome
-* **URI del servizio Riconoscimento modulo** : l'URL dell'endpoint di Riconoscimento modulo.
-* **Chiave API** : la chiave di sottoscrizione di Riconoscimento modulo.
+* **URI del servizio Riconoscimento modulo**: l'URL dell'endpoint di Riconoscimento modulo.
+* **Chiave API**: la chiave di sottoscrizione di Riconoscimento modulo.
 * **Descrizione** (facoltativo): la descrizione del progetto
 
 :::image type="content" source="../media/label-tool/new-project.png" alt-text="Pagina di nuovo progetto nello strumento di etichettatura campioni.":::
@@ -193,7 +200,7 @@ Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno
    1. Fare clic su **+** per creare un nuovo tag.
    1. Immettere il nome del tag.
    1. Premere INVIO per salvare il tag.
-1. Nell'editor principale fare clic per selezionare parole dagli elementi di testo evidenziati per selezionarle. Nella _versione 2.1.preview_ è anche possibile fare clic per selezionare _indicatori di selezione_ come pulsanti di opzione e caselle di controllo come coppie chiave-valore. Riconoscimento modulo identificherà se l'indicatore di selezione è "selezionato" o "deselezionato" come valore.
+1. Nell'editor principale fare clic per selezionare parole dagli elementi di testo evidenziati per selezionarle. Nella versione _v2.1 preview.2_ è anche possibile fare clic per selezionare _contrassegni di selezione_, ad esempio pulsanti di opzione e caselle di controllo come coppie chiave-valore. Riconoscimento modulo identificherà se l'indicatore di selezione è "selezionato" o "deselezionato" come valore.
 1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
     > [!Tip]
     > Per l'etichettatura dei moduli, tenere presenti i suggerimenti seguenti.
@@ -259,7 +266,7 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
 
 Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina corrispondente. Quindi fare clic sul pulsante **Train** per iniziare il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
 
-* **ID modello** : l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./curl-train-extract.md) o la [libreria client](./client-library.md).
+* **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./curl-train-extract.md) o la [libreria client](./client-library.md).
 * **Average Accuracy** (Accuratezza media): l'accuratezza media del modello. È possibile migliorare l'accuratezza del modello etichettando altri moduli ed eseguendo di nuovo il training per creare un nuovo modello. Per iniziare, è consigliabile etichettare cinque moduli ed aggiungerne altri se necessario.
 * L'elenco dei tag e l'accuratezza stimata per ognuno.
 

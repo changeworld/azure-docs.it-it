@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999995"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602615"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
 
@@ -33,7 +33,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per creare un gruppo di risorse, usare il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio, un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
+Per creare un gruppo di risorse, usare il comando [AZ Group create](/cli/azure/group) . Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio, un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -345,7 +345,7 @@ Per questa esercitazione, l'utente predefinito è *grid* mentre il gruppo predef
 
 Per scaricare e preparare il software Oracle Grid Infrastructure, completare la procedura seguente:
 
-1. Scaricare Oracle Grid Infrastructure dalla [pagina di download di Oracle ASM](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Scaricare Oracle Grid Infrastructure dalla [pagina di download di Oracle ASM](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). 
 
    Sotto il download denominato **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64** (Oracle Database 12c versione 1 Grid Infrastructure (12.1.0.2.0) per Linux x86-64) scaricare i due file con estensione ZIP.
 

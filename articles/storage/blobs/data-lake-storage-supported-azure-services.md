@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f9b1193a4eb2c7299cbfb0c729673b72d1e8fbad
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545840"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600388"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Servizi di Azure che supportano Azure Data Lake Storage Gen2
 
@@ -44,6 +44,7 @@ Questa tabella elenca i servizi di Azure che è possibile usare con Azure Data L
 |Esplora dati di Azure|Disponibile a livello generale|Sì|Sì|[Eseguire query sui dati in Azure Data Lake usando Azure Esplora dati](/azure/data-explorer/data-lake-query-data)|
 |Ricerca cognitiva di Azure|Anteprima|Sì|Sì|[Indicizzare e cercare Azure Data Lake Storage Gen2 documenti (anteprima)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Rete per la distribuzione di contenuti di Azure|Non ancora supportato|Non applicabile|Non applicabile|[Indicizzare e cercare Azure Data Lake Storage Gen2 documenti (anteprima)](../../cdn/cdn-overview.md)|
+|database SQL di Azure|Non ancora supportato|Non applicabile|Non applicabile|[Informazioni sul database SQL di Azure](/azure/azure-sql/database/sql-database-paas-overview.md)|
 
 ## <a name="see-also"></a>Vedere anche
 

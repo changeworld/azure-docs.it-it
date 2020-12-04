@@ -3,13 +3,15 @@ title: Risoluzione dei problemi di Application Insights in un progetto Web Java
 description: Guida per la risoluzione dei problemi - monitoraggio di app Java live con Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: jgol
+ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972863"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601017"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Risoluzione dei problemi e domande e risposte per Application Insights SDK per Java
 

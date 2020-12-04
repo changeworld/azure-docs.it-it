@@ -11,18 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92d440d019942219b322ef084b45317983d04fbe
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967665"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602241"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un Azure Active Directory Domain Services dominio gestito
 
 Gli oggetti e le credenziali in un dominio gestito di Azure Active Directory Domain Services (Azure AD DS) possono essere creati localmente all'interno del dominio o sincronizzati da un tenant Azure Active Directory (Azure AD). Quando si distribuisce per la prima volta Azure AD DS, viene configurata e avviata una sincronizzazione automatica unidirezionale per replicare gli oggetti da Azure AD. Questa sincronizzazione unidirezionale continua a essere eseguita in background per Mantenete aggiornato il dominio gestito di Azure AD DS con eventuali modifiche da Azure AD. Non viene eseguita alcuna sincronizzazione da Azure AD DS a Azure AD.
 
 In un ambiente ibrido, gli oggetti e le credenziali di un dominio di servizi di dominio Active Directory locale possono essere sincronizzati con Azure AD usando Azure AD Connect. Una volta che gli oggetti sono stati sincronizzati correttamente con Azure AD, la sincronizzazione automatica in background rende disponibili tali oggetti e credenziali per le applicazioni che usano il dominio gestito.
+
+Se servizi di dominio Active Directory e Azure AD locali sono configurati per l'autenticazione federata tramite ADFS, non è disponibile alcun hash della password (corrente/valida) in Azure DS. Azure AD gli account utente creati prima dell'implementazione dell'autenticazione basata su Fed potrebbero avere un vecchio hash della password, ma probabilmente non corrisponde a un hash della password locale. Di conseguenza Azure AD DS non sarà in grado di convalidare le credenziali degli utenti.
 
 Il diagramma seguente illustra il funzionamento della sincronizzazione tra Azure AD DS, Azure AD e un ambiente di servizi di dominio Active Directory locale facoltativo:
 

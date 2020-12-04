@@ -109,6 +109,10 @@
                   displayname: vnet
                 - name: Endpoint privati gestiti dell'area di lavoro di Synapse
                   href: ./security/synapse-workspace-managed-private-endpoints.md
+                - name: Protezione da esfiltrazione di dati nell'area di lavoro di Synapse
+                  href: ./security/workspace-data-exfiltration-protection.md
+                - name: Area di lavoro di Synapse con hub con collegamento privato
+                  href: ./security/synapse-private-link-hubs.md
             - name: Autenticazione e pass-through
               items:
                 - name: Azure Active Directory
@@ -121,8 +125,13 @@
             - name: Controllo di accesso
               items:
                 - name: Panoramica
-                  href: ./security/access-control.md
-                  displayname: 'access, control'
+                  href: ./security/synapse-workspace-access-control-overview.md
+                - name: Controllo degli accessi in base al ruolo di Synapse
+                  href: ./security/synapse-workspace-synapse-rbac.md
+                - name: Ruoli Controllo degli accessi in base al ruolo di Synapse
+                  href: ./security/synapse-workspace-synapse-rbac-roles.md
+                - name: Informazioni sui ruoli Controllo degli accessi in base al ruolo di Synapse
+                  href: ./security/synapse-workspace-understand-what-role-you-need.md
                 - name: Identità gestita dell'area di lavoro di Synapse
                   href: ./security/synapse-workspace-managed-identity.md
     - name: Guide pratiche
@@ -135,11 +144,19 @@
           items:
             - name: Gestire il controllo di accesso
               items:
+                - name: Configurare il controllo di accesso
+                  href: ./security/how-to-set-up-access-control.md
+                - name: Esaminare le assegnazione di ruolo di Synapse
+                  href: ./security/how-to-review-synapse-rbac-role-assignments.md
+                - name: Gestire le assegnazione di ruolo di Synapse
+                  href: ./security/how-to-manage-synapse-rbac-role-assignments.md
                 - name: Configurare le autorizzazioni per l'identità gestita dell'area di lavoro di Azure Synapse
                   href: security/how-to-grant-workspace-managed-identity-permissions.md
                   displayname: grant
-                - name: Configurare il controllo di accesso
-                  href: security/how-to-set-up-access-control.md
+            - name: Protezione dall'esfiltrazione di dati
+              items:
+                - name: Creare e gestire un'area di lavoro con protezione dall'esfiltrazione di dati
+                  href: security/how-to-create-a-workspace-with-data-exfiltration-protection.md
             - name: Gestire endpoint privati
               items:
                 - name: Configurare endpoint privati gestiti per le origini dati
@@ -565,7 +582,7 @@
               href: ./spark/spark-dotnet.md
         - name: Sicurezza
           items:
-            - name: Protezione delle credenziali con TokenLibrary
+            - name: Proteggere le credenziali con TokenLibrary
               href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
         - name: Ottimizzare le prestazioni
           items:

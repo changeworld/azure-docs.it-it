@@ -3,12 +3,15 @@ title: Processori di telemetria (anteprima)-monitoraggio di Azure Application In
 description: Processori di telemetria per monitoraggio di Azure Application Insights Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: e3c41a7a9968a7de743f0c513b1f2b194501d0df
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 316243e130345ce1b009e065cf9d8250c501ee84
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425797"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601034"
 ---
 # <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>Processori di telemetria (anteprima) per monitoraggio di Azure Application Insights Java
 
@@ -56,10 +59,10 @@ Creare un file di configurazione denominato `applicationinsights.json` e posizio
 
 Il processore di attributi e il processore span espongono l'opzione per fornire un set di proprietà di un intervallo in base al quale eseguire la corrispondenza, per determinare se l'intervallo deve essere incluso o escluso dal processore. Per configurare questa opzione, in `include` e/o almeno `exclude` uno `matchType` e uno di `spanNames` o `attributes` è obbligatorio. La configurazione di inclusione/esclusione è supportata per avere più di una condizione specificata. Tutte le condizioni specificate devono restituire true perché si verifichi una corrispondenza. 
 
-**Campo obbligatorio** : 
+**Campo obbligatorio**: 
 * `matchType` Controlla la modalità di interpretazione degli elementi nelle `spanNames` `attributes` matrici e. I possibili valori sono `regexp` o `strict`. 
 
-**Campi facoltativi** : 
+**Campi facoltativi**: 
 * `spanNames` deve corrispondere ad almeno uno degli elementi. 
 * `attributes` Specifica l'elenco di attributi da confrontare. Tutti questi attributi devono corrispondere esattamente affinché si verifichi una corrispondenza.
 

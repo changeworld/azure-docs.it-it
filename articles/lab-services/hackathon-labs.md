@@ -3,12 +3,12 @@ title: Usare Azure Lab Services per hackathon
 description: Questo articolo descrive come usare Azure Lab Services per la creazione di Lab che è possibile usare per l'esecuzione di gli hackathon.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434261"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602581"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Usare Azure Lab Services per il hackathon successivo
 Azure Lab Services è progettato per essere leggero e facile da usare, in modo che sia possibile creare rapidamente un nuovo Lab di macchine virtuali (VM) per la hackathon.  Usare l'elenco di controllo seguente per assicurarsi che il hackathon venga eseguito nel modo più semplice possibile. Questo elenco di controllo deve essere completato dal reparto IT o dai docenti responsabili della creazione e della gestione di hackathon Lab. 
@@ -39,7 +39,7 @@ Per usare i servizi Lab per la hackathon, assicurarsi che sia l'account Lab che 
 
 - **Decidere se limitare l'accesso al Lab**. 
 
-    Quando si aggiungono utenti al Lab, è disponibile un'opzione limita accesso abilitata per impostazione predefinita. Questa funzionalità richiede l'aggiunta di tutti i messaggi di posta elettronica dei partecipanti di hackathon all'elenco prima che sia possibile registrarsi e accedere al Lab usando il collegamento di registrazione. Se si dispone di un hackathon in cui non si conoscono i partecipanti prima dell'evento, è possibile scegliere di disabilitare l'opzione limita accesso, che consente a chiunque di effettuare la registrazione al Lab usando il collegamento di registrazione. Per ulteriori informazioni, vedere la [Guida alle procedure](how-to-configure-student-usage.md#add-users-to-a-lab)per l'aggiunta di utenti.
+    Quando si aggiungono utenti al Lab, è disponibile un'opzione limita accesso abilitata per impostazione predefinita. Questa funzionalità richiede l'aggiunta di tutti i messaggi di posta elettronica dei partecipanti di hackathon all'elenco prima che sia possibile registrarsi e accedere al Lab usando il collegamento di registrazione. Se si dispone di un hackathon in cui non si conoscono i partecipanti prima dell'evento, è possibile scegliere di disabilitare l'opzione limita accesso, che consente a chiunque di effettuare la registrazione al Lab usando il collegamento di registrazione. Per ulteriori informazioni, vedere la [Guida alle procedure](how-to-configure-student-usage.md)per l'aggiunta di utenti.
 
 - **Verificare le impostazioni di pianificazione, quota e arresto** automatico. 
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 85dffd4d96a78bab9dd890d9ad37572f3e524f06
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791869"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487933"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurare le notifiche tramite posta elettronica per gli avvisi di sicurezza 
 
@@ -26,14 +26,14 @@ Gli avvisi di sicurezza devono essere inviati alle persone giuste dell'organizza
 
 Per definire le proprie preferenze per le notifiche tramite posta elettronica, la pagina di impostazioni **Notifiche tramite posta elettronica** del Centro sicurezza di Azure consente di scegliere:
 
-- **_Chi_ deve ricevere una notifica** : i messaggi di posta elettronica possono essere inviati a utenti selezionati o a chiunque abbia un ruolo di Azure specificato per una sottoscrizione. 
-- **_Cosa_ deve essere notificato** : modificare i livelli di gravità per cui il Centro sicurezza dovrà inviare notifiche.
+- **_Chi_ deve ricevere una notifica**: i messaggi di posta elettronica possono essere inviati a utenti selezionati o a chiunque abbia un ruolo di Azure specificato per una sottoscrizione. 
+- **_Cosa_ deve essere notificato**: modificare i livelli di gravità per cui il Centro sicurezza dovrà inviare notifiche.
 
 Per evitare un sovraccarico di avvisi, il Centro sicurezza limita il volume dei messaggi di posta elettronica in uscita. Per ogni sottoscrizione, il Centro sicurezza invia:
 
-- Un massimo di **quattro** messaggi di posta elettronica al giorno per avvisi con **gravità alta**
-- Un massimo di **due** messaggi di posta elettronica al giorno per avvisi con **gravità media**
-- Un massimo di **un** messaggio di posta elettronica al giorno per avvisi con **gravità bassa**
+- Un massimo di un messaggio di posta elettronica per **6 ore** (4 messaggi al giorno) per gli avvisi con **gravità alta**
+- Un massimo di un messaggio di posta elettronica per **12 ore** (2 messaggi al giorno) per gli avvisi con **gravità media**
+- Un massimo di un messaggio di posta elettronica per **24 ore** per gli avvisi con **gravità bassa**
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configurazione dei dettagli del contatto che riceverà messaggi di posta elettronica sugli avvisi di sicurezza." :::
  
@@ -62,10 +62,9 @@ Per evitare un sovraccarico di avvisi, il Centro sicurezza limita il volume dei 
 1. Per applicare le informazioni di contatto per la sicurezza nella sottoscrizione, selezionare **Salva**.
 
 
-## <a name="next-steps"></a>Passaggi successivi
-
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni sugli avvisi di sicurezza, vedere le pagine seguenti:
 
 - [Guida di riferimento sugli avvisi di sicurezza](alerts-reference.md): informazioni sugli avvisi di sicurezza che possono essere visualizzati nel modulo Protezione dalle minacce del Centro sicurezza di Azure
 - [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Automatizzare le risposte ai trigger del Centro sicurezza](workflow-automation.md): usare l'automazione per rispondere ai trigger del Centro sicurezza con la logica di notifica personalizzata
+- [Automazione del flusso di lavoro](workflow-automation.md): informazioni su come automatizzare le risposte agli avvisi con la logica delle notifiche personalizzate

@@ -1,24 +1,42 @@
 ---
 title: Supporto TLS per l'hub IoT di Azure
-description: Procedure consigliate per l'uso di connessioni TLS sicure per i dispositivi e i servizi che comunicano con l'hub IoT
+description: Informazioni sull'uso delle connessioni TLS sicure per i dispositivi e i servizi che comunicano con l'hub Internet
 services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 11/25/2020
 ms.author: jlian
-ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ddb89f60c9fe380012c299afaafb6046bf6849c9
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628799"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602751"
 ---
-# <a name="tls-support-in-iot-hub"></a>Supporto TLS nell'hub IoT
+# <a name="transport-layer-security-tls-support-in-iot-hub"></a>Supporto di Transport Layer Security (TLS) nell'hub Internet
 
 L'hub IoT usa il protocollo Transport Layer Security (TLS) per la protezione delle connessioni dai dispositivi e dai servizi IoT. Attualmente sono supportate tre versioni del protocollo TLS, ovvero le versioni 1.0, 1.1 e 1.2.
 
-Le versioni 1.0 e 1.1 di TLS sono considerate legacy e ne è prevista la deprecazione. Per altre informazioni, vedere [Deprecazione di TLS 1.0 e 1.1 nell'hub IoT](iot-hub-tls-deprecating-1-0-and-1-1.md). È consigliabile usare TLS 1.2 come versione preferita di TLS durante la connessione all'hub IoT.
+Le versioni 1.0 e 1.1 di TLS sono considerate legacy e ne è prevista la deprecazione. Per altre informazioni, vedere [Deprecazione di TLS 1.0 e 1.1 nell'hub IoT](iot-hub-tls-deprecating-1-0-and-1-1.md). Per evitare problemi futuri, usare TLS 1,2 come unica versione di TLS quando ci si connette all'hub Internet.
+
+## <a name="iot-hubs-server-tls-certificate"></a>Certificato TLS del server dell'hub Internet
+
+Durante un handshake TLS, l'hub Internet presenta certificati server con chiave RSA per la connessione dei client. La radice è la CA radice Cybertrust Baltimore. Recentemente è stata apportata una modifica alle autorità emittenti dalle nuove autorità di certificazione intermedie (ICAs). Per altre informazioni, vedere [aggiornamento del certificato TLS dell'hub](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/) Internet
+
+### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificato TLS server crittografia a curva ellittica (ECC) (anteprima)
+
+Il certificato TLS dell'hub ECC è disponibile per l'anteprima pubblica. Pur offrendo una sicurezza simile ai certificati RSA, la convalida dei certificati ECC (con pacchetti di crittografia solo per l'ECC) USA fino al 40% di calcolo, memoria e larghezza di banda inferiori. Questi risparmi sono importanti per i dispositivi Internet a causa dei loro profili e memoria più piccoli e per supportare i casi d'uso negli ambienti con larghezza di banda di rete limitata. 
+
+Per visualizzare in anteprima il certificato del server ECC dell'hub Internet:
+
+1. [Creare un nuovo hub Internet con la modalità di anteprima in](iot-hub-preview-mode.md).
+1. [Configurare il client](#tls-configuration-for-sdk-and-iot-edge) in modo da includere *solo* i pacchetti di crittografia ECDSA ed *escludere* quelli RSA. Questi sono i pacchetti di crittografia per l'anteprima pubblica del certificato ECC:
+    - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+    - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+    - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
+    - `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
+1. Connettere il client all'hub di anteprima.
 
 ## <a name="tls-12-enforcement-available-in-select-regions"></a>Imposizione di TLS 1,2 disponibile in aree selezionate
 
@@ -88,7 +106,7 @@ Per gli hub Internet non configurati per l'imposizione di TLS 1,2, TLS 1,2 funzi
 
 Un client può suggerire un elenco di pacchetti di crittografia più elevati da usare durante `ClientHello` . Tuttavia, alcune di esse potrebbero non essere supportate dall'hub Internet (ad esempio, `ECDHE-ECDSA-AES256-GCM-SHA384` ). In questo caso, l'hub Internet tenterà di seguire le preferenze del client, ma alla fine negozierà il pacchetto di crittografia con `ServerHello` .
 
-## <a name="use-tls-12-in-your-iot-hub-sdks"></a>Usare TLS 1.2 negli SDK dell'hub IoT
+## <a name="tls-configuration-for-sdk-and-iot-edge"></a>Configurazione TLS per SDK e IoT Edge
 
 Usare i collegamenti seguenti per configurare TLS 1.2 e le crittografie consentite negli SDK del client dell'hub IoT.
 
@@ -100,11 +118,25 @@ Usare i collegamenti seguenti per configurare TLS 1.2 e le crittografie consenti
 | Java     | Versione 1.19.0 o successive            | [Collegamento](https://aka.ms/Tls_Java_SDK_IoT) |
 | NodeJS   | Versione 1.12.2 o successive            | [Collegamento](https://aka.ms/Tls_Node_SDK_IoT) |
 
-
-## <a name="use-tls-12-in-your-iot-edge-setup"></a>Usare TLS 1.2 nella configurazione di IoT Edge
-
 È possibile configurare l'uso di TLS 1.2 da parte dei dispositivi IoT Edge durante la comunicazione con l'hub IoT. A tale scopo, vedere la [pagina della documentazione di IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
 
 ## <a name="device-authentication"></a>Autenticazione del dispositivo
 
 Al termine di un handshake TLS riuscito, l'hub Internet può autenticare un dispositivo usando una chiave simmetrica o un certificato X. 509. Per l'autenticazione basata su certificati, può trattarsi di qualsiasi certificato X. 509, incluso ECC. L'hub Internet per la convalida del certificato viene convalidato in base all'identificazione personale o all'autorità di certificazione (CA) fornita. Per altre informazioni, vedere [certificati X. 509 supportati](iot-hub-devguide-security.md#supported-x509-certificates).
+
+## <a name="tls-maximum-fragment-length-negotiation-preview"></a>Negoziazione lunghezza massima del frammento TLS (anteprima)
+
+L'hub Internet delle cose supporta inoltre la negoziazione della lunghezza massima del frammento TLS, che talvolta è nota come negoziazione della dimensione del frame TLS. Questa funzionalità è disponibile in anteprima pubblica. 
+
+Utilizzare questa funzionalità per specificare la lunghezza massima del frammento di testo non crittografato a un valore inferiore a 2 ^ 14 byte predefiniti. Una volta negoziati, l'hub e il client iniziano a frammentare i messaggi per assicurarsi che tutti i frammenti siano inferiori alla lunghezza negoziata. Questo comportamento è utile per il calcolo o i dispositivi con vincoli di memoria. Per altre informazioni, vedere la [specifica dell'estensione TLS ufficiale](https://tools.ietf.org/html/rfc6066#section-4).
+
+Il supporto ufficiale di SDK per questa funzionalità di anteprima pubblica non è ancora disponibile. Per iniziare
+
+1. [Creare un nuovo hub Internet con la modalità di anteprima in](iot-hub-preview-mode.md).
+1. Configurare il client in modo che `SSL_CTX_set_tlsext_max_fragment_length` sia impostato su uno dei valori seguenti: 2 ^ 9, 2 ^ 10, 2 ^ 11 e 2 ^ 12.
+1. Connettere il client all'hub di anteprima.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Per altre informazioni sulla sicurezza e sul controllo di accesso dell'hub Internet, vedere [controllare l'accesso all'hub](iot-hub-devguide-security.md)Internet.
+- Per altre informazioni sull'uso del certificato X509 per l'autenticazione del dispositivo, vedere [autenticazione del dispositivo con certificati della CA X. 509](iot-hub-x509ca-overview.md)

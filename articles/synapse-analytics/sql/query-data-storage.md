@@ -1,6 +1,6 @@
 ---
-title: Eseguire query sull'archiviazione con il pool SQL serverless (anteprima)
-description: Questo articolo descrive come eseguire query sull'archiviazione di Azure usando il pool SQL serverless (anteprima) all'interno di Azure Synapse Analytics.
+title: Eseguire query sull'archiviazione dati con il pool SQL serverless
+description: Questo articolo descrive come eseguire query sull'archiviazione di Azure usando il pool SQL serverless all'interno di Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 81a892b10996686cf58d45867e3d889505b5d3d9
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299582"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462653"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file nell'archiviazione con il pool SQL serverless (anteprima) in Azure Synapse Analytics
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query sui file dell'archiviazione con il pool SQL serverless in Azure Synapse Analytics
 
-Il pool SQL serverless (anteprima) consente di eseguire query sui dati nel data lake. Offre una superficie di attacco per query T-SQL che supporta le query su dati semistrutturati e non strutturati. Per l'esecuzione di query, sono supportati gli aspetti di T-SQL seguenti:
+Il pool SQL serverless consente di eseguire query sui dati nel data lake. Offre una superficie di attacco per query T-SQL che supporta le query su dati semistrutturati e non strutturati. Per l'esecuzione di query, sono supportati gli aspetti di T-SQL seguenti:
 
 - Superficie di attacco [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, inclusa la maggioranza di [funzioni e operatori SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)), che crea una [tabella esterna](develop-tables-external-tables.md) e quindi esporta, in parallelo, i risultati di un'istruzione Transact-SQL SELECT in Archiviazione di Azure.
@@ -222,7 +222,7 @@ Le query di esempio forniscono maggiori informazioni sull'esecuzione di query su
 ### <a name="tools"></a>Strumenti
 
 Gli strumenti necessari per eseguire query:
-    - Azure Synapse Studio (anteprima)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

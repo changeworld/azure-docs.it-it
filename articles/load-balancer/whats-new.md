@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30a42e8a8c4049b53274da512089dd29965e775
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841034"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573154"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Novità di Azure Load Balancer
 
@@ -42,7 +42,7 @@ Il gruppo responsabile dei prodotti sta lavorando attivamente alla risoluzione d
 
 |Problema |Descrizione  |Strategia di riduzione del rischio  |
 | ---------- |---------|---------|
-| Esportazione in Log Analytics | Log Analytics non è in grado di esportare le metriche per Load Balancer Standard né i log di stato del probe di integrità per Load Balancer Basic  | [Usare Monitoraggio di Azure per le metriche multidimensionali per Load Balancer Standard](load-balancer-standard-diagnostics.md). Mentre non è possibile usare Log Analytics per il monitoraggio, Monitoraggio di Azure consente di visualizzare un set completo di metriche multidimensionali. È possibile sfruttare il dashboard delle metriche preconfigurate tramite il sottopannello Informazioni dettagliate di Load Balancer. Se si usa Load Balancer Basic, [eseguire l'aggiornamento alla versione Standard](upgrade-basic-standard.md) per il monitoraggio delle metriche a livello di produzione.
+| Log di stato del probe di integrità e di eventi di avviso per Load Balancer | La registrazione non funziona per gli eventi di avviso per Load Balancer Basic e Standard né per i log di stato del probe di integrità per Load Balancer Basic  | [Usare Monitoraggio di Azure per le metriche multidimensionali per Load Balancer Standard](load-balancer-standard-diagnostics.md). Monitoraggio di Azure offre una visualizzazione per un set completo di metriche multidimensionali che possono anche essere esportate come log. È possibile sfruttare il dashboard delle metriche preconfigurate tramite il sottopannello Informazioni dettagliate di Load Balancer. Se si usa Load Balancer Basic, [eseguire l'aggiornamento alla versione Standard](upgrade-basic-standard.md) per il monitoraggio delle metriche a livello di produzione.
 
   
 

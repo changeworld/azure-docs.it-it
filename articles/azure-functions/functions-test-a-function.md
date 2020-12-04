@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409655"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601391"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -28,7 +28,7 @@ Il repository di esempio è disponibile in [GitHub](https://github.com/Azure-Sam
 
 ## <a name="c-in-visual-studio"></a>C# in Visual Studio
 
-Il seguente esempio illustra come creare un'app della funzione C# in Visual Studio ed eseguire i test con [xUnit](https://xunit.github.io).
+Il seguente esempio illustra come creare un'app della funzione C# in Visual Studio ed eseguire i test con [xUnit](https://github.com/xunit/xunit).
 
 ![Test di Funzioni di Azure con C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -39,7 +39,7 @@ Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi segu
 1. [Creare una nuova app funzioni](./functions-create-first-azure-function.md) e denominarla **Funzioni**
 2. [Creare una funzione HTTP dal modello](./functions-create-first-azure-function.md) e denominarla **MyHttpTrigger**.
 3. [Creare una funzione timer dal modello](./functions-create-scheduled-function.md) e denominarla **MyTimerTrigger**.
-4. [Creare un'app di test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) nella soluzione e denominarla **Functions. tests**.
+4. [Creare un'app di test xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) nella soluzione e denominarla **Functions. tests**.
 5. Usare NuGet per aggiungere un riferimento dall'app di test a [Microsoft. AspNetCore. Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Fare riferimento all'app *funzioni*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions. tests* .
 
@@ -107,11 +107,11 @@ namespace Functions.Tests
 
 La classe `ListLogger` implementa i membri seguenti come contrattato dall'interfaccia `ILogger`:
 
-- **BeginScope** : gli ambiti aggiungono il contesto alla registrazione. In questo caso, il test punta solo all'istanza statica sulla `NullScope` classe per consentire il funzionamento del test.
+- **BeginScope**: gli ambiti aggiungono il contesto alla registrazione. In questo caso, il test punta solo all'istanza statica sulla `NullScope` classe per consentire il funzionamento del test.
 
-- **IsEnabled** : viene fornito un valore predefinito di `false` .
+- **IsEnabled**: viene fornito un valore predefinito di `false` .
 
-- **Log** : questo metodo usa la `formatter` funzione specificata per formattare il messaggio e quindi aggiunge il testo risultante alla `Logs` raccolta.
+- **Log**: questo metodo usa la `formatter` funzione specificata per formattare il messaggio e quindi aggiunge il testo risultante alla `Logs` raccolta.
 
 La raccolta `Logs` è un'istanza di `List<string>` e viene inizializzata nel costruttore.
 
@@ -193,13 +193,13 @@ namespace Functions.Tests
 
 La classe `TestFactory` implementa i seguenti membri:
 
-- **Data** : questa proprietà restituisce una raccolta di dati di esempio [IEnumerable](/dotnet/api/system.collections.ienumerable) . Le coppie chiave-valore rappresentano valori che vengono passati in una stringa di query.
+- **Data**: questa proprietà restituisce una raccolta di dati di esempio [IEnumerable](/dotnet/api/system.collections.ienumerable) . Le coppie chiave-valore rappresentano valori che vengono passati in una stringa di query.
 
-- **CreateDictionary** : questo metodo accetta una coppia chiave/valore come argomenti e restituisce un nuovo oggetto `Dictionary` usato per creare `QueryCollection` per rappresentare i valori della stringa di query.
+- **CreateDictionary**: questo metodo accetta una coppia chiave/valore come argomenti e restituisce un nuovo oggetto `Dictionary` usato per creare `QueryCollection` per rappresentare i valori della stringa di query.
 
-- **CreateHttpRequest** : questo metodo crea una richiesta http inizializzata con i parametri della stringa di query specificati.
+- **CreateHttpRequest**: questo metodo crea una richiesta http inizializzata con i parametri della stringa di query specificati.
 
-- **CreateLogger** : in base al tipo di logger, questo metodo restituisce una classe logger utilizzata per il testing. `ListLogger` tiene traccia dei messaggi registrati disponibili per la valutazione nei test.
+- **CreateLogger**: in base al tipo di logger, questo metodo restituisce una classe logger utilizzata per il testing. `ListLogger` tiene traccia dei messaggi registrati disponibili per la valutazione nei test.
 
 Infine, creare una nuova classe nel progetto *Functions. tests* denominato **FunctionsTests.cs** e immettere il codice seguente:
 
@@ -245,11 +245,11 @@ namespace Functions.Tests
 
 I membri implementati in questa classe sono:
 
-- **Http_trigger_should_return_known_string** : questo test crea una richiesta con i valori della stringa di query di `name=Bill` in una funzione http e verifica che venga restituita la risposta prevista.
+- **Http_trigger_should_return_known_string**: questo test crea una richiesta con i valori della stringa di query di `name=Bill` in una funzione http e verifica che venga restituita la risposta prevista.
 
-- **Http_trigger_should_return_string_from_member_data** : questo test usa gli attributi xUnit per fornire dati di esempio alla funzione http.
+- **Http_trigger_should_return_string_from_member_data**: questo test usa gli attributi xUnit per fornire dati di esempio alla funzione http.
 
-- **Timer_should_log_message** : questo test crea un'istanza di `ListLogger` e la passa a una funzione timer. Una volta eseguita la funzione, il log viene controllato per verificare che sia presente il messaggio previsto.
+- **Timer_should_log_message**: questo test crea un'istanza di `ListLogger` e la passa a una funzione timer. Una volta eseguita la funzione, il log viene controllato per verificare che sia presente il messaggio previsto.
 
 Se si desidera accedere alle impostazioni dell'applicazione nei test, è possibile [inserire](./functions-dotnet-dependency-injection.md) `IConfiguration` nella funzione un'istanza con valori di variabili di ambiente fittizi.
 

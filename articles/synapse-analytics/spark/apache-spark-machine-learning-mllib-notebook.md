@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 50429696c4cbe10c4723f6d4bb9c9499d9b775c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900423"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450424"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Esercitazione: Creare un'app di Machine Learning con MLlib di Apache Spark e Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Nei passaggi seguenti viene sviluppato un modello per stimare se una particolare
 
 Poiché i dati non elaborati sono in formato Parquet, è possibile usare il contesto di Spark per eseguire direttamente il pull del file in memoria come dataframe. Anche se nel codice riportato di seguito vengono usate le opzioni predefinite, se necessario è possibile forzare il mapping dei tipi di dati e di altri attributi dello schema.
 
-1. Eseguire le righe seguenti per creare un dataframe di Spark incollando il codice in una nuova cella. I dati vengono recuperati tramite l'API dei set di dati aperti di Azure. Il pull di tutti questi dati genera circa 1,5 miliardi righe. A seconda delle dimensioni del pool di Apache Spark serverless (anteprima), i dati non elaborati potrebbero essere troppo grandi o richiedere troppo tempo per poter essere usati. È possibile filtrare i dati fino a ottenere un valore inferiore. L'esempio di codice seguente usa start_date e end_date per applicare un filtro che restituisce un singolo mese di dati.
+1. Eseguire le righe seguenti per creare un dataframe di Spark incollando il codice in una nuova cella. I dati vengono recuperati tramite l'API dei set di dati aperti di Azure. Il pull di tutti questi dati genera circa 1,5 miliardi righe. A seconda delle dimensioni del pool di Apache Spark serverless, i dati non elaborati potrebbero essere troppo grandi o richiedere troppo tempo per poter essere usati. È possibile filtrare i dati fino a ottenere un valore inferiore. L'esempio di codice seguente usa start_date e end_date per applicare un filtro che restituisce un singolo mese di dati.
 
     ```python
     from azureml.opendatasets import NycTlcYellow

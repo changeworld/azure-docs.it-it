@@ -3,12 +3,12 @@ title: Inizia a usare Azure Lab Services
 description: Questo articolo descrive come iniziare a usare Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434431"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602666"
 ---
 # <a name="get-started-with-lab-services"></a>Introduzione a Lab Services 
 
@@ -115,12 +115,8 @@ Gli insegnanti sono in grado di aggiungere gli utenti degli studenti a un Lab e 
 
 1. Dal [sito Web di Azure Lab Services](https://labs.azure.com/) fare clic su **utenti** sul lato sinistro della finestra.
 1. Nella parte superiore della finestra fare clic su **Aggiungi utenti** e selezionare **Aggiungi in base all'indirizzo di posta elettronica**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="Pulsante ' Aggiungi utenti '":::
 1. Nel riquadro **Aggiungi utenti** visualizzato a destra, immettere gli indirizzi di posta elettronica degli studenti su righe separate o su una singola riga, separate da punti e virgola.
 1. Fare clic su **Salva**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Aggiungere studenti al Lab":::
 1. L'elenco di utenti verrà ora aggiornato con messaggi di posta elettronica, stato, invito e ore di quota.
 
     Dopo aver registrato gli studenti per un Lab, i relativi nomi verranno aggiornati con il nome e il cognome del Azure Active Directory.
@@ -166,7 +162,7 @@ Una volta aggiunti gli utenti al Lab, è necessario registrarsi per accedere all
 
 Dopo aver invitato gli utenti o aver condiviso il collegamento, sarà possibile monitorare gli utenti che sono stati registrati correttamente nella pagina **utenti** della colonna **stato** . 
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se non si intende continuare a usare le risorse create in questa Guida introduttiva, eliminare le risorse.
 

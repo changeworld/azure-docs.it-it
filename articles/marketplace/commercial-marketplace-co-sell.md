@@ -1,22 +1,22 @@
 ---
-title: Opzione di co-selling nel centro per i partner | Azure Marketplace
-description: Le informazioni fornite nella scheda co-selling dell'offerta verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sull'offerta durante la valutazione della propria soluzione adatta alle esigenze dei clienti.
+title: Opzione di co-selling nel Marketplace commerciale | Azure Marketplace
+description: Le informazioni fornite nella scheda co-selling con Microsoft dell'offerta verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sull'offerta durante la valutazione delle esigenze del cliente.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/03/2020
-ms.openlocfilehash: f424cd85e26511f8fe3d863b1f2c77bc1e5e7537
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/04/2020
+ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582315"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602734"
 ---
-# <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opzione di co-selling nel Marketplace commerciale
 
-Fornire informazioni sulla scheda co-Sell è interamente facoltativo. È necessario per ottenere [lo stato di incentivate di co-selling pronto e IP co-selling](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status). Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sull'offerta durante la valutazione dell'idoneità per le esigenze dei clienti. Non saranno direttamente disponibile ai clienti. Per ulteriori informazioni, vedere la pagina relativa alla [co-selling con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Fornire informazioni sul **co-selling con** la scheda Microsoft è interamente facoltativo. È necessario per ottenere [lo stato di incentivate di co-selling pronto e IP co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sull'offerta durante la valutazione dell'idoneità per le esigenze dei clienti. Non saranno direttamente disponibile ai clienti. Per ulteriori informazioni, vedere la pagina relativa alla [co-selling con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 L'opzione di co-selling nel centro per i partner è attualmente disponibile nei seguenti tipi di offerta.
 

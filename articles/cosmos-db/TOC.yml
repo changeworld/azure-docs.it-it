@@ -898,7 +898,7 @@
           href: cassandra-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: cassandra-support.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: .NET
           href: create-cassandra-dotnet.md
@@ -1004,7 +1004,7 @@
       items:
         - name: Che cos'è l'API MongoDB in Cosmos DB?
           href: mongodb-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: .NET
           href: create-mongodb-dotnet.md
@@ -1128,7 +1128,7 @@
           href: graph-introduction.md
         - name: Supporto dei protocolli di collegamento
           href: gremlin-support.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Console Gremlin
           href: create-graph-gremlin-console.md
@@ -1205,7 +1205,7 @@
       items:
         - name: Che cos'è l'API Tabella in Cosmos DB?
           href: table-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: .NET
           href: create-table-dotnet.md
@@ -1305,7 +1305,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Usare Azure Storage Explorer
           href: storage-explorer.md
-        - name: Usare Azure Cosmos Explorer
+        - name: Usare Azure Cosmos DB Explorer
           href: data-explorer.md
     - name: Analisi e business intelligence Collegamento ad Azure Synapse
       items:

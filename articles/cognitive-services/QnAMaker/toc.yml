@@ -67,6 +67,8 @@
       items:
         - name: Modificare una coppia di domande e risposte
           href: How-To/edit-knowledge-base.md
+        - name: Aggiungere tag di metadati
+          href: Quickstarts/add-question-metadata-portal.md
         - name: Aggiungere richieste di completamento
           href: How-To/multiturn-conversation.md
           displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'

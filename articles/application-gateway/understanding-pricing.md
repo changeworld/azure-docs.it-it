@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460746"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601612"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Informazioni sui prezzi per applicazione Azure gateway e Web Application Firewall
 
@@ -66,8 +66,8 @@ I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
 
 |              Dati elaborati             |  Piccolo ($/GB)  |  Media ($/GB) |  Grande ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| Primi 10 TB/mese                       |     $ 0,008     |      Gratuito      |     Gratuito      |
-| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Gratuito      |
+| Primi 10 TB/mese                       |     $ 0,008     |      Livello gratuito      |     Livello gratuito      |
+| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Livello gratuito      |
 | Oltre 40 TB/mese                        |     $ 0,008     |     $0,007     |     $0,0035   |
 
 Per ulteriori informazioni sui prezzi in base all'area geografica, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).
@@ -92,8 +92,8 @@ I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
 
 |              Dati elaborati             |  Piccolo ($/GB)  |  Media ($/GB) |  Grande ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| Primi 10 TB/mese                       |     $ 0,008     |      Gratuito      |     Gratuito      |
-| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Gratuito      |
+| Primi 10 TB/mese                       |     $ 0,008     |      Livello gratuito      |     Livello gratuito      |
+| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Livello gratuito      |
 | Oltre 40 TB/mese                        |     $ 0,008     |     $0,007     |     $0,0035   |
 
 Per ulteriori informazioni sui prezzi in base all'area geografica, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).
@@ -254,9 +254,19 @@ Se la capacità di elaborazione equivalente a 10 CUs aggiuntivo era disponibile 
 
 Prezzo fisso = $0,246 * 730 (ore) = $179,58
 
-Costi variabili = $0,008 * (3 (unità di istanza) * 10 (unità di capacità) + 5 (unità di capacità aggiuntive)) * 730 (ore) = $204,4
+Costi variabili = $0,008 * (3 (unità di istanza) * 10 (unità di capacità) + 10 (unità di capacità aggiuntive)) * 730 (ore) = $233,6
 
-Costi totali = $179,58 + $204,4 = $383,98
+Costi totali = $179,58 + $233,6 = $413,18
+
+Tuttavia, se la capacità di elaborazione è equivalente a, è possibile usare solo 7 ulteriori CUs per l'uso nelle tre istanze riservate.
+In questo scenario la risorsa del gateway applicazione è ridotta e potrebbe causare un aumento della latenza o delle richieste che vengono eliminate.
+
+Prezzo fisso = $0,246 * 730 (ore) = $179,58
+
+Costi variabili = $0,008 * (3 (unità di istanza) * 10 (unità di capacità) + 7 (unità di capacità aggiuntive)) * 730 (ore) = $216,08
+
+Costi totali = $179,58 + $216,08 = $395,66
+
 
 ![Diagramma della scala 2 manuale.](./media/pricing/manual-scale-2.png)
 

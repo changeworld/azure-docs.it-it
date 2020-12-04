@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520663"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602258"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -28,7 +28,7 @@ Una risposta tempestiva alle violazioni dei criteri o ai problemi di sicurezza r
 
 L'implementazione iniziale della valutazione dell'accesso continuo è incentrata su Exchange, teams e SharePoint Online.
 
-Per preparare le applicazioni per l'uso di CAE, vedere [come usare le API di valutazione dell'accesso continuo abilitate nelle applicazioni](/develop/app-resilience-continuous-access-evaluation.md).
+Per preparare le applicazioni per l'uso di CAE, vedere [come usare le API di valutazione dell'accesso continuo abilitate nelle applicazioni](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
 
 ### <a name="key-benefits"></a>Vantaggi principali
 

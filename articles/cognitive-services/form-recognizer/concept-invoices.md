@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458392"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602445"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
@@ -55,7 +55,7 @@ L'operazione [Analyze fattura](https://westcentralus.dev.cognitive.microsoft.com
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di analisi della fattura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Tipo | Valori possibili |
+|Campo| Type | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 
@@ -74,7 +74,7 @@ L'output JSON è costituito da 3 parti:
 
 Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Invoice. Di seguito sono riportati i campi estratti da una fattura nella risposta di output JSON (l'output seguente usa questa [fattura di esempio](./media/sample-invoice.jpg))  
 
-|Nome| Tipo | Descrizione | Testo | Valore (output standardizzato) |
+|Nome| Type | Descrizione | Testo | Valore (output standardizzato) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente che viene fatturato | Microsoft Corp |  |
 | CustomerId | string | ID di riferimento per il cliente | CID-12345 |  |
@@ -112,4 +112,4 @@ Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Inv
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Riconoscimento modulo](./overview.md)
-* [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
+* [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)

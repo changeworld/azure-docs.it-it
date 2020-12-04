@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: 'Creare una VM: portale'
       href: quick-create-portal.md
@@ -51,98 +51,6 @@
       href: tutorial-iis-sql.md
     - name: 16 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
-- name: Esempi
-  items:
-    - name: Indice di PowerShell
-      href: powershell-samples.md
-    - name: PowerShell
-      items:
-        - name: Create
-          items:
-            - name: Creazione rapida
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md
-            - name: VM completamente configurate
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm.md
-            - name: VM a disponibilità elevata
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md
-            - name: Esempio di script personalizzato
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md
-            - name: Uso di DSC
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md
-            - name: VM da caricamento di disco rigido virtuale
-              href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
-            - name: Collegare un disco del sistema operativo
-              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
-            - name: VM da snapshot
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
-        - name: Gestire l'archiviazione
-          items:
-            - name: Creare un disco gestito da un disco rigido virtuale
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
-            - name: Creare un disco gestito da uno snapshot
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
-            - name: Copiare un disco gestito
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
-            - name: Esportare uno snapshot come disco rigido virtuale in un account di archiviazione
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
-            - name: Esportare il disco rigido virtuale di un disco gestito in un account di archiviazione
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
-            - name: Creare uno snapshot da un disco rigido virtuale
-              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
-            - name: Copiare uno snapshot
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Sicurezza
-          items:
-            - name: Crittografare una VM e i relativi dischi dati
-              href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
-        - name: Monitorare
-          items:
-            - name: Monitoraggio di Azure
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
-            - name: Raccogliere i dettagli su le VM in una sottoscrizione
-              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
-    - name: Indice dell'interfaccia della riga di comando di Azure
-      href: cli-samples.md
-    - name: CLI
-      items:
-        - name: Create
-          items:
-            - name: Creazione rapida
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md
-            - name: VM completamente configurate
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm.md
-            - name: VM a disponibilità elevata
-              href: ./../scripts/virtual-machines-windows-cli-sample-nlb.md
-            - name: Esempio di script personalizzato
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md
-            - name: Usare la configurazione DSC
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md
-        - name: Gestire l'archiviazione
-          items:
-            - name: Creare un disco gestito da un disco rigido virtuale
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
-            - name: Creare un disco gestito da uno snapshot
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
-            - name: Copiare un disco gestito
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
-            - name: Esportare uno snapshot come disco rigido virtuale in un account di archiviazione
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
-            - name: Esportare il disco rigido virtuale di un disco gestito in un account di archiviazione
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
-            - name: Copiare uno snapshot
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
-        - name: Rete
-          items:
-            - name: Proteggere il traffico di rete tra VM
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
-        - name: Sicurezza
-          items:
-            - name: Crittografare una VM e i dischi dati
-              href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
-        - name: Monitorare
-          items:
-            - name: Monitoraggio di Azure
-              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Concetti
   items:
     - name: Immagini
@@ -672,9 +580,6 @@
           href: change-drive-letter.md
         - name: Modificare il set di disponibilità
           href: change-availability-set.md
-        - name: Esportare un modello di Azure Resource Manager
-          displayName: Azure Resource Manager
-          href: download-template.md
         - name: Agente VM di Azure
           href: ../extensions/agent-windows.md
         - name: Attenuazione dell'esecuzione speculativa
@@ -951,6 +856,8 @@
           href: find-unattached-disks.md
         - name: Trovare dischi non collegati - Portale
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Mappare dischi di Azure a dischi guest
+          href: azure-to-guest-disk-mapping.md
         - name: Domande frequenti sui dischi
           href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Gestire la rete

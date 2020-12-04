@@ -3,12 +3,15 @@ title: 'Aggiornamento da 2. x: monitoraggio di Azure Application Insights Java'
 description: Aggiornamento da monitoraggio di Azure Application Insights Java 2. x
 ms.topic: conceptual
 ms.date: 11/25/2020
-ms.openlocfilehash: 9a0e8237d81428b1ecab95627fe106a563d2090c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532456"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601068"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Aggiornamento da Application Insights Java 2. x SDK
 

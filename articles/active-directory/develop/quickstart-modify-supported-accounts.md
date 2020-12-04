@@ -1,34 +1,34 @@
 ---
-title: "Avvio rapido: Cambiare i tipi di account supportati da un'applicazione | Azure"
+title: "Procedura: Cambiare i tipi di account supportati da un'applicazione | Azure"
 titleSuffix: Microsoft identity platform
-description: In questa guida di avvio rapido si configura un'applicazione registrata con Microsoft Identity Platform per cambiare chi, o quale account, può accedere all'applicazione.
+description: In questa procedura si configura un'applicazione registrata con Microsoft Identity Platform per cambiare chi o quali account possono accedervi.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 10/27/2019
+ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 2382eedcc14f683d354b88bf2eb8d53b2af40dbd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 94a7f4d9ce1471aa1dd6aef3165562a2abc02816
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083270"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453255"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Guida introduttiva: Modificare gli account supportati da un'applicazione
+# <a name="how-to-modify-the-accounts-supported-by-an-application"></a>Come modificare gli account supportati da un'applicazione
 
 Quando si registra un'applicazione con Microsoft Identity Platform, si specifica chi o quali tipi di account possono accedervi. Ad esempio, è possibile specificare gli account solo della propria organizzazione, per cui l'app è a *tenant singolo*. Oppure è possibile specificare gli account di qualsiasi organizzazione (inclusa la propria), per cui l'app è *multi-tenant*.
 
-Questa guida di avvio rapido illustra come modificare la configurazione dell'applicazione per cambiare chi o quali tipi di account possono accedervi.
+Le sezioni seguenti illustrano come modificare la registrazione dell'app nel portale di Azure per cambiare chi o quali tipi di account possono accedere all'applicazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completamento di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
+* Un'[applicazione registrata nel tenant di Azure AD](quickstart-register-app.md)
 
 ## <a name="change-the-application-registration-to-support-different-accounts"></a>Modificare la registrazione dell'applicazione per supportare account diversi
 
@@ -37,7 +37,7 @@ Per specificare un'impostazione diversa per i tipi di account supportati da una 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
-1. In **Gestisci** selezionare **Registrazioni app** , quindi selezionare l'applicazione.
+1. In **Gestisci** selezionare **Registrazioni app**, quindi selezionare l'applicazione.
 1. Specificare ora chi può usare l'applicazione, ovvero i *destinatari per l'accesso*.
 
     | Tipi di account supportati | Descrizione |
@@ -52,11 +52,10 @@ Il passaggio di una registrazione dell'app da singolo a multi-tenant a volte pu�
 
 L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo. Per un'applicazione a tenant singolo, è sufficiente che l'URI dell'ID app sia univoco all'interno del tenant. Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'app in tutti i tenant. L'univocità globale viene applicata richiedendo che il nome host dell'URI dell'ID app corrisponda a uno dei [domini verificati dell'entità di pubblicazione](howto-configure-publisher-domain.md) del tenant di Azure AD.
 
-Se ad esempio il nome del tenant è *contoso.onmicrosoft.com* , `https://contoso.onmicrosoft.com/myapp` sarà un URI dell'ID app valido. Se il tenant ha il domini verificato *contoso.com* , un URI dell'ID app valido sarà anche `https://contoso.com/myapp`. Se l'URI dell'ID app non segue il secondo modello, `https://contoso.com/myapp`, la conversione della registrazione dell'app in multi-tenant non riesce.
+Se ad esempio il nome del tenant è *contoso.onmicrosoft.com*, `https://contoso.onmicrosoft.com/myapp` sarà un URI dell'ID app valido. Se il tenant ha il domini verificato *contoso.com*, un URI dell'ID app valido sarà anche `https://contoso.com/myapp`. Se l'URI dell'ID app non segue il secondo modello, `https://contoso.com/myapp`, la conversione della registrazione dell'app in multi-tenant non riesce.
 
-Per altre informazioni sulla configurazione di un dominio dell'entità di pubblicazione verificato, vedere [Configurare un dominio verificato](quickstart-modify-supported-accounts.md).
+Per altre informazioni sulla configurazione di un dominio dell'entità di pubblicazione verificato, vedere [Configurare un dominio verificato](howto-configure-publisher-domain.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Procedura: Convertire l'app in multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+Altre informazioni sui requisiti per [convertire un'app da tenant singolo a multitenant](howto-convert-app-to-be-multi-tenant.md).

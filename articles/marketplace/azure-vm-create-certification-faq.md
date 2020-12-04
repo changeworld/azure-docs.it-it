@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452686"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602598"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -201,9 +201,9 @@ Inviare nuovamente la richiesta con una dimensione minore o uguale a 1023 GB.
 
 Per le limitazioni sulle dimensioni del disco del sistema operativo, fare riferimento alle regole seguenti. Quando si invia una richiesta, verificare che le dimensioni del disco del sistema operativo siano comprese nel limite per Linux o Windows.
 
-|OS|Dimensioni del disco rigido virtuale consigliate|
+|Sistema operativo|Dimensioni del disco rigido virtuale consigliate|
 |---|---|
-|Linux|da 30 GB a 1023 GB|
+|Linux|da 1 GB a 1023 GB|
 |Windows|da 30 GB a 250 GB|
 
 Poiché le macchine virtuali consentono l'accesso al sistema operativo sottostante, verificare che le dimensioni del disco rigido virtuale siano sufficientemente grandi per il disco rigido virtuale. I dischi non sono espandibili senza tempi di inattività. Usare una dimensione del disco da 30 GB a 50 GB.
@@ -224,7 +224,7 @@ Per evitare un potenziale attacco correlato al virus WannaCry, verificare che tu
 
 La tabella seguente illustra la versione minima con patch di Windows Server: 
 
-|OS|Version|
+|Sistema operativo|Versione|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
@@ -247,7 +247,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 - CVE-2019-11478 
 - CVE-2019-11479
 
-|Famiglia del sistema operativo|Version|Kernel|
+|Famiglia del sistema operativo|Versione|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049-*-Azure|

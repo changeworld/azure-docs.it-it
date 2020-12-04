@@ -4,13 +4,13 @@ description: Questo argomento di avvio rapido illustra come creare le parti di b
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131473"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436675"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
 
@@ -20,13 +20,13 @@ Questo argomento di avvio rapido illustra come creare una nuova app nel portale 
 
 ## <a name="create-an-app"></a>Creare un'app
 
-Per creare un'applicazione, fare clic su **+ Nuova app**. 
+Per creare un'applicazione, selezionare **+ Nuova app**. 
 
 Nella finestra visualizzata immettere le informazioni seguenti:
 
 |Nome  |Descrizione  |
 |---------|---------|
-|Nome     | Un nome per l'app, ad esempio "home automation". Obbligatorio.        |
+|Nome     | Un nome per l'app. Ad esempio "home automation". Obbligatorio.        |
 |culture     | La lingua compresa e parlata dall'app. Obbligatorio.   |
 |Descrizione | Una descrizione dell'app. Facoltativa.
 |Risorsa Previsione | La risorsa di previsione che riceverà le query. Facoltativa. |
@@ -46,7 +46,7 @@ Dopo aver creato l'app LUIS, è necessario creare le finalità. Le finalità son
 
 I due diversi _intenti_ dell'app si allineano alle finalità seguenti:
 
-|Finalità|Testo di esempio dall'utente<br>noto come un' _espressione_|
+|Finalità|Testo di esempio dall'utente<br>noto come un'_espressione_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|

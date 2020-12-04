@@ -3,12 +3,12 @@ title: Usare i proxy in funzioni di Azure
 description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020399"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601374"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -28,7 +28,7 @@ In questa sezione viene descritto come creare un proxy nel portale Funzioni.
 3. Dare un nome al proxy.
 4. Configurare l'endpoint esposto in questa app per le funzioni, specificando il **Modello di route** e i **Metodi HTTP**. Questi parametri si comportano in base alle regole dei [trigger HTTP].
 5. Impostare l'**URL di back-end** su un altro endpoint. Questo endpoint potrebbe essere una funzione in un'altra app per le funzioni oppure di qualsiasi altra API. Il valore non deve essere statico e può fare riferimento alle [impostazioni dell'applicazione] e ai [parametri della richiesta del client originale].
-6. Fare clic su **Crea**.
+6. Scegliere **Crea**.
 
 Il proxy è ora presente come un nuovo endpoint sull'app per le funzioni. Dalla prospettiva del client, è equivalente a un HttpTrigger nelle Funzioni di Azure. È possibile provare il nuovo proxy copiando l'URL del proxy ed eseguendo un test con il proprio client HTTP preferito.
 
@@ -55,11 +55,11 @@ La configurazione di un proxy non deve essere statica. È possibile condizionarl
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Fare riferimento alle funzioni locali
 È possibile usare `localhost` per fare direttamente riferimento a una funzione nella stessa app per le funzioni, senza una richiesta del proxy di round trip.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` farà riferimento a una funzione attivata tramite HTTP locale nella route `/api/httptriggerC#1`
+`"backendUri": "https://localhost/api/httptriggerC#1"` farà riferimento a una funzione attivata tramite HTTP locale nella route `/api/httptriggerC#1`
 
  
 >[!Note]  
->Se la funzione usa il livello di autorizzazione *function, admin o sys*, sarà necessario specificare il codice e il clientId in base all'URL della funzione originale. In questo caso il riferimento avrà un aspetto simile al seguente: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` è consigliabile archiviare queste chiavi nelle [impostazioni dell'applicazione] e fare riferimento a quelle presenti nei proxy. In questo modo si evita di archiviare i segreti nel codice sorgente. 
+>Se la funzione usa il livello di autorizzazione *function, admin o sys*, sarà necessario specificare il codice e il clientId in base all'URL della funzione originale. In questo caso il riferimento avrà un aspetto simile al seguente: `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` è consigliabile archiviare queste chiavi nelle [impostazioni dell'applicazione] e fare riferimento a quelle presenti nei proxy. In questo modo si evita di archiviare i segreti nel codice sorgente. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parametri di riferimento della richiesta
 

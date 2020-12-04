@@ -2,16 +2,16 @@
 title: 'Guida introduttiva: analisi di app Web Java con applicazione Azure Insights'
 description: 'Application Performance Monitoring per app Web Java con Application Insights. '
 ms.topic: conceptual
-author: lgayhardt
-ms.custom: devx-track-java
-ms.author: lagayhar
 ms.date: 11/22/2020
-ms.openlocfilehash: 288b7463098b1c63b816f5544581e6222c7548c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 25d0d409c8112292afd20f052e82494dd8e656ea
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351555"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601306"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
 

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122502"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573511"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connettere gli account AWS a Centro sicurezza di Azure
 
@@ -48,6 +48,8 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
 
 
 ## <a name="connect-your-aws-account"></a>Connettere l'account AWS
+
+Seguire la procedura seguente per creare il connettore cloud AWS. 
 
 ### <a name="step-1-set-up-aws-security-hub"></a>Passaggio 1. Configurare AWS Security Hub:
 
@@ -160,7 +162,7 @@ AWS Systems Manager è necessario per l'automazione di attività nelle risorse d
 
         Per altre informazioni sui tag di Azure, vedere [Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione](../azure-resource-manager/management/tag-resources.md).
 
-### <a name="step-7-confirmation"></a>Passaggio 7. Conferma
+### <a name="step-6-confirmation"></a>Passaggio 6. Conferma
 
 Quando il connettore è stato creato e la configurazione di AWS Security Hub è stata definita correttamente:
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612121"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602207"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato per l'autenticazione di un'applicazione con Microsoft Identity Platform
 
@@ -36,7 +36,7 @@ Per calcolare l'asserzione, è possibile usare una delle numerose librerie JWT n
 | --- | --- |
 | `alg` | Deve essere **RS256** |
 | `typ` | Deve essere **JWT** |
-| `x5t` | Rappresentazione esadecimale dell'hash del certificato X. 509 (nota anche come *identificazione digitale*SHA-1 del certificato) codificata come valore stringa Base64. Ad esempio, dato un hash del certificato X. 509 di `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hex), l' `x5t` attestazione sarebbe `hOBcHZi846VCHSJbFAs26Go9VTQ=` (base64). |
+| `x5t` | Rappresentazione esadecimale dell'hash del certificato X. 509 (nota anche come *identificazione digitale* SHA-1 del certificato) codificata come valore stringa Base64url. Ad esempio, dato un hash del certificato X. 509 di `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hex), l' `x5t` attestazione sarebbe `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### <a name="claims-payload"></a>Attestazioni (payload)
 

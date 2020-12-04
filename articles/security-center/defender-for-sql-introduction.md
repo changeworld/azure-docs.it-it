@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: bb24c04681b142aaa1c80738090afe2a13949495
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 102d4916caf9dcae577006b6b847979f98ab3673
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96014542"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499901"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introduzione ad Azure Defender per SQL
 
@@ -25,7 +25,7 @@ Azure Defender per SQL include due piani di Azure Defender che estendono il [pac
 |----|:----|
 |Stato della versione:|**Azure Defender per server di database SQL di Azure** - Disponibile a livello generale<br>**Azure Defender per server SQL nelle macchine virtuali** - Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prezzi:|I due piani che formano **Azure Defender per SQL** sono soggetti alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)|
-|Versioni di SQL protette:|SQL in macchine virtuali di Azure, [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) e [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Server SQL con abilitazione di Arc](https://docs.microsoft.com/sql/sql-server/azure-arc/overview) (include server SQL locali)<br>[Database singoli](../azure-sql/database/single-database-overview.md) e [pool elastici](../azure-sql/database/elastic-pool-overview.md) di Azure SQL<br>[Istanza gestita di database SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Pool SQL dedicato di Azure Synapse Analytics (in precedenza SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
+|Versioni di SQL protette:|SQL in macchine virtuali di Azure, [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) e [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Server SQL con abilitazione di Arc](/sql/sql-server/azure-arc/overview) (include server SQL locali)<br>[Database singoli](../azure-sql/database/single-database-overview.md) e [pool elastici](../azure-sql/database/elastic-pool-overview.md) di Azure SQL<br>[Istanza gestita di database SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Pool SQL dedicato di Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
 |||
 
@@ -36,7 +36,7 @@ Azure Defender per SQL include due piani di Azure Defender che estendono il [pac
 - **Azure Defender per server di database SQL di Azure** protegge:
   - [Database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md)
   - [Istanza gestita di database SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Pool SQL dedicato in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
+  - [Pool SQL dedicato in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 - **Azure Defender per server SQL nelle macchine virtuali (anteprima)** estende le protezioni per i server SQL nativi di Azure in modo da supportare completamente gli ambienti ibridi e proteggere i server SQL (tutte le versioni supportate) ospitati in Azure, in altri ambienti cloud e persino in computer locali
 

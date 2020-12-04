@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372643"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573545"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connettere gli account GCP al Centro sicurezza di Azure
 
@@ -44,6 +44,8 @@ Lo screenshot seguente mostra i progetti GCP visualizzati nel dashboard di panor
 
 ## <a name="connect-your-gcp-account"></a>Connettere l'account GCP
 
+Seguire la procedura seguente per creare il connettore cloud GCP. 
+
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Passaggio 1. Configurare GCP Security Command Center con Security Health Analytics
 
 Per tutti i progetti GCP nell'organizzazione occorre anche:
@@ -60,7 +62,7 @@ Quando si abilita Security Health Analytics per la prima volta, per la disponibi
 ### <a name="step-2-enable-gcp-security-command-center-api"></a>Passaggio 2. Abilitare l'API di GCP Security Command Center
 
 1. Nella **libreria di API di Google Cloud Console** selezionare il progetto che si vuole connettere al Centro sicurezza di Azure.
-1. Nella libreria di API trovare e selezionare l' **API Security Command Center**.
+1. Nella libreria di API trovare e selezionare l'**API Security Command Center**.
 1. Nella pagina dell'API selezionare **ABILITA**.
 
 Altre informazioni sull'API [Security Command Center](https://cloud.google.com/security-command-center/docs/reference/rest/).
@@ -69,23 +71,23 @@ Altre informazioni sull'API [Security Command Center](https://cloud.google.com/s
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Passaggio 3. Creare un account del servizio dedicato per l'integrazione della configurazione della sicurezza
 
 1. Nella **console di GCP** selezionare il progetto che si vuole connettere al Centro sicurezza.
-1. In **Menu di navigazione** , nelle opzioni di **IAM e amministratore** , selezionare **Account di servizio**.
+1. In **Menu di navigazione**, nelle opzioni di **IAM e amministratore**, selezionare **Account di servizio**.
 1. Selezionare **CREA ACCOUNT DI SERVIZIO**.
 1. Immettere un nome per l'account e selezionare **Crea**.
 1. In **Ruolo** selezionare **Visualizzatore amministratore Centro sicurezza** e quindi selezionare **Continua**.
 1. La sezione **Concedi agli utenti l'accesso a questo account di servizio** è facoltativa. Selezionare **Fine**.
-1. Copiare il valore dell' **indirizzo di posta elettronica** dell'account del servizio creato e salvarlo per poterlo usare successivamente.
-1. In **Menu di navigazione** , nelle opzioni di **IAM e amministratore** , selezionare **IAM**.
+1. Copiare il valore dell'**indirizzo di posta elettronica** dell'account del servizio creato e salvarlo per poterlo usare successivamente.
+1. In **Menu di navigazione**, nelle opzioni di **IAM e amministratore**, selezionare **IAM**.
     1. Passare al livello di organizzazione.
     1. Selezionare **AGGIUNGI**.
-    1. Nel campo **Nuovi membri** incollare il valore dell' **indirizzo di posta elettronica** copiato in precedenza.
+    1. Nel campo **Nuovi membri** incollare il valore dell'**indirizzo di posta elettronica** copiato in precedenza.
     1. Selezionare il ruolo **Visualizzatore amministratore Centro sicurezza** e quindi selezionare Salva.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Impostazione delle autorizzazioni di GCP pertinenti":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Passaggio 4. Creare una chiave privata per l'account del servizio dedicato
 1. Passare al livello di progetto.
-1. In **Menu di navigazione** , nelle opzioni di **IAM e amministratore** , selezionare **Account di servizio**.
+1. In **Menu di navigazione**, nelle opzioni di **IAM e amministratore**, selezionare **Account di servizio**.
 1. Aprire l'account del servizio dedicato e selezionare Modifica.
 1. Nella sezione **Chiavi** selezionare **AGGIUNGI CHIAVE** e quindi **Crea nuova chiave**.
 1. Nella schermata Crea chiave privata selezionare **JSON** e quindi selezionare **CREA**.

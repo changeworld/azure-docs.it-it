@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 262c54c3eb47c8539dce89c01f32c7feb1884b7c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 800592b7a8b263fea2883fdd3e030f78f72647dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792736"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459915"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Eseguire query di reporting ad hoc su più database (database SQL di Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Le applicazioni SaaS possono analizzare la grande quantità di dati del tenant a
 
 L'accesso a questi dati è semplice quando sono raccolti in un singolo database multi-tenant, ma non è altrettanto semplice in una distribuzione su larga scala potenzialmente in migliaia di database. Uno degli approcci possibili prevede l'uso di una [query elastica](elastic-query-overview.md), che consente di eseguire query su un set di database distribuiti con uno schema comune. Questi database possono essere distribuiti in sottoscrizioni e gruppi di risorse diversi, ma devono condividere un account di accesso comune per poter estrarre dati da tutti i database. La query elastica usa un singolo database *principale* in cui sono definite le tabelle esterne speculari alle tabelle o alle viste nei database (tenant) distribuiti. Le query inviate a questo database principale vengono compilate per produrre un piano di query distribuito, con il push di parti della query ai database tenant all'occorrenza. La query elastica usa la mappa partizioni nel database del catalogo per determinare la posizione di tutti i database tenant. La configurazione e l'esecuzione di query sono semplici con il linguaggio [Transact-SQL](/sql/t-sql/language-reference) standard e sono supportate query ad hoc da strumenti come Power BI ed Excel.
 
-Grazie alla distribuzione delle query tra i database tenant, la query elastica offre informazioni dettagliate immediate sui dati di produzione attivi. Tuttavia, dato che la query elastica esegue il pull dei dati potenzialmente da molti database, la latenza delle query può talvolta essere superiore a quella di query equivalenti inviate a un singolo database multi-tenant. Assicurarsi di progettare query che riducano al minimo i dati restituiti. La query elastica è spesso la soluzione ideale per eseguire query su piccole quantità di dati in tempo reale, in alternativa alla creazione di query analitiche o report usati di frequente e complessi. Se le query non offrono prestazioni adeguate, esaminare il [piano di esecuzione](/sql/relational-databases/performance/display-an-actual-execution-plan) per scoprire quale parte della query è stata inviata al database remoto e quanti dati vengono restituiti. Per ottenere un servizio migliore per le query che richiedono un'elaborazione analitica complessa, in alcuni casi è consigliabile salvare i dati tenant estratti in un database ottimizzato per le query analitiche. Database SQL e Azure Synapse Analytics (in precedenza SQL Data Warehouse) possono ospitare un database analitico di questo tipo.
+Grazie alla distribuzione delle query tra i database tenant, la query elastica offre informazioni dettagliate immediate sui dati di produzione attivi. Tuttavia, dato che la query elastica esegue il pull dei dati potenzialmente da molti database, la latenza delle query può talvolta essere superiore a quella di query equivalenti inviate a un singolo database multi-tenant. Assicurarsi di progettare query che riducano al minimo i dati restituiti. La query elastica è spesso la soluzione ideale per eseguire query su piccole quantità di dati in tempo reale, in alternativa alla creazione di query analitiche o report usati di frequente e complessi. Se le query non offrono prestazioni adeguate, esaminare il [piano di esecuzione](/sql/relational-databases/performance/display-an-actual-execution-plan) per scoprire quale parte della query è stata inviata al database remoto e quanti dati vengono restituiti. Per ottenere un servizio migliore per le query che richiedono un'elaborazione analitica complessa, in alcuni casi è consigliabile salvare i dati tenant estratti in un database ottimizzato per le query analitiche. Database SQL e Azure Synapse Analytics possono ospitare il database di analisi.
 
 Questo modello di analisi è spiegato nell'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md).
 
@@ -60,8 +60,8 @@ Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant 
 Per eseguire query su un set di dati più interessante, creare i dati di vendita dei biglietti eseguendo il generatore di biglietti.
 
 1. In *PowerShell ISE* aprire lo script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocReporting.ps1* e impostare i valori seguenti:
-   * **$DemoScenario** = 1, **Acquistare biglietti per gli eventi in tutte le sedi** .
-2. Premere **F5** per eseguire lo script e generare i dati di vendita dei biglietti. Durante l'esecuzione dello script, è possibile continuare la procedura in questa esercitazione. I dati sui biglietti vengono recuperati nella sezione *Eseguire query distribuite ad hoc* , quindi attendere che il generatore di biglietti completi le operazioni.
+   * **$DemoScenario** = 1, **Acquistare biglietti per gli eventi in tutte le sedi**.
+2. Premere **F5** per eseguire lo script e generare i dati di vendita dei biglietti. Durante l'esecuzione dello script, è possibile continuare la procedura in questa esercitazione. I dati sui biglietti vengono recuperati nella sezione *Eseguire query distribuite ad hoc*, quindi attendere che il generatore di biglietti completi le operazioni.
 
 ## <a name="explore-the-tenant-tables"></a>Esplorare le tabelle tenant 
 
@@ -71,12 +71,12 @@ Per ottenere questo modello, tutte le tabelle tenant includono una colonna *Venu
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Distribuire il database usato per le query distribuite ad hoc
 
-Questo esercizio distribuisce il database *adhocreporting* , ovvero il database principale che contiene lo schema usato per l'esecuzione di query su tutti i database tenant. Il database viene distribuito nel server di catalogo esistente, vale a dire il server usato per tutti i database correlati alla gestione nell'app di esempio.
+Questo esercizio distribuisce il database *adhocreporting*, ovvero il database principale che contiene lo schema usato per l'esecuzione di query su tutti i database tenant. Il database viene distribuito nel server di catalogo esistente, vale a dire il server usato per tutti i database correlati alla gestione nell'app di esempio.
 
 1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* in *PowerShell ISE* e impostare i valori seguenti:
-   * **$DemoScenario** = 2, **Distribuire un database di analisi ad hoc** .
+   * **$DemoScenario** = 2, **Distribuire un database di analisi ad hoc**.
 
-2. Premere **F5** per eseguire lo script e creare il database *adhocreporting* .
+2. Premere **F5** per eseguire lo script e creare il database *adhocreporting*.
 
 Nella prossima sezione si aggiungerà lo schema al database in modo da poterlo usare per eseguire query distribuite.
 
@@ -84,7 +84,7 @@ Nella prossima sezione si aggiungerà lo schema al database in modo da poterlo u
 
 Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e della tabella esterna) al database di reporting ad hoc che consente l'esecuzione di query su tutti i database tenant.
 
-1. Aprire SQL Server Management Studio e connettersi al database di reporting ad hoc creato nel passaggio precedente. Il nome del database è *adhocreporting* .
+1. Aprire SQL Server Management Studio e connettersi al database di reporting ad hoc creato nel passaggio precedente. Il nome del database è *adhocreporting*.
 2. Aprire ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* in SQL Server Management Studio.
 3. Esaminare lo script SQL e tenere presente quanto segue:
 
@@ -96,30 +96,30 @@ Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e del
 
     ![creare l'origine dati esterna](./media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   Le tabelle esterne che fanno riferimento a tabelle tenant sono definite con **DISTRIBUTION = SHARDED(VenueId)** . Ciò consente di indirizzare una query per un particolare *VenueId* al database appropriato e di migliorare le prestazioni per molti scenari, come illustrato nella sezione successiva.
+   Le tabelle esterne che fanno riferimento a tabelle tenant sono definite con **DISTRIBUTION = SHARDED(VenueId)**. Ciò consente di indirizzare una query per un particolare *VenueId* al database appropriato e di migliorare le prestazioni per molti scenari, come illustrato nella sezione successiva.
 
     ![creare tabelle esterne](./media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
-   La tabella locale *VenueTypes* che viene creata e popolata. Questa tabella di dati di riferimento è comune in tutti i database tenant, pertanto può essere rappresentata come tabella locale e popolata con i dati comuni. Per alcune query questo potrebbe ridurre la quantità di dati spostati tra i database tenant e il database *adhocreporting* .
+   La tabella locale *VenueTypes* che viene creata e popolata. Questa tabella di dati di riferimento è comune in tutti i database tenant, pertanto può essere rappresentata come tabella locale e popolata con i dati comuni. Per alcune query questo potrebbe ridurre la quantità di dati spostati tra i database tenant e il database *adhocreporting*.
 
     ![creare la tabella](./media/saas-multitenantdb-adhoc-reporting/create-table.png)
 
    Se si includono tabelle di riferimento in questo modo, assicurarsi di aggiornare lo schema di tabella e i dati ogni volta che si aggiornano i database tenant.
 
-4. Premere **F5** per eseguire lo script e inizializzare il database *adhocreporting* . 
+4. Premere **F5** per eseguire lo script e inizializzare il database *adhocreporting*. 
 
 È ora possibile eseguire query distribuite e ottenere informazioni dettagliate da tutti i tenant.
 
 ## <a name="run-ad-hoc-distributed-queries"></a>Eseguire query distribuite ad hoc
 
-Dopo avere configurato il database *adhocreporting* , è possibile procedere ed eseguire alcune query distribuite. Includere il piano di esecuzione per una migliore comprensione della posizione in cui avviene l'elaborazione delle query. 
+Dopo avere configurato il database *adhocreporting*, è possibile procedere ed eseguire alcune query distribuite. Includere il piano di esecuzione per una migliore comprensione della posizione in cui avviene l'elaborazione delle query. 
 
 Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano per visualizzare i dettagli. 
 
-1. In *SSMS* aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* .
-2. Assicurarsi di essere connessi al database **adhocreporting** .
+1. In *SSMS* aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
+2. Assicurarsi di essere connessi al database **adhocreporting**.
 3. Selezionare il menu **Query** e fare clic su **Includi piano di esecuzione effettivo**
-4. Evidenziare la query *Which venues are currently registered?* e premere **F5** .
+4. Evidenziare la query *Which venues are currently registered?* e premere **F5**.
 
    La query restituisce l'intero elenco di sedi, dimostrando come sia semplice e veloce eseguire una query su tutti i tenant e restituire i dati da ogni tenant.
 
@@ -127,15 +127,15 @@ Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano
 
    ![SELECT * FROM dbo.Venues](./media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
 
-5. Selezionare la query successiva e premere **F5** .
+5. Selezionare la query successiva e premere **F5**.
 
-   La query unisce i dati dai database tenant e dalla tabella locale *VenueTypes* (locale perché è una tabella nel database *adhocreporting* ).
+   La query unisce i dati dai database tenant e dalla tabella locale *VenueTypes* (locale perché è una tabella nel database *adhocreporting*).
 
    Esaminare il piano e verificare che la maggior parte del costo è rappresentato dalla query remota, perché vengono recuperate le informazioni sulle sedi di ogni tenant (dbo.Venues) e quindi si esegue un rapido join locale con la tabella *VenueTypes* locale per visualizzare il nome descrittivo.
 
    ![Creare un join su dati remoti e locali](./media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
 
-6. Selezionare ora la query *On which day were the most tickets sold?* e premere **F5** .
+6. Selezionare ora la query *On which day were the most tickets sold?* e premere **F5**.
 
    Questa query esegue operazioni un po' più complesse di join e aggregazione. È importante tenere presente che la maggior parte dell'elaborazione viene eseguita in remoto e ancora una volta vengono recuperate solo le righe necessarie, restituendo una singola riga per il totale delle vendite di biglietti aggregato al giorno di ogni sede.
 

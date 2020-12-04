@@ -1,5 +1,5 @@
 ---
-title: Anteprima pubblica dell'endpoint Sync V2 di Azure AD Connect  | Microsoft Docs
+title: Endpoint Azure AD Connect Sync V2 | Microsoft Docs
 description: Questo documento illustra gli aggiornamenti dell'API degli endpoint Sync V2 di Azure AD Connect.
 services: active-directory
 author: billmath
@@ -12,34 +12,24 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339422"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602105"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API dell'endpoint Sync V2 di Azure AD Connect (anteprima pubblica) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API dell'endpoint Servizio di sincronizzazione Azure AD Connect v2 
 Microsoft ha distribuito un nuovo endpoint (API) per Azure AD Connect che consente di migliorare le prestazioni delle operazioni del servizio di sincronizzazione per Azure Active Directory. Usando il nuovo endpoint V2, si verificherà un notevole miglioramento delle prestazioni di esportazione e importazione in Azure AD. Questo nuovo endpoint supporta gli elementi seguenti:
     
- -  sincronizzazione di gruppi con un massimo di 250.000 membri
+ - sincronizzazione di gruppi con un massimo di 250.000 membri
  - miglioramento delle prestazioni di esportazione e importazione in Azure AD
  
 > [!NOTE]
 > Attualmente, il nuovo endpoint non ha un limite di dimensioni del gruppo configurato per i gruppi di Microsoft 365 di cui è stato eseguito il writeback. Questo può influire sulle latenze del ciclo di Active Directory e della sincronizzazione. È consigliabile aumentare le dimensioni del gruppo in modo incrementale.  
 
-
 ## <a name="pre-requisites"></a>Prerequisiti  
 Per usare il nuovo endpoint V2, è necessario usare [Azure AD Connect versione 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o versioni successive e seguire i passaggi di distribuzione indicati di seguito per abilitare l'endpoint V2 per il server Azure AD Connect.   
-
->[!NOTE]
->Questa anteprima pubblica è attualmente disponibile solo nel cloud globale di Azure e non è disponibile per i [cloud nazionali](../develop/authentication-national-cloud.md).
-
-### <a name="public-preview-limitations"></a>Limiti dell'anteprima pubblica  
-Anche se questa versione è stata sottoposta a test approfonditi, è possibile che si verifichino problemi. Uno degli obiettivi di questa versione di anteprima pubblica è trovare e risolvere tali problemi.  
-
->[!IMPORTANT]
-> Sebbene venga fornito supporto per questa versione di anteprima pubblica, Microsoft potrebbe non essere sempre in grado di risolvere tutti i problemi che potrebbero verificarsi immediatamente. Per questo motivo, è consigliabile decidere in base al proprio giudizio prima di distribuire questa versione nell'ambiente di produzione. 
 
 ## <a name="deployment-guidance"></a>Linee guida per la distribuzione 
 Per usare l'endpoint V2, sarà necessario distribuire [Azure AD Connect versione 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o successiva. Usare il collegamento fornito per il download. 
@@ -184,17 +174,9 @@ Se l'endpoint V2 è stato abilitato ed è necessario eseguire il ripristino dell
 > Quando si torna dagli endpoint da V2 a V1, i gruppi sincronizzati con più di 50.000 membri verranno eliminati dopo l'esecuzione di una sincronizzazione completa, per entrambi i gruppi di Active Directory di cui è stato effettuato il provisioning per Azure AD e Microsoft 365 gruppi unificati sottoposti a provisioning in Active Directory. 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti  
-**D: Un cliente può usare questa funzionalità nell'ambiente di produzione?**   
-</br>Sì, può essere usata negli ambienti di produzione, con l'avvertenza descritta in precedenza.
  
-**D: Chi può contattare il cliente in caso di problemi?**   
-</br>Se è necessario supporto quando si usa questa funzionalità, è necessario aprire un caso di supporto. 
- 
-**D: Sono previsti aggiornamenti frequenti per l'anteprima pubblica?**   
-</br>È previsto un livello limitato di modifiche continue durante un'anteprima pubblica. È necessario valutare questo rischio quando si distribuiscono le funzionalità dell'anteprima pubblica nell'ambiente di produzione.  
- 
-**D: Quanto tempo manca alla prossima attività cardine?**   
-</br>Le funzionalità dell'anteprima pubblica possono essere ritirate ed eventualmente riprogettate prima di raggiungere ulteriori attività cardine.  
+**Quando sarà il nuovo endpoint a essere il valore predefinito per gli aggiornamenti e le nuove installazioni?**  
+</br>Si prevede di pubblicare una nuova versione di AADConnect per il download nel 2021 gennaio. Questa versione utilizzerà l'endpoint V2 per impostazione predefinita e consentirà di sincronizzare i gruppi più grandi di 50.000 withuot qualsiasi configurazione aggiuntiva. Questa versione verrà pubblicata successivamente per l'aggiornamento automatico ai server idonei.
  
 ## <a name="next-steps"></a>Passaggi successivi
 

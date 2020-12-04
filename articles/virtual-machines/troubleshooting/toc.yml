@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Riavvio, arresto o arresto dei servizi'
       href: boot-error-troubleshoot-windows.md
+    - name: Problemi con un disco di sistema operativo pieno in una macchina virtuale Linux
+      href: os-disk-full-linux.md
 - name: Riavvio imprevisto
   items:
     - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati

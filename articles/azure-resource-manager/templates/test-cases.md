@@ -2,15 +2,15 @@
 title: Test case per test Toolkit
 description: Descrive i test eseguiti da ARM template test Toolkit.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378118"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600905"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Test case predefiniti per ARM template test Toolkit
 
@@ -137,9 +137,11 @@ Nell'esempio seguente viene **passato** questo test.
 
 Nome test: il **percorso non deve essere hardcoded**
 
-È possibile che agli utenti del modello siano disponibili aree limitate. Quando si imposta il percorso della risorsa su `"[resourceGroup().location]"` , il gruppo di risorse potrebbe essere stato creato in un'area a cui gli altri utenti non possono accedere. A questi utenti viene impedito l'uso del modello.
+I modelli devono avere un parametro denominato location. Usare questo parametro per impostare la posizione delle risorse nel modello. Nel modello principale (denominato azuredeploy.json o mainTemplate.json), questo parametro può essere impostato come predefinito nella posizione del gruppo di risorse. Nei modelli collegati o annidati il parametro location non deve avere un percorso predefinito.
 
-Quando si definisce il percorso per ogni risorsa, usare un parametro che per impostazione predefinita è il percorso del gruppo di risorse. Specificando questo parametro, gli utenti possono usare il valore predefinito quando è utile, ma anche specificare un percorso diverso.
+È possibile che agli utenti del modello siano disponibili aree limitate. Quando si codifica il percorso della risorsa, è possibile che agli utenti venga impedito di creare una risorsa in tale area. Gli utenti possono essere bloccati anche se il percorso della risorsa è impostato su `"[resourceGroup().location]"` . Il gruppo di risorse potrebbe essere stato creato in un'area a cui gli altri utenti non possono accedere. A questi utenti viene impedito l'uso del modello.
+
+Se si specifica un parametro location che usa per impostazione predefinita il percorso del gruppo di risorse, gli utenti possono usare il valore predefinito quando è utile, ma anche specificare un percorso diverso.
 
 Nell'esempio seguente il test **non viene superato** perché il percorso della risorsa è impostato su `resourceGroup().location` .
 
@@ -195,7 +197,7 @@ Nell'esempio seguente viene usato un parametro location, ma il test **non riesce
 }
 ```
 
-In alternativa, creare un parametro che per impostazione predefinita è il percorso del gruppo di risorse, ma consente agli utenti di fornire un valore diverso. Nell'esempio seguente viene **passato** questo test.
+In alternativa, creare un parametro che per impostazione predefinita è il percorso del gruppo di risorse, ma consente agli utenti di fornire un valore diverso. Nell'esempio seguente viene **passato** questo test quando il modello viene utilizzato come modello principale.
 
 ```json
 {
@@ -227,6 +229,8 @@ In alternativa, creare un parametro che per impostazione predefinita è il perco
     "outputs": {}
 }
 ```
+
+Tuttavia, se l'esempio precedente viene usato come modello collegato, il test ha **esito negativo**. Quando viene usato come modello collegato, rimuovere il valore predefinito.
 
 ## <a name="resources-should-have-location"></a>Le risorse devono avere un percorso
 

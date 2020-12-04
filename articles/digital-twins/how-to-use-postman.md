@@ -1,5 +1,5 @@
 ---
-title: Invia le richieste con il post
+title: Effettuare richieste con Postman
 titleSuffix: Azure Digital Twins
 description: Informazioni su come configurare e usare il post per testare le API dei dispositivi gemelli digitali di Azure.
 ms.author: baanders
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188050"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600490"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Come usare il post per inviare richieste alle API dei dispositivi gemelli digitali di Azure
 
@@ -130,7 +130,7 @@ Per creare una richiesta post a una delle API dei dispositivi gemelli digitali d
 
 Per procedere con una query di esempio, in questo articolo verrà usata l'API di query (e la relativa [documentazione di riferimento](/rest/api/digital-twins/dataplane/query/querytwins)) per eseguire una query per tutti i dispositivi gemelli digitali in un'istanza.
 
-1. Ottenere l'URL della richiesta e il tipo dalla documentazione di riferimento. Per l'API di query, si tratta di *Post https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31*.
+1. Ottenere l'URL della richiesta e il tipo dalla documentazione di riferimento. Per l'API di query, si tratta di *Post `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`*.
 1. In postazione impostare il tipo per la richiesta e immettere l'URL della richiesta, inserendo i segnaposto nell'URL in base alle esigenze. Questa è la posizione in cui verrà usato il **nome host** dell'istanza dalla sezione [*prerequisiti*](#prerequisites) .
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Nei dettagli della nuova richiesta, l'URL della query dalla documentazione di riferimento è stato compilato nella casella URL richiesta." lightbox="media/how-to-use-postman/postman-request-url.png":::

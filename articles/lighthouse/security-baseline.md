@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 10ad0b83f3c85b48f9d066e1feec8d8aac4dd057
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533673"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602309"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Baseline della sicurezza di Azure per Azure Lighthouse
 
@@ -306,7 +306,7 @@ Se un provider di servizi vuole consentire al team di sicurezza di esaminare le 
 
 ## <a name="logging-and-threat-detection"></a>Registrazione e rilevamento delle minacce
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: abilitazione del rilevamento delle minacce per le risorse di Azure
 
@@ -676,7 +676,7 @@ La strategia deve includere linee guida documentate, criteri e standard per gli 
 
 -   Strategia di correzione in diversi scenari di minaccia e attacco
 
--   Internet Edge e strategia di ingresso e uscita/Azure/Security/benchmarks/Security-Controls-V2-Logging-Threat-Protection
+-   Internet Edge e strategia di ingresso e uscita/Azure/Security/benchmarks/Security-Controls-V2-Logging-Threat-detection
 -   Cloud ibrido e strategia di interconnettività locale
 
 -   Artefatti di rete aggiornati, ad esempio diagrammi di rete, architettura di rete di riferimento
@@ -748,7 +748,7 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 - [Azure Security Benchmark - Registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Risposta agli eventi imprevisti](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Risposta agli eventi imprevisti](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Procedura di sicurezza consigliata di Azure 4 - Processo. Aggiornare i processi di risposta agli eventi imprevisti per il cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

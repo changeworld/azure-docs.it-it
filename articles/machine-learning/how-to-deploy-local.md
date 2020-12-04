@@ -10,14 +10,14 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 1d2e25f76d9a68eeb01a45c34651fe1537297980
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510574"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600354"
 ---
-# <a name="deploy-on-your-local-machines-models-trained-with-azure-machine-learning"></a>Eseguire la distribuzione nei modelli di computer locali con training con Azure Machine Learning
+# <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Distribuire i modelli sottoposti a training con Azure Machine Learning nei computer locali 
 
 Questo articolo descrive come usare il computer locale come destinazione per il training o la distribuzione di modelli creati in Azure Machine Learning. Azure Machine Learning è sufficientemente flessibile da funzionare con la maggior parte dei framework di Machine Learning Python. Le soluzioni di Machine Learning presentano in genere dipendenze complesse che possono essere difficili da duplicare. In questo articolo viene illustrato come bilanciare il controllo totale con facilità di utilizzo.
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: rilevamento anomalie, Machine Learning, algoritmi
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016604"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999102"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -85,6 +85,10 @@ Per altre informazioni sugli algoritmi SR-CNN sviluppati da Microsoft, vedere il
 
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
+
+[Usare i contenitori di Rilevamento anomalie](anomaly-detector-container-howto.md) per distribuire le funzionalità dell'API in locale. I contenitori Docker consentono di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo.
 
 ## <a name="join-the-anomaly-detector-community"></a>Partecipare alla community di Rilevamento anomalie
 

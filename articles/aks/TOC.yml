@@ -146,6 +146,8 @@
           href: reduce-latency-ppg.md
         - name: Aggiornare l'immagine del nodo
           href: node-image-upgrade.md
+        - name: Aggiornare automaticamente l'immagine del nodo con GitHub Actions
+          href: node-upgrade-github-actions.md
         - name: Elaborare gli aggiornamenti del sistema operativo del nodo
           href: node-updates-kured.md
         - name: Configurare un cluster del servizio Azure Kubernetes

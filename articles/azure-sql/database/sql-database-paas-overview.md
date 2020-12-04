@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: bf7e99f6e6201afefd316deafe37e38088fb9fae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187120"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451431"
 ---
 # <a name="what-is-azure-sql-database"></a>Che cos'è il database SQL di Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -200,7 +200,7 @@ Il database SQL consente di creare e gestire le applicazioni in modo più facile
 |[Azure Data Studio](/sql/azure-data-studio/)|Strumento per database multipiattaforma eseguito in Windows, macOS e Linux.|
 |[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|un'applicazione client gratuita e scaricabile per la gestione di qualsiasi infrastruttura SQL, da SQL Server a Database SQL.|
 |[SQL Server Data Tools in Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)|Applicazione client gratuita e scaricabile per lo sviluppo di database relazionali di SQL Server, database nel database SQL di Azure, pacchetti di Integration Services, modelli di dati di Analysis Services e report di Reporting Services.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|un editor di codice open source, gratuito e scaricabile per Windows, macOS e Linux. Supporta estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace) per l'esecuzione di query in Microsoft SQL Server, database SQL di Azure e Azure Synapse Analytics (in precedenza SQL Data Warehouse).|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|un editor di codice open source, gratuito e scaricabile per Windows, macOS e Linux. Supporta estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace) per l'esecuzione di query in Microsoft SQL Server, Database SQL di Azure e Azure Synapse Analytics.|
 
 Database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, PHP, Ruby e .NET in macOS, Linux e Windows. Il database SQL supporta le stesse [librerie di connessione](connect-query-content-reference-guide.md#libraries) di SQL Server.
 

@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 931fa2c10a47e5d00f8e83b31b16618b06da8a46
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4114dd712028895da03835a2730ebd7a6ab971a4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019110"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436879"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Esercitazione: Usare un bot app Web abilitato con Language Understanding in C#
 
@@ -49,8 +49,8 @@ Usare C# per creare un chatbot integrato con Language Understanding (LUIS). Il b
     |Modello del bot|Impostazioni di Bot framework - vedere la tabella seguente|
     |Percorso app LUIS|Deve essere lo stesso dell'area risorse di LUIS|`westus`|
     |Piano di servizio app/Località|Non modificare il valore predefinito.|
-    |Application Insights|Non modificare il valore predefinito.|
-    |ID e password dell'app Microsoft|Non modificare il valore predefinito.|
+    |Application Insights|Non cambiare il valore predefinito fornito.|
+    |ID e password dell'app Microsoft|Non cambiare il valore predefinito fornito.|
 
 1. In **Bot template** (Modello di bot) selezionare le opzioni seguenti e quindi scegliere il pulsante **Select** (Seleziona) sotto queste impostazioni:
 

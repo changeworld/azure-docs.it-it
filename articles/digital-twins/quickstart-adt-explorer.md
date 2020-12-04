@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358100"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187299"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Avvio rapido: Esplorare uno scenario di Gemelli digitali di Azure di esempio con ADT Explorer
 
@@ -66,6 +66,7 @@ In caso contrario, è possibile installare l'interfaccia della riga di comando d
 1. Per completare l'installazione corrispondente al sistema operativo, seguire la procedura descritta in [questo collegamento](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 1. Aprire una finestra della console nel computer.
 1. Eseguire `az login` e seguire le istruzioni sull'autenticazione per accedere all'account Azure.
+1. Possibile ultimo passaggio: se si usano più sottoscrizioni di Azure in questo account, impostare il contesto di autenticazione su quella che contiene l'istanza di Gemelli digitali di Azure eseguendo `az account set --subscription "<your-subscription-name-or-ID>"` (è possibile usare il nome o il valore ID della sottoscrizione).
 
 Dopo l'accesso, ADT Explorer dovrebbe prelevare automaticamente le credenziali di Azure quando viene eseguito nella sezione successiva.
 
@@ -90,7 +91,7 @@ Aprire una finestra della console nel percorso della cartella **Azure_Digital_Tw
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer con l'icona di accesso evidenziata nella parte superiore della finestra. L'icona mostra la semplice silhouette di una persona a cui è sovrapposta la silhouette di una chiave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Immettere l'URL dell'istanza di Gemelli digitali di Azure ottenuto in precedenza nella sezione [Prerequisiti](#prerequisites) nel formato *https://{nome host istanza}* .
+1. Immettere l'URL dell'istanza di Gemelli digitali di Azure ottenuto in precedenza nella sezione [Configurare un'istanza di Gemelli digitali di Azure](#set-up-an-azure-digital-twins-instance) nel formato *https://{nome host istanza}* .
 
 >[!NOTE]
 > È possibile rivedere o modificare queste informazioni in qualsiasi momento selezionando la stessa icona per aprire la casella **Sign In** (Accesso). Verranno mantenuti i valori immessi.
