@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: 2ce534972cf6509cdc1ca026f4b29efd3df91afd
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96303571"
 ---
 Per autenticare tutte le risorse usate in questo articolo, è necessario **configurare una registrazione dell'app [Azure Active Directory (Azure ad)](../articles/active-directory/fundamentals/active-directory-whatis.md)**. Seguire le istruzioni in [*Procedura dettagliata: Creare una registrazione dell'app*](../articles/digital-twins/how-to-create-app-registration.md) per configurare questa impostazione. 
