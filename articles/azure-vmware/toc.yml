@@ -108,5 +108,7 @@
       href: faq.md
 - name: Informazioni di riferimento
   items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/vmware/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
