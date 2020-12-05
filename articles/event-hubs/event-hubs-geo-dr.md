@@ -3,15 +3,15 @@ title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934073"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608351"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
-In caso di tempo di inattività di interi data center o di aree di Azure complete (se non si usano [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
+In caso di tempo di inattività di interi data center o di aree di Azure complete (se non si usano [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
 > [!NOTE]
 > La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/).  
@@ -65,7 +65,7 @@ La sezione seguente è una panoramica del processo di failover e illustra come c
 
 ### <a name="example"></a>Esempio
 
-In un esempio di questo scenario, si consideri una soluzione POS che genera messaggi o eventi. Hub eventi passa gli eventi a una soluzione di mapping o riformattazione, che quindi inoltra i dati mappati a un altro sistema per un'ulteriore elaborazione. A questo punto, tutti questi sistemi possono essere ospitati nella stessa area di Azure. La decisione relativa a quando eseguire il failover o di quale parte del sistema dipende dal flusso di dati nell'infrastruttura. 
+In un esempio di questo scenario, si consideri una soluzione POS che genera messaggi o eventi. Hub eventi passa gli eventi a una soluzione di mapping o riformattazione, che quindi inoltra i dati mappati a un altro sistema per un'ulteriore elaborazione. A questo punto, tutti questi sistemi possono essere ospitati nella stessa area di Azure. La decisione di quando e quale parte del failover dipende dal flusso di dati nell'infrastruttura. 
 
 È possibile automatizzare il failover con sistemi di monitoraggio o con soluzioni di monitoraggio personalizzate. Tale automazione, tuttavia, richiede pianificazione e lavoro aggiuntivi che esulano dall'ambito di questo articolo.
 
@@ -96,7 +96,7 @@ L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 ## <a name="considerations"></a>Considerazioni
 
-Tenere presente le considerazioni seguenti per questa versione:
+Tenere presente le considerazioni seguenti:
 
 1. Da progettazione, il ripristino di emergenza geografico di Hub eventi non replica i dati e non è quindi possibile riutilizzare il valore di offset precedente dell'hub eventi primario per l'hub eventi secondario. È consigliabile riavviare il ricevitore di eventi con uno dei metodi seguenti:
 
@@ -106,7 +106,7 @@ Tenere presente le considerazioni seguenti per questa versione:
 
 2. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
  
-3. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i messaggi pianificati e i nuovi duplicati funzioneranno. 
+3. Il fatto che non vengano replicati dati significa che le sessioni attive correnti non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i messaggi pianificati e i nuovi duplicati funzioneranno. 
 
 4. È necessario [provare a effettuare](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) il failover di un'infrastruttura distribuita complessa almeno una volta. 
 

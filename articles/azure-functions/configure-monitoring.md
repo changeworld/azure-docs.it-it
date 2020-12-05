@@ -4,12 +4,12 @@ description: Informazioni su come connettere l'app per le funzioni a Application
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175747"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607127"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 
@@ -38,6 +38,9 @@ Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria
 | **`Host.Results`** | **requests** | Questi log generati in fase di esecuzione indicano l'esito positivo o negativo di una funzione. Tutti questi log vengono scritti al livello `Information`. Se si filtra per `Warning` o categoria successiva, non verrà visualizzato alcun dato. |
 | **`Microsoft`** | **traces** | Categoria di log completo che riflette un componente Runtime .NET richiamato dall'host.  |
 | **`Worker`** | **traces** | Log generati dal processo di lavoro del linguaggio per le lingue non-.NET. I log del ruolo di lavoro della lingua possono anche essere registrati in una `Microsoft.*` categoria, ad esempio `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` . Questi log vengono scritti a `Information` livello di.|
+
+> [!NOTE]
+> Per le funzioni della libreria di classi .NET, queste categorie presuppongono l'uso `ILogger` di e non `ILogger<T>` . Per altre informazioni, vedere la [documentazione relativa alle funzioni di ILogger](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
@@ -192,7 +195,7 @@ Per altre informazioni, vedere [campionamento in Application Insights](../azure-
 
 ## <a name="configure-scale-controller-logs"></a>Configurare i log del controller di scalabilità
 
-_Questa funzionalità è in anteprima._ 
+_Questa funzionalità è disponibile in anteprima._ 
 
 È possibile fare in modo che il [controller di scalabilità di funzioni di Azure](./functions-scale.md#runtime-scaling) emetta i log in Application Insights o nell'archiviazione BLOB per comprendere meglio le decisioni che il controller di scala sta effettuando per l'app per le funzioni.
 

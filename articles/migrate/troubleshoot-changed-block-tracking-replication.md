@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 04dcf8edbce7782e6d196271bfa85f2f8d1c5ba3
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377227"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608334"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Risoluzione dei problemi di replica nella migrazione di macchine virtuali VMware senza agente
 
@@ -59,7 +59,7 @@ Quando il portale crea l'insieme di credenziali delle chiavi, aggiunge anche un 
 
 - L'altro caso in cui si verifica questo problema è che un utente (User1) ha tentato inizialmente di configurare la replica e si è verificato un errore, ma l'insieme di credenziali delle chiavi è già stato creato e i criteri di accesso utente sono stati assegnati in modo appropriato all'utente. A questo punto un altro utente (User2) tenterà di configurare la replica, ma l'operazione di configurazione dell'account di archiviazione gestito o di generazione della definizione di firma di accesso condiviso non riuscirà perché non sono presenti criteri di accesso utente corrispondenti a User2 nell'insieme di credenziali delle chiavi.
 
-**Soluzione** : per risolvere questo problema, creare un criterio di accesso utente per User2 nell'insieme di credenziali delle credenziali che concede l'autorizzazione User2 per configurare l'account di archiviazione gestito e generare le definizioni SAS. User2 può eseguire questa operazione da Azure PowerShell usando i cmdlet seguenti:
+**Soluzione**: per risolvere questo problema, creare un criterio di accesso utente per User2 nell'insieme di credenziali delle credenziali che concede l'autorizzazione User2 per configurare l'account di archiviazione gestito e generare le definizioni SAS. User2 può eseguire questa operazione da Azure PowerShell usando i cmdlet seguenti:
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). ID
 
@@ -139,7 +139,7 @@ Il componente che tenta di replicare i dati in Azure è inattivo o non risponde.
     
     Questo comando tenterà una connessione TCP e restituirà un output.
     
-     - Nell'output selezionare il campo " _TcpTestSucceeded_ ". Se il valore è " _true_ ", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
+     - Nell'output selezionare il campo "_TcpTestSucceeded_". Se il valore è "_true_", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
     
     **Risoluzione:** Se il test ha esito negativo, si verifica un problema di connettività tra l'appliance Azure Migrate e il Azure Key Vault. Coinvolgere il team di rete locale per verificare i problemi di connettività. In genere, è possibile che alcune impostazioni del Firewall causino errori.
     
@@ -225,7 +225,7 @@ Di seguito sono riportate le possibili cause:
     
     Questo comando tenterà una connessione TCP e restituirà un output.
     
-    1. Nell'output selezionare il campo " _TcpTestSucceeded_ ". Se il valore è " _true_ ", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
+    1. Nell'output selezionare il campo "_TcpTestSucceeded_". Se il valore è "_true_", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
     
     **Risoluzione:** Se il test ha esito negativo, si verifica un problema di connettività tra l'appliance Azure Migrate e il Azure Key Vault. Coinvolgere il team di rete locale per verificare i problemi di connettività. In genere, è possibile che alcune impostazioni del Firewall causino errori.
     
@@ -242,7 +242,7 @@ Questo errore può essere risolto nei due modi seguenti:
 
 Uno di questi problemi noti che può causare il ripristino di un CBT della macchina virtuale su VMware vSphere 5,5 è descritto in [VMware KB 2048201: il rilevamento dei blocchi modificati](https://go.microsoft.com/fwlink/?linkid=2138888) viene reimpostato dopo un'operazione di Storage vMotion in vSphere 5. x. In VMware vSphere 5.5 assicurarsi di applicare gli aggiornamenti descritti in questo articolo della Knowledge Base.
 
-In alternativa, è possibile [reimpostare VMware Changed Block Tracking in una macchina virtuale con VMware PowerCLI.
+In alternativa, è possibile reimpostare il rilevamento dei blocchi modificati VMware in una macchina virtuale con VMware PowerCLI.
 
 ## <a name="an-internal-error-occurred"></a>Si è verificato un errore interno
 
@@ -276,7 +276,7 @@ Se si dispone di una macchina virtuale con più dischi, è possibile che si veri
 
 Questo problema si verifica quando la generazione dello snapshot smette di rispondere. Quando si verifica questo problema, è possibile vedere la pagina relativa all'interruzione dell'attività create snapshot al 95% o al 99%. Per risolvere il problema, fare riferimento a questa [KB di VMware](https://go.microsoft.com/fwlink/?linkid=2138969) .
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Messaggio di errore: si è verificato un errore interno. [Non è stato possibile consolidare i dischi nella macchina virtuale _[motivi]_ ]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Messaggio di errore: si è verificato un errore interno. [Non è stato possibile consolidare i dischi nella macchina virtuale _[motivi]_]
 
 Quando si consolidano i dischi alla fine del ciclo di replica, l'operazione ha esito negativo. Seguire le istruzioni in [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) selezionando il _motivo_ appropriato per risolvere il problema.
 

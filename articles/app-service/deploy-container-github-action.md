@@ -3,18 +3,18 @@ title: Integrazione continua/distribuzione continua del contenitore personalizza
 description: Informazioni su come usare le azioni di GitHub per distribuire il contenitore Linux personalizzato al servizio app da una pipeline CI/CD.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2020
+ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 068fc9dcb9a4f4a62c2dd879bf8144097452f1e0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 76d82695f0f43638e840589c52d6713ae36c1608
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099029"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607807"
 ---
-# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuire un contenitore personalizzato nel servizio app usando le azioni di GitHub
+# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Eseguire la distribuzione di un contenitore personalizzato nel servizio app usando GitHub Actions
 
 Le [azioni di GitHub](https://help.github.com/en/articles/about-github-actions) offrono la flessibilità necessaria per creare un flusso di lavoro di sviluppo di software automatizzato. Con l' [azione distribuzione Web di Azure](https://github.com/Azure/webapps-deploy), è possibile automatizzare il flusso di lavoro per distribuire contenitori personalizzati nel [servizio app](overview.md) usando le azioni di GitHub.
 
@@ -31,10 +31,10 @@ Per un flusso di lavoro del contenitore del servizio app Azure, il file è costi
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Crea gratuitamente un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Un account GitHub. Se non si ha un accesso, iscriversi [gratuitamente](https://github.com/join).  
-- Un registro contenitori funzionante e un'app di servizio app Azure per i contenitori. Questo esempio USA Container Registry di Azure. 
+- Un account GitHub. Se non è disponibile, iscriversi per riceverne uno [gratuito](https://github.com/join). Per eseguire la distribuzione nel servizio app Azure è necessario disporre di codice in un repository GitHub. 
+- Un registro contenitori funzionante e un'app di servizio app Azure per i contenitori. Questo esempio USA Container Registry di Azure. Assicurarsi di completare la distribuzione completa per il servizio app Azure per i contenitori. Diversamente dalle normali app Web, le app Web per i contenitori non hanno una pagina di destinazione predefinita. Pubblicare il contenitore per avere un esempio funzionante.
     - [Informazioni su come creare un'applicazione Node.js in contenitori con Docker, eseguire il push dell'immagine del contenitore in un registro e quindi distribuire l'immagine nel servizio app Azure](/azure/developer/javascript/tutorial-vscode-docker-node-01)
-
+        
 ## <a name="generate-deployment-credentials"></a>Generare le credenziali per la distribuzione
 
 Il metodo consigliato per l'autenticazione con app Azure Services per le azioni di GitHub è con un profilo di pubblicazione. È anche possibile eseguire l'autenticazione con un'entità servizio, ma il processo richiede più passaggi. 
@@ -47,16 +47,16 @@ Un profilo di pubblicazione è una credenziale a livello di app. Configurare il 
 
 1. Passare al servizio app nel portale di Azure. 
 
-1. Nella pagina **Panoramica** selezionare **Ottieni profilo di pubblicazione** .
+1. Nella pagina **Panoramica** selezionare **Ottieni profilo di pubblicazione**.
 
     > [!NOTE]
-    > A partire dal 2020 ottobre, per le app Web Linux è necessario impostare l'opzione app `WEBSITE_WEBDEPLOY_USE_SCM` su `true` **prima di scaricare il file** . Questo requisito verrà rimosso in futuro.
+    > A partire dal 2020 ottobre, per le app Web Linux è necessario impostare l'opzione app `WEBSITE_WEBDEPLOY_USE_SCM` su `true` **prima di scaricare il file**. Questo requisito verrà rimosso in futuro. Per informazioni su come configurare le impostazioni dell'app Web comuni, vedere [configurare un'app del servizio app nel portale di Azure](/azure/app-service/configure-common).  
 
 1. Salvare il file scaricato. Il contenuto del file verrà usato per creare un segreto GitHub.
 
 # <a name="service-principal"></a>[Entità servizio](#tab/service-principal)
 
-È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova** .
+È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -64,7 +64,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --sdk-auth
 ```
 
-Nell'esempio sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'app del servizio app. Copiare questo oggetto JSON per un momento successivo.
+Nell'esempio sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'app del servizio app. Copiare l'oggetto JSON per un uso successivo.
 
 ```output 
   {
@@ -80,26 +80,11 @@ Nell'esempio sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo
 > È sempre consigliabile concedere l'accesso minimo. L'ambito nell'esempio precedente è limitato all'app del servizio app specifica e non all'intero gruppo di risorse.
 
 ---
-
-## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
-
-In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto** .
-
-Incollare il contenuto dell'output JSON come valore della variabile segreta. Assegnare al segreto il nome come `AZURE_CREDENTIALS` .
-
-Quando in seguito si configura il file del flusso di lavoro, si usa il segreto come `creds` di input dell'azione di accesso di Azure. Ad esempio:
-
-```yaml
-- uses: azure/login@v1
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
-```
-
 ## <a name="configure-the-github-secret-for-authentication"></a>Configurare il segreto GitHub per l'autenticazione
 
 # <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/publish-profile)
 
-In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto** .
+In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
 
 Per usare le [credenziali a livello di app](#generate-deployment-credentials), incollare il contenuto del file del profilo di pubblicazione scaricato nel campo del valore del segreto. Denominare il segreto `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
@@ -113,7 +98,7 @@ Quando si configura il flusso di lavoro di GitHub, si usa il `AZURE_WEBAPP_PUBLI
 
 # <a name="service-principal"></a>[Entità servizio](#tab/service-principal)
 
-In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto** .
+In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
 
 Per usare le [credenziali a livello di utente](#generate-deployment-credentials), incollare l'intero output JSON dal comando dell'interfaccia della riga di comando di Azure nel campo del valore del segreto. Assegnare al segreto il nome come `AZURE_CREDENTIALS` .
 
@@ -129,9 +114,9 @@ Quando in seguito si configura il file del flusso di lavoro, si usa il segreto c
 
 ## <a name="configure-github-secrets-for-your-registry"></a>Configurare i segreti GitHub per il registro
 
-Definire i segreti da usare con l'azione Docker login. 
+Definire i segreti da usare con l'azione Docker login. L'esempio in questo documento usa Azure Container Registry per il registro contenitori. 
 
-1. Passare al contenitore nell'portale di Azure o Docker e copiare il nome utente e la password. 
+1. Passare al contenitore nell'portale di Azure o Docker e copiare il nome utente e la password. È possibile trovare il nome utente e la password di Azure container Registry nel portale di Azure in **Impostazioni**  >  **chiavi di accesso** per il registro. 
 
 2. Definire un nuovo segreto per il nome utente del registro di sistema denominato `REGISTRY_USERNAME` . 
 
@@ -163,7 +148,7 @@ jobs:
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
 
-È anche possibile usare [Docker login](https://github.com/azure/docker-login) per accedere contemporaneamente a più registri contenitori. Questo esempio include due nuovi segreti GitHub per l'autenticazione con docker.io.
+È anche possibile usare [Docker login](https://github.com/azure/docker-login) per accedere contemporaneamente a più registri contenitori. Questo esempio include due nuovi segreti GitHub per l'autenticazione con docker.io. Nell'esempio si presuppone che esista un Dockerfile a livello di radice del registro di sistema. 
 
 ```yml
 name: Linux Container Node Workflow
@@ -248,7 +233,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1

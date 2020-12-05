@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 204e087908ff978880966332b4619935dc6f0458
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 7ade24b6478f78a51e0be68ae69ae0b076ecff1f
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559117"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607875"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Configurare il livello PremiumV3 per il servizio app Azure
 
@@ -82,7 +82,7 @@ Alcuni piani di servizio app non possono essere scalati fino al livello PremiumV
 Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV3** non è disponibile o se l'app viene eseguita in un'area che attualmente non supporta **PremiumV3**, è necessario ridistribuire l'app per sfruttare i vantaggi di **PremiumV3**.  Sono disponibili due opzioni:
 
 - Creare un'app in un nuovo gruppo di risorse e con un nuovo piano di servizio app. Quando si crea il piano di servizio app, selezionare un livello **PremiumV3** . Questo passaggio garantisce che il piano di servizio app venga distribuito in un'unità di distribuzione che supporta **PremiumV3**. Quindi, ridistribuire il codice dell'applicazione nell'app appena creata. Anche se si ridimensiona il piano di servizio app fino a un livello inferiore per ridurre i costi, è sempre possibile ridimensionare il backup in **PremiumV3** perché l'unità di distribuzione lo supporta.
-- Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione della distribuzione in un nuovo piano di servizio app che usa **PremiumV3**.
+- Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione della distribuzione in un nuovo gruppo di risorse in un nuovo piano di servizio app che usa **PremiumV3**.
 
     ![Screenshot che illustra come clonare l'app.](media/app-service-configure-premium-tier/clone-app.png)
 

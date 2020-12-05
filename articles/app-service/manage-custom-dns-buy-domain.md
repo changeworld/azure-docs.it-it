@@ -3,18 +3,18 @@ title: Acquistare un nome di dominio personalizzato
 description: Informazioni su come acquistare un dominio del servizio app e usarlo come dominio personalizzato per il servizio app app Azure.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f09ef109be68dbdb6c82ce5fc89761b10bec85f3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f0ff7a54c2ad1fa1af649c8082498b442783c7e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781686"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608078"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
-I domini del servizio app sono domini di primo livello gestiti direttamente in Azure. Semplificano le operazioni di gestione dei domini personalizzati per il [Servizio app di Azure](overview.md). In questa esercitazione viene illustrato come acquistare un dominio del servizio app e come assegnare i nomi DNS al Servizio app di Azure.
+I domini del servizio app sono domini personalizzati gestiti direttamente in Azure. Semplificano le operazioni di gestione dei domini personalizzati per il [Servizio app di Azure](overview.md). In questa esercitazione viene illustrato come acquistare un dominio del servizio app e come assegnare i nomi DNS al Servizio app di Azure.
 
 Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign App Service domain to Azure VM or Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage) (Assegnare il dominio del servizio app alla macchina virtuale di Azure o ad Archiviazione di Azure). Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -22,177 +22,163 @@ Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign 
 
 Per completare questa esercitazione:
 
-* [Creare un'app del servizio app](./index.yml) oppure usare un'app creata per un'altra esercitazione.
+* [Creare un'app del servizio app](./index.yml) oppure usare un'app creata per un'altra esercitazione. L'app deve trovarsi in un'area pubblica di Azure. Al momento, i cloud nazionali di Azure non sono supportati.
 * [Rimuovere il limite di spesa per la sottoscrizione](../cost-management-billing/manage/spending-limit.md#remove). Non è possibile acquistare domini del servizio app con crediti della sottoscrizione gratuiti.
-* Un servizio app in un'area pubblica di Azure. Si noti che in questo momento i cloud nazionali di Azure non sono supportati.
+
+## <a name="buy-an-app-service-domain"></a>Acquistare un dominio del servizio app
+
+Per informazioni sui prezzi per i domini del servizio app, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere verso il basso fino al dominio del servizio app.
+
+1. Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
+
+1. Nella barra di ricerca cercare e selezionare domini del **servizio app**.
+
+    ![Esplorazione del portale per app Azure domini del servizio](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
+
+1. Nella visualizzazione **domini del servizio app** fare clic su **Aggiungi**.
+
+    ![Fare clic su Aggiungi in domini del servizio app](./media/app-service-web-tutorial-custom-domain/add-app-service-domain.png)
+
+1. Selezionare **fare clic per provare la versione più recente dei domini del servizio app crea esperienza**.
+
+    ![Creazione di un dominio del servizio app con nuova esperienza](./media/app-service-web-tutorial-custom-domain/select-new-create-experience.png)
+
+### <a name="basics-tab"></a>Scheda Informazioni di base
+
+1. Nella scheda **nozioni di base** configurare le impostazioni usando la tabella seguente:  
+
+   | Impostazione  | Descrizione |
+   | -------- | ----------- |
+   | **Sottoscrizione** | Sottoscrizione da usare per acquistare il dominio. |
+   | **Gruppo di risorse** | Gruppo di risorse in cui inserire il dominio. Ad esempio, il gruppo di risorse in cui si trova l'app. |
+   | **Dominio** | Digitare il dominio desiderato. Ad esempio, **contoso.com**. Se il dominio desiderato non è disponibile, è possibile effettuare una selezione da un elenco di suggerimenti dei domini disponibili oppure provare un altro dominio. |
+
+    > [!NOTE]
+    > I [domini di primo livello](https://wikipedia.org/wiki/Top-level_domain) seguenti sono supportati dai domini del servizio app: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ e _co.in_.
+    >
+    >
+    
+2. Al termine, fare clic su **Avanti: informazioni di contatto**.
+
+### <a name="contact-information-tab"></a>Scheda informazioni contatto
+
+1. Fornire le informazioni richieste da [ICANN](https://go.microsoft.com/fwlink/?linkid=2116641) per la registrazione del dominio. 
+
+    È molto importante compilare tutti i campi obbligatori con la massima correttezza possibile. I dati non corretti per le informazioni di contatto possono causare un errore di acquisto del dominio.
+
+1. Al termine, fare clic su **Avanti: avanzate**.
+
+### <a name="advanced-tab"></a>Avanzate - scheda
+
+1. Nella scheda **Avanzate** configurare le impostazioni facoltative:  
+
+   | Impostazione  | Descrizione |
+   | -------- | ----------- |
+   | **Rinnovo automatico** | Abilitato per impostazione predefinita. Il dominio del servizio app viene registrato per gli incrementi di un anno. Il rinnovo automatico garantisce che la registrazione del dominio non scada e che si mantenga la proprietà del dominio. Alla sottoscrizione di Azure viene addebitata automaticamente la tariffa annuale per la registrazione del dominio al momento del rinnovo. Per rifiutare esplicitamente, selezionare **Disabilita**. Se il rinnovo automatico è disabilitato, è possibile [rinnovarlo manualmente](#renew-the-domain). |
+   | **Protezione della privacy** | Abilitato per impostazione predefinita. La protezione della privacy nasconde le informazioni di contatto per la registrazione del dominio dal database WHOIS. La protezione della privacy è già inclusa nella tariffa annuale per la registrazione dei domini. Per rifiutare esplicitamente, selezionare **Disabilita**. |
+
+2. Al termine, fare clic su **Avanti: Tag**.
+
+### <a name="finish"></a>Finish
+
+1. Nella scheda **tag** impostare i tag desiderati per il dominio del servizio app. L'assegnazione di tag non è necessaria per l'uso di domini del servizio app, ma è una [funzionalità di Azure che consente di gestire le risorse](../azure-resource-manager/management/tag-resources.md).
+
+1. Fare clic su **Avanti: verifica + crea**.
+
+1. Nella scheda **revisione e creazione** esaminare l'ordine di dominio. Al termine, fare clic su **Crea**.
+
+    > [!NOTE]
+    > I domini del servizio app usano GoDaddy per la registrazione del dominio e DNS di Azure per ospitare i domini. Oltre alla tariffa annuale per la registrazione del dominio, vengono applicati gli addebiti per l'uso di DNS di Azure. Per altre informazioni, vedere la pagina relativa ai [prezzi del DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
+    >
+    >
+
+1. Al termine della registrazione del dominio, viene visualizzato un pulsante **Vai a risorsa** . Selezionarlo per visualizzare la relativa pagina di gestione.
+
+    ![Dominio del servizio app creato. Vai alla risorsa](./media/app-service-web-tutorial-custom-domain/deployment-complete.png)
+
+A questo punto si è pronti per assegnare un'app del servizio app a questo dominio personalizzato.
 
 ## <a name="prepare-the-app"></a>Preparare l'app
 
+Per eseguire il mapping di un nome DNS personalizzato a un'app Web, il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) dell'app Web sia un livello a pagamento (Condiviso, Basic, Standard, Premium o A consumo per Funzioni di Azure). In questo passaggio, verificare che l''app del servizio app si trovi nel piano tariffario supportato.
+
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
-
-Per usare domini personalizzati in Servizio app di Azure, è necessario che il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) sia un livello a pagamento ( **Condiviso** , **Basic** , **Standard** o **Premium** ). In questo passaggio, verificare che l'app sia supportata dal piano tariffario adeguato.
-
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
-
-Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Passare all'app nel portale di Azure
 
-Dal menu a sinistra selezionare **Servizi app** e quindi selezionare il nome dell'app.
+1. Nella barra di ricerca superiore cercare e selezionare **Servizi app**.
 
-![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/select-app.png)
+    ![Cerca servizi app](./media/app-service-web-tutorial-custom-domain/app-services.png)
 
-Viene visualizzata la pagina di gestione dell'app del servizio app.  
+1. Selezionare il nome dell'app.
+
+    ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/select-app.png)
+
+    Viene visualizzata la pagina di gestione dell'app del servizio app.  
 
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
-Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Aumenta (piano di servizio app)** .
+1. Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Aumenta (piano di servizio app)** .
 
-![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+    ![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'app non sia inclusa nel livello **F1** . Il DNS personalizzato non è supportato nel livello **F1** . 
+1. Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'app non sia inclusa nel livello **F1**. Il DNS personalizzato non è supportato nel livello **F1**. 
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Screenshot del menu di spostamento a sinistra della pagina dell'app con scalabilità verticale (piano di servizio app) selezionato.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Screenshot del menu di spostamento a sinistra della pagina dell'app con scalabilità verticale (piano di servizio app) selezionato.":::
 
-Se il piano di servizio app non è **F1** , chiudere la pagina **Aumenta** e passare a [Acquista il dominio](#buy-the-domain).
+1. Se il piano di servizio app non è **F1**, chiudere la pagina **Aumenta** e passare a [Acquista il dominio](#buy-an-app-service-domain).
 
 ### <a name="scale-up-the-app-service-plan"></a>Passare a un piano di servizio app di livello superiore
 
-Selezionare uno dei livelli non gratuiti ( **D1** , **B1** , **B2** , **B3** o uno qualsiasi dei livelli della categoria **Produzione** ). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive** .
+1. Selezionare uno dei livelli non gratuiti (**D1**, **B1**, **B2**, **B3** o uno qualsiasi dei livelli della categoria **Produzione**). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive**.
 
-Fare clic su **Applica** .
+1. Fare clic su **Apply**.
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot del menu di spostamento a sinistra della pagina dell'app con scalabilità verticale (piano di servizio app) selezionato.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot dei piani tariffari del dominio personalizzato nella categoria produzione con la scheda produzione, il piano B1 e il pulsante Applica evidenziato.":::
 
-La visualizzazione della notifica seguente indica che l'operazione di passaggio al livello superiore è stata completata.
+    La visualizzazione della notifica seguente indica che l'operazione di passaggio al livello superiore è stata completata.
 
-![Conferma operazione di scalabilità](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+    ![Conferma operazione di scalabilità](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-## <a name="buy-the-domain"></a>Acquistare il dominio
+## <a name="map-app-service-domain-to-your-app"></a>Eseguire il mapping del dominio del servizio app all'app
 
-### <a name="pricing-information"></a>Informazioni sui prezzi
-Per informazioni sui prezzi dei domini app Azure Service, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere verso il basso fino al dominio del servizio app.
-
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
-Aprire il [portale di Azure](https://portal.azure.com/) e accedere con l'account Azure.
-
-### <a name="launch-buy-domains"></a>Avvio di Acquistare un dominio
-Nella scheda **Servizi app** fare clic sul nome dell'app, selezionare **Impostazioni** e quindi **Domini personalizzati**
-   
-![Screenshot che mostra i domini personalizzati evidenziati.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
-
-Nella pagina **Domini personalizzati** fare clic su **Acquista il dominio** .
-
-![Screenshot che mostra l'acquisto del dominio evidenziato.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+È facile eseguire il mapping di un nome host nel dominio del servizio app a un'app del servizio app, purché si trovi nella stessa sottoscrizione. Si esegue il mapping del dominio del servizio app o di uno dei relativi sottodomini direttamente nell'app e Azure crea automaticamente i record DNS necessari.
 
 > [!NOTE]
-> Se non è possibile visualizzare la sezione **Domini del servizio app** , è necessario rimuovere il limite di spesa per l'account di Azure (vedere [Prerequisiti](#prerequisites)).
->
->
-
-### <a name="configure-the-domain-purchase"></a>Configurare l’acquisto del dominio
-
-Nella pagina **Dominio del servizio app** , digitare il nome di dominio che si desidera acquistare nel riquadro **Ricerca dominio** , quindi digitare `Enter`. I domini disponibili suggeriti vengono visualizzati sotto la casella di testo. Selezionare uno o più domini che si desidera acquistare.
-
-![Screenshot che mostra la casella Cerca dominio di ricerca.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
-
-> [!NOTE]
-> I [domini di primo livello](https://wikipedia.org/wiki/Top-level_domain) seguenti sono supportati dai domini del servizio app: _com_ , _net_ , _co.uk_ , _org_ , _nl_ , _in_ , _biz_ , _org.uk_ e _co.in_ .
->
+> Se il dominio e l'app si trovano in sottoscrizioni diverse, eseguire il mapping del dominio del servizio app all'app esattamente come il [mapping di un dominio acquistato esternamente](app-service-web-tutorial-custom-domain.md). In questo caso, il servizio DNS di Azure è il provider di dominio esterno ed è necessario [aggiungere manualmente i record DNS necessari](#manage-custom-dns-records).
 >
 
-Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di contatto del dominio. Al termine, fare clic su **OK** per tornare alla pagina del dominio di servizio app.
+### <a name="map-the-domain"></a>Mappare il dominio
 
-È molto importante compilare tutti i campi obbligatori con la massima correttezza possibile. I dati non corretti relativi alle informazioni di contatto causano errori nell'acquisto dei domini.
+1. Nella finestra di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **domini personalizzati**.
 
-Selezionare quindi le opzioni desiderate per il dominio. Vedere la tabella seguente per alcune spiegazioni:
+    ![Screenshot che mostra il menu Domini personalizzati.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-| Impostazione | Valore consigliato | Descrizione |
-|-|-|-|
-|Protezione della privacy | Abilitare | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy** , sono gestiti da registrar che non supportano la protezione della privacy. |
-| Assegnare i nomi host predefiniti | **www** e **\@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app è accessibile tramite i nomi host selezionati. Se l'app è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta i record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
+1. Selezionare **Aggiungi dominio personalizzato**.
 
-### <a name="accept-terms-and-purchase"></a>Accettare i termini di acquisto
+    ![Screenshot che mostra l'elemento per l'aggiunta del nome host.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Fare clic su **Termini legali** per leggere i termini e le tariffe, quindi fare clic su **Acquista** .
+1. Digitare il dominio del servizio app (ad esempio **contoso.com**) o un sottodominio (ad esempio **www.contoso.com**) e fare clic su **convalida**.
 
-> [!NOTE]
-> I domini del servizio app usano GoDaddy per la registrazione del dominio e DNS di Azure per ospitare i domini. Oltre alla tariffa di registrazione del dominio, si applicano le spese di utilizzo per il DNS di Azure. Per altre informazioni, vedere la pagina relativa ai [prezzi del DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
->
->
+    > [!NOTE]
+    > Se è stato creato un errore di digitazione nel nome di dominio del servizio app, viene visualizzato un errore di verifica nella parte inferiore della pagina per indicare che mancano alcuni record DNS. Non è necessario aggiungere questi record manualmente per un dominio del servizio app. Assicurarsi di digitare il nome di dominio correttamente e fare di nuovo clic su **convalida** .
+    >
+    > ![Screenshot che mostra un errore di verifica.](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-Nella pagina **Dominio di servizio app** fare clic su **OK** . Mentre l'operazione è in corso, vedrai le notifiche seguenti:
+1. Accettare il **tipo di record hostname** e fare clic su **Aggiungi dominio personalizzato**.
 
-![Screenshot che mostra il messaggio di convalida in corso.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+    ![Screenshot che mostra il pulsante Aggiungi dominio personalizzato.](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-![Screenshot che mostra la notifica che l'acquisto ha avuto esito positivo.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+1. La visualizzazione del nuovo dominio personalizzato nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Aggiornare il browser per visualizzare i dati più recenti.
 
-### <a name="test-the-hostnames"></a>Verifica dei nomi host
+    ![Screenshot che mostra l'aggiunta del record CNAME.](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Se sono stati assegnati nomi host predefiniti all'app, è anche possibile visualizzare una notifica di esito positivo per ogni nome host selezionato.
+    > [!NOTE]
+    > Un'etichetta **non sicura** per il dominio personalizzato significa che non è ancora associata a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md).
+    
+### <a name="test-the-custom-domain"></a>Testare il dominio personalizzato
 
-![Screenshot che mostra la notifica di esito positivo per ogni nome host selezionato.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
-
-I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzati** , nella sezione **Nomi host personalizzati** .
-
-![Screenshot che mostra i nomi host selezionati nella sezione nomi host personalizzati della pagina domini personalizzati.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
-
-> [!NOTE]
-> Un'etichetta **non sicura** per il dominio personalizzato significa che non è ancora associata a un certificato TLS/SSL e qualsiasi richiesta HTTPS da un browser al dominio personalizzato riceverà un errore o un avviso, a seconda del browser. Per configurare il binding TLS, vedere [proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel servizio app Azure](configure-ssl-bindings.md).
->
-
-Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio dello screenshot precedente, provare a passare a _kontoso.NET_ e _www \. kontoso.NET_ .
-
-## <a name="assign-hostnames-to-app"></a>Assegnare i nomi host all'app
-
-Se si sceglie di non assegnare uno o più nomi host predefiniti all'app durante il processo di acquisto o se è necessario assegnare un nome host non elencato, è possibile assegnare un nome host in qualsiasi momento.
-
-È inoltre possibile assegnare i nomi host nel dominio del servizio app a qualsiasi altra app. I passaggi variano in base all'appartenenza alla stessa sottoscrizione da parte del dominio del servizio app e dell'app.
-
-- Sottoscrizione diversa: eseguire il mapping dei record DNS personalizzati dal dominio del servizio app all'app come un dominio acquistato esternamente. Per informazioni sull'aggiunta di nomi DNS personalizzati a un dominio del servizio app, vedere [Gestione dei record DNS personalizzati](#custom). Per eseguire il mapping di un dominio esterno acquistato a un'app, vedere [Eseguire il mapping di un nome DNS personalizzato esistente per il Servizio app di Azure](app-service-web-tutorial-custom-domain.md). 
-- In caso di medesima sottoscrizione, eseguire la procedura seguente.
-
-### <a name="launch-add-hostname"></a>Avviare Aggiungi nome host
-Nella pagina **Servizi app** , selezionare il nome dell'app a cui si desidera assegnare i nomi host, selezionare **Impostazioni** , quindi selezionare **Domini personalizzati** .
-
-![Screenshot che mostra i domini personalizzati evidenziati.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
-
-Verificare che il dominio acquistato sia presente nella sezione **domini del servizio app** , ma non selezionarlo. 
-
-![Screenshot che mostra il dominio acquistato nella sezione domini del servizio app.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
-
-> [!NOTE]
-> Tutti i domini del servizio app con la stessa sottoscrizione vengono visualizzati nella pagina dell'app **Domini personalizzati** . Se il dominio è nella sottoscrizione dell'app, ma non è possibile visualizzarlo nella pagina dell'app **Domini personalizzati** , provare a riaprire la pagina **Domini personalizzati** o aggiornare la pagina Web. Inoltre, selezionare l'icona a forma di campanella nella parte superiore del portale di Azure per verificare lo stato di avanzamento.
->
->
-
-Selezionare **Aggiungi il nome host** .
-
-### <a name="configure-hostname"></a>Configurare il nome host
-Nella finestra di dialogo **Aggiungere nome host** , digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Ad esempio:
-
-- kontoso.net
-- \.kontoso.net www
-- abc.kontoso.net
-
-Al termine, selezionare **Convalida** . Il tipo di record del nome host viene selezionato automaticamente.
-
-Selezionare **Aggiungi il nome host** .
-
-Una volta completata l'operazione, viene visualizzata una notifica di esito positivo per il nome di host assegnato.  
-
-![Screenshot che mostra la notifica di esito positivo per il nome host assegnato.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
-
-### <a name="close-add-hostname"></a>Chiudere Aggiungi il nome host
-Nella pagina **Aggiungi il nome host** , assegnare qualsiasi nome host all'app, in base alle proprie esigenze. Al termine, chiudere la pagina **Aggiungi il nome host** .
-
-Viene visualizzato il nome host appena assegnato nella pagina dell’app **Domini personalizzati** .
-
-![Screenshot che mostra i nomi host appena assegnati nella pagina domini personalizzati dell'app.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
-
-### <a name="test-the-hostnames"></a>Verifica dei nomi host
-
-Navigare tra i nomi host elencati nel browser. Nell'esempio della schermata precedente, navigare in _abc.kontoso.net_ .
+Per testare il dominio personalizzato, accedervi nel browser.
 
 ## <a name="renew-the-domain"></a>Rinnovare il dominio
 
@@ -200,19 +186,21 @@ Il dominio del servizio app acquistato è valido per un anno dalla data di acqui
 
 Se si desidera disattivare il rinnovo automatico o se si desidera rinnovare manualmente il dominio, eseguire la procedura seguente.
 
-Nella scheda **Servizi app** fare clic sul nome dell'app, selezionare **Impostazioni** e quindi selezionare **domini personalizzati** .
+1. Nella barra di ricerca cercare e selezionare domini del **servizio app**.
 
-![Screenshot che mostra i domini personalizzati evidenziati.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+    ![Esplorazione del portale per app Azure domini del servizio](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
 
-Nella sezione **Domini del servizio app** selezionare il dominio che si desidera configurare.
+1. Nella sezione **Domini del servizio app** selezionare il dominio che si desidera configurare.
 
-![Screenshot che mostra il dominio acquistato nella sezione domini del servizio app.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+1. Nel riquadro di spostamento a sinistra del dominio selezionare **Rinnovo del dominio**. Per interrompere automaticamente il rinnovo del dominio, selezionare **disattivato**. L'impostazione ha effetto immediatamente.
 
-Nel riquadro di spostamento a sinistra del dominio selezionare **Rinnovo del dominio** . Per interrompere il rinnovo automatico del dominio, selezionare **No** e quindi **Salva** .
+    ![Screenshot che mostra l'opzione per rinnovare automaticamente il dominio.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-![Screenshot che mostra l'opzione per rinnovare automaticamente il dominio.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+    > [!NOTE]
+    > Quando si è lontani dalla pagina, ignorare l'errore "le modifiche non salvate verranno ignorate" facendo clic su **OK**.
+    >
 
-Per rinnovare manualmente il dominio, selezionare **Rinnova dominio** . Tuttavia, questo pulsante non è attivo fino a [90 giorni prima della scadenza del dominio](#when-domain-expires).
+Per rinnovare manualmente il dominio, selezionare **Rinnova dominio**. Tuttavia, questo pulsante non è attivo fino a [90 giorni prima della scadenza del dominio](#when-domain-expires).
 
 Se il rinnovo del dominio ha esito positivo, si riceverà una notifica tramite posta elettronica entro 24 ore.
 
@@ -232,60 +220,55 @@ Azure gestisce i domini del servizio app in scadenza o scaduti come indicato di 
 
 ## <a name="manage-custom-dns-records"></a>Gestire i record DNS personalizzati
 
-In Azure, i record DNS per un dominio del servizio app vengono gestiti tramite [DNS di Azure](https://azure.microsoft.com/services/dns/). È possibile aggiungere, rimuovere e aggiornare i record DNS, esattamente come per un dominio acquistato esternamente.
+In Azure, i record DNS per un dominio del servizio app vengono gestiti tramite [DNS di Azure](https://azure.microsoft.com/services/dns/). È possibile aggiungere, rimuovere e aggiornare i record DNS, esattamente come per un dominio acquistato esternamente. Per gestire i record DNS personalizzati:
 
-### <a name="open-app-service-domain"></a>Aprire Dominio del servizio app
+1. Nella barra di ricerca cercare e selezionare domini del **servizio app**.
 
-Nel portale di Azure scegliere **tutti i servizi**  >  **domini del servizio app** dal menu a sinistra.
+    ![Esplorazione del portale per app Azure domini del servizio](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
 
-![Screenshot che mostra dove accedere ai domini del servizio app.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+1. Nella sezione **Domini del servizio app** selezionare il dominio che si desidera configurare.
 
-Selezionare il dominio da gestire. 
+1. Dalla pagina **Panoramica** selezionare **Gestisci record DNS**.
 
-### <a name="access-dns-zone"></a>Accesso alla Zona DNS
+    ![Screenshot che mostra dove accedere ai record DNS.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
-Nel menu a sinistra del dominio, selezionare **Zona DNS** .
-
-![Screenshot che mostra dove selezionare la zona DNS.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
-
-Questa azione permette di aprire la pagina [Zona DNS](../dns/dns-zones-records.md) del dominio del servizio App nel DNS di Azure. Per informazioni su come modificare i record DNS, vedere [Come gestire le zone DNS nel portale di Azure](../dns/dns-operations-dnszones-portal.md).
+Per informazioni su come modificare i record DNS, vedere [Come gestire le zone DNS nel portale di Azure](../dns/dns-operations-dnszones-portal.md).
 
 ## <a name="cancel-purchase-delete-domain"></a>Annullare l'acquisto (elimina dominio)
 
 Dopo aver acquistato il dominio del servizio app, si hanno a disposizione cinque giorni per annullare l'acquisto e ricevere un rimborso completo. Dopo cinque giorni, è possibile eliminare il dominio del servizio app, ma non è possibile ricevere un rimborso.
 
-### <a name="open-app-service-domain"></a>Aprire Dominio del servizio app
+1. Nella barra di ricerca cercare e selezionare domini del **servizio app**.
 
-Nel portale di Azure scegliere **tutti i servizi**  >  **domini del servizio app** dal menu a sinistra.
+    ![Esplorazione del portale per app Azure domini del servizio](./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png)
 
-![Screenshot che mostra dove accedere ai domini del servizio app.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+1. Nella sezione **Domini del servizio app** selezionare il dominio che si desidera configurare.
 
-Selezionare il dominio che si desidera annullare o eliminare. 
+1. Nel navigazione a sinistra del dominio selezionare **associazioni nome host**. Le associazioni nome host da tutti i servizi Azure sono elencate di seguito.
 
-### <a name="delete-hostname-bindings"></a>Eliminare associazioni nome host
+    ![Screenshot che mostra la pagina associazioni nome host.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
-Nel menu a sinistra del dominio, selezionare **Associazioni nome host** . Le associazioni nome host da tutti i servizi Azure sono elencate di seguito.
+1. Eliminare ogni binding hostname selezionando **...**  >  **Eliminare**. Dopo l'eliminazione di tutte le associazioni, selezionare **Salva**.
 
-![Screenshot che mostra la pagina associazioni nome host.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
 
-Non è possibile eliminare il dominio del servizio app finché non vengono eliminate tutte le associazioni nome host.
+1. Nella finestra di spostamento a sinistra del dominio, selezionare **Panoramica**. 
 
-Eliminare ogni binding hostname selezionando **...**  >  **Eliminare** . Dopo l'eliminazione di tutte le associazioni, selezionare **Salva** .
+1. Se non è trascorso il periodo di cancellazione del dominio acquistato, selezionare **Annulla acquisto**. In caso contrario, viene visualizzato il pulsante **Elimina**. Per eliminare il dominio senza rimborso, selezionare **Elimina**.
 
-![Screenshot che mostra dove eliminare le associazioni del nome host.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+    ![Screenshot che mostra dove eliminare o annullare un dominio acquistato.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-### <a name="cancel-or-delete"></a>Annullare o eliminare
+1. Confermare l'operazione selezionando **Sì**.
 
-Nel menu a sinistra del dominio, selezionare **Panoramica** . 
-
-Se non è trascorso il periodo di cancellazione del dominio acquistato, selezionare **Annulla acquisto** . In caso contrario, viene visualizzato il pulsante **Elimina** . Per eliminare il dominio senza rimborso, selezionare **Elimina** .
-
-![Screenshot che mostra dove eliminare o annullare un dominio acquistato.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
-
-Per confermare l'operazione, selezionare **ì** .
-
-Al termine dell’operazione, il dominio viene rilasciato dalla sottoscrizione e può essere riacquistato dagli altri utenti. 
+    Al termine dell’operazione, il dominio viene rilasciato dalla sottoscrizione e può essere riacquistato dagli altri utenti. 
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Indirizzare l'URL predefinito a una directory personalizzata
 
-Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Per indirizzarle a una sottodirectory, ad esempio `public`, vedere la sezione relativa all'[indirizzamento dell'URL predefinito a una directory personalizzata](app-service-web-tutorial-custom-domain.md#virtualdir).
+Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Per indirizzarli a una sottodirectory, ad esempio `public` , vedere [reindirizzare a una directory personalizzata](app-service-web-tutorial-custom-domain.md#redirect-to-a-custom-directory).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su come associare un certificato TLS/SSL personalizzato al servizio app.
+
+> [!div class="nextstepaction"]
+> [Proteggere un nome DNS personalizzato con un'associazione TLS nel servizio app Azure](configure-ssl-bindings.md)

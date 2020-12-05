@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294714"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608589"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -21,6 +21,9 @@ Questa procedura è applicabile a tutti i modelli di dispositivi della serie Sto
 
 > [!NOTE]
 > Questa procedura non può essere usata per un'appliance cloud StorSimple. Per altre informazioni, vedere come configurare i server host per l'appliance cloud.
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine *blacklist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 
 ## <a name="about-multipathing"></a>Informazioni sui percorsi multipli
@@ -423,7 +426,7 @@ dm-3 devnode blacklisted, unmonitored
 Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei problemi per percorsi multipli](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Elenco di comandi utili
-| Type | Comando | Description |
+| Type | Comando | Descrizione |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Avviare il servizio iSCSI |
 | &nbsp; |`service iscsid stop` |Arrestare il servizio iSCSI |

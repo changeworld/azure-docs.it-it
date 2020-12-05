@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1383db44922a044f5e51075b6e1feafa70c78009
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 13644872fca06ad8fc5806326736aea23e504520
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958759"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608657"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuire un sistema di SAP HANA con scale-out con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su SUSE Linux Enterprise Server 
 
@@ -655,6 +655,9 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
    > Tenere presente la nota SAP [2631285](https://launchpad.support.sap.com/#/notes/2631285). 
 
 ## <a name="test-sap-hana-failover"></a>Test SAP HANA failover 
+
+> [!NOTE]
+> Questo articolo contiene riferimenti ai termini *Master* e *slave*, che non vengono più utilizzati da Microsoft. Quando questi termini vengono rimossi dal software, verranno rimossi da questo articolo.
 
 1. Simulare un arresto anomalo di un nodo in un nodo del ruolo di lavoro SAP HANA. Eseguire le operazioni seguenti: 
 

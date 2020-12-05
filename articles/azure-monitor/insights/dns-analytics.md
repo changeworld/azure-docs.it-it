@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994631"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607144"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -57,13 +57,13 @@ La soluzione avvia la raccolta dati senza che siano necessarie operazioni di con
 
 Nel dashboard della soluzione fare clic su **Configurazione** per aprire la pagina Configurazione di DNS Analytics. È possibile apportare due tipi di modifiche di configurazione.
 
-- **Nomi di dominio** consentiti. La soluzione non elabora tutte le query di ricerca, ma gestisce un elenco elementi consentiti per i suffissi dei nomi di dominio. Le query di ricerca che si risolvono nei nomi di dominio corrispondenti ai suffissi di questo elenco non vengono elaborate dalla soluzione. L'esclusione dall'elaborazione dei nomi di dominio consentiti permette di ottimizzare i dati inviati a Monitoraggio di Azure. L'elenco elementi consentiti predefinito include i nomi di dominio pubblici più diffusi, come www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
+- **Nomi di dominio Allowlisted**. La soluzione non elabora tutte le query di ricerca, Mantiene un oggetto Allow dei suffissi del nome di dominio. Le query di ricerca che si risolvono nei nomi di dominio che corrispondono ai suffissi del nome di dominio in questo oggetto allow non vengono elaborate dalla soluzione. La mancata elaborazione dei nomi di dominio allowlisted consente di ottimizzare i dati inviati a monitoraggio di Azure. L'oggetto allow predefinito include i nomi di dominio pubblici più diffusi, ad esempio www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
 
   È possibile modificare l'elenco per aggiungere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca. È anche possibile rimuovere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca.
 
 - **Soglia client loquaci**. I client DNS che superano la soglia relativa al numero di richieste di ricerca vengono evidenziati nel pannello **Client DNS**. La soglia predefinita è 1000. È possibile modificare la soglia.
 
-    ![Nomi di dominio consentiti](./media/dns-analytics/dns-config.png)
+    ![Nomi di dominio Allowlisted](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>Management Pack
 
@@ -110,7 +110,7 @@ Le informazioni consentono di identificare quanto segue:
 - Indirizzi IP in cui viene risolto il nome di dominio.
 - Indirizzo IP dannoso.
 - Gravità del problema.
-- Motivo per non consentire l'indirizzo IP dannoso.
+- Motivo per Blocklisting l'indirizzo IP dannoso.
 - Data e ora di rilevamento.
 
 **Domini sottoposti a query**. Contiene i nomi di dominio su cui i client DNS eseguono più frequentemente query nell'ambiente. È possibile visualizzare l'elenco di tutti i nomi di dominio sottoposti a query ed eseguire il drill-down nei dettagli delle richieste di ricerca per un nome di dominio specifico in Ricerca log.

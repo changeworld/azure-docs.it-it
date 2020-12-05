@@ -14,18 +14,21 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c1b09cdcf987c7ed0e489a8a67f77a4099e39a9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955464"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608691"
 ---
 # <a name="operating-system-upgrade"></a>Aggiornamento del sistema operativo
 Questo documento descrive i dettagli sugli aggiornamenti del sistema operativo nelle istanze HANA Large.
 
 >[!NOTE]
 >L'aggiornamento del sistema operativo è responsabilità del cliente, il supporto per le operazioni Microsoft può guidare l'utente nelle aree principali da tenere in considerazione durante l'aggiornamento. Prima di pianificare un aggiornamento, è consigliabile consultare anche il fornitore del sistema operativo.
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine *blacklist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 Durante il provisioning unità HLI, il team operativo Microsoft installa il sistema operativo.
 È necessario mantenere il sistema operativo nel tempo (ad esempio applicando patch, eseguendo ottimizzazioni, applicando aggiornamenti e così via) nell'unità HLI.

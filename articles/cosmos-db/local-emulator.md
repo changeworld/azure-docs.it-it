@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 6fb1ef45ff4e77ab21480a1013a3cec6bcc7cfa1
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030901"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608623"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Installare e usare l'emulatore Azure Cosmos DB per lo sviluppo e il test locali
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -60,7 +60,7 @@ Poiché l'emulatore Azure Cosmos DB fornisce un ambiente emulato in esecuzione n
 Prima di installare l'emulatore, verificare che siano presenti i requisiti hardware e software seguenti:
 
 * Requisiti software:
-  * Attualmente sono supportati Windows Server 2012 R2, Windows Server 2016, 2019 o Windows 8, 10 sistemi operativi host. Il sistema operativo host con Active Directory abilitato non è al momento supportato.
+  * Attualmente sono supportati i sistemi operativi host Windows Server 2016, 2019 o Windows 10. Il sistema operativo host con Active Directory abilitato non è al momento supportato.
   * Sistema operativo a 64 bit
 
 * Requisiti hardware minimi:
@@ -302,7 +302,7 @@ Se si usa Mac, seguire questa procedura:
 
 La disabilitazione della convalida SSL è consigliata solo a scopo di sviluppo e non deve essere eseguita in un ambiente di produzione. Gli esempi seguenti illustrano come disabilitare la convalida SSL per le applicazioni .NET e Node.js.
 
-# <a name="net-standard-21"></a>[.NET Standard 2.1 +](#tab/ssl-netstd21)
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
 
 Per tutte le applicazioni in esecuzione in un Framework compatibile con .NET Standard 2,1 o versione successiva, è possibile utilizzare `CosmosClientOptions.HttpClientFactory` :
 
