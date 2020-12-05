@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450129"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621349"
 ---
 # <a name="publish-an-integrated-solution"></a>Pubblicare una soluzione integrata
 
@@ -32,18 +32,17 @@ Per una panoramica del programma Soluzioni integrate, guardare il [video di pano
 ## <a name="eligibility-criteria"></a>Criteri di idoneità
 
 * I partner partecipanti devono avere un ID MPN.
-* I provider di servizi partecipanti devono essere pronti per il co-selling.
-* I fornitori di software partecipanti devono essere pronti per il co-selling IP.
+* I provider di servizi partecipanti devono essere pronti per il [co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* I fornitori di software partecipanti devono essere pronti per il [co-selling IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 * Almeno un partner partecipante deve avere competenze Gold in una delle aree seguenti:
-
-    * Sviluppo applicazioni
-    * Integrazione di applicazioni
-    * Application Lifecycle Management
-    * Piattaforma cloud
-    * Analisi dei dati
-    * Data center
-    * Piattaforma dati
-    * DevOps
+    - Sviluppo applicazioni
+    - Integrazione di applicazioni
+    - Application Lifecycle Management
+    - Piattaforma cloud
+    - Analisi dei dati
+    - Data center
+    - Piattaforma dati
+    - DevOps
 
 * La soluzione deve includere almeno due organizzazioni partner che riuniscano IP e servizi per dar vita a una soluzione completa e a un'esperienza efficace per i clienti.
 * L'IP del partner deve basarsi su Azure, Dynamics 365 o Power Platform.

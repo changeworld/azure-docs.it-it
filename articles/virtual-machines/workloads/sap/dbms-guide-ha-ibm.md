@@ -8,17 +8,20 @@ ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 01f02efd36c51f3969ee53e9efc78fbe1664b187
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486539"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621383"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker
 
 IBM DB2 per Linux, UNIX e Windows (LUW) nella [configurazione di disponibilità elevata e ripristino di emergenza (HADR)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) è costituito da un nodo che esegue un'istanza di database primario e almeno un nodo che esegue un'istanza del database secondario. Le modifiche apportate all'istanza del database primario vengono replicate in modo sincrono o asincrono in un'istanza del database secondario, a seconda della configurazione. 
 
+> [!NOTE]
+> Questo articolo contiene riferimenti ai termini *Master* e *slave*, che non vengono più utilizzati da Microsoft. Quando questi termini vengono rimossi dal software, verranno rimossi da questo articolo.
+   
 Questo articolo descrive come distribuire e configurare le macchine virtuali (VM) di Azure, installare il Framework del cluster e installare IBM DB2 LUW con la configurazione di HADR. 
 
 L'articolo non illustra come installare e configurare IBM DB2 LUW con l'installazione del software HADR o SAP. Per consentire l'esecuzione di queste attività, vengono forniti riferimenti ai manuali di installazione di SAP e IBM. Questo articolo è incentrato sulle parti specifiche dell'ambiente Azure. 

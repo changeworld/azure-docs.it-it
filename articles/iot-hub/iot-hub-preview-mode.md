@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: jlian
-ms.openlocfilehash: 5299a049ab2cc2246a861dd3fb81f466b56afad3
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 864870c4392b12477c321c86afd9da848120490c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603488"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621706"
 ---
 # <a name="turn-on-preview-mode-for-iot-hub-to-try-select-new-features"></a>Attivare la modalità di anteprima per l'hub delle cose per provare a selezionare nuove funzionalità
 
@@ -66,7 +66,7 @@ Una volta creato, un hub di Internet delle cose in modalità di anteprima Visual
 
 *Non* usare un hub Internet delle cose in modalità di anteprima per la produzione. La modalità di anteprima è destinata *solo* all'anteprima delle funzionalità di selezione elencate all'inizio di questa pagina. Alcune altre limitazioni alla modalità di anteprima dell'hub Internet sono
 
-- Alcune funzionalità dell'hub Internet esistente quali collegamento privato, identità gestita, flussi di dispositivi e failover possono funzionare in modo imprevisto o meno.
+- Alcune funzionalità dell'hub Internet esistente quali filtro IP, collegamento privato, identità gestita, flussi di dispositivi e failover possono funzionare in modo imprevisto o meno.
 - Un hub Internet delle cose in modalità di anteprima non può essere modificato o aggiornato a un hub delle cose normali.
 - Non è possibile garantire il [contratto di contratto](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) con l'hub delle cose normali, non usare per la produzione.
 

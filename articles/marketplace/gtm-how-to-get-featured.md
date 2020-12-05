@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
-ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a3d0ef3c112da87e73f83c6c87de8f3fce1fea0
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103569"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621366"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Come apparire in primo piano in AppSource e in Azure Marketplace
 
@@ -29,8 +29,8 @@ Per migliorare il punteggio, è possibile eseguire le azioni seguenti:
 
 1. *Assicurarsi che l'app o il servizio sia categorizzato in modo appropriato*: scegliere tre categorie che rappresentano le funzionalità dell'applicazione o del servizio.
 2. *App di Azure Marketplace: far aumentare il consumo di Azure con il passare dei mesi.* Se si è in grado di raggiungere 1.000 ore di utilizzo di Azure al mese, aumenteranno notevolmente le possibilità di apparire in primo piano.
-3. *App di AppSource: aumentare le acquisizioni in relazione all'offerta pubblicata.* Se si è in grado di ottenere 10 acquisizioni al mese, aumenteranno notevolmente le possibilità di apparire in primo piano. 
-4. *Ottenere l'idoneità per il co-selling*: completare i requisiti per il co-selling.
+3. *App di AppSource: aumentare le acquisizioni in relazione all'offerta pubblicata.* Se si è in grado di ottenere 10 acquisizioni al mese, aumenteranno notevolmente le possibilità di apparire in primo piano.
+4. *Ottenere Co-Sell stato pronto*: completare i [requisiti per il co-selling pronto](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 5. *Migliorare la qualità dell'offerta*: consultare le [linee guida per l'inserimento di contenuto](marketplace-criteria-content-validation.md) per informazioni su come modificare l'offerta.
 6. Pubblicare più offerte in Marketplace: sono stati inseriti tutti i servizi e le app principali? È disponibile una versione di valutazione?
 7. Invitare i clienti a scrivere recensioni.

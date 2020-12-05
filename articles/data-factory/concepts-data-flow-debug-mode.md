@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
-ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/04/2020
+ms.openlocfilehash: 87465ff381c62343a11c54130378b48580ca40e2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026990"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621646"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
 
@@ -25,9 +25,9 @@ Azure Data Factory modalità di debug del flusso di dati di mapping consente di 
 
 ![Dispositivo di scorrimento debug](media/data-flow/debugbutton.png "Dispositivo di scorrimento debug")
 
-Una volta acceso il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione che si desidera utilizzare. Se si sceglie AutoResolveIntegrationRuntime, viene attivato un cluster con otto core di calcolo generale con una durata di 60 minuti. Per ulteriori informazioni sui runtime di integrazione del flusso di dati, vedere [prestazioni del flusso di dati](concepts-data-flow-performance.md#ir).
+Una volta acceso il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione che si desidera utilizzare. Se si sceglie AutoResolveIntegrationRuntime, viene attivato un cluster con otto core di calcolo generale con una durata predefinita di 60 minuti. Se si desidera consentire più team inattivi prima del timeout della sessione, è possibile scegliere un'impostazione TTL superiore. Per ulteriori informazioni sui runtime di integrazione del flusso di dati, vedere [prestazioni del flusso di dati](concepts-data-flow-performance.md#ir).
 
-![Esegui debug selezione IR](media/data-flow/debugbutton2.png "Esegui debug selezione IR")
+![Esegui debug selezione IR](media/data-flow/debug-new-1.png "Esegui debug selezione IR")
 
 Quando la modalità di debug è attivata, il flusso di dati verrà compilato in modo interattivo con un cluster Spark attivo. La sessione verrà chiusa quando si disattiva il debug in Azure Data Factory. È bene tenere conto dei costi orari addebitati da Azure Databricks durante il periodo in cui è attivata la sessione di debug.
 
@@ -36,7 +36,7 @@ Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in mod
 ![Visualizzare le sessioni di debug del flusso di dati](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile utilizzare la visualizzazione monitoraggio per le sessioni di debug sopra indicate per visualizzare e gestire le sessioni di debug per Factory.
+> Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile utilizzare la visualizzazione monitoraggio per le sessioni di debug sopra indicate per visualizzare e gestire le sessioni di debug per Factory. Viene addebitata ogni ora di esecuzione di ogni sessione di debug, inclusa la durata TTL.
 
 ## <a name="cluster-status"></a>Stato del cluster
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537474"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621519"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Cache di Azure per le opzioni di isolamento rete Redis 
 In questo articolo si apprenderà come determinare la migliore soluzione di isolamento rete in base alle proprie esigenze. Verranno illustrate le nozioni di base relative al collegamento privato di Azure, all'inserimento di rete virtuale di Azure (VNet) e alle regole del firewall di Azure con i relativi vantaggi e limitazioni.  
@@ -22,7 +22,7 @@ Il collegamento privato di Azure fornisce la connettività privata da una rete v
 ### <a name="advantages"></a>Vantaggi
 * Supportato in cache di Azure Basic, standard e Premium per le istanze di Redis. 
 * Con il [collegamento privato di Azure](../private-link/private-link-overview.md)è possibile connettersi a un'istanza di cache di Azure dalla rete virtuale tramite un endpoint privato, a cui viene assegnato un indirizzo IP privato in una subnet all'interno della rete virtuale. Con questo, le istanze della cache sono disponibili sia in VNet che in pubblico.  
-* Una volta creato un endpoint privato, è possibile limitare l'accesso alla rete pubblica tramite il `publicNetworkAccess` flag. Questo flag è impostato su per `Enabled` impostazione predefinita, in modo da consentire l'accesso sia al collegamento pubblico che al collegamento privato alla cache. Se impostato su `Disabled` , consentirà solo l'accesso ai collegamenti privati. È possibile impostare il valore su `Disabled` con una richiesta patch. Per altre informazioni, vedere [la pagina relativa alla cache di Azure per Redis con collegamento privato di Azure (anteprima)](cache-private-link.md). 
+* Una volta creato un endpoint privato, è possibile limitare l'accesso alla rete pubblica tramite il `publicNetworkAccess` flag. Questo flag è impostato su per `Disabled` impostazione predefinita, in modo da consentire l'accesso solo al collegamento privato. È possibile impostare il valore su `Enabled` o `Disabled` con una richiesta patch. Per altre informazioni, vedere [la pagina relativa alla cache di Azure per Redis con collegamento privato di Azure (anteprima)](cache-private-link.md). 
 * Tutte le dipendenze della cache esterna non influiranno sulle regole NSG di VNet.
 
 ### <a name="limitations"></a>Limitazioni 

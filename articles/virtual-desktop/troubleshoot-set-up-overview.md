@@ -3,15 +3,15 @@ title: Panoramica sulla risoluzione dei problemi di desktop virtuale Windows-Azu
 description: Panoramica per la risoluzione dei problemi durante la configurazione di un ambiente desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009359"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621315"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto per desktop virtuale di Windows
 
@@ -45,7 +45,7 @@ Usare la tabella seguente per identificare e risolvere i problemi che possono ve
 | Connessione dei client                                                                    | Vedere [connessioni al servizio desktop virtuale Windows](troubleshoot-service-connection.md) . se il problema persiste, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md). |
 | Velocità di risposta delle applicazioni remote o del desktop                                      | Se i problemi sono collegati a un'applicazione o a un prodotto specifico, contattare il team responsabile del prodotto. |
 | Messaggi di licenza o errori                                                          | Se i problemi sono collegati a un'applicazione o a un prodotto specifico, contattare il team responsabile del prodotto. |
-| Problemi con i metodi di autenticazione di terze parti | Verificare che il provider di terze parti supporti scenari di desktop virtuale di Windows e che si avvicini a eventuali problemi noti. |
+| Problemi relativi a strumenti o metodi di autenticazione di terze parti | Verificare che il provider di terze parti supporti scenari di desktop virtuale di Windows e che si avvicini a eventuali problemi noti. |
 | Problemi di utilizzo di Log Analytics per desktop virtuale di Windows | Per problemi con lo schema di diagnostica, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Per le query, la visualizzazione o altri problemi in Log Analytics, selezionare il tipo di problema appropriato in Log Analytics. |
 | Problemi con le app M365 | Contattare l'interfaccia di amministrazione di M365 con una delle opzioni della Guida dell'interfaccia di [amministrazione di M365](/microsoft-365/admin/contact-support-for-business-products/). |
 

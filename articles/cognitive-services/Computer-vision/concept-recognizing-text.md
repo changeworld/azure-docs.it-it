@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532993"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621536"
 ---
 # <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
@@ -147,7 +147,7 @@ L' [anteprima pubblica dell'API Read 3,2](https://westus.dev.cognitive.microsoft
 L'operazione di lettura supporta attualmente l'estrazione del testo scritto a mano esclusivamente in inglese.
 
 ## <a name="use-the-rest-api-and-sdk"></a>Usare l'API REST e l'SDK
-L' [API REST Read 3. x](./QuickStarts/CSharp-hand-text.md) è l'opzione consigliata per la maggior parte dei clienti grazie alla facilità di integrazione e alla produttività rapida. Azure e il servizio Visione artificiale gestiscono la scalabilità, le prestazioni, la sicurezza dei dati e le esigenze di conformità pur concentrandosi sulla soddisfazione delle esigenze dei clienti.
+L' [API REST Read 3. x](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) è l'opzione consigliata per la maggior parte dei clienti grazie alla facilità di integrazione e alla produttività rapida. Azure e il servizio Visione artificiale gestiscono la scalabilità, le prestazioni, la sicurezza dei dati e le esigenze di conformità pur concentrandosi sulla soddisfazione delle esigenze dei clienti.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Distribuzione locale con contenitori Docker
 Il [contenitore Docker Read (anteprima)](./computer-vision-how-to-install-containers.md) consente di distribuire le nuove funzionalità OCR nell'ambiente locale. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati.

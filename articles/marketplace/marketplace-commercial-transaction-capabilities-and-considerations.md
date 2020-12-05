@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738323"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621264"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -90,11 +90,11 @@ Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pub
 
 Viene addebitata una tariffa per il servizio di archiviazione standard del 20% quando i clienti acquistano l'offerta di transazione dal Marketplace commerciale. Per informazioni dettagliate su questa tariffa, vedere la sezione 5C del [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-Per alcune offerte transazionali pubblicate sul Marketplace commerciale, il licenziatario potrà usufruire della tariffa per il servizio di archiviazione ridotta del 10%. Affinché un'offerta venga qualificata, deve essere stata designata da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa per il servizio Marketplace ridotta per il mese.
+Per alcune offerte transazionali pubblicate sul Marketplace commerciale, il licenziatario potrà usufruire della tariffa per il servizio di archiviazione ridotta del 10%. Affinché un'offerta venga qualificata, deve essere stata designata da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa per il servizio Marketplace ridotta per il mese. Per informazioni dettagliate sull'idoneità di co-selling IP, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 
 La tariffa ridotta del servizio Marketplace si applica alle app SaaS incentivate, alle VM, alle app gestite e a qualsiasi altra soluzione IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale. Le offerte SaaS a pagamento associate a un'app Microsoft teams o almeno due Microsoft 365 componenti aggiuntivi (Excel, PowerPoint, Word, Outlook e SharePoint) e pubblicate per Microsoft AppSource ricevono anche questo sconto.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 **Basato sull'utilizzo** 
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350875"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621111"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -103,6 +103,10 @@ Per impostazione predefinita, i dati vengono scritti in più sink in un ordine n
 > Quando si utilizzano le [ricerche memorizzate nella cache](./concepts-data-flow-expression-builder.md#cached-lookup), assicurarsi che l'ordine dei sink includa i sink memorizzati nella cache impostati su 1, il più basso (o primo) nell'ordinamento.
 
 ![Ordinamento di sink personalizzato](media/data-flow/cache-2.png "Ordinamento di sink personalizzato")
+
+### <a name="sink-groups"></a>Gruppi di sink
+
+È possibile raggruppare i sink applicando lo stesso numero di ordine per una serie di sink. ADF considererà tali sink come gruppi che possono essere eseguiti in parallelo. Le opzioni per l'esecuzione parallela vengono riportate nell'attività flusso di dati della pipeline.
 
 ## <a name="error-row-handling"></a>Gestione delle righe con errori
 
