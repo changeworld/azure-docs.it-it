@@ -2,20 +2,20 @@
 title: Concetti di gestione per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come amministrare un Azure Active Directory Domain Services dominio gestito e il comportamento degli account utente e delle password
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.author: joflore
-ms.openlocfilehash: 95c6a1f24335849fb2d2c4de56b4ed60e8e5f73f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 76af477af8290634d2658c58574b8f96cff7b1fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962820"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620342"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concetti relativi alla gestione di account utente, password e amministrazione in Azure Active Directory Domain Services
 

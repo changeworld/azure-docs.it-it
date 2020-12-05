@@ -2,20 +2,20 @@
 title: Aggiungere una macchina virtuale SLE a Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come configurare e aggiungere una macchina virtuale SUSE Linux Enterprise a un dominio gestito Azure AD Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
-ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275865"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619607"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale SUSE Linux Enterprise a un dominio gestito Azure Active Directory Domain Services
 
@@ -93,7 +93,7 @@ Per aggiungere il dominio gestito usando **SSSD** e il modulo *gestione accesso 
 
     Aggiungere gli indirizzi IP del dominio gestito, quindi selezionare **OK**.
 
-1. Dalla finestra principale di YaST scegliere *Network Services*  >  *gestione accesso utenti*servizi di rete.
+1. Dalla finestra principale di YaST scegliere *Network Services*  >  *gestione accesso utenti* servizi di rete.
 
     Il modulo si apre con una panoramica che mostra le diverse proprietà di rete del computer e il metodo di autenticazione attualmente in uso, come illustrato nello screenshot di esempio seguente:
 
@@ -105,7 +105,7 @@ Per aggiungere la macchina virtuale al dominio gestito, attenersi alla procedura
 
 1. Nella finestra di dialogo selezionare **Aggiungi dominio**.
 
-1. Specificare il *nome di dominio*corretto, ad esempio *aaddscontoso.com*, quindi specificare i servizi da usare per l'autenticazione e i dati di identità. Selezionare *Microsoft Active Directory* per entrambi.
+1. Specificare il *nome di dominio* corretto, ad esempio *aaddscontoso.com*, quindi specificare i servizi da usare per l'autenticazione e i dati di identità. Selezionare *Microsoft Active Directory* per entrambi.
 
     Assicurarsi che sia selezionata l'opzione *Abilita il dominio* .
 
@@ -133,7 +133,7 @@ Dopo che la macchina virtuale è stata registrata nel dominio gestito, configura
 
 1. Per consentire l'accesso usando i dati forniti dal dominio gestito, selezionare la casella *Consenti accesso utente del dominio*.
 
-1. Facoltativamente, in *Abilita origine dati dominio*selezionare origini dati aggiuntive in base alle esigenze dell'ambiente. Queste opzioni includono gli utenti autorizzati a usare **sudo** o le unità di rete disponibili.
+1. Facoltativamente, in *Abilita origine dati dominio* selezionare origini dati aggiuntive in base alle esigenze dell'ambiente. Queste opzioni includono gli utenti autorizzati a usare **sudo** o le unità di rete disponibili.
 
 1. Per consentire agli utenti del dominio gestito di avere Home directory nella macchina virtuale, selezionare la casella per *Crea directory Home*.
 
@@ -187,7 +187,7 @@ Per aggiungere il dominio gestito tramite **Winbind** e l' *interfaccia della ri
 
 ## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Aggiungere una macchina virtuale al dominio gestito usando Winbind dal terminale
 
-Per aggiungere il dominio gestito utilizzando **Winbind** e il * `samba net` comando*:
+Per aggiungere il dominio gestito utilizzando **Winbind** e il *`samba net` comando*:
 
 1. Installare il client Kerberos e samba-winbind:
 

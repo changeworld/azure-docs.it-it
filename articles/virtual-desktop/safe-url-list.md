@@ -3,19 +3,22 @@ title: Elenco di URL necessari per desktop virtuali Windows-Azure
 description: Un elenco di URL che è necessario sbloccare per assicurarsi che la distribuzione del desktop virtuale di Windows funzioni come previsto.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512342"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621077"
 ---
-# <a name="required-url-list"></a>Elenco di URL obbligatorio
+# <a name="required-url-list"></a>Elenco di URL necessari
 
-Per distribuire e usare desktop virtuale di Windows, è necessario sbloccare determinati URL in modo che le macchine virtuali (VM) possano accedervi in qualsiasi momento. Questo articolo elenca gli URL richiesti che è necessario sbloccare.
+Per distribuire e usare desktop virtuale di Windows, è necessario sbloccare determinati URL in modo che le macchine virtuali (VM) possano accedervi in qualsiasi momento. In questo articolo vengono elencati gli URL richiesti che è necessario sbloccare per consentire il corretto funzionamento del desktop virtuale di Windows. 
+
+>[!IMPORTANT]
+>Desktop virtuale Windows non supporta le distribuzioni che bloccano gli URL elencati in questo articolo.
 
 ## <a name="virtual-machines"></a>Macchine virtuali
 
@@ -69,8 +72,8 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 |login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Verifica della revoca del certificato|nessuno|
-|*. azure-dns.com|443|Risoluzione DNS di Azure|Nessuno|
-|*. azure-dns.net|443|Risoluzione DNS di Azure|Nessuno|
+|*. azure-dns.com|443|Risoluzione DNS di Azure|nessuno|
+|*. azure-dns.net|443|Risoluzione DNS di Azure|nessuno|
 
 >[!NOTE]
 >Desktop virtuale di Windows attualmente non dispone di un elenco di intervalli di indirizzi IP che è possibile sbloccare per consentire il traffico di rete. Al momento è supportato solo l'sblocco di URL specifici.
@@ -97,7 +100,7 @@ Tutti i client Desktop remoto utilizzati devono avere accesso agli URL seguenti:
 |aka.ms|443|Abbreviazione URL Microsoft|Tutti|nessuno|
 |docs.microsoft.com|443|Documentazione|Tutti|nessuno|
 |privacy.microsoft.com|443|Informativa sulla privacy|Tutti|nessuno|
-|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|Nessuno|
+|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|nessuno|
 
 >[!IMPORTANT]
 >L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio.

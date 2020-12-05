@@ -2,7 +2,7 @@
 title: Sincronizzazione con ambito per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come usare la portale di Azure per configurare la sincronizzazione con ambito da Azure AD a un dominio gestito Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 514932726d9283af0c3fb404f787a10057ce8842
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967852"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618910"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configurare la sincronizzazione con ambito da Azure AD a Azure Active Directory Domain Services utilizzando il portale di Azure
 
@@ -59,7 +59,7 @@ Per abilitare la sincronizzazione con ambito nella portale di Azure, attenersi a
 
 1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Selezionare **sincronizzazione** dal menu sul lato sinistro.
-1. Per *tipo di sincronizzazione*selezionare con **ambito**.
+1. Per *tipo di sincronizzazione* selezionare con **ambito**.
 1. Scegliere **Seleziona gruppi**, quindi cercare e scegliere i gruppi da aggiungere.
 1. Quando vengono apportate tutte le modifiche, selezionare **Salva ambito di sincronizzazione**.
 

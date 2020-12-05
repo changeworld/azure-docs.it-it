@@ -10,14 +10,14 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646237"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618077"
 ---
-# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Risolvere i problemi di Single Sign-On basata su password in Azure AD
+# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Risolvere i problemi di Single Sign-On basato su password in Azure AD
 
 Per usare la Single Sign-On basata su password (SSO) in app personali, è necessario installare l'estensione del browser. L'estensione viene scaricata automaticamente quando si seleziona un'app configurata per l'accesso SSO basato su password. Per informazioni sull'uso delle app personali dal punto di vista dell'utente finale, vedere [la guida del portale delle app personali](../user-help/my-apps-portal-end-user-access.md).
 
@@ -150,6 +150,13 @@ Se si verifica uno di questi problemi, effettuare le operazioni seguenti:
 - Assicurarsi che gli utenti non stiano tentando di accedere all'app dalle app personali in *incognito*, *InPrivate* o in *modalità privata*.
 - Provare a eseguire di nuovo il processo di acquisizione manuale. Assicurarsi che i marcatori rossi si trovino sui campi corretti.
 - Se il processo di acquisizione manuale sembra smettere di rispondere o la pagina di accesso non risponde, provare a eseguire di nuovo il processo di acquisizione manuale. Questa volta, tuttavia, dopo aver completato il processo, premere il tasto F12 per aprire la console per sviluppatori del browser. Selezionare la scheda **console** . digitare **Window. location = "*&lt; URL di accesso specificato durante la configurazione dell' &gt; app*"** e quindi premere INVIO. In questo modo viene forzato un reindirizzamento della pagina che termina il processo di acquisizione e archivia i campi acquisiti.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>Non è possibile aggiungere un altro utente all'app SSO basata su password
+
+L'app SSO basata su password ha un limite di 48 utenti. Quindi, ha un limite di 48 chiavi per le coppie nome utente/password per app.
+Se si desidera aggiungere altri utenti, è possibile effettuare una delle operazioni seguenti:
+-   Aggiungere un'altra istanza dell'app
+-   Rimuovere gli utenti che non usano più l'app per prima
 
 ## <a name="request-support"></a>Richiedere supporto 
 Se viene visualizzato un messaggio di errore quando si configura SSO e si assegnano utenti, aprire un ticket di supporto. Includere la maggior parte delle informazioni riportate di seguito:

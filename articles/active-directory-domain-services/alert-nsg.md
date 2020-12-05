@@ -2,7 +2,7 @@
 title: Risolvere gli avvisi del gruppo di sicurezza di rete in Azure AD DS | Microsoft Docs
 description: Informazioni su come risolvere i problemi e risolvere gli avvisi di configurazione del gruppo di sicurezza di rete per Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f8917d7bd8fc1a4091607b9a405cfefbb51bc188
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d8f2e77b7225306844cec85363a2971eaac4eebd
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962786"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620257"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: avvisi di configurazione di rete in Azure Active Directory Domain Services
 
@@ -45,7 +45,7 @@ Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono appl
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Qualsiasi | Allow |
 | 65000    | AllVnetInBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Consenti |
 | 65001    | AllowAzureLoadBalancerInBound | Qualsiasi | Qualsiasi | AzureLoadBalancer | Qualsiasi | Allow |
-| 65500    | DenyAllInBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Nega |
+| 65500    | DenyAllInBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Deny |
 
 > [!NOTE]
 > È anche possibile che si disponga di una regola aggiuntiva che consente il traffico in ingresso se si [Configura LDAP sicuro][configure-ldaps]. Questa regola aggiuntiva è obbligatoria per la comunicazione LDAPs corretta.
@@ -56,7 +56,7 @@ Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono appl
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Consenti |
 | 65001    | AllowAzureLoadBalancerOutBound | Qualsiasi | Qualsiasi |  Qualsiasi | Internet | Consenti |
-| 65500    | DenyAllOutBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Nega |
+| 65500    | DenyAllOutBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Deny |
 
 >[!NOTE]
 > Per Azure AD DS è necessario l'accesso in uscita senza restrizioni dalla rete virtuale. Non è consigliabile creare regole aggiuntive che limitino l'accesso in uscita per la rete virtuale.

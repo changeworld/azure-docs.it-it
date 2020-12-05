@@ -2,20 +2,20 @@
 title: Funzionamento dei trust per Azure AD Domain Services | Microsoft Docs
 description: Altre informazioni sul funzionamento del trust tra foreste con Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 50b400ffa047d3865a9df77912da187de1ce9cc9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962616"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620206"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Come funzionano le relazioni di trust per le foreste di risorse in Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ I trust tra foreste consentono di gestire un'infrastruttura di servizi di domini
 
 Utilizzando i trust tra foreste, è possibile collegare due foreste diverse per formare una relazione di trust transitiva unidirezionale o bidirezionale. Un trust tra foreste consente agli amministratori di connettere due foreste di servizi di dominio Active Directory con una singola relazione di trust per offrire un'esperienza di autenticazione e autorizzazione semplice tra le foreste.
 
-È possibile creare un trust tra foreste solo tra un dominio radice della foresta in una foresta e un dominio radice della foresta in un'altra foresta. I trust tra foreste possono essere creati solo tra due foreste e non possono essere estesi in modo implicito a una terza foresta. Questo comportamento significa che se viene creato un trust tra foreste tra la *foresta 1* e la *foresta 2*e viene creato un altro trust tra foreste tra la foresta *2* e la *foresta 3*, la *foresta 1* non ha una relazione di trust implicita con la *foresta 3*.
+È possibile creare un trust tra foreste solo tra un dominio radice della foresta in una foresta e un dominio radice della foresta in un'altra foresta. I trust tra foreste possono essere creati solo tra due foreste e non possono essere estesi in modo implicito a una terza foresta. Questo comportamento significa che se viene creato un trust tra foreste tra la *foresta 1* e la *foresta 2* e viene creato un altro trust tra foreste tra la foresta *2* e la *foresta 3*, la *foresta 1* non ha una relazione di trust implicita con la *foresta 3*.
 
 Nel diagramma seguente vengono illustrate due relazioni di trust tra foreste separate tra tre foreste di servizi di dominio Active Directory in una singola organizzazione.
 
@@ -190,7 +190,7 @@ Il diagramma e i passaggi seguenti forniscono una descrizione dettagliata del pr
 
 9. *Workstation1* Contatta il KDC in *ChildDC2* e negozia il ticket per *User1* per ottenere l'accesso a *FileServer1*.
 
-10. Quando *Workstation1* dispone di un ticket di servizio, invia il ticket di servizio a *FileServer1*, che legge le credenziali di sicurezza di *User1*e costruisce di conseguenza un token di accesso.
+10. Quando *Workstation1* dispone di un ticket di servizio, invia il ticket di servizio a *FileServer1*, che legge le credenziali di sicurezza di *User1* e costruisce di conseguenza un token di accesso.
 
 ## <a name="trusted-domain-object"></a>Oggetto dominio trusted
 
@@ -253,7 +253,7 @@ Il servizio Accesso rete gestisce un canale protetto da un computer basato su Wi
 
 * Configurazione e gestione dell'attendibilità: l'accesso rete consente di mantenere le password di attendibilità, raccoglie le informazioni di attendibilità e verifica i trust interagendo con il processo LSA e con TDO.
 
-    Per i trust tra foreste, le informazioni di trust includono il record*FTInfo*(Forest Trust Information), che include il set di spazi dei nomi che una foresta trusted dichiara di gestire, annotata con un campo che indica se ogni attestazione è considerata attendibile dalla foresta trusting.
+    Per i trust tra foreste, le informazioni di trust includono il record *FTInfo*(Forest Trust Information), che include il set di spazi dei nomi che una foresta trusted dichiara di gestire, annotata con un campo che indica se ogni attestazione è considerata attendibile dalla foresta trusting.
 
 * Autenticazione: fornisce le credenziali utente su un canale protetto a un controller di dominio e restituisce i SID del dominio e i diritti utente per l'utente.
 

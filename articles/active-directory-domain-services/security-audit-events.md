@@ -2,7 +2,7 @@
 title: Abilitare i controlli di sicurezza per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come abilitare i controlli di sicurezza per centralizzare la registrazione degli eventi per l'analisi e gli avvisi in Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175169"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618876"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -227,7 +227,7 @@ Sono disponibili le categorie di eventi di controllo seguenti:
 |Accesso a oggetti| I controlli tentano di accedere a oggetti specifici o a tipi di oggetti in una rete o in un computer. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Generato dall'applicazione](/windows/security/threat-protection/auditing/audit-application-generated)</li><li>[Controlla Servizi di certificazione](/windows/security/threat-protection/auditing/audit-certification-services)</li><li>[Controlla condivisione file dettagliata](/windows/security/threat-protection/auditing/audit-detailed-file-share)</li><li>[Controlla Condivisione file](/windows/security/threat-protection/auditing/audit-file-share)</li><li>[Controllo del file System](/windows/security/threat-protection/auditing/audit-file-system)</li><li>[Controlla Connessione a Piattaforma filtro Windows](/windows/security/threat-protection/auditing/audit-filtering-platform-connection)</li><li>[Controlla Mancata elaborazione pacchetti Piattaforma filtro Windows](/windows/security/threat-protection/auditing/audit-filtering-platform-packet-drop)</li><li>[Controllo Manipolazione handle](/windows/security/threat-protection/auditing/audit-handle-manipulation)</li><li>[Controlla oggetto kernel](/windows/security/threat-protection/auditing/audit-kernel-object)</li><li>[Controlla Altri eventi di accesso agli oggetti](/windows/security/threat-protection/auditing/audit-other-object-access-events)</li><li>[Registro di controllo](/windows/security/threat-protection/auditing/audit-registry)</li><li>[Controlla archivi rimovibili](/windows/security/threat-protection/auditing/audit-removable-storage)</li><li>[Controlla SAM](/windows/security/threat-protection/auditing/audit-sam)</li><li>[Controlla Gestione temporanea Criteri di accesso centrale](/windows/security/threat-protection/auditing/audit-central-access-policy-staging)</li></ul>|
 |Modifica dei criteri|Controlla le modifiche apportate ai criteri di sicurezza importanti in un sistema locale o in una rete. I criteri vengono in genere stabiliti dagli amministratori per proteggere le risorse di rete. Il monitoraggio delle modifiche o dei tentativi di modifica di questi criteri può essere un aspetto importante della gestione della sicurezza per una rete. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Controlla modifica ai criteri](/windows/security/threat-protection/auditing/audit-audit-policy-change)</li><li>[Controlla Modifica criteri di autenticazione](/windows/security/threat-protection/auditing/audit-authentication-policy-change)</li><li>[Controlla Modifica criteri di autorizzazione](/windows/security/threat-protection/auditing/audit-authorization-policy-change)</li><li>[Controlla Modifica criteri Piattaforma filtro Windows](/windows/security/threat-protection/auditing/audit-filtering-platform-policy-change)</li><li>[Controlla Modifica criteri a livello di regola MPSSVC](/windows/security/threat-protection/auditing/audit-mpssvc-rule-level-policy-change)</li><li>[Controlla altre modifiche ai criteri](/windows/security/threat-protection/auditing/audit-other-policy-change-events)</li></ul>|
 |Uso dei privilegi| Controlla l'uso di determinate autorizzazioni in uno o più sistemi. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Utilizzo privilegi non sensibili](/windows/security/threat-protection/auditing/audit-non-sensitive-privilege-use)</li><li>[Controlla Utilizzo privilegi sensibili](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)</li><li>[Controlla Altri eventi di utilizzo dei privilegi](/windows/security/threat-protection/auditing/audit-other-privilege-use-events)</li></ul>|
-|Sistema| Controlla le modifiche a livello di sistema in un computer non incluso in altre categorie e con possibili implicazioni di sicurezza. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Driver IPSec](/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Controlla Altri eventi di sistema](/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Controlla Modifica stato sicurezza](/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Controlla Estensione sistema di sicurezza](/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Controlla Integrità sistema](/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
+|System| Controlla le modifiche a livello di sistema in un computer non incluso in altre categorie e con possibili implicazioni di sicurezza. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Driver IPSec](/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Controlla Altri eventi di sistema](/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Controlla Modifica stato sicurezza](/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Controlla Estensione sistema di sicurezza](/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Controlla Integrità sistema](/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
 
 ## <a name="event-ids-per-category"></a>ID evento per categoria
 

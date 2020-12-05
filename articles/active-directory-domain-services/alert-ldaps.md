@@ -2,7 +2,7 @@
 title: Risolvere gli avvisi LDAP sicuri in Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come risolvere i problemi e risolvere gli avvisi comuni con LDAP sicuro per Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: b9bdcc7e338c0dffc97bd05a6ae9b64947542b2e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962803"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620308"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: LDAP sicuro avvisi in Azure Active Directory Domain Services
 
@@ -30,14 +30,14 @@ Questo articolo aiuta a comprendere e risolvere gli avvisi comuni con accesso LD
 
 *LDAP sicuro su Internet è abilitato per il dominio gestito. Tuttavia, l'accesso alla porta 636 non è bloccato usando un gruppo di sicurezza di rete. Questo può esporre gli account utente nel dominio gestito agli attacchi di forza bruta per le password.*
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Quando si Abilita LDAP sicuro, è consigliabile creare regole aggiuntive che limitino l'accesso LDAPs in ingresso a indirizzi IP specifici. Queste regole proteggono il dominio gestito da attacchi di forza bruta. Per aggiornare il gruppo di sicurezza di rete per limitare l'accesso alla porta TCP 636 per LDAP sicuro, attenersi alla procedura seguente:
 
 1. Nella portale di Azure cercare e selezionare **gruppi di sicurezza di rete**.
 1. Scegliere il gruppo di sicurezza di rete associato al dominio gestito, ad esempio *AADDS-contoso.com-NSG*, quindi selezionare **regole di sicurezza in ingresso** .
 1. Selezionare **+ Aggiungi** per creare una regola per la porta TCP 636. Se necessario, selezionare **Avanzate** nella finestra per creare una regola.
-1. Per l' **origine**scegliere *indirizzi IP* dal menu a discesa. Immettere gli indirizzi IP di origine a cui si vuole concedere l'accesso per il traffico LDAP sicuro.
+1. Per l' **origine** scegliere *indirizzi IP* dal menu a discesa. Immettere gli indirizzi IP di origine a cui si vuole concedere l'accesso per il traffico LDAP sicuro.
 1. Scegliere *any* come **destinazione**, quindi immettere *636* per gli **intervalli di porte di destinazione**.
 1. Impostare il **protocollo** come *TCP* e l' **azione** da *consentire*.
 1. Specificare la priorità per la regola, quindi immettere un nome, ad esempio *RestrictLDAPS*.
@@ -54,7 +54,7 @@ L'integrità del dominio gestito si aggiorna automaticamente entro due ore e rim
 
 *Il certificato LDAP sicuro per il dominio gestito scadrà in [data]*.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Creare un certificato LDAP sicuro sostitutivo attenendosi alla procedura per [creare un certificato per l'LDAP sicuro](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Applicare il certificato sostitutivo a Azure AD DS e distribuire il certificato a tutti i client che si connettono usando LDAP sicuro.
 

@@ -2,7 +2,7 @@
 title: Notifiche tramite posta elettronica per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come configurare le notifiche di posta elettronica per segnalare i problemi in un dominio gestito Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: c273b1a6c497ec8dcb8c5bc5f50ccfccc9fce155
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 4242092af86f8bc06ef9c9eba068ce07725de01f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968018"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619165"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurare le notifiche di posta elettronica per i problemi in Azure Active Directory Domain Services
 
@@ -76,7 +76,7 @@ Se un avviso viene risolto, l'avviso viene cancellato dal portale di Azure. Il m
 
 Se non si riesce ad accedere alla pagina delle impostazioni di notifica nella portale di Azure, non si dispone delle autorizzazioni necessarie per modificare il dominio gestito. Contattare un amministratore globale per ottenere le autorizzazioni per modificare Azure AD risorsa DS o essere rimosse dall'elenco di destinatari.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Non si ricevono notifiche di posta elettronica anche se è stato fornito l'indirizzo di posta elettronica. Questo problema dipende
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Non si ricevono notifiche di posta elettronica anche se è stato fornito l'indirizzo di posta elettronica. Perché?
 
 Controllare la cartella posta indesiderata o posta indesiderata nel messaggio di posta elettronica per la notifica e assicurarsi di consentire al mittente di `azure-noreply@microsoft.com` .
 

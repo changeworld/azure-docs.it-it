@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jlian
-ms.openlocfilehash: ddb89f60c9fe380012c299afaafb6046bf6849c9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602751"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621009"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Supporto di Transport Layer Security (TLS) nell'hub Internet
 
@@ -22,7 +22,7 @@ Le versioni 1.0 e 1.1 di TLS sono considerate legacy e ne è prevista la depreca
 
 ## <a name="iot-hubs-server-tls-certificate"></a>Certificato TLS del server dell'hub Internet
 
-Durante un handshake TLS, l'hub Internet presenta certificati server con chiave RSA per la connessione dei client. La radice è la CA radice Cybertrust Baltimore. Recentemente è stata apportata una modifica alle autorità emittenti dalle nuove autorità di certificazione intermedie (ICAs). Per altre informazioni, vedere [aggiornamento del certificato TLS dell'hub](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/) Internet
+Durante un handshake TLS, l'hub Internet presenta certificati server con chiave RSA per la connessione dei client. La radice è la CA radice Cybertrust Baltimore. Di recente è stata implementata una modifica al certificato del server TLS, in modo che venga ora emesso dalle nuove autorità di certificazione intermedie (ICA). Per altre informazioni, vedere [aggiornamento del certificato TLS dell'hub](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)Internet.
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificato TLS server crittografia a curva ellittica (ECC) (anteprima)
 
@@ -31,7 +31,7 @@ Il certificato TLS dell'hub ECC è disponibile per l'anteprima pubblica. Pur off
 Per visualizzare in anteprima il certificato del server ECC dell'hub Internet:
 
 1. [Creare un nuovo hub Internet con la modalità di anteprima in](iot-hub-preview-mode.md).
-1. [Configurare il client](#tls-configuration-for-sdk-and-iot-edge) in modo da includere *solo* i pacchetti di crittografia ECDSA ed *escludere* quelli RSA. Questi sono i pacchetti di crittografia per l'anteprima pubblica del certificato ECC:
+1. [Configurare il client](#tls-configuration-for-sdk-and-iot-edge) in modo da includere *solo* i pacchetti di crittografia ECDSA ed *escludere* quelli RSA. Questi sono i pacchetti di crittografia supportati per l'anteprima pubblica del certificato ECC:
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
@@ -133,7 +133,7 @@ Utilizzare questa funzionalità per specificare la lunghezza massima del frammen
 Il supporto ufficiale di SDK per questa funzionalità di anteprima pubblica non è ancora disponibile. Per iniziare
 
 1. [Creare un nuovo hub Internet con la modalità di anteprima in](iot-hub-preview-mode.md).
-1. Configurare il client in modo che `SSL_CTX_set_tlsext_max_fragment_length` sia impostato su uno dei valori seguenti: 2 ^ 9, 2 ^ 10, 2 ^ 11 e 2 ^ 12.
+1. Quando si usa OpenSSL, chiamare [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) per specificare le dimensioni del frammento.
 1. Connettere il client all'hub di anteprima.
 
 ## <a name="next-steps"></a>Passaggi successivi

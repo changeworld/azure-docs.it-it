@@ -2,7 +2,7 @@
 title: Aggiungere una macchina virtuale Ubuntu a Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come configurare e aggiungere un Ubuntu Linux macchina virtuale a un dominio gestito da Azure AD Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ac620ffa36bdeb35ef524ef2956db03c8edcb566
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962089"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619488"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito Azure Active Directory Domain Services
 
@@ -122,7 +122,7 @@ Per il corretto funzionamento della comunicazione del dominio, la data e l'ora d
 
 Ora che i pacchetti necessari sono installati nella macchina virtuale e NTP è configurato, aggiungere la macchina virtuale al dominio gestito.
 
-1. Usare il `realm discover` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com*dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
+1. Usare il `realm discover` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com* dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
 
     ```console
     sudo realm discover AADDSCONTOSO.COM

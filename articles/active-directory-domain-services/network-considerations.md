@@ -2,20 +2,20 @@
 title: Pianificazione e connessioni di rete per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su alcune delle considerazioni sulla progettazione della rete virtuale e sulle risorse usate per la connettività quando si esegue Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 246da3a35396430bbda86e5a5e927a456618ac05
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175220"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619284"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure Active Directory Domain Services
 
@@ -108,7 +108,7 @@ Un [gruppo di sicurezza di rete (NSG)](../virtual-network/network-security-group
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie affinché il dominio gestito fornisca servizi di autenticazione e gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito.
 
-| Numero della porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Obbligatorio | Scopo |
+| Numero porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Necessario | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |

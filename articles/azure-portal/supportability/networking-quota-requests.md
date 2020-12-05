@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 12/05/2020
 ms.locfileid: "84764266"
 ---
 # <a name="networking-limit-increase"></a>Aumento del limite delle connessioni di rete
@@ -49,11 +49,11 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
     ![Seleziona newS Subscription](./media/networking-quota-request/select-subscription-support-request.png)
 
-1. In **tipo di quota**selezionare **rete**. Selezionare **Avanti: soluzioni**.
+1. In **tipo di quota** selezionare **rete**. Selezionare **Avanti: soluzioni**.
 
     ![Seleziona tipo di quota](./media/networking-quota-request/select-quota-type-network.png)
 
-1. In **Dettagli problema**selezionare **specificare i dettagli** e immettere informazioni aggiuntive per facilitare l'elaborazione della richiesta.
+1. In **Dettagli problema** selezionare **specificare i dettagli** e immettere informazioni aggiuntive per facilitare l'elaborazione della richiesta.
 
     ![Specificare i dettagli](./media/networking-quota-request/provide-details-link.png)
 
@@ -75,7 +75,7 @@ Seguire queste istruzioni per creare una richiesta di supporto usando l'utilizzo
 
 1. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
 
-    ![Seleziona sottoscrizione](./media/networking-quota-request/select-subscription-change-quota.png)
+    ![Selezionare la sottoscrizione](./media/networking-quota-request/select-subscription-change-quota.png)
 
 1. Selezionare **utilizzo e quote**
 

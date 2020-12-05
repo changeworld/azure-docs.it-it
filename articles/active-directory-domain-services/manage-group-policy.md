@@ -1,7 +1,7 @@
 ---
 title: Creare e gestire criteri di gruppo in Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come modificare gli oggetti Criteri di gruppo (GPO) incorporati e creare criteri personalizzati in un Azure Active Directory Domain Services dominio gestito.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: deefcb66e05199896e8997d707a06e45f397adec
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: f1f2499c49c4adf16b632bc75c246a28330ad27b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963738"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619386"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito Azure Active Directory Domain Services
 
@@ -80,7 +80,7 @@ Esistono due oggetti Criteri di gruppo predefiniti (GPO) in un dominio gestito, 
 
 1. Nella console di **gestione di criteri di gruppo** espandere il nodo **foresta: aaddscontoso.com** . Successivamente, espandere i nodi **domini** .
 
-    Per i *computer aaddc Computers* e *gli utenti aaddc Computers*sono disponibili due contenitori predefiniti. A ognuno di questi contenitori è applicato un oggetto Criteri di gruppo predefinito.
+    Per i *computer aaddc Computers* e *gli utenti aaddc Computers* sono disponibili due contenitori predefiniti. A ognuno di questi contenitori è applicato un oggetto Criteri di gruppo predefinito.
 
     ![Oggetti Criteri di gruppo predefiniti applicati ai contenitori predefiniti ' AADDC computers Computers ' è AADDC computers users '](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
@@ -102,7 +102,7 @@ Per raggruppare impostazioni di criteri simili, è spesso necessario creare ogge
 
     ![Creare un oggetto Criteri di gruppo personalizzato in Criteri di gruppo Management Console](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
 
-1. Specificare un nome per il nuovo oggetto Criteri di gruppo, ad esempio l' *oggetto Criteri*di gruppo personalizzato, quindi fare clic su **OK**. Facoltativamente, è possibile basare l'oggetto Criteri di gruppo personalizzato su un oggetto Criteri di gruppo esistente e su un set di opzioni.
+1. Specificare un nome per il nuovo oggetto Criteri di gruppo, ad esempio l' *oggetto Criteri* di gruppo personalizzato, quindi fare clic su **OK**. Facoltativamente, è possibile basare l'oggetto Criteri di gruppo personalizzato su un oggetto Criteri di gruppo esistente e su un set di opzioni.
 
     ![Specificare un nome per il nuovo oggetto Criteri di gruppo personalizzato](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
 

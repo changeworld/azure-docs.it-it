@@ -4,16 +4,16 @@ description: Informazioni sui protocolli disponibili prima di creare una condivi
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c4cbbc437b633232ea65dd202b7531a1a5ac2c58
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 288d1740c1c4c67dd8756de5fc0652966ae89488
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96022590"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620975"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolli di condivisione file di Azure
 
@@ -31,12 +31,12 @@ File di Azure offre due protocolli per la connessione e il montaggio delle condi
 |Autorizzazioni     |Autorizzazioni di tipo UNIX         |Autorizzazioni di tipo NTFS         |
 |Semantica del file System     |Conforme a POSIX         |Non conforme a POSIX         |
 |Maiuscole/minuscole     |Fa distinzione tra maiuscole e minuscole.         |Senza distinzione maiuscole/minuscole         |
-|Supporto per collegamenti reali     |Supportato         |Non supportate         |
-|Supporto di collegamenti simbolici     |Supportato         |Non supportate         |
-|Eliminazione o modifica di file aperti     |Supportato         |Non supportate         |
+|Supporto per collegamenti reali     |Supportato         |Non supportato         |
+|Supporto di collegamenti simbolici     |Supportato         |Non supportato         |
+|Eliminazione o modifica di file aperti     |Supportato         |Non supportato         |
 |Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Supportato         |
-|Elenco sicuro IP pubblico | Non supportate | Supportato|
-|Interoperabilità del protocollo| Non supportate | Filerest|
+|Elenco sicuro IP pubblico | Non supportato | Supportato|
+|Interoperabilità del protocollo| Non supportato | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Condivisioni NFS (anteprima)
 

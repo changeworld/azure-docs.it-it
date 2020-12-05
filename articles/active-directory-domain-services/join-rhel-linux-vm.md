@@ -2,7 +2,7 @@
 title: Aggiungere una macchina virtuale RHEL a Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come configurare e aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito da Azure AD Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
-ms.openlocfilehash: ffde2317ea66a15936df75c4fe2455f627ea6e98
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 285a972936bfdf4b173e2a20223143883cd8b7d3
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962123"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619556"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito Azure Active Directory Domain Services
 
@@ -96,7 +96,7 @@ Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiunger
 
 ### <a name="rhel-7"></a>RHEL 7
 
-1. Usare il `realm discover` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com*dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
+1. Usare il `realm discover` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com* dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
 
     ```console
     sudo realm discover AADDSCONTOSO.COM
@@ -130,7 +130,7 @@ Successfully enrolled machine in realm
 
 ### <a name="rhel-6"></a>RHEL 6
 
-1. Usare il `adcli info` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *ADDDSCONTOSO.com*dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
+1. Usare il `adcli info` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *ADDDSCONTOSO.com* dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
 
     ```console
     sudo adcli info aaddscontoso.com

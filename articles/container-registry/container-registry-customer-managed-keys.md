@@ -2,14 +2,14 @@
 title: Crittografa il registro di sistema con una chiave gestita dal cliente
 description: Informazioni sulla crittografia al resto del registro contenitori di Azure e su come crittografare il registro di sistema Premium con una chiave gestita dal cliente archiviata in Azure Key Vault
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 6dac2239f223b5dee6ec728833caa01562873210
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255021"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620445"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 
@@ -45,9 +45,6 @@ Quando si configura la crittografia del registro di sistema con una chiave gesti
 * **Aggiorna automaticamente la versione della chiave** : per aggiornare automaticamente una chiave gestita dal cliente quando è disponibile una nuova versione in Azure Key Vault, omettere la versione della chiave quando si Abilita la crittografia del registro di sistema con una chiave gestita dal cliente. Quando un registro di sistema è crittografato con una chiave senza versione, Azure Container Registry controlla periodicamente l'insieme di credenziali delle chiavi per una nuova versione della chiave e aggiorna la chiave gestita dal cliente entro un'ora. Azure Container Registry usa automaticamente la versione più recente della chiave.
 
 * **Aggiornare manualmente la versione della chiave** : per usare una versione specifica di una chiave per la crittografia del registro di sistema, specificare la versione della chiave quando si Abilita la crittografia del registro di sistema con una chiave gestita dal cliente. Quando un registro di sistema è crittografato con una versione di chiave specifica, Azure Container Registry usa tale versione per la crittografia fino a quando non si ruota manualmente la chiave gestita dal cliente.
-
-> [!NOTE]
-> Attualmente è possibile usare l'interfaccia della riga di comando di Azure solo per configurare il registro di sistema in modo da aggiornare automaticamente la versione della chiave gestita dal cliente. Quando si usa il portale per abilitare la crittografia, è necessario aggiornare manualmente la versione della chiave.
 
 Per informazioni dettagliate, vedere [scegliere l'ID chiave con o senza](#choose-key-id-with-or-without-key-version) la versione della chiave e la [versione della chiave di aggiornamento](#update-key-version)più avanti in questo articolo.
 
@@ -252,7 +249,7 @@ Il nome dell'identità verrà usato nei passaggi successivi.
 
 ### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Per i passaggi necessari per creare un insieme di credenziali delle chiavi, vedere [Guida introduttiva: creare un Azure Key Vault con il portale di Azure](../key-vault/general/quick-create-portal.md).
+Per la procedura di creazione di un insieme di credenziali delle chiavi, vedere [Guida introduttiva: creare un insieme di credenziali delle chiavi usando il portale di Azure](../key-vault/general/quick-create-portal.md)
 
 Quando si crea un insieme di credenziali delle chiavi per una chiave gestita dal cliente, nella scheda **nozioni di base** abilitare l'impostazione **Ripulisci protezione** . Questa impostazione consente di evitare la perdita di dati causata da eliminazioni accidentali di chiavi o Key Vault.
 
@@ -279,13 +276,15 @@ In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per 
     1. Assegnare l'accesso all' **identità gestita assegnata dall'utente**.
     1. Selezionare il nome della risorsa dell'identità gestita assegnata dall'utente e selezionare **Salva**.
 
-### <a name="create-key"></a>Creare la chiave
+### <a name="create-key-optional"></a>Crea chiave (facoltativo)
+
+Facoltativamente, creare una chiave nell'insieme di credenziali delle chiavi da usare per crittografare il registro di sistema. Se si desidera selezionare una versione chiave specifica come chiave gestita dal cliente, attenersi alla seguente procedura. 
 
 1. Passare all'insieme di credenziali delle chiavi.
 1. Selezionare **Impostazioni** > **Chiavi**.
 1. Selezionare **+Genera/Importa** e immettere un nome univoco per la chiave.
 1. Accettare i rimanenti valori predefiniti e selezionare **Crea**.
-1. Al termine della creazione, selezionare la chiave e prendere nota della versione corrente della chiave.
+1. Dopo la creazione, selezionare la chiave e quindi selezionare la versione corrente. Copiare l' **identificatore di chiave** per la versione della chiave.
 
 ### <a name="create-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
 
@@ -293,10 +292,11 @@ In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per 
 1. Nella scheda **Nozioni di base** selezionare o creare un gruppo di risorse e immettere un nome di registro. In **SKU** selezionare **Premium**.
 1. Nella scheda **Crittografia**, selezionare **Abilitata** in **Chiave gestita dal cliente**.
 1. In **Identità** selezionare l'identità gestita creata.
-1. In **Crittografia** selezionare **Selezionare la chiave dall'insieme di credenziali delle chiavi**.
-1. Nella finestra **Selezionare la chiave da Azure Key Vault** selezionare l'insieme di credenziali delle chiavi, la chiave e la versione creati nella sezione precedente.
+1. In **crittografia** scegliere una delle seguenti opzioni:
+    * Selezionare **Seleziona da Key Vault** e selezionare un insieme di credenziali delle chiavi e una chiave esistenti oppure **crearne una nuova**. La chiave selezionata non è con versione e Abilita la rotazione automatica delle chiavi.
+    * Selezionare **immettere l'URI del tasto** e fornire direttamente un identificatore di chiave. È possibile specificare un URI di chiave con versione (per una chiave che deve essere ruotata manualmente) o un URI di chiave senza versione (che Abilita la rotazione automatica della chiave). 
 1. Nella scheda **Crittografia** selezionare **Rivedi e crea**.
-1. Selezionare **Crea** per creare l'istanza del registro di sistema.
+1. Selezionare **Crea** per distribuire l'istanza del registro.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Creare un registro crittografato nel portale di Azure":::
 
@@ -498,11 +498,11 @@ Ad esempio, per configurare una nuova chiave:
 
 1. Passare al registro nel portale.
 1. In **Impostazioni** selezionare **Crittografia** > **Modifica chiave**.
-1. Selezionare **Seleziona chiave**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Ruotare la chiave nel portale di Azure":::
-1. Nella finestra **Selezionare la chiave da Azure Key Vault** selezionare l'insieme di credenziali delle chiavi e la chiave configurati in precedenza e in **Versione** selezionare **Crea nuovo**.
-1. Nella finestra **Creare una chiave** selezionare **Genera** e quindi **Crea**.
+1. In **crittografia** scegliere una delle seguenti opzioni:
+    * Selezionare **Seleziona da Key Vault** e selezionare un insieme di credenziali delle chiavi e una chiave esistenti oppure **crearne una nuova**. La chiave selezionata non è con versione e Abilita la rotazione automatica delle chiavi.
+    * Selezionare **immettere l'URI del tasto** e fornire direttamente un identificatore di chiave. È possibile specificare un URI di chiave con versione (per una chiave che deve essere ruotata manualmente) o un URI di chiave senza versione (che Abilita la rotazione automatica della chiave).
 1. Completare la selezione della chiave e selezionare **Salva**.
 
 ## <a name="revoke-key"></a>Revocare la chiave

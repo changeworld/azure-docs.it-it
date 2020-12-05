@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8530b74a63f4e5e2c04ff95a0106b896102dda2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994248"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618094"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso senza password per la chiave di sicurezza (anteprima)
 
@@ -38,7 +38,7 @@ Per usare le chiavi di sicurezza per l'accesso a servizi e app Web, è necessari
 
 ## <a name="prepare-devices-for-preview"></a>Preparare i dispositivi per l'anteprima
 
-Azure AD i dispositivi aggiunti con cui si esegue il progetto pilota devono eseguire Windows 10 versione 1909 o successiva. L'esperienza migliore è in Windows 10 versione 1903 o successiva.
+Per i dispositivi Azure AD aggiunti, la migliore esperienza è in Windows 10 versione 1903 o successiva.
 
 Azure AD ibrido dispositivi aggiunti devono eseguire Windows 10 versione 2004 o successiva.
 
@@ -59,7 +59,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registrazione e gestione degli utenti delle chiavi di sicurezza FIDO2
 
-1. Passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+1. Passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
 1. Accedere se non è già stato fatto.
 1. Fare clic su **info di sicurezza**.
    1. Se l'utente dispone già di almeno un Azure AD Multi-Factor Authentication metodo registrato, può registrare immediatamente una chiave di sicurezza FIDO2.

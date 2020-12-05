@@ -2,7 +2,7 @@
 title: Aggiungere una macchina virtuale CentOS a Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come configurare e aggiungere una macchina virtuale CentOS Linux a un Azure Active Directory Domain Services dominio gestito.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
-ms.openlocfilehash: 6aa85564390728331f682c31d14655844d68b3c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 76fc11384b55337f581a74239d4a40b90b284f32
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962174"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619658"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale CentOS Linux a un dominio gestito Azure Active Directory Domain Services
 
@@ -86,7 +86,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
 Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiungere la macchina virtuale al dominio gestito.
 
-1. Usare il `realm discover` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com*dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
+1. Usare il `realm discover` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com* dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
 
     ```console
     sudo realm discover AADDSCONTOSO.COM
