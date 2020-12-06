@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d72aa65f18896ebbecf651da32558059ba782cc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f2e11fa1bb9f1d3a3986a19da8ed44229829ec81
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968396"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741780"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Abilitare la protezione Azure Active Directory password locale
 
@@ -32,7 +32,7 @@ Questo articolo illustra come abilitare la protezione Azure AD password per l'am
 
 ## <a name="enable-on-premises-password-protection"></a>Abilitare la protezione delle password locale
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**  >  metodi di autenticazione della**sicurezza**  >  **Authentication methods**  >  **password protezione**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**  >  metodi di autenticazione della **sicurezza**  >  **Authentication methods**  >  **password protezione**.
 1. Impostare l'opzione **Abilita protezione password su Windows Server Active Directory su** *Sì*.
 
     Quando questa impostazione è impostata su *No*, tutti gli agenti del controller di dominio di Azure ad della password distribuiti passano a una modalità di riposo, in cui tutte le password vengono accettate così come sono. Non vengono eseguite attività di convalida e non vengono generati eventi di controllo.

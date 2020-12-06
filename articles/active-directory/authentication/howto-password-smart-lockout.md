@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baffe307a560f2668c2d93e36939a695cf963e89
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968379"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741729"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteggere gli account utente da attacchi con Azure Active Directory blocco intelligente
 
@@ -58,7 +58,7 @@ Per verificare i criteri di blocco dell'account Active Directory Domain Services
 
 1. Aprire lo strumento Gestione criteri di gruppo.
 2. Modificare i criteri di gruppo che includono i criteri di blocco degli account dell'organizzazione, ad esempio i criteri di **dominio predefiniti**.
-3. Passare a **Configurazione computer**criteri impostazioni di Windows impostazioni di  >  **Policies**  >  **Windows Settings**  >  **sicurezza**  >  criteri**account criteri**di  >  **blocco account**.
+3. Passare a **Configurazione computer** criteri impostazioni di Windows impostazioni di  >  **Policies**  >  **Windows Settings**  >  **sicurezza**  >  criteri **account criteri** di  >  **blocco account**.
 4. Verificare la **soglia di blocco dell'account** e **ripristinare il contatore del blocco dell'account dopo** i valori.
 
 ![Modificare i criteri di blocco degli account Active Directory locali](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)

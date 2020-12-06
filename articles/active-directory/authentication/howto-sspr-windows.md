@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd40b8df0251aee7692df24e9bc3f7186c155d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966509"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741491"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Abilitare la reimpostazione della password self-service Azure Active Directory nella schermata di accesso di Windows
 
@@ -77,18 +77,18 @@ La distribuzione della modifica della configurazione per abilitare SSPR dalla sc
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Intune**.
 1. Creare un nuovo profilo di configurazione del dispositivo passando a profili di **configurazione del dispositivo**  >  **Profiles**, quindi selezionare **+ Crea profilo**
    - Per la **piattaforma** scegliere *Windows 10 e versioni successive*
-   - Per **tipo di profilo**scegliere *personalizzato* .
-1. Selezionare **Crea**e quindi specificare un nome significativo per il profilo, ad esempio la *schermata di accesso di Windows 10 SSPR*
+   - Per **tipo di profilo** scegliere *personalizzato* .
+1. Selezionare **Crea** e quindi specificare un nome significativo per il profilo, ad esempio la *schermata di accesso di Windows 10 SSPR*
 
     Facoltativamente, fornire una descrizione significativa del profilo, quindi selezionare **Avanti**.
-1. In *impostazioni di configurazione*selezionare **Aggiungi** e specificare l'impostazione URI OMA seguente per abilitare il collegamento Reimposta password:
+1. In *impostazioni di configurazione* selezionare **Aggiungi** e specificare l'impostazione URI OMA seguente per abilitare il collegamento Reimposta password:
       - Fornire un nome significativo per spiegare il funzionamento dell'impostazione, ad esempio *Aggiungi collegamento SSPR*.
       - Facoltativamente, fornire una descrizione significativa dell'impostazione.
       - Impostare **URI OMA** su `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       - Impostare **Tipo di dati** su **Integer**
       - Impostare **Valore** su **1**
 
-    Selezionare **Aggiungi**e quindi **Avanti**.
+    Selezionare **Aggiungi** e quindi **Avanti**.
 1. Il criterio può essere assegnato a utenti, dispositivi o gruppi specifici. Assegnare il profilo come desiderato per l'ambiente in uso, idealmente a un gruppo di dispositivi di test, quindi fare clic su **Avanti**.
 
     Per altre informazioni, vedere [assegnare profili utente e dispositivo in Microsoft Intune](/mem/intune/configuration/device-profile-assign).

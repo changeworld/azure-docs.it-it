@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174035"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743276"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Risoluzione dei problemi per le distribuzioni ibride di chiavi di sicurezza FIDO2 in Azure AD (anteprima)
 
@@ -145,7 +145,7 @@ Il primo set di proprietà è costituito dagli oggetti dell'ambiente Servizi di 
 
 | Proprietà           | Descrizione  |
 |--------------------|--------------|
-| ID                 | *ID* univoco dell'oggetto controller di dominio di servizi di dominio Active Directory. |
+| Id                 | *ID* univoco dell'oggetto controller di dominio di servizi di dominio Active Directory. |
 | DomainDnsName      | Nome di dominio DNS del dominio di servizi di dominio Active Directory. |
 | ComputerAccount    | Oggetto account computer del Azure AD oggetto server Kerberos (il controller di dominio). |
 | UserAccount        | Oggetto account utente disabilitato che include la chiave di crittografia del server TGT Azure AD Kerberos. Il DN di questo account è *CN = krbtgt_AzureAD, CN = Users, <Domain-DN>* |

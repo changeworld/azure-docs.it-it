@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964792"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743531"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Domande frequenti sulla distribuzione per le chiavi di sicurezza ibrido per FIDO2 in Azure AD (anteprima)
 
@@ -160,7 +160,7 @@ In un controller di dominio Windows Server 2016 o 2019, verificare che siano app
 
 No, questa funzionalità non è supportata per il dispositivo solo locale. Il provider di credenziali FIDO2 non viene visualizzato.
 
-### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>L'accesso alla chiave di sicurezza di FIDO2 non funziona per l'amministratore del dominio o altri account con privilegi elevati. Questo problema dipende
+### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>L'accesso alla chiave di sicurezza di FIDO2 non funziona per l'amministratore del dominio o altri account con privilegi elevati. Perché?
 
 Il criterio di sicurezza predefinito non concede Azure AD autorizzazione per firmare gli account con privilegi elevati in risorse locali.
 
@@ -218,7 +218,7 @@ Abbiamo ricevuto commenti sulla complessità del modello di distribuzione per Wi
 Analogamente a qualsiasi altro controller di dominio, le chiavi di crittografia del server *krbtgt* Azure ad Kerberos devono essere ruotate a intervalli regolari. È consigliabile seguire la stessa pianificazione usata per ruotare tutte le altre chiavi di *krbtgt* di servizi di dominio Active Directory.
 
 > [!NOTE]
-> Sebbene siano disponibili altri strumenti per ruotare le chiavi di *krbtgt* , è necessario [usare i cmdlet di PowerShell per ruotare le chiavi *krbtgt* ](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) del server Azure ad Kerberos. Questo metodo assicura che le chiavi vengano aggiornate sia nell'ambiente di servizi di dominio Active Directory locale sia in Azure AD.
+> Sebbene siano disponibili altri strumenti per ruotare le chiavi di *krbtgt* , è necessario [usare i cmdlet di PowerShell per ruotare le chiavi *krbtgt*](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) del server Azure ad Kerberos. Questo metodo assicura che le chiavi vengano aggiornate sia nell'ambiente di servizi di dominio Active Directory locale sia in Azure AD.
 
 ### <a name="why-do-we-need-azure-ad-connect-does-it-write-any-info-back-to-ad-ds-from-azure-ad"></a>Perché è necessario Azure AD Connect? Le informazioni vengono scritte in servizi di dominio Active Directory da Azure AD?
 
@@ -228,7 +228,7 @@ Azure AD Connect non esegue la scrittura di informazioni da Azure AD a servizi d
 
 La richiesta HTTP è una richiesta standard PRT (Primary Refresh token). Questa richiesta di PRT include un'attestazione che indica che è necessario un ticket di concessione ticket (TGT) Kerberos.
 
-| Attestazione | valore | Descrizione                             |
+| Attestazione | Valore | Descrizione                             |
 |-------|-------|-----------------------------------------|
 | TGT   | true  | Attestazione indica che il client necessita di un TGT. |
 
@@ -236,9 +236,9 @@ Azure AD combina la chiave client crittografata e il buffer dei messaggi nella r
 
 | Campo              | Type   | Descrizione  |
 |--------------------|--------|--------------|
-| tgt_client_key     | Stringa | Chiave client con codifica Base64 (segreto). Questa chiave è il segreto client usato per proteggere TGT. In questo scenario senza password, il segreto client viene generato dal server come parte di ogni richiesta TGT e quindi restituito al client nella risposta. |
+| tgt_client_key     | string | Chiave client con codifica Base64 (segreto). Questa chiave è il segreto client usato per proteggere TGT. In questo scenario senza password, il segreto client viene generato dal server come parte di ogni richiesta TGT e quindi restituito al client nella risposta. |
 | tgt_key_type       | INT    | Il tipo di chiave di servizi di dominio Active Directory locale utilizzato sia per la chiave client che per la chiave di sessione Kerberos inclusa nella KERB_MESSAGE_BUFFER. |
-| tgt_message_buffer | Stringa | KERB_MESSAGE_BUFFER con codifica Base64. |
+| tgt_message_buffer | string | KERB_MESSAGE_BUFFER con codifica Base64. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

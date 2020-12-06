@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 04/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ba1e280e3c14a24e33246799ca0d7ef8221294f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838179"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741695"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Risoluzione dei problemi di registrazione delle informazioni di sicurezza combinate
 
@@ -32,14 +32,14 @@ La tabella seguente elenca tutti gli eventi di controllo generati dalla registra
 
 | Attività | Stato | Motivo | Descrizione |
 | --- | --- | --- | --- |
-| L'utente ha registrato tutte le informazioni di sicurezza necessarie | Operazione completata | L'utente ha registrato tutte le informazioni di sicurezza necessarie. | Questo evento si verifica quando un utente ha completato correttamente la registrazione.|
+| L'utente ha registrato tutte le informazioni di sicurezza necessarie | Success | L'utente ha registrato tutte le informazioni di sicurezza necessarie. | Questo evento si verifica quando un utente ha completato correttamente la registrazione.|
 | L'utente ha registrato tutte le informazioni di sicurezza necessarie | Errore | Registrazione delle informazioni di sicurezza annullata dall'utente. | Questo evento si verifica quando un utente annulla la registrazione dalla modalità di interruzione.|
-| Info di sicurezza registrate dall'utente | Operazione completata | *Metodo* registrato dall'utente. | Questo evento si verifica quando un utente registra un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.| 
-| Informazioni di sicurezza rivedute dall'utente | Operazione completata | L'utente ha rivisto le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza.|
+| Info di sicurezza registrate dall'utente | Success | *Metodo* registrato dall'utente. | Questo evento si verifica quando un utente registra un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.| 
+| Informazioni di sicurezza rivedute dall'utente | Success | L'utente ha rivisto le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza.|
 | Informazioni di sicurezza rivedute dall'utente | Errore | L'utente non è riuscito a esaminare le informazioni di sicurezza. | Questo evento si verifica quando un utente seleziona l' **aspetto corretto** nella pagina di verifica delle informazioni di sicurezza, ma si verifica un errore nel back-end.|
-| Informazioni di sicurezza eliminate dall'utente | Operazione completata | *Metodo* eliminato dall'utente. | Questo evento si verifica quando un utente elimina un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
+| Informazioni di sicurezza eliminate dall'utente | Success | *Metodo* eliminato dall'utente. | Questo evento si verifica quando un utente elimina un singolo metodo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
 | Informazioni di sicurezza eliminate dall'utente | Errore | L'utente non è riuscito a eliminare il *Metodo*. | Questo evento si verifica quando un utente tenta di eliminare un metodo, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere l'app di autenticazione, il telefono, l'indirizzo di posta elettronica, le domande di sicurezza, la password dell'app, il telefono alternativo e così via.|
-| Informazioni di sicurezza predefinite modificate dall'utente | Operazione completata | L'utente ha modificato le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente modifica il metodo predefinito. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
+| Informazioni di sicurezza predefinite modificate dall'utente | Success | L'utente ha modificato le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente modifica il metodo predefinito. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
 | Informazioni di sicurezza predefinite modificate dall'utente | Errore | L'utente non è riuscito a modificare le informazioni di sicurezza predefinite per il *Metodo*. | Questo evento si verifica quando un utente tenta di modificare il metodo predefinito, ma il tentativo non riesce per qualche motivo. Il *Metodo* può essere una notifica dell'app Authenticator, un codice dell'app o del token di autenticazione, chiamare + x Xxxxxxxxxx, scrivere un codice per + x xxxxxxxxx e così via.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Risoluzione dei problemi relativi alla modalità di interrupt

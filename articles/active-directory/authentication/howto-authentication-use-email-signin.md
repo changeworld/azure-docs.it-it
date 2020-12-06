@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576020"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743174"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Accedere a Azure Active Directory usando la posta elettronica come ID di accesso alternativo (anteprima)
 
@@ -30,7 +30,7 @@ Alcune organizzazioni non sono passate all'autenticazione ibrida per i motivi se
 * La modifica dell'UPN Azure AD crea una corrispondenza errata tra ambienti locali e Azure AD che possono causare problemi con determinati servizi e applicazioni.
 * A causa di motivi aziendali o di conformità, l'organizzazione non vuole usare l'UPN locale per accedere a Azure AD.
 
-Per semplificare il passaggio all'autenticazione ibrida, è ora possibile configurare Azure AD per consentire agli utenti di accedere con un messaggio di posta elettronica nel dominio verificato come ID di accesso alternativo. Ad esempio, se *Contoso* è stato rinominato in *Fabrikam* , anziché continuare ad accedere con l'UPN `balas@contoso.com` precedente ora è possibile usare l'indirizzo e-mail come ID di accesso alternativo. Per accedere a un'applicazione o a un servizio, gli utenti accedono a Azure AD usando il proprio indirizzo di posta elettronica assegnato, ad esempio `balas@fabrikam.com` .
+Per semplificare il passaggio all'autenticazione ibrida, è ora possibile configurare Azure AD per consentire agli utenti di accedere con un messaggio di posta elettronica nel dominio verificato come ID di accesso alternativo. Ad esempio, se *Contoso* è stato rinominato in *Fabrikam*, anziché continuare ad accedere con l'UPN `balas@contoso.com` precedente ora è possibile usare l'indirizzo e-mail come ID di accesso alternativo. Per accedere a un'applicazione o a un servizio, gli utenti accedono a Azure AD usando il proprio indirizzo di posta elettronica assegnato, ad esempio `balas@fabrikam.com` .
 
 Questo articolo illustra come abilitare e usare la posta elettronica come ID di accesso alternativo. Questa funzionalità è disponibile in Azure AD Free Edition e versioni successive.
 
@@ -76,7 +76,7 @@ In entrambe le opzioni di configurazione, l'utente immette il proprio nome utent
 
 ![Diagramma della soluzione ibrida di gestione delle identità di Azure AD con autenticazione pass-through](media/howto-authentication-use-email-signin/hybrid-pass-through-authentication.png)
 
-Uno degli attributi utente che viene automaticamente sincronizzato da Azure AD Connect è *ProxyAddresses*. Se per gli utenti è stato definito un indirizzo e-mail nell'ambiente di Active Directory Domain Services locale come parte dell'attributo *ProxyAddresses* , questo viene automaticamente sincronizzato in Azure AD. L'indirizzo e-mail può quindi essere usato direttamente nel processo di accesso di Azure AD come ID di accesso alternativo.
+Uno degli attributi utente che viene automaticamente sincronizzato da Azure AD Connect è *ProxyAddresses*. Se per gli utenti è stato definito un indirizzo e-mail nell'ambiente di Active Directory Domain Services locale come parte dell'attributo *ProxyAddresses*, questo viene automaticamente sincronizzato in Azure AD. L'indirizzo e-mail può quindi essere usato direttamente nel processo di accesso di Azure AD come ID di accesso alternativo.
 
 > [!IMPORTANT]
 > Solo gli indirizzi di posta elettronica nei domini verificati per il tenant vengono sincronizzati in Azure AD. Ogni tenant di Azure AD presenta uno o più domini verificati per i quali si può dimostrare la proprietà e che sono associati in modo univoco al tenant.
@@ -89,7 +89,7 @@ Per altre informazioni, vedere [Scegliere il metodo di autenticazione appropriat
 
 Quando gli utenti ai quali è stato applicato l'attributo *ProxyAddresses* vengono sincronizzati su Azure AD usando Azure AD Connect è necessario abilitare la funzione per far sì che gli utenti accedano con il proprio indirizzo e-mail come ID di accesso alternativo per il tenant. Questa funzionalità indica ai server di accesso di Azure AD di non controllare solo il nome di accesso rispetto ai valori UPN, ma anche rispetto ai valori dell'attributo *ProxyAddresses* per l'indirizzo e-mail.
 
-Durante la fase di anteprima ora è possibile abilitare l'accesso tramite posta elettronica solo come funzionalità di ID di accesso alternativo usando PowerShell. Per completare i passaggi seguenti è necessario disporre delle autorizzazioni di *amministratore tenant* :
+Durante la fase di anteprima ora è possibile abilitare l'accesso tramite posta elettronica solo come funzionalità di ID di accesso alternativo usando PowerShell. Per completare i passaggi seguenti è necessario disporre delle autorizzazioni di *amministratore tenant*:
 
 1. Aprire una sessione di PowerShell come amministratore, installare il modulo *AzureADPreview* usando il cmdlet [Install-Module][Install-Module]:
 
@@ -177,7 +177,7 @@ Per verificare che gli utenti possano accedere con il proprio indirizzo e-mail, 
 L' [implementazione temporanea][staged-rollout] consente agli amministratori tenant di abilitare le funzionalità per gruppi specifici. È consigliabile che gli amministratori tenant usino l'implementazione di gestione temporanea per testare l'accesso dell'utente con un indirizzo di posta elettronica. Quando gli amministratori sono pronti per distribuire questa funzionalità all'intero tenant, devono usare un criterio di individuazione dell'area di autenticazione principale.  
 
 
-Per completare i passaggi seguenti è necessario disporre delle autorizzazioni di *amministratore tenant* :
+Per completare i passaggi seguenti è necessario disporre delle autorizzazioni di *amministratore tenant*:
 
 1. Aprire una sessione di PowerShell come amministratore, quindi installare il modulo *AzureADPreview* con il cmdlet [install-module][Install-Module] :
 
@@ -244,7 +244,7 @@ Se gli utenti hanno problemi con gli eventi di accesso usando il proprio indiriz
 
 1. Assicurarsi che per l'account utente sia stato impostato l'indirizzo e-mail per l'attributo *ProxyAddresses* nell'ambiente locale di Active Directory Domain Services.
 1. Verificare che Azure AD Connect sia configurato e sincronizzi correttamente gli account utente dall'ambiente locale di Active Directory Domain Services ad Azure AD.
-1. Confermare che per il criterio di Azure AD *HomeRealmDiscoveryPolicy* l'attributo *AlternateIdLogin* sia impostato su *"Enabled": true* :
+1. Confermare che per il criterio di Azure AD *HomeRealmDiscoveryPolicy* l'attributo *AlternateIdLogin* sia impostato su *"Enabled": true*:
 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *

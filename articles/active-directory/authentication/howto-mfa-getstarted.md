@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa093411e40b2fc60c52c2a22434658bab78e59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839251"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743140"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure AD Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ In questa guida alla distribuzione viene illustrato come pianificare e quindi te
 Per visualizzare rapidamente Azure AD Multi-Factor Authentication in azione e quindi tornare a comprendere ulteriori considerazioni sulla distribuzione:
 
 > [!div class="nextstepaction"]
-> [Abilita Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
+> [Abilitare Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -287,7 +287,7 @@ Se è già stata distribuita un'istanza NPS e in uso, fare riferimento a [integr
 
 Scegliere cosa accade quando gli utenti non registrati per MFA tentano di eseguire l'autenticazione. Usare l'impostazione del registro `REQUIRE_USER_MATCH` nel percorso del registro `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | valore | Predefinito |
+| Chiave | Valore | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | Non impostato (equivalente a VERO) |
 
@@ -370,4 +370,4 @@ Trovare soluzioni per i problemi comuni relativi a Azure AD autenticazione a pi�
 Per visualizzare Azure AD Multi-Factor Authentication in azione, completare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Abilita Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
+> [Abilitare Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md)

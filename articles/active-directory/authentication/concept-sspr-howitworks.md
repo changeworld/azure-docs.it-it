@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174531"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743871"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -106,7 +106,7 @@ Per SSPR sono disponibili i metodi di autenticazione seguenti:
 
 * Notifica dell'app per dispositivi mobili
 * Codice app per dispositivi mobili
-* Posta elettronica
+* E-mail
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
@@ -152,7 +152,7 @@ Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili 
 
 Cosa succede se si inizia con un criterio che ha solo un metodo di autenticazione registrato necessario per la reimpostazione o lo sblocco e si passa a due?
 
-| Numero di metodi registrati | Numero di metodi necessari | Risultato |
+| Numero di metodi registrati | Numero di metodi necessari | Result |
 | :---: | :---: | :---: |
 | 1 o più | 1 | **Possibilità** di reimpostare o sbloccare |
 | 1 | 2 | **Impossibilità** di reimpostare o sbloccare |

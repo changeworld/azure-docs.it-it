@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13cfed6bf378ff9dacc4b6446cdfc246a87949bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d144716dbc5636451405f1124d4c3949f585d6b2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994231"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742647"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurare il server Azure Multi-Factor Authentication per lavorare con AD FS 2.0
 
@@ -63,7 +63,7 @@ Per proteggere AD FS 2.0 con un proxy, installare il server Azure Multi-Factor A
 
 12. Poiché il server proxy AD FS non è destinato a essere aggiunto al dominio, è possibile usare LDAP per connettersi al controller di dominio per l'importazione utente e la preautenticazione. Nella finestra di dialogo sito Web avanzato Form-Based fare clic sulla scheda **autenticazione primaria** e selezionare **binding LDAP** per il tipo di autenticazione di pre-autenticazione.
 13. Al termine, fare clic su **OK** per tornare alla finestra di dialogo Aggiungi sito Web basato su form.
-14. Scegliere **OK** per chiudere la finestra di dialogo.
+14. Fare clic su **OK** per chiudere la finestra di dialogo.
 15. Dopo aver rilevato o immesso le variabili di pagina e URL, i dati del sito Web vengono visualizzati nel pannello Basata su form.
 16. Fare clic sulla scheda **modulo nativo** e selezionare il server, il sito Web in cui viene eseguito il proxy di ad FS (ad esempio "sito Web predefinito") o l'applicazione proxy ad FS (ad esempio "ls" in "ADFS") per abilitare il plug-in di IIS al livello desiderato.
 17. Scegliere la casella **Abilita autenticazione IIS** nella parte superiore della schermata.

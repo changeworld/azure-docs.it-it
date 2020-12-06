@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 06/02/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239e49d287ebf6ad98d1a155219f0d59f6469292
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8f8f270f740951b95b0d4c00cbcf9b08e20a8e0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366514"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743725"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione della password self-service Azure Active Directory
 
@@ -51,7 +51,7 @@ Per ulteriori informazioni sulle licenze, inclusi i costi, vedere le pagine segu
 
 Azure AD supporta le licenze basate sui gruppi. Gli amministratori possono assegnare le licenze in blocco a un gruppo di utenti, anziché assegnarle loro singolarmente. Per altre informazioni, vedere [Assegnare, verificare e risolvere i problemi relativi alle licenze](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Alcuni servizi Microsoft non sono disponibili in tutte le località. Per poter assegnare una licenza a un utente, l'amministratore deve specificare la proprietà **località di utilizzo** per l'utente. L'assegnazione delle licenze può essere eseguita **User**  >  **Profile**  >  nella sezione**Impostazioni** profilo utente del portale di Azure. *Quando si usa l'assegnazione di licenze ai gruppi, tutti gli utenti per cui non è specificata un percorso d'uso ereditano il percorso della directory.*
+Alcuni servizi Microsoft non sono disponibili in tutte le località. Per poter assegnare una licenza a un utente, l'amministratore deve specificare la proprietà **località di utilizzo** per l'utente. L'assegnazione delle licenze può essere eseguita **User**  >  **Profile**  >  nella sezione **Impostazioni** profilo utente del portale di Azure. *Quando si usa l'assegnazione di licenze ai gruppi, tutti gli utenti per cui non è specificata un percorso d'uso ereditano il percorso della directory.*
 
 ## <a name="next-steps"></a>Passaggi successivi
 
