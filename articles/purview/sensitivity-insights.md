@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575755"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746183"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informazioni approfondite sull'etichetta di riservatezza sui dati in Azure
 
@@ -48,6 +48,9 @@ Le etichette di riservatezza consentono di indicare quanto sono sensibili determ
 Mentre le classificazioni vengono confrontate direttamente (un numero di previdenza sociale ha una classificazione di un **numero di previdenza sociale**), le etichette di riservatezza vengono applicate quando vengono rilevate una o più classificazioni e scenari. 
 
 La competenza usa le stesse classificazioni, note anche come tipi di informazioni riservate, come Microsoft 365. In questo modo è possibile estendere le etichette di riservatezza esistenti tra le risorse di competenza di Azure.
+
+> [!NOTE]
+> Dopo aver analizzato i tipi di origine, è possibile assegnare all' **etichetta** informazioni approfondite un paio di ore per riflettere i nuovi asset.
 
 **Per visualizzare le informazioni dettagliate sulle etichette di riservatezza:**
 

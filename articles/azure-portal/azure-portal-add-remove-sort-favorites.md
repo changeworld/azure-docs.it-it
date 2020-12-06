@@ -1,21 +1,15 @@
 ---
-title: Aggiungere, rimuovere e disporre i preferiti nei portale di Azure | Microsoft Docs
+title: Aggiungere, rimuovere e disporre i preferiti nei portale di Azure
 description: Informazioni su come aggiungere o rimuovere elementi dall'elenco Preferiti e ridisporre l'ordine degli elementi
-services: azure-portal
 keywords: Preferiti, portale
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: how-to
-ms.service: azure-portal
-ms.custom: ''
-manager: mtillman
-ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01ed34c2e72890c6aeeef9371312825273722ac6
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764129"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745792"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Aggiunta, rimozione e ridisposizione di Preferiti
 

@@ -1,24 +1,15 @@
 ---
 title: Creare e condividere dashboard nel portale di Azure
 description: Questo articolo descrive come creare, personalizzare, pubblicare e condividere i dashboard nel portale di Azure.
-services: azure-portal
-documentationcenter: ''
-author: sewatson
-manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b4241e51f186ea973702562ab27bb7f13a77de57
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089486"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745826"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creare e condividere dashboard nel portale di Azure
 
@@ -32,7 +23,7 @@ In questo esempio si crea un nuovo dashboard privato e si assegna un nome. Per i
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Scegliere **Dashboard**dal menu portale di Azure. La visualizzazione predefinita potrebbe essere già impostata sul dashboard.
+1. Scegliere **Dashboard** dal menu portale di Azure. La visualizzazione predefinita potrebbe essere già impostata sul dashboard.
 
     ![Aprire il dashboard](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
@@ -142,7 +133,7 @@ Per usare un dashboard esistente come modello per un nuovo dashboard, seguire qu
 
 ## <a name="publish-and-share-a-dashboard"></a>Pubblicare e condividere un dashboard
 
-Quando si crea un dashboard, è privato per impostazione predefinita, il che significa che l'unico utente può visualizzarlo. Per rendere disponibili i dashboard ad altri utenti, è possibile pubblicarli e condividerli. Per altre informazioni, vedere [condividere i dashboard di Azure con il controllo degli accessi in base al ruolo di Azure](azure-portal-dashboard-share-access.md).
+Quando si crea un dashboard, è privato per impostazione predefinita, il che significa che l'unico utente può visualizzarlo. Per rendere disponibili i dashboard ad altri utenti, è possibile pubblicarli e condividerli. Per altre informazioni, vedere [Condividere i dashboard di Azure tramite controllo degli accessi in base al ruolo](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Aprire un dashboard condiviso
 

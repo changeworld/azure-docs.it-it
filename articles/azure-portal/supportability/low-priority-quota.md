@@ -1,18 +1,17 @@
 ---
-title: Quota della macchina virtuale spot-Azure
+title: Quota della macchina virtuale spot
 description: Aumentare i limiti di quota per le VM spot, che offrono un modello di utilizzo di Azure che consente di presupporre costi inferiori in cambio per consentire ad Azure di rimuovere le VM in base alle esigenze.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8b9a2251d7923fe1919b7b934f6c97877cd5b37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763874"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745486"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Quota spot: aumenta i limiti per tutte le serie di macchine virtuali
 
@@ -48,7 +47,7 @@ Per richiedere un aumento del limite di quota spot per tutte le serie di macchin
 
     ![Creare una nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**.
+1. Per **tipo di problema** selezionare **limiti per servizio e sottoscrizione (quote)**.
 
    ![Selezionare un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -56,7 +55,7 @@ Per richiedere un aumento del limite di quota spot per tutte le serie di macchin
 
    ![Selezionare una sottoscrizione per una quota aumentata](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Per **tipo di quota**selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
+1. Per **tipo di quota** selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
 
    ![Selezionare un tipo di quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -64,17 +63,17 @@ Per richiedere un aumento del limite di quota spot per tutte le serie di macchin
 
    ![Collegamento "Specifica dettagli"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. In **Dettagli quota**seguire questa procedura:
+1. In **Dettagli quota** seguire questa procedura:
 
-   1. Per **modello di distribuzione**selezionare il modello appropriato e per **percorsi**Selezionare una località.
+   1. Per **modello di distribuzione** selezionare il modello appropriato e per **percorsi** Selezionare una località.
 
       ![Fornire dettagli aggiuntivi sulla quota](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-   1. Per il percorso selezionato, in **selezionare un tipo**in **tipi**scegliere **spot**.
+   1. Per il percorso selezionato, in **selezionare un tipo** in **tipi** scegliere **spot**.
 
       ![Seleziona tipo di spot](./media/resource-manager-core-quotas-request/select-spot-type.png)
 
-       In **tipi**è possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni.
+       In **tipi** è possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni.
 
        Per altre informazioni, vedere [quota standard: aumentare i limiti per serie di macchine virtuali](per-vm-quota-requests.md).
 
@@ -111,17 +110,17 @@ Per richiedere un aumento del limite di quota spot per tutte le serie di macchin
 
    ![Selezionare per aumentare la quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. Per **tipo di quota**selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
+1. Per **tipo di quota** selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
 
    ![Selezionare un tipo di quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. Selezionare **specificare i dettagli** per immettere informazioni aggiuntive. In **Dettagli quota**immettere le informazioni seguenti:
+1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. Selezionare **specificare i dettagli** per immettere informazioni aggiuntive. In **Dettagli quota** immettere le informazioni seguenti:
 
-   1. Per **modello di distribuzione**selezionare il modello appropriato e per **percorsi**Selezionare una località.
+   1. Per **modello di distribuzione** selezionare il modello appropriato e per **percorsi** Selezionare una località.
 
       ![Specificare i dettagli della quota](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-   1. Per il percorso selezionato, in **selezionare un tipo**in **tipi**scegliere **spot**.
+   1. Per il percorso selezionato, in **selezionare un tipo** in **tipi** scegliere **spot**.
 
       ![Seleziona tipo di spot](./media/resource-manager-core-quotas-request/select-spot-type.png)
 

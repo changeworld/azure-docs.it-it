@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: bd4a770aee43709c46ab4c1baf965941d8d2c3ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eadf740c6b5caccbf678a1238f993d4ec0b34095
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763857"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745418"
 ---
 # <a name="standard-quota-increase-limits-by-region"></a>Quota standard: aumentare i limiti per area
 
@@ -50,7 +49,7 @@ Per richiedere un aumento della quota di vCPU per area da **Guida e supporto tec
 
     ![Nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**.
+1. Per **tipo di problema** selezionare **limiti per servizio e sottoscrizione (quote)**.
 
    ![Selezionare un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -58,13 +57,13 @@ Per richiedere un aumento della quota di vCPU per area da **Guida e supporto tec
 
    ![Selezionare una sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Per il **tipo di quota**selezionare **altre richieste**.
+1. Per il **tipo di quota** selezionare **altre richieste**.
 
    ![Selezionare un tipo di quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
-1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. In **Descrizione**specificare le informazioni seguenti:
+1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. In **Descrizione** specificare le informazioni seguenti:
 
-    1. Per **modello di distribuzione**specificare **Gestione risorse**.  
+    1. Per **modello di distribuzione** specificare **Gestione risorse**.  
     1. Per **Region (area**) specificare l'area obbligatoria, ad esempio **Stati Uniti orientali 2**.  
     1. Per il **nuovo limite**, specificare un nuovo limite di vCPU per l'area. Questo valore non deve superare la somma delle quote approvate per le singole serie di SKU per questa sottoscrizione.
 
@@ -92,13 +91,13 @@ Per richiedere un aumento della quota di vCPU per area dalle **sottoscrizioni**:
 
    ![Selezionare per aumentare la quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. In **tipo di quota**selezionare **altre richieste**.
+1. In **tipo di quota** selezionare **altre richieste**.
 
    ![Selezionare il tipo di quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
 1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. Nella casella **Descrizione** specificare le informazioni aggiuntive seguenti:
 
-    1. Per **modello di distribuzione**specificare **Gestione risorse**.  
+    1. Per **modello di distribuzione** specificare **Gestione risorse**.  
     1. Per **Region (area**) specificare l'area obbligatoria, ad esempio **Stati Uniti orientali 2**.  
     1. Per il **nuovo limite**, specificare un nuovo limite di vCPU per l'area. Questo valore non deve superare la somma delle quote approvate per le singole serie di SKU per questa sottoscrizione.
 

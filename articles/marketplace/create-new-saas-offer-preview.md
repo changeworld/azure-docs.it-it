@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380982"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746421"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Come aggiungere un pubblico di anteprima per l'offerta SaaS
 
 Quando si crea un'offerta di Software as a Service (SaaS) nel centro per i partner, è necessario definire un pubblico di anteprima che può rivedere l'elenco di offerte prima che diventi Live. Questo articolo illustra come configurare un gruppo di destinatari di anteprima.
 
 > [!NOTE]
-> Se si sceglie di elaborare le transazioni in modo indipendente, questa opzione non verrà visualizzata. È invece possibile passare a [come commercializzare l'offerta SaaS](create-new-saas-offer-marketing.md).
+> Se si sceglie di elaborare le transazioni in modo indipendente, questa opzione non verrà visualizzata. In alternativa, passare a [come vendere l'offerta SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="define-a-preview-audience"></a>Definire un pubblico di anteprima
 

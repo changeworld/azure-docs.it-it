@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a166a451c405c2321453e02751baad91c2a14c60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c5b2003a290152533a0a8c0f88fe8eb1a410ccf9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840018"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744330"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -73,7 +73,7 @@ Tutti questi metodi di autenticazione possono essere configurati nella portale d
 
 Per altre informazioni sul funzionamento di ogni metodo di autenticazione, vedere gli articoli concettuali distinti seguenti:
 
-* [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [App Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chiave di sicurezza FIDO2 (anteprima)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Token hardware OATH (anteprima)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
@@ -93,7 +93,7 @@ In determinati scenari è possibile utilizzare i seguenti metodi di verifica agg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, vedere l' [esercitazione per la reimpostazione della password self-service (SSPR)][tutorial-sspr] e [Azure ad multi-factor authentication][tutorial-azure-mfa].
+Per iniziare, vedere l'[esercitazione sulla reimpostazione della password self-service][tutorial-sspr] e [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Per altre informazioni sui concetti di reimpostazione della password self-service, vedere [Come funziona la reimpostazione della password self-service di Azure AD][concept-sspr].
 

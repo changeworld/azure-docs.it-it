@@ -5,12 +5,12 @@ description: Informazioni su come creare in modo dinamico un volume persistente 
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 08752f8aaa76d83e13eeea86db3048a6d29a4d99
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126397"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744910"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Azure Kubernetes
 
@@ -26,13 +26,13 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 ## <a name="create-a-storage-class"></a>Creare una classe di archiviazione
 
-Una classe di archiviazione permette di definire come creare una condivisione file di Azure. Nel [gruppo di risorse nodo][node-resource-group] viene creato automaticamente un account di archiviazione da usare insieme alla classe di archiviazione per contenere le condivisioni file di Azure. Scegliere la [ridondanza dell'archiviazione di Azure][storage-skus] seguente per *skuName* :
+Una classe di archiviazione permette di definire come creare una condivisione file di Azure. Nel [gruppo di risorse nodo][node-resource-group] viene creato automaticamente un account di archiviazione da usare insieme alla classe di archiviazione per contenere le condivisioni file di Azure. Scegliere la [ridondanza dell'archiviazione di Azure][storage-skus] seguente per *skuName*:
 
-* *Standard_LRS* : archiviazione con ridondanza locale standard
-* *Standard_GRS* : archiviazione con ridondanza geografica standard
-* *Standard_ZRS* : archiviazione con ridondanza della zona standard (ZRS)
-* *Standard_RAGRS* : archiviazione con ridondanza geografica e accesso in lettura standard
-* *Premium_LRS* : archiviazione con ridondanza locale Premium (LRS)
+* *Standard_LRS*: archiviazione con ridondanza locale standard
+* *Standard_GRS*: archiviazione con ridondanza geografica standard
+* *Standard_ZRS*: archiviazione con ridondanza della zona standard (ZRS)
+* *Standard_RAGRS*: archiviazione con ridondanza geografica e accesso in lettura standard
+* *Premium_LRS*: archiviazione con ridondanza locale Premium (LRS)
 * *Premium_ZRS* -archiviazione con ridondanza della zona Premium (ZRS)
 
 > [!NOTE]
@@ -40,7 +40,7 @@ Una classe di archiviazione permette di definire come creare una condivisione fi
 
 Per altre informazioni sulle classi di archiviazione Kubernetes per File di Azure, vedere l'articolo sulle [classi di archiviazione di Kubernetes][kubernetes-storage-classes].
 
-Creare un file denominato `azure-file-sc.yaml` e copiarlo nell'esempio di manifesto seguente. Per altre informazioni su *mountOptions* , vedere la sezione [Opzioni di montaggio][mount-options].
+Creare un file denominato `azure-file-sc.yaml` e copiarlo nell'esempio di manifesto seguente. Per altre informazioni su *mountOptions*, vedere la sezione [Opzioni di montaggio][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -55,6 +55,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -67,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
-Un'attestazione di volume permanente usa l'oggetto classe di archiviazione per effettuare il provisioning dinamico di una condivisione file di Azure. È possibile usare il codice YAML seguente per creare un'attestazione di volume permanente di dimensioni pari a *5 GB* con accesso *ReadWriteMany* . Per altre informazioni sulle modalità di accesso, vedere la documentazione sui [volumi permanenti di Kubernetes][access-modes].
+Un'attestazione di volume permanente usa l'oggetto classe di archiviazione per effettuare il provisioning dinamico di una condivisione file di Azure. È possibile usare il codice YAML seguente per creare un'attestazione di volume permanente di dimensioni pari a *5 GB* con accesso *ReadWriteMany*. Per altre informazioni sulle modalità di accesso, vedere la documentazione sui [volumi permanenti di Kubernetes][access-modes].
 
 Creare ora un file denominato `azure-file-pvc.yaml` e copiarlo nel codice YAML seguente. Assicurarsi che *storageClassName* corrisponda alla classe di archiviazione creata nell'ultimo passaggio:
 
@@ -86,7 +87,7 @@ spec:
 ```
 
 > [!NOTE]
-> Se si usa lo SKU *Premium_LRS* per la classe di archiviazione, il valore minimo per *storage* deve essere *100Gi* .
+> Se si usa lo SKU *Premium_LRS* per la classe di archiviazione, il valore minimo per *storage* deve essere *100Gi*.
 
 Creare l'attestazione di volume permanente con il comando [kubectl apply][kubectl-apply]:
 
@@ -140,7 +141,7 @@ Creare il pod con il comando [kubectl apply][kubectl-apply].
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-È ora disponibile un pod in esecuzione con la condivisione file di Azure montata nella directory */mnt/azure* . Questa configurazione può essere visualizzata durante il controllo del pod tramite `kubectl describe pod mypod`. L'esempio sintetico di output seguente illustra il volume montato nel contenitore:
+È ora disponibile un pod in esecuzione con la condivisione file di Azure montata nella directory */mnt/azure*. Questa configurazione può essere visualizzata durante il controllo del pod tramite `kubectl describe pod mypod`. L'esempio sintetico di output seguente illustra il volume montato nel contenitore:
 
 ```
 Containers:
@@ -165,7 +166,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opzioni di montaggio
 
-Il valore predefinito per *fileMode* e *dirMode* è *0777* per Kubernetes 1.13.0 e versioni successive. Se si crea dinamicamente il volume permanente con una classe di archiviazione, è possibile specificare le opzioni di montaggio nell'oggetto classe di archiviazione. L'esempio seguente imposta *0777* :
+Il valore predefinito per *fileMode* e *dirMode* è *0777* per Kubernetes 1.13.0 e versioni successive. Se si crea dinamicamente il volume permanente con una classe di archiviazione, è possibile specificare le opzioni di montaggio nell'oggetto classe di archiviazione. L'esempio seguente imposta *0777*:
 
 ```yaml
 kind: StorageClass
@@ -180,6 +181,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```

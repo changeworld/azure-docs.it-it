@@ -1,18 +1,18 @@
 ---
-title: Gestori personalizzati di funzioni di Azure (anteprima)
+title: Gestori personalizzati di funzioni di Azure
 description: Informazioni su come usare funzioni di Azure con qualsiasi linguaggio o versione di Runtime.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164551"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746030"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Gestori personalizzati di funzioni di Azure (anteprima)
+# <a name="azure-functions-custom-handlers"></a>Gestori personalizzati di funzioni di Azure
 
 Ogni app per le funzioni viene eseguita da un gestore specifico della lingua. Sebbene funzioni di Azure supporti molti [gestori di linguaggio](./supported-languages.md) per impostazione predefinita, in alcuni casi potrebbe essere necessario usare altri linguaggi o Runtime.
 
@@ -20,10 +20,12 @@ I gestori personalizzati sono server Web leggeri che ricevono eventi dall'host d
 
 I gestori personalizzati sono ideali per le situazioni in cui si desidera:
 
-- Implementare un'app per le funzioni in una lingua attualmente non supportata, ad esempio go e Rust.
+- Implementare un'app per le funzioni in una lingua attualmente non supportata, ad esempio go o Rust.
 - Implementare un'app per le funzioni in un runtime che non è attualmente supportato, ad esempio deno.
 
 Con i gestori personalizzati, è possibile usare i [trigger e le associazioni di input e output](./functions-triggers-bindings.md) tramite i [bundle di estensione](./functions-bindings-register.md).
+
+Introduzione ai gestori personalizzati di funzioni di Azure con [guide introduttive in go e Rust](create-first-function-vs-code-other.md).
 
 ## <a name="overview"></a>Panoramica
 
@@ -36,7 +38,7 @@ Nel diagramma seguente viene illustrata la relazione tra l'host di funzioni e un
 1. Il server Web esegue la singola funzione e restituisce un payload di [risposta](#response-payload) all'host di funzioni.
 1. L'host di funzioni passa i dati dalla risposta alle associazioni di output della funzione per l'elaborazione.
 
-Un'app funzioni di Azure implementata come gestore personalizzato deve configurare la *host.json*, *local.settings.js*e *function.jsnei file in* base a alcune convenzioni.
+Un'app funzioni di Azure implementata come gestore personalizzato deve configurare la *host.json*, *local.settings.js* e *function.jsnei file in* base a alcune convenzioni.
 
 ## <a name="application-structure"></a>Struttura dell'applicazione
 
@@ -214,7 +216,7 @@ Questo è un esempio di payload di risposta.
 }
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 I gestori personalizzati possono essere implementati in qualsiasi linguaggio che supporti la ricezione di eventi HTTP. Negli esempi seguenti viene illustrato come implementare un gestore personalizzato utilizzando il linguaggio di programmazione go.
 
@@ -578,8 +580,12 @@ Le app del gestore personalizzate sono un processo server Web, pertanto può ess
 
 I gestori personalizzati vengono eseguiti nello stesso ambiente di una tipica app funzioni di Azure. Testare il gestore per assicurarsi che l'ambiente contenga tutte le dipendenze necessarie per l'esecuzione. Per le app che richiedono dipendenze aggiuntive, potrebbe essere necessario eseguirle usando un' [immagine del contenitore personalizzata](functions-create-function-linux-custom-image.md) ospitata nel [piano Premium](functions-premium-plan.md)di funzioni di Azure.
 
-### <a name="get-support"></a>Ottenere supporto
+### <a name="get-support"></a>Supporto
 
 Se è necessaria assistenza per un'app per le funzioni con gestori personalizzati, è possibile inviare una richiesta tramite i normali canali di supporto. Tuttavia, a causa dell'ampia gamma di linguaggi possibili utilizzati per creare app per gestori personalizzati, il supporto non è illimitato.
 
 Il supporto è disponibile se l'host di funzioni presenta problemi durante l'avvio o la comunicazione con il processo di gestione personalizzato. Per i problemi specifici del processo di gestione personalizzato, ad esempio i problemi con il linguaggio o il framework scelto, il team di supporto non è in grado di fornire assistenza in questo contesto.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Introduzione alla creazione di un'app funzioni di Azure in go o Rust con la [Guida introduttiva ai gestori personalizzati](create-first-function-vs-code-other.md).

@@ -1,20 +1,14 @@
 ---
-title: Acquisire una traccia del browser per la risoluzione dei problemi | Microsoft Docs
+title: Acquisire una traccia del browser per la risoluzione dei problemi
 description: Acquisire informazioni sulla rete da una traccia del browser per facilitare la risoluzione dei problemi con il portale di Azure.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145736"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745996"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Acquisire una traccia del browser per la risoluzione dei problemi
 
@@ -30,7 +24,7 @@ Google Chrome e Microsoft Edge (Chromium) sono entrambi basati sul [progetto ope
 
 1. Nel portale passare al passaggio immediatamente precedente alla posizione in cui si verifica il problema.
 
-1. Premere F12 o selezionare ![ screenshot che mostra l'icona delle impostazioni del browser.](media/capture-browser-trace/chromium-icon-settings.png) > **Altri strumenti**  >  **Strumenti di sviluppo** .
+1. Premere F12 o selezionare ![ screenshot che mostra l'icona delle impostazioni del browser.](media/capture-browser-trace/chromium-icon-settings.png) > **Altri strumenti**  >  **Strumenti di sviluppo**.
 
 1. Per impostazione predefinita, il browser mantiene le informazioni di traccia solo per la pagina attualmente caricata. Impostare le opzioni seguenti in modo che il browser mantenga tutte le informazioni di traccia, anche se la riproduzione richiede più di una pagina:
 
@@ -38,7 +32,7 @@ Google Chrome e Microsoft Edge (Chromium) sono entrambi basati sul [progetto ope
 
           ![Schermata che evidenzia l'opzione Mantieni registro nella scheda rete.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Selezionare la scheda **Console** , selezionare **Console settings** (Impostazioni console), quindi **Preserve Log** (Mantieni log). Selezionare di nuovo **Console settings** (Impostazioni console) per chiudere il riquadro delle impostazioni.
+    1. Selezionare la scheda **Console**, selezionare **Console settings** (Impostazioni console), quindi **Preserve Log** (Mantieni log). Selezionare di nuovo **Console settings** (Impostazioni console) per chiudere il riquadro delle impostazioni.
 
           ![Schermata che evidenzia l'opzione Mantieni registro nella scheda della console.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
@@ -60,7 +54,7 @@ Google Chrome e Microsoft Edge (Chromium) sono entrambi basati sul [progetto ope
 
 1. Arrestare Registrazione azioni utente e salvare la registrazione.
 
-1. Tornare al riquadro degli strumenti di sviluppo del browser e selezionare la scheda **Console** . Fare clic con il pulsante destro del mouse su uno dei messaggi, quindi selezionare **Save as...** (Salva con nome) e salvare l'output della console in un file di testo.
+1. Tornare al riquadro degli strumenti di sviluppo del browser e selezionare la scheda **Console**. Fare clic con il pulsante destro del mouse su uno dei messaggi, quindi selezionare **Save as...** (Salva con nome) e salvare l'output della console in un file di testo.
 
     ![Screenshot che evidenzia la scheda della console e il Salva con nome... menu](media/capture-browser-trace/chromium-console-select.png)
 
@@ -76,7 +70,7 @@ La procedura seguente illustra come usare gli strumenti di sviluppo in Microsoft
 
 1. Nel portale passare al passaggio immediatamente precedente alla posizione in cui si verifica il problema.
 
-1. Premere F12 o selezionare ![ screenshot dell'icona delle impostazioni del browser.](media/capture-browser-trace/edge-icon-settings.png) > **Altri strumenti**  >  **Strumenti di sviluppo** .
+1. Premere F12 o selezionare ![ screenshot dell'icona delle impostazioni del browser.](media/capture-browser-trace/edge-icon-settings.png) > **Altri strumenti**  >  **Strumenti di sviluppo**.
 
 1. Per impostazione predefinita, il browser mantiene le informazioni di traccia solo per la pagina attualmente caricata. Impostare le opzioni seguenti in modo che il browser mantenga tutte le informazioni di traccia, anche se la riproduzione richiede più di una pagina:
 
@@ -84,7 +78,7 @@ La procedura seguente illustra come usare gli strumenti di sviluppo in Microsoft
 
           ![Screenshot di "Clear entries on navigate" (Cancella voci durante la navigazione)](media/capture-browser-trace/edge-network-clear-entries.png)
 
-    1. Selezionare la scheda **Console** , quindi selezionare **Preserve Log** (Mantieni log).
+    1. Selezionare la scheda **Console**, quindi selezionare **Preserve Log** (Mantieni log).
 
           ![Screenshot di "Preserve Log" (Mantieni log)](media/capture-browser-trace/edge-console-preserve-log.png)
 
@@ -118,7 +112,7 @@ La procedura seguente illustra come usare gli strumenti di sviluppo in Apple Saf
 
 1. Abilitare gli strumenti di sviluppo in Apple Safari:
 
-    1. Selezionare **Safari** , quindi selezionare **Preferences** (Preferenze).
+    1. Selezionare **Safari**, quindi selezionare **Preferences** (Preferenze).
 
         ![Screenshot delle preferenze di Safari](media/capture-browser-trace/safari-preferences.png)
 
@@ -142,7 +136,7 @@ La procedura seguente illustra come usare gli strumenti di sviluppo in Apple Saf
 
           ![Screenshot che mostra l'opzione Mantieni log.](media/capture-browser-trace/safari-network-preserve-log.png)
 
-    1. Selezionare la scheda **Console** , quindi selezionare **Preserve Log** (Mantieni log).
+    1. Selezionare la scheda **Console**, quindi selezionare **Preserve Log** (Mantieni log).
 
           ![Screenshot che mostra il registro Mantieni nella scheda della console.](media/capture-browser-trace/safari-console-preserve-log.png)
 
@@ -184,7 +178,7 @@ La procedura seguente illustra come usare gli strumenti di sviluppo in Firefox. 
 
           ![Screenshot che evidenzia l'opzione di salvataggio permanente dei log.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Selezionare la scheda **Console** , selezionare **Console settings** (Impostazioni console), quindi **Persist Logs** (Mantieni log).
+    1. Selezionare la scheda **Console**, selezionare **Console settings** (Impostazioni console), quindi **Persist Logs** (Mantieni log).
 
           ![Screenshot di "Persist Logs" (Mantieni log)](media/capture-browser-trace/firefox-console-persist-logs.png)
 
@@ -202,7 +196,7 @@ La procedura seguente illustra come usare gli strumenti di sviluppo in Firefox. 
 
 1. Arrestare Registrazione azioni utente in Windows o la registrazione della schermata in Mac e salvare la registrazione.
 
-1. Tornare al riquadro degli strumenti di sviluppo del browser e selezionare la scheda **Console** . Fare clic con il pulsante destro del mouse su uno dei messaggi, quindi selezionare **Export Visible Message To** (Esporta messaggio visibile in) e salvare l'output della console in un file di testo.
+1. Tornare al riquadro degli strumenti di sviluppo del browser e selezionare la scheda **Console**. Fare clic con il pulsante destro del mouse su uno dei messaggi, quindi selezionare **Export Visible Message To** (Esporta messaggio visibile in) e salvare l'output della console in un file di testo.
 
     ![Screenshot dell'output della console](media/capture-browser-trace/firefox-console-select.png)
 

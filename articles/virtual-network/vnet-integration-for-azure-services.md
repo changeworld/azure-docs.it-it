@@ -12,18 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: b01ade25c6592e68e34eeb542a90cdd0124a0446
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4a6cd529511d4a2e71e1a31c1600f8a51f455a37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738009"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746132"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrare i servizi di Azure con reti virtuali per l'isolamento rete
 
-L'integrazione della rete virtuale per un servizio di Azure consente di bloccare l'accesso al servizio solo all'infrastruttura di rete virtuale. L'infrastruttura di VNet include anche reti virtuali con peering e reti locali.
+L'integrazione della rete virtuale (VNet) per un servizio di Azure consente di bloccare l'accesso al servizio solo all'infrastruttura di rete virtuale. L'infrastruttura di VNet include anche reti virtuali con peering e reti locali.
 
-I servizi di Azure raggiungono l'isolamento rete da uno o più dei metodi seguenti:
+L'integrazione con VNet offre ai servizi di Azure i vantaggi dell'isolamento rete e può essere eseguita da uno o più dei metodi seguenti:
 - [Distribuzione di istanze dedicate del servizio in una rete virtuale](virtual-network-service-endpoints-overview.md). I servizi sono accessibili privatamente all'interno della rete virtuale e da reti locali.
 - Uso di un [endpoint privato](../private-link/private-endpoint-overview.md) che si connette privatamente e in modo sicuro a un servizio basato sul [collegamento privato di Azure](../private-link/private-link-overview.md). L'endpoint privato usa un indirizzo IP privato della VNet, portando il servizio nella rete virtuale.
 - Accesso al servizio mediante endpoint pubblici mediante l'estensione di una rete virtuale al servizio tramite gli [endpoint di servizio](virtual-network-service-endpoints-overview.md). Gli endpoint di servizio consentono di proteggere le risorse del servizio nella rete virtuale.

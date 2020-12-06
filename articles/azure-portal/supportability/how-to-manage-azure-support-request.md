@@ -1,19 +1,16 @@
 ---
 title: Gestire una richiesta di supporto in Azure
 description: Viene descritto come visualizzare le richieste di supporto, inviare messaggi, modificare il livello di gravità della richiesta, condividere le informazioni di diagnostica con il supporto di Azure, riaprire una richiesta di supporto chiusa e caricare i file.
-author: mgblythe
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: mblythe
-ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9dd703dc0a3f5e8f85b1022fa2a71ff9a8c295d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85852294"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745571"
 ---
 # <a name="manage-an-azure-support-request"></a>Gestire una richiesta di supporto in Azure
 
@@ -21,7 +18,7 @@ Dopo aver [creato una richiesta di supporto tecnico di Azure](how-to-create-azur
 
 ## <a name="view-support-requests"></a>Visualizzare le richieste di supporto
 
-Per visualizzare i dettagli e lo stato delle richieste di supporto, passare a **Guida e supporto**per  >   **tutte le richieste di supporto**.
+Per visualizzare i dettagli e lo stato delle richieste di supporto, passare a **Guida e supporto** per  >   **tutte le richieste di supporto**.
 
 :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="Tutte le richieste di supporto":::
 
@@ -45,17 +42,17 @@ In questa pagina è possibile cercare, filtrare e ordinare le richieste di suppo
 
 1. Nella pagina **richiesta di supporto** selezionare **Cambia**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Tutte le richieste di supporto":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Modificare la gravità della richiesta di supporto":::
 
 1. Il portale di Azure Mostra una delle due schermate, a seconda se la richiesta è già stata assegnata a un tecnico del supporto:
 
     - Se la richiesta non è stata assegnata, viene visualizzata una schermata simile alla seguente. Selezionare un nuovo livello di gravità, quindi selezionare **Cambia**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Tutte le richieste di supporto":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Selezionare un nuovo livello di gravità":::
 
     - Se la richiesta è stata assegnata, viene visualizzata una schermata simile alla seguente. Selezionare **OK**, quindi crea un [nuovo messaggio](#send-a-message) per richiedere una modifica a livello di gravità.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Tutte le richieste di supporto":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Non è possibile selezionare un nuovo livello di gravità":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Condividi le informazioni di diagnostica con il supporto di Azure
 
@@ -69,7 +66,7 @@ Quando si crea una richiesta di supporto, per impostazione predefinita viene sel
     
     1. Nella pagina **richiesta di supporto** selezionare **Concedi autorizzazione**, quindi selezionare **Sì** e **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Tutte le richieste di supporto":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Concedere le autorizzazioni per le informazioni di diagnostica":::
 
 ## <a name="upload-files"></a>Caricare file
 
@@ -79,7 +76,7 @@ Quando si crea una richiesta di supporto, per impostazione predefinita viene sel
 
 1. Nella pagina **richiesta di supporto** cercare il file e quindi selezionare **carica**. Ripetere il processo se si dispone di più file.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Tutte le richieste di supporto":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Caricare un file":::
 
 ### <a name="file-upload-guidelines"></a>Linee guida per il caricamento di file
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 63bb235dcebc67b753e01dd8b193ef1a2b66787d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555172"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746285"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Approfondimenti sui dati di Azure per l'estensione di file 
 
@@ -39,6 +39,9 @@ Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](ma
 ## <a name="use-purview-file-extension-insights"></a>Usare le informazioni dettagliate sull'estensione del file di competenza
 
 Quando si esegue l'analisi degli asset, Azure competenza è in grado di rilevare i tipi di file trovati nel proprio data e fornire altri dettagli su ogni tipo di file. I dettagli includono il numero di file di ogni tipo, in cui si trovano i file e se sono analizzabili per i dati sensibili.
+
+> [!NOTE]
+> Dopo aver analizzato i tipi di origine, fornire informazioni dettagliate sull' **estensione di file** in un paio di ore per riflettere i nuovi asset.
 
 **Per visualizzare informazioni dettagliate sull'estensione di file:**
 

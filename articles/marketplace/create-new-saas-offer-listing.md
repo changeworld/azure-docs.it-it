@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368696"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746149"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Come configurare i dettagli dell'elenco di offerte SaaS
 
@@ -24,7 +24,7 @@ Le informazioni fornite nella pagina di presentazione dell' **offerta** per l'of
 
 ## <a name="marketplace-details"></a>Dettagli del marketplace
 
-Nella pagina di presentazione dell' **offerta** , in **Dettagli Marketplace** , completare i passaggi seguenti. Per ulteriori informazioni su questi dettagli necessari, vedere l'articolo relativo ai [Dettagli dell'offerta](plan-azure-application-offer.md#offer-listing-details).
+Nella pagina di presentazione dell' **offerta** , in **Dettagli Marketplace**, completare i passaggi seguenti. Per ulteriori informazioni su questi dettagli necessari, vedere l'articolo relativo ai [Dettagli dell'offerta](plan-azure-application-offer.md#offer-listing-details).
 
 1. La casella **nome** viene precompilata con il nome immesso in precedenza nella finestra di dialogo  **nuova offerta** . È possibile modificare il nome in qualsiasi momento.
 1. Nella casella **Riepilogo risultati ricerca** immettere fino a 50 caratteri di testo. Questo riepilogo viene usato nei risultati della ricerca nell'elenco del Marketplace.
@@ -105,4 +105,4 @@ Selezionare **Salva bozza** prima di continuare con la scheda successiva: antepr
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Se stai vendendo la tua offerta tramite Microsoft, vai a [come aggiungere un pubblico di anteprima per l'offerta SaaS](create-new-saas-offer-preview.md). 
-- In caso contrario, passare a [come commercializzare l'offerta SaaS](create-new-saas-offer-marketing.md).
+- In caso contrario, passare a [come vendere l'offerta SaaS](create-new-saas-offer-marketing.md).

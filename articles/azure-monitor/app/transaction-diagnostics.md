@@ -4,12 +4,12 @@ description: Diagnostica della transazioni end-to-end in Application Insights
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002052"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746098"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
 
@@ -80,9 +80,7 @@ Possibili motivi:
 
 * Gli altri componenti sono instrumentati con Application Insights?
 * Usano l'SDK di Application Insights più recente e stabile?
-* Se questi componenti sono risorse separate di Application Insights, si dispone dell'accesso necessario ai relativi dati di telemetria?
-
-Se si dispone dell'accesso e i componenti sono instrumentati con gli SDK di Application Insights più recenti, segnalare il problema tramite il canale di feedback in alto a destra.
+* Se questi componenti sono separati Application Insights risorse, si ha l' [accesso](resources-roles-access-control.md) necessario se si dispone dell'accesso e i componenti sono instrumentati con gli sdk di Application Insights più recenti, è possibile comunicare tramite il canale di commenti e suggerimenti in alto a destra.
 
 *Vengono visualizzate righe duplicate per le dipendenze. È previsto?*
 

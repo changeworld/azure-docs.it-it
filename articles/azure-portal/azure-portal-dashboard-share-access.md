@@ -1,24 +1,15 @@
 ---
 title: Condividere i dashboard portale di Azure usando il controllo degli accessi in base al ruolo di Azure
 description: Questo articolo illustra come condividere un dashboard nella portale di Azure usando il controllo degli accessi in base al ruolo di Azure.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092206"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745979"
 ---
 # <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Condividere i dashboard di Azure tramite il controllo degli accessi in base al ruolo di Azure
 
@@ -55,7 +46,7 @@ Prima di assegnare l'accesso, è necessario pubblicare il dashboard.
 
     ![Selezionare la condivisione per il dashboard](./media/azure-portal-dashboard-share-access/share-dashboard-for-access-control.png)
 
-1. In **condivisione e controllo di accesso**selezionare **pubblica**.
+1. In **condivisione e controllo di accesso** selezionare **pubblica**.
 
     ![pubblicare il dashboard](./media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png)
 
@@ -69,7 +60,7 @@ Il dashboard viene pubblicato. Se le autorizzazioni ereditate dalla sottoscrizio
 
 1. Dopo la pubblicazione del dashboard, selezionare l'opzione **Condividi** o non **condividere** per accedere a **condivisione e controllo di accesso**.
 
-1. In **condivisione e controllo di accesso**selezionare **Gestisci utenti**.
+1. In **condivisione e controllo di accesso** selezionare **Gestisci utenti**.
 
     ![gestire gli utenti per un dashboard](./media/azure-portal-dashboard-share-access/manage-users-for-access-control.png)
 

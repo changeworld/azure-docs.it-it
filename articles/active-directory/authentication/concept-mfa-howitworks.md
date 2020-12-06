@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9563ed283229eb6f43d036629cfe8b84fcde25fc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839880"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744058"
 ---
 # <a name="how-it-works-azure-ad-multi-factor-authentication"></a>Come funziona: Azure AD Multi-Factor Authentication
 
@@ -26,13 +26,13 @@ Se si usa solo una password per autenticare un utente, viene lasciato un vettore
 
 ![Immagine concettuale delle diverse forme di autenticazione a più fattori](./media/concept-mfa-howitworks/methods.png)
 
-Azure AD Multi-Factor Authentication funziona richiedendo due o più dei metodi di autenticazione seguenti:
+Azure AD Multi-Factor Authentication funziona richiedendo due o più metodi di autenticazione seguenti:
 
 * Un'informazione nota, in genere una password.
 * Un oggetto che si possiede, ad esempio un dispositivo attendibile non facile da duplicare, come un telefono o una chiave hardware.
 * Una caratteristica personale, ad esempio un'impronta digitale o la scansione del viso per l'identificazione biometrica.
 
-Gli utenti possono registrarsi per la reimpostazione della password self-service e Azure AD Multi-Factor Authentication in un unico passaggio per semplificare l'esperienza di onboarding. Gli amministratori possono definire quali forme di autenticazione secondaria possono essere usate. Azure AD Multi-Factor Authentication può essere necessario anche quando gli utenti eseguono una reimpostazione della password self-service per proteggere ulteriormente il processo.
+Gli utenti possono registrarsi per la reimpostazione della password self-service e per Azure AD Multi-Factor Authentication in un unico passaggio per semplificare l'esperienza di onboarding. Gli amministratori possono definire quali forme di autenticazione secondaria possono essere usate. È anche possibile richiedere di applicare Azure AD Multi-Factor Authentication per proteggere ulteriormente la procedura di reimpostazione della password self-service.
 
 ![Metodi di autenticazione in uso nella schermata di accesso](media/concept-authentication-methods/overview-login.png)
 
@@ -66,4 +66,4 @@ Per informazioni sulle licenze, vedere [funzionalità e licenze per Azure AD mul
 Per vedere l'autenticazione a più fattori in azione, abilitare Azure AD Multi-Factor Authentication per un set di utenti di test nell'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Abilita Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Abilitare Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

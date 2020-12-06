@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917240"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746081"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -219,6 +219,28 @@ Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sul
 
 L'impostazione di configurazione è reperibile in [Trigger e associazioni di Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
 
+## <a name="customhandler"></a>customHandler
+
+Impostazioni di configurazione per un gestore personalizzato. Per altre informazioni, vedere [gestori personalizzati di funzioni di Azure](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Proprietà | Predefinito | Descrizione |
+| --------- | --------- | --------- |
+| defaultExecutablePath | n/d | Eseguibile da avviare come processo del gestore personalizzato. Si tratta di un'impostazione obbligatoria quando si usano i gestori personalizzati e il relativo valore è relativo alla radice dell'app per le funzioni. |
+| workingDirectory | *radice app per le funzioni* | Directory di lavoro in cui avviare il processo del gestore personalizzato. Si tratta di un'impostazione facoltativa e il relativo valore è relativo alla radice dell'app per le funzioni. |
+| argomenti | n/d | Matrice di argomenti della riga di comando da passare al processo del gestore personalizzato. |
+| enableForwardingHttpRequest | false | Se impostata, tutte le funzioni costituite solo da un trigger HTTP e da un output HTTP vengono trasmesse alla richiesta HTTP originale anziché al [payload della richiesta](functions-custom-handlers.md#request-payload)del gestore personalizzato. |
+
 ## <a name="durabletask"></a>durableTask
 
 L'impostazione di configurazione è reperibile nelle [associazioni per Durable Functions](durable/durable-functions-bindings.md#host-json).
@@ -411,7 +433,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 |lockAcquisitionTimeout|00:01:00|La quantità massima di tempo per cui il runtime tenterà di acquisire un blocco.| 
 |lockAcquisitionPollingInterval|n/d|L'intervallo tra i tentativi di acquisizione di un blocco.| 
 
-## <a name="version"></a>Versione
+## <a name="version"></a>version
 
 Questo valore indica la versione dello schema di host.js. La stringa `"version": "2.0"` di versione è obbligatoria per un'app per le funzioni destinata al runtime v2 o a una versione successiva. Non sono presenti host.jssulle modifiche dello schema tra V2 e V3.
 

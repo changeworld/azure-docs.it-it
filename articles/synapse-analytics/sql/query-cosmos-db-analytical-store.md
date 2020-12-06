@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7e9cdb18d109abeef7d7d7237444ac55f9e7da1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576350"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744466"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query Azure Cosmos DB dati con un pool SQL senza server nell'anteprima di Azure sinapsi link
 
@@ -71,7 +71,7 @@ OPENROWSET(
     )  [ < with clause > ] AS alias
 ```
 
-In questo caso la stringa di connessione Azure Cosmos DB non contiene una chiave. Il formato della stringa di connessione è il seguente:
+La stringa di connessione Azure Cosmos DB non contiene la chiave in questo caso. Il formato della stringa di connessione è il seguente:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
@@ -98,12 +98,13 @@ Per seguire la procedura illustrata in questo articolo come eseguire query Azure
 
 * Un account di database Azure Cosmos DB di cui è [abilitato il collegamento sinapsi di Azure](../../cosmos-db/configure-synapse-link.md).
 * Un database Azure Cosmos DB denominato `covid` .
-* Due Azure Cosmos DB contenitori denominati `EcdcCases` e `Cord19` caricati con i set di impostazioni di esempio precedenti.
+* Due Azure Cosmos DB contenitori denominati `Ecdc` e `Cord19` caricati con i set di impostazioni di esempio precedenti.
+
+Per finalità di test, è possibile usare la stringa di connessione seguente: `Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==` . Si noti che questa connessione non garantisce prestazioni perché questo account potrebbe trovarsi in un'area remota rispetto all'endpoint SQL sinapsi.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>Esplorazione dei dati di Azure Cosmos DB con inferenza automatica dello schema
 
 Il modo più semplice per esplorare i dati in Azure Cosmos DB consiste nell'utilizzare la funzionalità di inferenza automatica dello schema. Omettendo la `WITH` clausola dall' `OPENROWSET` istruzione, è possibile indicare al pool SQL senza server di rilevare automaticamente (dedurre) lo schema dell'archivio analitico del contenitore Azure Cosmos DB.
-
 
 ### <a name="openrowset-with-key"></a>[OPENROWSET con chiave](#tab/openrowset-key)
 
@@ -111,8 +112,8 @@ Il modo più semplice per esplorare i dati in Azure Cosmos DB consiste nell'util
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases) as documents
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Ecdc) as documents
 ```
 
 ### <a name="openrowset-with-credential"></a>[OPENROWSET con credenziale](#tab/openrowset-credential)
@@ -120,20 +121,20 @@ FROM OPENROWSET(
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
 ---
 
-Nell'esempio precedente è stato indicato al pool SQL senza server di connettersi al `covid` database nell'account Azure Cosmos DB `MyCosmosDbAccount` autenticato usando la chiave di Azure Cosmos DB (il manichino nell'esempio precedente). È stato quindi eseguito l'accesso all' `EcdcCases` Archivio analitico del contenitore nell' `West US 2` area. Poiché non è presente alcuna proiezione di proprietà specifiche, la `OPENROWSET` funzione restituirà tutte le proprietà dagli elementi Azure Cosmos DB.
+Nell'esempio precedente è stato indicato al pool SQL senza server di connettersi al `covid` database nell'account Azure Cosmos DB `MyCosmosDbAccount` autenticato usando la chiave di Azure Cosmos DB (il manichino nell'esempio precedente). È stato quindi eseguito l'accesso all' `Ecdc` Archivio analitico del contenitore nell' `West US 2` area. Poiché non è presente alcuna proiezione di proprietà specifiche, la `OPENROWSET` funzione restituirà tutte le proprietà dagli elementi Azure Cosmos DB.
 
 Supponendo che gli elementi nel contenitore Azure Cosmos DB dispongano delle `date_rep` `cases` proprietà, e `geo_id` , i risultati della query sono illustrati nella tabella seguente:
 
@@ -149,7 +150,7 @@ Se è necessario esplorare i dati dall'altro contenitore nello stesso database d
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
        Cord19) as cord19
 ```
 
@@ -174,21 +175,21 @@ Questi documenti JSON flat in Azure Cosmos DB possono essere rappresentati come 
 SELECT TOP 10 *
 FROM OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Ecdc
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 ### <a name="openrowset-with-credential"></a>[OPENROWSET con credenziale](#tab/openrowset-credential)
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -209,14 +210,14 @@ Una volta identificato lo schema, è possibile preparare una visualizzazione sop
 
 ```sql
 CREATE CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 GO
-CREATE OR ALTER VIEW EcdcCases
+CREATE OR ALTER VIEW Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
-      OBJECT = 'EcdcCases',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -241,41 +242,28 @@ Il set di dati [Cord-19](https://azure.microsoft.com/services/open-datasets/cata
 }
 ```
 
-Gli oggetti annidati e le matrici in Azure Cosmos DB sono rappresentati come stringhe JSON nel risultato della query quando vengono `OPENROWSET` letti dalla funzione. Un'opzione per leggere i valori da questi tipi complessi come colonne SQL consiste nell'usare funzioni JSON SQL:
+Gli oggetti annidati e le matrici in Azure Cosmos DB sono rappresentati come stringhe JSON nel risultato della query quando vengono `OPENROWSET` letti dalla funzione. È possibile specificare i percorsi dei valori annidati negli oggetti quando si utilizza la `WITH` clausola:
 
 ```sql
-SELECT
-    title = JSON_VALUE(metadata, '$.title'),
-    authors = JSON_QUERY(metadata, '$.authors'),
-    first_author_name = JSON_VALUE(metadata, '$.authors[0].first')
-FROM
-    OPENROWSET(
-      'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       Cord19
-    WITH ( metadata varchar(MAX) ) AS docs;
+SELECT TOP 10 *
+FROM OPENROWSET( 
+       'CosmosDB',
+       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       Cord19)
+WITH (  paper_id    varchar(8000),
+        title        varchar(1000) '$.metadata.title',
+        metadata     varchar(max),
+        authors      varchar(max) '$.metadata.authors'
+) AS docs;
 ```
 
 Il risultato di questa query potrebbe essere simile a quello della tabella seguente:
 
-| title | authors | first_autor_name |
+| paper_id | title | metadata | authors |
 | --- | --- | --- |
-| Informazioni supplementari su Eco-epidemi... |   `[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien |  
-
-In alternativa, è anche possibile specificare i percorsi dei valori annidati negli oggetti quando si usa la `WITH` clausola:
-
-```sql
-SELECT
-    *
-FROM
-    OPENROWSET(
-      'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       Cord19
-    WITH ( title varchar(1000) '$.metadata.title',
-           authors varchar(max) '$.metadata.authors'
-    ) AS docs;
-```
+| bb11206963e831f... | Informazioni supplementari su Eco-epidemi... | `{"title":"Supplementary Informati…` | `[{"first":"Julien","last":"Mélade","suffix":"","af…`| 
+| bb1206963e831f1... | Uso dei sieri di convalescenza in immune-E... | `{"title":"The Use of Convalescent…` | `[{"first":"Antonio","last":"Lavazza","suffix":"", …` |
+| bb378eca9aac649... | Tylosema esculentum (Marama) Tuber e B... | `{"title":"Tylosema esculentum (Ma…` | `[{"first":"Walter","last":"Chingwaru","suffix":"",…` | 
 
 Altre informazioni sull'analisi di [tipi di dati complessi nel collegamento sinapsi di Azure](../how-to-analyze-complex-schema.md) e [nelle strutture annidate in un pool SQL senza server](query-parquet-nested-types.md).
 
@@ -315,7 +303,7 @@ SELECT
 FROM
     OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
        Cord19
     ) WITH ( title varchar(1000) '$.metadata.title',
              authors varchar(max) '$.metadata.authors' ) AS docs
@@ -365,7 +353,7 @@ SELECT *
 FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) as rows
 ```
 
@@ -400,7 +388,7 @@ SELECT geo_id, cases = SUM(cases)
 FROM OPENROWSET(
       'CosmosDB'
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
              cases INT '$.cases.int32'
     ) as rows
@@ -416,7 +404,7 @@ SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
 FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
-       EcdcCases
+       Ecdc
     ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
              cases_int INT '$.cases.int32',
              cases_bigint BIGINT '$.cases.int64',
@@ -430,18 +418,18 @@ In questo esempio il numero di case viene archiviato come `int32` `int64` valori
 ## <a name="known-issues"></a>Problemi noti
 
 - L'esperienza di query fornita da un pool SQL senza server per [Azure Cosmos DB lo schema di fedeltà completa](#full-fidelity-schema) è un comportamento temporaneo che verrà modificato in base al feedback dell'anteprima. Non fare affidamento sullo schema che la `OPENROWSET` funzione senza la `WITH` clausola fornisce durante l'anteprima pubblica perché l'esperienza di query potrebbe essere allineata con uno schema ben definito in base ai commenti dei clienti. Per inviare commenti e suggerimenti, contattare il [team del prodotto collegamento di sinapsi di Azure](mailto:cosmosdbsynapselink@microsoft.com).
-- Un pool SQL senza server non restituirà un errore in fase di compilazione se le `OPENROWSET` regole di confronto della colonna non includono la codifica UTF-8. È possibile modificare facilmente le regole di confronto predefinite per tutte le `OPENROWSET` funzioni in esecuzione nel database corrente usando l'istruzione T-SQL `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
+- Un pool SQL senza server restituirà un avviso in fase di compilazione se le `OPENROWSET` regole di confronto della colonna non includono la codifica UTF-8. È possibile modificare facilmente le regole di confronto predefinite per tutte le `OPENROWSET` funzioni in esecuzione nel database corrente usando l'istruzione T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 Nella tabella seguente sono elencati i possibili errori e le azioni per la risoluzione dei problemi.
 
 | Errore | Causa radice |
 | --- | --- |
-| Errori di sintassi:<br/> -Sintassi non corretta in prossimità di "OPENROWSET"<br/> - `...` non è un'opzione del provider BULK OPENROWSET riconosciuta.<br/> -Sintassi non corretta in prossimità `...` | Possibili cause principali:<br/> -Non si utilizza CosmosDB come primo parametro.<br/> -Utilizzo di un valore letterale stringa anziché di un identificatore nel terzo parametro.<br/> -Non specifica il terzo parametro (nome del contenitore). |
+| Errori di sintassi:<br/> -Sintassi non corretta in prossimità `Openrowset`<br/> - `...` non è un' `BULK OPENROWSET` opzione del provider riconosciuta.<br/> -Sintassi non corretta in prossimità `...` | Possibili cause principali:<br/> -Non si utilizza CosmosDB come primo parametro.<br/> -Utilizzo di un valore letterale stringa anziché di un identificatore nel terzo parametro.<br/> -Non specifica il terzo parametro (nome del contenitore). |
 | Si è verificato un errore nella stringa di connessione CosmosDB. | -L'account, il database o la chiave non è specificata. <br/> -Esiste un'opzione in una stringa di connessione non riconosciuta.<br/> -Un punto e virgola ( `;` ) viene inserito alla fine di una stringa di connessione. |
 | La risoluzione del percorso di CosmosDB non è riuscita con l'errore "nome account errato" o "nome database errato". | Il nome dell'account, il nome del database o il contenitore specificato non è stato trovato oppure l'archiviazione analitica non è stata abilitata per la raccolta specificata.|
 | La risoluzione del percorso di CosmosDB non è riuscita con l'errore "valore segreto errato" o "segreto null o vuoto". | La chiave dell'account non è valida o è mancante. |
 | La colonna `column name` del tipo `type name` non è compatibile con il tipo di dati esterno `type name` . | Il tipo di colonna specificato nella `WITH` clausola non corrisponde al tipo nel contenitore Azure Cosmos DB. Provare a modificare il tipo di colonna come descritto nella sezione [Azure Cosmos DB ai mapping dei tipi SQL](#azure-cosmos-db-to-sql-type-mappings)oppure utilizzare il `VARCHAR` tipo. |
-| La colonna contiene `NULL` i valori in tutte le celle. | Probabilmente è presente un nome di colonna o un'espressione di percorso errato nella `WITH` clausola. Il nome della colonna (o l'espressione di percorso dopo il tipo di colonna) nella `WITH` clausola deve corrispondere a un nome di proprietà nella raccolta di Azure Cosmos DB. Il confronto fa *distinzione tra maiuscole* e minuscole. Ad esempio, `productCode` e `ProductCode` sono proprietà diverse. |
+| La colonna contiene `NULL` i valori in tutte le celle. | Probabilmente è presente un nome di colonna o un'espressione di percorso errato nella `WITH` clausola. Il nome della colonna (o l'espressione di percorso dopo il tipo di colonna) nella `WITH` clausola deve corrispondere a un nome di proprietà nella raccolta di Azure Cosmos DB. Il confronto fa *distinzione tra maiuscole e* minuscole. Ad esempio, `productCode` e `ProductCode` sono proprietà diverse. |
 
 È possibile segnalare suggerimenti e problemi nella pagina dei commenti e suggerimenti su [Azure sinapsi Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

@@ -2,14 +2,14 @@
 title: Provider di risorse e tipi di risorse
 description: Vengono descritti i provider di risorse che supportano Azure Resource Manager. Vengono descritti gli schemi, le versioni API disponibili e le aree in cui è possibile ospitare le risorse.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452104"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745117"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 
@@ -45,20 +45,28 @@ Non è possibile annullare la registrazione di un provider di risorse quando i t
 
 ## <a name="azure-portal"></a>Portale di Azure
 
+### <a name="register-resource-provider"></a>Registrare il provider di risorse
+
 Per visualizzare tutti i provider di risorse e lo stato di registrazione della propria sottoscrizione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Tutti i servizi** nel menu del portale di Azure.
+1. Nel menu portale di Azure cercare **sottoscrizioni**. Selezionare il tag tra le opzioni disponibili.
 
-    ![selezionare sottoscrizioni](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Cerca sottoscrizioni":::
 
-3. Nella casella **Tutti i servizi** immettere **sottoscrizione** e quindi selezionare **Sottoscrizioni**.
-4. Selezionare la sottoscrizione dall'elenco per visualizzarla.
-5. Selezionare **Provider di risorse** e visualizzare l'elenco dei provider di risorse disponibili.
+1. Selezionare la sottoscrizione che si vuole visualizzare.
 
-    ![visualizzare i provider di risorse](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="Selezionare le sottoscrizioni":::
 
-6. Per registrare un provider di risorse, selezionare **Registra**. Nello screenshot precedente il collegamento **Registra** è evidenziato per **Microsoft.Blueprint**. Per mantenere i privilegi minimi nella sottoscrizione, registrare solo i provider di risorse che si è pronti a usare.
+1. Nel menu sinistro, in **Impostazioni**, scegliere **Provider di risorse**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Selezionare i provider di risorse":::
+
+6. Trovare il provider di risorse che si vuole registrare e selezionare **Register (registra**). Per mantenere i privilegi minimi nella sottoscrizione, registrare solo i provider di risorse che si è pronti a usare.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="registrare i provider di risorse":::
+
+### <a name="view-resource-provider"></a>Visualizza provider di risorse
 
 Per visualizzare le informazioni relative uno specifico provider di risorse:
 

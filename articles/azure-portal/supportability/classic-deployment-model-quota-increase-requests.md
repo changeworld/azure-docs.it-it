@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: afdb8b2b677321239f240e74d49711195ac186c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5b5e8c11bfe164aaa3539742dac8c4d267c69e1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763908"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745605"
 ---
 # <a name="classic-deployment-model"></a>Modello di distribuzione classica
 
@@ -38,7 +37,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
    ![Creare una nuova richiesta di supporto nel portale di Azure](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. In **tipo di problema**scegliere **limiti per servizio e sottoscrizione (quote)**.
+1. In **tipo di problema** scegliere **limiti per servizio e sottoscrizione (quote)**.
 
    ![Selezionare le quote come tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -46,7 +45,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
    ![Selezionare la sottoscrizione per cui aumentare una quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Per **tipo di quota**selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
+1. Per **tipo di quota** selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
 
    ![Selezionare il tipo di quota da aumentare](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -54,11 +53,11 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
    ![Specificare i dettagli per aiutare la richiesta insieme](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. In **Dettagli quota**selezionare **classica** e selezionare una **località**.
+1. In **Dettagli quota** selezionare **classica** e selezionare una **località**.
 
    ![Aggiungere dettagli, tra cui il modello di distribuzione e il percorso](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-1. Per la **famiglia di SKU**selezionare una o più famiglie di SKU da aumentare.
+1. Per la **famiglia di SKU** selezionare una o più famiglie di SKU da aumentare.
 
    ![Specificare la famiglia di SKU da aumentare](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
@@ -94,7 +93,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
    ![Specificare i dettagli per la richiesta](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. In **Dettagli quota**selezionare **classica** e una **località**.
+1. In **Dettagli quota** selezionare **classica** e una **località**.
 
    ![Selezionare i dettagli della quota, inclusi il modello di distribuzione e il percorso](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 

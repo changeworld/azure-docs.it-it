@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 26fc916a2bacc0f6ae9791a53b642e93bb031466
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5db3e538a64e275313e1e0ab01f6cc6350eabb77
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077984"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745435"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Quota standard: aumentare i limiti per serie di macchine virtuali
 
@@ -53,7 +52,7 @@ Per richiedere un aumento della quota di vCPU standard per serie di VM da **Guid
 
     ![Creare una nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**.
+1. Per **tipo di problema** selezionare **limiti per servizio e sottoscrizione (quote)**.
 
    ![Selezionare un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -61,7 +60,7 @@ Per richiedere un aumento della quota di vCPU standard per serie di VM da **Guid
 
    ![Selezionare una sottoscrizione per una quota aumentata](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Per **tipo di quota**selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
+1. Per **tipo di quota** selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
 
    ![Selezionare un tipo di quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -73,17 +72,17 @@ Per richiedere un aumento della quota di vCPU standard per serie di VM da **Guid
 
    ![Dettagli quota aggiuntiva TProvide](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-   1. Per **modello di distribuzione**selezionare il modello appropriato.
+   1. Per **modello di distribuzione** selezionare il modello appropriato.
 
-   1. Per **località**selezionare una località. Per il percorso selezionato, in **selezionare un tipo**in **tipi**scegliere **standard**.
+   1. Per **località** selezionare una località. Per il percorso selezionato, in **selezionare un tipo** in **tipi** scegliere **standard**.
 
       ![Dettagli quota-tipi di quota](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
-      In **tipi**è possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni.
+      In **tipi** è possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni.
 
       Per altre informazioni su come aumentare i limiti di quota spot, vedere [macchine virtuali di Azure spot per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/use-spot.md).
 
-   1. In **standard**selezionare la serie SKU per aumentare le quote.
+   1. In **standard** selezionare la serie SKU per aumentare le quote.
 
       ![Dettagli quota-serie SKU](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 
@@ -120,25 +119,25 @@ Per richiedere un aumento della quota di vCPU standard per serie di VM dalle **s
 
    ![Selezionare per aumentare la quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. Per **tipo di quota**selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
+1. Per **tipo di quota** selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)**.
 
    ![Selezionare un tipo di quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
 1. Nei **Dettagli della quota**, seguire questa procedura:
 
-   1. Per **modello di distribuzione**selezionare il modello appropriato e per **percorsi**Selezionare una località.
+   1. Per **modello di distribuzione** selezionare il modello appropriato e per **percorsi** Selezionare una località.
 
       ![Specificare i dettagli della quota](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-   1. Per il percorso selezionato, in **tipi**selezionare **Seleziona un tipo**e quindi selezionare **standard**.
+   1. Per il percorso selezionato, in **tipi** selezionare **Seleziona un tipo** e quindi selezionare **standard**.
 
       ![Seleziona tipo standard](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
-      In **tipi**è possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni.
+      In **tipi** è possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni.
 
       Per altre informazioni su come aumentare i limiti di quota spot, vedere [macchine virtuali di Azure spot per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/use-spot.md).
 
-   1. Per **standard**selezionare la serie di SKU di cui si desidera aumentare le quote.
+   1. Per **standard** selezionare la serie di SKU di cui si desidera aumentare le quote.
 
       ![Dettagli quota-serie SKU](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 

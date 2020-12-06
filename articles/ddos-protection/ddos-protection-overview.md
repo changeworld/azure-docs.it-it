@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: e3ded2fc286117da1438b0bb28298632532c4329
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 749d8d6edf9c94185c8363c5fec1b91e60ae9272
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992540"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746472"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -36,7 +36,7 @@ Protezione DDoS di Azure non archivia i dati dei clienti.
 - **Protezione chiavi in mano:** La configurazione semplificata consente di proteggere immediatamente tutte le risorse in una rete virtuale non appena è abilitato DDoS Protection standard. Non è necessaria alcuna definizione dell'utente o intervento. Il servizio Protezione DDoS Standard mitiga istantaneamente e automaticamente gli attacchi non appena vengono rilevati.
 - **Monitoraggio del traffico always on:** I modelli di traffico delle applicazioni vengono monitorati 24 ore al giorno, 7 giorni alla settimana, cercando gli indicatori degli attacchi DDoS. La mitigazione viene applicata quando vengono superati i criteri di protezione.
 - **Ottimizzazione adattiva:** La profilatura del traffico intelligente apprende il traffico dell'applicazione nel tempo e seleziona e aggiorna il profilo più adatto per il servizio. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo.
-- **Protezione su più livelli:** offre protezione DDoS dello stack completo se usata con un web application firewall.
+- **Protezione a più livelli:** Fornisce la protezione DDoS dello stack completo, se usata con una web application firewall, per ottenere la protezione a livello di rete (livello 3 e 4, offerto da Azure DDoS Protection standard) e a livello di applicazione (livello 7, offerto da un WAF). Le offerte WAF includono lo [SKU WAF del gateway applicazione](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure e le offerte di Web Application Firewall di terze parti disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 - **Scala di mitigazione completa:** è possibile mitigare più di 60 tipi diversi di attacchi con capacità globale, per una protezione dai più noti attacchi DDoS.
 - **Analisi degli attacchi:** ottieni report dettagliati con incrementi di cinque minuti durante un attacco e un riepilogo completo al termine dell'attacco. Eseguire il flusso dei log del flusso di mitigazione in [Sentinel di Azure](../sentinel/connect-azure-ddos-protection.md) o un sistema Siem (Security Information and Event Management) offline per il monitoraggio quasi in tempo reale durante un attacco.
 - **Metriche degli attacchi:** tramite Monitoraggio di Azure è possibile accedere al riepilogo delle metriche per ogni attacco.

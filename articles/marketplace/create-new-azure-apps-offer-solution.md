@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 8a8b04501bf81f41fb87de8fc0ce42eb4e7fda93
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8469cad02009d054bd8ba97fb4aabfdae84ef842
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370240"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744619"
 ---
 # <a name="configure-a-solution-template-plan"></a>Configurare un piano di modello di soluzione
 
@@ -26,7 +26,7 @@ Questo articolo si applica solo ai piani di modelli di soluzione per un'offerta 
 > [!NOTE]
 > Se si pubblica un piano privato, è possibile modificarne la visibilità a Public in un secondo momento. Tuttavia, dopo aver pubblicato un piano pubblico, non è possibile modificarne la visibilità in privato.
 
-Nella scheda **disponibilità** , in **visibilità piano** , effettuare una delle operazioni seguenti:
+Nella scheda **disponibilità** , in **visibilità piano**, effettuare una delle operazioni seguenti:
 
 - Per rendere pubblico il piano, selezionare il pulsante di opzione **pubblico** (noto anche come _pulsante_ di opzione).
 - Per rendere privato il piano, selezionare il pulsante di opzione **privato** e quindi aggiungere gli ID sottoscrizione di Azure manualmente o con un file CSV.
@@ -49,7 +49,7 @@ Nella scheda **disponibilità** , in **visibilità piano** , effettuare una dell
 1. Facoltativamente, immettere una descrizione per ogni gruppo di destinatari nella colonna **Descrizione** .
 1. Aggiungere "SubscriptionId" nella colonna **Type** per ogni riga con un ID sottoscrizione.
 1. Salvare il. File CSV.
-1. Nella scheda **disponibilità** , in **visibilità piano** , selezionare il collegamento **Importa destinatari (CSV)** .
+1. Nella scheda **disponibilità** , in **visibilità piano**, selezionare il collegamento **Importa destinatari (CSV)** .
 1. Nella finestra di dialogo visualizzata selezionare **Sì**.
 1. Selezionare il. File CSV, quindi selezionare **Apri**. Viene visualizzato un messaggio che indica che il. Importazione del file CSV completata.
 
@@ -68,7 +68,7 @@ Nella scheda **configurazione tecnica** verrà caricato il pacchetto di distribu
 
 ### <a name="assign-a-version-number-for-the-package"></a>Assegnare un numero di versione per il pacchetto
 
-Nella casella **versione** specificare la versione corrente della configurazione tecnica. Incrementare questa versione ogni volta che si pubblica una modifica in questa pagina. Il numero di versione deve essere nel formato: integer. Integer. Integer. Ad esempio, `1.0.2`
+Nella casella **versione** specificare la versione corrente della configurazione tecnica. Incrementare questa versione ogni volta che si pubblica una modifica in questa pagina. Il numero di versione deve essere nel formato: integer. Integer. Integer. Ad esempio: `1.0.2`.
 
 ### <a name="upload-a-package-file"></a>Carica un file di pacchetto
 
@@ -83,17 +83,17 @@ Dopo la pubblicazione dell'offerta in tempo reale, la sottoscheda **pacchetti pu
 
 ## <a name="view-your-plans"></a>Visualizzare i piani
 
-- Selezionare **Salva bozza** , quindi in alto a sinistra nella pagina selezionare **panoramica piano** per tornare alla pagina **panoramica piano** .
+- Selezionare **Salva bozza**, quindi in alto a sinistra nella pagina selezionare **panoramica piano** per tornare alla pagina **panoramica piano** .
 
 Dopo aver creato uno o più piani, verranno visualizzati il nome del piano, l'ID del piano, il tipo di piano, la disponibilità (pubblica o privata), lo stato di pubblicazione corrente e tutte le azioni disponibili nella scheda **panoramica piano** .
 
 Le azioni disponibili nella colonna **azione** della scheda **panoramica piano** variano a seconda dello stato del piano e possono includere quanto segue:
 
-- Se lo stato del piano è **bozza** , il collegamento nella colonna **azione** indicherà **Elimina bozza**.
-- Se lo stato del piano è **Live** , il collegamento nella colonna **azione** verrà interrotto a **vendere piano** o **sincronizzare i destinatari privati**. Il collegamento per i **destinatari privati della sincronizzazione** pubblicherà solo le modifiche apportate ai destinatari privati, senza pubblicare altri aggiornamenti che potrebbero essere stati apportati all'offerta.
+- Se lo stato del piano è **bozza**, il collegamento nella colonna **azione** indicherà **Elimina bozza**.
+- Se lo stato del piano è **Live**, il collegamento nella colonna **azione** verrà interrotto a **vendere piano** o **sincronizzare i destinatari privati**. Il collegamento per i **destinatari privati della sincronizzazione** pubblicherà solo le modifiche apportate ai destinatari privati, senza pubblicare altri aggiornamenti che potrebbero essere stati apportati all'offerta.
 - Per creare un altro piano per questa offerta, nella parte superiore della scheda **panoramica piano** selezionare **+ Crea nuovo piano**. Ripetere quindi i passaggi in [come creare piani per l'offerta di applicazione Azure](create-new-azure-apps-offer-plans.md). In caso contrario, se si è terminato di creare i piani, passare alla sezione successiva: passaggi successivi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Come testare e pubblicare l'offerta applicazione Azure](create-new-azure-apps-offer-test-publish.md).
-- Scopri [come commercializzare il tuo applicazione Azure offerta](create-new-azure-apps-offer-marketing.md) attraverso la co-selling con Microsoft e la rivendita tramite i programmi CSP.
+- Informazioni [su come vendere l'offerta applicazione Azure](create-new-azure-apps-offer-marketing.md) tramite la co-selling con Microsoft e la rivendita tramite i programmi CSP.

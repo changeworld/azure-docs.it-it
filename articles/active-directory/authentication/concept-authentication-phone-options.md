@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4510dac833d0576273472b6f925d546b55257614
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886805"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744194"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metodi di autenticazione nelle opzioni del telefono Azure Active Directory
 
@@ -75,7 +75,7 @@ In caso di problemi con l'autenticazione tramite telefono in Azure AD, esaminare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, vedere l' [esercitazione per la reimpostazione della password self-service (SSPR)][tutorial-sspr] e [Azure ad multi-factor authentication][tutorial-azure-mfa].
+Per iniziare, vedere l'[esercitazione sulla reimpostazione della password self-service][tutorial-sspr] e [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Per altre informazioni sui concetti di reimpostazione della password self-service, vedere [Come funziona la reimpostazione della password self-service di Azure AD][concept-sspr].
 

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832178"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746455"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati di un sensore in tempo reale dall'hub IoT di Azure in un'applicazione Web
 
@@ -184,7 +184,7 @@ In questa sezione si esegue il provisioning di un'app Web in Servizio app e si d
 
 5. Per distribuire il codice nel servizio app, si useranno le [credenziali di distribuzione livello utente](../app-service/deploy-configure-credentials.md). Le credenziali di distribuzione livello utente sono diverse dalle credenziali di Azure e vengono usate per le distribuzioni FTP e locali Git in un'app Web. Una volta impostate, sono valide in tutte le app del servizio app in tutte le sottoscrizioni dell'account Azure. Se in precedenza sono state impostate delle credenziali di distribuzione livello utente, è possibile usare tali credenziali.
 
-   Se in precedenza non sono state impostate delle credenziali di distribuzione livello utente o non è possibile ricordare la password, eseguire il comando seguente. Il nome utente della distribuzione deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "@". Quando viene richiesto, immettere e confermare la nuova password. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli.
+   Se in precedenza non sono state impostate delle credenziali di distribuzione livello utente o non è possibile ricordare la password, eseguire il comando seguente. Il nome utente della distribuzione deve essere univoco all'interno di Azure e non deve contenere il \@ simbolo '' per i push git locali. Quando viene richiesto, immettere e confermare la nuova password. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

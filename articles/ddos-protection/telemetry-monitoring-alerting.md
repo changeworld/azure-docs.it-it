@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 5c80e5e611c275c2a2262963aa0759075fca836b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 834339a20e369b3835faf05d069f8d4f77385e18
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989395"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744860"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Visualizzare e configurare i dati di telemetria della protezione DDoS
 
@@ -47,9 +47,9 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile sel
     |Impostazione                  |Valore                                                                                               |
     |---------                |---------                                                                                           |
     |Nome                     | Immettere _MyDdosAlert_.                                                                                |
-    |Sottoscrizione             | Selezionare la sottoscrizione che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.        |
+    |Subscription             | Selezionare la sottoscrizione che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.        |
     |Resource group           | Selezionare il gruppo di risorse che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.      |
-    |Risorsa                 | Selezionare l'indirizzo IP pubblico che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi. La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile eseguire il monitoraggio dell'indirizzo IP pubblico di tutte le risorse distribuite tramite Resource Manager (distribuzione classica) elencate in [Rete virtuale per servizi di Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), ad eccezione degli ambienti di Servizio app di Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
+    |Resource                 | Selezionare l'indirizzo IP pubblico che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi. La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile monitorare l'indirizzo IP pubblico di tutte le risorse distribuite tramite Gestione risorse (non classico) elencate in [rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (inclusi i servizi di bilanciamento del carico di Azure in cui le macchine virtuali back-end si trovano nella rete virtuale), ad eccezione degli ambienti del servizio app Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
     |Metrica                   | Selezionare **sotto DDoS Attack (attacco DDoS**).                                                                |
     |Soglia                | 1 - **1** indica che è in corso un attacco **0** indica che non è in corso un attacco                         |
     |Periodo                   | Selezionare un valore di propria scelta                                                                   |

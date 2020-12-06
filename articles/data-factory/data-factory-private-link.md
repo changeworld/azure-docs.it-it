@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511475"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746354"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Collegamento privato di Azure per Azure Data Factory
 
@@ -77,14 +77,14 @@ Per l'esempio illustrato in precedenza, i record di risorse DNS per il Data Fact
 | ---------- | -------- | --------------- |
 | Datafactorya. {Region}. DataFactory. Azure. NET | CNAME   | Datafactorya. {Region}. privatelink. DataFactory. Azure. NET |
 | Datafactorya. {Region}. privatelink. DataFactory. Azure. NET | CNAME   | < endpoint pubblico del servizio data factory > |
-| < endpoint pubblico del servizio data factory >  | A | Indirizzo IP pubblico del servizio < data factory > |
+| < endpoint pubblico del servizio data factory >  | Una | Indirizzo IP pubblico del servizio < data factory > |
 
 I record di risorse DNS per datafactorya, quando risolti in VNet che ospita l'endpoint privato, saranno:
 
 | Nome | Type | valore |
 | ---------- | -------- | --------------- |
 | Datafactorya. {Region}. DataFactory. Azure. NET | CNAME   | Datafactorya. {Region}. privatelink. DataFactory. Azure. NET |
-| Datafactorya. {Region}. privatelink. DataFactory. Azure. NET   | A | < indirizzo IP dell'endpoint privato > |
+| Datafactorya. {Region}. privatelink. DataFactory. Azure. NET   | Una | < indirizzo IP dell'endpoint privato > |
 
 Se si usa un server DNS personalizzato nella rete, i client devono essere in grado di risolvere il nome di dominio completo per il Data Factory endpoint nell'indirizzo IP dell'endpoint privato. È necessario configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A per ' datafactorya. {Region}. privatelink. DataFactory. Azure. NET ' con l'indirizzo IP dell'endpoint privato.
 
@@ -96,20 +96,26 @@ Per ulteriori informazioni sulla configurazione del server DNS per supportare en
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurare il collegamento privato per Azure Data Factory
 È possibile creare endpoint privati usando [il portale di Azure](../private-link/create-private-endpoint-portal.md).
 
+È possibile scegliere se connettere il runtime di integrazione self-hosted per Azure Data Factory tramite endpoint pubblico o privato. 
+
+![Screenshot del blocco dell'accesso pubblico del Integration Runtime self-hosted.](./media/data-factory-private-link/disable-public-access-shir.png)
+
+
 È anche possibile passare al data factory di Azure nella portale di Azure e creare un endpoint privato, come illustrato di seguito:
 
 ![Screenshot del riquadro "connessioni a endpoint privati" per la creazione di un endpoint privato.](./media/data-factory-private-link/create-private-endpoint.png)
 
+Nel passaggio della **risorsa** selezionare **Microsoft. DataFactory/factorys** come **tipo di risorsa**. Se si vuole creare un endpoint privato per le comunicazioni tra il runtime di integrazione self-hosted e il servizio Azure Data Factory, selezionare **DataFactory** come **risorsa secondaria di destinazione**.
 
-Se si vuole bloccare l'accesso pubblico al data factory di Azure e consentire l'accesso solo tramite collegamento privato, disabilitare l'accesso alla rete per Azure Data Factory nel portale di Azure, come illustrato di seguito:
-
-![Screenshot del riquadro "accesso alla rete" per la creazione di un endpoint privato.](./media/data-factory-private-link/disable-network-access.png)
+![Screenshot del riquadro "connessioni a endpoint privati" per la selezione della risorsa.](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > La disabilitazione dell'accesso alla rete pubblica è applicabile solo al runtime di integrazione self-hosted, non a Azure Integration Runtime e SQL Server Integration Services (SSIS) Integration Runtime.
 
+Se si vuole creare un endpoint privato per la creazione e il monitoraggio del data factory nella rete virtuale, selezionare **portale** come **risorsa secondaria di destinazione**.
+
 > [!NOTE]
-> È comunque possibile accedere al portale di Azure Data Factory tramite una rete pubblica dopo avere disabilitato l'accesso alla rete pubblica.
+> È comunque possibile accedere al portale di Azure Data Factory tramite una rete pubblica dopo aver creato un endpoint privato per il portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
