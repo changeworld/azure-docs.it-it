@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992676"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750697"
 ---
 # <a name="what-are-device-templates"></a>Che cosa sono i modelli di dispositivo?
 
@@ -225,7 +225,7 @@ Questo esempio mostra due proprietà (una sola lettura e una scrivibile), un tip
 
 - `@type` per specificare il tipo di funzionalità: `Telemetry` , `Property` o `Command` .  In alcuni casi, il tipo include un tipo semantico per consentire IoT Central di fare alcune ipotesi sulla gestione del valore.
 - `name` per il valore di telemetria.
-- `schema` per specificare il tipo di dati per la telemetria o la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetti complessi, matrici e mappe.
+- `schema` per specificare il tipo di dati per la telemetria o la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetto complessi e mappe.
 
 I campi facoltativi, ad esempio nome visualizzato e descrizione, consentono di aggiungere ulteriori dettagli all'interfaccia e alle funzionalità.
 

@@ -3,12 +3,12 @@ title: Backup non in linea tramite Azure Data Box
 description: Informazioni su come usare Azure Data Box per inizializzare i dati di backup iniziali di grandi dimensioni offline dall'agente MARS a un insieme di credenziali di servizi di ripristino.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180933"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752584"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline di Backup di Azure tramite Azure Data Box
 
@@ -124,7 +124,7 @@ Il processo di backup offline che usa MARS e Azure Data Box richiede che i dispo
 
 1. Assicurarsi di disinstallare le installazioni precedenti dell'agente MARS.
 1. Scaricare la versione più recente dell'agente MARS dal [sito Web](https://aka.ms/azurebackup_agent).
-1. Eseguire *MARSAgentInstaller.exe*ed eseguire *solo* i passaggi per [installare e registrare l'agente](./install-mars-agent.md#install-and-register-the-agent) nell'insieme di credenziali dei servizi di ripristino in cui si desidera archiviare i backup.
+1. Eseguire *MARSAgentInstaller.exe* ed eseguire *solo* i passaggi per [installare e registrare l'agente](./install-mars-agent.md#install-and-register-the-agent) nell'insieme di credenziali dei servizi di ripristino in cui si desidera archiviare i backup.
 
    > [!NOTE]
    > L'insieme di credenziali di servizi di ripristino deve trovarsi nella stessa sottoscrizione del processo di Azure Data Box.
@@ -216,7 +216,7 @@ Per assicurarsi che sia possibile montare il dispositivo Data Box come sistema l
     >
     >Se si [configura un dispositivo Azure Data Box 100 TB](#set-up-azure-data-box-devices), immettere `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` come percorso di rete per il dispositivo.
 
-1. Selezionare **Avanti**e fare clic su **fine** nella pagina successiva per salvare i criteri di backup e conservazione con la configurazione del backup offline usando Azure Data Box.
+1. Selezionare **Avanti** e fare clic su **fine** nella pagina successiva per salvare i criteri di backup e conservazione con la configurazione del backup offline usando Azure Data Box.
 
    La pagina seguente conferma che il criterio è stato salvato correttamente.
 
@@ -277,11 +277,11 @@ Per risolvere il problema, eseguire la procedura seguente e riprovare la configu
 
 #### <a name="step-1-of-workaround"></a>Passaggio 1 della soluzione alternativa
 
-Accedere a PowerShell che viene visualizzato nell'interfaccia utente di MAB usando un account diverso con accesso amministrativo alla sottoscrizione in cui verrà creato il processo di importazione o esportazione.
+Accedere a PowerShell che viene visualizzato nell'interfaccia utente di MAB usando un account diverso con accesso amministrativo alla sottoscrizione in cui verrà creato il processo Data Box.
 
 #### <a name="step-2-of-workaround"></a>Passaggio 2 della soluzione alternativa
 
-Se nessun altro server dispone di un seeding offline configurato e nessun altro server dipende dall' `AzureOfflineBackup_<Azure User Id>` applicazione, eliminare questa applicazione. Selezionare **portale di Azure**  >  **Azure Active Directory**  >  **registrazioni app**Azure Active Directory.
+Se nessun altro server dispone di un seeding offline configurato e nessun altro server dipende dall' `AzureOfflineBackup_<Azure User Id>` applicazione, eliminare questa applicazione. Selezionare **portale di Azure**  >  **Azure Active Directory**  >  **registrazioni app** Azure Active Directory.
 
 >[!NOTE]
 > Verificare se nell' `AzureOfflineBackup_<Azure User Id>` applicazione non sono configurati altri seeding offline e anche se nessun altro server dipende da questa applicazione. Passare a **Impostazioni**  >  **chiavi** nella sezione **chiavi pubbliche** . Non devono essere aggiunte altre chiavi pubbliche. Per informazioni di riferimento, vedere la schermata seguente.
@@ -294,7 +294,7 @@ Dal server che si sta tentando di configurare per il backup offline, eseguire le
 
 1. Passare alla scheda **Gestisci applicazione certificato computer**  >  **personale** e cercare il certificato con il nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
-2. Selezionare il certificato, fare clic con il pulsante destro del mouse su **tutte le attività**e selezionare **Esporta** senza una chiave privata nel formato CER.
+2. Selezionare il certificato, fare clic con il pulsante destro del mouse su **tutte le attività** e selezionare **Esporta** senza una chiave privata nel formato CER.
 
 3. Passare all'applicazione di backup offline di Azure citata nel passaggio 2. Selezionare **Impostazioni**  >  **chiavi**  >  **carica chiave pubblica**. Caricare il certificato esportato nel passaggio precedente.
 
@@ -302,7 +302,7 @@ Dal server che si sta tentando di configurare per il backup offline, eseguire le
 
 4. Nel server aprire il registro di sistema immettendo **Regedit** nella finestra Esegui.
 
-5. Passare al registro di sistema *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Fare clic con il pulsante destro del mouse su **CloudBackupProvider**e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>` .
+5. Passare al registro di sistema *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Fare clic con il pulsante destro del mouse su **CloudBackupProvider** e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Per ottenere l'ID utente di Azure, eseguire una di queste azioni:
@@ -312,7 +312,7 @@ Dal server che si sta tentando di configurare per il backup offline, eseguire le
 
 6. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 2. Selezionare **OK**.
 
-7. Per ottenere il valore dell'identificazione personale, fare doppio clic sul certificato. Selezionare la scheda **Dettagli** e scorrere verso il basso fino a visualizzare il campo identificazione personale. Selezionare **identificazione personale**e copiare il valore.
+7. Per ottenere il valore dell'identificazione personale, fare doppio clic sul certificato. Selezionare la scheda **Dettagli** e scorrere verso il basso fino a visualizzare il campo identificazione personale. Selezionare **identificazione personale** e copiare il valore.
 
     ![Campo identificazione personale del certificato](./media/offline-backup-azure-data-box/thumbprint-field.png)
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182802"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751292"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurare Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -48,7 +48,7 @@ Per gestire le macchine virtuali nell'ambito, configurare le variabili: `Externa
 
 2. Aggiungere un elenco delimitato da virgole di macchine virtuali (senza spazi) nel campo del parametro **VMList** . Un elenco di esempio è `vm1,vm2,vm3` .
 
-3. Impostare il campo del parametro **WHATIF** su true.
+3. Impostare il campo del parametro **WHATIF** su true per visualizzare in anteprima le modifiche.
 
 4. Configurare la `External_ExcludeVMNames` variabile con un elenco delimitato da virgole di macchine virtuali (VM1, VM2, VM3), senza spazi tra valori delimitati da virgole.
 
@@ -79,7 +79,7 @@ In un ambiente che include due o più componenti su più macchine virtuali che s
 
 3. Aggiungere un elenco delimitato da virgole di macchine virtuali (senza spazi) nel campo del parametro **VMList** . Un elenco di esempio è `vm1,vm2,vm3` .
 
-4. Impostare **WHATIF** su true. 
+4. Impostare **WHATIF** su true per visualizzare in anteprima le modifiche. 
 
 5. Configurare la `External_ExcludeVMNames` variabile con un elenco delimitato da virgole di macchine virtuali, senza spazi tra valori delimitati da virgole.
 

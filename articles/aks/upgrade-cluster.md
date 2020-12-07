@@ -4,12 +4,12 @@ description: Informazioni su come aggiornare un cluster di Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 30ad80727c238ae7e415039adf3e4eb75dbbc1b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c5de1a02a077ccb5f46b685572c6c43f5951b224
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531344"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751496"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -93,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
 
-Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo buffer (o tutti i nodi configurati in un [picco massimo](#customize-node-surge-upgrade)) al cluster che esegue la versione specificata di Kubernetes. Quindi, eseguirà il [cordoning e lo svuotamento][kubernetes-drain] di uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Se si usa il sovraccarico massimo, il numero di nodi [e lo svuotamento verrà svuotato][kubernetes-drain] contemporaneamente al numero di nodi del buffer specificati. Quando il nodo precedente viene svuotato completamente, verrà ricreata l'immagine per ricevere la nuova versione e diventerà il nodo del buffer per il nodo seguente da aggiornare. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati. Al termine del processo, l'ultimo nodo svuotato verrà eliminato, mantenendo il numero di nodi agente esistente.
+Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo buffer (o tutti i nodi configurati in un [picco massimo](#customize-node-surge-upgrade)) al cluster che esegue la versione specificata di Kubernetes. Quindi, eseguirà il [cordoning e lo svuotamento][kubernetes-drain] di uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Se si usa il sovraccarico massimo, il numero di nodi [e lo svuotamento verrà svuotato][kubernetes-drain] contemporaneamente al numero di nodi del buffer specificati. Quando il nodo precedente viene svuotato completamente, verrà ricreata l'immagine per ricevere la nuova versione e diventerà il nodo del buffer per il nodo seguente da aggiornare. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati. Al termine del processo, l'ultimo nodo del buffer verrà eliminato, mantenendo il numero di nodi agente e il saldo della zona esistenti.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -104,8 +104,9 @@ az aks upgrade \
 
 Per aggiornare il cluster sono necessari alcuni minuti, a seconda del numero di nodi di cui si dispone.
 
-> [!NOTE]
-> È previsto un tempo totale consentito per il completamento dell'aggiornamento di un cluster. Questo tempo viene calcolato prendendo il prodotto di `10 minutes * total number of nodes in the cluster` . Ad esempio, in un cluster a 20 nodi, le operazioni di aggiornamento devono avere esito positivo in 200 minuti oppure AKS avrà esito negativo per evitare uno stato del cluster irreversibile. Per eseguire il ripristino in caso di errore di aggiornamento, ripetere l'operazione di aggiornamento dopo che è stato raggiunto il timeout.
+> [!IMPORTANT]
+> Assicurarsi che Any `PodDisruptionBudgets` (PDB) consenta lo spostamento di almeno una replica Pod alla volta, altrimenti l'operazione di svuotamento/rimozione avrà esito negativo.
+> Se l'operazione di svuotamento non riesce, l'operazione di aggiornamento avrà esito negativo in base alla progettazione per assicurarsi che le applicazioni non vengano interrotte. Correggere il problema che ha causato l'arresto dell'operazione (PDB non corretto, mancanza di quota e così via) e ripetere l'operazione.
 
 Per verificare che l'aggiornamento sia stato completato correttamente, usare il comando [az aks show][az-aks-show]:
 

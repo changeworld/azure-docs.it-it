@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030697"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751938"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
@@ -63,7 +63,9 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
 1.  Inviare la pipeline. Se si dispone di una grande quantità di dati, l'operazione può richiedere alcuni minuti.
 
     > [!IMPORTANT] 
-    > Se si dispone di una colonna ID che corrisponde all'ID di ogni riga, **Train Model** può comportare un errore, ad esempio "numero di valori univoci nella colonna:" {column_name} "è maggiore di quello consentito. Ciò è dovuto al fatto che la colonna ID ha raggiunto la soglia di valori univoci e potrebbe causare una memoria insufficiente. In genere, la colonna ID non ha significato durante il training. È possibile utilizzare [Modifica metadati](edit-metadata.md) per contrassegnare la colonna come **funzionalità non crittografata** e non verrà utilizzata nel training. Per ulteriori informazioni sull'errore, vedere il [codice di errore della finestra di progettazione](././designer-error-codes.md) .
+    > Se si dispone di una colonna ID che corrisponde all'ID di ogni riga o a una colonna di testo che contiene troppi valori univoci, **Train Model** può comportare un errore, ad esempio "numero di valori univoci nella colonna:" {column_name} "è maggiore di quello consentito.
+    >
+    > Questo è dovuto al fatto che la colonna ha raggiunto la soglia di valori univoci e potrebbe causare una memoria insufficiente. È possibile utilizzare [Modifica metadati](edit-metadata.md) per contrassegnare la colonna come **funzionalità non crittografata** e non verrà utilizzata nel training oppure [estrarre le funzionalità di N-Gram dal modulo di testo](extract-n-gram-features-from-text.md) per la pre-elaborazione della colonna di testo. Per ulteriori informazioni sull'errore, vedere il [codice di errore della finestra di progettazione](././designer-error-codes.md) .
 
 ## <a name="results"></a>Risultati
 

@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875122"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751343"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -49,7 +49,7 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
 3. Selezionare **Attività iniziali**. Il testo di questa selezione può variare a seconda della versione di Visual Studio. Alcune versioni precedenti usano invece un pulsante **Start Free** .
 
-4. Selezionare la propria sottoscrizione. Selezionare quindi **Resource**  >  **Registro**risorse.
+4. Selezionare la propria sottoscrizione. Selezionare quindi **Resource**  >  **Registro** risorse.
 
 5. Dopo aver aggiunto Application Insights al progetto, verificare che si stia usando la versione stabile più recente dell'SDK. Passare a **progetto**  >  **Gestisci pacchetti NuGet**  >  **Microsoft. ApplicationInsights. AspNetCore**. Se necessario, scegliere **Aggiorna**.
 
@@ -261,6 +261,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` funziona per gli inizializzatori semplici. Per gli altri, è necessario quanto segue: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### <a name="removing-telemetryinitializers"></a>Rimozione di TelemetryInitializers
 
 Gli inizializzatori di telemetria sono presenti per impostazione predefinita. Per rimuovere tutti gli inizializzatori di telemetria o specifici, usare il codice di esempio seguente *dopo* la chiamata a `AddApplicationInsightsTelemetry()` .

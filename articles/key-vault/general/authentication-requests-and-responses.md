@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288466"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752278"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
 
@@ -134,3 +134,6 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 -   authorization: indirizzo del servizio di autorizzazione OAuth2 che può essere usato per ottenere un token di accesso per la richiesta.  
 
 -   Resource: nome della risorsa ( `https://vault.azure.net` ) da usare nella richiesta di autorizzazione.
+
+> [!NOTE]
+> Key Vault Client SDK per i segreti, i certificati e le chiavi nella prima chiamata a Key Vault non forniscono un token di accesso per recuperare le informazioni sul tenant. Si prevede di ricevere un HTTP 401 usando Key Vault Client SDK, in cui il Key Vault Mostra all'applicazione l'intestazione WWW-Authenticate che contiene la risorsa e il tenant in cui deve andare e richiedere il token. Se tutti gli elementi sono configurati correttamente, la seconda chiamata dall'applicazione a Key Vault conterrà un token valido e avrà esito positivo. 

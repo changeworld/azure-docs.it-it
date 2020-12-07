@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122597"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751428"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usare le proprietà in una soluzione IoT Central di Azure
 
@@ -79,7 +79,7 @@ Questo esempio mostra due proprietà. Queste proprietà sono correlate alla defi
 
 * `@type` Specifica il tipo di funzionalità: `Property` . Nell'esempio precedente viene inoltre illustrato il tipo semantico `Temperature` per entrambe le proprietà.
 * `name` per la proprietà.
-* `schema` Specifica il tipo di dati per la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetti complessi, matrici e mappe.
+* `schema` Specifica il tipo di dati per la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetto complessi e mappe.
 * `writable` Per impostazione predefinita, le proprietà sono di sola lettura. È possibile contrassegnare una proprietà come scrivibile utilizzando questo campo.
 
 I campi facoltativi, ad esempio nome visualizzato e descrizione, consentono di aggiungere ulteriori dettagli all'interfaccia e alle funzionalità.

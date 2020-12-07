@@ -61,7 +61,7 @@
           href: load-balancer-insights.md
         - name: Metriche e diagnostica di Load Balancer Standard
           href: load-balancer-standard-diagnostics.md
-        - name: Log di Monitoraggio di Azure per Load Balancer Basic
+        - name: Log di Monitoraggio di Azure per Load Balancer
           href: load-balancer-monitor-log.md
         - name: Ottenere le metriche di Load Balancer con REST
           href: load-balancer-query-metrics-rest-api.md

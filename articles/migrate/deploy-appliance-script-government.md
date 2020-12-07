@@ -1,14 +1,17 @@
 ---
 title: Configurare un'appliance Azure Migrate in Azure per enti pubblici
 description: Informazioni su come configurare un appliance Azure Migrate in Azure per enti pubblici
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1060bda13cc593980850bc6563555cf5dd4b7fd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450017"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752193"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurare un'appliance in Azure per enti pubblici 
 
@@ -35,7 +38,7 @@ Per configurare l'appliance per VMware, scaricare un file compresso dal portale 
 
 1.  In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
 2.  In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere Hypervisor**.
-3.  Fare clic su **download**per scaricare il file compresso. 
+3.  Fare clic su **download** per scaricare il file compresso. 
 
 
 ### <a name="verify-file-security"></a>Verificare la sicurezza del file
@@ -89,7 +92,7 @@ Per configurare l'appliance per Hyper-V, è possibile scaricare un file compress
 
 1.  In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
 2.  In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
-3.  Fare clic su **download**per scaricare il file compresso. 
+3.  Fare clic su **download** per scaricare il file compresso. 
 
 
 ### <a name="verify-file-security"></a>Verificare la sicurezza del file
@@ -144,7 +147,7 @@ Per configurare l'appliance per VMware, scaricare un file compresso dal portale 
 
 1.  In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
 2.  In **individua macchine**  >  **virtuali i computer sono virtualizzati?** selezionare **non virtualizzato/altro**.
-3.  Fare clic su **download**per scaricare il file compresso. 
+3.  Fare clic su **download** per scaricare il file compresso. 
 
 
 ### <a name="verify-file-security"></a>Verificare la sicurezza del file
@@ -158,7 +161,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
 3. Verificare la versione più recente del dispositivo e il valore hash:
 
-    **Scenario** | **Download*** | **Valore hash**
+    **Scenario** | **Scaricare** _ | _ *Valore hash**
     --- | --- | ---
     Fisico (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140338) | cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
           

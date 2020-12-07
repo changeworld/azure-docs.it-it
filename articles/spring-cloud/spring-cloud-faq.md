@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 268862d6e868342a252ca9d5eb08b9753142e8b1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655052"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750748"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -69,6 +69,23 @@ Per il modo più rapido per iniziare a usare Azure Spring cloud, seguire le istr
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Quale runtime Java supporta Azure Spring Cloud?
 
 Azure Spring Cloud supporta Java 8 e 11. Vedere [le versioni del runtime e del sistema operativo Java](#java-runtime-and-os-versions)
+
+### <a name="is-spring-boot-24x-supported"></a>Spring Boot 2.4. x è supportato?
+È stato identificato un problema con Spring Boot 2,4 che attualmente collabora con la community di Spring per risolverlo. Nel frattempo, includere queste due dipendenze per abilitare l'autenticazione TLS tra le app e Eureka.
+
+```xml
+<dependency> 
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Dove è possibile visualizzare i log e le metriche dell'applicazione Spring cloud?

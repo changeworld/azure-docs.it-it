@@ -152,6 +152,8 @@
           href: node-updates-kured.md
         - name: Configurare un cluster del servizio Azure Kubernetes
           href: cluster-configuration.md
+        - name: Configurazione personalizzata dei nodi (anteprima)
+          href: custom-node-configuration.md
         - name: Integrare un Registro Azure Container con un cluster del servizio Azure Kubernetes
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali

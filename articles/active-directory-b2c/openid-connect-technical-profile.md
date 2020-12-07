@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8273d4bbb0b58a256521cf11cacf6d1fed67e10d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2010f55a28d393086aad544cbec3f5c009801872
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345117"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750493"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -80,6 +80,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se l' `aud` attestazione in un token restituito dal provider di identità è uguale a quella specificata nei metadati IdTokenAudience.  |
 | METADATI | Sì | Un URL che punta a un documento di configurazione del provider di identità OpenID Connect, noto anche come endpoint di configurazione OpenID noto. L'URL può contenere l' `{tenant}` espressione, che viene sostituita con il nome del tenant.  |
 | authorization_endpoint | No | URL che punta a un endpoint di autorizzazione della configurazione del provider di identità OpenID Connect. Il valore di authorization_endpoint metadati ha la precedenza su quello `authorization_endpoint` specificato nell'endpoint di configurazione OpenID noto. L'URL può contenere l' `{tenant}` espressione, che viene sostituita con il nome del tenant. |
+| end_session_endpoint | No | URL dell'endpoint della sessione finale. Il valore di authorization_endpoint metadati ha la precedenza su quello `end_session_endpoint` specificato nell'endpoint di configurazione OpenID noto. |
 | autorità di certificazione | No | Identificatore univoco di un provider di identità OpenID Connect. Il valore dei metadati dell'autorità emittente ha la precedenza su quello `issuer` specificato nell'endpoint di configurazione OpenID noto.  Se specificato, Azure AD B2C controlla se l' `iss` attestazione in un token restituito dal provider di identità è uguale a quella specificata nei metadati dell'emittente. |
 | ProviderName | No | Il nome del provider di identità.  |
 | response_types | No | Il tipo di risposta in base alla specifica di OpenID Connect Core 1.0. I valori possibili sono: `id_token`, `code` o `token`. |
@@ -92,7 +93,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | DiscoverMetadataByTokenIssuer | No | Indica se i metadati OIDC devono essere individuati tramite l'autorità di certificazione nel token JWT. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 |token_endpoint_auth_method| No| Specifica il modo in cui Azure AD B2C invia l'intestazione di autenticazione all'endpoint del token. Valori possibili: `client_secret_post` (impostazione predefinita) e `client_secret_basic` (anteprima pubblica). Per altre informazioni, vedere la [sezione autenticazione client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-
+|SingleLogoutEnabled| No| Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-overview.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` .|
 
 ```xml
 <Metadata>

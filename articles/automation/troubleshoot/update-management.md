@@ -2,15 +2,15 @@
 title: Risolvere i problemi relativi a Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo mostra come risolvere i problemi relativi alla Gestione aggiornamenti di Automazione di Azure.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217219"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751258"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -18,6 +18,40 @@ Questo articolo descrive i problemi che potrebbero verificarsi durante la distri
 
 >[!NOTE]
 >Se si verificano problemi durante la distribuzione di Gestione aggiornamenti in un computer Windows, aprire il Visualizzatore eventi di Windows e controllare il **Operations Manager** registro eventi in **registri applicazioni e servizi** nel computer locale. Cercare gli eventi con ID 4502 e dettagli evento che contengono `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Scenario: gli aggiornamenti di Linux visualizzati come in sospeso e quelli installati variano
+
+### <a name="issue"></a>Problema
+
+Per il computer Linux, Gestione aggiornamenti Mostra gli aggiornamenti specifici disponibili in **sicurezza** classificazione e **altri**. Tuttavia, quando una pianificazione di aggiornamento viene eseguita nel computer, ad esempio per installare solo gli aggiornamenti che corrispondono alla classificazione di **sicurezza** , gli aggiornamenti installati sono diversi da o da un subset degli aggiornamenti mostrati in precedenza corrispondenti a tale classificazione.
+
+### <a name="cause"></a>Causa
+
+Quando viene eseguita una valutazione degli aggiornamenti del sistema operativo in sospeso per il computer Linux, i file Oval ( [vulnerabilità e Assessment Language) aperti](https://oval.mitre.org/) forniti dal fornitore di distribuzioni Linux vengono usati da Gestione aggiornamenti per la classificazione. La categorizzazione viene eseguita per gli aggiornamenti Linux come **sicurezza** o **altri utenti**, in base ai file Oval che specificano gli aggiornamenti che indirizzano problemi di sicurezza o vulnerabilità. Tuttavia, quando viene eseguita, la pianificazione dell'aggiornamento viene eseguita nel computer Linux usando la gestione pacchetti appropriata, ad esempio YUM, APT o ZYPPER per installarli. Gestione pacchetti per la distribuzione Linux può avere un meccanismo diverso per classificare gli aggiornamenti, in cui i risultati possono essere diversi da quelli ottenuti da file OVAL per Gestione aggiornamenti.
+
+### <a name="resolution"></a>Risoluzione
+
+È possibile controllare manualmente il computer Linux, gli aggiornamenti applicabili e la relativa classificazione in base a gestione pacchetti della distribuzione. Per comprendere quali aggiornamenti sono classificati come **sicurezza** da Gestione pacchetti, eseguire i comandi seguenti.
+
+Per YUM, il comando seguente restituisce un elenco diverso da zero degli aggiornamenti classificati come **sicurezza** da Red Hat. Si noti che nel caso di CentOS, viene sempre restituito un elenco vuoto e non viene eseguita alcuna classificazione di sicurezza.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Per ZYPPER, il comando seguente restituisce un elenco diverso da zero degli aggiornamenti classificati come **sicurezza** da SUSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+Per APT, il comando seguente restituisce un elenco diverso da zero degli aggiornamenti classificati come **sicurezza** da Canonical per le distribuzioni Ubuntu Linux.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+Da questo elenco viene quindi eseguito il comando `grep ^Inst` per ottenere tutti gli aggiornamenti della sicurezza in sospeso.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenario: viene visualizzato l'errore "Non è stato possibile abilitare la soluzione Aggiornamento"
 
@@ -59,7 +93,7 @@ Gli aggiornamenti precedenti vengono visualizzati come mancanti per un account d
 
 Gli aggiornamenti sostituiti non vengono rifiutati in Windows Server Update Services (WSUS), in modo che possano essere considerati non applicabili.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Quando un aggiornamento sostituito diventa il 100% non applicabile, è necessario modificare lo stato di approvazione di tale aggiornamento `Declined` in WSUS. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
 

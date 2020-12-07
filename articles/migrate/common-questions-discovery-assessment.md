@@ -1,14 +1,17 @@
 ---
 title: Domande sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: cb1696c521f436280177f0263abd66aa2bfed7dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4531d68c2fbd0698c33d70a75bb82ac9c7f52f49
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312931"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752244"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -44,7 +47,7 @@ Per una valutazione basata sulle prestazioni, l'esportazione del report di valut
 
 - se le macchine virtuali sono accese per il periodo di tempo per cui si sta creando la valutazione
 - Se mancano solo i contatori di memoria e si sta provando a valutare le macchine virtuali Hyper-V, controllare se la memoria dinamica è abilitata in queste macchine virtuali. Attualmente è presente un problema noto che causa l'impossibilità da parte dell'appliance Azure Migrate di raccogliere dati sull'utilizzo della memoria per tali macchine virtuali.
-- Se non è presente alcun contatore delle prestazioni, assicurarsi che le connessioni in uscita sulle porte 443 (HTTPS) siano consentite.
+- Se tutti i contatori delle prestazioni risultano mancanti, assicurarsi che le connessioni in uscita sulle porte 443 (HTTPS) siano consentite.
 
 Nota: se mancano contatori delle prestazioni, Azure Migrate: Server Assessment mantiene la memoria/i core allocati in locale e consiglia una dimensione della macchina virtuale di conseguenza.
 
@@ -145,7 +148,7 @@ Agente | Non è necessario installare gli agenti nei computer che si vuole contr
 Prerequisiti | [Esaminare](concepts-dependency-visualization.md#agentless-analysis) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-analysis) i prerequisiti e i requisiti di distribuzione.
 Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mapping dei servizi](../azure-monitor/insights/service-map.md) in [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis)
 Funzionamento | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
-Data | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
+Dati | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
 Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo in un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.
 Esportazione dati | Ultimi 30 giorni è possibile scaricare i dati in formato CSV. | È possibile eseguire query sui dati con Log Analytics.
 

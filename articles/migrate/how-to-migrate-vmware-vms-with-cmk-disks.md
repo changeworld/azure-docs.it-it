@@ -1,18 +1,17 @@
 ---
 title: Eseguire la migrazione di macchine virtuali VMware in Azure con la crittografia lato server (SSE) e le chiavi gestite dal cliente (CMK) usando la migrazione di Azure Migrate server
 description: Informazioni su come eseguire la migrazione di macchine virtuali VMware in Azure con la crittografia lato server (SSE) e le chiavi gestite dal cliente (CMK) con Azure Migrate migrazione del server
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.author: raynew
-ms.openlocfilehash: 89b795011460ee2803d07d14b9c2abe9c8ffca55
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a174c3b2bfb390eb7d691ae1bdcb0e28dde9032
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483352"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751088"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Eseguire la migrazione di macchine virtuali VMware alle macchine virtuali di Azure abilitate con la crittografia lato server e le chiavi gestite dal cliente
 

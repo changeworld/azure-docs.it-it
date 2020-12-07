@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504391"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600864"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Gruppi di disponibilità AlwaysOn per SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +37,11 @@ Il diagramma seguente illustra un gruppo di disponibilità per SQL Server in Mac
 
 ## <a name="vm-redundancy"></a>Ridondanza di VM 
 
-Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server devono trovarsi nello stesso [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o in diverse [zone di disponibilità](../../../availability-zones/az-overview.md).
+Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server devono trovarsi nello stesso [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o in [zone di disponibilità](../../../availability-zones/az-overview.md) diverse.
 
-Un set di disponibilità è un raggruppamento di risorse configurate in modo tale che non ne siano presenti due nella stessa zona di disponibilità. Ciò impedisce l'impatto su più risorse nel gruppo durante l'implementazione delle distribuzioni. 
+L'inserimento di un set di VM nello stesso set di disponibilità protegge un data center dalle interruzioni causate da errori delle apparecchiature (le VM all'interno di un set di disponibilità non condividono risorse) o da aggiornamenti (le VM all'interno di un set di disponibilità non vengono aggiornate contemporaneamente). Le zone di disponibilità offrono protezione dagli errori di un intero data center, con ogni zona che rappresenta un set di data center all'interno di un'area.  Inserendo le risorse in zone di disponibilità diverse, ci si assicura che nessuna interruzione a livello di data center porti tutte le VM offline.
+
+Quando si creano le VM di Azure, è necessario scegliere se configurare i set di disponibilità o le zone di disponibilità.  Una VM di Azure non può essere inserita in entrambi.
 
 
 ## <a name="connectivity"></a>Connettività 

@@ -189,6 +189,10 @@
       href: ../../key-vault/general/security-baseline.md
     - name: Baseline di App per la logica
       href: ../../logic-apps/security-baseline.md
+    - name: Baseline di Microsoft Cloud App Security
+      href: /cloud-app-security/security-baseline.md
+    - name: Baseline di sicurezza di Microsoft Defender per identità
+      href: /defender-for-identity/security-baseline.md
     - name: Baseline di sicurezza di Network Watcher
       href: ../../network-watcher/security-baseline.md
     - name: Baseline di Power BI

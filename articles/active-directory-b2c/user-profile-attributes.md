@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98c33d4b9e749e804f70d9dccb7198884c80dfe7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952703"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750408"
 ---
 # <a name="user-profile-attributes"></a>Attributi del profilo utente
 
@@ -75,16 +75,22 @@ La tabella seguente illustra gli attributi del [tipo di risorsa utente](/graph/a
 |streetAddress   |string|Indirizzo della sede di lavoro dell'utente. Lunghezza massima 1024.|Sì|Sì|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|string|Numero di telefono secondario dell'utente, usato per l'autenticazione a più fattori.|Sì|No|Persisted, Output|
 |strongAuthenticationEmailAddress<sup>1</sup>|string|Indirizzo SMTP dell'utente. Esempio: "bob@contoso.com" Questo attributo viene usato per l'accesso con il criterio username, per archiviare l'indirizzo di posta elettronica dell'utente. Indirizzo di posta elettronica usato in un flusso di reimpostazione della password.|Sì|No|Persisted, Output|
-|strongAuthenticationPhoneNumber<sup>1</sup>|string|Numero di telefono principale dell'utente, usato per l'autenticazione a più fattori.|Sì|No|Persisted, Output|
+|strongAuthenticationPhoneNumber<sup>2</sup>|string|Numero di telefono principale dell'utente, usato per l'autenticazione a più fattori.|Sì|No|Persisted, Output|
 |surname         |string|Cognome dell'utente. Lunghezza massima 64.|Sì|Sì|Persisted, Output|
 |telephoneNumber (prima voce del valore businessPhones)|string|Numero di telefono principale della sede di lavoro dell'utente.|Sì|No|Persisted, Output|
 |userPrincipalName    |string|Nome dell'entità utente (UPN) dell'utente. L'UPN è un nome di accesso Internet per un utente basato sullo standard Internet RFC 822. Il dominio deve essere presente nella raccolta di tenant dei domini verificati. Questa proprietà è obbligatoria quando viene creato un account. Non modificabile.|No|No|Input, Persisted, Output|
 |usageLocation   |string|Obbligatorio per gli utenti a cui verranno assegnate licenze, a causa del requisito legale che richiede la verifica della disponibilità dei servizi nei Paesi/nelle regioni. Non ammette i valori NULL. Codice Paese/regione di due lettere (standard ISO 3166). Esempi: "US", "JP" e "GB".|Sì|No|Persisted, Output|
 |userType        |string|Valore stringa che può essere usato per classificare i tipi di utente nella directory. Il valore deve essere "Member". Di sola lettura.|Sola lettura|No|Persisted, Output|
-|userState (externalUserState)<sup>2</sup>|string|Solo per gli account Azure AD B2B, indica se l'invito è in stato PendingAcceptance o Accepted.|No|No|Persisted, Output|
+|userState (externalUserState)<sup>3</sup>|string|Solo per gli account Azure AD B2B, indica se l'invito è in stato PendingAcceptance o Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|Datetime|Mostra il timestamp delle modifiche più recenti alla proprietà UserState.|No|No|Persisted, Output|
-|<sup>1 </sup>Non supportato da Microsoft Graph<br><sup>2 </sup>Non deve essere usato con Azure AD B2C||||||
 
+<sup>1 </sup>Non supportato da Microsoft Graph<br><sup>2</sup> Per ulteriori informazioni, vedere l' [attributo del numero di telefono](#mfa-phone-number-attribute) dell'autenticazione a più fattori<br><sup>3 </sup> Non deve essere usato con Azure AD B2C
+
+## <a name="mfa-phone-number-attribute"></a>Attributo numero di telefono multi-factor authentication
+
+Quando si usa un telefono per multi-factor authentication, il telefono cellulare viene usato per verificare l'identità dell'utente. Per [aggiungere](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) un nuovo numero di telefono a livello, [aggiornare](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [ottenere](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)o [eliminare](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) il numero di telefono, usare il [metodo di autenticazione](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod)MS API Graph Phone.
+
+In Azure AD B2C [criteri personalizzati](custom-policy-overview.md), il numero di telefono è disponibile tramite il `strongAuthenticationPhoneNumber` tipo di attestazione.
 
 ## <a name="extension-attributes"></a>Attributi di estensione
 

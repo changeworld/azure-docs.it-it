@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364032"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750803"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Risolvere i problemi della replica e del failover da Hyper-V ad Azure
 
@@ -34,7 +34,21 @@ Se si verificano problemi quando si abilita la protezione per le macchine virtua
 6. Nella macchina virtuale guest verificare che sia in esecuzione la versione più recente di Integration Services.
     - [Controllare](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) che sia disponibile l'ultima versione.
     - [Mantieni](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services aggiornati.
-    
+
+### <a name="cannot-enable-protection-as-the-virtual-machine-is-not-highly-available-error-code-70094"></a>Non è possibile abilitare la protezione perché la macchina virtuale non è a disponibilità elevata (codice errore 70094)
+
+Quando si Abilita la replica per un computer e si verifica un errore che informa che non è possibile abilitare la replica perché il computer non è a disponibilità elevata, per risolvere il problema provare i passaggi seguenti:
+
+- Riavviare il servizio VMM nel server VMM.
+- Rimuovere la macchina virtuale dal cluster e aggiungerla di nuovo.
+
+### <a name="the-vss-writer-ntds-failed-with-status-11-and-writer-specific-failure-code-0x800423f4"></a>Il VSS writer NTDS non è riuscito con stato 11 e codice di errore specifico del writer 0x800423F4
+
+Quando si tenta di abilitare la replica, è possibile che si verifichi un errore che informa che l'abilitazione della replica non è riuscita in AST NTDS. Una delle possibili cause di questo problema è che il sistema operativo della macchina virtuale in Windows Server 2012 e non Windows Server 2012 R2. Per risolvere questo problema, eseguire i passaggi seguenti:
+
+- Eseguire l'aggiornamento a Windows Server R2 con 4072650 applicato.
+- Verificare che l'host Hyper-V sia anche Windows 2016 o versione successiva.
+
 ## <a name="replication-issues"></a>Problemi di replica
 
 Risolvere i problemi relativi alla replica iniziale e in corso come indicato di seguito:
@@ -80,7 +94,7 @@ Le limitazioni della larghezza di banda di rete possono influire sulla replica. 
 
 2. Fare clic su **Visualizza stato di replica** per visualizzare i dettagli:
 
-    - Se la replica è sospesa, fare clic con il pulsante destro del mouse sulla macchina **virtuale > replica**  >  **riprendere**la replica.
+    - Se la replica è sospesa, fare clic con il pulsante destro del mouse sulla macchina **virtuale > replica**  >  **riprendere** la replica.
     - Se viene eseguita la migrazione di una macchina virtuale su un host Hyper-V configurato in Site Recovery a un altro host Hyper-V nello stesso cluster o a un computer autonomo, la replica per la macchina virtuale non sarà interessata. Verificare semplicemente che il nuovo host Hyper-V soddisfi tutti i prerequisiti e sia configurato in Site Recovery.
 
 ## <a name="app-consistent-snapshot-issues"></a>Problemi di snapshot coerenti con l'app
@@ -114,9 +128,9 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
         - Categoria: “Dispositivo di archiviazione virtuale Hyper-V”
         - Contatore: “Byte scritti/sec”</br>
         - Questa varianza dei dati aumenterà o rimarrà a un livello elevato, a seconda del carico di lavoro della macchina virtuale o delle relative app.
-        - La varianza media dei dati del disco di origine è 2 MB/s per l'archiviazione standard per Site Recovery. [Scopri di più](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+        - La varianza media dei dati del disco di origine è 2 MB/s per l'archiviazione standard per Site Recovery. [Altre informazioni](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - È anche possibile [verificare gli obiettivi di scalabilità delle risorse di archiviazione](../storage/common/scalability-targets-standard-account.md).
-8. Assicurarsi che se si usa un server basato su Linux, è stata abilitata la coerenza delle app. [Scopri di più](./site-recovery-faq.md#replication)
+8. Assicurarsi che se si usa un server basato su Linux, è stata abilitata la coerenza delle app. [Altre informazioni](./site-recovery-faq.md#replication)
 9. Eseguire [Deployment Planner](hyper-v-deployment-planner-run.md).
 10. Esaminare le raccomandazioni per la [rete](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e l'[archiviazione](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

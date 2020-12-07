@@ -1,14 +1,17 @@
 ---
 title: Valutazioni delle VM di Azure in Azure Migrate server Assessment
 description: Informazioni sulle valutazioni in Azure Migrate server Assessment
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319323"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752227"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione del server (migrazione alle macchine virtuali di Azure)
 
@@ -152,7 +155,7 @@ Proprietà | Dettagli | Stato di idoneità per Azure
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le VM con un tipo di avvio BIOS e non UEFI. | Pronto in modo condizionale se il tipo di avvio è UEFI
 **Core** | Ogni computer non deve avere più di 128 core, ovvero il numero massimo supportato da una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se le impostazioni di valutazione specificano un fattore di comfort, il numero di core utilizzati viene moltiplicato per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati per applicare il fattore di comfort. | Pronto se il numero di core rientra nel limite
-**RAM** | Ogni computer non deve avere più di 3.892 GB di RAM, ovvero la dimensione massima supportata da una VM di Azure M Standard_M128m &nbsp; <sup>2</sup> . [Altre informazioni](../virtual-machines/sizes.md)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate considera la RAM utilizzata per il confronto. Se viene specificato un fattore di comfort, la RAM utilizzata viene moltiplicata per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia, viene usata la RAM allocata per applicare un fattore di comfort.<br/><br/> | Pronto se la quantità di RAM è entro il limite
+**RAM** | Ogni computer non deve avere più di 3.892 GB di RAM, ovvero la dimensione massima supportata da una VM di Azure M Standard_M128m &nbsp; <sup>2</sup> . [Altre informazioni](../virtual-machines/sizes.md).<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate considera la RAM utilizzata per il confronto. Se viene specificato un fattore di comfort, la RAM utilizzata viene moltiplicata per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia, viene usata la RAM allocata per applicare un fattore di comfort.<br/><br/> | Pronto se la quantità di RAM è entro il limite
 **Disco di archiviazione** | Le dimensioni allocate di un disco non devono superare 32 TB. Sebbene Azure supporti i dischi da 64 TB con i dischi Ultra SSD di Azure, Azure Migrate: la valutazione del server attualmente verifica la presenza di 32 TB come limite delle dimensioni del disco, perché non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati al computer, incluso il disco del sistema operativo, deve essere 65 o un numero inferiore. | Pronto se il numero e le dimensioni del disco sono entro i limiti
 **Rete** | Un computer non deve avere più di 32 interfacce di rete (NIC) connesse. | Pronto se il numero di schede di rete rientra nel limite
 
@@ -176,7 +179,7 @@ Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Pronto 
 Windows Server 2003 e Windows Server 2003 R2 | Questi sistemi operativi hanno superato le date di fine del supporto e necessitano di un [contratto di supporto personalizzato (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) per il supporto in Azure. | Pronto per Azure in modo condizionale. Provare ad aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 e MS-DOS | Questi sistemi operativi hanno superato le date di fine del supporto. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Si consiglia di aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Windows 7, Windows 8 e Windows 10 | Azure fornisce il supporto solo per una [sottoscrizione di Visual Studio.](../virtual-machines/windows/client-images.md) | Pronto per Azure in modo condizionale.
-Windows 10 Pro | Azure fornisce supporto con [i diritti di hosting multi-tenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Pronto per Azure in modo condizionale.
+Windows 10 Pro | Azure fornisce supporto con [i diritti di hosting multi-tenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Pronto per Azure in modo condizionale.
 Windows Vista e Windows XP Professional | Questi sistemi operativi hanno superato le date di fine del supporto. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Si consiglia di aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Linux | Vedere i [sistemi operativi Linux](../virtual-machines/linux/endorsed-distros.md) approvati da Azure. Altri sistemi operativi Linux potrebbero avviarsi in Azure. È tuttavia consigliabile aggiornare il sistema operativo a una versione approvata prima di eseguire la migrazione ad Azure. | Idoneo per Azure se la versione è approvata.<br/><br/>Pronto in modo condizionale se la versione non è approvata.
 Altri sistemi operativi come Oracle Solaris, Apple macOS e FreeBSD | Azure non approva questi sistemi operativi. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Prima di eseguire la migrazione ad Azure, è consigliabile installare un sistema operativo supportato.  

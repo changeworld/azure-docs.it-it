@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Funzioni di Azure
       href: functions-overview.md
-    - name: Guida introduttiva
+    - name: Introduzione
       href: functions-get-started.md
     - name: Funzioni permanenti
       href: durable/durable-functions-overview.md
@@ -369,6 +369,8 @@
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Eseguire l'autenticazione con un provider OpenID Connect (anteprima)
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Eseguire l'autenticazione tramite accesso con Apple (anteprima)
+              href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Autenticazione avanzata
           href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Limitare gli indirizzi IP

@@ -1,0 +1,153 @@
+items:
+  - name: Documentazione di Azure Purview
+    href: index.yml
+  - name: Panoramica
+    items:
+      - name: Che cos'è Azure Purview?
+        href: overview.md
+  - name: Avvi rapidi
+    expanded: true
+    items:
+      - name: Creare un account Purview - Portale di Azure
+        href: create-catalog-portal.md
+      - name: Creare un account Purview - Azure PowerShell
+        href: create-catalog-powershell.md
+  - name: Esercitazioni
+    items:
+      - name: Starter kit
+        items:
+          - name: Analizzare i dati
+            href: tutorial-scan-data.md
+          - name: Esplorare la home page ed eseguire ricerche
+            href: tutorial-asset-search.md
+          - name: Esplorare gli asset e visualizzare la derivazione
+            href: tutorial-browse-and-view-lineage.md
+          - name: 'Esplorare set di risorse, asset, schemi e classificazioni'
+            href: tutorial-schemas-and-classifications.md
+          - name: Creare termini di glossario
+            href: tutorial-import-create-glossary-terms.md
+      - name: Registrare e analizzare un server SQL locale
+        href: register-scan-on-premises-sql-server.md
+  - name: Concetti
+    items:
+      - name: Usare Purview Studio
+        href: use-purview-studio.md
+      - name: Procedura consigliate per la distribuzione
+        href: deployment-best-practices.md
+      - name: Limiti di Azure Purview
+        href: how-to-manage-quotas.md
+      - name: Come vengono rilevati gli asset eliminati tramite le analisi
+        href: concept-detect-deleted-assets.md
+      - name: Informazioni sui set di risorse
+        href: concept-resource-sets.md
+      - name: Derivazione dei dati
+        href: concept-data-lineage.md
+      - name: Origini dati e tipi di file supportati
+        href: sources-and-scans.md
+      - name: Autorizzazioni per il catalogo
+        href: catalog-permissions.md
+      - name: Ricerca nel catalogo
+        href: concept-search.md
+      - name: Glossario aziendale
+        href: concept-business-glossary.md
+      - name: Informazioni sui dati
+        href: concept-insights.md
+      - name: Domande frequenti
+        href: frequently-asked-questions.md
+  - name: Guide pratiche
+    items:
+      - name: Registrare e analizzare
+        items:
+          - name: Gestisci credenziali
+            href: manage-credentials.md
+            displayName: Create and manage Credentials
+          - name: Creare un set di regole di analisi
+            href: create-a-scan-rule-set.md
+          - name: Gestire i runtime di integrazione
+            href: manage-integration-runtimes.md
+          - name: Risolvere i problemi di connessione
+            href: troubleshoot-connections.md
+          - name: Origini
+            items:
+              - name: Gestire le origini dati
+                href: manage-data-sources.md
+              - name: Panoramica dei connettori di Purview
+                href: purview-connector-overview.md
+              - name: Archiviazione BLOB di Azure
+                href: register-scan-azure-blob-storage-source.md
+                displayName: Register and scan azure blob storage
+              - name: Azure Cosmos DB
+                href: register-scan-azure-cosmos-database.md
+                displayName: Register and scan Azure Cosmos DB
+              - name: Esplora dati di Azure
+                href: register-scan-azure-data-explorer.md
+                displayName: Register and scan Azure Data Explorer Kusto
+              - name: Azure Data Lake Storage Gen 1
+                href: register-scan-adls-gen1.md
+                displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+              - name: Azure Data Lake Storage Gen 2
+                href: register-scan-adls-gen2.md
+                displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+              - name: Database SQL di Azure
+                href: register-scan-azure-sql-database.md
+                displayName: Register and scan Azure SQL DB
+              - name: Database SQL di Azure con un firewall
+                href: scan-sqlresource-firewall.md
+                displayName: Register and scan Azure SQL DB with a firewall
+              - name: Istanza gestita di database SQL di Azure
+                href: register-scan-azure-sql-database-managed-instance.md
+                displayName: Register and scan Azure SQL DB Managed Instance
+              - name: Azure Synapse Analytics
+                href: register-scan-azure-synapse-analytics.md
+              - name: Tenant di Power BI - Portale
+                href: register-scan-power-bi-tenant.md
+              - name: Tenant di Power BI - PowerShell
+                href: powershell-register-scan-power-bi.md
+              - name: SQL Server locale
+                href: register-scan-on-premises-sql-server.md
+      - name: Glossario aziendale
+        items:
+          - name: 'Creare, importare ed esportare termini di glossario'
+            href: how-to-create-import-export-glossary.md
+          - name: Gestire i modelli di termini
+            href: how-to-manage-term-templates.md
+      - name: Classificazione
+        items:
+          - name: Creare classificazioni e regole di classificazione personalizzate
+            href: create-a-custom-classification-and-classification-rule.md
+          - name: Applicare classificazioni
+            href: apply-classifications.md
+          - name: Etichettare automaticamente il contenuto
+            href: create-sensitivity-label.md
+      - name: Cercare ed esplorare
+        items:
+          - name: Esplorare Data Catalog
+            href: how-to-browse-catalog.md
+          - name: Eseguire ricerche in Data Catalog
+            href: how-to-search-catalog.md
+      - name: Derivazione
+        items:
+          - name: Manuale dell'utente sulla derivazione
+            href: catalog-lineage-user-guide.md
+          - name: Derivazione di Azure Data Factory
+            href: how-to-link-azure-data-factory.md
+          - name: Derivazione di Condivisione dati di Azure
+            href: how-to-link-azure-data-share.md
+      - name: Informazioni dettagliate
+        items:
+          - name: Visualizzare informazioni dettagliate sugli asset
+            href: asset-insights.md
+          - name: Visualizzare informazioni dettagliate sul glossario
+            href: glossary-insights.md
+          - name: Visualizzare informazioni dettagliate sulle analisi
+            href: scan-insights.md
+          - name: Visualizzare informazioni dettagliate sulle classificazioni
+            href: classification-insights.md
+          - name: Visualizzare informazioni dettagliate sulle etichette di riservatezza
+            href: sensitivity-insights.md
+          - name: Visualizzare informazioni dettagliate sulle estensioni di file
+            href: file-extension-insights.md
+  - name: Informazioni di riferimento
+    items:
+      - name: Classificazioni supportate
+        href: supported-classifications.md

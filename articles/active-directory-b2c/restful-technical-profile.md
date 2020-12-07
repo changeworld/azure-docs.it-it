@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/08/2020
+ms.date: 11/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5aca04a649dfa5228d12737b21ef2ee2b14013b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88041528"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750451"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 L'esempio seguente illustra l'attestazione restituita dall'API REST:
 
-- L'attestazione**MembershipId** di cui viene eseguito il mapping per il nome di attestazione **loyaltyNumber**.
+- L'attestazione **MembershipId** di cui viene eseguito il mapping per il nome di attestazione **loyaltyNumber**.
 
 Il profilo tecnico restituisce anche le attestazioni che non vengono restituite dal provider di identità:
 
@@ -112,16 +112,16 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sì | L'URL dell'endpoint API REST. |
-| AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic`, `Bearer` o `ClientCertificate`. Il `None` valore indica che l'API REST è anonima. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il `ClientCertificate` valore (consigliato) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. Il `Bearer` valore indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. |
+| AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. Valori possibili: `None` , `Basic` , `Bearer` ,  `ClientCertificate` o `ApiKeyHeader` . <br /><ul><li>Il `None` valore indica che l'API REST è anonima. </li><li>Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. </li><li>Il `ClientCertificate` valore (consigliato) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. </li><li>Il `Bearer` valore indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. </li><li>Il `ApiKeyHeader` valore indica che l'API REST è protetta con l'intestazione HTTP della chiave API, ad esempio *x-Functions-Key*. </li></ul> |
 | AllowInsecureAuthInProduction| No| Indica se `AuthenticationType` può essere impostato su `none` in un ambiente di produzione ( `DeploymentMode` di [TrustFrameworkPolicy](trustframeworkpolicy.md) è impostato su `Production` o non è stato specificato). Valori possibili: true o false (impostazione predefinita). |
 | SendClaimsIn | No | Specifica la modalità di invio di attestazioni di input al provider di attestazioni RESTful. Valori possibili: `Body` (impostazione predefinita),, `Form` `Header` `Url` o `QueryString` . Il valore `Body` è l'attestazione di input che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di input che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore`Header` è l'attestazione di input che viene inviata nell'intestazione della richiesta. Il `Url` valore è l'attestazione di input inviata nell'URL, ad esempio https://{claim1}. example. com/{claim2}/{claim3}? { claim4} = {claim5}. Il valore`QueryString` è l'attestazione di input che viene inviata nella stringa di query della richiesta. I verbi HTTP richiamati da ciascuno di essi sono i seguenti:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | No | Attualmente non usato; può essere ignorato. |
 | ClaimUsedForRequestPayload| No | Nome di un'attestazione di stringa che contiene il payload da inviare all'API REST. |
 | DebugMode | No | Il profilo tecnico viene eseguito in modalità debug. Valori possibili: `true` o `false` (impostazione predefinita). In modalità debug, l'API REST può restituire altre informazioni. Vedere la sezione [restituzione del messaggio di errore](#returning-validation-error-message) . |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 | ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true` o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized` o `data.0.to.0.email` .|
 | UseClaimAsBearerToken| No| Nome dell'attestazione che contiene il bearer token.|
 
@@ -129,7 +129,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 I metadati seguenti possono essere usati per configurare i messaggi di errore visualizzati quando si verifica un errore nell'API REST. I messaggi di errore possono essere [localizzati](localization-string-ids.md#restful-service-error-messages).
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | DefaultUserMessageIfRequestFailed | No | Un messaggio di errore personalizzato predefinito per tutte le eccezioni dell'API REST.|
 | UserMessageIfCircuitOpen | No | Messaggio di errore quando l'API REST non è raggiungibile. Se non è specificato, verrà restituito DefaultUserMessageIfRequestFailed. |
@@ -154,7 +154,7 @@ Se il tipo di autenticazione è impostato su `None`, l'elemento **CryptographicK
 
 Se il tipo di autenticazione è impostato su `Basic`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sì | Il nome utente usato per l'autenticazione. |
 | BasicAuthenticationPassword | Sì | La password usata per l'autenticazione. |
@@ -179,7 +179,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico con autenticazione di 
 
 Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sì | Il certificato X509 (set di chiavi RSA) da usare per l'autenticazione. |
 
@@ -200,7 +200,7 @@ Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **C
 
 Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | No | Token di porta OAuth 2,0. |
 
@@ -215,6 +215,27 @@ Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **Cryptographi
   </Metadata>
   <CryptographicKeys>
     <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_B2cRestClientAccessToken" />
+  </CryptographicKeys>
+</TechnicalProfile>
+```
+
+Se il tipo di autenticazione è impostato su `ApiKeyHeader`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
+
+| Attributo | Obbligatorio | Descrizione |
+| --------- | -------- | ----------- |
+| Nome dell'intestazione HTTP, ad esempio `x-functions-key` o `x-api-key` . | Sì | Chiave utilizzata per l'autenticazione. |
+
+```xml
+<TechnicalProfile Id="REST-API-SignUp">
+  <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
+    <Item Key="AuthenticationType">ApiKeyHeader</Item>
+    <Item Key="SendClaimsIn">Body</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
   </CryptographicKeys>
 </TechnicalProfile>
 ```
@@ -235,7 +256,7 @@ L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistem
 }
 ```
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | version | Sì | Versione dell'API REST. Ad esempio: 1.0.1 |
 | status | Sì | Deve essere 409 |

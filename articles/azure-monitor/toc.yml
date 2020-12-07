@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -274,6 +274,8 @@
                   href: log-query/resource-expression.md
                 - name: Unificare le risorse dati dell'applicazione
                   href: log-query/unify-app-resource-data.md
+                - name: Eseguire query su Esplora dati di Azure da Monitoraggio di Azure
+                  href: platform/azure-monitor-data-explorer-proxy.md
         - name: Esportazione dei dati
           items:
             - name: Esportazione di dati dell'area di lavoro
@@ -550,7 +552,7 @@
               href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Creare un'app Web di Service Manager
               href: platform/itsmc-service-manager-script.md
-            - name: Risolvere i problemi di sincronizzazione di ITSM di ServiceNow
+            - name: Risolvere i problemi di Connettore di Gestione dei servizi IT
               href: platform/itsmc-resync-servicenow.md
         - name: Eseguire la migrazione delle regole di avviso (versione classica)
           items:

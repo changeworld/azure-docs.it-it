@@ -5,15 +5,15 @@ description: Questo articolo offre una panoramica di web application firewall (W
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518975"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621026"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 
@@ -143,7 +143,7 @@ In questa modalità, il traffico che corrisponde a qualsiasi regola non viene im
 Per bloccare il traffico, il punteggio di anomalia deve raggiungere la soglia 5. Quindi, una singola corrispondenza con una regola di livello *critico* è sufficiente perché WAF nel gateway applicazione blocchi una richiesta, anche in modalità di prevenzione. Invece una singola corrispondenza con una regola di tipo *avviso* si limita a incrementare di 3 il punteggio di anomalia, quindi non è sufficiente per bloccare il traffico.
 
 > [!NOTE]
-> Il messaggio registrato quando una regola di WAF corrisponde al traffico include il valore di azione "Blocked", ossia bloccato. Ma in realtà il traffico viene bloccato solo nel caso di un punteggio di anomalia pari o superiore a 5.  
+> Il messaggio registrato quando una regola di WAF corrisponde al traffico include il valore di azione "Blocked", ossia bloccato. Ma in realtà il traffico viene bloccato solo nel caso di un punteggio di anomalia pari o superiore a 5. Per altre informazioni, vedere [Risolvere i problemi di Web application firewall (WAF) per il gateway applicazione di Azure](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>Monitoraggio di WAF
 

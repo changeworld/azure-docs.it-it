@@ -3,12 +3,12 @@ title: Backup offline con Azure Data Box per DPM e MAB
 description: È possibile utilizzare Azure Data Box per inizializzare i dati di backup iniziali offline da DPM e da MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172224"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752550"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline con Azure Data Box per DPM e MAB (anteprima)
 
@@ -177,7 +177,7 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
 
     In questo modo, la replica iniziale dei dati viene eseguita nel disco di DPM/MAB. Al termine della protezione, lo stato del gruppo indicherà lo stato di protezione dati su **OK** nella pagina **protezione** .
 
-17. Per avviare la copia di backup offline nel dispositivo Azure Data Box, fare clic con il pulsante destro del mouse sul **gruppo protezione**dati, quindi scegliere l'opzione **Crea punto di ripristino** . Scegliere quindi l'opzione **Protezione dati online**.
+17. Per avviare la copia di backup offline nel dispositivo Azure Data Box, fare clic con il pulsante destro del mouse sul **gruppo protezione** dati, quindi scegliere l'opzione **Crea punto di ripristino** . Scegliere quindi l'opzione **Protezione dati online**.
 
     ![Crea punto di ripristino](./media/offline-backup-azure-data-box-dpm-mabs/create-recovery-point.png)
 
@@ -194,7 +194,7 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
 Al termine del backup dei dati in Azure Data Box Disk, seguire questa procedura.
 
 - Per inviare Azure Data Box Disk ad Azure, seguire la procedura descritta in [questo articolo](../databox/data-box-disk-deploy-picked-up.md). Se è stato usato un dispositivo Azure Data Box da 100 TB, seguire [questi passaggi](../databox/data-box-deploy-picked-up.md) per inviare Azure Data Box ad Azure.
-- [Monitorare il processo Data Box](../databox/data-box-disk-deploy-upload-verify.md) nel portale di Azure. Al *termine*del processo di Azure Data Box, il server DPM/MAB sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Contrassegna quindi il processo di backup come *Processo completato* se viene creato un punto di ripristino.
+- [Monitorare il processo Data Box](../databox/data-box-disk-deploy-upload-verify.md) nel portale di Azure. Al *termine* del processo di Azure Data Box, il server DPM/MAB sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Contrassegna quindi il processo di backup come *Processo completato* se viene creato un punto di ripristino.
 
   > [!NOTE]
   > Il server DPM/MAB attiva i backup nelle ore pianificate durante la creazione del gruppo protezione dati. Questi processi risulteranno tuttavia *in attesa del completamento del processo Azure Data Box* fino al termine del processo.
@@ -230,7 +230,7 @@ Controllare se viene visualizzato il messaggio di errore seguente nella console 
 
 Per risolvere questo problema, seguire questa procedura e riprovare a configurare i criteri.
 
-1. Accedere alla pagina di accesso di Azure visualizzata nell'interfaccia utente del server DPM/MAB usando un account diverso con accesso amministrativo alla sottoscrizione in cui verrà creato il processo di importazione/esportazione.
+1. Accedere alla pagina di accesso di Azure visualizzata nell'interfaccia utente del server DPM/MAB usando un account diverso con accesso amministrativo alla sottoscrizione in cui verrà creato il processo Data Box.
 2. Se nessun altro server ha il seeding offline configurato e nessun altro server dipende dall'applicazione `AzureOfflineBackup_<Azure User Id>`, eliminare questa applicazione dal **portale di Azure > Azure Active Directory > Registrazioni app**.
 
    > [!NOTE]

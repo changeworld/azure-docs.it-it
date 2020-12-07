@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975633"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751700"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione di Azure
 
@@ -466,12 +466,9 @@ Sì. Nel gateway applicazione gli avvisi sono configurati nelle metriche. Per al
 
 In genere viene visualizzato uno stato sconosciuto quando l'accesso al back-end è bloccato da un gruppo di sicurezza di rete (NSG), un DNS personalizzato o un routing definito dall'utente (UDR) nella subnet del gateway applicazione. Per altre informazioni, vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
 
-### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Esistono casi in cui i log del flusso del gruppo di sicurezza di rete non visualizzano il traffico consentito?
+### <a name="are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet"></a>I log di flusso NSG sono supportati in gruppi associati alla subnet V2 del gateway applicazione?
 
-Sì. Se la configurazione corrisponde allo scenario seguente, non verrà visualizzato il traffico consentito nei log del flusso del gruppo di sicurezza di rete:
-- È stato distribuito il gateway applicazione v2
-- È presente un gruppo di sicurezza di rete nella subnet del gateway applicazione
-- Sono stati abilitati i log del flusso del gruppo di sicurezza di rete nel gruppo di sicurezza
+A causa delle limitazioni correnti della piattaforma, se si dispone di un NSG sulla subnet del gateway applicazione V2 (Standard_v2, WAF_v2) e se sono stati abilitati i log del flusso di NSG, verrà visualizzato un comportamento non deterministico e questo scenario non è attualmente supportato.
 
 ### <a name="does-application-gateway-store-customer-data"></a>Il gateway applicazione archivia i dati dei clienti?
 

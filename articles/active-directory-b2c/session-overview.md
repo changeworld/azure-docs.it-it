@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e02323df3a12c4a74de1fb62b36762fc739e9e5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258966"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750442"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C sessione
 
@@ -47,7 +47,7 @@ Se un utente accede inizialmente con un account federato e quindi durante l'inte
 
 Un provider di identità di social networking o aziendale gestisce la propria sessione. Il cookie viene archiviato nel nome di dominio del provider di identità, ad esempio `https://login.salesforce.com` . Azure AD B2C non controlla la sessione del provider di identità federato. Al contrario, il comportamento della sessione è determinato dal provider di identità federato. 
 
-Si consideri lo scenario seguente:
+Considerare lo scenario seguente:
 
 1. Un utente accede a Facebook per verificare il feed.
 2. Successivamente, l'utente apre l'applicazione e avvia il processo di accesso. L'applicazione reindirizza l'utente a Azure AD B2C per completare il processo di accesso.
@@ -96,8 +96,12 @@ In seguito a una richiesta di disconnessione, Azure AD B2C:
 1. Invalida la sessione basata su cookie Azure AD B2C.
 1. Tenta di disconnettersi dai provider di identità federati:
    - OpenId Connect: se l'endpoint di configurazione noto del provider di identità specifica un `end_session_endpoint` percorso.
-   - SAML: se i metadati del provider di identità contengono il `SingleLogoutService` percorso.
+   - OAuth2-se i [metadati del provider di identità](oauth2-technical-profile.md#metadata) contengono il `end_session_endpoint` percorso.
+   - SAML: se i [metadati del provider di identità](saml-identity-provider-technical-profile.md#metadata) contengono il `SingleLogoutService` percorso.
 1. Facoltativamente, si disconnette da altre applicazioni. Per altre informazioni, vedere la sezione [Single Sign-out](#single-sign-out) .
+
+> [!NOTE]
+> Utilizzando [criteri personalizzati](custom-policy-overview.md), è possibile disabilitare la disconnessione dai provider di identità federati impostando i metadati del profilo tecnico del provider `SingleLogoutEnabled` di identità su `false` .
 
 La disconnessione Cancella lo stato di Single Sign-On dell'utente con Azure AD B2C, ma potrebbe non disconnettersi l'utente dalla propria sessione del provider di identità di social networking. Se l'utente seleziona lo stesso provider di identità durante un accesso successivo, potrebbe eseguire nuovamente l'autenticazione senza immettere le credenziali. Se un utente vuole disconnettersi dall'applicazione, non significa necessariamente che voglia disconnettersi dal proprio account Facebook. Tuttavia, se vengono utilizzati account locali, la sessione dell'utente termina correttamente.
 

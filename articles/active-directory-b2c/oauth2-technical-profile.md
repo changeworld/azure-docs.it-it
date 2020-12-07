@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 35b1f57a2361c5a4360e2ff1944b93e767168799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 486622b37f02ab8b2a53a273a6eaea4cb5add3a5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259391"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750437"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -77,13 +77,14 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
 | authorization_endpoint | Sì | L'URL dell'endpoint di autorizzazione come per RFC 6749. |
 | AccessTokenEndpoint | Sì | L'URL dell'endpoint token come per RFC 6749. |
 | ClaimsEndpoint | Sì | L'URL dell'endpoint di informazioni per l'utente come per RFC 6749. |
+| end_session_endpoint | Sì | URL dell'endpoint della sessione finale in base allo standard RFC 6749. |
 | AccessTokenResponseFormat | No | Il formato delle chiamate a endpoint del token di accesso. Ad esempio, Facebook richiede un metodo HTTP GET, ma la risposta del token di accesso è in formato JSON. |
 | AdditionalRequestQueryParameters | No | Parametri di query della richiesta aggiuntivi. Ad esempio, è possibile inviare parametri aggiuntivi al provider di identità. È possibile includere più parametri usando la virgola di delimitazione. |
 | ClaimsEndpointAccessTokenName | No | Il nome del parametro della stringa di query del token di accesso. Gli endpoint di alcuni provider di identità delle attestazioni supportano la richiesta HTTP GET. In questo caso, il token di connessione viene inviato usando un parametro della stringa di query anziché l'intestazione dell'autorizzazione. |
@@ -91,20 +92,21 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimsEndpointFormat | No | Il valore del parametro della stringa di query di formato. Ad esempio, è possibile impostare il valore su `json` in questo endpoint attestazioni LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
 | ProviderName | No | Il nome del provider di identità. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
-| ambito | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
+| scope | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
 | HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I valori possibili sono: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | No | Il nome del parametro che contiene il messaggio di errore restituito nel messaggio HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contiene altri parametri che possono essere restituiti nella risposta di **AccessTokenEndpoint** da alcuni provider di identità. Ad esempio, la risposta di **AccessTokenEndpoint** contiene un altro parametro, ad esempio `openid`, ovvero un parametro obbligatorio oltre all'access_token in una stringa di query della richiesta **ClaimsEndpoint**. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
 | ExtraParamsInClaimsEndpointRequest | No | Contiene altri parametri che possono essere restituiti nella richiesta **ClaimsEndpoint** da alcuni provider di identità. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 | ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true` o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized` o `data.0.to.0.email` .|
 |token_endpoint_auth_method| No| Specifica il modo in cui Azure AD B2C invia l'intestazione di autenticazione all'endpoint del token. Valori possibili: `client_secret_post` (impostazione predefinita) e `client_secret_basic` (anteprima pubblica). Per altre informazioni, vedere la [sezione autenticazione client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|SingleLogoutEnabled| No| Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-overview.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` .|
 
 ## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` , è possibile omettere la chiave crittografica. |
 
