@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 16a21acabfd199ba16068e507919b564f01a76d5
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833504"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763911"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando GitHub Actions
 
@@ -55,7 +55,7 @@ Il file è costituito da tre sezioni:
 
 Verrà eseguito il commit del file del flusso di lavoro nel repository. Il flusso di lavoro per compilare e distribuire l'app viene avviato immediatamente.
 
-## <a name="set-up-a-work-manually"></a>Configurare manualmente un lavoro
+## <a name="set-up-a-workflow-manually"></a>Configurare manualmente un flusso di lavoro
 
 È anche possibile distribuire un flusso di lavoro senza usare il centro distribuzione. A tale scopo, sarà necessario prima generare le credenziali di distribuzione. 
 
@@ -88,7 +88,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --sdk-auth
 ```
 
-Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che consentono di accedere all'app del servizio app in modo simile a quanto riportato di seguito. Copiare questo oggetto JSON per un momento successivo.
+Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'app. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'app del servizio app simile a questo esempio. Copiare l'oggetto JSON per un uso successivo.
 
 ```output 
   {

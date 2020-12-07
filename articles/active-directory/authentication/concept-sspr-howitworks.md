@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 12/07/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743871"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762551"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -69,11 +69,8 @@ Per iniziare a usare SSPR, completare l'esercitazione seguente:
 > [!div class="nextstepaction"]
 > [Esercitazione: abilitazione della reimpostazione della password self-service (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Opzioni di registrazione
 
-Prima che gli utenti possano reimpostare o modificare la password usando SSPR, devono registrarsi e i metodi di autenticazione da usare. Come indicato nella sezione precedente, un utente deve essere registrato per SSPR e disporre di una licenza appropriata applicata.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Richiedere agli utenti di registrarsi all'accesso
+## <a name="require-users-to-register-when-they-sign-in"></a>Richiedere agli utenti di registrarsi all'accesso
 
 È possibile abilitare l'opzione per richiedere a un utente di completare la registrazione SSPR se accedono a qualsiasi applicazione usando Azure AD. Questo flusso di lavoro include le applicazioni seguenti:
 
@@ -92,7 +89,7 @@ Quando non è necessaria la registrazione, gli utenti non vengono richiesti dura
 >
 > Questo interrupt per la registrazione di SSPR non interrompe la connessione dell'utente se è già connesso.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Impostare il numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione
+## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Impostare il numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione
 
 Per assicurarsi che i metodi di autenticazione siano corretti quando sono necessari per reimpostare o modificare la password, è possibile richiedere agli utenti di confermare le informazioni registrate dopo un determinato periodo di tempo. Questa opzione è disponibile solo se si Abilita l'opzione **Richiedi agli utenti di registrarsi all'accesso** .
 
@@ -106,7 +103,7 @@ Per SSPR sono disponibili i metodi di autenticazione seguenti:
 
 * Notifica dell'app per dispositivi mobili
 * Codice app per dispositivi mobili
-* E-mail
+* Email
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
@@ -152,7 +149,7 @@ Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili 
 
 Cosa succede se si inizia con un criterio che ha solo un metodo di autenticazione registrato necessario per la reimpostazione o lo sblocco e si passa a due?
 
-| Numero di metodi registrati | Numero di metodi necessari | Result |
+| Numero di metodi registrati | Numero di metodi necessari | Risultato |
 | :---: | :---: | :---: |
 | 1 o più | 1 | **Possibilità** di reimpostare o sbloccare |
 | 1 | 2 | **Impossibilità** di reimpostare o sbloccare |

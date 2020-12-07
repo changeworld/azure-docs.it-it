@@ -4,12 +4,12 @@ description: Application Insights esegue un'analisi intelligente dei dati di tel
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186236"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763775"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -99,7 +99,7 @@ Dove si verifica il problema? La risposta del server è lenta, la pagina è molt
 
 Aprire il pannello delle metriche del browser. La visualizzazione segmentata del tempo di caricamento pagina del browser mostra il tempo necessario per ogni operazione. 
 
-* Se il valore di **Tempo per l'invio della richiesta** è elevato, la risposta del server è lenta o la richiesta è un post con molti dati. Esaminare le [metriche delle prestazioni](./web-monitor-performance.md#metrics) per analizzare i tempi di risposta.
+* Se il valore di **Tempo per l'invio della richiesta** è elevato, la risposta del server è lenta o la richiesta è un post con molti dati. Esaminare le [metriche delle prestazioni](./performance-counters.md) per analizzare i tempi di risposta.
 * Configurare il [rilevamento delle dipendenze](./asp-net-dependencies.md) per verificare se la lentezza dipende da servizi esterni o dal database.
 * Se il valore **Tempo per la ricezione della risposta** è predominante, la pagina e le relative parti dipendenti, ovvero JavaScript, CSS, immagini e così via (ma non i dati caricati in modo asincrono) sono molto lunghe. Configurare un [test di disponibilità](./monitor-web-app-availability.md)e assicurarsi di impostare l'opzione per il caricamento delle parti dipendenti. Quando si ottengono risultati, aprire i dettagli di un risultato ed espanderli per verificare i tempi di caricamento dei diversi file.
 * Un valore elevato per **Tempo di elaborazione client** indica che l'esecuzione degli script è lenta. Se le cause non sono evidenti, prendere in considerazione l'aggiunta di codice relativo ai tempi e inviare i valori temporali in chiamate trackMetric.

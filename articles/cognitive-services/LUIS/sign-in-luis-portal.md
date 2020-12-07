@@ -9,92 +9,48 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: ae51dca466a9aaf489ba4628e13a5e13de25b9bc
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3235f6285edb99776b42014678cd2b6c60d17f62
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546863"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763842"
 ---
 # <a name="sign-in-to-luis-portal"></a>Accedere al portale LUIS
 
-Se si è un nuovo utente che accede al portale LUIS, l'esperienza di accesso sarà leggermente diversa in base all'account utente corrente:
-  * Associato a una sottoscrizione di Azure
-  * Non associato a una sottoscrizione di Azure
+Usare questo articolo per iniziare a usare il portale LUIS e creare una risorsa di creazione. Dopo aver completato i passaggi descritti in questo articolo, sarà possibile creare e pubblicare app LUIS.
 
-## <a name="determine-account-type"></a>Determinare il tipo di account
-
-Quando si accede per la prima volta al portale LUIS, usare gli indicatori visivi seguenti per determinare il tipo di conto.
-
-### <a name="account-without-azure-subscription"></a>Account senza sottoscrizione di Azure
-
-Un account, che non è associato a una sottoscrizione di Azure, dispone dell'icona di Azure nella barra di spostamento in alto a destra. Quando si esegue la migrazione al tipo di account associato, l'icona non viene più visualizzata.
-
-:::image type="content" source="media/sign-in/sign-in-with-account-without-azure-subscription.png" alt-text="Screenshot parziale della barra di spostamento LUIS con l'icona di Azure.":::
-
-### <a name="account-with-azure-subscription"></a>Account con sottoscrizione di Azure
-
-Un account associato a una sottoscrizione di Azure consente di selezionare la sottoscrizione e la risorsa da usare.
-
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Screenshot parziale del portale LUIS con le caselle di riepilogo a discesa sottoscrizione e creazione delle risorse.":::
-
-## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Accedere con l'account associato a una sottoscrizione di Azure
-
-1. Accedere a [Luis Portal](https://www.luis.ai) e accettare le condizioni per l'utilizzo.
-
-1. Sono disponibili due opzioni per l'iscrizione:
-
-    * Continuare a usare una risorsa di Azure, ovvero il percorso consigliato e presto sarà l'unico percorso disponibile. Questo percorso consente di collegare l'account LUIS a una risorsa di creazione di Azure durante l'iscrizione scegliendo una risorsa esistente nella sottoscrizione o creando una nuova risorsa. Questa operazione equivale all'iscrizione migrata senza la necessità di eseguire il processo di [migrazione](luis-migration-authoring.md#what-is-migration) in un secondo momento. A tutti gli utenti verrà richiesto di eseguire la migrazione entro il 2 novembre 2020.
-
-    * Continuare a usare la chiave di avvio o di valutazione. Questo percorso consente di accedere a LUIS con lo Starter o la risorsa di valutazione fornita senza dover creare risorse. Se si sceglie questo percorso, alla fine verrà richiesto di [eseguire la migrazione dell'account](luis-migration-authoring.md#migration-steps) e di collegare le applicazioni a una risorsa di creazione. Per questo motivo, è consigliabile scegliere il percorso in cui si continua con la risorsa di Azure.
-
-    [Altre informazioni sulle chiavi di creazione e di avvio](luis-how-to-azure-subscription.md#luis-resources). Entrambe le risorse offrono 1 milione transazioni di creazione gratuite e 1000 transazioni dell'endpoint di stima gratuite.
-
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Schermata parziale per scegliere un tipo di Language Understanding risorsa di creazione.":::
-
-1. Usa una risorsa di creazione esistente
-
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Scegliere la risorsa di creazione":::
-
-    Se nella sottoscrizione sono già presenti risorse per la creazione di LUIS e si associa una con l'account LUIS durante l'accesso, scegliere l'opzione **Usa la risorsa di creazione esistente** e specificare le informazioni seguenti:
-
-    * **Tenant**: tenant a cui è associata la sottoscrizione di Azure. Non sarà possibile cambiare i tenant dalla finestra esistente. È possibile cambiare i tenant selezionando l'avatar più a destra, che contiene le iniziali nella barra superiore.
-    * **Nome sottoscrizione** : la sottoscrizione che verrà associata alla risorsa. Se si dispone di più di una sottoscrizione appartenente al tenant, selezionare quella desiderata dall'elenco a discesa.
-    * **Nome risorsa** : la risorsa di creazione a cui si vuole associare l'account.
-
-    > [!Note]
-    > Se la risorsa di creazione che si sta cercando è disattivata nell'elenco a discesa, significa che è stato effettuato l'accesso a un altro portale regionale. [Comprendere il concetto di portali regionali](luis-reference-regions.md#luis-authoring-regions).
-
-1. Creare una nuova risorsa di creazione
-
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Creare la risorsa di creazione":::
-
-    Durante la **creazione di una nuova risorsa di creazione** specificare le informazioni seguenti:
-
-    * **Tenant**: tenant a cui è associata la sottoscrizione di Azure. Non sarà possibile cambiare i tenant dalla finestra esistente. È possibile cambiare i tenant selezionando l'avatar più a destra, che contiene le iniziali nella barra superiore.
-    * **Nome risorsa** : nome personalizzato scelto, usato come parte dell'URL per le transazioni di creazione. Il nome della risorsa può includere solo caratteri alfanumerici,'-' e non può iniziare o terminare con '-'. Se nel nome sono inclusi altri simboli, la creazione di una risorsa avrà esito negativo.
-    * **Nome sottoscrizione** : la sottoscrizione che verrà associata alla risorsa. Se si dispone di più di una sottoscrizione appartenente al tenant, selezionare quella desiderata dall'elenco a discesa.
-    * **Gruppo di risorse** : nome del gruppo di risorse personalizzato scelto nella sottoscrizione. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione. Se non si dispone attualmente di un gruppo di risorse nella sottoscrizione, non sarà possibile crearne uno nel portale LUIS. Passare a [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) per crearne uno, quindi passare a Luis per continuare il processo di accesso.
-
-1. Dopo aver scelto il percorso, l'utente potrebbe richiedere alcuni secondi finché non viene visualizzato un segno che indica che la migrazione dell'account è stata completata. Per completare la selezione, **continuare**.
-
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Conferma risorsa di creazione":::
-
-    > [!Note]
-    > Se si dispone di una sottoscrizione e di almeno una risorsa di creazione nell'area corrispondente a quella a cui si sta effettuando l'iscrizione nel portale, è possibile accedere automaticamente a LUIS migrato e associato a una risorsa senza dover scegliere il percorso da usare.
+## <a name="access-the-portal"></a>Accedere al portale
 
 
-## <a name="sign-in-with-user-account-not-associated-with-an-azure-subscription"></a>Accedere con un account utente non associato a una sottoscrizione di Azure
+1. Per iniziare a usare LUIS, visitare il [portale di Luis](https://www.luis.ai). Se non si ha già una sottoscrizione, verrà richiesto di creare un [account gratuito](https://azure.microsoft.com//free/cognitive-services/) e tornare al portale.
+2. Aggiornare la pagina per aggiornarla con la sottoscrizione appena creata
+3. Selezionare la sottoscrizione dall'elenco a discesa
 
-1. Accedere al [portale di Luis](https://www.luis.ai) e verificare di accettare le condizioni per l'utilizzo.
+    > [!div class="mx-imgBorder"]
+    > ![Selezionare le sottoscrizioni](./media/migrate-authoring-key/select-subscription-sign-in-2.png)
 
-1. Per completare la selezione, **continuare**. Si accederà automaticamente con una chiave di prova/Starter. Ciò significa che alla fine verrà richiesto di [eseguire la migrazione dell'account](luis-migration-authoring.md#migration-steps) e di collegare le applicazioni a una risorsa di creazione. Per eseguire il processo di migrazione, sarà necessario accedere a una versione di [valutazione gratuita di Azure](https://azure.microsoft.com/free/).
+4. Se la sottoscrizione si trova in un altro tenant, non sarà possibile passare i tenant dalla finestra esistente. È possibile cambiare i tenant chiudendo questa finestra e selezionando l'avatar più a destra contenente le iniziali nella barra superiore. Fare clic su **scegliere una risorsa di creazione diversa** dalla parte superiore per riaprire la finestra.
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Nessuno scenario di sottoscrizione":::
+    > [!div class="mx-imgBorder"]
+    > ![Cambia directory](./media/migrate-authoring-key/switch-directories.png)
+
+5. Se è presente una risorsa LUIS authoring associata alla sottoscrizione, selezionarla dall'elenco a discesa. È possibile visualizzare tutte le applicazioni create in questa risorsa di creazione.
+6. In caso contrario, fare clic su **Crea una nuova risorsa di creazione** nella parte inferiore di questo modale.
+7.  Durante la creazione di una nuova risorsa di creazione specificare le informazioni seguenti:
+
+    > [!div class="mx-imgBorder"]
+    > ![Create new resource (Crea nuova risorsa)](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
+
+    * **Nome del tenant** : il tenant a cui è associata la sottoscrizione di Azure. Non sarà possibile cambiare i tenant dalla finestra esistente. È possibile cambiare i tenant chiudendo questa finestra e selezionando l'avatar nell'angolo superiore destro della schermata, contenente le iniziali. Selezionare **scegliere una risorsa di creazione diversa** dalla parte superiore per riaprire la finestra.
+    * **Nome del gruppo di risorse di Azure** : nome del gruppo di risorse personalizzato scelto nella sottoscrizione. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione. Se non si dispone attualmente di un gruppo di risorse nella sottoscrizione, non sarà possibile crearne uno nel portale LUIS. Passare a [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) per crearne uno, quindi passare a Luis per continuare il processo di accesso.
+    * **Nome risorsa di Azure** : nome personalizzato scelto, usato come parte dell'URL per le transazioni di creazione. Il nome della risorsa può includere solo caratteri alfanumerici, `-` e non può iniziare o terminare con `-` . Se nel nome sono inclusi altri simboli, la creazione di una risorsa avrà esito negativo.
+    * **Località** : scegliere di creare le applicazioni in una delle [tre posizioni di creazione](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions) attualmente supportate da Luis, tra cui: Stati Uniti occidentali, Europa occidentale e Australia orientale.
+    * Piano **tariffario** : per impostazione predefinita, il piano tariffario per la creazione di F0 è selezionato come indicato. Creare una [chiave gestita dal cliente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest#customer-managed-keys-for-language-understanding) dal portale di Azure se si sta cercando un livello aggiuntivo di sicurezza.
+8. Ora è stato eseguito l'accesso a LUIS. È ora possibile iniziare a creare applicazioni.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-* Se si crea una risorsa di creazione dalla portale di Azure in un'area diversa da quella del portale a cui si accede, la risorsa di creazione sarà disattivata.
 * Quando si crea una nuova risorsa, verificare che il nome della risorsa includa solo caratteri alfanumerici,'-' e non può iniziare o terminare con '-'. In caso contrario, l'operazione non riesce.
 * Assicurarsi di disporre delle [autorizzazioni appropriate per la sottoscrizione per creare una risorsa di Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles). Se non si dispone delle autorizzazioni appropriate, contattare l'amministratore della sottoscrizione per concedere autorizzazioni sufficienti.
 

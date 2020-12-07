@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 46e053856b05f5a009eb1ae8bc6a7246dfb6167e
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616689"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763249"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -63,14 +63,13 @@ Metriche che è necessario eseguire con le richieste API:
 
 Metriche che è necessario eseguire con la fatturazione:
 
->[!NOTE]
->Sebbene queste metriche siano ancora visualizzate nell'elenco selezionabile, rimarranno azzerate fino a quando non saranno disponibili i nuovi prezzi per il servizio. Per altre informazioni, vedere [*prezzi di Azure Digital gemelli*](https://azure.microsoft.com/pricing/details/digital-twins/).
-
 | Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operazioni dell'API di fatturazione | Conteggio | Totale | Metrica di fatturazione per il conteggio di tutte le richieste API effettuate nel servizio Azure Digital Twins. | ID contatore |
 | BillingMessagesProcessed | Messaggi di fatturazione elaborati | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni.<br><br>Per essere considerato un singolo messaggio ai fini della fatturazione, un payload non deve avere una dimensione superiore a 1 KB. I payload di dimensioni maggiori di questo verranno conteggiati come messaggi aggiuntivi in incrementi di 1 KB (pertanto un messaggio compreso tra 1 e 2 KB verrà conteggiato come 2 messaggi, tra 2 e 3 KB sarà costituito da 3 messaggi e così via).<br>Questa restrizione si applica anche alle risposte, pertanto una chiamata che restituisce 1,5 KB nel corpo della risposta, ad esempio, verrà fatturata come 2 operazioni. | ID contatore |
 | BillingQueryUnits | Unità query di fatturazione | Conteggio | Totale | Il numero di unità di query, una misura calcolata internamente dell'utilizzo delle risorse del servizio, utilizzata per eseguire le query. È disponibile anche un'API helper per la misurazione delle unità di query: [classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID contatore |
+
+Per altri dettagli sul modo in cui vengono fatturati i dispositivi gemelli digitali di Azure, vedere prezzi di dispositivi [*gemelli digitali di Azure*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 #### <a name="ingress-metrics"></a>Metriche in ingresso
 
@@ -96,7 +95,7 @@ Metriche che è necessario eseguire con il routing:
 
 Le dimensioni consentono di identificare altri dettagli sulle metriche. Alcune metriche di routing forniscono informazioni per ogni endpoint. Nella tabella seguente sono elencati i valori possibili per queste dimensioni.
 
-| Dimensione | Valori |
+| Dimension | Valori |
 | --- | --- |
 | Authentication | OAuth |
 | Operazione (per le richieste API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/Read, <br>Microsoft. DigitalTwins/eventroutes/Read, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/Models/Read, <br>Microsoft. DigitalTwins/Models/Write, <br>Microsoft. DigitalTwins/Models/Delete, <br>Microsoft. DigitalTwins/query/Action |

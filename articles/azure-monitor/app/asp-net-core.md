@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 404e820168c64bd47b6e94598ad5bb13faf32a86
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8505e67e3db7460308d208ce4f83d29a1fb4d862
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751343"
+ms.locfileid: "96763197"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -142,7 +142,7 @@ La raccolta delle dipendenze è abilitata per impostazione predefinita. [Questo]
 
 ### <a name="performance-counters"></a>Contatori delle prestazioni
 
-Il supporto per i [contatori delle prestazioni](./web-monitor-performance.md) in ASP.NET Core è limitato:
+Il supporto per i [contatori delle prestazioni](./performance-counters.md) in ASP.NET Core è limitato:
 
 * Le versioni di SDK 2.4.1 e successive raccolgono i contatori delle prestazioni se l'applicazione è in esecuzione in App Web di Azure (Windows).
 * Le versioni di SDK 2.7.1 e successive raccolgono contatori delle prestazioni se l'applicazione è in esecuzione in Windows e ha come destinazione `NETSTANDARD2.0` o versioni successive.

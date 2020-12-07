@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87e7f959dd932c874604df43fa61112d181ac581
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531701"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763928"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Baseline della sicurezza di Azure per il front-end di Azure
 
@@ -206,7 +206,7 @@ Usare monitoraggio di Azure per creare regole per attivare gli avvisi quando vie
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Abilitare la registrazione per le attività di rete di Azure
 
-**Linee guida**: il portello di Azure non è progettato per la distribuzione in reti virtuali. dato che questi clienti non sono in grado di abilitare la registrazione dei flussi dei gruppi di sicurezza di rete, instradare il traffico attraverso un firewall o eseguire acquisizioni di pacchetti.
+**Linee guida**: lo sportello anteriore di Azure non è progettato per la distribuzione in reti virtuali. dato che questi clienti non sono in grado di abilitare la registrazione dei flussi dei gruppi di sicurezza di rete, instradare il traffico attraverso un firewall o eseguire acquisizioni di pacchetti.
 
 Il front-end di Azure registra tutto il traffico di rete che elabora per l'accesso dei clienti. Abilitare la funzionalità log dei flussi di rete e configurare questi log da inviare a un account di archiviazione per la conservazione e il controllo a lungo termine.
 

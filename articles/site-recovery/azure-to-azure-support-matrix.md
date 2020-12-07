@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8123dbc18ad2fc162b9b92ae40920417e6b874ce
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485281"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763282"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -102,7 +102,7 @@ Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9 versione pre-GA](https://support.microsoft.com/help/4578241/), 7,9 versione GA è supportata dalla patch per la correzione a caldo di 9,37 * * </br> 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609), [8,3](https://support.microsoft.com/help/4597409/)
 Server Ubuntu 14.04 LTS | Include il supporto per tutti i 14,04. versioni *x* ; [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines). 
 Server Ubuntu 16.04 LTS | Include il supporto per tutti i 16,04. versioni *x* ; [Versione kernel supportata](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Per i server Ubuntu che usano l'accesso e l'autenticazione basati su password e il pacchetto cloud-init per configurare le macchine virtuali nel cloud, è possibile che l'accesso basato su password venga disabilitato in caso di failover, a seconda della configurazione di cloudinit. L'accesso basato su password può essere riabilitato nella macchina virtuale reimpostando la password da Supporto > Risoluzione dei problemi > menu Impostazioni della macchina virtuale con failover nel portale di Azure.
-Server Ubuntu 18.04 LTS | Include il supporto per tutti i 18,04. versioni *x* ; [Versione kernel supportata](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
+Server Ubuntu 18.04 LTS | Include il supporto per tutti i 18,04. versioni *x* ; [Versione kernel supportata](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Per i server Ubuntu che usano l'accesso e l'autenticazione basati su password e il pacchetto cloud-init per configurare le macchine virtuali nel cloud, è possibile che l'accesso basato su password venga disabilitato in caso di failover, a seconda della configurazione di cloudinit. L'accesso basato su password può essere riabilitato nella macchina virtuale reimpostando la password da Supporto > Risoluzione dei problemi > menu Impostazioni della macchina virtuale con failover nel portale di Azure.
 Server Ubuntu 20,04 LTS | Include il supporto per tutti i 20,04. versioni *x* ; [Versione kernel supportata](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Include il supporto per tutti i 7. versioni del [kernel supportate](#supported-debian-kernel-versions-for-azure-virtual-machines) per le versioni *x*
 Debian 8 | Include il supporto per tutti gli 8. versioni del [kernel supportate](#supported-debian-kernel-versions-for-azure-virtual-machines) per le versioni *x*

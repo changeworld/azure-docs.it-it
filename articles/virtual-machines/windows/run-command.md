@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3c5e19a948298dead5ab3fc1183fb11b09acf455
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2388d4be0f7d51f9d5897998049b445595648c0a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976131"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763979"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Windows usando Esegui comando
 
@@ -104,7 +104,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Limitare l'accesso a Esegui comando
 
-Per elencare i comandi di esecuzione o visualizzare i dettagli di un comando è necessaria l'autorizzazione `Microsoft.Compute/locations/runCommands/read`. Il ruolo predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e i livelli superiori hanno questa autorizzazione.
+Per elencare i comandi di esecuzione o visualizzare i dettagli di un comando è necessaria l' `Microsoft.Compute/locations/runCommands/read` autorizzazione per il livello di sottoscrizione. Il ruolo predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e i livelli superiori hanno questa autorizzazione.
 
 L'esecuzione di un comando richiede l'autorizzazione `Microsoft.Compute/virtualMachines/runCommand/action`. Il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e i livelli superiori hanno questa autorizzazione.
 

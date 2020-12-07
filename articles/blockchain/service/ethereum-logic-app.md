@@ -4,12 +4,12 @@ description: Usare il connettore blockchain per Ethereum con App per la logica d
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230535"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763792"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usare il connettore blockchain per Ethereum con App per la logica di Azure
 
@@ -194,7 +194,7 @@ L'indirizzo dell'endpoint RPC del servizio Azure Blockchain è necessario per co
 È possibile usare la chiave privata dell'account Ethereum per eseguire l'autenticazione quando si invia una transazione alla blockchain. Le chiavi pubbliche e private dell'account Ethereum vengono generate da un promemoria di 12 parole. Azure Blockchain Development Kit per Ethereum genera un promemoria quando viene stabilita la connessione a un membro del consorzio del servizio Azure Blockchain. È possibile ottenere l'indirizzo dell'endpoint con l'estensione kit di sviluppo.
 
 1. In Visual Studio Code aprire il riquadro comandi (F1).
-1. Selezionare **Azure blockchain: Recupera chiave privata**.
+1. Selezionare **blockchain: Recupera chiave privata**.
 1. Selezionare il promemoria salvato durante la connessione al membro del consorzio.
 
     ![Riquadro comandi con un'opzione per selezionare il promemoria](./media/ethereum-logic-app/private-key.png)

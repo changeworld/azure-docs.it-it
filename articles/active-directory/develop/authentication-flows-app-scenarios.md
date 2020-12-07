@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 906adb5b9535ee66fd7bc4a22c5c30a86b561547
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910254"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762935"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flussi di autenticazione e scenari di applicazioni
 
@@ -42,8 +42,8 @@ Nelle sezioni seguenti vengono descritte le categorie di applicazioni.
 
 Gli scenari di autenticazione coinvolgono due attività:
 
-- **Acquisizione dei token di sicurezza per un'API Web protetta** : è consigliabile usare le [librerie client supportate da Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) per acquisire i token. In particolare, si consiglia la famiglia Microsoft Authentication Library (MSAL).
-- **Protezione di un'API Web o di un'app Web** : una sfida per la protezione di queste risorse consiste nel convalidare il token di sicurezza. In alcune piattaforme, Microsoft offre [librerie middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Acquisizione dei token di sicurezza per un'API Web protetta**: è consigliabile usare le [librerie client supportate da Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) per acquisire i token. In particolare, si consiglia la famiglia Microsoft Authentication Library (MSAL).
+- **Protezione di un'API Web o di un'app Web**: una sfida per la protezione di queste risorse consiste nel convalidare il token di sicurezza. In alcune piattaforme, Microsoft offre [librerie middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Con utenti o senza utenti
 
@@ -59,9 +59,9 @@ Tuttavia, sono disponibili anche app daemon. In questi scenari, le applicazioni 
 
 I token di sicurezza possono essere acquisiti da più tipi di applicazioni. Queste applicazioni tendono a essere separate nelle tre categorie seguenti. Ognuna viene usata in librerie e oggetti diversi.
 
-- **Applicazioni a singola pagina** : note anche come Spa, si tratta di app Web in cui i token vengono acquisiti da un'app JavaScript o typescript in esecuzione nel browser. Molte app moderne hanno un'applicazione a singola pagina sul front-end, scritta principalmente in JavaScript. L'applicazione usa spesso un framework come Angular, React o Vue. MSAL.js è l'unica libreria di autenticazione Microsoft che supporta le applicazioni a pagina singola.
+- **Applicazioni a singola pagina**: note anche come Spa, si tratta di app Web in cui i token vengono acquisiti da un'app JavaScript o typescript in esecuzione nel browser. Molte app moderne hanno un'applicazione a singola pagina sul front-end, scritta principalmente in JavaScript. L'applicazione usa spesso un framework come Angular, React o Vue. MSAL.js è l'unica libreria di autenticazione Microsoft che supporta le applicazioni a pagina singola.
 
-- **Applicazioni client pubbliche** : le app in questa categoria, ad esempio i tipi seguenti, sempre l'accesso degli utenti:
+- **Applicazioni client pubbliche**: le app in questa categoria, ad esempio i tipi seguenti, sempre l'accesso degli utenti:
   - App desktop che chiamano API Web per conto degli utenti connessi
   - App per dispositivi mobili
   - App in esecuzione su dispositivi che non hanno un browser, ad esempio quelli in esecuzione su Internet
@@ -131,7 +131,7 @@ Esiste un'altra possibilità per le applicazioni ospitate in Windows in computer
 
 Le applicazioni in esecuzione in un dispositivo privo di browser potranno comunque chiamare un'API per conto di un utente. Per eseguire l'autenticazione, l'utente dovrà eseguire l'accesso in un altro dispositivo che include un Web browser. Per questo scenario è necessario usare il [flusso del codice del dispositivo](https://aka.ms/msal-net-device-code-flow).
 
-![Flusso di codice del dispositivo](media/scenarios/device-code-flow-app.svg)
+![Flusso del codice del dispositivo](media/scenarios/device-code-flow-app.svg)
 
 Sebbene non sia consigliabile usarlo, il flusso di [nome utente/password](scenario-desktop-acquire-token.md#username-and-password) è disponibile nelle applicazioni client pubbliche. Questo flusso è ancora necessario in alcuni scenari, come DevOps.
 
@@ -243,7 +243,7 @@ Gli scenari che prevedono l'acquisizione di token vengono inoltre mappati ai flu
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Codice del dispositivo</a></td>
-   <td>Account aziendali o dell'istituto di istruzione</td>
+   <td>Account aziendali o dell'istituto di istruzione, account personali, Azure AD B2C</td>
  </tr>
 
  <tr>

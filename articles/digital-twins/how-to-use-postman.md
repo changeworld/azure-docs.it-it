@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: fe79797aeef2b0c148aece0319d6b340b663b184
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600490"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763724"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Come usare il post per inviare richieste alle API dei dispositivi gemelli digitali di Azure
 
@@ -130,7 +130,7 @@ Per creare una richiesta post a una delle API dei dispositivi gemelli digitali d
 
 Per procedere con una query di esempio, in questo articolo verrà usata l'API di query (e la relativa [documentazione di riferimento](/rest/api/digital-twins/dataplane/query/querytwins)) per eseguire una query per tutti i dispositivi gemelli digitali in un'istanza.
 
-1. Ottenere l'URL della richiesta e il tipo dalla documentazione di riferimento. Per l'API di query, si tratta di *Post `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`*.
+1. Ottenere l'URL della richiesta e il tipo dalla documentazione di riferimento. Per l'API di query, questo è *attualmente `https://digitaltwins-hostname/query?api-version=2020-10-31` post*.
 1. In postazione impostare il tipo per la richiesta e immettere l'URL della richiesta, inserendo i segnaposto nell'URL in base alle esigenze. Questa è la posizione in cui verrà usato il **nome host** dell'istanza dalla sezione [*prerequisiti*](#prerequisites) .
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Nei dettagli della nuova richiesta, l'URL della query dalla documentazione di riferimento è stato compilato nella casella URL richiesta." lightbox="media/how-to-use-postman/postman-request-url.png":::
