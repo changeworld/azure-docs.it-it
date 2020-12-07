@@ -4,12 +4,12 @@ description: I dati non vengono visualizzati in Azure Application Insights Rispo
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083168"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748936"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET/.NET Core
 
@@ -39,12 +39,40 @@ ms.locfileid: "93083168"
 
 * Vedere [Risoluzione dei problemi relativi a Status Monitor](./monitor-performance-live-website-now.md#troubleshoot).
 
+## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: non è stato possibile caricare il file o l'assembly ' Microsoft. AspNet TelemetryCorrelation
+
+Per ulteriori informazioni su questo errore, vedere [problema GitHub 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
+
+Quando si esegue l'aggiornamento da SDK precedenti a (2,4), è necessario assicurarsi che le seguenti modifiche siano applicate a `web.config` e `ApplicationInsights.config` :
+
+1. Due moduli HTTP anziché uno. In `web.config` sono presenti due moduli HTTP. L'ordine è importante per alcuni scenari:
+
+    ``` xml
+    <system.webServer>
+      <modules>
+          <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="integratedMode,managedHandler" />
+          <add name="ApplicationInsightsHttpModule" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+      </modules>
+    </system.webServer>
+    ```
+
+2. In `ApplicationInsights.config` oltre a `RequestTrackingTelemetryModule` avere il modulo di telemetria seguente:
+
+    ``` xml
+    <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Web.AspNetDiagnosticTelemetryModule, Microsoft.AI.Web"/>
+    </TelemetryModules>
+    ```
+
+*Il **mancato aggiornamento corretto potrebbe causare eccezioni impreviste o dati di telemetria non raccolti.** _
+
+
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Nessuna opzione "Aggiungi Application Insights" in Visual Studio
-*Quando si fa clic con il pulsante destro del mouse su un progetto esistente in Esplora soluzioni, non è presente alcuna opzione di Application Insights.*
+_When faccio clic con il pulsante destro del mouse su un progetto esistente in Esplora soluzioni, non vengono visualizzate opzioni di Application Insights. *
 
 * Non tutti i tipi di progetto .NET sono supportati dagli strumenti. I progetti Web e WCF sono supportati. Per altri tipi di progetto, ad esempio applicazioni desktop o di servizio, è comunque possibile [aggiungere manualmente un SDK Application Insights al progetto](./windows-desktop.md).
 * Assicurarsi di disporre di [Visual Studio 2013 Update 3 o versioni successive](/visualstudio/releasenotes/vs2013-update3-rtm-vs). È preinstallata con Developer Analytics Tools che fornisce Application Insights SDK.
-* Selezionare **Strumenti** , **Estensioni e aggiornamenti** e verificare l'installazione e l'abilitazione di **Developer Analytics Tools** . In tal caso, fare clic su **Aggiornamenti** per verificare se è disponibile un aggiornamento.
+* Selezionare **Strumenti**, **Estensioni e aggiornamenti** e verificare l'installazione e l'abilitazione di **Developer Analytics Tools**. In tal caso, fare clic su **Aggiornamenti** per verificare se è disponibile un aggiornamento.
 * Aprire la finestra di dialogo Nuovo progetto e scegliere Applicazione Web ASP.NET. Se l'opzione Application Insights è presente, gli strumenti sono installati. In caso contrario, provare a disinstallare e reinstallare Developer Analytics Tools.
 
 ## <a name="adding-application-insights-failed"></a><a name="q02"></a>Non è stato possibile aggiungere Application Insights
@@ -65,7 +93,7 @@ Correzione:
 ## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 Sembra che si sia verificato un problema durante l'installazione di Application Insights o forse di un adattatore di registrazione.
 
-Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Application Insights > Configura Application Insights** . Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa di Application Insights o a riusarne una esistente.
+Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Application Insights > Configura Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa di Application Insights o a riusarne una esistente.
 
 ## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> Un messaggio informa che i pacchetti NuGet sono mancanti nel server di compilazione
 *La compilazione funziona come previsto durante il debug nel computer di sviluppo, ma nel server di compilazione viene visualizzato un messaggio di errore NuGet.*
@@ -84,8 +112,8 @@ Cause possibili:
 Correzione:
 
 * Assicurarsi che la versione di Visual Studio sia 2013 Update 3 o versione successiva.
-* Selezionare **Strumenti** , **Estensioni e aggiornamenti** e verificare l'installazione e l'abilitazione di **Developer Analytics Tools** . In tal caso, fare clic su **Aggiornamenti** per verificare se è disponibile un aggiornamento.
-* Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni. Se viene visualizzato il comando **Application Insights > Configura Application Insights** , usarlo per connettere il progetto alla risorsa nel servizio Application Insights.
+* Selezionare **Strumenti**, **Estensioni e aggiornamenti** e verificare l'installazione e l'abilitazione di **Developer Analytics Tools**. In tal caso, fare clic su **Aggiornamenti** per verificare se è disponibile un aggiornamento.
+* Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni. Se viene visualizzato il comando **Application Insights > Configura Application Insights**, usarlo per connettere il progetto alla risorsa nel servizio Application Insights.
 
 In caso contrario, il tipo di progetto non è supportato direttamente da Developer Analytics Tools. Per visualizzare i dati di telemetria, accedere al [portale di Azure](https://portal.azure.com), scegliere Application Insights nella barra di spostamento a sinistra e selezionare l'applicazione.
 
@@ -128,7 +156,7 @@ Correzione:
   ![Screenshot che mostra l'esecuzione dell'applicazione in modalità di debug in Visual Studio.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Nel portale di Application Insights aprire [Diagnostic Search](./diagnostic-search.md)(Ricerca diagnostica). I dati vengono in genere visualizzati prima qui.
 * Fare clic sul pulsante Aggiorna. Il pannello viene automaticamente aggiornato periodicamente, ma è anche possibile farlo manualmente. L'intervallo di aggiornamento è più lungo per intervalli di tempo maggiori.
-* Verificare che le chiavi di strumentazione corrispondano. Nel pannello principale per l'app nel portale di Application Insights esaminare **Chiave di strumentazione** nell'elenco a discesa **Informazioni di base** . Nel progetto in Visual Studio aprire quindi ApplicationInsights.config e trovare `<instrumentationkey>`. Verificare che le due chiavi siano identiche. In caso contrario:  
+* Verificare che le chiavi di strumentazione corrispondano. Nel pannello principale per l'app nel portale di Application Insights esaminare **Chiave di strumentazione** nell'elenco a discesa **Informazioni di base**. Nel progetto in Visual Studio aprire quindi ApplicationInsights.config e trovare `<instrumentationkey>`. Verificare che le due chiavi siano identiche. In caso contrario:  
   * Nel portale fare clic su Application Insights e cercare la risorsa dell'app con la chiave corretta.
   * In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse e scegliere Application Insights, Configura. Reimpostare l'app per l'invio di dati di telemetria alla risorsa corretta.
   * Se le chiavi non corrispondono, assicurarsi di aver usato le stesse credenziali di accesso in Visual Studio e nel portale.
@@ -239,9 +267,9 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 ```
 
 È possibile modificare questi parametri in base alle esigenze:
-- **MaxCollectSec** . Impostare questo parametro per impedire l'esecuzione illimitata di PerfView con ripercussioni sulle prestazioni del server.
-- **OnlyProviders** . Impostare questo parametro per raccogliere solo i log dall'SDK. È possibile personalizzare questo elenco in base ad analisi specifiche. 
-- **NoGui** . Impostare questo parametro per raccogliere i log senza l'interfaccia utente grafica.
+- **MaxCollectSec**. Impostare questo parametro per impedire l'esecuzione illimitata di PerfView con ripercussioni sulle prestazioni del server.
+- **OnlyProviders**. Impostare questo parametro per raccogliere solo i log dall'SDK. È possibile personalizzare questo elenco in base ad analisi specifiche. 
+- **NoGui**. Impostare questo parametro per raccogliere i log senza l'interfaccia utente grafica.
 
 
 Per altre informazioni,

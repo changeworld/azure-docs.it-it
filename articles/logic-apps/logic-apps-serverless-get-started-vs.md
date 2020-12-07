@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090247"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749148"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creare la prima app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
 
@@ -32,7 +32,7 @@ Per creare un'app senza server in Visual Studio, è necessario:
     > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
 
   * [Microsoft Azure SDK per .NET (versione 2.9.1 o successiva)](https://azure.microsoft.com/downloads/). 
-  Altre informazioni su [Azure SDK per .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Altre informazioni su [Azure SDK per .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -64,7 +64,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
    ![Creare un nuovo progetto in Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Quindi selezionare **Cloud**  >  **gruppo di risorse di Azure**cloud.
+1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Quindi selezionare **Cloud**  >  **gruppo di risorse di Azure** cloud.
 
    > [!NOTE]
    > Se la categoria **cloud** o il progetto **gruppo di risorse di Azure** non esiste, verificare di aver installato Azure SDK per Visual Studio.
@@ -100,7 +100,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
 Prima di poter aprire l'app per la logica in progettazione app per la logica in Visual Studio, è necessario avere un gruppo di risorse di Azure già distribuito in Azure. Il progettista può quindi creare le connessioni ai servizi e alle risorse disponibili nell'app per la logica. Per questa attività, seguire questa procedura per distribuire la soluzione da Visual Studio nel portale di Azure:
 
-1. In Esplora soluzioni scegliere **Distribuisci**nuovo dal menu di scelta rapida del progetto di risorsa  >  **New**.
+1. In Esplora soluzioni scegliere **Distribuisci** nuovo dal menu di scelta rapida del progetto di risorsa  >  **New**.
 
    ![Creare una nuova distribuzione per il gruppo di risorse](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
@@ -126,7 +126,7 @@ Per modificare l'app per la logica dopo la distribuzione, aprire l'app per la lo
    > [!TIP]
    > Se non si dispone di questo comando in Visual Studio 2019, verificare di aver installato gli aggiornamenti più recenti per Visual Studio.
 
-1. Quando viene visualizzata la casella **Proprietà app** per la logica, in **sottoscrizione**Selezionare la sottoscrizione di Azure, se non è già selezionata. In **gruppo di risorse**selezionare il gruppo di risorse e il percorso in cui è stata distribuita la soluzione, quindi fare clic su **OK**.
+1. Quando viene visualizzata la casella **Proprietà app** per la logica, in **sottoscrizione** Selezionare la sottoscrizione di Azure, se non è già selezionata. In **gruppo di risorse** selezionare il gruppo di risorse e il percorso in cui è stata distribuita la soluzione, quindi fare clic su **OK**.
 
    ![Proprietà dell'app per la logica](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
 
@@ -148,7 +148,7 @@ Per le app per la logica già distribuite in Azure, è comunque possibile modifi
 
 1. Dal menu **Visualizza** di Visual Studio aprire **Cloud Explorer**.
 
-1. In **tutte le sottoscrizioni**selezionare la sottoscrizione di Azure associata alle app per la logica che si vuole gestire e quindi selezionare **applica**.
+1. In **tutte le sottoscrizioni** selezionare la sottoscrizione di Azure associata alle app per la logica che si vuole gestire e quindi selezionare **applica**.
 
 1. In **App per la logica** selezionare l'app per la logica. Dal menu di scelta rapida dell'app selezionare **Apri con Editor app per la logica**.
 

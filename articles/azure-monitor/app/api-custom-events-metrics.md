@@ -4,12 +4,12 @@ description: Inserire alcune righe di codice nell'app desktop o per dispositivi,
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1ed05cd7337a7e82a02b25a2f29d54567b9f9a3
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011346"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748893"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -530,6 +530,9 @@ Se il [campionamento](./sampling.md) è attivo, la proprietà itemCount mostra u
 ## <a name="trackdependency"></a>TrackDependency
 
 Usare la chiamata di TrackDependency per rilevare i tempi di risposta e le percentuali di successo delle chiamate a un frammento di codice esterno. I risultati vengono visualizzati nei grafici dipendenze nel portale. Il frammento di codice seguente deve essere aggiunto ogni volta che viene effettuata una chiamata alle dipendenze.
+
+> [!NOTE]
+> Per .NET e .NET Core è possibile usare in alternativa il `TelemetryClient.StartOperation` Metodo (estensione) che riempie le `DependencyTelemetry` proprietà necessarie per la correlazione e altre proprietà quali l'ora di inizio e la durata, quindi non è necessario creare un timer personalizzato come negli esempi seguenti. Per ulteriori informazioni, vedere la sezione di questo articolo [sul rilevamento delle dipendenze in uscita](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
 
 *C#*
 
@@ -1110,7 +1113,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](./export-power-bi.md) e l'[esportazione continua](./export-telemetry.md).

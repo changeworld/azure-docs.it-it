@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf84a8abcc0f1c890a51bf07056ac31d37107e53
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018087"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749114"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Esercitazione: Progettare un database di Azure per PostgreSQL - Server singolo usando PowerShell
 
@@ -100,7 +100,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 ```
 
 > [!NOTE]
-> Le connessioni a Database di Azure per PostgreSQL comunicano sulla porta 3306. Se si tenta di connettersi da una rete aziendale, il traffico in uscita sulla porta 3306 potrebbe non essere consentito. In questo caso, è possibile connettersi solo al server se il reparto IT apre la porta 3306.
+> Le connessioni a Database di Azure per PostgreSQL comunicano sulla porta 5432. Se si prova a connettersi da una rete aziendale, il traffico in uscita sulla porta 5432 potrebbe non essere consentito. In questo scenario è possibile connettersi al server solo se il reparto IT apre la porta 5432.
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione
 

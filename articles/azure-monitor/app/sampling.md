@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024416"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749046"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -54,7 +54,7 @@ Sono disponibili tre diversi metodi di campionamento:
 * Il **campionamento** di inserimento si verifica in corrispondenza dell'endpoint del servizio Application Insights. Rimuove alcuni dati di telemetria provenienti dall'app, a una velocità di campionamento impostata. Non riduce il traffico di telemetria inviato dall'app, ma consente all'utente di rispettare la quota mensile. Il vantaggio principale del campionamento per inserimento è che è possibile impostare la frequenza di campionamento senza ridistribuire l'app. Il campionamento di inserimento funziona in modo uniforme per tutti i server e i client, ma non si applica quando sono in esecuzione altri tipi di campionamento.
 
 > [!IMPORTANT]
-> Se sono in esecuzione metodi di campionamento a frequenza fissa o adattiva, il campionamento per inserimento è disabilitato.
+> Se per un tipo di dati di telemetria sono abilitati metodi di campionamento a frequenza fissa o adattiva, il campionamento per inserimento è disabilitato Tuttavia, i tipi di dati di telemetria esclusi dal campionamento a livello di SDK saranno comunque soggetti al campionamento di inserimento al tasso impostato nel portale.
 
 ## <a name="adaptive-sampling"></a>Campionamento adattivo
 
