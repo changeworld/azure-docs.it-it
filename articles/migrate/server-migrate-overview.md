@@ -1,14 +1,17 @@
 ---
-title: Selezionare un'opzione di migrazione VMware con Azure Migrate migrazione del server | Microsoft Docs
+title: Selezionare un'opzione di migrazione VMware con Azure Migrate migrazione del server
 description: Viene fornita una panoramica delle opzioni per la migrazione di macchine virtuali VMware in Azure con Azure Migrate migrazione del server
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5e4aaea5b565e126f633b04215bbc3a24faf2cde
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534108"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753604"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selezionare un'opzione di migrazione VMware
 
@@ -39,13 +42,13 @@ Dopo aver esaminato le limitazioni, la comprensione dei passaggi necessari per l
 
 **Attività** | **Dettagli** |**Senza agente** | **Basata su agenti**
 --- | --- | --- | ---
-**Distribuire il dispositivo Azure Migrate** | Un appliance leggero che viene eseguito in una VM VMware.<br/><br/> Il dispositivo viene usato per individuare e valutare i computer e per eseguire la migrazione dei computer con la migrazione senza agenti. | Obbligatorio.<br/><br/> Se è già stata configurata l'appliance per la valutazione, è possibile usare lo stesso dispositivo per la migrazione senza agenti. | Non obbligatorio.<br/><br/> Se è stata configurata un'appliance per la valutazione, è possibile lasciarla invariata o rimuoverla se la valutazione è stata eseguita.
+**Distribuire l'appliance Azure Migrate** | Un appliance leggero che viene eseguito in una VM VMware.<br/><br/> Il dispositivo viene usato per individuare e valutare i computer e per eseguire la migrazione dei computer con la migrazione senza agenti. | Obbligatorio.<br/><br/> Se è già stata configurata l'appliance per la valutazione, è possibile usare lo stesso dispositivo per la migrazione senza agenti. | Non obbligatorio.<br/><br/> Se è stata configurata un'appliance per la valutazione, è possibile lasciarla invariata o rimuoverla se la valutazione è stata eseguita.
 **Usare lo strumento Server Assessment** | Valutare i computer con lo strumento Azure Migrate: server assessment. | È possibile valutare i computer prima di eseguirne la migrazione, ma non è necessario. | La valutazione è facoltativa | La valutazione è facoltativa.
 **Usare lo strumento di migrazione server** | Aggiungere lo strumento di migrazione Azure Migrate server nel progetto Azure Migrate. | Obbligatoria | Obbligatoria
 **Preparare VMware per la migrazione** | Configurare le impostazioni su server e macchine virtuali VMware. | Obbligatoria | Obbligatoria
 **Installare il servizio Mobility nelle macchine virtuali** | Il servizio Mobility viene eseguito in ogni macchina virtuale che si vuole replicare | Non richiesto | Necessario
 **Distribuire il dispositivo di replica** | L' [appliance di replica](migrate-replication-appliance.md) viene utilizzata per la migrazione basata su agenti. Si connette tra il servizio Mobility in esecuzione sulle VM e la migrazione del server. | Non richiesto | Necessario
-**Replicare le macchine virtuali** . Abilitare la replica delle macchine virtuali. | Configurare le impostazioni di replica e selezionare le macchine virtuali da replicare | Obbligatoria | Obbligatoria
+**Replicare le macchine virtuali**. Abilitare la replica della macchina virtuale. | Configurare le impostazioni di replica e selezionare le macchine virtuali da replicare | Obbligatoria | Obbligatoria
 **Eseguire una migrazione di test** | Eseguire una migrazione di test per verificare che tutti gli elementi funzionino come previsto. | Obbligatoria | Obbligatoria
 **Eseguire una migrazione completa** | Eseguire la migrazione delle macchine virtuali. | Obbligatoria | Obbligatoria
 

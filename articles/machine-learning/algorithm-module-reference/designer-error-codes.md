@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030408"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753910"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
 
@@ -279,7 +279,7 @@ Se è stato eseguito il training del modello usando uno dei moduli di training s
 ## <a name="error-0014"></a>Errore 0014  
  L'eccezione si verifica se il numero di valori univoci di colonna è superiore a quella consentita.  
 
- Questo errore si verifica quando una colonna contiene troppi valori univoci.  Ad esempio, è possibile visualizzare questo errore se si specifica che una colonna deve essere gestita come dati di categoria, ma nella colonna sono presenti troppi valori univoci per consentire il completamento dell'elaborazione. Questo errore può essere visualizzato anche in caso di mancata corrispondenza tra il numero di valori univoci in due input.   
+ Questo errore si verifica quando una colonna contiene troppi valori univoci, ad esempio una colonna ID o una colonna di testo. Questo errore può essere visualizzato se si specifica che una colonna deve essere gestita come dati categorici, ma nella colonna sono presenti troppi valori univoci per consentire il completamento dell'elaborazione. Questo errore può essere visualizzato anche in caso di mancata corrispondenza tra il numero di valori univoci in due input.   
 
 L'errore di valori univoci è maggiore di quanto consentito si verificherà se si soddisfano **entrambe** le condizioni seguenti:
 
@@ -292,7 +292,9 @@ Aprire il modulo che ha generato l'errore e identificare le colonne usate come i
 
 Per le colonne che si desidera usare per il raggruppamento o la categorizzazione, adottare le misure necessarie per ridurre il numero di valori univoci nelle colonne. È possibile ridurlo in modi diversi, a seconda del tipo di dati della colonna. 
 
-In genere, in questo scenario, la colonna che raggiunge l'errore non ha alcun significato come funzionalità per il training dei modelli. Pertanto, è possibile utilizzare [Modifica metadati](../algorithm-module-reference/edit-metadata.md) per contrassegnare la colonna come **funzionalità non crittografata** e non verrà utilizzata durante il training di un modello. 
+Per le colonne ID che non sono funzionalità significative durante il training di un modello, è possibile utilizzare [Modifica metadati](../algorithm-module-reference/edit-metadata.md) per contrassegnare la colonna come **Clear feature** e non verrà utilizzata durante il training di un modello. 
+
+Per le colonne di testo, è possibile usare [feature hashing](../algorithm-module-reference/feature-hashing.md) o [estrarre le funzionalità di N-Gram dal modulo di testo](../algorithm-module-reference/extract-n-gram-features-from-text.md) per pre-elaborare le colonne di testo.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

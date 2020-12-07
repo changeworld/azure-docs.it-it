@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345398"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754165"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -104,17 +104,17 @@ I limiti delle richieste simultanee per i modelli di **base** e **personalizzati
 Il valore esistente del parametro del limite della richiesta simultanea **non** è visibile tramite portale di Azure, strumenti Command-Line o richieste API. Per verificare il valore esistente, creare una richiesta di supporto di Azure.
 
 >[!NOTE]
->I [contenitori di sintesi vocale](speech-container-howto.md) non richiedono aumenti di limite di richieste simultanee, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati.
+>I [contenitori di sintesi vocale](speech-container-howto.md) non richiedono aumenti di limite di richieste simultanee, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati. Tuttavia, i contenitori di sintesi vocale presentano limitazioni di capacità che devono essere prese in considerazione. Vedere la domanda *"è possibile aiutare la pianificazione della capacità e la stima dei costi di contenitori di sintesi vocale locali?"* dalle [domande frequenti sui contenitori di riconoscimento vocale](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Preparare le informazioni necessarie:
-- Per il **modello di base** :
+- Per il **modello di base**:
   - ID risorsa vocale
-  - Region
-- Per il **modello personalizzato** : 
-  - Region
+  - Area
+- Per il **modello personalizzato**: 
+  - Area
   - ID endpoint personalizzato
 
-- **Come ottenere informazioni (modello di base)** :  
+- **Come ottenere informazioni (modello di base)**:  
   - Vai a [portale di Azure](https://portal.azure.com/)
   - Selezionare la risorsa vocale per cui si vuole aumentare il limite della richiesta di concorrenza
   - Selezione *Proprietà* (gruppo di *Gestione risorse* ) 
@@ -122,7 +122,7 @@ Il valore esistente del parametro del limite della richiesta simultanea **non** 
     - **ID risorsa**
     - **Località** (area dell'endpoint)
 
-- **Come ottenere informazioni (modello personalizzato)** :
+- **Come ottenere informazioni (modello personalizzato)**:
   - Vai al portale di [speech studio](https://speech.microsoft.com/)
   - Accedi se necessario
   - Vai a Riconoscimento vocale personalizzato

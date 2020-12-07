@@ -1,18 +1,17 @@
 ---
 title: Risolvere i problemi di visualizzazione delle dipendenze e della valutazione in Azure Migrate
-description: Ottenere assistenza per la risoluzione dei problemi relativi alla valutazione e alla visualizzazione delle dipendenze in Azure Migrate.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Ottenere supporto per la valutazione e la visualizzazione delle dipendenze in Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505224"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753446"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
@@ -83,7 +82,7 @@ Per illustrare il modo in cui questo può influire sulle raccomandazioni, si pre
 
 Abbiamo una macchina virtuale locale con quattro core e 8 GB di memoria, con un utilizzo della CPU del 50% e un utilizzo della memoria del 50% e un fattore di comfort specificato di 1,3.
 
--  Se la valutazione è **come in locale** , è consigliabile usare uno SKU di VM di Azure con quattro core e 8 GB di memoria.
+-  Se la valutazione è **come in locale**, è consigliabile usare uno SKU di VM di Azure con quattro core e 8 GB di memoria.
 - Se la valutazione è basata sulle prestazioni, in base all'utilizzo effettivo di CPU e memoria (50% di 4 core * 1,3 = 2,6 core e 50% di 8 GB di memoria * 1,3 = 5,3-GB di memoria), si consiglia lo SKU di VM più economico di quattro core (il numero di core supportato più vicino) e otto GB di memoria (le dimensioni più vicine della memoria)
 - [Altre](concepts-assessment-calculation.md#types-of-assessments) informazioni sul dimensionamento della valutazione.
 
@@ -91,8 +90,8 @@ Abbiamo una macchina virtuale locale con quattro core e 8 GB di memoria, con un 
 
 Azure Migrate server Assessment potrebbe consigliare un disco di dimensioni maggiori in base al tipo di valutazione.
 - Il dimensionamento del disco nella valutazione del server dipende da due proprietà di valutazione: criteri di ridimensionamento e tipo di archiviazione.
-- Se i criteri di ridimensionamento sono **basati sulle prestazioni** e il tipo di archiviazione è impostato su **automatico** , i valori di IOPS e velocità effettiva del disco vengono considerati quando si identifica il tipo di disco di destinazione (HDD standard, SDD standard o Premium). Viene quindi consigliato uno SKU del disco dal tipo di disco e la raccomandazione considera i requisiti di dimensioni del disco locale.
-- Se i criteri di ridimensionamento sono **basati sulle prestazioni** e il tipo di archiviazione è **Premium** , è consigliabile usare uno SKU di dischi Premium in Azure in base ai requisiti di IOPS, velocità effettiva e dimensioni del disco locale. La stessa logica viene usata per eseguire il ridimensionamento del disco quando i criteri di ridimensionamento sono **locali** e il tipo di archiviazione è **HDD standard** , **SDD standard** o **Premium**.
+- Se i criteri di ridimensionamento sono **basati sulle prestazioni** e il tipo di archiviazione è impostato su **automatico**, i valori di IOPS e velocità effettiva del disco vengono considerati quando si identifica il tipo di disco di destinazione (HDD standard, SDD standard o Premium). Viene quindi consigliato uno SKU del disco dal tipo di disco e la raccomandazione considera i requisiti di dimensioni del disco locale.
+- Se i criteri di ridimensionamento sono **basati sulle prestazioni** e il tipo di archiviazione è **Premium**, è consigliabile usare uno SKU di dischi Premium in Azure in base ai requisiti di IOPS, velocità effettiva e dimensioni del disco locale. La stessa logica viene usata per eseguire il ridimensionamento del disco quando i criteri di ridimensionamento sono **locali** e il tipo di archiviazione è **HDD standard**, **SDD standard** o **Premium**.
 
 Ad esempio, se si dispone di un disco locale con 32 GB di memoria, ma le operazioni di i/o di lettura e scrittura aggregate per il disco sono 800 IOPS, server Assessment consiglia un disco Premium (a causa dei requisiti di IOPS più elevati), quindi consiglia uno SKU del disco in grado di supportare le operazioni di i/o al secondo e le dimensioni necessarie. In questo esempio la corrispondenza più vicina sarebbe P15 (256 GB, 1.100 operazioni di I/O al secondo). Anche se le dimensioni richieste dal disco locale sono 32 GB, server Assessment consiglia un disco più grande a causa del requisito di IOPS elevato del disco locale.
 
@@ -165,8 +164,8 @@ Per le macchine virtuali Linux, assicurarsi che i comandi di installazione per M
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-- **Agente MMS** : esaminare i sistemi operativi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) supportati.
-- **Dependency Agent** : sistemi operativi [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) supportati.
+- **Agente MMS**: esaminare i sistemi operativi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) supportati.
+- **Dependency Agent**: sistemi operativi [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) supportati.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizza le dipendenze per > ora
 
@@ -209,7 +208,7 @@ Raccogliere i log del traffico di rete come segue:
    - In Chrome fare clic con il pulsante destro del mouse e scegliere **Salva come har con contenuto**. Questa azione comprime ed Esporta i log come file con estensione har.
    - In Microsoft Edge o Internet Explorer selezionare l'opzione **Esporta il traffico acquisito** . Questa azione comprime ed esporta il log.
 6. Selezionare la scheda **console** per verificare la presenza di eventuali avvisi o errori. Per salvare il log della console:
-   - In Chrome fare clic con il pulsante destro del mouse in un punto qualsiasi del log della console. Selezionare **Salva con nome** , per esportare e comprimere il log.
+   - In Chrome fare clic con il pulsante destro del mouse in un punto qualsiasi del log della console. Selezionare **Salva con nome**, per esportare e comprimere il log.
    - In Microsoft Edge o Internet Explorer fare clic con il pulsante destro del mouse sugli errori e selezionare **copia tutto**.
 7. Chiudere Strumenti di sviluppo.
 

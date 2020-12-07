@@ -1,14 +1,17 @@
 ---
 title: Configurare un'appliance Azure Migrate con uno script
 description: Informazioni su come configurare un'appliance Azure Migrate con uno script
-ms.topic: article
+ms.topic: how-to
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.date: 04/16/2020
-ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 38db1e68adde21d0e566256e9393f6fa4fc58824
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317321"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753791"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurare un'appliance con uno script
 

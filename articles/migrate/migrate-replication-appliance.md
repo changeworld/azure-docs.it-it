@@ -1,14 +1,17 @@
 ---
 title: Appliance di replica Azure Migrate
 description: Informazioni sull'appliance di replica di Azure Migrate per la migrazione VMWare basata su agenti.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532121"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754097"
 ---
 # <a name="replication-appliance"></a>Appliance di replica
 
@@ -22,7 +25,7 @@ L'appliance di replica viene distribuita quando si configura la migrazione basat
 - **Appliance di replica**: l'appliance di replica coordina le comunicazioni e gestisce la replica dei dati per le macchine virtuali VMware e i server fisici locali che eseguono la replica in Azure.
 - **Server di elaborazione**: il server di elaborazione, installato per impostazione predefinita nell'appliance di replica, ed esegue le operazioni seguenti:
     - **Gateway di replica**: funge da gateway di replica. Riceve i dati di replica dai computer abilitati per la replica. Ottimizza i dati di replica con la memorizzazione nella cache, la compressione e la crittografia e li invia ad Azure.
-    - **Programma**di installazione dell'agente: esegue un'installazione push del servizio Mobility. Questo servizio deve essere installato e in esecuzione in ogni computer locale che si vuole replicare per la migrazione.
+    - **Programma** di installazione dell'agente: esegue un'installazione push del servizio Mobility. Questo servizio deve essere installato e in esecuzione in ogni computer locale che si vuole replicare per la migrazione.
 
 ## <a name="appliance-deployment"></a>Distribuzione dell'appliance
 
@@ -136,7 +139,7 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
 L'Appliance viene aggiornata manualmente dall'hub Azure Migrate. Si consiglia di eseguire sempre la versione più recente.
 
 1. In Azure Migrate server > > Azure Migrate: server Assessment, server di infrastruttura, fare clic su **server di configurazione**.
-2. Nei **server di configurazione**viene visualizzato un collegamento nella **versione dell'agente** quando è disponibile una nuova versione dell'appliance di replica. 
+2. Nei **server di configurazione** viene visualizzato un collegamento nella **versione dell'agente** quando è disponibile una nuova versione dell'appliance di replica. 
 3. Scaricare il programma di installazione nel computer dell'appliance di replica e installare l'aggiornamento. Il programma di installazione rileva la versione corrente in esecuzione nell'appliance.
  
 ## <a name="next-steps"></a>Passaggi successivi

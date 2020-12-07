@@ -1,14 +1,17 @@
 ---
 title: Appliance Azure Migrate
 description: Fornisce un riepilogo del supporto per Azure Migrate Appliance.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008702"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754131"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -215,7 +218,7 @@ L'individuazione applicazioni raccoglie le applicazioni installate e i dati del 
 
 Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-**Dati** | **Percorso del registro** | **Key**
+**Dati** | **Percorso del registro** | **Chiave**
 --- | --- | ---
 Nome applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
@@ -235,7 +238,7 @@ Padre  | Get-WindowsFeature  | Padre
 
 Ecco i metadati di SQL Server raccolti dall'appliance dalle macchine virtuali che eseguono Microsoft SQL Server abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-**Dati**  | **Percorso del registro**  | **Key**
+**Dati**  | **Percorso del registro**  | **Chiave**
 --- | --- | ---
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
 Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione 
@@ -250,7 +253,7 @@ Dati  | classe WMI  | Proprietà della classe WMI
 --- | --- | ---
 Nome  | Win32_operatingsystem  | Didascalia
 Versione  | Win32_operatingsystem  | Versione
-Architettura  | Win32_operatingsystem  | OSArchitecture
+Architecture  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-vm-apps-data"></a>Dati delle app VM Linux
 
@@ -268,8 +271,8 @@ Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtua
 
 **Dati**  | **Comando** 
 --- | --- | ---
-Nome <br/> Versione | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
-Architettura | uname
+Nome <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Architecture | uname
 
 
 ### <a name="app-dependencies-metadata"></a>Metadati delle dipendenze dell'app

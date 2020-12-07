@@ -3,12 +3,12 @@ title: Domande comuni sul ripristino di emergenza di Hyper-V con Azure Site Reco
 description: Questo articolo presenta un riepilogo delle domande frequenti relative alla configurazione del ripristino di emergenza per le macchine virtuali Hyper-V locali in Azure tramite Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799889"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754352"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure
 
@@ -164,6 +164,10 @@ Quando si replicano le macchine virtuali/server fisici locali nell'archiviazione
 ### <a name="how-often-can-i-replicate-to-azure"></a>Con quale frequenza è possibile eseguire la replica in Azure?
 
 Le VM Hyper-V possono essere replicate ogni 30 secondi (ad eccezione di archiviazione Premium) o 5 minuti.
+
+### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>Può Azure Site Recovery e la replica Hyper-V deve essere configurata insieme in un computer Hyper-V?
+
+Sì, sia Azure Site Recovery che la replica Hyper-V possono essere configurate insieme per un computer. Il computer dovrà tuttavia essere protetto come computer fisico e verrà replicato in Azure usando un server di configurazione/elaborazione. Altre informazioni sulla protezione dei computer fisici sono disponibili [qui](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture).
 
 ### <a name="can-i-extend-replication"></a>È possibile estendere la replica?
 No, la replica concatenata o estesa non è supportata. Richiedere questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

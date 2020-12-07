@@ -1,14 +1,17 @@
 ---
 title: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server Assessment
 description: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server assessment.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 722ad4cc27132815c1416331aaf0691754ccee05
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d84c85326c6f5d87189a2c24a3b13654f157cb05
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500785"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754284"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizzare le dipendenze dei computer (senza agente)
 
@@ -110,7 +113,7 @@ Ogni riga nel file CSV esportato corrisponde a una dipendenza osservata nello sl
 
 Nella tabella seguente sono riepilogati i campi del file CSV esportato. Si noti che i campi nome server, applicazione e processo vengono popolati solo per i server in cui è abilitata l'analisi delle dipendenze senza agenti.
 
-**Nome campo** | **Informazioni dettagliate**
+**Nome campo** | **Dettagli**
 --- | --- 
 Timeslot | Timeslot durante il quale è stata osservata la dipendenza. <br/> I dati sulle dipendenze vengono acquisiti attualmente negli slot di 6 ore.
 Nome del server di origine | Nome del computer di origine 

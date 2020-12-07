@@ -1,14 +1,17 @@
 ---
 title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 833d0b15677fe92d9ef4f6d0055f7ce84340ef90
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 0dfb518a22fd84e0280577382715d6e554e914e8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511900"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753995"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -98,7 +101,7 @@ In questa sezione vengono riepilogati i requisiti per la migrazione basata su ag
 
 Questa tabella riepiloga il supporto per la valutazione e le limitazioni per i server di virtualizzazione VMware.
 
-**Requisiti di VMware** | **Informazioni dettagliate**
+**Requisiti di VMware** | **Dettagli**
 --- | ---
 **server VMware vCenter** | Versione 5,5, 6,0, 6,5 o 6,7.
 **VMware vSphere Host ESXI** | Versione 5,5, 6,0, 6,5 o 6,7.
@@ -169,7 +172,7 @@ VHD condiviso | Non supportata.
 Disco FC | Non supportata. 
 BitLocker | Non supportata.<br/><br/> Prima di eseguire la migrazione della macchina virtuale, è necessario disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. 
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale.<br/><br/> Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/> Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md)
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale.<br/><br/> Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/> Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md).
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/><br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/><br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa.<br/><br/> Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale.  
 
 

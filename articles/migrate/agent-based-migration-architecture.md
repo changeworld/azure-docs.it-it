@@ -1,17 +1,17 @@
 ---
 title: Migrazione basata su agente in Azure Migrate migrazione del server
 description: Viene fornita una panoramica della migrazione di macchine virtuali VMware basate su agente in Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357166"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753893"
 ---
 # <a name="agent-based-migration-architecture"></a>Architettura di migrazione basata su agente
 
@@ -120,7 +120,7 @@ il traffico VMware che viene replicato in Azure passa attraverso un server di el
 
     1. Nel computer del server di elaborazione aprire lo snap-in di MMC backup di Azure. È disponibile un collegamento sul desktop o nella cartella C:\Programmi\Microsoft Azure Recovery Services Agent\bin. 
     2. Nello snap-in selezionare **Modifica proprietà**.
-    3. In **limitazione**selezionare **Abilita limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**. Impostare i limiti per le ore lavorative e non lavorative. Gli intervalli validi sono compresi tra 512 Kbps e 1.023 Mbps.
+    3. In **limitazione** selezionare **Abilita limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**. Impostare i limiti per le ore lavorative e non lavorative. Gli intervalli validi sono compresi tra 512 Kbps e 1.023 Mbps.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

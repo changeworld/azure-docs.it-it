@@ -1,18 +1,18 @@
 ---
 title: Risolvere problemi relativi ad Azure Migrate | Microsoft Docs
 description: Viene fornita una panoramica dei problemi noti del servizio Azure Migrate, nonché suggerimenti per la risoluzione di errori comuni.
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: hamusa
-ms.openlocfilehash: 1e7c54f47db645f218ea68ea475146143f806de1
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 00802f53f973ad9b5a80b265006943121a0fa763
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912991"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753400"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
