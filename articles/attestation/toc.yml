@@ -39,6 +39,8 @@
       href: audit-logs.md
 - name: Riferimenti
   items:
+    - name: Disponibilità a livello di area
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation'
     - name: Domande frequenti
       href: faq.md
     - name: REST
