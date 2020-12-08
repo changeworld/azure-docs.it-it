@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
 ms.custom: contperfq2
-ms.openlocfilehash: 5fc0156b9b832f44fd38292ef2b9a25e39401610
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 487bf3c83be16ee80838b3bbe8bf8532eb6ffe12
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348662"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780060"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Informazioni Single Sign-On basate su OIDC
 Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni si è appreso come usare Azure ad come provider di identità (IDP) per un'applicazione. Questo articolo illustra in modo più dettagliato le app che usano lo standard OpenID Connect per implementare Single Sign-On. 
@@ -34,6 +34,8 @@ L'aspetto interessante dell'aggiunta di un'app che usa lo standard OIDC per Sing
 Aggiunta di un'app basata su OIDC in Azure Active Directory
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
+
+Per altre informazioni sul consenso dell'utente e dell'amministratore, vedere informazioni sul [consenso dell'utente e dell'amministratore](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

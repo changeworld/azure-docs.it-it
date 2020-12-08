@@ -9,19 +9,19 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285384"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779975"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Scalabilità orizzontale del gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc aggiungendo più nodi di lavoro
 Questo documento illustra come aumentare il livello di scalabilità orizzontale di un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc. Questa operazione viene eseguita tramite uno scenario. **Se non si vuole eseguire lo scenario e si vuole semplicemente leggere le informazioni su come aumentare la scalabilità orizzontale, passare al paragrafo [scale out (scalabilità orizzontale](#scale-out)**).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 Se si ha già familiarità con il modello di scalabilità di Azure Arc abilitata per l'iperscalabilità PostgreSQL o con la scalabilità di database di Azure per PostgreSQL (CITUS), è possibile ignorare questo paragrafo. In caso contrario, è consigliabile iniziare leggendo questo modello di scalabilità nella pagina della documentazione relativa alla scalabilità di database di Azure per PostgreSQL (CITUS). Il database di Azure per PostgreSQL (CITUS) è la stessa tecnologia ospitata come servizio in Azure (piattaforma come servizio anche noto come PAAS) anziché essere offerta come parte di Azure Arc Enabled Data Services:
 - [Nodi e tabelle](../../postgresql/concepts-hyperscale-nodes.md)
 - [Determinare il tipo di applicazione](../../postgresql/concepts-hyperscale-app-type.md)
@@ -252,5 +252,4 @@ Prendere nota del tempo di esecuzione.
  > \* Nei documenti precedenti ignorare le sezioni accedere al **portale di Azure**& **creare un database di Azure per PostgreSQL-iperscalabilità (CITUS)**. Implementare i passaggi rimanenti nella distribuzione di Azure Arc. Queste sezioni sono specifiche dell'iperscalabilità di database di Azure per PostgreSQL (CITUS) offerta come servizio PaaS nel cloud di Azure, ma le altre parti dei documenti sono direttamente applicabili all'iperscalabilità di PostgreSQL abilitata per Azure Arc.
 
 - [Concetti relativi alla configurazione dell'archiviazione e all'archiviazione Kubernetes](storage-configuration.md)
-- [Espansione di attestazioni di volume permanenti](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modello di risorsa Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

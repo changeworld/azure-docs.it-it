@@ -2,13 +2,13 @@
 title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.date: 12/07/2020
+ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364230"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780995"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -1026,7 +1026,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | No | No |
-> | sapmonitors | Sì | Sì |
+> | sapmonitors | No | No |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 

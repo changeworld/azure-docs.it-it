@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f316b1ca6a7684630c1ab14d722651c1f3ffbc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715858"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778905"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento
 
@@ -39,12 +39,14 @@ Dopo aver determinato l'ambito appropriato per un'assegnazione di ruolo, passare
 
 1. Assegnare il ruolo Azure di archiviazione di Azure appropriato per concedere l'accesso a un'entità di sicurezza Azure AD.
 
-1. Assegnare il ruolo di [lettore](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager agli utenti che devono accedere a contenitori o code tramite il portale di Azure usando le credenziali Azure ad. 
+1. Assegnare il ruolo di [lettore](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager agli utenti che devono accedere a contenitori o code tramite il portale di Azure usando le credenziali Azure ad.
 
 Le sezioni seguenti descrivono ognuno di questi passaggi in modo più dettagliato.
 
 > [!NOTE]
-> In quanto proprietario dell'account di archiviazione di Azure, non si ricevono automaticamente le autorizzazioni per l'accesso ai dati. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+>
+> Prima di assegnare a se stessi un ruolo per l'accesso ai dati, sarà possibile accedere ai dati nell'account di archiviazione tramite il portale di Azure perché il portale di Azure può anche usare la chiave dell'account per l'accesso ai dati. Per altre informazioni, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md).
 >
 > Non è possibile assegnare un ruolo con ambito a un contenitore o a una coda se per l'account di archiviazione è abilitato uno spazio dei nomi gerarchico.
 
@@ -64,11 +66,11 @@ La procedura descritta qui assegna un ruolo con ambito a livello di singolo cont
 1. Fare clic sul pulsante **Aggiungi un'assegnazione di ruolo** per aggiungere un nuovo ruolo.
 1. Nella finestra **Aggiungi assegnazione ruolo** selezionare il ruolo di archiviazione di Azure che si vuole assegnare. Quindi cercare per individuare l'entità di sicurezza a cui si vuole assegnare il ruolo.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Screenshot che mostra le impostazioni di controllo di accesso del contenitore":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Screenshot che illustra come assegnare un ruolo di Azure":::
 
-1. Fare clic su **Save**. L'identità cui è assegnato il ruolo viene visualizzata nell'elenco in corrispondenza del ruolo. Ad esempio, la figura seguente mostra che l'utente aggiunto ha ora autorizzazioni di lettura per i dati nel contenitore denominato *sample-container*.
+1. Fare clic su **Salva**. L'identità cui è assegnato il ruolo viene visualizzata nell'elenco in corrispondenza del ruolo. Ad esempio, la figura seguente mostra che l'utente aggiunto ha ora autorizzazioni di lettura per i dati nel contenitore denominato *sample-container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Screenshot che mostra le impostazioni di controllo di accesso del contenitore":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Screenshot che mostra l'elenco di utenti assegnati a un ruolo":::
 
 È possibile seguire una procedura simile per assegnare un ruolo con ambito per l'account di archiviazione, il gruppo di risorse o la sottoscrizione.
 

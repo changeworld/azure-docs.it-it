@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 30859593e240c4143dc298cff446ce8bc116a993
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576588"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780587"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -67,10 +67,10 @@ I limiti seguenti per le risorse si applicano in base all'area di lavoro.
 
 Inoltre, il tempo di **esecuzione** massimo è di 30 giorni e il numero massimo di **metriche registrate per esecuzione** è 1 milione.
 
-#### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
-[Azure Machine Learning calcolo](concept-compute-target.md#azure-machine-learning-compute-managed) ha un limite di quota predefinito per il numero di core e il numero di risorse di calcolo univoche consentite per area in una sottoscrizione. Questa quota è separata dalla quota di core della VM della sezione precedente.
+### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
+[Azure Machine Learning calcolo](concept-compute-target.md#azure-machine-learning-compute-managed) ha un limite di quota predefinito per il numero di core (divisi per ogni famiglia di VM e core totali cumulativi), nonché il numero di risorse di calcolo univoche consentite per ogni area in una sottoscrizione. Questa quota è separata dalla quota di core della VM elencata nella sezione precedente, in quanto si applica solo alle risorse di calcolo gestite di Azure Machine Learning.
 
-[Richiedere un aumento della quota](#request-quota-increases) per aumentare i limiti di questa sezione fino al limite massimo indicato nella tabella.
+[Richiedere un aumento della quota](#request-quota-increases) per aumentare i limiti per le varie quote core della famiglia di macchine virtuali, le quote totali di core della sottoscrizione e le risorse in questa sezione.
 
 Risorse disponibili:
 + I **Core dedicati per area** hanno un limite predefinito di 24 a 300, a seconda del tipo di offerta di sottoscrizione. È possibile aumentare il numero di core dedicati per ogni sottoscrizione per ogni famiglia di macchine virtuali. Le famiglie di macchine virtuali specializzate come NCv2, NCv3 o ND iniziano con un valore predefinito di zero core.
@@ -79,12 +79,19 @@ Risorse disponibili:
 
 + I **cluster per area** hanno un limite predefinito di 200. Questi sono condivisi tra un cluster di training e un'istanza di calcolo. Un'istanza di calcolo è considerata un cluster a nodo singolo per finalità di quota.
 
-La tabella seguente Mostra limiti aggiuntivi che non possono essere superati.
+> [!TIP]
+> Per altre informazioni sulla famiglia di VM per cui richiedere un aumento della quota, vedere [dimensioni delle macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Per le famiglie di macchine virtuali GPU, ad esempio, inizia con "N" nel nome della famiglia, ad esempio Serie NCv3)
 
-| **Risorsa** | **Limite massimo** |
+La tabella seguente illustra i limiti aggiuntivi della piattaforma. Rivolgersi al team del prodotto AzureML tramite un ticket di supporto **tecnico** per richiedere un'eccezione.
+
+| **Risorsa o azione** | **Limite massimo** |
 | --- | --- |
 | Aree di lavoro per gruppo di risorse | 800 |
-| Nodi in una singola risorsa di calcolo di Azure Machine Learning (AmlCompute) | 100 nodi |
+| Nodi in una singola configurazione del **cluster** di Azure Machine Learning calcolo (AmlCompute) come pool non abilitato per la comunicazione (ovvero non è possibile eseguire processi MPI) | 100 nodi che possono essere configurati fino a 65000 nodi |
+| I nodi in un singolo passaggio di esecuzione parallela **vengono eseguiti** in un cluster Azure Machine Learning calcolo (AmlCompute) | 100 nodi, ma possono essere configurati fino a 65000 nodi se il cluster è configurato per la scalabilità in base alle versioni precedenti |
+| Nodi in una singola configurazione del **cluster** di Azure Machine Learning calcolo (AmlCompute) come pool abilitato per la comunicazione | 300 nodi che possono essere configurati fino a 4000 nodi |
+| Nodi in una singola configurazione del **cluster** di Azure Machine Learning calcolo (AmlCompute) come pool abilitato per la comunicazione in una famiglia di VM abilitata per RDMA | 100 nodi |
+| Nodi in un singolo MPI **eseguiti** in un cluster di calcolo Azure Machine Learning (AmlCompute) | 100 nodi, ma possono essere aumentati a 300 nodi |
 | Processi MPI GPU per nodo | 1-4 |
 | Thread di lavoro GPU per nodo | 1-4 |
 | Durata dei processi | 21 giorni<sup>1</sup> |

@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 22d6cacc36363b17f9bc32d354982eb71974b31d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995217"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779754"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -116,6 +116,8 @@ Questa esperienza di consenso è interessata dalle autorizzazioni richieste dall
 * Un'autorizzazione solo app viene concessa direttamente all'identità dell'applicazione. Ad esempio, è possibile concedere a un'applicazione l'autorizzazione solo app per leggere l'elenco di utenti in un tenant, indipendentemente dall'utente che ha eseguito l'accesso all'applicazione.
 
 Alcune autorizzazioni possono essere concesse da un utente normale, mentre altre richiedono il consenso dell'amministratore tenant.
+
+Per altre informazioni sul consenso dell'utente e dell'amministratore, vedere [configurare il flusso di lavoro di consenso dell'amministratore](../manage-apps/configure-admin-consent-workflow.md).
 
 ### <a name="admin-consent"></a>Consenso dell'amministratore
 

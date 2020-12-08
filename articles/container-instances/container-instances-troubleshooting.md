@@ -4,12 +4,12 @@ description: Informazioni su come risolvere i problemi comuni durante la distrib
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746924"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779516"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
@@ -99,7 +99,7 @@ Questo errore indica che a causa di un carico elevato nell'area in cui si sta ce
 ## <a name="issues-during-container-group-runtime"></a>Problemi durante il runtime del gruppo di contenitori
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Il contenitore viene continuamente chiuso e riavviato (nessun processo a esecuzione prolungata)
 
-I gruppi di contenitori vengono impostati automaticamente sul [criterio di riavvio](container-instances-restart-policy.md)**Always** , in modo che i contenitori nel gruppo di contenitori eseguano sempre il riavvio dopo il completamento dell'esecuzione. Potrebbe essere necessario impostare questa opzione su **OnFailure** oppure **Never** se si prevede di eseguire i contenitori basati su attività. Se si specifica **OnFailure** e si riscontra una situazione di riavvio continuo, potrebbe essere presente un problema con l'applicazione o lo script eseguito nel contenitore.
+I gruppi di contenitori vengono impostati automaticamente sul [criterio di riavvio](container-instances-restart-policy.md)**Always**, in modo che i contenitori nel gruppo di contenitori eseguano sempre il riavvio dopo il completamento dell'esecuzione. Potrebbe essere necessario impostare questa opzione su **OnFailure** oppure **Never** se si prevede di eseguire i contenitori basati su attività. Se si specifica **OnFailure** e si riscontra una situazione di riavvio continuo, potrebbe essere presente un problema con l'applicazione o lo script eseguito nel contenitore.
 
 Durante l'esecuzione di gruppi di contenitori senza processi a esecuzione prolungata è probabile che si verifichino ripetute uscite e riavvii con le immagini, ad esempio Ubuntu o Alpine. La connessione tramite [EXEC](container-instances-exec.md) non funzionerà in quanto il contenitore non dispone di alcun processo che lo mantiene attivo. Per risolvere questo problema, includere un comando di avvio simile al seguente con la distribuzione del gruppo di contenitori per impedire l'esecuzione del contenitore.
 
@@ -155,7 +155,7 @@ L'API Istanze di Container e il portale di Azure includono una proprietà `resta
 ```
 
 > [!NOTE]
-> La maggior parte delle immagini di contenitore per le distribuzioni di Linux imposta una shell, ad esempio bash, come comando predefinito. Poiché una shell non è di per sé un servizio a esecuzione prolungata, questi contenitori vengono chiusi immediatamente e sono soggetti a un riavvio ciclico quando sono configurati in base al criterio di riavvio predefinito **Always** .
+> La maggior parte delle immagini di contenitore per le distribuzioni di Linux imposta una shell, ad esempio bash, come comando predefinito. Poiché una shell non è di per sé un servizio a esecuzione prolungata, questi contenitori vengono chiusi immediatamente e sono soggetti a un riavvio ciclico quando sono configurati in base al criterio di riavvio predefinito **Always**.
 
 ### <a name="container-takes-a-long-time-to-start"></a>L'avvio di un contenitore richiede molto tempo
 
@@ -187,7 +187,7 @@ Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio de
 
 #### <a name="cached-images"></a>Immagini memorizzate nella cache
 
-Istanze di contenitore di Azure usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini basate su [Immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported)comuni, tra cui `nanoserver:1809` , `servercore:ltsc2019` e `servercore:1809` . Anche le immagini Linux usate di frequente, ad esempio `ubuntu:1604` e, `alpine:3.6` vengono memorizzate nella cache. Per un elenco aggiornato di immagini e tag memorizzati nella cache, usare l'API [Elenca immagini memorizzate nella cache][list-cached-images] .
+Istanze di contenitore di Azure usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini basate su [Immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported)comuni, tra cui `nanoserver:1809` , `servercore:ltsc2019` e `servercore:1809` . Anche le immagini Linux usate di frequente, ad esempio `ubuntu:1604` e, `alpine:3.6` vengono memorizzate nella cache. Per le immagini Windows e Linux, evitare di usare il `latest` tag. Esaminare le procedure consigliate per i [tag di immagine](../container-registry/container-registry-image-tag-version.md) container Registry per le linee guida. Per un elenco aggiornato di immagini e tag memorizzati nella cache, usare l'API [Elenca immagini memorizzate nella cache][list-cached-images] .
 
 > [!NOTE]
 > L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
@@ -213,7 +213,7 @@ Se si vuole verificare che le istanze di contenitore di Azure possano restare in
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Trovare l'indirizzo IP del gruppo di contenitori nell'output del comando di `az container create` . Cercare il valore di **IP** . 
+1. Trovare l'indirizzo IP del gruppo di contenitori nell'output del comando di `az container create` . Cercare il valore di **IP**. 
 1. Dopo aver eseguito il provisioning del contenitore, passare all'indirizzo IP e alla porta dell'app contenitore nel browser, ad esempio: `192.0.2.0:9000` . 
 
     Dovrebbe essere visualizzato il benvenuto in istanze di contenitore di Azure. messaggio visualizzato dall'app Web.

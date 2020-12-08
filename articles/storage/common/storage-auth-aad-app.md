@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d6a152096ce4e16849542c26d1c7a675a972b89
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787687"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779074"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
@@ -35,18 +35,18 @@ Per autenticare un'entità di sicurezza dall'applicazione di archiviazione di Az
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrare l'applicazione nel tenant di Azure AD
 
-Il primo passaggio nell'uso di Azure AD per autorizzare l'accesso alle risorse di archiviazione è la registrazione dell'applicazione client con un tenant di Azure AD dal [portale di Azure](https://portal.azure.com). Quando si registra l'applicazione client, è necessario fornire informazioni sull'applicazione Azure AD. Azure AD fornisce quindi un ID client, chiamato anche *ID applicazione* , da usare per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID client, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Per registrare l'applicazione di archiviazione di Azure, seguire i passaggi illustrati in [Guida introduttiva: registrare un'applicazione con la piattaforma di identità Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+Il primo passaggio nell'uso di Azure AD per autorizzare l'accesso alle risorse di archiviazione è la registrazione dell'applicazione client con un tenant di Azure AD dal [portale di Azure](https://portal.azure.com). Quando si registra l'applicazione client, è necessario fornire informazioni sull'applicazione Azure AD. Azure AD fornisce quindi un ID client, chiamato anche *ID applicazione*, da usare per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID client, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Per registrare l'applicazione di archiviazione di Azure, seguire i passaggi illustrati in [Guida introduttiva: registrare un'applicazione con la piattaforma di identità Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
 
 Nell'immagine seguente vengono illustrate le impostazioni comuni per la registrazione di un'applicazione Web. Si noti che in questo esempio l'URI di reindirizzamento è impostato su `http://localhost:5000/signin-oidc` per il test dell'applicazione di esempio nell'ambiente di sviluppo. È possibile modificare questa impostazione in un secondo momento in base all'impostazione di **autenticazione** per l'applicazione registrata nel portale di Azure:
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
 
 > [!NOTE]
-> Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido per l' **URI di reindirizzamento** . Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
+> Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido per l' **URI di reindirizzamento**. Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
 
-Al termine della registrazione dell'applicazione, verrà visualizzato l'ID applicazione (o ID client) in **Impostazioni** :
+Al termine della registrazione dell'applicazione, verrà visualizzato l'ID applicazione (o ID client) in **Impostazioni**:
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot che mostra l'ID client":::
 
 Per altre informazioni sulla registrazione di un'applicazione in Azure AD, vedere [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
@@ -54,18 +54,18 @@ Per altre informazioni sulla registrazione di un'applicazione in Azure AD, veder
 
 Successivamente, concedere all'applicazione le autorizzazioni per chiamare le API di archiviazione di Azure. Questo passaggio consente all'applicazione di autorizzare le richieste ad archiviazione di Azure con Azure AD.
 
-1. Nella pagina **autorizzazioni API** per l'applicazione registrata selezionare **Aggiungi un'autorizzazione** .
-1. Nella scheda **Microsoft Apis (API Microsoft** ) selezionare **archiviazione di Azure** .
-1. Nel riquadro **autorizzazioni API richiesta** , in **quali tipi di autorizzazioni sono richieste dall'applicazione?** , osservare che il tipo di autorizzazione disponibile è **autorizzazioni delegate** . Questa opzione è selezionata per impostazione predefinita.
-1. In **autorizzazioni** selezionare la casella di controllo accanto a **user_impersonation** , quindi selezionare il pulsante **Aggiungi autorizzazioni** .
+1. Nella pagina **autorizzazioni API** per l'applicazione registrata selezionare **Aggiungi un'autorizzazione**.
+1. Nella scheda **Microsoft Apis (API Microsoft** ) selezionare **archiviazione di Azure**.
+1. Nel riquadro **autorizzazioni API richiesta** , in **quali tipi di autorizzazioni sono richieste dall'applicazione?**, osservare che il tipo di autorizzazione disponibile è **autorizzazioni delegate**. Questa opzione è selezionata per impostazione predefinita.
+1. In **autorizzazioni** selezionare la casella di controllo accanto a **user_impersonation**, quindi selezionare il pulsante **Aggiungi autorizzazioni** .
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot che mostra le autorizzazioni per l'API di archiviazione":::
 
-1. Successivamente, concedere il consenso dell'amministratore per queste autorizzazioni facendo clic su **concedi il consenso dell'amministratore per la directory predefinita** .
+1. Successivamente, concedere il consenso dell'amministratore per queste autorizzazioni facendo clic su **concedi il consenso dell'amministratore per la directory predefinita**.
 
 Il riquadro **autorizzazioni API** Mostra ora che l'applicazione Azure ad registrata ha accesso alle api di Microsoft Graph e di archiviazione di Azure e che il consenso è concesso per la directory predefinita. Le autorizzazioni vengono automaticamente concesse a Microsoft Graph quando si registra l'app per la prima volta in Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot che mostra le autorizzazioni API per l'app registrata":::
 
 ### <a name="create-a-client-secret"></a>Creare un segreto client
 
@@ -81,13 +81,13 @@ L'applicazione richiede un segreto client per dimostrare la propria identità qu
 
 ### <a name="enable-implicit-grant-flow"></a>Abilita flusso di concessione implicita
 
-Configurare quindi il flusso di concessione implicita per l'applicazione. A tale scopo, seguire questa procedura:
+Configurare quindi il flusso di concessione implicita per l'applicazione. Seguire questa procedura:
 
 1. Passare alla registrazione dell'app nel portale di Azure.
 1. Nella sezione **Gestisci** selezionare l'impostazione di **autenticazione** .
 1. Nella sezione **Grant implicite** selezionare la casella di controllo per abilitare i token ID, come illustrato nell'immagine seguente:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot che illustra come abilitare le impostazioni per il flusso di concessione implicito":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Librerie client per l'acquisizione di token
 
@@ -131,6 +131,8 @@ Successivamente, assegnare in modo esplicito il ruolo di **collaboratore dati BL
 
 > [!NOTE]
 > Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+>
+> Prima di assegnare a se stessi un ruolo per l'accesso ai dati, sarà possibile accedere ai dati nell'account di archiviazione tramite il portale di Azure perché il portale di Azure può anche usare la chiave dell'account per l'accesso ai dati. Per altre informazioni, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Creare un'applicazione Web che autorizza l'accesso all'archiviazione BLOB con Azure AD
 
@@ -140,7 +142,7 @@ Un'applicazione Web di esempio completa che acquisisce un token e la usa per cre
 
 #### <a name="add-references-and-using-statements"></a>Aggiungere riferimenti e istruzioni using  
 
-Da Visual Studio installare la libreria client di archiviazione di Azure. Dal menu **strumenti** selezionare **Gestione pacchetti NuGet** e quindi Console di **Gestione pacchetti** . Digitare i comandi seguenti nella finestra della console per installare i pacchetti necessari dalla libreria client di archiviazione di Azure per .NET:
+Da Visual Studio installare la libreria client di archiviazione di Azure. Dal menu **strumenti** selezionare **Gestione pacchetti NuGet** e quindi Console di **Gestione pacchetti**. Digitare i comandi seguenti nella finestra della console per installare i pacchetti necessari dalla libreria client di archiviazione di Azure per .NET:
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 

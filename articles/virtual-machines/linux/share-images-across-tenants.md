@@ -1,6 +1,6 @@
 ---
 title: Condividere immagini della raccolta tra i tenant
-description: Informazioni su come condividere immagini di VM tra tenant di Azure usando raccolte di immagini condivise con esempi di Linux.
+description: Informazioni su come condividere immagini di VM tra tenant di Azure usando le raccolte di immagini condivise usando l'interfaccia della riga di comando di Azure.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,14 +10,14 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5e71f09179d414be84896a49a66480f19a0665d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0192a6eb60c72c9f7ac605db492f4e5f97b76ed
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843588"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779261"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants---linux-examples"></a>Condividere immagini di macchine virtuali della raccolta tra i tenant di Azure-esempi di Linux
+# <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Condividere immagini di macchine virtuali della raccolta tra i tenant di Azure usando l'interfaccia della riga di comando
 
 Le raccolte immagini condivise consentono di condividere immagini con il controllo degli accessi in base al ruolo È possibile usare il controllo degli accessi in base al ruolo di Azure per condividere immagini all'interno del tenant e anche a utenti esterni al tenant. Per ulteriori informazioni su questa semplice opzione di condivisione, vedere la pagina relativa alla [condivisione della raccolta](./shared-images-portal.md#share-the-gallery).
 

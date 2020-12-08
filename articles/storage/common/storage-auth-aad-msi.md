@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8e9013db93f5cd67448b5af8c415db0862e5d332
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ccc545b15f16879582c671b082cab40f6b11aa08
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842720"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778972"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -50,6 +50,11 @@ Per altre informazioni sulla libreria client Azure Identity per .NET, vedere [li
 
 Quando un Azure AD entità di sicurezza tenta di accedere ai dati del BLOB o della coda, l'entità di sicurezza deve avere le autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente Azure AD che esegue il codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo di Azure che concede l'accesso ai dati BLOB o della coda in archiviazione di Azure. Per informazioni sull'assegnazione delle autorizzazioni tramite il controllo degli accessi in base al ruolo di Azure, vedere la sezione **assegnare i ruoli di Azure per i diritti di accesso** in [autorizzare l'accesso a BLOB e code di Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
+> [!NOTE]
+> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+>
+> Prima di assegnare a se stessi un ruolo per l'accesso ai dati, sarà possibile accedere ai dati nell'account di archiviazione tramite il portale di Azure perché il portale di Azure può anche usare la chiave dell'account per l'accesso ai dati. Per altre informazioni, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md).
+
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticare l'utente nell'ambiente di sviluppo
 
 Quando il codice è in esecuzione nell'ambiente di sviluppo, l'autenticazione può essere gestita automaticamente oppure è possibile che sia necessario un account di accesso del browser, a seconda degli strumenti che si stanno usando. Ad esempio, Microsoft Visual Studio supporta Single Sign-On (SSO), in modo che l'account utente Active Azure AD venga usato automaticamente per l'autenticazione. Per ulteriori informazioni su SSO, vedere [Single Sign-on to Applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
@@ -71,7 +76,7 @@ L'esempio seguente usa l'interfaccia della riga di comando di Azure per creare u
 ```azurecli-interactive
 az ad sp create-for-rbac \
     --name <service-principal> \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Blob Data Contributor" \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 

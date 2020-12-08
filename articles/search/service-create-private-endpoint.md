@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014364"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779941"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
 
@@ -22,7 +22,7 @@ In questo articolo si userà il portale di Azure per creare una nuova istanza de
 Gli endpoint privati vengono forniti dal [collegamento privato di Azure](../private-link/private-link-overview.md)come servizio separato. Per ulteriori informazioni sui costi, vedere la [pagina](https://azure.microsoft.com/pricing/details/private-link/)relativa ai prezzi.
 
 > [!Important]
-> Il supporto per gli endpoint privati per ricerca cognitiva di Azure può essere configurato usando il portale di Azure o l' [API REST di gestione versione 2020-03-13](/rest/api/searchmanagement/). Quando l'endpoint del servizio è privato, alcune funzionalità del portale sono disabilitate. Sarà possibile visualizzare e gestire le informazioni sul livello di servizio, ma l'accesso al portale per i dati di indicizzazione e i vari componenti del servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza.
+> Il supporto per gli endpoint privati per ricerca cognitiva di Azure può essere configurato usando il portale di Azure o l' [API REST di gestione versione 2020-03-13](/rest/api/searchmanagement/). Quando l'endpoint del servizio è privato, alcune funzionalità del portale sono disabilitate. Sarà possibile visualizzare e gestire le informazioni sul livello di servizio, ma l'accesso al portale per i dati di indicizzazione e i vari componenti del servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza. In alternativa al portale, è possibile usare l' [estensione vs code](https://aka.ms/vscode-search) per interagire con i vari componenti del servizio.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Perché usare un endpoint privato per l'accesso sicuro?
 
@@ -47,7 +47,7 @@ In questa sezione si creeranno una rete virtuale e una subnet per ospitare la ma
     | Subscription | Selezionare la propria sottoscrizione|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
     | Nome | Immettere *MyVirtualNetwork* |
-    | Region | Selezionare l'area geografica desiderata |
+    | Area | Selezionare l'area geografica desiderata |
     |||
 
 1. Lasciare le impostazioni predefinite per le altre impostazioni. Fare clic su **Verifica + crea** e quindi su **Crea**
@@ -216,7 +216,7 @@ Quando l'endpoint del servizio di ricerca è privato, alcune funzionalità del p
 
 1. Per verificare che il servizio non sia accessibile in un endpoint pubblico, aprire il post nella workstation locale e provare le prime attività nella Guida introduttiva. Se viene visualizzato un errore che segnala che il server remoto non esiste, è stato configurato correttamente un endpoint privato per il servizio di ricerca.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse 
+## <a name="clean-up-resources"></a>Pulire le risorse 
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, il servizio di ricerca e la macchina virtuale:
 1. Immettere  *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare  *myResourceGroup* nei   Risultati della ricerca. 
 1. Selezionare **Elimina gruppo di risorse**. 

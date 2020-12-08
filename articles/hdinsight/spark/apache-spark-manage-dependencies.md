@@ -8,27 +8,27 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2cd50b1b35b87b1a11301ddc36ac355bef20dc4
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064137"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780617"
 ---
 # <a name="manage-spark-application-dependencies"></a>Gestire le dipendenze dell'applicazione Spark
 
 Questo articolo illustra come gestire le dipendenze per le applicazioni Spark in esecuzione in HDInsight. Vengono descritti sia scala che PySpark nell'ambito del cluster e dell'applicazione Spark.
 
 Usare i collegamenti rapidi per passare alla sezione in base al caso dell'utente:
-* [Configurare le dipendenze jar del processo Spark usando Jupyter notebook](#use-jupyter-notebook)
+* [Configurare le dipendenze jar del processo Spark usando Jupyter Notebook](#use-jupyter-notebook)
 * [Configurare le dipendenze jar del processo Spark con use Azure Toolkit for IntelliJ](#use-azure-toolkit-for-intellij)
 * [Configurare le dipendenze jar per il cluster Spark](#jar-libs-for-cluster)
 * [Gestire in modo sicuro le dipendenze JAR](#safely-manage-jar-dependencies)
-* [Configurare i pacchetti Python del processo Spark usando Jupyter notebook](#use-jupyter-notebook-1)
+* [Configurare i pacchetti Python del processo Spark usando Jupyter Notebook](#use-jupyter-notebook-1)
 * [Gestire in modo sicuro i pacchetti Python per il cluster Spark](#python-packages-for-cluster)
 
 ## <a name="jar-libs-for-one-spark-job"></a>Librerie jar per un processo Spark
-### <a name="use-jupyter-notebook"></a>Usare Jupyter notebook
+### <a name="use-jupyter-notebook"></a>USA Jupyter Notebook
 Quando una sessione Spark viene avviata in Jupyter Notebook nel kernel Spark per scala, è possibile configurare i pacchetti da:
 
 * [Repository maven](https://search.maven.org/)o pacchetti creati dalla community in [pacchetti Spark](https://spark-packages.org/).
@@ -42,7 +42,7 @@ Si userà `%%configure` Magic per configurare il notebook per l'uso di un pacche
 
 **Esempio per i pacchetti del repository maven o dei pacchetti Spark**
 
-Dopo aver individuato il pacchetto dal repository maven, raccogliere i valori per **GroupID**, **ArtifactId**e **Version**. Concatenare i tre valori, separati da due punti (**:**).
+Dopo aver individuato il pacchetto dal repository maven, raccogliere i valori per **GroupID**, **ArtifactId** e **Version**. Concatenare i tre valori, separati da due punti (**:**).
 
    ![Concatenare lo schema del pacchetto](./media/apache-spark-manage-dependencies/spark-package-schema.png "Concatenare lo schema del pacchetto")
 
@@ -102,8 +102,8 @@ In alcuni casi, può essere necessario configurare le dipendenze jar a livello d
 Il cluster HDInsight include dipendenze jar predefinite e gli aggiornamenti per queste versioni jar si verificano di tanto in tanto. Per evitare conflitti di versione tra i file jar incorporati e i file jar di riferimento, provare a [ombreggiare le dipendenze dell'applicazione](./safely-manage-jar-dependency.md).
 
 ## <a name="python-packages-for-one-spark-job"></a>Pacchetti Python per un processo Spark
-### <a name="use-jupyter-notebook"></a>Usare Jupyter notebook
-HDInsight Jupyter notebook PySpark kernel non supporta l'installazione di pacchetti Python direttamente da PyPi o dal repository di pacchetti Anaconda. Se si dispone `.zip` di `.egg` `.py` dipendenze, o e si desidera farvi riferimento per una sessione di Spark, attenersi alla procedura seguente:
+### <a name="use-jupyter-notebook"></a>USA Jupyter Notebook
+HDInsight Jupyter Notebook PySpark kernel non supporta l'installazione diretta di pacchetti Python da PyPi o dal repository di pacchetti Anaconda. Se si dispone `.zip` di `.egg` `.py` dipendenze, o e si desidera farvi riferimento per una sessione di Spark, attenersi alla procedura seguente:
 
 1. Eseguire le azioni script di esempio seguenti per copiare `.zip` `.egg` o `.py` file dall'archiviazione primaria `wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*` a file system locali del cluster `/usr/libs/pylibs` . Il passaggio è necessario quando Linux usa `:` per separare l'elenco dei percorsi di ricerca, ma HDInsight supporta solo i percorsi di archiviazione con schema come `wasb://` . Il percorso di archiviazione remoto non funzionerà correttamente quando si usa `sys.path.insert` .
 

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: d33c368c271c4d1809834e2eeac8c4b5c0ba0441
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16ae2f9e74202aff47e58a22dbe21a28d8280a7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011140"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780723"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione BLOB di Azure
 
@@ -38,7 +38,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 Questa tabella mostra le [metriche di archiviazione BLOB](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
-| Metric | Descrizione |
+| Metrica | Descrizione |
 | ------------------- | ----------------- |
 | BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType** e **BlobTier** ([Definizione](#metrics-dimensions)) |
 | BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensioni: **BlobType** e **BlobTier** ([Definizione](#metrics-dimensions)) |
@@ -74,7 +74,7 @@ Per le dimensioni che supportano metriche, è necessario specificare il valore r
 ## <a name="resource-logs-preview"></a>Log risorse (anteprima)
 
 > [!NOTE]
-> I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Per registrarsi all'anteprima, vedere [questa pagina](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Questa anteprima abilita i log per BLOB (compreso Azure Data Lake Storage Gen2), file, code, tabelle, account di archiviazione Premium negli account di archiviazione per utilizzo generico v1 e utilizzo generico v2. gli account di archiviazione di tipo classico non sono supportati.
+> I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Questa anteprima abilita i log per BLOB (compreso Azure Data Lake Storage Gen2), file, code, tabelle, account di archiviazione Premium negli account di archiviazione per utilizzo generico v1 e utilizzo generico v2. gli account di archiviazione di tipo classico non sono supportati.
 
 La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione di Azure quando vengono raccolti nei log di Monitoraggio di Azure o in Archiviazione di Azure. Le proprietà descrivono l'operazione, il servizio e il tipo di autorizzazione usati per eseguire l'operazione.
 

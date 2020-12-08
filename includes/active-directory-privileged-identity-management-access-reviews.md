@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: active-directory
-author: rolyon
+author: barclayn
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/26/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83868088"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842389"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Creare una o più verifiche di accesso
 
@@ -53,6 +53,7 @@ ms.locfileid: "83868088"
 
     - **Utenti selezionati**: usare questa opzione quando non è noto chi abbia bisogno dell'accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
     - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo.
+    - **Gestione (anteprima)** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Quando si seleziona gestione (anteprima), è anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory.
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 
@@ -82,3 +83,6 @@ ms.locfileid: "83868088"
 1. Impostare **Notifiche tramite posta elettronica** su **Abilita** per fare in modo che Azure AD invii notifiche tramite posta elettronica ai revisori all'avvio di una verifica di accesso e agli amministratori al completamento di una verifica.
 
 1. Impostare **Promemoria** su **Abilita** per fare in modo che Azure AD invii promemoria delle verifiche di accesso in corso ai revisori che non hanno completato la verifica.
+1. Il contenuto del messaggio di posta elettronica inviato ai revisori viene generato automaticamente in base ai dettagli della revisione, ad esempio il nome della revisione, il nome della risorsa, la scadenza e così via. Se è necessario un modo per comunicare informazioni aggiuntive, ad esempio istruzioni aggiuntive o informazioni di contatto, è possibile specificare questi dettagli nel **contenuto aggiuntivo per l'indirizzo di posta elettronica del revisore** che verrà incluso nei messaggi di posta elettronica di invito e promemoria inviati ai revisori assegnati. La sezione evidenziata di seguito consente di visualizzare queste informazioni.
+
+    ![Contenuto del messaggio di posta elettronica inviato ai revisori con i punti salienti](./media/active-directory-privileged-identity-management-access-reviews/email-info.png)

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762551"
+ms.locfileid: "96779363"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -89,7 +89,7 @@ Quando non è necessaria la registrazione, gli utenti non vengono richiesti dura
 >
 > Questo interrupt per la registrazione di SSPR non interrompe la connessione dell'utente se è già connesso.
 
-## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Impostare il numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione
+## <a name="reconfirm-authentication-information"></a>Riconfermare le informazioni di autenticazione
 
 Per assicurarsi che i metodi di autenticazione siano corretti quando sono necessari per reimpostare o modificare la password, è possibile richiedere agli utenti di confermare le informazioni registrate dopo un determinato periodo di tempo. Questa opzione è disponibile solo se si Abilita l'opzione **Richiedi agli utenti di registrarsi all'accesso** .
 

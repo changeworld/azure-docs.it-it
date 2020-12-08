@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/15/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18f0627b809f56b813052cc763e6ff961f31aa02
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697136"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778590"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -36,8 +36,6 @@ Questo articolo descrive come creare una o più verifiche di accesso per i membr
 
 - Azure AD Premium P2
 - Amministratore globale o Amministratore utenti
-- Anteprima I proprietari delle risorse dei gruppi di Microsoft 365 possono creare recensioni nei gruppi di Microsoft 365 di loro proprietà
-- Anteprima I proprietari delle risorse dei gruppi di sicurezza Azure AD possono creare recensioni nei gruppi di sicurezza Azure AD di cui sono proprietari
 
 Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-overview.md#license-requirements).
 
@@ -45,103 +43,94 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
 1. Accedere alla portale di Azure e aprire la [pagina governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Nel menu a sinistra fare clic su verifiche di **accesso**.
+2. Nel menu a sinistra fare clic su verifiche di **accesso**.
 
-1. Fare clic su **Nuova verifica di accesso** per creare una nuova verifica di accesso.
+3. Fare clic su **Nuova verifica di accesso** per creare una nuova verifica di accesso.
 
     ![Riquadro verifiche di accesso nella governance delle identità](./media/create-access-review/access-reviews.png)
 
-1. Assegnare un nome alla verifica di accesso. Facoltativamente è possibile assegnare una descrizione alla verifica. Il nome e la descrizione vengono visualizzati dai revisori.
+4. In **passaggio 1: selezionare gli elementi da rivedere** selezionare la risorsa che si desidera esaminare.
 
-    ![Creare una verifica di accesso - Nome della verifica e descrizione](./media/create-access-review/name-description.png)
+    ![Creare una verifica di accesso - Nome della verifica e descrizione](./media/create-access-review/select-what-review.png)
 
-1. Impostare un valore per **Data di inizio**. Per impostazione predefinita, la verifica di accesso viene eseguita una sola volta, viene avviata lo stesso giorno in cui viene creata e termina entro un mese. È possibile cambiare le date di inizio e di fine per iniziare la verifica di accesso in futuro e impostare la durata sul numero di giorni desiderato.
+5. Se sono stati selezionati **Team + gruppi** nel passaggio 1, sono disponibili due opzioni nel passaggio 2
+   - **Tutti i gruppi di Microsoft 365 con utenti guest.** Selezionare questa opzione se si desidera creare revisioni ricorrenti su tutti gli utenti guest in tutti i team Microsoft e i gruppi di M365 nell'organizzazione. È possibile scegliere di escludere determinati gruppi facendo clic su "Seleziona gruppi da escludere".
+   - **Selezionare teams + groups.** Selezionare questa opzione se si desidera specificare un set di team e/o gruppi finiti da rivedere. Dopo aver fatto clic su questa opzione, verrà visualizzato un elenco di gruppi a destra da cui scegliere.
 
-    ![Creare una verifica di accesso - Date di inizio e di fine](./media/create-access-review/start-end-dates.png)
+     ![Team e gruppi](./media/create-access-review/teams-groups.png)
 
-1. Per fare in modo che la verifica di accesso ricorra, modificare l'impostazione della **frequenza** da **una volta a una** **settimana**, ogni **mese**, ogni **trimestre**, **semestrale** o **annuale**. Usare il dispositivo di scorrimento **Durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
+     ![Team e gruppi scelti nell'interfaccia utente](./media/create-access-review/teams-groups-detailed.png)
 
-1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: 
-    1. Viene eseguito continuamente per avviare le verifiche a tempo indefinito
-    1. Fino a una data specifica,
-    1. Fino al completamento di un numero definito di occorrenze. 
-  
-    Un utente con ruolo Amministratore utente o Amministratore globale può interrompere la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini in tale data.
+6. Se è stata selezionata l'opzione **applicazioni** nel passaggio 1, è possibile selezionare una o più applicazioni nel passaggio 2.
 
-1. Nella sezione **utenti** specificare gli utenti a cui si applica la verifica di accesso. Le verifiche di accesso possono essere relative ai membri di un gruppo o agli utenti assegnati a un'applicazione. È possibile definire ulteriormente l'ambito della verifica di accesso in modo da controllare solo gli utenti guest che sono membri o che sono stati assegnati all'applicazione invece di controllare tutti gli utenti che sono membri o che hanno accesso all'applicazione.
+    >[!NOTE]
+    > La selezione di più gruppi e/o applicazioni comporterà la creazione di più verifiche di accesso. Se, ad esempio, si selezionano 5 gruppi da rivedere, si otterranno 5 verifiche di accesso separate
 
-    ![Creare una verifica di accesso - Utenti](./media/create-access-review/users.png)
+   ![Interfaccia visualizzata se si scelgono le applicazioni anziché i gruppi](./media/create-access-review/select-application-detailed.png)
 
-1. Nella sezione **gruppo** selezionare uno o più gruppi di cui si vuole verificare l'appartenenza.
+7. Successivamente, nel passaggio 3 è possibile selezionare un ambito per la revisione. Le opzioni disponibili sono
+   - **Solo utenti guest.** Se si seleziona questa opzione, la verifica di accesso viene limitata solo ai Azure AD utenti Guest B2B nella propria directory.
+   - **Tutti.** La selezione di questa opzione consente di definire l'ambito della verifica di accesso a tutti gli oggetti utente associati alla risorsa.
 
-    > [!NOTE]
-    > Se si seleziona più di un gruppo, vengono create più verifiche di accesso. Se ad esempio si seleziona cinque gruppi, vengono create cinque verifiche di accesso separate.
-    
-    ![Creare una verifica di accesso-selezionare un gruppo](./media/create-access-review/select-group.png)
+    >[!NOTE]
+    > Se nel passaggio 2 sono stati selezionati tutti i gruppi di Microsoft 365 con utenti guest, l'unica opzione consiste nell'esaminare gli utenti guest nel passaggio 3
 
-1. Nella sezione **applicazioni** (se è stato selezionato **assegnato a un'applicazione** nel passaggio 8), selezionare le applicazioni a cui si desidera esaminare l'accesso.
+8. Fare clic su Avanti: revisioni
+9. Nella sezione **Seleziona revisori** selezionare una o più persone per eseguire le verifiche di accesso. È possibile scegliere tra:
+    - **Proprietario del gruppo** (sono disponibili solo quando si esegue una verifica in un team o gruppo)
+    - **Utenti o gruppi selezionati**
+    - **Utenti che verificano l'accesso**
+    - **Anteprima Manager degli utenti.**
+    Se si sceglie un **Manager di utenti** o **proprietari di gruppo**  , è possibile specificare anche un revisore di fallback. Ai revisori di fallback viene chiesto di eseguire una verifica quando l'utente non ha specificato alcuna gestione nella directory o il gruppo non dispone di un proprietario.
 
-    > [!NOTE]
-    > Se si seleziona più di un'applicazione, vengono create più verifiche di accesso. Se ad esempio si selezionano cinque applicazioni, vengono create cinque verifiche di accesso separate.
-    
-    ![Creare una verifica di accesso-selezionare l'applicazione](./media/create-access-review/select-application.png)
+    ![nuova verifica di accesso](./media/create-access-review/new-access-review.png)
 
-1. Nella sezione **Revisori** selezionare una o più persone per la verifica di tutti gli utenti nell'ambito. In alternativa è possibile fare in modo che i membri verifichino il proprio accesso. Se la risorsa è un gruppo, è possibile richiedere ai proprietari del gruppo di eseguire la verifica. È possibile anche richiedere che i revisori specifichino un motivo per l'approvazione dell'accesso.
+10. Nella sezione **specifica della ricorrenza della revisione** è possibile specificare una frequenza, ad esempio ogni settimana, ogni **mese, trimestrale,** semestrale, annuale. Viene quindi specificata una **durata**, che definisce per quanto tempo verrà aperta una revisione per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche. Potrebbe essere necessario ridurre la durata per assicurarsi che l'input dei revisori venga applicato in precedenza. Successivamente, è possibile selezionare una **Data di inizio** e una **Data di fine**.
 
-    ![Creare una verifica di accesso - Revisori](./media/create-access-review/reviewers.png)
+    ![Scegliere la frequenza con cui deve essere eseguita la verifica](./media/create-access-review/frequency.png)
 
-1. Nella sezione **Programmi** selezionare il programma da usare. **Programma predefinito** è sempre presente.
-
-    ![Creare una verifica di accesso - Programmi](./media/create-access-review/programs.png)
-
-    Per semplificare la raccolta e il rilevamento delle verifiche di accesso, è possibile organizzarle in programmi. Ogni verifica di accesso può essere collegata a un programma. Quando si preparano i report per un revisore, è possibile concentrarsi sulle verifiche di accesso nell'ambito per un'iniziativa specifica. I risultati dei programmi e della verifica di accesso sono visibili agli utenti con ruolo amministratore globale, Amministratore utenti, amministratore della sicurezza o lettore sicurezza.
-
-    Per visualizzare un elenco di programmi, accedere alla pagina delle verifiche di accesso e selezionare **Programmi**. Se si dispone di un ruolo amministratore globale o Amministratore utenti, è possibile creare programmi aggiuntivi. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità. Quando un programma non è più necessario e non dispone di controlli collegati, è possibile eliminarlo.
-
-### <a name="upon-completion-settings"></a>Impostazioni al completamento
-
-1. Per specificare cosa succede dopo il completamento di una verifica, espandere la sezione **Impostazioni al completamento**.
+11. Fare clic sul pulsante **Next: Settings (impostazioni** ) nella parte inferiore della pagina
+12. Nelle **impostazioni al completamento** è possibile specificare cosa accade dopo il completamento della verifica
 
     ![Creare una verifica di accesso-dopo le impostazioni di completamento](./media/create-access-review/upon-completion-settings-new.png)
 
-2. Se si vuole rimuovere automaticamente l'accesso per gli utenti non autorizzati, impostare **auto Apply results to Resource** to **Enable**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
+Se si vuole rimuovere automaticamente l'accesso per gli utenti non autorizzati, impostare auto Apply results to resource to Enable. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su Disabilita.
+Usare l'elenco se i revisori non rispondono per specificare cosa accade per gli utenti che non vengono esaminati dal revisore entro il periodo di revisione. Questa impostazione non ha alcun impatto sugli utenti che sono stati sottoposti a verifica manualmente dai revisori. Se la decisione finale del revisore è il rifiuto, l'accesso dell'utente verrà rimosso.
 
-3. Usare l'elenco **se i revisori non rispondono** per specificare cosa accade per gli utenti che non vengono esaminati dal revisore entro il periodo di revisione. Questa impostazione non ha alcun impatto sugli utenti che sono stati sottoposti a verifica manualmente dai revisori. Se la decisione finale del revisore è il rifiuto, l'accesso dell'utente verrà rimosso.
+- **Nessuna modifica**: non viene apportata alcuna modifica all'accesso dell'utente
+- **Rimuovi accesso**: l'accesso dell'utente viene rimosso
+- **Approva accesso**: l'accesso dell'utente viene approvato
+- **Accetta i consigli**: vengono applicati i consigli del sistema per rifiutare o approvare l'accesso continuo dell'utente
 
-    - **Nessuna modifica**: non viene apportata alcuna modifica all'accesso dell'utente
-    - **Rimuovi accesso**: l'accesso dell'utente viene rimosso
-    - **Approva accesso**: l'accesso dell'utente viene approvato
-    - **Accetta i consigli**: vengono applicati i consigli del sistema per rifiutare o approvare l'accesso continuo dell'utente
+    ![Opzioni delle impostazioni di completamento](./media/create-access-review/upon-completion-settings-new.png)
 
-    ![Creare una verifica di accesso-impostazioni avanzate](./media/create-access-review/advanced-settings-preview-new.png)
-
-4. Anteprima Usare l'azione da applicare agli utenti negati per specificare cosa accade agli utenti Guest se vengono negati.
-    - L' **opzione 1** rimuoverà l'accesso dell'utente negato al gruppo o all'applicazione da rivedere, sarà comunque in grado di accedere al tenant. 
-    - L' **opzione 2** impedirà agli utenti negati di accedere al tenant, indipendentemente dal fatto che abbiano accesso ad altre risorse. Se si è verificato un errore o se un amministratore decide di riabilitare l'accesso di un utente, può eseguire questa operazione entro 30 giorni dopo che l'utente è stato disabilitato. Se non viene eseguita alcuna azione sugli utenti disabilitati, questi verranno eliminati dal tenant.
+Usare l'azione per applicare agli utenti **Guest** negati per specificare cosa accade agli utenti Guest se vengono negati.
+- Per rimuovere l'appartenenza dell'utente dalla risorsa, l'accesso dell'utente negato al gruppo o all'applicazione da rivedere sarà comunque in grado di accedere al tenant.
+- Bloccare l'accesso dell'utente per 30 giorni, quindi rimuovere l'utente dal tenant bloccherà l'accesso degli utenti negati al tenant, indipendentemente dal fatto che abbiano accesso ad altre risorse. Se si è verificato un errore o se un amministratore decide di riabilitare l'accesso di un utente, può eseguire questa operazione entro 30 giorni dopo che l'utente è stato disabilitato. Se non viene eseguita alcuna azione sugli utenti disabilitati, questi verranno eliminati dal tenant.
 
 Per ulteriori informazioni sulle procedure consigliate per la rimozione degli utenti guest che non hanno più accesso alle risorse dell'organizzazione, leggere l'articolo intitolato [usare Azure ad Identity governance per rivedere e rimuovere gli utenti esterni che non hanno più accesso alle risorse.](access-reviews-external-users.md)
 
->[!NOTE]
-> L'azione da applicare agli utenti negati funziona solo se in precedenza è stata eseguita una verifica per gli utenti guest. vedere **creare una o più** verifiche di accesso sezione passaggio 8.
+   >[!NOTE]
+   >L'azione da applicare agli utenti guest non autorizzati non è configurabile nelle revisioni che hanno come ambito più di utenti guest. Non è inoltre configurabile per le verifiche di **tutti i gruppi di M365 con utenti guest.** Quando non è configurabile, l'opzione predefinita di rimozione dell'appartenenza dell'utente dalla risorsa viene utilizzata per utenti non autorizzati.
 
-### <a name="advanced-settings"></a>Impostazioni avanzate
+13. In **Enable Review Decision Helper** scegliere se si desidera che il revisore riceva le raccomandazioni durante il processo di revisione.
 
-1. Per specificare impostazioni aggiuntive, espandere la sezione **Impostazioni avanzate**.
+    ![Abilita opzioni di supporto decisionale](./media/create-access-review/helpers.png)
 
-1. Impostare **Mostra i consigli** su **Abilita** per mostrare ai revisori i consigli del sistema basati sulle informazioni di accesso dell'utente.
+14. Nella sezione **Impostazioni avanzate** è possibile scegliere quanto segue
+    - Impostare la **giustificazione necessaria** per **consentire** a di richiedere al revisore di fornire un motivo per l'approvazione.
+    - Impostare le **notifiche di posta elettronica** per **consentire** a di Azure ad inviare notifiche tramite posta elettronica ai revisori all'avvio di una verifica di accesso e agli amministratori al completamento di una verifica.
+    - Impostare **Promemoria** su **Abilita** per fare in modo che Azure AD invii promemoria delle verifiche di accesso in corso ai revisori che non hanno completato la verifica. Questi promemoria saranno autonomi a metà della durata della verifica.
+    - Il contenuto del messaggio di posta elettronica inviato ai revisori viene generato automaticamente in base ai dettagli della revisione, ad esempio il nome della revisione, il nome della risorsa, la scadenza e così via. Se è necessario un modo per comunicare informazioni aggiuntive, ad esempio istruzioni aggiuntive o informazioni di contatto, è possibile specificare questi dettagli nella sezione **contenuto aggiuntivo per l'indirizzo di posta elettronica del revisore** . Le informazioni immesse sono incluse nei messaggi di posta elettronica di invito e promemoria inviati ai revisori assegnati. La sezione evidenziata nell'immagine seguente mostra la posizione in cui vengono visualizzate le informazioni.
 
-1. Impostare **Richiedi il motivo all'approvazione** su **Abilita** per richiedere al revisore di specificare un motivo per l'approvazione.
 
-1. Impostare **Notifiche tramite posta elettronica** su **Abilita** per fare in modo che Azure AD invii notifiche tramite posta elettronica ai revisori all'avvio di una verifica di accesso e agli amministratori al completamento di una verifica.
+      ![contenuto aggiuntivo per il revisore](./media/create-access-review/additional-content-reviewer.png)
 
-1. Impostare **Promemoria** su **Abilita** per fare in modo che Azure AD invii promemoria delle verifiche di accesso in corso ai revisori che non hanno completato la verifica. 
+15. Fare clic su Avanti **: esaminare + crea** per passare alla pagina successiva
+16. Assegnare un nome alla verifica di accesso. Facoltativamente è possibile assegnare una descrizione alla verifica. Il nome e la descrizione vengono visualizzati dai revisori.
+17. Esaminare le informazioni e selezionare **Crea**
 
-    >[!NOTE]
-    > Per impostazione predefinita, Azure AD invia automaticamente un promemoria a metà della data di fine ai revisori che non hanno ancora risposto
-
-1. Anteprima Il contenuto del messaggio di posta elettronica inviato ai revisori viene generato automaticamente in base ai dettagli della revisione, ad esempio il nome della revisione, il nome della risorsa, la scadenza e così via. Se è necessario un modo per comunicare informazioni aggiuntive, ad esempio istruzioni aggiuntive o informazioni di contatto, è possibile specificare questi dettagli nel **contenuto aggiuntivo per l'indirizzo di posta elettronica del revisore** che verrà incluso nei messaggi di posta elettronica di invito e promemoria inviati ai revisori assegnati. La sezione evidenziata di seguito consente di visualizzare queste informazioni.
-
-    ![Verificare l'accesso di un utente a un gruppo](./media/create-access-review/review-users-access-group.png)
+       ![schermata Crea Revisione](./media/create-access-review/create-review.png)
 
 ## <a name="start-the-access-review"></a>Avviare la verifica di accesso
 

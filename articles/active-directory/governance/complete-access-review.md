@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/07/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23266043d5efd65a4e6e79dd515a54a2c321b077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798835"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779549"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -46,11 +46,19 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
 1. Nell'elenco fare clic su una verifica di accesso.
 
-    Per visualizzare una serie di verifiche di accesso, passare alla verifica di accesso e trovare le occorrenze imminenti nelle verifiche pianificate.
+    Per visualizzare le istanze future delle verifiche di accesso, passare alla verifica di accesso e selezionare revisioni pianificate.
 
     Nella pagina **Panoramica** è possibile visualizzare lo stato di avanzamento. Nessun diritto di accesso viene modificato nella directory fino al completamento della verifica.
 
     ![Analisi di accesso-stato](./media/complete-access-review/overview-progress.png)
+    
+    Se si visualizza una verifica di accesso che esamina l'accesso guest tra Microsoft 365 gruppi (anteprima), nel pannello panoramica viene elencato ogni gruppo della verifica.  
+
+   ![esaminare l'accesso guest tra gruppi Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Fare clic su un gruppo per visualizzare lo stato di avanzamento della revisione in tale gruppo.
+
+   ![esaminare i dettagli dell'accesso guest nei gruppi di Microsoft 365](./media/complete-access-review/progress-group-review.png)
 
 1. Se si desidera arrestare una verifica di accesso prima di aver raggiunto la data di fine pianificata, fare clic sul pulsante **Arresta** .
 
@@ -62,11 +70,11 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
 Se l' **opzione applica automaticamente i risultati alla risorsa** è stata abilitata e si basa sulle selezioni effettuate in **al termine delle impostazioni**, l'applicazione automatica verrà eseguita dopo la data di fine della verifica o quando si arresta manualmente la revisione.
 
-Se l' **opzione applica automaticamente i risultati alla risorsa** non è stata abilitata per la revisione, fare clic su **applica** per applicare manualmente le modifiche. Se l'accesso di un utente è stato negato durante la verifica, quando si fa clic su **applica**Azure ad rimuove l'assegnazione dell'applicazione o dell'appartenenza.
+Se l' **opzione applica automaticamente i risultati alla risorsa** non è stata abilitata per la revisione, fare clic su **applica** per applicare manualmente le modifiche. Se l'accesso di un utente è stato negato durante la verifica, quando si fa clic su **applica** Azure ad rimuove l'assegnazione dell'applicazione o dell'appartenenza.
 
 ![Applicare le modifiche della verifica di accesso](./media/complete-access-review/apply-changes.png)
 
-Lo stato della revisione passerà da **completato** a stati intermedi, ad esempio l' **applicazione** e infine il **risultato**di stato applicato. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
+Lo stato della revisione passerà da **completato** a stati intermedi, ad esempio l' **applicazione** e infine il **risultato** di stato applicato. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
 
 Se per una verifica si configura l'applicazione automatica o si seleziona **Applica**, questa operazione non avrà alcun effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico. Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
 
@@ -74,7 +82,7 @@ Se per una verifica si configura l'applicazione automatica o si seleziona **Appl
 
 Per visualizzare i risultati di una verifica di accesso monouso, fare clic sulla pagina **risultati** . Per visualizzare solo l'accesso di un utente, nella casella di ricerca digitare il nome visualizzato o il nome dell'entità utente di un utente il cui accesso è stato esaminato.
 
-![Recuperare i risultati per una verifica di accesso](./media/complete-access-review/retrieve-results.png)
+![Recuperare i risultati per una verifica di accesso](./media/complete-access-review/retrieve-results.png) 
 
 Per visualizzare lo stato di una verifica di accesso attivo ricorrente, fare clic sulla pagina **risultati** .
 

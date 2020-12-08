@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695521"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780944"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -66,7 +66,7 @@ I valori di timeout e intervallo specificati determinano se un'istanza verrà co
 
 È possibile illustrare ulteriormente il comportamento con un esempio. Se è stato impostato il numero di risposte del Probe su 2 e l'intervallo su 5 secondi, ciò significa che è necessario osservare 2 errori di timeout del probe entro un intervallo di 10 secondi.  Poiché l'ora in cui viene inviato un probe non è sincronizzata quando l'applicazione può modificare lo stato, è possibile delegare il tempo necessario per rilevare due scenari:
 
-1. Se l'applicazione inizia a produrre una risposta del probe di timeout immediatamente prima dell'arrivo del primo Probe, il rilevamento di questi eventi imposterà 10 secondi (2 x 5 secondi di intervallo) più la durata dell'avvio dell'applicazione per segnalare un timeout all'arrivo del primo Probe.  È possibile presupporre che questo rilevamento imprenda leggermente più di 10 secondi.
+1. Se l'applicazione inizia a produrre una risposta del probe di timeout immediatamente prima dell'arrivo del primo Probe, il rilevamento di questi eventi imposterà 10 secondi (2 x 5 secondi di intervallo) oltre alla durata dell'applicazione che inizia a segnalare un timeout all'arrivo del primo Probe.  È possibile presupporre che questo rilevamento imprenda leggermente più di 10 secondi.
 2. Se l'applicazione inizia a produrre una risposta del probe di timeout subito dopo l'arrivo del primo Probe, il rilevamento di questi eventi non verrà avviato fino a quando non arriva il probe successivo (e si verifica il timeout) più altri 10 secondi (intervalli di 2 x 5 secondi).  È possibile presupporre che questo rilevamento imposti solo entro 15 secondi.
 
 Per questo esempio, una volta che si è verificato il rilevamento, la piattaforma rileverà una quantità di tempo limitata per rispondere a questa modifica.  Ciò significa che a dipende da 

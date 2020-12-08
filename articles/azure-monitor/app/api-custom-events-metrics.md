@@ -4,12 +4,12 @@ description: Inserire alcune righe di codice nell'app desktop o per dispositivi,
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d1ed05cd7337a7e82a02b25a2f29d54567b9f9a3
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748893"
+ms.locfileid: "96780502"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -167,7 +167,7 @@ Per inviare le metriche ad Application Insights, è possibile usare l'API `Track
 
 * Aggregazione. Quando si usano le metriche non si considera mai una sola misura. È importante invece il riepilogo delle operazioni eseguite in un periodo di tempo specifico. Tale riepilogo viene chiamato _aggregazione_. Nell'esempio precedente la somma della metrica di aggregazione per quel periodo di tempo è `1` e il conteggio dei valori della metrica è `2`. Quando si usa l'approccio di aggregazione, si chiama `TrackMetric` solo una volta per periodo di tempo e si inviano i valori di aggregazione. Questo è l'approccio consigliato in quanto può ridurre notevolmente i costi e le prestazioni generali inviando meno punti dati ad Application Insights, durante la raccolta di tutte le informazioni pertinenti.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="single-values"></a>Valori singoli
 
@@ -569,8 +569,8 @@ finally {
     Instant endTime = Instant.now();
     Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    RemoteDependencyTelemetry.setTimeStamp(startTime);
-    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
+    dependencyTelemetry.setTimeStamp(startTime);
+    telemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
@@ -935,7 +935,7 @@ L'[applicazione di filtri](./api-filtering-sampling.md#filtering) consente di mo
 
 Il [campionamento](./api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 
-[Altre informazioni](./api-filtering-sampling.md)
+[Altre informazioni](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
 
@@ -1113,7 +1113,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](./export-power-bi.md) e l'[esportazione continua](./export-telemetry.md).

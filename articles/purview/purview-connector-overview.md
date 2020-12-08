@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 26efa840bacd3ee542816cf861cf2ef586b0582f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555137"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780213"
 ---
 # <a name="supported-data-stores"></a>Archivi dati supportati
 
@@ -31,6 +31,7 @@ La competenza supporta gli archivi dati seguenti. Fare clic su ogni archivio dat
 ||[Istanza gestita di database SQL di Azure](register-scan-azure-sql-database-managed-instance.md)|Sì| Sì| No| Sì| Sì| Sì|
 ||[Azure sinapsi Analytics (in precedenza SQL DW)](register-scan-azure-synapse-analytics.md)|Sì| Sì| No| Sì| Sì| Sì|
 |Database|[SQL Server](register-scan-on-premises-sql-server.md)|Sì| Sì| No| Sì| Sì| Sì|
+||[Teradata (anteprima)](register-scan-teradata-source.md)|Sì| Sì| No| No| No| Sì|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Sì| Sì| No| No| No| Sì|
 
 ## <a name="next-steps"></a>Passaggi successivi

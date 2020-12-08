@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/03/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b836c28443790466084b1840edcf08dc09dcf4cc
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2999fb8b3c3687c68e7eb38a60f128e24028871f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518278"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779703"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -242,7 +242,7 @@ L'attività da parte del [servizio di provisioning](../app-provisioning/user-pro
 Al termine di una data verrà fornito un aggiornamento. Questa deprecazione non è pianificata per l'anno di calendario 2020. 
 
 > [!NOTE]
-> Questa operazione non influisca sugli eventi nei log di controllo al di fuori degli eventi di sincronizzazione generati dal servizio di provisioning. Gli eventi come la creazione di un'applicazione, i criteri di accesso condizionale, un utente nella directory e così via continueranno a essere generati nei log di controllo. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context)
+> Questa operazione non influisca sugli eventi nei log di controllo al di fuori degli eventi di sincronizzazione generati dal servizio di provisioning. Gli eventi come la creazione di un'applicazione, i criteri di accesso condizionale, un utente nella directory e così via continueranno a essere generati nei log di controllo. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
  
 
 ---
@@ -311,7 +311,7 @@ Per altre informazioni su questa funzionalità, vedere [disabilitare ed eliminar
 **Categoria di servizio:** Verifiche di accesso  
 **Funzionalità del prodotto:** Governance delle identità
  
-In Azure AD verifiche di accesso, gli amministratori che creano le recensioni possono ora scrivere un messaggio personalizzato nei revisori. I revisori visualizzeranno il messaggio nel messaggio di posta elettronica ricevuto che richiede di completare la revisione. Per ulteriori informazioni sull'utilizzo di questa funzionalità, vedere il passaggio 6 della sezione [Advanced Settings (impostazioni avanzate](../governance/create-access-review.md#advanced-settings) ).
+In Azure AD verifiche di accesso, gli amministratori che creano le recensioni possono ora scrivere un messaggio personalizzato nei revisori. I revisori visualizzeranno il messaggio nel messaggio di posta elettronica ricevuto che richiede di completare la revisione. Per altre informazioni sull'uso di questa funzionalità, vedere il passaggio 14 della sezione [creare una o più](../governance/create-access-review.md#create-one-or-more-access-reviews) verifiche di accesso.
 
 ---
 
@@ -384,7 +384,7 @@ I connettori API sono ora disponibili per l'uso con Azure Active Directory B2C. 
 
  Tutte le organizzazioni connesse avranno ora una proprietà aggiuntiva denominata "state". Lo stato controllerà il modo in cui l'organizzazione connessa verrà usata nei criteri che fanno riferimento a "tutte le organizzazioni connesse configurate". Il valore sarà "configurata" (ovvero l'organizzazione è nell'ambito dei criteri che usano la clausola "All") o "proposed", ovvero l'organizzazione non è nell'ambito.  
 
-Le organizzazioni connesse create manualmente avranno un'impostazione predefinita "configurata". Nel frattempo, gli utenti creati automaticamente (creati tramite criteri che consentono a qualsiasi utente da Internet di richiedere l'accesso) verranno impostati per impostazione predefinita su "proposto".  Tutte le organizzazioni connesse create prima del 9 2020 settembre verranno impostate su "configurate". Gli amministratori possono aggiornare questa proprietà in base alle esigenze. [Altre informazioni](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically)
+Le organizzazioni connesse create manualmente avranno un'impostazione predefinita "configurata". Nel frattempo, gli utenti creati automaticamente (creati tramite criteri che consentono a qualsiasi utente da Internet di richiedere l'accesso) verranno impostati per impostazione predefinita su "proposto".  Tutte le organizzazioni connesse create prima del 9 2020 settembre verranno impostate su "configurate". Gli amministratori possono aggiornare questa proprietà in base alle esigenze. [Altre informazioni](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
  
 
 ---
@@ -441,7 +441,7 @@ Per informazioni su come usare la funzionalità, vedere comprendere il modo in c
 **Categoria di servizio:** Creazione di report  
 **Funzionalità del prodotto:** Monitoraggio e creazione report
  
-È ora possibile consentire ai proprietari delle applicazioni di monitorare l'attività del servizio di provisioning e risolvere i problemi senza fornire loro un ruolo privilegiato o crearne un collo di bottiglia. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md)
+È ora possibile consentire ai proprietari delle applicazioni di monitorare l'attività del servizio di provisioning e risolvere i problemi senza fornire loro un ruolo privilegiato o crearne un collo di bottiglia. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md).
  
 ---
 
@@ -853,7 +853,7 @@ In precedenza, solo l'amministratore globale poteva gestire la [proprietà di es
  
 Con la versione GA della condizione delle app client nell'accesso condizionale, i nuovi criteri vengono ora applicati per impostazione predefinita a tutte le applicazioni client. Sono inclusi i client di autenticazione legacy. I criteri esistenti rimarranno invariati, ma l'interruttore *configura sì/no* verrà rimosso dai criteri esistenti per individuare facilmente le app client a cui vengono applicati i criteri. 
 
-Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](../conditional-access/concept-conditional-access-conditions.md)
+Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](../conditional-access/concept-conditional-access-conditions.md).
  
 ---
 
@@ -863,7 +863,7 @@ Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli accoun
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-Il servizio di provisioning Azure AD sfrutta lo standard SCIM per l'integrazione con le applicazioni. L'implementazione dello standard SCIM è in continua evoluzione e si prevede di apportare modifiche al comportamento in merito alla modalità di esecuzione delle operazioni di PATCH, nonché di impostare la proprietà "Active" su una risorsa. [Altre informazioni](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)
+Il servizio di provisioning Azure AD sfrutta lo standard SCIM per l'integrazione con le applicazioni. L'implementazione dello standard SCIM è in continua evoluzione e si prevede di apportare modifiche al comportamento in merito alla modalità di esecuzione delle operazioni di PATCH, nonché di impostare la proprietà "Active" su una risorsa. [Altre informazioni](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md).
  
 ---
 
@@ -911,7 +911,7 @@ Gli amministratori possono ora verificare se un'autenticazione di Windows ha usa
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-In precedenza, quando un gruppo è stato modificato da "in-scope" a "out-of-scope" e un amministratore ha fatto clic su Restart prima del completamento della modifica, l'oggetto gruppo non è stato eliminato. A questo punto l'oggetto gruppo verrà eliminato dall'applicazione di destinazione quando esce dall'ambito (disabilitato, eliminato, non assegnato o non ha superato il filtro di ambito). [Altre informazioni](../app-provisioning/how-provisioning-works.md#incremental-cycles)
+In precedenza, quando un gruppo è stato modificato da "in-scope" a "out-of-scope" e un amministratore ha fatto clic su Restart prima del completamento della modifica, l'oggetto gruppo non è stato eliminato. A questo punto l'oggetto gruppo verrà eliminato dall'applicazione di destinazione quando esce dall'ambito (disabilitato, eliminato, non assegnato o non ha superato il filtro di ambito). [Altre informazioni](../app-provisioning/how-provisioning-works.md#incremental-cycles).
  
 ---
 

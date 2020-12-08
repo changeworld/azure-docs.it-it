@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ca342c1ea4134f4d9d8f1dbcae4e61bf2a75eaf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751393"
+ms.locfileid: "96780349"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -215,7 +215,7 @@ Da v 1.2.0 Azure CNI avrà la modalità Transparent come predefinita per le dist
 
 ### <a name="bridge-mode"></a>Modalità Bridge
 
-Come suggerisce il nome, in modalità Bridge Azure CNI, in un modo "just in Time", creerà un Bridge L2 denominato "azure0". Tutte le interfacce delle coppie Pod lato host `veth` saranno connesse a questo Bridge. Quindi Pod-Pod la comunicazione tra VM avviene tramite questo Bridge. Il Bridge in questione è un dispositivo virtuale di livello 2 che non è in grado di ricevere o trasmettere, a meno che non venga associato uno o più dispositivi reali. Per questo motivo, eth0 della VM Linux deve essere convertita in un Bridge subordinato a "azure0". In questo modo viene creata una topologia di rete complessa all'interno della VM Linux e come sintomo CNI ha dovuto occuparsi di altre funzioni di rete come l'aggiornamento del server DNS e così via.
+Come suggerisce il nome, in modalità Bridge Azure CNI, in un modo "just in Time", creerà un Bridge L2 denominato "azure0". Tutte le interfacce delle coppie Pod lato host `veth` saranno connesse a questo Bridge. Quindi Pod-Pod la comunicazione tra macchine virtuali e il traffico rimanente passa attraverso questo Bridge. Il Bridge in questione è un dispositivo virtuale di livello 2 che non è in grado di ricevere o trasmettere, a meno che non venga associato uno o più dispositivi reali. Per questo motivo, eth0 della VM Linux deve essere convertita in un Bridge subordinato a "azure0". In questo modo viene creata una topologia di rete complessa all'interno della VM Linux e come sintomo CNI ha dovuto occuparsi di altre funzioni di rete come l'aggiornamento del server DNS e così via.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologia in modalità Bridge":::
 
@@ -229,19 +229,11 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### <a name="transparent-mode"></a>Modalità trasparente
-La modalità trasparente prevede un approccio semplice per la configurazione della rete Linux. In questa modalità, Azure CNI non modificherà alcuna proprietà dell'interfaccia eth0 nella VM Linux. Questo approccio minimo per modificare le proprietà di rete di Linux consente di ridurre i problemi di casi d'angolo complessi che i cluster potrebbero affrontare con la modalità Bridge. In modalità trasparente, Azure CNI creerà e aggiungerà `veth` le interfacce di coppia pod sul lato host che verranno aggiunte alla rete host. La comunicazione da Pod a Pod tra macchine virtuali avviene tramite route IP che i CNI aggiungono. Essenzialmente le VM intra Pod-Pod sono un traffico di rete di livello 3 inferiore.
+La modalità trasparente prevede un approccio semplice per la configurazione della rete Linux. In questa modalità, Azure CNI non modificherà alcuna proprietà dell'interfaccia eth0 nella VM Linux. Questo approccio minimo per modificare le proprietà di rete di Linux consente di ridurre i problemi di casi d'angolo complessi che i cluster potrebbero affrontare con la modalità Bridge. In modalità trasparente, Azure CNI creerà e aggiungerà `veth` le interfacce di coppia pod sul lato host che verranno aggiunte alla rete host. La comunicazione da Pod a Pod tra macchine virtuali avviene tramite route IP che i CNI aggiungono. Essenzialmente la comunicazione da Pod a Pod è basata sul livello 3 e il traffico Pod viene instradato in base alle regole di routing L3.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Topologia in modalità trasparente":::
 
 Di seguito è riportato un esempio di configurazione della route IP in modalità trasparente. ogni interfaccia del Pod otterrà una route statica collegata in modo che il traffico con l'indirizzo IP di destinazione come Pod venga inviato direttamente all'interfaccia della coppia lato host del Pod `veth` .
-
-### <a name="benefits-of-transparent-mode"></a>Vantaggi della modalità trasparente
-
-- Fornisce la mitigazione per la `conntrack` race condition parallela DNS e la prevenzione di problemi di latenza DNS di 5 secondi senza la necessità di configurare il DNS locale del nodo. per motivi di prestazioni, è comunque possibile utilizzare il DNS locale del nodo.
-- Elimina la latenza DNS iniziale di 5 secondi che la modalità Bridge CNI introduce oggi grazie alla configurazione del Bridge "just-in-Time".
-- Uno dei casi estremi in modalità Bridge è che Azure CNI non è in grado di aggiornare il server DNS personalizzato elenca gli utenti Aggiungi a VNET o NIC. In questo modo, CNI preleva solo la prima istanza dell'elenco di server DNS. Risolto in modalità trasparente perché CNI non modifica alcuna proprietà eth0. Altre informazioni sono disponibili [qui](https://github.com/Azure/azure-container-networking/issues/713).
-- Fornisce una gestione migliore del traffico UDP e della mitigazione per il Storm Flood di UDP quando si verifica il timeout di ARP. In modalità Bridge, quando Bridge non conosce un indirizzo MAC del pod di destinazione nella comunicazione da Pod a Pod tra macchine virtuali, in base alla progettazione, questa operazione comporta Storm del pacchetto per tutte le porte. Risolto in modalità trasparente perché non sono presenti dispositivi L2 nel percorso. Per altre informazioni, vedere [qui](https://github.com/Azure/azure-container-networking/issues/704).
-- La modalità trasparente garantisce prestazioni migliori in termini di velocità effettiva e latenza rispetto alla modalità Bridge tra macchine virtuali intra-pod.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -254,6 +246,15 @@ Di seguito è riportato un esempio di configurazione della route IP in modalità
 169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
 ```
+
+### <a name="benefits-of-transparent-mode"></a>Vantaggi della modalità trasparente
+
+- Fornisce la mitigazione per la `conntrack` race condition parallela DNS e la prevenzione di problemi di latenza DNS di 5 secondi senza la necessità di configurare il DNS locale del nodo. per motivi di prestazioni, è comunque possibile utilizzare il DNS locale del nodo.
+- Elimina la latenza DNS iniziale di 5 secondi che la modalità Bridge CNI introduce oggi grazie alla configurazione del Bridge "just-in-Time".
+- Uno dei casi estremi in modalità Bridge è che Azure CNI non è in grado di aggiornare il server DNS personalizzato elenca gli utenti Aggiungi a VNET o NIC. In questo modo, CNI preleva solo la prima istanza dell'elenco di server DNS. Risolto in modalità trasparente perché CNI non modifica alcuna proprietà eth0. Per altre informazioni, vedere [qui](https://github.com/Azure/azure-container-networking/issues/713).
+- Fornisce una gestione migliore del traffico UDP e della mitigazione per il Storm Flood di UDP quando si verifica il timeout di ARP. In modalità Bridge, quando Bridge non conosce un indirizzo MAC del pod di destinazione nella comunicazione da Pod a Pod tra macchine virtuali, in base alla progettazione, questa operazione comporta Storm del pacchetto per tutte le porte. Risolto in modalità trasparente perché non sono presenti dispositivi L2 nel percorso. Per altre informazioni, vedere [qui](https://github.com/Azure/azure-container-networking/issues/704).
+- La modalità trasparente garantisce prestazioni migliori in termini di velocità effettiva e latenza rispetto alla modalità Bridge tra macchine virtuali intra-pod.
+
 
 <!-- LINKS - internal -->
 

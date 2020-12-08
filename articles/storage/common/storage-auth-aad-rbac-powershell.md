@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 852375cc7948fc7f6bd106380b3194f2dc84b8ca
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488759"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778921"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Usare PowerShell per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento
 
@@ -59,6 +59,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Assegnare un ruolo di Azure a un'entità di sicurezza
 
 Per assegnare un ruolo di Azure a un'entità di sicurezza, usare il comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Il formato del comando può variare in base all'ambito dell'assegnazione. Per eseguire il comando, è necessario assegnare un ruolo proprietario o collaboratore all'ambito corrispondente. Gli esempi seguenti illustrano come assegnare un ruolo a un utente in vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a un'entità di sicurezza.
+
+> [!NOTE]
+> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
 
 ### <a name="container-scope"></a>Ambito del contenitore
 

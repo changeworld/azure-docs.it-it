@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7f56ff94c4dcf276accc56e8d1076266099d635d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452124"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780706"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Come pianificare un'offerta del servizio di consulenza nel Marketplace commerciale
 
@@ -27,10 +27,24 @@ Le offerte del servizio di consulenza sono pubblicate come elenchi di **contatti
 
 ## <a name="primary-products-and-online-stores"></a>Prodotti primari e negozi online
 
-Ogni offerta del servizio di consulenza dovrebbe concentrarsi su un prodotto Microsoft, denominato **prodotto primario**. Il prodotto principale selezionato nel centro per i partner determina se l'offerta verrà pubblicata in Microsoft AppSource o in Azure Marketplace.
+Ogni servizio di consulenza deve concentrarsi su uno di questi prodotti Microsoft, denominato **prodotto principale** dell'offerta:
+
+|Prodotto principale                               |                   |
+|-------------------------------|-------------------|
+|Azure                          |Dynamics 365 Project Service Automation |
+|Dynamics 365 Business Central  |Dynamics 365 Sales |
+|Dynamics 365 Commerce          |Dynamics 365 Supply Chain Management |
+|Dynamics 365 per Customer Insights |Microsoft 365 |
+|Dynamics 365 Customer Service  |Power Apps |
+|Dynamics 365 Field Service     |Power Automate |
+|Dynamics 365 Finance           |Power BI |
+|Dynamics 365 Marketing         |Power Virtual Agents |
+|    |    |
+
+Il prodotto principale selezionato nel centro per i partner determina se l'offerta verrà pubblicata in Microsoft AppSource o in Azure Marketplace.
 
 * Se il prodotto principale del servizio di consulenza è Azure, l'offerta verrà elencata in Azure Marketplace.
-* Se il prodotto principale non è Azure, l'offerta sarà elencata in AppSource.
+* Se il prodotto principale non è Azure, l'offerta verrà elencata in AppSource.
 
 Per ulteriori informazioni sulle differenze tra AppSource e Azure Marketplace, vedere la pagina relativa ai [negozi online di Marketplace commerciali](./overview.md#commercial-marketplace-online-stores).
 
@@ -91,6 +105,7 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
 |Introduzione ad Azure IoT nel settore della produzione |IoT nel settore della produzione: valutazione di 2 giorni |
 |Workshop sui toaster intelligenti |Tostapane intelligenti: workshop di 1 settimana |
 |SQL Server della migrazione PoC di contoso |Migrazione a SQL: modello di verifica di 3 giorni |
+| | |
 
 **Riepilogo risultati ricerca**: descrivere lo scopo o l'obiettivo dell'offerta in caratteri di 200 o meno. Questo riepilogo viene usato nei risultati della ricerca nell'elenco del Marketplace commerciale. Non deve essere identico al titolo. È consigliabile includere le parole chiave SEO principali.
 
@@ -105,6 +120,7 @@ Quando si scrive la descrizione, attenersi a questi criteri, in base al tipo di 
 |Implementazione |Includere un'agenda dettagliata per le implementazioni più lunga di un giorno e descrivere le modifiche di progettazione, gli artefatti tecnici o altri artefatti che un cliente può aspettarsi come risultato dell'engagement. |
 |Modello di verifica |Descrivere le modifiche di progettazione, gli artefatti tecnici o altri artefatti che un cliente può aspettarsi come risultato dell'engagement. |
 |Workshop |Includere un'agenda dettagliata giornaliera, settimanale o mensile, a seconda della durata dell'offerta. Descrivere in modo articolato gli obiettivi di apprendimento o altri risultati finali del workshop. |
+| | |
 
 Ecco alcuni suggerimenti per scrivere la descrizione:
 
@@ -142,6 +158,11 @@ Seguire queste linee guida per i logo:
 **Supporti Marketplace: schermate**: aggiungere almeno una e fino a cinque immagini che dimostrano l'offerta. Tutte le immagini devono avere una dimensione di 1280 x 720 pixel e in. Formato PNG.
 
 **Supporti del Marketplace-video** (facoltativo): è possibile aggiungere fino a quattro video che illustrano l'offerta. I video devono essere ospitati in YouTube o Vimeo e avere un'anteprima (file PNG 1280 x 720).
+
+## <a name="pricing-and-availability"></a>Prezzi e disponibilità
+
+L'offerta del servizio di consulenza può essere resa disponibile in uno o più paesi o aree geografiche. Nel centro per i partner è possibile decidere il prezzo per ogni mercato selezionato. Per un elenco completo di mercati e valute supportati, vedere [disponibilità geografica e supporto della valuta per il Marketplace commerciale](./marketplace-geo-availability-currencies.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
