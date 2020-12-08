@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matrice di supporto del backup per condivisioni file di Azure
           href: azure-file-share-support-matrix.md
+        - name: Controller di dominio Active Directory
+          href: active-directory-backup-restore.md
         - name: SKU di macchine virtuali supportate per Criteri di Azure
           href: backup-azure-policy-supported-skus.md
     - name: Domande frequenti
