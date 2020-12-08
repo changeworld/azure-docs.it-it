@@ -453,6 +453,8 @@
               href: flexible-server/connect-python.md
     - name: Esercitazioni
       items:
+        - name: WordPress in Azure Kubernetes
+          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
         - name: Creare un'app PHP (Laravel) con il database
           href: flexible-server/tutorial-php-database-app.md
         - name: Connettersi con l'app Web privata

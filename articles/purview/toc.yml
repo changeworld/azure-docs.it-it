@@ -28,6 +28,8 @@ items:
             href: tutorial-import-create-glossary-terms.md
       - name: Registrare e analizzare un server SQL locale
         href: register-scan-on-premises-sql-server.md
+      - name: Chiamare le API REST per il catalogo
+        href: tutorial-using-rest-apis.md
   - name: Concetti
     items:
       - name: Usare Purview Studio
@@ -88,7 +90,7 @@ items:
               - name: Azure Data Lake Storage Gen 2
                 href: register-scan-adls-gen2.md
                 displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
-              - name: Database SQL di Azure
+              - name: database SQL di Azure
                 href: register-scan-azure-sql-database.md
                 displayName: Register and scan Azure SQL DB
               - name: Database SQL di Azure con un firewall
@@ -133,6 +135,10 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Derivazione di Condivisione dati di Azure
             href: how-to-link-azure-data-share.md
+      - name: Monitorare
+        items:
+          - name: Monitorare con Monitoraggio di Azure
+            href: how-to-monitor-with-azure-monitor.md
       - name: Informazioni dettagliate
         items:
           - name: Visualizzare informazioni dettagliate sugli asset
