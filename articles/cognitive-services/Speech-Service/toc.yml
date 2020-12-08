@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Usare l'API di trascrizione batch
           href: batch-transcription.md
+        - name: Eseguire la migrazione da v2.0 a v3.0
+          url: migrate-v2-to-v3.md
         - name: Valutare la pronuncia
           href: how-to-pronunciation-assessment.md
     - name: Esercitazioni
@@ -425,7 +427,7 @@
           items:
             - name: Che cos'è Direct Line Speech?
               href: direct-line-speech.md
-            - name: Avvii rapidi
+            - name: Avvi rapidi
               items:
                 - name: Creare un assistente vocale personalizzato
                   href: quickstarts/voice-assistants.md
