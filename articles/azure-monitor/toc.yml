@@ -890,8 +890,6 @@
               items:
                 - name: Diagnostica completa dei servizi e delle app Web
                   href: app/devops.md
-                - name: Monitorare le prestazioni di applicazioni Web
-                  href: app/web-monitor-performance.md
                 - name: 'Separare sviluppo, test e produzione'
                   href: app/separate-resources.md
                 - name: Cosa fare in Application Insights?

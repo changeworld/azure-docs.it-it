@@ -90,7 +90,7 @@ items:
               - name: Azure Data Lake Storage Gen 2
                 href: register-scan-adls-gen2.md
                 displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
-              - name: database SQL di Azure
+              - name: Database SQL di Azure
                 href: register-scan-azure-sql-database.md
                 displayName: Register and scan Azure SQL DB
               - name: Database SQL di Azure con un firewall
@@ -101,12 +101,14 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: Azure Synapse Analytics
                 href: register-scan-azure-synapse-analytics.md
+              - name: SQL Server locale
+                href: register-scan-on-premises-sql-server.md
               - name: Tenant di Power BI - Portale
                 href: register-scan-power-bi-tenant.md
               - name: Tenant di Power BI - PowerShell
                 href: powershell-register-scan-power-bi.md
-              - name: SQL Server locale
-                href: register-scan-on-premises-sql-server.md
+              - name: Teradata
+                href: register-scan-teradata-source.md
       - name: Glossario aziendale
         items:
           - name: 'Creare, importare ed esportare termini di glossario'
