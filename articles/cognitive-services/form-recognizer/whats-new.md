@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 03f2109a32cd8a8c2643f3c2aa74900f4edd1cee
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172130"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852847"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -32,12 +32,12 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 - **Enhanced Table Extraction** : il riconoscitore di form offre ora un'estrazione avanzata delle tabelle, che combina le potenti funzionalità di riconoscimento ottico dei caratteri con un modello di estrazione di tabelle di apprendimento avanzato. Il riconoscitore del modulo può estrarre i dati dalle tabelle, incluse le tabelle complesse con colonne unite, righe, nessun bordo e altro ancora. 
  
-  :::image type="content" source="./media/tables-example.jpg" alt-text="esempio di tabelle" lightbox="./media/tables-example.jpg":::
+  :::image type="content" source="./media/tables-example.jpg" alt-text="Esempi di tabelle" lightbox="./media/tables-example.jpg":::
 
  
   > [Altre informazioni sull'estrazione del layout](concept-layout.md)
 
-- **Aggiornamento della libreria client** : le [librerie client](quickstarts/client-library.md) per .NET, Python, Java e JavaScript hanno immesso la disponibilità a livello generale.
+- **Aggiornamento della libreria client** : la versione più recente delle [librerie client](quickstarts/client-library.md) per .NET, Python, Java e JavaScript supportano l'API Recognizer 2,1 del modulo.
 - **Nuovo linguaggio supportato: giapponese** : sono ora supportate le nuove lingue seguenti: per `AnalyzeLayout` e `AnalyzeCustomForm` : Japanese ( `ja` ). [Lingue supportate](language-support.md)
 - **Indicazione dello stile della linea di testo (manoscritta/altro) (solo lingue latine)** : il riconoscitore di form ora restituisce un `appearance` oggetto che classifica se ogni riga di testo è di tipo manoscritto o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine.
 - **Miglioramenti della qualità** : miglioramenti dell'estrazione, inclusi i miglioramenti dell'estrazione a una sola cifra.
