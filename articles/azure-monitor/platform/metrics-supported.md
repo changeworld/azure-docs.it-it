@@ -4,15 +4,15 @@ description: Elenco delle metriche disponibili per ogni tipo di risorsa con il m
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 07/16/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1741331c57427c57507376afdb878edc18259b72
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3e5dd5c83468e867c746393642a1e40ff07763c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306830"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921498"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -38,7 +38,7 @@ L'uso delle impostazioni di diagnostica è il modo più semplice per instradare 
 
 - **Alcune non esportabili** : tutte le metriche sono esportabili con l'API REST, ma alcune non possono essere esportate usando le impostazioni di diagnostica a causa di complessità nel back-end di monitoraggio di Azure. La colonna *esportabile tramite le impostazioni di diagnostica* nelle tabelle seguenti elenca le metriche che possono essere esportate in questo modo.  
 
-- **Metriche multidimensionali** : l'invio di metriche multidimensionali ad altre posizioni tramite le impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione. *Ad esempio* : la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+- **Metriche multidimensionali** : l'invio di metriche multidimensionali ad altre posizioni tramite le impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione. *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 
 ## <a name="guest-os-and-host-os-metrics"></a>Metriche del sistema operativo guest e dell'host
 
@@ -50,13 +50,12 @@ L'uso delle impostazioni di diagnostica è il modo più semplice per instradare 
 > [!TIP]
 > La procedura consigliata consiste nell'usare e configurare l' [estensione diagnostica di Azure](diagnostics-extension-overview.md) per inviare le metriche delle prestazioni del sistema operativo guest nello stesso database delle metriche di monitoraggio di Azure in cui sono archiviate le metriche della piattaforma. L'estensione instrada le metriche del sistema operativo guest tramite l'API [metrica personalizzata](metrics-custom-overview.md) . Sarà quindi possibile tracciare, avvisare e usare le metriche del sistema operativo guest come le metriche della piattaforma. In alternativa, è possibile usare l'agente di Log Analytics per inviare le metriche del sistema operativo guest ai log/Log Analytics di monitoraggio di Azure. Qui è possibile eseguire query su tali metriche in combinazione con dati non di metrica. 
 
-Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monitoraggio](agents-overview.md).    
+Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monitoraggio](agents-overview.md).
 
 ## <a name="table-formatting"></a>Formattazione tabella
 
 > [!IMPORTANT] 
 > Questo aggiornamento più recente aggiunge una nuova colonna e riordina le metriche in modo che siano alfabetiche. Le informazioni aggiuntive indicano che le tabelle seguenti possono avere una barra di scorrimento orizzontale nella parte inferiore, a seconda della larghezza della finestra del browser. Se si ritiene di non disporre di informazioni, utilizzare la barra di scorrimento per visualizzare l'intera tabella.
-
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
@@ -116,16 +115,16 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |BackendDuration|Sì|Duration of Backend Requests (Durata delle richieste back-end)|Millisecondi|Media|Durata delle richieste back-end in millisecondi|Location, Hostname|
-|Capacità|Sì|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
-|Durata|Sì|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
-|EventHubDroppedEvents|Sì|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Location|
-|EventHubRejectedEvents|Sì|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Location|
-|EventHubSuccessfulEvents|Sì|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Location|
-|EventHubThrottledEvents|Sì|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Location|
-|EventHubTimedoutEvents|Sì|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Location|
-|EventHubTotalBytesSent|Sì|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Location|
-|EventHubTotalEvents|Sì|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Location|
-|EventHubTotalFailedEvents|Sì|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Location|
+|Capacità|Sì|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Posizione|
+|Duration|Sì|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
+|EventHubDroppedEvents|Sì|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Posizione|
+|EventHubRejectedEvents|Sì|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Posizione|
+|EventHubSuccessfulEvents|Sì|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Posizione|
+|EventHubThrottledEvents|Sì|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Posizione|
+|EventHubTimedoutEvents|Sì|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Posizione|
+|EventHubTotalBytesSent|Sì|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Posizione|
+|EventHubTotalEvents|Sì|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Posizione|
+|EventHubTotalFailedEvents|Sì|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Posizione|
 |FailedRequests|Sì|Failed Gateway Requests (Richieste gateway non riuscite) (deprecato)|Conteggio|Totale|Numero di errori nelle richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Location, Hostname|
 |Problemidi|Sì|Stato connettività di rete delle risorse (anteprima)|Conteggio|Media|Stato della connettività di rete dei tipi di risorsa dipendenti dal servizio gestione API|Località, ResourceType|
 |OtherRequests|Sì|Other Gateway Requests (Altre richieste del gateway) (deprecato)|Conteggio|Totale|Numero di altre richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Location, Hostname|
@@ -157,7 +156,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |JVM. memory. commit|Sì|JVM. memory. commit|Byte|Media|Memoria assegnata a JVM in byte|Distribuzione, AppName, Pod|
 |JVM. memory. max|Sì|JVM. memory. max|Byte|Massimo|Quantità massima di memoria in byte che può essere utilizzata per la gestione della memoria|Distribuzione, AppName, Pod|
 |JVM. memory. used|Sì|JVM. memory. used|Byte|Media|Memoria app utilizzata in byte|Distribuzione, AppName, Pod|
-|Process. CPU. Usage|Sì|Process. CPU. Usage|Percentuale|Media|Percentuale di utilizzo CPU JVM app|Distribuzione, AppName, Pod|
+|Process. CPU. Usage|Sì|Process. CPU. Usage|Percentuale|Media|Utilizzo della CPU recente per il processo JVM|Distribuzione, AppName, Pod|
 |System. CPU. Usage|Sì|System. CPU. Usage|Percentuale|Media|Utilizzo della CPU recente per l'intero sistema|Distribuzione, AppName, Pod|
 |Tomcat. Global. Error|Sì|Tomcat. Global. Error|Conteggio|Totale|Tomcat Global Error (Errore globale Tomcat)|Distribuzione, AppName, Pod|
 |Tomcat. Global. received|Sì|Tomcat. Global. received|Byte|Totale|Tomcat Total Received Bytes (Byte totali ricevuti Tomcat)|Distribuzione, AppName, Pod|
@@ -247,19 +246,19 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|BroadcastProcessedCount|Sì|Conteggio elaborazione broadcast|Conteggio|Media|Numero di transazioni elaborate|Nodo, canale, tipo, stato|
+|BroadcastProcessedCount|Sì|BroadcastProcessedCountDisplayName|Conteggio|Media|Numero di transazioni elaborate.|Nodo, canale, tipo, stato|
 |ConnectionAccepted|Sì|Accepted Connections (Connessioni accettate)|Conteggio|Totale|Accepted Connections (Connessioni accettate)|Nodo|
 |ConnectionActive|Sì|Connessioni attive|Conteggio|Media|Connessioni attive|Nodo|
 |ConnectionHandled|Sì|Handled Connections (Connessioni gestite)|Conteggio|Totale|Handled Connections (Connessioni gestite)|Nodo|
-|ConsensusEtcdraftCommittedBlockNumber|Sì|Numero blocco con commit Etcdraft di consenso|Conteggio|Media|Numero di blocco dell'ultimo blocco di cui è stato eseguito il commit|Nodo, canale|
+|ConsensusEtcdraftCommittedBlockNumber|Sì|ConsensusEtcdraftCommittedBlockNumberDisplayName|Conteggio|Media|Numero di blocco dell'ultimo blocco di cui è stato eseguito il commit.|Nodo, canale|
 |CpuUsagePercentageInDouble|Sì|CPU Usage Percentage (Percentuale di utilizzo CPU)|Percentuale|Massimo|CPU Usage Percentage (Percentuale di utilizzo CPU)|Nodo|
-|EndorserEndorsementFailures|Sì|Verifica dell'autenticità degli sponsor|Conteggio|Media|Numero di convalide non riuscite.|Node, Channel, chaincode, chaincodeerror|
-|GossipLeaderElectionLeader|Sì|Leader delle elezioni per gossip leader|Conteggio|Totale|Peer è leader (1) o follower (0)|Nodo, canale|
-|GossipMembershipTotalPeersKnown|Sì|Totale peer di appartenenza a Gossip noti|Conteggio|Media|Totale peer noti|Nodo, canale|
-|GossipStateHeight|Sì|Altezza stato gossip|Conteggio|Media|Altezza Ledger corrente|Nodo, canale|
+|EndorserEndorsementFailures|Sì|EndorserEndorsementFailuresDisplayName|Conteggio|Media|Numero di convalide non riuscite.|Node, Channel, chaincode, chaincodeerror|
+|GossipLeaderElectionLeader|Sì|GossipLeaderElectionLeaderDisplayName|Conteggio|Media|Peer è leader (1) o follower (0).|Nodo, canale|
+|GossipMembershipTotalPeersKnown|Sì|GossipMembershipTotalPeersKnownDisplayName|Conteggio|Media|Totale peer noti.|Nodo, canale|
+|GossipStateHeight|Sì|GossipStateHeightDisplayName|Conteggio|Media|Altezza del Ledger corrente.|Nodo, canale|
 |IOReadBytes|Sì|IO Read Bytes (Byte operazioni di I/O in lettura)|Byte|Totale|IO Read Bytes (Byte operazioni di I/O in lettura)|Nodo|
 |IOWriteBytes|Sì|IO Write Bytes (Byte operazioni di I/O in scrittura)|Byte|Totale|IO Write Bytes (Byte operazioni di I/O in scrittura)|Nodo|
-|LedgerTransactionCount|Sì|Conteggio transazioni Ledger|Conteggio|Media|Numero di transazioni elaborate|Node, Channel, transaction_type, chaincode, validation_code|
+|LedgerTransactionCount|Sì|LedgerTransactionCountDisplayName|Conteggio|Media|Numero di transazioni elaborate.|Node, Channel, transaction_type, chaincode, validation_code|
 |MemoryLimit|Sì|Limite memoria|Byte|Media|Limite memoria|Nodo|
 |MemoryUsage|Sì|Utilizzo della memoria|Byte|Media|Utilizzo memoria|Nodo|
 |MemoryUsagePercentageInDouble|Sì|Memory Usage Percentage (Percentuale di utilizzo memoria)|Percentuale|Media|Memory Usage Percentage (Percentuale di utilizzo memoria)|Nodo|
@@ -275,6 +274,22 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
+|allcachehits|Sì|Riscontri nella cache (basata su istanza)|Conteggio|Totale||ShardId, porta, primario|
+|allcachemisses|Sì|Mancati riscontri nella cache (basata su istanza)|Conteggio|Totale||ShardId, porta, primario|
+|allcacheRead|Sì|Lettura dalla cache (basata su istanza)|Byte al secondo|Massimo||ShardId, porta, primario|
+|allcacheWrite|Sì|Scrittura nella cache (basata su istanza)|Byte al secondo|Massimo||ShardId, porta, primario|
+|allconnectedclients|Sì|Client connessi (basati su istanza)|Conteggio|Massimo||ShardId, porta, primario|
+|allevictedkeys|Sì|Chiavi rimosse (basate su istanza)|Conteggio|Totale||ShardId, porta, primario|
+|allexpiredkeys|Sì|Chiavi scadute (basate su istanza)|Conteggio|Totale||ShardId, porta, primario|
+|allgetcommands|Sì|Gets (basato su istanza)|Conteggio|Totale||ShardId, porta, primario|
+|alloperationsPerSecond|Sì|Operazioni al secondo (basate su istanza)|Conteggio|Massimo||ShardId, porta, primario|
+|allserverLoad|Sì|Carico server (basato su istanza)|Percentuale|Massimo||ShardId, porta, primario|
+|allsetcommands|Sì|Set (basato su istanza)|Conteggio|Totale||ShardId, porta, primario|
+|alltotalcommandsprocessed|Sì|Totale operazioni (basate su istanza)|Conteggio|Totale||ShardId, porta, primario|
+|alltotalkeys|Sì|Totale chiavi (basate su istanza)|Conteggio|Massimo||ShardId, porta, primario|
+|allusedmemory|Sì|Memoria utilizzata (basata su istanza)|Byte|Massimo||ShardId, porta, primario|
+|allusedmemorypercentage|Sì|Percentuale di memoria utilizzata (basata sull'istanza)|Percentuale|Massimo||ShardId, porta, primario|
+|allusedmemoryRss|Sì|Memoria usata RSS (basata su istanza)|Byte|Massimo||ShardId, porta, primario|
 |cachehits|Sì|Riscontri cache|Conteggio|Totale||ShardId|
 |cachehits0|Sì|Riscontri cache (partizione 0)|Conteggio|Totale||Nessuna dimensione|
 |cachehits1|Sì|Riscontri cache (partizione 1)|Conteggio|Totale||Nessuna dimensione|
@@ -474,7 +489,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni scrittura disco/sec|Sì|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|RoleInstanceId|
 |Rete in ingresso|Sì|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|RoleInstanceId|
 |Rete in uscita|Sì|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|RoleInstanceId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|RoleInstanceId|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|RoleInstanceId|
 
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
@@ -487,7 +502,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni scrittura disco/sec|Sì|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|Nessuna dimensione|
 |Rete in ingresso|Sì|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
 |Rete in uscita|Sì|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
 
 
 ## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAccounts
@@ -578,7 +593,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |DataIn|Sì|Dati in entrata|Byte|Totale|Dimensione in byte dei dati in entrata.|ApiName, OperationName, Region|
 |DataOut|Sì|Dati in uscita|Byte|Totale|Dimensione in byte dei dati in uscita.|ApiName, OperationName, Region|
 |Latenza|Sì|Latenza|Millisecondi|Media|Latenza in millisecondi.|ApiName, OperationName, Region|
-|ProcessedImages|Sì|Immagini elaborate|Conteggio|Totale| Numero di transazioni per l'elaborazione di immagini.|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedImages|Sì|Immagini elaborate|Conteggio|Totale|Numero di transazioni per l'elaborazione di immagini.|ApiName, FeatureName, UsageChannel, Region|
 |ServerErrors|Sì|Errori server|Conteggio|Totale|Numero di chiamate con errore interno del servizio (codice di risposta HTTP 5xx).|ApiName, OperationName, Region|
 |SpeechSessionDuration|Sì|Durata della sessione vocale|Secondi|Totale|Durata totale della sessione vocale in secondi.|ApiName, OperationName, Region|
 |SuccessfulCalls|Sì|Chiamate riuscite|Conteggio|Totale|Numero di chiamate riuscite.|ApiName, OperationName, Region|
@@ -588,12 +603,25 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |TotalTransactions|Sì|Totale transazioni|Conteggio|Totale|Numero totale di transazioni.|Nessuna dimensione|
 
 
+## <a name="microsoftcomputecloudservices"></a>Microsoft. Compute/cloudServices
+
+|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|---|---|---|---|---|---|---|
+|Byte letti da disco|Sì|Byte letti da disco|Byte|Totale|Byte letti dal disco durante il periodo di monitoraggio|RoleInstanceId|
+|Operazioni lettura disco/sec|Sì|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|RoleInstanceId|
+|Byte scritti su disco|Sì|Byte scritti su disco|Byte|Totale|Byte scritti su disco durante il periodo di monitoraggio|RoleInstanceId|
+|Operazioni scrittura disco/sec|Sì|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|RoleInstanceId|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|RoleInstanceId|
+
+
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
 |Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
+|Percentuale di utilizzo della larghezza di banda del disco dati|Sì|Percentuale di utilizzo della larghezza di banda del disco dati|Percentuale|Media|Percentuale di larghezza di banda del disco dati utilizzata al minuto|LUN|
+|Percentuale di IOPS del disco dati utilizzata|Sì|Percentuale di IOPS del disco dati utilizzata|Percentuale|Media|Percentuale di I/o su disco dati utilizzati al minuto|LUN|
 |Profondità coda per un disco dati|Sì|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|LUN|
 |Byte letti da disco/sec per un disco dati|Sì|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Byte/sec letti da un singolo disco durante il periodo di monitoraggio|LUN|
 |Operazioni di lettura da disco/sec per un disco dati|Sì|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|LUN|
@@ -609,6 +637,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Rete in ingresso (totale)|Sì|Rete in ingresso (totale)|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
 |Rete in uscita|Sì|Rete in uscita (fatturabile) (deprecata)|Byte|Totale|Il numero di byte fatturabili in tutte le interfacce di rete dalle macchine virtuali (traffico in uscita) (deprecato)|Nessuna dimensione|
 |Rete in uscita (totale)|Sì|Rete in uscita (totale)|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
+|Percentuale di utilizzo della larghezza di banda disco del sistema operativo|Sì|Percentuale di utilizzo della larghezza di banda disco del sistema operativo|Percentuale|Media|Percentuale di larghezza di banda del disco del sistema operativo utilizzata al minuto|LUN|
+|Percentuale di IOPS del disco del sistema operativo utilizzata|Sì|Percentuale di IOPS del disco del sistema operativo utilizzata|Percentuale|Media|Percentuale di I/o su disco del sistema operativo utilizzati al minuto|LUN|
 |Profondità coda per un disco del sistema operativo|Sì|Profondità coda per un disco del sistema operativo (anteprima)|Conteggio|Media|Profondità coda del disco del sistema operativo (o lunghezza coda)|Nessuna dimensione|
 |Byte letti da disco/sec per un disco del sistema operativo|Sì|Byte letti da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Byte/sec letti da un singolo disco durante il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
 |Operazioni di lettura da disco/sec per un disco del sistema operativo|Sì|Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio per il disco del sistema operativo|Nessuna dimensione|
@@ -626,11 +656,15 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni di lettura da disco/sec per disco|Sì|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
 |Byte scritti su disco/sec per disco|Sì|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
 |Operazioni di scrittura su disco/sec per disco|Sì|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Scrivi IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
 |Riscontri letture cache per un disco dati Premium|Sì|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN|
 |Mancati riscontri letture cache per un disco dati Premium|Sì|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN|
 |Riscontri letture cache per un disco del sistema operativo Premium|Sì|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
 |Mancati riscontri letture cache per un disco del sistema operativo Premium|Sì|Mancati riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
+|Percentuale di larghezza di banda della VM utilizzata nella cache|Sì|Percentuale di larghezza di banda della VM utilizzata nella cache|Percentuale|Media|Percentuale di larghezza di banda del disco memorizzata nella cache utilizzata dalla VM|Nessuna dimensione|
+|Percentuale di IOPS utilizzata nella cache della VM|Sì|Percentuale di IOPS utilizzata nella cache della VM|Percentuale|Media|Percentuale di IOPS del disco memorizzato nella cache utilizzati dalla VM|Nessuna dimensione|
+|Percentuale utilizzata per la larghezza di banda non memorizzata nella cache|Sì|Percentuale utilizzata per la larghezza di banda non memorizzata nella cache|Percentuale|Media|Percentuale di larghezza di banda del disco non memorizzata nella cache utilizzata dalla VM|Nessuna dimensione|
+|Percentuale di IOPS utilizzata della VM non memorizzata nella cache|Sì|Percentuale di IOPS utilizzata della VM non memorizzata nella cache|Percentuale|Media|Percentuale di IOPS del disco non memorizzati nella cache utilizzati dalla VM|Nessuna dimensione|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
@@ -671,7 +705,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni di lettura da disco/sec per disco|Sì|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
 |Byte scritti su disco/sec per disco|Sì|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
 |Operazioni di scrittura su disco/sec per disco|Sì|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Scrivi IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|VMName|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|VMName|
 |Riscontri letture cache per un disco dati Premium|Sì|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN, VMName|
 |Mancati riscontri letture cache per un disco dati Premium|Sì|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN, VMName|
 |Riscontri letture cache per un disco del sistema operativo Premium|Sì|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|VMName|
@@ -716,7 +750,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni di lettura da disco/sec per disco|Sì|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
 |Byte scritti su disco/sec per disco|Sì|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
 |Operazioni di scrittura su disco/sec per disco|Sì|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Scrivi IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
 |Riscontri letture cache per un disco dati Premium|Sì|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN|
 |Mancati riscontri letture cache per un disco dati Premium|Sì|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN|
 |Riscontri letture cache per un disco del sistema operativo Premium|Sì|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
@@ -753,7 +787,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |kube_node_status_allocatable_memory_bytes|No|Numero totale di memoria disponibile in un cluster gestito|Byte|Media|Numero totale di memoria disponibile in un cluster gestito|Nessuna dimensione|
 |kube_node_status_condition|No|Stati per diverse condizioni dei nodi|Conteggio|Media|Stati per diverse condizioni dei nodi|Condition, status, status2, node|
 |kube_pod_status_phase|No|Numero di pod per fase|Conteggio|Media|Numero di pod per fase|fase, spazio dei nomi, pod|
-|kube_pod_status_ready|No|Numero di pod in stato Pronto|Conteggio|Media|Numero di pod in stato Pronto|spazio dei nomi, pod|
+|kube_pod_status_ready|No|Numero di pod in stato Pronto|Conteggio|Media|Numero di pod in stato Pronto|spazio dei nomi, Pod, condizione|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft. CustomProviders/resourceproviders
@@ -770,11 +804,11 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |AvailableCapacity|Sì|Capacità disponibile|Byte|Media|Capacità disponibile in byte durante il periodo di Reporting.|Nessuna dimensione|
 |BytesUploadedToCloud|Sì|Byte cloud caricati (dispositivo)|Byte|Media|Il numero totale di byte caricati in Azure da un dispositivo durante il periodo di Reporting.|Nessuna dimensione|
-|BytesUploadedToCloudPerShare|Sì|Byte cloud caricati (condivisione)|Byte|Media|Il numero totale di byte caricati in Azure da una condivisione durante il periodo di Reporting.|Condividi|
+|BytesUploadedToCloudPerShare|Sì|Byte cloud caricati (condivisione)|Byte|Media|Il numero totale di byte caricati in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
 |CloudReadThroughput|Sì|Velocità effettiva download cloud|Byte al secondo|Media|La velocità effettiva di download del cloud in Azure durante il periodo di Reporting.|Nessuna dimensione|
-|CloudReadThroughputPerShare|Sì|Velocità effettiva download cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di download in Azure da una condivisione durante il periodo di Reporting.|Condividi|
+|CloudReadThroughputPerShare|Sì|Velocità effettiva download cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di download in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
 |CloudUploadThroughput|Sì|Velocità effettiva caricamento cloud|Byte al secondo|Media|La velocità effettiva di caricamento nel cloud in Azure durante il periodo di Reporting.|Nessuna dimensione|
-|CloudUploadThroughputPerShare|Sì|Velocità effettiva caricamento cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di caricamento in Azure da una condivisione durante il periodo di Reporting.|Condividi|
+|CloudUploadThroughputPerShare|Sì|Velocità effettiva caricamento cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di caricamento in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
 |HyperVMemoryUtilization|Sì|Calcolo Edge - Utilizzo memoria|Percentuale|Media|Quantità di RAM in uso|InstanceName|
 |HyperVVirtualProcessorUtilization|Sì|Calcolo Edge - Percentuale CPU|Percentuale|Media|Percentuale utilizzo CPU|InstanceName|
 |NICReadThroughput|Sì|Velocità effettiva lettura (rete)|Byte al secondo|Media|Velocità effettiva di lettura dell'interfaccia di rete nel dispositivo nel periodo di Reporting per tutti i volumi del gateway.|InstanceName|
@@ -867,12 +901,39 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |storage_used|Sì|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
 
 
+## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
+
+|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|---|---|---|---|---|---|---|
+|active_connections|Sì|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
+|backup_storage_used|Sì|Risorse di backup in uso|Byte|Media|Risorse di backup in uso|Nessuna dimensione|
+|connections_failed|Sì|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
+|connections_succeeded|Sì|Connessioni riuscite|Conteggio|Totale|Connessioni riuscite|Nessuna dimensione|
+|cpu_credits_consumed|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti utilizzati dal server di database|Nessuna dimensione|
+|cpu_credits_remaining|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
+|cpu_percent|Sì|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
+|disk_queue_depth|Sì|Profondità coda del disco|Conteggio|Media|Numero di operazioni di I/O in attesa nel disco dati|Nessuna dimensione|
+|iops|Sì|IOPS|Conteggio|Media|Operazioni di i/o al secondo|Nessuna dimensione|
+|maximum_used_transactionIDs|Sì|Numero massimo di ID transazione utilizzati|Conteggio|Media|Numero massimo di ID transazione utilizzati|Nessuna dimensione|
+|memory_percent|Sì|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
+|network_bytes_egress|Sì|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|Nessuna dimensione|
+|network_bytes_ingress|Sì|Rete in ingresso|Byte|Totale|Input di rete tra connessioni attive|Nessuna dimensione|
+|read_iops|Sì|IOPS di lettura|Conteggio|Media|Numero di operazioni di lettura I/O del disco dati al secondo|Nessuna dimensione|
+|read_throughput|Sì|Byte velocità effettiva lettura/sec|Conteggio|Media|Byte letti al secondo dal disco dati durante il periodo di monitoraggio|Nessuna dimensione|
+|storage_free|Sì|Archiviazione gratuita|Byte|Media|Archiviazione gratuita|Nessuna dimensione|
+|storage_percent|Sì|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|storage_used|Sì|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
+|txlogs_storage_used|Sì|Archiviazione log delle transazioni utilizzata|Byte|Media|Archiviazione log delle transazioni utilizzata|Nessuna dimensione|
+|write_iops|Sì|IOPS di scrittura|Conteggio|Media|Numero di operazioni di scrittura I/O su disco dati al secondo|Nessuna dimensione|
+|write_throughput|Sì|Byte velocità effettiva scrittura/sec|Conteggio|Media|Byte scritti al secondo nel disco dati durante il periodo di monitoraggio|Nessuna dimensione|
+
+
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |active_connections|Sì|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
-|backup_storage_used|Sì|Backup Storage used (Archiviazione di backup usata)|Byte|Media|Backup Storage used (Archiviazione di backup usata)|Nessuna dimensione|
+|backup_storage_used|Sì|Risorse di backup in uso|Byte|Media|Risorse di backup in uso|Nessuna dimensione|
 |connections_failed|Sì|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
 |cpu_percent|Sì|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
 |io_consumption_percent|Sì|Percentuale IO|Percentuale|Media|Percentuale IO|Nessuna dimensione|
@@ -903,23 +964,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |storage_used|Sì|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
 
 
-## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft. DBforPostgreSQL/singleservers
-
-|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
-|---|---|---|---|---|---|---|
-|active_connections|Sì|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
-|connections_failed|Sì|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
-|connections_succeeded|Sì|Connessioni riuscite|Conteggio|Totale|Connessioni riuscite|Nessuna dimensione|
-|cpu_percent|Sì|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|iops|Sì|IOPS|Conteggio|Media|Operazioni di i/o al secondo|Nessuna dimensione|
-|maximum_used_transactionIDs|Sì|Numero massimo di ID transazione utilizzati|Conteggio|Media|Numero massimo di ID transazione utilizzati|Nessuna dimensione|
-|memory_percent|Sì|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
-|network_bytes_egress|Sì|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|Nessuna dimensione|
-|network_bytes_ingress|Sì|Rete in ingresso|Byte|Totale|Input di rete tra connessioni attive|Nessuna dimensione|
-|storage_percent|Sì|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
-|storage_used|Sì|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
-
-
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -937,9 +981,9 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |c2d.twin.update.failure|Sì|Aggiornamenti dei dispositivi gemelli non riusciti per il back-end|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end non riusciti.|Nessuna dimensione|
 |c2d.twin.update.size|Sì|Dimensioni degli aggiornamenti dei dispositivi gemelli dal back-end|Byte|Media|Dimensioni medie, minime e massime degli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|Nessuna dimensione|
 |c2d.twin.update.success|Sì|Aggiornamenti dei dispositivi gemelli completati dal back-end|Conteggio|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|Nessuna dimensione|
-|C2DMessagesExpired|Sì|C2D Messages Expired (preview) (Messaggi C2D scaduti (anteprima))|Conteggio|Totale|Numero di messaggi da cloud a dispositivo scaduti|Nessuna dimensione|
+|C2DMessagesExpired|Sì|Messaggi C2D scaduti|Conteggio|Totale|Numero di messaggi da cloud a dispositivo scaduti|Nessuna dimensione|
 |configurazioni|Sì|Metriche di configurazione|Conteggio|Totale|Metriche per le operazioni di configurazione|Nessuna dimensione|
-|connectedDeviceCount|No|Dispositivi connessi (anteprima)|Conteggio|Media|Il numero di dispositivi connessi all'hub IoT|Nessuna dimensione|
+|connectedDeviceCount|No|Dispositivi connessi|Conteggio|Media|Il numero di dispositivi connessi all'hub IoT|Nessuna dimensione|
 |d2c.endpoints.egress.builtIn.events|Sì|Routing: messaggi recapitati a messaggi/eventi|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi all'endpoint predefinito (messaggi/eventi).|Nessuna dimensione|
 |d2c.endpoints.egress.eventHubs|Sì|Routing: messaggi inviati all'hub eventi|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint dell'hub eventi.|Nessuna dimensione|
 |d2c.endpoints.egress.serviceBusQueues|Sì|Routing: messaggi recapitati alla coda del bus di servizio|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint della coda del bus di servizio.|Nessuna dimensione|
@@ -971,8 +1015,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |deviceDataUsageV2|Sì|Uso totale dei dati del dispositivo (anteprima)|Byte|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuna dimensione|
 |devices.connectedDevices.allProtocol|Sì|Dispositivi connessi (deprecati) |Conteggio|Totale|Il numero di dispositivi connessi all'hub IoT|Nessuna dimensione|
 |devices.totalDevices|Sì|Dispositivi totali (deprecati)|Conteggio|Totale|Il numero di dispositivi registrati nell'hub IoT|Nessuna dimensione|
-|EventGridDeliveries|Sì|Recapiti di griglia di eventi (anteprima)|Conteggio|Totale|Il numero di eventi dell'hub Internet pubblico pubblicati in griglia di eventi. Utilizzare la dimensione risultato per il numero di richieste riuscite e non riuscite. EventType Dimension indica il tipo di evento ( https://aka.ms/ioteventgrid) .|Risultato, EventType|
-|EventGridLatency|Sì|Event Grid latency (preview) (Latenza Griglia di eventi (anteprima))|Millisecondi|Media|Latenza media (in millisecondi) dal momento in cui è stato generato l'evento dell'hub Internet quando l'evento è stato pubblicato in griglia di eventi. Questo numero è una media tra tutti i tipi di evento. Utilizzare la dimensione EventType per visualizzare la latenza di un tipo specifico di evento.|EventType|
+|EventGridDeliveries|Sì|Recapito griglia di eventi|Conteggio|Totale|Il numero di eventi dell'hub Internet pubblico pubblicati in griglia di eventi. Utilizzare la dimensione risultato per il numero di richieste riuscite e non riuscite. EventType Dimension indica il tipo di evento ( https://aka.ms/ioteventgrid) .|Risultato, EventType|
+|EventGridLatency|Sì|Latenza griglia di eventi|Millisecondi|Media|Latenza media (in millisecondi) dal momento in cui è stato generato l'evento dell'hub Internet quando l'evento è stato pubblicato in griglia di eventi. Questo numero è una media tra tutti i tipi di evento. Utilizzare la dimensione EventType per visualizzare la latenza di un tipo specifico di evento.|EventType|
 |jobs.cancelJob.failure|Sì|Annullamenti di processi non riusciti|Conteggio|Totale|Numero di tutte le chiamate per annullare i processi non riuscite.|Nessuna dimensione|
 |jobs.cancelJob.success|Sì|Annullamenti di processi riusciti|Conteggio|Totale|Numero di tutte le chiamate per annullare i processi riuscite.|Nessuna dimensione|
 |jobs.completed|Sì|Processi completati|Conteggio|Totale|Numero di tutti i processi completati.|Nessuna dimensione|
@@ -988,7 +1032,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |RoutingDataSizeInBytesDelivered|Sì|Dimensioni del messaggio di recapito di routing in byte (anteprima)|Byte|Totale|Dimensioni totali in byte dei messaggi recapitati dall'hub Internet a un endpoint. È possibile utilizzare le dimensioni EndpointName e EndpointType per visualizzare le dimensioni dei messaggi in byte recapitati ai diversi endpoint. Il valore della metrica aumenta per ogni messaggio recapitato, compreso se il messaggio viene recapitato a più endpoint o se il messaggio viene recapitato più volte allo stesso endpoint.|EndpointType, EndpointName, RoutingSource|
 |RoutingDeliveries|Sì|Recapito di routing (anteprima)|Conteggio|Totale|Il numero di tentativi di recapito di messaggi a tutti gli endpoint tramite l'hub. Per visualizzare il numero di tentativi riusciti o non riusciti, utilizzare la dimensione risultato. Per visualizzare il motivo dell'errore, ad esempio non valido, eliminato o orfano, utilizzare la dimensione FailureReasonCategory. È anche possibile usare le dimensioni EndpointName e EndpointType per comprendere il numero di messaggi recapitati ai diversi endpoint. Il valore della metrica aumenta di uno per ogni tentativo di recapito, incluso se il messaggio viene recapitato a più endpoint o se il messaggio viene recapitato più volte allo stesso endpoint.|EndpointType, EndpointName, FailureReasonCategory, result, RoutingSource|
 |RoutingDeliveryLatency|Sì|Latenza recapito routing (anteprima)|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e il messaggio di telemetria in ingresso in un endpoint. È possibile usare le dimensioni EndpointName e EndpointType per comprendere la latenza per i diversi endpoint.|EndpointType, EndpointName, RoutingSource|
-|totalDeviceCount|No|Dispositivi totali (anteprima)|Conteggio|Media|Il numero di dispositivi registrati nell'hub IoT|Nessuna dimensione|
+|totalDeviceCount|No|Totale dispositivi|Conteggio|Media|Il numero di dispositivi registrati nell'hub IoT|Nessuna dimensione|
 |twinQueries.failure|Sì|Query dei dispositivi gemelli non riuscite|Conteggio|Totale|Numero di tutte le query dei dispositivi gemelli non riuscite.|Nessuna dimensione|
 |twinQueries.resultSize|Sì|Dimensioni dei risultati delle query dei dispositivi gemelli|Byte|Media|Dimensioni medie, minime e massime dei risultati delle query dei dispositivi gemelli.|Nessuna dimensione|
 |twinQueries.success|Sì|Query dei dispositivi gemelli completate|Conteggio|Totale|Numero di tutte le query dei dispositivi gemelli completate.|Nessuna dimensione|
@@ -1009,7 +1053,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |AddRegion|Sì|Area aggiunta|Conteggio|Conteggio|Area aggiunta|Region|
 |AutoscaleMaxThroughput|No|Scalabilità automatica max velocità effettiva|Conteggio|Massimo|Scalabilità automatica max velocità effettiva|DatabaseName, CollectionName|
-|AvailableStorage|No|deprecato Archiviazione disponibile|Byte|Totale|"Spazio di archiviazione disponibile" verrà rimosso da monitoraggio di Azure alla fine del 2020 settembre. Cosmos DB dimensioni di archiviazione della raccolta sono ora illimitate. L'unica restrizione è che le dimensioni di archiviazione per ogni chiave di partizione logica sono 20 GB. È possibile abilitare PartitionKeyStatistics nel log di diagnostica per verificare il consumo di spazio di archiviazione per le chiavi di partizione principali. Per ulteriori informazioni sulla quota di archiviazione Cosmos DB, consultare il documento https://docs.microsoft.com/azure/cosmos-db/concepts-limits . Dopo la deprecazione, le regole di avviso rimanenti ancora definite nella metrica deprecata verranno disabilitate automaticamente dopo la data di deprecazione.|CollectionName, DatabaseName, Region|
+|AvailableStorage|No|deprecato Archiviazione disponibile|Byte|Totale|"Spazio di archiviazione disponibile" verrà rimosso da monitoraggio di Azure alla fine del 2023 settembre. Cosmos DB dimensioni di archiviazione della raccolta sono ora illimitate. L'unica restrizione è che le dimensioni di archiviazione per ogni chiave di partizione logica sono 20 GB. È possibile abilitare PartitionKeyStatistics nel log di diagnostica per verificare il consumo di spazio di archiviazione per le chiavi di partizione principali. Per ulteriori informazioni sulla quota di archiviazione Cosmos DB, consultare il documento https://docs.microsoft.com/azure/cosmos-db/concepts-limits . Dopo la deprecazione, le regole di avviso rimanenti ancora definite nella metrica deprecata verranno disabilitate automaticamente dopo la data di deprecazione.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|No|Chiusure di connessione Cassandra|Conteggio|Totale|Numero di connessioni Cassandra chiuse, segnalate a una granularità di 1 minuto|Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|No|Media ReplicationLatency connettore Cassandra|Millisecondi|Media|Media ReplicationLatency connettore Cassandra|Nessuna dimensione|
 |CassandraConnectorReplicationHealthStatus|No|Stato di integrità della replica del connettore Cassandra|Conteggio|Conteggio|Stato di integrità della replica del connettore Cassandra|NotStarted, ReplicationInProgress, Error|
@@ -1046,13 +1090,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |MongoDatabaseThroughputUpdate|No|Velocità effettiva del database Mongo aggiornata|Conteggio|Conteggio|Velocità effettiva del database Mongo aggiornata|ResourceName |
 |MongoDBDatabaseCreate|No|Database Mongo creato|Conteggio|Conteggio|Database Mongo creato|ResourceName |
 |MongoDBDatabaseUpdate|No|Database Mongo aggiornato|Conteggio|Conteggio|Database Mongo aggiornato|ResourceName |
-|MongoRequestCharge|Sì|Mongo Request Charge (Addebito richiesta Mongo)|Conteggio|Totale|Unità richiesta Mongo utilizzate|DatabaseName, CollectionName, Region, CommandName, ErrorCode, stato|
 |MongoRequests|Sì|Richieste Mongo|Conteggio|Conteggio|Numero di richieste Mongo eseguite|DatabaseName, CollectionName, Region, CommandName, ErrorCode, stato|
-|MongoRequestsCount|No|Mongo Request Rate (Frequenza richieste Mongo)|Conteggio al secondo|Media|Numero di richieste Mongo al secondo|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsDelete|No|Mongo Delete Request Rate (Frequenza richieste di eliminazione Mongo)|Conteggio al secondo|Media|Richiesta di eliminazione Mongo al secondo|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsInsert|No|Mongo Insert Request Rate (Frequenza richieste di inserimento Mongo)|Conteggio al secondo|Media|Numero di inserimento di Mongo al secondo|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsQuery|No|Mongo Query Request Rate (Frequenza richieste di query Mongo)|Conteggio al secondo|Media|Richieste di query Mongo al secondo|DatabaseName, CollectionName, Region, ErrorCode|
-|MongoRequestsUpdate|No|Mongo Update Request Rate (Frequenza richieste di aggiornamento Mongo)|Conteggio al secondo|Media|Richiesta di aggiornamento Mongo al secondo|DatabaseName, CollectionName, Region, ErrorCode|
 |NormalizedRUConsumption|No|Consumo ur normalizzato|Percentuale|Massimo|Percentuale di utilizzo massimo delle UR al minuto|CollectionName, DatabaseName, Region, PartitionKeyRangeId|
 |ProvisionedThroughput|No|Velocità effettiva sottoposta a provisioning|Conteggio|Massimo|Velocità effettiva sottoposta a provisioning|DatabaseName, CollectionName|
 |RegionFailover|Sì|Area sottoposta a failover|Conteggio|Conteggio|Area sottoposta a failover|Nessuna dimensione|
@@ -1154,13 +1192,13 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |ActiveConnections|No|ActiveConnections|Conteggio|Media|Totale connessioni attive per Microsoft.EventHub.|Nessuna dimensione|
-|AvailableMemory|No|Memoria disponibile|Percentuale|Massimo|Memoria disponibile per il cluster di hub eventi come percentuale della memoria totale.|Ruolo|
+|AvailableMemory|No|Memoria disponibile|Percentuale|Massimo|Memoria disponibile per il cluster di hub eventi come percentuale della memoria totale.|Role|
 |CaptureBacklog|No|Backlog acquisiti.|Conteggio|Totale|Backlog acquisiti per Microsoft.EventHub.|Nessuna dimensione|
 |CapturedBytes|No|Byte acquisiti.|Byte|Totale|Byte acquisiti per Microsoft.EventHub.|Nessuna dimensione|
 |CapturedMessages|No|Messaggi acquisiti.|Conteggio|Totale|Messaggi acquisiti per Microsoft.EventHub.|Nessuna dimensione|
 |ConnectionsClosed|No|Connessioni chiuse.|Conteggio|Media|Connessioni chiuse per Microsoft.EventHub.|Nessuna dimensione|
 |ConnectionsOpened|No|Connessioni aperte.|Conteggio|Media|Connessioni aperte per Microsoft.EventHub.|Nessuna dimensione|
-|CPU|No|CPU|Percentuale|Massimo|Uso CPU per il cluster dell'hub eventi in percentuale|Ruolo|
+|CPU|No|CPU|Percentuale|Massimo|Uso CPU per il cluster dell'hub eventi in percentuale|Role|
 |IncomingBytes|Sì|Byte in ingresso.|Byte|Totale|Byte in ingresso per Microsoft.EventHub.|Nessuna dimensione|
 |IncomingMessages|Sì|Messaggi in ingresso|Conteggio|Totale|Messaggi in ingresso per Microsoft.EventHub.|Nessuna dimensione|
 |IncomingRequests|Sì|Richieste in ingresso|Conteggio|Totale|Richieste in ingresso per Microsoft.EventHub.|Nessuna dimensione|
@@ -1168,7 +1206,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |OutgoingMessages|Sì|Messaggi in uscita|Conteggio|Totale|Messaggi in uscita per Microsoft.EventHub.|Nessuna dimensione|
 |QuotaExceededErrors|No|Errori di superamento quota.|Conteggio|Totale|Errori di superamento quota per Microsoft.EventHub.|Nessuna dimensione|
 |ServerErrors|No|Errori server.|Conteggio|Totale|Errori del server per Microsoft.EventHub.|Nessuna dimensione|
-|Dimensione|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|Ruolo|
+|Dimensione|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|Role|
 |SuccessfulRequests|No|Richieste riuscite|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub.|Nessuna dimensione|
 |ThrottledRequests|No|Richieste limitate.|Conteggio|Totale|Richieste limitate per Microsoft.EventHub.|Nessuna dimensione|
 |UserErrors|No|Errori utente.|Conteggio|Totale|Errori utente per Microsoft.EventHub.|Nessuna dimensione|
@@ -1268,6 +1306,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |requests/rate|No|Frequenza richieste server|Conteggio al secondo|Media|Frequenza delle richieste server al secondo|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |traces/count|Sì|Traces|Conteggio|Conteggio|Numero documenti di analisi|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
 
+
 ## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -1300,23 +1339,35 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |BatchBlobCount|Sì|Conteggio BLOB batch|Conteggio|Media|Numero di origini dati in un batch aggregato per l'inserimento.|Database|
 |BatchDuration|Sì|Durata batch|Secondi|Media|Durata della fase di aggregazione nel flusso di inserimento.|Database|
-|BatchesProcessed|Sì|Batch elaborati|Conteggio|Media|Numero di batch aggregati per l'inserimento. Motivo completamento batch: indica se il batch ha raggiunto il limite di tempo di batch, le dimensioni dei dati o il numero di file impostati dal criterio di invio in batch|Database, SealReason|
+|BatchesProcessed|Sì|Batch elaborati|Conteggio|Media|Numero di batch aggregati per l'inserimento. Tipo di batch: indica se il batch ha raggiunto il limite di tempo di batch, le dimensioni dei dati o il numero di file impostati dal criterio di invio in batch|Database, SealReason|
 |BatchSize|Sì|Dimensioni batch|Byte|Media|Dimensioni dei dati previste non compresse in un batch aggregato per l'inserimento.|Database|
+|BlobsProcessed|Sì|BLOB elaborati|Conteggio|Media|Numero di BLOB elaborati da un componente.|Database, ComponentType, ComponentName|
+|BlobsReceived|Sì|BLOB ricevuti|Conteggio|Media|Numero di BLOB ricevuti dal flusso di input da un componente.|Database, ComponentType, ComponentName|
+|BlobsRejected|Sì|BLOB rifiutati|Conteggio|Media|Numero di BLOB rifiutati definitivamente da un componente.|Database, ComponentType, ComponentName|
 |CacheUtilization|Sì|Utilizzo cache|Percentuale|Media|Livello di uso nell'ambito del cluster|Nessuna dimensione|
 |ContinuousExportMaxLatenessMinutes|Sì|Latenza massima di esportazione continua|Conteggio|Massimo|Ritardo (in minuti) segnalato dai processi di esportazione continua nel cluster|Nessuna dimensione|
 |ContinuousExportNumOfRecordsExported|Sì|Esportazione continua: numero di record esportati|Conteggio|Totale|Numero di record esportati, generati per ogni artefatto di archiviazione scritto durante l'operazione di esportazione|ContinuousExportName, database|
 |ContinuousExportPendingCount|Sì|Continuous Export Pending Count (Esportazione continua - Conteggio in sospeso)|Conteggio|Massimo|Numero di processi di esportazione continua in sospeso pronti per l'esecuzione|Nessuna dimensione|
 |ContinuousExportResult|Sì|Continuous Export Result (Risultato esportazione continua)|Conteggio|Conteggio|Indica se l'esportazione continua ha avuto esito positivo o negativo|ContinuousExportName, result, database|
 |CPU|Sì|CPU|Percentuale|Media|Livello di uso della CPU|Nessuna dimensione|
+|CumulativeLatency|Sì|Latenza cumulativa|Secondi|Media|Tempo cumulativo da cui viene individuato un messaggio fino a quando non viene ricevuto dal componente per la creazione di report per l'elaborazione. l'ora di individuazione viene impostata quando il messaggio viene accodato per la coda di inserimento o quando viene individuato dalla connessione dati.|Database, ComponentType|
+|DiscoveryLatency|Sì|Latenza individuazione|Secondi|Media|Segnalato dalle connessioni dati (se presenti). Tempo in secondi da quando viene accodato un messaggio oppure viene creato un evento fino a quando non viene individuato dalla connessione dati. Questo tempo non è incluso nella durata di inserimento totale di Azure Esplora dati.|ComponentType, ComponentName|
 |EventsProcessedForEventHubs|Sì|Events processed (for Event/IoT Hubs) (Eventi elaborati (per hub eventi/IoT))|Conteggio|Totale|Numero di eventi elaborati dal cluster durante l'inserimento dall'hub eventi/tutto|EventStatus|
 |ExportUtilization|Sì|Export Utilization (Utilizzo esportazione)|Percentuale|Massimo|Esporta utilizzo|Nessuna dimensione|
-|IngestionLatencyInSeconds|Sì|Latenza inserimento (in secondi)|Secondi|Media|Tempo di inserimento dall'origine (ad esempio messaggio in EventHub) nel cluster in secondi|Nessuna dimensione|
+|IngestionLatencyInSeconds|Sì|Latenza inserimento|Secondi|Media|Tempo di inserimento dall'origine (ad esempio messaggio in EventHub) nel cluster in secondi|Nessuna dimensione|
 |IngestionResult|Sì|Risultati inserimento|Conteggio|Conteggio|Numero di operazioni di inserimento|IngestionResultDetails|
 |IngestionUtilization|Sì|Utilizzo inserimento|Percentuale|Media|Percentuale di slot di inserimento usati nel cluster|Nessuna dimensione|
-|IngestionVolumeInMB|Sì|Ingestion volume (in MB) (Volume inserimento (in MB))|Conteggio|Totale|Volume complessivo dei dati inseriti nel cluster (in MB)|Nessuna dimensione|
+|IngestionVolumeInMB|Sì|Ingestion volume (in MB) (Volume inserimento (in MB))|Byte|Totale|Volume complessivo dei dati inseriti nel cluster (in MB)|Nessuna dimensione|
 |InstanceCount|Sì|Conteggio istanze|Conteggio|Media|Numero totale di istanze|Nessuna dimensione|
 |KeepAlive|Sì|Keep alive|Conteggio|Media|Test di integrità che indica che il cluster risponde alle query|Nessuna dimensione|
+|MaterializedViewAgeMinutes|Sì|Età di visualizzazione materializzata|Conteggio|Media|Tempo di visualizzazione materializzato in minuti|Database, MaterializedViewName|
+|MaterializedViewDataLoss|Sì|Perdita di dati di visualizzazione materializzata|Conteggio|Massimo|Indica una potenziale perdita di dati nella vista materializzata|Database, MaterializedViewName, kind|
+|MaterializedViewExtentsRebuild|Sì|Ricompilazione degli extent di visualizzazione materializzati|Conteggio|Media|Numero degli extent ricompilati|Database, MaterializedViewName|
+|MaterializedViewHealth|Sì|Integrità vista materializzata|Conteggio|Media|Stato della vista materializzata (1 per integro, 0 per non integro)|Database, MaterializedViewName|
+|MaterializedViewRecordsInDelta|Sì|Record di viste materializzate in Delta|Conteggio|Media|Numero di record nella parte non materializzata della visualizzazione|Database, MaterializedViewName|
+|MaterializedViewResult|Sì|Risultato della vista materializzata|Conteggio|Media|Risultato del processo di materializzazione|Database, MaterializedViewName, result|
 |QueryDuration|Sì|Durata delle query|Millisecondi|Media|Durata delle query in secondi|QueryStatus|
+|QueryResult|No|Risultato della query|Conteggio|Conteggio|Numero totale di query.|Stato|
 |SteamingIngestRequestRate|Sì|Streaming Ingest Request Rate (Frequenza richieste inserimento streaming)|Conteggio|RateRequestsPerSecond|Frequenza delle richieste di inserimento in streaming (richieste al secondo)|Nessuna dimensione|
 |StreamingIngestDataRate|Sì|Streaming Ingest Data Rate (Velocità dati inserimento streaming)|Conteggio|Media|Velocità dati di inserimento dei flussi (MB al secondo)|Nessuna dimensione|
 |StreamingIngestDuration|Sì|Streaming Ingest Duration (Durata inserimento streaming)|Millisecondi|Media|Durata di inserimento del flusso in millisecondi|Nessuna dimensione|
@@ -1411,14 +1462,14 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |Active Cores (Core attivi)|Sì|Active Cores (Core attivi)|Conteggio|Media|Numero di core attivi|Scenario, clustername|
 |Active Nodes (Nodi attivi)|Sì|Active Nodes (Nodi attivi)|Conteggio|Media|Numero di nodi Active. Questi sono i nodi che eseguono attivamente un processo.|Scenario, clustername|
-|Annulla esecuzioni richieste|Sì|Annulla esecuzioni richieste|Conteggio|Totale|Numero di esecuzioni in cui è stato richiesto l'annullamento per questa area di lavoro. Il conteggio viene aggiornato quando è stata ricevuta una richiesta di annullamento per un'esecuzione.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Esecuzioni annullate|Sì|Esecuzioni annullate|Conteggio|Totale|Numero di esecuzioni annullate per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione viene annullata correttamente.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Esecuzioni completate|Sì|Esecuzioni completate|Conteggio|Totale|Il numero di esecuzioni è stato completato correttamente per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata e l'output è stato raccolto.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|CpuUtilization|Sì|CpuUtilization|Conteggio|Media|Percentuale di utilizzo della memoria in un nodo della CPU. L'utilizzo viene segnalato a intervalli di un minuto.|Scenario, runId, NodeId, clustername|
+|Annulla esecuzioni richieste|Sì|Annulla esecuzioni richieste|Conteggio|Totale|Numero di esecuzioni in cui è stato richiesto l'annullamento per questa area di lavoro. Il conteggio viene aggiornato quando è stata ricevuta una richiesta di annullamento per un'esecuzione.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|Esecuzioni annullate|Sì|Esecuzioni annullate|Conteggio|Totale|Numero di esecuzioni annullate per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione viene annullata correttamente.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|Esecuzioni completate|Sì|Esecuzioni completate|Conteggio|Totale|Il numero di esecuzioni è stato completato correttamente per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata e l'output è stato raccolto.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|CpuUtilization|Sì|CpuUtilization|Conteggio|Media|Percentuale di utilizzo in un nodo della CPU. L'utilizzo viene segnalato a intervalli di un minuto.|Scenario, runId, NodeId, clustername|
 |Errors|Sì|Errors|Conteggio|Totale|Numero di errori di esecuzione in questa area di lavoro. Il conteggio viene aggiornato ogni volta che viene rilevato un errore durante l'esecuzione.|Scenario|
-|Esecuzioni non riuscite|Sì|Esecuzioni non riuscite|Conteggio|Totale|Numero di esecuzioni non riuscite per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione ha esito negativo.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Finalizzazione delle esecuzioni|Sì|Finalizzazione delle esecuzioni|Conteggio|Totale|Numero di esecuzioni immesse per lo stato di completamento per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata, ma la raccolta di output è ancora in corso.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|GpuUtilization|Sì|GpuUtilization|Conteggio|Media|Percentuale di utilizzo della memoria in un nodo GPU. L'utilizzo viene segnalato a intervalli di un minuto.|Scenario, runId, NodeId, DeviceId, clustername|
+|Esecuzioni non riuscite|Sì|Esecuzioni non riuscite|Conteggio|Totale|Numero di esecuzioni non riuscite per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione ha esito negativo.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|Finalizzazione delle esecuzioni|Sì|Finalizzazione delle esecuzioni|Conteggio|Totale|Numero di esecuzioni immesse per lo stato di completamento per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata, ma la raccolta di output è ancora in corso.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|GpuUtilization|Sì|GpuUtilization|Conteggio|Media|Percentuale di utilizzo in un nodo GPU. L'utilizzo viene segnalato a intervalli di un minuto.|Scenario, runId, NodeId, DeviceId, clustername|
 |Idle Cores (Core inattivi)|Sì|Idle Cores (Core inattivi)|Conteggio|Media|Numero di core inattivi|Scenario, clustername|
 |Idle Nodes (Nodi inattivi)|Sì|Idle Nodes (Nodi inattivi)|Conteggio|Media|Numero di nodi inattivi. I nodi inattivi sono i nodi che non eseguono alcun processo, ma possono accettare un nuovo processo, se disponibile.|Scenario, clustername|
 |Leaving Cores (Core di uscita)|Sì|Leaving Cores (Core di uscita)|Conteggio|Media|Numero di core in uscita|Scenario, clustername|
@@ -1428,18 +1479,18 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Model Deploy Succeeded (Distribuzione di modelli riuscita)|Sì|Model Deploy Succeeded (Distribuzione di modelli riuscita)|Conteggio|Totale|Numero di distribuzioni di modelli riuscite in questa area di lavoro|Scenario|
 |Model Register Failed (Registrazione di modelli non riuscita)|Sì|Model Register Failed (Registrazione di modelli non riuscita)|Conteggio|Totale|Numero di registrazioni del modello non riuscite in questa area di lavoro|Scenario, StatusCode|
 |Model Register Succeeded (Registrazione di modelli riuscita)|Sì|Model Register Succeeded (Registrazione di modelli riuscita)|Conteggio|Totale|Numero di registrazioni del modello riuscite in questa area di lavoro|Scenario|
-|Esecuzioni non rispondenti|Sì|Esecuzioni non rispondenti|Conteggio|Totale|Numero di esecuzioni non rispondenti per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione entra in uno stato che non risponde.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Esecuzioni non avviate|Sì|Esecuzioni non avviate|Conteggio|Totale|Numero di esecuzioni in stato non avviato per questa area di lavoro. Il conteggio viene aggiornato quando viene ricevuta una richiesta per creare un'esecuzione, ma le informazioni di esecuzione non sono state ancora popolate. |Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Esecuzioni non rispondenti|Sì|Esecuzioni non rispondenti|Conteggio|Totale|Numero di esecuzioni non rispondenti per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione entra in uno stato che non risponde.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|Esecuzioni non avviate|Sì|Esecuzioni non avviate|Conteggio|Totale|Numero di esecuzioni in stato non avviato per questa area di lavoro. Il conteggio viene aggiornato quando viene ricevuta una richiesta per creare un'esecuzione, ma le informazioni di esecuzione non sono state ancora popolate. |Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
 |Preempted Cores (Core superati)|Sì|Preempted Cores (Core superati)|Conteggio|Media|Numero di core con precedenza|Scenario, clustername|
 |Preempted Nodes (Nodi superati)|Sì|Preempted Nodes (Nodi superati)|Conteggio|Media|Numero di nodi con precedenza. Questi nodi sono i nodi con priorità bassa che vengono sottratti dal pool di nodi disponibile.|Scenario, clustername|
-|Preparazione delle esecuzioni|Sì|Preparazione delle esecuzioni|Conteggio|Totale|Numero di esecuzioni preparate per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione entra nello stato di preparazione mentre è in corso la preparazione dell'ambiente di esecuzione.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Esecuzioni del provisioning|Sì|Esecuzioni del provisioning|Conteggio|Totale|Numero di esecuzioni di cui viene eseguito il provisioning per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è in attesa della creazione o del provisioning di una destinazione di calcolo.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Esecuzioni in coda|Sì|Esecuzioni in coda|Conteggio|Totale|Numero di esecuzioni accodate per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione viene accodata nella destinazione di calcolo. Può verificarsi durante l'attesa che i nodi di calcolo necessari siano pronti.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Preparazione delle esecuzioni|Sì|Preparazione delle esecuzioni|Conteggio|Totale|Numero di esecuzioni preparate per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione entra nello stato di preparazione mentre è in corso la preparazione dell'ambiente di esecuzione.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|Esecuzioni del provisioning|Sì|Esecuzioni del provisioning|Conteggio|Totale|Numero di esecuzioni di cui viene eseguito il provisioning per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è in attesa della creazione o del provisioning di una destinazione di calcolo.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|Esecuzioni in coda|Sì|Esecuzioni in coda|Conteggio|Totale|Numero di esecuzioni accodate per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione viene accodata nella destinazione di calcolo. Può verificarsi durante l'attesa che i nodi di calcolo necessari siano pronti.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
 |Quota Utilization Percentage (Percentuale di utilizzo quota)|Sì|Quota Utilization Percentage (Percentuale di utilizzo quota)|Conteggio|Media|Percentuale di quota utilizzata|Scenario, clustername, VmFamilyName, VmPriority|
-|Esecuzioni avviate|Sì|Esecuzioni avviate|Conteggio|Totale|Numero di esecuzioni in esecuzione per l'area di lavoro. Il conteggio viene aggiornato quando viene avviata l'esecuzione delle risorse necessarie.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Avvio delle esecuzioni|Sì|Avvio delle esecuzioni|Conteggio|Totale|Numero di esecuzioni avviate per l'area di lavoro. Il conteggio viene aggiornato dopo la richiesta di creazione delle informazioni di esecuzione ed esecuzione, ad esempio l'ID esecuzione, è stato popolato|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Esecuzioni avviate|Sì|Esecuzioni avviate|Conteggio|Totale|Numero di esecuzioni in esecuzione per l'area di lavoro. Il conteggio viene aggiornato quando viene avviata l'esecuzione delle risorse necessarie.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
+|Avvio delle esecuzioni|Sì|Avvio delle esecuzioni|Conteggio|Totale|Numero di esecuzioni avviate per l'area di lavoro. Il conteggio viene aggiornato dopo la richiesta di creazione delle informazioni di esecuzione ed esecuzione, ad esempio l'ID esecuzione, è stato popolato|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, Experimentname|
 |Core totali|Sì|Core totali|Conteggio|Media|Numero di core totali|Scenario, clustername|
-|Totale nodi|Sì|Totale nodi|Conteggio|Media|Numero totale di nodi. Il totale include alcuni nodi attivi, nodi inattivi, nodi inutilizzabili, nodi con precedenza, lasciando nodi|Scenario, clustername|
+|Totale nodi|Sì|Totale nodi|Conteggio|Media|Numero totale di nodi. Il totale include alcuni nodi attivi, nodi inattivi, nodi inutilizzabili, nodi Premepted, lasciando nodi|Scenario, clustername|
 |Unusable Cores (Core non utilizzabili)|Sì|Unusable Cores (Core non utilizzabili)|Conteggio|Media|Numero di core inutilizzabili|Scenario, clustername|
 |Unusable Nodes (Nodi non utilizzabili)|Sì|Unusable Nodes (Nodi non utilizzabili)|Conteggio|Media|Numero di nodi inutilizzabili. I nodi inutilizzabili non sono funzionali a causa di un problema irrisolvibile. Azure ricicla questi nodi.|Scenario, clustername|
 |Avvisi|Sì|Avvisi|Conteggio|Totale|Numero di avvisi di esecuzione in questa area di lavoro. Il conteggio viene aggiornato ogni volta che un'esecuzione rileva un avviso.|Scenario|
@@ -1450,7 +1501,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |Disponibilità|Sì|Disponibilità|Percentuale|Media|Disponibilità delle API|ApiCategory, ApiName|
-|Utilizzo|No|Uso|Conteggio|Conteggio|Numero di chiamate API|ApiCategory, ApiName, ResultType, ResponseCode|
+|Uso|No|Uso|Conteggio|Conteggio|Numero di chiamate API|ApiCategory, ApiName, ResultType, ResponseCode|
 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
@@ -1560,8 +1611,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|BitsInPerSecond|Sì|BitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|Nessuna dimensione|
-|BitsOutPerSecond|Sì|BitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|Nessuna dimensione|
+|BitsInPerSecond|Sì|BitsInPerSecond|BitsPerSecond|Media|Bit in ingresso in Azure al secondo|Nessuna dimensione|
+|BitsOutPerSecond|Sì|BitsOutPerSecond|BitsPerSecond|Media|Bit in uscita da Azure al secondo|Nessuna dimensione|
 
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
@@ -1579,28 +1630,28 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |ArpAvailability|Sì|Arp Availability (Disponibilità ARP)|Percentuale|Media|Disponibilità ARP da MSEE verso tutti i peer.|Peering, peer|
 |BgpAvailability|Sì|Bgp Availability (Disponibilità BGP)|Percentuale|Media|Disponibilità BGP da MSEE verso tutti i peer.|Peering, peer|
-|BitsInPerSecond|No|BitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|Peering|
-|BitsOutPerSecond|No|BitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|Peering|
-|GlobalReachBitsInPerSecond|No|GlobalReachBitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|PeeredCircuitSKey|
-|GlobalReachBitsOutPerSecond|No|GlobalReachBitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|PeeredCircuitSKey|
-|QosDropBitsInPerSecond|No|DroppedInBitsPerSecond|Conteggio al secondo|Media|Bit in ingresso dei dati eliminati al secondo|Nessuna dimensione|
-|QosDropBitsOutPerSecond|No|DroppedOutBitsPerSecond|Conteggio al secondo|Media|Bit di dati in uscita eliminati al secondo|Nessuna dimensione|
+|BitsInPerSecond|No|BitsInPerSecond|BitsPerSecond|Media|Bit in ingresso in Azure al secondo|Peering, DeviceRole|
+|BitsOutPerSecond|No|BitsOutPerSecond|BitsPerSecond|Media|Bit in uscita da Azure al secondo|Peering, DeviceRole|
+|GlobalReachBitsInPerSecond|No|GlobalReachBitsInPerSecond|BitsPerSecond|Media|Bit in ingresso in Azure al secondo|PeeredCircuitSKey|
+|GlobalReachBitsOutPerSecond|No|GlobalReachBitsOutPerSecond|BitsPerSecond|Media|Bit in uscita da Azure al secondo|PeeredCircuitSKey|
+|QosDropBitsInPerSecond|Sì|DroppedInBitsPerSecond|BitsPerSecond|Media|Bit in ingresso dei dati eliminati al secondo|Nessuna dimensione|
+|QosDropBitsOutPerSecond|Sì|DroppedOutBitsPerSecond|BitsPerSecond|Media|Bit di dati in uscita eliminati al secondo|Nessuna dimensione|
 
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|BitsInPerSecond|Sì|BitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|Nessuna dimensione|
-|BitsOutPerSecond|Sì|BitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|Nessuna dimensione|
+|BitsInPerSecond|Sì|BitsInPerSecond|BitsPerSecond|Media|Bit in ingresso in Azure al secondo|Nessuna dimensione|
+|BitsOutPerSecond|Sì|BitsOutPerSecond|BitsPerSecond|Media|Bit in uscita da Azure al secondo|Nessuna dimensione|
 
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft.Network/expressRouteGateways
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|ErGatewayConnectionBitsInPerSecond|No|BitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|ConnectionName|
-|ErGatewayConnectionBitsOutPerSecond|No|BitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|ConnectionName|
+|ErGatewayConnectionBitsInPerSecond|No|BitsInPerSecond|BitsPerSecond|Media|Bit in ingresso in Azure al secondo|ConnectionName|
+|ErGatewayConnectionBitsOutPerSecond|No|BitsOutPerSecond|BitsPerSecond|Media|Bit in uscita da Azure al secondo|ConnectionName|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
@@ -1609,8 +1660,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |AdminState|Sì|AdminState|Conteggio|Media|Stato amministratore della porta|Collegamento|
 |LineProtocol|Sì|LineProtocol|Conteggio|Media|Stato del protocollo di riga della porta|Collegamento|
-|PortBitsInPerSecond|Sì|BitsInPerSecond|Conteggio al secondo|Media|Bit in ingresso in Azure al secondo|Collegamento|
-|PortBitsOutPerSecond|Sì|BitsOutPerSecond|Conteggio al secondo|Media|Bit in uscita da Azure al secondo|Collegamento|
+|PortBitsInPerSecond|Sì|BitsInPerSecond|BitsPerSecond|Media|Bit in ingresso in Azure al secondo|Collegamento|
+|PortBitsOutPerSecond|Sì|BitsOutPerSecond|BitsPerSecond|Media|Bit in uscita da Azure al secondo|Collegamento|
 |RxLightLevel|Sì|RxLightLevel|Conteggio|Media|Livello di luce RX in dBm|Collegamento, corsia|
 |TxLightLevel|Sì|TxLightLevel|Conteggio|Media|Livello di luce TX in dBm|Collegamento, corsia|
 
@@ -1635,7 +1686,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |AllocatedSnatPorts|No|Porte SNAT allocate|Conteggio|Media|Numero totale di porte SNAT allocate nel periodo di tempo|FrontendIPAddress, BackendIPAddress, ProtocolType, |
-|ByteCount|Sì|Numero di byte|Conteggio|Totale|Numero totale di byte trasmessi nel periodo di tempo|FrontendIPAddress, FrontendPort, Direction|
+|ByteCount|Sì|Numero di byte|Byte|Totale|Numero totale di byte trasmessi nel periodo di tempo|FrontendIPAddress, FrontendPort, Direction|
 |DipAvailability|Sì|Stato probe di integrità|Conteggio|Media|Stato probe di integrità media di Load Balancer per periodo di tempo|ProtocolType, BackendPort, FrontendIPAddress, FrontendPort, BackendIPAddress|
 |PacketCount|Sì|Numero di pacchetti|Conteggio|Totale|Numero totale di pacchetti trasmessi nel periodo di tempo|FrontendIPAddress, FrontendPort, Direction|
 |SnatConnectionCount|Sì|Numero di connessioni SNAT|Conteggio|Totale|Numero totale di nuove connessioni SNAT create nel periodo di tempo|FrontendIPAddress, BackendIPAddress, ConnectionState|
@@ -1659,16 +1710,16 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |AverageRoundtripMs|Sì|Avg. Tempo di round trip (ms)|Millisecondi|Media|Tempo medio di round trip della rete (in ms) per i probe di monitoraggio della connettività inviati tra origine e destinazione|Nessuna dimensione|
-|ChecksFailedPercent|Sì|Checks Failed Percent (Preview) (Percentuale controlli non superati (anteprima))|Percentuale|Media|% dei controlli di monitoraggio della connettività non riusciti|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, Destinaname, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
+|ChecksFailedPercent|Sì|Checks Failed Percent (Preview) (Percentuale controlli non superati (anteprima))|Percentuale|Media|% dei controlli di monitoraggio della connettività non riusciti|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, Destination, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName, SourceIP, DestinationIP, SourceSubnet, DestinationSubnet|
 |ProbesFailedPercent|Sì|% di probe non riusciti|Percentuale|Media|% di probe di monitoraggio connettività non riusciti|Nessuna dimensione|
-|RoundTripTimeMs|Sì|Round-Trip Time (ms) (Preview) (Tempo di round trip (ms) (anteprima))|Millisecondi|Media|Tempo di round trip in millisecondi per i controlli di monitoraggio della connettività|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, Destinaname, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
+|RoundTripTimeMs|Sì|Round-Trip Time (ms) (Preview) (Tempo di round trip (ms) (anteprima))|Millisecondi|Media|Tempo di round trip in millisecondi per i controlli di monitoraggio della connettività|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, Destination, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName, SourceIP, DestinationIP, SourceSubnet, DestinationSubnet|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|ByteCount|Sì|Numero di byte|Conteggio|Totale|Numero totale di byte trasmessi nel periodo di tempo|Port, Direction|
+|ByteCount|Sì|Numero di byte|Byte|Totale|Numero totale di byte trasmessi nel periodo di tempo|Port, Direction|
 |BytesDroppedDDoS|Sì|DDoS byte in ingresso eliminati|Byte al secondo|Massimo|DDoS byte in ingresso eliminati|Nessuna dimensione|
 |BytesForwardedDDoS|Sì|DDoS byte in ingresso inoltrati|Byte al secondo|Massimo|DDoS byte in ingresso inoltrati|Nessuna dimensione|
 |BytesInDDoS|Sì|DDoS byte in ingresso|Byte al secondo|Massimo|DDoS byte in ingresso|Nessuna dimensione|
@@ -1869,10 +1920,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|EgressTrafficRate|Sì|Frequenza traffico in uscita|BitsPerSecond|Media|Velocità di traffico in uscita in bit al secondo|ConnectionId|
-|IngressTrafficRate|Sì|Velocità di traffico in ingresso|BitsPerSecond|Media|Velocità di traffico in ingresso in bit al secondo|ConnectionId|
-|SessionAvailabilityV4|Sì|Disponibilità sessione V4|Percentuale|Media|Disponibilità della sessione V4|ConnectionId|
-|SessionAvailabilityV6|Sì|Disponibilità della sessione V6|Percentuale|Media|Disponibilità della sessione V6|ConnectionId|
+|EgressTrafficRate|Sì|Frequenza traffico in uscita|BitsPerSecond|Media|Velocità di traffico in uscita in bit al secondo|ConnectionId, SessionIp, TrafficClass|
+|IngressTrafficRate|Sì|Velocità di traffico in ingresso|BitsPerSecond|Media|Velocità di traffico in ingresso in bit al secondo|ConnectionId, SessionIp, TrafficClass|
 
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. peering/peeringServices
@@ -1899,7 +1948,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |ActiveConnections|No|ActiveConnections|Conteggio|Totale|Totale connessioni attive per Microsoft.Relay.|EntityName|
 |ActiveListeners|No|ActiveListeners|Conteggio|Totale|Totale listener attivi per Microsoft.Relay.|EntityName|
-|BytesTransferred|Sì|BytesTransferred|Conteggio|Totale|Totale byte trasferiti per Microsoft.Relay.|EntityName|
+|BytesTransferred|Sì|BytesTransferred|Byte|Totale|Totale byte trasferiti per Microsoft.Relay.|EntityName|
 |ListenerConnections-ClientError|No|ListenerConnections-ClientError|Conteggio|Totale|Errore del client su connessioni listener per Microsoft.Relay.|EntityName, |
 |ListenerConnections-ServerError|No|ListenerConnections-ServerError|Conteggio|Totale|Errore del server su connessioni listener per Microsoft.Relay.|EntityName, |
 |ListenerConnections-Success|No|ListenerConnections-Success|Conteggio|Totale|Connessioni listener riuscite per Microsoft.Relay.|EntityName, |
@@ -1929,7 +1978,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |ActiveMessages|No|Numero di messaggi attivi contenuti in una coda o in un argomento.|Conteggio|Media|Numero di messaggi attivi contenuti in una coda o in un argomento.|EntityName|
 |ConnectionsClosed|No|Connessioni chiuse.|Conteggio|Media|Connessioni chiuse per Microsoft.ServiceBus.|EntityName|
 |ConnectionsOpened|No|Connessioni aperte.|Conteggio|Media|Connessioni aperte per Microsoft.ServiceBus.|EntityName|
-|CPUXNS|No|CPU (deprecato)|Percentuale|Massimo|Metrica utilizzo CPU spazio dei nomi premium del bus di servizio. Questa metrica è deprecata. Usare invece la metrica CPU (NamespaceCpuUsage).|Nessuna dimensione|
+|CPUXNS|No|CPU (deprecato)|Percentuale|Massimo|Metrica utilizzo CPU spazio dei nomi premium del bus di servizio. Questa metrica è depricated. Usare invece la metrica CPU (NamespaceCpuUsage).|Nessuna dimensione|
 |DeadletteredMessages|No|Numero di messaggi non recapitabili in una coda o in un argomento.|Conteggio|Media|Numero di messaggi non recapitabili in una coda o in un argomento.|EntityName|
 |IncomingMessages|Sì|Messaggi in ingresso|Conteggio|Totale|Messaggi in ingresso per Microsoft.ServiceBus.|EntityName|
 |IncomingRequests|Sì|Richieste in ingresso|Conteggio|Totale|Richieste in ingresso per Microsoft.ServiceBus.|EntityName|
@@ -2011,9 +2060,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |dtu_consumption_percent|Sì|Percentuale di DTU|Percentuale|Media|Percentuale di DTU. Si applica ai database basati su DTU.|Nessuna dimensione|
 |dtu_limit|Sì|Limite DTU|Conteggio|Media|Limite DTU. Si applica ai database basati su DTU.|Nessuna dimensione|
 |dtu_used|Sì|Uso DTU|Conteggio|Media|DTU usato. Si applica ai database basati su DTU.|Nessuna dimensione|
-|dw_backup_size_gb|Sì|Dimensioni dello spazio di archiviazione dei dati (GB)|Conteggio|Totale|Le dimensioni di archiviazione dei dati sono costituite dalle dimensioni dei dati e dal log delle transazioni. La metrica viene conteggiata in base alla parte "archiviazione" della fattura. Si applica solo ai data warehouse.|Nessuna dimensione|
-|dw_geosnapshot_size_gb|Sì|Dimensioni di archiviazione per il ripristino di emergenza (GB)|Conteggio|Totale|Le dimensioni di archiviazione per il ripristino di emergenza vengono riflesse in "archiviazione ripristino di emergenza" nella fattura. Si applica solo ai data warehouse.|Nessuna dimensione|
-|dw_snapshot_size_gb|Sì|Dimensioni di archiviazione snapshot (GB)|Conteggio|Totale|Dimensioni di archiviazione snapshot è la dimensione delle modifiche incrementali acquisite dagli snapshot per creare punti di ripristino automatici e definiti dall'utente. La metrica viene conteggiata in base alla parte "archiviazione" della fattura. Si applica solo ai data warehouse.|Nessuna dimensione|
 |dwu_consumption_percent|Sì|Percentuale DWU|Percentuale|Massimo|Percentuale di DWU. Si applica solo ai data warehouse.|Nessuna dimensione|
 |dwu_limit|Sì|Limite DWU|Conteggio|Massimo|Limite DWU. Si applica solo ai data warehouse.|Nessuna dimensione|
 |dwu_used|Sì|Uso DWU|Conteggio|Massimo|DWU usato. Si applica solo ai data warehouse.|Nessuna dimensione|
@@ -2030,9 +2076,9 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |sqlserver_process_memory_percent|Sì|Percentuale memoria processo SQL Server|Percentuale|Massimo|Utilizzo della memoria come percentuale del processo del database SQL. Non applicabile ai data warehouse.|Nessuna dimensione|
 |storage|Sì|Spazio dati usato|Byte|Massimo|Spazio dati utilizzato. Non applicabile ai data warehouse.|Nessuna dimensione|
 |storage_percent|Sì|Data space used percent (Percentuale usata spazio dati)|Percentuale|Massimo|Percentuale di utilizzo dello spazio dei dati. Non applicabile a data warehouse o database con iperscalabilità.|Nessuna dimensione|
-|tempdb_data_size|Sì|Tempdb Data File Size Kilobytes (Dimensioni file dati tempdb in kilobyte)|Conteggio|Massimo|Dimensioni del file di dati tempdb. Non applicabile ai data warehouse.|Nessuna dimensione|
-|tempdb_log_size|Sì|Tempdb Log File Size Kilobytes (Dimensioni file di log tempdb in kilobyte)|Conteggio|Massimo|Kilobyte dimensioni file di log tempdb. Non applicabile ai data warehouse.|Nessuna dimensione|
-|tempdb_log_used_percent|Sì|Tempdb Percent Log Used (Percentuale log utilizzata tempdb)|Percentuale|Massimo|Log percentuale tempdb utilizzato. Non applicabile ai data warehouse.|Nessuna dimensione|
+|tempdb_data_size|Sì|Tempdb Data File Size Kilobytes (Dimensioni file dati tempdb in kilobyte)|Conteggio|Massimo|Spazio utilizzato nei file di dati tempdb, in kilobyte. Non applicabile ai data warehouse.|Nessuna dimensione|
+|tempdb_log_size|Sì|Tempdb Log File Size Kilobytes (Dimensioni file di log tempdb in kilobyte)|Conteggio|Massimo|Spazio utilizzato nel file di log delle transazioni di tempdb, in kilobyte. Non applicabile ai data warehouse.|Nessuna dimensione|
+|tempdb_log_used_percent|Sì|Tempdb Percent Log Used (Percentuale log utilizzata tempdb)|Percentuale|Massimo|Percentuale di spazio utilizzato nel file di log delle transazioni di tempdb. Non applicabile ai data warehouse.|Nessuna dimensione|
 |wlg_active_queries|Sì|Query attive del gruppo di carico di lavoro|Conteggio|Totale|Query attive all'interno del gruppo di carico di lavoro. Si applica solo ai data warehouse.|WorkloadGroupName, IsUserDefined|
 |wlg_active_queries_timeouts|Sì|Timeout query del gruppo di carico di lavoro|Conteggio|Totale|Query che hanno raggiunto il timeout per il gruppo del carico di lavoro. Si applica solo ai data warehouse.|WorkloadGroupName, IsUserDefined|
 |wlg_allocation_relative_to_system_percent|Sì|Allocazione del gruppo di carico di lavoro per percentuale di sistema|Percentuale|Massimo|Percentuale allocata di risorse rispetto all'intero sistema per gruppo di carico di lavoro. Si applica solo ai data warehouse.|WorkloadGroupName, IsUserDefined|
@@ -2075,9 +2121,9 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |storage_limit|Sì|Dimensioni massime dati|Byte|Media|Dimensioni massime dei dati|Nessuna dimensione|
 |storage_percent|Sì|Data space used percent (Percentuale usata spazio dati)|Percentuale|Media|Data space used percent (Percentuale usata spazio dati)|Nessuna dimensione|
 |storage_used|Sì|Spazio dati usato|Byte|Media|Spazio dati usato|Nessuna dimensione|
-|tempdb_data_size|Sì|Tempdb Data File Size Kilobytes (Dimensioni file dati tempdb in kilobyte)|Conteggio|Massimo|Tempdb Data File Size Kilobytes (Dimensioni file dati tempdb in kilobyte)|Nessuna dimensione|
-|tempdb_log_size|Sì|Tempdb Log File Size Kilobytes (Dimensioni file di log tempdb in kilobyte)|Conteggio|Massimo|Tempdb Log File Size Kilobytes (Dimensioni file di log tempdb in kilobyte)|Nessuna dimensione|
-|tempdb_log_used_percent|Sì|Tempdb Percent Log Used (Percentuale log utilizzata tempdb)|Percentuale|Massimo|Tempdb Percent Log Used (Percentuale log utilizzata tempdb)|Nessuna dimensione|
+|tempdb_data_size|Sì|Tempdb Data File Size Kilobytes (Dimensioni file dati tempdb in kilobyte)|Conteggio|Massimo|Spazio utilizzato nei file di dati tempdb, in kilobyte.|Nessuna dimensione|
+|tempdb_log_size|Sì|Tempdb Log File Size Kilobytes (Dimensioni file di log tempdb in kilobyte)|Conteggio|Massimo|Spazio utilizzato nel file di log delle transazioni di tempdb, in kilobyte.|Nessuna dimensione|
+|tempdb_log_used_percent|Sì|Tempdb Percent Log Used (Percentuale log utilizzata tempdb)|Percentuale|Massimo|Percentuale di spazio utilizzato nel file di log delle transazioni di tempdb|Nessuna dimensione|
 |workers_percent|Sì|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
 |xtp_storage_percent|Sì|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
 
@@ -2171,7 +2217,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |StorageSyncRecalledTotalNetworkBytes|Sì|Cloud tiering recall size (Dimensioni richiamo cloud a livelli)|Byte|Totale|Dimensione dei dati richiamati|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Sì|Richiamo cloud a livelli|Byte|Totale|Dimensioni totali dei dati richiamati dal server|ServerName|
 |StorageSyncRecallThroughputBytesPerSecond|Sì|Cloud tiering recall throughput (Velocità effettiva richiamo cloud a livelli)|Byte al secondo|Media|Dimensioni della velocità effettiva di richiamo dei dati|SyncGroupName, ServerName|
-|StorageSyncServerHeartbeat|Sì|Stato online del server|Conteggio|Massimo|Metrica che registra il valore 1 ogni volta che il server registrato registra correttamente un heartbeat con l'endpoint cloud|ServerName|
+|StorageSyncServerHeartbeat|Sì|Stato online del server|Conteggio|Massimo|Metrica che registra il valore 1 ogni volta che il server resigtered registra correttamente un heartbeat con l'endpoint cloud|ServerName|
 |StorageSyncSyncSessionAppliedFilesCount|Sì|File sincronizzati|Conteggio|Totale|Conteggio dei file sincronizzati|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncSyncSessionPerItemErrorsCount|Sì|File non sincronizzati|Conteggio|Totale|Il numero di file non è stato sincronizzato|SyncGroupName, ServerEndpointName, SyncDirection|
 
@@ -2180,7 +2226,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|ServerHeartbeat|Sì|Stato online del server|Conteggio|Massimo|Metrica che registra il valore 1 ogni volta che il server registrato registra correttamente un heartbeat con l'endpoint cloud|ServerResourceId, ServerName|
+|ServerHeartbeat|Sì|Stato online del server|Conteggio|Massimo|Metrica che registra il valore 1 ogni volta che il server resigtered registra correttamente un heartbeat con l'endpoint cloud|ServerResourceId, ServerName|
 |ServerRecallIOTotalSizeBytes|Sì|Richiamo cloud a livelli|Byte|Totale|Dimensioni totali dei dati richiamati dal server|ServerResourceId, ServerName|
 
 
@@ -2228,42 +2274,46 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|OrchestrationActivityRunsEnded|No|Esecuzioni attività terminate|Conteggio|Totale|Numero di attività di orchestrazione con esito positivo, negativo o annullato|Risultato, FailureType, attività, ActivityType, pipeline|
-|OrchestrationPipelineRunsEnded|No|Esecuzioni di pipeline terminate|Conteggio|Totale|Numero di esecuzioni di pipeline di orchestrazione con esito positivo, negativo o annullato|Risultato, FailureType, pipeline|
-|OrchestrationTriggersEnded|No|Trigger terminati|Conteggio|Totale|Numero di trigger di orchestrazione riusciti, non riusciti o annullati|Risultato, FailureType, trigger|
-|SQLOnDemandLoginAttempts|No|Tentativi di accesso|Conteggio|Totale|Numero di tentativi di accesso con esito positivo o negativo|Risultato|
-|SQLOnDemandQueriesEnded|No|Query terminate|Conteggio|Totale|Numero di query che hanno avuto esito positivo, negativo o sono state annullate|Risultato|
-|SQLOnDemandQueryProcessedBytes|No|Dati elaborati|Byte|Totale|Quantità di dati elaborati dalle query|Nessuna dimensione|
+|BuiltinSqlPoolDataProcessedBytes|No|Dati elaborati (byte)|Byte|Totale|Quantità di dati elaborati dalle query|Nessuna dimensione|
+|BuiltinSqlPoolLoginAttempts|No|Tentativi di accesso|Conteggio|Totale|Numero di tentativi di accesso riuscito o non riusciti|Risultato|
+|BuiltinSqlPoolRequestsEnded|No|Richieste terminate|Conteggio|Totale|Numero di richieste che hanno avuto esito positivo, negativo o sono state annullate|Risultato|
+|IntegrationActivityRunsEnded|No|Esecuzioni attività terminate|Conteggio|Totale|Numero di attività di integrazione che hanno avuto esito positivo, negativo o sono state annullate|Risultato, FailureType, attività, ActivityType, pipeline|
+|IntegrationPipelineRunsEnded|No|Esecuzioni di pipeline terminate|Conteggio|Totale|Numero di esecuzioni di pipeline di integrazione con esito positivo, negativo o annullato|Risultato, FailureType, pipeline|
+|IntegrationTriggerRunsEnded|No|Esecuzioni di trigger terminate|Conteggio|Totale|Conteggio dei trigger di integrazione riusciti, non riusciti o annullati|Risultato, FailureType, trigger|
 
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. sinapsi/Workspaces/bigDataPools
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|CoresCapacity|No|Capacità core|Conteggio|Massimo|Capacità core|Nessuna dimensione|
-|MemoryCapacityGB|No|Capacità memoria (GB)|Conteggio|Massimo|Capacità memoria (GB)|Nessuna dimensione|
-|SparkJobsEnded|Sì|Applicazioni terminate|Conteggio|Totale|Numero di applicazioni terminate|Tipoprocesso, JobResult|
+|BigDataPoolAllocatedCores|No|VCore allocato|Conteggio|Massimo|VCore allocati per un pool di Apache Spark|SubmitterId|
+|BigDataPoolAllocatedMemory|No|Memoria allocata (GB)|Conteggio|Massimo|Memoria allocata per il pool di Apach Spark (GB)|SubmitterId|
+|BigDataPoolApplicationsActive|No|Applicazioni Apache Spark attive|Conteggio|Conteggio|Totale applicazioni del pool di Apache Spark attive|JobState|
+|BigDataPoolApplicationsEnded|No|Applicazioni Apache Spark terminate|Conteggio|Conteggio|Numero di applicazioni del pool di Apache Spark terminate|Tipoprocesso, JobResult|
 
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft. sinapsi/Workspaces/sqlpools
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
+|ActiveQueries|No|Query attive|Conteggio|Totale|Query attive. Utilizzando questa metrica non filtrata e unsplit, vengono visualizzate tutte le query attive in esecuzione nel sistema|IsUserDefined|
 |AdaptiveCacheHitPercent|No|Percentuale riscontri cache adattiva|Percentuale|Massimo|Misura il modo in cui i carichi di lavoro utilizzano la cache adattiva. Usare questa metrica con la metrica percentuale di riscontri nella cache per determinare se ridimensionare la capacità aggiuntiva o rieseguire i carichi di lavoro per idratare la cache.|Nessuna dimensione|
 |AdaptiveCacheUsedPercent|No|Percentuale utilizzata della cache adattiva|Percentuale|Massimo|Misura il modo in cui i carichi di lavoro utilizzano la cache adattiva. Usare questa metrica con la metrica percentuale utilizzata della cache per determinare se ridimensionare la capacità aggiuntiva o rieseguire i carichi di lavoro per idratare la cache.|Nessuna dimensione|
-|Connessioni|Sì|Connessioni|Conteggio|Totale|Numero totale di accessi al pool SQL dedicato|Risultato|
-|ConnectionsBlockedByFirewall|No|Connessioni bloccate dal firewall|Conteggio|Totale|Numero di connessioni bloccate dalle regole del firewall. Rivedere i criteri di controllo di accesso per il pool SQL dedicato e monitorare queste connessioni se il conteggio è elevato|Nessuna dimensione|
-|DWULimit|No|Limite DWU|Conteggio|Massimo|Obiettivo del livello di servizio del pool SQL dedicato|Nessuna dimensione|
-|DWUUsed|No|Uso DWU|Conteggio|Massimo|Rappresenta una rappresentazione di alto livello dell'utilizzo nel pool SQL dedicato. Misurato per limite DWU * DWU%|Nessuna dimensione|
-|DWUUsedPercent|No|Percentuale di utilizzo di DWU|Percentuale|Massimo|Rappresenta una rappresentazione di alto livello dell'utilizzo nel pool SQL dedicato. Misurato prendendo il massimo tra la percentuale di CPU e la percentuale di i/o dei dati|Nessuna dimensione|
+|Connessioni|Sì|Connessioni|Conteggio|Totale|Numero totale di accessi al pool SQL|Risultato|
+|ConnectionsBlockedByFirewall|No|Connessioni bloccate dal firewall|Conteggio|Totale|Numero di connessioni bloccate dalle regole del firewall. Rivedere i criteri di controllo di accesso per il pool SQL e monitorare queste connessioni se il conteggio è elevato|Nessuna dimensione|
+|CPUPercent|No|Percentuale di utilizzo CPU|Percentuale|Massimo|Utilizzo della CPU in tutti i nodi del pool SQL|Nessuna dimensione|
+|DWULimit|No|Limite DWU|Conteggio|Massimo|Obiettivo del livello di servizio del pool SQL|Nessuna dimensione|
+|DWUUsed|No|Uso DWU|Conteggio|Massimo|Rappresenta una rappresentazione di alto livello dell'utilizzo nel pool SQL. Misurato per limite DWU * DWU%|Nessuna dimensione|
+|DWUUsedPercent|No|Percentuale di utilizzo di DWU|Percentuale|Massimo|Rappresenta una rappresentazione di alto livello dell'utilizzo nel pool SQL. Misurato prendendo il massimo tra la percentuale di CPU e la percentuale di i/o dei dati|Nessuna dimensione|
 |LocalTempDBUsedPercent|No|Percentuale di utilizzo del tempdb locale|Percentuale|Massimo|Utilizzo tempdb locale in tutti i nodi di calcolo: i valori vengono emessi ogni cinque minuti|Nessuna dimensione|
-|MemoryUsedPercent|No|Percentuale di memoria utilizzata|Percentuale|Massimo|Utilizzo della memoria in tutti i nodi del pool SQL dedicato|Nessuna dimensione|
-|wlg_effective_min_resource_percent|Sì|Percentuale risorse minima effettiva|Percentuale|Minimo|L'impostazione percentuale effettiva minima delle risorse può prendere in considerazione il livello di servizio e le impostazioni del gruppo di carico di lavoro. Il min_percentage_resource effettivo può essere modificato in un livello superiore rispetto ai livelli di servizio più bassi|IsUserDefined, WorkloadGroup|
+|MemoryUsedPercent|No|Percentuale di memoria utilizzata|Percentuale|Massimo|Utilizzo della memoria in tutti i nodi del pool SQL|Nessuna dimensione|
+|QueuedQueries|No|Query in coda|Conteggio|Totale|Conteggio cumulativo delle richieste accodate dopo il raggiungimento del limite massimo di concorrenza|IsUserDefined|
+|wlg_effective_min_resource_percent|Sì|Percentuale risorse minima effettiva|Percentuale|Minima|L'impostazione percentuale effettiva minima delle risorse può prendere in considerazione il livello di servizio e le impostazioni del gruppo di carico di lavoro. Il min_percentage_resource effettivo può essere modificato in un livello superiore rispetto ai livelli di servizio più bassi|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|No|Query attive del gruppo di carico di lavoro|Conteggio|Totale|Query attive all'interno del gruppo di carico di lavoro. Utilizzando questa metrica non filtrata e unsplit, vengono visualizzate tutte le query attive in esecuzione nel sistema|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|No|Timeout query del gruppo di carico di lavoro|Conteggio|Totale|Query per il gruppo del carico di lavoro di cui si è verificato il timeout. I timeout delle query segnalati da questa metrica sono solo dopo l'avvio dell'esecuzione della query (non è incluso il tempo di attesa a causa del blocco o delle attese delle risorse)|IsUserDefined, WorkloadGroup|
 |WLGAllocationByMaxResourcePercent|No|Allocazione del gruppo di carico di lavoro per percentuale risorse massima|Percentuale|Massimo|Visualizza la percentuale di allocazione delle risorse rispetto alla percentuale effettiva delle risorse CAP per gruppo di carico di lavoro. Questa metrica fornisce l'utilizzo effettivo del gruppo di carico di lavoro|IsUserDefined, WorkloadGroup|
 |WLGAllocationBySystemPercent|No|Allocazione del gruppo di carico di lavoro per percentuale di sistema|Percentuale|Massimo|Percentuale di allocazione delle risorse rispetto all'intero sistema|IsUserDefined, WorkloadGroup|
-|WLGEffectiveCapResourcePercent|Sì|Percentuale limite di risorse effettiva|Percentuale|Massimo|Percentuale effettiva della risorsa Cap per il gruppo del carico di lavoro. Se sono presenti altri gruppi di carico di lavoro con min_percentage_resource > 0, il effective_cap_percentage_resource viene ridotto proporzionalmente|IsUserDefined, WorkloadGroup|
+|WLGEffectiveCapResourcePercent|No|Percentuale limite di risorse effettiva|Percentuale|Massimo|Percentuale effettiva della risorsa Cap per il gruppo del carico di lavoro. Se sono presenti altri gruppi di carico di lavoro con min_percentage_resource > 0, il effective_cap_percentage_resource viene ridotto proporzionalmente|IsUserDefined, WorkloadGroup|
 |WLGQueuedQueries|No|Query accodate del gruppo di carico di lavoro|Conteggio|Totale|Conteggio cumulativo delle richieste accodate dopo il raggiungimento del limite massimo di concorrenza|IsUserDefined, WorkloadGroup|
 
 
@@ -2318,7 +2368,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Rete in uscita|Sì|Rete in uscita|Byte|Totale|Velocità effettiva totale della rete per il traffico trasmesso.|Nessuna dimensione|
 |NetworkInBytesPerSecond|Sì|Network In Bytes/Sec (Rete in ingresso in byte/sec)|Byte al secondo|Media|Velocità effettiva media della rete per il traffico ricevuto.|Nessuna dimensione|
 |NetworkOutBytesPerSecond|Sì|Network Out Bytes/Sec (Rete in uscita in byte/sec)|Byte al secondo|Media|Velocità effettiva media della rete per il traffico trasmesso.|Nessuna dimensione|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|Utilizzo della CPU. Questo valore viene segnalato con 100% che rappresenta tutti i core del processore nel sistema. Ad esempio, una macchina virtuale a 2 vie che usa il 50% di un sistema a quattro core USA completamente due core.|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|Utilizzo della CPU. Questo valore viene segnalato con 100% che rappresenta tutti i core del processore nel sistema. Ad esempio, una macchina virtuale a 2 vie che usa il 50% di un sistema a quattro core USA completamente due core.|Nessuna dimensione|
 |PercentageCpuReady|Sì|Percentage CPU Ready (Percentuale di disponibilità CPU)|Millisecondi|Totale|Il tempo pronto è il tempo di attesa per la disponibilità di CPU nell'intervallo di aggiornamento precedente.|Nessuna dimensione|
 
 
@@ -2326,26 +2376,26 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|ActiveRequests|Sì|Richieste attive|Conteggio|Totale|Richieste attive|Istanza|
-|AverageResponseTime|Sì|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|Istanza|
-|BytesReceived|Sì|Dati in entrata|Byte|Totale|Dati in entrata|Istanza|
-|BytesSent|Sì|Dati in uscita|Byte|Totale|Dati in uscita|Istanza|
-|CpuPercentage|Sì|Percentuale CPU|Percentuale|Media|Percentuale CPU|Istanza|
-|DiskQueueLength|Sì|Lunghezza coda disco|Conteggio|Media|Lunghezza coda disco|Istanza|
-|Http101|Sì|Http 101|Conteggio|Totale|Http 101|Istanza|
-|Http2xx|Sì|Http 2xx|Conteggio|Totale|Http 2xx|Istanza|
-|Http3xx|Sì|Http 3xx|Conteggio|Totale|Http 3xx|Istanza|
-|Http401|Sì|Http 401|Conteggio|Totale|Http 401|Istanza|
-|Http403|Sì|Http 403|Conteggio|Totale|Http 403|Istanza|
-|Http404|Sì|Http 404|Conteggio|Totale|Http 404|Istanza|
-|Http406|Sì|Http 406|Conteggio|Totale|Http 406|Istanza|
-|Http4xx|Sì|Http 4xx|Conteggio|Totale|Http 4xx|Istanza|
-|Http5xx|Sì|Errori server HTTP|Conteggio|Totale|Errori server HTTP|Istanza|
-|HttpQueueLength|Sì|Lunghezza coda HTTP|Conteggio|Media|Lunghezza coda HTTP|Istanza|
+|ActiveRequests|Sì|Richieste attive (deprecate)|Conteggio|Totale|Richieste attive|Istanza|
+|AverageResponseTime|Sì|Tempo medio di risposta (obsoleto)|Secondi|Media|Tempo medio impiegato per il front-end per gestire le richieste, in secondi.|Istanza|
+|BytesReceived|Sì|Dati in entrata|Byte|Totale|Larghezza di banda in ingresso media utilizzata in tutti i front-end, in MiB.|Istanza|
+|BytesSent|Sì|Dati in uscita|Byte|Totale|Larghezza di banda in ingresso media usata in tutti i front-end, in MiB.|Istanza|
+|CpuPercentage|Sì|Percentuale CPU|Percentuale|Media|CPU media utilizzata in tutte le istanze del front-end.|Istanza|
+|DiskQueueLength|Sì|Lunghezza coda disco|Conteggio|Media|Numero medio di richieste di lettura e scrittura accodate nella risorsa di archiviazione. Una lunghezza elevata della coda del disco indica un'app che potrebbe essere rallentata a causa di un numero eccessivo di I/O su disco.|Istanza|
+|Http101|Sì|Http 101|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 101.|Istanza|
+|Http2xx|Sì|Http 2xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 200 ma < 300.|Istanza|
+|Http3xx|Sì|Http 3xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 300 ma < 400.|Istanza|
+|Http401|Sì|Http 401|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 401.|Istanza|
+|Http403|Sì|Http 403|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 403.|Istanza|
+|Http404|Sì|Http 404|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 404.|Istanza|
+|Http406|Sì|Http 406|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 406.|Istanza|
+|Http4xx|Sì|Http 4xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 400 ma < 500.|Istanza|
+|Http5xx|Sì|Errori server HTTP|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 500 ma < 600.|Istanza|
+|HttpQueueLength|Sì|Lunghezza coda HTTP|Conteggio|Media|Numero medio di richieste HTTP che hanno dovuto attendere in coda prima di essere completate. Una lunghezza coda HTTP elevata o in aumento indica che il piano si trova in condizioni di carico eccessivo.|Istanza|
 |LargeAppServicePlanInstances|Sì|Ruoli di lavoro piano di servizio app Large|Conteggio|Media|Ruoli di lavoro piano di servizio app Large|Nessuna dimensione|
 |MediumAppServicePlanInstances|Sì|Ruoli di lavoro piano di servizio app Medium|Conteggio|Media|Ruoli di lavoro piano di servizio app Medium|Nessuna dimensione|
-|MemoryPercentage|Sì|Percentuale memoria|Percentuale|Media|Percentuale memoria|Istanza|
-|Requests|Sì|Requests|Conteggio|Totale|Requests|Istanza|
+|MemoryPercentage|Sì|Percentuale memoria|Percentuale|Media|Memoria media utilizzata in tutte le istanze del front-end.|Istanza|
+|Requests|Sì|Requests|Conteggio|Totale|Numero totale di richieste, indipendentemente dal codice di stato HTTP restituito.|Istanza|
 |SmallAppServicePlanInstances|Sì|Ruoli di lavoro piano di servizio app Small|Conteggio|Media|Ruoli di lavoro piano di servizio app Small|Nessuna dimensione|
 |TotalFrontEnds|Sì|Front end totali|Conteggio|Media|Front end totali|Nessuna dimensione|
 
@@ -2354,8 +2404,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|CpuPercentage|Sì|Percentuale CPU|Percentuale|Media|Percentuale CPU|Istanza|
-|MemoryPercentage|Sì|Percentuale memoria|Percentuale|Media|Percentuale memoria|Istanza|
+|CpuPercentage|Sì|Percentuale CPU|Percentuale|Media|CPU media utilizzata in tutte le istanze del pool di lavoro.|Istanza|
+|MemoryPercentage|Sì|Percentuale memoria|Percentuale|Media|Memoria media utilizzata in tutte le istanze del pool di lavoro.|Istanza|
 |WorkersAvailable|Sì|Ruoli di lavoro disponibili|Conteggio|Media|Ruoli di lavoro disponibili|Nessuna dimensione|
 |WorkersTotal|Sì|Ruoli di lavoro totali|Conteggio|Media|Ruoli di lavoro totali|Nessuna dimensione|
 |WorkersUsed|Sì|Ruoli di lavoro usati|Conteggio|Media|Ruoli di lavoro usati|Nessuna dimensione|
@@ -2365,12 +2415,12 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|BytesReceived|Sì|Dati in entrata|Byte|Totale|Dati in entrata|Istanza|
-|BytesSent|Sì|Dati in uscita|Byte|Totale|Dati in uscita|Istanza|
-|CpuPercentage|Sì|Percentuale CPU|Percentuale|Media|Percentuale CPU|Istanza|
-|DiskQueueLength|Sì|Lunghezza coda disco|Conteggio|Media|Lunghezza coda disco|Istanza|
-|HttpQueueLength|Sì|Lunghezza coda HTTP|Conteggio|Media|Lunghezza coda HTTP|Istanza|
-|MemoryPercentage|Sì|Percentuale memoria|Percentuale|Media|Percentuale memoria|Istanza|
+|BytesReceived|Sì|Dati in entrata|Byte|Totale|Larghezza di banda in ingresso media usata tra tutte le istanze del piano.|Istanza|
+|BytesSent|Sì|Dati in uscita|Byte|Totale|Larghezza di banda in uscita media usata tra tutte le istanze del piano.|Istanza|
+|CpuPercentage|Sì|Percentuale CPU|Percentuale|Media|CPU media usata tra tutte le istanze del piano.|Istanza|
+|DiskQueueLength|Sì|Lunghezza coda disco|Conteggio|Media|Numero medio di richieste di lettura e scrittura accodate nella risorsa di archiviazione. Una lunghezza elevata della coda del disco indica un'app che potrebbe essere rallentata a causa di un numero eccessivo di I/O su disco.|Istanza|
+|HttpQueueLength|Sì|Lunghezza coda HTTP|Conteggio|Media|Numero medio di richieste HTTP che hanno dovuto attendere in coda prima di essere completate. Una lunghezza coda HTTP elevata o in aumento indica che il piano si trova in condizioni di carico eccessivo.|Istanza|
+|MemoryPercentage|Sì|Percentuale memoria|Percentuale|Media|Memoria media usata tra tutte le istanze del piano.|Istanza|
 |SocketInboundAll|Sì|SocketInboundAll|Conteggio|Media|SocketInboundAll|Istanza|
 |SocketLoopback|Sì|SocketLoopback|Conteggio|Media|SocketLoopback|Istanza|
 |SocketOutboundAll|Sì|SocketOutboundAll|Conteggio|Media|SocketOutboundAll|Istanza|
@@ -2386,129 +2436,97 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |TcpSynSent|Sì|TCP Syn Sent|Conteggio|Media|TCP Syn Sent|Istanza|
 |TcpTimeWait|Sì|TCP Time Wait|Conteggio|Media|TCP Time Wait|Istanza|
 
-## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (escluse le funzioni) 
 
-> [!NOTE]
-> L' **utilizzo del file System** è una nuova metrica distribuita a livello globale, non è previsto alcun dato, a meno che non sia stata inserita nell'elenco elementi consentiti per l'anteprima privata.
-
-> [!IMPORTANT]
-> Il **tempo di risposta medio** sarà deprecato per evitare confusione con le aggregazioni di metriche. Usare il **tempo di risposta** come sostituzione.
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|AppConnections|Sì|Connessioni|Conteggio|Media|Connessioni|Istanza|
-|AverageMemoryWorkingSet|Sì|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
-|AverageResponseTime|Sì|Tempo medio di risposta **(obsoleto)**|Secondi|Media|Tempo medio di risposta|Istanza|
-|BytesReceived|Sì|Dati in entrata|Byte|Totale|Dati in entrata|Istanza|
-|BytesSent|Sì|Dati in uscita|Byte|Totale|Dati in uscita|Istanza|
-|CpuTime|Sì|Tempo CPU|Secondi|Totale|Tempo CPU|Istanza|
-|CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
-|FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Utilizzo del file System|Nessuna dimensione|
-|Gen0Collections|Sì|Garbage Collection di generazione 0|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
-|Gen1Collections|Sì|Garbage Collection di generazione 1|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
-|Gen2Collections|Sì|Garbage Collection di generazione 2|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
-|Selettori|Sì|Numero di handle|Conteggio|Media|Numero di handle|Istanza|
-|HealthCheckStatus|Sì|Stato del controllo integrità|Conteggio|Media|Stato del controllo integrità|Istanza|
-|Http101|Sì|Http 101|Conteggio|Totale|Http 101|Istanza|
-|Http2xx|Sì|Http 2xx|Conteggio|Totale|Http 2xx|Istanza|
-|Http3xx|Http 3xx|Conteggio|Totale|Http 3xx|Istanza|
-|Http401|Sì|Http 401|Conteggio|Totale|Http 401|Istanza|
-|Http403|Sì|Http 403|Conteggio|Totale|Http 403|Istanza|
-|Http404|Sì|Http 404|Conteggio|Totale|Http 404|Istanza|
-|Http406|Sì|Http 406|Conteggio|Totale|Http 406|Istanza|
-|Http4xx|Sì|Http 4xx|Conteggio|Totale|Http 4xx|Istanza|
-|Http5xx|Sì|Errori server HTTP|Conteggio|Totale|Errori server HTTP|Istanza|
-|HttpResponseTime|Sì|Tempo di risposta|Secondi|Media|Tempo di risposta|Istanza|
-|IoOtherBytesPerSecond|Sì|I/O - Altri byte al secondo|Byte al secondo|Totale|I/O - Altri byte al secondo|Istanza|
-|IoOtherOperationsPerSecond|Sì|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
-|IoReadBytesPerSecond|Sì|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
-|IoReadOperationsPerSecond|Sì|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
-|IoWriteBytesPerSecond|Sì|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
-|IoWriteOperationsPerSecond|Sì|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
-|MemoryWorkingSet|Sì|Working set della memoria|Byte|Media|Working set della memoria|Istanza|
-|PrivateBytes|Sì|Private Bytes|Byte|Media|Private Bytes|Istanza|
-|Requests|Sì|Requests|Conteggio|Totale|Requests|Istanza|
-|RequestsInApplicationQueue|Sì|Richieste nella coda dell'applicazione|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
-|Threads|Sì|Thread Count|Conteggio|Media|Thread Count|Istanza|
-|TotalAppDomains|Sì|Totale di domini app|Conteggio|Media|Totale di domini app|Istanza|
-|TotalAppDomainsUnloaded|Sì|Totale di domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
-
-## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funzioni)
-
-> [!NOTE]
-> L' **utilizzo del file System** è una nuova metrica distribuita a livello globale, non è previsto alcun dato, a meno che non sia stata inserita nell'elenco elementi consentiti per l'anteprima privata.
-
-|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
-|---|---|---|---|---|---|---|
-|AverageMemoryWorkingSet|Sì|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
-|BytesReceived|Sì|Dati in entrata|Byte|Totale|Dati in entrata|Istanza|
-|BytesSent|Sì|Dati in uscita|Byte|Totale|Dati in uscita|Istanza|
-|CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
-|FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Utilizzo del file System|Nessuna dimensione|
+|AppConnections|Sì|Connessioni|Conteggio|Media|Numero di socket associati esistenti nella sandbox (w3wp.exe e i processi figlio). Un socket associato viene creato chiamando le API bind()/connect() e permane finché non viene chiuso con CloseHandle()/closesocket().|Istanza|
+|AverageMemoryWorkingSet|Sì|Working set della memoria medio|Byte|Media|Quantità media di memoria usata dall'app, espressa in megabyte (MiB).|Istanza|
+|AverageResponseTime|Sì|Tempo medio di risposta (obsoleto)|Secondi|Media|Tempo medio impiegato dall'app per gestire le richieste, in secondi.|Istanza|
+|BytesReceived|Sì|Dati in entrata|Byte|Totale|Larghezza di banda in entrata utilizzata dall'app, espressa in MiB.|Istanza|
+|BytesSent|Sì|Dati in uscita|Byte|Totale|Larghezza di banda in uscita utilizzata dall'app, espressa in MiB.|Istanza|
+|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Vedere https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU).|Istanza|
+|CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione.|Istanza|
+|FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Percentuale di quota del file System utilizzata dall'app.|Nessuna dimensione|
 |FunctionExecutionCount|Sì|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
-|FunctionExecutionUnits|Sì|Unità di esecuzione della funzione|Conteggio|Totale|[Unità di esecuzione della funzione](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Istanza|
-|Gen0Collections|Sì|Garbage Collection di generazione 0|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
-|Gen1Collections|Sì|Garbage Collection di generazione 1|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
-|Gen2Collections|Sì|Garbage Collection di generazione 2|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
+|FunctionExecutionUnits|Sì|Unità di esecuzione della funzione|Conteggio|Totale|Unità di esecuzione della funzione|Istanza|
+|Gen0Collections|Sì|Garbage Collection di generazione 0|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 0 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|Istanza|
+|Gen1Collections|Sì|Garbage Collection di generazione 1|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 1 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|Istanza|
+|Gen2Collections|Sì|Garbage Collection di generazione 2|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 2 dall'avvio del processo dell'app.|Istanza|
+|Selettori|Sì|Numero di handle|Conteggio|Media|Numero totale di handle attualmente aperti dal processo dell'app.|Istanza|
 |HealthCheckStatus|Sì|Stato del controllo integrità|Conteggio|Media|Stato del controllo integrità|Istanza|
-|Http5xx|Sì|Errori server HTTP|Conteggio|Totale|Errori server HTTP|Istanza|
-|IoOtherBytesPerSecond|Sì|I/O - Altri byte al secondo|Byte al secondo|Totale|I/O - Altri byte al secondo|Istanza|
-|IoOtherOperationsPerSecond|Sì|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
-|IoReadBytesPerSecond|Sì|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
-|IoReadOperationsPerSecond|Sì|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
-|IoWriteBytesPerSecond|Sì|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
-|IoWriteOperationsPerSecond|Sì|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
-|MemoryWorkingSet|Sì|Working set della memoria|Byte|Media|Working set della memoria|Istanza|
-|PrivateBytes|Sì|Private Bytes|Byte|Media|Private Bytes|Istanza|
-|RequestsInApplicationQueue|Sì|Richieste nella coda dell'applicazione|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
-|TotalAppDomains|Sì|Totale di domini app|Conteggio|Media|Totale di domini app|Istanza|
-|TotalAppDomainsUnloaded|Sì|Totale di domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Http101|Sì|Http 101|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 101.|Istanza|
+|Http2xx|Sì|Http 2xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 200 ma < 300.|Istanza|
+|Http3xx|Sì|Http 3xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 300 ma < 400.|Istanza|
+|Http401|Sì|Http 401|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 401.|Istanza|
+|Http403|Sì|Http 403|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 403.|Istanza|
+|Http404|Sì|Http 404|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 404.|Istanza|
+|Http406|Sì|Http 406|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 406.|Istanza|
+|Http4xx|Sì|Http 4xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 400 ma < 500.|Istanza|
+|Http5xx|Sì|Errori server HTTP|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 500 ma < 600.|Istanza|
+|HttpResponseTime|Sì|Tempo di risposta|Secondi|Media|Tempo impiegato dall'app per gestire le richieste, in secondi.|Istanza|
+|IoOtherBytesPerSecond|Sì|I/O - Altri byte al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app emette byte per le operazioni di I/O che non coinvolgono i dati, ad esempio le operazioni di controllo.|Istanza|
+|IoOtherOperationsPerSecond|Sì|I/O - Altre operazioni al secondo|Byte al secondo|Totale|Velocità con cui il processo dell'app emette operazioni di I/O che non sono operazioni di lettura o scrittura.|Istanza|
+|IoReadBytesPerSecond|Sì|I/O - Byte in lettura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app legge i byte dalle operazioni di I/O.|Istanza|
+|IoReadOperationsPerSecond|Sì|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app rilascia le operazioni di I/O di lettura.|Istanza|
+|IoWriteBytesPerSecond|Sì|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app scrive i byte nelle operazioni di I/O.|Istanza|
+|IoWriteOperationsPerSecond|Sì|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app rilascia le operazioni di I/O di scrittura.|Istanza|
+|MemoryWorkingSet|Sì|Working set della memoria|Byte|Media|Quantità di memoria corrente usata dall'app, espressa in MiB.|Istanza|
+|PrivateBytes|Sì|Private Bytes|Byte|Media|Byte privati è la dimensione corrente, in byte, della memoria allocata dal processo dell'app che non può essere condivisa con altri processi.|Istanza|
+|Requests|Sì|Requests|Conteggio|Totale|Numero totale di richieste, indipendentemente dal codice di stato HTTP restituito.|Istanza|
+|RequestsInApplicationQueue|Sì|Richieste nella coda dell'applicazione|Conteggio|Media|Numero di richieste nella coda di richieste dell'applicazione.|Istanza|
+|Thread|Sì|Thread Count|Conteggio|Media|Numero di thread attualmente attivi nel processo dell'app.|Istanza|
+|TotalAppDomains|Sì|Totale di domini app|Conteggio|Media|Numero corrente di domini dell'applicazione caricati in questa applicazione.|Istanza|
+|TotalAppDomainsUnloaded|Sì|Totale di domini app scaricati|Conteggio|Media|Numero totale di domini dell'applicazione scaricati dall'avvio dell'applicazione.|Istanza|
+
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|AppConnections|Sì|Connessioni|Conteggio|Media|Connessioni|Istanza|
-|AverageMemoryWorkingSet|Sì|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
-|AverageResponseTime|Sì|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|Istanza|
-|BytesReceived|Sì|Dati in entrata|Byte|Totale|Dati in entrata|Istanza|
-|BytesSent|Sì|Dati in uscita|Byte|Totale|Dati in uscita|Istanza|
-|CpuTime|Sì|Tempo CPU|Secondi|Totale|Tempo CPU|Istanza|
-|CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
-|FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Utilizzo del file System|Nessuna dimensione|
+|AppConnections|Sì|Connessioni|Conteggio|Media|Numero di socket associati esistenti nella sandbox (w3wp.exe e i processi figlio). Un socket associato viene creato chiamando le API bind()/connect() e permane finché non viene chiuso con CloseHandle()/closesocket().|Istanza|
+|AverageMemoryWorkingSet|Sì|Working set della memoria medio|Byte|Media|Quantità media di memoria usata dall'app, espressa in megabyte (MiB).|Istanza|
+|AverageResponseTime|Sì|Tempo medio di risposta (obsoleto)|Secondi|Media|Tempo medio impiegato dall'app per gestire le richieste, in secondi.|Istanza|
+|BytesReceived|Sì|Dati in entrata|Byte|Totale|Larghezza di banda in entrata utilizzata dall'app, espressa in MiB.|Istanza|
+|BytesSent|Sì|Dati in uscita|Byte|Totale|Larghezza di banda in uscita utilizzata dall'app, espressa in MiB.|Istanza|
+|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Vedere https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU).|Istanza|
+|CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione.|Istanza|
+|FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Percentuale di quota del file System utilizzata dall'app.|Nessuna dimensione|
 |FunctionExecutionCount|Sì|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
 |FunctionExecutionUnits|Sì|Unità di esecuzione della funzione|Conteggio|Totale|Unità di esecuzione della funzione|Istanza|
-|Gen0Collections|Sì|Garbage Collection di generazione 0|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
-|Gen1Collections|Sì|Garbage Collection di generazione 1|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
-|Gen2Collections|Sì|Garbage Collection di generazione 2|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
-|Selettori|Sì|Numero di handle|Conteggio|Media|Numero di handle|Istanza|
+|Gen0Collections|Sì|Garbage Collection di generazione 0|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 0 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|Istanza|
+|Gen1Collections|Sì|Garbage Collection di generazione 1|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 1 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|Istanza|
+|Gen2Collections|Sì|Garbage Collection di generazione 2|Conteggio|Totale|Numero di operazioni di Garbage Collection sugli oggetti di generazione 2 dall'avvio del processo dell'app.|Istanza|
+|Selettori|Sì|Numero di handle|Conteggio|Media|Numero totale di handle attualmente aperti dal processo dell'app.|Istanza|
 |HealthCheckStatus|Sì|Stato del controllo integrità|Conteggio|Media|Stato del controllo integrità|Istanza|
-|Http101|Sì|Http 101|Conteggio|Totale|Http 101|Istanza|
-|Http2xx|Sì|Http 2xx|Conteggio|Totale|Http 2xx|Istanza|
-|Http3xx|Sì|Http 3xx|Conteggio|Totale|Http 3xx|Istanza|
-|Http401|Sì|Http 401|Conteggio|Totale|Http 401|Istanza|
-|Http403|Sì|Http 403|Conteggio|Totale|Http 403|Istanza|
-|Http404|Sì|Http 404|Conteggio|Totale|Http 404|Istanza|
-|Http406|Sì|Http 406|Conteggio|Totale|Http 406|Istanza|
-|Http4xx|Sì|Http 4xx|Conteggio|Totale|Http 4xx|Istanza|
-|Http5xx|Sì|Errori server HTTP|Conteggio|Totale|Errori server HTTP|Istanza|
-|HttpResponseTime|Sì|Tempo di risposta|Secondi|Media|Tempo di risposta|Istanza|
-|IoOtherBytesPerSecond|Sì|I/O - Altri byte al secondo|Byte al secondo|Totale|I/O - Altri byte al secondo|Istanza|
-|IoOtherOperationsPerSecond|Sì|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
-|IoReadBytesPerSecond|Sì|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
-|IoReadOperationsPerSecond|Sì|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
-|IoWriteBytesPerSecond|Sì|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
-|IoWriteOperationsPerSecond|Sì|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
-|MemoryWorkingSet|Sì|Working set della memoria|Byte|Media|Working set della memoria|Istanza|
-|PrivateBytes|Sì|Private Bytes|Byte|Media|Private Bytes|Istanza|
-|Requests|Sì|Requests|Conteggio|Totale|Requests|Istanza|
-|RequestsInApplicationQueue|Sì|Richieste nella coda dell'applicazione|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
-|Threads|Sì|Thread Count|Conteggio|Media|Thread Count|Istanza|
-|TotalAppDomains|Sì|Totale di domini app|Conteggio|Media|Totale di domini app|Istanza|
-|TotalAppDomainsUnloaded|Sì|Totale di domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Http101|Sì|Http 101|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 101.|Istanza|
+|Http2xx|Sì|Http 2xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 200 ma < 300.|Istanza|
+|Http3xx|Sì|Http 3xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 300 ma < 400.|Istanza|
+|Http401|Sì|Http 401|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 401.|Istanza|
+|Http403|Sì|Http 403|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 403.|Istanza|
+|Http404|Sì|Http 404|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 404.|Istanza|
+|Http406|Sì|Http 406|Conteggio|Totale|Numero di richieste che hanno restituito un codice di stato HTTP 406.|Istanza|
+|Http4xx|Sì|Http 4xx|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 400 ma < 500.|Istanza|
+|Http5xx|Sì|Errori server HTTP|Conteggio|Totale|Il numero di richieste che hanno restituito un codice di stato HTTP = 500 ma < 600.|Istanza|
+|HttpResponseTime|Sì|Tempo di risposta|Secondi|Media|Tempo impiegato dall'app per gestire le richieste, in secondi.|Istanza|
+|IoOtherBytesPerSecond|Sì|I/O - Altri byte al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app emette byte per le operazioni di I/O che non coinvolgono i dati, ad esempio le operazioni di controllo.|Istanza|
+|IoOtherOperationsPerSecond|Sì|I/O - Altre operazioni al secondo|Byte al secondo|Totale|Velocità con cui il processo dell'app emette operazioni di I/O che non sono operazioni di lettura o scrittura.|Istanza|
+|IoReadBytesPerSecond|Sì|I/O - Byte in lettura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app legge i byte dalle operazioni di I/O.|Istanza|
+|IoReadOperationsPerSecond|Sì|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app rilascia le operazioni di I/O di lettura.|Istanza|
+|IoWriteBytesPerSecond|Sì|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app scrive i byte nelle operazioni di I/O.|Istanza|
+|IoWriteOperationsPerSecond|Sì|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|Frequenza con cui il processo dell'app rilascia le operazioni di I/O di scrittura.|Istanza|
+|MemoryWorkingSet|Sì|Working set della memoria|Byte|Media|Quantità di memoria corrente usata dall'app, espressa in MiB.|Istanza|
+|PrivateBytes|Sì|Private Bytes|Byte|Media|Byte privati è la dimensione corrente, in byte, della memoria allocata dal processo dell'app che non può essere condivisa con altri processi.|Istanza|
+|Requests|Sì|Requests|Conteggio|Totale|Numero totale di richieste, indipendentemente dal codice di stato HTTP restituito.|Istanza|
+|RequestsInApplicationQueue|Sì|Richieste nella coda dell'applicazione|Conteggio|Media|Numero di richieste nella coda di richieste dell'applicazione.|Istanza|
+|Thread|Sì|Thread Count|Conteggio|Media|Numero di thread attualmente attivi nel processo dell'app.|Istanza|
+|TotalAppDomains|Sì|Totale di domini app|Conteggio|Media|Numero corrente di domini dell'applicazione caricati in questa applicazione.|Istanza|
+|TotalAppDomainsUnloaded|Sì|Totale di domini app scaricati|Conteggio|Media|Numero totale di domini dell'applicazione scaricati dall'avvio dell'applicazione.|Istanza|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Metriche in Monitoraggio di Azure](data-platform.md)
-* [Creare avvisi relativi alle metriche](alerts-overview.md)
-* [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](platform-logs-overview.md)
+
+- [Metriche in Monitoraggio di Azure](data-platform.md)
+- [Creare avvisi relativi alle metriche](alerts-overview.md)
+- [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](platform-logs-overview.md)

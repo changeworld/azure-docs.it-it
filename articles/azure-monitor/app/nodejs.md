@@ -4,12 +4,12 @@ description: Monitorare le prestazioni e diagnosticare i problemi dei servizi No
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4c350cbfdf92d19a084940941351cf1f028c93d2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186280"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920580"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -40,6 +40,9 @@ Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [otten
 ### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Configurare Node.js SDK
 
 Includere l'SDK nell'app affinché possa raccogliere i dati.
+
+> [!IMPORTANT]
+> Le nuove aree di Azure **richiedono** l'uso di stringhe di connessione anziché di chiavi di strumentazione. La [stringa di connessione](./sdk-connection-string.md?tabs=nodejs) identifica la risorsa a cui si vuole associare i dati di telemetria. Consente inoltre di modificare gli endpoint che la risorsa userà come destinazione per la telemetria. Sarà necessario copiare la stringa di connessione e aggiungerla al codice dell'applicazione o a una variabile di ambiente.
 
 1. Copiare la chiave di strumentazione della risorsa (detta anche *iKey*) dalla risorsa appena creata. Application Insights usa la chiave di strumentazione per eseguire il mapping dei dati alla risorsa di Azure. Affinché l'SDK possa usare la chiave di strumentazione, è necessario specificare tale chiave in una variabile di ambiente o nel codice.  
 

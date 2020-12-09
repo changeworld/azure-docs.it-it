@@ -1,19 +1,19 @@
 ---
 title: Percorso risorsa modello
-description: Viene descritto come impostare la posizione delle risorse in un modello di Azure Resource Manager.
+description: Viene descritto come impostare la posizione delle risorse in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: ''
-ms.openlocfilehash: e1310c81d7b726e9be2fe9f38a0bb8d701035ba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613697"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922393"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Impostare la posizione delle risorse nel modello ARM
 
-Quando si distribuisce un modello di Azure Resource Manager (ARM), è necessario specificare un percorso per ogni risorsa. Il percorso non deve necessariamente corrispondere alla località del gruppo di risorse.
+Quando si distribuisce un modello di Azure Resource Manager (modello ARM), è necessario specificare un percorso per ogni risorsa. Il percorso non deve necessariamente corrispondere alla località del gruppo di risorse.
 
 ## <a name="get-available-locations"></a>Ottenere le località disponibili
 
@@ -96,5 +96,5 @@ L'esempio seguente illustra un account di archiviazione che viene distribuito in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per l’elenco completo delle funzioni del modello, vedere [Funzioni del modello di Gestione risorse di Azure](template-functions.md).
+* Per l'elenco completo delle funzioni del modello, vedere [funzioni del modello ARM](template-functions.md).
 * Per altre informazioni sui file modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

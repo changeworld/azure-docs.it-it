@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531140"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922296"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -66,7 +66,7 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 | Migrazione da SQL Server al database SQL di Azure. Tuttavia, sincronizzazione dati SQL possibile utilizzare una volta completata la migrazione, per garantire che l'origine e la destinazione siano mantenute sincronizzate.  | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 - **Rilevamento delle modifiche ai dati:** sincronizzazione dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Si noti che BULK INSERT non attiva i trigger per impostazione predefinita. Se FIRE_TRIGGERS non è specificato, non viene eseguito alcun trigger di inserimento. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
 - **Sincronizzazione dei dati:** La sincronizzazione dei dati è progettata in un modello hub e spoke. L'hub viene sincronizzato con ogni membro singolarmente. Le modifiche dall'hub vengono scaricate nel membro e le modifiche apportate dal membro vengono caricate nell'hub.
@@ -80,6 +80,14 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 |---|---|---|
 | **Vantaggi** | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione <br/>-Supporto per Istanza gestita SQL di Azure |
 | **Svantaggi** | - Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>-    Alti costi di manutenzione |
+
+## <a name="private-link-for-data-sync-preview"></a>Collegamento privato per la sincronizzazione dei dati (anteprima)
+La nuova funzionalità di collegamento privato (anteprima) consente di scegliere un endpoint privato gestito dal servizio per stabilire una connessione sicura tra il servizio di sincronizzazione e i database membro/hub durante il processo di sincronizzazione dei dati. Un endpoint privato gestito dal servizio è un indirizzo IP privato all'interno di una rete virtuale e una subnet specifiche. All'interno della sincronizzazione dati, l'endpoint privato gestito dal servizio viene creato da Microsoft e viene usato esclusivamente dal servizio di sincronizzazione dati per una determinata operazione di sincronizzazione. Prima di configurare il collegamento privato, leggere i [requisiti generali](sql-data-sync-data-sql-server-sql-database.md#general-requirements) per la funzionalità. 
+
+![Collegamento privato per la sincronizzazione dei dati](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> È necessario approvare manualmente l'endpoint privato gestito dal servizio nella pagina **connessioni endpoint privato** del portale di Azure durante la distribuzione del gruppo di sincronizzazione o tramite PowerShell.
 
 ## <a name="get-started"></a>Introduzione 
 
@@ -126,6 +134,8 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 - L'isolamento dello snapshot deve essere abilitato sia per i membri della sincronizzazione che per l'hub. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
+- Per usare il collegamento privato con la sincronizzazione dati, è necessario che i database membro e Hub siano ospitati in Azure (aree uguali o diverse) nello stesso tipo di cloud (ad esempio, sia nel cloud pubblico che nel cloud per enti pubblici). Inoltre, per utilizzare il collegamento privato, è necessario che i provider di risorse Microsoft. Network siano registrati per le sottoscrizioni che ospitano i server dell'hub e dei membri. Infine, è necessario approvare manualmente il collegamento privato per la sincronizzazione dei dati durante la configurazione della sincronizzazione, all'interno della sezione "connessioni a endpoint privati" nel portale di Azure o tramite PowerShell. Per altre informazioni su come approvare il collegamento privato, vedere [configurare sincronizzazione dati SQL](./sql-data-sync-sql-server-configure.md). Una volta approvato l'endpoint privato gestito dal servizio, tutte le comunicazioni tra il servizio di sincronizzazione e i database membro/Hub avvengono tramite il collegamento privato. Per abilitare questa funzionalità, è possibile aggiornare i gruppi di sincronizzazione esistenti.
+
 ### <a name="general-limitations"></a>Limitazioni generali
 
 - Una tabella non può contenere una colonna Identity che non è la chiave primaria.
@@ -169,6 +179,9 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 > Se è presente un unico gruppo di sincronizzazione, questo può contenere fino a 30 endpoint. Se esistono più gruppi di sincronizzazione, il numero totale di endpoint in tutti i gruppi di sincronizzazione non può essere maggiore di 30. Se un database appartiene a più gruppi di sincronizzazione, vale come più endpoint.
 
 ### <a name="network-requirements"></a>Requisiti di rete
+
+> [!NOTE]
+> Se si usa un collegamento privato, questi requisiti di rete non si applicano. 
 
 Quando viene stabilito il gruppo di sincronizzazione, il servizio di sincronizzazione dati deve connettersi al database hub. Quando si stabilisce il gruppo di sincronizzazione, nel server SQL di Azure deve essere presente la configurazione seguente nelle `Firewalls and virtual networks` Impostazioni:
 
@@ -248,7 +261,7 @@ La funzionalità Bring your own database di Dynamics 365 consente agli amministr
 - [Automatizzare la replica delle modifiche dello schema con sincronizzazione dati SQL in Azure](./sql-data-sync-update-sync-schema.md)
 - [Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Monitoraggio e risoluzione dei problemi
+### <a name="monitor-and-troubleshoot"></a>Monitorare e risolvere i problemi
 
 Il sincronizzazione dati SQL è come previsto? Per monitorare l'attività e risolvere i problemi, vedere gli articoli seguenti:
 

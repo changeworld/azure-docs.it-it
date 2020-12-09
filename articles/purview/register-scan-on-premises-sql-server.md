@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: a807c76a08bf075973cd0f358c67b61b10b40ba0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554526"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920288"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrare e analizzare un'istanza di SQL Server locale
 
@@ -31,6 +31,10 @@ L'origine dati locale di SQL Server supporta:
 - ogni versione di SQL da SQL Server 2019 a SQL Server 2000
 
 - Metodo di autenticazione: autenticazione SQL
+
+### <a name="known-limitations"></a>Limitazioni note
+
+Azure non supporta l'analisi delle [visualizzazioni](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in SQL Server. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

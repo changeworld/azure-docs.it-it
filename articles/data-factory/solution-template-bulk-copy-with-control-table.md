@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/14/2018
-ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461225"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920890"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Eseguire la copia bulk da un database con una tabella di controllo
 
@@ -44,7 +44,7 @@ Il modello definisce i parametri seguenti:
 - *Data_Destination_Container* è il percorso della cartella radice in cui i dati vengono copiati nell'archivio di destinazione. 
 - *Data_Destination_Directory* è il percorso di directory sotto la radice in cui i dati vengono copiati nell'archivio di destinazione. 
 
-Gli ultimi tre parametri, che definiscono il percorso nell'archivio di destinazione, sono visibili solo se la destinazione scelta è l'archiviazione basata su file. Se si sceglie "Azure Synapse Analytics (in precedenza SQL DW)" come archivio di destinazione, questi parametri non sono necessari. Tuttavia, i nomi delle tabelle e dello schema in Azure sinapsi Analytics devono corrispondere a quelli del database di origine.
+Gli ultimi tre parametri, che definiscono il percorso nell'archivio di destinazione, sono visibili solo se la destinazione scelta è l'archiviazione basata su file. Se si sceglie "Azure sinapsi Analytics" come archivio di destinazione, questi parametri non sono necessari. Tuttavia, i nomi delle tabelle e dello schema in Azure sinapsi Analytics devono corrispondere a quelli del database di origine.
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
@@ -94,7 +94,7 @@ Gli ultimi tre parametri, che definiscono il percorso nell'archivio di destinazi
 
     ![Esaminare il risultato](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Opzionale Se si sceglie "Azure sinapsi Analytics (in precedenza SQL DW)" come destinazione dei dati, è necessario immettere una connessione all'archivio BLOB di Azure per la gestione temporanea, come richiesto dalla polibase di analisi delle sinapsi di Azure. Il modello genererà automaticamente un percorso del contenitore per l'archiviazione BLOB. Controllare che il contenitore sia stato creato dopo l'esecuzione della pipeline.
+9. Opzionale Se si sceglie "Azure sinapsi Analytics" come destinazione dei dati, è necessario immettere una connessione all'archivio BLOB di Azure per la gestione temporanea, come richiesto dalla polibase di analisi delle sinapsi di Azure. Il modello genererà automaticamente un percorso del contenitore per l'archiviazione BLOB. Controllare che il contenitore sia stato creato dopo l'esecuzione della pipeline.
     
     ![Impostazione di PolyBase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

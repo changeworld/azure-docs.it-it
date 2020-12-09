@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876210"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921880"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -19,8 +19,11 @@ Application Insights è compatibile con tutte le pagine Web, con una minima aggi
 
 ## <a name="adding-the-javascript-sdk"></a>Aggiunta di JavaScript SDK
 
+> [!IMPORTANT]
+> Le nuove aree di Azure **richiedono** l'uso di stringhe di connessione anziché di chiavi di strumentazione. La [stringa di connessione](./sdk-connection-string.md?tabs=js) identifica la risorsa a cui si vuole associare i dati di telemetria. Consente inoltre di modificare gli endpoint che la risorsa userà come destinazione per la telemetria. Sarà necessario copiare la stringa di connessione e aggiungerla al codice dell'applicazione o a una variabile di ambiente.
+
 1. Per prima cosa è necessaria una risorsa Application Insights. Se non si dispone già di una risorsa e di una chiave di strumentazione, seguire le [istruzioni per creare una nuova risorsa](create-new-resource.md).
-2. Copiare la _chiave di strumentazione_ (nota anche come "iKey") per la risorsa in cui si vuole inviare i dati di telemetria JavaScript (dal passaggio 1). Che verrà aggiunto all' `instrumentationKey` impostazione di Application Insights JavaScript SDK.
+2. Copiare la _chiave di strumentazione_ (nota anche come "iKey") o la [stringa di connessione](#connection-string-setup) per la risorsa in cui si vogliono inviare i dati di telemetria JavaScript (dal passaggio 1). Che verrà aggiunto all' `instrumentationKey` `connectionString` impostazione o di Application Insights JavaScript SDK.
 3. Aggiungere Application Insights JavaScript SDK all'app o alla pagina Web tramite una delle due opzioni seguenti:
     * [Installazione di NPM](#npm-based-setup)
     * [Frammento JavaScript](#snippet-based-setup)
@@ -102,9 +105,9 @@ Tutte le opzioni di configurazione sono state spostate verso la fine dello scrip
 
 Ogni opzione di configurazione è illustrata sopra in una nuova riga, se non si vuole eseguire l'override del valore predefinito di un elemento elencato come [facoltativo] è possibile rimuovere tale riga per ridurre al minimo le dimensioni risultanti della pagina restituita.
 
-Le opzioni di configurazione disponibili sono 
+Le opzioni di configurazione disponibili sono
 
-| Nome | Type | Description
+| Nome | Type | Descrizione
 |------|------|----------------
 | src | stringa **[obbligatorio]** | URL completo da cui caricare l'SDK. Questo valore viene usato per l'attributo "src" di uno &lt; script/tag aggiunto dinamicamente &gt; . È possibile usare il percorso di rete CDN pubblico o un host privato.
 | name | String *[facoltativo]* | Nome globale per l'SDK inizializzato. il valore predefinito è `appInsights` . ```window.appInsights```Sarà quindi un riferimento all'istanza inizializzata. Nota: se si specifica un valore di nome o un'istanza precedente sembra essere assegnata (tramite il nome globale appInsightsSDK), il valore del nome verrà definito anche nello spazio dei nomi globale come ```window.appInsightsSDK=<name value>``` , necessario per il codice di inizializzazione dell'SDK per assicurarsi che l'inizializzazione e l'aggiornamento dei metodi del frammento e del proxy corretti.
@@ -113,9 +116,23 @@ Le opzioni di configurazione disponibili sono
 | crossOrigin | String *[facoltativo]* | Includendo questa impostazione, il tag script aggiunto per scaricare l'SDK includerà l'attributo crossOrigin con il valore stringa. Quando non è definito (impostazione predefinita), non viene aggiunto alcun attributo crossOrigin. I valori consigliati non sono definiti (impostazione predefinita). ""; o "anonimo" (per tutti i valori validi [, vedere l' `crossorigin` attributo HTML:](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentazione)
 | config. | oggetto **[obbligatorio]** | Configurazione passata a Application Insights SDK durante l'inizializzazione.
 
+### <a name="connection-string-setup"></a>Impostazione della stringa di connessione
+
+Per la configurazione di NPM o dei frammenti di codice, è anche possibile configurare l'istanza di Application Insights usando una stringa di connessione. È sufficiente sostituire il `instrumentationKey` campo con il `connectionString` campo.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
+
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Invio di dati di telemetria al portale di Azure
 
-Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Tra queste sono incluse:
+Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Queste includono:
 
 - **Eccezioni non rilevate** nell'app, incluse informazioni su
     - Analisi dello stack
@@ -163,8 +180,8 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | maxBatchInterval | 15000 | Durata della telemetria batch per prima dell'invio (millisecondi) |
 | disableExceptionTracking | false | Se true, le eccezioni non sono autocollected. L'impostazione predefinita è false. |
 | disableTelemetry | false | Se true, i dati di telemetria non vengono raccolti o inviati. L'impostazione predefinita è false. |
-| enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. L'impostazione predefinita è false. <br>***Nota:*** Se si abilita questa impostazione, la telemetria verrà eliminata ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug, provare `consoleLoggingLevel` a usare o `telemetryLoggingLevel` invece di `enableDebug` . |
-| loggingLevelConsole | 0 | Registra gli errori **interni** di Application Insights alla console. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
+| enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. L'impostazione predefinita è false. <br>**_Nota:_* se si abilita questa impostazione, i dati di telemetria vengono eliminati ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug, provare `consoleLoggingLevel` a usare o `telemetryLoggingLevel` invece di `enableDebug` . |
+| loggingLevelConsole | 0 | Log _ errori *interni** Application Insights alla console. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
 | loggingLevelTelemetry | 1 | Invia errori **interni** di Application Insights come dati di telemetria. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
 | diagnosticLogInterval | 10000 | interno Intervallo di polling (in MS) per la coda di registrazione interna |
 | samplingPercentage | 100 | Percentuale di eventi che verranno inviati. Il valore predefinito è 100, ovvero tutti gli eventi vengono inviati. Impostare questa impostazione se si desidera mantenere il limite di dati per le applicazioni su larga scala. |
@@ -271,7 +288,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche delle dipendenze per un'applicazione Web.](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
 Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Aggiungendo un' `where` istruzione di `client_Type == "Browser"` , verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
  

@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0e4674c9e0513a0b8dae29f5868b1da79da8ab84
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548240"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920557"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -60,7 +60,7 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.DBforPostgreSQL/flexibleServers | Sì | No | |
 |Microsoft.DBforPostgreSQL/servers | No | No | [Database per PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB per PostgreSQL V2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft. DBforPostgreSQL/singleservers | No | No | [DB per PostgreSQL (server singoli)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
+|Microsoft. DBforPostgreSQL/flessibile | No | No | [DB per PostgreSQL (server flessibili)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Sì | No |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Sì | No | [Servizi Device provisioning](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Sì | No | |
@@ -115,7 +115,7 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sì | No | [ambiente del servizio app pool multiruolo](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sì | No | [Pool di lavoro ambiente del servizio app](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Sì | No | [Piani di servizio app](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Sì | No | [Servizi app](./metrics-supported.md#microsoftwebsites-excluding-functions) e [Funzioni](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | Sì | No | [Servizi app e Funzioni](./metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | Sì | No | [Slot del servizio app](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> non supportato per le metriche di rete della macchina virtuale (rete totale, totale di rete, flussi in ingresso, flussi in uscita, velocità di creazione massima dei flussi in ingresso, velocità di creazione massima dei flussi in uscita) e metriche personalizzate.

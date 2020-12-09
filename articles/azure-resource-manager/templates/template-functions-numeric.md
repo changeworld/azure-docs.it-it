@@ -1,18 +1,18 @@
 ---
 title: Funzioni di modello-numeric
-description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
+description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per lavorare con i numeri.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004535"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920471"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funzioni numeriche per i modelli ARM
 
-Gestione risorse fornisce le funzioni seguenti per l'utilizzo di numeri interi nel modello di Azure Resource Manager (ARM):
+Gestione risorse fornisce le funzioni seguenti per l'uso di numeri interi nel modello di Azure Resource Manager (modello ARM):
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -35,7 +35,7 @@ Restituisce la somma dei due numeri interi forniti. La `add` funzione non è sup
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 |operand1 |Sì |INT |Il primo numero da aggiungere. |
 |operand2 |Sì |INT |Il secondo numero da aggiungere. |
@@ -106,12 +106,12 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |INT |Il numero da aggiungere al valore di iterazione in base zero. |
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero.
 
@@ -180,7 +180,7 @@ Restituisce la divisione Integer dei due numeri interi forniti. La `div` funzion
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere. Non può essere 0. |
@@ -251,7 +251,7 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
@@ -294,7 +294,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o numero intero |Il valore da convertire in numero intero. |
 
@@ -353,7 +353,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -423,7 +423,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -493,7 +493,7 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere, non può essere 0. |
@@ -564,7 +564,7 @@ Restituisce la moltiplicazione dei due numeri interi forniti. La `mul` funzione 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il primo numero da moltiplicare. |
 | operand2 |Sì |INT |Il secondo numero da moltiplicare. |
@@ -635,7 +635,7 @@ Restituisce la sottrazione dei due numeri interi forniti. La `sub` funzione non 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da cui sottrarre. |
 | operand2 |Sì |INT |Il numero sottratto. |
@@ -700,5 +700,5 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
+* Per una descrizione delle sezioni in un modello ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [iterazione delle risorse nei modelli ARM](copy-resources.md).

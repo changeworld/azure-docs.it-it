@@ -7,13 +7,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461268"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920432"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Copia bulk da file nel database
 
@@ -55,7 +55,7 @@ Il modello definisce i due parametri seguenti:
     ![Esaminare la pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Se si sceglie **Azure sinapsi Analytics (in precedenza SQL DW)** come destinazione dei dati nel **passaggio 2** indicato in precedenza, è necessario immettere una connessione all'archivio BLOB di Azure per la gestione temporanea, come richiesto dalla polibase di analisi delle sinapsi di Azure. Come illustrato nello screenshot seguente, il modello genererà automaticamente un *percorso di archiviazione* per l'archiviazione BLOB. Controllare che il contenitore sia stato creato dopo l'esecuzione della pipeline.
+    > Se si sceglie **Azure sinapsi Analytics** come destinazione dei dati nel **passaggio 2** indicato in precedenza, è necessario immettere una connessione all'archivio BLOB di Azure per la gestione temporanea, come richiesto dalla polibase di analisi delle sinapsi di Azure. Come illustrato nello screenshot seguente, il modello genererà automaticamente un *percorso di archiviazione* per l'archiviazione BLOB. Controllare che il contenitore sia stato creato dopo l'esecuzione della pipeline.
         
     ![Impostazione di PolyBase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

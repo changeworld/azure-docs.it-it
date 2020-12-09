@@ -1,23 +1,21 @@
 ---
-title: Accedere alle risorse di Kubernetes dalla portale di Azure (anteprima)
+title: Accedere alle risorse di Kubernetes dalla portale di Azure
 description: Informazioni su come interagire con le risorse di Kubernetes per gestire un cluster di Azure Kubernetes Service (AKS) dal portale di Azure.
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
-ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/09/2020
+ms.openlocfilehash: 8e31c41573ced403a034999de71a5595a54281df
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571624"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921582"
 ---
-# <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Accedere alle risorse di Kubernetes dalla portale di Azure (anteprima)
+# <a name="access-kubernetes-resources-from-the-azure-portal"></a>Accedere alle risorse di Kubernetes dalla portale di Azure
 
-Il portale di Azure include un visualizzatore di risorse Kubernetes (anteprima) per semplificare l'accesso alle risorse di Kubernetes nel cluster del servizio Kubernetes di Azure (AKS). La visualizzazione delle risorse di Kubernetes dalla portale di Azure riduce il cambio di contesto tra la portale di Azure e lo `kubectl` strumento da riga di comando, semplificando l'esperienza di visualizzazione e modifica delle risorse di Kubernetes. Il Visualizzatore risorse include attualmente più tipi di risorse, ad esempio distribuzioni, Pod e set di repliche.
+Il portale di Azure include una visualizzazione risorse Kubernetes per semplificare l'accesso alle risorse di Kubernetes nel cluster del servizio Kubernetes di Azure (AKS). La visualizzazione delle risorse di Kubernetes dalla portale di Azure riduce il cambio di contesto tra la portale di Azure e lo `kubectl` strumento da riga di comando, semplificando l'esperienza di visualizzazione e modifica delle risorse di Kubernetes. Il Visualizzatore risorse include attualmente più tipi di risorse, ad esempio distribuzioni, Pod e set di repliche.
 
 La visualizzazione risorse Kubernetes dalla portale di Azure sostituisce il [componente aggiuntivo del dashboard AKS][kubernetes-dashboard], che è stato deprecato.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

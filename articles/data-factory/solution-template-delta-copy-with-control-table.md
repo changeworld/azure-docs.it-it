@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/24/2018
-ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461213"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921800"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia Delta da un database con una tabella di controllo
 
@@ -45,7 +45,7 @@ Il modello definisce i parametri seguenti:
 - *Data_Source_WaterMarkColumn* è il nome della colonna nella tabella di origine utilizzata per identificare le righe nuove o aggiornate. Il tipo di questa colonna è in genere *DateTime*, *int* o similar.
 - *Data_Destination_Container* è il percorso radice della posizione in cui vengono copiati i dati nell'archivio di destinazione.
 - *Data_Destination_Directory* è il percorso della directory sotto la radice della posizione in cui vengono copiati i dati nell'archivio di destinazione.
-- *Data_Destination_Table_Name* è la posizione in cui vengono copiati i dati nell'archivio di destinazione (applicabile quando si seleziona "Azure sinapsi Analytics (in precedenza SQL DW)" come destinazione dati.
+- *Data_Destination_Table_Name* è la posizione in cui vengono copiati i dati nell'archivio di destinazione, applicabile quando si seleziona "Azure sinapsi Analytics" come destinazione dati.
 - *Data_Destination_Folder_Path* è la posizione in cui vengono copiati i dati nell'archivio di destinazione (applicabile quando "file System" o "Azure Data Lake storage Gen1" è selezionato come destinazione dei dati).
 - *Control_Table_Table_Name* è la tabella di controllo esterna in cui è archiviato il valore limite massimo.
 - *Control_Table_Column_Name* è la colonna della tabella di controllo esterno che archivia il valore limite massimo.

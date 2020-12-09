@@ -1,18 +1,18 @@
 ---
 title: Funzioni di modello-confronto
-description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per confrontare valori.
+description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per confrontare i valori.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004603"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920534"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
 
-Gestione risorse offre diverse funzioni per l'esecuzione di confronti nei modelli di Azure Resource Manager (ARM).
+Gestione risorse offre diverse funzioni per l'esecuzione di confronti nel modello di Azure Resource Manager (modello ARM):
 
 * [coalesce](#coalesce)
 * [equals](#equals)
@@ -31,7 +31,7 @@ Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuot
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
 | argomenti aggiuntivi |No |int, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
@@ -119,7 +119,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | string | default |
+| stringOutput | Stringa | default |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"first": "default"} |
 | arrayOutput | Array |  [1] |
@@ -133,7 +133,7 @@ Controlla se due valori sono uguali tra loro. La `equals` funzione non è suppor
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
 | arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
@@ -142,7 +142,7 @@ Controlla se due valori sono uguali tra loro. La `equals` funzione non è suppor
 
 Restituisce **True** se i valori sono uguali; in caso contrario, restituisce **False**.
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 La funzione uguale a viene spesso usata con l'elemento `condition` per verificare se la risorsa viene distribuita.
 
@@ -317,7 +317,7 @@ Controlla se il primo valore è maggiore del secondo. La `greater` funzione non 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
@@ -387,7 +387,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | Falso |
 | checkStrings | Bool | True |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -398,7 +398,7 @@ Controlla se il primo valore è maggiore o uguale al secondo valore. La `greater
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
@@ -468,7 +468,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | Falso |
 | checkStrings | Bool | True |
 
 ## <a name="less"></a>less
@@ -479,7 +479,7 @@ Controlla se il primo valore è minore del secondo. La `less` funzione non è su
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
@@ -550,7 +550,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | Falso |
 
 ## <a name="lessorequals"></a>lessOrEquals
 
@@ -560,7 +560,7 @@ Controlla se il primo valore è minore o uguale al secondo valore. La `lessOrEqu
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
@@ -631,8 +631,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | Falso |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per una descrizione delle sezioni in un modello ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

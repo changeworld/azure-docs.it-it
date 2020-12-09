@@ -1,18 +1,18 @@
 ---
 title: Funzioni di modello-Logical
-description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
+description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per determinare i valori logici.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004552"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920459"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funzioni logiche per i modelli ARM
 
-Gestione risorse offre diverse funzioni per l'esecuzione di confronti nei modelli di Azure Resource Manager (ARM).
+Gestione risorse offre diverse funzioni per l'esecuzione di confronti nel modello di Azure Resource Manager (modello ARM):
 
 * [and](#and)
 * [bool](#bool)
@@ -32,7 +32,7 @@ Verifica se tutti i valori dei parametri sono true. La `and` funzione non è sup
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -42,7 +42,7 @@ Verifica se tutti i valori dei parametri sono true. La `and` funzione non è sup
 
 Restituisce **True** se tutti i valori sono true. In caso contrario, restituisce **False**.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
@@ -84,9 +84,9 @@ L'output dell'esempio precedente è:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="bool"></a>bool
 
@@ -96,7 +96,7 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
 
@@ -104,11 +104,11 @@ Converte il parametro in un valore booleano.
 
 Valore booleano del valore convertito.
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 È anche possibile usare [true ()](#true) e [false ()](#false) per ottenere i valori booleani.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) seguente illustra come usare il parametro bool con un numero intero o una stringa.
 
@@ -155,9 +155,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
-| falseString | Bool | False |
+| falseString | Bool | Falso |
 | trueInt | Bool | True |
-| falseInt | Bool | False |
+| falseInt | Bool | Falso |
 
 ## <a name="false"></a>false
 
@@ -205,7 +205,7 @@ L'output dell'esempio precedente è:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| falseOutput | Bool | False |
+| falseOutput | Bool | Falso |
 
 ## <a name="if"></a>if
 
@@ -215,7 +215,7 @@ Restituisce un valore in base a un condizione true o false. La `if` funzione non
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | condizione |Sì |boolean |Valore per verificare se è true o false. |
 | trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
@@ -225,11 +225,11 @@ Restituisce un valore in base a un condizione true o false. La `if` funzione non
 
 Restituisce il secondo parametro, quando il primo parametro è **True**. In caso contrario, restituisce il terzo parametro.
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
-Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la funzione **if** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
+Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la `if` funzione è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) seguente illustra come usare la funzione `if`.
 
@@ -272,8 +272,8 @@ L'output dell'esempio precedente è:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| yesOutput | string | sì |
-| noOutput | string | No |
+| yesOutput | Stringa | sì |
+| noOutput | Stringa | No |
 | objectOutput | Oggetto | { "test": "value1" } |
 
 Nel [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) seguente viene illustrato come utilizzare questa funzione con espressioni che sono valide solo in modo condizionale.
@@ -341,7 +341,7 @@ Converte il valore booleano nel valore opposto. La `not` funzione non è support
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Valore da convertire. |
 
@@ -349,7 +349,7 @@ Converte il valore booleano nel valore opposto. La `not` funzione non è support
 
 Restituisce **True** quando il parametro è **False**. Restituisce **False** quando il parametro è **True**.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
@@ -391,9 +391,9 @@ L'output dell'esempio precedente è:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Falso |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa **not** con [equals](template-functions-comparison.md#equals).
 
@@ -436,7 +436,7 @@ Verifica se uno qualsiasi dei valori dei parametri è true. La `or` funzione non
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -446,7 +446,7 @@ Verifica se uno qualsiasi dei valori dei parametri è true. La `or` funzione non
 
 Restituisce **True** se uno qualsiasi dei valori è true. In caso contrario, restituisce **False**.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
@@ -488,9 +488,9 @@ L'output dell'esempio precedente è:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="true"></a>true
 
@@ -542,4 +542,4 @@ L'output dell'esempio precedente è:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per una descrizione delle sezioni in un modello ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02d9e65f5422b7b12900d051f01c1d6f55e8685b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844677"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921724"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurazione degli endpoint di rete di Sincronizzazione file di Azure
 File di Azure e Sincronizzazione file di Azure prevedono due tipi principali di endpoint per l'accesso alle condivisioni file di Azure: 
@@ -34,7 +34,7 @@ Questo articolo presuppone quanto segue:
 
 Inoltre:
 - Se si intende usare Azure PowerShell, [installare l'ultima versione](/powershell/azure/install-az-ps).
-- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-the-private-endpoints"></a>Creare gli endpoint privati
 Quando si crea un endpoint privato per una risorsa di Azure, vengono distribuite le risorse seguenti:
@@ -588,7 +588,7 @@ Quando si limita l'account di archiviazione consentendolo solo a specifiche reti
 Sincronizzazione file di Azure consente di limitare l'accesso a reti virtuali specifiche solo tramite endpoint privati. Sincronizzazione file di Azure non supporta gli endpoint di servizio per limitare l'accesso a reti virtuali specifiche tramite l'endpoint pubblico. Ciò significa che i due stati per l'endpoint pubblico del servizio di sincronizzazione archiviazione sono abilitato e disabilitato.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
-Non è possibile eseguire questa operazione tramite il portale di Azure. Selezionare la scheda Azure PowerShell o Interfaccia della riga di comando di Azure per le istruzioni su come disabilitare l'endpoint pubblico del servizio di sincronizzazione archiviazione. 
+Non è possibile eseguire questa operazione tramite il portale di Azure. Selezionare la scheda Azure PowerShell per ottenere istruzioni su come disabilitare l'endpoint pubblico del servizio di sincronizzazione archiviazione. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Per disabilitare l'accesso all'endpoint pubblico del servizio di sincronizzazione archiviazione, impostare la proprietà `incomingTrafficPolicy` del servizio su `AllowVirtualNetworksOnly`. Per abilitare l'accesso all'endpoint pubblico del servizio di sincronizzazione archiviazione, impostare invece `incomingTrafficPolicy` su `AllowAllTraffic`. Assicurarsi di sostituire `<storage-sync-service-resource-group>` e `<storage-sync-service>`.
@@ -603,25 +603,13 @@ $storageSyncService = Get-AzResource `
         -ResourceType "Microsoft.StorageSync/storageSyncServices"
 
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
 ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-Per disabilitare l'accesso all'endpoint pubblico del servizio di sincronizzazione archiviazione, impostare la proprietà `incomingTrafficPolicy` del servizio su `AllowVirtualNetworksOnly`. Per abilitare l'accesso all'endpoint pubblico del servizio di sincronizzazione archiviazione, impostare invece `incomingTrafficPolicy` su `AllowAllTraffic`. Assicurarsi di sostituire `<storage-sync-service-resource-group>` e `<storage-sync-service>`.
-
-```bash
-storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
-storageSyncServiceName="<storage-sync-service>"
-
-az resource update \
-        --resource-group $storageSyncServiceResourceGroupName \
-        --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSync/storageSyncServices" \
-        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
-        --output none
-```
+<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>L'interfaccia della riga di comando di Azure non supporta l'impostazione della `incomingTrafficPolicy` proprietà nel servizio di sincronizzazione archiviazione. Selezionare la scheda Azure PowerShell per ottenere istruzioni su come disabilitare l'endpoint pubblico del servizio di sincronizzazione archiviazione.
 ---
 
 ## <a name="see-also"></a>Vedere anche
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+- [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)

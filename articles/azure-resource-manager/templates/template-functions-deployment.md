@@ -1,18 +1,18 @@
 ---
 title: Funzioni di modello-distribuzione
-description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
+description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per recuperare le informazioni sulla distribuzione.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004569"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920509"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funzioni di distribuzione per i modelli ARM
 
-Gestione risorse fornisce le funzioni seguenti per ottenere i valori correlati alla distribuzione corrente del modello di Azure Resource Manager (ARM):
+Gestione risorse fornisce le funzioni seguenti per ottenere i valori correlati alla distribuzione corrente del modello di Azure Resource Manager (modello ARM):
 
 * [distribuzione](#deployment)
 * [ambiente](#environment)
@@ -104,7 +104,7 @@ Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o
 }
 ```
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
 
@@ -295,7 +295,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
@@ -303,7 +303,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 Il valore del parametro specificato.
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
@@ -428,13 +428,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | string | option 1 |
+| stringOutput | Stringa | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | string | option 1 |
+| crossOutput | Stringa | option 1 |
 
-Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
+Per altre informazioni sull'uso dei parametri, vedere [parametri nei modelli ARM](template-parameters.md).
 
 ## <a name="variables"></a>variables
 
@@ -444,7 +444,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | variableName |Sì |string |Nome della variabile da restituire. |
 
@@ -452,7 +452,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 Il valore della variabile specificata.
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 Per semplificare il modello creando valori complessi una sola volta, si usano in genere le variabili. Nell'esempio seguente viene creato un nome univoco per un account di archiviazione.
 
@@ -566,13 +566,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| exampleOutput1 | string | myVariable |
+| exampleOutput1 | Stringa | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | string | myVariable |
+| exampleOutput3 | Stringa | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
-Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
+Per altre informazioni sull'uso delle variabili, vedere [variabili nel modello ARM](template-variables.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per una descrizione delle sezioni in un modello ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

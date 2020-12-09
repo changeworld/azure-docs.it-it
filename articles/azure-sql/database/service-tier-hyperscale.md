@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780054"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922257"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -67,11 +67,11 @@ Il livello di servizio di iperscalabilità supporta un'ampia gamma di carichi di
 
 Il livello di servizio Hyperscale è disponibile solo nel [modello vCore](service-tiers-vcore.md). Per allinearsi alla nuova architettura, il modello di prezzi è leggermente diverso da quello del livello di servizio Utilizzo generico o Business critical:
 
-- **Compute** :
+- **Compute**:
 
   Il prezzo dell'unità di calcolo del livello di servizio Hyperscale è per replica. Il prezzo del [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) viene applicato automaticamente alle repliche con scalabilità in lettura. Per impostazione predefinita, viene creata una replica primaria e una replica di sola lettura per database iperscalare.  Gli utenti possono modificare il numero totale di repliche, incluso il database primario da 1-5.
 
-- **Spazio di archiviazione** :
+- **Spazio di archiviazione**:
 
   Non è necessario specificare le dimensioni massime dei dati durante la configurazione di un database Hyperscale. Nel livello iperscalare viene addebitato lo spazio di archiviazione per il database in base all'effettiva allocazione. Lo spazio di archiviazione viene allocato automaticamente tra 40 GB e 100 TB, in incrementi di 10 GB. Se necessario, possono crescere più file di dati contemporaneamente. Un database con iperscalabilità viene creato con una dimensione iniziale di 10 GB e inizia a crescere di 10 GB ogni 10 minuti, fino a raggiungere le dimensioni di 40 GB.
 
@@ -231,7 +231,6 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | Migrazione di database con In-Memory oggetti OLTP | L'iperscalabilità supporta un subset di In-Memory oggetti OLTP, inclusi i tipi di tabella ottimizzata per la memoria, le variabili di tabella e i moduli compilati in modo nativo. Tuttavia, quando nel database di cui è in corso la migrazione è presente qualsiasi tipo di In-Memory oggetti OLTP, non è supportata la migrazione dai livelli di servizio Premium e business critical a iperscalabilità. Per eseguire la migrazione di un database di questo tipo a iperscalabilità, è necessario eliminare tutti gli oggetti In-Memory OLTP e le relative dipendenze. Dopo la migrazione del database, è possibile ricreare questi oggetti. Le tabelle ottimizzate per la memoria durevoli e non durevoli non sono attualmente supportate in iperscalabilità e devono essere ricreate come tabelle disco.|
 | Replica geografica  | Non è ancora possibile configurare la replica geografica per l'iperscalabilità del database SQL di Azure. |
 | Copia del database | La copia del database su iperscala è ora disponibile in anteprima pubblica. |
-| Integrazione di Transparent Data Encryption/AKV | La crittografia trasparente del database con Azure Key Vault, comunemente definita Bring-your-own-key o BYOK, è attualmente disponibile in anteprima pubblica. |
 | Funzionalità di database intelligenti | Ad eccezione dell'opzione "forza piano", tutte le altre opzioni di ottimizzazione automatica non sono ancora supportate in iperscalabilità: le opzioni potrebbero sembrare abilitate, ma non verranno eseguite raccomandazioni o azioni. |
 | Analisi delle prestazioni della query | Le informazioni dettagliate sulle prestazioni delle query non sono attualmente supportate per i database con iperscalabilità. |
 | Compatta database | DBCC SHRINKDATABASE o DBCC SHRINKFILE non è attualmente supportato per i database con iperscalabilità. |

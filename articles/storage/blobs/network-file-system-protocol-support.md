@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b4146f11804dd11f7dd0f5536bc040cb30e25b03
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c48a7f4b5b1512ec5bcd289e4fb8bd7884ca7394
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902732"
+ms.locfileid: "96922560"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)
 
 L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Windows o Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
 
 > [!NOTE]
-> Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è in versione di anteprima pubblica. Supporta gli account di archiviazione GPV2 con prestazioni del livello standard nelle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali. L'anteprima, inoltre, supporta BLOB in blocchi con livello di prestazioni Premium in tutte le aree pubbliche.
+> Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è in versione di anteprima pubblica. Supporta gli account di archiviazione GPV2 con prestazioni del livello standard nelle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali. L'anteprima supporta anche il BLOB in blocchi con livello di prestazioni Premium in tutte le aree pubbliche.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Flusso di lavoro generale: montaggio di un contenitore dell'account di archiviazione
 

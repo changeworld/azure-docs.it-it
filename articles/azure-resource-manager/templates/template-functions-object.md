@@ -1,18 +1,18 @@
 ---
 title: Funzioni modello-oggetti
-description: Descrive le funzioni da utilizzare in un modello di Azure Resource Manager per l'utilizzo di oggetti.
+description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per lavorare con gli oggetti.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004518"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920437"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funzioni oggetto per i modelli ARM
 
-Gestione risorse offre diverse funzioni per l'uso degli oggetti nel modello di Azure Resource Manager (ARM).
+Gestione risorse offre diverse funzioni per l'uso degli oggetti nel modello di Azure Resource Manager (modello ARM):
 
 * [contains](#contains)
 * [createObject](#createobject)
@@ -33,7 +33,7 @@ Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
 | itemToFind |Sì |stringa o numero intero |Valore da trovare. |
@@ -131,11 +131,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | Falso |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | Falso |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | Falso |
 
 ## <a name="createobject"></a>createObject
 
@@ -145,7 +145,7 @@ Crea un oggetto dalle chiavi e dai valori. La `createObject` funzione non è sup
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | key1 |No |string |Nome della chiave. |
 | value1 |No |int, Boolean, String, Object o Array |Valore della chiave. |
@@ -219,7 +219,7 @@ Determina se una matrice, un oggetto o una stringa sono vuoti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sì |matrice, oggetto o stringa |Valore per verificare se è vuoto. |
 
@@ -300,7 +300,7 @@ Restituisce una matrice o un oggetto singoli con gli elementi comuni dei paramet
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice o oggetto |Primo valore da usare per cercare elementi comuni. |
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
@@ -407,7 +407,7 @@ Converte una stringa JSON valida in un tipo di dati JSON.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |string |Valore da convertire in JSON. La stringa deve essere una stringa JSON formattata correttamente. |
 
@@ -415,7 +415,7 @@ Converte una stringa JSON valida in un tipo di dati JSON.
 
 Il tipo di dati JSON dalla stringa specificata o un valore vuoto quando viene specificato **null** .
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 Se è necessario includere un valore del parametro o una variabile nell'oggetto JSON, usare la funzione [concat](template-functions-string.md#concat) per creare la stringa che viene passata alla funzione.
 
@@ -524,7 +524,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | ---- | ---- | ----- |
 | emptyObjectOutput | Boolean | True |
 | objectOutput | Oggetto | {"a": "b"} |
-| stringOutput | string | test |
+| stringOutput | Stringa | test |
 | booleanOutput | Boolean | True |
 | intOutput | Integer | 3 |
 | arrayOutput | Array | [ 1, 2, 3 ] |
@@ -538,7 +538,7 @@ Restituisce il numero di elementi in una matrice, i caratteri di una stringa o l
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
@@ -690,7 +690,7 @@ Restituisce una matrice o un oggetto singoli con tutti gli elementi dei parametr
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice o oggetto |Primo valore da usare per l'aggiunta di elementi. |
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |
@@ -792,4 +792,4 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per una descrizione delle sezioni in un modello ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

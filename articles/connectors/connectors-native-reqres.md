@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981001"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920816"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure
 
@@ -42,7 +42,7 @@ Per ulteriori informazioni sulla sicurezza, autorizzazione e crittografia per le
 
 Questo trigger predefinito crea un endpoint richiamabile manualmente in grado di gestire *solo* le richieste in ingresso su HTTPS. Quando un chiamante invia una richiesta a questo endpoint, il [trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) viene attivato ed esegue l'app per la logica. Per altre informazioni su come chiamare questo trigger, vedere [chiamare, attivare o annidare flussi di lavoro con endpoint HTTPS in app per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
 
-L'app per la logica mantiene aperta una richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supponendo che l'app per la logica includa un' [azione di risposta](#add-response), se l'app per la logica non invia una risposta al chiamante dopo che questo tempo viene superato, l'app per la logica restituisce uno `504 GATEWAY TIMEOUT` stato al chiamante. Se l'app per la logica non include un'azione di risposta, l'app per la logica restituisce immediatamente uno `202 ACCEPTED` stato al chiamante.
+L'app per la logica mantiene aperta una richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#http-limits). Supponendo che l'app per la logica includa un' [azione di risposta](#add-response), se l'app per la logica non invia una risposta al chiamante dopo che questo tempo viene superato, l'app per la logica restituisce uno `504 GATEWAY TIMEOUT` stato al chiamante. Se l'app per la logica non include un'azione di risposta, l'app per la logica restituisce immediatamente uno `202 ACCEPTED` stato al chiamante.
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
@@ -179,7 +179,7 @@ L'app per la logica mantiene aperta una richiesta in ingresso solo per un [perio
 
    È ad esempio possibile rispondere alla richiesta [aggiungendo un'azione di risposta](#add-response), che è possibile usare per restituire una risposta personalizzata ed è descritta più avanti in questo argomento.
 
-   L'app per la logica mantiene aperta la richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta una volta trascorso questo intervallo di tempo, restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, viene restituita immediatamente una risposta `202 ACCEPTED` al chiamante.
+   L'app per la logica mantiene aperta la richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#http-limits). Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta una volta trascorso questo intervallo di tempo, restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, viene restituita immediatamente una risposta `202 ACCEPTED` al chiamante.
 
 1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: a0b0dc8c29bcdb51f7b348dd62e3d27796819a7d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554575"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920251"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registrare e analizzare analisi sinapsi di Azure
 
@@ -21,6 +21,10 @@ Questo articolo illustra come registrare e analizzare un'istanza di Azure sinaps
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 Azure sinapsi Analytics (noto in precedenza come SQL DW) supporta le analisi complete e incrementali per l'acquisizione dei metadati e dello schema. Le analisi classificano anche i dati automaticamente in base alle regole di classificazione personalizzate e di sistema.
+
+### <a name="known-limitations"></a>Limitazioni note
+
+Azure competenza non supporta l'analisi delle [visualizzazioni](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure sinapsi Analytics
 
 ## <a name="prerequisites"></a>Prerequisiti
 

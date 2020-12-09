@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
-ms.openlocfilehash: dc09edee08e97e354ef006416e2d5c0a333a3980
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 12/07/2020
+ms.openlocfilehash: 154be7e4340c798ba1d014b210361f666864797e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917818"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921522"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -19,7 +19,7 @@ Questo articolo include informazioni dettagliate sui limiti e sulla configurazio
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>Limiti delle definizioni
+## <a name="logic-app-definition-limits"></a>Limiti delle definizioni delle app per la logica
 
 Ecco i limiti per una singola definizione di app per la logica:
 
@@ -37,7 +37,9 @@ Ecco i limiti per una singola definizione di app per la logica:
 | Numero massimo di `parameters` | 50 | |
 | Numero massimo di `outputs` | 10 | |
 | Dimensioni massime per `trackedProperties` | 16.000 caratteri |
-| Azione di codice inline: numero massimo di caratteri di codice | 1.024 caratteri <p>Per un limite di 100.000 caratteri, creare app per la logica con Visual Studio Code e l' [estensione anteprima **app**](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)per la logica di Azure. |
+| Azione di codice inline: numero massimo di caratteri di codice | 1.024 caratteri | Per estendere questo limite a 100.000 caratteri, creare app per la logica con il tipo di risorsa app per la **logica (anteprima)** , [usando il portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o [usando Visual Studio Code e l'estensione app per la **logica di Azure (anteprima)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Azione di codice inline-durata massima per l'esecuzione del codice | 5 secondi | Per estendere questo limite a 15 secondi, creare le app per la logica con il tipo di risorsa app per la **logica (anteprima)** , [usando il portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o [con Visual Studio Code e l'estensione app per la **logica di Azure (anteprima)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -211,21 +213,23 @@ Per superare questi limiti nell'elaborazione normale o per eseguire test di cari
 
 App per la logica di Azure supporta operazioni di scrittura, tra cui inserimenti e aggiornamenti, tramite il gateway. Per queste operazioni sono però previsti [limiti di dimensioni del payload](/data-integration/gateway/service-gateway-onprem#considerations).
 
-<a name="request-limits"></a>
+<a name="http-limits"></a>
 
 ## <a name="http-limits"></a>Limiti HTTP
 
-Ecco i limiti per una singola chiamata HTTP in uscita o in ingresso:
+Ecco i limiti per una singola chiamata in ingresso o in uscita:
 
-#### <a name="timeout"></a>Timeout
+<a name="http-timeout-limits"></a>
+
+#### <a name="timeout-duration"></a>Durata timeout
 
 Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto di richieste di webhook e di conseguenza il timeout per queste operazioni può essere più prolungato rispetto a questi limiti. Per altre informazioni, vedere i dettagli tecnici per il connettore specifico e anche [Trigger e azioni dei flussi di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
-|------|--------------------|---------------------------------------|-------|
-| Richiesta in uscita | 120 secondi <br>(2 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in uscita includono chiamate effettuate da trigger HTTP. <p><p>**Suggerimento**: Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Per ovviare ai limiti di timeout quando si chiama un'altra app per la logica che ha un [endpoint chiamabile](logic-apps-http-endpoint.md), è possibile usare l'azione App per la logica di Azure incorporata, disponibile nella selezione connettore in **Incorporato**. |
-| Richiesta in ingresso | 120 secondi <br>(2 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in ingresso includono le chiamate ricevute da trigger di richiesta e trigger di webhook. <p><p>**Nota**: affinché il chiamante originale ottenga la risposta, tutti i passaggi nella risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
-|||||
+| Nome | App per la logica (multi-tenant) | App per la logica (anteprima) | Ambiente del servizio di integrazione | Note |
+|------|---------------------------|----------------------|---------------------------------|-------|
+| Richiesta in uscita | 120 secondi <br>(2 minuti) | 230 secondi <br>(3,9 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in uscita includono chiamate effettuate dal trigger o dall'azione HTTP. Per altre informazioni sulla versione di anteprima, vedere [Anteprima di app](logic-apps-overview-preview.md)per la logica di Azure. <p><p>**Suggerimento**: Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Per ovviare ai limiti di timeout quando si chiama un'altra app per la logica che ha un [endpoint chiamabile](logic-apps-http-endpoint.md), è possibile usare l'azione App per la logica di Azure incorporata, disponibile nella selezione connettore in **Incorporato**. |
+| Richiesta in ingresso | 120 secondi <br>(2 minuti) | 230 secondi <br>(3,9 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in ingresso includono le chiamate ricevute dal trigger di richiesta, il trigger HTTP webhook e l'azione HTTP webhook. Per altre informazioni sulla versione di anteprima, vedere [Anteprima di app](logic-apps-overview-preview.md)per la logica di Azure. <p><p>**Nota**: affinché il chiamante originale ottenga la risposta, tutti i passaggi nella risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
+||||||
 
 <a name="message-size-limits"></a>
 
@@ -266,6 +270,7 @@ Ecco i limiti per un'app per la logica che inizia con un trigger di richiesta e 
 | ---- | ----- | ----- |
 | Criteri di autorizzazione di Azure AD | 5 | |
 | Attestazioni per criterio di autorizzazione | 10 | |
+| Valore attestazione-numero massimo di caratteri | 150 |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -338,7 +343,7 @@ Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.
 | Elemento | Limite | Note |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Mappa (file XSLT) | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare l'[API REST di App per la logica di Azure Maps](/rest/api/logic/maps/createorupdate). <p><p>**Nota**: la quantità di dati o record che una mappa può elaborare correttamente si basa sui limiti delle dimensioni dei messaggi e di timeout delle azioni indicati in App per la logica di Azure. Se, ad esempio, si usa un'azione HTTP, basata su [limiti delle dimensioni dei messaggi e di timeout delle azioni](#request-limits), una mappa può elaborare i dati fino al limite impostato per le dimensioni dei messaggi HTTP se l'operazione viene completata entro il limite di timeout HTTP. |
+| Mappa (file XSLT) | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare l'[API REST di App per la logica di Azure Maps](/rest/api/logic/maps/createorupdate). <p><p>**Nota**: la quantità di dati o record che una mappa può elaborare correttamente si basa sui limiti delle dimensioni dei messaggi e di timeout delle azioni indicati in App per la logica di Azure. Se, ad esempio, si usa un'azione HTTP, basata su [limiti delle dimensioni dei messaggi e di timeout delle azioni](#http-limits), una mappa può elaborare i dati fino al limite impostato per le dimensioni dei messaggi HTTP se l'operazione viene completata entro il limite di timeout HTTP. |
 | SCHEMA | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -379,7 +384,7 @@ Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza 
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configurazione del firewall: Indirizzi IP e tag del servizio
 
-Gli indirizzi IP usati da App per la logica di Azure per le chiamate in arrivo e in uscita dipendono dall'area in cui è presente l'app per la logica. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP. Alcune chiamate [Power Automate](/power-automate/getting-started), come le richieste **HTTP** e **HTTP + OpenAPI**, passano direttamente attraverso il servizio App per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per altre informazioni sugli indirizzi IP usati da Power Automate, vedere [Limiti e configurazione in Power Automate](/flow/limits-and-config#ip-address-configuration).
+Gli indirizzi IP usati da app per la logica di Azure per le chiamate in ingresso e in uscita dipendono dall'area in cui è presente l'app per la logica. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP. Alcune chiamate [Power Automate](/power-automate/getting-started), come le richieste **HTTP** e **HTTP + OpenAPI**, passano direttamente attraverso il servizio App per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per altre informazioni sugli indirizzi IP usati da Power Automate, vedere [Limiti e configurazione in Power Automate](/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
 > Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente [tag di servizio](../virtual-network/service-tags-overview.md), invece di specificare gli indirizzi IP di App per la logica per ogni area, come descritto più avanti in questa sezione.

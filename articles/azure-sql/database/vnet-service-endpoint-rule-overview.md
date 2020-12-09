@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 96030f0e74c29848f675ae2e0867eefa2e79a8a7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905877"
+ms.locfileid: "96920410"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -52,8 +52,8 @@ Ogni regola della rete virtuale si applica all'intero server, non solo a un data
 
 I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio di rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
-- **Amministratore di rete:** &nbsp; attivare l'endpoint.
-- **Amministratore di database:** &nbsp; Aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server.
+- **Amministratore di rete (ruolo [collaboratore rete](../../role-based-access-control/built-in-roles.md#network-contributor) ):** &nbsp; Attivare l'endpoint.
+- **Amministratore di database (ruolo [collaboratore SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) ):** &nbsp; Aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server.
 
 *Alternative RBAC di Azure:*
 
