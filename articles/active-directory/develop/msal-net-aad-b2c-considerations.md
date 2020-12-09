@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173397"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860967"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -165,7 +165,7 @@ Se gli elementi cambiano, verrà fornito un aggiornamento a questo [problema](ht
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema noto con Azure AD B2C
 
-MSAL.NET supporta una [cache di token](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La chiave di caching del token è basata sulle attestazioni restituite dal provider di identità (IdP).
+MSAL.NET supporta una [cache di token](/dotnet/api/microsoft.identity.client.tokencache). La chiave di caching del token è basata sulle attestazioni restituite dal provider di identità (IdP).
 
 Attualmente, MSAL.NET richiede due attestazioni per compilare una chiave di cache del token:
 
@@ -194,6 +194,6 @@ Per altre informazioni su come specificare quali attestazioni vengono restituite
 
 Nell'esempio seguente vengono fornite ulteriori informazioni sull'acquisizione di token in modo interattivo con MSAL.NET per Azure AD B2C applicazioni.
 
-| Esempio | Piattaforma | Descrizione|
+| Esempio | Piattaforma | Description|
 |------ | -------- | -----------|
 |[Active-Directory-B2C-Novell-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Novell iOS, Novell Android, UWP | Un'app Novell Forms che usa MSAL.NET per autenticare gli utenti tramite Azure AD B2C e quindi accedere a un'API Web con i token restituiti.|

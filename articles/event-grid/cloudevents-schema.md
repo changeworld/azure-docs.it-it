@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare lo schema CloudEvents per gli e
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d794996a699bdd1bb63e7a894346128aa108e95c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: baac7311a23bb4de032a8ab8b2e99a5ad9cae786
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504374"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858281"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v1.0 con Griglia di eventi
 Oltre allo [schema di eventi predefinito](event-schema.md), Griglia di eventi di Azure supporta in modo nativo gli eventi nell'[implementazione JSON di CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e nel [binding del protocollo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
@@ -62,16 +62,20 @@ I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Configurare Griglia di eventi per CloudEvents
 
-È possibile usare Griglia di eventi sia per l'input che per l'output degli eventi nello schema CloudEvents. È possibile usare CloudEvents per gli eventi di sistema, ad esempio gli eventi di archiviazione BLOB, gli eventi dell'hub IoT e gli eventi personalizzati. Può anche trasformare tali eventi in transito in entrambe le direzioni.
+È possibile utilizzare griglia di eventi sia per l'input che per l'output degli eventi nello schema CloudEvents. Nella tabella seguente vengono descritte le possibili trasformazioni:
+
+ Risorsa griglia di eventi | Schema di input       | Schema di recapito
+|---------------------|-------------------|---------------------
+| Argomenti di sistema       | Schema griglia di eventi | Schema di griglia di eventi o schema CloudEvent
+| Argomenti/domini utente | Schema griglia di eventi | Schema griglia di eventi
+| Argomenti/domini utente | Schema CloudEvent | Schema CloudEvent
+| Argomenti/domini utente | Schema personalizzato     | Schema personalizzato o schema griglia di eventi o schema CloudEvent
+| PartnerTopics       | Schema CloudEvent | Schema CloudEvent
 
 
-| Schema di input       | Schema di output.
-|--------------------|---------------------
-| Formato CloudEvents | Formato CloudEvents
-| Formato di Griglia di eventi  | Formato CloudEvents
-| Formato di Griglia di eventi  | Formato di Griglia di eventi
+Per tutti gli schemi di eventi, griglia di eventi richiede la convalida quando si esegue la pubblicazione in un argomento di griglia di eventi e quando si crea una sottoscrizione di eventi.
 
-Per tutti gli schemi di eventi, Griglia di eventi richiede la convalida quando si esegue la pubblicazione in un argomento di Griglia di eventi e quando si crea una sottoscrizione di eventi. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
+Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
 
 ### <a name="input-schema"></a>Schema di input
 

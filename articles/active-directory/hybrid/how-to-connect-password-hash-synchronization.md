@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737099"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858740"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -53,10 +53,10 @@ La sezione seguente illustra in dettaglio il funzionamento della sincronizzazion
 
 1. Ogni due minuti, l'agente di sincronizzazione hash delle password nel server AD Connect richiede gli hash delle password archiviate (attributo unicodePwd) da un controller di dominio.  La richiesta si avvale del protocollo di replica standard [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) usato per sincronizzare i dati tra i controller di dominio. L'account di servizio deve disporre delle autorizzazioni di Azure AD Replica modifiche directory e Replica modifiche directory - Tutto (concesse per impostazione predefinita in fase di installazione) per ottenere gli hash delle password.
 2. Prima dell'invio, il controller di dominio crittografa l'hash della password MD4 tramite una chiave corrispondente a un hash [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) della chiave di sessione RPC e a un valore salt. Invia quindi il risultato dell'agente di sincronizzazione dell'hash delle password tramite RPC. Il controller di dominio passa inoltre il valore salt all'agente di sincronizzazione usando il protocollo di replica del controller di dominio, in modo che l'agente sia in grado di decrittografare la busta.
-3. Dopo aver ottenuto la busta crittografata, l'agente di sincronizzazione dell'hash delle password usa [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) e il valore salt per generare una chiave per decrittografare i dati ricevuti riportandoli nel formato MD4 originale. L'agente di sincronizzazione hash delle password non ha mai accesso alla password non crittografata. L'uso di MD5 da parte dell'agente di sincronizzazione dell'hash delle password è esclusivamente per la compatibilità del protocollo di replica con il controller di dominio e viene usato solo in locale tra il controller di dominio e l'agente di sincronizzazione dell'hash delle password.
+3. Dopo aver ottenuto la busta crittografata, l'agente di sincronizzazione dell'hash delle password usa [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider) e il valore salt per generare una chiave per decrittografare i dati ricevuti riportandoli nel formato MD4 originale. L'agente di sincronizzazione hash delle password non ha mai accesso alla password non crittografata. L'uso di MD5 da parte dell'agente di sincronizzazione dell'hash delle password è esclusivamente per la compatibilità del protocollo di replica con il controller di dominio e viene usato solo in locale tra il controller di dominio e l'agente di sincronizzazione dell'hash delle password.
 4. L'agente di sincronizzazione dell'hash delle password espande l'hash della password binario a 16 byte in 64 byte convertendo per prima cosa l'hash in una stringa esadecimale a 32 byte e quindi riconvertendo questa stessa stringa in formato binario con la codifica UTF-16.
 5. L'agente di sincronizzazione dell'hash delle password aggiunge un valore salt per utente lungo 10 byte al file binario a 64 byte per proteggere ulteriormente l'hash originale.
-6. L'agente di sincronizzazione dell'hash delle password combina quindi l'hash MD4 con il valore salt per utente e li inserisce nella funzione [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Vengono usate 1000 iterazioni dell'algoritmo di hash con chiave [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1). 
+6. L'agente di sincronizzazione dell'hash delle password combina quindi l'hash MD4 con il valore salt per utente e li inserisce nella funzione [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Vengono usate 1000 iterazioni dell'algoritmo di hash con chiave [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256). 
 7. L'agente di sincronizzazione dell'hash delle password accetta l'hash a 32 byte risultante, concatena sia il Salt per utente che il numero di iterazioni SHA256 (per l'uso da parte di Azure AD), quindi trasmette la stringa da Azure AD Connect a Azure AD su TLS.</br> 
 8. Quando un utente prova ad accedere ad Azure AD e immette la password, la password viene eseguita tramite lo stesso processo MD4 + valore salt + PBKDF2 + HMAC-SHA256. Se l'hash risultante corrisponde all'hash archiviato in Azure AD, l'utente ha immesso la password corretta e viene autenticato.
 
@@ -142,7 +142,7 @@ Per supportare password temporanee in Azure AD per gli utenti sincronizzati, è 
 
 #### <a name="account-expiration"></a>Scadenza dell'account
 
-Se l'organizzazione usa l'attributo accountExpires nella gestione degli account utente, tenere presente che questo attributo non viene sincronizzato con Azure AD. Di conseguenza, un account Active Directory scaduto in un ambiente configurato per la sincronizzazione dell'hash delle password continuerà a essere attivo in Azure AD. Se l'account è scaduto, è consigliabile fare in modo che un'azione del flusso di lavoro attivi uno script di PowerShell per disabilitare l'account Azure AD dell'utente (usare il cmdlet [Set-AzureADUser](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)). Al contrario, quando l'account è attivato, è necessario attivare anche l'istanza di Azure AD.
+Se l'organizzazione usa l'attributo accountExpires nella gestione degli account utente, tenere presente che questo attributo non viene sincronizzato con Azure AD. Di conseguenza, un account Active Directory scaduto in un ambiente configurato per la sincronizzazione dell'hash delle password continuerà a essere attivo in Azure AD. Se l'account è scaduto, è consigliabile fare in modo che un'azione del flusso di lavoro attivi uno script di PowerShell per disabilitare l'account Azure AD dell'utente (usare il cmdlet [Set-AzureADUser](/powershell/module/azuread/set-azureaduser)). Al contrario, quando l'account è attivato, è necessario attivare anche l'istanza di Azure AD.
 
 ### <a name="overwrite-synchronized-passwords"></a>Sovrascrivere password sincronizzate
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168866"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859522"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -288,7 +288,7 @@ Se l'autenticazione legacy viene ampiamente utilizzata nell'ambiente in uso, è 
 
 #### <a name="legacy-authentication-recommended-reading"></a>Lettura consigliata per l'autenticazione legacy
 
-- [Abilitare o disabilitare l'accesso POP3 o IMAP4 alle cassette postali in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Abilitare o disabilitare l'accesso POP3 o IMAP4 alle cassette postali in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### <a name="consent-grants"></a>Concessioni di consenso
 
@@ -372,7 +372,7 @@ L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è
 - [Informazioni di riferimento sull'API di gestione di Office 365](/office/office-365-management-api/office-365-management-activity-api-reference)
 - [Come usare il pacchetto di contenuto Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Esistono 12 aspetti di un'infrastruttura di identità sicura. Questo elenco consente di proteggere e gestire ulteriormente le credenziali, definire l'esperienza di autenticazione, assegnare i delegati, misurare l'utilizzo e definire i criteri di accesso in base al comportamento di sicurezza dell'organizzazione.
 

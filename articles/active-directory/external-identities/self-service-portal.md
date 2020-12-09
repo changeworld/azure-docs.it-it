@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8a5b800e78448afcc970010535ba12b543d3cc74
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896107"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860508"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Iscrizione self-service per la collaborazione B2B di Azure AD
 
@@ -28,7 +28,7 @@ In qualità di organizzazione invitante, è possibile che non si conoscano in an
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>API di invito B2B Azure Active Directory
 
-Le organizzazioni possono usare l' [API di gestione degli inviti Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0) per creare le proprie esperienze di onboarding per gli utenti Guest B2B. Quando si vuole offrire l'iscrizione a un utente Guest B2B self-service, è consigliabile usare la [gestione dei diritti Azure ad](../governance/entitlement-management-overview.md). Tuttavia, se si vuole creare una propria esperienza, è possibile usare l' [API crea invito](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) per inviare automaticamente il messaggio di invito personalizzato direttamente all'utente B2B, ad esempio. In alternativa, l'app può usare la inviteRedeemUrl restituita nella risposta di creazione per creare il proprio invito (tramite il meccanismo di comunicazione scelto) per l'utente invitato.
+Le organizzazioni possono usare l' [API di gestione degli inviti Microsoft Graph](/graph/api/resources/invitation) per creare le proprie esperienze di onboarding per gli utenti Guest B2B. Quando si vuole offrire l'iscrizione a un utente Guest B2B self-service, è consigliabile usare la [gestione dei diritti Azure ad](../governance/entitlement-management-overview.md). Tuttavia, se si vuole creare una propria esperienza, è possibile usare l' [API crea invito](/graph/api/invitation-post?tabs=http) per inviare automaticamente il messaggio di invito personalizzato direttamente all'utente B2B, ad esempio. In alternativa, l'app può usare la inviteRedeemUrl restituita nella risposta di creazione per creare il proprio invito (tramite il meccanismo di comunicazione scelto) per l'utente invitato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4931006ba690ff7e059da5de8b0bc816271af30c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547900"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859964"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory
 
@@ -68,7 +68,7 @@ Per applicare le etichette pubblicate ai gruppi, è innanzitutto necessario abil
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Sarà inoltre necessario sincronizzare le etichette di riservatezza per Azure AD. Per istruzioni, vedere [come abilitare le etichette di riservatezza per i contenitori e sincronizzare le etichette](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+Sarà inoltre necessario sincronizzare le etichette di riservatezza per Azure AD. Per istruzioni, vedere [come abilitare le etichette di riservatezza per i contenitori e sincronizzare le etichette](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Assegnare un'etichetta a un nuovo gruppo in portale di Azure
 

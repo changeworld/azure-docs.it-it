@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ef1abd1d72e4435aa59bbb9a99f3cc423f11268e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659064"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858299"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Nascondi le applicazioni aziendali dagli utenti finali nel Azure Active Directory
 
@@ -47,7 +47,7 @@ Usare la procedura seguente per nascondere un'applicazione dal pannello app e Mi
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Usare Azure AD PowerShell per nascondere un'applicazione
 
-Per nascondere un'applicazione dal pannello app, è possibile aggiungere manualmente il tag HideApp all'entità servizio per l'applicazione. Eseguire i seguenti comandi di [PowerShell per AzureAD](/powershell/module/azuread/?view=azureadps-2.0#service_principals) per impostare la proprietà Visible dell'applicazione **per gli utenti?** su **No**. 
+Per nascondere un'applicazione dal pannello app, è possibile aggiungere manualmente il tag HideApp all'entità servizio per l'applicazione. Eseguire i seguenti comandi di [PowerShell per AzureAD](/powershell/module/azuread/#service_principals) per impostare la proprietà Visible dell'applicazione **per gli utenti?** su **No**. 
 
 ```PowerShell
 Connect-AzureAD

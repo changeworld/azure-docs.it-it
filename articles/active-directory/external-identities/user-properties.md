@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285853"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859632"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -59,7 +59,7 @@ Per gli utenti guest nello stato 2, la proprietà **Source** è impostata su **A
 
 ![Utente guest nello stato 2 dopo il riscatto dell'offerta](media/user-properties/after-redemption-state2.png)
 
-Per gli utenti guest negli stati 3 e 4, la proprietà **Source** è impostata su **Azure Active Directory** o **Windows Server Active Directory** , come descritto nella sezione successiva.
+Per gli utenti guest negli stati 3 e 4, la proprietà **Source** è impostata su **Azure Active Directory** o **Windows Server Active Directory**, come descritto nella sezione successiva.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Proprietà chiave dell'utente di Collaborazione B2B di Azure AD
 ### <a name="usertype"></a>UserType
@@ -73,7 +73,7 @@ Questa proprietà indica la relazione tra l'utente e la tenancy host. I valori p
 
 Per informazioni dettagliate sui prezzi, fare riferimento [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory).
 
-### <a name="source"></a>Origine
+### <a name="source"></a>Source (Sorgente)
 Questa proprietà indica la modalità di accesso dell'utente.
 
 - Utente invitato: l'utente è stato invitato ma non ha ancora riscattato l'invito.
@@ -110,7 +110,7 @@ Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elen
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>È possibile aggiornare l'indirizzo di posta elettronica di un utente Guest?
 
-Se un utente Guest accetta l'invito e successivamente modifica l'indirizzo di posta elettronica, il nuovo messaggio di posta elettronica non viene sincronizzato automaticamente con l'oggetto utente guest nella directory. La proprietà della posta elettronica viene creata tramite [Microsoft Graph API](/graph/api/resources/user?view=graph-rest-1.0). È possibile aggiornare la proprietà della posta elettronica tramite l'API di Microsoft Graph, l'interfaccia di amministrazione di Exchange o [PowerShell per Exchange Online](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). La modifica si rifletterà nell'oggetto utente Guest Azure AD.
+Se un utente Guest accetta l'invito e successivamente modifica l'indirizzo di posta elettronica, il nuovo messaggio di posta elettronica non viene sincronizzato automaticamente con l'oggetto utente guest nella directory. La proprietà della posta elettronica viene creata tramite [Microsoft Graph API](/graph/api/resources/user). È possibile aggiornare la proprietà della posta elettronica tramite l'API di Microsoft Graph, l'interfaccia di amministrazione di Exchange o [PowerShell per Exchange Online](/powershell/module/exchange/users-and-groups/set-mailuser). La modifica si rifletterà nell'oggetto utente Guest Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

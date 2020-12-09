@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441879"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860593"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -85,8 +85,8 @@ Un utente Guest può seguire questa procedura per visualizzare o esportare le or
 
 La lingua presentata all'utente guest nel messaggio di posta elettronica di invito è determinata dalle impostazioni seguenti. Queste impostazioni sono elencate in base all'ordine di precedenza. Se un'impostazione non è configurata, viene usata l'impostazione successiva per determinare la lingua.
 
-- Proprietà **messageLanguage** dell'oggetto [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se viene usata l'API di creazione dell'invito
--   Proprietà **preferredLanguage** specificata nell'[oggetto utente](/graph/api/resources/user?view=graph-rest-1.0) del guest
+- Proprietà **messageLanguage** dell'oggetto [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) se viene usata l'API di creazione dell'invito
+-   Proprietà **preferredLanguage** specificata nell'[oggetto utente](/graph/api/resources/user) del guest
 -   **Lingua delle notifiche** impostata nelle proprietà del tenant principale dell'utente guest (solo per i tenant di Azure AD)
 -   **Lingua delle notifiche** impostata nelle proprietà del tenant della risorsa
 

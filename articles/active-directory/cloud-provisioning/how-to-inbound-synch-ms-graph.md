@@ -11,17 +11,17 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797bf5c7e69990a29f0d14c31586d0e85b42426
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96737985"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860356"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>Sincronizzazione in ingresso per il provisioning del cloud con MS API Graph
 
 Il documento seguente descrive come replicare un profilo di sincronizzazione da zero usando solo le API MSGraph.  
-La struttura di questa procedura è costituita dai passaggi seguenti.  ovvero:
+La struttura di questa procedura è costituita dai passaggi seguenti.  Ad esempio:
 
 - [Configurazione di base](#basic-setup)
 - [Creare entità servizio](#create-service-principals)
@@ -30,7 +30,7 @@ La struttura di questa procedura è costituita dai passaggi seguenti.  ovvero:
 - [Avvia processo di sincronizzazione](#start-sync-job)
 - [Verifica stato](#review-status)
 
-Usare questi comandi [modulo di Microsoft Azure Active Directory per Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/?view=azureadps-1.0) per abilitare la sincronizzazione per un tenant di produzione, un prerequisito per poter chiamare il servizio Web di amministrazione per tale tenant.
+Usare questi comandi [modulo di Microsoft Azure Active Directory per Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/) per abilitare la sincronizzazione per un tenant di produzione, un prerequisito per poter chiamare il servizio Web di amministrazione per tale tenant.
 
 ## <a name="basic-setup"></a>Configurazione di base
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 607df39833a5ae787e9acb8d3b4df3c52dd7709d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6d4dd6e64053af41d66e3accbb7fc9b21d951fc6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173686"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860214"
 ---
 # <a name="conditional-access-programmatic-access"></a>Accesso condizionale: accesso a livello di codice
 
@@ -56,7 +56,7 @@ Questo esempio modella le procedure di distribuzione più sicure con flussi di l
 
 - [Innalzare di livello i criteri di accesso condizionale dagli ambienti](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/02-test)
 
-## <a name="deploy"></a>Distribuisci
+## <a name="deploy"></a>Distribuire
 
 Questo esempio fornisce un meccanismo per eseguire gradualmente i criteri di accesso condizionale per la distribuzione di gestione temporanea per la popolazione degli utenti, consentendo di gestire tempestivamente l'effetto del supporto e individuare i problemi.
 
@@ -96,6 +96,6 @@ Questi esempi sono disponibili nel [repository GitHub](https://github.com/Azure-
 
 - [Overview of Microsoft Graph (Panoramica di Microsoft Graph)](/graph/overview)
 
-- [API di accesso condizionale](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [API di accesso condizionale](/graph/api/resources/conditionalaccesspolicy)
 
-- [API località denominata](/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [API località denominata](/graph/api/resources/namedlocation)

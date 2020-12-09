@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85252713"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860933"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Convalida controllata dell'aggiunta ad Azure AD ibrido
 
@@ -63,7 +63,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
       1. Percorso della chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome valore: **TenantId**
       1. Tipo di valore: **REG_SZ**
-      1. Dati valore: GUID o **ID directory** dell'istanza di Azure ad (questo valore è disponibile nell' **Azure portal**  >  **Azure Active Directory**  >  **Properties**  >  **ID directory**delle proprietà portale di Azure Azure Active Directory)
+      1. Dati valore: GUID o **ID directory** dell'istanza di Azure ad (questo valore è disponibile nell' **Azure portal**  >  **Azure Active Directory**  >  **Properties**  >  **ID directory** delle proprietà portale di Azure Azure Active Directory)
    1. Fare clic su **OK**.
 1. Fare clic con il pulsante destro del mouse sul Registro di sistema e selezionare **nuovo**  >  **elemento del registro**
    1. Nella scheda **generale** configurare quanto segue:
@@ -82,7 +82,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
 Se si utilizza AD FS, prima di tutto è necessario configurare SCP sul lato client attenendosi alle istruzioni sopra riportate mediante il collegamento dell'oggetto Criteri di gruppo ai server di AD FS. L'oggetto SCP definisce l'origine dell'autorità per gli oggetti dispositivo. Può essere locale o Azure AD. Quando SCP sul lato client è configurato per AD FS, l'origine per gli oggetti dispositivo viene stabilita come Azure AD.
 
 > [!NOTE]
-> Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata come in locale. ADFS avvierà quindi l'eliminazione degli oggetti dispositivo dalla directory locale dopo il periodo stabilito definito nell'attributo "MaximumInactiveDays" della registrazione del dispositivo ADFS. È possibile trovare gli oggetti di registrazione del dispositivo ADFS usando il [cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata come in locale. ADFS avvierà quindi l'eliminazione degli oggetti dispositivo dalla directory locale dopo il periodo stabilito definito nell'attributo "MaximumInactiveDays" della registrazione del dispositivo ADFS. È possibile trovare gli oggetti di registrazione del dispositivo ADFS usando il [cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Convalida controllata del join di Azure AD ibrido nei dispositivi Windows di livello inferiore
 

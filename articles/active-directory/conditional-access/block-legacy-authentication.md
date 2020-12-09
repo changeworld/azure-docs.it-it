@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489523"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860321"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy ad Azure AD con l'accesso condizionale   
 
@@ -115,11 +115,11 @@ La configurazione di un criterio per **Altri client** blocca l'intera organizzaz
 
 Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 
-È possibile selezionare tutti i controlli di concessione disponibili per la condizione **Altri client** , ma l'esperienza dell'utente finale sarà sempre la stessa: l'accesso è bloccato.
+È possibile selezionare tutti i controlli di concessione disponibili per la condizione **Altri client**, ma l'esperienza dell'utente finale sarà sempre la stessa: l'accesso è bloccato.
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>Utenti Guest SharePoint Online e B2B
 
-Per bloccare l'accesso degli utenti B2B tramite l'autenticazione legacy a SharePoint Online, le organizzazioni devono disabilitare l'autenticazione legacy in SharePoint usando il `Set-SPOTenant` comando di PowerShell e impostando il `-LegacyAuthProtocolsEnabled` parametro su `$false` . Altre informazioni sull'impostazione di questo parametro sono disponibili nel documento di riferimento di PowerShell per SharePoint relativo a [set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
+Per bloccare l'accesso degli utenti B2B tramite l'autenticazione legacy a SharePoint Online, le organizzazioni devono disabilitare l'autenticazione legacy in SharePoint usando il `Set-SPOTenant` comando di PowerShell e impostando il `-LegacyAuthProtocolsEnabled` parametro su `$false` . Altre informazioni sull'impostazione di questo parametro sono disponibili nel documento di riferimento di PowerShell per SharePoint relativo a [set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

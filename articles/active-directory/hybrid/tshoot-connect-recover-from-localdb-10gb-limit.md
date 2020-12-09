@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997648"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858400"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Come eseguire il ripristino dal limite di 10 GB per LocalDB
 Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. È possibile usare l'istanza predefinita di SQL Server 2012 Express LocalDB installata con Azure AD Connect oppure usare la versione di SQL completa. SQL Server Express impone un limite di 10 GB. Quando si usa LocalDB e viene raggiunto questo limite, il servizio di sincronizzazione Azure AD Connect non può più essere avviato o eseguire la sincronizzazione correttamente. Questo articolo illustra la procedura di ripristino.
@@ -55,7 +55,7 @@ Determinare prima se il servizio di sincronizzazione è ancora in esecuzione:
 5. Se non è in esecuzione, provare ad avviare il servizio. Se il servizio si avvia, ignorare il passaggio [Compattare il database](#shrink-the-database) e proseguire con il passaggio [Eliminare i dati della cronologia di esecuzione](#delete-run-history-data). In caso contrario, proseguire con il passaggio [Compattare il database](#shrink-the-database).
 
 ### <a name="shrink-the-database"></a>Compattare il database
-Usare l'operazione di compattazione per liberare spazio del database sufficiente per avviare il servizio di sincronizzazione. Lo spazio verrà liberato rimuovendo gli spazi vuoti presenti nel database. Si tratta del miglior tentativo possibile, dato che non è certo che sia sempre possibile recuperare lo spazio. Per altre informazioni sull'operazione di compattazione, vedere l'articolo [Compattare un database](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
+Usare l'operazione di compattazione per liberare spazio del database sufficiente per avviare il servizio di sincronizzazione. Lo spazio verrà liberato rimuovendo gli spazi vuoti presenti nel database. Si tratta del miglior tentativo possibile, dato che non è certo che sia sempre possibile recuperare lo spazio. Per altre informazioni sull'operazione di compattazione, vedere l'articolo [Compattare un database](/sql/relational-databases/databases/shrink-a-database).
 
 > [!IMPORTANT]
 > Ignorare questo passaggio se è possibile eseguire il servizio di sincronizzazione. Non è consigliabile compattare il database SQL, perché può causare una riduzione delle prestazioni a causa di una maggiore frammentazione.

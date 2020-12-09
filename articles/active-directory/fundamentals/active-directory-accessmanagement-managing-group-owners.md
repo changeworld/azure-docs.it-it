@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2847678c78aec4a287427463a9aeeb8bd82c6771
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 358a551908a7263f3258f47dfe1cceeffe2307b1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371937"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860491"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Aggiungere o rimuovere i proprietari dei gruppi in Azure Active Directory
 I gruppi di Azure Active Directory (Azure AD) sono di proprietà e gestiti dai proprietari del gruppo. I proprietari del gruppo possono essere utenti o entità servizio e sono in grado di gestire il gruppo, inclusa l'appartenenza. Solo i proprietari del gruppo o gli amministratori di gestione dei gruppi esistenti possono assegnare i proprietari del gruppo. Non è necessario che il proprietario del gruppo sia un membro del gruppo.
@@ -25,14 +25,14 @@ I gruppi di Azure Active Directory (Azure AD) sono di proprietà e gestiti dai p
 Quando un gruppo non ha proprietario, gli amministratori di gestione dei gruppi possono comunque gestire il gruppo. Per ogni gruppo è consigliabile avere almeno un proprietario. Una volta che i proprietari sono assegnatiti a un gruppo, non è possibile rimuovere l'ultimo proprietario del gruppo. Assicurarsi di selezionare un altro proprietario prima di rimuovere l'ultimo proprietario dal gruppo.
 
 ## <a name="add-an-owner-to-a-group"></a>Aggiungere un proprietario a un gruppo
-Di seguito sono riportate le istruzioni per l'aggiunta di un utente come proprietario a un gruppo tramite il portale di Azure AD. Per aggiungere un'entità servizio come proprietario di un gruppo, seguire le istruzioni per eseguire questa operazione usando [PowerShell](/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
+Di seguito sono riportate le istruzioni per l'aggiunta di un utente come proprietario a un gruppo tramite il portale di Azure AD. Per aggiungere un'entità servizio come proprietario di un gruppo, seguire le istruzioni per eseguire questa operazione usando [PowerShell](/powershell/module/Azuread/Add-AzureADGroupOwner).
 
 ### <a name="to-add-a-group-owner"></a>Per aggiungere un proprietario del gruppo
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per la directory.
 
 2. Selezionare **Azure Active Directory**, **Gruppi** e quindi selezionare il gruppo per il quale si vuole aggiungere un proprietario. In questo esempio *MDM policy - West*.
 
-3. Nella pagina **Panoramica MDM policy - West ** selezionare **Proprietari**.
+3. Nella pagina **Panoramica MDM policy - West** selezionare **Proprietari**.
 
     ![Pagina Panoramica MDM policy - West con l'opzione Proprietari evidenziata](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
 
@@ -50,7 +50,7 @@ Rimuovere un proprietario da un gruppo con Azure AD.
 
 2. Selezionare **Azure Active Directory**, **Gruppi** e quindi il gruppo per il quale si vuole rimuovere un proprietario. In questo esempio, *MDM policy - West*.
 
-3. Nella pagina **Panoramica MDM policy - West ** selezionare **Proprietari**.
+3. Nella pagina **Panoramica MDM policy - West** selezionare **Proprietari**.
 
     ![Criteri MDM-pagina Panoramica occidentale con opzione Rimuovi proprietari evidenziata](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
 

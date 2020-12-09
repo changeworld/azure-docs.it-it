@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2999fb8b3c3687c68e7eb38a60f128e24028871f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: fed7123d916c1dc0facab3bd22e6b3f03d39684f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779703"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858961"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -279,7 +279,7 @@ Tutte le combinazioni client-server e browser-server devono usare TLS 1,2 e i pa
 
 Gli ambienti interessati sono:
 - US Gov di Azure
-- [Office 365 GCC High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc?view=o365-worldwide)
+- [Office 365 GCC High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc)
  
 ---
 
@@ -354,7 +354,7 @@ L'esperienza di Integration Assistant (anteprima) è ora disponibile per Azure A
 
 È ora possibile visualizzare l'ID modello di ogni ruolo Azure AD nel portale di Azure. In Azure AD selezionare  **Descrizione** del ruolo selezionato. 
 
-È consigliabile che i clienti usino gli ID dei modelli di ruolo nel codice e nello script di PowerShell, anziché il nome visualizzato. L'ID del modello di ruolo è supportato per l'uso degli oggetti [directoryRoles](/graph/api/resources/directoryrole?view=graph-rest-1.0) e [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) . Per ulteriori informazioni sugli ID dei modelli di ruolo, vedere [ID dei modelli di ruolo](../roles/permissions-reference.md#role-template-ids).
+È consigliabile che i clienti usino gli ID dei modelli di ruolo nel codice e nello script di PowerShell, anziché il nome visualizzato. L'ID del modello di ruolo è supportato per l'uso degli oggetti [directoryRoles](/graph/api/resources/directoryrole) e [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) . Per ulteriori informazioni sugli ID dei modelli di ruolo, vedere [ID dei modelli di ruolo](../roles/permissions-reference.md#role-template-ids).
 
 ---
 
@@ -678,7 +678,7 @@ Se nell'organizzazione sono presenti regole del firewall in uscita, aggiornare l
 **Tipo:** Modifica pianificata  
 **Categoria di servizio:** Funzionalità del **prodotto** Identity Protection: protezione & della sicurezza delle identità
 
-Si sta aggiornando il portale Identity Secure score per allinearsi alle modifiche introdotte nella [nuova versione](/microsoft-365/security/mtp/microsoft-secure-score-whats-new?view=o365-worldwide)di Microsoft Secure score. 
+Si sta aggiornando il portale Identity Secure score per allinearsi alle modifiche introdotte nella [nuova versione](/microsoft-365/security/mtp/microsoft-secure-score-whats-new)di Microsoft Secure score. 
 
 La versione di anteprima con le modifiche sarà disponibile all'inizio di settembre. Le modifiche apportate alla versione di anteprima includono:
 - "Punteggio sicuro identità" rinominato "Punteggio sicuro per l'identità" per l'allineamento del marchio con Microsoft Secure Score
@@ -1057,7 +1057,7 @@ I tenant di Azure per enti pubblici che usano le funzionalità di collaborazione
 **Funzionalità del prodotto:** B2B/B2C
  
 
-Le proprietà externalUserState e externalUserStateChangedDateTime possono essere usate per trovare i guest B2B invitati che non hanno accettato gli inviti ma anche l'automazione della compilazione, ad esempio l'eliminazione di utenti che non hanno accettato gli inviti dopo un certo numero di giorni. Queste proprietà sono ora disponibili in MS Graph V1. Per informazioni sull'uso di queste proprietà, vedere [tipo di risorsa utente](/graph/api/resources/user?view=graph-rest-1.0).
+Le proprietà externalUserState e externalUserStateChangedDateTime possono essere usate per trovare i guest B2B invitati che non hanno accettato gli inviti ma anche l'automazione della compilazione, ad esempio l'eliminazione di utenti che non hanno accettato gli inviti dopo un certo numero di giorni. Queste proprietà sono ora disponibili in MS Graph V1. Per informazioni sull'uso di queste proprietà, vedere [tipo di risorsa utente](/graph/api/resources/user).
  
 ---
 
@@ -1131,7 +1131,7 @@ Una nuova autorizzazione delegata EntitlementManagement. Read. All è ora dispon
 **Categoria di servizio:** Identity Protection  
 **Funzionalità del prodotto:** Protezione e sicurezza delle identità
  
-Le API Microsoft Graph riskyUsers e riskDetections sono ora disponibili a livello generale. Ora che sono disponibili nell'endpoint v 1.0, viene invitato a usarli nell'ambiente di produzione. Per ulteriori informazioni, consultare la documentazione di [Microsoft Graph](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0).
+Le API Microsoft Graph riskyUsers e riskDetections sono ora disponibili a livello generale. Ora che sono disponibili nell'endpoint v 1.0, viene invitato a usarli nell'ambiente di produzione. Per ulteriori informazioni, consultare la documentazione di [Microsoft Graph](/graph/api/resources/identityprotectionroot).
  
 ---
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da8fe904f71fdf6f01c926bf6fa3f050ba825309
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548138"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859879"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
@@ -28,7 +28,7 @@ In questo articolo sono contenute le istruzioni per l'uso di cmdlet PowerShell i
 > [!IMPORTANT]
 > Alcune impostazioni richiedono una licenza per Azure Active Directory Premium P1. Per altre informazioni, vedere la tabella relativa alle [impostazioni modello](#template-settings).
 
-Per altre informazioni su come evitare che utenti non amministratori creino gruppi di sicurezza, configurare il valore `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` come illustrato in [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Per altre informazioni su come evitare che utenti non amministratori creino gruppi di sicurezza, configurare il valore `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` come illustrato in [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
 
 Le impostazioni di gruppi di Microsoft 365 vengono configurate utilizzando un oggetto Settings e un oggetto SettingsTemplate. Non vengono inizialmente visualizzati oggetti Settings nella directory, perché la directory è configurata con le impostazioni personalizzate. Per modificarle, è necessario creare un nuovo oggetto Settings usando un modello di impostazioni. I modelli di impostazioni sono definiti da Microsoft. Sono disponibili diversi modelli di impostazioni. Per configurare le impostazioni di gruppo Microsoft 365 per la directory, usare il modello denominato "Group. Unified". Per configurare le impostazioni di gruppo Microsoft 365 per un singolo gruppo, usare il modello denominato "Group. Unified. Guest". Questo modello viene usato per gestire l'accesso Guest a un gruppo di Microsoft 365. 
 
@@ -319,7 +319,7 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Riferimento alla sintassi cmdlet
-Per altre informazioni su Azure Active Directory PowerShell, consultare la documentazione sui [cmdlet di Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Per altre informazioni su Azure Active Directory PowerShell, consultare la documentazione sui [cmdlet di Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="additional-reading"></a>Altre letture
 

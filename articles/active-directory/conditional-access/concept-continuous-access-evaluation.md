@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602258"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860304"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -105,7 +105,7 @@ Se non si usano client con supporto per CAE, la durata dei token di accesso pred
 
 1. Un client in grado di supportare CAE presenta le credenziali o un token di aggiornamento per Azure AD richiedere un token di accesso per una risorsa.
 1. Viene restituito un token di accesso insieme ad altri artefatti al client.
-1. Un amministratore revoca in modo esplicito [tutti i token di aggiornamento per l'utente](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Un evento di revoca verrà inviato al provider di risorse da Azure AD.
+1. Un amministratore revoca in modo esplicito [tutti i token di aggiornamento per l'utente](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Un evento di revoca verrà inviato al provider di risorse da Azure AD.
 1. Un token di accesso viene presentato al provider di risorse. Il provider di risorse valuta la validità del token e controlla se è presente un evento di revoca per l'utente. Il provider di risorse utilizza queste informazioni per decidere di concedere l'accesso alla risorsa.
 1. In questo caso, il provider di risorse nega l'accesso e invia una richiesta di attestazione 401 + al client.
 1. Il client in grado di supportare CAE riconosce la richiesta di attestazione 401 +. Ignora le cache e torna al passaggio 1, inviando il token di aggiornamento insieme alla richiesta di attestazione al Azure AD. Azure AD valuterà quindi tutte le condizioni e chiederà all'utente di eseguire nuovamente l'autenticazione in questo caso.

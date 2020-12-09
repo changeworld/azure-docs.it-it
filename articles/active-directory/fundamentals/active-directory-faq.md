@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a8fcb14ac397791822c3a9065275dbfb2b3b7dd
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371869"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860423"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -130,7 +130,7 @@ Per Microsoft 365 utenti, l'amministratore può reimpostare la password usando l
 Per gli account Azure AD, gli amministratori possono reimpostare le password in uno dei modi seguenti:
 
 - [Reimpostare gli account nel portale di Azure](active-directory-users-reset-password-azure-portal.md)
-- [Tramite PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Tramite PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
 
 ---
