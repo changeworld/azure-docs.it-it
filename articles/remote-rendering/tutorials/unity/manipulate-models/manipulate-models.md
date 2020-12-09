@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565971"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559134"
 ---
 # <a name="tutorial-manipulating-models"></a>Esercitazione: Manipolazione dei modelli
 
@@ -176,7 +176,7 @@ Questa esercitazione usa MRTK per l'interazione degli oggetti. La maggior parte 
 1. Premere il pulsante Play di Unity per riprodurre la scena e aprire il menu **Model Tools** (Strumenti modello) all'interno di **AppMenu**.
 ![Controller di visualizzazione](./media/model-with-view-controller.png)
 
-**AppMenu** include il sottomenu **Model Tools** (Strumenti modello) che implementa un controller di visualizzazione per il binding con il modello. Quando il GameObject contiene un componente **RemoteBounds**, il controller di visualizzazione aggiungerà un componente [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), ovvero un componente MRTK che esegue il rendering di un rettangolo di delimitazione intorno a un oggetto con **BoxCollider**. [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator), responsabile delle interazioni con la mano. Questi script combinati consentiranno di spostare, ruotare e dimensionare il modello sottoposto a rendering remoto.
+**AppMenu** include il sottomenu **Model Tools** (Strumenti modello) che implementa un controller di visualizzazione per il binding con il modello. Quando il GameObject contiene un componente **RemoteBounds**, il controller di visualizzazione aggiungerà un componente [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html), ovvero un componente MRTK che esegue il rendering di un rettangolo di delimitazione intorno a un oggetto con **BoxCollider**. [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html), responsabile delle interazioni con la mano. Questi script combinati consentiranno di spostare, ruotare e dimensionare il modello sottoposto a rendering remoto.
 
 1. Spostare il mouse sul pannello del gioco e fare clic al suo interno per attivarlo.
 1. Usando la [simulazione della mano di MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), tenere premuto MAIUSC sinistro.

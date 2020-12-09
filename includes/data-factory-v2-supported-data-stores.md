@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 12/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 2b1e9527b5f876b1509422cc19b63db29c35c5a2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 39f232a9bd92da6560989b39a811afc44224e375
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96500079"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902163"
 ---
 | Category | Archivio dati | Supportato come origine | Supportato come sink | Supportato dal [runtime di integrazione di Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supportato dal [runtime di integrazione self-hosted](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -73,7 +73,7 @@ ms.locfileid: "96500079"
 | **Protocollo generico** |[HTTP generico](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[OData generico](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC generico](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| &nbsp; |[REST generico](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
+| &nbsp; |[REST generico](../articles/data-factory/connector-rest.md) |✓ | ✓ |✓ |✓  |
 | **Servizi e app** |[Amazon Marketplace Web Service](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (anteprima)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
