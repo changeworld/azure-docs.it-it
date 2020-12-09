@@ -2,17 +2,17 @@
 title: Inserire le impostazioni nella configurazione dell'app con Azure Pipelines
 description: Informazioni su come usare Azure Pipelines per eseguire il push dei valori di chiave in un archivio di configurazione dell'app
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.author: lcozzens
-ms.openlocfilehash: 7c0f886f23bc24eeed54043e9a7ee5fb1f645172
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.author: alkemper
+ms.openlocfilehash: fd3f7dbfd824360dcba9f8a166c579e3b55527ba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572508"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932116"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Inserire le impostazioni nella configurazione dell'app con Azure Pipelines
 
@@ -56,7 +56,7 @@ Assegnare le assegnazioni di ruolo di configurazione dell'app appropriate alle c
 
 Questa sezione illustra come usare l'attività push di configurazione app Azure in una pipeline di compilazione di Azure DevOps.
 
-1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  **Pipelines**. La documentazione per le pipeline di compilazione è disponibile [qui](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
+1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  . La documentazione per le pipeline di compilazione è disponibile [qui](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
       - Se si sta creando una nuova pipeline di compilazione, selezionare **Mostra Assistente** sul lato destro della pipeline e cercare l'attività push di **configurazione app Azure** .
       - Se si usa una pipeline di compilazione esistente, passare alla scheda **attività** quando si modifica la pipeline e cercare l'attività **Push di configurazione app Azure** .
 2. Configurare i parametri necessari per l'attività per eseguire il push dei valori di chiave dal file di configurazione nell'archivio di configurazione dell'app. Il parametro del **percorso del file di configurazione** inizia dalla radice del repository di file.

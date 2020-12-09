@@ -1,24 +1,24 @@
 ---
 title: API REST di Azure Active Directory-test con Fiddler
 description: Usare Fiddler per testare l'API REST di configurazione di app Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 3766567fe58e8d2eb86556d3defa7a85efd9b2fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1142aa25212d87c5484963cda4e172df3d1fbafc
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424150"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932609"
 ---
 # <a name="test-the-azure-app-configuration-rest-api-using-fiddler"></a>Testare l'API REST di configurazione di app Azure usando Fiddler
 
 Per testare l'API REST con [Fiddler](https://www.telerik.com/fiddler), è necessario includere le intestazioni HTTP necessarie per [l'autenticazione](./rest-api-authentication-hmac.md) nelle richieste. Di seguito viene illustrato come configurare Fiddler per il test dell'API REST, generando automaticamente le intestazioni di autenticazione:
 
 1. Assicurarsi che TLS 1,2 sia un protocollo consentito:
-    1. Passare a **strumenti**  >  **Opzioni**  >  **https** ).
+    1. Passare a **strumenti**  >  **Opzioni**  >  **https**).
     1. Verificare che il **traffico HTTPS di decrittografia** sia selezionato.
     1. Nell'elenco dei protocolli aggiungere **TLS 1.2** se non è presente.
 1. Aprire l' **editor di script Fiddler** oppure premere **CTRL + R** in Fiddler

@@ -2,17 +2,17 @@
 title: Importare o esportare dati con la configurazione di app Azure
 description: Informazioni su come importare o esportare i dati di configurazione in o da app Azure configurazione. Scambiare dati tra l'archivio di configurazione dell'app e il progetto di codice.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 0e127a11f3821325602a78d46c69b2330bfb8293
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 5e4eeb37bb5efa11a656600072e4aa364fc71500
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074618"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931793"
 ---
 # <a name="import-or-export-configuration-data"></a>Importare o esportare dati di configurazione
 
@@ -28,7 +28,7 @@ Importare i dati usando l'interfaccia della riga di comando di [portale di Azure
 
 1. Passare all'archivio di configurazione dell'app e selezionare **Importa/Esporta** dal menu **operazioni** .
 
-1. Nella scheda **Importa** selezionare file di configurazione del **servizio di origine**  >  **Configuration File**.
+1. Nella scheda **Importa** selezionare file di configurazione del **servizio di origine**  >  .
 
 1. Selezionare **per lingua** e selezionare il tipo di input desiderato.
 
@@ -36,7 +36,7 @@ Importare i dati usando l'interfaccia della riga di comando di [portale di Azure
 
     ![File da importare](./media/import-file.png)
 
-1. Selezionare un **separatore**ed eventualmente immettere un **prefisso** da usare per i nomi delle chiavi importate.
+1. Selezionare un **separatore** ed eventualmente immettere un **prefisso** da usare per i nomi delle chiavi importate.
 
 1. Facoltativamente, selezionare un' **etichetta**.
 
@@ -44,7 +44,7 @@ Importare i dati usando l'interfaccia della riga di comando di [portale di Azure
 
     ![Importazione file completata](./media/import-file-complete.png)
 
-## <a name="export-data"></a>Esporta dati
+## <a name="export-data"></a>Esportazione dei dati
 
 Esporta scrive i dati di configurazione archiviati nella configurazione dell'app in un'altra destinazione. Usare la funzione Export, ad esempio, per salvare i dati in un archivio di configurazione dell'app in un file incorporato con il codice dell'applicazione durante la distribuzione.
 
@@ -52,11 +52,11 @@ Esportare i dati usando il [portale di Azure](https://portal.azure.com) o l'inte
 
 1. Individuare l'archivio di configurazione dell'app e selezionare **Importa/Esporta**.
 
-1. Nella scheda **Esporta** selezionare il file di configurazione del **servizio di destinazione**  >  **Configuration File**.
+1. Nella scheda **Esporta** selezionare il file di configurazione del **servizio di destinazione**  >  .
 
 1. Immettere facoltativamente un **prefisso** e selezionare un' **etichetta** e un punto nel tempo per le chiavi da esportare.
 
-1. Selezionare un **File type**  >  **separatore**di tipo di file.
+1. Selezionare un   >  **separatore** di tipo di file.
 
 1. Selezionare **applica** per completare l'esportazione.
 

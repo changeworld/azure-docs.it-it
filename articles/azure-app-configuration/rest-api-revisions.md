@@ -1,17 +1,17 @@
 ---
 title: API REST di configurazione app Azure-revisioni chiave-valore
 description: Pagine di riferimento per l'uso di revisioni chiave-valore tramite l'API REST di configurazione app Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: cfa117d1ed017170c279b7c4e0a146ae4edac108
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95246385"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932473"
 ---
 # <a name="key-value-revisions"></a>Revisioni chiave-valore
 
@@ -159,7 +159,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 - Tutto:
 

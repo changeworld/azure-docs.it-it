@@ -1,18 +1,18 @@
 ---
 title: Funzioni di modello
-description: Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione.
+description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per recuperare i valori, usare stringhe e numeri e recuperare le informazioni di distribuzione.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961171"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931708"
 ---
 # <a name="arm-template-functions"></a>Funzioni modello ARM
 
-Questo articolo descrive tutte le funzioni che è possibile usare in un modello di Azure Resource Manager (ARM). Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](template-expressions.md).
+Questo articolo descrive tutte le funzioni che è possibile usare in un modello di Azure Resource Manager (modello ARM). Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](template-expressions.md).
 
 Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](template-syntax.md#functions).
 
@@ -250,7 +250,7 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello ARM, vedere [creazione di modelli ARM](template-syntax.md)
-* Per unire più modelli, vedere [uso di modelli collegati con Azure Resource Manager](linked-templates.md)
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
-* Per informazioni su come distribuire il modello creato, vedere [distribuire un'applicazione con i modelli ARM](deploy-powershell.md)
+* Per una descrizione delle sezioni in un modello ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per unire più modelli, vedere [uso di modelli collegati e annidati durante la distribuzione di risorse di Azure](linked-templates.md).
+* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [iterazione delle risorse nei modelli ARM](copy-resources.md).
+* Per informazioni su come distribuire il modello creato, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](deploy-powershell.md).

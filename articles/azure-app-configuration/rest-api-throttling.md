@@ -1,17 +1,17 @@
 ---
 title: API REST di configurazione app Azure-limitazione
 description: Pagine di riferimento per comprendere la limitazione quando si usa l'API REST di configurazione di app Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 26464138b7739bb476d9d0dd1078194473ecd23e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b4472fdcacfe5b62c0cded089224c6d41e32f47d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424270"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932439"
 ---
 # <a name="throttling"></a>Limitazione
 

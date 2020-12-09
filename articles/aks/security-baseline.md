@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6612e6982ae4826869134dfa46b35a3f202d4bbb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183244"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931810"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Baseline della sicurezza di Azure per il servizio Azure Kubernetes
 
@@ -178,7 +178,7 @@ Usare una qualsiasi delle definizioni correlate all'assegnazione di tag dei crit
 
 Scegliere di consentire o negare percorsi di rete specifici all'interno del cluster in base agli spazi dei nomi e ai selettori di etichette con i criteri di rete. Usare questi spazi dei nomi ed etichette come descrittori per le regole di configurazione del traffico. Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag.
 
-- [Criteri di Azure con interfaccia della riga di comando](/cli/azure/policy?view=azure-cli-latest)
+- [Criteri di Azure con interfaccia della riga di comando](/cli/azure/policy)
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -382,7 +382,7 @@ Usare l'interfaccia della riga di comando di Azure per operazioni come ' ottener
 
 - [Come integrare AKS con Azure AD](./azure-ad-integration-cli.md)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Come monitorare l'identità e l'accesso con il Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -547,7 +547,7 @@ Tenere presente i ruoli usati a scopo di supporto o per la risoluzione dei probl
 
 **Responsabilità**: Non applicabile
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
@@ -735,7 +735,7 @@ Si noti che il processo per tenere aggiornati i nodi di Windows Server differisc
 
 Usare il cmdlet di PowerShell "Get-AzSecurityTask" per automatizzare il recupero delle attività di sicurezza consigliate dal centro sicurezza per rafforzare il comportamento di sicurezza e i risultati dell'analisi delle vulnerabilità di correzione.
 
-- [Come usare PowerShell per visualizzare le vulnerabilità individuate dal centro sicurezza di Azure](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Come usare PowerShell per visualizzare le vulnerabilità individuate dal centro sicurezza di Azure](/powershell/module/az.security/get-azsecuritytask)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -763,7 +763,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Graph d
 
 - [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -927,15 +927,15 @@ Concedere agli utenti o ai gruppi l'accesso alle risorse Kubernetes all'interno 
 
 Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri dei gruppi amministrativi AKS e usarli per riconciliare l'accesso a intervalli regolari. Usare l'interfaccia della riga di comando di Azure per operazioni come ' ottenere le credenziali di accesso per un cluster Kubernetes gestito. Implementare le raccomandazioni per la gestione dell'identità e dell'accesso del Centro sicurezza.
 
-- [Gestire AKS con l'interfaccia della riga di comando di Azure](/cli/azure/aks?view=azure-cli-latest)
+- [Gestire AKS con l'interfaccia della riga di comando di Azure](/cli/azure/aks)
 
 - [Informazioni sull'integrazione di AKS e Azure AD](concepts-identity.md)
 
 - [Come integrare AKS con Azure AD](./azure-ad-integration-cli.md)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Come monitorare l'identità e l'accesso con il Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -1055,7 +1055,7 @@ Protezione avanzata per il sistema operativo host del nodo AKS Agent
 
 security-hardened-vm-host-image.md
 
-- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
