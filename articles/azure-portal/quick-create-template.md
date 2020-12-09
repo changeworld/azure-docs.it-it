@@ -1,18 +1,15 @@
 ---
 title: Creare un dashboard del portale di Azure usando un modello di Azure Resource Manager
 description: Informazioni su come creare un dashboard del portale di Azure usando un modello di Azure Resource Manager.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85560494"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745724"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Avvio rapido: Creare un dashboard nel portale di Azure usando un modello di Resource Manager
 

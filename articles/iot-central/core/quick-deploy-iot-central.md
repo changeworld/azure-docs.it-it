@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a156150c2cd28964658fa8529181a70ef546b78f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a2d48a6f4e451e2a9b4140618c7c590293cb5ef5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457327"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548529"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Avvio rapido: Creare un'applicazione Azure IoT Central
 
@@ -29,7 +29,7 @@ Per creare una nuova applicazione Azure IoT Central dal modello **Applicazione p
 
 1. Passare alla pagina **Crea**:
 
-    ![Pagina Crea un'applicazione IoT](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="Pagina Crea un'applicazione IoT":::
 
 1. Scegliere **App personalizzate** e assicurarsi che sia selezionato il modello **Applicazione personalizzata**.
 
@@ -37,9 +37,9 @@ Per creare una nuova applicazione Azure IoT Central dal modello **Applicazione p
 
 1. Azure IoT Central genera anche un prefisso **URL di applicazione** univoco in base al nome dell'applicazione. Questo URL viene usato per accedere all'applicazione. Sostituire questo prefisso di URL con un qualcosa di più facile da ricordare.
 
-    ![Pagina Creare un'applicazione di Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Pagina Creare un'applicazione di Azure IoT Central":::
 
-    ![Informazioni sulla fatturazione di Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Informazioni sulla fatturazione di Azure IoT Central":::
 
     > [!NOTE]
     > Se nella pagina precedente si è scelto **App personalizzata**, si vedrà l'elenco a discesa **Modello di applicazione**. Nell'elenco a discesa potrebbero essere visualizzati anche altri modelli resi disponibili dall'organizzazione.
@@ -57,7 +57,7 @@ Per creare una nuova applicazione Azure IoT Central dal modello **Applicazione p
 
 1. Esaminare i termini e le condizioni e selezionare **Crea** nella parte inferiore della pagina. Dopo alcuni minuti, l'applicazione IoT Central è pronta per l'uso:
 
-    ![Applicazione Azure IoT Central](media/quick-deploy-iot-central/iotcentral-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Applicazione Azure IoT Central":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

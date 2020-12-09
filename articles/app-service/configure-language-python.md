@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183737"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855057"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -101,19 +101,19 @@ Le applicazione Web esistenti possono essere ridistribuite in Azure come indicat
 1. **Repository di origine**: mantenere il codice sorgente in un repository adatto, come GitHub, per configurare la distribuzione continua più avanti nel processo.
     1. Il file *requirements.txt* deve trovarsi alla radice del repository affinché il servizio app installi automaticamente i pacchetti necessari.    
 
-1. **Database**: se l'app dipende da un database, effettuare anche il provisioning delle risorse necessarie in Azure. Vedere [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Creare un database](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) per un esempio.
+1. **Database**: se l'app dipende da un database, effettuare anche il provisioning delle risorse necessarie in Azure. Vedere [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Creare un database](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) per un esempio.
 
-1. **Risorse del servizio app**: creare un gruppo di risorse, un piano di servizio app e un app Web del servizio app in cui ospitare l'applicazione. Per semplificare notevolmente questa procedura, eseguire una distribuzione iniziale del codice tramite il comando `az webapp up` dell'interfaccia della riga di comando di Azure, come illustrato in [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Distribuire il codice](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Sostituire i nomi del gruppo di risorse, del piano di servizio app e dell'app Web in base ai requisiti dell'applicazione.
+1. **Risorse del servizio app**: creare un gruppo di risorse, un piano di servizio app e un app Web del servizio app in cui ospitare l'applicazione. Per semplificare notevolmente questa procedura, eseguire una distribuzione iniziale del codice tramite il comando `az webapp up` dell'interfaccia della riga di comando di Azure, come illustrato in [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Distribuire il codice](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Sostituire i nomi del gruppo di risorse, del piano di servizio app e dell'app Web in base ai requisiti dell'applicazione.
 
 1. **Environment variables** (Variabili di ambiente): se l'applicazione richiede variabili di ambiente, creare [impostazione applicazione equivalenti del servizio app](configure-common.md#configure-app-settings). Queste impostazioni del servizio app vengono visualizzate nel codice come variabili di ambiente, come descritto in [Accedere alle variabili di ambiente](#access-app-settings-as-environment-variables).
-    - Le connessioni di database, ad esempio, vengono spesso gestite tramite tali impostazioni, come illustrato in [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Configurare le variabili per la connessione del database](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Le connessioni di database, ad esempio, vengono spesso gestite tramite tali impostazioni, come illustrato in [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Configurare le variabili per la connessione del database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
     - Per le impostazioni specifiche di tipiche app Django, vedere [Impostazioni di produzione per le app Django](#production-settings-for-django-apps).
 
 1. **Avvio dell'app**: per informazioni sul modo in cui il servizio app prova a eseguire l'app, vedere la sezione [Processo di avvio del contenitore](#container-startup-process) più avanti in questo articolo. Il servizio app usa il server Web Gunicorn per impostazione predefinita, che deve essere in grado di trovare l'oggetto app o la cartella *wsgi.py*. Se necessario, è possibile [personalizzare il comando di avvio](#customize-startup-command).
 
 1. **Distribuzione continua**: configurare la distribuzione continua come descritto in [Distribuzione continua nel servizio app di Azure](deploy-continuous-deployment.md), se si usa una distribuzione di Azure Pipelines o Kudu, oppure come descritto in [Eseguire la distribuzione nel servizio app usando GitHub Actions](deploy-github-actions.md), se si usano azioni GitHub.
 
-1. **Azioni personalizzate**: per eseguire azioni all'interno del contenitore del servizio app che ospita l'app, ad esempio migrazioni di database Django, è possibile [connettersi al contenitore tramite SSH](configure-linux-open-ssh-session.md). Per un esempio di migrazioni di database Django, vedere [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Eseguire migrazioni di database](tutorial-python-postgresql-app.md#run-django-database-migrations).
+1. **Azioni personalizzate**: per eseguire azioni all'interno del contenitore del servizio app che ospita l'app, ad esempio migrazioni di database Django, è possibile [connettersi al contenitore tramite SSH](configure-linux-open-ssh-session.md). Per un esempio di migrazioni di database Django, vedere [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Eseguire migrazioni di database](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Con la distribuzione continua, è possibile eseguire queste azioni usando comandi di post-compilazione, come descritto in precedenza nella sezione [Personalizzare l'automazione della compilazione](#customize-build-automation).
 
 Una volta completati questi passaggi, sarà possibile eseguire il commit delle modifiche nel repository di origine e distribuire automaticamente tali aggiornamenti nel servizio app.

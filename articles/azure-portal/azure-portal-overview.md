@@ -1,20 +1,15 @@
 ---
-title: Panoramica del portale di Azure | Microsoft Docs
+title: Panoramica del portale di Azure
 description: Il portale di Azure è un'interfaccia utente grafica che si può usare per gestire i servizi di Azure. Informazioni su come esplorare e trovare le risorse nel portale di Azure.
-services: azure-portal
 keywords: portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: overview
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147046"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745928"
 ---
 # <a name="azure-portal-overview"></a>Panoramica del portale di Azure
 

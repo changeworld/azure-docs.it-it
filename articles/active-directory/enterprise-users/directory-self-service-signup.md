@@ -7,19 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01de8ab86ff5f511fd5e45c4a6e88febdb4fbb15
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 95625886ed11256a40e5993540d7e545134d6dd6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340867"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860865"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 
@@ -76,13 +77,13 @@ Il diagramma di flusso seguente illustra le diverse combinazioni di questi param
 
 ![diagramma di flusso dei controlli dell'iscrizione self-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-I dettagli di questa impostazione possono essere recuperati tramite il cmdlet Get-MsolCompanyInformation seguente di PowerShell. Per altre informazioni, vedere [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0).
+I dettagli di questa impostazione possono essere recuperati tramite il cmdlet Get-MsolCompanyInformation seguente di PowerShell. Per altre informazioni, vedere [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation).
 
 ```powershell
     Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
 ```
 
-Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -90,5 +91,5 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 * [Come installare e configurare Azure PowerShell](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings)
 * [Chiudere l'account aziendale o dell'istituto di istruzione in una directory non gestita](users-close-account.md)

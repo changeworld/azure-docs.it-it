@@ -5,19 +5,20 @@ services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f79b08a75deca64a301f5b8e0b3a7634f5a3c7d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: dfdc96df548a4a3df2b789759889b85835e1382a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95502994"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860729"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Ripristinare un gruppo di Microsoft 365 eliminato in Azure Active Directory
 
@@ -49,7 +50,7 @@ Utente | È possibile ripristinare qualsiasi gruppo di Microsoft 365 eliminato d
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Visualizzare i gruppi di Microsoft 365 eliminati disponibili per il ripristino con PowerShell
 
-I cmdlet seguenti consente di visualizzare i gruppi eliminati per verificare che il gruppo o i gruppi a cui l'utente è interessato non siano stati ancora eliminati definitivamente. Questi cmdlet fanno parte del modulo [PowerShell di Azure AD](https://www.powershellgallery.com/packages/AzureAD/). Altre informazioni su questo modulo sono reperibili nell'articolo [PowerShell di Azure Active Directory versione 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+I cmdlet seguenti consente di visualizzare i gruppi eliminati per verificare che il gruppo o i gruppi a cui l'utente è interessato non siano stati ancora eliminati definitivamente. Questi cmdlet fanno parte del modulo [PowerShell di Azure AD](https://www.powershellgallery.com/packages/AzureAD/). Altre informazioni su questo modulo sono reperibili nell'articolo [PowerShell di Azure Active Directory versione 2](/powershell/azure/active-directory/install-adv2).
 
 1.  Eseguire questo cmdlet per visualizzare tutti i gruppi di Microsoft 365 eliminati nell'organizzazione di Azure AD che sono ancora disponibili per il ripristino.
    
