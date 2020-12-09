@@ -1,19 +1,19 @@
 ---
-title: Supporto della localizzazione | Mappe di Microsoft Azure
+title: Supporto della localizzazione con mappe di Microsoft Azure
 description: Scopri le aree supportate da Azure Maps con servizi quali mappe, ricerca, routing, meteo e incidenti di traffico. Informazioni su come configurare il parametro di visualizzazione.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037695"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904517"
 ---
 # <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione in Mappe di Azure
 
@@ -22,7 +22,7 @@ Mappe di Azure supporta diverse lingue e viste in base al paese/area geografica.
 
 ## <a name="azure-maps-supported-languages"></a>Lingue supportate in Mappe di Azure
 
-I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
+I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
   
 
 | ID         | Nome                   |  Mappe | Ricerca | Routing. | Weather | Eventi imprevisti del traffico | Controllo mappa JS |
@@ -129,10 +129,10 @@ Servizi REST di Mappe di Azure interessati:
  * Get Search Address Reverse
  * Get Search Address Reverse Cross Street
  * Post Search Inside Geometry
- * Post Search Address Batch Preview
- * Post Search Address Reverse Batch Preview
+ * Invia un batch di indirizzi di ricerca
+ * Post ricerca indirizzo batch inverso
  * Post Search Along Route
- * Post Search Fuzzy Batch Preview
+ * Post ricerca batch fuzzy
 
  
 ### <a name="sdks"></a>SDK

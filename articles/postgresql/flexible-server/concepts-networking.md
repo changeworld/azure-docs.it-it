@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485257"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901933"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Panoramica della rete-database di Azure per PostgreSQL-server flessibile
 
@@ -107,8 +107,9 @@ Quando si effettua l'accesso al servizio Database di Microsoft Azure per il serv
    * Richiedere al provider di servizi Internet (ISP) l'intervallo di indirizzi IP assegnato ai computer client che accedono al Database di Azure per il server MySQL, quindi aggiungere l'intervallo di indirizzi IP come regola firewall.
    * Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP statici come una regola del firewall.
 
+* La **regola del firewall non è disponibile per il formato IPv6:** Le regole del firewall devono essere in formato IPv4. Se si specificano le regole del firewall in formato IPv6, verrà visualizzato l'errore di convalida.
 
-## <a name="hostname"></a>nomehost
+## <a name="hostname"></a>Nome host
 Indipendentemente dall'opzione di rete scelta, è consigliabile utilizzare sempre un nome di dominio completo (FQDN) come nome host per la connessione al server flessibile. Non è garantito che l'indirizzo IP del server rimanga statico. L'utilizzo del nome di dominio completo consente di evitare di apportare modifiche alla stringa di connessione. 
 
 Esempio

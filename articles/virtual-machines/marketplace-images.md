@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3de79e5cb3db2d0c52d13826900ec7160271edf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a971f6e56f441ab05a6a9b483eeef990d3ea31f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86225160"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903752"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini
 
@@ -24,15 +24,13 @@ Per altre informazioni su come trovare e usare le immagini del Marketplace, vede
 
 
 ## <a name="get-the-source-vm-information"></a>Ottenere le informazioni sulla VM di origine
-Se la macchina virtuale originale è ancora presente, è possibile ottenere le informazioni relative al piano, al server di pubblicazione e allo SKU usando Get-AzVM. Questo esempio Mostra come ottenere una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup* e quindi visualizzare le informazioni sul piano di acquisto.
+Se la macchina virtuale originale è ancora presente, è possibile ottenere il nome del piano, l'autore e le informazioni sul prodotto utilizzando Get-AzVM. Questo esempio Mostra come ottenere una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup* e quindi visualizzare le informazioni sul piano di acquisto per la macchina virtuale.
 
 ```azurepowershell-interactive
 $vm = Get-azvm `
    -ResourceGroupName myResourceGroup `
    -Name myVM
-$vm.Plan.Publisher
-$vm.Plan.Name
-$vm.Plan.Product
+$vm.Plan
 ```
 
 ## <a name="create-the-image-definition"></a>Creare la definizione dell'immagine
@@ -72,7 +70,7 @@ Creare la definizione dell'immagine usando i  `-PurchasePlanPublisher` `-Purchas
 Creare quindi la versione dell'immagine usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). È possibile creare una versione di immagine da una [macchina virtuale](image-version-vm-powershell.md#create-an-image-version), da un' [immagine gestita](image-version-managed-image-powershell.md#create-an-image-version), da [VHD\snapshot](image-version-snapshot-powershell.md#create-an-image-version)o da [un'altra versione di immagine](image-version-another-gallery-powershell.md#create-the-image-version). 
 
 
-## <a name="create-the-vm"></a>Creare la VM
+## <a name="create-the-vm"></a>Creare la macchina virtuale
 
 Quando si passa alla creazione di una macchina virtuale dall'immagine, è possibile usare le informazioni della definizione dell'immagine per passare le informazioni del server di pubblicazione tramite [set-AzVMPlan](/powershell/module/az.compute/set-azvmplan).
 

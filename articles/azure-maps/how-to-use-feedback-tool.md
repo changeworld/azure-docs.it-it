@@ -3,24 +3,24 @@ title: Fornire feedback sui dati ad Azure Maps | Mappe Microsoft Azure
 description: Fornire feedback sui dati tramite lo strumento di feedback Microsoft Azure maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/19/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b53ea7cf3ec29d7bad7e65a535cd140877bcea09
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4be775d8a6a8c476bcc659a902c7f43c12a6d6d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895512"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905333"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Fornire commenti e suggerimenti sui dati ad Azure Maps
 
 Mappe di Azure è disponibile a partire dal 2018 maggio. Azure Maps fornisce dati della mappa aggiornati, API REST facili da usare e potenti SDK per supportare i clienti aziendali con diversi tipi di casi d'uso aziendali. Il mondo reale sta cambiando ogni secondo ed è fondamentale per Microsoft fornire una rappresentazione digitale effettiva ai clienti. I clienti che pianificano di aprire o chiudere le strutture devono aggiornare tempestivamente le mappe. Quindi, possono pianificare in modo efficiente la distribuzione, la manutenzione o il servizio clienti presso le strutture corrette. Il sito di commenti e suggerimenti sui dati di Azure Maps è stato creato per consentire ai clienti di fornire commenti e suggerimenti sui dati diretti. Il feedback dei dati dei clienti passa direttamente ai nostri provider di dati e ai rispettivi editor della mappa. Consentono di valutare e incorporare rapidamente commenti e suggerimenti nei prodotti di mapping.  
 
-Il [sito dei commenti e suggerimenti sui dati di Azure Maps](https://feedback.azuremaps.com) fornisce ai clienti un modo semplice per offrire commenti sui dati della mappa, in particolare sui punti di interesse e sugli indirizzi residenziali. Questo articolo illustra come fornire diversi tipi di feedback usando il sito di feedback di Azure maps.
+Il [sito dei commenti e suggerimenti sui dati di Azure Maps](https://feedback.azuremaps.com) fornisce ai clienti un modo semplice per fornire commenti sui dati della mappa, in particolare per i punti di interesse e gli indirizzi residenziali. Questo articolo illustra come fornire diversi tipi di feedback usando il sito di feedback di Azure maps.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Aggiungere un luogo aziendale o un indirizzo residenziale 
 

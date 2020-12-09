@@ -14,18 +14,18 @@ ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24820949eb6762caf808c4420ede6f0f59184281
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0fbda588d99de44c77118586519055a8fc474104
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412596"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861766"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 Nel documento di riferimento seguente vengono descritti questi attributi utilizzati da Exchange e il modo corretto per modificare le regole di sincronizzazione predefinite.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Che cosa sono msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Sono disponibili due tipi di [esenzioni](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) per un server Exchange: la conservazione dei contenziosi e il In-Place Hold. Quando è abilitata la funzionalità di contenzioso, tutti gli elementi della cassetta postale vengono posizionati in attesa.  Per mantenere solo gli elementi che soddisfano i criteri di una query di ricerca definita tramite lo strumento In-Place eDiscovery, viene utilizzato un In-Place.
+Sono disponibili due tipi di [esenzioni](/Exchange/policy-and-compliance/holds/holds) per un server Exchange: la conservazione dei contenziosi e il In-Place Hold. Quando è abilitata la funzionalità di contenzioso, tutti gli elementi della cassetta postale vengono posizionati in attesa.  Per mantenere solo gli elementi che soddisfano i criteri di una query di ricerca definita tramite lo strumento In-Place eDiscovery, viene utilizzato un In-Place.
 
 Gli attributi MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies consentono AD locale e Azure AD di determinare quali utenti sono in attesa a seconda che utilizzino Exchange locale o Exchange on-line.
 

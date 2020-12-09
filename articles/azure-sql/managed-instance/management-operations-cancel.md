@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782502"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861545"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Annullamento delle operazioni di gestione di Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -61,7 +61,7 @@ Per annullare le operazioni di gestione utilizzando la portale di Azure, attener
 
 1. Selezionare **Annulla l'operazione** nella parte inferiore della pagina. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selezionare la casella operazione in corso per aprire la pagina operazione in corso.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selezionare Annulla per annullare l'operazione.":::
 
 1. Confermare che si desidera annullare l'operazione. 
 
@@ -116,13 +116,12 @@ Per una spiegazione dettagliata dei comandi, vedere [AZ SQL mi op](/cli/azure/sq
 
 ## <a name="canceled-deployment-request"></a>Richiesta di distribuzione annullata
 
-Con l'API versione 2020-02-02, non appena viene accettata la richiesta di creazione dell'istanza, l'istanza inizia a esistere come risorsa, a prescindere dallo stato di avanzamento del processo di distribuzione (il provisioning dello stato dell'istanza gestita è **provisioning** ). Se si annulla la richiesta di distribuzione dell'istanza (creazione nuova istanza), l'istanza gestita passerà dallo stato di **provisioning** a **FailedToCreate** .
+Con l'API versione 2020-02-02, non appena viene accettata la richiesta di creazione dell'istanza, l'istanza inizia a esistere come risorsa, a prescindere dallo stato di avanzamento del processo di distribuzione (il provisioning dello stato dell'istanza gestita è **provisioning**). Se si annulla la richiesta di distribuzione dell'istanza (creazione nuova istanza), l'istanza gestita passerà dallo stato di **provisioning** a **FailedToCreate**.
 
 Le istanze che non sono state create sono ancora presenti come risorsa e: 
 
 - Non addebitato
 - Non contare sui limiti delle risorse (subnet o quota vCore)
-- Mantieni il nome dell'istanza riservata: per distribuire un'istanza con lo stesso nome, eliminare l'istanza non riuscita per rilasciare il nome
 
 
 > [!NOTE]

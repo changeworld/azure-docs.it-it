@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395156"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861426"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Abilitare e disabilitare i criteri di conservazione dei dati
 
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Correlazione delle impostazioni di conservazione dei dati di database e tabelle
+## <a name="correlating-db-and-table-data-retention-settings"></a>Correlazione delle impostazioni di conservazione dei dati di database e tabelle
 
 Le impostazioni di conservazione dei dati nel database e nella tabella vengono utilizzate insieme per determinare se la pulizia automatica per le righe obsolete verrà eseguita sulle tabelle. 
 

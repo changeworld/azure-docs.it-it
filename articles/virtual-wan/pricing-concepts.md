@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327958"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905537"
 ---
 # <a name="about-virtual-wan-pricing"></a>Informazioni sui prezzi della rete WAN virtuale
 
@@ -38,7 +38,7 @@ Un' **unità di scala** fornisce l'unità per la capacità aggregata di da sito 
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>Che cos'è un'unità di connessione?
 
-Un' **unità di connessione** si applica a qualsiasi endpoint locale o non Microsoft che si connette ai gateway di Azure. Per la VPN da sito a sito, questo implica i rami. Per la VPN utente (da punto a sito), ciò implica che gli utenti remoti. Per ExpressRoute, questo implica le connessioni del circuito ExpressRoute.<br>Ad esempio:
+Un' **unità di connessione** si applica a qualsiasi endpoint locale o non Microsoft che si connette ai gateway di Azure. Per la VPN da sito a sito, questo valore implica rami. Per la VPN utente (da punto a sito), questo valore implica gli utenti remoti. Per ExpressRoute, questo valore implica le connessioni del circuito ExpressRoute.<br>Ad esempio:
 
 * Una connessione di Branch connessa alla VPN di Azure in un hub virtuale costa $0,05/HR. Di conseguenza, 100 connessioni ramo a un hub virtuale di Azure costeranno $0,05 * 100/hr.
 
@@ -50,32 +50,7 @@ Un' **unità di connessione** si applica a qualsiasi endpoint locale o non Micro
 
 * Il traffico che entra in Azure non viene addebitato. Il traffico in uscita da Azure (tramite VPN, ExpressRoute o connessioni VPN da punto a sito) è soggetto agli [addebiti per il trasferimento dati di Azure](https://azure.microsoft.com/pricing/details/bandwidth/)standard.
 
-* Per gli addebiti per il trasferimento dei dati tra un hub WAN virtuale e un hub WAN virtuale remoto o VNet in un'area diversa da quella dell'hub di origine, vengono applicati addebiti per il trasferimento dei dati per il traffico che lascia un hub. Esempio: il traffico in uscita da un hub degli Stati Uniti orientali verrà addebitato da $0,02/GB a un hub degli Stati Uniti occidentali. Non sono previsti addebiti per il traffico che entra nell'hub Stati Uniti occidentali. Le tabelle seguenti illustrano gli addebiti.
-
-Le tabelle seguenti usano le abbreviazioni seguenti: {NAM: America del Nord}, {EU: Europe}, {MEA: Middle East Africa}, {OC: Oceania (Australia centrale e Australia Central 2)}, {LATAt: America Latina} 
-
-**Prezzi intra-continente (*)**
-
-| Intra-Continent| Prezzo ($/GB)|
-|---|---|
-| Da NAM a NAM|$0,02 |
-| Da UE a UE |$0,02 |
-| ASIA-ASIA (esclusa la Cina)|$0,10 |
-| Da MEA a MEA|$0,16 |
-| LATA-LATA |$0,16 |
-| OC-OC|$0,12 |
-
-**Prezzi tra i continentali (*)**
-
-| Inter-Continental| Prezzo ($/GB)|
-|---|---|
-| DA NAM a UE o da UE a NAM |$ 0,07 |
-| DA LATAt a qualsiasi posizione |$0,17 |
-| DA MEA a Anywhere |$0,17 |
-| DA OCEANIA a ovunque |$0,12 |
-| DALL'ASIA (ad eccezione della Cina) a qualsiasi posizione |$0,12 |
-
-(*) Potrebbero essere applicati addebiti a partire dal 1 ° agosto 2020.
+* Per gli addebiti per il trasferimento dei dati tra un hub WAN virtuale e un hub WAN virtuale remoto o VNet in un'area diversa da quella dell'hub di origine, vengono applicati addebiti per il trasferimento dei dati per il traffico che lascia un hub. Esempio: il traffico in uscita da un hub degli Stati Uniti orientali verrà addebitato da $0,02/GB a un hub degli Stati Uniti occidentali. Non sono previsti addebiti per il traffico che entra nell'hub Stati Uniti occidentali. Tutto il traffico da Hub a hub è soggetto a Inter-Region (intra/Intercontinental) addebita gli [addebiti per il trasferimento dei dati di Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>Qual è la differenza tra una tariffa dell'hub standard e una tariffa di elaborazione dell'hub standard?
 

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335807"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903021"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,8 +28,8 @@ In alcune situazioni potrebbe essere necessario eseguire l'override di questo co
 
 Azure Cosmos DB supporta due modalità di indicizzazione:
 
-- **Coerente** : l'indice viene aggiornato in modo sincrono durante la creazione, l'aggiornamento o l'eliminazione di elementi. Ciò significa che la coerenza delle query di lettura sarà la [coerenza configurata per l'account](consistency-levels.md).
-- **None** : l'indicizzazione è disabilitata nel contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Può anche essere usato per migliorare le prestazioni delle operazioni bulk. Una volta completate le operazioni bulk, è possibile impostare la modalità di indicizzazione su coerente e quindi monitorarla utilizzando [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) fino al completamento.
+- **Coerente**: l'indice viene aggiornato in modo sincrono durante la creazione, l'aggiornamento o l'eliminazione di elementi. Ciò significa che la coerenza delle query di lettura sarà la [coerenza configurata per l'account](consistency-levels.md).
+- **None**: l'indicizzazione è disabilitata nel contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Può anche essere usato per migliorare le prestazioni delle operazioni bulk. Una volta completate le operazioni bulk, è possibile impostare la modalità di indicizzazione su coerente e quindi monitorarla utilizzando [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) fino al completamento.
 
 > [!NOTE]
 > Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione differita esegue gli aggiornamenti dell'indice con un livello di priorità molto più basso quando il motore non esegue altre operazioni. Ciò può comportare risultati delle query **incoerenti o incompleti**. Se si prevede di eseguire una query su un contenitore Cosmos, non è consigliabile selezionare l'indicizzazione differita. I nuovi contenitori non possono selezionare l'indicizzazione differita. È possibile richiedere un'esenzione contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (eccetto se si usa un account Azure Cosmos in modalità senza [Server](serverless.md) che non supporta l'indicizzazione differita).
@@ -79,7 +79,7 @@ Tutti i criteri di indicizzazione devono includere il percorso radice `/*` come 
 
 - Per `_etag` impostazione predefinita, la proprietà di sistema viene esclusa dall'indicizzazione, a meno che l'eTag non venga aggiunto al percorso incluso per l'indicizzazione.
 
-- Se la modalità di indicizzazione è impostata su **coerente** , le proprietà di sistema `id` e `_ts` vengono indicizzate automaticamente.
+- Se la modalità di indicizzazione è impostata su **coerente**, le proprietà di sistema `id` e `_ts` vengono indicizzate automaticamente.
 
 Quando si includono ed escludono i percorsi, è possibile che si verifichino gli attributi seguenti:
 
@@ -103,11 +103,11 @@ Per esempi di criteri di indicizzazione per l'inclusione e l'esclusione di perco
 
 Se i percorsi inclusi e i percorsi esclusi presentano un conflitto, il percorso più preciso avrà la precedenza.
 
-Ad esempio:
+Ecco un esempio:
 
-**Percorso incluso** : `/food/ingredients/nutrition/*`
+**Percorso incluso**: `/food/ingredients/nutrition/*`
 
-**Percorso escluso** : `/food/ingredients/*`
+**Percorso escluso**: `/food/ingredients/*`
 
 In questo caso, il percorso incluso avrà la precedenza sul percorso escluso perché è più preciso. In base a questi percorsi, tutti i dati nel `food/ingredients` percorso o annidati all'interno di verrebbero esclusi dall'indice. L'eccezione è costituita dai dati all'interno del percorso incluso: `/food/ingredients/nutrition/*` , che verrebbe indicizzato.
 
@@ -201,6 +201,7 @@ Quando si creano indici compositi per le query con filtri su più proprietà, ve
 - Quando si crea un indice composto per ottimizzare le query con più filtri, l'oggetto `ORDER` dell'indice composto non avrà alcun effetto sui risultati. Questa proprietà è facoltativa.
 - Se non si definisce un indice composto per una query con filtri su più proprietà, la query avrà comunque esito positivo. Tuttavia, il costo ur della query può essere ridotto con un indice composto.
 - Le query con entrambe le aggregazioni, ad esempio COUNT o SUM, e i filtri traggono vantaggio anche dagli indici compositi.
+- Le espressioni di filtro possono utilizzare più indici compositi.
 
 Si considerino gli esempi seguenti in cui viene definito un indice composito per le proprietà Name, Age e timestamp:
 
@@ -213,6 +214,7 @@ Si considerino gli esempi seguenti in cui viene definito un indice composito per
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
 ### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Query con un filtro e una clausola ORDER BY
 

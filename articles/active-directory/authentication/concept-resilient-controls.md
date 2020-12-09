@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994282"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861290"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -266,7 +266,7 @@ Annullare le modifiche apportate nell'ambito del piano di emergenza attivato una
 3. Eseguire il rollback delle modifiche apportate e documentate durante l'interruzione.
 4. Se si usa un account di accesso di emergenza, ricordarsi di rigenerare le credenziali e proteggere fisicamente i dettagli delle nuove credenziali come parte delle procedure di account di accesso di emergenza.
 5. Continua a valutare [tutti i rilevamenti dei rischi segnalati](../reports-monitoring/concept-sign-ins.md) dopo l'interferenza per attività sospette.
-6. Revocare tutti i token di aggiornamento rilasciati [usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) e destinati a un set di utenti. La revoca di tutti i token di aggiornamento è importante per gli account con privilegi usati durante l'interruzione. Questa operazione costringerà gli utenti a ripetere l'autenticazione e rispettare il controllo dei criteri ripristinati.
+6. Revocare tutti i token di aggiornamento rilasciati [usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) e destinati a un set di utenti. La revoca di tutti i token di aggiornamento è importante per gli account con privilegi usati durante l'interruzione. Questa operazione costringerà gli utenti a ripetere l'autenticazione e rispettare il controllo dei criteri ripristinati.
 
 ## <a name="emergency-options"></a>Opzioni di emergenza
 
@@ -287,7 +287,7 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
 * [Documentazione di Autenticazione di Azure AD](./howto-mfaserver-iis.md)
 * [Gestire gli account amministrativi di accesso di emergenza in Azure AD](../roles/security-emergency-access.md)
 * [Configurare località denominate in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](../devices/hybrid-azuread-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide) (Guida alla distribuzione di Windows Hello fo Business)
   * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

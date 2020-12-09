@@ -3,18 +3,18 @@ title: Eseguire il rendering di dati personalizzati in una mappa raster | Mappe 
 description: Informazioni su come aggiungere puntine da disegno, etichette e forme geometriche a una mappa raster. Per questo scopo, vedere come usare il servizio immagini statiche in Maps di Azure.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895750"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906081"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
@@ -41,9 +41,9 @@ Il livello S0 dell'account mappe di Azure supporta solo una singola istanza del 
 
 Per eseguire il rendering di puntine da disegno con etichette e un'immagine personalizzata, completare i passaggi seguenti:
 
-1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo** . Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta). Assegnare un nome alla raccolta e selezionare **Create** (Crea). 
+1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo**. Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta). Assegnare un nome alla raccolta e selezionare **Create** (Crea). 
 
-2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva** .
+2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
     
     ![Creare una richiesta in post](./media/how-to-render-custom-data/postman-new.png)
 
@@ -223,4 +223,4 @@ Analogamente, è possibile modificare, aggiungere e rimuovere altri modificatori
 
 
 * Esplorare la documentazione dell'[API per il recupero dell'immagine della mappa di Mappe di Azure](/rest/api/maps/render/getmapimage).
-* Per ulteriori informazioni sul servizio dati di Azure Maps, vedere la [documentazione del servizio](/rest/api/maps/data).
+* Per altre informazioni su Azure Maps Data Service (anteprima), vedere la [documentazione del servizio](/rest/api/maps/data).

@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980202"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905554"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usare endpoint privati per archiviazione di Azure
 
@@ -84,7 +84,7 @@ Per l'esempio illustrato in precedenza, i record di risorse DNS per l'account di
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
-| \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
+| \<storage service public endpoint\>                   | Una     | \<storage service public IP address\>                 |
 
 Come indicato in precedenza, è possibile negare o controllare l'accesso per i client esterni a VNet tramite l'endpoint pubblico usando il firewall di archiviazione.
 
@@ -93,7 +93,7 @@ I record di risorse DNS per StorageAccountA, in caso di risoluzione da parte di 
 | Nome                                                  | Type  | valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | Una     | 10.1.1.5                                              |
 
 Questo approccio consente di accedere all'account di archiviazione **usando la stessa stringa di connessione** per i client in VNet che ospitano gli endpoint privati, nonché i client esterni al VNet.
 
@@ -125,10 +125,6 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 ## <a name="known-issues"></a>Problemi noti
 
 Tenere presente i seguenti problemi noti sugli endpoint privati per archiviazione di Azure.
-
-### <a name="copy-blob-support"></a>Copia supporto BLOB
-
-Se l'account di archiviazione è protetto da un firewall e si accede all'account tramite endpoint privati, l'account non può fungere da origine di un'operazione di [copia del BLOB](/rest/api/storageservices/copy-blob) .
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Vincoli di accesso alle archiviazione per i client in reti virtuali con endpoint privati
 

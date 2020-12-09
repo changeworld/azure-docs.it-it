@@ -3,22 +3,22 @@ title: Introduzione ad Azure Maps Power BI Visual | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come usare l'oggetto visivo Microsoft Azure Maps per Power BI.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 06/26/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5c89922aef1ba802ee694aaed9bae2ac2dd273ee
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896243"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904704"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introduzione ad Azure Maps Power BI Visual
 
-<Token>**si applica a:** ![ Segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per * *_consumer_* _ ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per le finestre di progettazione & gli sviluppatori hanno un ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X che indica No. ](media/power-bi-visual/no.png) Richiede la licenza Pro o Premium</Token>
+<Token>**si applica a:** ![ Segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per **_consumer_* _ ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per le finestre di progettazione & gli sviluppatori hanno un ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X che indica No. ](media/power-bi-visual/no.png) Richiede la licenza Pro o Premium</Token>
 
 Questo articolo illustra come usare l'oggetto visivo Microsoft Azure Maps per Power BI.
 
@@ -45,15 +45,15 @@ L'utente o l'amministratore può dover aggiornare il firewall per consentire l'a
 
 Per ulteriori informazioni sulla privacy e le condizioni per l'utilizzo correlate all'oggetto visivo Maps di Azure, vedere [Microsoft Azure informazioni legali](https://azure.microsoft.com/support/legal/).
 
-## <a name="preview-behavior-and-requirements"></a>Comportamenti e requisiti dell'anteprima
+## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Comportamento e requisiti visivi di mappe di Azure (anteprima)
 
-Esistono alcune considerazioni e requisiti per questa versione di anteprima di _ * mappe di Azure * *:
+Esistono alcune considerazioni e requisiti per l'oggetto visivo _ *mappe di Azure**. :
 
--   L'oggetto visivo **mappe di Azure** è disponibile in anteprima e deve essere abilitato in Power bi desktop. Per abilitare le **mappe di Azure** , selezionare opzioni **file** &gt; **e impostazioni** &gt; **Opzioni** &gt; **Anteprima funzionalità** , quindi selezionare la casella di controllo **Visual Maps Azure** . Se l'oggetto visivo Maps di Azure non è disponibile dopo questa operazione, è probabile che sia necessario abilitare l'opzione di amministrazione del tenant nel portale di amministrazione.
+-   L'oggetto visivo **mappe di Azure** (anteprima) deve essere abilitato in Power bi desktop. Per abilitare l'oggetto visivo **mappe di Azure** , selezionare opzioni **file** &gt; **e impostazioni** &gt; **Opzioni** &gt; **Anteprima funzionalità**, quindi selezionare la casella di controllo **Visual Maps Azure** . Se l'oggetto visivo Maps di Azure non è disponibile dopo questa operazione, è probabile che sia necessario abilitare l'opzione di amministrazione del tenant nel portale di amministrazione.
 -   Il set di dati deve contenere campi che contengono informazioni sulla **Latitudine** e la **Longitudine** . La geocodifica dei campi della località verrà aggiunta in un aggiornamento futuro.
 -   Il controllo della legenda incorporato per Power BI attualmente non è visualizzato in questa anteprima. Verrà aggiunto in un aggiornamento futuro.
 
-## <a name="use-the-azure-maps-visual"></a>Usare l'oggetto visivo Maps di Azure
+## <a name="use-the-azure-maps-visual-preview"></a>Usare l'oggetto visivo mappe di Azure (anteprima)
 
 Dopo aver abilitato l'oggetto visivo **Maps di Azure** , selezionare l'icona **mappe di Azure** nel riquadro **visualizzazioni** .
 

@@ -1,22 +1,27 @@
 ---
-title: Copertura meteo nelle mappe di Microsoft Azure
-description: Informazioni sul code coverage in Microsoft Azure maps.
+title: Code coverage di Microsoft Azure Maps Weather Services (anteprima)
+description: Informazioni sulla copertura di Microsoft Azure Maps Weather Services (anteprima)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896617"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905486"
 ---
-# <a name="azure-maps-weather-coverage"></a>Copertura Meteo di Azure Maps
+# <a name="azure-maps-weather-services-preview-coverage"></a>Code coverage di servizi meteo di Azure Maps (anteprima)
+
+> [!IMPORTANT]
+> I servizi meteo di Azure Maps sono attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Questo articolo fornisce informazioni sulla copertura per i [Servizi Meteo](/rest/api/maps/weather)di Azure maps. Azure Maps Weather Data Services restituisce dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteorologiche e il meteo lungo una route.
 
@@ -54,7 +59,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Cuba                                     | ✓ |   | |✓| 
 | Curaçao                                  | ✓ |   | |✓| 
 | Dominica                                 | ✓ |   | |✓| 
-| Repubblica dominicana                       | ✓ |   | |✓| 
+| Repubblica Dominicana                       | ✓ |   | |✓| 
 | Ecuador                                  | ✓ |   | |✓| 
 | El Salvador                              | ✓ |   | |✓| 
 | Isole Falkland                         | ✓ |   | |✓| 
@@ -100,7 +105,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 |-----------------------------|:----------------:|:-----------------:|:--------:|:--------:| 
 | Algeria                     | ✓               |                              |     |  ✓| 
 | Angola                      | ✓               |                              |     |  ✓| 
-| Bahrain                     | ✓               |                              |     |  ✓| 
+| Bahrein                     | ✓               |                              |     |  ✓| 
 | Benin                       | ✓               |                              |     |  ✓| 
 | Botswana                    | ✓               |                              |     |  ✓| 
 | Isola Bouvet               | ✓               |                              |     |  ✓| 
@@ -158,7 +163,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Seychelles                  | ✓               |                              |     |  ✓| 
 | Sierra Leone                | ✓               |                              |     |  ✓| 
 | Somalia                     | ✓               |                              |     |  ✓| 
-| Sud Africa                | ✓               |                              |     |  ✓| 
+| Sudafrica                | ✓               |                              |     |  ✓| 
 | Sud Sudan                 | ✓               |                              |     |  ✓| 
 | Sudan                       | ✓               |                              |     |  ✓| 
 | Siria                       | ✓               |                              |     |  ✓| 

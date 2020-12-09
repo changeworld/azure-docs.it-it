@@ -4,12 +4,12 @@ description: I dati non vengono visualizzati in Azure Application Insights Rispo
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748936"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904466"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET/.NET Core
 
@@ -39,6 +39,10 @@ ms.locfileid: "96748936"
 
 * Vedere [Risoluzione dei problemi relativi a Status Monitor](./monitor-performance-live-website-now.md#troubleshoot).
 
+> [!IMPORTANT]
+> Le nuove aree di Azure **richiedono** l'uso di stringhe di connessione anziché di chiavi di strumentazione. La [stringa di connessione](./sdk-connection-string.md?tabs=net) identifica la risorsa a cui si vuole associare i dati di telemetria. Consente inoltre di modificare gli endpoint che la risorsa userà come destinazione per la telemetria. Sarà necessario copiare la stringa di connessione e aggiungerla al codice dell'applicazione o a una variabile di ambiente.
+
+
 ## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: non è stato possibile caricare il file o l'assembly ' Microsoft. AspNet TelemetryCorrelation
 
 Per ulteriori informazioni su questo errore, vedere [problema GitHub 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
@@ -64,7 +68,7 @@ Quando si esegue l'aggiornamento da SDK precedenti a (2,4), è necessario assicu
     </TelemetryModules>
     ```
 
-*Il **mancato aggiornamento corretto potrebbe causare eccezioni impreviste o dati di telemetria non raccolti.** _
+*Il *_mancato aggiornamento corretto potrebbe causare eccezioni impreviste o dati di telemetria non raccolti._* _
 
 
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Nessuna opzione "Aggiungi Application Insights" in Visual Studio

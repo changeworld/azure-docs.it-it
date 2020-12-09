@@ -3,12 +3,12 @@ title: Guida al protocollo per le connessioni ibride di inoltro di Azure | Micro
 description: Questo articolo descrive le interazioni lato client con l'inoltro di Connessioni ibride per la connessione dei client nei ruoli listener e mittente
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531446"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862327"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
@@ -414,7 +414,7 @@ Il protocollo per il mittente è di fatto identico a come viene stabilito un lis
 L'obiettivo è la massima trasparenza per il WebSocket end-to-end. L'indirizzo a cui connettersi è lo stesso del listener, ma l'"azione" è diversa e il token richiede un'autorizzazione diversa:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 _namespace-address_ è il nome di dominio completo dello spazio dei nomi di inoltro di Azure che ospita la connessione ibrida, in genere nel formato `{myname}.servicebus.windows.net`.
@@ -433,7 +433,7 @@ Le opzioni dei parametri della stringa di query sono le seguenti:
  `{path}` è il percorso dello spazio dei nomi codificato con URL della connessione ibrida preconfigurata in cui registrare questo listener. L'espressione `path` può essere estesa con un suffisso e un'espressione di stringa di query per comunicare altre informazioni. Se la connessione ibrida è registrata nel percorso `hyco`, l'espressione `path` può essere `hyco/suffix?param=value&...` seguita dai parametri di stringa di query definiti qui. Un'espressione completa potrebbe quindi essere:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 L'espressione `path` viene trasmessa al listener nell'URI dell'indirizzo contenuto nel messaggio di controllo "accept".
@@ -462,7 +462,7 @@ Il protocollo di richiesta HTTP consente le richieste HTTP arbitrarie, ad eccezi
 Alle richieste HTTP si fa riferimento all'indirizzo di runtime regolare dell'entità senza l'infisso $hc usato per i client WebSocket delle connessioni ibride.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 _namespace-address_ è il nome di dominio completo dello spazio dei nomi di inoltro di Azure che ospita la connessione ibrida, in genere nel formato `{myname}.servicebus.windows.net`.

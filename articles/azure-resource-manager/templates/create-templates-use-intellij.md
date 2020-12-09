@@ -1,20 +1,20 @@
 ---
 title: Distribuire il modello - IntelliJ IDEA
-description: Informazioni su come creare il primo modello di Azure Resource Manager con IntelliJ IDEA ed eseguirne la distribuzione.
+description: Informazioni su come creare il primo modello di Azure Resource Manager (modello ARM) usando IntelliJ IDEA e come distribuirlo.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973340"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905962"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creare e distribuire modelli ARM con IntelliJ IDEA
 
-Informazioni su come distribuire un modello di Azure Resource Manager (ARM) in Azure usando IntelliJ IDEA e il processo di modifica e aggiornamento del modello direttamente dall'IDE. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere la [panoramica della distribuzione di modelli](overview.md).
+Informazioni su come distribuire un modello di Azure Resource Manager (ARM template) in Azure usando IntelliJ IDEA e il processo di modifica e aggiornamento del modello direttamente dall'IDE. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica della distribuzione dei modelli](overview.md).
 
 ![Diagramma del portale del modello di Gestione risorse](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

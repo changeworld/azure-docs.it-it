@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 0be77dc1ac249c37f9b59078451d8fbe35f17458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6eb2a2d2762b60a12bb9a24b92e2edae4b846cd1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754245"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904143"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definire e usare flussi di lavoro di moderazione
 
@@ -83,4 +83,4 @@ Passare alla scheda **immagine** in **Verifica** e verificare che sia presente u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida si è appreso come configurare e usare i flussi di lavoro di moderazione dallo [strumento content moderator Review](https://contentmoderator.cognitive.microsoft.com). Vedere quindi la [Guida dell'API REST](../try-review-api-workflow.md) per informazioni su come creare flussi di lavoro a livello di codice.
+In questa guida si è appreso come configurare e usare i flussi di lavoro di moderazione dallo [strumento content moderator Review](https://contentmoderator.cognitive.microsoft.com). Vedere quindi la [Guida della console API](../try-review-api-workflow.md) per informazioni su come creare flussi di lavoro a livello di codice.

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377735"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861936"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud
 
@@ -32,16 +32,16 @@ Di seguito sono riportate alcune domande comuni e suggerimenti per la risoluzion
 
 **R:** Per impostazione predefinita, solo l'amministratore del ruolo con privilegi e l'amministratore globale gestiscono l'appartenenza di un gruppo assegnabile al ruolo, ma è possibile delegare la gestione dei gruppi assegnabili al ruolo aggiungendo i proprietari del gruppo.
 
-**D** : sono un amministratore dell'helpdesk nell'organizzazione, ma non è possibile aggiornare la password di un utente che è un lettore di directory. Perché si verifica?
+**D**: sono un amministratore dell'helpdesk nell'organizzazione, ma non è possibile aggiornare la password di un utente che è un lettore di directory. Perché si verifica?
 
-**R** : l'utente potrebbe avere ottenuto un lettore di directory tramite un gruppo assegnabile al ruolo. Tutti i membri e i proprietari di un gruppo assegnabile al ruolo sono protetti. Solo gli utenti con privilegi di amministratore di autenticazione o ruoli di amministratore globale possono reimpostare le credenziali per un utente protetto.
+**R**: l'utente potrebbe avere ottenuto un lettore di directory tramite un gruppo assegnabile al ruolo. Tutti i membri e i proprietari di un gruppo assegnabile al ruolo sono protetti. Solo gli utenti con privilegi di amministratore di autenticazione o ruoli di amministratore globale possono reimpostare le credenziali per un utente protetto.
 
 **D:** Non è possibile aggiornare la password di un utente. Non dispone di un ruolo con privilegi più elevati assegnato. Perché si verifica?
 
 **R:** L'utente può essere un proprietario di un gruppo assegnabile al ruolo. Proteggiamo i proprietari dei gruppi assegnabili ai ruoli per evitare l'elevazione dei privilegi. Un esempio potrebbe essere se un gruppo Contoso_Security_Admins viene assegnato al ruolo di amministratore della sicurezza, dove Bob è il proprietario del gruppo e Alice è amministratore password nell'organizzazione. Se questa protezione non fosse presente, Alice poteva reimpostare le credenziali di Bob e prendere il sopravvento sulla propria identità. Successivamente, Alice potrebbe aggiungere se stesso o chiunque al gruppo Contoso_Security_Admins gruppo per diventare amministratore della sicurezza nell'organizzazione. Per sapere se un utente è un proprietario del gruppo, ottenere l'elenco di oggetti di proprietà dell'utente e verificare se uno dei gruppi ha isAssignableToRole impostato su true. In caso affermativo, l'utente è protetto e il comportamento è di progettazione. Fare riferimento a queste documentazioni per ottenere oggetti di proprietà:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Elencare ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [Elencare ownedObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **D:** È possibile creare una verifica di accesso nei gruppi che possono essere assegnati ai ruoli Azure AD (in particolare, gruppi con la proprietà isAssignableToRole impostata su true)?  
 
@@ -89,7 +89,7 @@ Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire **Azure Active Directory**.
 1. Selezionare utenti e aprire un profilo utente.
-1. Selezionare **ruoli assegnati** , quindi:
+1. Selezionare **ruoli assegnati**, quindi:
 
     - In Azure AD Premium le organizzazioni con licenza P1: selezionare l'icona dell'ingranaggio. Viene visualizzato un riquadro che può fornire queste informazioni.
     - Nelle organizzazioni Azure AD Premium P2 con licenza: sono disponibili informazioni sulle licenze dirette e ereditate nella colonna **Membership** .

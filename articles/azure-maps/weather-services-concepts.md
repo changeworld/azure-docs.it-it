@@ -1,6 +1,6 @@
 ---
-title: Concetti relativi ai servizi meteorologici in Microsoft Azure Maps
-description: Informazioni sui concetti che si applicano a Microsoft Azure Maps Weather Services.
+title: Concetti relativi ai servizi meteorologici (anteprima) in Microsoft Azure Maps
+description: Informazioni sui concetti che si applicano a Microsoft Azure Maps Weather Services (anteprima).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,20 +8,24 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896728"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904738"
 ---
-# <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
+# <a name="weather-services-preview-in-azure-maps"></a>Servizi meteorologici (anteprima) in mappe di Azure
 
-Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure Maps](/rest/api/maps/weather). Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo.
+> [!IMPORTANT]
+> I servizi meteo di Azure Maps sono attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Questo articolo presenta i concetti che si applicano ai [servizi meteorologici](/rest/api/maps/weather)di Azure maps. Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo.
 
 ## <a name="unit-types"></a>Tipi di unità
 
-Alcune API del servizio meteorologico consentono all'utente di specificare se i dati vengono restituiti in formato metrica o in unità imperiali. Le risposte restituite per queste API includono unitType e un valore numerico che può essere usato per le traduzioni di unità. Vedere la tabella seguente per interpretare questi valori.
+Alcune API del servizio meteorologico (anteprima) consentono all'utente di specificare se i dati vengono restituiti in formato metrica o in unità imperiali. Le risposte restituite per queste API includono unitType e un valore numerico che può essere usato per le traduzioni di unità. Vedere la tabella seguente per interpretare questi valori.
 
 |unitType|Description         |
 |--------|--------------------|
@@ -52,7 +56,7 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 
 ## <a name="weather-icons"></a>Icone Meteo
 
-Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode`È un valore numerico utilizzato per definire l'icona. Non eseguire direttamente il collegamento a queste immagini dalle applicazioni, gli URL possono essere modificati e sostituiti.
+Alcune API del servizio meteo (anteprima) restituiscono `iconCode` nella risposta. `iconCode`È un valore numerico utilizzato per definire l'icona. Non eseguire direttamente il collegamento a queste immagini dalle applicazioni, gli URL possono essere modificati e sostituiti.
 
 | Numero icona |Icona| Giorno | Notte | Testo |
 |-------------|:----:|-----|-------|------|
@@ -81,10 +85,10 @@ Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Sì |  Sì   | Nevischio|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Sì |  Sì   | Congelamento pioggia|
 | 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Sì |  Sì   | Pioggia e neve|
-| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Accesso frequente|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Frequente|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sì |  Sì   | Cold|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sì |  Sì   | Ventoso|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Deseleziona|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Cancella|
 | 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | No  |  Sì   | Per lo più chiaro|
 | 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | No  |  Sì   | Parzialmente nuvoloso|
 | 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | No  |  Sì   | Cloud intermittenti|
@@ -540,10 +544,10 @@ Di seguito è riportato l'elenco dei gruppi di indici disponibili (indexGroupId)
   7       |Spiaggia e Marina | Pool di & spiaggia (10) </br> Pesca (13) </br> Sailing (11)
   8       |Sportivo | Pesca (13) </br> Caccia (20) </br> Attività esterna (29)</br>
   9       |Agricoltura |  Preparazione campi (32) </br>  Umidità del suolo (34)
-  10      |Integrità | Dolore artrite (21) </br> Asma (23) </br> Freddo comune (25) </br> Polvere & dander (18) </br> Influenza (26) </br> Fitness Heart integro (16) </br> Emicrania emicrania (27)
+  10      |Salute | Dolore artrite (21) </br> Asma (23) </br> Freddo comune (25) </br> Polvere & dander (18) </br> Influenza (26) </br> Fitness Heart integro (16) </br> Emicrania emicrania (27)
   11      |Piscina | Barbecue esterno (24) </br> Pool di & spiaggia (10) </br> Ciclismo (4) </br> Concerto esterno (8) </br>  Preparazione campi (32) </br> Pesca (13) </br> Meteo golf (5) </br> Escursioni (3) </br> Caccia (20) </br> Jogging (2) </br> Kite Flying (9) </br> Attività zanzara (17)</br> Falciatura del prato (28) </br> Attività esterna (29) </br> In esecuzione (1) </br> Sailing (11) </br> Skateboarding (7) </br> Meteo Ski (15) </br>  Umidità del suolo (34)</br> Stargazing (12) </br> Tennis (6)
   12      |Sportivo | Ciclismo (4) </br> Meteo golf (5) </br> Escursioni (3) </br>  Jogging (2) </br> In esecuzione (1) </br> Skateboarding (7) </br> Meteo Ski (15) </br>Tennis (6)
-  13      |Home | Efficienza energetica domestica (36) </br> Risparmio di energia (37) </br> Attività interna (-2)
+  13      |Home page | Efficienza energetica domestica (36) </br> Risparmio di energia (37) </br> Attività interna (-2)
 
 ## <a name="daily-index-range-sets"></a>Set di intervalli di indici giornalieri
 
@@ -585,7 +589,7 @@ L'API per l' [ottenimento di indici giornalieri](/rest/api/maps/weather) restitu
   ----------------|--------------|------------
   Basso                |  0         |        1,99
   Moderato           |  2         |        3,99
-  Alto               |  4         |        5,99
+  Alta               |  4         |        5,99
   Molto elevata          |  6         |        7,99
   Extreme            |  8         |        10
 
@@ -595,7 +599,7 @@ L'API per l' [ottenimento di indici giornalieri](/rest/api/maps/weather) restitu
   ----------------|--------------|------------
   Basso                |  0            |      2,99
   Moderato           |  3            |      4,99
-  Alto               |  5            |      6,99
+  Alta               |  5            |      6,99
   Molto elevata          |  7            |      8,99
   Extreme            |  9            |      10
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: af394b68a943f4c89358a719c155606c264b9dc4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554512"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904993"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -49,16 +49,12 @@ Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'
 
 ## <a name="associate-the-security-group-with-the-tenant"></a>Associare il gruppo di sicurezza al tenant
 
-1. Accedere al [portale di amministrazione Power bi](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1). Aggiungere questo flag di funzionalità all'URI:  `allowServicePrincipalsUseReadAdminAPIsUI=1` . Questo flag Abilita la funzionalità che consente di associare il gruppo di sicurezza. ad esempio:
-
-    ```http
-    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
-    ```
+1. Accedere al [portale di amministrazione Power bi](https://app.powerbi.com/admin-portal/tenantSettings).
 
     > [!Important]
     > Per visualizzare la pagina delle impostazioni del tenant, è necessario essere un amministratore Power BI.
 
-1. Selezionare **le impostazioni per gli sviluppatori**  >  **Consenti alle entità servizio di usare le API Power BI di sola lettura (anteprima)**.
+1. Selezionare **le impostazioni per gli sviluppatori**  >  **Consenti alle entità servizio di usare Power BI di sola lettura API di amministrazione (anteprima)**.
 1. Selezionare **gruppi di sicurezza specifici**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Immagine che illustra come consentire alle entità servizio di ottenere le autorizzazioni di sola lettura Power BI API di amministrazione":::

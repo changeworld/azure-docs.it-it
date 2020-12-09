@@ -4,15 +4,15 @@ description: Trasferire i dati con AzCopy e archiviazione file. AzCopy è uno st
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a19cca515bafa1d06f93d71b4868011a7c922354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 087af322240322e44e70a9b5279eb7d251e735be
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792838"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901865"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e l'archivio file 
 
@@ -49,7 +49,7 @@ Questa sezione contiene gli esempi seguenti:
 > [!TIP]
 > È possibile modificare l'operazione di caricamento usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Contrassegno|
+> |Scenario|Flag|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
@@ -72,7 +72,7 @@ Questa sezione contiene gli esempi seguenti:
 
 ### <a name="upload-a-directory"></a>Caricare una directory
 
-Questo esempio copia una directory (e tutti i file in tale directory) in una condivisione file. Il risultato è una directory nella condivisione file con lo stesso nome.
+Questo esempio copia una directory, e tutti i file in essa contenuti, in una condivisione file. Il risultato è una directory con lo stesso nome nella condivisione file.
 
 |    |     |
 |--------|-----------|
@@ -155,7 +155,7 @@ Questa sezione contiene gli esempi seguenti:
 > [!TIP]
 > È possibile modificare l'operazione di download usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Contrassegno|
+> |Scenario|Flag|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
@@ -207,7 +207,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pat
 | **Sintassi** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Esempio** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-In questo esempio, AzCopy trasferisce la `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` Directory e il `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` file. È necessario includere l' `--recursive` opzione per trasferire tutti i file nella `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` Directory.
+In questo esempio, AzCopy trasferisce la `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` Directory e il `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` file. Includere l' `--recursive` opzione per trasferire tutti i file nella `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` Directory.
 
 È anche possibile escludere i file utilizzando l' `--exclude-path` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
@@ -248,12 +248,12 @@ Questa sezione contiene gli esempi seguenti:
 > * Copiare un file in un altro account di archiviazione
 > * Copiare una directory in un altro account di archiviazione
 > * Copiare una condivisione file in un altro account di archiviazione
-> * Copia tutte le condivisioni file, le directory e i file in un altro account di archiviazione
+> * Copiare tutte le condivisioni file, le directory e i file in un altro account di archiviazione
 
 > [!TIP]
 > È possibile modificare l'operazione di copia usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Contrassegno|
+> |Scenario|Flag|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
@@ -283,7 +283,7 @@ Questa sezione contiene gli esempi seguenti:
 | **Sintassi** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Esempio** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Copia tutte le condivisioni file, le directory e i file in un altro account di archiviazione
+### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Copiare tutte le condivisioni file, le directory e i file in un altro account di archiviazione
 
 |    |     |
 |--------|-----------|
@@ -299,12 +299,12 @@ Questa sezione contiene gli esempi seguenti:
 
 Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di file e i timestamp dell'Ultima modifica. Impostare il `--delete-destination` flag facoltativo sul valore `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non sono più presenti nella directory di origine.
 
-Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file senza fornire un messaggio di richiesta. Se si desidera che venga visualizzata una richiesta prima che AzCopy elimini un file, impostare il `--delete-destination` flag su `prompt` .
+Se si imposta il `--delete-destination` flag su `true` , AzCopy Elimina i file senza fornire un messaggio di richiesta. Se si desidera che venga visualizzata una richiesta prima che AzCopy elimini un file, impostare il `--delete-destination` flag su `prompt` .
 
 > [!TIP]
 > È possibile modificare l'operazione di sincronizzazione usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Contrassegno|
+> |Scenario|Flag|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
@@ -348,8 +348,6 @@ Altri esempi sono disponibili in uno di questi articoli:
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 
-- [Trasferire dati con AzCopy e l'archivio BLOB](storage-use-azcopy-blobs.md)
-
-- [Trasferire dati con AzCopy e bucket Amazon S3](storage-use-azcopy-s3.md)
+- [Trasferire i dati](storage-use-azcopy-v10.md#transfer-data)
 
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)

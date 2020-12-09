@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0b10a4de78c44e4c0a113a1f1a46c316b13a1f78
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592057"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96902162"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -254,7 +254,7 @@ Questa funzionalità è supportata per la copia di dati da qualsiasi origine nei
 
 - [Database SQL di Azure](connector-azure-sql-database.md)
 - [Istanza gestita di database SQL di Azure](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (in precedenza SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Creazione di tabelle di sink](media/copy-activity-overview/create-sink-table.png)

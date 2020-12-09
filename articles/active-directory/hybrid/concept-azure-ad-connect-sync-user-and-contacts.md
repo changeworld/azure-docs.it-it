@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279313"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861783"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti, gruppi e contatti
 I motivi per cui possono essere presenti più foreste Active Directory e sono disponibili più topologie di distribuzione sono diversi. I modelli comuni prevedono una distribuzione account-risorse e foreste sincronizzate tramite Elenco indirizzi globale dopo operazioni di fusione e acquisizione. Anche se esistono modelli puri, sono molto diffusi anche i modelli ibridi. La configurazione predefinita nel servizio di sincronizzazione Azure AD Connect non presuppone alcun modello specifico, ma è possibile osservare diversi comportamenti in base all'opzione di corrispondenza utenti selezionata nella guida all'installazione.
@@ -41,7 +41,7 @@ Aspetti importanti da tenere presenti durante la sincronizzazione dei gruppi di 
 
 * Azure AD Connect non supporta la sincronizzazione delle [appartenenze ai gruppi primari](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) con Azure AD.
 
-* Azure AD Connect non supporta la sincronizzazione delle [appartenenze ai gruppi di distribuzione dinamici](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) con Azure AD.
+* Azure AD Connect non supporta la sincronizzazione delle [appartenenze ai gruppi di distribuzione dinamici](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) con Azure AD.
 
 * Per sincronizzare un gruppo di Active Directory con Azure AD come gruppo abilitato alla posta elettronica:
 

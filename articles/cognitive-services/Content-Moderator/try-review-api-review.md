@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72757148"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905135"
 ---
-# <a name="create-human-reviews-rest"></a>Creare recensioni umane (REST)
+# <a name="create-human-reviews-api-console"></a>Creare recensioni umane (console API)
 
 [Esamina](./review-api.md#reviews) l'archivio e visualizza il contenuto per i moderatori umani da valutare. Quando un utente completa una revisione, i risultati vengono inviati a un endpoint di callback specificato. Questa guida illustra come configurare le revisioni usando le API REST di revisione tramite la console API. Dopo aver compreso la struttura delle API, è possibile eseguire facilmente il porting di queste chiamate a qualsiasi piattaforma compatibile con REST.
 
@@ -33,7 +33,7 @@ Per creare una verifica, passare alla pagina **[Verifica-crea](https://westus2.d
 
 ### <a name="enter-rest-call-parameters"></a>Immettere i parametri delle chiamate REST
 
-Immettere i valori per **TeamName**e **OCP-gestione API-Subscription-Key**:
+Immettere i valori per **TeamName** e **OCP-gestione API-Subscription-Key**:
 
 - **TeamName**: ID del team creato quando si configura l'account [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) (disponibile nel campo **ID** nella schermata delle credenziali dello strumento di verifica).
 - **OCP-gestione API-Subscription-Key**: chiave di content moderator. È possibile trovarlo nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).

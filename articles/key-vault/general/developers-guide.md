@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460815"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904262"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -22,7 +22,7 @@ Key Vault consente di accedere in modo sicuro ai dati sensibili dall'interno del
 - Le chiavi, i segreti e i certificati vengono protetti senza dover scrivere manualmente il codice ed è possibile usarli facilmente dalle applicazioni.
 - È possibile consentire ai clienti di possedere e gestire chiavi, segreti e certificati, per consentirti di concentrarti sulla fornitura delle funzionalità software di base. In questo modo, le applicazioni non sono proprietarie della responsabilità o della responsabilità potenziale per le chiavi del tenant, i segreti e i certificati dei clienti.
 - L'applicazione può usare chiavi per la firma e la crittografia, ma mantiene la gestione delle chiavi esterna dall'applicazione. Per ulteriori informazioni sulle chiavi, vedere [informazioni sulle chiavi](../keys/about-keys.md) .
-- È possibile gestire le credenziali, ad esempio le password, le chiavi di accesso, i token di firma di accesso condiviso archiviati in Key Vault come segreti, vedere [informazioni sui segreti](../secrets/about-secrets.md)
+- È possibile gestire credenziali come password, chiavi di accesso e token di firma di accesso condiviso archiviando tali credenziali in Key Vault come segreti, vedere [informazioni sui segreti](../secrets/about-secrets.md)
 - Gestire i certificati. Per ulteriori informazioni, vedere [informazioni sui certificati](../certificates/about-certificates.md) .
 
 Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere l'articolo [Cos'è l'insieme di credenziali chiave di Azure?](overview.md)

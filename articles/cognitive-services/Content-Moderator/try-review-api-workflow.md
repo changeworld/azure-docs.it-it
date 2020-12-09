@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754174"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905170"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>Definire e usare flussi di lavoro di moderazione (REST)
+# <a name="define-and-use-moderation-workflows-api-console"></a>Definire e usare i flussi di lavoro di moderazione (console API)
 
 I flussi di lavoro sono filtri personalizzati basati sul cloud che è possibile usare per gestire il contenuto in modo più efficiente. I flussi di lavoro possono connettersi a un'ampia gamma di servizi per filtrare il contenuto in modi diversi e quindi intraprendere l'azione appropriata. Questa guida illustra come usare le API REST del flusso di lavoro, tramite la console API, per creare e usare i flussi di lavoro. Dopo aver compreso la struttura delle API, è possibile eseguire facilmente il porting di queste chiamate a qualsiasi piattaforma compatibile con REST.
 
@@ -27,24 +27,24 @@ I flussi di lavoro sono filtri personalizzati basati sul cloud che è possibile 
 
 ## <a name="create-a-workflow"></a>Creare un flusso di lavoro
 
-Per creare o aggiornare un flusso di lavoro, passare alla pagina **[flusso di lavoro-crea o aggiorna](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** riferimento all'API e selezionare il pulsante per l'area della chiave (è possibile trovarlo nell'URL dell'endpoint nella pagina **credenziali** dello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)). Viene avviata la console API, in cui è possibile creare ed eseguire facilmente chiamate API REST.
+Per creare o aggiornare un flusso di lavoro, passare alla pagina **[flusso di lavoro-crea o aggiorna](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** riferimento all'API e selezionare il pulsante per l'area della chiave. È possibile trovare la propria area nell'URL dell'endpoint nella pagina **credenziali** dello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). Viene avviata la console API, in cui è possibile creare ed eseguire facilmente chiamate API REST.
 
 ![Selezione dell'area nella pagina Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/test-drive-region.png)
 
 ### <a name="enter-rest-call-parameters"></a>Immettere i parametri delle chiamate REST
 
-Immettere i valori per **Team**, **WorkflowName**e **OCP-gestione API-Subscription-Key**:
+Immettere i valori per **Team**, **WorkflowName** e **OCP-gestione API-Subscription-Key**:
 
 - **Team**: ID del team creato quando si configura l'account [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) (disponibile nel campo **ID** nella schermata delle credenziali dello strumento di verifica).
 - **WorkflowName**: il nome di un nuovo flusso di lavoro da aggiungere o un nome esistente, se si desidera aggiornare un flusso di lavoro esistente.
-- **OCP-gestione API-Subscription-Key**: chiave di content moderator. È possibile trovarlo nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
+- **OCP-gestione API-Subscription-Key**: chiave di content moderator. È possibile trovare questa chiave nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
 
 ![Parametri di query e intestazioni nella console Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-a-workflow-definition"></a>Immettere una definizione del flusso di lavoro
 
 1. Modificare la casella del **corpo della richiesta** per immettere la richiesta JSON con i dettagli per la **Descrizione** e il **tipo** ( `Image` o `Text` ).
-2. Per **espressione**copiare l'espressione JSON del flusso di lavoro predefinita. La stringa JSON finale dovrebbe essere simile alla seguente:
+2. Per **espressione** copiare l'espressione JSON del flusso di lavoro predefinita. La stringa JSON finale dovrebbe essere simile alla seguente:
 
 ```json
 {
@@ -102,7 +102,7 @@ Immettere i parametri di chiamata REST come nella sezione precedente. Verificare
 
 ![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
 
-Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato il flusso di lavoro in formato JSON, come indicato di seguito:
+Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato il flusso di lavoro in formato JSON, come nell'esempio seguente:
 
 ```json
 {

@@ -1,24 +1,29 @@
 ---
-title: Richiedere dati di transito pubblico in tempo reale | Mappe Microsoft Azure
-description: Informazioni su come richiedere dati di transito pubblico in tempo reale, ad esempio arrivi a un arresto di transito. Per questo scopo, vedere come usare il servizio Mobility di Azure maps.
+title: Richiedi dati di transito pubblico in tempo reale con Microsoft Azure Maps Mobility Services (anteprima)
+description: Informazioni su come richiedere dati di transito pubblico in tempo reale, ad esempio arrivi a un arresto di transito. Per questo scopo, vedere come usare i servizi di mobilità di Azure Maps (anteprima).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895716"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906047"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Richiedere dati di transito pubblico in tempo reale usando il servizio Mobility di Azure Maps
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Richiedere dati di transito pubblico in tempo reale usando i servizi di mobilità di Maps di Azure (anteprima) 
 
-Questo articolo illustra come usare il [servizio Mobility](/rest/api/maps/mobility) di Azure Maps per richiedere dati di transito pubblico in tempo reale.
+> [!IMPORTANT]
+> I servizi di mobilità di Azure Maps sono attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Questo articolo illustra come usare i [servizi di mobilità](/rest/api/maps/mobility) di Azure Maps per richiedere dati di transito pubblico in tempo reale.
 
 In questo articolo si apprenderà come richiedere i prossimi arrivi in tempo reale per tutte le righe che arrivano a una determinata interruzione
 
@@ -30,13 +35,13 @@ Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compila
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Richiedi arrivi in tempo reale per un'interruzione
 
-Per richiedere i dati di arrivo in tempo reale di un particolare arresto di transito pubblico, è necessario effettuare una richiesta all' [API arrivi in tempo reale](/rest/api/maps/mobility/getrealtimearrivalspreview) del [servizio Mobility](/rest/api/maps/mobility)di Azure maps. Per completare la richiesta è necessario disporre di **metroID** e **stopID** . Per altre informazioni su come richiedere questi parametri, vedere la guida su come [richiedere route di transito pubbliche](./how-to-request-transit-data.md).
+Per richiedere i dati di arrivo in tempo reale di un particolare arresto di transito pubblico, è necessario effettuare una richiesta all' [API arrivi in tempo reale](/rest/api/maps/mobility/getrealtimearrivalspreview) del servizio Mobility di Azure Maps [(anteprima)](/rest/api/maps/mobility). Per completare la richiesta è necessario disporre di **metroID** e **stopID** . Per altre informazioni su come richiedere questi parametri, vedere la guida su come [richiedere route di transito pubbliche](./how-to-request-transit-data.md).
 
 Si userà "522" come ID metro, ovvero l'ID metro per l'area "Seattle – Tacoma – Bellevue, WA". Usare "522---2060603" come ID di arresto, questo arresto del bus si trova in "ne 24 St & 162nd Ave ne, Bellevue WA". Per richiedere i cinque dati di arrivo in tempo reale successivi, per tutti gli arrivi Live successivi a questa interruzione, seguire questa procedura:
 
 1. Aprire l'app postazione e creare una raccolta per archiviare le richieste. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta).  Assegnare un nome alla raccolta e selezionare **Create** (Crea).
 
-2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva** .
+2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
 
     ![Creare una richiesta in post](./media/how-to-request-transit-data/postman-new.png)
 
@@ -113,12 +118,12 @@ Si userà "522" come ID metro, ovvero l'ID metro per l'area "Seattle – Tacoma 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come richiedere dati di transito tramite il servizio Mobility:
+Informazioni su come richiedere i dati di transito usando i servizi Mobility (anteprima):
 
 > [!div class="nextstepaction"]
 > [Come richiedere dati di transito](how-to-request-transit-data.md)
 
-Esplorare la documentazione dell'API del servizio Mobility di Azure Maps:
+Esplorare la documentazione dell'API servizi di mobilità di Azure Maps (anteprima):
 
 > [!div class="nextstepaction"]
-> [Documentazione dell'API del servizio Mobility](/rest/api/maps/mobility)
+> [Documentazione dell'API dei servizi Mobility](/rest/api/maps/mobility)

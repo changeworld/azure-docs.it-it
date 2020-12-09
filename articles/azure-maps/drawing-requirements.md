@@ -1,21 +1,26 @@
 ---
-title: Requisiti del pacchetto di disegni in Creator di Mappe di Azure
+title: Creazione di requisiti per i pacchetti in Microsoft Azure Maps Creator (anteprima)
 description: Informazioni sui requisiti del pacchetto di disegno per convertire i file di progettazione della struttura per eseguire il mapping dei dati
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013123"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903463"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
+
+
+> [!IMPORTANT]
+> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile convertire i pacchetti di disegno caricati in dati della mappa usando il [servizio di conversione mappe di Azure](/rest/api/maps/conversion). Questo articolo descrive i requisiti del pacchetto di disegni per l'API di conversione. Per altre informazioni, è possibile scaricare il [pacchetto di disegni](https://github.com/Azure-Samples/am-creator-indoor-data-examples) di esempio.
 
@@ -174,7 +179,7 @@ I percorsi dei file nell' `buildingLevels` oggetto del file manifesto devono ess
 
 Sebbene esistano requisiti quando si utilizzano gli oggetti manifesto, non tutti gli oggetti sono obbligatori. La tabella seguente Mostra gli oggetti obbligatori e facoltativi per la versione 1,1 del [servizio di conversione mappe di Azure](/rest/api/maps/conversion).
 
-| Oggetto | Obbligatoria | Descrizione |
+| Oggetto | Obbligatoria | Description |
 | :----- | :------- | :------- |
 | `version` | true |Versione dello schema del manifesto. Attualmente è supportata solo la versione 1,1.|
 | `directoryInfo` | true | Descrive le informazioni geografiche e di contatto della struttura. Può anche essere usato per descrivere informazioni geografiche e di contatto di un occupante. |
@@ -190,7 +195,7 @@ Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 | Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-| `name`      | string | true   |  Nome dell'edificio. |
+| `name`      | stringa | true   |  Nome dell'edificio. |
 | `streetAddress`|    string |    false    | Indirizzo dell'edificio. |
 |`unit`     | string    |  false    |  Unità dell'edificio. |
 | `locality` |    string |    false |    Nome di un'area, un quartiere o un'area geografica. Ad esempio, "Overlake" o "Central District". La località non fa parte dell'indirizzo postale. |
@@ -211,15 +216,15 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 | Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|`levelName`    |string    |true |    Nome descrittivo del livello. Ad esempio: piano 1, lobby, parcheggio blu o seminterrato.|
+|`levelName`    |stringa    |true |    Nome descrittivo del livello. Ad esempio: piano 1, lobby, parcheggio blu o seminterrato.|
 |`ordinal` | integer |    true | Determina l'ordine verticale dei livelli. Ogni struttura deve avere un livello con ordinal 0. |
 |`heightAboveFacilityAnchor` | NUMERIC | false |    Altezza del livello superiore all'ancoraggio in metri. |
 | `verticalExtent` | NUMERIC | false | Altezza da piano a soffitto (spessore) del livello in metri. |
-|`filename` |    string |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
+|`filename` |    stringa |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
 
 ### `georeference`
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatoria | Description |
 |-----------|------|----------|-------------|
 |`lat`    | NUMERIC |    true |    Rappresentazione decimale della latitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |NUMERIC|    true|    Rappresentazione decimale della longitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`). |
@@ -227,7 +232,7 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 ### `dwgLayers`
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatoria | Description |
 |-----------|------|----------|-------------|
 |`exterior`    |matrice di stringhe|    true|    Nomi dei livelli che definiscono il profilo di compilazione esterno.|
 |`unit`|    matrice di stringhe|    true|    Nomi dei livelli che definiscono le unità.|
@@ -243,7 +248,7 @@ L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
 | Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|`unitName`    |string    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando `unitName` viene trovata una corrispondenza tra etichette nei `unitLabel` livelli. |
+|`unitName`    |stringa    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando `unitName` viene trovata una corrispondenza tra etichette nei `unitLabel` livelli. |
 |`categoryName`|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |`navigableBy`| matrice di stringhe |    false    |Indica i tipi di agenti mobili che possono attraversare l'unità. Questa proprietà informa le funzionalità wayfinding. I valori consentiti sono:,,, `pedestrian` `wheelchair` `machine` `bicycle` , `automobile` , `hiredAuto` , `bus` , `railcar` , `emergency` , `ferry` , `boat` e `disallowed` .|
 |`routeThroughBehavior`|    string|    false    |Il comportamento del percorso attraverso l'unità. I calori consentiti sono `disallowed`, `allowed` e `preferred`. Il valore predefinito è `allowed`.|
@@ -263,7 +268,7 @@ L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
 | Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|zoneName        |string    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
+|zoneName        |stringa    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Nome alternativo della zona.  |
 |zoneNameSubtitle|    string |    false    |Sottotitolo della zona. |
@@ -407,10 +412,10 @@ Di seguito è riportato un file manifesto di esempio per il pacchetto di disegno
 Quando il pacchetto di disegno soddisfa i requisiti, è possibile usare il [servizio di conversione mappe di Azure](/rest/api/maps/conversion) per convertire il pacchetto in un set di dati della mappa. Quindi, è possibile usare il set di dati per generare una mappa interna usando il modulo Maps indoor.
 
 > [!div class="nextstepaction"]
->[Creator per piante di interni](creator-indoor-maps.md)
+>[Creator (anteprima) per le mappe indoor](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare una pianta di interni di Creator](tutorial-creator-indoor-maps.md)
+> [Esercitazione: creazione di una mappa indoor di Creator (Preview)](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Stile dinamico delle mappe interne](indoor-map-dynamic-styling.md)

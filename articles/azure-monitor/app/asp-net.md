@@ -4,12 +4,12 @@ description: Configurare gli strumenti di analisi delle prestazioni, della dispo
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838943"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904177"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configurare Application Insights per il sito Web ASP.NET
 
@@ -26,6 +26,10 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 - Creare una [risorsa basata sull'area di lavoro Application Insights](create-workspace-resource.md).
 
+> [!IMPORTANT]
+> Le nuove aree di Azure **richiedono** l'uso di stringhe di connessione anziché di chiavi di strumentazione. La [stringa di connessione](./sdk-connection-string.md?tabs=net) identifica la risorsa a cui si vuole associare i dati di telemetria. Consente inoltre di modificare gli endpoint che la risorsa userà come destinazione per la telemetria. Sarà necessario copiare la stringa di connessione e aggiungerla al codice dell'applicazione o a una variabile di ambiente.
+
+
 ## <a name="create-a-basic-aspnet-web-app"></a>Creare un'app Web ASP.NET di base
 
 1. Avviare Visual Studio 2019.
@@ -39,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Questa sezione illustra come aggiungere automaticamente Application Insights a un'app Web ASP.NET basata su modelli. Dall'interno del progetto di app Web ASP.NET in Visual Studio:
 
 1. Selezionare **Aggiungi Application Insights Telemetry**  >  **Application Insights SDK (locale)**  >  **Avanti**  >  **fine**  >  **chiusura**.
-2. Aprire il file `ApplicationInsights.config`. 
+2. Aprire il file `ApplicationInsights.config` . 
 3. Prima del `</ApplicationInsights>` tag di chiusura aggiungere una riga contenente la chiave di strumentazione per la risorsa Application Insights.  La chiave di strumentazione è disponibile nel riquadro Panoramica della risorsa Application Insights appena creata creata come parte dei prerequisiti per questo articolo.
 
     ```xml

@@ -1,21 +1,25 @@
 ---
-title: Implementare stili dinamici per le piante di interni di Creator in Mappe di Azure
-description: Informazioni su come implementare stili dinamici per le piante di interni di Creator
+title: Implementare lo stile dinamico per le mappe interne di Azure Maps Creator (anteprima)
+description: Informazioni su come implementare lo stile dinamico per le mappe indoor Creator (Preview)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895376"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903446"
 ---
-# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementare stili dinamici per le piante di interni
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementare lo stile dinamico per le mappe indoor Creator (Preview)
+
+> [!IMPORTANT]
+> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il [servizio di stato della funzionalità](/rest/api/maps/featurestate) di Creator per Mappe di Azure consente di applicare stili in base alle proprietà dinamiche delle funzionalità di dati di piante di interni.  È, ad esempio, possibile eseguire il rendering delle sale riunioni con un colore specifico in modo che indichino se sono o meno occupate. Questo articolo illustra come eseguire dinamicamente il rendering delle funzionalità di piante di interni con il [servizio di stato della funzionalità](/rest/api/maps/featurestate) e il [modulo Web per piante di interni](how-to-use-indoor-module.md).
 
@@ -23,7 +27,7 @@ Il [servizio di stato della funzionalità](/rest/api/maps/featurestate) di Creat
 
 1. [Creare un account di Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione.
-3. [Creare una risorsa Creator](how-to-manage-creator.md)
+3. [Creare una risorsa Creator (anteprima)](how-to-manage-creator.md)
 4. Scaricare il [pacchetto di disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Creare una pianta di interni](tutorial-creator-indoor-maps.md) per ottenere i valori di `tilesetId` e `statesetId`.
 6. Creare un'applicazione Web seguendo la procedura descritta in [Usare il modulo di piante di interni](how-to-use-indoor-module.md).
@@ -66,7 +70,7 @@ Nella sezione successiva lo *stato* di occupazione dell'ufficio `UNIT26` verrà 
 
  Verrà ora aggiornato lo stato dei due uffici, `UNIT26` e `UNIT27`:
 
-1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un valore in **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
+1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
 2. Per aggiornare lo stato, usare l'[API degli stati di aggiornamento delle funzionalità](/rest/api/maps/featurestate/updatestatespreview). Passare l'ID stateset e `UNIT26` per una delle due unità. Accodare la chiave di sottoscrizione di Mappe di Azure. Ecco l'URL di una richiesta **POST** per l'aggiornamento dello stato:
 
@@ -113,7 +117,7 @@ L'applicazione Web aperta in precedenza in un browser rispecchia ora lo stato ag
 Per altre informazioni, vedere:
 
 > [!div class="nextstepaction"]
-> [Creator per piante di interni](creator-indoor-maps.md)
+> [Creator (anteprima) per il mapping indoor](creator-indoor-maps.md)
 
 Vedere i riferimenti per le API menzionate in questo articolo:
 

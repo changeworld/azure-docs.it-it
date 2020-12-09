@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325333"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905197"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisioni, flussi di lavoro e processi di moderazione dei contenuti
 
@@ -42,7 +42,7 @@ Utilizzare la barra degli strumenti di **ricerca** per ordinare le revisioni in 
 > [!div class="mx-imgBorder"]
 > ![Viene visualizzata la barra degli strumenti di ricerca. Include varie caselle combinate per l'immissione dei criteri di ricerca, ad esempio lo stato di revisione e i tag.](./Review-Tool-user-Guide/images/review-search.png)
 
-Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) per iniziare a creare recensioni o vedere la [Guida dell'API REST](./try-review-api-review.md) .
+Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) per iniziare a creare recensioni o vedere la [Guida della console API](./try-review-api-review.md) .
 
 ## <a name="workflows"></a>Flussi di lavoro
 
@@ -80,13 +80,13 @@ I flussi di lavoro sono definiti come stringhe JSON, rendendoli accessibili a li
 }
 ```
 
-Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/workflows.md) per iniziare a creare e usare i flussi di lavoro o vedere la [Guida dell'API REST](./try-review-api-workflow.md) .
+Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/workflows.md) per iniziare a creare e usare i flussi di lavoro o vedere la [Guida della console](./try-review-api-workflow.md) per le API.
 
 ## <a name="jobs"></a>Processi
 
 Un processo di moderazione funge da wrapper per la funzionalità di moderazione del contenuto, flussi di lavoro e revisioni. Il processo esegue l'analisi dei contenuti usando l'API di moderazione delle immagini Content Moderator o l'API di moderazione del testo e quindi la verifica rispetto al flusso di lavoro designato. In base ai risultati del flusso di lavoro, è possibile o meno creare una verifica per il contenuto nello [strumento di revisione](./review-tool-user-guide/human-in-the-loop.md). Sebbene sia possibile creare e configurare le revisioni e i flussi di lavoro con le rispettive API, l'API del processo consente di ottenere un report dettagliato dell'intero processo, che può essere inviato a un endpoint di callback specificato.
 
-Vedere la [Guida dell'API REST](./try-review-api-job.md) per iniziare a usare i processi.
+Vedere la [Guida della console API](./try-review-api-job.md) per iniziare a usare i processi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

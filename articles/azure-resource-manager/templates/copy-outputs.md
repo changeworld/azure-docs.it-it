@@ -1,18 +1,18 @@
 ---
 title: Definire più istanze di un valore di output
-description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire un'iterazione più volte quando si restituisce un valore da una distribuzione.
+description: Usare l'operazione di copia in un modello di Azure Resource Manager (modello ARM) per eseguire un'iterazione più volte quando si restituisce un valore da una distribuzione.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae20ed9ec3fdb3b76adbd370f5ba22f9386d613
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82583419"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905945"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iterazione di output nei modelli ARM
 
-Questo articolo illustra come creare più di un valore per un output nel modello di Azure Resource Manager (ARM). Aggiungendo l'elemento **Copy** alla sezione Outputs del modello, è possibile restituire dinamicamente un numero di elementi durante la distribuzione.
+Questo articolo illustra come creare più di un valore per un output nel modello di Azure Resource Manager (modello ARM). Aggiungendo l' `copy` elemento alla sezione Outputs del modello, è possibile restituire dinamicamente un numero di elementi durante la distribuzione.
 
 È anche possibile usare copia con [risorse](copy-resources.md), [Proprietà in una risorsa](copy-properties.md)e [variabili](copy-variables.md).
 
@@ -27,9 +27,9 @@ Il formato generale dell'elemento Copy è il seguente:
 }
 ```
 
-La proprietà **count** specifica il numero di iterazioni desiderate per il valore di output.
+La `count` proprietà specifica il numero di iterazioni desiderate per il valore di output.
 
-La proprietà di **input** specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruiti dal valore nella proprietà di **input** . Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
+La `input` proprietà specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruita dal valore della proprietà `input`. Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
 
 ## <a name="copy-limits"></a>Limiti di copia
 
@@ -166,11 +166,10 @@ Nell'esempio precedente viene restituita una matrice con i valori seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse usando i modelli ARM](template-tutorial-create-multiple-instances.md).
+* Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
 * Per altri usi dell'elemento Copy, vedere:
   * [Iterazione delle risorse nei modelli ARM](copy-resources.md)
   * [Iterazione delle proprietà nei modelli ARM](copy-properties.md)
   * [Iterazione delle variabili nei modelli ARM](copy-variables.md)
-* Per informazioni sulle sezioni di un modello, vedere [creazione di modelli ARM](template-syntax.md).
-* Per informazioni su come distribuire il modello, vedere [distribuire un'applicazione con il modello ARM](deploy-powershell.md).
-
+* Per informazioni sulle sezioni di un modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per informazioni su come distribuire il modello, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](deploy-powershell.md).

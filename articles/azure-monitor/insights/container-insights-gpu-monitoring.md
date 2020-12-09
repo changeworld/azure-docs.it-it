@@ -3,12 +3,12 @@ title: Configurare il monitoraggio GPU con monitoraggio di Azure per i contenito
 description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con i nodi NVIDIA e AMD con GPU abilitati con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569697"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905588"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurare il monitoraggio GPU con monitoraggio di Azure per i contenitori
 
@@ -27,7 +27,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio de
 >[!NOTE]
 >Dopo il provisioning di un cluster con nodi GPU, verificare che il [driver GPU](../../aks/gpu-cluster.md) sia installato come richiesto da AKS per eseguire carichi di lavoro GPU. Il monitoraggio di Azure per i contenitori raccoglie le metriche GPU tramite Pod driver GPU in esecuzione nel nodo. 
 
-|Nome metrica |Dimensione metrica (tag) |Descrizione |
+|Nome metrica |Dimensione metrica (tag) |Description |
 |------------|------------------------|------------|
 |containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName, gpuId, gpuModel, gpuVendor|Percentuale di tempo nel periodo di campionamento precedente (60 secondi) durante il quale la GPU era occupata/elaborata attivamente per un contenitore. Il ciclo Duty è un numero compreso tra 1 e 100. |
 |containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName |Ogni contenitore può specificare limiti come una o più GPU. Non è possibile richiedere o limitare una frazione di una GPU. |
@@ -39,7 +39,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio de
 
 ## <a name="gpu-performance-charts"></a>Grafici delle prestazioni GPU 
 
-Il monitoraggio di Azure per i contenitori include grafici preconfigurati per le metriche elencate in precedenza nella tabella come cartella di lavoro GPU per ogni cluster. È possibile trovare la GPU del **nodo** della cartella di lavoro GPU direttamente da un cluster AKS selezionando **cartelle di lavoro** nel riquadro a sinistra e nell'elenco a discesa **Visualizza cartelle di lavoro** in informazioni dettagliate.
+Il monitoraggio di Azure per i contenitori include grafici preconfigurati per le metriche elencate in precedenza nella tabella come cartella di lavoro GPU per ogni cluster. Vedere [cartelle di lavoro in monitoraggio di Azure per i contenitori](container-insights-reports.md) per una descrizione delle cartelle di lavoro disponibili per il monitoraggio di Azure per i contenitori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

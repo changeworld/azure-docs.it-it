@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d33b419e0f24201d661ad0f5f1373022ea6e9e9f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275777"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861749"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronizzazione di Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
@@ -49,7 +49,7 @@ Finché l'errore LargeObject non viene risolto, non è possibile esportare altre
  * Ridurre il numero di valori del certificato nell'oggetto AD locale, a 15 o a un numero inferiore, rimuovendo i valori che non sono usati dall'organizzazione. Questa operazione è adeguata se il software boat dell'attributo è dovuto a certificati scaduti o non usati. È possibile usare lo [script PowerShell disponibile qui](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) per trovare, eseguire il backup ed eliminare i certificati scaduti in AD locale. Prima di eliminare i certificati, è consigliabile confrontarsi con gli amministratori dell'infrastruttura a chiave pubblica dell'organizzazione.
 
  * Configurare Azure AD Connect per escludere l'attributo userCertificate dall'esportazione in Azure AD. In generale, si sconsiglia questa opzione perché l'attributo potrebbe essere usato da Microsoft Online Services per abilitare scenari specifici. In particolare:
-    * L'attributo userCertificate nell'oggetto Utente viene usato da Exchange Online e dai client di Outlook per la crittografia e la firma dei messaggi. Per altre informazioni su questa funzionalità, vedere l'articolo [S/MIME per la crittografia e firma dei messaggi](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide).
+    * L'attributo userCertificate nell'oggetto Utente viene usato da Exchange Online e dai client di Outlook per la crittografia e la firma dei messaggi. Per altre informazioni su questa funzionalità, vedere l'articolo [S/MIME per la crittografia e firma dei messaggi](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption).
 
     * L'attributo userCertificate sull'oggetto Computer viene usato da Azure AD per consentire ai dispositivi locali aggiunti a un dominio di Windows 10 di connettersi ad Azure AD. Per altre informazioni su questa funzionalità, fare riferimento all'articolo [Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10](../devices/hybrid-azuread-join-plan.md).
 
@@ -83,7 +83,7 @@ Verificare che non venga eseguita alcuna sincronizzazione durante l'implementazi
 
 1. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"*.
 
-### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passaggio 2: Trovare la regola di sincronizzazione in uscita esistente per l'attributo userCertificate
+### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passaggio 2. Trovare la regola di sincronizzazione in uscita esistente per l'attributo userCertificate
 Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata per l'esportazione dell'attributo userCertificate per gli oggetti Utente in Azure AD. Individuare questa regola di sincronizzazione per scoprirne la configurazione **precedente** e il **filtro ambito**:
 
 1. Avviare l'**editor per le regole di sincronizzazione** passando ad AVVIA → Synchronization Rules Editor (Editor per le regole di sincronizzazione).
@@ -113,7 +113,7 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Passaggio 3. Creare la regola di sincronizzazione in uscita necessaria
 La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la stessa **priorità elevata** della regola di sincronizzazione esistente. Ciò garantisce che la nuova regola di sincronizzazione si applichi allo stesso set di oggetti della regola di sincronizzazione esistente e sostituisca la regola di sincronizzazione esistente per l'attributo userCertificate. Per creare la regola di sincronizzazione:
 1. Nell'editor per le regole di sincronizzazione, fare clic sul pulsante **Aggiungi nuova regola**.
-2. Nella **scheda Descrizione**specificare la configurazione seguente:
+2. Nella **scheda Descrizione** specificare la configurazione seguente:
 
     | Attributo | Valore | Dettagli |
     | --- | --- | --- |

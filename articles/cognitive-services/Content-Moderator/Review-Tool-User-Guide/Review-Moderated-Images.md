@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cfda4d7970c734d92c9f2355d553721ef6165e43
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911852"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903888"
 ---
 # <a name="create-human-reviews"></a>Crea recensioni umane
 
@@ -28,7 +28,7 @@ In questa guida verrà illustrato come configurare le [revisioni](../review-api.
 ## <a name="image-reviews"></a>Revisioni di immagini
 
 1. Passare allo [strumento di verifica](https://contentmoderator.cognitive.microsoft.com/), selezionare la scheda **try** e caricare alcune immagini da rivedere.
-1. Al termine dell'elaborazione delle immagini caricate, passare alla scheda **Revisione** e selezionare **immagine** .
+1. Al termine dell'elaborazione delle immagini caricate, passare alla scheda **Revisione** e selezionare **immagine**.
 
     ![Finestra del browser Chrome che mostra lo strumento di revisione con l'opzione per la revisione di immagini evidenziata](images/review-images-1.png)
 
@@ -38,7 +38,7 @@ In questa guida verrà illustrato come configurare le [revisioni](../review-api.
 
     ![Finestra del browser Chrome che mostra lo strumento di revisione con immagini contrassegnate da tag per la revisione](images/review-images-2.png)
 
-1. Per visualizzare altre informazioni su un'immagine, fare clic sui puntini di sospensione nell'anteprima e selezionare **Visualizza dettagli** . È possibile assegnare un'immagine a un sottoteam con l'opzione **Move to** (vedere la sezione [Teams](./configure.md#manage-team-and-subteams) per altre informazioni sui sottoteam).
+1. Per visualizzare altre informazioni su un'immagine, fare clic sui puntini di sospensione nell'anteprima e selezionare **Visualizza dettagli**. È possibile assegnare un'immagine a un sottoteam con l'opzione **Move to** (vedere la sezione [Teams](./configure.md#manage-team-and-subteams) per altre informazioni sui sottoteam).
 
     ![Un'immagine con l'opzione per visualizzazione dei dettagli evidenziata](images/review-images-3.png)
 
@@ -56,4 +56,4 @@ Le revisioni del testo funzionano in modo analogo alle verifiche immagini Anzich
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida si è appreso come configurare e usare le revisioni dallo [strumento content moderator Review](https://contentmoderator.cognitive.microsoft.com). Vedere quindi la [Guida dell'API REST](../try-review-api-review.md) o la Guida [introduttiva di .NET SDK](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) per informazioni su come creare recensioni a livello di codice.
+In questa guida si è appreso come configurare e usare le revisioni dallo [strumento content moderator Review](https://contentmoderator.cognitive.microsoft.com). Vedere quindi la [Guida alla console API](../try-review-api-review.md) o la Guida [introduttiva di .NET SDK](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) per informazioni su come creare recensioni a livello di codice.

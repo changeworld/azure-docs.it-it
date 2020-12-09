@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311592"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862344"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python (anteprima)
 
@@ -47,7 +47,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
     pip install azureml-interpret
     ```
 
-2. Eseguire il training di un modello di esempio in un notebook Jupyter locale.
+2. Eseguire il training di un modello di esempio in un Jupyter Notebook locale.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -85,7 +85,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                  classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
 
@@ -111,7 +111,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -242,7 +242,7 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la `Explanat
     ```bash
     pip install azureml-interpret
     ```
-1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio: `train_explain.py`.
+1. Creare uno script di training in un Jupyter Notebook locale. Ad esempio: `train_explain.py`.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -275,7 +275,7 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la `Explanat
 
 1. Configurare un Azure Machine Learning calcolo come destinazione di calcolo e inviare l'esecuzione del training. Per istruzioni, vedere [creare e gestire cluster di calcolo Azure Machine Learning](how-to-create-attach-compute-cluster.md) . È anche possibile trovare i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utili.
 
-1. Scaricare la spiegazione nel notebook di Jupyter locale.
+1. Scaricare la spiegazione nel Jupyter Notebook locale.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -296,13 +296,13 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la `Explanat
 
 ## <a name="visualizations"></a>Visualizzazioni
 
-Dopo aver scaricato le spiegazioni nel notebook di Jupyter locale, è possibile usare il dashboard di visualizzazione per comprendere e interpretare il modello.
+Dopo aver scaricato le spiegazioni nel Jupyter Notebook locale, è possibile usare il dashboard di visualizzazione per comprendere e interpretare il modello.
 
 ### <a name="understand-entire-model-behavior-global-explanation"></a>Informazioni sul comportamento del modello completo (spiegazione globale) 
 
 I tracciati seguenti forniscono una visualizzazione complessiva del modello sottoposto a training insieme alle relative stime e spiegazioni.
 
-|Grafico|Descrizione|
+|Grafico|Description|
 |----|-----------|
 |Esplorazione dei dati| Visualizza una panoramica del set di dati insieme ai valori di stima.|
 |Importanza globale|Consente di aggregare i valori di importanza dei singoli punti di riferimento per visualizzare le principali funzionalità importanti della K (configurabile K) del modello. Consente di comprendere il comportamento generale del modello sottostante.|
@@ -316,7 +316,7 @@ I tracciati seguenti forniscono una visualizzazione complessiva del modello sott
 
 È possibile caricare il tracciato dell'importanza della singola funzione per qualsiasi punto dati facendo clic su uno dei singoli punti dati in uno qualsiasi dei tracciati complessivi.
 
-|Grafico|Descrizione|
+|Grafico|Description|
 |----|-----------|
 |Importanza locale|Mostra le principali funzionalità principali K (configurabili K) per una singola stima. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
 |Esplorazione della perturbazione (analisi di simulazione)|Consente di modificare i valori delle funzionalità del punto dati selezionato e osservare le modifiche risultanti al valore di stima.|

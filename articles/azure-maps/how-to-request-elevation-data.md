@@ -1,24 +1,28 @@
 ---
-title: Richiedere dati di elevazione usando il servizio di elevazione delle mappe di Azure
-description: Informazioni su come richiedere dati di elevazione usando il servizio di elevazione delle mappe di Azure.
+title: Richiedere dati di elevazione usando il servizio di elevazione delle mappe di Azure (anteprima)
+description: Informazioni su come richiedere dati di elevazione usando il servizio di elevazione delle mappe di Azure (anteprima).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/02/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9937d72b44eb33df8027eddb9a9f500a372c9037
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554269"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906064"
 ---
-# <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Richiedere dati di elevazione usando il servizio di elevazione delle mappe di Azure
+# <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Richiedere dati di elevazione usando il servizio di elevazione delle mappe di Azure (anteprima)
 
-Il servizio di [elevazione](https://docs.microsoft.com/rest/api/maps/elevation) delle mappe di Azure fornisce API per eseguire query sui dati di elevazione delle località sulla terra. È possibile richiedere dati di elevazione campionati lungo percorsi, all'interno di un rettangolo di delimitazione definito o coordinate specifiche. È anche possibile usare l' [API del riquadro di rendering V2-Get mappa](https://docs.microsoft.com/rest/api/maps/renderv2) per recuperare i dati di elevazione in formato affiancato. I riquadri vengono recapitati in formato raster GeoTIFF. Questo articolo illustra come usare il servizio di elevazione delle mappe di Azure e l'API del riquadro Ottieni mappa per richiedere dati di elevazione. I dati di elevazione possono essere richiesti nei formati GeoJSON e GeoTIFF.
+> [!IMPORTANT]
+> Il servizio di elevazione delle mappe di Azure è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Il servizio di [elevazione](https://docs.microsoft.com/rest/api/maps/elevation) delle mappe di Azure fornisce API per eseguire query sui dati di elevazione ovunque sulla superficie terrestre. È possibile richiedere dati di elevazione campionati lungo percorsi, all'interno di un rettangolo di delimitazione definito o coordinate specifiche. È anche possibile usare l' [API del riquadro di rendering V2-Get mappa](https://docs.microsoft.com/rest/api/maps/renderv2) per recuperare i dati di elevazione in formato affiancato. I riquadri vengono recapitati in formato raster GeoTIFF. Questo articolo illustra come usare il servizio di elevazione delle mappe di Azure e l'API del riquadro Ottieni mappa per richiedere dati di elevazione. I dati di elevazione possono essere richiesti nei formati GeoJSON e GeoTIFF.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,7 +54,7 @@ Per richiedere dati di elevazione in formato di riquadro raster, usare l' [API d
 
 ## <a name="request-elevation-data-in-geojson-format"></a>Richiedere dati di elevazione in formato GeoJSON
 
-Usare le API del servizio di elevazione per richiedere dati di elevazione in formato GeoJSON. In questa sezione viene illustrata una delle tre API seguenti:
+Usare le API del servizio di elevazione (anteprima) per richiedere dati di elevazione in formato GeoJSON. In questa sezione viene illustrata una delle tre API seguenti:
 
 * [Ottenere i dati per i punti](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 * [Inserire i dati per i punti](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
@@ -443,7 +447,7 @@ In questo esempio si specificheranno Rows = 3 e Columns = 6. nella risposta veng
     }
     ```
 
-## <a name="samples-use-elevation-service-apis-in-azure-maps-control"></a>Esempi: usare le API del servizio di elevazione nel controllo Maps di Azure
+## <a name="samples-use-elevation-service-preview-apis-in-azure-maps-control"></a>Esempi: usare le API del servizio di elevazione (anteprima) nel controllo Maps di Azure
 
 ### <a name="get-elevation-data-by-coordinate-position"></a>Ottenere i dati di elevazione in base alla posizione delle coordinate
 
@@ -478,16 +482,16 @@ Vedere la <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per esplorare ulteriormente le API di elevazione delle mappe di Azure, vedere:
+Per esplorare ulteriormente le API di elevazione delle mappe di Azure (anteprima), vedere:
 
 > [!div class="nextstepaction"]
-> [Innalzamento di livello-recuperare i dati per le coordinate Lat lungo](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Elevazione (anteprima)-recuperare i dati per le coordinate longitudinali Lat](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 
 > [!div class="nextstepaction"]
-> [Innalzamento di livello-recuperare i dati per il rettangolo di delimitazione](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Elevazione (anteprima)-recuperare i dati per il rettangolo di delimitazione](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Innalzamento di livello-recuperare i dati per la polilinea](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Elevazione (anteprima)-recuperare i dati per la polilinea](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [Render V2 – ottenere il riquadro Mappa](https://docs.microsoft.com/rest/api/maps/renderv2)

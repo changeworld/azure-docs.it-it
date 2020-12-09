@@ -3,12 +3,12 @@ title: Estensione Criteri di Azure per Visual Studio Code
 description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Azure Resource Manager alias.
 ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022429"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906302"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
@@ -18,9 +18,6 @@ Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Co
 
 L'estensione di criteri di Azure per Visual Studio Code può essere installata in tutte le piattaforme supportate da Visual Studio Code. Questo supporto include Windows, Linux e macOS.
 
-> [!NOTE]
-> Le modifiche apportate localmente ai criteri visualizzati nell'estensione criteri di Azure per Visual Studio Code non vengono sincronizzate con Azure.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare i passaggi in questo articolo, è necessario quanto segue:
@@ -28,33 +25,30 @@ Per completare i passaggi in questo articolo, è necessario quanto segue:
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - [Visual Studio Code](https://code.visualstudio.com).
 
-## <a name="install-azure-policy-extension"></a>Installare l'estensione criteri di Azure
+## <a name="install-and-configure-the-azure-policy-extension"></a>Installare e configurare l'estensione criteri di Azure
 
 Dopo aver soddisfatto i prerequisiti, è possibile installare l'estensione criteri di Azure per Visual Studio Code attenendosi alla procedura seguente:
 
 1. Aprire Visual Studio Code.
-
 1. Dalla barra dei menu passare a **Visualizza**  >  **estensioni**.
-
 1. Nella casella di ricerca immettere **criteri di Azure**.
-
 1. Selezionare **criteri di Azure** nei risultati della ricerca e quindi selezionare **Installa**.
-
 1. Selezionare **Ricarica** quando è necessario.
-
-## <a name="set-the-azure-environment"></a>Configurare l'ambiente di Azure
 
 Per un utente cloud nazionale, attenersi alla procedura seguente per impostare prima l'ambiente Azure:
 
 1. Selezionare **File\Preferences\Settings**.
-
 1. Eseguire una ricerca nella stringa seguente: _Azure: cloud_
-
 1. Selezionare il cloud di Nation dall'elenco:
 
    :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
 
-## <a name="connect-to-an-azure-account"></a>Connettersi a un account Azure
+## <a name="using-the-policy-extension"></a>Utilizzo dell'estensione dei criteri
+
+> [!NOTE]
+> Le modifiche apportate localmente ai criteri visualizzati nell'estensione criteri di Azure per Visual Studio Code non vengono sincronizzate con Azure.
+
+### <a name="connect-to-an-azure-account"></a>Connettersi a un account Azure
 
 Per valutare le risorse e gli alias di ricerca, è necessario connettersi all'account Azure. Per connettersi ad Azure da Visual Studio Code, seguire questa procedura:
 
@@ -74,13 +68,13 @@ Per valutare le risorse e gli alias di ricerca, è necessario connettersi all'ac
 
 1. Seguire le istruzioni di accesso per accedere ad Azure. Dopo la connessione, il nome dell'account Azure viene visualizzato sulla barra di stato nella parte inferiore della finestra di Visual Studio Code.
 
-## <a name="select-subscriptions"></a>Selezionare le sottoscrizioni
+### <a name="select-subscriptions"></a>Selezionare le sottoscrizioni
 
 Quando si accede per la prima volta, solo le risorse e i criteri di sottoscrizione predefiniti vengono caricati dall'estensione criteri di Azure. Per aggiungere o rimuovere sottoscrizioni dalla visualizzazione di risorse e criteri, attenersi alla procedura seguente:
 
 1. Avviare il comando Subscription dal riquadro comandi o dal piè di pagina della finestra.
 
-   - Tavolozza comandi: 
+   - Tavolozza comandi:
 
      Dalla barra dei menu passare a **Visualizza** > **riquadro comandi** e immettere **Azure: selezionare sottoscrizioni**.
 
@@ -90,7 +84,7 @@ Quando si accede per la prima volta, solo le risorse e i criteri di sottoscrizio
 
 1. Utilizzare la casella filtro per trovare rapidamente le sottoscrizioni in base al nome. Quindi, selezionare o rimuovere il controllo da ogni sottoscrizione per impostare le sottoscrizioni visualizzate dall'estensione criteri di Azure. Al termine dell'aggiunta o della rimozione delle sottoscrizioni da visualizzare, selezionare **OK**.
 
-## <a name="search-for-and-view-resources"></a>Cercare e visualizzare le risorse
+### <a name="search-for-and-view-resources"></a>Cercare e visualizzare le risorse
 
 L'estensione criteri di Azure elenca le risorse nelle sottoscrizioni selezionate per provider di risorse e per gruppo di risorse nel riquadro **risorse** . In TreeView sono inclusi i seguenti raggruppamenti di risorse all'interno della sottoscrizione selezionata o a livello di sottoscrizione:
 
@@ -119,7 +113,7 @@ I clienti con centinaia o migliaia di risorse in una singola sottoscrizione poss
 
 1. Usare il filtro per selezionare la risorsa da visualizzare. Il filtro funziona sia per il nome della risorsa che per il tipo di risorsa.
 
-## <a name="discover-aliases-for-resource-properties"></a>Individuare gli alias per le proprietà delle risorse
+### <a name="discover-aliases-for-resource-properties"></a>Individuare gli alias per le proprietà delle risorse
 
 Quando si seleziona una risorsa, tramite l'interfaccia di ricerca o selezionandola in TreeView, l'estensione di criteri di Azure apre il file JSON che rappresenta la risorsa e tutti i relativi valori Azure Resource Manager proprietà.
 
@@ -128,9 +122,9 @@ Una volta aperta una risorsa, il puntatore del mouse sul nome o sul valore della
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot dell'estensione di criteri di Azure per Visual Studio Code il passaggio del mouse su una proprietà per visualizzare i nomi degli alias." border="false":::
 
 > [!NOTE]
-> L'estensione VS Code espone solo le proprietà della modalità Resource Manager e non visualizza nessuna proprietà della modalità [Provider di risorse](../concepts/definition-structure.md#mode).
+> L'estensione VS Code supporta solo la valutazione delle proprietà della modalità di Gestione risorse. Per ulteriori informazioni sulle modalità, vedere le [definizioni delle modalità](../concepts/definition-structure.md#mode).
 
-## <a name="search-for-and-view-policies-and-assignments"></a>Cercare e visualizzare i criteri e le assegnazioni
+### <a name="search-for-and-view-policies-and-assignments"></a>Cercare e visualizzare i criteri e le assegnazioni
 
 L'estensione criteri di Azure elenca i tipi di criteri e le assegnazioni di criteri come TreeView per le sottoscrizioni selezionate per la visualizzazione nel riquadro **criteri** . I clienti con centinaia o migliaia di criteri o assegnazioni in una singola sottoscrizione possono preferire un metodo ricercabile per individuare i criteri o le assegnazioni. L'estensione criteri di Azure consente di cercare un criterio o un'assegnazione specifica con i passaggi seguenti:
 
@@ -152,7 +146,7 @@ L'estensione criteri di Azure elenca i tipi di criteri e le assegnazioni di crit
 
 Quando si seleziona un criterio o un'assegnazione, tramite l'interfaccia di ricerca o selezionandola in TreeView, l'estensione di criteri di Azure apre il JSON che rappresenta il criterio o l'assegnazione e tutti i relativi valori Gestione risorse proprietà. L'estensione può convalidare lo schema JSON di criteri di Azure aperto.
 
-## <a name="export-objects"></a>Esporta oggetti
+### <a name="export-objects"></a>Esporta oggetti
 
 Gli oggetti delle sottoscrizioni possono essere esportati in un file JSON locale. Nel riquadro **risorse** o **criteri** passare il mouse su un oggetto esportabile o selezionarlo. Alla fine della riga evidenziata, selezionare l'icona Salva e selezionare una cartella in cui salvare le risorse JSON.
 
@@ -167,7 +161,7 @@ Gli oggetti seguenti possono essere esportati localmente:
   - Definizioni dei criteri personalizzati
   - Iniziative
 
-## <a name="on-demand-evaluation-scan"></a>Analisi di valutazione su richiesta
+### <a name="on-demand-evaluation-scan"></a>Analisi di valutazione su richiesta
 
 È possibile avviare un'analisi di valutazione con l'estensione criteri di Azure per Visual Studio Code. Per avviare una valutazione, selezionare e aggiungere ciascuno degli oggetti seguenti: una risorsa, una definizione dei criteri e un'assegnazione di criteri.
 
@@ -176,7 +170,7 @@ Gli oggetti seguenti possono essere esportati localmente:
 1. Nella parte superiore del riquadro **valutazione** selezionare l'icona Esegui valutazione. Verrà aperto un nuovo riquadro in Visual Studio Code con i dettagli di valutazione risultanti in formato JSON.
 
 > [!NOTE]
-> Se la definizione dei criteri selezionata è un [AuditIfNotExists](../concepts/effects.md#auditifnotexists) o [DeployIfNotExists](../concepts/effects.md#deployifnotexists), nel riquadro **valutazione** usare l'icona più per selezionare una risorsa _correlata_ per il controllo dell'esistenza.
+> Per le definizioni dei criteri [AuditIfNotExists](../concepts/effects.md#auditifnotexists) o [DeployIfNotExists](../concepts/effects.md#deployifnotexists) , usare l'icona più nel riquadro **valutazione** per selezionare una risorsa _correlata_ per il controllo dell'esistenza.
 
 I risultati della valutazione forniscono informazioni sulla definizione dei criteri e l'assegnazione dei criteri insieme alla proprietà **policyEvaluations. evaluationResult** . L'output sarà simile all'esempio seguente:
 
@@ -197,7 +191,12 @@ I risultati della valutazione forniscono informazioni sulla definizione dei crit
 }
 ```
 
-## <a name="sign-out"></a>Disconnetti
+> [!NOTE]
+> L'estensione VS Code supporta solo la valutazione delle proprietà della modalità di Gestione risorse. Per ulteriori informazioni sulle modalità, vedere le [definizioni delle modalità](../concepts/definition-structure.md#mode).
+>
+> La funzionalità di valutazione non funziona nelle installazioni macOS e Linux dell'estensione.
+
+### <a name="sign-out"></a>Disconnetti
 
 Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi** e quindi immettere **Azure: disconnettersi**.
 

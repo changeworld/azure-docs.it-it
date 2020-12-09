@@ -3,12 +3,12 @@ title: Monitoraggio di Kubernetes con monitoraggio di Azure per contenitori | Mi
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011082"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905707"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -117,7 +117,7 @@ Il monitoraggio di Azure per i contenitori supporta anche [Esplora metriche](../
 
 In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e dei Pod aggregati da monitoraggio di Azure per i contenitori. La tabella seguente riepiloga i dettagli che consentono di comprendere come usare i grafici delle metriche per visualizzare le metriche dei contenitori.
 
-|Spazio dei nomi | Metric | Descrizione |
+|Spazio dei nomi | Metrica | Descrizione |
 |----------|--------|-------------|
 | Insights. contenitore/nodi | |
 | | cpuUsageMillicores | Misurazione aggregata dell'utilizzo della CPU nel cluster. Si tratta di un core CPU suddiviso in unità 1000 (Milli = 1000). Usato per determinare l'utilizzo dei core in un contenitore in cui molte applicazioni potrebbero usare un core.|
@@ -228,7 +228,7 @@ La gerarchia di righe inizia con un controller. Quando si espande un controller,
 
 Selezionare il valore nella colonna **nodo** per il controller specifico.
 
-![Esempio di drill-down dal nodo al controller nella vista prestazioni](./media/container-insights-analyze/drill-down-controller-node.png)
+![Esempio di drill-down dal controller al nodo nella visualizzazione prestazioni](./media/container-insights-analyze/drill-down-controller-node.png)
 
 Le informazioni visualizzate quando si visualizzano i controller sono descritte nella tabella seguente.
 
@@ -295,33 +295,10 @@ Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella 
 Gestione criteri di rete di Azure include metriche Prometheus informative che consentono di monitorare e comprendere meglio le configurazioni di rete. Fornisce visualizzazioni predefinite in portale di Azure o Grafana Labs. Per informazioni dettagliate, vedere [monitorare e visualizzare le configurazioni di rete con NPM di Azure](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
 
-## <a name="workbooks"></a>Cartelle di lavoro
+## <a name="workbooks"></a>Workbooks
 
-Le cartelle di lavoro combinano testo, [query di log](/azure/data-explorer/kusto/query/), [metriche](../platform/data-platform-metrics.md)e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
+Le cartelle di lavoro combinano testo, query di log, metriche e parametri in report interattivi avanzati che consentono di analizzare le prestazioni del cluster. Vedere [cartelle di lavoro in monitoraggio di Azure per i contenitori](container-insights-reports.md) per una descrizione delle cartelle di lavoro disponibili per il monitoraggio di Azure per i contenitori.
 
-Il monitoraggio di Azure per i contenitori include quattro cartelle di lavoro per iniziare:
-
-- **Capacità disco**: presenta i grafici di utilizzo del disco interattivo per ogni disco presentato al nodo in un contenitore dalle prospettive seguenti:
-
-    - Percentuale di utilizzo del disco per tutti i dischi.
-    - Liberare spazio su disco per tutti i dischi.
-    - Griglia che mostra il disco di ogni nodo, la percentuale di spazio utilizzato, la tendenza della percentuale di spazio utilizzato, lo spazio libero su disco (GiB) e la tendenza dello spazio libero su disco (GiB). Quando si seleziona una riga nella tabella, la percentuale di spazio utilizzato e lo spazio libero su disco (GiB) viene visualizzata sotto la riga.
-
-- **Io disco**: Visualizza i grafici di utilizzo interattivo dei dischi per ogni disco presentato al nodo all'interno di un contenitore dalle prospettive seguenti:
-
-    - Operazioni di I/O su disco riepilogate in tutti i dischi per byte letti/sec, scritture byte/sec, tendenze di lettura e scrittura byte/sec.
-    - Otto grafici delle prestazioni mostrano indicatori di prestazioni chiave che consentono di misurare e identificare I colli di bottiglia di I/O del disco.
-
-- **Kubelet**: include due griglie che mostrano le statistiche operative del nodo chiave:
-
-    - Panoramica per griglia del nodo riepiloga le operazioni totali, errori totali e operazioni riuscite per percentuale e tendenza per ogni nodo.
-    - Panoramica per tipo di operazione riepiloga per ogni operazione l'operazione totale, gli errori totali e le operazioni riuscite per percentuale e tendenza.
-
-- **Rete**: presenta grafici interattivi di utilizzo della rete per ogni scheda di rete del nodo e una griglia presenta gli indicatori di prestazioni chiave per misurare le prestazioni delle schede di rete.
-
-Per accedere a queste cartelle di lavoro, selezionarle nell'elenco a discesa **Visualizza cartelle di lavoro** .
-
-![Elenco a discesa Visualizza cartelle di lavoro](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
