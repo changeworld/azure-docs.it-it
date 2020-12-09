@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 4dc5b84ff127aef173deecfd2be705004d92ee0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449922"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854883"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 
@@ -37,14 +37,20 @@ La soluzione di gestione [Monitoraggio delle prestazioni di rete](../../networki
 
 Per altre informazioni, vedere [Monitoraggio delle prestazioni di rete](../../networking/network-monitoring-overview.md).
 
-## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway Analytics e Azure Network Security Group Analytics
-Per usare le soluzioni:
+## <a name="network-security-group-analytics"></a>Analisi del gruppo di sicurezza di rete
+
 1. Aggiungere la soluzione di gestione a Monitoraggio di Azure e
 2. Abilitare la funzionalità diagnostica per indirizzare la diagnostica a un'area di lavoro Log Analytics in Monitoraggio di Azure. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
 
-È possibile abilitare la diagnostica e la soluzione corrispondente per uno o per entrambe le soluzioni: gateway applicazione e gruppi di sicurezza di rete.
+Se i log di diagnostica non sono abilitati, i pannelli del dashboard per quella risorsa sono vuoti e visualizzano un messaggio di errore.
 
-Se non si abilita la registrazione risorsa diagnostica per un tipo specifico di risorsa ma si installa la soluzione, i pannelli del dashboard per quella risorsa sono vuoti e visualizzano un messaggio di errore.
+## <a name="azure-application-gateway-analytics"></a>Analisi gateway applicazione di Azure
+
+1. Abilitare la funzionalità diagnostica per indirizzare la diagnostica a un'area di lavoro Log Analytics in Monitoraggio di Azure.
+2. Utilizzare il riepilogo dettagliato per la risorsa utilizzando il modello di cartella di lavoro per il gateway applicazione.
+
+Se i log di diagnostica non sono abilitati per il gateway applicazione, solo i dati della metrica predefiniti verranno popolati nella cartella di lavoro.
+
 
 > [!NOTE]
 > A gennaio 2017 è stato modificato il metodo supportato per inviare i log dai gateway applicazione e dai gruppi di sicurezza di rete all'area di lavoro Log Analytics. Se viene visualizzata la soluzione **Azure Networking Analytics (deprecata)** , fare riferimento ai passaggi di [migrazione dalla vecchia soluzione Networking Analytics](#migrating-from-the-old-networking-analytics-solution) per istruzioni su come procedere.
@@ -61,37 +67,15 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 | Azure |  |  |&#8226; |  |  |Quando connesso |
 
 
-## <a name="azure-application-gateway-analytics-solution-in-azure-monitor"></a>Soluzione di analisi del gateway applicazione di Azure in Monitoraggio di Azure
-
-![Simbolo di Analisi gateway applicazione di Azure](media/azure-networking-analytics/azure-analytics-symbol.png)
-
-I log seguenti sono supportati per i gateway applicazione:
-
-* ApplicationGatewayAccessLog
-* ApplicationGatewayPerformanceLog
-* ApplicationGatewayFirewallLog
-
-La metriche seguente è supportata per i gateway applicazione:
-
-
-* Velocità effettiva di 5 minuti
-
-### <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
-Usare le istruzioni seguenti per installare e configurare la soluzione di analisi del gateway applicazione di Azure:
-
-1. Abilitare la soluzione di analisi del gateway applicazione di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](./solutions.md).
-2. Abilitare la registrazione diagnostica per i [gateway applicazione](../../application-gateway/application-gateway-diagnostics.md) da monitorare.
-
-#### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Abilitare la diagnostica del gateway applicazione di Azure nel portale
+### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Abilitare la diagnostica del gateway applicazione di Azure nel portale
 
 1. Nel portale di Azure passare alla risorsa Gateway applicazione da monitorare.
-2. Selezionare *Log di diagnostica* per aprire la pagina seguente.
+2. Selezionare *impostazioni di diagnostica* per aprire la pagina seguente.
 
-   ![Screenshot della pagina log di diagnostica per una risorsa del gateway applicazione che mostra l'opzione per attivare la diagnostica.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
-3. Fare clic su *Attiva diagnostica* per aprire la pagina seguente.
+   ![Screenshot della configurazione delle impostazioni di diagnostica per la risorsa del gateway applicazione.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   ![Screenshot della pagina per la configurazione delle impostazioni di diagnostica. L'opzione per l'invio a Log Analytics è selezionata come tre tipi di log e una metrica.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
-4. Per attivare la diagnostica, fare clic su *Attivato* in *Stato*.
+   [![Screenshot della pagina per la configurazione delle impostazioni di diagnostica.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
+
 5. Selezionare la casella di controllo *Invia a Log Analytics*.
 6. Selezionare un'area di lavoro Log Analytics esistente o crearne una.
 7. Selezionare la casella di controllo in **Log** per ciascuno dei tipi di log da raccogliere.
@@ -109,28 +93,33 @@ $gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
-### <a name="use-azure-application-gateway-analytics"></a>Usare l'analisi dei gateway applicazione di Azure
-![Immagine del riquadro di analisi dei gateway applicazione di Azure](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
+#### <a name="accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights"></a>Accesso a applicazione Azure gateway Analytics tramite monitoraggio di Azure Network Insights
 
-Dopo aver selezionato il riquadro **di analisi del gateway applicazione di Azure** nella panoramica, è possibile visualizzare i riepiloghi dei log e quindi analizzare i dettagli per le categorie seguenti:
+È possibile accedere a Application Insights tramite la scheda Insights all'interno della risorsa del gateway applicazione.
 
-* Log di accesso del gateway applicazione
-  * Errori di client e server per i log di accesso del gateway applicazione
-  * Richieste all'ora per ogni gateway applicazione
-  * Richieste non riuscite all'ora per ogni gateway applicazione
-  * Errori per agente utente per gateway applicazione
-* Prestazioni del gateway applicazione
-  * Integrità dell'host per il gateway applicazione
-  * Valore massimo e 95° percentile per le richieste non riuscite del gateway applicazione
+![Screenshot delle informazioni dettagliate sul gateway applicazione ](media/azure-networking-analytics/azure-appgw-insights.png
+)
 
-![Screenshot del dashboard dei log di accesso del gateway applicazione che mostra i riquadri con dati per errori, richieste e richieste non riuscite del gateway.](media/azure-networking-analytics/log-analytics-appgateway01.png)
+La scheda "Visualizza metriche dettagliate" apre la cartella di lavoro pre-popolata che riepiloga i dati del gateway applicazione.
 
-![Screenshot del dashboard dei log di accesso del gateway applicazione che mostra i riquadri con i dati per gli errori dell'agente utente, dell'integrità host e delle richieste non riuscite.](media/azure-networking-analytics/log-analytics-appgateway02.png)
+[![Screenshot della cartella di lavoro del gateway applicazione](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
-Nel dashboard **di analisi del gateway applicazione di Azure** esaminare le informazioni di riepilogo in uno dei pannelli, quindi fare clic su un pannello per visualizzare le informazioni dettagliate nella pagina di ricerca di log.
+## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrazione dalla soluzione Azure gateway Analytics alle cartelle di lavoro di monitoraggio di Azure
 
-In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati in base all'ora, ai dettagli e alla cronologia di ricerca. È anche possibile filtrare per facet in modo da limitare i risultati.
+> [!NOTE]
+> La soluzione applicazione Azure gateway Analytics è obsoleta e il metodo consigliato per l'uso dell'analisi è tramite cartelle di lavoro esposte tramite Azure monitor network Insights per la risorsa del gateway applicazione.
 
+* Se l'impostazione di diagnostica è già abilitata per archiviare i log in un'area di lavoro Log Analytics, la cartella di lavoro di Azure monitor network Insights può utilizzare i dati dello stesso percorso. Non è richiesta alcuna nuova configurazione.
+
+* Tutti i dati precedenti sono già disponibili all'interno della cartella di lavoro dal punto in cui sono state abilitate le impostazioni di diagnostica. Non è necessario alcun trasferimento dei dati.
+
+* Non è necessario alcun interruttore attivo per passare alle cartelle di lavoro. Sia la soluzione Analytics che la cartella di lavoro Insight di rete possono funzionare in parallelo.
+
+* Non sono previsti costi aggiuntivi per le cartelle di lavoro di monitoraggio di Azure. L'area di lavoro Log Analytics continuerà a essere fatturata in base all'utilizzo.
+
+* Per pulire la soluzione Azure gateway Analytics dall'area di lavoro, è possibile eliminare la soluzione dalla pagina delle risorse della soluzione.
+
+[![Screenshot dell'opzione di eliminazione per applicazione Azure soluzione di analisi del gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Soluzione di analisi del gruppo di sicurezza di rete di Azure in Monitoraggio di Azure
 

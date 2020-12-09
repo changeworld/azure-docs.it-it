@@ -1,17 +1,17 @@
 ---
 title: Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 description: Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317521"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853927"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -43,7 +43,7 @@ L'ambito collegamento privato di Monitoraggio di Azure è una risorsa di raggrup
 Prima di configurare le risorse AMPLS, prendere in considerazione i requisiti di isolamento rete. Valutare l'accesso delle reti virtuali all’Internet pubblico e le restrizioni di accesso di ognuna delle risorse di Monitoraggio di Azure, ovvero i componenti di Application Insights e le aree di lavoro Log Analytics.
 
 > [!NOTE]
-> Le reti hub e spoke, o qualsiasi altra topologia di reti con peering, possono configurare un collegamento privato tra VNet Hub (Main) e le risorse di monitoraggio di Azure pertinenti, anziché configurare un collegamento privato per ogni VNet. Questa operazione è particolarmente sensata se le risorse di monitoraggio di Azure usate da tali reti sono condivise. Tuttavia, se si vuole consentire a ogni VNet di accedere a un set separato di risorse di monitoraggio, creare un collegamento privato a un AMPLS dedicato per ogni rete.
+> Le reti hub-spoke, o qualsiasi altra topologia di reti con peering, possono configurare un collegamento privato tra VNet Hub (Main) e le risorse di monitoraggio di Azure pertinenti, anziché configurare un collegamento privato per ogni VNet. Questa operazione è particolarmente sensata se le risorse di monitoraggio di Azure usate da tali reti sono condivise. Tuttavia, se si vuole consentire a ogni VNet di accedere a un set separato di risorse di monitoraggio, creare un collegamento privato a un AMPLS dedicato per ogni rete.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Valutare quali reti virtuali devono connettersi a un collegamento privato
 
@@ -85,6 +85,11 @@ Nella topologia seguente:
 * Workspace2 si connette a AMPLS A e AMPLS B, usando 2/5 (40%) delle possibili connessioni AMPLS.
 
 ![Diagramma dei limiti di AMPLS](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> In alcune topologie di rete (principalmente hub-spoke) è possibile raggiungere rapidamente il limite di 10 reti virtuali per un singolo AMPLS. In questi casi è consigliabile usare una connessione a un collegamento privato condiviso invece di quelle separate. Creare un singolo endpoint privato nella rete Hub, collegarlo alla rete di AMPLS ed eseguire il peering delle reti pertinenti alla rete Hub.
+
+![Hub-and-spoke-singolo PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>Connessione di esempio
 

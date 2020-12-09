@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/7/2020
+ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592431"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853144"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati in Condivisione dati di Azure
 
@@ -28,9 +28,9 @@ La tabella seguente illustra in dettaglio le origini dati supportate per la cond
 | Archiviazione BLOB di Azure |✓ |✓ | |
 | Azure Data Lake Storage Gen1 |✓ |✓ | |
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
-| database SQL di Azure |✓ | | |
+| Database SQL di Azure |✓ | | |
 | Azure sinapsi Analytics (in precedenza Azure SQL DW) |✓ | | |
-| Pool SQL di Azure sinapsi Analytics (area di lavoro) | Anteprima pubblica | | |
+| Azure sinapsi Analytics (area di lavoro) pool SQL dedicato |✓ | | |
 | Esplora dati di Azure | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice di supporto dell'archivio dati
@@ -39,22 +39,22 @@ La condivisione di dati di Azure offre la flessibilità dei consumer di dati per
 
 Nella tabella seguente vengono illustrate le diverse combinazioni e scelte che i consumer di dati hanno per l'accettazione e la configurazione della condivisione di dati. Per ulteriori informazioni su come configurare i mapping dei set di dati, vedere [come configurare i mapping dei set di dati](how-to-configure-mapping.md).
 
-| Archivio dati | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | database SQL di Azure | Azure sinapsi Analytics (in precedenza Azure SQL DW) | Pool SQL di Azure sinapsi Analytics (area di lavoro) | Esplora dati di Azure
+| Archivio dati | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Database SQL di Azure | Azure sinapsi Analytics (in precedenza Azure SQL DW) | Azure sinapsi Analytics (area di lavoro) pool SQL dedicato | Esplora dati di Azure
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
 | Archiviazione BLOB di Azure | ✓ || ✓ |||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
-| database SQL di Azure | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Database SQL di Azure | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Azure sinapsi Analytics (in precedenza Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Pool SQL di Azure sinapsi Analytics (area di lavoro) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure sinapsi Analytics (area di lavoro) pool SQL dedicato | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Esplora dati di Azure ||||||| ✓ |
 
-## <a name="share-from-a-storage-account"></a>Condividi da un account di archiviazione
+## <a name="share-from-a-storage-account"></a>Condividere da un account di archiviazione
 Condivisione dati di Azure supporta la condivisione di file, cartelle e file System da Azure Data Lake Gen1 e Azure Data Lake Gen2. Supporta anche la condivisione di BLOB, cartelle e contenitori dall'archiviazione BLOB di Azure. Attualmente è supportato solo il BLOB in blocchi. Quando i file System, i contenitori o le cartelle sono condivisi nella condivisione basata su snapshot, il consumer di dati può scegliere di eseguire una copia completa dei dati di condivisione o sfruttare la funzionalità di snapshot incrementale per copiare solo i file nuovi o aggiornati. Gli snapshot incrementali si basano sull'ora dell'Ultima modifica dei file. I file esistenti con lo stesso nome verranno sovrascritti.
 
 Per informazioni dettagliate, vedere [condividere e ricevere dati dall'archivio BLOB di Azure e Azure Data Lake storage](how-to-share-from-storage.md) .
 
-## <a name="share-from-a-sql-based-source"></a>Condividi da un'origine basata su SQL
+## <a name="share-from-a-sql-based-source"></a>Condividere da un'origine basata su SQL
 La condivisione di dati di Azure supporta la condivisione di tabelle e viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW) e la condivisione di tabelle da Azure sinapsi Analytics (area di lavoro) pool SQL dedicato. La condivisione da Azure sinapsi Analytics (area di lavoro) pool SQL senza server non è attualmente supportata. I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
 
 Quando si accettano dati in Azure Data Lake Store Gen2 o nell'archiviazione BLOB di Azure, gli snapshot completi sovrascrivono il contenuto del file di destinazione, se già esistente.

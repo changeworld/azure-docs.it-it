@@ -5,14 +5,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: makromer
-ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015172"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854007"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato Common Data Model in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,9 +20,6 @@ ms.locfileid: "95015172"
 Il sistema di metadati Common Data Model (CDM) consente di condividere facilmente i dati e il relativo significato tra applicazioni e processi aziendali. Per altre informazioni, vedere Panoramica di [Common Data Model](/common-data-model/) .
 
 In Azure Data Factory, gli utenti possono trasformare i dati da entità CDM in model.jse in formato manifesto archiviati in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) usando i flussi di dati di mapping. È anche possibile affondare i dati in formato CDM usando i riferimenti alle entità CDM che definiranno i dati in formato CSV o parquet in cartelle partizionate. 
-
-> [!NOTE]
-> Il connettore di formato Common Data Model (CDM) per i flussi di dati ADF è attualmente disponibile come anteprima pubblica.
 
 ## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
 
@@ -35,7 +32,7 @@ Common Data Model è disponibile come set di dati [inline](data-flow-source.md#i
 
 La tabella seguente elenca le proprietà supportate da un'origine CDM. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
 | Formato metadati | Dove si trova il riferimento all'entità nei dati. Se si usa CDM versione 1,0, scegliere manifesto. Se si usa una versione CDM prima del 1,0, scegliere model.json. | Sì | `'manifest'` o `'model'` | manifestType |
@@ -88,7 +85,6 @@ Quando si esegue il mapping delle colonne del flusso di dati alle proprietà del
 2. Trovare le partizioni. Proprietà Location 
 3. Modificare "blob.core.windows.net" in "dfs.core.windows.net"
 4. Correzione di qualsiasi codifica "% 2F" nell'URL per "/"
- 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Esempio di script del flusso di dati di origine CDM
 
@@ -118,7 +114,7 @@ source(output(
 
 La tabella seguente elenca le proprietà supportate da un sink CDM. È possibile modificare queste proprietà nella scheda **Impostazioni** .
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
 | Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |

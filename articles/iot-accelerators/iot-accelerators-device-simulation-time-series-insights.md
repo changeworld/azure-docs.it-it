@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076250"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854564"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Usare Time Series Insights per visualizzare i dati di telemetria inviati dall'acceleratore della soluzione Simulazione dispositivi
 
@@ -23,7 +23,7 @@ L'acceleratore della soluzione Simulazione dispositivi consente di generare dati
 
 Per seguire la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-I passaggi descritti in questa guida presuppongono di aver distribuito l'acceleratore della soluzione Simulazione dispositivi alla sottoscrizione di Azure. Se non è stato distribuito l'acceleratore della soluzione, seguire i passaggi nella guida introduttiva [Distribuire ed eseguire una soluzione di simulazione dei dispositivi basata sul cloud](quickstart-device-simulation-deploy.md).
+I passaggi descritti in questa guida presuppongono di aver distribuito l'acceleratore della soluzione Simulazione dispositivi alla sottoscrizione di Azure. Se la simulazione del dispositivo non è stata ancora distribuita, vedere la pagina relativa alla [distribuzione della simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) in
 
 Questo articolo presuppone che l'acceleratore della soluzione sia denominato **contoso-simulation**. Sostituire **contoso-simulation** con il nome dell'acceleratore della soluzione durante il completamento dei passaggi seguenti.
 
@@ -63,7 +63,7 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
 
 1. Per creare l'ambiente Time Series Insights nello stesso gruppo di risorse dell'acceleratore di soluzioni, usare i valori nella tabella seguente:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome ambiente | Nella screenshot seguente viene usato il nome **Contoso-TSI**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
@@ -95,7 +95,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Usare il gruppo 
 
 1. Per configurare l'hub IoT come nuova origine evento, usare i valori nella tabella seguente:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome Origine evento | Nella screenshot seguente viene usato il nome **contoso-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
     | Source (Sorgente) | **Hub IoT** |

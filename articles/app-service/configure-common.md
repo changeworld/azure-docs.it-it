@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7c1b9ad033ade3b577dc4a06e84801dab3b7eb70
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763962"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854649"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -29,7 +29,7 @@ Nel menu a sinistra dell'app selezionare **configurazione**  >  **Impostazioni a
 
 ![Impostazioni dell'applicazione](./media/configure-common/open-ui.png)
 
-Per gli sviluppatori ASP.NET e ASP.NET Core, l'impostazione delle impostazioni dell'app nel servizio app è simile alla relativa impostazione in `<appSettings>` *Web.config* o *appsettings.json*, ma i valori nel servizio app sostituiscono quelli in *Web.config* o *appsettings.json*. È possibile usare le impostazioni di sviluppo (ad esempio, la password di MySQL locale) in *Web.config* o *appsettings.jssu* e i segreti di produzione (ad esempio, la password del database MySQL di Azure) in modo sicuro nel servizio app. Lo stesso codice usa le impostazioni di sviluppo quando si esegue il debug in locale e usa i segreti di produzione durante la distribuzione in Azure.
+Per gli sviluppatori ASP.NET e ASP.NET Core, l'impostazione delle impostazioni dell'app nel servizio app è simile alla relativa impostazione in `<appSettings>` *Web.config* o *appsettings.json*, ma i valori nel servizio app sostituiscono quelli in *Web.config* o *appsettings.json*. È possibile continuare a usare le impostazioni di sviluppo (ad esempio, la password di MySQL locale) in *Web.config* o *appsettings.jssu* e i segreti di produzione, ad esempio la password del database MySQL di Azure, in modo sicuro nel servizio app. Lo stesso codice usa le impostazioni di sviluppo quando si esegue il debug in locale e usa i segreti di produzione durante la distribuzione in Azure.
 
 Gli stack di altri linguaggi, in modo analogo, ottengono le impostazioni dell'app come variabili di ambiente in fase di esecuzione. Per i passaggi specifici dello stack di linguaggio, vedere:
 

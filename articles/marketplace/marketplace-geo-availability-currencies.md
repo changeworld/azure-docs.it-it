@@ -1,18 +1,18 @@
 ---
-title: Disponibilità geografica e valute supportate per il marketplace commerciale Microsoft
+title: Disponibilità geografica e supporto della valuta per Microsoft Commercial Marketplace
 description: Disponibilità geografica e valute supportate per le transazioni nel marketplace commerciale
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 07/29/2020
-ms.openlocfilehash: bdb746c75a175d906301bcfca0b1472383fceff9
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/07/2020
+ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778071"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853748"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilità geografica e supporto della valuta per il Marketplace commerciale
 
@@ -46,22 +46,22 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Brunei                              | BN        | USD          | BND, EUR, SGD, USD |
 | Bulgaria                            | BG        | EUR          | BGN, EUR, USD |
 | Cabo Verde                          | CV        | USD          | CVE, EUR, USD |
-| Camerun                            | CM        | USD          | XAF, EUR, USD |
-| Canada                              | CA        | CAD          | CAD, EUR, USD  |
-| Isole Cayman                      | KY        | USD          | KYD, EUR, USD |
+| Camerun                            | CM        | USD          | EUR, USD, XAF |
+| Canada                              | CA        | CAD          | CAD, EUR, USD |
+| Isole Cayman                      | KY        | USD          | EUR, KYD, USD |
 | Cile                               | CL        | USD          | CLP, EUR, USD |
 | Cina\**                            | CN        | N/D          | N/D |
 | Colombia                            | CO        | USD          | COP, EUR, USD |
 | Costa Rica                          | CR        | USD          | CRC, EUR, USD |
-| Côte d’Ivoire (Costa d'Avorio)                       | CI        | USD          | XOF, EUR, USD |
-| Croazia                             | HR        | EUR          | HRK, EUR, USD |
+| Côte d’Ivoire (Costa d'Avorio)                       | CI        | USD          | EUR, USD, XOF |
+| Croazia                             | HR        | EUR          | EUR, HRK, USD |
 | Curaçao                             | CW        | USD          | ANG, EUR, USD |
 | Cipro                              | CY        | EUR          | EUR, USD  |
-| Cechia                             | CZ        | EUR          | EUR, USD, CZK |
+| Cechia                             | CZ        | EUR          | CZK, EUR, USD |
 | Danimarca                             | DK        | DKK          | DKK, EUR, USD |
 | Repubblica dominicana                  | DO        | USD          | DOP, EUR, USD |
 | Ecuador                             | EC        | USD          | EUR, USD |
-| Egitto                               | EG        | USD          | EUR, USD EGP |
+| Egitto                               | EG        | USD          | EGP, EUR, USD |
 | El Salvador                         | SV        | USD          | EUR, USD |
 | Estonia                             | EE        | EUR          | EUR, USD |
 | Etiopia                            | ET        | USD          | ETB, EUR, USD |
@@ -91,7 +91,7 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Kenya                               | KE        | USD          | EUR, KES, USD |
 | Corea del Sud                       | KR        | KRW          | EUR, KRW, USD |
 | Kuwait                              | KW        | USD          | EUR, KWD, USD |
-| Kirghizistan                          | KG        | USD          | USD, EUR, KGS |
+| Kirghizistan                          | KG        | USD          | EUR, KGS, USD |
 | Lettonia                              | LV        | EUR          | EUR, USD |
 | Libano                             | LB        | USD          | EUR, LBP, USD |
 | Libia                               | LY        | USD          | EUR, LYD, USD |
@@ -139,8 +139,8 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Slovenia                            | SI        | EUR          | EUR, USD |
 | Sud Africa                        | ZA        | USD          | EUR, USD, ZAR |
 | Spagna                               | ES        | EUR          | EUR, USD |
-| Sri Lanka                           | LK        | USD          | EUR, USD, LKR |
-| Svezia                              | SE        | SEK          | EUR, USD, SEK |
+| Sri Lanka                           | LK        | USD          | EUR, LKR, USD |
+| Svezia                              | SE        | SEK          | EUR, SEK, USD  |
 | Svizzera                         | CH        | CHF          | CHF, EUR, USD |
 | Taiwan                              | TW        | TWD          | EUR, TWD, USD |
 | Tagikistan                          | TJ        | USD          | EUR, TJS, USD |
@@ -151,7 +151,7 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Turchia                              | TR        | USD          | EUR, PROVA, USD |
 | Turkmenistan                        | TM        | USD          | EUR, TMT, USD |
 | Uganda                              | UG        | USD          | EUR, UGX, USD |
-| Ucraina                             | UA        | USD          | EUR, UAH, RUB, USD |
+| Ucraina                             | UA        | USD          | EUR, RUB, UAH, USD |
 | Emirati Arabi Uniti                | AE        | USD          | AED, EUR, USD |
 | Regno Unito                      | GB        | GBP          | EUR, GBP, USD |
 | Stati Uniti                       | Stati Uniti        | USD          | EUR, USD |

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749046"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855074"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -315,18 +315,12 @@ Per impostazione predefinita, nessun campionamento è abilitato nell'agente Java
 
 1. Scaricare [applicationinsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. Per abilitare il campionamento, aggiungere il codice seguente al `ApplicationInsights.json` file:
+1. Per abilitare il campionamento, aggiungere il codice seguente al `applicationinsights.json` file:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -559,7 +553,7 @@ La precisione dell'approssimazione dipende in gran parte dalla percentuale di ca
 
 * Se nell'SDK non è impostato il campionamento, si verifica automaticamente il campionamento per inserimento per i dati di telemetria superiori a un determinato volume. Questa configurazione funziona, ad esempio, se si usa una versione precedente di ASP.NET SDK o Java SDK.
 * Se si usa ASP.NET o ASP.NET Core SDK correnti (ospitati in Azure o nel proprio server), per impostazione predefinita si ottiene il campionamento adattivo, ma è possibile passare a una frequenza fissa, come descritto in precedenza. Con il campionamento a frequenza fissa, l'SDK del browser si sincronizza automaticamente con gli eventi correlati al campione. 
-* Se si usa l'agente Java corrente, è possibile configurare `ApplicationInsights.json` (per Java SDK, Configure `ApplicationInsights.xml` ) per attivare il campionamento a frequenza fissa. Il campionamento viene disattivato per impostazione predefinita. Con il campionamento a frequenza fissa, browser SDK e il server vengono sincronizzati automaticamente per campionare gli eventi correlati.
+* Se si usa l'agente Java corrente, è possibile configurare `applicationinsights.json` (per Java SDK, Configure `ApplicationInsights.xml` ) per attivare il campionamento a frequenza fissa. Il campionamento viene disattivato per impostazione predefinita. Con il campionamento a frequenza fissa, browser SDK e il server vengono sincronizzati automaticamente per campionare gli eventi correlati.
 
 *Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 

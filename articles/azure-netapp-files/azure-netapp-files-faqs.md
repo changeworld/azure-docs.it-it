@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659149"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854700"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -60,7 +60,7 @@ No, Azure NetApp Files attualmente non supporta VNet dual stack (IPv4 e IPv6).
 
 Il traffico dati tra i client NFSv 4.1 e i volumi Azure NetApp Files può essere crittografato con Kerberos con la crittografia AES-256. Per informazioni dettagliate, vedere [configurare la crittografia Kerberos NFSv 4.1 per Azure NetApp files](configure-kerberos-encryption.md) .   
 
-Il traffico dati tra i client NFSv3 o SMBv3 e i volumi Azure NetApp Files non è crittografato. Tuttavia, il traffico da una macchina virtuale di Azure (che esegue un client NFS o SMB) a Azure NetApp Files è sicuro come qualsiasi altro traffico da macchina virtuale a macchina virtuale di Azure. Questo traffico è locale per la rete del Data Center di Azure. 
+Il traffico dati tra i client NFSv3 o SMB3 e i volumi Azure NetApp Files non è crittografato. Tuttavia, il traffico da una macchina virtuale di Azure (che esegue un client NFS o SMB) a Azure NetApp Files è sicuro come qualsiasi altro traffico da macchina virtuale a macchina virtuale di Azure. Questo traffico è locale per la rete del Data Center di Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Lo spazio di archiviazione può essere crittografato a riposo?
 

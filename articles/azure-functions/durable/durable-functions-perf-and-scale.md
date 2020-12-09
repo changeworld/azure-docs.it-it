@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325811"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854989"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -20,13 +20,13 @@ Per comprendere i comportamento in termini di scalabilità, è necessario conosc
 
 ## <a name="history-table"></a>Tabella di cronologia
 
-La tabella **Cronologia** di Archiviazione di Azure contiene gli eventi di cronologia per tutte le istanza di orchestrazione in un hub attività. Il nome della tabella è nel formato *NomeHubAttività*History. Durante l'esecuzione di istanze vengono aggiunte nuove righe alla tabella. La chiave di partizione della tabella deriva dall'ID di istanza dell'orchestrazione. Nella maggior parte dei casi un ID di istanza è casuale, garantendo in tal modo la distribuzione ottimale delle partizioni interne in Archiviazione di Azure.
+La tabella **Cronologia** di Archiviazione di Azure contiene gli eventi di cronologia per tutte le istanza di orchestrazione in un hub attività. Il nome della tabella è nel formato *NomeHubAttività* History. Durante l'esecuzione di istanze vengono aggiunte nuove righe alla tabella. La chiave di partizione della tabella deriva dall'ID di istanza dell'orchestrazione. Nella maggior parte dei casi un ID di istanza è casuale, garantendo in tal modo la distribuzione ottimale delle partizioni interne in Archiviazione di Azure.
 
 Quando è necessario eseguire un'istanza di orchestrazione, le righe appropriate della tabella Cronologia vengono caricate in memoria. Tali *eventi di cronologia* vengono riprodotti nel codice di funzione dell'agente di orchestrazione per riportarlo allo stato precedente all'ultimo checkpoint. L'utilizzo della cronologia di esecuzione per ricompilare lo stato in questo modo è influenzato dal [modello di origine evento](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Tabella delle istanze
 
-La tabella **instances** è un'altra tabella di archiviazione di Azure che contiene gli Stati di tutte le istanze di orchestrazione e di entità all'interno di un hub attività. In seguito alla creazione di istanze, nuove righe vengono aggiunte alla tabella. La chiave di partizione di questa tabella è l'ID dell'istanza di orchestrazione o la chiave di entità e la chiave di riga è una costante fissa. È presente una riga per ogni orchestrazione o istanza di entità.
+La tabella **instances** è un'altra tabella di archiviazione di Azure che contiene gli Stati di tutte le istanze di orchestrazione e di entità all'interno di un hub attività. In seguito alla creazione di istanze, nuove righe vengono aggiunte alla tabella. La chiave di partizione di questa tabella è l'ID dell'istanza di orchestrazione o la chiave di entità e la chiave di riga è una stringa vuota. È presente una riga per ogni orchestrazione o istanza di entità.
 
 Questa tabella viene usata per soddisfare le richieste di query di istanza dalle `GetStatusAsync` API (.NET) e `getStatus` (JavaScript), nonché dall' [API HTTP di query sullo stato](durable-functions-http-api.md#get-instance-status). Il contenuto della tabella viene mantenuto coerente con quello della tabella **Cronologia** citata in precedenza. L'uso di una tabella di Archiviazione di Azure separata per soddisfare in modo efficiente le operazioni di query di istanza in questo modo è influenzata dal [modello di separazione e responsabilità per query e comandi (CQRS, Command and Query Responsibility Segregation)](/azure/architecture/patterns/cqrs).
 
@@ -257,7 +257,7 @@ Quando si intende usare Funzioni permanenti per un'applicazione di produzione, �
 * **Esecuzione di attività parallele**: questo scenario descrive una funzione dell'agente di orchestrazione che esegue molte funzioni di attività in parallelo tramite il modello [fan-out, fan-in](durable-functions-cloud-backup.md).
 * **Elaborazione di risposte parallele**: questo scenario è la parte complementare del modello [fan-out, fan-in](durable-functions-cloud-backup.md) e si basa sulle prestazioni dello schema fan-in. È importante notare che, a differenza dello schema fan-out, lo schema fan-in viene realizzato da un'unica istanza delle funzioni dell'agente di orchestrazione e pertanto può essere eseguito solo su un'unica macchina virtuale.
 * **Elaborazione di eventi esterni**: questo scenario rappresenta un'unica istanza di funzioni dell'agente di orchestrazione che rimane in attesa su [eventi esterni](durable-functions-external-events.md), uno alla volta.
-* **Elaborazione**delle operazioni dell'entità: questo scenario verifica la velocità con cui una _singola_ [entità contatore](durable-functions-entities.md) può elaborare un flusso costante di operazioni.
+* **Elaborazione** delle operazioni dell'entità: questo scenario verifica la velocità con cui una _singola_ [entità contatore](durable-functions-entities.md) può elaborare un flusso costante di operazioni.
 
 > [!TIP]
 > A differenza dello schema fan-out, le operazioni fan-in sono limitate a un'unica macchina virtuale. Se l'applicazione usa il modello fan-out, fan-in ed è necessario rispettare le prestazioni in ambito fan-in, è possibile applicare lo schema fan-out della funzione di attività tra più [orchestrazioni secondarie](durable-functions-sub-orchestrations.md).

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576858"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855006"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
 
@@ -29,15 +29,15 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
 Per generare un pacchetto per il supporto, seguire questa procedura:
 
-1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico**. Facoltativamente, selezionare **Includi dump memoria**. Quindi selezionare **Crea pacchetto** per il supporto.
+1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico**. Facoltativamente, selezionare **Includi dump della memoria**. Quindi selezionare **Crea pacchetto** per il supporto.
 
     Un dump della memoria è il contenuto della memoria del dispositivo, salvato in seguito a un errore di sistema.
 
-    Non è necessario selezionare l'opzione **Includi dump memoria** , a meno che il supporto non ne chieda uno. La raccolta di un pacchetto per il supporto che include un dump della memoria richiede molto tempo e vengono inclusi i dati sensibili.
+    Non selezionare l'opzione **Includi dump della memoria** , a meno che il supporto non ne richieda uno. La raccolta di un pacchetto per il supporto che include i dump della memoria richiede molto tempo. i dati sensibili sono inclusi.
 
     ![Creare un pacchetto per il supporto 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    Viene raccolto un pacchetto di supporto. Questa operazione richiede alcuni minuti se si includono solo i log di sistema. Se si include un dump della memoria, richiede molto più tempo.
+    Viene raccolto un pacchetto di supporto. Questa operazione richiede alcuni minuti se si includono solo i log di sistema. Se si includono dump di memoria, il tempo necessario è molto più lungo.
 
     ![Creare un pacchetto per il supporto 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
