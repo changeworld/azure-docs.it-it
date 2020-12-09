@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 02635c93f9fa7704429a75fad750320f10847cb3
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 13d0bdf82052ff2c61c5b2c6010956c8fb27574d
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511650"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122481"
 ---
 Questa guida di avvio rapido illustra come creare un'applicazione di dispositivo Plug and Play IoT di esempio, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare i dati di telemetria inviati. L'applicazione di esempio è scritta in C# ed è inclusa negli esempi di Azure IoT per C#. Un generatore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza doverne visualizzare il codice.
 
@@ -26,7 +26,7 @@ Per completare questa guida di avvio rapido in Windows, è necessario che nel co
 
 In questa guida di avvio rapido viene preparato un ambiente di sviluppo che è possibile usare per clonare e compilare il repository degli esempi di Azure IoT per C#.
 
-Aprire un prompt dei comandi in una cartella di propria scelta. Eseguire questo comando per clonare il repository GitHub degli [esempi di Microsoft Azure IoT per C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) in questo percorso:
+Aprire un prompt dei comandi in una cartella di propria scelta. Eseguire il comando seguente per clonare il repository GitHub degli [esempi di Microsoft Azure IoT per C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) in questo percorso:
 
 ```cmd
 git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git

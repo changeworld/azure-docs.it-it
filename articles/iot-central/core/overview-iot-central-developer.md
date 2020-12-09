@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990755"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122262"
 ---
 # <a name="iot-central-device-development-overview"></a>Panoramica sullo sviluppo di dispositivi IoT Central
 
@@ -135,7 +135,7 @@ Usare uno degli [Azure IoT SDK per dispositivi](#languages-and-sdks) per impleme
 
 Per altre informazioni sul ruolo dei modelli di dispositivo, vedere [Che cosa sono i modelli di dispositivo?](./concepts-device-templates.md).
 
-Per il codice di esempio, vedere [Creare e connettere un'applicazione client Node.js](./tutorial-connect-device-nodejs.md) oppure [Creare e connettere un'applicazione client Python](./tutorial-connect-device-python.md).
+Per alcuni esempi di codice, vedere [Creare e connettere un'applicazione client](./tutorial-connect-device.md).
 
 ### <a name="languages-and-sdks"></a>Linguaggi e SDK
 
@@ -143,6 +143,6 @@ Per altre informazioni sui linguaggi e sugli SDK supportati, vedere [Comprendere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per gli sviluppatori di dispositivi che desiderano approfondire il codice, il passaggio successivo suggerito consiste nel [Creare e connettere un'applicazione client all'applicazione Azure IoT Central](./tutorial-connect-device-nodejs.md).
+Per gli sviluppatori di dispositivi che desiderano approfondire il codice, il passaggio successivo suggerito consiste nel [Creare e connettere un'applicazione client all'applicazione Azure IoT Central](./tutorial-connect-device.md).
 
 Per altre informazioni sull'uso di IoT Central, vedere le guide introduttive, a partire da [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md).
