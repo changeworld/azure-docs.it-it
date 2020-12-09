@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2652bd8ed33eb68e228f059fba9daa3c6e7c22da
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170158"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928733"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
 
@@ -212,9 +212,9 @@ Verrà visualizzato un banner di notifica che indica che una versione è stata a
 Altre informazioni su:
 
 * [Chiamate da servizio a servizio mediante le credenziali client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
-* [Azure DevOps Services](/azure/devops/user-guide/?view=azure-devops)
+* [Azure DevOps Services](/azure/devops/user-guide/)
 
 <!-- LINKS - External -->
-[devops]: /azure/devops/?view=azure-devops
-[devops-create-project]:  /azure/devops/organizations/projects/create-project?view=azure-devops
+[devops]: /azure/devops/
+[devops-create-project]:  /azure/devops/organizations/projects/create-project
 [devops-pipelines]: /azure/devops/pipelines

@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15debb69172dba00163950fdd301826c903e5307
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b9bc7d94cff46b54b81615cf064ed63927b3ec60
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548326"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929294"
 ---
-# <a name="email-one-time-passcode-authentication"></a>Autenticazione del codice di accesso monouso tramite posta elettronica
+# <a name="email-one-time-passcode-authentication-preview"></a>Indirizzo di posta elettronica per l'autenticazione con password monouso (anteprima)
 
 Questo articolo descrive come abilitare l'autenticazione del codice di posta elettronica monouso per gli utenti Guest B2B. La funzionalità di accesso monouso per il codice di posta elettronica consente di autenticare gli utenti Guest B2B quando non è possibile eseguire l'autenticazione con altri strumenti, ad esempio Azure AD, un account Microsoft (MSA) o una Federazione Google. Grazie all'autenticazione con passcode monouso, non è necessario creare un account Microsoft. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere.
 

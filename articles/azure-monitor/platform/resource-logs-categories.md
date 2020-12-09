@@ -3,13 +3,13 @@ title: Servizi e categorie supportati nei log delle risorse di monitoraggio di A
 description: Informazioni di riferimento su monitoraggio di Azure comprendono i servizi e lo schema di eventi supportati per i log delle risorse di Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/03/2020
-ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/09/2020
+ms.openlocfilehash: c7b2d48b40843930bba78f54d2294769d952daf6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920839"
+ms.locfileid: "96931229"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorie supportate per i log delle risorse di Azure
 
@@ -23,7 +23,7 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 ## <a name="costs"></a>Costi
 
- L'invio e l'archiviazione di dati in Log Analytics e/o nell'hub eventi sono i costi associati. I log delle risorse sono un tipo di dati che è possibile inviare a questi percorsi. L' [esportazione di alcune categorie di log di risorse](https://azure.microsoft.com/pricing/details/monitor/)comporta un costo aggiuntivo. Altri sono privi di costi di esportazione. Le specifiche sono elencate nella tabella seguente.
+L'invio e l'archiviazione di dati in Log Analytics, archiviazione di Azure e/o hub eventi sono i costi associati. Il licenziatario potrà pagare il costo per ottenere i dati in queste posizioni e per mantenerlo.  I log delle risorse sono un tipo di dati che è possibile inviare a questi percorsi. Sono previsti costi aggiuntivi [per esportare alcune categorie di log di risorse](https://azure.microsoft.com/pricing/details/monitor/) in queste posizioni, mentre altre sono prive di costi di esportazione. Le specifiche dei costi di esportazione sono elencate nella tabella seguente.
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorie di log supportate per tipo di risorsa
 
@@ -458,7 +458,7 @@ Costo: gratuito
 |AppAvailabilityResults|Risultati della disponibilità|
 |AppBrowserTimings|Intervalli del browser|
 |AppDependencies|Dependencies|
-|AppEvents|Events|
+|AppEvents|Eventi|
 |AppExceptions|Eccezioni|
 |AppMetrics|Metriche|
 |AppPageViews|Visualizzazioni pagina|

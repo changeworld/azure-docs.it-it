@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9bec7ffe28fbcdafd365f9867ebecaee5d2647e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4befcaf6b8c6b6bc4fddacb179883551609f7e19
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953687"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928648"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di LexisNexis con Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Una volta creato un account, si riceveranno le informazioni necessarie per la co
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: distribuire l'API
 
-Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Per configurare Azure AD con le impostazioni necessarie, è necessario l'URL del servizio distribuito.

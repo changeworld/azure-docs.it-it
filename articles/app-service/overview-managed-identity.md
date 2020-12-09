@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: fa99920c8e9d8cd532bb6230d6a337a038ee3e31
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696983"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929328"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -308,7 +308,7 @@ Un'app può usare la propria identità gestita per ottenere i token per l'access
 Potrebbe essere necessario configurare la risorsa di destinazione per consentire l'accesso dall'applicazione. Ad esempio, se si richiede un token di accesso a Key Vault, è necessario verificare di aver aggiunto un criterio di accesso che include l'identità dell'applicazione. In caso contrario, le chiamate a Key Vault verranno rifiutate, anche se includono il token. Per altre informazioni sulle risorse che supportano i token di Azure Active Directory, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> I servizi back-end per le identità gestite conservano una cache per ogni URI di risorsa per circa 8 ore. Se si aggiornano i criteri di accesso di una determinata risorsa di destinazione e si recupera immediatamente un token per tale risorsa, è possibile ottenere un token memorizzato nella cache con autorizzazioni obsolete fino alla scadenza del token. Attualmente non è possibile forzare l'aggiornamento di un token.
+> I servizi back-end per le identità gestite gestiscono una cache per ogni URI di risorsa per circa 24 ore. Se si aggiornano i criteri di accesso di una determinata risorsa di destinazione e si recupera immediatamente un token per tale risorsa, è possibile ottenere un token memorizzato nella cache con autorizzazioni obsolete fino alla scadenza del token. Attualmente non è possibile forzare l'aggiornamento di un token.
 
 È disponibile un semplice protocollo REST per ottenere un token del Servizio App e di Funzioni di Azure. Questo protocollo può essere usato per tutte le applicazioni e tutti i linguaggi. Per .NET e Java, Azure SDK fornisce un'astrazione basata su questo protocollo e facilita un'esperienza di sviluppo locale.
 

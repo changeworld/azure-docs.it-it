@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174833"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928750"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemi noti: provisioning delle applicazioni
 Problemi noti da tenere presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
@@ -56,6 +56,10 @@ Attualmente non è possibile eseguire il provisioning di attributi NULL Azure AD
 **Numero massimo di caratteri per le espressioni di mapping degli attributi**
 
 Le espressioni di mapping degli attributi possono avere un massimo di 10.000 caratteri. 
+
+**Filtri di ambito non supportati**
+
+Le estensioni di directory, appRoleAssignments, userType e accountExpires non sono supportate come filtri di ambito.
 
 
 ## <a name="service-issues"></a>Problemi relativi al servizio 

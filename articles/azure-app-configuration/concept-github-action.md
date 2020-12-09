@@ -1,17 +1,17 @@
 ---
 title: Sincronizzare il repository GitHub con Configurazione app
 description: Usare GitHub Actions per aggiornare automaticamente l'istanza di Configurazione app quando si aggiorna il repository GitHub.
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/20/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2b5f4bcbcc5af07a763ee4dff2d42413750fb7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371822"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930280"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizzare il repository GitHub con Configurazione app
 
@@ -35,7 +35,7 @@ Per iniziare a usare questa azione GitHub, passare al repository e selezionare l
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronizzare i file di configurazione dopo un push
 Questa azione sincronizza i file di Configurazione app di Azure quando viene eseguito il push di una modifica in `appsettings.json`. Quando uno sviluppatore esegue il push di una modifica in `appsettings.json`, l'azione di sincronizzazione di Configurazione app aggiorna l'istanza di Configurazione app con i nuovi valori.
 
-La prima sezione di questo flusso di lavoro specifica che l'azione attiva (*on*) un *push* contenente `appsettings.json` nel ramo *master*. Nella seconda sezione vengono elencati i processi eseguiti dopo l'attivazione dell'azione. L'azione estrae i file rilevanti e aggiorna l'istanza di Configurazione app usando la stringa di connessione archiviata come segreto nel repository.  Per altre informazioni sull'uso dei segreti in GitHub, vedere l'[articolo di GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sulla creazione e l'uso di segreti crittografati.
+La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *push* contenente nel `appsettings.json` ramo *principale* . Nella seconda sezione vengono elencati i processi eseguiti dopo l'attivazione dell'azione. L'azione estrae i file rilevanti e aggiorna l'istanza di Configurazione app usando la stringa di connessione archiviata come segreto nel repository.  Per altre informazioni sull'uso dei segreti in GitHub, vedere l'[articolo di GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sulla creazione e l'uso di segreti crittografati.
 
 ```json
 on: 
@@ -177,7 +177,7 @@ jobs:
 ## <a name="use-a-dynamic-label-on-sync"></a>Usare un'etichetta dinamica durante la sincronizzazione
 L'azione seguente consente di inserire un'etichetta dinamica a ogni sincronizzazione, assicurando che ogni sincronizzazione possa essere identificata in modo univoco e consentendo il mapping delle modifiche del codice alle modifiche di configurazione.
 
-La prima sezione di questo flusso di lavoro specifica che l'azione attiva (*on*) un *push* contenente `appsettings.json` nel ramo *master*. La seconda sezione esegue un processo che crea un'etichetta univoca per l'aggiornamento della configurazione in base all'hash di commit. Il processo aggiorna quindi l'istanza di Configurazione app con i nuovi valori e l'etichetta univoca per l'aggiornamento.
+La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *push* contenente nel `appsettings.json` ramo *principale* . La seconda sezione esegue un processo che crea un'etichetta univoca per l'aggiornamento della configurazione in base all'hash di commit. Il processo aggiorna quindi l'istanza di Configurazione app con i nuovi valori e l'etichetta univoca per l'aggiornamento.
 
 ```json
 on: 

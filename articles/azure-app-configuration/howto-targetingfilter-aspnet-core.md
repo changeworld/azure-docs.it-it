@@ -3,16 +3,16 @@ title: Abilitare l'implementazione temporanea delle funzionalità per destinatar
 titleSuffix: Azure App Configuration
 description: Informazioni su come abilitare la distribuzione temporanea delle funzionalità per destinatari specifici
 ms.service: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.topic: conceptual
-ms.date: 8/7/2020
-ms.openlocfilehash: d1574b8a3f8cda3341c0aaf355911e2e93a7bcab
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 11/20/2020
+ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557932"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929685"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Abilitare l'implementazione temporanea delle funzionalità per destinatari specifici
 
@@ -133,7 +133,7 @@ L'intero metodo *ConfigureServices* sarà simile al seguente:
 
 1. Nella portale di Azure passare all'archivio di configurazione dell'app e selezionare **Gestione funzionalità**.
 
-1. Selezionare il menu di scelta rapida per il flag della funzionalità *beta* creato nella Guida introduttiva. Selezionare **Modifica**.
+1. Selezionare il menu di scelta rapida per il flag della funzionalità *beta* creato nella Guida introduttiva. Selezionare **Edit** (Modifica).
 
     > [!div class="mx-imgBorder"]
     > ![Modifica flag funzionalità beta](./media/edit-beta-feature-flag.png)
@@ -144,9 +144,9 @@ L'intero metodo *ConfigureServices* sarà simile al seguente:
 
 1. Selezionare le opzioni seguenti:
 
-    - **Percentuale predefinita** : 0
-    - **Gruppi** : immettere il **nome** _contoso.com_ e una **percentuale** di _50_
-    - **Utenti** : `test@contoso.com`
+    - **Percentuale predefinita**: 0
+    - **Gruppi**: immettere il **nome** _contoso.com_ e una **percentuale** di _50_
+    - **Utenti**: `test@contoso.com`
 
     La schermata filtro funzionalità sarà simile alla seguente:
 

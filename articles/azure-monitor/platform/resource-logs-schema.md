@@ -4,12 +4,12 @@ description: Informazioni sui servizi e sullo schema di eventi supportati per i 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 1f8754245e394ecdffbb045d7f4cc96ec8a3ff78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6a76d642863a0baac8021a3da196ad5a2db48126
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184502"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931164"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 
@@ -25,12 +25,12 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 | Nome | Obbligatorio/facoltativo | Descrizione |
 |---|---|---|
-| time | Obbligatorio | Il timestamp dell’evento (fuso UTC). |
-| resourceId | Obbligatorio | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
+| time | Necessario | Il timestamp dell’evento (fuso UTC). |
+| resourceId | Necessario | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
 | TenantId | Obbligatorio per i log di tenant | L'ID tenant del tenant di Active Directory associato a questo evento. Questa proprietà viene utilizzata solo per i log a livello di tenant, non viene visualizzata nei log a livello di risorsa. |
-| operationName | Obbligatorio | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC di Azure, si tratta del nome dell'operazione RBAC di Azure (ad esempio, Microsoft. storage/storageAccounts/blobServices/Blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Necessario | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC di Azure, si tratta del nome dell'operazione RBAC di Azure (ad esempio, Microsoft. storage/storageAccounts/blobServices/Blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facoltativo | La versione API associata all'operazione, se OperationName è stata eseguita usando un'API (ad esempio, `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). Se non esiste un'API corrispondente a questa operazione, la versione rappresenta la versione di tale operazione nel caso in cui le proprietà associate all'operazione cambino in futuro. |
-| category | Obbligatorio | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Le categorie di log tipiche sono "audit" "Operational" "Execution" e "Request". |
+| category | Necessario | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Le categorie di log tipiche sono "audit" "Operational" "Execution" e "Request". |
 | resultType | Facoltativo | Lo stato dell'evento. I valori tipici includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | resultSignature | Facoltativo | Lo stato secondario dell'evento. Se questa operazione corrisponde a una chiamata API REST, questo campo contiene il codice di stato HTTP della chiamata REST corrispondente. |
 | resultDescription | Facoltativo | Descrizione statica del testo di questa operazione, ad esempio "Get storage file". |
@@ -51,11 +51,12 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Azure Active Directory | [Panoramica](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), schema del [Registro di controllo](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [schema degli accessi](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Azure Analysis Services-configurare la registrazione diagnostica](../../analysis-services/analysis-services-logging.md) |
 | Gestione API | [Log delle risorse di gestione API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
+| Servizio app | [Log del servizio app](../../app-service/troubleshoot-diagnostic-logs.md)
 | Gateway applicazione |[Registrazione per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md) |
 | Automazione di Azure |[Log Analytics per automazione di Azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registrazione Azure Batch](../../batch/batch-diagnostics.md) |
 | Servizi cognitivi | [Registrazione per servizi cognitivi di Azure](../../cognitive-services/diagnostic-logging.md) |
-| Registro Container | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Registro contenitori | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rete CDN | [Log di Azure per la rete CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Registrazione di Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitorare le data factory con monitoraggio di Azure](../../data-factory/monitor-using-azure-monitor.md) |
@@ -79,7 +80,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Protezione DDoS | [Gestire la protezione DDoS di Azure Standard](../../ddos-protection/manage-ddos-protection.md) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per backup di Azure](../../backup/backup-azure-reports-data-model.md)|
-| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
+| Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione del database SQL di Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Analisi di flusso |[Log di processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

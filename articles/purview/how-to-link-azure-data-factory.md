@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852133"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928767"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Come connettersi Azure Data Factory e Azure
 
@@ -37,10 +37,17 @@ Più data factory di Azure possono connettersi a un'unica Data Catalog di Azure 
  >Per visualizzare le connessioni di Data Factory, è necessario assegnare uno dei ruoli di competenza:
  >- Collaboratore
  >- Proprietario
- >- Reader
+ >- Lettore
  >- Amministratore Accesso utenti
 
 ## <a name="create-new-data-factory-connection"></a>Crea nuova connessione Data Factory
+
+>[!Note]
+>Per aggiungere o rimuovere le connessioni di Data Factory, è necessario essere assegnati a uno dei ruoli di competenza:
+>- Proprietario
+>- Amministratore accessi utente
+>
+> Inoltre, è necessario che gli utenti siano il "proprietario" o "collaboratore" del data factory. 
 
 Attenersi alla procedura seguente per connettere un account di Data Factory esistente al Data Catalog di competenza.
 
@@ -70,11 +77,6 @@ Per rimuovere una connessione data factory, procedere come segue:
 1. Selezionare **conferma** nella finestra popup per eliminare le connessioni Data Factory selezionate.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot che illustra come selezionare le data factory per la rimozione della connessione." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->Per aggiungere o rimuovere le connessioni di Data Factory, è necessario essere assegnati a uno dei ruoli di competenza:
->- Proprietario
->- Inoltre, è necessario che gli utenti siano il "proprietario" o "collaboratore" o Data Factory "collaboratore" del data factory. 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configurare un runtime di integrazione self-hosted per raccogliere la derivazione da SQL locale
 

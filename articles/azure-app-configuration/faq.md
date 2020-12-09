@@ -2,17 +2,17 @@
 title: Domande frequenti sulla configurazione di app Azure
 description: Leggere le risposte alle domande frequenti sulla configurazione di app Azure, ad esempio il modo in cui è diversa da Azure Key Vault.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.author: alkemper
+ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242110"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929566"
 ---
 # <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
 
@@ -41,7 +41,7 @@ Sebbene la configurazione dell'app fornisca sicurezza avanzata, Key Vault rappre
 
 ## <a name="does-app-configuration-encrypt-my-data"></a>La configurazione dell'app crittografa i dati?
 
-Sì. La configurazione dell'app crittografa tutti i valori di chiave che possiede e crittografa le comunicazioni di rete. I nomi delle chiavi e le etichette vengono usati come indici per il recupero dei dati di configurazione e non vengono crittografati.
+Sì. Configurazione app esegue la crittografia di tutti i valori chiave che possiede e della comunicazione di rete. I nomi delle chiavi e le etichette vengono usati come indici per il recupero dei dati di configurazione e non vengono crittografati.
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>Dove si trovano i dati archiviati nella configurazione dell'app? 
 
@@ -86,16 +86,16 @@ Entrambi i livelli di configurazione delle app offrono funzionalità principali,
 
 Di seguito sono riportate alcune considerazioni per la scelta di un livello.
 
-- **Risorse per sottoscrizione** : una risorsa è costituita da un singolo archivio di configurazione. Ogni sottoscrizione è limitata a un archivio di configurazione nel livello gratuito. Le sottoscrizioni possono avere un numero illimitato di archivi di configurazione nel livello standard.
-- **Archiviazione per risorsa** : nel livello gratuito ogni archivio di configurazione è limitato a 10 MB di spazio di archiviazione. Nel livello standard, ogni archivio di configurazione può usare fino a 1 GB di spazio di archiviazione.
-- **Cronologia delle revisioni** : la configurazione dell'app archivia una cronologia di tutte le modifiche apportate alle chiavi. Nel livello gratuito la cronologia viene archiviata per sette giorni. Nel livello standard la cronologia viene archiviata per 30 giorni.
-- **Quota richieste** : gli archivi di livello gratuito sono limitati a 1.000 richieste al giorno. Quando un negozio raggiunge 1.000 richieste, restituisce il codice di stato HTTP 429 per tutte le richieste fino alla mezzanotte UTC.
+- **Risorse per sottoscrizione**: una risorsa è costituita da un singolo archivio di configurazione. Ogni sottoscrizione è limitata a un archivio di configurazione nel livello gratuito. Le sottoscrizioni possono avere un numero illimitato di archivi di configurazione nel livello standard.
+- **Archiviazione per risorsa**: nel livello gratuito ogni archivio di configurazione è limitato a 10 MB di spazio di archiviazione. Nel livello standard, ogni archivio di configurazione può usare fino a 1 GB di spazio di archiviazione.
+- **Cronologia delle revisioni**: la configurazione dell'app archivia una cronologia di tutte le modifiche apportate alle chiavi. Nel livello gratuito la cronologia viene archiviata per sette giorni. Nel livello standard la cronologia viene archiviata per 30 giorni.
+- **Quota richieste**: gli archivi di livello gratuito sono limitati a 1.000 richieste al giorno. Quando un negozio raggiunge 1.000 richieste, restituisce il codice di stato HTTP 429 per tutte le richieste fino alla mezzanotte UTC.
 
     Gli archivi di livello standard sono limitati a 20.000 richieste all'ora. Quando la quota viene esaurita, viene restituito il codice di stato HTTP 429 per tutte le richieste fino alla fine dell'ora.
 
-- **Contratto di servizio** : il livello standard dispone di un contratto di servizio con disponibilità del 99,9%. Il livello gratuito non ha un contratto di licenza.
-- **Funzionalità di sicurezza** : entrambi i livelli includono funzionalità di sicurezza di base, tra cui la crittografia con chiavi gestite da Microsoft, l'autenticazione tramite HMAC o Azure Active Directory, il supporto RBAC di Azure, l'identità gestita e i tag del servizio. Il livello standard offre funzionalità di sicurezza più avanzate, tra cui il supporto dei collegamenti privati e la crittografia con chiavi gestite dal cliente.
-- **Costo** : gli archivi di livello standard hanno un costo di utilizzo giornaliero. Le prime 200.000 richieste ogni giorno sono incluse nell'addebito giornaliero. È anche previsto un addebito per le richieste oltre l'allocazione giornaliera. Non è previsto alcun costo per l'uso di un archivio di livello gratuito.
+- **Contratto di servizio**: il livello standard dispone di un contratto di servizio con disponibilità del 99,9%. Il livello gratuito non ha un contratto di licenza.
+- **Funzionalità di sicurezza**: entrambi i livelli includono funzionalità di sicurezza di base, tra cui la crittografia con chiavi gestite da Microsoft, l'autenticazione tramite HMAC o Azure Active Directory, il supporto RBAC di Azure, l'identità gestita e i tag del servizio. Il livello standard offre funzionalità di sicurezza più avanzate, tra cui il supporto dei collegamenti privati e la crittografia con chiavi gestite dal cliente.
+- **Costo**: gli archivi di livello standard hanno un costo di utilizzo giornaliero. Le prime 200.000 richieste ogni giorno sono incluse nell'addebito giornaliero. È anche previsto un addebito per le richieste oltre l'allocazione giornaliera. Non è previsto alcun costo per l'uso di un archivio di livello gratuito.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>È possibile aggiornare un archivio dal livello gratuito al livello standard? È possibile effettuare il downgrade di un negozio dal livello standard al livello gratuito?
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/01/2020
+ms.date: 12/09/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512206"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928325"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -116,7 +116,7 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
 
 **D**: le notifiche funzionano per gli account non Microsoft?
 
-**R**: No, le notifiche funzionano solo con gli account Microsoft e gli account Azure Active Directory. Se l'ufficio o l'Istituto di istruzione USA Azure AD account, può disattivare questa funzionalità.
+**R**: No, le notifiche funzionano solo con gli account Microsoft e gli account Azure Active Directory. Se l'ufficio o l'Istituto di istruzione USA Azure AD account, è possibile disattivare questa funzionalità.
 
 ### <a name="backup-and-recovery"></a>Backup e ripristino
 
@@ -207,6 +207,74 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
 **D**: l'app Companion Apple Watch si è arrestata in modo anomalo. è possibile inviare i log di arresto anomalo per l'indagine della causa?
 
 **R**: per prima cosa è necessario assicurarsi di aver scelto di condividere le analisi con Microsoft. Gli utenti di TestFlight sono già iscritti. In caso contrario, è possibile passare a **Impostazioni > Privacy > Analisi** e selezionare le opzioni **Share iPhone & Watch analytics** (Condividi analisi iPhone e orologio) e **Share with App Developers** (Condividi con sviluppatori app).<br>Dopo l'iscrizione, è possibile provare a riprodurre l'arresto anomalo in modo che i log di arresto anomalo vengano inviati automaticamente a Microsoft per le indagini. Se non è possibile riprodurre l'arresto anomalo, tuttavia, è possibile copiare manualmente i file di log e inviarli a Microsoft.<ol><li>Aprire l'app dell'orologio nel telefono, passare a **Impostazioni > Generali** e quindi fare clic su **Copy Watch Analytics** (Copia analisi orologio).</li><li>Individuare l'arresto anomalo corrispondente in **Impostazioni > Privacy > Analisi > Dati di analisi** e quindi copiare manualmente il testo completo.</li><li>Aprire Authenticator sul telefono e incollare il testo copiato nella casella di testo **Condividi con gli sviluppatori di app** nella pagina **log di invio** .</li></ol>
+
+## <a name="autofill-for-consumers"></a>Riempimento automatico per i consumer
+
+**D**: che cos'è il riempimento automatico in Authenticator?
+
+**R**: l'app Authenticator Archivia ora in modo sicuro e riempie automaticamente le password delle app e dei siti Web visitati sul telefono. È possibile usare il riempimento automatico per sincronizzare e compilare automaticamente le password nei dispositivi iOS e Android. Dopo aver configurato l'app Authenticator come provider di riempimento automatico sul telefono, consente di salvare le password quando vengono immesse nella pagina di accesso di un sito o di un'app. Le password vengono salvate come parte del [account Microsoft](https://account.microsoft.com/account) e sono disponibili anche quando si accede a Microsoft Edge con l'account Microsoft.
+
+**D**: quali sono le informazioni che possono essere riempite dall'autenticatore?
+
+**R: l'** autenticatore può compilare automaticamente i nomi utente e le password nei siti e nelle app visitate sul telefono.
+
+**D**: ricerca per categorie attivare il riempimento automatico della password in Authenticator sul telefono?
+
+**R**: attenersi alla seguente procedura:
+
+1. Aprire l'app Authenticator.
+1. In **Impostazioni** in **beta**, attivare **riempimento automatico**.
+1. Nella scheda **password** in authenticator selezionare **Accedi con Microsoft** e accedere usando [il account Microsoft](https://account.microsoft.com/account). Questa funzionalità supporta attualmente solo account Microsoft e non supporta ancora account aziendali o dell'Istituto di istruzione.
+
+**D**: ricerca per categorie rendere autenticatore il provider di riempimento automatico predefinito sul telefono?
+
+**R**: attenersi alla seguente procedura:
+
+1. Aprire **Impostazioni** di autenticazione e in **beta** attivare **riempimento automatico**.
+1. Nella scheda **password** nell'app accedere usando [il account Microsoft](https://account.microsoft.com/account).
+1. Eseguire una di queste operazioni:
+
+   - In iOS, in **Impostazioni**, selezionare **come attivare il riempimento automatico** nella sezione Impostazioni riempimento automatico per informazioni su come impostare Authenticator come provider di riempimento automatico predefinito.
+   - In Android in **Impostazioni** selezionare **Imposta come provider di riempimento automatico** nella sezione Impostazioni riempimento automatico per impostare Authenticator come provider di riempimento automatico predefinito.
+
+**D**: cosa accade se l'opzione di **riempimento automatico** è disabilitata per l'utente nelle impostazioni?
+
+**R: il** riempimento automatico è attualmente in versione beta e non è ancora stato abilitato per tutte le organizzazioni o i tipi di conto. Se il commutatore di **riempimento automatico** in **Impostazioni** è disattivato, è probabile che si usi l'app Authenticator con l'account aziendale. È possibile usare questa funzionalità in un dispositivo in cui l'account aziendale non viene aggiunto. Se l'organizzazione collabora con Microsoft, l'opzione di **riempimento automatico** verrà abilitata anche quando un account di lavoro viene aggiunto all'autenticatore.
+
+**D**: ricerca per categorie arrestare la sincronizzazione delle password?
+
+**R**: per interrompere la sincronizzazione delle password nell'app Authenticator, aprire **Impostazioni**  >  **riempimento automatico** impostazioni  >  **account di sincronizzazione**. Nella schermata successiva è possibile selezionare **Arresta sincronizzazione e Rimuovi tutti i dati di riempimento automatico**. Questa operazione eliminerà le password e altri dati di riempimento automatico dal dispositivo. La rimozione dei dati di riempimento automatico non influisce sull'autenticazione a più fattori.
+
+**D**: in che modo le password sono protette dall'app Authenticator?
+
+**R**: l'app Authenticator fornisce già un livello elevato di sicurezza per l'autenticazione a più fattori e la gestione degli account e la stessa barra di sicurezza elevata viene estesa anche alla gestione delle password.
+
+- **L'autenticazione avanzata è necessaria per l'app Authenticator**: l'accesso all'autenticatore richiede un secondo fattore. Ciò significa che non è possibile accedere alle password all'interno dell'app Authenticator anche se qualcuno ha la password account Microsoft.
+- **I dati di riempimento automatico sono protetti con biometria e codice** di accesso: prima che sia possibile compilare automaticamente la password in un'app o in un sito, l'autenticatore richiede un codice biometrico o dispositivo In questo modo, anche se un altro utente ha accesso al dispositivo, non può riempire o visualizzare la password, perché non sarebbe in grado di fornire il PIN biometrico o del dispositivo. Inoltre, un utente non è in grado di aprire la pagina password a meno che non fornisca biometrico o PIN, anche se disattiva il blocco app nelle impostazioni dell'app.
+- **Password crittografate nel dispositivo: le** password nel dispositivo vengono crittografate e le chiavi di crittografia/decrittografia non vengono mai archiviate e generate sempre in tempo reale. Le password vengono decrittografate solo quando l'utente vuole, ovvero durante il riempimento automatico o quando l'utente desidera visualizzare la password, che richiedono sia biometrica che PIN.
+- **Sicurezza del cloud e della rete**: le password nel cloud vengono crittografate e decrittografate solo quando raggiungono il dispositivo. Le password vengono sincronizzate tramite una connessione HTTPS protetta da SSL, che garantisce che nessun utente malintenzionato possa intercettare dati sensibili durante la sincronizzazione. Viene inoltre garantita la verifica dell'integrità dei dati sincronizzati sulla rete mediante funzioni con hash crittografico (in particolare il codice di autenticazione messaggi basato su hash).
+
+## <a name="autofill-for-it-admins"></a>Riempimento automatico per gli amministratori IT
+
+**D**: i dipendenti o gli studenti devono usare la funzione di riempimento automatico delle password nell'app Authenticator?
+
+**R**: No. La funzionalità riempimento automatico è attualmente in versione beta e non è ancora stata abilitata per tutte le organizzazioni o i tipi di conto. Se il dipendente o lo studente ha aggiunto il proprio account aziendale o dell'Istituto di istruzione nell'app Microsoft Authenticator, la compilazione automatica delle password non sarà accessibile. L'unica eccezione a questa restrizione è rappresentata dal momento in cui il dipendente o lo studente aggiunge l'account aziendale o dell'Istituto di istruzione all'autenticazione a più fattori basata sul cloud Microsoft come [account esterno o di terze parti](user-help-auth-app-add-non-ms-account.md).
+
+**D**: è possibile rendere disponibile la funzionalità di riempimento automatico per i dipendenti (o gli studenti)?
+
+**R**: Sì. Per abilitare i dipendenti o gli studenti, è possibile aggiungere l'azienda o l'Istituto di istruzione a un elenco consentiti. Rivolgersi al supporto tecnico o al contatto Microsoft per essere aggiunti all'elenco Consenti. Inoltre, se si è un amministratore IT per l'organizzazione, è anche possibile compilare un modulo per esprimere il proprio interesse a partecipare a [allow-list Enterprise per il riempimento automatico in Authenticator](https://aka.ms/RequestAutofillInAuthenticator).
+
+**D**: la password dell'account aziendale o dell'Istituto di istruzione viene sincronizzata automaticamente?
+
+**R**: No. Il riempimento automatico della password non sincronizza la password dell'account aziendale o dell'Istituto di istruzione per gli utenti. Quando gli utenti visitano un sito o un'app, l'autenticatore offrirà la password per il sito o l'app e la password verrà salvata solo quando l'utente sceglie.
+  
+**D**: è possibile consentire-elencare solo determinati utenti dell'organizzazione per il riempimento automatico?
+
+**R**: No. In questo momento le aziende possono abilitare solo il riempimento automatico delle password per tutti o nessuno dei dipendenti. Questi controlli vengono espansi gradualmente.
+
+**D**: cosa accade se il dipendente o lo studente ha più account aziendali o dell'Istituto di istruzione? Ad esempio, il dipendente dispone di account di più aziende o scuole nell'Microsoft Authenticator.
+
+**R**: per poter usare il proprietario dell'app, è necessario che tutte le aziende o le scuole aggiunte nell'app Authenticator siano consentite. L'unica eccezione a questa restrizione è rappresentata dal momento in cui il dipendente o lo studente aggiunge l'account aziendale o dell'Istituto di istruzione all'autenticazione a più fattori basata sul cloud Microsoft come [account esterno o di terze parti](user-help-auth-app-add-non-ms-account.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

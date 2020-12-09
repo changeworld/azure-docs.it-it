@@ -3,14 +3,14 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327492"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928427"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -224,7 +224,7 @@ La tabella seguente definisce le classificazioni supportate per gli aggiornament
 >
 > non esiste alcuna classificazione degli aggiornamenti di Linux e vengono segnalati nella categoria **altri aggiornamenti** . Gestione aggiornamenti usa i dati pubblicati dalle distribuzioni supportate, in particolare i file [Oval](https://oval.mitre.org/) (Open vulnerabili and Assessment Language) rilasciati. Poiché l'accesso a Internet è limitato da questi cloud nazionali, Gestione aggiornamenti non può accedere ai file e utilizzarli.
 
-Per Linux, Gestione aggiornamenti è in grado di distinguere tra gli aggiornamenti critici e quelli della sicurezza nel cloud, visualizzando i dati di valutazione dovuti all'arricchimento dei dati nel cloud. Per l'applicazione di patch, Gestione aggiornamenti si affida ai dati di classificazione disponibili nel computer. A differenza di altre distribuzioni, CentOS non mette a disposizione queste informazioni nella versione RTM. Se i computer CentOS sono configurati in modo da restituire dati sulla sicurezza per il comando seguente, Gestione aggiornamenti è in grado di applicare patch in base alle classificazioni.
+Per Linux, Gestione aggiornamenti possibile distinguere tra gli aggiornamenti critici e gli aggiornamenti della sicurezza nel cloud sotto la **sicurezza** di classificazione e **altri**, visualizzando i dati di valutazione a causa dell'arricchimento dei dati nel cloud. Per l'applicazione di patch, Gestione aggiornamenti si affida ai dati di classificazione disponibili nel computer. A differenza di altre distribuzioni, CentOS non mette a disposizione queste informazioni nella versione RTM. Se i computer CentOS sono configurati in modo da restituire dati sulla sicurezza per il comando seguente, Gestione aggiornamenti è in grado di applicare patch in base alle classificazioni.
 
 ```bash
 sudo yum -q --security check-update
@@ -233,6 +233,10 @@ sudo yum -q --security check-update
 Attualmente non è supportato alcun metodo per abilitare la disponibilità dei dati di classificazione nativi in CentOS. A questo punto, il supporto limitato viene fornito ai clienti che potrebbero avere abilitato questa funzionalità autonomamente.
 
 Per classificare gli aggiornamenti in Red Hat Enterprise versione 6, è necessario installare il plug-in yum-security. In Red Hat Enterprise Linux 7 il plug-in fa già parte di yum e non è necessario eseguire alcuna installazione supplementare. Per altre informazioni, vedere questo [file di caratteristiche del caso](https://access.redhat.com/solutions/10021) su Red Hat.
+
+Quando si pianifica l'esecuzione di un aggiornamento in un computer Linux, che, ad esempio, è configurato per installare solo gli aggiornamenti che corrispondono alla classificazione di **sicurezza** , gli aggiornamenti installati potrebbero essere diversi da o sono un subset degli aggiornamenti corrispondenti a questa classificazione. Quando viene eseguita una valutazione degli aggiornamenti del sistema operativo in sospeso per il computer Linux, i file Oval ( [Open vulnerabilità and Assessment Language](https://oval.mitre.org/) ) forniti dal fornitore di distribuzioni Linux vengono usati da Gestione aggiornamenti per la classificazione.
+
+La categorizzazione viene eseguita per gli aggiornamenti Linux come **sicurezza** o **altri** in base ai file Oval, che includono aggiornamenti che indirizzano problemi di sicurezza o vulnerabilità. Tuttavia, quando viene eseguita, la pianificazione dell'aggiornamento viene eseguita nel computer Linux usando la gestione pacchetti appropriata, ad esempio YUM, APT o ZYPPER per installarli. Gestione pacchetti per la distribuzione Linux può avere un meccanismo diverso per classificare gli aggiornamenti, in cui i risultati possono essere diversi da quelli ottenuti da file OVAL per Gestione aggiornamenti. Per controllare manualmente il computer e comprendere quali aggiornamenti sono correlati alla sicurezza da Gestione pacchetti, vedere [risolvere i problemi di distribuzione degli aggiornamenti Linux](../troubleshoot/update-management.md#updates-linux-installed-different).
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integrare Gestione aggiornamenti con Configuration Manager
 

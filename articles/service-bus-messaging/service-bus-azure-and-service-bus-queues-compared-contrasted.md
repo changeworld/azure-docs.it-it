@@ -3,12 +3,12 @@ title: Confronto tra code di Archiviazione di Azure e code di Bus di servizio
 description: Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 5c65cf5ef2d572417ea70d0e0259cf2c03ab590e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379571"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928308"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie tra i due tipi di code offerte da Microsoft Azure: code di archiviazione e code del bus di servizio. Utilizzando queste informazioni, è possibile prendere una decisione più consapevole sulla soluzione più adatta alle proprie esigenze.
@@ -128,15 +128,15 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla capacità di un [singolo account di archiviazione](../storage/common/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
-| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64** )<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
+| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
 | Durata TTL massima del messaggio |**Infinito** (API-versione 2017-07-27 o successiva) |**TimeSpan.Max** |
 | Numero massimo di code |**Illimitato** |**10,000**<br/><br/>(per spazio dei nomi del servizio) |
-| Numero massimo di client concorrenti |**Illimitato** |**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP) |
+| Numero massimo di client concorrenti |**Illimitato** |**5\.000** |
 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 * Bus di servizio impone l'applicazione dei limiti di dimensione della coda. Quando si crea una coda, viene specificata la dimensione massima della coda. Può avere una lunghezza compresa tra 1 GB e 80 GB. Se le dimensioni della coda raggiungono questo limite, i messaggi in arrivo aggiuntivi verranno rifiutati e il chiamante riceverà un'eccezione. Per altre informazioni sulle quote nel bus di servizio, vedere [Quote del bus di servizio](service-bus-quotas.md).
 * Il partizionamento non è supportato nel [livello Premium](service-bus-premium-messaging.md). Nel livello di messaggistica standard è possibile creare code e argomenti del bus di servizio in dimensioni di 1 (impostazione predefinita), 2, 3, 4 o 5 GB. Con il partizionamento abilitato, il bus di servizio crea 16 copie (16 partizioni) dell'entità, ognuna delle stesse dimensioni specificate. Di conseguenza, se si crea una coda di 5 GB, con 16 partizioni le dimensioni massime della coda diventano (5 * 16) = 80 GB.  È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato nell' [portale di Azure][Azure portal].
-* Con le code di archiviazione, se il contenuto del messaggio non è protetto da XML, deve essere codificato in base **64** . Se per il messaggio non è stata usata la codifica **Base64** , il payload dell'utente può essere fino a 48 KB, anziché 64.
+* Con le code di archiviazione, se il contenuto del messaggio non è protetto da XML, deve essere codificato in base **64** . Se per il messaggio non è stata usata la codifica **Base64**, il payload dell'utente può essere fino a 48 KB, anziché 64.
 * Con le code del bus di servizio, ogni messaggio archiviato in una coda è costituito da due parti: un'intestazione e un corpo. La dimensione totale del messaggio non può superare la dimensione massima del messaggio supportata dal livello di servizio.
 * Se le comunicazioni tra client e code del bus di servizio vengono stabilite tramite il protocollo TCP, il numero massimo di connessioni simultanee a una singola coda del bus di servizio è limitato a 100. Questo numero è condiviso tra mittenti e destinatari. Se viene raggiunta questa quota, le richieste di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. Questo limite non viene imposto ai client che si connettono alle code usando l'API basata su REST.
 * Se si richiedono più di 10.000 code in un unico spazio dei nomi del bus di servizio, è possibile contattare il team di supporto tecnico di Azure e richiedere un aumento. Per ridimensionare più di 10.000 code con il bus di servizio, è anche possibile creare spazi dei nomi aggiuntivi tramite il [portale di Azure][Azure portal].
@@ -170,7 +170,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
-| Authentication |**Chiave simmetrica** |**Chiave simmetrica** |
+| Autenticazione |**Chiave simmetrica** |**Chiave simmetrica** |
 | Modello di protezione |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
 | Federazione del provider di identità |**No** |**Sì** |
 

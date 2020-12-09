@@ -1,20 +1,20 @@
 ---
 title: Toolkit di test del modello ARM
-description: Viene descritto come eseguire ARM template test Toolkit sul modello. Il Toolkit consente di verificare se sono state implementate le procedure consigliate.
+description: Viene descritto come eseguire il Toolkit di test di Azure Resource Manager modello (ARM template) nel modello. Il Toolkit consente di verificare se sono state implementate le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439561"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928189"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Usare ARM template test Toolkit
 
-Il [Toolkit di test del modello di Azure Resource Manager (ARM)](https://aka.ms/arm-ttk) verifica se il modello usa le procedure consigliate. Quando il modello non è conforme alle procedure consigliate, restituisce un elenco di avvisi con le modifiche suggerite. Utilizzando il Toolkit di test, è possibile apprendere come evitare problemi comuni nello sviluppo di modelli.
+Il modello di [Azure Resource Manager (modello ARM) test Toolkit](https://aka.ms/arm-ttk) controlla se il modello usa le procedure consigliate. Quando il modello non è conforme alle procedure consigliate, restituisce un elenco di avvisi con le modifiche suggerite. Utilizzando il Toolkit di test, è possibile apprendere come evitare problemi comuni nello sviluppo di modelli.
 
 Il Toolkit di test fornisce un [set di test predefiniti](test-cases.md). Questi test sono raccomandazioni ma non requisiti. È possibile decidere quali test sono rilevanti per gli obiettivi e personalizzare i test eseguiti.
 
@@ -282,4 +282,4 @@ Nell'esempio seguente viene illustrato come eseguire i test.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sui test predefiniti, vedere [test case per Toolkit](test-cases.md).
+Per informazioni sui test predefiniti, vedere [test case predefiniti per ARM template test Toolkit](test-cases.md).

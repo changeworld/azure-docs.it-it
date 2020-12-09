@@ -2,18 +2,18 @@
 title: Usare le identità gestite per accedere a Configurazione app
 titleSuffix: Azure App Configuration
 description: Eseguire l'autenticazione per app Azure configurazione mediante identità gestite
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671599"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929753"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Usare le identità gestite per accedere a Configurazione app
 
@@ -22,6 +22,9 @@ Azure Active Directory le [identità gestite](../active-directory/managed-identi
 App Azure configurazione e le librerie client .NET Core, .NET Framework e Java Spring hanno un supporto di identità gestito incorporato. Sebbene non sia necessario usarlo, l'identità gestita elimina la necessità di un token di accesso che contiene segreti. Il codice può accedere all'archivio di configurazione dell'app usando solo l'endpoint del servizio. È possibile incorporare questo URL direttamente nel codice senza esporre alcun segreto.
 
 Questo articolo illustra come è possibile sfruttare l'identità gestita per accedere alla configurazione dell'app. Si basa sull'app Web presentata nelle guide introduttive. Prima di continuare,  [creare prima un'app ASP.NET Core con la configurazione dell'app](./quickstart-aspnet-core-app.md) .
+
+> [!NOTE]
+> Questo articolo usa app Azure servizio come esempio, ma lo stesso concetto si applica a qualsiasi altro servizio di Azure che supporta l'identità gestita, ad esempio il [servizio Azure Kubernetes](../aks/use-azure-ad-pod-identity.md), la [macchina virtuale di Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)e le [istanze di contenitore di Azure](../container-instances/container-instances-managed-identity.md). Se il carico di lavoro è ospitato in uno di questi servizi, è possibile sfruttare anche il supporto per le identità gestite del servizio.
 
 Questo articolo illustra anche come è possibile usare l'identità gestita insieme ai riferimenti Key Vault della configurazione dell'app. Con una singola identità gestita, è possibile accedere facilmente a entrambi i segreti da Key Vault e i valori di configurazione dalla configurazione dell'app. Per esplorare questa funzionalità, terminare usare prima di tutto [Key Vault riferimenti con ASP.NET Core](./use-key-vault-references-dotnet-core.md) .
 
@@ -49,9 +52,9 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
 
 1. Creare un'istanza di servizi app nel [portale di Azure](https://portal.azure.com) come di consueto. Passare all'app nel portale.
 
-1. Scorrere verso il basso fino al gruppo **Impostazioni** nel riquadro a sinistra e selezionare **Identità** .
+1. Scorrere verso il basso fino al gruppo **Impostazioni** nel riquadro a sinistra e selezionare **Identità**.
 
-1. Nella scheda **Assegnata dal sistema** impostare **Stato** su **Attivato** e selezionare **Salva** .
+1. Nella scheda **Assegnata dal sistema** impostare **Stato** su **Attivato** e selezionare **Salva**.
 
 1. Risposta **Sì** quando viene richiesto di abilitare l'identità gestita assegnata dal sistema.
 
@@ -63,13 +66,13 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
 
 1. Selezionare **Controllo di accesso (IAM)** .
 
-1. Nella scheda **Verifica l'accesso** selezionare **Aggiungi** nell'interfaccia utente della scheda **Aggiungi un'assegnazione di ruolo** .
+1. Nella scheda **Verifica l'accesso** selezionare **Aggiungi** nell'interfaccia utente della scheda **Aggiungi un'assegnazione di ruolo**.
 
-1. In **ruolo** selezionare **lettore dati di configurazione dell'app** . In **Assegna accesso a** selezionare **Servizio app** in **Identità gestita assegnata dal sistema** .
+1. In **ruolo** selezionare **lettore dati di configurazione dell'app**. In **Assegna accesso a** selezionare **Servizio app** in **Identità gestita assegnata dal sistema**.
 
 1. In **Sottoscrizione** selezionare la sottoscrizione di Azure. Selezionare la risorsa Servizio app per la propria app.
 
-1. Selezionare **Salva** .
+1. Selezionare **Salva**.
 
     ![Aggiungere un'identità gestita](./media/add-managed-identity.png)
 
@@ -136,7 +139,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     ```
     ---
 
-1. Per usare sia i valori di configurazione delle app che i riferimenti Key Vault, aggiornare *Program.cs* come illustrato di seguito. Questo codice crea un nuovo oggetto `KeyVaultClient` usando `AzureServiceTokenProvider` e passa questo riferimento a una chiamata al `UseAzureKeyVault` metodo.
+1. Per usare sia i valori di configurazione delle app che i riferimenti Key Vault, aggiornare *Program.cs* come illustrato di seguito. Questo codice chiama `SetCredential` come parte di `ConfigureKeyVault` per indicare al provider di configurazione le credenziali da usare per l'autenticazione per Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -151,10 +154,10 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
                    config.AddAzureAppConfiguration(options =>
                    {
                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                           .ConfigureKeyVault(kv =>
-                           {
-                              kv.SetCredential(credentials);
-                           });
+                              .ConfigureKeyVault(kv =>
+                              {
+                                 kv.SetCredential(credentials);
+                              });
                    });
                })
                .UseStartup<Startup>();
@@ -175,10 +178,10 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
                     config.AddAzureAppConfiguration(options =>
                     {
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                            .ConfigureKeyVault(kv =>
-                            {
-                                kv.SetCredential(credentials);
-                            });
+                               .ConfigureKeyVault(kv =>
+                               {
+                                   kv.SetCredential(credentials);
+                               });
                     });
                 });
             })
@@ -186,10 +189,10 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     ```
     ---
 
-    È ora possibile accedere a Key Vault riferimenti come qualsiasi altra chiave di configurazione dell'app. Il provider di configurazione utilizzerà l'oggetto `KeyVaultClient` configurato per l'autenticazione Key Vault e il recupero del valore.
+    È ora possibile accedere a Key Vault riferimenti come qualsiasi altra chiave di configurazione dell'app. Il provider di configurazione utilizzerà `ManagedIdentityCredential` per eseguire l'autenticazione a Key Vault e recuperare il valore.
 
-> [!NOTE]
-> `ManagedIdentityCredential` supporta solo l'autenticazione di identità gestita. Non funziona negli ambienti locali. Se si vuole eseguire il codice localmente, provare a usare `DefaultAzureCredential` , che supporta anche l'autenticazione basata su entità servizio. Per informazioni dettagliate, vedere il [collegamento](/dotnet/api/azure.identity.defaultazurecredential) .
+    > [!NOTE]
+    > `ManagedIdentityCredential`Funziona solo in ambienti Azure di servizi che supportano l'autenticazione di identità gestita. Non funziona nell'ambiente locale. Usare [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) affinché il codice funzioni sia negli ambienti locali che in quelli di Azure, in quanto verrà eseguito il fallback ad alcune opzioni di autenticazione, inclusa l'identità gestita.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -235,7 +238,7 @@ git remote add azure <url>
 Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando viene chiesta la password, immettere quella creata in [Configurare un utente della distribuzione](#configure-a-deployment-user). Non usare la stessa password usata per accedere al portale di Azure.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Nell'output potrebbe essere visualizzata l'automazione specifica di runtime, ad esempio MSBuild per ASP.NET, `npm install` per Node.js e `pip install` per Python.

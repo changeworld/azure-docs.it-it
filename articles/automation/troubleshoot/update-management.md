@@ -5,12 +5,12 @@ services: automation
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751258"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929277"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -19,7 +19,7 @@ Questo articolo descrive i problemi che potrebbero verificarsi durante la distri
 >[!NOTE]
 >Se si verificano problemi durante la distribuzione di Gestione aggiornamenti in un computer Windows, aprire il Visualizzatore eventi di Windows e controllare il **Operations Manager** registro eventi in **registri applicazioni e servizi** nel computer locale. Cercare gli eventi con ID 4502 e dettagli evento che contengono `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Scenario: gli aggiornamenti di Linux visualizzati come in sospeso e quelli installati variano
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Scenario: gli aggiornamenti di Linux visualizzati come in sospeso e quelli installati variano
 
 ### <a name="issue"></a>Problema
 
@@ -29,7 +29,7 @@ Per il computer Linux, Gestione aggiornamenti Mostra gli aggiornamenti specifici
 
 Quando viene eseguita una valutazione degli aggiornamenti del sistema operativo in sospeso per il computer Linux, i file Oval ( [vulnerabilità e Assessment Language) aperti](https://oval.mitre.org/) forniti dal fornitore di distribuzioni Linux vengono usati da Gestione aggiornamenti per la classificazione. La categorizzazione viene eseguita per gli aggiornamenti Linux come **sicurezza** o **altri utenti**, in base ai file Oval che specificano gli aggiornamenti che indirizzano problemi di sicurezza o vulnerabilità. Tuttavia, quando viene eseguita, la pianificazione dell'aggiornamento viene eseguita nel computer Linux usando la gestione pacchetti appropriata, ad esempio YUM, APT o ZYPPER per installarli. Gestione pacchetti per la distribuzione Linux può avere un meccanismo diverso per classificare gli aggiornamenti, in cui i risultati possono essere diversi da quelli ottenuti da file OVAL per Gestione aggiornamenti.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 È possibile controllare manualmente il computer Linux, gli aggiornamenti applicabili e la relativa classificazione in base a gestione pacchetti della distribuzione. Per comprendere quali aggiornamenti sono classificati come **sicurezza** da Gestione pacchetti, eseguire i comandi seguenti.
 
@@ -93,7 +93,7 @@ Gli aggiornamenti precedenti vengono visualizzati come mancanti per un account d
 
 Gli aggiornamenti sostituiti non vengono rifiutati in Windows Server Update Services (WSUS), in modo che possano essere considerati non applicabili.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Quando un aggiornamento sostituito diventa il 100% non applicabile, è necessario modificare lo stato di approvazione di tale aggiornamento `Declined` in WSUS. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 29116d880a51444eb45a351e2118a07d13873043
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953849"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928699"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di Experian con Azure Active Directory B2C
 
@@ -77,7 +77,7 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: distribuire l'API
 
-Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Per configurare Azure AD con le impostazioni necessarie, è necessario l'URL del servizio distribuito.

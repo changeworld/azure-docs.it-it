@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500309"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928818"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -59,7 +59,7 @@ Baseline: 270%
 
 ![Grafico dei dati relativi al traffico orario](./media/b-series-burstable/office-workload.png)
 
-| Scenario | Tempo | Utilizzo CPU (%) | Crediti accumulati<sup>1</sup> | Crediti disponibili |
+| Scenario | Ora | Utilizzo CPU (%) | Crediti accumulati<sup>1</sup> | Crediti disponibili |
 | --- | --- | --- | --- | --- |
 | Distribuzione di B16ms | Distribuzione | Distribuzione  | 480 (crediti iniziali) | 480 |
 | Nessun traffico | 0:00 | 0 | 162 | 642 |
@@ -132,7 +132,7 @@ ad esempio, nell'istanza precedente la linea di base è il 20% e se si usa il 10
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>D: Perché il credito rimanente è impostato su 0 dopo una ridistribuzione o un arresto/avvio?
 
-**R**: quando una VM viene "RIDISTRIBUITA" e viene spostata in un altro nodo, il credito accumulato viene perso. Se la VM viene arrestata o avviata, ma resta nello stesso nodo, mantiene il credito accumulato. Ogni volta che la macchina virtuale viene avviata in un nodo, ottiene un credito iniziale, per Standard_B8ms è 240.
+**R** : quando una macchina virtuale viene ridistribuita e la macchina virtuale viene spostata in un altro nodo, il credito accumulato viene perso. Se la VM viene arrestata o avviata, ma resta nello stesso nodo, mantiene il credito accumulato. Ogni volta che la macchina virtuale viene avviata in un nodo, ottiene un credito iniziale, per Standard_B8ms è 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>D: cosa accade se si distribuisce un'immagine del sistema operativo non supportata in B1ls?
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 48fc8533ee1fd206e69e16d4c03e4b4acf047135
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953688"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928631"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di onfido con Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Per altre informazioni su onfido, vedere la [documentazione dell'API onfido](htt
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: distribuire l'API
 
-- Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+- Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](/visualstudio/deployment/quickstart-deploy-to-azure).
 - Configurare CORS, aggiungere l' **origine consentita** come https:///{your_tenant_name}. b2clogin. com
 
 >[!NOTE]

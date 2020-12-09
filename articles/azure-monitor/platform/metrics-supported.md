@@ -4,26 +4,26 @@ description: Elenco delle metriche disponibili per ogni tipo di risorsa con il m
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 12/09/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3e5dd5c83468e867c746393642a1e40ff07763c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921498"
+ms.locfileid: "96929107"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
 > [!NOTE]
-> Questo elenco è in gran parte generato automaticamente dall'API REST delle metriche di monitoraggio di Azure. Tutte le modifiche apportate a questo elenco tramite GitHub possono essere scritte senza preavviso. Per informazioni dettagliate su come effettuare gli aggiornamenti permanenti, contattare l'autore di questo articolo.
+> Questo elenco è in gran parte generato automaticamente. Tutte le modifiche apportate a questo elenco tramite GitHub possono essere scritte senza preavviso. Per informazioni dettagliate su come effettuare gli aggiornamenti permanenti, contattare l'autore di questo articolo.
 
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. 
 
-Questo articolo è un elenco completo di metriche di tutte le piattaforme (ovvero raccolte automaticamente) attualmente disponibili con la pipeline metrica consolidata di monitoraggio di Azure. L'ultimo aggiornamento dell'elenco è stato eseguito il 27 marzo 2020. Le metriche modificate o aggiunte dopo questa data potrebbero non essere visualizzate di seguito. Per eseguire una query e accedere all'elenco di metriche a livello di codice, usare la [versione api 2018-01-01](/rest/api/monitor/metricdefinitions). Altre metriche non presenti in questo elenco possono essere disponibili nel portale o usando le API legacy.
+Questo articolo è un elenco completo di metriche di tutte le piattaforme (ovvero raccolte automaticamente) attualmente disponibili con la pipeline metrica consolidata di monitoraggio di Azure. Le metriche modificate o aggiunte dopo la data all'inizio di questo articolo potrebbero non essere ancora visualizzate di seguito. Per eseguire una query e accedere all'elenco di metriche a livello di codice, usare la [versione api 2018-01-01](/rest/api/monitor/metricdefinitions). Altre metriche non presenti in questo elenco possono essere disponibili nel portale o usando le API legacy.
 
-Le metriche sono organizzate in base ai provider di risorse e al tipo di risorsa. Per un elenco dei servizi e dei provider di risorse appartenenti, vedere [provider di risorse per i servizi di Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
+Le metriche sono organizzate in base ai provider di risorse e al tipo di risorsa. Per un elenco dei servizi e dei provider di risorse e dei tipi che li appartengono, vedere [provider di risorse per i servizi di Azure](../../azure-resource-manager/management/azure-services-resource-providers.md).  
 
 ## <a name="exporting-platform-metrics-to-other-locations"></a>Esportazione delle metriche della piattaforma in altre posizioni
 
@@ -115,16 +115,16 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |BackendDuration|Sì|Duration of Backend Requests (Durata delle richieste back-end)|Millisecondi|Media|Durata delle richieste back-end in millisecondi|Location, Hostname|
-|Capacità|Sì|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Posizione|
+|Capacità|Sì|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
 |Duration|Sì|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
-|EventHubDroppedEvents|Sì|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Posizione|
-|EventHubRejectedEvents|Sì|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Posizione|
-|EventHubSuccessfulEvents|Sì|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Posizione|
-|EventHubThrottledEvents|Sì|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Posizione|
-|EventHubTimedoutEvents|Sì|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Posizione|
-|EventHubTotalBytesSent|Sì|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Posizione|
-|EventHubTotalEvents|Sì|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Posizione|
-|EventHubTotalFailedEvents|Sì|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Posizione|
+|EventHubDroppedEvents|Sì|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Location|
+|EventHubRejectedEvents|Sì|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Location|
+|EventHubSuccessfulEvents|Sì|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Location|
+|EventHubThrottledEvents|Sì|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Location|
+|EventHubTimedoutEvents|Sì|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Location|
+|EventHubTotalBytesSent|Sì|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Location|
+|EventHubTotalEvents|Sì|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Location|
+|EventHubTotalFailedEvents|Sì|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Location|
 |FailedRequests|Sì|Failed Gateway Requests (Richieste gateway non riuscite) (deprecato)|Conteggio|Totale|Numero di errori nelle richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Location, Hostname|
 |Problemidi|Sì|Stato connettività di rete delle risorse (anteprima)|Conteggio|Media|Stato della connettività di rete dei tipi di risorsa dipendenti dal servizio gestione API|Località, ResourceType|
 |OtherRequests|Sì|Other Gateway Requests (Altre richieste del gateway) (deprecato)|Conteggio|Totale|Numero di altre richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Location, Hostname|

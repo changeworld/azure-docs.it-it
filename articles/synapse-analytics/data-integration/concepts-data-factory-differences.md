@@ -2,18 +2,18 @@
 title: Differenze rispetto ad Azure Data Factory
 description: Informazioni sul modo in cui le funzionalità di integrazione dei dati di Azure sinapsi Analytics sono diverse da quelle di Azure Data Factory
 services: synapse-analytics
-author: djpmsft
+author: shirleywangmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: daperlov
+ms.author: shwang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: db5d05e1a211ce14926ee4031054669fff5110d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357650"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930212"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integrazione dei dati in Azure sinapsi Analytics rispetto a Azure Data Factory
 
@@ -42,7 +42,6 @@ Le funzionalità seguenti si comportano in modo diverso o non esistono attualmen
 
 * **Litigi dei flussi di dati:** L'attività flusso di dati in corso è disponibile solo in Azure Data Factory al momento.
 * **Raccolta di modelli di soluzione:** In Azure Data Factory gli utenti possono trovare modelli di pipeline nella raccolta di modelli di soluzione. Nelle aree di lavoro sinapsi, il centro informazioni contiene un set di modelli diverso insieme a set di dati aggiuntivi e script SQL. 
-* **Integrazione con git e soluzione ci/CD nativa:** Attualmente un'area di lavoro sinapsi non è in grado di connettersi a un repository git né segue lo stesso processo di integrazione e recapito continuo come Azure Data Factory.
 * **Integrazione con monitoraggio di Azure:** Le aree di lavoro sinapsi non si integrano con monitoraggio di Azure come Azure Data Factory.
 * **Configurazione del runtime di integrazione ibrida:** All'interno di un'area di lavoro sinapsi, un utente non può avere sia un runtime di integrazione VNet gestito che un Azure IR. Questa funzionalità è supportata in Azure Data Factory.
 * **Condivisione del runtime di integrazione:** I runtime di integrazione self-hosted non possono essere condivisi tra le aree di lavoro sinapsi. Questa funzionalità è supportata in Azure Data Factory.

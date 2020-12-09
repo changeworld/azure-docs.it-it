@@ -3,14 +3,14 @@ title: Come creare distribuzioni di aggiornamenti per Gestione aggiornamenti di 
 description: Questo articolo descrive come pianificare le distribuzioni degli aggiornamenti e controllarne lo stato.
 services: automation
 ms.subservice: update-management
-ms.date: 10/27/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ec0d6d618edad87b76861ea834adb2f29531e6f5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742296"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929668"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
@@ -20,7 +20,7 @@ In ogni scenario, la distribuzione creata ha come destinazione il computer o il 
 
 * Il sistema operativo viene preselezionato automaticamente in base al sistema operativo del computer
 * Il computer di destinazione da aggiornare è impostato automaticamente come destinazione
-* Quando si configura la pianificazione, è possibile specificare l' **aggiornamento ora** , si verifica una volta o una pianificazione ricorrente.
+* Quando si configura la pianificazione, è possibile specificare l' **aggiornamento ora**, si verifica una volta o una pianificazione ricorrente.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -43,11 +43,11 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
 
 2. A seconda della risorsa selezionata, per passare a Gestione aggiornamenti:
 
-   * Se è stato selezionato l'account di automazione, passare a **Gestione aggiornamenti** in **Gestione aggiornamenti** , quindi selezionare **Pianifica distribuzione aggiornamenti** .
-   * Se è stata selezionata una macchina virtuale di Azure, passare a **guest + host Updates** e quindi selezionare **Vai a gestione aggiornamenti** .
-   * Se è stato selezionato un server abilitato per Arc, passare a **Gestione aggiornamenti** e quindi selezionare **Pianifica distribuzione aggiornamenti** .
+   * Se è stato selezionato l'account di automazione, passare a **Gestione aggiornamenti** in **Gestione aggiornamenti**, quindi selezionare **Pianifica distribuzione aggiornamenti**.
+   * Se è stata selezionata una macchina virtuale di Azure, passare a **guest + host Updates** e quindi selezionare **Vai a gestione aggiornamenti**.
+   * Se è stato selezionato un server abilitato per Arc, passare a **Gestione aggiornamenti** e quindi selezionare **Pianifica distribuzione aggiornamenti**.
 
-3. In **nuova distribuzione aggiornamenti** , nel campo **nome** immettere un nome univoco per la distribuzione.
+3. In **nuova distribuzione aggiornamenti**, nel campo **nome** immettere un nome univoco per la distribuzione.
 
 4. Selezionare il sistema operativo di destinazione per la distribuzione degli aggiornamenti.
 
@@ -76,12 +76,12 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
    > [!NOTE]
    > Non è possibile indicare aggiornamenti sostituiti perché vengano inclusi nella distribuzione degli aggiornamenti.
 
-9. Selezionare **Impostazioni pianificazione** . L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
+9. Selezionare **Impostazioni pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
 
     > [!NOTE]
     > Questa opzione è diversa se è stato selezionato un server abilitato per l'arco. È possibile selezionare **Aggiorna ora** o ora di inizio 20 minuti in futuro.
 
-10. Utilizzare la **ricorrenza** per specificare se la distribuzione viene eseguita una sola volta o utilizza una pianificazione ricorrente, quindi selezionare **OK** .
+10. Utilizzare la **ricorrenza** per specificare se la distribuzione viene eseguita una sola volta o utilizza una pianificazione ricorrente, quindi selezionare **OK**.
 
 11. Nell'area **pre-script + post-scripts** selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire pre-script e post-script](pre-post-scripts.md).
 
@@ -102,14 +102,14 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
     * Solo riavvio - Gli aggiornamenti non verranno installati
 
     > [!NOTE]
-    > Le chiavi del Registro di sistema elencate in [Chiavi del Registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) possono causare un evento di riavvio se le **Opzioni di riavvio** sono impostate su **Non riavviare mai** .
+    > Le chiavi del Registro di sistema elencate in [Chiavi del Registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) possono causare un evento di riavvio se le **Opzioni di riavvio** sono impostate su **Non riavviare mai**.
 
-14. Al termine della configurazione della pianificazione della distribuzione, selezionare **Crea** .
+14. Al termine della configurazione della pianificazione della distribuzione, selezionare **Crea**.
 
     ![Riquadro di impostazioni della pianificazione di aggiornamenti](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
-    > Al termine della configurazione della pianificazione della distribuzione per un server abilitato per l'arco selezionato, selezionare **Verifica + crea** .
+    > Al termine della configurazione della pianificazione della distribuzione per un server abilitato per l'arco selezionato, selezionare **Verifica + crea**.
 
 15. Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **pianificazioni di distribuzione** per visualizzare la pianificazione della distribuzione creata. Sono elencate al massimo 500 pianificazioni. Se sono presenti più di 500 pianificazioni e si vuole rivedere l'elenco completo, vedere il metodo dell'API REST per l' [elenco delle configurazioni di aggiornamento software](/rest/api/automation/softwareupdateconfigurations/list) . Specificare l'API versione 2019-06-01 o successiva.
 
@@ -121,7 +121,7 @@ Per informazioni su come creare una distribuzione di aggiornamenti con l'API RES
 
 ## <a name="check-deployment-status"></a>Controllare lo stato della distribuzione
 
-Una volta avviata la distribuzione pianificata, è possibile visualizzarne lo stato nella scheda **cronologia** in **Gestione aggiornamenti** . Se la distribuzione è attualmente in esecuzione, lo stato sarà **In corso** . Al termine della distribuzione, se questa ha esito positivo, lo stato passa a **Completata** . Se si verificano errori in uno o più aggiornamenti della distribuzione, lo stato è **non riuscito** .
+Una volta avviata la distribuzione pianificata, è possibile visualizzarne lo stato nella scheda **cronologia** in **Gestione aggiornamenti**. Se la distribuzione è attualmente in esecuzione, lo stato sarà **In corso**. Al termine della distribuzione, se questa ha esito positivo, lo stato passa a **Completata**. Se si verificano errori in uno o più aggiornamenti della distribuzione, lo stato è **non riuscito**.
 
 ## <a name="view-results-of-a-completed-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti completata
 
@@ -133,16 +133,16 @@ In **Risultati aggiornamento** è disponibile un riepilogo che indica il numero 
 
 I valori disponibili sono:
 
-* **Tentativo non eseguito** : l'aggiornamento non è stato installato perché il tempo disponibile non era sufficiente, in base alla durata della finestra di manutenzione specificata.
-* **Non selezionato** : l'aggiornamento non è stato selezionato per la distribuzione.
-* **Completato** : l'aggiornamento è stato completato.
-* **Non riuscito** : l'aggiornamento non è riuscito.
+* **Tentativo non eseguito**: l'aggiornamento non è stato installato perché il tempo disponibile non era sufficiente, in base alla durata della finestra di manutenzione specificata.
+* **Non selezionato**: l'aggiornamento non è stato selezionato per la distribuzione.
+* **Completato**: l'aggiornamento è stato completato.
+* **Non riuscito**: l'aggiornamento non è riuscito.
 
 Selezionare **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
 
 Selezionare **Output** per visualizzare il flusso del processo del runbook responsabile della gestione della distribuzione di aggiornamenti nelle macchine virtuali di destinazione.
 
-Per visualizzare informazioni dettagliate sugli errori della distribuzione, selezionare **Errori** .
+Per visualizzare informazioni dettagliate sugli errori della distribuzione, selezionare **Errori**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

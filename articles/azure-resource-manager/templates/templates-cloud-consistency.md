@@ -1,23 +1,23 @@
 ---
 title: Riutilizza modelli tra cloud
-description: Sviluppare modelli di Azure Resource Manager che funzionano in modo coerente per ambienti cloud diversi. È possibile creare nuovi modelli o aggiornare quelli esistenti per Azure Stack.
+description: Sviluppare modelli di Azure Resource Manager (modelli ARM) che funzionano in modo coerente per ambienti cloud diversi. È possibile creare nuovi modelli o aggiornare quelli esistenti per Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744750"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928359"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Sviluppare modelli ARM per la coerenza cloud
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Uno dei vantaggi principali di Azure è la coerenza. Gli investimenti per lo sviluppo di una posizione sono riutilizzabili in un'altra. Un modello di Azure Resource Manager (ARM) rende le distribuzioni coerenti e ripetibili tra gli ambienti, tra cui Azure globale, cloud sovrani di Azure e Azure Stack. Per riutilizzare i modelli nei cloud, tuttavia, è necessario considerare le dipendenze specifiche del cloud, come spiega questa guida.
+Uno dei vantaggi principali di Azure è la coerenza. Gli investimenti per lo sviluppo di una posizione sono riutilizzabili in un'altra. Un modello di Azure Resource Manager (modello ARM) rende le distribuzioni coerenti e ripetibili tra gli ambienti, tra cui Azure globale, cloud sovrani di Azure e Azure Stack. Per riutilizzare i modelli nei cloud, tuttavia, è necessario considerare le dipendenze specifiche del cloud, come spiega questa guida.
 
 Microsoft offre servizi cloud intelligenti e pronti per l'uso per l'azienda in molte posizioni, tra cui:
 
@@ -205,7 +205,7 @@ Per costruire l'URI assoluto di un artefatto, il metodo preferito consiste nell'
 }
 ```
 
-Con questo approccio, tutti gli artefatti dell'installazione, inclusi gli script di configurazione, possono essere memorizzati nella stessa posizione del modello stesso. Per modificare la posizione di tutti i collegamenti, è sufficiente specificare un URL di base diverso per i _parametri artifactsLocation_ .
+Con questo approccio, tutti gli artefatti dell'installazione, inclusi gli script di configurazione, possono essere memorizzati nella stessa posizione del modello stesso. Per modificare la posizione di tutti i collegamenti, è sufficiente specificare un URL di base diverso per i _parametri artifactsLocation_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Tenere in considerazione diverse funzionalità a livello di area
 
@@ -443,8 +443,8 @@ Gli spazi dei nomi degli endpoint possono anche essere utilizzati nell'output di
 
 In generale, evitare di codificare in modo rigido gli endpoint in un modello. La procedura consigliata consiste nell'utilizzare la funzione di modello di riferimento per recuperare gli endpoint in modo dinamico. Ad esempio, l'endpoint codificato in modo rigido più di frequente è lo spazio dei nomi di endpoint per gli account di archiviazione. Ogni account di archiviazione dispone di un FQDN unico che viene creato concatenando il nome dell'account di archiviazione con lo spazio dei nomi dell'endpoint. Un account di archiviazione BLOB denominato mystorageaccount1 genera FQDN diversi a seconda del cloud:
 
-* **mystorageaccount1.blob.core.windows.net** quando creato nel cloud di Azure globale.
-* **mystorageaccount1.blob.Core.chinacloudapi.cn** quando viene creato nel cloud 21ViaNet di Azure per la Cina.
+* `mystorageaccount1.blob.core.windows.net` Quando viene creato nel cloud globale di Azure.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` Quando viene creato in Azure Cina 21Vianet cloud.
 
 La seguente funzione del modello di riferimento recupera lo spazio dei nomi degli endpoint dal provider di risorse di memorizzazione:
 
@@ -611,7 +611,7 @@ Poiché le estensioni di macchina virtuale sono risorse di Resource Manager di M
 
 La versione API della risorsa di estensione di macchina virtuale deve essere presente in tutte le posizioni che si prevede di raggiungere con il modello. La dipendenza dalla posizione funziona come la disponibilità della versione API del provider di risorse discussa in precedenza nella sezione "Verificare la versione di tutti i tipi di risorse".
 
-Per recuperare un elenco delle versioni API disponibili per la risorsa dell'estensione di macchina virtuale, usare il cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) con il provider di risorse **Microsoft.Compute** , come illustrato:
+Per recuperare un elenco delle versioni API disponibili per la risorsa dell'estensione di macchina virtuale, usare il cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) con il provider di risorse **Microsoft.Compute**, come illustrato:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
@@ -641,7 +641,7 @@ Ogni estensione specifica è dotata di una versione. Questa versione è mostrata
         ...
 ```
 
-Per recuperare un elenco delle versioni disponibili per un'estensione di macchina virtuale specifica, usare il cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). Nell'esempio seguente vengono recuperate le versioni disponibili per l'estensione PowerShell DSC (Configurazione dello stato desiderato) della macchina virtuale da **myLocation** :
+Per recuperare un elenco delle versioni disponibili per un'estensione di macchina virtuale specifica, usare il cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). Nell'esempio seguente vengono recuperate le versioni disponibili per l'estensione PowerShell DSC (Configurazione dello stato desiderato) della macchina virtuale da **myLocation**:
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

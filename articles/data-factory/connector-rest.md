@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: a8cd6386ed6004935b0a1e45a53c01668166c0e4
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902256"
+ms.locfileid: "96931304"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da e in un endpoint REST utilizzando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -140,7 +140,7 @@ Impostare la proprietà **authenticationType** su **AadServicePrincipal**. Oltre
 
 Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | aadResourceId | Specificare la risorsa AAD richiesta per l'autorizzazione, ad esempio `https://management.core.windows.net` .| Sì |
 
@@ -303,12 +303,19 @@ Nella sezione **sink** dell'attività di copia sono supportate le proprietà seg
 | requestMethod | Metodo HTTP. I valori consentiti sono **post** (impostazione predefinita), **put** e **patch**. | No |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Questo valore è il timeout per ottenere una risposta, non il timeout per la scrittura dei dati. Il valore predefinito è **00:01:40**.  | No |
-| requestInterval | Intervallo di tempo tra le diverse richieste in milisecond. Il valore dell'intervallo di richiesta deve essere un numero compreso tra [10, 60000]. |  No |
+| requestInterval | Intervallo di tempo tra le diverse richieste in millisecondi. Il valore dell'intervallo di richiesta deve essere un numero compreso tra [10, 60000]. |  No |
 | httpCompressionType | Tipo di compressione HTTP da utilizzare durante l'invio di dati con un livello di compressione ottimale. I valori consentiti sono **None** e **gzip**. | No |
 | writeBatchSize | Numero di record da scrivere nel sink REST per batch. Il valore predefinito è 10000. | No |
 
->[!NOTE]
->REST Connector As sink funziona con gli endpoint REST che accettano JSON. I dati verranno inviati solo in JSON.
+REST Connector As sink funziona con le API REST che accettano JSON. I dati verranno inviati in JSON con il modello seguente. Se necessario, è possibile usare il [mapping dello schema](copy-activity-schema-and-type-mapping.md#schema-mapping) dell'attività di copia per modificare la forma dei dati di origine in modo che siano conformi al payload previsto dall'API REST.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
 
 **Esempio:**
 
@@ -348,7 +355,7 @@ Nella sezione **sink** dell'attività di copia sono supportate le proprietà seg
 
 ## <a name="pagination-support"></a>Supporto della paginazione
 
-In genere, l'API REST limita le dimensioni del payload di risposta di una singola richiesta con un numero ragionevole. mentre per restituire una grande quantità di dati, suddivide il risultato in più pagine e richiede ai chiamanti di inviare richieste consecutive per ottenere la pagina successiva del risultato. In genere la richiesta di una sola pagina è dinamica ed è composta dalle informazioni restituite dalla risposta della pagina precedente.
+Quando si copiano dati dalle API REST, normalmente l'API REST limita le dimensioni del payload di risposta di una singola richiesta con un numero ragionevole. mentre per restituire una grande quantità di dati, suddivide il risultato in più pagine e richiede ai chiamanti di inviare richieste consecutive per ottenere la pagina successiva del risultato. In genere la richiesta di una sola pagina è dinamica ed è composta dalle informazioni restituite dalla risposta della pagina precedente.
 
 Questo connettore REST generico supporta i modelli di paginazione seguenti: 
 
@@ -371,7 +378,7 @@ Questo connettore REST generico supporta i modelli di paginazione seguenti:
 
 **Valori supportati** nelle regole di paginazione:
 
-| Valore | Description |
+| valore | Descrizione |
 |:--- |:--- |
 | Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | "response_header" è definito dall'utente, che fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per emettere la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |
