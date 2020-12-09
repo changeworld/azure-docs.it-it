@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441025"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922958"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connettere un gateway VPN (gateway di rete virtuale) alla rete WAN virtuale
 
@@ -45,7 +45,7 @@ Nella pagina **configurazione** del gateway di rete virtuale abilitare la modali
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Impostazione BGP
 
-Nella pagina di **configurazione** del gateway di rete virtuale è possibile configurare l' **ASN BGP**. Modificare l'ASN BGP. L'ASN BGP non può essere 65515. 66515 verrà usato dalla rete WAN virtuale di Azure.
+Nella pagina di **configurazione** del gateway di rete virtuale è possibile configurare l' **ASN BGP**. Modificare l'ASN BGP. L'ASN BGP non può essere 65515. 65515 verrà usato dalla rete WAN virtuale di Azure.
 
 ![Screenshot mostra una pagina di configurazione del gateway di rete virtuale con configurare ASN BGP selezionato.](./media/connect-virtual-network-gateway-vwan/bgp.png "BGP")
 
@@ -57,7 +57,7 @@ Quando viene creato il gateway, passare alla pagina delle **Proprietà** . Le pr
 
 ## <a name="2-create-virtual-wan-vpn-sites"></a><a name="vwansite"></a>2. creare siti VPN WAN virtuali
 
-Per creare siti VPN WAN virtuali, passare alla rete WAN virtuale e in **connettività**selezionare **siti VPN**. In questa sezione si creeranno due siti VPN WAN virtuali che corrispondono ai gateway di rete virtuale creati nella sezione precedente.
+Per creare siti VPN WAN virtuali, passare alla rete WAN virtuale e in **connettività** selezionare **siti VPN**. In questa sezione si creeranno due siti VPN WAN virtuali che corrispondono ai gateway di rete virtuale creati nella sezione precedente.
 
 1. Selezionare **+ Crea sito**.
 2. Nella pagina **Crea siti VPN** Digitare i valori seguenti:
@@ -67,7 +67,7 @@ Per creare siti VPN WAN virtuali, passare alla rete WAN virtuale e in **connetti
    * **Spazio di indirizzi privato** : immettere un valore oppure lasciare vuoto quando BGP è abilitato.
    * **Border Gateway Protocol** : impostare per **abilitare** se il gateway di rete virtuale del gateway VPN di Azure dispone di BGP abilitato.
    * **Connetti a hub** : selezionare l'hub creato nei prerequisiti dall'elenco a discesa. Se non viene visualizzato un hub, verificare che sia stato creato un gateway VPN da sito a sito per l'hub.
-3. In **collegamenti**immettere i valori seguenti:
+3. In **collegamenti** immettere i valori seguenti:
 
    * **Nome provider** : immettere un nome di collegamento e un nome di provider (qualsiasi nome).
    * **Velocità** -velocità (qualsiasi numero).
@@ -119,9 +119,9 @@ In questa sezione viene creata una connessione tra il gateway di rete locale gat
 3. Fare clic su **OK** per creare la connessione.
 4. È possibile visualizzare la connessione nella pagina **Connessioni** relativa al gateway di rete virtuale.
 
-   ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
+   ![Connessione](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. Ripetere i passaggi precedenti per creare una seconda connessione. Per la seconda connessione selezionare l'altro gateway di rete locale creato.
-6. Se le connessioni sono su BGP, dopo avere creato le connessioni, passare a una connessione e selezionare **configurazione**. Nella pagina **configurazione** per **BGP**Selezionare **abilitato**. Fare quindi clic su **Salva**. Ripetere la ricerca per la seconda connessione.
+6. Se le connessioni sono su BGP, dopo avere creato le connessioni, passare a una connessione e selezionare **configurazione**. Nella pagina **configurazione** per **BGP** Selezionare **abilitato**. Fare quindi clic su **Salva**. Ripetere la ricerca per la seconda connessione.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. testare le connessioni
 

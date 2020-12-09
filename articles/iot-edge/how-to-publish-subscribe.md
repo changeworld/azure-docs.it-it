@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461411"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922589"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Pubblicare e sottoscrivere con Azure IoT Edge
 
@@ -31,7 +31,7 @@ ms.locfileid: "96461411"
 - Un **Hub** Internet delle cose dello SKU F1, S1, S2 o S3.
 - Avere un **dispositivo IOT Edge con la versione 1,2 o successiva**. Poiché IoT Edge MQTT Broker è attualmente disponibile in anteprima pubblica, impostare le variabili di ambiente seguenti su true nel contenitore edgeHub per abilitare il broker MQTT:
 
-   | Nome | valore |
+   | Nome | Valore |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -177,7 +177,6 @@ Le autorizzazioni per gli argomenti dell'hub Internet vengono gestite in modo le
 
 - Per i dispositivi o i moduli di Azure, è necessaria una regola di autorizzazione esplicita per connettersi a IoT Edge broker MQTT Hub. Di seguito è riportato un criterio di autorizzazione di connessione predefinito.
 - Per impostazione predefinita, i dispositivi o i moduli di Azure sono in grado di accedere ai propri argomenti dell'hub Internet senza alcuna regola di autorizzazione esplicita. Tuttavia, le autorizzazioni derivano da relazioni padre/figlio in tal caso e queste relazioni devono essere impostate. I moduli IoT Edge vengono impostati automaticamente come elementi figlio del dispositivo IoT Edge, ma i dispositivi devono essere impostati in modo esplicito come elementi figlio del gateway di IoT Edge.
-- I dispositivi o i moduli di Azure sono in grado di accedere agli argomenti, inclusi gli argomenti relativi all'hub degli argomenti, di altri dispositivi o moduli che forniscono regole di autorizzazione esplicite appropriate.
 
 Ecco un criterio di autorizzazione predefinito che può essere usato per consentire a tutti i dispositivi o moduli Azure Internet di **connettersi** al Broker:
 
@@ -275,7 +274,7 @@ Per autorizzare il server di pubblicazione e il Sottoscrittore, modificare il Io
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ Per autorizzare il server di pubblicazione e il Sottoscrittore, modificare il Io
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ Per autorizzare il server di pubblicazione e il Sottoscrittore, modificare il Io
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }

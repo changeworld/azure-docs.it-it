@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 12/08/2020
+ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331941"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922943"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -91,7 +91,7 @@ Per altre informazioni sulla protezione dell'accesso con SAS, vedere le sezioni 
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica che contiene la chiave che si desidera rigenerare.
 
-1. Nel menu di app per la logica in **Impostazioni** , selezionare **Chiave di accesso**.
+1. Nel menu di app per la logica in **Impostazioni**, selezionare **Chiave di accesso**.
 
 1. Scegliere la chiave da rigenerare e completare il processo.
 
@@ -188,7 +188,7 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
 1. Nel [portale di Azure](https://portal.microsoft.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Autorizzazione**. Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri**.
+1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Autorizzazione**. Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri**.
 
    ![Selezionare "Autorizzazione" > "Aggiungi criteri"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -199,14 +199,14 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome del criterio** | Sì | Il nome da usare per il criterio di autorizzazione |
-   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Il valore dell'attestazione è limitato a 80 caratteri. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, l'elenco di **attestazioni** deve includere l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
+   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Il valore dell'attestazione è limitato a un [numero massimo di caratteri](logic-apps-limits-and-config.md#authentication-limits). Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, l'elenco di **attestazioni** deve includere l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
    |||
 
 1. Per aggiungere un'altra attestazione, selezionare una delle opzioni seguenti:
 
-   * Per aggiungere un altro tipo di attestazione, selezionare **Aggiungi attestazione standard** , selezionare il tipo di attestazione e specificare il valore dell'attestazione.
+   * Per aggiungere un altro tipo di attestazione, selezionare **Aggiungi attestazione standard**, selezionare il tipo di attestazione e specificare il valore dell'attestazione.
 
-   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata** , quindi specificare il valore dell'attestazione personalizzata.
+   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata**, quindi specificare il valore dell'attestazione personalizzata.
 
 1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri**. Ripetere i passaggi precedenti per configurare i criteri.
 
@@ -317,22 +317,22 @@ Oltre alla firma di accesso condiviso (SAS) è possibile che l'utente voglia lim
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro**.
+1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
 
-1. Nella sezione **configurazione di controllo di accesso** , in **indirizzi IP in ingresso consentiti** , scegliere il percorso per lo scenario:
+1. Nella sezione **configurazione di controllo di accesso** , in **indirizzi IP in ingresso consentiti**, scegliere il percorso per lo scenario:
 
    * Per rendere l'app per la logica richiamabile solo come app per la logica annidata usando l'azione predefinita app per la logica di [Azure](../logic-apps/logic-apps-http-endpoint.md), selezionare **solo altre app** per la logica, che funziona *solo* quando si usa l'azione app per la logica di **Azure** per chiamare l'app per la logica nidificata.
    
      Questa opzione scrive una matrice vuota nella risorsa dell'app per la logica e richiede che solo le chiamate da app per la logica padre che usano l'azione predefinita app per la logica di **Azure** possano attivare l'app per la logica nidificata.
 
-   * Per fare in modo che l'app per la logica richiamabile solo come app annidata usando l'azione HTTP, selezionare **intervalli IP specifici** , *non* **solo altre app** per la logica. Quando viene visualizzata la casella **intervalli IP per trigger** , immettere gli [indirizzi IP in uscita](../logic-apps/logic-apps-limits-and-config.md#outbound)dell'app per la logica padre. Un intervallo IP valido usa i formati seguenti: x. x.x. x */x* o *x. x.* x. x-x. x. x. x.
+   * Per fare in modo che l'app per la logica richiamabile solo come app annidata usando l'azione HTTP, selezionare **intervalli IP specifici**, *non* **solo altre app** per la logica. Quando viene visualizzata la casella **intervalli IP per trigger** , immettere gli [indirizzi IP in uscita](../logic-apps/logic-apps-limits-and-config.md#outbound)dell'app per la logica padre. Un intervallo IP valido usa i formati seguenti: x. x.x. x */x* o *x. x.* x. x-x. x. x. x.
    
      > [!NOTE]
      > Se si usa l'opzione **solo altre app** per la logica e l'azione http per chiamare l'app per la logica nidificata, la chiamata viene bloccata e viene ricevuto un errore "401 non autorizzato".
         
    * Per gli scenari in cui si desidera limitare le chiamate in ingresso da altri IP, quando viene visualizzata la casella **intervalli IP per trigger** , specificare gli intervalli di indirizzi IP accettati dal trigger. Un intervallo IP valido usa i formati seguenti: x. x.x. x */x* o *x. x.* x. x-x. x. x. x.
 
-1. Facoltativamente, in **limitare le chiamate per ottenere i messaggi di input e di output dalla cronologia di esecuzione agli indirizzi IP forniti** , è possibile specificare gli intervalli di indirizzi IP per le chiamate in ingresso che possono accedere ai messaggi di input e di output nella cronologia di esecuzione.
+1. Facoltativamente, in **limitare le chiamate per ottenere i messaggi di input e di output dalla cronologia di esecuzione agli indirizzi IP forniti**, è possibile specificare gli intervalli di indirizzi IP per le chiamate in ingresso che possono accedere ai messaggi di input e di output nella cronologia di esecuzione.
 
 <a name="restrict-inbound-ip-template"></a>
 
@@ -340,7 +340,7 @@ Oltre alla firma di accesso condiviso (SAS) è possibile che l'utente voglia lim
 
 Se si [automatizza la distribuzione per le app per la logica usando modelli di gestione risorse](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile specificare gli intervalli di indirizzi IP in ingresso consentiti nella definizione di risorsa dell'app per la logica usando la `accessControl` sezione. In questa sezione usare le `triggers` sezioni, `actions` e facoltative in `contents` base alle esigenze, includendo la `allowedCallerIpAddresses` sezione con la `addressRange` proprietà e impostando il valore della proprietà sull'intervallo di indirizzi IP consentiti nel formato x. x.x. x */x* o *x.* x. x. x-x. x.x. x.
 
-* Se l'app per la logica nidificata usa l' **unica opzione altre** app per la logica, che consente le chiamate in ingresso solo da altre app per la logica che usano l'azione app per la logica di Azure, impostare la `addressRange` proprietà su una matrice vuota ( **[]** ).
+* Se l'app per la logica nidificata usa l' **unica opzione altre** app per la logica, che consente le chiamate in ingresso solo da altre app per la logica che usano l'azione app per la logica di Azure, impostare la `addressRange` proprietà su una matrice vuota (**[]**).
 
 * Se l'app per la logica nidificata usa l'opzione **intervalli IP specifici** per altre chiamate in ingresso, ad esempio altre app per la logica che usano l'azione http, impostare la `addressRange` proprietà sull'intervallo di indirizzi IP consentiti.
 
@@ -478,11 +478,11 @@ Per controllare l'accesso agli input e agli output nella cronologia di esecuzion
 
 1. Nel portale di Azure aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro**.
+1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
 
 1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici**.
 
-1. In **Intervalli IP per i contenuti** , specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output.
+1. In **Intervalli IP per i contenuti**, specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output.
 
    Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
@@ -543,7 +543,7 @@ Molti trigger e azioni hanno impostazioni per la protezione degli input, degli o
 
    ![Aprire impostazioni trigger o azione](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. Attivare **Input protetti** , **Output protetti** o entrambi. Al termine, fare clic su **Fine**.
+1. Attivare **Input protetti**, **Output protetti** o entrambi. Al termine, fare clic su **Fine**.
 
    ![Attivare "Input protetti" o "Output protetti"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
@@ -559,7 +559,7 @@ Molti trigger e azioni hanno impostazioni per la protezione degli input, degli o
 
    1. Nel riquadro **Panoramica** dell'app per la logica selezionare l'esecuzione che si desidera visualizzare.
 
-   1. Nel riquadro **Esecuzione dell'app per la logica** , espandere le azioni che si desiderano esaminare.
+   1. Nel riquadro **Esecuzione dell'app per la logica**, espandere le azioni che si desiderano esaminare.
 
       Se si è scelto di nascondere gli input e gli output, questi valori vengono ora nascosti.
 
@@ -960,7 +960,7 @@ Se è disponibile l'opzione [Certificato client](../active-directory/authenticat
 
 | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da usare. È possibile gestire i certificati con [gestione API di Azure](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Nota** : i connettori personalizzati non supportano l'autenticazione basata su certificati per le chiamate in ingresso e in uscita. |
+| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da usare. È possibile gestire i certificati con [gestione API di Azure](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Nota**: i connettori personalizzati non supportano l'autenticazione basata su certificati per le chiamate in ingresso e in uscita. |
 | **Pfx** | `pfx` | Sì | <*encoded-pfx-file-content*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica Base64, è possibile usare PowerShell attenendosi alla procedura seguente: <p>1. Salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertire il contenuto del certificato usando la funzione `ToBase64String()` e salvare il contenuto in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Password** | `password`| No | <*password-for-pfx-file*> | Password per accedere al file PFX. |
 |||||
@@ -1089,8 +1089,8 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
    | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
    |---------------------|-----------------|----------|-------|-------------|
    | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
-   | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* < *user-assigned-identity-name*> | L'identità gestita da usare |
-   | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota** : la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari**. <p><p>**Importante** : assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* <*user-assigned-identity-name*> | L'identità gestita da usare |
+   | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota**: la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari**. <p><p>**Importante**: assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) per l'automazione della distribuzione, è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica l'autenticazione `type` come `ManagedServiceIdentity` e usa la [funzione dei parametri()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:

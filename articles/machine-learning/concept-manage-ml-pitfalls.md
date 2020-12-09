@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012723"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922616"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Impedire l'overfitting e lo sbilanciamento dei dati con Machine learning automatizzato
 
@@ -84,8 +84,8 @@ Le esecuzioni del Machine Learning automatizzato, inoltre, generano automaticame
 Grafico| Descrizione
 ---|---
 [Matrice di confusione](how-to-understand-automated-ml.md#confusion-matrix)| Valuta le etichette classificate correttamente rispetto alle etichette effettive dei dati. 
-[Precisione-richiamo](how-to-understand-automated-ml.md#precision-recall-chart)| Valuta il rapporto tra le etichette corrette rispetto al rapporto tra le istanze di etichette dei dati trovate 
-[Curve ROC](how-to-understand-automated-ml.md#roc)| Valuta il rapporto tra le etichette corrette rispetto al rapporto tra le etichette falso positive.
+[Precisione-richiamo](how-to-understand-automated-ml.md#precision-recall-curve)| Valuta il rapporto tra le etichette corrette rispetto al rapporto tra le istanze di etichette dei dati trovate 
+[Curve ROC](how-to-understand-automated-ml.md#roc-curve)| Valuta il rapporto tra le etichette corrette rispetto al rapporto tra le etichette falso positive.
 
 ## <a name="handle-imbalanced-data"></a>Gestire lo sbilanciamento dei dati 
 
@@ -97,7 +97,7 @@ Come parte del suo obiettivo di semplificare il flusso di lavoro di Machine Lear
 
 - Uso di una metrica delle prestazioni più adatta allo sbilanciamento dei dati. Ad esempio, il AUC_weighted è una metrica primaria che calcola il contributo di ogni classe in base al numero relativo di campioni che rappresentano tale classe, quindi risulta più affidabile rispetto allo squilibrio.
 
-Le tecniche seguenti sono opzioni aggiuntive per la gestione di dati sbilanciati al **di fuori del**Machine Learning automatico. 
+Le tecniche seguenti sono opzioni aggiuntive per la gestione di dati sbilanciati al **di fuori del** Machine Learning automatico. 
 
 - Ricampionamento per equilibrare lo sbilanciamento delle classi, eseguendo il campionamento verso l'alto delle classi più piccole o quello verso il basso delle classi più grandi. Tali metodi richiedono competenze per eseguire l'elaborazione e l'analisi.
 

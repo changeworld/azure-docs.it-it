@@ -3,17 +3,17 @@ title: Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad 
 description: Informazioni sui livelli di accesso ad accesso frequente, ad accesso sporadico e archivio per archiviazione BLOB di Azure. Esaminare gli account di archiviazione che supportano la suddivisione in livelli. Confrontare le opzioni di archiviazione BLOB in blocchi.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 51998c159018b614ab519766c54fdddf7437e95b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007325"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96923979"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad accesso sporadico e archivio
 
@@ -111,6 +111,11 @@ Quando un BLOB viene spostato in un livello più caldo (archivio->sporadico, >ad
 ### <a name="cool-and-archive-early-deletion"></a>Eliminazione anticipata per accesso sporadico o archivio
 
 Qualsiasi BLOB spostato nel livello di accesso sporadico (solo account GPv2) è soggetto a un periodo di eliminazione anticipata di 30 giorni. Qualsiasi BLOB spostato nel livello archivio è soggetto a un periodo di eliminazione anticipata di archiviazione di 180 giorni. Questo addebito è ripartito proporzionalmente. Se, ad esempio, un BLOB viene spostato in archivio e quindi eliminato o spostato al livello di accesso frequente dopo 45 giorni, viene addebitata una tariffa per eliminazione anticipata equivalente a 135 (180 meno 45) giorni di archiviazione del BLOB nell'archivio.
+
+Sono disponibili alcuni dettagli quando si passa da un livello di archiviazione ad accesso sporadico all'altra:
+
+1. Se un BLOB viene dedotto come sporadico in base al livello di accesso predefinito dell'account di archiviazione e il BLOB viene spostato in archivio, non è previsto alcun addebito per l'eliminazione anticipata.
+1. Se un BLOB viene spostato in modo esplicito nel livello di accesso sporadico e quindi spostato nell'archivio, viene applicato l'addebito per l'eliminazione anticipata.
 
 Se non sono state apportate modifiche al livello di accesso, è possibile calcolare l'eliminazione anticipata usando la proprietà BLOB, **Last-modified**. In caso contrario, è possibile usare quando il livello di accesso è stato modificato l'ultima volta in un ambiente sporadico o archiviato visualizzando la proprietà BLOB: **Access-Tier-Change-Time**. Per altre informazioni sulle proprietà di BLOB, vedere l'articolo relativo all'operazione [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 087af322240322e44e70a9b5279eb7d251e735be
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 050e6b5007b9fbaedc412d8062430f1c2c1691fd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901865"
+ms.locfileid: "96923940"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e l'archivio file 
 
-AzCopy è un'utilità della riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo contiene comandi di esempio che funzionano con File di Azure.
+AzCopy è un'utilità da riga di comando che è possibile usare per copiare file da o verso un account di archiviazione. Questo articolo contiene comandi di esempio che funzionano con File di Azure.
 
 Prima di iniziare, vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e acquisire familiarità con lo strumento.
 
@@ -53,8 +53,6 @@ Questa sezione contiene gli esempi seguenti:
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
-> |Caricare i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
-> |Effettuare il caricamento in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
@@ -217,8 +215,8 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pat
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name><SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
-| **Esempio** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
+| **Sintassi** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
+| **Esempio** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
 È anche possibile escludere i file utilizzando l' `--exclude-pattern` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
@@ -236,11 +234,24 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-aft
 
 Per informazioni di riferimento dettagliate, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
+#### <a name="download-from-a-share-snapshot"></a>Scaricare da uno snapshot di condivisione
+
+È possibile scaricare una versione specifica di un file o di una directory facendo riferimento al valore **DateTime** di uno snapshot di condivisione. Per altre informazioni sugli snapshot di condivisione, vedere [Panoramica degli snapshot di condivisione per file di Azure](/azure/storage/files/storage-snapshots-files). 
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path-or-directory-name><SAS-token>&sharesnapshot=<DateTime-of-snapshot>' '<local-file-or-directory-path>'` |
+| **Esempio** (scaricare un file) | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
+| **Esempio** (scaricare una directory) | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory'  --recursive`|
+
+
 ## <a name="copy-files-between-storage-accounts"></a>Copiare file tra account di archiviazione
 
 È possibile usare AzCopy per copiare i file in altri account di archiviazione. L'operazione di copia è sincrona, quindi se il comando restituisce il risultato ciò indica che tutti i file sono stati copiati.
 
 AzCopy usa le [API](/rest/api/storageservices/put-page-from-url) [da server a server](/rest/api/storageservices/put-block-from-url) , quindi i dati vengono copiati direttamente tra i server di archiviazione. Queste operazioni di copia non utilizzano la larghezza di banda di rete del computer. È possibile aumentare la velocità effettiva di queste operazioni impostando il valore della `AZCOPY_CONCURRENCY_VALUE` variabile di ambiente. Per altre informazioni, vedere [ottimizzare la velocità effettiva](storage-use-azcopy-configure.md#optimize-throughput).
+
+È anche possibile copiare versioni specifiche di un file facendo riferimento al valore **DateTime** di uno snapshot di condivisione. Per altre informazioni sugli snapshot di condivisione, vedere [Panoramica degli snapshot di condivisione per file di Azure](/azure/storage/files/storage-snapshots-files). 
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -257,8 +268,6 @@ Questa sezione contiene gli esempi seguenti:
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
-> |Copia i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
-> |Copiare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
@@ -268,13 +277,16 @@ Questa sezione contiene gli esempi seguenti:
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>'` |
 | **Esempio** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
+| **Esempio** (snapshot di condivisione) | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>Copiare una directory in un altro account di archiviazione
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
-| **Esempio** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Esempio** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Esempio** (snapshot di condivisione) | `azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ### <a name="copy-a-file-share-to-another-storage-account"></a>Copiare una condivisione file in un altro account di archiviazione
 
@@ -282,6 +294,8 @@ Questa sezione contiene gli esempi seguenti:
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Esempio** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Esempio** (snapshot di condivisione) | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Copiare tutte le condivisioni file, le directory e i file in un altro account di archiviazione
 
@@ -289,6 +303,8 @@ Questa sezione contiene gli esempi seguenti:
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<SAS-token>' --recursive'` |
 | **Esempio** | `azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **Esempio** (snapshot di condivisione) | `azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ## <a name="synchronize-files"></a>Sincronizzare i file
 
