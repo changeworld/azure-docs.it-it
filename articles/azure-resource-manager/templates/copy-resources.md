@@ -1,26 +1,26 @@
 ---
 title: Distribuire più istanze di risorse
-description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager per distribuire il tipo di risorsa molte volte.
+description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager (modello ARM) per distribuire il tipo di risorsa molte volte.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293969"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905911"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
 
-Questo articolo illustra come creare più di un'istanza di una risorsa nel modello di Azure Resource Manager (ARM). Aggiungendo l'elemento **Copy** alla sezione Resources del modello, è possibile impostare dinamicamente il numero di risorse da distribuire. È anche possibile evitare di ripetere la sintassi del modello.
+Questo articolo illustra come creare più di un'istanza di una risorsa nel modello di Azure Resource Manager (modello ARM). Aggiungendo l' `copy` elemento alla sezione Resources del modello, è possibile impostare dinamicamente il numero di risorse da distribuire. È anche possibile evitare di ripetere la sintassi del modello.
 
-È anche possibile usare copia con [Proprietà](copy-properties.md), [variabili](copy-variables.md)e [output](copy-outputs.md).
+È anche possibile usare `copy` con [Proprietà](copy-properties.md), [variabili](copy-variables.md)e [output](copy-outputs.md).
 
 Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Sintassi
 
-Il formato generale dell'elemento Copy è il seguente:
+L' `copy` elemento ha il formato generale seguente:
 
 ```json
 "copy": {
@@ -31,9 +31,9 @@ Il formato generale dell'elemento Copy è il seguente:
 }
 ```
 
-La proprietà **Name** è qualsiasi valore che identifica il ciclo. La proprietà **count** specifica il numero di iterazioni desiderate per il tipo di risorsa.
+La `name` proprietà è qualsiasi valore che identifica il ciclo. La `count` proprietà specifica il numero di iterazioni desiderate per il tipo di risorsa.
 
-Usare le proprietà **mode** e **BatchSize** per specificare se le risorse vengono distribuite in parallelo o in sequenza. Queste proprietà sono descritte in [serie o in parallelo](#serial-or-parallel).
+Usare le `mode` `batchSize` proprietà e per specificare se le risorse vengono distribuite in parallelo o in sequenza. Queste proprietà sono descritte in [serie o in parallelo](#serial-or-parallel).
 
 ## <a name="copy-limits"></a>Limiti di copia
 
@@ -52,7 +52,7 @@ Prestare attenzione quando si usa la [distribuzione in modalità completa](deplo
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
-Nell'esempio seguente viene creato il numero di account di archiviazione specificato nel parametro **storageCount** .
+Nell'esempio seguente viene creato il numero di account di archiviazione specificato nel `storageCount` parametro.
 
 ```json
 {
@@ -97,7 +97,7 @@ Crea questi nomi:
 * storage1
 * storage2
 
-Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni è ancora specificato nell'elemento Copy, ma il valore di copyIndex è offset in base al valore specificato. Quindi l'esempio seguente:
+Per eseguire l'offset del valore di indice, è possibile passare un valore nella `copyIndex()` funzione. Il numero di iterazioni è ancora specificato nell'elemento Copy, ma il valore di `copyIndex` è offset in base al valore specificato. Quindi l'esempio seguente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -187,7 +187,7 @@ Ad esempio, per distribuire in modo seriale gli account di archiviazione due all
 }
 ```
 
-La proprietà mode accetta anche **parallel**, che è il valore predefinito.
+La `mode` proprietà accetta anche **Parallel**, che corrisponde al valore predefinito.
 
 ## <a name="depend-on-resources-in-a-loop"></a>In base alle risorse in un ciclo
 
@@ -281,7 +281,7 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più istanze di una risorsa o proprietà.
 
-|Modello  |Descrizione  |
+|Modello  |Description  |
 |---------|---------|
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |
@@ -291,12 +291,11 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più ista
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse usando i modelli ARM](template-tutorial-create-multiple-instances.md).
+* Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
 * Per altri usi dell'elemento Copy, vedere:
   * [Iterazione delle proprietà nei modelli ARM](copy-properties.md)
   * [Iterazione delle variabili nei modelli ARM](copy-variables.md)
   * [Iterazione di output nei modelli ARM](copy-outputs.md)
 * Per informazioni sull'uso di Copy con i modelli annidati, vedere [uso di Copy](linked-templates.md#using-copy).
-* Per informazioni sulle sezioni di un modello, vedere [creazione di modelli ARM](template-syntax.md).
-* Per informazioni su come distribuire il modello, vedere [distribuire un'applicazione con il modello ARM](deploy-powershell.md).
-
+* Per informazioni sulle sezioni di un modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per informazioni su come distribuire il modello, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](deploy-powershell.md).
