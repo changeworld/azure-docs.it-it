@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286833"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852253"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -52,7 +52,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 
 La cache locale viene configurata mediante una combinazione di impostazioni delle app riservate. Queste impostazioni delle app possono essere configurate usando i metodi seguenti:
 
-* [Azure portal](#Configure-Local-Cache-Portal)
+* [Portale di Azure](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurare la cache locale tramite il portale di Azure
@@ -120,3 +120,6 @@ La cache locale consente di evitare i riavvii dell'app legati all'archiviazione.
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>La cache locale impedisce la copia delle directory in un'unità locale più veloce?
 Nell'ambito del passaggio che copia il contenuto di archiviazione, qualsiasi cartella denominata repository viene esclusa. Questa soluzione è utile negli scenari in cui il contenuto del sito può contenere un repository di controllo di origine che potrebbe non essere necessario nel funzionamento quotidiano dell'app. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>Come scaricare i log della cache locale dopo un'operazione di gestione del sito
+Per svuotare i log della cache locale, arrestare e riavviare l'app. Questa azione Cancella la cache precedente. 

@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8bf3959651048a7a568df1d94aa07aa206663d50
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436760"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750986"
 ---
 # <a name="introduction-to-azure-defender"></a>Introduzione ad Azure Defender
 
@@ -39,6 +39,8 @@ Quando si abilita Azure Defender nell'area **Prezzi e impostazioni** del Centro 
 - [Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender per registri contenitori](defender-for-container-registries-introduction.md)
 - [Azure Defender per Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender per Resource Manager](defender-for-resource-manager-introduction.md)
+- [Azure Defender per DNS](defender-for-dns-introduction.md)
 
 Ogni piano è illustrato separatamente nella documentazione del Centro sicurezza.
 
@@ -61,9 +63,9 @@ Per estendere la protezione a macchine virtuali e database SQL presenti in local
 
 
 
-## <a name="security-alerts"></a>Avvisi di sicurezza 
+## <a name="azure-defender-security-alerts"></a>Avvisi di sicurezza di Azure Defender 
 
-Quando Azure Defender rileva una minaccia in qualsiasi area dell'ambiente, genera un avviso. Questi avvisi descrivono i dettagli sulle risorse interessate, le procedure di correzione consigliate e, in alcuni casi, un'opzione per attivare un'app per la logica in risposta.
+Quando Azure Defender rileva una minaccia in qualsiasi area dell'ambiente, genera un avviso di sicurezza. Questi avvisi descrivono i dettagli sulle risorse interessate, le procedure di correzione consigliate e, in alcuni casi, un'opzione per attivare un'app per la logica in risposta.
 
 È possibile esportare tutti gli avvisi, sia quelli generati dal Centro sicurezza che quelli inviati al Centro sicurezza da un prodotto di sicurezza integrato. Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md).
 

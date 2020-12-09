@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576554"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852524"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -99,6 +99,9 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
 
 > [!NOTE]
 > Quando si crea l'app Web, è anche possibile configurare l'autorizzazione/autenticazione. Questa operazione non è necessaria per iniziare. 
+
+> [!IMPORTANT]
+> Potrebbe essere necessario abilitare TLS per l'app Web in modo da visualizzarlo al suo `https` indirizzo. Seguire le istruzioni in [abilitare un endpoint TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) per configurare un contenitore sidecar che Abilita TLS/SSL per l'app Web.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

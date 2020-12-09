@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d59c0e751054522f4c54fe059f19aa0a941464e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490003"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754335"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Funzionalità di protezione dalle minacce aggiuntive nel Centro sicurezza di Azure
 Oltre alle [protezioni di Azure Defender](azure-defender.md) integrate, il Centro sicurezza di Azure offre anche le funzionalità di protezione dalle minacce seguenti.
@@ -41,7 +41,7 @@ Il livello di protezione del Centro sicurezza basato su Azure Resource Manager �
 
 Il Centro sicurezza offre un ulteriore livello di protezione usando gli eventi di Azure Resource Manager, che è considerato il piano di controllo per Azure. Analizzando i record di Azure Resource Manager, il Centro sicurezza rileva le operazioni insolite o potenzialmente dannose nell'ambiente della sottoscrizione di Azure.
 
-Per un elenco degli avvisi di Azure Resource Manager (anteprima), vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureresourceman).
+Per un elenco degli avvisi di Azure Defender per Resource Manager, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]

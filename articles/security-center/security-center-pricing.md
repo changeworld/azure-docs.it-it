@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/24/2020
+ms.date: 12/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6c0e92c566dd69cdea14c9c7d346a5ec65f892bf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487950"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754377"
 ---
 # <a name="pricing-of-azure-security-center"></a>Prezzi del Centro sicurezza di Azure
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione alle minacce e il rilevamento intelligente che consente di tenere il passo con i rischi informatici in rapida evoluzione.
@@ -37,7 +37,9 @@ Il Centro sicurezza è disponibile in due modalità:
     - **Sicurezza ibrida**: per ottenere una visualizzazione unificata della sicurezza in tutti i carichi di lavoro locali e cloud; applicare i criteri di sicurezza e la valutazione continua della sicurezza dei carichi di lavoro cloud ibridi per garantire la conformità con gli standard di sicurezza; Raccogliere, cercare e analizzare i dati sulla sicurezza provenienti da più origini, tra cui firewall e altre soluzioni dei partner.
     - **Avvisi di protezione dalle minacce**: l'analisi comportamentale avanzata e Microsoft Intelligent Security Graph offrono maggiori possibilità di contrastare gli attacchi informatici in continua evoluzione. L'analisi comportamentale predefinita e le tecniche di Machine Learning consentono di identificare gli attacchi e gli exploit zero-day. Monitora le reti, i computer e i servizi cloud per rilevare attacchi imminenti e attività post violazione. Semplifica l'investigazione con strumenti interattivi e intelligence per le minacce contestuale.
     - **Controlli di accesso e dell'applicazione**: applicando le raccomandazioni basate su Machine Learning e adattate a specifici carichi di lavoro, è possibile creare elenchi di elementi consentiti e rifiutati per bloccare il malware e altre applicazioni indesiderate. È inoltre possibile ridurre la superficie di attacco di rete con accesso JIT controllato alle porte di gestione nelle macchine virtuali di Azure, in modo da ridurre drasticamente l'esposizione ad attacchi di forza bruta e di altro tipo sulla rete.
-    - **Funzionalità di sicurezza dei contenitori**: consentono di sfruttare la gestione delle vulnerabilità e la protezione dalle minacce in tempo reale negli ambienti in contenitori. L'abilitazione di tutte le funzionalità di **Azure Defender per i registri contenitori** può richiedere fino a 12 ore. Gli addebiti sono basati sul numero di immagini di contenitori univoche inserite nel registro contenitori. Dopo la prima analisi, non sono più previsti addebiti per l'immagine a meno che non venga modificata e inserita di nuovo. 
+    - **Funzionalità di sicurezza dei contenitori**: consentono di sfruttare la gestione delle vulnerabilità e la protezione dalle minacce in tempo reale negli ambienti in contenitori. L'abilitazione di tutte le funzionalità di **Azure Defender per i registri contenitori** può richiedere fino a 12 ore. Gli addebiti sono basati sul numero di immagini di contenitori univoche inserite nel registro contenitori. Dopo la prima analisi, non sono più previsti addebiti per l'immagine a meno che non venga modificata e inserita di nuovo.
+    - **Ampia protezione dalle minacce per risorse connesse all'ambiente di Azure** - Azure Defender include un'ampia protezione dalle minacce nativa di Azure per i servizi di Azure comuni per tutte le risorse: Azure Resource Manager, DNS di Azure, livello di rete di Azure e Azure Key Vault. Azure Defender offre una visibilità esclusiva del livello di gestione di Azure e del livello di DNS di Azure e può quindi proteggere risorse cloud connesse a tali livelli.
+
 
 ## <a name="try-azure-defender-free-for-30-days"></a>Provare Azure Defender gratuitamente per 30 giorni
 Azure Defender è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, l'utilizzo inizierà a essere addebitato automaticamente.

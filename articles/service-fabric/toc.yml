@@ -108,7 +108,7 @@
   items:
     - name: Panoramica delle procedure consigliate per Service Fabric
       href: service-fabric-best-practices-overview.md
-    - name: Security
+    - name: Sicurezza
       href: service-fabric-best-practices-security.md
     - name: Rete
       href: service-fabric-best-practices-networking.md
@@ -140,7 +140,7 @@
       href: service-fabric-application-scenarios.md
     - name: Architecture
       href: service-fabric-architecture.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza di Service Fabric
           href: service-fabric-best-practices-security.md
@@ -797,6 +797,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Configurare un nuovo cluster di Azure Service Fabric con identità gestita
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: Configurare un cluster di Service Fabric gestito con identità gestita
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Configurazione dell'applicazione
           items:
             - name: Come distribuire un'applicazione con identità gestita

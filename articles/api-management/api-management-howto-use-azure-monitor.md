@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5e5c59d611cb7f4b5333b9919488e6fc083611cd
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183193"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779244"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Esercitazione: Monitorare le API pubblicate
 
@@ -26,6 +26,8 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Configurare una regola di avviso 
 > * Visualizzare log di attività
 > * Abilitare e visualizzare i log delle risorse
+
+È anche possibile usare la funzionalità di [analisi](howto-use-analytics.md) integrata di Gestione API per monitorare l'utilizzo e le prestazioni delle API.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

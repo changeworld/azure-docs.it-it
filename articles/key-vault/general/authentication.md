@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 7423114d2da23207dfcc1a329675b8c902b1f320
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 455caf0b80d82b03f8d00929addeab15a1af6d7e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445541"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754216"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Eseguire l'autenticazione con Azure Key Vault
 
@@ -28,11 +28,11 @@ Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un s
 
 * L'entità di sicurezza di un **gruppo** identifica un set di utenti creati in Azure Active Directory. Tutti i ruoli o le autorizzazioni assegnati al gruppo vengono concessi a tutti gli utenti all'interno del gruppo.
 
-* Un' **entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una porzione di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** dell'entità servizio funge da password.
+* Un'**entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una porzione di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** dell'entità servizio funge da password.
 
 Per le applicazioni esistono due modi per ottenere un'entità servizio:
 
-* Consigliato: abilitare un' **identità gestita** assegnata dal sistema per l'applicazione.
+* Consigliato: abilitare un'**identità gestita** assegnata dal sistema per l'applicazione.
 
     Con l'identità gestita, Azure gestisce internamente l'entità servizio dell'applicazione e autentica automaticamente l'applicazione per altri servizi di Azure. L'identità gestita è disponibile per le applicazioni distribuite in un'ampia gamma di servizi.
 
@@ -102,6 +102,9 @@ Per altre informazioni, vedere [Accedere ad Azure Key Vault protetto da firewall
 Il diagramma seguente illustra il processo di un'applicazione che chiama un'API Key Vault "Get Secret":
 
 ![Flusso di autenticazione di Azure Key Vault](../media/authentication/authentication-flow.png)
+
+> [!NOTE]
+> I client Key Vault SDK per segreti, certificati e chiavi effettuano una chiamata aggiuntiva a Key Vault senza token di accesso, che restituisce una risposta 401 per recuperare le informazioni sul tenant. Per altre informazioni, vedere [Autenticazione, richieste e risposte](authentication-requests-and-responses.md)
 
 ## <a name="code-examples"></a>Esempi di codice
 

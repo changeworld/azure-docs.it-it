@@ -4,12 +4,12 @@ description: Demo video per informazioni su come usare i servizi di Azure nel po
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0762174a3207c0620d3b6413d14c817014fc49a0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745860"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852609"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie di video di procedure per il portale di Azure
 
@@ -17,17 +17,17 @@ Il portale di Azure serie di video illustra come usare i servizi di Azure nel po
 
 ## <a name="featured-video"></a>Video in primo piano
 
-In questo video in primo piano, viene illustrato come creare e gestire un dominio del servizio app.
+In questo video in primo piano, viene illustrato come iniziare a usare Azure tramite il centro di avvio rapido di Azure.
 
-> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
+> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
 
-[Come creare e gestire un dominio del servizio app](https://www.youtube.com/watch?v=b1kDT8-6a3g)
+[Come iniziare a usare Azure tramite il centro di avvio rapido di Azure](https://www.youtube.com/watch?v=mb5k9nXMtBM)
 
 Aggiorna i video recenti che potresti perdere:
 
-| [Come aggiungere e proteggere un dominio personalizzato nell'app Web del servizio app](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Miglioramenti dell'esperienza della macchina virtuale Linux](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Come usare il controllo delle versioni dei BLOB](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Come gestire le applicazioni nel servizio Azure Kubernetes](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [Come compilare cartelle di lavoro di Azure usando i log e i parametri](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [Come aggiungere e proteggere un dominio personalizzato nell'app Web del servizio app](https://www.youtube.com/watch?v=bXP6IvNYISw) |
 | ------| ------ | ------ |
-| [![Immagine del video di YouTube su come aggiungere e proteggere un dominio personalizzato nell'app Web del servizio app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Immagine del video di YouTube sui miglioramenti apportati all'esperienza della macchina virtuale Linux](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Immagine del video di YouTube sull'uso del controllo delle versioni BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
+| [![Immagine del video di YouTube sulla gestione delle applicazioni nel servizio Azure Kubernetes](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Immagine del video di YouTube sulla creazione di cartelle di lavoro di Azure con log e parametri](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Immagine del video di YouTube su come aggiungere e proteggere un dominio personalizzato nell'app Web del servizio app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
 
 ## <a name="video-playlist"></a>Playlist video
 

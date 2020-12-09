@@ -8,7 +8,7 @@
       href: api-management-features.md
     - name: Gestire i microservizi distribuiti nel servizio Azure Kubernetes
       href: api-management-kubernetes.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un'istanza- Interfaccia della riga di comando
@@ -58,6 +58,8 @@
           href: api-management-howto-policies.md
         - name: Indice delle informazioni di riferimento per i criteri
           href: api-management-policies.md
+        - name: Gestione degli errori
+          href: api-management-error-handling-policies.md
     - name: Sicurezza
       items:
         - name: Baseline di sicurezza
@@ -70,8 +72,6 @@
       href: api-management-revisions.md
     - name: Gestire con l'automazione
       href: automation-manage-api-management.md
-    - name: Gestione degli errori
-      href: api-management-error-handling-policies.md
     - name: Limitazioni relative all'importazione di API
       href: api-management-api-import-restrictions.md
     - name: Panoramica del gateway self-hosted
@@ -240,6 +240,8 @@
           href: api-management-howto-create-groups.md
         - name: Recuperare gli indirizzi IP
           href: api-management-howto-ip-addresses.md
+        - name: Ottenere l'analisi di API
+          href: howto-use-analytics.md
         - name: Registrare eventi in Hub eventi di Azure
           href: api-management-howto-log-event-hubs.md
         - name: Registrare le richieste con Azure Application Insights
@@ -305,5 +307,9 @@
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Guida all'implementazione API
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-    - name: Risolvere il problema relativo al mancato aggiornamento dei nomi host
-      href: api-management-troubleshoot-cannot-add-custom-domain.md
+    - name: Risoluzione dei problemi
+      items:
+        - name: Risolvere il problema relativo al mancato aggiornamento dei nomi host
+          href: api-management-troubleshoot-cannot-add-custom-domain.md
+        - name: Risolvere i problemi dei timeout di risposta e di altro tipo
+          href: troubleshoot-response-timeout-and-errors.md

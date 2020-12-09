@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076046"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852558"
 ---
 # <a name="create-an-advanced-device-model"></a>Creare un modello di dispositivo avanzato
 
@@ -30,15 +30,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per seguire i passaggi di questa guida pratica, è necessaria un'istanza distribuita di Simulazione dispositivi nella sottoscrizione di Azure.
 
-Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare la guida introduttiva [Distribuire ed eseguire una simulazione dei dispositivi IoT in Azure](quickstart-device-simulation-deploy.md).
+Se la simulazione del dispositivo non è stata ancora distribuita, vedere la pagina relativa alla [distribuzione della simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) in
 
 ### <a name="open-device-simulation"></a>Aprire Simulazione dispositivi
 
-Per eseguire Simulazione dispositivi nel browser, passare innanzitutto al sito [Acceleratori di soluzione Microsoft Azure IoT](https://www.azureiotsolutions.com).
-
-Potrebbe essere necessario accedere con le credenziali della sottoscrizione di Azure.
-
-Fare quindi clic su **Avvio** nel riquadro per la soluzione Simulazione dispositivi distribuita nella guida introduttiva [Distribuire ed eseguire una simulazione dei dispositivi IoT in Azure](quickstart-device-simulation-deploy.md).
+Se la simulazione del dispositivo non è stata ancora distribuita, vedere la pagina relativa alla [distribuzione della simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) in
 
 ## <a name="device-models"></a>Modelli di dispositivo
 
