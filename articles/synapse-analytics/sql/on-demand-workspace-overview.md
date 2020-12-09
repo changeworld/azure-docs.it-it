@@ -1,5 +1,5 @@
 ---
-title: Pool SQL serverless (anteprima)
+title: Pool SQL serverless
 description: Informazioni sul pool SQL serverless in Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0d47567c3bc0b05c47efafa3bdc8b297a7bdbea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306880"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463168"
 ---
-# <a name="serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Pool SQL serverless (anteprima) in Azure Synapse Analytics 
+# <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool SQL serverless in Azure Synapse Analytics 
 
-Ogni area di lavoro di Azure Synapse Analytics (anteprima) include endpoint del pool SQL serverless (anteprima) che è possibile usare per eseguire query sui dati del data lake.
+Ogni area di lavoro di Azure Synapse Analytics include endpoint del pool SQL serverless che è possibile usare per eseguire query sui dati del data lake.
 
 Il pool SQL serverless è un servizio di query sui dati del data lake. Consente di accedere ai dati tramite le funzionalità seguenti:
  
@@ -123,7 +123,7 @@ Per autenticazione del pool SQL serverless si intende il modo in cui gli utenti 
 
   Questo metodo di autenticazione usa nome utente e password.
 
-- **Autenticazione di Azure Active Directory** :
+- **Autenticazione di Azure Active Directory**:
 
   Questo metodo di autenticazione usa identità gestite da Azure Active Directory. Per gli utenti di Azure AD, è possibile abilitare l'autenticazione a più fattori. [Quando possibile](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), usare l'autenticazione di Active Directory (sicurezza integrata).
 
@@ -139,9 +139,9 @@ Se si usa l'autenticazione di Azure AD, un utente può accedere al pool SQL serv
 
 Un utente connesso al servizio pool SQL serverless deve essere autorizzato ad accedere ed eseguire query sui file in Archiviazione di Azure. Il pool SQL serverless supporta i tipi di autorizzazione seguenti:
 
-- **Firma di accesso condiviso** : fornisce accesso delegato alle risorse nell'account di archiviazione. Con una firma di accesso condiviso è possibile concedere ai client l'accesso alle risorse nell'account di archiviazione, senza condividere le chiavi dell'account. La firma di accesso condiviso offre un controllo granulare sul tipo di accesso concesso ai client a cui viene assegnata, tra cui intervallo di validità, autorizzazioni concesse, intervallo di indirizzi IP accettabile e protocollo accettabile (HTTPS/HTTP).
+- **Firma di accesso condiviso**: fornisce accesso delegato alle risorse nell'account di archiviazione. Con una firma di accesso condiviso è possibile concedere ai client l'accesso alle risorse nell'account di archiviazione, senza condividere le chiavi dell'account. La firma di accesso condiviso offre un controllo granulare sul tipo di accesso concesso ai client a cui viene assegnata, tra cui intervallo di validità, autorizzazioni concesse, intervallo di indirizzi IP accettabile e protocollo accettabile (HTTPS/HTTP).
 
-- **Identità utente** : nota anche come "pass-through", è un tipo di autorizzazione in cui per concedere l'accesso ai dati viene usata l'identità dell'utente di Azure AD che ha eseguito l'accesso al pool SQL serverless. Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve concedere le apposite autorizzazioni all'utente di Azure AD. Questo tipo di autorizzazione usa l'utente di Azure AD connesso al pool SQL serverless, pertanto non è supportato per altri tipi di utente SQL.
+- **Identità utente**: nota anche come "pass-through", è un tipo di autorizzazione in cui per concedere l'accesso ai dati viene usata l'identità dell'utente di Azure AD che ha eseguito l'accesso al pool SQL serverless. Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve concedere le apposite autorizzazioni all'utente di Azure AD. Questo tipo di autorizzazione usa l'utente di Azure AD connesso al pool SQL serverless, pertanto non è supportato per altri tipi di utente SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla connessione all'endpoint e sull'esecuzione di query sui file sono disponibili negli articoli seguenti: 

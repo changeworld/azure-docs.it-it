@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638768"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490058"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Provisioning automatico di agenti ed estensioni del Centro sicurezza di Azure
 
@@ -138,7 +138,7 @@ Per archiviare i dati degli eventi di sicurezza di Windows, è necessario Azure 
 L'archiviazione di dati in Log Analytics può comportare costi aggiuntivi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="information-for-azure-sentinel-users"></a>Informazioni per gli utenti di Azure Sentinel 
-Utenti di Azure Sentinel: si noti che la raccolta di eventi di sicurezza nel contesto di una singola area di lavoro può essere configurata nel Centro sicurezza di Azure o in Azure Sentinel, ma non in entrambi. Se si prevede di aggiungere Azure Sentinel a un'area di lavoro che riceve già gli avvisi di Azure Defender dal Centro sicurezza di Azure ed è impostata per la raccolta di eventi di sicurezza, sono disponibili due opzioni:
+Utenti di Azure Sentinel: si noti che la raccolta di eventi di sicurezza nel contesto di una singola area di lavoro può essere configurata nel Centro sicurezza di Azure o in Azure Sentinel, ma non in entrambi. Se si prevede di aggiungere Azure Sentinel a un'area di lavoro che riceve già gli avvisi dal Centro sicurezza di Azure ed è impostata per la raccolta di eventi di sicurezza, sono disponibili due opzioni:
 - Lasciare la raccolta di eventi di sicurezza nel Centro sicurezza di Azure così com'è. Sarà possibile eseguire query e analizzare questi eventi in Azure Sentinel oltre che in Azure Defender. Non sarà tuttavia possibile monitorare lo stato di connettività del connettore o cambiarne la configurazione in Azure Sentinel. Se queste operazioni sono importanti, considerare la seconda opzione.
 - Disabilitare la raccolta di eventi di sicurezza nel Centro sicurezza di Azure impostando **Eventi di sicurezza di Windows** su **Nessuno** nella configurazione dell'agente di Log Analytics. Aggiungere quindi il connettore Eventi di sicurezza in Azure Sentinel. Come per la prima opzione, sarà possibile eseguire query e analizzare gli eventi sia in Azure Sentinel che in Azure Defender/Centro sicurezza di Azure, ma ora sarà possibile monitorare lo stato di connettività del connettore o cambiarne la configurazione in Azure Sentinel (e solo in Azure Sentinel).
 
@@ -211,8 +211,8 @@ Per installare manualmente l'agente di Log Analytics:
 
 1. Per usare PowerShell per distribuire l'estensione, seguire le istruzioni indicate nella documentazione delle macchine virtuali:
 
-    - [Per macchine Windows](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
-    - [Per computer Linux](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
+    - [Per macchine Windows](../virtual-machines/extensions/oms-windows.md?toc=%2fazure%2fazure-monitor%2ftoc.json#powershell-deployment)
+    - [Per computer Linux](../virtual-machines/extensions/oms-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
 > Per istruzioni su come caricare il Centro sicurezza usando PowerShell, vedere [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md) (Automatizzare l'onboarding del Centro sicurezza di Azure usando PowerShell).

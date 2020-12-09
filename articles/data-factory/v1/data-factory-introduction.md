@@ -3,8 +3,8 @@ title: Introduzione a Data Factory, un servizio di integrazione dei dati
 description: Informazioni su Azure Data Factory, un servizio di integrazione dei dati cloud che consente di orchestrare e automatizzare lo spostamento e la trasformazione dei dati.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 101de32aea47bb3dd3c8a04434993c8614939c37
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436257"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495566"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -35,7 +35,7 @@ Ad esempio, una società di giochi raccoglie i log generati dai giochi nel cloud
 
 Per analizzare questi log, la società deve usare i dati di riferimento presenti in un archivio dati locale, ad esempio le informazioni sui clienti, sui giochi e sulle campagne di marketing. La società intende quindi inserire i dati dei log dall'archivio dati cloud e fare riferimento a questi dati dall'archivio locale. 
 
-Infine vuole elaborare i dati usando Hadoop nel (Azure HDInsight) e pubblicare i dati dei risultati in un data warehouse cloud come Azure Synapse Analytics (in precedenza SQL Data Warehouse) o un archivio dati locale, ad esempio SQL Server. La società intende eseguire questo flusso di lavoro una volta alla settimana. 
+Infine vuole elaborare i dati usando Hadoop nel (Azure HDInsight) e pubblicare i risultati in un data warehouse cloud come Azure Synapse Analytics o in un archivio dati locale, ad esempio SQL Server. La società intende eseguire questo flusso di lavoro una volta alla settimana. 
 
 È quindi necessaria una piattaforma in cui poter creare un flusso di lavoro e inserire i dati da archivi dati sia locali che cloud. La società deve anche poter trasformare o elaborare i dati usando i servizi di calcolo esistenti, ad esempio Hadoop, e pubblicare i risultati in un archivio dati locale o cloud per consentire alle applicazioni BI di utilizzarli. 
 

@@ -1,6 +1,6 @@
 ---
-title: Creare e usare viste nel pool SQL serverless (anteprima)
-description: Questa sezione illustra come creare e usare viste per il wrapping delle query del pool SQL serverless (anteprima). Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless.
+title: Creare e usare le viste nel pool SQL serverless
+description: Questa sezione illustra come creare e usare le viste per il wrapping delle query del pool SQL serverless. Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 302cf97db7c1d2ba489a84b6be912816d20f6091
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685563"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462292"
 ---
-# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creare e usare viste usando il pool SQL serverless (anteprima) in Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creare e usare le viste usando il pool SQL serverless in Azure Synapse Analytics
 
-Questa sezione illustra come creare e usare viste per il wrapping delle query del pool SQL serverless (anteprima). Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless.
+Questa sezione illustra come creare e usare le viste per il wrapping delle query del pool SQL serverless. Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -4,15 +4,15 @@ description: 'Esercitazione: Informazioni su come usare Griglia di eventi di Azu
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 42a2f7fd557970328f6d88b08e296317cecd8c66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841355"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462147"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
-[Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+[Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per eseguire facilmente la migrazione dei dati di Hub eventi acquisiti dall'archiviazione BLOB ad Azure Synapse Analytics.
 
 ![Panoramica dell'applicazione](media/event-grid-event-hubs-integration/overview.png)
 
@@ -27,8 +27,8 @@ Questo diagramma illustra il flusso di lavoro della soluzione compilata in quest
 In questo articolo, si eseguono i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Usare un modello di Azure Resource Manager per distribuire l'infrastruttura, ovvero un hub eventi, un account di archiviazione, un'app per le funzioni e un'istanza di Synapse Analytics.
-> * Creare una tabella nel data warehouse.
+> * Usare un modello di Azure Resource Manager per distribuire l'infrastruttura: un hub eventi, un account di archiviazione, un'app per le funzioni, un pool SQL dedicato.
+> * Creare una tabella nel pool SQL dedicato.
 > * Aggiungere codice all'app per le funzioni.
 > * Abbonarsi all'evento. 
 > * Eseguire un'app che invia i dati all'hub eventi.

@@ -1,6 +1,6 @@
 ---
-title: Creare e usare tabelle esterne nel pool SQL serverless (anteprima)
-description: Questa sezione illustra come creare e usare tabelle esterne nel pool SQL serverless (anteprima).
+title: Creare e usare tabelle esterne nel pool SQL serverless
+description: Questa sezione illustra come creare e usare tabelle esterne nel pool SQL serverless.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5dcd4b7b76752ca5396fc68afc8d4c8e4e1edca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314722"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462311"
 ---
-# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creare e usare tabelle esterne con il pool SQL serverless (anteprima) in Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creare e usare tabelle esterne con il pool SQL serverless in Azure Synapse Analytics
 
-Questa sezione illustra come creare e usare [tabelle esterne](develop-tables-external-tables.md) nel pool SQL serverless (anteprima). Le tabelle esterne sono utili se si vuole controllare l'accesso ai dati esterni nel pool SQL serverless e se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless. Le tabelle esterne possono accedere a due tipi di archiviazione:
+Questa sezione illustra come creare e usare [tabelle esterne](develop-tables-external-tables.md) nel pool SQL serverless. Le tabelle esterne sono utili se si vuole controllare l'accesso ai dati esterni nel pool SQL serverless e se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless. Le tabelle esterne possono accedere a due tipi di archiviazione:
 - Archiviazione pubblica, che consente agli utenti di accedere ai file archiviati pubblicamente.
 - Archiviazione protetta, in cui gli utenti accedono ai file di archiviazione usando le credenziali SAS, l'identità Azure AD o l'identità gestita dell'area di lavoro Synapse.
 

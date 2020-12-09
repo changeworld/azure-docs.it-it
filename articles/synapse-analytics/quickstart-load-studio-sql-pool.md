@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237477"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484662"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Avvio rapido: Caricamento bulk con Synapse SQL
 
-La procedura guidata Caricamento bulk di Synapse Studio semplifica enormemente il caricamento dei dati. Consente infatti di creare uno script T-SQL con l'[istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) per eseguire il caricamento bulk dei dati. 
+Il caricamento dei dati diventa facile con la procedura guidata Caricamento bulk di Synapse Studio. Consente infatti di creare uno script T-SQL con l'[istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) per eseguire il caricamento bulk dei dati. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>Punti di ingresso per la procedura guidata Caricamento bulk
 
-È ora possibile eseguire facilmente il caricamento bulk dei dati usando i pool SQL dedicati facendo semplicemente clic con il pulsante destro del mouse sulle aree seguenti all'interno di Synapse Studio:
+È possibile eseguire facilmente il caricamento bulk dei dati usando i pool SQL dedicati facendo semplicemente clic con il pulsante destro del mouse sulle aree seguenti all'interno di Synapse Studio:
 
 - Un file o una cartella di un account di archiviazione di Azure collegato all'area di lavoro ![Fare clic con il pulsante destro del mouse su un file o una cartella di un account di archiviazione](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 
