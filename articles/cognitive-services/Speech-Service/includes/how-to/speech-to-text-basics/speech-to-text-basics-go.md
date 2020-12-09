@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425443"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912304"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -30,6 +30,8 @@ Prima di poter eseguire qualsiasi operazione, è necessario installare [Speech S
 Usare l'esempio di codice seguente per eseguire il riconoscimento vocale dal microfono del dispositivo predefinito. Sostituire le variabili `subscription` e `region` con le chiavi della sottoscrizione e dell'area. Eseguendo lo script viene avviata una sessione di riconoscimento vocale sul microfono predefinito e sul testo di output.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ Per informazioni dettagliate sulle classi [`SpeechConfig`](https://pkg.go.dev/gi
 Usare l'esempio seguente per eseguire il riconoscimento vocale da un file audio. Sostituire le variabili `subscription` e `region` con le chiavi della sottoscrizione e dell'area. Sostituire inoltre la variabile `file` con il percorso di un file WAV. Con l'esecuzione dello script viene eseguito il riconoscimento vocale dal file e viene restituito il risultato del testo.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"

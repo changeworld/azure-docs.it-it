@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/12/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c6b5406728817c3dd700ec285d9af77c9d3cf60
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2ed8bdd167814ea21fced89042bdcf80fd3a73df
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96009314"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602649"
 ---
 # <a name="quickstart-extract-invoice-data-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre dati dalle fatture tramite l'API REST Riconoscimento modulo con Python
 
@@ -30,7 +30,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 - Una fattura. Per questo argomento di avvio rapido è possibile usare una [fattura di esempio](../media/sample-invoice.jpg).
 
 > [!NOTE]
-> Questa guida di avvio rapido usa un file locale. Per usare invece una fattura accessibile tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
+> Questa guida di avvio rapido usa un file locale. Per usare invece una fattura accessibile tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -290,6 +290,6 @@ if __name__ == '__main__':
 In questo argomento di avvio rapido è stata usata l'API REST Riconoscimento modulo con Python per estrarre il contenuto delle fatture. A questo punto, vedere la documentazione di riferimento per esplorare l'API di Riconoscimento modulo in maggior dettaglio.
 
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)
+> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)
 
    
