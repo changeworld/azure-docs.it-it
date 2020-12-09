@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/01/2020
 ms.author: banders
-ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408023"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444459"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annullare la sottoscrizione di Azure
 
@@ -38,6 +38,9 @@ Se si annulla un piano di supporto di Azure a pagamento, verrà emessa una fattu
     ![Screenshot che mostra il pulsante Annulla](./media/cancel-azure-subscription/cancel_ibiza.png)
 1. Seguire le istruzioni e completare la procedura di annullamento.
 
+> [!NOTE]
+> I partner possono sospendere o annullare una sottoscrizione se richiesto da un cliente oppure nei casi di mancato pagamento o frode. Per altre informazioni, vedere [Sospendere o annullare una sottoscrizione](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
+
 ## <a name="who-can-cancel-a-subscription"></a>Chi può annullare una sottoscrizione?
 
 La tabella seguente indica l'autorizzazione necessaria per annullare una sottoscrizione.
@@ -48,7 +51,7 @@ La tabella seguente indica l'autorizzazione necessaria per annullare una sottosc
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Proprietario dell'account e proprietari della sottoscrizione       |
 |[Piano di Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) e [Piano di Azure per DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Proprietari della sottoscrizione      |
 
-## <a name="what-happens-after-i-cancel-my-subscription"></a>Cosa accade quando si annulla la sottoscrizione?
+## <a name="what-happens-after-subscription-cancellation"></a>Che cosa succede dopo l'annullamento di una sottoscrizione?
 
 Dopo l'annullamento, la fatturazione viene interrotta immediatamente. Per essere visualizzata sul portale, tuttavia, è possibile che siano necessari fino a 10 minuti. Se si annulla la sottoscrizione nel corso di un periodo di fatturazione, la fattura finale verrà inviata alla normale data della fattura al termine del periodo.
 
@@ -65,7 +68,7 @@ Se si ha una sottoscrizione di valutazione gratuita, non è necessario attendere
 1. Selezionare la sottoscrizione da eliminare.
 1. Selezionare **Panoramica** e quindi **Elimina sottoscrizione**.
 
-## <a name="reactivate-subscription"></a>Riattivare la sottoscrizione
+## <a name="reactivate-a-subscription"></a>Riattivare una sottoscrizione
 
 Se la sottoscrizione con pagamento in base al consumo viene annullata erroneamente, è possibile [riattivarla nel Centro account](subscription-disabled.md).
 
@@ -73,7 +76,7 @@ Se la sottoscrizione non è con pagamento in base al consumo, contattare il supp
 
 ## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Perché non viene visualizzata l'opzione per annullare la sottoscrizione nel portale di Azure? 
 
-È possibile che non si abbiano le autorizzazioni necessarie per annullare una sottoscrizione. Per informazioni su chi può annullare i vari tipi di sottoscrizione, vedere [Chi può annullare una sottoscrizione?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription)
+È possibile che non si abbiano le autorizzazioni necessarie per annullare una sottoscrizione. Per informazioni su chi può annullare i vari tipi di sottoscrizione, vedere [Chi può annullare una sottoscrizione?](#who-can-cancel-a-subscription)
 
 ## <a name="how-do-i-delete-my-azure-account"></a>Come si elimina l'account Azure?
 
@@ -85,7 +88,7 @@ Se la sottoscrizione non è con pagamento in base al consumo, contattare il supp
 
 ## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Come si annulla un account di Visual Studio Professional?
 
-Vedere l'articolo [Rinnovo e annullamento](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Se si hanno sottoscrizioni di Azure per Visual Studio, è necessario annullare ed eliminare anche queste.
+Vedere l'articolo [Rinnovo e annullamento](/visualstudio/subscriptions/faq/admin/renewal-cancellation). Se si hanno sottoscrizioni di Azure per Visual Studio, è necessario annullare ed eliminare anche queste.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

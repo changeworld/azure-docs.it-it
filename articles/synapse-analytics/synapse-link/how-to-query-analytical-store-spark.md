@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 28af603c0969419cd2e7b8683373faf3838e2242
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322584"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458942"
 ---
-# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagire con Azure Cosmos DB usando Apache Spark nel collegamento ad Azure Synapse (anteprima)
+# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interagire con Azure Cosmos DB usando Apache Spark nel collegamento ad Azure Synapse
 
 In questo articolo si apprenderà a interagire con Azure Cosmos DB usando Synapse Apache Spark. Grazie al supporto completo per Scala, Python, SparkSQL e C#, Apache Spark per Synapse è fondamentale per gli scenari di analisi, ingegneria dei dati, data science e di esplorazione dei dati nel collegamento ad [Azure Synapse per Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -35,9 +35,9 @@ Prima di acquisire informazioni sulle due opzioni possibili per eseguire query s
 
 La differenza nell'esperienza si verifica se le modifiche ai dati nel contenitore di Azure Cosmos DB devono essere riflesse automaticamente nell'analisi eseguita in Spark. Quando un dataframe Spark viene registrato o viene creata una tabella Spark rispetto all'archivio analitico di un contenitore, i metadati relativi allo snapshot corrente dei dati nell'archivio analitico vengono recuperati in Spark per una distribuzione efficiente dell'analisi successiva. È importante tenere presente che, poiché Spark segue i criteri di valutazione lazy, a meno che non venga richiamata un'azione nel dataframe Spark o venga eseguita una query SparkSQL sulla tabella Spark, i dati effettivi non vengono recuperati dall'archivio analitico del contenitore sottostante.
 
-In caso di **caricamento nel dataframe Spark** , i metadati recuperati vengono memorizzati nella cache per tutta la durata della sessione Spark e quindi le azioni successive richiamate nel dataframe vengono valutate rispetto allo snapshot dell'archivio analitico al momento della creazione del dataframe.
+In caso di **caricamento nel dataframe Spark**, i metadati recuperati vengono memorizzati nella cache per tutta la durata della sessione Spark e quindi le azioni successive richiamate nel dataframe vengono valutate rispetto allo snapshot dell'archivio analitico al momento della creazione del dataframe.
 
-D'altra parte, in aso di **creazione di una tabella Spark** , i metadati dello stato dell'archivio analitico non vengono memorizzati nella cache in Spark e vengono ricaricati a ogni esecuzione della query SparkSQL sulla tabella Spark.
+D'altra parte, in aso di **creazione di una tabella Spark**, i metadati dello stato dell'archivio analitico non vengono memorizzati nella cache in Spark e vengono ricaricati a ogni esecuzione della query SparkSQL sulla tabella Spark.
 
 Pertanto, è possibile scegliere tra il caricamento nel dataframe Spark e la creazione di una tabella Spark a seconda che si desideri che l'analisi Spark venga valutata in base a uno snapshot fisso dell'archivio analitico o allo snapshot più recente dell'archivio analitico.
 

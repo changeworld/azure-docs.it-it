@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307965"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455508"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Avvio rapido: Creare un nuovo servizio collegato di Azure Machine Learning in Synapse
 
-In questo argomento di avvio rapido si collegherà un'area di lavoro di Synapse Analytics a un'area di lavoro di Azure Machine Learning. Il collegamento di queste aree di lavoro consente di sfruttare Azure Machine Learning da diverse esperienze in Synapse.
+In questo argomento di avvio rapido si collegherà un'area di lavoro di Azure Synapse Analytics a un'area di lavoro di Azure Machine Learning. Il collegamento di queste aree di lavoro consente di sfruttare Azure Machine Learning da diverse esperienze in Synapse.
 
 Ad esempio, questo collegamento a un'area di lavoro di Azure Machine Learning consente le esperienze seguenti:
 
@@ -66,7 +66,7 @@ Questo passaggio crea una nuova entità servizio. Se si vuole usare un'entità s
 
 2. Compilare il modulo:
 
-   - ID entità servizio: è l' **ID applicazione (client)** dell'applicazione.
+   - ID entità servizio: è l'**ID applicazione (client)** dell'applicazione.
   
      > [!NOTE]
      > NON è il nome dell'applicazione. È possibile trovare questo ID nella pagina Panoramica dell'applicazione. Deve essere una stringa lunga simile a questa "81707eac-AB38-406u-8f6c-10ce76a568d5".
@@ -80,4 +80,4 @@ Questo passaggio crea una nuova entità servizio. Se si vuole usare un'entità s
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esercitazione: Procedura guidata di assegnazione di punteggi al modello di Machine Learning - pool SQL dedicato](tutorial-sql-pool-model-scoring-wizard.md)
-- [Funzionalità di Machine Learning in Azure Synapse Analytics (aree di lavoro in anteprima)](what-is-machine-learning.md)
+- [Funzionalità di Machine Learning in Azure Synapse Analytics](what-is-machine-learning.md)

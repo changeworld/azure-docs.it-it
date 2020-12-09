@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: f55e266b548ea3b43a50d9500a427dfe1199b73f
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b1339a0ab5be9004643cf2e9f86203eba9a2cc72
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699764"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445073"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Introduzione ad Azure Synapse Analytics
 
-Questa esercitazione è una guida dettagliata sulle principali aree di funzionalità di Azure Synapse Analytics. L'esercitazione è il punto di partenza ideale per chi desidera una presentazione guidata degli scenari principali di Azure Synapse Analytics. Dopo aver seguito i passaggi dell'esercitazione, si avrà un'area di lavoro Synapse completamente funzionale in cui è possibile iniziare ad analizzare i dati con il pool SQL dedicato, il pool SQL serverless e Apache Spark.
+Questa esercitazione è una guida dettagliata sulle principali aree di funzionalità di Azure Synapse Analytics. L'esercitazione è il punto di partenza ideale per chi desidera una presentazione guidata degli scenari principali di Azure Synapse Analytics. Dopo aver seguito la procedura dell'esercitazione, si avrà un'area di lavoro di Synapse. Questa esercitazione include anche la procedura per [abilitare un'area di lavoro per il pool SQL dedicato (in precedenza SQL Data Warehouse)](./sql-data-warehouse/workspace-connected-create.md). Una volta creata l'area di lavoro, è possibile iniziare ad analizzare i dati con il pool SQL dedicato, il pool SQL serverless o il pool di Apache Spark serverless.
 
 Seguire i passaggi *in ordine*, come indicato di seguito, per avere una panoramica di molte delle funzionalità e apprendere l'utilizzo delle funzionalità principali.
 

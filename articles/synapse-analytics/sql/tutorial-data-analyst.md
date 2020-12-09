@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Esplorare e analizzare data lake con Synapse SQL serverless'
-description: Questa esercitazione illustra come eseguire facilmente l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure usando un pool SQL serverless (anteprima) e visualizzare i risultati in Synapse Studio per Azure Synapse Analytics.
+title: 'Esercitazione: Usare un pool SQL serverless per analizzare i set di dati aperti di Azure in Azure Synapse Studio'
+description: Questa esercitazione illustra come eseguire facilmente l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con un pool SQL serverless e visualizzare i risultati in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237964"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459120"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Esercitazione: Esplorare e analizzare data lake con un pool SQL serverless (anteprima)
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Esercitazione: Esplorare e analizzare data lake con un pool SQL serverless
 
 Questa esercitazione illustra come eseguire un'analisi esplorativa dei dati. Si combineranno diversi set di dati aperti di Azure usando un pool SQL serverless. Quindi si visualizzeranno i risultati in Synapse Studio per Azure Synapse Analytics.
 

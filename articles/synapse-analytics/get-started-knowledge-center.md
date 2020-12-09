@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 611d2163e242d7851398821344c3ed595df364cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254239"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460262"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Esplorare il Knowledge Center di Synapse
 
@@ -55,6 +55,9 @@ Il **Knowledge Center** consente di eseguire tre operazioni:
 1. Verrà visualizzato un nuovo script SQL.
 1. Fare clic su **Run**
 1. Verranno create diverse tabelle per tutti i dati di NYC Taxi che verranno caricati usando il comando T-SQL COPY.
+
+    > [!NOTE] 
+    > Se si usa la raccolta di esempi di script SQL con un pool SQL dedicato (in precedenza SQL Data Warehouse), sarà possibile usare solo un pool SQL dedicato (in precedenza SQL Data Warehouse) esistente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

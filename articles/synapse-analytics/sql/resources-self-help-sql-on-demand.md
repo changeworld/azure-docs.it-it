@@ -1,6 +1,6 @@
 ---
-title: Supporto Self-help per il pool SQL serverless (anteprima)
-description: Questa sezione contiene informazioni che consentono di risolvere i problemi relativi al pool SQL serverless (anteprima).
+title: Supporto self-help per il pool SQL serverless
+description: Questa sezione contiene informazioni che consentono di risolvere i problemi relativi al pool SQL serverless.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682622"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457178"
 ---
-# <a name="self-help-for-serverless-sql-pool-preview"></a>Supporto Self-help per il pool SQL serverless (anteprima)
+# <a name="self-help-for-serverless-sql-pool"></a>Supporto self-help per il pool SQL serverless
 
-Questo articolo contiene informazioni su come risolvere i problemi più frequenti del pool SQL serverless (anteprima) in Azure Synapse Analytics.
+Questo articolo contiene informazioni su come risolvere i problemi più frequenti del pool SQL serverless in Azure Synapse Analytics.
 
 ## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>L'opzione relativa al pool SQL serverless è disattivata in Synapse Studio
 
@@ -37,7 +37,7 @@ Se la query non riesce e restituisce un messaggio per segnalare che non può ess
 
 - Assicurarsi di usare tipi di dati di dimensioni ragionevoli. Specificare inoltre lo schema per i file Parquet relativi alle colonne di stringhe, che saranno VARCHAR(8000) per impostazione predefinita. 
 
-- Se la query è destinata a file CSV, valutare se [creare statistiche](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- Se la query è destinata a file CSV, valutare se [creare statistiche](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Per ottimizzare la query, vedere le [procedure consigliate per le prestazioni del pool SQL serverless](best-practices-sql-on-demand.md).  
 

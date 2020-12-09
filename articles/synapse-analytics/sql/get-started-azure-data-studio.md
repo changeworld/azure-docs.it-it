@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Synapse SQL con Azure Data Studio (anteprima)
+title: Connettersi a Synapse SQL con Azure Data Studio
 description: Usare Azure Data Studio per connettersi ed eseguire query su Synapse SQL in Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 580dfe779ff0f550524781076d3e27805ffd6689
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685750"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451659"
 ---
-# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Connettersi a Synapse SQL con Azure Data Studio (anteprima)
+# <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Connettersi a Synapse SQL con Azure Data Studio
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "94685750"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Usare [Azure Data Studio (anteprima)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per connettersi ed eseguire query su Synapse SQL in Azure Synapse Analytics. 
+Usare [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per connettersi ed eseguire query su Synapse SQL in Azure Synapse Analytics. 
 
 ## <a name="connect"></a>Connessione
 
@@ -42,7 +42,7 @@ Per la connessione sono necessari i parametri seguenti:
 * **Database:** Nome database
 
 > [!NOTE]
-> Se si preferisce usare il **pool SQL serverless (anteprima)** , l'URL sarà simile al seguente:
+> Se si preferisce usare il **pool SQL serverless**, l'URL sarà simile al seguente:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >

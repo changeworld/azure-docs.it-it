@@ -1,6 +1,6 @@
 ---
 title: Database condiviso
-description: Azure Synapse Analytics offre un modello di metadati condivisi per cui la creazione di un database nel pool di Apache Spark serverless lo renderà accessibile dai motori del pool SQL serverless (anteprima) e del pool SQL.
+description: Azure Synapse Analytics offre un modello di metadati condivisi per cui la creazione di un database nel pool di Apache Spark serverless lo renderà accessibile dai motori del pool SQL serverless e del pool SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317830"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451817"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Database condiviso di Azure Synapse Analytics
 
-Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless (anteprima) e il motore del pool SQL serverless (anteprima).
+Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless e il motore del pool SQL serverless.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-Un database creato con un processo Spark diventerà visibile con lo stesso nome a tutti i pool di Spark (anteprima) correnti e futuri nell'area di lavoro, incluso il motore del pool SQL serverless.
+Un database creato con un processo Spark diventerà visibile con lo stesso nome a tutti i pool di Spark correnti e futuri nell'area di lavoro, incluso il motore del pool SQL serverless.
 
 Il database predefinito di Spark, denominato `default`, sarà visibile anche nel contesto del pool SQL serverless come database denominato `default`.
 

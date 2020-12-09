@@ -5,12 +5,12 @@ author: emaher
 ms.topic: overview
 ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71d59e8bcf7b4078255d6b119e9d62f366e46033
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334039"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437321"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Elementi di base dell'architettura in Azure Lab Services
 
@@ -20,7 +20,7 @@ Un paio di aree di Azure Lab Services consentono di usare risorse personalizzate
 
 Di seguito è riportata l'architettura di base di un lab per le classi.  L'account lab è ospitato nella sottoscrizione. Le VM degli studenti, oltre alle risorse necessarie per supportarle, sono ospitate in una sottoscrizione di proprietà di Lab Services. Ecco una descrizione più dettagliata del contenuto delle sottoscrizioni di Lab Services.
 
-![Architettura di base dei lab per le classi](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![Architettura di base dei lab](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## <a name="hosted-resources"></a>Risorse ospitate
 

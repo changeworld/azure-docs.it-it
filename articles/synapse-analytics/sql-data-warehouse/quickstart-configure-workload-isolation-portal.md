@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Configurare l'isolamento dei carichi di lavoro - Portale"
-description: Usare il portale di Azure per configurare l'isolamento dei carichi di lavoro.
+description: Usare il portale di Azure per configurare l'isolamento del carico di lavoro per il pool SQL dedicato.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 302249b7d8490e43b841116c52500e686626433d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213041"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460598"
 ---
-# <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Guida introduttiva: Configurare l'isolamento del carico di lavoro del pool Synapse SQL usando un gruppo di carico di lavoro nel portale di Azure
+# <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Avvio rapido: Configurare l'isolamento del carico di lavoro del pool SQL dedicato usando un gruppo di carico di lavoro nel portale di Azure
 
 Questa guida di avvio rapido descrive come configurare l'[isolamento dei carichi di lavoro](sql-data-warehouse-workload-isolation.md) creando un gruppo di carico di lavoro per prenotare le risorse.  Ai fini di questa esercitazione, verrà creato il gruppo di carico di lavoro per il caricamento dei dati denominato `DataLoads`. Il gruppo di carico di lavoro prenoterà il 20% delle risorse del sistema.  Con un isolamento del 20% per il caricamento dei dati, si tratta di risorse garantite per soddisfare i contratti di servizio.  Dopo aver creato il gruppo di carico di lavoro, [creare un classificatore del carico di lavoro](quickstart-create-a-workload-classifier-portal.md) per assegnare query a questo gruppo di carico di lavoro.
 
@@ -31,24 +31,24 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Accedere al [portale di Azure](https://portal.azure.com/).
 
 > [!NOTE]
-> La creazione di un'istanza del pool SQL in Azure Synapse Analytics può tradursi in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creazione di un'istanza del pool SQL dedicato in Azure Synapse Analytics può tradursi in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza del pool SQL in Synapse SQL con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che si abbia già un'istanza del pool SQL dedicato in Synapse SQL con autorizzazioni CONTROL DATABASE. Se è necessario crearne una, vedere [Avvio rapido: Creare un pool SQL dedicato - Portale](../quickstart-create-sql-pool-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
 
 >[!IMPORTANT] 
->Per configurare la gestione del carico di lavoro, il pool SQL deve essere online. 
+>Per configurare la gestione del carico di lavoro, il pool SQL dedicato deve essere online. 
 
 ## <a name="configure-workload-isolation"></a>Configurare l'isolamento dei carichi di lavoro
-Le risorse del pool SQL possono essere isolate e riservate per carichi di lavoro specifici tramite la creazione gruppi di carico di lavoro.  Per informazioni dettagliate su come gestire il carico di lavoro tramite i gruppi di carico di lavoro, vedere la documentazione relativa ai concetti di [isolamento dei carichi di lavoro](sql-data-warehouse-workload-isolation.md).  Nella guida di avvio rapido [Creare e connettere - Portale](create-data-warehouse-portal.md) è stato creato il data warehouse **mySampleDataWarehouse** ed è stato inizializzato con 400 unità Data Warehouse. Nella procedura seguente viene creato un gruppo di carico di lavoro in **mySampleDataWarehouse**.
+
+Le risorse del pool SQL dedicato possono essere isolate e riservate per carichi di lavoro specifici tramite la creazione gruppi di carico di lavoro.  Per informazioni dettagliate su come gestire il carico di lavoro tramite i gruppi di carico di lavoro, vedere la documentazione relativa ai concetti di [isolamento dei carichi di lavoro](sql-data-warehouse-workload-isolation.md).  Nella guida di avvio rapido [Creare e connettere - Portale](create-data-warehouse-portal.md) è stato creato il data warehouse **mySampleDataWarehouse** ed è stato inizializzato in DW100c. Nella procedura seguente viene creato un gruppo di carico di lavoro in **mySampleDataWarehouse**.
 
 Per creare un gruppo di carico di lavoro con un isolamento del 20%:
-1.  Fare clic su **Azure Synapse Analytics (in precedenza SQL DW)** nella pagina sinistra del portale di Azure.
-2.  Selezionare **mySampleDataWarehouse** nella pagina **Azure Synapse Analytics (in precedenza SQL DW)** . Verrà aperto il pool SQL.
-3.  Fare clic su **Gestione del carico di lavoro**.
-4.  Fare clic su **Nuovo gruppo di carico di lavoro**.
-5.  Fare clic su **Personalizzato**.
+1.  Passare alla pagina del pool SQL dedicato **mySampleDataWarehouse**.
+1.  Selezionare **Gestione del carico di lavoro**.
+1.  Selezionare **Nuovo gruppo di carico di lavoro**.
+1.  selezionare **Personalizzato**.
 
     ![Fare clic su personalizzato](./media/quickstart-configure-workload-isolation-portal/create-wg.png)
 
@@ -56,7 +56,7 @@ Per creare un gruppo di carico di lavoro con un isolamento del 20%:
 7.  Immettere `20` per **% risorse minima**.
 8.  Immettere `5` per **Percentuale di risorse minima per richiesta**.
 9.  Immettere `100` per **% massima di risorse**.
-10.   Fare clic su **Salva**.
+10. Immettere **Salva**.
 
    ![Fare clic su Salva.](./media/quickstart-configure-workload-isolation-portal/configure-wg.png)
 
@@ -83,17 +83,13 @@ Per le unità del data warehouse e i dati archiviati vengono addebitati costi. L
 
 Seguire questa procedura per pulire le risorse.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare il proprio data warehouse.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare il pool SQL dedicato.
 
     ![Pulire le risorse](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Per sospendere il calcolo, selezionare il pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, selezionare **Avvia**.
 
 3. Per rimuovere il data warehouse in modo da non ricevere addebiti per operazioni di calcolo o archiviazione, selezionare **Elimina**.
-
-4. Per rimuovere il server SQL creato, selezionare **sqlpoolservername.database.windows.net** nell'immagine precedente e quindi selezionare **Elimina**.  Fare attenzione quando si esegue questa operazione perché l'eliminazione del server comporta anche quella di tutti i database assegnati al server.
-
-5. Per rimuovere il gruppo di risorse, selezionare **myResourceGroup** e quindi **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

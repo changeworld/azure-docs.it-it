@@ -1,6 +1,6 @@
 ---
-title: Sincronizzare Apache Spark per le definizioni di tabelle esterne in un pool SQL serverless (anteprima)
-description: Panoramica su come eseguire query su tabelle Spark con un pool SQL serverless (anteprima)
+title: Sincronizzare Apache Spark per le definizioni di tabelle esterne in un pool SQL serverless
+description: Panoramica su come eseguire query su tabelle Spark con un pool SQL serverless
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315823"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446498"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>Sincronizzare Apache Spark per le definizioni di tabelle esterne di Azure Synapse in un pool SQL serverless (anteprima)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Sincronizzare Apache Spark per le definizioni di tabelle esterne di Azure Synapse in un pool SQL serverless
 
-Il pool SQL serverless (anteprima) consente di sincronizzare automaticamente i metadati di Apache Spark. Per ogni database esistente nei pool di Apache Spark (anteprima) verrà creato un database del pool SQL serverless. 
+Il pool SQL serverless consente di sincronizzare automaticamente i metadati di Apache Spark. Per ogni database esistente nei pool di Apache Spark serverless verrà creato un database del pool SQL serverless. 
 
 Per ogni tabella esterna Spark basata su Parquet e inclusa in Archiviazione di Azure, viene creata una tabella esterna nel database del pool SQL serverless. Di conseguenza, è possibile arrestare i pool di Spark e continuare a eseguire query sulle tabelle esterne Spark dal pool SQL serverless.
 

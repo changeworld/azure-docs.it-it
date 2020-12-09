@@ -1,6 +1,6 @@
 ---
-title: Accedere ai file nell'archiviazione nel pool SQL serverless (anteprima)
-description: Informazioni su come eseguire query sui file nell'archiviazione usando il pool SQL serverless (anteprima) in Azure Synapse Analytics.
+title: Accedere ai file nell'archiviazione in un pool SQL serverless
+description: Informazioni su come eseguire query sui file nell'archiviazione usando il pool SQL serverless in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685682"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446573"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Accedere all'archiviazione esterna tramite il pool SQL serverless (anteprima) in Azure Synapse Analytics
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Accedere all'archiviazione esterna tramite il pool SQL serverless in Azure Synapse Analytics
 
 Questo documento descrive come leggere i dati dai file archiviati in Archiviazione di Azure nel pool SQL serverless. Per accedere alle risorse di archiviazione, sono disponibili le opzioni seguenti:
 

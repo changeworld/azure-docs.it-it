@@ -1,5 +1,5 @@
 ---
-title: Terminologia - Azure Synapse Analytics (anteprima delle aree di lavoro)
+title: Terminologia di Azure Synapse Analytics
 description: Guida di riferimento per l'uso di Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,14 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7f0ca83c194aae6f4a8d04d70c2d4f3746ad2ca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030680"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446707"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia di Azure Synapse Analytics
-
-[!INCLUDE [preview](includes/note-preview.md)]
 
 Questo documento illustra i concetti di base di Azure Synapse Analytics.
 
@@ -36,8 +34,7 @@ Un'area di lavoro può contenere un numero indefinito di **servizi collegati**, 
 
 **Synapse SQL** offre la possibilità di eseguire analisi basate su T-SQL nell'area di lavoro di Synapse. Synapse SQL ha due modelli di utilizzo: dedicato e serverless.  Per il modello dedicato, usare **pool SQL dedicati**. Un'area di lavoro può contenere un numero qualsiasi di questi pool. Per il modello serverless, usare i **pool SQL serverless**. Ogni area di lavoro dispone di uno di questi pool.
 
-* **Richiesta SQL**: operazione, come una query, eseguita tramite un pool SQL dedicato o un pool SQL serverless.
-* **Script SQL**: set di comandi SQL salvati in un file. Uno script SQL può contenere una o più istruzioni SQL. Può essere usato per eseguire richieste SQL tramite un pool SQL dedicato o un pool SQL serverless.
+All'interno di Synapse Studio è possibile usare i pool SQL creando ed eseguendo **script SQL**.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark per Synapse
 
@@ -47,19 +44,13 @@ Per usare Spark all'interno di Synapse, sono disponibili due modi:
 * **Notebook Spark** per eseguire attività di data science e progettazione con Scala, PySpark, C# e SparkSQL
 * **Definizioni di processi Spark** per eseguire processi Spark tramite file JAR.
 
-Versioni supportate:
-* Spark 2.4
-* Python 3.6.1
-* Scala 2.11.12
-* .NET per Apache Spark 1.0
-* Delta Lake 0.3.  
-
 ## <a name="pipelines"></a>Pipelines
 
-* **Integrazione dei dati**: offre la possibilità di inserire dati tra varie origini e di orchestrare le attività in esecuzione all'interno o all'esterno di un'area di lavoro.
-* **Flusso di dati**: fornisce un'esperienza completamente visiva senza la necessità di codice per eseguire trasformazioni di Big Data. Tutte le attività di ottimizzazione ed esecuzione vengono gestiti in modalità serverless.
-* **Pipeline**: raggruppamento logico di attività che insieme svolgono una funzione.
-* **Attività**: definisce le azioni da eseguire sui dati, ad esempio la copia, l'esecuzione di un notebook o uno script SQL.
+Le pipeline rappresentano il metodo con cui Azure Synapse fornisce integrazione dei dati, consentendo di spostare i dati tra servizi e di orchestrare le attività.
+
+* Le **pipeline** sono un raggruppamento logico di attività che insieme svolgono una funzione.
+* Le **attività** definiscono le azioni all'interno di una pipeline da eseguire sui dati, ad esempio la copia, l'esecuzione di un notebook o uno script SQL.
+* I **flusso di dati** sono un tipo specifico di attività che offrono un'esperienza senza codice per eseguire trasformazioni sui dati dietro le quinte con Synapse Spark.
 * **Trigger**: esegue una pipeline. Può essere eseguito manualmente o automaticamente (pianificazione, finestra a cascata o basata su eventi).
 * **Set di dati di integrazione**: vista denominata di dati che semplicemente punta o fa riferimento ai dati da usare come input e output di un'attività. Appartiene a un servizio collegato.
 

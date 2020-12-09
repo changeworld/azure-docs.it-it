@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 65a77dfaab0bf99207fd27a35d67a12532056476
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a63cd95fdcee7c9ed0c49ba41b4d7e7e6de8f4bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442940"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458741"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Guida di avvio rapido: Creare un classificatore di carico di lavoro con T-SQL
 
@@ -25,13 +25,13 @@ In questa Guida di avvio rapido si creerà rapidamente un classificatore di cari
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 > [!NOTE]
-> La creazione di un'istanza del pool SQL Synapse in Azure Synapse Analytics può tradursi in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creazione di un'istanza del pool SQL dedicato in Azure Synapse Analytics può tradursi in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida di avvio rapido presuppone che sia già stato effettuato il provisioning di un pool Synapse SQL in Azure Synapse Analytics e che si abbiano le autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che sia già stato effettuato il provisioning di un pool SQL dedicato in Azure Synapse Analytics e che si abbiano le autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, vedere [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un pool SQL dedicato denominato **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -87,27 +87,23 @@ DROP USER [TheCEO]
 ;
 ```
 
-Per le unità del data warehouse e i dati archiviati vengono addebitati costi. Le risorse di calcolo e archiviazione vengono fatturate separatamente.
+Per le unità del data warehouse e i dati archiviati nel pool SQL dedicato vengono addebitati costi. Le risorse di calcolo e archiviazione vengono fatturate separatamente.
 
-- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. Quando si è pronti a lavorare con i dati, riprendere il calcolo.
-- Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse.
+- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il pool SQL dedicato non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. Quando si è pronti a lavorare con i dati, riprendere il calcolo.
+- Per evitare di ricevere addebiti in futuro, è possibile eliminare il pool SQL dedicato.
 
 Seguire questa procedura per pulire le risorse.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare il proprio data warehouse.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare il pool SQL dedicato.
 
     ![Pulire le risorse](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Per sospendere il calcolo, selezionare il pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, selezionare **Avvia**.
+2. Per sospendere il calcolo, selezionare il pulsante **Pausa**. Quando il pool SQL dedicato è sospeso, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, selezionare **Avvia**.
 
-3. Per rimuovere il data warehouse in modo da non ricevere addebiti per operazioni di calcolo o archiviazione, selezionare **Elimina**.
-
-4. Per rimuovere il server SQL creato, selezionare **mynewserver-20180430.database.windows.net** nell'immagine precedente e quindi selezionare **Elimina**.  Fare attenzione quando si esegue questa operazione perché l'eliminazione del server comporta anche quella di tutti i database assegnati al server.
-
-5. Per rimuovere il gruppo di risorse, selezionare **myResourceGroup** e quindi **Elimina gruppo di risorse**.
+3. Per rimuovere il pool SQL dedicato in modo da non ricevere addebiti per operazioni di calcolo o archiviazione, selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - È stato creato un classificatore di carico di lavoro. Eseguire alcune query come IlCEO per verificarne le prestazioni. Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per visualizzare le query e la loro priorità.
-- Per altre informazioni sulla gestione dei carichi di lavoro di SQL Synapse, vedere [Priorità del carico di lavoro](sql-data-warehouse-workload-importance.md) e [Classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md).
+- Per altre informazioni sulla gestione dei carichi di lavoro del pool SQL dedicato, vedere [Priorità del carico di lavoro](sql-data-warehouse-workload-importance.md) e [Classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md).
 - Vedere gli articoli sulle procedure per [configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e per [gestire e monitorare la priorità del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Creare ed eseguire query su un pool SQL di Synapse (portale di Azure)'
-description: Creare ed eseguire query su un pool SQL di Synapse con il portale di Azure
+title: 'Avvio rapido: Creare ed eseguire query su un pool SQL dedicato (portale di Azure)'
+description: Creare ed eseguire query su un pool SQL dedicato usando il portale di Azure
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 470892aa46d3f75ce8e17200f7d0549ae14b0e86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023787"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456743"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Avvio rapido: Creare ed eseguire query su un pool SQL di Synapse con il portale di Azure
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>Avvio rapido: Creare ed eseguire query su un pool SQL dedicato in Azure Synapse Analytics usando il portale di Azure
 
-Creare rapidamente un pool SQL di Synapse (data warehouse) ed eseguirvi query in Azure Synapse Analytics (in precedenza SQL DW) con il portale di Azure.
+Creare rapidamente un pool Synapse SQL(data warehouse) ed eseguirvi query in Azure Synapse Analytics con il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

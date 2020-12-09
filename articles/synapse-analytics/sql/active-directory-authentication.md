@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b8b0ac002cb52acdc043e4e8ca4fa91daae4e665
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311709"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457993"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con Synapse SQL
 
@@ -36,7 +36,7 @@ I passaggi di configurazione includono le procedure seguenti per configurare e u
 
 1. Creare e popolare un'istanza di Azure AD.
 2. Creare un'identità di Azure Active Directory
-3. Assegnare un ruolo all'identità di Azure Active Directory creata nell'area di lavoro Synapse (anteprima)
+3. Assegnare un ruolo all'identità di Azure Active Directory creata nell'area di lavoro di Synapse
 4. Connettersi a Synapse Studio usando le identità di Azure AD.
 
 ## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Pass-through di Azure AD in Azure Synapse Analytics
@@ -65,7 +65,7 @@ Se si usa l'autenticazione di Azure AD, sono disponibili due account amministrat
 
 L'account di accesso dell'amministratore di Azure AD può essere un utente o un gruppo di Azure AD. Se l'amministratore è un account di gruppo, può essere usato da qualsiasi membro del gruppo, abilitando quindi più amministratori di Azure AD per l'istanza di Synapse SQL. 
 
-L'uso dell'account di gruppo come amministratore migliora la gestibilità, perché consente di aggiungere e rimuovere a livello centrale i membri del gruppo in Azure AD senza cambiare gli utenti o le autorizzazioni nell'area di lavoro di Synapse Analytics. È possibile configurare un solo amministratore di Azure AD (utente o gruppo) alla volta.
+L'uso dell'account di gruppo come amministratore migliora la gestibilità, perché consente di aggiungere e rimuovere a livello centrale i membri del gruppo in Azure AD senza cambiare gli utenti o le autorizzazioni nell'area di lavoro di Azure Synapse Analytics. È possibile configurare un solo amministratore di Azure AD (utente o gruppo) alla volta.
 
 ![struttura di amministrazione](./media/aad-authentication/3-admin-structure.png)
 
@@ -109,7 +109,7 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 - Autenticazione universale di Azure Active Directory con MFA
 - Con l'autenticazione del token dell'applicazione
 
-Per le entità server (account di accesso) di Azure AD ( **versione di anteprima pubblica** ) sono supportati i metodi di autenticazione seguenti:
+Per le entità server (account di accesso) di Azure AD sono supportati i metodi di autenticazione seguenti:
 
 - Password di Azure Active Directory
 - Autenticazione integrata di Azure Active Directory
@@ -119,7 +119,7 @@ Per le entità server (account di accesso) di Azure AD ( **versione di anteprima
 
 - Per migliorare la gestibilità, è consigliabile effettuare il provisioning di un gruppo di Azure AD dedicato come amministratore.
 - È possibile configurare un solo amministratore di Azure AD (utente o gruppo) alla volta per ogni pool SQL Synapse.
-  - L'aggiunta di entità server (account di accesso) di Azure AD per Synapse SQL (anteprima) offre la possibilità di creare più entità server (account di accesso) di Azure AD che possono essere aggiunte al ruolo `sysadmin`.
+  - L'aggiunta di entità server (account di accesso) di Azure AD per Synapse SQL offre la possibilità di creare più entità server (account di accesso) di Azure AD che possono essere aggiunte al ruolo `sysadmin`.
 - Inizialmente solo un amministratore di Azure AD per Synapse SQL può connettersi a Synapse SQL con un account Azure Active Directory. L'amministratore di Active Directory può configurare gli utenti del database di Azure AD successivi.
 - È consigliabile impostare il timeout di connessione su 30 secondi.
 - SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure AD è supportata dal **provider di dati .NET Framework per server SQL** a partire da .NET Framework versione 4.6. Pertanto, le versioni più recenti di questi strumenti e applicazioni del livello dati (DAC e BACPAC) possono usare l'autenticazione di Azure AD.

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb7672a0d7bdd14415a51f2296c281e92cf5542a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322725"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450654"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Avvio rapido: Creare un'area di lavoro di Synapse
 Questo argomento di avvio rapido descrive la procedura per creare un'area di lavoro di Azure Synapse Analytics con il portale di Azure.
@@ -22,7 +22,7 @@ Questo argomento di avvio rapido descrive la procedura per creare un'area di lav
 ## <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e nella parte superiore cercare **Synapse**.
-1. Nei risultati della ricerca, in **Servizi** selezionare **Azure Synapse Analytics (anteprima delle aree di lavoro)** .
+1. Nei risultati della ricerca, in **Servizi**, selezionare **Azure Synapse Analytics**.
 1. Selezionare **Aggiungi** per creare un'area di lavoro.
 1. Nella scheda **Informazioni di base** assegnare un nome univoco all'area di lavoro. In questo documento si userà il nome **myworkspace**.
 1. Per creare un'area di lavoro, è necessario un account ADLSGEN2. La soluzione più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
@@ -33,6 +33,9 @@ Questo argomento di avvio rapido descrive la procedura per creare un'area di lav
 1. L'area di lavoro di Azure Synapse userà questo account di archiviazione come account di archiviazione "primario" e il contenitore per archiviare i dati dell'area di lavoro. L'area di lavoro archivia i dati in tabelle Apache Spark. Archivia i log delle applicazioni Spark in una cartella denominata **/synapse/nome_area_di_lavoro**.
 1. Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
 
+> [!NOTE]
+> Dopo aver creato l'area di lavoro di Azure Synapse, non sarà possibile spostarla in un altro tenant di Azure Active Directory. Se si esegue lo spostamento tramite la migrazione delle sottoscrizioni o altre azioni, è possibile che si perda l'accesso agli artefatti all'interno dell'area di lavoro.  
+
 ## <a name="open-synapse-studio"></a>Aprire Synapse Studio
 
 Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse Studio in due modi:
@@ -40,7 +43,7 @@ Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse 
 * Aprire l'area di lavoro di Synapse nel [portale di Azure](https://portal.azure.com). Nella parte superiore della sezione **Panoramica** selezionare **Avvia Synapse Studio**.
 * Passare a `https://web.azuresynapse.net` e accedere alla propria area di lavoro.
 
-## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Preparare un account di archiviazione esistente per l'uso con Synapse Analytics
+## <a name="prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics"></a>Preparare un account di archiviazione esistente per l'uso con Azure Synapse Analytics
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 1. Passare a un account di archiviazione ADLSGEN2 esistente
@@ -49,7 +52,7 @@ Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse 
     * Assegnare a se stessi il ruolo **Proprietario dei dati dei BLOB di archiviazione**.
 1. Nel riquadro a sinistra selezionare **Contenitori** e creare un contenitore.
 1. È possibile assegnare al contenitore il nome desiderato. In questo documento verrà assegnato il nome **users**.
-1. Accettare l'impostazione predefinita **Livello di accesso pubblico** , quindi selezionare **Crea**.
+1. Accettare l'impostazione predefinita **Livello di accesso pubblico**, quindi selezionare **Crea**.
 
 ### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configurare l'accesso all'account di archiviazione dall'area di lavoro
 

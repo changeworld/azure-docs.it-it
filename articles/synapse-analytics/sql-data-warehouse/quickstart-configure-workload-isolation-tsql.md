@@ -11,14 +11,14 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae21368269a2c098b4e35bf83b8c9fdf2749a297
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85212990"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460551"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Guida introduttiva: configurare l'isolamento del carico di lavoro tramite T-SQL
+# <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>Avvio rapido: Configurare l'isolamento del carico di lavoro in un pool SQL dedicato con T-SQL
 
 In questa Guida introduttiva verranno creati rapidamente un gruppo di carico di lavoro e un classificatore per prenotare risorse per il caricamento dei dati. Il gruppo di carico di lavoro allocherà il 20% delle risorse di sistema al carico di dati.  Il classificatore del carico di lavoro assegnerà le richieste al gruppo di carico di lavoro per i dati.  Con un isolamento del 20% per il caricamento dei dati, si tratta di risorse garantite per soddisfare i contratti di servizio.
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di Synapse SQL in Azure Synapse con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di Synapse SQL in Azure Synapse con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, vedere [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un pool SQL dedicato denominato **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Creare un account di accesso per i DataLoads
 
@@ -103,10 +103,10 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Per le unità del data warehouse e i dati archiviati vengono addebitati costi. Le risorse di calcolo e archiviazione vengono fatturate separatamente.
+Per le unità del data warehouse e i dati archiviati nel pool SQL dedicato vengono addebitati costi. Le risorse di calcolo e archiviazione vengono fatturate separatamente.
 
-- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il pool SQL non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. Quando si è pronti a lavorare con i dati, riprendere il calcolo.
-- Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse.
+- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il pool SQL dedicato non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. Quando si è pronti a lavorare con i dati, riprendere il calcolo.
+- Per evitare di ricevere addebiti in futuro, è possibile eliminare il pool SQL dedicato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
 title: Modello di metadati condivisi
-description: Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless (anteprima), il pool SQL serverless (anteprima) e i pool SQL dedicati.
+description: Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless, il pool SQL serverless e i pool SQL dedicati.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324666"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460355"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadati condivisi di Azure Synapse Analytics
 
-Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless (anteprima) e il pool SQL serverless (anteprima).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless e il pool SQL serverless.
 
 La condivisione supporta il cosiddetto modello di data warehouse moderno e fornisce ai motori SQL dell'area di lavoro l'accesso ai database e alle tabelle creati con Spark. Consente anche ai motori SQL di creare i propri oggetti, che non vengono condivisi con gli altri motori.
 

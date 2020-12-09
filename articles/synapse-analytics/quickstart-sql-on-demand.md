@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: Usare i pool SQL serverless'
-description: In questo argomento di avvio rapido verrà illustrato come è facile eseguire query su diversi tipi di file tramite il pool SQL serverless (anteprima).
+description: Questa guida di avvio rapido dimostra la facilità con cui è possibile eseguire query su vari tipi di file con il pool SQL serverless.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682979"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450508"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Avvio rapido: Usare i pool SQL serverless
 
-Il pool SQL serverless di Synapse (anteprima) è un servizio di query serverless che consente di eseguire le query SQL sui file presenti in Archiviazione di Azure. Questo argomento di avvio rapido illustra come eseguire query su diversi tipi di file tramite il pool SQL serverless. In [OPENROWSET](sql/develop-openrowset.md) sono elencati i formati supportati.
+Il pool SQL serverless di Synapse è un servizio di query serverless che consente di eseguire le query SQL sui file presenti in Archiviazione di Azure. Questo argomento di avvio rapido illustra come eseguire query su diversi tipi di file tramite il pool SQL serverless. In [OPENROWSET](sql/develop-openrowset.md) sono elencati i formati supportati.
 
 Questo argomento di Avvio rapido illustra come eseguire query: File CSV, Apache parquet e JSON.
 

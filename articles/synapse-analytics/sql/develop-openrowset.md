@@ -1,6 +1,6 @@
 ---
-title: Come usare OPENROWSET nel pool SQL serverless (anteprima)
-description: Questo articolo descrive la sintassi di OPENROWSET nel pool SQL serverless (anteprima) e illustra come usare gli argomenti.
+title: Come usare OPENROWSET nel pool SQL serverless
+description: Questo articolo descrive la sintassi di OPENROWSET nel pool SQL serverless e illustra come usare gli argomenti.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888590"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446677"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creare e usare OPENROWSET con il pool SQL serverless (anteprima) in Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creare e usare OPENROWSET con il pool SQL serverless in Azure Synapse Analytics
 
-La funzione `OPENROWSET(BULK...)` consente di accedere ai file di Archiviazione di Azure. La funzione `OPENROWSET` legge il contenuto di un'origine dati remota, ad esempio un file, e lo restituisce come set di righe. All'interno della risorsa pool SQL serverless (anteprima) il provider bulk per set di righe OPENROWSET è accessibile chiamando la funzione OPENROWSET e specificando l'opzione BULK.  
+La funzione `OPENROWSET(BULK...)` consente di accedere ai file di Archiviazione di Azure. La funzione `OPENROWSET` legge il contenuto di un'origine dati remota, ad esempio un file, e lo restituisce come set di righe. All'interno della risorsa pool SQL serverless il provider bulk per set di righe OPENROWSET è accessibile chiamando la funzione OPENROWSET e specificando l'opzione BULK.  
 
 È possibile fare riferimento alla funzione `OPENROWSET` nella clausola `FROM` di una query come se fosse un nome di tabella `OPENROWSET`. Supporta le operazioni in blocco tramite un provider BULK predefinito che consente di leggere i dati da un file e restituirli come set di righe.
 
@@ -147,7 +147,7 @@ Nell'esempio seguente, se unstructured_data_path=`https://mystorageaccount.dfs.c
 
 La clausola WITH consente di specificare le colonne da leggere nei file.
 
-- Nel caso di file di dati CSV, per leggere tutte le colonne specificare i relativi nomi e tipi di dati. Se si vuole specificare un sottoinsieme di colonne, selezionare le colonne dai file di dati di origine in base a numeri ordinali. Le colonne verranno associate in base alla designazione dell'ordinale. 
+- Nel caso di file di dati CSV, per leggere tutte le colonne specificare i relativi nomi e tipi di dati. Se si vuole specificare un sottoinsieme di colonne, selezionare le colonne dai file di dati di origine in base a numeri ordinali. Le colonne verranno associate in base alla designazione dell'ordinale. Se si usa HEADER_ROW = TRUE, l'associazione delle colonne viene eseguita per nome di colonna invece che in base alla posizione dell'ordinale.
     > [!TIP]
     > È possibile omettere la clausola WITH anche per i file CSV. I tipi di dati verranno dedotti automaticamente dal contenuto del file. È possibile usare l'argomento HEADER_ROW per specificare l'esistenza della riga di intestazione, da cui verranno letti i nomi delle colonne con distinzione tra maiuscole e minuscole. Per informazioni dettagliate, vedere [Individuazione automatica dello schema](#automatic-schema-discovery).
     
@@ -231,7 +231,7 @@ Specifiche del parser CSV versione 2.0:
 
 HEADER_ROW = { TRUE | FALSE }
 
-Specifica se il file CSV contiene o meno una riga di intestazione. L'impostazione predefinita è FALSE. Supportato solo in PARSER_VERSION='2.0'. Se TRUE, i nomi delle colonne verranno letti dalla prima riga in base all'argomento FIRSTROW.
+Specifica se il file CSV contiene o meno una riga di intestazione. L'impostazione predefinita è FALSE. Supportato solo in PARSER_VERSION='2.0'. Se TRUE, i nomi delle colonne verranno letti dalla prima riga in base all'argomento FIRSTROW. Se TRUE e lo schema viene specificato usando WITH, l'associazione dei nomi di colonna verrà eseguita per nome di colonna e non in base alle posizioni degli ordinali.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 

@@ -1,6 +1,6 @@
 ---
-title: Controllare l'accesso agli account di archiviazione per il pool SQL serverless (anteprima)
-description: Informazioni sul modo in cui il pool SQL serverless (anteprima) accede ad Archiviazione di Azure e su come sia possibile controllare l'accesso all'archiviazione per il pool SQL serverless in Azure Synapse Analytics.
+title: Controllare l'accesso agli account di archiviazione per il pool SQL serverless
+description: Informazioni sul modo in cui il pool SQL serverless accede ad Archiviazione di Azure e su come sia possibile controllare l'accesso all'archiviazione per il pool SQL serverless in Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315731"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446624"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless (anteprima) in Azure Synapse Analytics
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
 Una query del pool SQL serverless legge i file direttamente da Archiviazione di Azure. Le autorizzazioni per accedere ai file in Archiviazione di Azure sono controllate a due livelli:
-- **Livello di archiviazione** : l'utente deve disporre dell'autorizzazione per accedere ai file di archiviazione sottostanti. L'amministratore di archiviazione deve consentire all'entità di Azure AD di leggere/scrivere file o generare una chiave di firma di accesso condiviso che verrà usata per accedere all'archiviazione.
-- **Livello di servizio SQL** : l'utente deve disporre dell'autorizzazione `SELECT` per leggere i dati da una [tabella esterna](develop-tables-external-tables.md) o dell'autorizzazione `ADMINISTER BULK ADMIN` per eseguire `OPENROWSET` oltre all'autorizzazione per l'uso delle credenziali per accedere all'archiviazione.
+- **Livello di archiviazione**: l'utente deve disporre dell'autorizzazione per accedere ai file di archiviazione sottostanti. L'amministratore di archiviazione deve consentire all'entità di Azure AD di leggere/scrivere file o generare una chiave di firma di accesso condiviso che verrà usata per accedere all'archiviazione.
+- **Livello di servizio SQL**: l'utente deve disporre dell'autorizzazione `SELECT` per leggere i dati da una [tabella esterna](develop-tables-external-tables.md) o dell'autorizzazione `ADMINISTER BULK ADMIN` per eseguire `OPENROWSET` oltre all'autorizzazione per l'uso delle credenziali per accedere all'archiviazione.
 
 Questo articolo descrive i tipi di credenziali che è possibile usare e il modo in cui viene eseguita la ricerca di credenziali per gli utenti di SQL e Azure AD.
 
@@ -33,7 +33,7 @@ Un utente connesso a un pool SQL serverless deve essere autorizzato ad accedere 
 
 ### <a name="user-identity"></a>[Identità utente](#tab/user-identity)
 
-L' **identità utente** , anche nota come "pass-through di Azure AD", è un tipo di autorizzazione per cui per autorizzare l'accesso ai dati viene usata l'identità dell'utente di Azure AD connesso al pool SQL serverless. Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve concedere le apposite autorizzazioni all'utente di Azure AD. Come indicato nella tabella seguente, il tipo di utente SQL non è supportato.
+L'**identità utente**, anche nota come "pass-through di Azure AD", è un tipo di autorizzazione per cui per autorizzare l'accesso ai dati viene usata l'identità dell'utente di Azure AD connesso al pool SQL serverless. Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve concedere le apposite autorizzazioni all'utente di Azure AD. Come indicato nella tabella seguente, il tipo di utente SQL non è supportato.
 
 > [!IMPORTANT]
 > Per accedere ai dati con l'identità utente, è necessario avere il ruolo di proprietario/collaboratore/lettore dei dati dei BLOB di archiviazione.
@@ -44,7 +44,7 @@ L' **identità utente** , anche nota come "pass-through di Azure AD", è un tipo
 
 ### <a name="shared-access-signature"></a>[Firma di accesso condiviso](#tab/shared-access-signature)
 
-**Firma di accesso condiviso** : fornisce accesso delegato alle risorse in un account di archiviazione. Con una firma di accesso condiviso è possibile concedere ai client l'accesso alle risorse in un account di archiviazione, senza condividere le chiavi dell'account. La firma di accesso condiviso offre un controllo granulare sul tipo di accesso concesso ai client a cui viene assegnata, tra cui intervallo di validità, autorizzazioni concesse, intervallo di indirizzi IP accettabile e protocollo accettabile (HTTPS/HTTP).
+**Firma di accesso condiviso**: fornisce accesso delegato alle risorse in un account di archiviazione. Con una firma di accesso condiviso è possibile concedere ai client l'accesso alle risorse in un account di archiviazione, senza condividere le chiavi dell'account. La firma di accesso condiviso offre un controllo granulare sul tipo di accesso concesso ai client a cui viene assegnata, tra cui intervallo di validità, autorizzazioni concesse, intervallo di indirizzi IP accettabile e protocollo accettabile (HTTPS/HTTP).
 
 Per ottenere un token di firma di accesso condiviso, passare a **Portale di Azure -> Account di archiviazione -> Firma di accesso condiviso -> Configurazione autorizzazioni -> Genera firma di accesso condiviso e stringa di connessione.**
 
@@ -57,7 +57,7 @@ Per abilitare l'accesso tramite il token di firma di accesso condiviso, è neces
 
 ### <a name="managed-identity"></a>[Identità gestita](#tab/managed-identity)
 
-**Identità gestita** : nota anche come MSI, è una funzionalità di Azure Active Directory (Azure AD) che fornisce i servizi di Azure per il pool SQL serverless. Inoltre, distribuisce un'identità automaticamente gestita in Azure AD. Questa identità può essere usata per autorizzare la richiesta di accesso ai dati in Archiviazione di Azure.
+**Identità gestita**: nota anche come MSI, è una funzionalità di Azure Active Directory (Azure AD) che fornisce i servizi di Azure per il pool SQL serverless. Inoltre, distribuisce un'identità automaticamente gestita in Azure AD. Questa identità può essere usata per autorizzare la richiesta di accesso ai dati in Archiviazione di Azure.
 
 Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve concedere le apposite autorizzazioni all'identità gestita. La concessione di autorizzazioni all'identità gestita viene eseguita allo stesso modo che per qualsiasi altro utente di Azure AD.
 
@@ -144,7 +144,7 @@ Gli utenti di SQL non possono usare l'autenticazione di Azure AD per accedere al
 
 Lo script seguente crea una credenziale a livello di server che può essere usata dalla funzione `OPENROWSET` per accedere a qualsiasi file in Archiviazione di Azure tramite il token di firma di accesso condiviso. Creare questa credenziale per abilitare l'entità SQL che esegue la funzione `OPENROWSET` alla lettura di file protetti con la chiave di firma di accesso condiviso in Archiviazione di Azure che corrisponde all'URL nel nome della credenziale.
 
-Sostituire < *mystorageaccountname* > con il nome dell'account di archiviazione effettivo e < *mystorageaccountcontainername* > con il nome del contenitore effettivo:
+Sostituire <*mystorageaccountname*> con il nome dell'account di archiviazione effettivo e <*mystorageaccountcontainername*> con il nome del contenitore effettivo:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

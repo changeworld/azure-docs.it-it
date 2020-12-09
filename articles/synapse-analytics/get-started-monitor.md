@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444404"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorare l'area di lavoro Synapse
 
@@ -47,6 +47,9 @@ Aprire Synapse Studio e passare all'hub **Monitoraggio**. Qui è possibile visua
 1. Selezionare un **pool** da monitorare. È ora possibile vedere tutte le richieste SQL che sono in esecuzione o sono state eseguite nell'area di lavoro in tale pool.
 1. Trovare una richiesta SQL specifica e passare il puntatore del mouse sulla voce corrispondente. Mentre si passa il mouse, viene visualizzata un'icona di script SQL.
 1. Fare clic sull'icona per visualizzare il testo completo della richiesta SQL.
+
+    > [!NOTE] 
+    > Le richieste SQL inviate tramite Synapse Studio in un pool SQL dedicato (in precedenza SQL Data Warehouse) abilitato per l'area di lavoro possono essere visualizzate nell'hub Monitoraggio. Per tutte le altre attività di monitoraggio, è possibile accedere alle funzionalità del pool SQL dedicato (in precedenza SQL Data Warehouse) nel portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
