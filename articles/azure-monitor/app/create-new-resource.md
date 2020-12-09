@@ -3,16 +3,16 @@ title: Creare una nuova risorsa di Azure Application Insights | Microsoft Docs
 description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323129"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906370"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
-Applicazione Azure Insights Visualizza i dati relativi all'applicazione in una *risorsa*di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. Dopo aver creato la nuova risorsa, è possibile ottenere la relativa chiave di strumentazione e usarla per configurare il Application Insights SDK. La chiave di strumentazione collega i dati di telemetria alla risorsa.
+Applicazione Azure Insights Visualizza i dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. Dopo aver creato la nuova risorsa, è possibile ottenere la relativa chiave di strumentazione e usarla per configurare il Application Insights SDK. La chiave di strumentazione collega i dati di telemetria alla risorsa.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Accedi per Microsoft Azure
 
@@ -44,7 +44,8 @@ Quando l'app è stata creata, viene aperto un nuovo riquadro. In questo riquadro
 
 La chiave di strumentazione identifica la risorsa a cui si vuole associare i dati di telemetria. Sarà necessario copiare la chiave di strumentazione e aggiungerla al codice dell'applicazione.
 
-![Fare clic e copiare la chiave di strumentazione](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> Le nuove aree di Azure **richiedono** l'uso di stringhe di connessione anziché di chiavi di strumentazione. La [stringa di connessione](./sdk-connection-string.md?tabs=net) identifica la risorsa a cui si vuole associare i dati di telemetria. Consente inoltre di modificare gli endpoint che la risorsa userà come destinazione per la telemetria. Sarà necessario copiare la stringa di connessione e aggiungerla al codice dell'applicazione o a una variabile di ambiente.
 
 ## <a name="install-the-sdk-in-your-app"></a>Installare l’SDK nell'app
 

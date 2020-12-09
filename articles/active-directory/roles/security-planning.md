@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834456"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861987"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -93,7 +93,7 @@ Dopo l'attivazione di Azure AD Privileged Identity Management, visualizzare gli 
 * Amministratori di Exchange
 * Amministratore di SharePoint
 
-Se non si ha Azure AD Privileged Identity Management nell'organizzazione, è possibile usare l'[API PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Iniziare con il ruolo Amministratore globale perché un amministratore globale ha le stesse autorizzazioni per tutti i servizi cloud sottoscritti dall'organizzazione. Queste autorizzazioni vengono concesse indipendentemente dal modo in cui sono state assegnate: nell'interfaccia di amministrazione di Microsoft 365, nel portale di Azure o con il modulo Azure AD per Microsoft PowerShell.
+Se non si ha Azure AD Privileged Identity Management nell'organizzazione, è possibile usare l'[API PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Iniziare con il ruolo Amministratore globale perché un amministratore globale ha le stesse autorizzazioni per tutti i servizi cloud sottoscritti dall'organizzazione. Queste autorizzazioni vengono concesse indipendentemente dal modo in cui sono state assegnate: nell'interfaccia di amministrazione di Microsoft 365, nel portale di Azure o con il modulo Azure AD per Microsoft PowerShell.
 
 Rimuovere tutti gli account non più necessari in questi ruoli. Classificare quindi gli account rimanenti assegnati ai ruoli di amministratore:
 

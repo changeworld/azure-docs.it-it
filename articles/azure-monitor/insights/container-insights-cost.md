@@ -3,14 +3,14 @@ title: Costi di monitoraggio per il monitoraggio di Azure per i contenitori | Mi
 description: Questo articolo descrive il costo di monitoraggio per le metriche & i dati di inventario raccolti da monitoraggio di Azure per i contenitori per consentire ai clienti di gestire l'utilizzo e i costi associati.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204651"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903224"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informazioni sui costi di monitoraggio per il monitoraggio di Azure per i contenitori
+# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informazioni sui costi di monitoraggio dei contenitori per Monitoraggio di Azure
 
 Questo articolo fornisce indicazioni sui prezzi di monitoraggio di Azure per i contenitori che consentono di comprendere quanto segue:
 
@@ -110,7 +110,7 @@ Se è stato abilitato il monitoraggio di un cluster AKS configurato come segue,
 
 È possibile visualizzare le tabelle e il volume dei dati generati all'ora nell'area di lavoro Log Analytics assegnata. Per ulteriori informazioni su ognuna di queste tabelle, vedere [record di contenitori](container-insights-log-search.md#container-records).
 
-|Tabella | Dimensioni stimate (MB/ora) |
+|Table | Dimensioni stimate (MB/ora) |
 |------|---------------|
 |Perf | 12,9 |
 |InsightsMetrics | 11.3 |
@@ -127,19 +127,21 @@ Usando i [prezzi](https://azure.microsoft.com/pricing/details/monitor/) predefin
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Controllo dell'inserimento per ridurre i costi
 
-Si consideri uno scenario in cui le diverse unità aziendali dell'organizzazione condividono l'infrastruttura Kubernetes e un'area di lavoro Log Analytics. Ogni business unit è separato da uno spazio dei nomi Kubernetes. È possibile visualizzare la quantità di dati da inserire in ogni area di lavoro utilizzando una cartella di lavoro rilasciata di recente. La cartella di lavoro di **utilizzo di container Insights** , disponibile nella [raccolta di cartelle di lavoro](../platform/workbooks-overview.md#getting-started), consente di visualizzare l'origine dei dati senza dover creare una libreria di query personalizzata da quanto condiviso nella documentazione. In questa cartella di lavoro sono disponibili grafici con i quali è possibile visualizzare i dati fatturabili da tali prospettive come:
+Si consideri uno scenario in cui le diverse unità aziendali dell'organizzazione condividono l'infrastruttura Kubernetes e un'area di lavoro Log Analytics. Ogni business unit è separato da uno spazio dei nomi Kubernetes. È possibile visualizzare la quantità di dati inseriti in ogni area di lavoro usando il Runbook di **utilizzo dei dati** disponibile nell'elenco a discesa **Visualizza cartelle di lavoro** .
+
+[![Visualizza elenco a discesa cartelle di lavoro](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Questa cartella di lavoro consente di visualizzare l'origine dei dati senza dover creare una propria libreria di query da ciò che si condivide nella documentazione. In questa cartella di lavoro sono disponibili grafici con i quali è possibile visualizzare i dati fatturabili da tali prospettive come:
 
 - Totale dei dati fatturabili inseriti in GB per soluzione
-
 - Dati fatturabili inseriti da log del contenitore (registri applicazioni)
-
 - Contenitori fatturabili i dati inseriti in base allo spazio dei nomi Kubernetes
-
 - Dati dei log del contenitore fatturabili inseriti isolati dal nome del cluster
-
 - Dati del log del contenitore fatturabili inseriti dalla voce LogSource
-
 - Dati di diagnostica fatturabili inseriti da log del nodo master di diagnostica
+
+[![Cartella di lavoro utilizzo dati](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Per informazioni sulla gestione dei diritti e delle autorizzazioni per la cartella di lavoro, vedere [controllo di accesso](../platform/workbooks-access-control.md).
 

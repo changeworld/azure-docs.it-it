@@ -6,27 +6,31 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/04/2020
-ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.date: 12/08/2020
+ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621621"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904909"
 ---
-# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opzione di co-selling nel Marketplace commerciale
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opzione di co-selling nel marketplace commerciale
 
 Fornire informazioni sul **co-selling con** la scheda Microsoft è interamente facoltativo. È necessario per ottenere [lo stato di incentivate di co-selling pronto e IP co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sull'offerta durante la valutazione dell'idoneità per le esigenze dei clienti. Non saranno direttamente disponibile ai clienti. Per ulteriori informazioni, vedere la pagina relativa alla [co-selling con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-L'opzione di co-selling nel centro per i partner è attualmente disponibile nei seguenti tipi di offerta.
+L'opzione di co-selling in Partner Center è disponibile per i tipi di offerta seguenti.
 
 - Applicazione di Azure
+- Contenitore di Azure
+- Macchina virtuale di Azure
+- Servizio di consulenza
 - Dynamics 365 per Customer Engagement & PowerApps
-- Dynamics 365 for Operations
-- Dynamics 365 Business Central
+- Dynamics 365 per le operazioni
+- Dynamics 365 business Central
+- Modulo IoT Edge
+- Servizio gestito
+- App Power BI
 - Software as a Service (SaaS)
-
-Il supporto per i tipi di offerta aggiuntivi sarà reso disponibile nel corso del tempo.
 
 ## <a name="listing"></a>Elenco
 

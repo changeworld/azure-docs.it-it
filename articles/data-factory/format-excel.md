@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: b1f95cf0a62aa68fe86f37cea137251553458a1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348875"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902035"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,8 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La proprietà Type del set di dati deve essere impostata su **Excel**.   | Sì      |
 | posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location` . | Sì      |
-| Nomefoglio        | Nome del foglio di lavoro di Excel per la lettura dei dati.                       | Sì      |
+| Nomefoglio        | Nome del foglio di lavoro di Excel per la lettura dei dati.                       | Specificare `sheetName` o `sheetIndex` |
+| sheetIndex | Indice del foglio di lavoro di Excel per la lettura dei dati, a partire da 0. | Specificare `sheetName` o `sheetIndex` |
 | range            | Intervallo di celle del foglio di dati specificato per individuare i dati selettivi, ad esempio:<br>-Non specificato: legge l'intero foglio di foglio come tabella dalla prima riga e colonna non vuota<br>- `A3`: legge una tabella a partire dalla cella specificata, rileva in modo dinamico tutte le righe sottostanti e tutte le colonne a destra<br>- `A3:H5`: legge questo intervallo fisso come tabella<br>- `A3:A3`: legge questa singola cella | No       |
 | firstRowAsHeader | Specifica se trattare la prima riga del foglio di dati o dell'intervallo specificato come riga di intestazione con i nomi delle colonne.<br>I valori consentiti sono **true** e **false** (impostazione predefinita). | No       |
 | nullValue        | Specifica la rappresentazione di stringa del valore null. <br>Il valore predefinito è una **stringa vuota**. | No       |
@@ -108,7 +109,7 @@ In mapping dei flussi di dati è possibile leggere il formato Excel negli archiv
 
 La tabella seguente elenca le proprietà supportate da un'origine Excel. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Nome                      | Descrizione                                                  | Obbligatorio | Valori consentiti                                            | Proprietà script flusso di dati         |
+| Nome                      | Description                                                  | Obbligatoria | Valori consentiti                                            | Proprietà script flusso di dati         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Percorsi Wild Card           | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No       | String[]                                                  | wildcardPaths                     |
 | Partition Root Path (Percorso radice partizione)       | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No       | string                                                    | partitionRootPath                 |

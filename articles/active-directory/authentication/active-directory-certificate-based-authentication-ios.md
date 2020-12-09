@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffddac13009b84aa8253955d265f11aefe2ce5dd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f9b96fe9ee0781803bbbd86316e8783b60a6f1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744415"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861324"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
 
@@ -75,7 +75,7 @@ Per ulteriori informazioni, vedere [personalizzazione della pagina di accesso ad
 
 Alcune app di Office con autenticazione moderna abilitate inviano `prompt=login` a Azure ad nella richiesta. Per impostazione predefinita, Azure AD converte `prompt=login` la richiesta in ADFS come `wauth=usernamepassworduri` (chiede ad ADFS di eseguire l'autenticazione U/P) e `wfresh=0` (chiede ad ADFS di ignorare lo stato SSO ed eseguire una nuova autenticazione). Per abilitare l'autenticazione basata su certificati per queste app, modificare il comportamento predefinito del Azure AD.
 
-Per aggiornare il comportamento predefinito, impostare '*PromptLoginBehavior*' nelle impostazioni del dominio federato su *disabled*. Per eseguire questa attività, è possibile usare il cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) , come illustrato nell'esempio seguente:
+Per aggiornare il comportamento predefinito, impostare '*PromptLoginBehavior*' nelle impostazioni del dominio federato su *disabled*. Per eseguire questa attività, è possibile usare il cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) , come illustrato nell'esempio seguente:
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled

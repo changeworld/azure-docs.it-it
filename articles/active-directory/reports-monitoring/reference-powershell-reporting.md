@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123133"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862038"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlet di Azure AD PowerShell per la creazione di report
 
@@ -36,7 +36,7 @@ Per installare la versione di anteprima pubblica, usare il codice seguente.
 Install-module AzureADPreview
 ```
 
-Per altre informazioni su come connettersi a Azure AD tramite PowerShell, vedere l'articolo [Azure ad PowerShell per Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Per altre informazioni su come connettersi a Azure AD tramite PowerShell, vedere l'articolo [Azure ad PowerShell per Graph](/powershell/azure/active-directory/install-adv2).  
 
 Con Azure Active Directory (Azure AD) report è possibile ottenere informazioni dettagliate sulle attività relative a tutte le operazioni di scrittura nella direzione (log di controllo) e i dati di autenticazione (log di accesso). Sebbene le informazioni siano disponibili tramite il API Graph MS, ora è possibile recuperare gli stessi dati utilizzando i cmdlet di Azure AD PowerShell per la creazione di report.
 
@@ -54,7 +54,7 @@ Per ottenere l'accesso ai log di controllo, usare il cmdlet "Get-AzureADAuditDir
 | Nome visualizzato dell'applicazione      | Get-AzureADAuditDirectoryLogs-filtrare "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "" |
 | Category                      | Filtro Get-AzureADAuditDirectoryLogs "Category EQ ' ApplicationManagement '" |
 | Data/ora attività            | Filtro Get-AzureADAuditDirectoryLogs "activityDateTime gt 2019-04-18" |
-| Tutte le risposte precedenti              | Get-AzureADAuditDirectoryLogs-filtrare "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "e Category EQ" ApplicationManagement "e activityDateTime gt 2019-04-18"|
+| Tutte le precedenti              | Get-AzureADAuditDirectoryLogs-filtrare "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "e Category EQ" ApplicationManagement "e activityDateTime gt 2019-04-18"|
 
 
 Nell'immagine seguente viene illustrato un esempio di questo comando. 
@@ -76,7 +76,7 @@ Per ottenere l'accesso ai log di accesso, usare il cmdlet ' Get-AzureADAuditSign
 | Data/ora di creazione              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (tutto dalle 5:30 PM su 4/18) |
 | Stato                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
 | Nome visualizzato dell'applicazione      | Filtro Get-AzureADAuditSignInLogs "appDisplayName EQ" StoreFrontStudio [WSFED Enabled] "" |
-| Tutte le risposte precedenti              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ ' Timothy Perkins ' and status/errorCode ne 0 and appDisplayName EQ ' StoreFrontStudio [WSFED Enabled]'" |
+| Tutte le precedenti              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ ' Timothy Perkins ' and status/errorCode ne 0 and appDisplayName EQ ' StoreFrontStudio [WSFED Enabled]'" |
 
 
 Nell'immagine seguente viene illustrato un esempio di questo comando. 

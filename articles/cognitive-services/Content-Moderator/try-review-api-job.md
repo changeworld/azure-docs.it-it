@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72935962"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905171"
 ---
-# <a name="define-and-use-moderation-jobs-rest"></a>Definire e usare processi di moderazione (REST)
+# <a name="define-and-use-moderation-jobs-api-console"></a>Definire e usare i processi di moderazione (console API)
 
 Un processo di moderazione funge da wrapper per la funzionalità di moderazione del contenuto, flussi di lavoro e revisioni. Questa guida illustra come usare le API REST del processo per avviare e controllare i processi di moderazione del contenuto. Dopo aver compreso la struttura delle API, è possibile eseguire facilmente il porting di queste chiamate a qualsiasi piattaforma compatibile con REST.
 
@@ -28,7 +28,7 @@ Un processo di moderazione funge da wrapper per la funzionalità di moderazione 
 
 ## <a name="create-a-job"></a>Creare un processo
 
-Per creare un processo di moderazione, passare alla pagina di riferimento per l'API [Crea processo](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) e selezionare il pulsante per l'area di sottoscrizione (è possibile trovarlo nell'URL dell'endpoint nella pagina **credenziali** dello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)). Viene avviata la console API, in cui è possibile creare ed eseguire facilmente chiamate API REST.
+Per creare un processo di moderazione, passare alla pagina di riferimento per l'API [Crea processo](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) e selezionare il pulsante per l'area di sottoscrizione. È possibile trovare la propria area nell'URL dell'endpoint nella pagina **credenziali** dello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). Viene avviata la console API, in cui è possibile creare ed eseguire facilmente chiamate API REST.
 
 ![Selezione dell'area nella pagina di creazione del processo](images/test-drive-job-1.png)
 
@@ -41,11 +41,11 @@ Immettere i valori seguenti per costruire la chiamata REST:
 - **ContentID**: stringa di identificazione personalizzata. Questa stringa viene trasmessa all'API e restituita tramite il callback. È utile per associare identificatori o metadati interni ai risultati di un processo di moderazione.
 - **WorkflowName**: nome del flusso di lavoro creato in precedenza (o "predefinito" per il flusso di lavoro predefinito).
 - **CallbackEndpoint**: (facoltativo) URL per la ricezione delle informazioni di callback al completamento della verifica.
-- **OCP-gestione API-Subscription-Key**: chiave di content moderator. È possibile trovarlo nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
+- **OCP-gestione API-Subscription-Key**: chiave di content moderator. È possibile trovare questa chiave nella scheda **Impostazioni** dello strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com).
 
 ### <a name="fill-in-the-request-body"></a>Compilare il corpo della richiesta
 
-Il corpo della chiamata REST contiene un campo, **ContentValue**. Incollare il contenuto di testo non elaborato se si sta moderando il testo oppure immettere un'immagine o un URL video se si sta moderando l'immagine o il video. È possibile usare l'URL dell'immagine di esempio seguente: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+Il corpo della chiamata REST contiene un campo, **ContentValue**. Incollare il contenuto di testo non elaborato se si sta moderando il testo oppure immettere un'immagine o un URL video se si sta moderando un'immagine o un video. È possibile usare l'URL dell'immagine di esempio seguente: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Parametri di query, intestazioni e casella Corpo della richiesta della console di creazione del processo](images/job-api-console-inputs.PNG)
 
@@ -115,7 +115,7 @@ Immettere i parametri di chiamata REST come nella sezione precedente. Per questo
 
 ### <a name="examine-the-new-reviews"></a>Esaminare le nuove verifiche
 
-Se il processo di contenuto ha comportato la creazione di una revisione, è possibile visualizzarla nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). Selezionare **Verifica**  >  **Image** / **Text** / il**video** del testo dell'immagine (a seconda del contenuto usato). Il contenuto dovrebbe essere visualizzato, pronto per la revisione umana. Quando un moderatore umano esamina i tag e i dati di stima assegnati automaticamente e invia una decisione di moderazione finale, l'API Jobs Invia tutte queste informazioni all'endpoint dell'endpoint di callback designato.
+Se il processo di contenuto ha comportato la creazione di una revisione, è possibile visualizzarla nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). Selezionare **Verifica**  >  **Image** / **Text** / il **video** del testo dell'immagine (a seconda del contenuto usato). Il contenuto dovrebbe essere visualizzato, pronto per la revisione umana. Quando un moderatore umano esamina i tag e i dati di stima assegnati automaticamente e invia una decisione di moderazione finale, l'API Jobs Invia tutte queste informazioni all'endpoint di callback designato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Conformità e procedure consigliate per la produzione-Azure
 description: Questo articolo fornisce indicazioni su come configurare e distribuire l'analisi video in tempo reale sul modulo IoT Edge in ambienti di produzione.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071933"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906336"
 ---
 # <a name="production-readiness-and-best-practices"></a>Idoneità e procedure consigliate per la produzione
 
@@ -62,7 +62,7 @@ Successivamente, nel manifesto di distribuzione è possibile impostare le variab
 
 Il modulo di analisi video live in IoT Edge richiede la possibilità di scrivere file nel file system locale quando:
 
-* Usare una proprietà del modulo gemello [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], in cui è necessario specificare una directory nella file system locale per archiviare i dati di configurazione.
+* Usando una proprietà del modulo gemello [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) , in cui è necessario specificare una directory nella file system locale per archiviare i dati di configurazione.
 * Usando un grafico multimediale per registrare video nel cloud, il modulo richiede l'uso di una directory sul dispositivo perimetrale come cache. per ulteriori informazioni, vedere l'articolo relativo alla [registrazione video continua](continuous-video-recording-concept.md) .
 * [Registrazione in un file locale, in](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources)cui è necessario specificare un percorso di file per il video registrato.
 
@@ -124,7 +124,7 @@ Per gli asset generati dalla registrazione video basata su eventi, il modello di
 Se si eseguono più istanze dello stesso grafico, è possibile usare il nome della topologia del grafico e il nome dell'istanza per distinguerli. Ad esempio, è possibile impostare assetNamePattern sul sink di asset nel modo seguente:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 Per i clip video MP4 generati dalla registrazione video basati su eventi sul perimetro, il modello di denominazione consigliato deve includere DateTime e per più istanze dello stesso grafico è consigliabile usare le variabili di sistema GraphTopologyName e GraphInstanceName. Ad esempio, è possibile impostare filePathPattern sul sink di file come indicato di seguito: 

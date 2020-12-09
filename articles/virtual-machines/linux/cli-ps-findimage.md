@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56d2aa9f7aa36808774876ac0f5cfc596887ff26
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374083"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906387"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
 
@@ -22,6 +22,45 @@ Sfogliare poi le immagini e le offerte disponibili usando la vetrina di [Azure M
 Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e di avere effettuato l'accesso a un account di Azure (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+
+
+## <a name="deploy-from-a-vhd-using-purchase-plan-parameters"></a>Eseguire la distribuzione da un VHD usando i parametri del piano di acquisto
+
+Se si dispone di un disco rigido virtuale esistente creato con un'immagine di Azure Marketplace a pagamento, potrebbe essere necessario fornire le informazioni sul piano di acquisto quando si crea una nuova macchina virtuale da tale disco rigido virtuale. 
+
+Se è ancora presente la macchina virtuale originale o un'altra macchina virtuale creata usando la stessa immagine del Marketplace, è possibile ottenere il nome del piano, l'editore e le informazioni sul prodotto usando il comando [AZ VM Get-instance-View](/cli/azure/vm#az_vm_get_instance_view). Questo esempio Mostra come ottenere una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup* e quindi visualizzare le informazioni sul piano di acquisto.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+Se non sono state rilevate informazioni sul piano prima dell'eliminazione della macchina virtuale originale, è possibile archiviare una [richiesta di supporto](https://ms.portal.azure.com/#create/Microsoft.Support). Saranno necessari il nome della macchina virtuale, l'ID sottoscrizione e il timestamp dell'operazione di eliminazione.
+
+Dopo aver ottenuto le informazioni sul piano, è possibile creare la nuova macchina virtuale usando il `--attach-os-disk` parametro per specificare il disco rigido virtuale.
+
+```azurecli-interactive
+az vm create \
+   --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
+## <a name="deploy-a-new-vm-using-purchase-plan-parameters"></a>Distribuire una nuova VM usando i parametri del piano di acquisto
+
+Se si dispone già di informazioni sull'immagine, è possibile distribuirla utilizzando il `az vm create` comando. In questo esempio viene distribuita una VM con l'immagine RabbitMQ Certified by BitNami:
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+```
+
+Se viene visualizzato un messaggio relativo all'accettazione delle condizioni dell'immagine, vedere la sezione [accettare i termini](#accept-the-terms) più avanti in questo articolo.
 
 ## <a name="list-popular-images"></a>Elencare immagini popolari
 
@@ -325,7 +364,7 @@ Output:
 }
 ```
 
-### <a name="accept-the-terms"></a>Accettare le condizioni
+## <a name="accept-the-terms"></a>Accettare le condizioni
 
 Per visualizzare e accettare le condizioni di licenza, usare il comando [az vm image accept-terms](/cli/azure/vm/image?). Quando si accettano le condizioni, si abilita la distribuzione a livello di codice nella sottoscrizione. È sufficiente accettare le condizioni per l'immagine una sola volta per ogni sottoscrizione. Ad esempio:
 
@@ -350,16 +389,6 @@ L'output include un `licenseTextLink` alle condizioni di licenza e indica che il
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
-```
-
-### <a name="deploy-using-purchase-plan-parameters"></a>Distribuire usando i parametri di piano di acquisto
-
-Dopo aver accettato le condizioni per l'immagine, è possibile distribuire una macchina virtuale nella sottoscrizione. Per distribuire l'immagine usando il comando `az vm create`, fornire i parametri per il piano di acquisto oltre a un URN per l'immagine. Ad esempio, per distribuire una macchina virtuale con l'immagine RabbitMQ certificata da Bitnami:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

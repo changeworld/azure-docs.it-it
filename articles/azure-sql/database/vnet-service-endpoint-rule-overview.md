@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450241"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905877"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -95,7 +95,7 @@ Quando si usano gli endpoint del servizio per il Database SQL di Azure, rivedere
 ### <a name="expressroute"></a>ExpressRoute
 
 Se si usa [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati vengono forniti dal cliente o dal provider del servizio. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+
 Per consentire la comunicazione tra il circuito e il database SQL di Azure, è necessario creare regole di rete IP per gli indirizzi IP pubblici di NAT.
 
 <!--
@@ -122,7 +122,7 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
 
 #### <a name="steps"></a>Passaggi
 
-1. In PowerShell **registrare il server** che ospita la sinapsi di Azure con Azure Active Directory (AAD):
+1. Se si dispone di un pool SQL dedicato autonomo, registrare SQL Server con Azure Active Directory (AAD) usando PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -130,6 +130,14 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
+   Questo passaggio non è necessario per i pool SQL dedicati in un'area di lavoro sinapsi.
+
+1. Se si dispone di un'area di lavoro sinapsi, registrare l'identità gestita dal sistema dell'area di lavoro:
+
+   1. Passare all'area di lavoro sinapsi nell'portale di Azure
+   2. Vai al pannello identità gestite 
+   3. Verificare che l'opzione "Consenti pipeline" sia abilitata
+   
 1. Creare **un account di archiviazione per utilizzo generico v2** usando questa [guida](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
@@ -137,7 +145,7 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
    > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](../../storage/common/storage-account-upgrade.md).
    > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare un ruolo di Azure di **collaboratore ai dati BLOB di archiviazione** al server che ospita l'analisi di sinapsi di Azure registrata con Azure Active Directory (AAD) come nel passaggio #1.
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare al server o all'area di lavoro che ospita il pool SQL dedicato i **dati BLOB di archiviazione** che sono stati registrati con Azure Active Directory (AAD).
 
    > [!NOTE]
    > Solo i membri con privilegi di proprietario per l'account di archiviazione possono eseguire questo passaggio. Per informazioni sui diversi ruoli predefiniti di Azure, vedere questa [guida](../../role-based-access-control/built-in-roles.md).

@@ -3,17 +3,17 @@ title: Scegliere il piano tariffario adatto per Microsoft Azure Maps
 description: Informazioni sui piani tariffari di Azure maps. Vedere quali funzionalità sono disponibili in base ai livelli e visualizzare le considerazioni principali per la scelta di un piano tariffario.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cb57e424642141e73588a61d026d1ff2f1a8b096
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003685"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905299"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Scegliere il piano tariffario corretto in Mappe di Azure
 
@@ -33,7 +33,7 @@ Se le API geospaziali principali soddisfano i requisiti del servizio, scegliere 
 |-----------------------------------------|:-------------------:|:--------:|
 | Rendering mappa                              | ✓                   | ✓       |
 | Immagini satellite                       |                     | ✓        |
-| Cerca                                  | ✓                    | ✓        |
+| Ricerca                                  | ✓                    | ✓        |
 | Ricerca batch                            |                     | ✓        |
 | Route                                   | ✓                    |✓        |
 | Routing batch                            |                    | ✓        |
@@ -48,6 +48,7 @@ Se le API geospaziali principali soddisfano i requisiti del servizio, scegliere 
 | Mobilità (anteprima)                       |                     | ✓        |
 | Meteo (anteprima)                        |✓                    |✓        |
 |  Creatore (anteprima)                         |                   |✓        |
+|  Elevazione (anteprima)                        |                   |✓        |
 
 Prendere in considerazione questi punti aggiuntivi:
 

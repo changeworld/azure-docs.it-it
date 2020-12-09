@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c208da657d30d4a0f5b6f171693c5c6abc2b358b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0671d3dec963c0b475133881b00224cfe11e8370
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649180"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861645"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory
 
@@ -39,7 +39,7 @@ ms.locfileid: "94649180"
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Usare Azure AD PowerShell per disabilitare un'app non in elenco
 
-Se si conosce l'AppId di un'app che non viene visualizzata nell'elenco delle app aziendali (ad esempio, perché l'app è stata eliminata o l'entità servizio non è ancora stata creata perché l'app è già stata autorizzata da Microsoft), è possibile creare manualmente l'entità servizio per l'app e quindi disabilitarla usando il [cmdlet AzureAD di PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Se si conosce l'AppId di un'app che non viene visualizzata nell'elenco delle app aziendali (ad esempio, perché l'app è stata eliminata o l'entità servizio non è ancora stata creata perché l'app è già stata autorizzata da Microsoft), è possibile creare manualmente l'entità servizio per l'app e quindi disabilitarla usando il [cmdlet AzureAD di PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal).
 
 ```PowerShell
 # The AppId of the app to be disabled

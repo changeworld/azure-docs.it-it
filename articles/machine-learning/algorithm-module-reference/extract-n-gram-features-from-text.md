@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420802"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861461"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informazioni di riferimento sul modulo di testo per estrarre le funzionalità di N-Gram
 
@@ -28,7 +28,7 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 * [Usare un set di funzionalità di testo esistente](#use-an-existing-n-gram-dictionary) per trasforma una colonna di testo disponibile.
 
-* Assegnare [un punteggio o pubblicare un modello](#score-or-publish-a-model-that-uses-n-grams) che usa n-grammi.
+* [Assegnare un punteggio o distribuire un modello](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) che usa n-grammi.
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Crea un nuovo dizionario n-Gram
 
@@ -44,15 +44,15 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 1. La **funzione di ponderazione** specifica come compilare il vettore della funzionalità del documento e come estrarre il vocabolario dai documenti.
 
-    * **Peso binario** : assegna un valore di presenza binario ai n-grammi estratti. Il valore per ogni n-grammo è 1 quando esiste nel documento e 0 in caso contrario.
+    * **Peso binario**: assegna un valore di presenza binario ai n-grammi estratti. Il valore per ogni n-grammo è 1 quando esiste nel documento e 0 in caso contrario.
 
-    * **Tf Weight** : assegna un punteggio di frequenza del termine (TF) ai n-grammi estratti. Il valore per ogni n-grammo è la frequenza di occorrenza nel documento.
+    * **Tf Weight**: assegna un punteggio di frequenza del termine (TF) ai n-grammi estratti. Il valore per ogni n-grammo è la frequenza di occorrenza nel documento.
 
-    * **IDF Weight** : assegna un punteggio IDF (inverso Document Frequency) ai n-grammi estratti. Il valore per ogni n-grammo è il log della dimensione del Corpus diviso per la relativa frequenza di occorrenza nell'intero corpus.
+    * **IDF Weight**: assegna un punteggio IDF (inverso Document Frequency) ai n-grammi estratti. Il valore per ogni n-grammo è il log della dimensione del Corpus diviso per la relativa frequenza di occorrenza nell'intero corpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **Tf-IDF Weight** : assegna un punteggio di frequenza/inversione di frequenza del documento (TF/IDF) ai n-grammi estratti. Il valore per ogni n-grammo è il Punteggio di TF moltiplicato per il Punteggio IDF.
+    *  **Tf-IDF Weight**: assegna un punteggio di frequenza/inversione di frequenza del documento (TF/IDF) ai n-grammi estratti. Il valore per ogni n-grammo è il Punteggio di TF moltiplicato per il Punteggio IDF.
 
 1. Impostare la **lunghezza minima della parola** sul numero minimo di lettere che possono essere usate in una *singola parola* in un n-grammo.
 
@@ -83,7 +83,7 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 1. Aggiungere il set di dati salvato che contiene un dizionario n-Gram generato in precedenza e connetterlo alla porta del **vocabolario di input** . È anche possibile connettere l'output del **vocabolario dei risultati** di un'istanza upstream del modulo Extract N-Gram features from text.
 
-1. Per la **modalità vocabolario** , selezionare l'opzione di aggiornamento **ReadOnly** dall'elenco a discesa.
+1. Per la **modalità vocabolario**, selezionare l'opzione di aggiornamento **ReadOnly** dall'elenco a discesa.
 
    L'opzione **ReadOnly** rappresenta il corpo di input per il vocabolario di input. Invece di calcolare le frequenze dei termini dal nuovo set di dati di testo (sull'input di sinistra), i pesi n-grammi dal vocabolario di input vengono applicati così come sono.
 
@@ -94,36 +94,42 @@ Il modulo supporta i seguenti scenari per l'uso di un dizionario n-Gram:
 
 1.  Inviare la pipeline.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Assegnare un punteggio o pubblicare un modello che usa n-grammi
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>Pipeline di inferenza di compilazione che usa n-grammi per distribuire un endpoint in tempo reale
 
-1.  Copiare il modulo **Extract N-Gram features from text** dal flusso dei flussi di training al flusso di calcolo di assegnazione dei punteggi.
+Una pipeline di training che contiene la **funzionalità Estrai N-grammi dal testo** e il **modello di Punteggio** per eseguire la stima nel set di dati di test, è incorporata nella struttura seguente:
 
-1.  Connettere l'output del **vocabolario dei risultati** dal flusso di dati di training al **vocabolario di input** nel flusso di dati di assegnazione dei punteggi.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Esempio di estrazione della pipeline di training di N-grammi" border="true":::
 
-1.  Nel flusso di lavoro di assegnazione dei punteggi modificare il modulo Extract N-Gram features from text e impostare il parametro della **modalità vocabolario** su **ReadOnly**. Lasciare invariati gli altri.
+La **modalità vocabolario** della **funzionalità Estrai N-grammi con cerchio dal** modulo di testo è **create** e la **modalità vocabolario** del modulo che si connette al modulo **Score Model** è **ReadOnly**.
 
-1.  Per pubblicare la pipeline, salvare il **vocabolario dei risultati** come un set di dati.
+Dopo aver inviato correttamente la pipeline di training, è possibile registrare l'output del modulo Circled come set di dati.
 
-1.  Connettere il set di dati salvato al modulo Extract N-Gram features from text nel grafico di assegnazione dei punteggi.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="Registra set di dati" border="true":::
+
+È quindi possibile creare una pipeline di inferenza in tempo reale. Dopo aver creato la pipeline di inferenza, è necessario modificare manualmente la pipeline di inferenza come segue:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="pipeline di inferenza" border="true":::
+
+Inviare quindi la pipeline di inferenza e distribuire un endpoint in tempo reale.
 
 ## <a name="results"></a>Risultati
 
 Il modulo Extract N-Gram features from text consente di creare due tipi di output: 
 
-* **Set di dati dei risultati** : questo output è un riepilogo del testo analizzato combinato con i n-grammi estratti. Le colonne non selezionate nell'opzione **colonna di testo** vengono passate all'output. Per ogni colonna di testo analizzata, il modulo genera le colonne seguenti:
+* **Set di dati dei risultati**: questo output è un riepilogo del testo analizzato combinato con i n-grammi estratti. Le colonne non selezionate nell'opzione **colonna di testo** vengono passate all'output. Per ogni colonna di testo analizzata, il modulo genera le colonne seguenti:
 
-  * **Matrice di occorrenze n-Gram** : il modulo genera una colonna per ogni n-grammo trovato nel corpus totale e aggiunge un punteggio in ogni colonna per indicare lo spessore dell'n-grammo per la riga. 
+  * **Matrice di occorrenze n-Gram**: il modulo genera una colonna per ogni n-grammo trovato nel corpus totale e aggiunge un punteggio in ogni colonna per indicare lo spessore dell'n-grammo per la riga. 
 
-* **Vocabolario dei risultati** : il vocabolario contiene il dizionario di n-grammi effettivo, insieme al termine punteggi di frequenza generati come parte dell'analisi. È possibile salvare il set di dati per il riutilizzo con un diverso set di input o per un aggiornamento successivo. È anche possibile riutilizzare il vocabolario per la modellazione e l'assegnazione dei punteggi.
+* **Vocabolario dei risultati**: il vocabolario contiene il dizionario di n-grammi effettivo, insieme al termine punteggi di frequenza generati come parte dell'analisi. È possibile salvare il set di dati per il riutilizzo con un diverso set di input o per un aggiornamento successivo. È anche possibile riutilizzare il vocabolario per la modellazione e l'assegnazione dei punteggi.
 
 ### <a name="result-vocabulary"></a>Vocabolario risultati
 
 Il vocabolario contiene il dizionario n-Gram con i punteggi di frequenza dei termini generati come parte dell'analisi. I punteggi DF e IDF vengono generati indipendentemente dalle altre opzioni.
 
-+ **ID** : identificatore generato per ogni n-grammo univoco.
-+ **NGram** : n-gramma. Spazi o altri separatori di parola vengono sostituiti dal carattere di sottolineatura.
-+ **DF** : il termine Punteggio di frequenza per l'n-grammo nel corpus originale.
-+ **IDF** : Punteggio di frequenza del documento inverso per l'n-grammo nel corpus originale.
++ **ID**: identificatore generato per ogni n-grammo univoco.
++ **NGram**: n-gramma. Spazi o altri separatori di parola vengono sostituiti dal carattere di sottolineatura.
++ **DF**: il termine Punteggio di frequenza per l'n-grammo nel corpus originale.
++ **IDF**: Punteggio di frequenza del documento inverso per l'n-grammo nel corpus originale.
 
 È possibile aggiornare manualmente il set di dati, ma è possibile che si verifichino errori. Ad esempio:
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6db7037cbcad335db77784ecfa624f08e88b1e83
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744432"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861341"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -93,7 +93,7 @@ Lo schema per un'autorità di certificazione ha un aspetto simile al seguente:
     }
 ```
 
-Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
+Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](/powershell/azure/active-directory/install-adv2):
 
 1. Avviare Windows PowerShell con privilegi amministrativi.
 2. Installare il modulo Azure AD [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o versione successiva.
@@ -106,7 +106,7 @@ Il primo passaggio di configurazione consiste nello stabilire una connessione co
 
 ### <a name="connect"></a>Connessione
 
-Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
+Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread):
 
 ```azurepowershell
     Connect-AzureAD
@@ -114,7 +114,7 @@ Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](/
 
 ### <a name="retrieve"></a>Recupero
 
-Per recuperare le autorità di certificazione attendibili definite nella directory, usare il cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0).
+Per recuperare le autorità di certificazione attendibili definite nella directory, usare il cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority).
 
 ```azurepowershell
     Get-AzureADTrustedCertificateAuthority
@@ -122,7 +122,7 @@ Per recuperare le autorità di certificazione attendibili definite nella directo
 
 ### <a name="add"></a>Add
 
-Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e l'attributo **crlDistributionPoint** per un valore corretto:
+Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority) e l'attributo **crlDistributionPoint** per un valore corretto:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
@@ -135,7 +135,7 @@ Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-Azur
 
 ### <a name="remove"></a>Rimuovi
 
-Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
+Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority):
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -144,7 +144,7 @@ Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remov
 
 ### <a name="modify"></a>Modifica
 
-Per modificare un'autorità di certificazione attendibile, usare il cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
+Per modificare un'autorità di certificazione attendibile, usare il cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority):
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority

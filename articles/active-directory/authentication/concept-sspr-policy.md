@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 344fee9482cd935375d25fab80b1f365d72586f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743667"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861273"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Criteri password e limitazioni dell'account in Azure Active Directory
 
@@ -95,7 +95,7 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
 * Un dominio personalizzato è stato configurato per il tenant di Azure AD, ad esempio *contoso.com*; o
 * Identità sincronizzate da Azure AD Connect nella directory locale
 
-È possibile disabilitare l'uso di SSPR per gli account Administrator usando il cmdlet di PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) . Il `-SelfServePasswordResetEnabled $False` parametro Disabilita SSPR per gli amministratori.
+È possibile disabilitare l'uso di SSPR per gli account Administrator usando il cmdlet di PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings) . Il `-SelfServePasswordResetEnabled $False` parametro Disabilita SSPR per gli amministratori.
 
 ### <a name="exceptions"></a>Eccezioni
 
@@ -107,7 +107,7 @@ Un criterio a un gate richiede un tipo di dati di autenticazione, ad esempio un 
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Criteri di scadenza delle password
 
-Un amministratore *globale* o un *amministratore utente* può utilizzare il [modulo di Microsoft Azure ad per Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) per impostare le password utente in modo che non scadano.
+Un amministratore *globale* o un *amministratore utente* può utilizzare il [modulo di Microsoft Azure ad per Windows PowerShell](/powershell/module/Azuread/) per impostare le password utente in modo che non scadano.
 
 È anche possibile usare i cmdlet di PowerShell per rimuovere la configurazione never-expires o per vedere quali password utente sono impostate in modo da non scadere mai.
 
@@ -118,13 +118,13 @@ Queste linee guida si applicano ad altri provider, ad esempio Intune e Microsoft
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Impostare o verificare i criteri password con PowerShell
 
-Per iniziare, [scaricare e installare il modulo Azure ad PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) e [connetterlo al tenant di Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+Per iniziare, [scaricare e installare il modulo Azure ad PowerShell](/powershell/module/Azuread/) e [connetterlo al tenant di Azure ad](/powershell/module/azuread/connect-azuread#examples).
 
 Dopo l'installazione del modulo, attenersi alla procedura seguente per completare ogni attività in base alle esigenze.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Controllare i criteri di scadenza per una password
 
-1. Aprire un prompt di PowerShell e [connettersi al tenant di Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando un account amministratore *globale* o *amministratore utente* .
+1. Aprire un prompt di PowerShell e [connettersi al tenant di Azure ad](/powershell/module/azuread/connect-azuread#examples) usando un account amministratore *globale* o *amministratore utente* .
 1. Eseguire uno dei comandi seguenti per un singolo utente o per tutti gli utenti:
 
    * Per verificare se la password di un singolo utente è impostata in modo da non scadere mai, eseguire il cmdlet seguente. Sostituire `<user ID>` con l'ID utente dell'utente che si vuole controllare, ad esempio *driley \@ contoso.onmicrosoft.com*:
@@ -141,7 +141,7 @@ Dopo l'installazione del modulo, attenersi alla procedura seguente per completar
 
 ### <a name="set-a-password-to-expire"></a>Impostare una scadenza della password
 
-1. Aprire un prompt di PowerShell e [connettersi al tenant di Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando un account amministratore *globale* o *amministratore utente* .
+1. Aprire un prompt di PowerShell e [connettersi al tenant di Azure ad](/powershell/module/azuread/connect-azuread#examples) usando un account amministratore *globale* o *amministratore utente* .
 1. Eseguire uno dei comandi seguenti per un singolo utente o per tutti gli utenti:
 
    * Per impostare la password di un utente in modo che scada la password, eseguire il cmdlet seguente. Sostituire `<user ID>` con l'ID utente dell'utente che si vuole controllare, ad esempio *driley \@ contoso.onmicrosoft.com*
@@ -158,7 +158,7 @@ Dopo l'installazione del modulo, attenersi alla procedura seguente per completar
 
 ### <a name="set-a-password-to-never-expire"></a>Impostare una password senza scadenza
 
-1. Aprire un prompt di PowerShell e [connettersi al tenant di Azure ad](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) usando un account amministratore *globale* o *amministratore utente* .
+1. Aprire un prompt di PowerShell e [connettersi al tenant di Azure ad](/powershell/module/azuread/connect-azuread#examples) usando un account amministratore *globale* o *amministratore utente* .
 1. Eseguire uno dei comandi seguenti per un singolo utente o per tutti gli utenti:
 
    * Per impostare la password di un utente in modo che non scada mai, eseguire il cmdlet seguente. Sostituire `<user ID>` con l'ID utente dell'utente che si vuole controllare, ad esempio *driley \@ contoso.onmicrosoft.com*

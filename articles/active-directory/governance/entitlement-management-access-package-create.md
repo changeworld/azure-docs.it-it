@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356638"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903531"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -67,7 +67,7 @@ Ecco i passaggi di alto livello per creare un nuovo pacchetto di accesso.
    
     ![Gestione entitlement nel portale di Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Operazioni di base
+## <a name="basics"></a>Nozioni fondamentali
 
 Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e specificare il catalogo in cui creare il pacchetto di accesso.
 
@@ -89,7 +89,7 @@ Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e spe
 
 Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto di accesso. Gli utenti che richiedono e ricevono il pacchetto di accesso riceveranno tutti i ruoli delle risorse nel pacchetto di accesso.
 
-1. Fare clic sul tipo di risorsa che si desidera aggiungere ( **gruppi e team** , **applicazioni** o **siti di SharePoint** ).
+1. Fare clic sul tipo di risorsa che si desidera aggiungere (**gruppi e team**, **applicazioni** o **siti di SharePoint**).
 
 1. Nel riquadro Seleziona visualizzato selezionare una o più risorse dall'elenco.
 
@@ -107,6 +107,9 @@ Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto
 
 1. Fare clic su **Avanti**.
 
+>[!NOTE]
+>È possibile aggiungere gruppi dinamici a un catalogo e a un pacchetto di accesso. Tuttavia, sarà possibile selezionare solo il ruolo proprietario quando si gestisce una risorsa gruppo dinamico in un pacchetto di accesso.
+
 ## <a name="requests"></a>Requests
 
 Nella scheda **richieste** creare il primo criterio per specificare gli utenti che possono richiedere il pacchetto di accesso e anche le impostazioni di approvazione. Successivamente, è possibile creare altri criteri di richiesta per consentire a gruppi aggiuntivi di utenti di richiedere il pacchetto di accesso con le proprie impostazioni di approvazione.
@@ -119,7 +122,7 @@ A seconda di chi desidera essere in grado di richiedere questo pacchetto di acce
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="review--create"></a>Rivedi e crea
+## <a name="review--create"></a>Rivedere e creare
 
 Nella scheda **Verifica e crea** è possibile esaminare le impostazioni e verificare la presenza di eventuali errori di convalida.
 

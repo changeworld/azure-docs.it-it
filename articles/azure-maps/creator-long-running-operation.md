@@ -3,22 +3,26 @@ title: API per le operazioni a esecuzione prolungata di Mappe di Azure
 description: Informazioni sull'elaborazione asincrona in background a esecuzione prolungata in Mappe di Azure
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 69c5b9d15c0ba3c7c8b6b01643beac1905c404ad
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895869"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906200"
 ---
-# <a name="creator-long-running-operation-api"></a>API per le operazioni a esecuzione prolungata di autori
+# <a name="creator-preview-long-running-operation-api"></a>Autore (anteprima) Long-Running API operazione
 
-Alcune API di Mappe di Azure usano un [criterio asincrono di richiesta/risposta](/azure/architecture/patterns/async-request-reply). Questo criterio consente a Mappe di Azure di fornire servizi reattivi e a disponibilità elevata. Questo articolo illustra l'implementazione dell'elaborazione asincrona in background a esecuzione prolungata specifica per Mappe di Azure.
+> [!IMPORTANT]
+> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Alcune API in Maps di Azure usano un [modello di Request-Reply asincrono](/azure/architecture/patterns/async-request-reply). Questo criterio consente a Mappe di Azure di fornire servizi reattivi e a disponibilità elevata. Questo articolo illustra l'implementazione dell'elaborazione asincrona in background a esecuzione prolungata specifica per Mappe di Azure.
 
 ## <a name="submitting-a-request"></a>Invio di una richiesta
 

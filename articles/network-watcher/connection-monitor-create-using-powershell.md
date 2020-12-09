@@ -1,5 +1,5 @@
 ---
-title: Creazione di un monitoraggio della connessione-PowerShell
+title: Creare un monitoraggio della connessione-PowerShell
 titleSuffix: Azure Network Watcher
 description: Informazioni su come creare un monitoraggio della connessione tramite PowerShell.
 services: network-watcher
@@ -12,33 +12,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 1a554177bf7084b9a7f4c413dbe82271b3ab6b3a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1d5f879ead35ef6d47b993ff833dc0b0595e3c6c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545534"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861919"
 ---
-# <a name="create-a-connection-monitor-using-powershell"></a>Creare un monitoraggio della connessione tramite PowerShell
+# <a name="create-a-connection-monitor-by-using-powershell"></a>Creare un monitoraggio della connessione tramite PowerShell
 
-Informazioni su come creare un monitoraggio della connessione per monitorare la comunicazione tra le risorse usando PowerShell.
+Informazioni su come usare la funzionalità di monitoraggio della connessione di Azure Network Watcher per monitorare la comunicazione tra le risorse.
 
 
-## <a name="before-you-begin"></a>Prima di iniziare 
+## <a name="before-you-begin"></a>Prima di iniziare
 
-Nei monitoraggi connessione creati in monitoraggio connessione è possibile aggiungere sia i computer locali sia le VM di Azure come origini. Questi monitoraggi di connessione possono inoltre monitorare la connettività agli endpoint. Gli endpoint possono trovarsi in Azure o in qualsiasi altro URL o indirizzo IP.
+Nei monitoraggi connessione creati con monitoraggio connessione è possibile aggiungere come origini sia computer locali che macchine virtuali di Azure (VM). Questi monitoraggi di connessione possono inoltre monitorare la connettività agli endpoint. Gli endpoint possono trovarsi in Azure o in qualsiasi altro URL o indirizzo IP.
 
-Il monitoraggio della connessione include le seguenti entità:
+Un monitoraggio connessione include le seguenti entità:
 
-* **Risorsa di monitoraggio della connessione** : una risorsa di Azure specifica dell'area. Tutte le entità seguenti sono proprietà di una risorsa di monitoraggio della connessione.
-* **Endpoint** : un'origine o una destinazione che partecipa ai controlli di connettività. Esempi di endpoint includono macchine virtuali di Azure, agenti locali, URL e indirizzi IP.
-* **Configurazione di test** : una configurazione specifica del protocollo per un test. In base al protocollo scelto, è possibile definire la porta, le soglie, la frequenza di test e altri parametri.
-* **Gruppo di test** : il gruppo che contiene gli endpoint di origine, gli endpoint di destinazione e le configurazioni di test. Un monitoraggio connessione può contenere più di un gruppo di test.
-* **Test** : la combinazione di un endpoint di origine, un endpoint di destinazione e una configurazione di test. Un test è il livello più granulare in cui sono disponibili i dati di monitoraggio. I dati di monitoraggio includono la percentuale di controlli non riusciti e il tempo di round trip (RTT).
+* **Risorsa di monitoraggio della connessione**: una risorsa di Azure specifica dell'area. Tutte le entità seguenti sono proprietà della risorsa di monitoraggio della connessione.
+* **Endpoint**: un'origine o una destinazione che partecipa ai controlli di connettività. Esempi di endpoint includono macchine virtuali di Azure, agenti locali, URL e indirizzi IP.
+* **Configurazione di test**: una configurazione specifica del protocollo per un test. In base al protocollo scelto, è possibile definire la porta, le soglie, la frequenza di test e altri parametri.
+* **Gruppo di test**: il gruppo che contiene gli endpoint di origine, gli endpoint di destinazione e le configurazioni di test. Un monitoraggio connessione può contenere più di un gruppo di test.
+* **Test**: la combinazione di un endpoint di origine, un endpoint di destinazione e una configurazione di test. Un test è il livello più granulare in cui sono disponibili i dati di monitoraggio. I dati di monitoraggio includono la percentuale di controlli non riusciti e il tempo di round trip (RTT).
 
-    ![Diagramma che mostra un monitoraggio della connessione, che definisce la relazione tra i gruppi di test e i test](./media/connection-monitor-2-preview/cm-tg-2.png)
+    ![Diagramma che mostra un monitoraggio della connessione, che definisce la relazione tra i gruppi di test e i test.](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-## <a name="steps-to-create-with-powershell"></a>Passaggi da eseguire per creare con PowerShell
+## <a name="steps-to-create-a-connection-monitor"></a>Passaggi per la creazione di un monitoraggio della connessione
 
 Usare i comandi seguenti per creare un monitoraggio della connessione tramite PowerShell.
 
@@ -71,43 +71,42 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 ## <a name="description-of-properties"></a>Descrizione delle proprietà
 
-* connectionMonitorName-nome della risorsa di monitoraggio della connessione
+* **ConnectionMonitorName**: nome della risorsa di monitoraggio della connessione.
 
-* ID sottoscrizione secondaria della sottoscrizione in cui si vuole creare il monitoraggio della connessione
+* **Sub**: ID sottoscrizione della sottoscrizione in cui si desidera creare un monitoraggio della connessione.
 
-* NW-Network Watcher ID di risorsa in cui verrà creato CM 
+* **NW**: Network Watcher ID di risorsa in cui viene creato un monitoraggio della connessione.
 
-* location-area in cui verrà creato il monitoraggio della connessione
+* **Location**: area in cui viene creato un monitoraggio della connessione.
 
-* Endpoint
-    * Nome: nome univoco per ogni endpoint
-    * resourceId: per gli endpoint di Azure, l'ID risorsa fa riferimento all'ID risorsa Azure Resource Manager per le macchine virtuali. Per gli endpoint non di Azure, l'ID risorsa fa riferimento all'ID di risorsa Azure Resource Manager per l'area di lavoro Log Analytics collegata a agenti non Azure.
-    * Address: applicabile solo quando l'ID risorsa non è specificato o se l'ID risorsa è Log Analytics area di lavoro. Se utilizzata con Log Analytics ID risorsa, si riferisce al nome di dominio completo dell'agente che può essere utilizzato per il monitoraggio. Se usato senza ID risorsa, può corrispondere all'URL o all'indirizzo IP di qualsiasi endpoint pubblico.
-    * Filter: per gli endpoint non di Azure, usare Filter per selezionare gli agenti dall'area di lavoro Log Analytics che verrà usata per il monitoraggio nella risorsa di monitoraggio della connessione. Se i filtri non sono impostati, tutti gli agenti appartenenti all'area di lavoro Log Analytics possono essere utilizzati per il monitoraggio
-        * Tipo: impostare il tipo come "Indirizzo agente"
-        * Address: impostare Address come nome di dominio completo dell'agente locale
+* **Endpoints**
+    * **Nome**: nome univoco per ogni endpoint.
+    * **ID risorsa**: per gli endpoint di Azure, l'ID risorsa fa riferimento all'id risorsa Azure Resource Manager per le macchine virtuali. Per gli endpoint non di Azure, l'ID risorsa fa riferimento all'ID di risorsa Azure Resource Manager per l'area di lavoro Log Analytics collegata a agenti non Azure.
+    * **Address**: applicabile solo se l'ID risorsa non è specificato o se l'ID risorsa è nell'area di lavoro log Analytics. Se usato senza un ID di risorsa, può corrispondere all'URL o all'indirizzo IP di qualsiasi endpoint pubblico. Se usato con un ID di risorsa Log Analytics, si riferisce al nome di dominio completo dell'agente di monitoraggio.
+    * **Filtro**: per gli endpoint non di Azure, usare i filtri per selezionare gli agenti di monitoraggio dall'area di lavoro log Analytics nella risorsa di monitoraggio della connessione. Se i filtri non sono impostati, per il monitoraggio è possibile utilizzare tutti gli agenti appartenenti all'area di lavoro Log Analytics.
+        * **Tipo**: impostare come **indirizzo dell'agente**.
+        * **Address**: impostare come nome di dominio completo dell'agente locale.
 
-* Gruppi di test
-    * Nome: assegnare un nome al gruppo di test.
-    * testConfigurations: configurazioni di test in base alle quali gli endpoint di origine si connettono agli endpoint di destinazione
-    * origini: scegliere dagli endpoint creati in precedenza. Per gli endpoint di origine basati su Azure è necessario che sia installata l'estensione di Azure Network Watcher e che gli endpoint di origine non basati su Azure debbano haveAzure Log Analytics agente installato. Per installare un agente per l'origine, vedere [Install Monitoring Agents](./connection-monitor-overview.md#install-monitoring-agents).
-    * destinazioni: scegliere tra gli endpoint creati in precedenza. È possibile monitorare la connettività alle macchine virtuali di Azure o a qualsiasi endpoint (un indirizzo IP pubblico, un URL o un nome di dominio completo) specificandone tali elementi come destinazioni. In un singolo gruppo di test è possibile aggiungere macchine virtuali di Azure, URL di Office 365, URL di Dynamics 365 ed endpoint personalizzati.
-    * Disable: utilizzare questo campo per disabilitare il monitoraggio per tutte le origini e le destinazioni specificate dal gruppo di test.
+* **Gruppi di test**
+    * **Nome**: assegnare un nome al gruppo di test.
+    * **Origini**: scegliere gli endpoint creati in precedenza. Per gli endpoint di origine basati su Azure è necessario che sia installata l'estensione Azure Network Watcher; per gli endpoint di origine non basati su Azure è necessario che sia installato un agente di Log Analytics di Azure. Per installare un agente per l'origine, vedere [Install Monitoring Agents](./connection-monitor-overview.md#install-monitoring-agents).
+    * **Destinazioni**: scegliere gli endpoint creati in precedenza. È possibile monitorare la connettività alle macchine virtuali di Azure o a qualsiasi endpoint (un indirizzo IP pubblico, un URL o un nome di dominio completo) specificandone tali elementi come destinazioni. In un singolo gruppo di test è possibile aggiungere macchine virtuali di Azure, URL di Office 365, URL di Dynamics 365 ed endpoint personalizzati.
+    * **Disable**: Disabilita il monitoraggio per tutte le origini e le destinazioni specificate dal gruppo di test.
 
-* Configurazioni di test
-    * Nome: nome della configurazione di test.
-    * testFrequencySec: specificare la frequenza con cui le origini effettueranno il ping delle destinazioni sul protocollo e sulla porta specificati. È possibile scegliere 30 secondi, 1 minuto, 5 minuti, 15 minuti o 30 minuti. Le origini proveranno la connettività alle destinazioni in base al valore scelto. Se ad esempio si seleziona 30 secondi, le origini verificheranno la connettività alla destinazione almeno una volta in un periodo di 30 secondi.
-    * protocollo: è possibile scegliere TCP, ICMP, HTTP o HTTPS. A seconda del protocollo, è possibile eseguire alcune configurazioni specifiche del protocollo
-        * preferHTTPS-specificare se usare HTTPS su HTTP
-        * porta: specificare la porta di destinazione scelta.
-        * disableTraceRoute: si applica ai gruppi di test il cui protocollo è TCP o ICMP. Arresta le origini dall'individuazione della topologia e della RTT hop-by-hop.
-        * Metodo: si applica alle configurazioni di test il cui protocollo è HTTP. Selezionare il metodo di richiesta HTTP, ovvero GET o POST
-        * percorso: specificare i parametri del percorso da accodare all'URL
-        * validStatusCodes-scegliere i codici di stato applicabili. Se il codice di risposta non corrisponde a questo elenco, verrà ricevuto un messaggio di diagnostica
-        * requestHeaders-specificare le stringhe di intestazione della richiesta personalizzate che verranno passate alla destinazione
-    * successThreshold: è possibile impostare le soglie nei parametri di rete seguenti:
-        * checksFailedPercent: consente di impostare la percentuale di verifiche che possono avere esito negativo quando le origini controllano la connettività alle destinazioni usando i criteri specificati. Per il protocollo TCP o ICMP, la percentuale di controlli non riusciti può essere equivalente alla percentuale di perdita di pacchetti. Per il protocollo HTTP, questo campo rappresenta la percentuale di richieste HTTP che non hanno ricevuto risposta.
-        * roundTripTimeMs: consente di impostare RTT in millisecondi per il tempo necessario per la connessione alla destinazione tramite la configurazione di test.
+* **Configurazioni di test**
+    * **Nome**: assegnare un nome alla configurazione di test.
+    * **TestFrequencySec**: specificare la frequenza con cui le origini eseguono il ping delle destinazioni sul protocollo e sulla porta specificati. È possibile scegliere 30 secondi, 1 minuto, 5 minuti, 15 minuti o 30 minuti. Le origini testano la connettività alle destinazioni in base al valore scelto. Se ad esempio si seleziona 30 secondi, le origini controllano la connettività alla destinazione almeno una volta in un periodo di 30 secondi.
+    * **Protocollo**: scegliere TCP, ICMP, http o HTTPS. A seconda del protocollo, è inoltre possibile selezionare le seguenti configurazioni specifiche del protocollo:
+        * **preferHTTPS**: specificare se usare HTTPS su http.
+        * **porta**: specificare la porta di destinazione scelta.
+        * **disableTraceRoute**: impedisce alle origini di individuare la topologia e RTT hop per hop. Si applica ai gruppi di test con TCP o ICMP.
+        * **Metodo**: selezionare il metodo di richiesta HTTP (Get o post). Questo vale per le configurazioni di test con HTTP.
+        * **percorso**: specificare i parametri del percorso da accodare all'URL.
+        * **validStatusCodes**: scegliere i codici di stato applicabili. Se il codice di risposta non corrisponde, viene visualizzato un messaggio di diagnostica.
+        * **requestHeaders**: specificare le stringhe di intestazione della richiesta personalizzate che passano alla destinazione.
+    * **Soglia di esito positivo**: impostare le soglie per i parametri di rete seguenti:
+        * **checksFailedPercent**: impostare la percentuale di verifiche che possono avere esito negativo quando le origini controllano la connettività alle destinazioni usando i criteri specificati. Per il protocollo TCP o ICMP, la percentuale di verifiche non riuscite potrebbe corrispondere alla percentuale di perdita di pacchetti. Per il protocollo HTTP, questo campo rappresenta la percentuale di richieste HTTP che non hanno ricevuto risposta.
+        * **roundTripTimeMs**: consente di impostare il tempo necessario per la connessione alla destinazione tramite la configurazione di test, in millisecondi.
 
 ## <a name="scale-limits"></a> Limiti di scalabilità
 
@@ -120,5 +119,5 @@ I monitoraggi connessione presentano i limiti di scalabilità seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni [su come analizzare i dati di monitoraggio e impostare gli avvisi](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
-* Informazioni [su come diagnosticare i problemi nella rete](./connection-monitor-overview.md#diagnose-issues-in-your-network)
+* Informazioni [su come analizzare i dati di monitoraggio e impostare gli avvisi](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Informazioni [su come diagnosticare i problemi nella rete](./connection-monitor-overview.md#diagnose-issues-in-your-network).

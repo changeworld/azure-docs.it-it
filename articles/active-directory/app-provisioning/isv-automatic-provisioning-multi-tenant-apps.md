@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 9cb3d8f39d83e27755b1e8982dfe3b807c431413
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069722"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861358"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Abilitare il provisioning utenti automatico per l'applicazione multi-tenant
 
@@ -89,7 +89,7 @@ Per ulteriori informazioni sul modo in cui gli utenti del servizio Azure AD prov
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph per il provisioning
 
-Quando si usa Microsoft Graph per il provisioning, è possibile accedere a tutti i dati utente avanzati disponibili in Graph. Oltre ai dettagli di utenti e gruppi, è anche possibile recuperare informazioni aggiuntive, ad esempio i ruoli dell'utente, i Manager e i report diretti, i dispositivi di proprietà e registrati e centinaia di altre parti di dati disponibili nella [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
+Quando si usa Microsoft Graph per il provisioning, è possibile accedere a tutti i dati utente avanzati disponibili in Graph. Oltre ai dettagli di utenti e gruppi, è anche possibile recuperare informazioni aggiuntive, ad esempio i ruoli dell'utente, i Manager e i report diretti, i dispositivi di proprietà e registrati e centinaia di altre parti di dati disponibili nella [Microsoft Graph](/graph/api/overview). 
 
 Più di 15 milioni organizzazioni e 90% delle società Fortune 500 usano Azure AD sottoscrivendo i servizi cloud Microsoft come Microsoft 365, Microsoft Azure o Enterprise Mobility Suite. È possibile usare Microsoft Graph per integrare l'app con flussi di lavoro amministrativi, ad esempio l'onboarding dei dipendenti (e la terminazione), la manutenzione del profilo e altro ancora. 
 

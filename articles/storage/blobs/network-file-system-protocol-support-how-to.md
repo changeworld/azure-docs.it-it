@@ -9,19 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901554"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906115"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
 È possibile montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure basata su Windows o Linux o un sistema Windows o Linux eseguito in locale usando il protocollo NFS 3,0. Questo articolo fornisce istruzioni dettagliate. Per altre informazioni sul supporto del protocollo NFS 3,0 nell'archivio BLOB, vedere [supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è disponibile in anteprima pubblica ed è disponibile nelle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Passaggio 1: registrare la funzionalità del protocollo NFS 3,0 con la sottoscrizione
 
@@ -48,13 +45,7 @@ ms.locfileid: "95901554"
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. Registrare la `PremiumHns` funzionalità anche usando il comando seguente.
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
-
-6. Registrare il provider di risorse usando il comando seguente.
+5. Registrare il provider di risorse usando il comando seguente.
     
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
@@ -66,7 +57,6 @@ L'approvazione della registrazione può richiedere fino a un'ora. Per verificare
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Passaggio 3: creare una rete virtuale di Azure (VNet)
@@ -86,20 +76,20 @@ Per proteggere i dati nell'account, vedere questi consigli: [consigli sulla sicu
 
 Per montare un contenitore usando NFS 3,0, è necessario creare un account di archiviazione **dopo aver** registrato la funzionalità con la sottoscrizione. Non è possibile abilitare gli account esistenti prima della registrazione della funzionalità. 
 
-Nella versione di anteprima di questa funzionalità il protocollo NFS 3,0 è supportato solo negli account [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) .
+Nella versione di anteprima di questa funzionalità il protocollo NFS 3,0 è supportato negli account [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) e per [utilizzo generico V2](../common/storage-account-overview.md#general-purpose-v2-accounts) .
 
 Quando si configura l'account, scegliere i valori seguenti:
 
-|Impostazione | Valore|
-|----|---|
-|Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
-|Prestazioni|Premium|
-|Tipo di account|BlockBlobStorage|
-|Replica|Archiviazione con ridondanza locale|
-|Metodo di connettività|Endpoint pubblico (reti selezionate) o endpoint privato|
-|Trasferimento sicuro obbligatorio|Disabled|
-|Spazio dei nomi gerarchico|Attivato|
-|NFS V3|Attivato|
+|Impostazione | Prestazioni Premium | Prestazioni standard  
+|----|---|---|
+|Location|Tutte le aree disponibili |Una delle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali   
+|Prestazioni|Premium| Standard
+|Tipologia account|BlockBlobStorage| Utilizzo generico v2
+|Replica|Archiviazione con ridondanza locale| Archiviazione con ridondanza locale
+|Metodo di connettività|Endpoint pubblico (reti selezionate) o endpoint privato |Endpoint pubblico (reti selezionate) o endpoint privato
+|Trasferimento sicuro obbligatorio|Disabled|Disabled
+|Spazio dei nomi gerarchico|Attivato|Attivato
+|NFS V3|Attivato |Attivato 
 
 È possibile accettare i valori predefiniti per tutte le altre impostazioni. 
 

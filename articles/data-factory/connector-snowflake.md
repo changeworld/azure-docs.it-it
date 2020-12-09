@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/08/2020
+ms.openlocfilehash: 49e4a6f7f8c268669a94796257d5740ec6f4e6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96003659"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902086"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiare e trasformare i dati in fiocco di neve usando Azure Data Factory
 
@@ -159,7 +159,7 @@ Per copiare dati da fiocco di neve, nella sezione **origine** dell'attività di 
 
 Se l'archivio dati sink e il formato soddisfano i criteri descritti in questa sezione, è possibile usare l'attività di copia per copiare direttamente da fiocco di neve a sink. Data Factory controlla le impostazioni e non riesce l'esecuzione dell'attività di copia se non vengono soddisfatti i criteri seguenti:
 
-- Il **servizio collegato sink** è l' [**Archivio BLOB di Azure**](connector-azure-blob-storage.md) con l'autenticazione della **firma di accesso condiviso** .
+- Il **servizio collegato sink** è l' [**Archivio BLOB di Azure**](connector-azure-blob-storage.md) con l'autenticazione della **firma di accesso condiviso** . Se si vuole copiare direttamente i dati in Azure Data Lake Storage Gen2 nel formato supportato seguente, è possibile creare un servizio collegato BLOB di Azure con l'autenticazione SAS per l'account ADLS Gen2, per evitare di usare la [copia di staging da fiocco di neve](#staged-copy-from-snowflake).
 
 - Il **formato dei dati sink** è di **parquet**, **testo delimitato** o **JSON** con le configurazioni seguenti:
 
@@ -173,7 +173,6 @@ Se l'archivio dati sink e il formato soddisfano i criteri descritti in questa se
         - `compression` non può essere di **compressione**, **gzip**, **bzip2** o **deflate**.
         - `encodingName` è impostato sul valore predefinito o su **utf-8**.
         - `filePattern` nel sink dell'attività di copia viene lasciato come predefinito o impostato su **setOfObjects**.
-
 - Nell'origine dell'attività di copia `additionalColumns` non è specificato.
 - Il mapping delle colonne non è specificato.
 
@@ -290,7 +289,7 @@ Per copiare dati in fiocco di neve, sono supportate le proprietà seguenti nella
 
 Se l'archivio dati di origine e il formato soddisfano i criteri descritti in questa sezione, è possibile usare l'attività di copia per copiare direttamente dall'origine a fiocco di neve. Azure Data Factory controlla le impostazioni e non riesce l'esecuzione dell'attività di copia se non vengono soddisfatti i criteri seguenti:
 
-- Il **servizio collegato di origine** è l' [**Archivio BLOB di Azure**](connector-azure-blob-storage.md) con l'autenticazione della **firma di accesso condiviso** .
+- Il **servizio collegato di origine** è l' [**Archivio BLOB di Azure**](connector-azure-blob-storage.md) con l'autenticazione della **firma di accesso condiviso** . Se si vuole copiare direttamente i dati da Azure Data Lake Storage Gen2 nel formato supportato seguente, è possibile creare un servizio collegato BLOB di Azure con l'autenticazione SAS per l'account del ADLS Gen2, per evitare di usare la  [copia di staging in fiocco di neve](#staged-copy-to-snowflake).
 
 - Il **formato dei dati di origine** è **parquet**, **testo delimitato** o **JSON** con le configurazioni seguenti:
 
@@ -409,9 +408,9 @@ Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere
 
 La tabella seguente elenca le proprietà supportate dall'origine fiocco di neve. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Tabella | Se si seleziona tabella come input, il flusso di dati recupererà tutti i dati dalla tabella specificata nel set di dati a fiocco di neve o nelle opzioni di origine quando si usa il set di dati inline. | No | string | *(solo per set di dati inline)*<br>tableName<br>schemaName |
+| Table | Se si seleziona tabella come input, il flusso di dati recupererà tutti i dati dalla tabella specificata nel set di dati a fiocco di neve o nelle opzioni di origine quando si usa il set di dati inline. | No | string | *(solo per set di dati inline)*<br>tableName<br>schemaName |
 | Query | Se si seleziona query come input, immettere una query per recuperare i dati da fiocco di neve. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati.<br>Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio. | No | string | query |
 
 #### <a name="snowflake-source-script-examples"></a>Esempi di script di origine fiocco di neve
@@ -439,7 +438,7 @@ source(allowSchemaDrift: true,
 
 La tabella seguente elenca le proprietà supportate dal sink di fiocco di neve. È possibile modificare queste proprietà nella scheda **Impostazioni** . Quando si usa il set di dati inline, verranno visualizzate impostazioni aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update (metodo) | Specificare le operazioni consentite nella destinazione di fiocco di neve.<br>Per aggiornare, Upsert o eliminare righe, è necessaria una [trasformazione alter Row](data-flow-alter-row.md) per contrassegnare le righe per tali azioni. | Sì | `true` o `false` | cancellabile <br/>inseribile <br/>aggiornabile <br/>upsertable |
 | Colonne chiave | Per le operazioni di aggiornamento, upsert ed eliminazione è necessario impostare una o più colonne chiave per determinare quale riga modificare. | No | Array | chiavi |

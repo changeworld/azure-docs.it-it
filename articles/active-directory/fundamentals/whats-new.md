@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed7123d916c1dc0facab3bd22e6b3f03d39684f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 710e31c18338243f9405a071b8fa544fe44044be
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858961"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903157"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -57,6 +57,8 @@ Gli ambienti interessati sono:
 - Office 365 GCC e WW
 
 Annuncio correlato tutte le combinazioni client-server e browser-server devono usare TLS 1,2 e i pacchetti di crittografia moderni per mantenere una connessione sicura a Azure Active Directory per Azure, Office 365 e Microsoft 365 Services. Questa modifica è correlata a [Azure Active Directory TLS 1,0 & 1,1 e alla deprecazione del pacchetto di crittografia 3DES in US gov cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
+
+---
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---november-2020"></a>Nuove app federate disponibili nella raccolta di applicazioni Azure AD-2020 novembre
 

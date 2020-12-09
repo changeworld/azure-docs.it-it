@@ -1,18 +1,18 @@
 ---
 title: Definire più istanze di una variabile
-description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire un'iterazione più volte durante la creazione di una variabile.
+description: Usare l'operazione di copia in un modello di Azure Resource Manager (modello ARM) per eseguire un'iterazione più volte durante la creazione di una variabile.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84678444"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905894"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iterazione delle variabili nei modelli ARM
 
-Questo articolo illustra come creare più di un valore per una variabile nel modello di Azure Resource Manager (ARM). Aggiungendo l'elemento **Copy** alla sezione Variables del modello, è possibile impostare dinamicamente il numero di elementi per una variabile durante la distribuzione. È anche possibile evitare di ripetere la sintassi del modello.
+Questo articolo illustra come creare più di un valore per una variabile nel modello di Azure Resource Manager (modello ARM). Aggiungendo l' `copy` elemento alla sezione Variables del modello, è possibile impostare dinamicamente il numero di elementi per una variabile durante la distribuzione. È anche possibile evitare di ripetere la sintassi del modello.
 
 È anche possibile usare copia con [risorse](copy-resources.md), [Proprietà in una risorsa](copy-properties.md)e [output](copy-outputs.md).
 
@@ -30,9 +30,9 @@ Il formato generale dell'elemento Copy è il seguente:
 ]
 ```
 
-La proprietà **Name** è qualsiasi valore che identifica il ciclo. La proprietà **count** specifica il numero di iterazioni desiderate per la variabile.
+La `name` proprietà è qualsiasi valore che identifica il ciclo. La `count` proprietà specifica il numero di iterazioni desiderate per la variabile.
 
-La proprietà di **input** specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruiti dal valore nella proprietà di **input** . Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
+La `input` proprietà specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruita dal valore della proprietà `input`. Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
 
 ## <a name="copy-limits"></a>Limiti di copia
 
@@ -92,7 +92,7 @@ Il modello precedente restituisce una matrice con i valori seguenti:
 ]
 ```
 
-Nell'esempio seguente viene illustrato come creare una matrice di oggetti con tre proprietà: Name, diskSizeGB e diskIndex.
+Nell'esempio seguente viene illustrato come creare una matrice di oggetti con tre proprietà `name` , `diskSizeGB` , e `diskIndex` .
 
 ```json
 {
@@ -160,10 +160,10 @@ Nell'esempio precedente viene restituita una matrice con i valori seguenti:
 ```
 
 > [!NOTE]
-> L'iterazione della variabile supporta un argomento offset. L'offset deve essere successivo al nome dell'iterazione, ad esempio copyIndex (' diskNames ', 1). Se non si specifica un valore di offset, il valore predefinito è 0 per la prima istanza.
+> L'iterazione della variabile supporta un argomento offset. L'offset deve essere successivo al nome dell'iterazione, ad esempio `copyIndex('diskNames', 1)` . Se non si specifica un valore di offset, il valore predefinito è 0 per la prima istanza.
 >
 
-È anche possibile usare l'elemento Copy all'interno di una variabile. Nell'esempio seguente viene creato un oggetto con una matrice come uno dei relativi valori.
+È anche possibile usare l' `copy` elemento all'interno di una variabile. Nell'esempio seguente viene creato un oggetto con una matrice come uno dei relativi valori.
 
 ```json
 {
@@ -236,7 +236,7 @@ Nell'esempio precedente viene restituito un oggetto con i valori seguenti:
 }
 ```
 
-Nell'esempio seguente vengono illustrati i diversi modi in cui è possibile utilizzare Copy con le variabili.
+Nell'esempio seguente vengono illustrati i diversi modi in cui è possibile utilizzare `copy` con le variabili.
 
 ```json
 {
@@ -314,18 +314,17 @@ Nell'esempio seguente vengono illustrati i diversi modi in cui è possibile util
 
 Gli esempi seguenti illustrano scenari comuni per la creazione di più di un valore per una variabile.
 
-|Modello  |Descrizione  |
+|Modello  |Description  |
 |---------|---------|
 |[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Mostra le diverse modalità di iterazione delle variabili. |
 |[Più regole di sicurezza](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuisce più regole di sicurezza a un gruppo di sicurezza di rete. Costruisce le regole di sicurezza da un parametro. Per il parametro, vedere il [file di parametri NSG multipli](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse usando i modelli ARM](template-tutorial-create-multiple-instances.md).
+* Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
 * Per altri usi dell'elemento Copy, vedere:
   * [Iterazione delle risorse nei modelli ARM](copy-resources.md)
   * [Iterazione delle proprietà nei modelli ARM](copy-properties.md)
   * [Iterazione di output nei modelli ARM](copy-outputs.md)
-* Per informazioni sulle sezioni di un modello, vedere [creazione di modelli ARM](template-syntax.md).
-* Per informazioni su come distribuire il modello, vedere [distribuire un'applicazione con il modello ARM](deploy-powershell.md).
-
+* Per informazioni sulle sezioni di un modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per informazioni su come distribuire il modello, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](deploy-powershell.md).

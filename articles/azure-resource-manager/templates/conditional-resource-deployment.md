@@ -1,18 +1,18 @@
 ---
 title: Distribuzione condizionale con modelli
-description: Viene descritto come distribuire in modo condizionale una risorsa in un modello di Azure Resource Manager.
+description: Viene descritto come distribuire in modo condizionale una risorsa in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259321"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905996"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Distribuzione condizionale nei modelli ARM
 
-In alcuni casi è necessario distribuire facoltativamente una risorsa in un modello di Azure Resource Manager (ARM). Usare l' `condition` elemento per specificare se la risorsa viene distribuita. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene creata. Quando il valore è false, la risorsa non viene creata. Il valore può essere applicato solo all'intera risorsa.
+In alcuni casi è necessario distribuire facoltativamente una risorsa in un modello di Azure Resource Manager (modello ARM). Usare l' `condition` elemento per specificare se la risorsa viene distribuita. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene creata. Quando il valore è false, la risorsa non viene creata. Il valore può essere applicato solo all'intera risorsa.
 
 > [!NOTE]
 > La distribuzione condizionale non si sovrappone alle [risorse figlio](child-resource-name-type.md). Se si desidera distribuire una risorsa e le relative risorse figlio in modo condizionale, è necessario applicare la stessa condizione a ogni tipo di risorsa.

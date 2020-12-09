@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c39ce2bed63b6efb6224e0e27fdb1104ef7a5ec8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045959"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862395"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurare un dispositivo IoT Edge per comunicare tramite un server proxy
 
@@ -85,7 +85,7 @@ Nei passaggi seguenti viene illustrato un esempio di installazione di Windows tr
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-Se si hanno credenziali complesse per il server proxy che non è possibile includere nell'URL, usare il parametro `-ProxyCredential` all'interno di `-InvokeWebRequestParameters`. Ad esempio,
+Se si hanno credenziali complesse per il server proxy che non è possibile includere nell'URL, usare il parametro `-ProxyCredential` all'interno di `-InvokeWebRequestParameters`. ad esempio:
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -270,6 +270,12 @@ Se nel file config.yaml è stata inclusa la variabile di ambiente **UpstreamProt
     }
 }
 ```
+
+## <a name="working-with-traffic-inspecting-proxies"></a>Uso dei proxy di controllo del traffico
+
+Se il proxy che si sta tentando di usare esegue l'ispezione del traffico su connessioni protette da TLS, è importante notare che l'autenticazione con i certificati X. 509 non funziona. IoT Edge stabilisce un canale TLS crittografato end-to-end con il certificato e la chiave forniti. Se il canale è danneggiato per l'ispezione del traffico, il proxy non può ristabilire il canale con le credenziali appropriate e l'hub e il servizio Device provisioning in hub Internet restituiscono un `Unauthorized` errore.
+
+Per usare un proxy che esegue l'ispezione del traffico, è necessario usare l'autenticazione della firma di accesso condiviso o avere l'hub delle cose e il servizio Device provisioning in hub Internet aggiunto a un oggetto allow per evitare il controllo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

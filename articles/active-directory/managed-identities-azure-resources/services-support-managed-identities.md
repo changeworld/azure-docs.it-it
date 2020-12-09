@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498031"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861885"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -45,8 +45,8 @@ Vedere l'elenco seguente per configurare l'identità gestita per Gestione API di
 
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
-| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | Non disponibile |
-| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check]  | Non disponibile  | Non disponibile |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | ![Disponibile][check] |
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check]  | Non disponibile  | ![Disponibile][check] |
 
 Vedere l'elenco seguente per configurare l'identità gestita per la configurazione di app Azure (nelle aree in cui sono disponibili):
 
@@ -252,7 +252,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per i criteri di Az
 
 - [Portale di Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [Interfaccia della riga di comando di Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Interfaccia della riga di comando di Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Modelli di Gestione risorse di Azure](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
@@ -274,7 +274,7 @@ Fare riferimento all'elenco seguente per configurare l'identità gestita per le 
 
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
-| Assegnata dal sistema | ![Disponibile][check] | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dal sistema | ![Disponibile][check] | Non disponibile | Non disponibile | ![Disponibile][check] |
 | Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 

@@ -1,27 +1,27 @@
 ---
-title: Creare un'origine dati per una mappa | Mappe Microsoft Azure
+title: Creare un'origine dati per una mappa in Microsoft Azure Maps
 description: "Informazioni su come creare un'origine dati per una mappa. Informazioni sulle origini dati usate da Azure Maps Web SDK: origini GeoJSON e riquadri vettoriali."
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895920"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903616"
 ---
 # <a name="create-a-data-source"></a>Creare un'origine dati
 
 Azure Maps Web SDK archivia i dati nelle origini dati. L'utilizzo di origini dati ottimizza le operazioni di dati per l'esecuzione di query e il rendering. Attualmente esistono due tipi di origini dati:
 
-- **Origine GeoJSON** : gestisce i dati di posizione non elaborati in formato GeoJSON localmente. Ideale per set di dati di piccole e medie dimensioni (a partire da centinaia di migliaia di forme).
-- **Origine del riquadro vettoriale** : carica i dati formattati come riquadri vettoriali per la vista mappa corrente, in base al sistema di affiancamento mappe. Ideale per set di dati di grandi dimensioni (milioni o miliardi di forme).
+- **Origine GeoJSON**: gestisce i dati di posizione non elaborati in formato GeoJSON localmente. Ideale per set di dati di piccole e medie dimensioni (a partire da centinaia di migliaia di forme).
+- **Origine del riquadro vettoriale**: carica i dati formattati come riquadri vettoriali per la vista mappa corrente, in base al sistema di affiancamento mappe. Ideale per set di dati di grandi dimensioni (milioni o miliardi di forme).
 
 ## <a name="geojson-data-source"></a>Origine dati GeoJSON
 
@@ -86,7 +86,7 @@ Mappe di Azure rispetta la [specifica del riquadro vettoriale MapBox](https://gi
 - Dettagli del [documentation](/rest/api/maps/renderv2/getmaptilepreview)  |  [formato dei dati](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) della documentazione sui riquadri stradali
 - [documentation](/rest/api/maps/traffic/gettrafficincidenttile)  |  [Dettagli del formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) della documentazione sugli eventi imprevisti del traffico
 - Dettagli del [documentation](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) della documentazione del flusso di traffico
-- Azure Maps Creator consente inoltre la creazione e l'accesso ai riquadri vettoriali personalizzati tramite il [rendering del riquadro Get V2](/rest/api/maps/renderv2/getmaptilepreview)
+- Azure Maps Creator (anteprima) consente anche di creare riquadri vettoriali personalizzati e di accedervi tramite il [rendering del riquadro Get V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > Quando si usano i riquadri di immagini Vector o raster del servizio di rendering di Azure Maps con SDK Web, è possibile sostituire `atlas.microsoft.com` con il segnaposto `{azMapsDomain}` . Questo segnaposto verrà sostituito con lo stesso dominio utilizzato dalla mappa e aggiungerà automaticamente anche i dettagli di autenticazione. Questo semplifica notevolmente l'autenticazione con il servizio di rendering quando si usa l'autenticazione Azure Active Directory.

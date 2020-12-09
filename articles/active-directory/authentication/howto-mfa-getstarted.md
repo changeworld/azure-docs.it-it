@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743140"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861307"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure AD Multi-Factor Authentication
 
@@ -165,7 +165,7 @@ Usando i passaggi seguenti, un criterio di accesso condizionale può obbligare g
 2. Usando l'accesso condizionale, applicare l'autenticazione a più fattori per questo gruppo per l'accesso a tutte le risorse.
 3. Periodicamente, riconsiderare l'appartenenza al gruppo e rimuovere gli utenti che hanno eseguito la registrazione dal gruppo.
 
-È possibile identificare gli utenti registrati e non registrati Azure AD autenticazione a più fattori con i comandi di PowerShell che si basano sul [modulo MSOnline di PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+È possibile identificare gli utenti registrati e non registrati Azure AD autenticazione a più fattori con i comandi di PowerShell che si basano sul [modulo MSOnline di PowerShell](/powershell/azure/active-directory/install-msonlinev1).
 
 #### <a name="identify-registered-users"></a>Identificare gli utenti registrati
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: a7d392412aa481d9541cd4987cfb4c18d04dafa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500156"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902324"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -235,7 +235,7 @@ Di seguito sono riportate alcune linee guida da seguire quando si crea il file d
       * `-` significa che non si mantiene il valore predefinito per il parametro.
       * `|` è un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
    * `<name>` è il nome del parametro. Se è vuoto, viene usato il nome della proprietà. Se il valore inizia con un carattere `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` viene abbreviato in `AzureStorage1_connectionString`.
-   * `<stype>` tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string` . I valori supportati sono: `string`, `bool`, `number`, `object` e `securestring`.
+   * `<stype>` tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string` . Valori supportati: `string` , `securestring` , `int` , `bool` , `object` `secureobject` e `array` .
 * Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione tra tutti gli oggetti della matrice usando la definizione specificata nell'oggetto runtime di integrazione della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
 * Una definizione non può essere specifica di un'istanza di risorsa. Qualunque definizione viene applicata a tutte le risorse di quel tipo.
 * Per impostazione predefinita, vengono parametrizzate tutte le stringhe sicure, ad esempio i segreti di Key Vault, e le stringhe sicure, ad esempio le stringhe di connessione, le chiavi e i token.
@@ -250,7 +250,7 @@ Di seguito è riportato un esempio dell'aspetto che potrebbe avere un modello di
         "properties": {
             "activities": [{
                 "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
+                    "waitTimeInSeconds": "-::int",
                     "headers": "=::object"
                 }
             }]
@@ -268,7 +268,7 @@ Di seguito è riportato un esempio dell'aspetto che potrebbe avere un modello di
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
-                    "interval": "=:triggerSuffix:number",
+                    "interval": "=:triggerSuffix:int",
                     "frequency": "=:-freq"
                 },
                 "maxConcurrency": "="
@@ -317,7 +317,7 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 #### <a name="triggers"></a>Trigger
 
 * In `typeProperties`, sono parametrizzate due proprietà. La prima è `maxConcurrency`, che è specificata per avere un valore predefinito ed è di tipo`string`. Ha il nome di parametro predefinito `<entityName>_properties_typeProperties_maxConcurrency`.
-* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con valori predefiniti e nomi di parametro. Un'eccezione è la proprietà `interval`, che è parametrizzata come tipo `number`. Il nome del parametro ha il suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e seguito da un suffisso. Ad esempio: `<entityName>_freq`.
+* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con valori predefiniti e nomi di parametro. Un'eccezione è la proprietà `interval`, che è parametrizzata come tipo `int`. Il nome del parametro ha il suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e seguito da un suffisso. Ad esempio: `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -668,7 +668,7 @@ Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline
     - Le entità della data factory dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalle pipeline, le pipeline dipendono dai set di dati e da altre pipeline. La pubblicazione selettiva di un subset di risorse può causare comportamenti imprevisti ed errori.
     - Nei rari casi in cui è necessaria la pubblicazione selettiva, provare a usare un hotfix. Per ulteriori informazioni, vedere [ambiente di produzione hotfix](#hotfix-production-environment).
 
-- Il team Azure Data Factory non consiglia di assegnare controlli RBAC di Azure a singole entità (pipeline, set di impostazioni e così via) in una data factory. Se, ad esempio, uno sviluppatore ha accesso a una pipeline o a un set di dati, deve essere in grado di accedere a tutte le pipeline o i set di dati nel data factory. Se si ritiene che sia necessario implementare molti ruoli di Azure in una data factory, vedere Distribuzione di un secondo data factory.
+- Il team Azure Data Factory non consiglia di assegnare controlli RBAC di Azure a singole entità (pipeline, set di impostazioni e così via) in una data factory. Se, ad esempio, uno sviluppatore ha accesso a una pipeline o a un set di dati, deve poter accedere a tutte le pipeline o ai set di dati nella data factory. Se si ritiene che sia necessario implementare molti ruoli di Azure in una data factory, vedere Distribuzione di un secondo data factory.
 
 -   Non è possibile pubblicare da rami privati.
 

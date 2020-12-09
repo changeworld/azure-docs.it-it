@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411355"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905112"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Prima di leggere questa guida, è opportuno prendere in considerazione i più pr
 
 ## <a name="get-query-metrics"></a>Recuperare le metriche della query
 
-Quando si ottimizza una query in Azure Cosmos DB, il primo passaggio consiste sempre nell'[recuperare le metriche](profile-sql-api-query.md) per la query. Le metriche sono disponibili anche tramite il portale di Azure. Una volta eseguita la query in Esplora dati, le metriche della query sono visibili accanto alla scheda dei **risultati** :
+Quando si ottimizza una query in Azure Cosmos DB, il primo passaggio consiste sempre nell'[recuperare le metriche](profile-sql-api-query.md) per la query. Le metriche sono disponibili anche tramite il portale di Azure. Una volta eseguita la query in Esplora dati, le metriche della query sono visibili accanto alla scheda dei **risultati**:
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Recupero delle metriche della query" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
@@ -171,7 +171,7 @@ Criteri di indicizzazione:
 }
 ```
 
-**Addebito UR** : 409,51 UR
+**Addebito UR**: 409,51 UR
 
 #### <a name="optimized"></a>Con ottimizzazione
 
@@ -190,15 +190,13 @@ Criteri di indicizzazione aggiornati:
 }
 ```
 
-**Addebito UR** : 2,98 UR
+**Addebito UR**: 2,98 UR
 
 È possibile aggiungere proprietà ai criteri di indicizzazione in qualsiasi momento, senza alcun effetto sulla disponibilità di scrittura o lettura. È possibile [tenere traccia dell'avanzamento della trasformazione dell'indice](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Individuare le funzioni di sistema che usano l'indice
 
-Se un'espressione può essere convertita in un intervallo di valori stringa, tale espressione può usare l'indice. In caso contrario, ciò non è possibile.
-
-Di seguito è riportato l'elenco di alcune funzioni di stringa comuni che possono usare l'indice:
+La maggior parte delle funzioni di sistema utilizza gli indici. Ecco un elenco di alcune funzioni stringa comuni che usano gli indici:
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -214,7 +212,26 @@ Di seguito sono riportate alcune funzioni di sistema comuni che non usano l'indi
 
 ------
 
-Altre parti della query potrebbero usare comunque l'indice anche se le funzioni di sistema non lo fanno.
+Se una funzione di sistema usa indici e ha ancora un addebito di ur elevato, è possibile provare `ORDER BY` ad aggiungere alla query. In alcuni casi, `ORDER BY` l'aggiunta può migliorare l'utilizzo degli indici delle funzioni di sistema, in particolare se la query è a esecuzione prolungata o si estende su più pagine.
+
+Si consideri, ad esempio, la query seguente con `CONTAINS` . `CONTAINS` usare un indice ma si supponga che, dopo aver aggiunto l'indice pertinente, si osservi un addebito di ur molto elevato quando si esegue la query seguente:
+
+Query originale:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Query aggiornata con `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Individuare le query di aggregazione che usano l'indice
 
@@ -304,7 +321,7 @@ Criteri di indicizzazione:
 }
 ```
 
-**Addebito UR** : 44,28 RU
+**Addebito UR**: 44,28 RU
 
 #### <a name="optimized"></a>Con ottimizzazione
 
@@ -345,7 +362,7 @@ Criteri di indicizzazione aggiornati:
 
 ```
 
-**Addebito UR** : 8,86 UR
+**Addebito UR**: 8,86 UR
 
 ### <a name="optimize-join-expressions-by-using-a-subquery"></a>Ottimizzare le espressioni JOIN usando una sottoquery
 
@@ -363,7 +380,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**Addebito UR** : 167,62 UR
+**Addebito UR**: 167,62 UR
 
 Per questa query, l'indice determina la corrispondenza per qualsiasi documento con tag `infant formula`, `nutritionValue` maggiore di 0 e `amount` maggiore di 1. L'espressione `JOIN` esegue il prodotto incrociato per tutti gli elementi di tag, nutrienti e matrici di porzioni per ogni documento corrispondente prima dell'applicazione di qualsiasi filtro. La clausola `WHERE` applica quindi il predicato del filtro per ogni tupla di `<c, t, n, s>`.
 
@@ -379,13 +396,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**Addebito UR** : 22,17 RU
+**Addebito UR**: 22,17 RU
 
 Si supponga che un solo elemento nella matrice di tag corrisponda al filtro e che siano presenti cinque elementi per le matrici nutrizionali e delle porzioni. Le espressioni `JOIN` si espanderanno fino a 1 x 1 x 5 x 5 = 25 elementi, anziché fino a 1.000 elementi come nella prima query.
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Query in cui il conteggio dei documenti recuperati è uguale al conteggio dei documenti di output
 
-Se il **conteggio dei documenti recuperati** è approssimativamente uguale al **conteggio di documenti di output** , il motore di query non ha dovuto analizzare molti documenti superflui. Per molte query, ad esempio quelle che usano la parola chiave `TOP`, il **conteggio dei documenti recuperati** potrebbe superare il **conteggio dei documenti di output** di 1 unità. Non è necessario preoccuparsi di questa opzione.
+Se il **conteggio dei documenti recuperati** è approssimativamente uguale al **conteggio di documenti di output**, il motore di query non ha dovuto analizzare molti documenti superflui. Per molte query, ad esempio quelle che usano la parola chiave `TOP`, il **conteggio dei documenti recuperati** potrebbe superare il **conteggio dei documenti di output** di 1 unità. Non è necessario preoccuparsi di questa opzione.
 
 ### <a name="minimize-cross-partition-queries"></a>Ridurre al minimo le query su più partizioni
 

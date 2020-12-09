@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5367e5027bfae2fa3ed7e87a779e50e4048ba608
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776137"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861732"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph
 
@@ -49,7 +49,7 @@ La procedura per accedere ai dati di Identity Protection tramite Microsoft Graph
 1. Selezionare **Nuova registrazione**.
 1. Nella pagina **Crea** seguire questa procedura:
    1. Nella casella di testo **Name (nome** ) digitare un nome per l'applicazione (ad esempio: Azure ad API di rilevamento del rischio).
-   1. In **tipi di account supportati**selezionare il tipo di account che utilizzeranno le API.
+   1. In **tipi di account supportati** selezionare il tipo di account che utilizzeranno le API.
    1. Selezionare **Registra**.
 1. Copiare l' **ID applicazione**.
 
@@ -68,7 +68,7 @@ La procedura per accedere ai dati di Identity Protection tramite Microsoft Graph
 ### <a name="configure-a-valid-credential"></a>Configurare credenziali valide
 
 1. Dall' **applicazione** creata selezionare **certificati & segreti**.
-1. In **segreti client**selezionare **nuovo segreto client**.
+1. In **segreti client** selezionare **nuovo segreto client**.
    1. Fornire al client una **Descrizione** e impostare il periodo di tempo di scadenza in base ai criteri dell'organizzazione.
    1. Selezionare **Aggiungi**.
 
@@ -173,4 +173,4 @@ Per informazioni correlate, vedere:
 - [Tipi di rilevamento dei rischi rilevati da Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Overview of Microsoft Graph (Panoramica di Microsoft Graph)](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection Service Root (Radice del servizio Azure AD Identity Protection)](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Azure AD Identity Protection Service Root (Radice del servizio Azure AD Identity Protection)](/graph/api/resources/identityprotectionroot)
