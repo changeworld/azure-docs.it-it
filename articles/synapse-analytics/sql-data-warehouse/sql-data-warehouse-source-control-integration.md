@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700998"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296907"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integrazione del controllo del codice sorgente per il pool SQL dedicato in Azure Synapse Analytics
 
@@ -38,11 +38,13 @@ Questa esercitazione illustra come integrare il progetto di database SQL Server 
    ![Gestire le connessioni](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gestire le connessioni")
 
 3. Connettersi al progetto selezionando **Gestisci connessioni** e quindi **Connetti a un progetto**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connessione")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connessione")
 
 
 4. Individuare il progetto creato nel passaggio 1, quindi selezionare **Connetti**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connessione")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connessione")
 
 
 3. Clonare il repository di Azure DevOps del progetto nel computer locale.
@@ -85,7 +87,7 @@ Per altre informazioni sulla connessione ai progetti tramite Visual Studio, vede
 
    ![Verificare](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificare le modifiche")
 
-4. (**Facoltativo**) Usare Confronto schemi e aggiornare le modifiche apportate al data warehouse di destinazione tramite SSDT per assicurarsi che le definizioni degli oggetti nel repository di Azure e nel repository locale riflettano il data warehouse.
+4. (**Facoltativo**) Usare Confronto schemi e aggiornare le modifiche apportate al pool SQL dedicato di destinazione tramite SSDT per assicurarsi che le definizioni degli oggetti nel repository di Azure e nel repository locale riflettano il pool SQL dedicato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357777"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327084"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Panoramica di chiavi, segreti e certificati di Azure Key Vault
 
@@ -46,10 +46,10 @@ Segreti|/secrets|Supportato|Non supportato
 Certificati|/certificates|Supportato|Non supportato
 Chiavi dell'account di archiviazione|/storageaccount|Supportato|Non supportato
 |||
-- **Chiavi crittografiche** : supporta più tipi di chiavi e algoritmi e consente l'uso di chiavi protette tramite software e con protezione HSM. Per altre informazioni, vedere [Informazioni sulle chiavi](../keys/about-keys.md).
-- **Segreti** : Offre l'archiviazione sicura di segreti, ad esempio password e stringhe di connessione di database. Per altre informazioni, vedere [Informazioni sui segreti](../secrets/about-secrets.md).
-- **Certificati** : Supporta i certificati, basati su chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico. Per altre informazioni, vedere [Informazioni sui certificati](../certificates/about-certificates.md).
-- **Chiavi dell'account di archiviazione di Azure** : Può gestire le chiavi di un account di archiviazione di Azure per l'utente. Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure e rigenerare (ruotare) tali chiavi con cadenza periodica. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione con Key Vault](../secrets/overview-storage-keys.md).
+- **Chiavi crittografiche**: supporta più tipi di chiavi e algoritmi e consente l'uso di chiavi protette tramite software e con protezione HSM. Per altre informazioni, vedere [Informazioni sulle chiavi](../keys/about-keys.md).
+- **Segreti**: Offre l'archiviazione sicura di segreti, ad esempio password e stringhe di connessione di database. Per altre informazioni, vedere [Informazioni sui segreti](../secrets/about-secrets.md).
+- **Certificati**: Supporta i certificati, basati su chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico. Per altre informazioni, vedere [Informazioni sui certificati](../certificates/about-certificates.md).
+- **Chiavi dell'account di archiviazione di Azure**: Può gestire le chiavi di un account di archiviazione di Azure per l'utente. Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure e rigenerare (ruotare) tali chiavi con cadenza periodica. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione con Key Vault](../secrets/overview-storage-keys.md).
 
 Per altre informazioni generali su Key Vault, vedere [Informazioni su Azure Key Vault](overview.md). Per altre informazioni sui pool di moduli di protezione hardware gestiti, vedere [Che cos'è il modulo di protezione hardware gestito di Azure Key Vault?](../managed-hsm/overview.md)
 
@@ -58,15 +58,15 @@ Per altre informazioni generali su Key Vault, vedere [Informazioni su Azure Key 
 
 Fare riferimento alle specifiche JOSE per i tipi di dati pertinenti per chiavi, crittografia e firma.  
 
--   **algoritmo** : un algoritmo supportato per un'operazione della chiave, ad esempio, RSA1_5  
--   **valore di testo crittografato** : ottetti di testo cifrati, codificati tramite Base64URL  
--   **valore di digest** : l'output di un algoritmo hash, codificato tramite Base64URL  
--   **key-type** : uno dei tipi di chiave supportati, ad esempio RSA (Rivest-Shamir-Adleman)  
--   **valore di testo non crittografato** : ottetti di testo non crittografato, codificati tramite Base64URL  
--   **valore di firma** : l'output di un algoritmo di firma, codificato tramite Base64URL  
--   **base64URL** : un valore binario Base64URL [RFC4648] codificato  
--   **booleano** : vero o falso  
--   **Identità** : un identità di Azure Active Directory (AAD).  
+-   **algoritmo**: un algoritmo supportato per un'operazione della chiave, ad esempio, RSA1_5  
+-   **valore di testo crittografato**: ottetti di testo cifrati, codificati tramite Base64URL  
+-   **valore di digest**: l'output di un algoritmo hash, codificato tramite Base64URL  
+-   **key-type**: uno dei tipi di chiave supportati, ad esempio RSA (Rivest-Shamir-Adleman)  
+-   **valore di testo non crittografato**: ottetti di testo non crittografato, codificati tramite Base64URL  
+-   **valore di firma**: l'output di un algoritmo di firma, codificato tramite Base64URL  
+-   **base64URL**: un valore binario Base64URL [RFC4648] codificato  
+-   **booleano**: vero o falso  
+-   **Identità**: un identità di Azure Active Directory (AAD).  
 -   **IntDate** : un valore decimale JSON che rappresenta il numero di secondi da 1970-01-01T0:0:0Z UTC fino alla data/ora UTC specificata. Per informazioni dettagliate sui valori data/ora in generale e UTC in particolare, vedere RFC3339.  
 
 ## <a name="objects-identifiers-and-versioning"></a>Oggetti, identificatori e controllo delle versioni
@@ -75,15 +75,16 @@ Agli oggetti archiviati in Key Vault viene applicato il controllo delle versioni
 
 Gli oggetti in Key Vault possono essere gestiti specificando una versione o omettendola per le operazioni sulla versione corrente dell'oggetto. Ad esempio, data una chiave denominata `MasterKey`, se vengono eseguite operazioni senza specificare una versione il sistema usa l'ultima versione disponibile. L'esecuzione di operazioni con l'identificatore specifico della versione fa sì che il sistema userà quella versione specifica dell'oggetto.  
 
+### <a name="vault-name-and-object-name"></a>Nome dell'insieme di credenziali e nome dell'oggetto
 All'interno di Key Vault gli oggetti sono identificati in modo univoco con un URL. Nel sistema non esistono coppie di oggetti con lo stesso URL, indipendentemente dalla posizione geografica. L'URL completo di un oggetto viene chiamato identificatore di oggetto. L'URL è costituito da un prefisso che identifica l'insieme di credenziali delle chiavi, seguito dal tipo di oggetto, dal nome dell'oggetto specificato dall'utente e dalla versione dell'oggetto. Il nome dell'oggetto non è modificabile e non fa distinzione tra maiuscole e minuscole. Gli identificatori che non includono la versione dell'oggetto vengono definiti identificatori di base.  
 
 Per ulteriori informazioni, vedere[ Autenticazione, richieste e risposte](authentication-requests-and-responses.md)
 
 Un identificatore di oggetto ha il seguente formato generale (in base al tipo di contenitore):  
 
-- **Per gli insiemi di credenziali** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Per gli insiemi di credenziali**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **Per i pool di moduli di protezione hardware gestiti** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Per i pool di moduli di protezione hardware gestiti**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Per informazioni sui tipi di oggetti supportati da ogni tipo di contenitore, vedere [Supporto dei tipi di oggetto](#object-types).

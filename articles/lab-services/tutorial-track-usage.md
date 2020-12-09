@@ -3,12 +3,12 @@ title: Tenere traccia dell'utilizzo di un lab in Azure Lab Services | Microsoft 
 description: In questa esercitazione, in veste di creatore/proprietario del lab, si vuole traccia dell'utilizzo del lab.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: a9a9b49b568decc621be1969a8578d61ac7e4861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3ca9e011eb89b3db8b202bab11d14f10d74e7e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445033"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434618"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Esercitazione: Tenere traccia dell'utilizzo di un lab in Azure Lab Services
 Questa esercitazione spiega in che modo il creatore/proprietario di un lab può tenere traccia dell'utilizzo del lab.
@@ -50,4 +50,4 @@ Per altre informazioni su come gestire il pool di macchine virtuali per il lab, 
 > Quando un docente accende una macchina virtuale per studenti, la quota per lo studente rimane invariata. La quota per un utente specifica il numero di ore lab disponibili per l'utente al di fuori dell'orario delle lezioni pianificato. Per altre informazioni sulle quote, vedere [Impostare quote per gli utenti](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui lab per le classi, vedere gli articoli nella sezione [Guide alle procedure](how-to-manage-lab-accounts.md).
+Per altre informazioni sui lab, vedere gli articoli delle [guide pratiche](how-to-manage-lab-accounts.md).

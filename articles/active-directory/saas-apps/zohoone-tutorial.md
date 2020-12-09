@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: fa63cc2c76d8bd47ca80050a369bda7211f5db24
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 98c9012969051e4370239a0f4098e0ea1d7a55a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896719"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Esercitazione: Integrazione di Azure Active Directory con Zoho One
 
@@ -53,7 +53,7 @@ Per configurare l'integrazione di Zoho One in Azure AD, è necessario aggiungere
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Per configurare l'integrazione di Zoho One in Azure AD, è necessario aggiungere
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Zoho One** , selezionare **Zoho One** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Zoho One**, selezionare **Zoho One** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Zoho One nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Zoho One usando un utente di test di nome **Britta Simon** .
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Zoho One usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Zoho One.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Zoho One, è necessario completare le procedure di base seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Zoho One, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Zoho One** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **Zoho One** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,11 +93,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho One, seguire quest
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-relay.png)
 
@@ -106,22 +106,22 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho One, seguire quest
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
     > [!NOTE]
-    > Il valore di **URL di risposta** precedente non è reale. Si otterrà il valore `<saml-identifier>` dal passaggio4 della sezione **Configurare l'accesso Single Sign-On di Zoho One** , descritto più avanti nell'esercitazione.
+    > Il valore di **URL di risposta** precedente non è reale. Il valore di `<saml-identifier>` si otterrà dal passaggio 4 della sezione **Configurare l'accesso Single Sign-On di Zoho One**, descritto più avanti nell'esercitazione.
 
-    c. Fare clic su **Impostare URL aggiuntivi** .
+    c. Fare clic su **Impostare URL aggiuntivi**.
 
     d. Nella casella di testo **Stato dell'inoltro** digitare un URL: `https://one.zoho.com`
 
-5. Per configurare l'applicazione in modalità avviata da **SP** , seguire questa procedura:
+5. Per configurare l'applicazione in modalità avviata da **SP**, seguire questa procedura:
 
     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/both-signonurl.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com` 
 
     > [!NOTE] 
-    > Il valore precedente dell' **URL di accesso** non è reale. Aggiornare il valore con l'URL di accesso effettivo ottenuto nella sezione **Configurare l'accesso Single Sign-On di Zoho One** , descritta più avanti nell'esercitazione. 
+    > Il valore precedente dell'**URL di accesso** non è reale. Aggiornare il valore con l'URL di accesso effettivo ottenuto nella sezione **Configurare l'accesso Single Sign-On di Zoho One**, descritta più avanti nell'esercitazione. 
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -139,7 +139,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho One, seguire quest
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Zoho One come amministratore.
 
-2. Nella scheda **Organizzazione** , fare clic su **Installazione** nella sezione **Autenticazione SAML** .
+2. Nella scheda **Organizzazione**, fare clic su **Installazione** nella sezione **Autenticazione SAML**.
 
     ![Organizzazione Zoho One](./media/zohoone-tutorial/tutorial_zohoone_setup.png)
 
@@ -149,17 +149,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho One, seguire quest
 
     a. Nella casella di testo **Sign-in URL** (URL di accesso) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    b. Nella casella di testo **Sign-out URL** (URL di disconnessione) incollare il valore dell' **URL di disconnessione** copiato dal portale di Azure.
+    b. Nella casella di testo **Sign-out URL** (URL di disconnessione) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
 
     c. Fare clic su **Sfoglia** per caricare il **Certificato (Base64)** scaricato dal portale di Azure.
 
-    d. Fare clic su **Salva** .
+    d. Fare clic su **Salva**.
 
-4. Dopo il salvataggio della configurazione dell'autenticazione SAML, copiare il valore dell' **identificatore SAML** e aggiungerlo all' **URL di risposta** al posto di `<saml-identifier>`, ad esempio `https://accounts.zoho.com/samlresponse/one.zoho.com`, quindi incollare il valore generato nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base** .
+4. Dopo il salvataggio della configurazione dell'autenticazione SAML, copiare il valore dell'**identificatore SAML** e aggiungerlo all'**URL di risposta** al posto di `<saml-identifier>`, ad esempio `https://accounts.zoho.com/samlresponse/one.zoho.com`, quindi incollare il valore generato nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base**.
 
     ![SAML Zoho One](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
-5. Passare alla scheda **Domini** e quindi fare clic su **Aggiungi dominio** .
+5. Passare alla scheda **Domini** e quindi fare clic su **Aggiungi dominio**.
 
     ![Dominio Zoho One](./media/zohoone-tutorial/tutorial_zohoone_domain.png)
 
@@ -169,7 +169,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho One, seguire quest
 
     a. Nella casella di testo **Nome di dominio** digitare il dominio, ad esempio contoso.com.
 
-    b. Fare clic su **Aggiungi** .
+    b. Fare clic su **Aggiungi**.
 
     >[!Note]
     >Dopo aver aggiunto il dominio seguire [questi](https://www.zoho.com/one/help/admin-guide/domain-verification.html) passaggi per verificarlo. Dopo la verifica del dominio, usare il nome di dominio in **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -178,7 +178,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho One, seguire quest
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -190,23 +190,23 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon** .
+    a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea** .
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zoho One.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Zoho One** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zoho One**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Zoho One** .
+2. Nell'elenco delle applicazioni selezionare **Zoho One**.
 
     ![Collegamento di Zoho One nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -214,7 +214,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -222,7 +222,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-zoho-one-test-user"></a>Creare l'utente di test di Zoho One
 
@@ -232,7 +232,7 @@ Per consentire agli utenti di Azure AD di accedere a Zoho One, è necessario eff
 
 1. Accedere a Zoho One come amministratore della sicurezza.
 
-2. Nella scheda **Utenti** , fare clic su **logo utente** .
+2. Nella scheda **Utenti**, fare clic su **logo utente**.
 
     ![Utente Zoho One](./media/zohoone-tutorial/tutorial_zohoone_users.png)
 
@@ -240,14 +240,14 @@ Per consentire agli utenti di Azure AD di accedere a Zoho One, è necessario eff
 
     ![Aggiungi Utente Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-    a. Nella casella di testo **Nome** digitare il nome dell'utente, ad esempio **Britta Simon** .
+    a. Nella casella di testo **Nome** digitare il nome dell'utente, ad esempio **Britta Simon**.
     
     b. Nella casella di testo **Email address** (Indirizzo e-mail) immettere l'indirizzo di posta elettronica dell'utente, ad esempio brittasimon@contoso.com.
 
     >[!Note]
     >Selezionare il dominio verificato dall'elenco di domini.
 
-    c. Fare clic su **Aggiungi** .
+    c. Fare clic su **Aggiungi**.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

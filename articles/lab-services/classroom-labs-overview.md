@@ -1,19 +1,19 @@
 ---
-title: Informazioni sui lab per le classi in Azure Lab Services | Microsoft Docs
+title: Informazioni sui lab in Azure Lab Services | Microsoft Docs
 description: Informazioni su come configurare rapidamente un ambiente lab per le classi nel cloud, che consiste nel configurare una VM modello con il software necessario per la classe e creare una copia della macchina virtuale disponibile per ogni studente della classe.
 ms.topic: overview
 ms.date: 06/26/2020
-ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79d6f1cc9f2a6d8d8be872359a4677b36602eea5
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85445628"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434805"
 ---
-# <a name="introduction-to-classroom-labs"></a>Introduzione ai lab per le classi
+# <a name="introduction-to-labs"></a>Introduzione ai lab
 Azure Lab Services consente di configurare rapidamente un ambiente di lab per le classi nel cloud. Un docente crea un lab per le classi, esegue il provisioning delle macchine virtuali Windows o Linux, installa il software e gli strumenti necessari e li rende disponibili per gli studenti. Gli studenti nella classe si connettono alle macchine virtuali del lab e le usano per i progetti, per i compiti o per gli esercizi in classe. 
 
-I lab per le classi sono tipi di lab gestiti da Azure. Il servizio controlla completamente la gestione dell'infrastruttura per un tipo di lab gestito, dall'attivazione delle macchine virtuali alla gestione degli errori e al ridimensionamento dell'infrastruttura. Specificare il tipo di infrastruttura necessario e installare qualsiasi strumento o software richiesto per la classe. 
+I lab vengono gestiti da Azure. Il servizio controlla completamente la gestione dell'infrastruttura per un tipo di lab gestito, dall'attivazione delle macchine virtuali alla gestione degli errori e al ridimensionamento dell'infrastruttura. Specificare il tipo di infrastruttura necessario e installare qualsiasi strumento o software richiesto per la classe. 
 
 ## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Gestione automatica dell'infrastruttura e della scalabilità di Azure 
 Azure Lab Services è un servizio gestito, quindi gestisce automaticamente il provisioning e la gestione dell'infrastruttura sottostante del lab. È quindi possibile concentrarsi esclusivamente sulla preparazione dell'esperienza lab ottimale per i propri utenti. Il servizio si occupa di tutto il resto e distribuisce le macchine virtuali del lab ai destinatari. Il lab è scalabile fino a centinaia di macchine virtuali con un solo clic.

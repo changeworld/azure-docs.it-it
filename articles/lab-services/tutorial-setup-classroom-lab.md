@@ -3,12 +3,12 @@ title: Configurare un lab per le classi con Azure Lab Services | Microsoft Docs
 description: In questa esercitazione si usa Azure Lab Services per configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8981a03b53b1cfb67b03d89f8a1468511d9b1b93
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336735"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434856"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -116,7 +116,7 @@ Creare un evento pianificato per il lab in modo che le VM al suo interno vengano
     
     ![Pianificare nel calendario](./media/how-to-create-schedules/schedule-calendar.png)
 
-    Per altre informazioni sulla creazione e la gestione di pianificazioni per una classe, vedere [Creare e gestire la pianificazione per i lab per la classe](how-to-create-schedules.md).
+    Per altre informazioni sulla creazione e sulla gestione di pianificazioni per una classe, vedere [Creare e gestire la pianificazione per i lab](how-to-create-schedules.md).
 
 
 ## <a name="add-users-to-the-lab"></a>Aggiungere utenti al lab

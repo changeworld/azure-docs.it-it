@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004756"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353610"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
 
@@ -25,6 +25,8 @@ Questa esercitazione descrive come integrare ServiceNow con Azure Active Directo
 * Controllare in Azure AD chi può accedere a ServiceNow.
 * Abilitare gli utenti per l'accesso automatico a ServiceNow con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -478,5 +480,4 @@ Quando si seleziona il riquadro ServiceNow nel pannello di accesso, si dovrebbe 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato ServiceNow, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+Dopo aver configurato ServiceNow, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

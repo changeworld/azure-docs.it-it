@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984448"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324721"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
@@ -119,7 +119,7 @@ Non è possibile cambiare il tag di un rettangolo di selezione esistente. Se si 
 
 Per impostazione predefinita, è possibile modificare i rettangoli di selezione esistenti. Questo comportamento è attivato/disattivato tramite lo strumento **Lock/unlock regions** (Blocca/Sblocca aree) ![Lock/unlock regions tool](./media/how-to-label-images/lock-bounding-boxes-tool.png) (Strumento Blocca/Sblocca aree) o "L". Se le aree sono bloccate, è possibile cambiare solo la forma o la posizione di un nuovo rettangolo di selezione.
 
-Per modificare un rettangolo di selezione esistente, usare lo strumento **Regions manipulation** (Modifica aree) ![Regions manipulation tool](./media/how-to-label-images/regions-tool.png) (Strumento Modifica aree) o "M". Per modificare la forma, trascinare i bordi o gli angoli. Fare clic all'interno per trascinare l'intero rettangolo di selezione. Se non è possibile modificare un'area, è probabile che sia stato attivato o disattivato lo strumento **Lock/unlock regions** (Blocca/Sblocca aree).
+Usare lo strumento di **manipolazione delle aree** ![Questa è l'icona dello strumento di manipolazione delle aree: quattro frecce che puntano dal centro in l'alto, a destra, in basso e a sinistra.](./media/how-to-label-images/regions-tool.png) oppure premere "M" per modificare un rettangolo di selezione esistente. Per modificare la forma, trascinare i bordi o gli angoli. Fare clic all'interno per trascinare l'intero rettangolo di selezione. Se non è possibile modificare un'area, è probabile che sia stato attivato o disattivato lo strumento **Lock/unlock regions** (Blocca/Sblocca aree).
 
 Usare lo strumento **Template-based box** (Rettangolo basato su modello) ![Template-box tool](./media/how-to-label-images/template-box-tool.png) (Strumento Rettangolo basato su modello) o "T" per creare più rettangoli di selezione delle stesse dimensioni. Se l'immagine non contiene rettangoli di selezione e si attivano i rettangoli basati su modello, lo strumento genererà rettangoli da 50 x 50 pixel. Se si crea un rettangolo di selezione e quindi si attivano i rettangoli basati su modello, i nuovi rettangoli di selezione avranno le stesse dimensioni dell'ultimo creato. È possibile ridimensionare i rettangoli basati su modello dopo il posizionamento. Il ridimensionamento di un rettangolo basato su modello ha effetto solo sul rettangolo specifico.
 
@@ -143,7 +143,7 @@ Se si vuole modificare il tag per un poligono, selezionare lo strumento **Move r
 
 È possibile modificare i poligoni esistenti. Per attivare o disattivare questo comportamento usare lo strumento **Lock/unlock regions** (Blocca/Sblocca aree) ![Modificare i poligoni con lo strumento Lock/unlock regions](./media/how-to-label-images/lock-bounding-boxes-tool.png) oppure selezionare "L". Se le aree sono bloccate, è possibile cambiare solo la forma o la posizione di un nuovo poligono.
 
-Usare lo strumento **Add or remove polygon points** (Aggiungi o Rimuovi punti poligoni) ![Strumento Add or remove polygon points](./media/how-to-label-images/add-remove-points-tool.png) o selezionare "U" per modificare un poligono esistente. Fare clic sul poligono per aggiungere o rimuovere un punto. Se non è possibile modificare un'area, è probabile che sia stato attivato o disattivato lo strumento **Lock/unlock regions** (Blocca/Sblocca aree).
+Usare lo strumento **Aggiungi o rimuovi punti del poligono** ![Questa è l'icona dello strumento Aggiungi o rimuovi punti del poligono.](./media/how-to-label-images/add-remove-points-tool.png) oppure premere "U" per modificare un poligono esistente. Fare clic sul poligono per aggiungere o rimuovere un punto. Se non è possibile modificare un'area, è probabile che sia stato attivato o disattivato lo strumento **Lock/unlock regions** (Blocca/Sblocca aree).
 
 Per eliminare *tutti* i poligoni nell'immagine corrente, selezionare lo strumento **Delete All Regions** (Elimina tutte le aree) ![Delete all regions tool](./media/how-to-label-images/delete-regions-tool.png) (Strumento Elimina tutte le aree).
 

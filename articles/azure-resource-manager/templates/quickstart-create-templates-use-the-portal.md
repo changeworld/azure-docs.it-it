@@ -1,20 +1,20 @@
 ---
 title: Distribuire un modello - Portale di Azure
-description: Informazioni su come creare il primo modello di Azure Resource Manager con il portale di Azure ed eseguirne la distribuzione.
+description: Informazioni su come creare il primo modello di Azure Resource Manager con il portale di Azure e distribuirlo.
 author: mumian
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c132d8337ccb46824b32ab4a6bcfc73bf5d0818b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bdbcecc247a4b5318ba44b92befa7e90ac47aa8c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978557"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349623"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Avvio rapido: Creare e distribuire modelli di Resource Manager con il portale di Azure
 
-Informazioni su come generare un modello di Azure Resource Manager (ARM) con il portale di Azure e il processo di modifica e distribuzione del modello dal portale. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere la [panoramica della distribuzione di modelli](overview.md).
+Informazioni su come generare un modello di Azure Resource Manager con il portale di Azure e come modificarlo e distribuirlo dal portale. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere la [panoramica della distribuzione di modelli](overview.md).
 
 ![Avvio rapido per i modelli di Resource Manager: diagramma relativo al portale](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

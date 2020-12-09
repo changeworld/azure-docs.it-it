@@ -1,18 +1,18 @@
 ---
 title: Creare un modello - Visual Studio Code
-description: Usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per elaborare i modelli di Resource Manager.
+description: Usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per elaborare i modelli di Azure Resource Manager.
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034983"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350144"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Guida introduttiva: Creare modelli di Azure Resource Manager con Visual Studio Code
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Avvio rapido: Creare modelli di Resource Manager con Visual Studio Code
 
 Gli strumenti di Azure Resource Manager per Visual Studio Code forniscono supporto per i linguaggi, frammenti di risorse e completamento automatico delle risorse. Questi strumenti consentono di creare e convalidare i modelli di Azure Resource Manager. In questa guida di avvio rapido si userà l'estensione per creare un modello di Azure Resource Manager da zero. In questo modo è possibile sperimentare le funzionalità delle estensioni, come i frammenti di modelli di Resource Manager, la convalida, i completamenti e il supporto per i file di parametri.
 
@@ -54,7 +54,7 @@ La chiave **tab** può essere usata per spostarsi tramite TAB tra le proprietà 
 
 ## <a name="completion-and-validation"></a>Completamento e convalida
 
-Una delle funzionalità più avanzate dell'estensione è l'integrazione con gli schemi di Azure. Gli schemi di Azure forniscono all'estensione funzionalità di convalida e completamento con riconoscimento della risorsa. Modificare l'account di archiviazione per vedere il funzionamento di convalida e completamento. 
+Una delle funzionalità più avanzate dell'estensione è l'integrazione con gli schemi di Azure. Gli schemi di Azure forniscono all'estensione funzionalità di convalida e completamento con riconoscimento della risorsa. Modificare l'account di archiviazione per vedere il funzionamento di convalida e completamento.
 
 Aggiornare prima di tutto il tipo di account di archiviazione impostandolo su un valore non valido, ad esempio `megaStorage`. Si noti che questa azione genera un avviso che indica che `megaStorage` non è un valore valido.
 
@@ -80,7 +80,7 @@ I nomi degli account di archiviazione di Azure possono essere composti da un min
 
 ![Immagine che mostra l'aggiunta di minLength e maxLength a un parametro del modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-A questo punto, nella risorsa di archiviazione aggiornare la proprietà name in modo da usare il parametro. A questo scopo, rimuovere il nome corrente. Immettere una virgoletta doppia e una parentesi quadra aperta `[`, che produce un elenco di funzioni del modello di Resource Manager. Selezionare *parameters* nell'elenco. 
+A questo punto, nella risorsa di archiviazione aggiornare la proprietà name in modo da usare il parametro. A questo scopo, rimuovere il nome corrente. Immettere una virgoletta doppia e una parentesi quadra aperta `[`, che produce un elenco di funzioni del modello di Resource Manager. Selezionare *parameters* nell'elenco.
 
 ![Immagine che mostra il completamento automatico quando si usano i parametri nelle risorse del modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

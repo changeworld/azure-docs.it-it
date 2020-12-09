@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 62cecc011980c2d11e6f99895c90b0ced744039a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325803"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325350"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Esercitazione 1: Prevedere il rischio di credito - Azure Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**SI APPLICA A:**  ![Questo è un segno di spunta, che significa che l'articolo si applica a Machine Learning Studio (versione classica).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (versione classica) ![Questa è una X, che significa che l'articolo si applica ad Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -75,7 +74,7 @@ Per sviluppare un modello predittivo per il rischio di credito, sono necessari d
 
 Verrà usato il file denominato **german.data**. Scaricare questo file nel disco rigido locale.  
 
-Il set di dati **german.data** contiene le righe di 20 variabili per 1000 clienti che in passato hanno fatto richiesta di un credito. Queste 20 variabili rappresentano l'insieme di funzionalità del set di dati ( *vettore delle funzionalità* ) che fornisce le caratteristiche di identificazione di ogni richiedente credito. Una colonna aggiuntiva in ogni riga rappresenta il rischio di credito calcolato del richiedente. In questa colonna 700 richiedenti sono identificati come a basso rischio e 300 ad alto rischio.
+Il set di dati **german.data** contiene le righe di 20 variabili per 1000 clienti che in passato hanno fatto richiesta di un credito. Queste 20 variabili rappresentano l'insieme di funzionalità del set di dati (*vettore delle funzionalità*) che fornisce le caratteristiche di identificazione di ogni richiedente credito. Una colonna aggiuntiva in ogni riga rappresenta il rischio di credito calcolato del richiedente. In questa colonna 700 richiedenti sono identificati come a basso rischio e 300 ad alto rischio.
 
 Il sito Web UCI presenta una descrizione degli attributi del vettore delle funzionalità per i dati. Questi dati includono informazioni finanziarie, cronologia del credito, stato di occupazione e dati personali. Per ogni richiedente è stata assegnata una valutazione in formato binario per indicare se è a basso o ad alto rischio. 
 
@@ -119,7 +118,7 @@ Dopo aver convertito i dati in formato CSV è necessario caricarli in Machine Le
 
 1. Aprire la home page di Machine Learning Studio (versione classica) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Fare clic sul menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) nell'angolo superiore sinistro della finestra, fare clic su **Azure Machine Learning** , selezionare **Studio** ed eseguire l'accesso.
+2. Fare clic sul menu ![Questa è l'icona del menu: tre linee impilate.](./media/tutorial-part1-credit-risk/menu.png) nell'angolo in alto a destra della finestra, fare clic su **Azure Machine Learning**, selezionare **Studio** ed eseguire l'accesso.
 
 3. Fare clic su **+NEW** nella parte inferiore della finestra.
 
@@ -179,7 +178,7 @@ Il passaggio successivo di questa esercitazione consiste nel creare un esperimen
 
 È possibile visualizzare le prime 100 righe di dati e alcune informazioni statistiche per l'intero set di dati: fare clic sulla porta di output del set di dati (il circoletto in basso) e selezionare **Visualize** (Visualizza).  
 
-Poiché il file di dati non presentava intestazioni di colonna, Studio (versione classica) ha assegnato intestazioni generiche (Col1, Col2, *e così via* ). Anche se per la creazione di un modello non sono indispensabili intestazioni di colonna precise, queste semplificano l'uso dei dati nell'esperimento. Quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.  
+Poiché il file di dati non presentava intestazioni di colonna, Studio (versione classica) ha assegnato intestazioni generiche (Col1, Col2, *e così via*). Anche se per la creazione di un modello non sono indispensabili intestazioni di colonna precise, queste semplificano l'uso dei dati nell'esperimento. Quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.  
 
 È possibile aggiungere intestazioni di colonna usando il modulo [Edit Metadata][edit-metadata] (Modifica metadati).
 

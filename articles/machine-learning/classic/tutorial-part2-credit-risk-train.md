@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 557c624b6ed683f701b6a8d38854cd8604e05b31
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325677"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325265"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**SI APPLICA A:**  ![Questo è un segno di spunta, che significa che l'articolo si applica a Machine Learning Studio (versione classica).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (versione classica) ![Questa è una X, che significa che l'articolo si applica ad Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio (versione classica).  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **seconda di una serie in tre parti**.
 
@@ -82,9 +81,9 @@ Questa parte dell'esperimento avrà ora un aspetto analogo al seguente:
 
 A questo punto è necessario indicare al modulo [Train Model][train-model] (Training modello) che il modello dovrà stimare il valore del rischio di credito.
 
-1. Selezionare il modulo [Train Model][train-model]. Nel riquadro **Proprietà** , fare clic su **Launch column selector** (Avvia selettore colonne).
+1. Selezionare il modulo [Train Model][train-model]. Nel riquadro **Proprietà**, fare clic su **Launch column selector** (Avvia selettore colonne).
 
-1. Nella finestra di dialogo **Select a single column** (Selezionare una singola colonna), digitare "rischio di credito" nel campo di ricerca in **Colonne disponibili** , selezionare "Rischio di credito" di seguito e fare clic sul pulsante freccia destra ( **>** ) per spostare "Rischio di credito" su **Colonne selezionate**. 
+1. Nella finestra di dialogo **Select a single column** (Selezionare una singola colonna), digitare "rischio di credito" nel campo di ricerca in **Colonne disponibili**, selezionare "Rischio di credito" di seguito e fare clic sul pulsante freccia destra ( **>** ) per spostare "Rischio di credito" su **Colonne selezionate**. 
 
     ![Selezionare la colonna Rischio di credito per il modulo "Train Model" (Training modello)](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -100,7 +99,7 @@ Per configurare il modello SVM, procedere come segue:
 
 1. Trovare il modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) nel pannello dei moduli e trascinarlo nel canvas.
 
-1. Fare clic con il pulsante destro del mouse sul modulo [Train Model][train-model] (Training modello), scegliere **Copia** , quindi fare clic con il pulsante destro del mouse sul canvas e scegliere **Incolla**. La copia del modulo [Train Model][train-model] (Training modello) presenta la stessa selezione di colonne dell'originale.
+1. Fare clic con il pulsante destro del mouse sul modulo [Train Model][train-model] (Training modello), scegliere **Copia**, quindi fare clic con il pulsante destro del mouse sul canvas e scegliere **Incolla**. La copia del modulo [Train Model][train-model] (Training modello) presenta la stessa selezione di colonne dell'originale.
 
 1. Connettere l'output del modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) alla porta di input sinistra del secondo modulo [Train Model][train-model] (Training modello).
 

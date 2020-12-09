@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369257"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171560"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Ripristino di emergenza del modulo di protezione hardware gestito
 
@@ -35,7 +35,7 @@ Ecco la procedura da seguire per il ripristino di emergenza:
 1. Eseguire un backup del nuovo modulo di protezione hardware. È necessario eseguire un backup prima di qualsiasi ripristino, anche quando il modulo di protezione hardware è vuoto. I backup consentono di eseguire facilmente il rollback.
 1. Ripristinare il backup recente del modulo di protezione hardware dal modulo di protezione hardware di origine
 
-I contenuti dell'insieme di credenziali delle chiavi vengono replicati all'interno dell'area e in un'area secondaria distante almeno 250 chilometri, ma all'interno della stessa area geografica. Questa funzionalità garantisce un'elevata durabilità delle chiavi e dei segreti. Per informazioni dettagliate su coppie di aree specifiche, vedere il documento [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md).
+Questa procedura consente di replicare manualmente il contenuto di un modulo di protezione hardware in un'altra area. Il nome del modulo di protezione hardware e l'URI dell'endpoint di servizio saranno diversi, quindi può essere necessario cambiare la configurazione dell'applicazione per consentire l'uso di queste chiavi da una località diversa.
 
 ## <a name="create-a-new-managed-hsm"></a>Creare un nuovo modulo di protezione hardware gestito
 
@@ -48,7 +48,7 @@ Per creare una risorsa del modulo di protezione hardware gestito, è necessario 
 - Località di Azure.
 - Elenco di amministratori iniziali.
 
-L'esempio seguente crea un modulo di protezione hardware denominato **ContosoMHSM** nel gruppo di risorse **ContosoResourceGroup** , nella località **Stati Uniti orientali 2** e con l' **utente connesso corrente** come unico amministratore.
+L'esempio seguente crea un modulo di protezione hardware denominato **ContosoMHSM** nel gruppo di risorse **ContosoResourceGroup**, nella località **Stati Uniti orientali 2** e con l'**utente connesso corrente** come unico amministratore.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 L'output di questo comando mostra le proprietà del modulo di protezione hardware gestito creato. Le due proprietà più importanti sono:
 
-* **name** : nell'esempio il nome è ContosoMHSM. Questo nome verrà usato per altri comandi di Key Vault.
-* **hsmUri** : nell'esempio l'URI è 'https://contosohsm.managedhsm.azure.net '. Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
+* **name**: nell'esempio il nome è ContosoMHSM. Questo nome verrà usato per altri comandi di Key Vault.
+* **hsmUri**: nell'esempio l'URI è 'https://contosohsm.managedhsm.azure.net '. Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo modulo di protezione hardware gestito. Per ora, nessun altro è autorizzato.
 
@@ -86,7 +86,7 @@ Il comando `az keyvault security-domain upload` esegue le operazioni seguenti:
 - Crea un BLOB di caricamento del dominio di sicurezza crittografato con la chiave di scambio del dominio di sicurezza scaricata nel passaggio precedente.
 - Carica il BLOB di caricamento del dominio di sicurezza nel modulo di protezione hardware per completare il ripristino del dominio di sicurezza.
 
-Nell'esempio seguente viene usato il dominio di sicurezza di **ContosoMHSM** , la numero 2 delle chiavi private corrispondenti, caricandolo quindi in **ContosoMHSM2** , che è in attesa di ricevere un dominio di sicurezza. 
+Nell'esempio seguente viene usato il dominio di sicurezza di **ContosoMHSM**, la numero 2 delle chiavi private corrispondenti, caricandolo quindi in **ContosoMHSM2**, che è in attesa di ricevere un dominio di sicurezza. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key

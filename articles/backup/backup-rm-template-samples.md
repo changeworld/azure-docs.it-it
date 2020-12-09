@@ -4,12 +4,12 @@ description: Modelli di Azure Resource Manager da usare con gli insiemi di crede
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4c2f444cb821f7979571b9d777895a59450e7c2
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755195"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309580"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelli di Azure Resource Manager per Backup di Azure
 
@@ -29,4 +29,6 @@ La tabella seguente contiene collegamenti ai modelli di Azure Resource Manager d
 | [Usare log di Monitoraggio di Azure con Backup di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Il modello distribuisce i log di Monitoraggio di Azure con Backup di Azure, per monitorare i processi di backup e ripristino, gli avvisi di backup e lo spazio di archiviazione cloud usato per gli insiemi di credenziali di Servizi di ripristino.|  
 |**Eseguire il backup di SQL Server in VM di Azure** |  |
 | [Eseguire il backup di SQL Server in VM di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | Il modello crea un insieme di credenziali di Servizi di ripristino e un criterio di backup specifico del carico di lavoro. Registra la VM per il servizio Backup di Azure e configura la protezione per tale macchina virtuale. Attualmente funziona solo per le immagini della raccolta di SQL. |
+|**Eseguire il backup di condivisioni file di Azure** |  |
+| [Eseguire il backup di condivisioni file di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-file-share) | Questo modello configura la protezione per una condivisione file di Azure esistente specificando i dettagli appropriati per l'insieme di credenziali di Servizi di ripristino e i criteri di backup. Crea facoltativamente un nuovo insieme di credenziali di Servizi di ripristino e nuovi criteri di backup e registra l'account di archiviazione che contiene la condivisione file nell'insieme di credenziali di Servizi di ripristino. |
 |   |   |

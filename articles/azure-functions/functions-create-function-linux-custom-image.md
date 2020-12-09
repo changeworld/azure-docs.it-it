@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: af63eb68ec82a0725befed723298c079e82bdfdb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747111"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327101"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
@@ -18,7 +18,7 @@ In questa esercitazione si crea e si distribuisce codice in Funzioni di Azure co
 
 Per distribuire il codice della funzione in un contenitore Linux personalizzato richiede l'hosting con un [piano Premium](functions-premium-plan.md#features) o un [piano Dedicato (Servizio app)](functions-scale.md#app-service-plan). Il completamento di questa esercitazione comporta l'addebito di alcuni euro sull'account Azure, ma per ridurre i costi [pulire le risorse](#clean-up-resources) al termine dell'esercitazione.
 
-È anche possibile usare un contenitore predefinito del servizio app di Azure, come descritto in [Creare la prima funzione ospitata in Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Le immagini di base supportate per Funzioni di Azure sono disponibili nel [repository di immagini di base per Funzioni di Azure](https://hub.docker.com/_/microsoft-azure-functions-base).
+È anche possibile usare un contenitore predefinito del servizio app di Azure, come descritto in [Creare la prima funzione ospitata in Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Le immagini di base supportate per Funzioni di Azure sono disponibili nel [repository di immagini di base per Funzioni di Azure](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -54,27 +54,27 @@ In questa esercitazione verranno illustrate le procedure per:
 In un terminale o al prompt dei comandi eseguire il comando seguente per il linguaggio scelto per creare un progetto di app per le funzioni in una cartella denominata `LocalFunctionsProject`.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime dotnet --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language javascript --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime powershell --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime python --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language typescript --docker
 ```
 ::: zone-end
@@ -103,7 +103,7 @@ Il parametro `-DjavaVersion` indica al runtime di Funzioni la versione di Java d
 Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione.   
 Quando richiesto, specificare i valori seguenti:
 
-| Prompt | valore | Descrizione |
+| Prompt | Valore | Descrizione |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Un valore che identifica in modo univoco il progetto tra tutti gli altri, seguendo le [regole di denominazione dei pacchetti](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) per Java. |
 | **artifactId** | `fabrikam-functions` | Un valore che corrisponde al nome del jar, senza un numero di versione. |
@@ -112,47 +112,47 @@ Quando richiesto, specificare i valori seguenti:
 
 Digitare `Y` o premere INVIO per confermare.
 
-Maven crea i file di progetto in una nuova cartella denominata _artifactId_ , che in questo esempio è `fabrikam-functions`. 
+Maven crea i file di progetto in una nuova cartella denominata _artifactId_, che in questo esempio è `fabrikam-functions`. 
 ::: zone-end
 L'opzione `--docker` genera un `Dockerfile` per il progetto, che definisce un contenitore personalizzato adatto da usare con Funzioni di Azure e con il runtime selezionato.
 
 Passare alla cartella del progetto:
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-```
+```console
 cd LocalFunctionsProject
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Aggiungere una funzione al progetto usando il comando seguente, in cui l'argomento `--name` è il nome univoco della funzione e l'argomento `--template` specifica il trigger della funzione. `func new` crea una sottocartella corrispondente al nome della funzione che contiene un file di codice appropriato per il linguaggio scelto del progetto e un file di configurazione denominato *function.json*.
 
-```
+```console
 func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 Per testare la funzione in locale, avviare l'host di runtime locale di Funzioni di Azure nella radice della cartella del progetto: 
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func start --build  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
-```
+```console
 func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 npm install
 npm start
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 mvn clean package  
 mvn azure-functions:run
 ```
@@ -167,7 +167,7 @@ Facoltativo - Esaminare il *Dockerfile* nella radice della cartella del progetto
     
 Nella cartella radice del progetto eseguire il comando [docker build](https://docs.docker.com/engine/reference/commandline/build/) e specificare il nome `azurefunctionsimage` e il tag `v1.0.0`. Sostituire `<DOCKER_ID>` con l'ID dell'account Docker Hub. Questo comando compila l'immagine Docker per il contenitore.
 
-```
+```console
 docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 ```
 
@@ -175,7 +175,7 @@ Al termine del comando, è possibile eseguire il nuovo contenitore in locale.
     
 Per testare la compilazione, eseguire l'immagine in un contenitore locale usando il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/), sostituendo anche in questo caso `<DOCKER_ID` con l'ID Docker e aggiungendo l'argomento `-p 8080:80` per le porte:
 
-```
+```console
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
@@ -197,13 +197,13 @@ Docker Hub è un registro contenitori che ospita immagini e fornisce servizi per
 
 1. Se non è stato ancora fatto, eseguire l'accesso a Docker con il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/), sostituendo `<docker_id>` con l'ID Docker. Questo comando richiede di immettere il nome utente e la password. Un messaggio di accesso riuscito conferma che l'accesso è stato eseguito.
 
-    ```
+    ```console
     docker login
     ```
     
 1. Dopo avere effettuato l'accesso, eseguire il push dell'immagine in Docker Hub con il comando [docker push](https://docs.docker.com/engine/reference/commandline/push/), anche in questo caso sostituendo `<docker_id>` con l'ID Docker.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
 
@@ -279,7 +279,7 @@ Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano d
 1. La funzione può ora usare questa stringa di connessione per accedere all'account di archiviazione.
 
     > [!TIP]
-    > In bash è possibile usare una variabile della shell per acquisire la stringa di connessione invece di usare gli Appunti. Prima di tutto, usare il comando seguente per creare una variabile con la stringa di connessione:
+    > In Bash è possibile usare una variabile della shell per acquisire la stringa di connessione invece di usare gli Appunti. Prima di tutto, usare il comando seguente per creare una variabile con la stringa di connessione:
     > 
     > ```bash
     > storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
@@ -350,7 +350,7 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
     1. L'output del comando è la chiave di funzione. L'URL completo della funzione è quindi `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`, sostituendo `<app_name>`, `<function_name>` e `<key>` con i valori specifici.
     
         > [!NOTE]
-        > La chiave recuperata qui è la chiave *host* , che è valida per tutte le funzioni nell'app per le funzioni. Il metodo illustrato per il portale recupera la chiave solo per un'unica funzione.
+        > La chiave recuperata qui è la chiave *host*, che è valida per tutte le funzioni nell'app per le funzioni. Il metodo illustrato per il portale recupera la chiave solo per un'unica funzione.
 
     ---
 
@@ -375,7 +375,7 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
 
 1. Copiare l'URL del webhook della distribuzione negli Appunti.
 
-1. Aprire [Docker Hub](https://hub.docker.com/), accedere e selezionare **Repository** sulla barra di spostamento. Individuare e selezionare l'immagine, selezionare la scheda **Webhook** , specificare un valore per **Nome webhook** , incollare l'URL in **URL webhook** e quindi selezionare **Crea** :
+1. Aprire [Docker Hub](https://hub.docker.com/), accedere e selezionare **Repository** sulla barra di spostamento. Individuare e selezionare l'immagine, selezionare la scheda **Webhook**, specificare un valore per **Nome webhook**, incollare l'URL in **URL webhook** e quindi selezionare **Crea**:
 
     ![Aggiungere il webhook nel repository DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -419,13 +419,13 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Con SSH abi
     
 1. Ricompilare l'immagine usando di nuovo il comando `docker build`, sostituendo `<docker_id>` con l'ID Docker:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
     ```
     
 1. Eseguire il push dell'immagine aggiornata in Docker Hub, che dovrebbe richiedere un tempo notevolmente inferiore rispetto al primo push, perché è necessario caricare solo i segmenti aggiornati dell'immagine.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
@@ -441,7 +441,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Con SSH abi
 
 ## <a name="write-to-an-azure-storage-queue"></a>Scrivere in una coda dell'account di archiviazione di Azure
 
-La soluzione Funzioni di Azure consente di connettere le funzioni ad altri servizi e risorse di Azure senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding* , che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un *trigger* è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
+La soluzione Funzioni di Azure consente di connettere le funzioni ad altri servizi e risorse di Azure senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding*, che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un *trigger* è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
 
 Questa sezione illustra come integrare la funzione con una coda di archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati di una richiesta HTTP in un messaggio della coda.
 
@@ -492,13 +492,13 @@ Una volta definita l'associazione della coda, è possibile aggiornare la funzion
 
 1. Nella cartella radice eseguire di nuovo il comando `docker build` e questa volta aggiornare la versione nel tag impostandola su `v1.0.1`. Come prima, sostituire `<docker_id>` con l'ID dell'account Docker Hub:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Eseguire il push dell'immagine aggiornata nel repository con `docker push`:
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.1
     ```
 

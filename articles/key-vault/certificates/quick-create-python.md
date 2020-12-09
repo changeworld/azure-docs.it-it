@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 05b1ea8e6daa9fae0588535534c4a8be45ab91d5
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d9fdfc89c8c02749fdf677ad119f1eed5a4b1fa2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285264"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185182"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Avvio rapido: Libreria client dei certificati di Azure Key Vault per Python
 
@@ -70,10 +70,10 @@ Questo argomento di avvio rapido usa la libreria di identità di Azure con l'int
 
 ### <a name="grant-access-to-your-key-vault"></a>Concedere l'accesso all'insieme di credenziali delle chiavi
 
-Creare un criterio di accesso per l'insieme di credenziali delle chiavi che concede l'autorizzazione per il segreto all'account utente
+Creare un criterio di accesso per l'insieme di credenziali delle chiavi che concede l'autorizzazione per i certificati all'account utente
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### <a name="set-environment-variables"></a>Impostare le variabili di ambiente

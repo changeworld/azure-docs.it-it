@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996617"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348696"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo per aggiungere un'applicazione OpenID dalla raccolta
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory**.
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png))
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
 2. Passare ad **Applicazioni aziendali** > **Tutte le applicazioni**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996617"
 
     ![OpenID nell'elenco risultati](common/search-new-app.png)
 
-    > [!NOTE]
-    > Per le app OpenID Connect e OAuth il pulsante **Aggiungi** è disabilitato per impostazione predefinita. In questo caso l'amministratore del tenant deve selezionare il pulsante di iscrizione e fornire il consenso all'applicazione. L'applicazione viene quindi aggiunta al tenant del cliente, in cui è possibile eseguire le configurazioni. Non è necessario aggiungere l'applicazione in modo esplicito.
+
+1. Nella pagina Nome dell'applicazione fare clic sul pulsante **Iscrizione**.
 
     ![Pulsante Aggiungi](./media/openidoauth-tutorial/addbutton.png)
 
-5. Quando si seleziona il collegamento di iscrizione, si viene reindirizzati alla pagina di Azure Active Directory (Azure AD) per le credenziali di accesso.
+    > [!NOTE]
+    > In questo caso l'amministratore del tenant deve selezionare il pulsante di iscrizione e fornire il consenso all'applicazione. L'applicazione viene quindi aggiunta al tenant del cliente, in cui è possibile eseguire le configurazioni. Non è necessario aggiungere l'applicazione in modo esplicito.
+
+5. Si viene reindirizzati alla pagina di accesso dell'applicazione o alla pagina di Azure Active Directory (Azure AD) per le credenziali di accesso.
 
 6. Una volta eseguita l'autenticazione, l'utente accetta il consenso dalla relativa pagina. Viene quindi visualizzata la home page dell'applicazione.
 
     > [!NOTE]
     > È possibile aggiungere solo un'istanza dell'applicazione. Se ne è già stata aggiunta una e si è tentato di fornire nuovamente il consenso, questa non verrà aggiunta una seconda volta nel tenant. È quindi possibile usare logicamente solo un'istanza di app nel tenant.
+
+1. Guardare il video seguente per aggiungere un'applicazione OpenID dalla raccolta.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Flusso di autenticazione con OpenID Connect
 
@@ -151,3 +157,7 @@ Un amministratore tenant può disabilitare la possibilità che gli utenti normal
 Il parametro *prompt=admin_consent* può essere usato anche dalle applicazioni richiedenti autorizzazioni che non necessitano del consenso dell'amministratore. Un esempio è rappresentato da un'applicazione che richiede un'esperienza in cui l'amministratore del tenant "si iscrive" una sola volta e da quel momento non viene richiesto il consenso di altri utenti.
 
 Si immagini che un'applicazione richieda il consenso dell'amministratore e un amministratore esegua l'accesso senza il parametro *prompt=admin_consent* inviato. Se l'amministratore concede il consenso all'applicazione, viene applicato solo per l'account utente. Gli utenti normali non possono comunque eseguire l'accesso o fornire il consenso all'applicazione. Questa funzionalità è utile se si vuole assegnare all'amministratore del tenant la possibilità di esplorare l'applicazione prima di consentire l'accesso ad altri utenti.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Configurare l'accesso Single Sign-On (SSO) basato su OIDC per un'applicazione nel tenant di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

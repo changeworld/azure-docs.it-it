@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ebde8048c26364d77d95b9c7b34f9d1d7a4a20ee
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532971"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326269"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Esercitazione: Introduzione al servizio Azure Machine Learning nei notebook di Jupyter
 
@@ -80,7 +80,7 @@ Completare la configurazione dell'esperimento seguente ed eseguire i passaggi in
     > [!IMPORTANT]
     > Nella cartella di **esempi** è possibile visualizzare i notebook ma non eseguirli. Per eseguire un notebook, assicurarsi di aprirne la versione clonata nella sezione **User Files** (File utente).
     
-1. Selezionare il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella **tutorials/image-classification-mnist-data**.
+1. Selezionare il file **img-classification-part1-training.ipynb** nella cartella **tutorials/image-classification-mnist-data**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot che mostra l'apertura della cartella di esercitazioni.":::
 

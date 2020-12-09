@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132126"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344335"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Account e ambiti di fatturazione nel portale di Azure
 
@@ -33,6 +33,12 @@ Per determinare il tipo di account di fatturazione, vedere [Verificare il tipo d
 
 ## <a name="scopes-for-billing-accounts"></a>Ambiti degli account di fatturazione
 Un ambito è un nodo all'interno di un account di fatturazione che si usa per visualizzare e gestire la fatturazione. Consente di gestire i dati di fatturazione, i pagamenti, le fatture e l'account in generale.
+
+Se non si ha accesso per visualizzare o gestire gli account di fatturazione, è probabile che non si abbiano le autorizzazioni necessarie. È possibile chiedere all'amministratore dell'account di fatturazione di concedere l'accesso. Per altre informazioni, vedere gli articoli seguenti:
+
+- [Accesso al programma dei Microsoft Online Services](manage-billing-access.md)
+- [Accesso al Contratto del cliente Microsoft](understand-mca-roles.md)
+- [Accesso al contratto Enterprise](understand-ea-roles.md)
 
 ### <a name="microsoft-online-services-program"></a>Programma dei Microsoft Online Services
 

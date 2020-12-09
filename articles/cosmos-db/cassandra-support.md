@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636963"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188548"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -205,7 +205,7 @@ API Cassandra di Azure Cosmos DB è una piattaforma di servizi gestiti. Non rich
 
 ## <a name="hosted-cql-shell-preview"></a>Shell CQL ospitata (anteprima)
 
-È possibile aprire una shell Cassandra nativa ospitata (CQLSH v 5.0.1) direttamente da Esplora dati nel [portale di Azure](data-explorer.md) o in [Azure Cosmos Explorer](https://cosmos.azure.com/). Prima di abilitare la shell CQL, è necessario [abilitare la funzionalità Notebooks](enable-notebooks.md) nell'account. Se non è già abilitata, quando si fa clic su `Open Cassandra Shell`, verrà richiesto di farlo. Per informazioni sulle aree di Azure supportate, vedere la nota evidenziata in [Abilitare i notebook per gli account di Azure Cosmos DB](enable-notebooks.md).
+È possibile aprire una shell Cassandra nativa ospitata (CQLSH v5.0.1) direttamente da Esplora dati nel [portale di Azure](data-explorer.md) o in [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Prima di abilitare la shell CQL, è necessario [abilitare la funzionalità Notebooks](enable-notebooks.md) nell'account. Se non è già abilitata, quando si fa clic su `Open Cassandra Shell`, verrà richiesto di farlo. Per informazioni sulle aree di Azure supportate, vedere la nota evidenziata in [Abilitare i notebook per gli account di Azure Cosmos DB](enable-notebooks.md).
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Aprire CQLSH":::
 

@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014288"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348986"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure da altri account
 
@@ -28,7 +28,7 @@ Per richiedere la proprietà della fatturazione, è necessario essere un **propr
 1. Accedere al [portale di Azure](https://portal.azure.com) come proprietario o collaboratore della sezione della fattura per un account di fatturazione relativo al Contratto del cliente Microsoft.
 1. Cercare **Gestione dei costi e fatturazione**.  
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale di Azure](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. Nella pagina Ambiti di fatturazione selezionare l'account di fatturazione che verrà usato per pagare l'utilizzo delle sottoscrizioni. L'account di fatturazione dovrebbe essere di tipo **Contratto del cliente Microsoft**.  
+1. Nella pagina degli ambiti di fatturazione selezionare **Ambiti di fatturazione** e quindi selezionare l'account di fatturazione che verrà usato per il pagamento dell'utilizzo delle sottoscrizioni. L'account di fatturazione dovrebbe essere di tipo **Contratto del cliente Microsoft**.  
     [![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
     > Il portale di Azure tiene traccia dell'ultimo ambito di fatturazione a cui si accede e lo visualizza al successivo accesso alla pagina Gestione dei costi e fatturazione. La pagina Ambiti di fatturazione non viene visualizzata se la pagina Gestione dei costi e fatturazione è stata visitata in precedenza. In tal caso, verificare di essere nell'[ambito corretto](#check-for-access). In caso contrario, [cambiare ambito](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) per selezionare l'account di fatturazione relativo a un Contratto del cliente Microsoft.

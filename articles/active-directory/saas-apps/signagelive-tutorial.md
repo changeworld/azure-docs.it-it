@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516104"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Esercitazione: Integrazione di Azure Active Directory con Signagelive
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Signagelive, seguire qu
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Signagelive](mailto:support@signagelive.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , selezionare **Scarica** per scaricare il file di **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti. Salvare quindi il file nel computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, selezionare **Scarica** per scaricare il file di **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti. Salvare quindi il file nel computer.
 
     ![Collegamento di download del certificato](common/certificateraw.png)
 
@@ -129,7 +129,7 @@ Per configurare l'accesso Single Sign-On sul lato Signagelive, inviare il file d
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -153,7 +153,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Signagelive.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Signagelive**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Signagelive**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
