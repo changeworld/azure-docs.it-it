@@ -17,7 +17,7 @@ ms.locfileid: "93061624"
 ---
 Se si esegue PowerShell in locale, aprire la console di PowerShell con privilegi elevati e connettersi al proprio account Azure. Il cmdlet *Connect-AzAccount* richiede le credenziali. Dopo l'autenticazione vengono scaricate le impostazioni dell'account, in modo che siano disponibili per Azure PowerShell.
 
-Se si usa Azure Cloud Shell anziché eseguire PowerShell localmente, si noterà che non è necessario eseguire *Connect-AzAccount* . Azure Cloud Shell si connette automaticamente all'account Azure dopo aver selezionato **prova** .
+Se si usa Azure Cloud Shell anziché eseguire PowerShell localmente, si noterà che non è necessario eseguire *Connect-AzAccount*. Azure Cloud Shell si connette automaticamente all'account Azure dopo aver selezionato **prova**.
 
 1. Se si esegue PowerShell in locale, eseguire l'accesso.
 
