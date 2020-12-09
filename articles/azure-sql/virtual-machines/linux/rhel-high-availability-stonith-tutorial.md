@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9a6faec2542337eedbe4aafb69f1061582f92cc7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790237"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531565"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare i gruppi di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -263,7 +263,7 @@ Al termine del comando per ogni macchina virtuale, si otterrà un risultato simi
 > [!IMPORTANT]
 > L'immagine predefinita creata con il comando precedente crea un disco del sistema operativo da 32 GB per impostazione predefinita. Con questa installazione predefinita, è tuttavia possibile esaurire lo spazio disponibile. Usare quindi il parametro seguente aggiunto al comando `az vm create` precedente per creare un disco del sistema operativo ad esempio da 128 GB: `--os-disk-size-gb 128`.
 >
-> Successivamente, [configurare Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) se è necessario espandere i volumi delle cartelle appropriati per l'installazione.
+> Successivamente, [configurare Logical Volume Manager (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) se è necessario espandere i volumi delle cartelle appropriati per l'installazione.
 
 ### <a name="test-connection-to-the-created-vms"></a>Testare la connessione alle macchine virtuali create
 
@@ -304,7 +304,7 @@ Connettersi a ogni nodo della macchina virtuale e seguire la guida riportata sot
 1. Aggiornare e installare i pacchetti Pacemaker in tutti i nodi usando i comandi seguenti:
 
     > [!NOTE]
-    > **nmap** è uno strumento che viene installato come parte di questo blocco di comandi per trovare gli indirizzi IP disponibili nella rete. Non è necessario installare **nmap** , ma sarà utile più avanti in questa esercitazione.
+    > **nmap** è uno strumento che viene installato come parte di questo blocco di comandi per trovare gli indirizzi IP disponibili nella rete. Non è necessario installare **nmap**, ma sarà utile più avanti in questa esercitazione.
 
     ```bash
     sudo yum update -y
@@ -324,7 +324,7 @@ Connettersi a ogni nodo della macchina virtuale e seguire la guida riportata sot
     sudo vi /etc/hosts
     ```
 
-    Nell'editor **vi** immettere `i` per inserire il testo e, in una riga vuota, aggiungere l' **indirizzo IP privato** della macchina virtuale corrispondente. Aggiungere quindi il nome della macchina virtuale dopo uno spazio accanto all'indirizzo IP. Ogni riga deve contenere una voce separata.
+    Nell'editor **vi** immettere `i` per inserire il testo e, in una riga vuota, aggiungere l'**indirizzo IP privato** della macchina virtuale corrispondente. Aggiungere quindi il nome della macchina virtuale dopo uno spazio accanto all'indirizzo IP. Ogni riga deve contenere una voce separata.
 
     ```output
     <IP1> <VM1>
@@ -333,9 +333,9 @@ Connettersi a ogni nodo della macchina virtuale e seguire la guida riportata sot
     ```
 
     > [!IMPORTANT]
-    > È consigliabile usare l' **indirizzo IP privato** precedente. Se in questa configurazione si usa l'indirizzo IP pubblico, l'installazione avrà esito negativo e non è consigliabile esporre la macchina virtuale alle reti esterne.
+    > È consigliabile usare l'**indirizzo IP privato** precedente. Se in questa configurazione si usa l'indirizzo IP pubblico, l'installazione avrà esito negativo e non è consigliabile esporre la macchina virtuale alle reti esterne.
 
-    Per uscire dall'editor **vi** , premere prima il tasto **ESC** e quindi immettere il comando `:wq` per eseguire la scrittura del file e uscire.
+    Per uscire dall'editor **vi**, premere prima il tasto **ESC** e quindi immettere il comando `:wq` per eseguire la scrittura del file e uscire.
 
 ## <a name="create-the-pacemaker-cluster"></a>Creare il cluster Pacemaker
 
@@ -373,7 +373,7 @@ In questa sezione verrà abilitato e avviato il servizio pcsd e quindi verrà co
 
     **RHEL 8**
 
-    Per RHEL 8, sarà necessario autenticare i nodi separatamente. Immettere manualmente il nome utente e la password per **hacluster** , quando richiesto.
+    Per RHEL 8, sarà necessario autenticare i nodi separatamente. Immettere manualmente il nome utente e la password per **hacluster**, quando richiesto.
 
     ```bash
     sudo pcs host auth <node1> <node2> <node3>
@@ -488,12 +488,12 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  2. Aprire il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Passare a Proprietà e annotare l'ID directory. Si tratta di `tenant ID`
  3. Fare clic su [**Registrazioni app**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Fare clic su **Nuova registrazione**
- 5. Immettere un valore per **Nome** , ad esempio `<resourceGroupName>-app`, e selezionare **Account solo in questa directory dell'organizzazione**
- 6. Per Tipo di applicazione selezionare **Web** , immettere un URL di accesso, ad esempio http://localhost), e fare clic su Aggiungi. L'URL di accesso non viene usato e può essere qualsiasi URL valido. Al termine, fare clic su **Registra**
+ 5. Immettere un valore per **Nome**, ad esempio `<resourceGroupName>-app`, e selezionare **Account solo in questa directory dell'organizzazione**
+ 6. Per Tipo di applicazione selezionare **Web**, immettere un URL di accesso, ad esempio http://localhost), e fare clic su Aggiungi. L'URL di accesso non viene usato e può essere qualsiasi URL valido. Al termine, fare clic su **Registra**
  7. Selezionare **Certificati e segreti** per la nuova registrazione app e quindi fare clic su **Nuovo segreto client**
  8. Immettere una descrizione per una nuova chiave (segreto client), selezionare **Non scade mai** e fare clic su **Aggiungi**
  9. Prendere nota del valore del segreto. che viene usato come password per l'entità servizio
-10. Selezionare **Panoramica** . Annotare l'ID applicazione. Viene usato come nome utente (ID di accesso nella procedura seguente) dell'entità servizio
+10. Selezionare **Panoramica**. Annotare l'ID applicazione. Viene usato come nome utente (ID di accesso nella procedura seguente) dell'entità servizio
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Creare un ruolo personalizzato per l'agente di isolamento
 
@@ -868,7 +868,7 @@ In tutte le istanze di SQL Server salvare le credenziali usate per l'account di 
     <password>
     ```
 
-    Per uscire dall'editor **vi** , premere prima il tasto **ESC** e quindi immettere il comando `:wq` per eseguire la scrittura del file e uscire.
+    Per uscire dall'editor **vi**, premere prima il tasto **ESC** e quindi immettere il comando `:wq` per eseguire la scrittura del file e uscire.
 
 1. Impostare il file come leggibile solo dall'utente ROOT:
 
@@ -906,7 +906,7 @@ In tutte le istanze di SQL Server salvare le credenziali usate per l'account di 
     GO
     ```
 
-1. Dopo aver aggiunto le repliche secondarie, sarà possibile visualizzarle in Esplora oggetti di SSMS espandendo il nodo **Disponibilità elevata Always On** :
+1. Dopo aver aggiunto le repliche secondarie, sarà possibile visualizzarle in Esplora oggetti di SSMS espandendo il nodo **Disponibilità elevata Always On**:
 
     ![Screenshot che mostra le repliche di disponibilità primarie e secondarie.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
@@ -1132,6 +1132,34 @@ Per assicurarsi che la configurazione abbia avuto esito positivo fino a questo m
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   È anche possibile specificare un'opzione aggiuntiva in modo che il vincolo temporaneo creato per spostare la risorsa in un nodo desiderato venga disabilitato automaticamente, senza la necessità di eseguire i passaggi 2 e 3 seguenti.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Un'altra alternativa consiste nell'automatizzare i passaggi 2 e 3 seguenti che cancellano il vincolo temporaneo nel comando stesso di spostamento della risorsa combinando più comandi in una singola riga. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. Se si controllano di nuovo i vincoli, si noterà che è stato aggiunto un altro vincolo a seguito del failover manuale:
     
     **RHEL 7**

@@ -1,24 +1,24 @@
 ---
-title: "Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud | Microsoft Docs"
+title: Ridimensionare un'applicazione in Azure Spring Cloud | Microsoft Docs
 description: Informazioni su come ridimensionare un'applicazione con Azure Spring Cloud nel portale di Azure
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906845"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531803"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Ridimensionare un'applicazione in Azure Spring Cloud
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
-Questa esercitazione illustra come ridimensionare qualsiasi applicazione di microservizi usando il dashboard di Azure Spring cloud nel portale di Azure.
+Questa documentazione illustra come dimensionare qualsiasi applicazione di microservizi usando il dashboard di Azure Spring Cloud nel portale di Azure.
 
 Aumentare e ridurre le prestazioni dell'applicazione modificando il numero di CPU virtuali (vCPU) e la quantità di memoria. Aumentare e ridurre le prestazioni dell'applicazione modificando il numero di istanze dell'applicazione.
 
@@ -67,7 +67,7 @@ Se il piano corrente è il livello Basic ed è vincolato da uno o più di questi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come ridimensionare manualmente un'applicazione Azure Spring Cloud. Per informazioni su come monitorare un'applicazione tramite la configurazione di avvisi, proseguire con l'esercitazione successiva.
+Questo esempio ha illustrato come dimensionare manualmente un'applicazione di Azure Spring Cloud. Per informazioni su come monitorare un'applicazione configurando gli avvisi, vedere [Configurare la scalabilità automatica](spring-cloud-tutorial-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Informazioni su come configurare gli avvisi](spring-cloud-tutorial-alerts-action-groups.md)

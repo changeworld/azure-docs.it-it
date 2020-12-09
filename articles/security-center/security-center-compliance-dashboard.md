@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 3108dd32b9d7338e418a1d10684115ad7265702e
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951197"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533911"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Esercitazione: Migliorare la conformità alle normative
 
@@ -34,7 +34,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per esaminare le funzionalità descritte in questa esercitazione, [Azure Defender deve essere abilitato](azure-defender.md). È possibile provare Azure Defender gratuitamente per 30 giorni.
+Per esaminare le funzionalità descritte in questa esercitazione,
+
+- è necessario abilitare [Azure Defender](azure-defender.md). È possibile provare Azure Defender gratuitamente per 30 giorni.
+- È necessario aver eseguito l'accesso con un account che abbia il ruolo con autorizzazioni di lettura per l'accesso ai dati di conformità ai criteri (il **Ruolo con autorizzazioni di lettura per la sicurezza** è insufficiente). Il **Ruolo con autorizzazioni di lettura globali** è appropriato. È necessario avere come minimo i ruoli **Collaboratore ai criteri delle risorse** e **Amministratore della sicurezza** assegnati.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Valutare la conformità alle normative
 
@@ -52,15 +55,15 @@ Nella parte superiore della schermata verrà visualizzato un dashboard con una p
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Dashboard Conformità con le normative":::
 
-1. Selezionare la scheda di uno standard di conformità che interessa (1). Verranno visualizzate le sottoscrizioni a cui è applicato lo standard (2), oltre all'elenco di tutti i controlli dello standard (3). Per i controlli applicabili, è possibile visualizzare i dettagli delle valutazioni superate e non superate associate (4), oltre al numero delle risorse interessate (5). Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. Verificare i requisiti ed eseguirne autonomamente la valutazione nel proprio ambiente. Alcuni potrebbero essere correlati ai processi e non essere di tipo tecnico.
+1. Selezionare la scheda di uno standard di conformità che interessa (1). Verranno visualizzate le sottoscrizioni a cui è applicato lo standard (2), oltre all'elenco di tutti i controlli dello standard (3). Per i controlli applicabili, è possibile visualizzare i dettagli delle valutazioni superate e non superate associate (4), oltre al numero delle risorse interessate (5). Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. Verificare i requisiti ed eseguirne autonomamente la valutazione nel proprio ambiente. Alcuni potrebbero essere correlati ai processi e non di tipo tecnico.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Dashboard Conformità con le normative":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Esplorazione dei dettagli della conformità a uno standard specifico":::
 
 1. Per generare e scaricare un report PDF che riepiloga lo stato di conformità corrente per uno specifico standard, fare clic su **Scarica report**.
 
-    Il report fornisce un riepilogo dettagliato dello stato di conformità per lo standard selezionato basato sui dati di valutazione del Centro sicurezza ed è organizzato in base ai controlli di tale particolare standard. Il report può essere condiviso con gli stakeholder di rilievo e può essere usato per fornire giustificativi a revisori interni ed esterni.
+    Il report fornisce un riepilogo dettagliato dello stato di conformità per lo standard selezionato basato sui dati di valutazione del Centro sicurezza ed è organizzato in base ai controlli di tale particolare standard. Il report può essere condiviso con gli stakeholder appropriati e può essere usato per fornire giustificativi a revisori interni ed esterni.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Dashboard Conformità con le normative":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Scaricare il report di conformità":::
 
 ## <a name="improve-your-compliance-posture"></a>Migliorare il comportamento di conformità
 
@@ -70,11 +73,11 @@ In base alle informazioni riportate nel dashboard Conformità con le normative, 
 
 1.  È possibile selezionare una determinata risorsa per visualizzare altri dettagli e risolvere la relativa raccomandazione. <br>Ad esempio, nello **standard Azure CIS 1.1.0 (novità)** è possibile selezionare la raccomandazione **La crittografia dei dischi deve essere applicata alle macchine virtuali**.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Dashboard Conformità con le normative":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="La selezione di una raccomandazione da uno standard porta direttamente alla relativa pagina di dettagli":::
 
 1. In questo esempio se si seleziona **Intervieni** nella pagina di dettagli della raccomandazione, si viene indirizzati nelle pagine del portale di Azure relative alle macchine virtuale di Azure, dove è possibile aprire una scheda **Sicurezza** e abilitare la crittografia:
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Dashboard Conformità con le normative":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Il pulsante Intervieni nella pagina di dettagli della raccomandazione porta alle opzioni per la correzione del problema":::
 
     Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 

@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313683"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501074"
 ---
-# <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Rete virtuale gestita di Azure Synapse Analytics (anteprima)
+# <a name="azure-synapse-analytics-managed-virtual-network"></a>Rete virtuale gestita di Azure Synapse Analytics
 
 Questo articolo illustra la rete virtuale gestita in Azure Synapse Analytics.
 
@@ -52,8 +52,6 @@ Se si lascia deselezionata la casella di controllo, all'area di lavoro non verr�
 
 ![Rete virtuale dell'area di lavoro gestita abilitata](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->Tutto il traffico in uscita dalla rete virtuale dell'area di lavoro gestita, eccetto quello tramite gli endpoint privati gestiti, verrà bloccato in futuro. È consigliabile creare endpoint privati gestiti per connettersi a tutte le origini dati di Azure esterne all’area di lavoro. 
 
 È possibile verificare se l'area di lavoro di Azure Synapse è associata a una rete virtuale dell'area di lavoro gestita selezionando **Panoramica** nel portale di Azure.
 

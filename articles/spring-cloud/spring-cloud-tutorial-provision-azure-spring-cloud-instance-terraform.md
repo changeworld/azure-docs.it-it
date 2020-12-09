@@ -1,24 +1,24 @@
 ---
-title: "Esercitazione: Effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform"
+title: Effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform
 description: Come effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091645"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533792"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Esercitazione: Effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
-In questa esercitazione viene creata un'istanza di Azure Spring Cloud con Terraform. Seguendo le procedure, si creeranno le risorse seguenti:
+Questo esempio crea un'istanza di Azure Spring Cloud con Terraform. Seguendo le procedure, si creeranno le risorse seguenti:
 
 > [!div class="checklist"]
 > * Gruppo di risorse
@@ -161,7 +161,7 @@ Questa sezione illustra come aggiornare la configurazione per abilitare i log e 
 
 Quando non sono più necessarie, eliminare le risorse create in questo articolo.
 
-Eseguire il comando [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) per rimuovere le risorse di Azure create in questa esercitazione:
+Eseguire il comando [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) per rimuovere le risorse di Azure create in questo esercizio:
 
 ```bash
 terraform destroy -auto-approve

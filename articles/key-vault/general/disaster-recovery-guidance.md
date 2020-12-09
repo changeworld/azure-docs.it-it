@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: aea5f0428fe55c0dae3734e196008cbc26a974b9
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576221"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518448"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
 
@@ -23,11 +23,13 @@ L'insieme di credenziali delle chiavi di Azure dispone di più livelli di ridond
 > [!NOTE]
 > Le informazioni della guida si applicano agli insiemi di credenziali. I pool del modulo di protezione hardware gestito usano un diverso modello di disponibilità elevata e ripristino di emergenza. Per altre informazioni, vedere la [guida al ripristino di emergenza del modulo di protezione hardware gestito](../managed-hsm/disaster-recovery-guide.md) for more information.
 
-I contenuti dell'insieme di credenziali delle chiavi vengono replicati all'interno dell'area e in un'area secondaria distante almeno 250 chilometri, ma all'interno della stessa area geografica per mantenere una durabilità elevata delle chiavi e dei segreti. Per informazioni dettagliate su coppie di aree specifiche, vedere il documento [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md). L'eccezione al modello delle aree abbinate è costituita dal Brasile meridionale, che offre solo l'opzione di mantenere i dati residenti all'interno del Brasile meridionale. L'area Brasile meridionale usa l'archiviazione con ridondanza locale (LRS) per replicare i dati tre volte all'interno della singola località/area.   
+I contenuti dell'insieme di credenziali delle chiavi vengono replicati all'interno dell'area e in un'area secondaria distante almeno 250 chilometri, ma all'interno della stessa area geografica per mantenere una durabilità elevata delle chiavi e dei segreti. Per informazioni dettagliate su coppie di aree specifiche, vedere il documento [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md). L'eccezione al modello delle aree abbinate è costituita dal Brasile meridionale, che offre solo l'opzione di mantenere i dati residenti all'interno del Brasile meridionale. L'area Brasile meridionale usa l'archiviazione con ridondanza della zona (ZRS) per replicare i dati tre volte all'interno della singola località/area.   
 
 Se si verificano errori di singoli componenti del servizio dell'insieme di credenziali delle chiavi, per gestire la richiesta subentrano componenti alternativi all'interno dell'area in modo che non si verifichi alcuna riduzione delle prestazioni delle funzionalità. Non è necessario intraprendere alcuna azione per avviare questo processo, si verifica automaticamente ed è trasparente per l'utente.
 
-Nella rara eventualità che l'intera area di Azure risulti non disponibile, le richieste eseguite all'insieme di credenziali delle chiavi di tale area vengono indirizzate automaticamente a un'area secondaria (*failover*). Quando l'area primaria diventa di nuovo disponibile, le richieste vengono reindirizzate a tale area (*failback*). Anche in questo caso non è richiesta alcuna azione perché questa operazione viene eseguita in modo automatico.
+Nella rara eventualità che l'intera area di Azure risulti non disponibile, le richieste eseguite per Azure Key Vault in tale area vengono indirizzate automaticamente (*failover*) a un'area secondaria, ad eccezione dell'area Brasile meridionale. Quando l'area primaria diventa di nuovo disponibile, le richieste vengono reindirizzate a tale area (*failback*). Anche in questo caso non è richiesta alcuna azione perché questa operazione viene eseguita in modo automatico.
+
+Nell'area Brasile meridionale è necessario pianificare il ripristino degli insiemi di credenziali delle chiavi di Azure in caso di errori nell'area. Per eseguire il backup e il ripristino dell'insieme di credenziali delle chiavi di Azure in un'area di propria scelta, completare i passaggi descritti in dettaglio in [Backup di Azure Key Vault](backup.md). 
 
 Grazie a questa progettazione a disponibilità elevata, Azure Key Vault non richiede alcun tempo di inattività per le attività di manutenzione.
 

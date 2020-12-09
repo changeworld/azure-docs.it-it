@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026063"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546905"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -53,15 +53,19 @@ Per installare l’interfaccia della riga di comando di Voce su Linux su una CPU
 
 Digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando di Voce.
 
-#### <a name="docker-install"></a>[Installazione di Docker](#tab/dockerinstall)
-
-> [!NOTE]
-> È necessario che sia installato <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop per la piattaforma <span class="docon docon-navigate-external x-hidden-focus"></span></a> in uso.
+#### <a name="docker-install-windows-linux-macos"></a>[Installazione in Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
 Seguire questa procedura per installare l'interfaccia della riga di comando di Voce in un contenitore Docker:
 
-1. In un nuovo prompt dei comandi o terminale digitare questo comando: `docker pull msftspeech/spx`
-2. Digitare il comando seguente. Dovrebbero essere visualizzate informazioni della Guida per l'interfaccia della riga di comando di Voce: `docker run -it --rm msftspeech/spx help`
+1. <a href="https://www.docker.com/get-started" target="_blank">Installare Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> per la piattaforma se non è già stato fatto.
+2. In un nuovo prompt dei comandi o terminale digitare questo comando: 
+   ```shell   
+   docker pull msftspeech/spx
+   ```
+3. Digitare il comando seguente. Dovrebbero essere visualizzate informazioni della Guida per l'interfaccia della riga di comando di Voce: 
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>Montare una directory nel contenitore
 
@@ -72,7 +76,7 @@ In Windows digitare questo comando per creare una directory locale che può esse
 
 `mkdir c:\spx-data`
 
-In alternativa, in Linux o Mac digitare questo comando in un terminale per creare una directory e visualizzarne il percorso assoluto:
+In alternativa, in Linux o macOS digitare questo comando in un terminale per creare una directory e visualizzarne il percorso assoluto:
 
 ```bash
 mkdir ~/spx-data
@@ -86,13 +90,17 @@ Il percorso assoluto verrà usato quando si chiama l'interfaccia della riga di c
 
 Questa documentazione mostra il comando `spx` dell'interfaccia della riga di comando di Voce usato nelle installazioni non Docker.
 Quando si chiama il comando `spx` in un contenitore Docker, è necessario montare una directory nel contenitore nel file system in cui l'interfaccia della riga di comando di Voce può archiviare e trovare valori di configurazione e leggere e scrivere file.
+
 In Windows i comandi inizieranno come segue:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-In Linux o Mac i comandi inizieranno in modo analogo al seguente:
-
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+In Linux o macOS i comandi inizieranno in modo analogo al seguente:
+```shell   
+sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 > [!NOTE]
 > Sostituire `/ABSOLUTE_PATH` con i percorsi assoluti mostrati dal comando `pwd` nella sezione precedente.
@@ -100,12 +108,43 @@ In Linux o Mac i comandi inizieranno in modo analogo al seguente:
 Per usare il comando `spx` installato in un contenitore, immettere sempre il comando completo mostrato sopra, seguito dai parametri della richiesta specifica.
 Ad esempio, in Windows questo comando configura la chiave:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> Non è possibile usare il microfono o l'altoparlante del computer quando si esegue l'interfaccia della riga di comando di Voce in un contenitore Docker.
-> Per usare questi dispositivi, passare file audio da e verso l'interfaccia della riga di comando di Voce per la registrazione/riproduzione all'esterno del contenitore Docker.
-> Lo strumento interfaccia della riga di comando di Voce può accedere alla directory locale configurata nella procedura precedente.
+> [!WARNING]
+> Non è possibile usare il microfono del computer quando si esegue l'interfaccia della riga di comando di Voce in un contenitore Docker. Tuttavia è possibile leggere e salvare i file audio nella directory montata locale. 
+
+### <a name="optional-create-a-command-line-shortcut"></a>Facoltativo: Creare un collegamento alla riga di comando
+
+Se l'interfaccia della riga di comando di Voce viene eseguita da un contenitore Docker in Linux o macOS, è possibile creare un collegamento. 
+
+Seguire queste istruzioni:
+1. Aprire `.bash_profile` nell'editor di testo preferito. Ad esempio:
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. Aggiungere quindi questa funzione a `.bash_profile`. Assicurarsi di aggiornare questa funzione con il percorso corretto della directory montata:
+   ```shell   
+   spx(){
+       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. Definire l'origine del profilo:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. Ora invece di eseguire `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`, è possibile digitare semplicemente `spx` seguito dagli argomenti. Ad esempio: 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> Se si cambia la directory montata a cui Docker fa riferimento, è necessario aggiornare la funzione in `.bash_profile`.
 
 ***
 

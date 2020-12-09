@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: e1a5370501fe73fb783db9a039d9f060acdb0a35
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886329"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511033"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
 
@@ -210,7 +210,7 @@ Definire le impostazioni del modello e dei parametri dell'esperimento per il tra
 
 |Proprietà| Valore in questa esercitazione |Descrizione|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Limite di tempo in minuti per ogni iterazione. Ridurre questo valore per diminuire il runtime totale.|
+|**iteration_timeout_minutes**|10|Limite di tempo in minuti per ogni iterazione. Aumentare questo valore per i set di dati più grandi in cui ogni iterazione richiede più tempo.|
 |**experiment_timeout_hours**|0,3|Quantità massima di tempo, in ore, che tutte le iterazioni combinate possono impiegare prima che l'esperimento venga terminato.|
 |**enable_early_stopping**|True|Flag che abilita la terminazione anticipata se il punteggio non sta migliorando a breve termine.|
 |**primary_metric**| spearman_correlation | Metrica che si vuole ottimizzare. Verrà scelto il modello più appropriato in base a questa metrica.|
@@ -222,7 +222,7 @@ Definire le impostazioni del modello e dei parametri dell'esperimento per il tra
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',

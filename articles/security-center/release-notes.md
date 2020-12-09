@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: f26fffe8e6b2be6ede064b4750d012b3e4535c66
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 0dbd208cea64a3b2dc22f7603f654127e5b46294
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433344"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511764"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -30,6 +30,44 @@ Per informazioni sulle modifiche *pianificate* che saranno presto disponibili ne
 > [!TIP]
 > Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
 
+
+## <a name="december-2020"></a>Dicembre 2020
+
+Gli aggiornamenti di dicembre includono:
+
+- [Azure Defender per server SQL nei computer è disponibile a livello generale](#azure-defender-for-sql-servers-on-machines-is-generally-available)
+- [Il supporto di Azure Defender per SQL per i pool SQL dedicati di Azure Synapse Analytics è disponibile a livello generale](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+
+### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Azure Defender per server SQL nei computer è disponibile a livello generale
+
+Il Centro sicurezza di Azure prevede due piani di Azure Defender per SQL Server:
+
+- **Azure Defender per i server di database SQL di Azure**: protegge i sistemi SQL Server nativi di Azure 
+- **Azure Defender per i server SQL nei computer**: estende le stesse protezioni ai server SQL in ambienti ibridi, multicloud e locali
+
+Con questo annuncio, **Azure Defender per SQL** ora protegge i database e i relativi dati ovunque siano collocati.
+
+Azure Defender per SQL include funzionalità di valutazione delle vulnerabilità. Lo strumento di valutazione delle vulnerabilità offre le seguenti funzionalità avanzate:
+
+- **Configurazione di base** (novità) per affinare in modo intelligente i risultati delle analisi di vulnerabilità limitandoli a quelli che potrebbero rappresentare problemi concreti per la sicurezza. Dopo aver stabilito lo stato di sicurezza di base, lo strumento di valutazione delle vulnerabilità segnala solo le deviazioni da tale stato. I risultati corrispondenti alla base non vengono considerati problemi nelle analisi successive. In questo modo gli analisti possono dedicare la loro attenzione alle questioni importanti.
+- **Informazioni di benchmark dettagliate** per aiutare a *interpretare* i risultati individuati e al motivo per cui riguardano le risorse.
+- **Script di correzione** per mitigare i rischi identificati.
+
+Vedere altre informazioni su [Azure Defender per SQL](defender-for-sql-introduction.md).
+
+
+### <a name="azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available"></a>Il supporto di Azure Defender per SQL per i pool SQL dedicati di Azure Synapse Analytics è disponibile a livello generale
+
+Azure Synapse Analytics (in precedenza SQL Data Warehouse) è un servizio di analisi che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. I pool SQL dedicati rappresentano le funzionalità di data warehousing aziendali di Azure Synapse. Per altre informazioni, vedere [Che cos'è Azure Synapse Analytics (in precedenza SQL Data Warehouse)?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+
+Azure Defender per SQL protegge i pool SQL dedicati con:
+
+- **Advanced Threat Protection** per rilevare minacce e attacchi 
+- **Funzionalità di valutazione delle vulnerabilità** per identificare e correggere le configurazioni di sicurezza errate
+
+Il supporto di Azure Defender per SQL per i pool SQL di Azure Synapse Analytics viene aggiunto automaticamente al bundle di database SQL di Azure nel Centro sicurezza di Azure. Nella pagina dell'area di lavoro di Synapse nel portale di Azure sarà disponibile una nuova scheda "Azure Defender per SQL".
+
+Vedere altre informazioni su [Azure Defender per SQL](defender-for-sql-introduction.md).
 
 ## <a name="november-2020"></a>Novembre 2020
 
@@ -129,7 +167,7 @@ La raccomandazione **Gli aggiornamenti di sistema devono essere installati nelle
 
 - Dati della raccomandazione arricchiti da Azure Resource Graph. Azure Resource Graph è un servizio di Azure progettato per offrire un'esplorazione efficiente delle risorse. È possibile usare Azure Resource Graph per eseguire query su larga scala su un determinato set di sottoscrizioni, in modo da regolamentare efficacemente l'ambiente. 
 
-    Per il Centro sicurezza di Azure, è possibile usare Azure Resource Graph e il [linguaggio di query Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) per eseguire query su un'ampia gamma di dati relativi alla postura di sicurezza.
+    Per il Centro sicurezza di Azure, è possibile usare Azure Resource Graph e il [linguaggio di query Kusto](/azure/data-explorer/kusto/query/) per eseguire query su un'ampia gamma di dati relativi alla postura di sicurezza.
 
     In precedenza, se si eseguivano query su questa raccomandazione in Azure Resource Graph, le uniche informazioni disponibili erano che era necessario apportare la correzione raccomandata in un computer. La query seguente della versione ottimizzata restituirà tutti gli aggiornamenti di sistema mancanti raggruppati in base al computer.
 
@@ -172,7 +210,7 @@ Funzionalità principali:
 
 [Altre informazioni sulla distribuzione dello strumento di analisi delle vulnerabilità integrato nei computer ibridi](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Altre informazioni sui server con abilitazione di Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/).
+[Altre informazioni sui server con abilitazione di Azure Arc](../azure-arc/servers/index.yml).
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Aggiunta una raccomandazione per Firewall di Azure (anteprima)
@@ -206,7 +244,7 @@ Per altre informazioni, vedere [Rimozione di uno standard dal dashboard](update-
 
 Azure Resource Graph è un servizio di Azure progettato per offrire un'esplorazione efficiente delle risorse con la possibilità di eseguire query su larga scala in un determinato set di sottoscrizioni in modo da poter controllare l'ambiente efficacemente. 
 
-Per il Centro sicurezza di Azure, è possibile usare Azure Resource Graph e il [linguaggio di query Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) per eseguire query su un'ampia gamma di dati relativi alla postura di sicurezza. Esempio:
+Per il Centro sicurezza di Azure, è possibile usare Azure Resource Graph e il [linguaggio di query Kusto](/azure/data-explorer/kusto/query/) per eseguire query su un'ampia gamma di dati relativi alla postura di sicurezza. Esempio:
 
 - L'inventario degli asset utilizza Azure Resource Graph
 - È stata documentata una query di esempio di Azure Resource Graph che illustra come [identificare gli account senza l'opzione Multi-Factor Authentication (MFA) abilitata](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -295,7 +333,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 
 Per altre informazioni, vedere i collegamenti seguenti:
 - [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
-- [Linguaggio di query Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Linguaggio di query Kusto (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Settembre 2020
@@ -740,119 +778,3 @@ Verranno deprecati sei criteri correlati alla sicurezza dei dati avanzata per i 
 - Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata del server SQL
 
 Altre informazioni sui [criteri predefiniti](./policy-reference.md).
-
-
-
-
-
-## <a name="june-2020"></a>Giugno 2020
-
-Gli aggiornamenti del mese di giugno includono quanto segue:
-- [API Secure Score (anteprima)](#secure-score-api-preview)
-- [Sicurezza dei dati avanzata per computer SQL - Azure, altri cloud e in locale (anteprima)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
-- [Due nuove raccomandazioni per distribuire l'agente di Log Analytics in computer Azure Arc (anteprima)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
-- [Nuovi criteri per creare configurazioni di esportazione continua e di automazione dei flussi di lavoro su larga scala](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
-- [Nuova raccomandazione per l'uso dei gruppi di sicurezza di rete per proteggere macchine virtuali non connesse a Internet](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
-- [Nuovi criteri per l'abilitazione della protezione dalle minacce e della sicurezza dei dati avanzata](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
-
-
-
-### <a name="secure-score-api-preview"></a>API Secure Score (anteprima)
-
-È ora possibile accedere al punteggio tramite l'[API Secure Score](/rest/api/securitycenter/securescores/), attualmente disponibile in anteprima. I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. È ad esempio possibile usare l'API **Secure Score** per ottenere il punteggio per una sottoscrizione specifica. È anche possibile usare l'API **Secure Score Controls** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
-
-Per esempi di strumenti esterni consentiti dall'API Secure Score, vedere l'[area relativa a Secure Score della community di GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
-
-Altre informazioni sul [punteggio di sicurezza e i controlli di sicurezza nel Centro sicurezza di Azure](secure-score-security-controls.md).
-
-
-
-### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview"></a>Sicurezza dei dati avanzata per computer SQL - Azure, altri cloud e in locale (anteprima)
-
-La funzionalità Sicurezza dei dati avanzata per computer SQL del Centro sicurezza di Azure protegge ora i server SQL ospitati in Azure, in altri ambienti cloud e anche in computer locali. Le protezioni per i server SQL nativi di Azure vengono quindi estese in modo da supportare completamente gli ambienti ibridi.
-
-Sicurezza dei dati avanzata offre la valutazione delle vulnerabilità e la protezione avanzata dalle minacce per i computer SQL, ovunque si trovino.
-
-La configurazione comporta due passaggi:
-
-1. Distribuzione dell'agente di Log Analytics nel computer host di SQL Server per fornire la connessione all'account Azure.
-
-1. Abilitazione dell'aggregazione facoltativa della pagina dei prezzi e delle impostazioni del Centro sicurezza.
-
-Altre informazioni sulla [sicurezza dei dati avanzata per computer SQL](defender-for-sql-usage.md).
-
-
-
-### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Due nuove raccomandazioni per distribuire l'agente di Log Analytics in computer Azure Arc (anteprima)
-
-Sono state aggiunte due nuove raccomandazioni per semplificare la distribuzione dell'[Agente di Log Analytics](../azure-monitor/platform/log-analytics-agent.md) nei computer Azure Arc e per assicurare che siano protetti dal Centro sicurezza di Azure:
-
-- **L'agente di Log Analytics deve essere installato nelle macchine virtuali Azure Arc basate su Windows (anteprima)**
-- **L'agente di Log Analytics deve essere installato nelle macchine virtuali Azure Arc basate su Linux (anteprima)**
-
-Queste nuove raccomandazioni verranno visualizzate negli stessi quattro controlli di sicurezza che includono la raccomandazione esistente correlata, **È consigliabile installare l'agente di monitoraggio nei computer**: Correggi le configurazioni di sicurezza, Applica il controllo applicazioni adattivo, Applica gli aggiornamenti del sistema e Abilita Endpoint Protection.
-
-Le raccomandazioni includono anche la funzionalità di correzione rapida per accelerare il processo di distribuzione. 
-
-Per altre informazioni su queste due nuove raccomandazioni, vedere la tabella [Raccomandazioni sulle risorse di calcolo e sulle app](recommendations-reference.md#recs-computeapp).
-
-Per altre informazioni sul modo in cui il Centro sicurezza di Azure usa l'agente, vedere [Che cos'è l'agente di Log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
-
-Altre informazioni sulle [estensioni per i computer Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
-
-
-### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Nuovi criteri per creare configurazioni di esportazione continua e di automazione dei flussi di lavoro su larga scala
-
-L'automazione dei processi di monitoraggio e risposta agli eventi imprevisti dell'organizzazione può migliorare significativamente il tempo necessario per indagare e attenuare gli eventi imprevisti relativi alla sicurezza.
-
-Per distribuire le configurazioni di automazione nell'organizzazione, usare questi criteri "DeployIfdNotExist" predefiniti di Azure per creare e configurare le procedure di [esportazione continua](continuous-export.md) e [automazione dei flussi di lavoro](workflow-automation.md):
-
-I criteri sono disponibili in Criteri di Azure:
-
-
-|Obiettivo  |Policy  |ID condizione  |
-|---------|---------|---------|
-|Esportazione continua in Hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
-|Automazione dei flussi di lavoro per gli avvisi di sicurezza|[Distribuisci automazione del flusso di lavoro per gli avvisi del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-|Automazione dei flussi di lavoro per le raccomandazioni sulla sicurezza|[Distribuisci automazione del flusso di lavoro per le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
-||||
-
-Introduzione ai [modelli di automazione dei flussi di lavoro](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
-
-Per altre informazioni sull'uso dei due criteri di esportazione, vedere [Configurare l'automazione del flusso di lavoro su larga scala usando i criteri forniti](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) e [Configurare un'esportazione continua](continuous-export.md#set-up-a-continuous-export).
-
-
-### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nuova raccomandazione per l'uso dei gruppi di sicurezza di rete per proteggere macchine virtuali non connesse a Internet
-
-Il controllo di sicurezza "Implementa le procedure consigliate per la sicurezza" include ora la nuova raccomandazione seguente:
-
-- **Le macchine virtuali senza connessione Internet devono essere protette con i gruppi di sicurezza di rete**
-
-Una raccomandazione esistente, **Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete**, non distingueva tra le macchine virtuali connesse a Internet e non connesse a Internet. Veniva generata per entrambi i tipi di VM una raccomandazione con gravità alta se una VM non era assegnata a un gruppo di sicurezza di rete. Questa nuova raccomandazione separa le macchine virtuali non connesse a Internet per ridurre i falsi positivi ed evitare avvisi con gravità elevata non necessari.
-
-Per altre informazioni, vedere la tabella [Raccomandazioni sulla rete](recommendations-reference.md#recs-network).
-
-
-
-
-### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>Nuovi criteri per l'abilitazione della protezione dalle minacce e della sicurezza dei dati avanzata
-
-I nuovi criteri seguenti sono stati aggiunti all'iniziativa predefinita del Centro sicurezza di Azure e sono stati progettati per agevolare l'abilitazione della protezione dalle minacce e della sicurezza dei dati avanzata per i tipi di risorse rilevanti.
-
-I criteri sono disponibili in Criteri di Azure:
-
-
-| Policy                                                                                                                                                                                                                                                                | ID condizione                            |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
-| [La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [La soluzione Advanced Threat Protection deve essere abilitata negli account di archiviazione di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
-| [La soluzione Advanced Threat Protection deve essere abilitata negli insiemi di credenziali in Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [La soluzione Advanced Threat Protection deve essere abilitata nei piani di servizio app di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
-| [La soluzione Advanced Threat Protection deve essere abilitata nei registri in Registro Azure Container](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
-| [La soluzione Advanced Threat Protection deve essere abilitata nei cluster del servizio Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
-| [La soluzione Advanced Threat Protection deve essere abilitata nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
-|                                                                                                                                                                                                                                                                       |                                      |
-
-Altre informazioni sulla [protezione dalle minacce nel Centro sicurezza di Azure](azure-defender.md).
