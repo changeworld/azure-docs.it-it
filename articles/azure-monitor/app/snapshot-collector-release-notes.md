@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e4fffe0efa9f6900ef8d83c0a1b150b4249c22b3
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548172"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008572"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Note sulla versione per Microsoft. ApplicationInsights. SnapshotCollector
 
@@ -21,6 +21,11 @@ Questo articolo contiene le note sulla versione per il pacchetto NuGet Microsoft
 Per segnalazioni di bug e commenti e suggerimenti, aprire un problema in GitHub all'indirizzo https://github.com/microsoft/ApplicationInsights-dotnet
 
 ## <a name="release-notes"></a>Note sulla versione
+
+## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+Una versione punto per backporting una correzione da 1.4.0-pre.
+### <a name="bug-fixes"></a>Correzioni di bug
+- Correzione [di ObjectDisposedException all'arresto](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
 
 ## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
 Una versione punto per risolvere un problema rilevato nel test app Azure scenario di associazione non codificato del servizio.

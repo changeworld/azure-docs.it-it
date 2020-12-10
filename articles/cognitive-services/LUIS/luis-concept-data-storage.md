@@ -8,16 +8,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/07/2020
+ms.openlocfilehash: a58bcff4e39c4a4a907cd8567b47b074ff299bd5
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019212"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008453"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Archiviazione e rimozione dei dati nei Servizi cognitivi di LUIS (Language Understanding)
-LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave. Questi dati vengono archiviati per 30 giorni. 
+
+LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente all' [area](luis-reference-regions.md) specificata dalla chiave. 
+
+* I dati utilizzati per il training del modello, ad esempio entità, Intent e espressioni, verranno salvati in LUIS per la durata dell'applicazione. Se un proprietario o un collaboratore Elimina l'app, questi dati verranno eliminati con esso. Se un'applicazione non è stata usata in 90 giorni, verrà eliminata. 
+
+* Gli autori di applicazioni possono scegliere di [abilitare la registrazione](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) per le espressioni inviate a un'applicazione pubblicata. Se abilitata, le espressioni verranno salvate per 30 giorni e potranno essere visualizzate dall'autore dell'applicazione. Se la registrazione non è abilitata al momento della pubblicazione dell'applicazione, questi dati non vengono archiviati.
 
 ## <a name="export-and-delete-app"></a>Esportare ed eliminare l'app
 Gli utenti hanno il controllo completo sull'[esportazione](luis-how-to-start-new-app.md#export-app) e sull'[eliminazione](luis-how-to-start-new-app.md#delete-app) dell'app. 

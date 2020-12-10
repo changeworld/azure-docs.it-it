@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/9/2020
+ms.openlocfilehash: d1ba9445441f38c55b40a8f8ca55471ea8b0a06d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107896"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008589"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>I pool elastici consentono di gestire e dimensionare più database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -74,38 +74,18 @@ In questo esempio è ideale per i motivi seguenti:
 - Il picco di utilizzo per ogni database si verifica in diversi momenti nel tempo.
 - Le eDTU vengono condivise tra più database.
 
-Il prezzo di un pool è una funzione delle eDTU del pool. Mentre il prezzo unitario delle eDTU di un pool è 1,5 volte maggiore del prezzo unitario delle DTU per un database singolo, le **eDTU del pool possono essere condivise da molti database ed è necessario un minor numero totale di eDTU**. Queste distinzioni nella determinazione dei prezzi e nella condivisione di eDTU costituiscono la base del potenziale risparmio sul prezzo che il pool è in grado di fornire.
+Nel modello di acquisto DTU il prezzo di un pool è una funzione del pool edtu. Mentre il prezzo unitario delle eDTU di un pool è 1,5 volte maggiore del prezzo unitario delle DTU per un database singolo, le **eDTU del pool possono essere condivise da molti database ed è necessario un minor numero totale di eDTU**. Queste distinzioni nella determinazione dei prezzi e nella condivisione di eDTU costituiscono la base del potenziale risparmio sul prezzo che il pool è in grado di fornire.
 
-Le seguenti regole relative al numero e all'uso del database consentono di garantire che un pool offra una riduzione dei costi rispetto all'uso di dimensioni di calcolo per database singoli.
-
-### <a name="minimum-number-of-databases"></a>Numero minimo di database
-
-Se la quantità aggregata di risorse per i singoli database è maggiore di 1,5 volte rispetto alle risorse necessarie per il pool, un pool elastico è più conveniente.
-
-***Esempio di modello di acquisto basato su DTU*** Sono necessari almeno due database S3 o almeno 15 database S0 perché un pool di 100 eDTU risulti più conveniente rispetto all'uso di dimensioni di calcolo per database singoli.
-
-### <a name="maximum-number-of-concurrently-peaking-databases"></a>Numero massimo di picco contemporaneamente database
-
-Condividendo le risorse, non tutti i database in un pool possono usare contemporaneamente le risorse fino al limite disponibile per i singoli database. Meno database raggiungono il picco contemporaneamente, minore è il valore da impostare per le risorse del pool e quindi più redditizio diventa il pool stesso. In generale, non più di 2/3 (o del 67%) dei database nel pool dovrebbe raggiungere contemporaneamente il picco di utilizzo delle risorse.
-
-***Esempio di modello di acquisto basato su DTU*** Per ridurre i costi per tre database S3 in un pool di eDTU 200, al massimo due di questi database possono aumentare contemporaneamente il loro utilizzo. In caso contrario, se più di due di questi quattro database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. Se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli delle dimensioni di calcolo per singoli database.
-
-Si noti che questo esempio non considera l'utilizzo di altri database nel pool. Se tutti i database con alcune utilizzo in qualsiasi punto nel tempo, minore di 2/3 (o 67%) dei database possono picco contemporaneamente.
-
-### <a name="resource-utilization-per-database"></a>Utilizzo delle risorse per ogni database
-
-Una notevole differenza tra il picco e l'utilizzo medio di un database indica periodi prolungati di utilizzo ridotto e brevi periodi di utilizzo elevato. Questo modello di utilizzo è ideale per la condivisione delle risorse tra database. Un database deve essere considerato per un pool quando relativo picchi di utilizzo sono circa 1.5 volte maggiore relativo utilizzo medio.
-
-***Esempio di modello di acquisto basato su DTU*** Un database S3 con picchi di 100 DTU e in media utilizza 67 DTU o meno è un buon candidato per la condivisione di edtu in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
+Nel modello di acquisto vCore il prezzo unitario vCore per i pool elastici equivale al prezzo unitario vCore per i database singoli.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Come scegliere le dimensioni più adatte del pool
 
 La dimensione ottimale per un pool dipende dalle risorse di aggregazione e dalle risorse di archiviazione necessarie per tutti i database nel pool. È quindi necessario stabilire quanto segue:
 
-- Numero massimo di risorse utilizzate da tutti i database nel pool (DTU massimo o Vcore massimo a seconda del modello di acquisto scelto).
+- Numero massimo di risorse di calcolo utilizzate da tutti i database nel pool.  Le risorse di calcolo vengono indicizzate da edtu o Vcore a seconda del modello di acquisto scelto.
 - Byte di archiviazione massima utilizzati da tutti i database nel pool.
 
-Per i livelli di servizio e i limiti disponibili per ogni modello di risorsa, vedere il [modello di acquisto basato su DTU](service-tiers-dtu.md) o il [modello di acquisto basato su vCore](service-tiers-vcore.md).
+Per i livelli di servizio e i limiti delle risorse in ogni modello di acquisto, vedere il modello di acquisto [basato su DTU](service-tiers-dtu.md) o il [modello di acquisto basato su vCore](service-tiers-vcore.md).
 
 I passaggi seguenti consentono di stimare se un pool è più conveniente rispetto ai database singoli:
 
@@ -119,10 +99,10 @@ Per il modello di acquisto basato su vCore:
 
 MAX (<*numero totale di* database x *utilizzo medio di vCore per database*>, <*numero di database a picco simultaneo* x *utilizzo vCore di picco per database*>)
 
-2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione.
+2. Stimare lo spazio di archiviazione totale necessario per il pool aggiungendo le dimensioni dei dati necessarie per tutti i database nel pool. Per il modello di acquisto DTU, determinare le dimensioni del pool eDTU che forniscono questa quantità di spazio di archiviazione.
 3. Per il modello di acquisto basato su DTU, considerare la stima di eDTU maggiore tra il Passaggio 1 e il Passaggio 2. Per il modello di acquisto basato su vCore, considerare la stima di vCore del Passaggio 1.
 4. Vedere la [pagina sui prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool più piccola, che sia maggiore della stima del Passaggio 3.
-5. Confrontare il prezzo di pool ottenuto nel passaggio 5 con il prezzo dell'uso di dimensioni di calcolo appropriate per database singoli.
+5. Confrontare il prezzo del pool del passaggio 4 con il prezzo di utilizzo delle dimensioni di calcolo appropriate per i database singoli.
 
 > [!IMPORTANT]
 > Se il numero di database in un pool si avvicina al valore massimo supportato, assicurarsi di considerare la [gestione delle risorse in pool elastici densi](elastic-pool-resource-management.md).
@@ -176,34 +156,7 @@ Al termine della configurazione del pool, è possibile fare clic su Applica, ass
 
 Dal portale di Azure è possibile monitorare l'uso di un pool elastico e dei database al suo interno. È anche possibile apportare un set di modifiche al pool elastico e inviare tutte le modifiche contemporaneamente. Le modifiche includono l'aggiunta o la rimozione di database, la modifica delle impostazioni del pool elastico o la modifica delle impostazioni del database.
 
-Per avviare il monitoraggio del pool elastico, trovare e aprire un pool elastico nel portale. Verrà visualizzata una schermata che offre una panoramica dello stato del pool elastico. ad esempio:
-
-- Grafici di monitoraggio che illustrano l'utilizzo delle risorse del pool elastico
-- Avvisi recenti e suggerimenti, se disponibili, per il pool elastico
-
-L'immagine seguente illustra un esempio di pool elastico:
-
-![Visualizzazione del pool](./media/elastic-pool-overview/basic.png)
-
-Per visualizzare altre informazioni relative al pool è possibile fare clic su una qualsiasi delle informazioni disponibili in questa panoramica. Facendo clic sul grafico **Utilizzo risorse**, viene aperta la visualizzazione di Monitoraggio di Azure in cui è possibile personalizzare le metriche e l'intervallo di tempo visualizzati nel grafico. Facendo clic su una qualsiasi delle notifiche disponibili, viene visualizzato un pannello che mostra tutti i dettagli dell'avviso o del suggerimento.
-
-Per monitorare i database all'interno del pool, è possibile fare clic su **Utilizzo risorse database** nella sezione **Monitoraggio** del menu delle risorse a sinistra.
-
-![Pagina Utilizzo risorse database](./media/elastic-pool-overview/db-utilization.png)
-
-### <a name="to-customize-the-chart-display"></a>Per personalizzare la visualizzazione del grafico
-
-È possibile modificare il grafico e la pagina Metrica per visualizzare altre metriche, ad esempio la percentuale di CPU, la percentuale di IO dei dati e la percentuale di IO del log usata.
-
-Nel modulo **Modifica grafico** è possibile specificare un intervallo di tempo fisso, oppure fare clic su **personalizzato** per selezionare un periodo qualsiasi di 24 ore nelle ultime due settimane, e quindi selezionare le risorse da monitorare.
-
-### <a name="to-select-databases-to-monitor"></a>Per selezionare i database da monitorare
-
-Per impostazione predefinita, il grafico nel pannello **Utilizzo risorse database** mostra i cinque database più utilizzati in base a DTU o CPU, a seconda del livello di servizio. È possibile visualizzare i dati relativi ad altri database nel grafico selezionando e deselezionando i database dall'elenco sottostante tramite le caselle di controllo a sinistra.
-
-È inoltre possibile selezionare altre metriche da visualizzare in modalità affiancata in questa tabella di database per ottenere una visione più dettagliata delle prestazioni dei database.
-
-Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per il database SQL di Azure](alerts-insights-configure-portal.md).
+È possibile usare gli strumenti di [monitoraggio delle prestazioni](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) e di [avviso](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal)predefiniti, combinati con le valutazioni delle prestazioni.  Inoltre, Database SQL può [generare log di metriche e di risorse](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) per semplificare il monitoraggio.
 
 ## <a name="customer-case-studies"></a>Casi di studio sui clienti
 

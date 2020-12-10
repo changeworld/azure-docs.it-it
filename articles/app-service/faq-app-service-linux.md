@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961721"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008555"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -94,7 +94,7 @@ Sì, disabilitare `perMessageDeflate` nel codice Node.js sul lato server. Ad ese
 
 ```nodejs
 const io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
@@ -122,7 +122,7 @@ Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o
 
 **Qual è il formato per il nome dell'immagine nell'opzione del Registro di sistema privato?**
 
-Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name` , usare lo [ `az` strumento da riga di comando](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name` , usare lo [ `az` strumento da riga di comando](/cli/azure/webapp/config/container#az-webapp-config-container-set).
 
 **È possibile esporre più di una porta sull'immagine del contenitore personalizzato?**
 
@@ -204,5 +204,5 @@ Per le impostazioni dell'applicazione è possibile usare solo lettere (A-Z, a-z)
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è il Servizio app di Azure in Linux?](overview.md#app-service-on-linux)
-- [Configurare gli ambienti di gestione temporanea in Servizio app di Azure](deploy-staging-slots.md)
+- [Configurare gli ambienti di gestione temporanea nel servizio app di Azure](deploy-staging-slots.md)
 - [Distribuzione continua con app Web per contenitori](./deploy-ci-cd-custom-container.md)

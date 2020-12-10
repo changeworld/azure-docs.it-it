@@ -7,19 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2020
-ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/09/2020
+ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421720"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008485"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
-Questo articolo illustra come ottenere una risposta alla query che restituisca un numero totale di documenti corrispondenti, risultati impaginati, risultati ordinati e termini evidenziati.
+Questo articolo illustra come formulare una risposta alla query in Azure ricerca cognitiva. La struttura di una risposta è determinata dai parametri nella query: il [documento di ricerca](/rest/api/searchservice/Search-Documents) nell'API REST o la [classe SEARCHRESULTS](/dotnet/api/azure.search.documents.models.searchresults-1) in .NET SDK. I parametri sulla query possono essere usati per strutturare il set di risultati nei modi seguenti:
 
-La struttura di una risposta è determinata dai parametri nella query: il [documento di ricerca](/rest/api/searchservice/Search-Documents) nell'API REST o la [classe SEARCHRESULTS](/dotnet/api/azure.search.documents.models.searchresults-1) in .NET SDK.
++ Limitare o raggruppare il numero di documenti nei risultati (50 per impostazione predefinita)
++ Selezionare i campi da includere nei risultati
++ Risultati degli ordini
++ Evidenziare un termine intero o parziale corrispondente nel corpo dei risultati della ricerca
 
 ## <a name="result-composition"></a>Composizione risultato
 
@@ -38,6 +41,14 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 > [!NOTE]
 > Se si vuole includere i file di immagine in un risultato, ad esempio un logo o una foto del prodotto, archiviarli all'esterno di Azure ricerca cognitiva, ma includere un campo nell'indice per fare riferimento all'URL dell'immagine nel documento di ricerca. Gli indici di esempio che supportano immagini nei risultati includono la demo **immobiliare-Sample-US** , disponibile in questa [Guida introduttiva](search-create-app-portal.md)e l' [app demo di New York City Jobs](https://aka.ms/azjobsdemo).
+
+### <a name="tips-for-unexpected-results"></a>Suggerimenti per risultati imprevisti
+
+Occasionalmente, la sostanza dei risultati, e non la struttura, è imprevista. Quando i risultati di una query non sono previsti, è possibile provare a eseguire queste modifiche per verificare se i risultati migliorano:
+
++ Modificare **`searchMode=any`** (impostazione predefinita) in **`searchMode=all`** per richiedere corrispondenze su tutti i criteri anziché su uno dei criteri. Questo è particolarmente vero quando gli operatori booleani sono inclusi nella query.
+
++ Provare con diversi analizzatori lessicali o analizzatori personalizzati per verificare se modifica il risultato della query. L'analizzatore predefinito suddivide le parole con sillabazione e riduce le parole ai form radice, che in genere migliora l'affidabilità di una risposta alla query. Tuttavia, se è necessario mantenere i trattini o se le stringhe includono caratteri speciali, potrebbe essere necessario configurare analizzatori personalizzati per assicurarsi che l'indice contenga token nel formato corretto. Per altre informazioni, vedere [ricerca a termini parziali e modelli con caratteri speciali (trattini, caratteri jolly, Regex, Patterns)](search-query-partial-matching.md).
 
 ## <a name="paging-results"></a>Risultati di paging
 
@@ -80,9 +91,9 @@ Si noti che il documento 2 viene recuperato due volte. Questo perché il nuovo d
 
 ## <a name="ordering-results"></a>Ordinamento dei risultati
 
-Per le query di ricerca full-text, i risultati vengono classificati automaticamente in base a un punteggio di ricerca, calcolato in base alla frequenza dei termini e alla prossimità in un documento, con punteggi più elevati che passano ai documenti con corrispondenze più o più sicure in un termine di ricerca. 
+Per le query di ricerca full-text, i risultati vengono classificati automaticamente in base a un punteggio di ricerca, calcolato in base alla frequenza dei termini e alla prossimità in un documento (derivato da [tf-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), con punteggi più elevati che passano ai documenti con corrispondenze più o più sicure in un termine di ricerca. 
 
-I punteggi di ricerca comportano un senso generale di rilevanza, riflettendo la forza della corrispondenza rispetto ad altri documenti nello stesso set di risultati. I punteggi non sono sempre coerenti da una query alla successiva, quindi, quando si lavora con le query, è possibile notare piccole discrepanze nel modo in cui i documenti di ricerca sono ordinati. Esistono diverse spiegazioni per il motivo per cui questo potrebbe verificarsi.
+I punteggi di ricerca comportano un senso generale di rilevanza, riflettendo la forza della corrispondenza rispetto ad altri documenti nello stesso set di risultati. Tuttavia, i punteggi non sono sempre coerenti da una query alla successiva, quindi, quando si lavora con le query, è possibile riscontrare piccole discrepanze nel modo in cui i documenti di ricerca sono ordinati. Esistono diverse spiegazioni per il motivo per cui questo potrebbe verificarsi.
 
 | Causa | Descrizione |
 |-----------|-------------|
@@ -90,11 +101,11 @@ I punteggi di ricerca comportano un senso generale di rilevanza, riflettendo la 
 | Più repliche | Per i servizi che usano più repliche, le query vengono eseguite su ogni replica in parallelo. Le statistiche di indice utilizzate per calcolare un punteggio di ricerca vengono calcolate in base alle singole repliche, con risultati Uniti e ordinati nella risposta alla query. Le repliche sono per lo più mirror, ma le statistiche possono variare a causa di piccole differenze nello stato. Ad esempio, una replica potrebbe avere eliminato i documenti che contribuiscono alle statistiche, che sono Stati Uniti da altre repliche. In genere, le differenze nelle statistiche per replica sono più evidenti negli indici più piccoli. |
 | Punteggi identici | Se più documenti hanno lo stesso punteggio, è possibile che uno di essi venga visualizzato per primo.  |
 
-### <a name="consistent-ordering"></a>Ordinamento coerente
+### <a name="how-to-get-consistent-ordering"></a>Come ottenere un ordinamento coerente
 
-Dato il Flex nell'ordinamento dei risultati, potrebbe essere necessario esplorare altre opzioni se la coerenza è un requisito dell'applicazione. L'approccio più semplice consiste nell'ordinamento in base a un valore di campo, ad esempio classificazione o data. Per gli scenari in cui si desidera eseguire l'ordinamento in base a un campo specifico, ad esempio una classificazione o una data, è possibile definire in modo esplicito un' [ `$orderby` espressione](query-odata-filter-orderby-syntax.md)che può essere applicata a qualsiasi campo indicizzato come **ordinabile**.
+Se l'ordinamento coerente è un requisito dell'applicazione, è possibile definire in modo esplicito un' **`$orderby`** espressione [] (query-OData-Filter-OrderBy-Syntax.MD) in un campo. Solo i campi indicizzati come **`sortable`** possono essere usati per ordinare i risultati. I campi usati comunemente in un campo **`$orderby`** include classificazione, data e posizione se si specifica il valore del **`orderby`** parametro per includere i nomi dei campi e le chiamate alla [**`geo.distance()` funzione**](query-odata-filter-orderby-syntax.md) per i valori geospaziali.
 
-Un'altra opzione prevede l'uso di un [profilo di Punteggio personalizzato](index-add-scoring-profiles.md). I profili di Punteggio consentono un maggiore controllo sulla classificazione degli elementi nei risultati della ricerca, con la possibilità di incrementare le corrispondenze trovate in campi specifici. La logica di assegnazione dei punteggi aggiuntiva consente di eseguire l'override delle differenze minime tra le repliche perché i punteggi di ricerca per ogni documento sono più lontani. Per questo approccio è consigliabile usare l' [algoritmo di classificazione](index-ranking-similarity.md) .
+Un altro approccio che promuove la coerenza consiste nell'usare un [profilo di Punteggio personalizzato](index-add-scoring-profiles.md). I profili di Punteggio consentono un maggiore controllo sulla classificazione degli elementi nei risultati della ricerca, con la possibilità di incrementare le corrispondenze trovate in campi specifici. La logica di assegnazione dei punteggi aggiuntiva consente di eseguire l'override delle differenze minime tra le repliche perché i punteggi di ricerca per ogni documento sono più lontani. Per questo approccio è consigliabile usare l' [algoritmo di classificazione](index-ranking-similarity.md) .
 
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
 

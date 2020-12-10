@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 10/2/2020
-ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 12/9/2020
+ms.openlocfilehash: 70a2d5fac643c9af6954f154e1c91813bbbfa5bc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348713"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008385"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Output di analisi di flusso di Azure
 
@@ -25,12 +25,12 @@ Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimen
 
 | Tipo di output | Partizionamento | Sicurezza | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sì|Utente Azure Active Directory </br> MSI|
-|[Database SQL di Azure](sql-database-output.md)|Sì, facoltativo.|Autenticazione utente SQL </br> MSI (anteprima)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sì|Autenticazione utente SQL|
-|[Archiviazione BLOB e Azure Data Lake generazione 2](blob-storage-azure-data-lake-gen2-output.md)|Sì|MSI </br> Chiave di accesso|
-|[Hub eventi di Azure](event-hubs-output.md)|Sì, è necessario impostare la colonna chiave di partizione nella configurazione di output.|Chiave di accesso|
-|[Power BI](power-bi-output.md)|No|Utente Azure Active Directory </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sì|Utente Azure Active Directory </br> , Identità gestita|
+|[Database SQL di Azure](sql-database-output.md)|Sì, facoltativo.|Autenticazione utente SQL, </br> Identità gestita (anteprima)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sì|Autenticazione utente SQL, </br> Identità gestita (anteprima)|
+|[Archiviazione BLOB e Azure Data Lake generazione 2](blob-storage-azure-data-lake-gen2-output.md)|Sì|Chiave di accesso, </br> Identità gestita (anteprima)|
+|[Hub eventi di Azure](event-hubs-output.md)|Sì, è necessario impostare la colonna chiave di partizione nella configurazione di output.|Chiave di accesso, </br> Identità gestita (anteprima)|
+|[Power BI](power-bi-output.md)|No|Azure Active Directory utente, </br> Identità gestita|
 |[Archivio tabelle di Azure](table-storage-output.md)|Sì|Chiave account|
 |[Code del bus di servizio di Azure](service-bus-queues-output.md)|Sì|Chiave di accesso|
 |[Argomenti del bus di servizio di Azure](service-bus-topics-output.md)|Sì|Chiave di accesso|

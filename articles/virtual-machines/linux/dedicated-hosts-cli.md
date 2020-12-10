@@ -4,14 +4,14 @@ description: Distribuire macchine virtuali e istanze del set di scalabilità in 
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2cf78d328017f96552bd51794ac997c394d18f1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975282"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008419"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Distribuire in host dedicati usando l'interfaccia della riga di comando di Azure
  
@@ -65,14 +65,6 @@ az vm host group create \
 
 Aggiungere il `--automatic-placement true` parametro in modo che le macchine virtuali e le istanze del set di scalabilità vengano inserite automaticamente negli host all'interno di un gruppo host. Per altre informazioni, vedere [confronto manuale e selezione host automatica ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> La selezione host automatica è attualmente disponibile in anteprima pubblica.
->
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
->
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="other-examples"></a>Altri esempi
 
@@ -133,16 +125,7 @@ Per inserire la macchina virtuale in un host specifico, usare `--host` anziché 
 > [!WARNING]
 > Se si crea una macchina virtuale in un host che non dispone di risorse sufficienti, la macchina virtuale verrà creata in uno stato di errore. 
 
-## <a name="create-a-scale-set-preview"></a>Creare un set di scalabilità (anteprima)
-
-> [!IMPORTANT]
-> I set di scalabilità di macchine virtuali negli host dedicati sono attualmente in anteprima pubblica.
->
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
->
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Creare un set di scalabilità 
 
 Quando si distribuisce un set di scalabilità, è necessario specificare il gruppo host.
 
