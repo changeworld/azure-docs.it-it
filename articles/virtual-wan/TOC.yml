@@ -27,7 +27,7 @@
           href: virtual-wan-locations-partners.md
         - name: Linee guida sull'automazione per i partner
           href: virtual-wan-configure-automation-providers.md
-    - name: Architecture
+    - name: Architettura
       items:
         - name: Eseguire la migrazione alla rete WAN virtuale
           href: migrate-from-hub-spoke-topology.md
