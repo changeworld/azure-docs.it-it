@@ -27,7 +27,7 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
     > [!div class="mx-imgBorder"]
     > ![Screenshot del pulsante per la pubblicazione nell'endpoint LUIS](../media/howto-publish/publish-app-popup.png)
 
-1. Selezionare il collegamento **Accedi agli URL degli endpoint** nella notifica per passare alla pagina **Risorse di Azure**. Sarà possibile visualizzare gli URL solo se all'app è associata una risorsa di previsione. Per passare alla pagina **Risorse di Azure** , è anche possibile fare clic su **Gestisci**.
+1. Selezionare il collegamento **Accedi agli URL degli endpoint** nella notifica per passare alla pagina **Risorse di Azure**. Sarà possibile visualizzare gli URL solo se all'app è associata una risorsa di previsione. Per passare alla pagina **Risorse di Azure**, è anche possibile fare clic su **Gestisci**.
 
      > [!div class="mx-imgBorder"]
     > ![Messaggio che informa che l'app è stata pubblicata](../media/howto-publish/publish-completed.png)
