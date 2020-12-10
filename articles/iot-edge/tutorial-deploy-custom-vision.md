@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044582"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621281"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
@@ -449,9 +449,7 @@ In caso contrario, è possibile eliminare le configurazioni locali e le risorse 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato eseguito il training di un modello di Visione personalizzata, che è stato poi distribuito come modulo in un dispositivo IoT Edge. Si è poi compilato un modulo in grado di eseguire query sul server di classificazione delle immagini e riportarne i risultati all'hub IoT. 
-
-Se si vuole provare una versione più avanzata di questo scenario con un feed di videocamera dal vivo, vedere il progetto GitHub [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) (Visione personalizzata e Azure IoT Edge in un Raspberry Pi 3). 
+In questa esercitazione è stato eseguito il training di un modello di Visione personalizzata, che è stato poi distribuito come modulo in un dispositivo IoT Edge. Si è poi compilato un modulo in grado di eseguire query sul server di classificazione delle immagini e riportarne i risultati all'hub IoT.
 
 Continuare con le esercitazioni successive per ottenere informazioni sugli altri modi in cui Azure IoT Edge può contribuire alla trasformazione dei dati in informazioni dettagliate aziendali nei dispositivi perimetrali.
 

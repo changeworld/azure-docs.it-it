@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: f208752f13848f0f54648d934d1dfb518e2ea1fd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 72541b8d8f8d8865c680c36f7f84cd91a4ce8ba2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500341"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903327"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse che hanno due set di credenziali di autenticazione
 
@@ -158,7 +158,7 @@ Per aggiungere chiavi di account di archiviazione a una funzione esistente per l
 
 1. Selezionare il collegamento alla distribuzione modelli di Azure: 
 
-   [![Collegamento alla distribuzione modelli di Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
+   [![Collegamento alla distribuzione modelli di Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscriptions%2Fazuredeploy.json)
 
 1. Nell'elenco **Gruppo di risorse** selezionare **akvrotation**.
 1. Nella casella **Nome account di archiviazione** immettere il nome dell'account di archiviazione che contiene le chiavi di accesso da ruotare.

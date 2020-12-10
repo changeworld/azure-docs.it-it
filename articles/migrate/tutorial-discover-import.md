@@ -1,14 +1,17 @@
 ---
 title: Valutare i server locali usando un file CSV importato con Valutazione server di Azure Migrate
 description: Informazioni su come individuare server locali per la migrazione ad Azure usando un file CSV importato in Valutazione server di Azure Migrate
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dfa7ee941e2c373b02fe5fb2f2a648a60a677670
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308380"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753110"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Esercitazione: Valutare i server con un file CSV importato
 
@@ -101,7 +104,7 @@ Scaricare il modello CSV e aggiungervi le informazioni sul server.
 ### <a name="download-the-template"></a>Scaricare il modello
 
 1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** selezionare **Individua**.
-2. In **Individua macchine virtuali**selezionare **Importa tramite file CSV**.
+2. In **Individua macchine virtuali** selezionare **Importa tramite file CSV**.
 3. Selezionare **Scarica** per scaricare il modello CSV. In alternativa, è possibile [scaricarlo direttamente](https://go.microsoft.com/fwlink/?linkid=2109031).
 
     ![Scaricare il modello CSV](./media/tutorial-discover-import/download-template.png)

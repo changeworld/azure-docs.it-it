@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 305137cf371d7a9e3d336d8142ef9a03eb38421f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 890f9c3d5c3a250bc13270ac685b93349f18fcff
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743708"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862267"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Esercitazione: Creare un'app ASP.NET Core con database SQL di Azure nel servizio app di Azure
 
@@ -45,8 +45,10 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare questa esercitazione:
 
-* <a href="https://git-scm.com/" target="_blank">Installare Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installare l'ultima versione di .NET Core 3.1 SDK</a>
+- <a href="https://git-scm.com/" target="_blank">Installare Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installare l'ultima versione di .NET Core 3.1 SDK</a>
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-local-net-core-app"></a>Creare l'app .NET Core locale
 
@@ -75,13 +77,11 @@ dotnet ef database update
 dotnet run
 ```
 
-Andare a `http://localhost:5000` in un browser. Selezionare il collegamento **Crea nuovo** e creare due elementi _Attività_ .
+Andare a `http://localhost:5000` in un browser. Selezionare il collegamento **Crea nuovo** e creare due elementi _Attività_.
 
 ![Connessione al database SQL riuscita](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
 Per arrestare .NET Core in qualsiasi momento, premere `Ctrl+C` nel terminale.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-sql-database"></a>Creare il database SQL di produzione
 
@@ -97,7 +97,7 @@ Come database SQL questa esercitazione usa [Database SQL di Azure](/azure/sql-da
 
 In Cloud Shell creare un server logico di database SQL con il comando [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Sostituire il segnaposto *\<server-name>* con un nome di database SQL *univoco* . Questo nome viene usato nell'endpoint del database SQL univoco globale `<server-name>.database.windows.net`. I caratteri validi sono `a`-`z`, `0`-`9`, `-`. Sostituire anche *\<db-username>* e *\<db-password>* con un nome utente e una password di propria scelta. 
+Sostituire il segnaposto *\<server-name>* con un nome di database SQL *univoco*. Questo nome viene usato nell'endpoint del database SQL univoco globale `<server-name>.database.windows.net`. I caratteri validi sono `a`-`z`, `0`-`9`, `-`. Sostituire anche *\<db-username>* e *\<db-password>* con un nome utente e una password di propria scelta. 
 
 
 ```azurecli-interactive
@@ -136,7 +136,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 > È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your-ip-address>* con l' [indirizzo IPv4 locale](https://www.whatsmyip.org/).
+In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your-ip-address>* con l'[indirizzo IPv4 locale](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az sql server firewall-rule create --name AllowLocalClient --server <server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -214,7 +214,7 @@ Ora che le migrazioni di database vengono eseguite nel database di produzione, t
 dotnet run
 ```
 
-Andare a `http://localhost:5000` in un browser. Selezionare il collegamento **Crea nuovo** e creare due elementi _Attività_ . L'app ora legge e scrive i dati nel database di produzione.
+Andare a `http://localhost:5000` in un browser. Selezionare il collegamento **Crea nuovo** e creare due elementi _Attività_. L'app ora legge e scrive i dati nel database di produzione.
 
 Eseguire il commit delle modifiche locali e quindi eseguire il commit nel repository GIT. 
 
@@ -269,7 +269,7 @@ Per impostare le stringhe di connessione per l'app Azure, usare il comando [`az 
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-In ASP.NET Core è possibile usare questa stringa di connessione denominata (`MyDbConnection`) con il modello standard, così come qualsiasi stringa di connessione specificata in *appsettings.json* . In questo caso, la stringa `MyDbConnection` è definita anche in *appsettings.json* . In caso di esecuzione nel servizio app, la stringa di connessione definita nel servizio app ha la precedenza su quella definita in *appsettings.json* . Il codice usa il valore di *appsettings.json* durante lo sviluppo locale e il valore del servizio app quando viene distribuito.
+In ASP.NET Core è possibile usare questa stringa di connessione denominata (`MyDbConnection`) con il modello standard, così come qualsiasi stringa di connessione specificata in *appsettings.json*. In questo caso, la stringa `MyDbConnection` è definita anche in *appsettings.json*. In caso di esecuzione nel servizio app, la stringa di connessione definita nel servizio app ha la precedenza su quella definita in *appsettings.json*. Il codice usa il valore di *appsettings.json* durante lo sviluppo locale e il valore del servizio app quando viene distribuito.
 
 Per osservare come viene fatto riferimento alla stringa di connessione nel codice, vedere [Configurare l'app per connettersi al database di produzione](#configure-app-to-connect-to-production-database).
 
@@ -286,7 +286,7 @@ Compressing objects: 100% (171/171), done.
 Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
 Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
 remote: Resolving deltas: 100% (95/95), done.
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '64821c3558'.
 remote: Generating deployment script.
@@ -303,7 +303,7 @@ remote: Running post deployment command(s)...
 remote: Triggering recycle (preview mode disabled).
 remote: App container will begin restart within 10 seconds.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 ::: zone-end
@@ -321,7 +321,7 @@ Writing objects: 100% (273/273), 1.19 MiB | 1.85 MiB/s, done.
 Total 273 (delta 96), reused 259 (delta 88)
 remote: Resolving deltas: 100% (96/96), done.
 remote: Deploy Async
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'cccecf86c5'.
 remote: Repository path is /home/site/repository
@@ -337,7 +337,7 @@ remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
 remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/cccecf86c56493ffa594e76ea1deb3abb3702d89/log'
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 ::: zone-end
@@ -385,7 +385,7 @@ dotnet ef database update
 
 Apportare alcune modifiche al codice per usare la proprietà `Done`. Per motivi di semplicità in questa esercitazione vengono modificate solo le visualizzazioni `Index` e `Create` per visualizzare la proprietà.
 
-Aprire _Controllers/TodosController.cs_ .
+Aprire _Controllers/TodosController.cs_.
 
 Trovare il metodo `Create([Bind("ID,Description,CreatedDate")] Todo todo)` e aggiungere `Done` all'elenco delle proprietà nell'attributo `Bind`. Al termine, la firma del metodo `Create()` è simile al codice seguente:
 
@@ -393,7 +393,7 @@ Trovare il metodo `Create([Bind("ID,Description,CreatedDate")] Todo todo)` e agg
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Aprire _Views/Todos/Create.cshtml_ .
+Aprire _Views/Todos/Create.cshtml_.
 
 Nel codice Razor viene visualizzato un elemento `<div class="form-group">` per `Description` e quindi un altro elemento `<div class="form-group">` per `CreatedDate`. Immediatamente dopo questi due elementi, aggiungere un altro elemento `<div class="form-group">` per `Done`:
 
@@ -407,7 +407,7 @@ Nel codice Razor viene visualizzato un elemento `<div class="form-group">` per `
 </div>
 ```
 
-Aprire _Views/Todos/Index.cshtml_ .
+Aprire _Views/Todos/Index.cshtml_.
 
 cercare l'elemento `<th></th>` vuoto. Immediatamente sopra l'elemento, aggiungere il codice Razor seguente:
 
@@ -439,14 +439,14 @@ dotnet run
 > Se si apre una nuova finestra del terminale, è necessario impostare la stringa di connessione sul database di produzione nel terminale, come illustrato in [Eseguire le migrazioni del database al database di produzione](#run-database-migrations-to-the-production-database).
 >
 
-Nel browser passare a `http://localhost:5000/`. È ora possibile aggiungere un'attività e selezionare **Fine** . L'attività viene visualizzata come completata nella home page. Tenere presente che la visualizzazione `Edit` non mostra il campo `Done` poiché non è stata modificata la visualizzazione `Edit`.
+Nel browser passare a `http://localhost:5000/`. È ora possibile aggiungere un'attività e selezionare **Fine**. L'attività viene visualizzata come completata nella home page. Tenere presente che la visualizzazione `Edit` non mostra il campo `Done` poiché non è stata modificata la visualizzazione `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Pubblicare le modifiche in Azure
 
 ```bash
 git add .
 git commit -m "added done field"
-git push azure master
+git push azure main
 ```
 
 Al termine di `git push`, passare all'app del servizio app, provare ad aggiungere un'attività e selezionare **Done** (Fine).
@@ -461,18 +461,17 @@ Mentre l'app ASP.NET Core è in esecuzione nel servizio app di Azure, è possibi
 
 Il progetto di esempio segue già le indicazioni riportate in [Registrazione in ASP.NET Core in Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) con due modifiche della configurazione:
 
-- Include un riferimento a `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj* .
-- Chiama `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs* .
+- Include un riferimento a `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Chiama `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
 Per impostare il [livello di registrazione](/aspnet/core/fundamentals/logging#log-level) di ASP.NET Core nel Servizio app su `Information` dal livello predefinito `Error`, usare il comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) in Cloud Shell.
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
+az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
 ```
 
 > [!NOTE]
-> Il livello di registrazione del progetto è già impostato su `Information` in *appsettings.json* .
-> 
+> Il livello di registrazione del progetto è già impostato su `Information` in *appsettings.json*.
 
 Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in Cloud Shell.
 
@@ -488,7 +487,7 @@ Per altre informazioni sulla personalizzazione dei logo di ASP.NET Core, vedere 
 
 ## <a name="manage-your-azure-app"></a>Gestire l'app Azure
 
-Per visualizzare l'app creata, nel [portale di Azure](https://portal.azure.com) cercare e selezionare **Servizi app** .
+Per visualizzare l'app creata, nel [portale di Azure](https://portal.azure.com) cercare e selezionare **Servizi app**.
 
 ![Selezionare Servizi app nel portale di Azure](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 

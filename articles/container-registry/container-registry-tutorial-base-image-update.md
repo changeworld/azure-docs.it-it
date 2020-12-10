@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come configurare un'attività del Reg
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 32b4dbe2563731664030dbc32c2b570ccc3e1d12
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 342f7fc37edb3a1623b72c57e8766b1a484d0e8d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030646"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559151"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
@@ -32,10 +32,10 @@ Contenuto dell'esercitazione:
 
 Questa esercitazione presuppone che l'ambiente sia già stato configurato e che siano già state completate le procedure delle prime due esercitazioni della serie, in cui viene illustrato come:
 
-* Creare un'istanza di Registro Azure Container
-* Creare una copia tramite fork del repository di esempio
-* Clonare il repository di esempio
-* Creare un token di accesso personale GitHub
+- Creare un'istanza di Registro Azure Container
+- Creare una copia tramite fork del repository di esempio
+- Clonare il repository di esempio
+- Creare un token di accesso personale GitHub
 
 Se non è già stato fatto, prima di procedere completare le esercitazioni seguenti:
 
@@ -44,6 +44,9 @@ Se non è già stato fatto, prima di procedere completare le esercitazioni segue
 [Automatizzare la compilazione di immagini dei contenitori con Attività del Registro Azure Container](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Configurare l'ambiente
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 Popolare queste variabili di ambiente della shell con i valori appropriati per l'ambiente in uso. Questo passaggio non è obbligatorio, ma semplifica in parte l'esecuzione dei comandi su più righe dell'interfaccia della riga di comando di Azure. Se non si popolano queste variabili di ambiente, sarà necessario sostituire manualmente ogni valore in ogni occorrenza nei comandi di esempio.
 

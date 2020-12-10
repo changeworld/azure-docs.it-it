@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093260"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860015"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -169,7 +169,7 @@ Nello script precedente `$verifiedDomain = "contoso.com"` è un segnaposto. Sost
 
 Per altre informazioni sui nomi dominio verificati, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
+Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain).
 
 ![Elenco di domini aziendali](./media/hybrid-azuread-join-manual/01.png)
 
@@ -328,7 +328,7 @@ Nell'attestazione precedente `<verified-domain-name>` è un segnaposto. Sostitui
 
 Per altre informazioni sui nomi dominio verificati, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
-Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
+Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain).
 
 ![Elenco di domini aziendali](./media/hybrid-azuread-join-manual/01.png)
 
@@ -526,7 +526,7 @@ Quando arriva una richiesta di questo tipo, il servizio federativo locale deve a
 
 In AD FS, è necessario avere una regola di trasformazione rilascio che trasmetta il metodo di autenticazione. Per aggiungere questa regola:
 
-1. Nella console di gestione di AD FS, passare ad**AD FS** > **Relazioni di attendibilità** > **Attendibilità componente**.
+1. Nella console di gestione di AD FS, passare ad **AD FS** > **Relazioni di attendibilità** > **Attendibilità componente**.
 1. Fare clic con il pulsante destro del mouse sull'oggetto trust della relying party della Piattaforma delle identità di Microsoft Office 365 e quindi scegliere **Modifica regole attestazione**.
 1. Nella scheda **Regole di trasformazione rilascio** selezionare **Aggiungi regola**.
 1. Nell'elenco dei modelli delle **regole di attestazione** selezionare **Inviare attestazioni mediante una regola personalizzata**.
@@ -570,7 +570,7 @@ Ecco tre modi per individuare e verificare lo stato del dispositivo:
 
 ### <a name="using-powershell"></a>Utilizzo di PowerShell
 
-Verificare lo stato di registrazione del dispositivo nel tenant di Azure con **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Questo cmdlet si trova nel [modulo Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verificare lo stato di registrazione del dispositivo nel tenant di Azure con **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Questo cmdlet si trova nel [modulo Azure Active Directory PowerShell](/powershell/azure/active-directory/install-msonlinev1).
 
 Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del servizio:
 
