@@ -7,28 +7,8 @@
       href: Overview.md
 - name: Avvi rapidi
   items:
-    - name: Uso della libreria client
+    - name: Uso della libreria client o dell'API REST
       href: Quickstarts/client-libraries.md
-    - name: Utilizzo dell'API REST
-      items:
-        - name: Rilevare i visi in un'immagine
-          items:
-            - name: C#
-              href: QuickStarts/CSharp.md
-            - name: Go
-              href: QuickStarts/go.md
-            - name: Java
-              href: QuickStarts/Java.md
-            - name: JavaScript
-              href: QuickStarts/JavaScript.md
-            - name: Node.js
-              href: QuickStarts/node.md
-            - name: PHP
-              href: QuickStarts/PHP.md
-            - name: Python
-              href: QuickStarts/Python.md
-            - name: Ruby
-              href: QuickStarts/Ruby.md
 - name: Esercitazioni
   items:
     - name: Uso dell'SDK client

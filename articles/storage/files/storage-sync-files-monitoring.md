@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686005"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008300"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -46,10 +46,10 @@ Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in M
 |-|-|
 | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento).<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 | Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>**Nota**: questa metrica verrà rimossa in futuro. Usare la metrica dimensione di richiamo di suddivisione in livelli nel cloud per monitorare le dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server |
-| Cloud tiering recall size (Dimensioni richiamo cloud a livelli) | Dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
-| Cloud tiering recall size by application (Dimensioni richiamo cloud a livelli per applicazione) | Dimensioni dei dati richiamati dall'applicazione.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome dell'applicazione, nome del server, nome del gruppo di sincronizzazione |
-| Cloud tiering recall throughput (Velocità effettiva richiamo cloud a livelli) | Dimensioni della velocità effettiva di richiamo dei dati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
-| File non sincronizzati | Numero di file che non è possibile sincronizzare.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
+| Cloud tiering recall size (Dimensioni richiamo cloud a livelli) | Dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome del server, nome del gruppo di sincronizzazione |
+| Cloud tiering recall size by application (Dimensioni richiamo cloud a livelli per applicazione) | Dimensioni dei dati richiamati dall'applicazione.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome dell'applicazione, nome del server, nome del gruppo di sincronizzazione |
+| Cloud tiering recall throughput (Velocità effettiva richiamo cloud a livelli) | Dimensioni della velocità effettiva di richiamo dei dati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome del server, nome del gruppo di sincronizzazione |
+| File non sincronizzati | Numero di file che non è possibile sincronizzare.<br><br>Unità: Conteggio<br>Tipi di aggregazione: Average, Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 | File sincronizzati | Numero di file trasferiti (caricamento e scaricamento)<br><br>Unità: Conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 | Stato online del server | Numero di heartbeat ricevuti dal server.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Massimo<br>Dimensione applicabile: nome del server |
 | Risultato della sessione di sincronizzazione | Risultato della sessione di sincronizzazione (1 = sessione di sincronizzazione con esito positivo; 0 = sessione di sincronizzazione con esito negativo)<br><br>Unità: Conteggio<br>Tipi di aggregazione: massimo<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |

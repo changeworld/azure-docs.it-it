@@ -66,9 +66,13 @@
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn
       items:
-        - name: 'Pubblicare un''app e un''API JavaScript Angular, React, Svelte o Vue'
+        - name: 'Pubblicare un''app JavaScript Angular, React, Svelte, o Vue'
           href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Pubblicare un'API
+          href: /learn/modules/publish-static-web-app-api-preview-url
         - name: Creare e pubblicare un'app Web statica con Gatsby
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+        - name: Creare e pubblicare un'app Web statica con Blazor
+          href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Quote
       href: quotas.md

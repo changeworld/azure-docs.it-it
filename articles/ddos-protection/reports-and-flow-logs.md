@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 5c3bfbdf133777f0bc219d1306f80bd4d38b56ea
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0a59c748dba87765537fc7c9d6382c7d2b726f43
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746268"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008062"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>Configurare i report e i log dei flussi per la mitigazione degli attacchi DDoS 
 
@@ -80,9 +80,15 @@ Questo [modello](https://github.com/Azure/Azure-Network-Security/tree/master/Azu
 
 ### <a name="azure-ddos-protection-workbook"></a>Cartella di lavoro protezione DDoS di Azure
 
-Per visualizzare i dati dei log del flusso nel dashboard di analisi di Azure, è possibile importare il dashboard di esempio da https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
+È possibile usare questo modello di Azure Resource Manager (ARM) per distribuire una cartella di lavoro di analisi di attacco. Questa cartella di lavoro consente sempre di visualizzare i dati di attacco in diversi pannelli filtrabili per comprendere facilmente cosa è in gioco. Quando si distribuisce questo modello ARM, sarà necessario compilare quanto segue:
 
-I log del flusso conterranno i campi seguenti: 
+* Nome dell'area di lavoro
+* Area di lavoro ResourceGroup
+* ID sottoscrizione area di lavoro
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+
+I log dei flussi avranno i campi seguenti: 
 - IP di origine
 - IP di destinazione
 - Porta di origine 

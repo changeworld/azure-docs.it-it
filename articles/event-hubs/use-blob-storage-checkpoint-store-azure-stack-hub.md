@@ -1,25 +1,22 @@
 ---
-title: Usare l'archiviazione BLOB come archivio di checkpoint nell'hub Azure Stack (anteprima)
-description: Questo articolo descrive come usare l'archiviazione BLOB come archivio di checkpoint in hub eventi nell'hub Azure Stack (anteprima).
+title: Usare l'archiviazione BLOB come archivio di checkpoint nell'hub di Azure Stack
+description: Questo articolo descrive come usare l'archiviazione BLOB come archivio di checkpoint in hub eventi nell'hub Azure Stack.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 9da525decfb7b972f05af17c259836d0b17bb21e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/09/2020
+ms.openlocfilehash: 07d7cf844480a9a88468c17cecc7ca38cca5d176
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021236"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007824"
 ---
-# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Usare l'archiviazione BLOB come archivio di checkpoint-Hub eventi nell'hub Azure Stack (anteprima)
+# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub"></a>Usare l'archiviazione BLOB come archivio di checkpoint-Hub eventi nell'hub Azure Stack
 Se si usa l'archiviazione BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelle disponibili in genere in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) o  [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
 - Python [sincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
-
-> [!IMPORTANT]
-> Hub eventi nell'hub Azure Stack è attualmente disponibile in [Anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) ed è gratuito. 
 
 Se si esegue il ricevitore di hub eventi che usa l'archiviazione BLOB come archivio di checkpoint senza avere come destinazione la versione supportata da Azure Stack Hub, verrà visualizzato il messaggio di errore seguente:
 

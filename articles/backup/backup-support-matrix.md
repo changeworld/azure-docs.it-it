@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548512"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008368"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -67,7 +67,7 @@ Se si vuole eseguire il backup delle VM di Azure, sono supportati gli scenari se
 
 **Computer** | **Elementi di backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
-**Backup di VM di Azure tramite l'estensione della VM** | Intera macchina virtuale | Backup nell'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Backup eseguito una volta al giorno.<br/><br/> Backup con riconoscimento delle app per le VM Windows, backup coerenti con i file per le VM Linux. È possibile configurare la coerenza con le app per i computer Linux tramite script personalizzati.<br/><br/> Ripristino di VM o disco.<br/><br/> Non è possibile eseguire il backup di una VM di Azure in una posizione locale.
+**Backup di VM di Azure tramite l'estensione della VM** | Intera macchina virtuale | Backup nell'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Backup eseguito una volta al giorno.<br/><br/> Backup con riconoscimento delle app per le VM Windows, backup coerenti con i file per le VM Linux. È possibile configurare la coerenza con le app per i computer Linux tramite script personalizzati.<br/><br/> Ripristino di VM o disco.<br/><br/>Il [backup e il ripristino di Active Directory controller di dominio](active-directory-backup-restore.md) sono supportati.<br><br> Non è possibile eseguire il backup di una VM di Azure in una posizione locale.
 **Backup di VM di Azure tramite l'agente MARS** | File, cartelle, stato del sistema | Backup nell'insieme di credenziali. | Backup eseguito tre volte al giorno.<br/><br/> Se si vuole eseguire il backup di cartelle o file specifici invece che dell'intera VM, l'agente MARS può essere eseguito insieme all'estensione della VM.
 **VM di Azure con DPM** | File, cartelle, volumi, stato del sistema, dati delle app | Backup nell'archivio locale della VM di Azure che esegue DPM. DPM esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app.<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/> Oracle non supportato.
 **VM di Azure con MABS** | File, cartelle, volumi, stato del sistema, dati delle app | Backup nell'archivio locale della VM di Azure che esegue MABS. Il server MABS esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app.<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/> Oracle non supportato.

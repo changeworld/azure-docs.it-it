@@ -1,15 +1,14 @@
 ---
 title: 'Domande frequenti: backup di macchine virtuali di Azure'
 description: In questo articolo vengono fornite le risposte alle domande comuni sul backup di macchine virtuali di Azure con il servizio backup di Azure.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324789"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008351"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -163,11 +162,20 @@ Operazioni come il rollup della chiave/segreto non richiedono questo passaggio e
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>È possibile accedere alla VM una volta ripristinato a causa di una relazione tra una macchina virtuale e il controller di dominio?
 
-Sì, si accede alla macchina virtuale dopo il ripristino a causa di una relazione di una macchina virtuale con il controller di dominio. Per altre informazioni, vedere questo [articolo](./backup-azure-arm-restore-vms.md#post-restore-steps)
+Sì, si accede alla macchina virtuale dopo il ripristino a causa di una relazione di una macchina virtuale con il controller di dominio. Per altre informazioni, vedere questo [articolo](./backup-azure-arm-restore-vms.md#post-restore-steps).
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>È possibile annullare un processo di ripristino in corso?
+No, non è possibile annullare il processo di ripristino in corso.
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Perché il completamento dell'operazione di ripristino richiede molto tempo?
 
 Il tempo di ripristino totale dipende dalle operazioni di input/output al secondo (IOPS) e dalla velocità effettiva dell'account di archiviazione. Il tempo di ripristino totale può essere influenzato se l'account di archiviazione di destinazione viene caricato con altre operazioni di lettura e scrittura dell'applicazione. Per migliorare l'operazione di ripristino, selezionare un account di archiviazione che non sia caricato con altri dati dell'applicazione.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>Come si gestisce la "creazione di una nuova macchina virtuale": i conflitti tra i tipi di ripristino e i criteri di governance?
+
+Backup di Azure usa i dischi "Connetti" dai punti di ripristino e non esamina i riferimenti alle immagini o le raccolte. Quindi, nei criteri è possibile selezionare "storageProfile. osDisk. createOption As alleghi" e la condizione di script sarà:
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 

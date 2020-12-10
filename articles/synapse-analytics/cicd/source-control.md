@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350739"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008165"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controllo del codice sorgente in Azure sinapsi Studio
 
@@ -138,6 +138,24 @@ Se ci si connette a GitHub da sinapsi Studio per la prima volta, seguire questa 
 
 Una volta eseguita questa procedura, l'area di lavoro sarà in grado di connettersi ai repository pubblici e privati all'interno dell'organizzazione. Se non si riesce a connettersi, provare a cancellare la cache del browser e a riprovare.
 
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Già connesso a GitHub usando un account personale
+
+Se si è già connessi a GitHub ed è stata concessa solo l'autorizzazione per accedere a un account personale, attenersi ai passaggi seguenti per concedere le autorizzazioni per un'organizzazione.
+
+1. Passare a GitHub e aprire **Impostazioni**.
+
+    ![Aprire le impostazioni di GitHub](media/github-settings.png)
+
+1. Selezionare **Applicazioni**. Nella scheda **app OAuth autorizzate** dovrebbe essere visualizzata la *sinapsi di Azure*.
+
+    ![Autorizzare le app OAuth](media/authorize-app.png)
+
+1. Selezionare la *sinapsi di Azure* e concedere l'accesso all'organizzazione.
+
+    ![Concedi autorizzazione dell'organizzazione](media/grant-organization-permission.png)
+
+Una volta completati questi passaggi, l'area di lavoro sarà in grado di connettersi ai repository pubblici e privati all'interno dell'organizzazione.
+
 ## <a name="version-control"></a>Controllo della versione
 
 I sistemi di controllo della versione (noti anche come controllo del codice _sorgente_) consentono agli sviluppatori di collaborare al codice e di tenere traccia delle modifiche. Il controllo del codice sorgente è uno strumento essenziale per progetti multisviluppatore.
@@ -163,6 +181,7 @@ Per impostazione predefinita, sinapsi Studio genera i modelli dell'area di lavor
 ```
 
 Azure sinapsi Studio può avere un solo Branch di pubblicazione alla volta. Quando si specifica un nuovo ramo di pubblicazione, il ramo di pubblicazione precedente non è stato eliminato. Se si intende rimuovere il ramo di pubblicazione precedente, eliminarlo manualmente.
+
 
 ### <a name="publish-code-changes"></a>Pubblicare le modifiche al codice
 
@@ -192,7 +211,7 @@ Dopo la rimozione dell'associazione con il repository corrente, è possibile con
 
 ## <a name="best-practices-for-git-integration"></a>Procedure consigliate per l'integrazione con GIT
 
--   **Autorizzazioni**. Quando si dispone di un repository git connesso all'area di lavoro, tutti gli utenti che hanno accesso al repository git con qualsiasi ruolo nell'area di lavoro saranno in grado di aggiornare gli elementi, ad esempio script SQL, notebook, definizione del processo Spark, set di dati, flusso di dati e pipeline in modalità git. In genere, non è necessario che ogni membro del team disponga delle autorizzazioni per aggiornare l'area di lavoro. Concedere l'autorizzazione per il repository git solo agli autori di elementi dell'area di lavoro sinapsi. 
+-   **Autorizzazioni**. Quando si dispone di un repository git connesso all'area di lavoro, chiunque possa accedere al repository git con qualsiasi ruolo nell'area di lavoro sarà in grado di aggiornare gli elementi, ad esempio script SQL, notebook, definizione del processo Spark, set di dati, flusso di dati e pipeline in modalità git. In genere, non è necessario che ogni membro del team disponga delle autorizzazioni per aggiornare l'area di lavoro. Concedere l'autorizzazione per il repository git solo agli autori di elementi dell'area di lavoro sinapsi. 
 -   **Collaborazione**. Si consiglia di non consentire le archiviazioni dirette nel ramo collaborazione. Questa limitazione può aiutare a prevenire i bug in quanto ogni archiviazione passa attraverso un processo di revisione delle richieste pull descritto in [Creazione di rami di funzionalità](source-control.md#creating-feature-branches).
 -   **Modalità Live sinapsi**. Dopo la pubblicazione in modalità git, tutte le modifiche verranno riflesse in modalità Live sinapsi. In modalità Live sinapsi la pubblicazione è disabilitata. È possibile visualizzare ed eseguire gli artefatti in modalità Live se è stata concessa l'autorizzazione appropriata. 
 -   **Modificare gli artefatti in studio**. Sinapsi studio è l'unica posizione in cui è possibile abilitare il controllo del codice sorgente dell'area di lavoro e sincronizzare automaticamente le modifiche in git. Qualsiasi modifica tramite SDK, PowerShell, non verrà sincronizzata con git. È consigliabile modificare sempre l'artefatto in studio quando Git è abilitato.

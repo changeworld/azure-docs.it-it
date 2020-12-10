@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: da88b8554d6c3214da9a386613538c237a318f73
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546905"
+ms.locfileid: "96584588"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -97,13 +97,12 @@ In Windows i comandi inizieranno come segue:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-In Linux o macOS i comandi inizieranno in modo analogo al seguente:
-```shell   
-sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
-```
+In Linux o macOS i comandi saranno simili all'esempio seguente. Sostituire `ABSOLUTE_PATH` con il percorso assoluto della directory montata. Questo percorso è stato restituito dal comando `pwd` nella sezione precedente. 
 
-> [!NOTE]
-> Sostituire `/ABSOLUTE_PATH` con i percorsi assoluti mostrati dal comando `pwd` nella sezione precedente.
+Se si esegue questo comando prima di impostare la chiave e l'area, si riceverà un messaggio di errore indicante che è necessario eseguire queste impostazioni:
+```shell   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 Per usare il comando `spx` installato in un contenitore, immettere sempre il comando completo mostrato sopra, seguito dai parametri della richiesta specifica.
 Ad esempio, in Windows questo comando configura la chiave:
@@ -115,26 +114,28 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 > [!WARNING]
 > Non è possibile usare il microfono del computer quando si esegue l'interfaccia della riga di comando di Voce in un contenitore Docker. Tuttavia è possibile leggere e salvare i file audio nella directory montata locale. 
 
-### <a name="optional-create-a-command-line-shortcut"></a>Facoltativo: Creare un collegamento alla riga di comando
+<!-- Need to troubleshoot issues with docker pull image
 
-Se l'interfaccia della riga di comando di Voce viene eseguita da un contenitore Docker in Linux o macOS, è possibile creare un collegamento. 
+### Optional: Create a command line shortcut
 
-Seguire queste istruzioni:
-1. Aprire `.bash_profile` nell'editor di testo preferito. Ad esempio:
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
    ```shell
    nano ~/.bash_profile
    ```
-2. Aggiungere quindi questa funzione a `.bash_profile`. Assicurarsi di aggiornare questa funzione con il percorso corretto della directory montata:
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
    ```shell   
    spx(){
-       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
    }
    ```
-3. Definire l'origine del profilo:
+3. Source your profile:
    ```shell
    source ~/.bash_profile
    ```
-4. Ora invece di eseguire `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`, è possibile digitare semplicemente `spx` seguito dagli argomenti. Ad esempio: 
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
    ```shell
    // Get some help
    spx help recognize
@@ -144,8 +145,8 @@ Seguire queste istruzioni:
    ```
 
 > [!WARNING]
-> Se si cambia la directory montata a cui Docker fa riferimento, è necessario aggiornare la funzione in `.bash_profile`.
-
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>Creare la configurazione della sottoscrizione

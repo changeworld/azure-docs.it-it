@@ -8,23 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/19/2019
-ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/08/2020
+ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018906"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007968"
 ---
 # <a name="add-contributors-to-your-app"></a>Aggiungere collaboratori all'app
 
-Un proprietario dell'app può aggiungere collaboratori alle app. I collaboratori possono modificare il modello, eseguire il training e pubblicare l'app.
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+Un proprietario dell'app può aggiungere collaboratori alle app. Questi collaboratori possono modificare il modello, eseguire il training e pubblicare l'app. Una volta [eseguita la migrazione](luis-migration-authoring.md) dell'account, i _collaboratori_ vengono gestiti nella portale di Azure per la risorsa di creazione, usando la pagina **controllo di accesso (IAM)** . Aggiungere un utente, usando l'indirizzo di posta elettronica del collaboratore e il ruolo _collaboratore_ .
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>Aggiungere un collaboratore alla risorsa di creazione di Azure
-
-La procedura seguente è relativa a tutti gli utenti di cui è stata **eseguita la migrazione** per usare la risorsa di creazione di Azure.
 
 È stata eseguita la migrazione se l'esperienza di creazione LUIS è associata a una risorsa di creazione nella pagina **> Gestisci le risorse di Azure** nel portale Luis.
 
@@ -41,26 +37,15 @@ La procedura seguente è relativa a tutti gli utenti di cui è stata **eseguita 
 
     In caso di problemi con questa assegnazione di ruolo, esaminare le [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) e la [risoluzione dei problemi di controllo di accesso di Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
-## <a name="add-collaborator-to-luis-app"></a>Aggiungi collaboratore all'app LUIS
+## <a name="view-the-app-as-a-contributor"></a>Visualizza l'app come collaboratore
 
-La procedura seguente è relativa a tutti gli utenti che non hanno eseguito la **migrazione** per usare la risorsa di creazione di Azure.
+Dopo essere stato aggiunto come collaboratore, [accedere al portale Luis](sign-in-luis-portal.md).
 
-Non è stata eseguita la migrazione se l'esperienza di creazione di LUIS non è associata a una risorsa di creazione nella pagina **delle risorse di gestione > di Azure** nel portale Luis.
-
-Un'app ha un unico autore, il proprietario, ma può avere molti collaboratori. Per consentire ai collaboratori di modificare l'app LUIS, alll'elenco di collaboratori è necessario aggiungere l'indirizzo di posta elettronica che useranno per accedere al portale di LUIS. Una volta aggiunta, l'app appare nel loro portale di LUIS.
-
-1. Selezionare **Gestisci** dal menu in alto a destra, quindi selezionare **Collaboratori** nel menu a sinistra.
-
-1. Selezionare **Aggiungi collaboratore** nella barra degli strumenti.
-
-1. Immettere l'indirizzo di posta elettronica che il collaboratore userà per accedere al portale di LUIS.
-
-    ![Aggiungere l'indirizzo di posta elettronica del collaboratore](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
-
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 ### <a name="users-with-multiple-emails"></a>Utenti con più messaggi di posta elettronica
 
-Se si aggiungono collaboratori/collaboratori a un'app LUIS, viene specificato l'indirizzo di posta elettronica esatto. Mentre Azure Active Directory (Azure AD) consente a un singolo utente di avere più di un account di posta elettronica usato in modo intercambiabile, LUIS richiede all'utente di accedere con l'indirizzo di posta elettronica specificato durante l'aggiunta del collaboratore/collaboratore.
+Se si aggiungono collaboratori a un'app LUIS, viene specificato l'indirizzo di posta elettronica esatto. Mentre Azure Active Directory (Azure AD) consente a un singolo utente di avere più di un account di posta elettronica usato in modo intercambiabile, LUIS richiede all'utente di accedere con l'indirizzo di posta elettronica specificato durante l'aggiunta del collaboratore.
 
 <a name="owner-and-collaborators"></a>
 

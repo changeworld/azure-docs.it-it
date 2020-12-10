@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/09/2020
+ms.openlocfilehash: 12630e5e4b332d875a75c59d2fdafecd23be0b17
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000080"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005430"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Caricare i dati in Azure sinapsi Analytics usando Azure Data Factory
 
@@ -102,7 +102,7 @@ Questo articolo illustra come usare lo strumento Data Factory Copia dati per _ca
 
     a. Fare clic su **+ Crea nuova connessione** per aggiungere una connessione
 
-    b. Selezionare **Azure sinapsi Analytics (in precedenza SQL Data Warehouse)** dalla raccolta e selezionare **continua**. È possibile digitare "SQL" nella casella di ricerca per filtrare i connettori.
+    b. Selezionare **Azure sinapsi Analytics** dalla raccolta e selezionare **continua**.
 
     ![Selezionare Azure sinapsi Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 

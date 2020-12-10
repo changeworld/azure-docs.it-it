@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b321985bf7920934193723b60abb7bfb28482e6d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998031"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862242"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Esercitazione: Compilare un'app PHP e MySQL nel Servizio app di Azure
 
@@ -46,11 +46,12 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare questa esercitazione:
 
-* [Installare Git](https://git-scm.com/)
-* [Installare PHP 5.6.4 o versione successiva](https://php.net/downloads.php)
-* [Installare Composer](https://getcomposer.org/doc/00-intro.md)
-* Abilitare le seguenti estensioni PHP richieste da Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [Installare e avviare MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+- [Installare Git](https://git-scm.com/)
+- [Installare PHP 5.6.4 o versione successiva](https://php.net/downloads.php)
+- [Installare Composer](https://getcomposer.org/doc/00-intro.md)
+- Abilitare le seguenti estensioni PHP richieste da Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+- [Installare e avviare MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="prepare-local-mysql"></a>Preparare MySQL in locale
 
@@ -148,8 +149,6 @@ Andare a `http://localhost:8000` in un browser. Nella pagina aggiungere alcune a
 ![PHP si connette correttamente a MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 Per arrestare PHP, digitare `Ctrl + C` nel terminale.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>Creare MySQL in Azure
 
@@ -452,7 +451,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -483,7 +482,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -635,7 +634,7 @@ Eseguire il commit di tutte le modifiche in Git e quindi effettuare il push dell
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Dopo aver completato `git push`, passare all'app Azure e testare la nuova funzionalità.

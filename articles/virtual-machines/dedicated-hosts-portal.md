@@ -5,25 +5,19 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/04/2020
+ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: a6bef4944207e26f2de93daa89fa1418c5c44c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373154"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007943"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Distribuire macchine virtuali e set di scalabilità in host dedicati tramite il portale 
 
 Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
-
-> [!IMPORTANT]
-> Questo articolo illustra anche il posizionamento automatico delle VM e delle istanze dei set di scalabilità. La selezione host automatica è attualmente disponibile in anteprima pubblica.
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Per accedere alla funzionalità di anteprima nella portale di Azure, è necessario usare l'URL seguente: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -42,17 +36,17 @@ In entrambi i casi, è necessario specificare il numero di domini di errore per 
 In questo esempio verrà creato un gruppo host con 1 zona di disponibilità e 2 domini di errore. 
 
 
-1. Aprire il [portale](https://portal.azure.com)di Azure. Se si vuole provare l'anteprima per la **selezione host automatica**, usare l'URL seguente: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
+1. Aprire il [portale](https://portal.azure.com)di Azure. 
 1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra.
 1. Cercare il **gruppo host** e quindi selezionare **gruppi host** dai risultati.
 1. Nella pagina **gruppi host** selezionare **Crea**.
 1. Selezionare la sottoscrizione che si vuole usare e quindi selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
 1. Digitare *myDedicatedHostsRG* come **nome** e quindi fare clic su **OK**.
-1. Per **nome gruppo host**digitare *myHostGroup*.
+1. Per **nome gruppo host** digitare *myHostGroup*.
 1. In **Località** selezionare **Stati Uniti orientali**.
-1. Per **zona di disponibilità**selezionare **1**.
-1. Per **conteggio domini di errore**selezionare **2**.
-1. Se è stato usato l'URL di **selezione host automatica** , selezionare questa opzione per assegnare automaticamente le VM e le istanze del set di scalabilità a un host disponibile in questo gruppo.
+1. Per **zona di disponibilità** selezionare **1**.
+1. Per **conteggio domini di errore** selezionare **2**.
+1. Selezionare selezione **host automatica** per assegnare automaticamente le VM e le istanze del set di scalabilità a un host disponibile in questo gruppo.
 1. Selezionare **Verifica + crea** e quindi attendere la convalida.
 1. Quando viene visualizzato il messaggio **convalida superata** , selezionare **Crea** per creare il gruppo host.
 
@@ -72,8 +66,8 @@ Se si imposta un numero di domini di errore per il gruppo host, verrà richiesto
 1. Nella pagina **host dedicati** selezionare **Crea**.
 1. Selezionare la sottoscrizione che si vuole usare.
 1. Selezionare *myDedicatedHostsRG* come **gruppo di risorse**.
-1. In **Dettagli istanza**digitare *host* per **nome** e selezionare *Stati Uniti orientali* per la località.
-1. In **profilo hardware**selezionare *standard ES3 Family-type 1* per la **famiglia di dimensioni**, selezionare *myHostGroup* per il **gruppo host** e quindi selezionare *1* per il **dominio di errore**. Lasciare le impostazioni predefinite per gli altri campi.
+1. In **Dettagli istanza** digitare *host* per **nome** e selezionare *Stati Uniti orientali* per la località.
+1. In **profilo hardware** selezionare *standard ES3 Family-type 1* per la **famiglia di dimensioni**, selezionare *myHostGroup* per il **gruppo host** e quindi selezionare *1* per il **dominio di errore**. Lasciare le impostazioni predefinite per gli altri campi.
 1. Al termine, selezionare **Verifica + crea** e attendere la convalida.
 1. Quando viene visualizzato il messaggio **convalida superata** , selezionare **Crea** per creare l'host.
 
@@ -83,28 +77,17 @@ Se si imposta un numero di domini di errore per il gruppo host, verrà richiesto
 1. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace cercare e selezionare l'immagine che si vuole usare, quindi scegliere **Crea**.
 1. Nella scheda **nozioni di base** , in **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta, quindi selezionare *myDedicatedHostsRG* come **gruppo di risorse**. 
 1. Sotto **Dettagli dell'istanza**, digitare *myVM* come **nome della macchina virtuale** e scegliere *Stati Uniti orientali* come **Posizione**.
-1. In **Opzioni di disponibilità** selezionare **zona di disponibilità**Selezionare *1* nell'elenco a discesa.
+1. In **Opzioni di disponibilità** selezionare **zona di disponibilità** Selezionare *1* nell'elenco a discesa.
 1. Per dimensioni selezionare **modifica dimensioni**. Nell'elenco delle dimensioni disponibili scegliere una dalla serie Esv3, ad esempio **E2S standard V3**. Potrebbe essere necessario cancellare il filtro per visualizzare tutte le dimensioni disponibili.
 1. Completare il resto dei campi nella scheda **nozioni di base** , in base alle esigenze.
-1. Nella parte superiore della pagina **selezionare la scheda** **Avanzate** e nella sezione **host** Selezionare *myHostGroup* per **gruppo host** *e host host.* 
+1. Se si desidera specificare l'host da utilizzare **per la macchina** virtuale, nella parte superiore della pagina selezionare la scheda **Avanzate** e nella sezione **host** Selezionare *myHostGroup* per host **Group** *e host* . In caso contrario, la macchina virtuale verrà automaticamente posizionata in un host con capacità.
     ![Seleziona gruppo host e host](./media/dedicated-hosts-portal/advanced.png)
 1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi e crea** nella parte inferiore della pagina.
 1. Quando viene visualizzato il messaggio che la convalida è stata superata, selezionare **Crea**.
 
 La distribuzione della macchina virtuale richiederà alcuni minuti.
 
-## <a name="create-a-scale-set-preview"></a>Creare un set di scalabilità (anteprima)
-
-> [!IMPORTANT]
-> I set di scalabilità di macchine virtuali negli host dedicati sono attualmente in anteprima pubblica.
->
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Per accedere alla funzionalità di anteprima nella portale di Azure, è necessario usare l'URL seguente: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
->
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
->
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Creare un set di scalabilità 
 
 Quando si distribuisce un set di scalabilità, è necessario specificare il gruppo host.
 
@@ -112,7 +95,7 @@ Quando si distribuisce un set di scalabilità, è necessario specificare il grup
 1. Selezionare **Aggiungi** per creare un nuovo set di scalabilità.
 1. Completare i campi nella scheda **nozioni di base** come in genere, ma assicurarsi di selezionare le dimensioni della macchina virtuale dalla serie selezionata per l'host dedicato, ad esempio **E2S standard V3**.
 1. Nella scheda **Avanzate** per algoritmo di **distribuzione** Selezionare **distribuzione massima**.
-1. In **gruppo host**selezionare il gruppo host dall'elenco a discesa. Se il gruppo è stato creato di recente, potrebbe essere necessario un minuto per aggiungerlo all'elenco.
+1. In **gruppo host** selezionare il gruppo host dall'elenco a discesa. Se il gruppo è stato creato di recente, potrebbe essere necessario un minuto per aggiungerlo all'elenco.
 
 ## <a name="add-an-existing-vm"></a>Aggiungere una macchina virtuale esistente 
 

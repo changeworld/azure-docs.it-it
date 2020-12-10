@@ -3,16 +3,16 @@ title: Bus di servizio di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi del bus di servizio con Griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c6990c4e6e87304c457a5b2ca6459c404c8d9a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121135"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008113"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Bus di servizio di Azure come origine di griglia di eventi
 
-Questo articolo illustra le proprietà e lo schema per gli eventi del bus di servizio.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo illustra le proprietà e lo schema per gli eventi del bus di servizio. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
@@ -24,8 +24,12 @@ Il bus di servizio genera i tipi di eventi seguenti:
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Generato quando in una coda o una sottoscrizione sono presenti messaggi attivi e nessun ricevitore è in ascolto. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Generato quando in una coda di messaggi non recapitabili sono presenti messaggi attivi e non ci sono listener attivi. |
+| Microsoft. ServiceBus. ActiveMessagesAvailablePeriodicNotifications | Generato periodicamente se sono presenti messaggi attivi in una coda o una sottoscrizione, anche se sono presenti listener attivi nella coda o nella sottoscrizione specifica. |
+| Microsoft. ServiceBus. DeadletterMessagesAvailablePeriodicNotifications | Generato periodicamente se sono presenti messaggi nell'entità DeadLetter di una coda o di una sottoscrizione, anche se sono presenti listener attivi sull'entità DeadLetter della coda o della sottoscrizione specifica. | 
 
 ### <a name="example-event"></a>Evento di esempio
+
+#### <a name="active-messages-available-with-no-listeners"></a>Messaggi attivi disponibili senza listener
 
 L'esempio seguente illustra lo schema di un evento con messaggi attivi e nessun listener:
 
@@ -49,6 +53,8 @@ L'esempio seguente illustra lo schema di un evento con messaggi attivi e nessun 
 }]
 ```
 
+#### <a name="deadletter-messages-available-with-no-listener"></a>Messaggi DeadLetter disponibili senza listener
+
 Lo schema per un evento con coda di messaggi non recapitabili è simile:
 
 ```json
@@ -61,6 +67,50 @@ Lo schema per un evento con coda di messaggi non recapitabili è simile:
   "data": {
     "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
     "requestUri": "https://{your-service-bus-namespace}.servicebus.windows.net/{your-topic}/subscriptions/{your-service-bus-subscription}/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="active-messages-available-periodic-notifications"></a>Notifiche periodiche disponibili per i messaggi attivi
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="deadletter-messages-available-periodic-notifications"></a>Notifiche periodiche disponibili per i messaggi DeadLetter
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
     "entityType": "subscriber",
     "queueName": "QUEUE NAME IF QUEUE",
     "topicName": "TOPIC NAME IF TOPIC",

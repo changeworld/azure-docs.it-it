@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621502"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007586"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
 Questo articolo illustra come creare una rete virtuale e una cache di Azure per l'istanza di redis con un endpoint privato usando il portale di Azure. Si apprenderà anche come aggiungere un endpoint privato a una cache di Azure esistente per l'istanza di Redis.
@@ -224,7 +224,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>I gruppi di sicurezza di rete (NSG) sono abilitati per gli endpoint privati?
-No, sono disabilitati per gli endpoint privati. Tuttavia, se sono presenti altre risorse nella subnet, l'imposizione NSG verrà applicata a tali risorse.
+No, sono disabilitati per gli endpoint privati. Mentre alle subnet contenenti l'endpoint privato possono essere associati gruppi di sicurezza di rete, le regole non sono valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che [l'applicazione dei criteri di rete sia disabilitata](../private-link/disable-private-endpoint-network-policy.md). Il gruppo di sicurezza di rete viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile. 
+
+Controllare il traffico usando le regole del gruppo di sicurezza di rete per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso /32 per eseguire l'override delle route degli endpoint privati. I log di flusso e le informazioni di monitoraggio del gruppo di sicurezza di rete per le connessioni in uscita sono ancora supportati e possono essere usati.
+
+### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>È possibile usare le regole del firewall con endpoint privati?
+No, si tratta di una limitazione corrente degli endpoint privati. L'endpoint privato non funzionerà correttamente se le regole del firewall sono configurate nella cache.
 
 ### <a name="how-can-i-connect-to-a-clustered-cache"></a>Come è possibile connettersi a una cache in cluster?
 `publicNetworkAccess` deve essere impostato su `Disabled` e può essere presente una sola connessione all'endpoint privato.

@@ -4,12 +4,12 @@ description: Informazioni su come configurare un contenitore personalizzato nel 
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557927"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007637"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurare un contenitore personalizzato per il Servizio app di Azure
 
@@ -345,7 +345,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per consent
 
 Per il corretto funzionamento di app a più contenitori come WordPress è necessario disporre di un archivio permanente. Per abilitarla, la configurazione del Docker Compose deve puntare a una posizione di archiviazione *all'esterno* del contenitore. Le posizioni di archiviazione all'interno del contenitore non rendono permanente le modifiche oltre il riavvio dell'app.
 
-Abilitare l'archiviazione permanente impostando l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app usando il comando [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in [cloud Shell](https://shell.azure.com).
+Abilitare l'archiviazione permanente impostando l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app usando il comando [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) in [cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE

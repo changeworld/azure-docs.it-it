@@ -2,7 +2,6 @@
 title: Copiare dati da Amazon spostamento
 description: Informazioni su come copiare dati da Amazon Redshift in archivi dati di sink supportati usando Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
 manager: shwang
@@ -10,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/09/2020
+ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484545"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008325"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiare dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -24,7 +23,6 @@ ms.locfileid: "89484545"
 > * [Versione corrente](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Amazon Redshift. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -164,9 +162,9 @@ Per altre informazioni su come usare UNLOAD per copiare in modo efficiente dati 
 
 [UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) è un meccanismo fornito da Amazon Redshift, che consente di scaricare i risultati di una query in uno o più file in Amazon Simple Storage Service (Amazon S3). Si tratta del metodo consigliato da Amazon per la copia di set di dati di grandi dimensioni da Redshift.
 
-**Esempio: copiare dati da Amazon lo spostamento in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando UNLOAD, la copia di staging e la polibase**
+**Esempio: copiare dati da Amazon lo spostamento in Azure sinapsi Analytics usando UNLOAD, la copia di staging e la polibase**
 
-Per questo caso d'uso di esempio, l'attività di copia Scarica i dati da Amazon spostamento in Amazon S3 come configurato in "redshiftUnloadSettings" e quindi copia i dati da Amazon S3 al BLOB di Azure come specificato in "stagingSettings", infine usa la polibase per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse). Tutto il formato provvisorio viene gestito correttamente dall'attività di copia.
+Per questo caso d'uso di esempio, l'attività di copia Scarica i dati da Amazon spostamento in Amazon S3 come configurato in "redshiftUnloadSettings" e quindi copia i dati da Amazon S3 al BLOB di Azure come specificato in "stagingSettings", infine usa la polibase per caricare i dati in Azure sinapsi Analytics. Tutto il formato provvisorio viene gestito correttamente dall'attività di copia.
 
 ![Flusso di lavoro per la copia di Azure sinapsi Analytics](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
@@ -224,7 +222,7 @@ Quando si copiano dati da Amazon Redshift, vengono usati i mapping seguenti tra 
 | BOOLEAN |string |
 | CHAR |string |
 | DATE |Datetime |
-| DECIMAL |Decimale |
+| DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |

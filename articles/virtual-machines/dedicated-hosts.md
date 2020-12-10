@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339592"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007892"
 ---
 # <a name="azure-dedicated-hosts"></a>Host dedicati di Azure
 
@@ -67,11 +67,6 @@ Il modello di esempio Gestione risorse disponibile [qui](https://github.com/Azur
 
 ## <a name="manual-vs-automatic-placement"></a>Selezione host manuale e automatica 
 
-> [!IMPORTANT]
-> La selezione host automatica è attualmente disponibile in anteprima pubblica.
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Quando si crea una macchina virtuale in Azure, è possibile selezionare l'host dedicato da usare. È anche possibile usare l'opzione per collocare automaticamente le macchine virtuali in host esistenti, all'interno di un gruppo host. 
 
 Quando si crea un nuovo gruppo host, assicurarsi che sia selezionata l'impostazione per la selezione host automatica della macchina virtuale. Quando si crea la VM, selezionare il gruppo host e lasciare che Azure scelga l'host migliore per la macchina virtuale. 
@@ -91,11 +86,6 @@ Problemi noti e limitazioni quando si usa la selezione host automatica delle mac
 
 I set di scalabilità di macchine virtuali consentono di gestire un gruppo di macchine virtuali come una singola risorsa e di applicare i criteri di disponibilità, gestione, scalabilità e orchestrazione come gruppo. È anche possibile usare gli host dedicati esistenti per i set di scalabilità di macchine virtuali. 
 
-> [!IMPORTANT]
-> I set di scalabilità di macchine virtuali negli host dedicati sono attualmente in anteprima pubblica.
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Quando si crea un set di scalabilità di macchine virtuali, è possibile specificare un gruppo host esistente in modo che tutte le istanze di VM siano create in host dedicati.
 
 Quando si crea un set di scalabilità di macchine virtuali in un gruppo host dedicato, si applicano i requisiti seguenti:
@@ -109,7 +99,7 @@ Quando si crea un set di scalabilità di macchine virtuali in un gruppo host ded
 - Le dimensioni delle macchine virtuali supportate per gli host dedicati devono corrispondere a quella usata per il set di scalabilità.
 
 Non tutte le impostazioni dell'orchestrazione e delle ottimizzazioni del set di scalabilità sono supportate da host dedicati. Applicare le impostazioni seguenti al set di scalabilità: 
-- Disabilitare il provisioning eccessivo.
+- Non è consigliabile eseguire il provisioning eccessivo ed è disabilitato per impostazione predefinita. È possibile abilitare il provisioning eccessivo, ma l'allocazione del set di scalabilità avrà esito negativo se il gruppo host non dispone della capacità per tutte le macchine virtuali, incluse le istanze con provisioning eccessivo. 
 - Usare la modalità di orchestrazione ScaleSetVM 
 - Non usare i gruppi di posizionamento di prossimità per la condivisione percorso
 

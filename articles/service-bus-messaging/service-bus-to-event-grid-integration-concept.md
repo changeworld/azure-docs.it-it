@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f0aaa82db61b5f40e42d6dad641bc09d5add9d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 621402975411afb63055a7d6a45d86d9e026e284
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078334"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007756"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -39,7 +39,9 @@ Passare allo spazio dei nomi del bus di servizio e quindi selezionare **controll
 Il bus di servizio attualmente invia eventi per due scenari:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* DeadletterMessagesAvailable
+* [DeadletterMessagesAvailable](#deadletter-messages-available-event)
+* [ActiveMessagesAvailablePeriodicNotifications](#active-messages-available-periodic-notifications)
+* [DeadletterMessagesAvailablePeriodicNotifications](#deadletter-messages-available-periodic-notifications)
 
 Il bus di servizio usa inoltre i [meccanismi di autenticazione](../event-grid/security-authentication.md) e la sicurezza standard di Griglia di eventi.
 
@@ -71,7 +73,7 @@ Di seguito è riportato lo schema per questo evento:
 }
 ```
 
-#### <a name="dead-letter-messages-available-event"></a>Evento per disponibilità di messaggi inseriti nella coda di messaggi non recapitabili
+#### <a name="deadletter-messages-available-event"></a>Evento DeadLetter messaggi disponibili
 
 Viene generato almeno un evento per ogni coda di messaggi non recapitabili che contiene messaggi e non ha alcun ricevitore attivo.
 
@@ -82,6 +84,58 @@ Di seguito è riportato lo schema per questo evento:
   "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
   "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
   "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="active-messages-available-periodic-notifications"></a>Notifiche periodiche disponibili per i messaggi attivi
+
+Questo evento viene generato periodicamente se sono presenti messaggi attivi nella coda o nella sottoscrizione specifica, anche se sono presenti listener attivi per la coda o la sottoscrizione specifica.
+
+Di seguito è riportato lo schema per l'evento.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="deadletter-messages-available-periodic-notifications"></a>Notifiche periodiche disponibili per i messaggi DeadLetter
+
+Questo evento viene generato periodicamente se sono presenti messaggi DeadLetter per la coda o la sottoscrizione specifica, anche se sono presenti listener attivi sull'entità DeadLetter della coda o della sottoscrizione specifica.
+
+Di seguito è riportato lo schema per l'evento.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
@@ -132,7 +186,7 @@ Per creare una nuova sottoscrizione di Griglia di eventi, seguire questa procedu
 
 ## <a name="azure-cli-instructions"></a>Istruzioni per l'interfaccia della riga di comando di Azure
 
-Verificare prima di tutto che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. [Scaricare il programma di installazione](/cli/azure/install-azure-cli?view=azure-cli-latest). Selezionare **Windows + X**e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
+Verificare prima di tutto che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. [Scaricare il programma di installazione](/cli/azure/install-azure-cli?view=azure-cli-latest). Selezionare **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
 
 Eseguire questo codice:
 
@@ -172,7 +226,7 @@ A questo punto è possibile esplorare le altre opzioni di configurazione oppure 
 
 * Ottenere [esempi](service-bus-to-event-grid-integration-example.md) relativi al bus di servizio e Griglia di eventi.
 * Altre informazioni su [Griglia di eventi](../event-grid/index.yml).
-* Scopri di più sulle [funzioni di Azure](../azure-functions/index.yml).
+* Altre informazioni su [Funzioni di Azure](../azure-functions/index.yml).
 * Altre informazioni su [App per la logica](../logic-apps/index.yml).
 * Altre informazioni sul [bus di servizio](/azure/service-bus/).
 

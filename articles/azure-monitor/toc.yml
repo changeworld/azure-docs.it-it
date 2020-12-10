@@ -29,10 +29,6 @@
           href: learn/quick-collect-windows-computer.md
     - name: Monitorare le applicazioni
       items:
-        - name: Applicazione .NET
-          href: learn/quick-monitor-portal.md
-        - name: Applicazione .NET Core
-          href: learn/dotnetcore-quick-start.md
         - name: Applicazione Node.js
           href: learn/nodejs-quick-start.md
         - name: Applicazione per dispositivi mobili
@@ -680,8 +676,10 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: Configurazione degli argomenti di JVM
                       href: app/java-standalone-arguments.md
-                    - name: Eseguire l'aggiornamento da 2.x
+                    - name: Eseguire l'aggiornamento dall'SDK 2.x
                       href: app/java-standalone-upgrade-from-2x.md
+                    - name: Risoluzione dei problemi
+                      href: app/java-standalone-troubleshoot.md
             - name: Server locali
               items:
                 - name: ASP.NET
@@ -1014,6 +1012,8 @@
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: Monitorare i volumi persistenti
           href: insights/container-insights-persistent-volumes.md
+        - name: Scheda Report
+          href: insights/container-insights-reports.md
         - name: Visualizzare i dati dinamici
           items:
             - name: Panoramica dei dati dinamici (anteprima)

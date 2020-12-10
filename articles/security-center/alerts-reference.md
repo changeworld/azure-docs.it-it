@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2020
+ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: 68fa63bf42b7577402d8c58ebe22a0a16b5776fb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4254288a85b3b57afbdd6833242a6f4ad0eb0afc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751003"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005138"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Guida di riferimento per gli avvisi di sicurezza
 
@@ -372,7 +372,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 [Altri dettagli e note](defender-for-dns-introduction.md)
 
 | Avviso                                                                                                                | Descrizione                                                                                                                                                                                                                                                                                                                                                                                      | Finalità<br>[Altre informazioni](#intentions) | Gravità |
-|----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---------------------------------------|
+|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------:|
 | **Utilizzo del protocollo di rete anomalo (anteprima)**<br>(AzureDNS_ProtocolAnomaly)                                         | L'analisi delle transazioni DNS da %{CompromisedEntity} ha rilevato un utilizzo anomalo del protocollo. Anche se il traffico di questo tipo può essere benigno, potrebbe indicare un uso improprio di questo protocollo comune per ignorare il filtro del traffico di rete. La tipica attività correlata dell'utente malintenzionato include la copia di strumenti di amministrazione remota in un host compromesso e l'esfiltrazione di dati utente.                                          | Esfiltrazione                          | -        |
 | **Attività di rete anonima (anteprima)**<br>(AzureDNS_DarkWeb)                                                       | L'analisi delle transazioni DNS da %{CompromisedEntity} ha rilevato un'attività di rete anonima. Anche se tale attività può essere un comportamento utente legittimo, è spesso usata dagli utenti malintenzionati per evitare il rilevamento e l'identificazione dell'impronta digitale delle comunicazioni di rete. È probabile che le attività tipiche correlate agli utenti malintenzionati includano il download e l'esecuzione di software dannoso o strumenti di amministrazione remota. | Esfiltrazione                          | -        |
 | **Attività di rete anonima con proxy Web (anteprima)**<br>(AzureDNS_DarkWebProxy)                                  | L'analisi delle transazioni DNS da %{CompromisedEntity} ha rilevato un'attività di rete anonima. Anche se tale attività può essere un comportamento utente legittimo, è spesso usata dagli utenti malintenzionati per evitare il rilevamento e l'identificazione dell'impronta digitale delle comunicazioni di rete. È probabile che le attività tipiche correlate agli utenti malintenzionati includano il download e l'esecuzione di software dannoso o strumenti di amministrazione remota. | Esfiltrazione                          | -        |

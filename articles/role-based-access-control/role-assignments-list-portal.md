@@ -7,15 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/16/2020
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 06a9a955e8a963f94b1885abf5a920cb96c01940
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479919"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007443"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di ruolo di Azure usando il portale di Azure
 
@@ -26,7 +25,7 @@ ms.locfileid: "92479919"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Elencare le assegnazioni di ruolo per un utente o un gruppo
 
-Il modo più semplice per visualizzare i ruoli assegnati a un utente o a un gruppo in una sottoscrizione consiste nell'usare il riquadro **assegnazioni di ruolo di Azure** .
+Per visualizzare rapidamente i ruoli assegnati a un utente o a un gruppo in una sottoscrizione, è possibile usare il riquadro **assegnazioni di ruolo di Azure** .
 
 1. Nella portale di Azure selezionare tutti i **Servizi** dal menu portale di Azure.
 
@@ -56,7 +55,7 @@ Gli utenti a cui è stato assegnato il ruolo di [proprietario](built-in-roles.md
 
 1. Scorrere fino alla sezione **owners (proprietari** ) per visualizzare tutti gli utenti a cui è stato assegnato il ruolo di proprietario per questa sottoscrizione.
 
-   ![Controllo di accesso alla sottoscrizione-scheda assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![Controllo di accesso alla sottoscrizione-scheda assegnazioni di ruolo](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Elencare le assegnazioni di ruolo in un ambito
 
@@ -64,11 +63,11 @@ Gli utenti a cui è stato assegnato il ruolo di [proprietario](built-in-roles.md
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
-   ![Controllo di accesso - Scheda Assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments.png)
+   ![Controllo di accesso - Scheda Assegnazioni di ruolo](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
 
    Nella scheda Assegnazioni di ruolo è possibile visualizzare chi ha accesso a questo ambito. Si noterà che l'ambito di alcuni ruoli è **Questa risorsa**, mentre quello di altri è **(Ereditato)** da un altro ambito. L'accesso viene assegnato in modo specifico alla risorsa oppure ereditato da un'assegnazione nell'ambito padre.
 
@@ -84,19 +83,23 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
 
 1. Fare clic sulla scheda **Verifica l'accesso**.
 
-    ![Controllo di accesso - Scheda Verifica l'accesso](./media/role-assignments-list-portal/access-control-check-access.png)
+    ![Controllo di accesso del gruppo di risorse-controllo scheda di accesso](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
-1. Nell'elenco **Trova**, selezionare il tipo di entità di sicurezza di cui si intende verificare l'accesso.
+1. Nell'elenco **trova** selezionare l'utente, il gruppo, l'entità servizio o l'identità gestita per cui si vuole controllare l'accesso.
 
 1. Nella casella di ricerca, immettere una stringa per eseguire ricerche nella directory in base ai nomi visualizzati, agli indirizzi di posta elettronica o agli identificatori di oggetto.
 
-    ![Elenco di selezione per la verifica dell'accesso](./media/role-assignments-list-portal/check-access-select.png)
+    ![Elenco di selezione per la verifica dell'accesso](./media/shared/rg-check-access-select.png)
 
 1. Fare clic sull'entità di sicurezza per aprire il riquadro **Assegnazioni**.
 
-    ![Riquadro Assegnazioni](./media/role-assignments-list-portal/check-access-assignments.png)
+    In questo riquadro è possibile visualizzare l'accesso per l'entità di sicurezza selezionata in questo ambito ed ereditata in questo ambito. Le assegnazioni negli ambiti figlio non sono elencate. Vengono visualizzate le seguenti assegnazioni:
 
-    In questo riquadro è possibile visualizzare i ruoli assegnati all'entità di sicurezza e all'ambito selezionati. Se sono presenti assegnazioni negate in questo ambito o ereditate da questo ambito, verranno elencate.
+    - Assegnazioni di ruolo aggiunte con RBAC di Azure.
+    - Negare le assegnazioni aggiunte usando i progetti di Azure o le app gestite di Azure.
+    - Amministratore del servizio classico o assegnazioni di Co-Administrator per le distribuzioni classiche. 
+
+    ![Riquadro Assegnazioni](./media/shared/rg-check-access-assignments-user.png)
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestita
 
@@ -110,7 +113,7 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
 
     ![Identità gestita assegnata dal sistema](./media/shared/identity-system-assigned.png)
 
-1. In **autorizzazioni**fare clic su **assegnazioni di ruolo di Azure**.
+1. In **autorizzazioni** fare clic su **assegnazioni di ruolo di Azure**.
 
     Viene visualizzato un elenco di ruoli assegnati all'identità gestita assegnata dal sistema selezionata in diversi ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
 
@@ -156,7 +159,7 @@ Seguire questa procedura per scaricare le assegnazioni di ruolo in un ambito.
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic su **Scarica assegnazioni di ruolo** per aprire il riquadro Scarica assegnazioni di ruolo.
 

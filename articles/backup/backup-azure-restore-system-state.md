@@ -3,12 +3,12 @@ title: Ripristinare lo stato del sistema per Windows Server
 description: Spiegazione dettagliata del ripristino dello stato del sistema di Windows Server da un backup in Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ef23d6ff16c263e310304cc240c2090751640b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377438"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008470"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -88,7 +88,7 @@ Include la terminologia utilizzata in questi passaggi:
 6. Nel riquadro Seleziona server di backup selezionare il *computer di origine* dall'elenco di computer visualizzati.
 7. Nel riquadro Seleziona modalità di ripristino scegliere **stato del sistema** e fare clic su **Avanti**.
 
-    ![Ricerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Cerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dall'elenco a discesa **Ora**.
 
@@ -116,15 +116,15 @@ Dopo aver recuperato lo stato del sistema come file con l'agente di servizi di r
 
 1. Aprire lo snap-in Windows Server Backup. Se non si conosce il percorso di installazione dello snap-in, cercare **Windows Server Backup** nel computer o nel server.
 
-    L'applicazione desktop viene visualizzata nei risultati della ricerca. Se non viene visualizzato o si verificano errori quando si apre l'applicazione, è necessario installare le **funzionalità di Windows Server Backup**e i componenti dipendenti sottostanti, che sono disponibili nell' **Aggiunta guidata funzionalità** di **Server Manager**.
+    L'applicazione desktop viene visualizzata nei risultati della ricerca. Se non viene visualizzato o si verificano errori quando si apre l'applicazione, è necessario installare le **funzionalità di Windows Server Backup** e i componenti dipendenti sottostanti, che sono disponibili nell' **Aggiunta guidata funzionalità** di **Server Manager**.
 
 1. Nello snap-in selezionare **Backup locale**.
 
     ![Selezionare Backup locale per eseguire il ripristino da tale posizione](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
 
-1. Nel **riquadro azioni**della console di backup locale selezionare **Ripristina** per aprire il ripristino guidato.
+1. Nel **riquadro azioni** della console di backup locale selezionare **Ripristina** per aprire il ripristino guidato.
 
-1. Selezionare l'opzione, **un backup archiviato in un altro percorso**e fare clic su **Avanti**.
+1. Selezionare l'opzione, **un backup archiviato in un altro percorso** e fare clic su **Avanti**.
 
    ![Scegliere il ripristino in un server diverso](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
@@ -140,7 +140,7 @@ Dopo aver recuperato lo stato del sistema come file con l'agente di servizi di r
 
 1. Nel riquadro Selezione tipo di ripristino selezionare **stato del sistema** e fare clic su **Avanti**.
 
-1. Per il percorso del ripristino dello stato del sistema, selezionare **percorso originale**e fare clic su **Avanti**.
+1. Per il percorso del ripristino dello stato del sistema, selezionare **percorso originale** e fare clic su **Avanti**.
 
     Se si esegue il ripristino di un controller di dominio, verrà visualizzata l'opzione aggiuntiva seguente:
 
@@ -201,6 +201,8 @@ In questo articolo verrà illustrato solo il primo scenario, che richiede un rip
 
 1. Dopo aver completato correttamente il ripristino, è necessario riavviare il server in modalità normale. Aprire un prompt dei comandi e digitare quanto segue: `bcdedit /deletevalue safeboot`
 1. Riavviare il server.
+
+Per ulteriori informazioni, vedere [backup e ripristino Active Directory controller di dominio](active-directory-backup-restore.md).
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Risolvere i problemi relativi a un ripristino non riuscito dello stato del sistema
 

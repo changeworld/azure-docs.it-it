@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/01/2019
+ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2f8f2d9eb14e1272af126c9a6d6663f41aaee33f
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974176"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005087"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
@@ -53,10 +53,6 @@ $hostGroup = New-AzHostGroup `
 
 Aggiungere il `-SupportAutomaticPlacement true` parametro in modo che le macchine virtuali e le istanze del set di scalabilità vengano inserite automaticamente negli host all'interno di un gruppo host. Per altre informazioni, vedere [confronto manuale e selezione host automatica ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> La selezione host automatica è attualmente disponibile in anteprima pubblica.
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-host"></a>Creare un host
 
@@ -173,12 +169,7 @@ Location               : eastus
 Tags                   : {}
 ```
 
-## <a name="create-a-scale-set-preview"></a>Creare un set di scalabilità (anteprima)
-
-> [!IMPORTANT]
-> I set di scalabilità di macchine virtuali negli host dedicati sono attualmente in anteprima pubblica.
-> Per partecipare all'anteprima, completare il sondaggio sull'onboarding di anteprima all'indirizzo [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Creare un set di scalabilità 
 
 Quando si distribuisce un set di scalabilità, è necessario specificare il gruppo host.
 

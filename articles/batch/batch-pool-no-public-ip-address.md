@@ -3,15 +3,15 @@ title: Creare un pool di Azure Batch senza indirizzi IP pubblici
 description: Informazioni su come creare un pool senza indirizzi IP pubblici
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842136"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007671"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creare un pool di Azure Batch senza indirizzi IP pubblici
 
@@ -25,7 +25,8 @@ Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi
 
 > [!IMPORTANT]
 > Il supporto per i pool senza indirizzi IP pubblici in Azure Batch è attualmente disponibile in anteprima pubblica per le aree seguenti: Francia centrale, Asia orientale, Stati Uniti centro-occidentali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti orientali, Europa settentrionale, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale, Stati Uniti centro-occidentali, Stati Uniti occidentali, Australia orientale
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,7 +70,7 @@ POST {batchURL}/pools?api-version=2020-03-01.11.0
 client-request-id: 00000000-0000-0000-0000-000000000000
 ```
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 ```json
 "pool": {

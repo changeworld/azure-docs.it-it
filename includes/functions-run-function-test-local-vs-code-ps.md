@@ -4,18 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: ca8da227c97a44abe14354a5c530d508ce357884
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5c113849296275432acf1f5603377a1909a2c04
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88704602"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842366"
 ---
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
 Azure Functions Core Tools si integra con Visual Studio Code per consentire l'esecuzione e il debug di un progetto di Funzioni di Azure in locale. Per informazioni dettagliate su come eseguire il debug in Visual Studio Code, vedere [Eseguire il debug di Funzioni di Azure di PowerShell di Azure in locale](../articles/azure-functions/functions-debug-powershell-local.md). 
-
-1. Premere F5 per avviare il progetto di app per le funzioni. L'output dagli strumenti di base viene visualizzato nel pannello **Terminale**.
+1. Per chiamare la funzione, premere <kbd>F5</kbd> per avviare il progetto di app per le funzioni. L'output dagli strumenti di base viene visualizzato nel pannello **Terminale**. In caso di problemi con l'esecuzione in Windows, assicurarsi che il terminale predefinito per Visual Studio Code non sia impostato su **WSL Bash**.
 
 1. Nel pannello **Terminale** copiare l'endpoint dell'URL della funzione attivata da HTTP.
 

@@ -8,19 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541459"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007603"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Come migliorare l'app LUIS esaminando gli enunciati degli endpoint
 
 Il processo di revisione degli enunciati degli endpoint per le stime corrette è denominato [apprendimento attivo](luis-concept-review-endpoint-utterances.md). L'apprendimento attivo acquisisce le query dell'endpoint e seleziona le espressioni dell'endpoint dell'utente che non sono sicure. Si esaminano queste espressioni per selezionare le entità Intent e Mark per queste espressioni reali. Accettare queste modifiche nelle espressioni di esempio, quindi eseguire il training e la pubblicazione. LUIS identifica quindi le espressioni in modo più accurato.
 
-## <a name="enable-active-learning"></a>Abilita apprendimento attivo
+## <a name="log-user-queries-to-enable-active-learning"></a>Registra le query utente per abilitare l'apprendimento attivo
 
 Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con il `log=true` parametro e il valore QueryString.
 
@@ -34,7 +34,7 @@ Usare il portale LUIS per costruire la query dell'endpoint corretta.
     > [!div class="mx-imgBorder"]
     > ![Screenshot che mostra il collegamento modifica parametri query.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
-1. Impostare **Salva log** , quindi Salva, quindi **fare**clic su fine.
+1. Impostare **Salva log** , quindi Salva, quindi **fare** clic su fine.
 
     > [!div class="mx-imgBorder"]
     > ![Usare LUIS Portal per salvare i log, operazione necessaria per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)

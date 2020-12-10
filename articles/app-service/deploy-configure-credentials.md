@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149017"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007994"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](./overview.md) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
@@ -23,7 +23,7 @@ Il [Servizio app di Azure](./overview.md) supporta due tipi di credenziali per l
 
 ### <a name="in-the-cloud-shell"></a>In Cloud Shell
 
-Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azure.com), eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Sostituire \<username> e \<password> con il nome utente e la password di un utente della distribuzione. 
+Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azure.com), eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set). Sostituire \<username> e \<password> con il nome utente e la password di un utente della distribuzione. 
 
 - Il nome utente deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "\@". 
 - La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 
@@ -96,7 +96,7 @@ Per disabilitare l'accesso con autenticazione di base alla porta WebDeploy e al 
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Per verificare che le credenziali del profilo di pubblicazione siano bloccate su WebDeploy, provare a [pubblicare un'app Web con Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Per verificare che le credenziali del profilo di pubblicazione siano bloccate su WebDeploy, provare a [pubblicare un'app Web con Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ### <a name="disable-access-to-the-api"></a>Disabilitare l'accesso all'API
 

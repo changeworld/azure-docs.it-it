@@ -3,12 +3,12 @@ title: Eseguire l'app da un pacchetto ZIP
 description: Distribuisci il pacchetto ZIP dell'app con l'atomicità. Migliorare la prevedibilità e l'affidabilità del comportamento dell'app durante il processo di distribuzione ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3440653455626af4e3705d89349a66d6bf2fbfc0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77920723"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008130"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Eseguire l'app nel servizio app Azure direttamente da un pacchetto ZIP
 
@@ -41,13 +41,13 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="run-the-package"></a>Eseguire il pacchetto
 
-Il modo più semplice per eseguire un pacchetto nel servizio app è con l'interfaccia della riga di comando di Azure [AZ webapp Deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) . Ad esempio:
+Il modo più semplice per eseguire un pacchetto nel servizio app è con l'interfaccia della riga di comando di Azure [AZ webapp Deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) . Ad esempio:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Poiché l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'app è impostata, questo comando non estrae il contenuto del pacchetto nella directory *D:\home\site\wwwroot* dell'app. Al contrario, carica il file ZIP così com'è in *D:\home\data\SitePackages*e crea un *packagename.txt* nella stessa directory che contiene il nome del pacchetto zip da caricare in fase di esecuzione. Se si carica il pacchetto ZIP in modo diverso (ad esempio [FTP](deploy-ftp.md)), è necessario creare manualmente la directory *D:\home\data\SitePackages* e il file di *packagename.txt* .
+Poiché l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'app è impostata, questo comando non estrae il contenuto del pacchetto nella directory *D:\home\site\wwwroot* dell'app. Al contrario, carica il file ZIP così com'è in *D:\home\data\SitePackages* e crea un *packagename.txt* nella stessa directory che contiene il nome del pacchetto zip da caricare in fase di esecuzione. Se si carica il pacchetto ZIP in modo diverso (ad esempio [FTP](deploy-ftp.md)), è necessario creare manualmente la directory *D:\home\data\SitePackages* e il file di *packagename.txt* .
 
 Il comando Riavvia anche l'app. Poiché `WEBSITE_RUN_FROM_PACKAGE` è impostato, il servizio app monta il pacchetto caricato come la directory di sola lettura *wwwroot* ed esegue l'app direttamente dalla directory montata.
 

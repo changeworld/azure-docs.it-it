@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: c1c6478948aaf207f0ca1adf367840ca3db34649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: a64d26ad11911e2cb9dcdec027b3ab3e4d22984b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325298"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584476"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -119,12 +119,11 @@ I token di accesso sono credenziali di breve durata che devono essere riemesse. 
 
 ## <a name="refresh-access-tokens"></a>Aggiornare i token di accesso
 
-Per aggiornare un token di accesso, usare l'oggetto `CommunicationUser` per riemetterlo:
+Per aggiornare i token di accesso è sufficiente chiamare `issueToken` con la stessa identità usata per emetterli. È anche necessario fornire l'oggetto `scopes` dei token aggiornati. 
 
-```javascript  
-// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identityResponse = new CommunicationUser(existingIdentity);
-tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+```javascript
+// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
 

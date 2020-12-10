@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/02/2019
-ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541007"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007739"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
@@ -50,7 +50,7 @@ Gli utenti LUIS hanno il controllo completo per visualizzare i dati nel portale,
 
 ## <a name="location-of-active-learning"></a>Percorso di apprendimento attivo
 
-Per abilitare l' [apprendimento attivo](luis-how-to-review-endpoint-utterances.md#enable-active-learning), le espressioni registrate degli utenti, ricevute negli endpoint Luis pubblicati, vengono archiviate nelle aree geografiche di Azure seguenti:
+Per abilitare l' [apprendimento attivo](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning), le espressioni registrate degli utenti, ricevute negli endpoint Luis pubblicati, vengono archiviate nelle aree geografiche di Azure seguenti:
 
 * [Europa](#europe)
 * [Australia](#australia)

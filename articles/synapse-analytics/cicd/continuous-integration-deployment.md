@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317137"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008087"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
 
@@ -107,7 +107,13 @@ Usare l'estensione per la [distribuzione dell'area](https://marketplace.visualst
 
      ![Aggiungi estensione](media/add-extension-task.png)
 
-1.  Nell'attività specificare le informazioni sul repository git correlate di **workspace_publish** e selezionare gruppo di risorse, area, nome e ambiente cloud per l'area di lavoro di destinazione. Se necessario, fornire i parametri e i valori.
+1.  Nell'attività selezionare **...** accanto alla casella **modello** per scegliere il file modello.
+
+1. Selezionare **...** accanto alla casella **Parametri modello** per scegliere il file dei parametri.
+
+1. Selezionare la connessione, il gruppo di risorse e il nome dell'area di lavoro di destinazione. 
+
+1. Selezionare **...** accanto alla casella **Sostituisci parametri modello** e immettere i valori dei parametri desiderati per l'area di lavoro di destinazione. 
 
     ![Distribuzione dell'area di lavoro sinapsi](media/create-release-artifacts-deployment.png)
 

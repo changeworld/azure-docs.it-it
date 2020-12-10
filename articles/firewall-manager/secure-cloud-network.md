@@ -200,7 +200,7 @@ Aggiungere una regola di rete in modo da poter connettere un desktop remoto da *
 3. Nella scheda **Hub** selezionare **Associa hub virtuali**.
 4. Selezionare **Hub-01** e quindi **Aggiungi**.
 5. Selezionare **Rivedi e crea**.
-6. Selezionare **Crea**.
+6. Selezionare **Create** (Crea).
 
 Il completamento di questa operazione può richiedere circa cinque minuti.
 
