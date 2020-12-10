@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b6c75bc13bf26510ee72968c5a27407b6b7bfee6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498133"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937492"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
 
@@ -339,6 +339,23 @@ Dopo aver creato il criterio con l'effetto nega e averlo assegnato a un ambito, 
 La figura seguente mostra l'errore che si verifica se si prova a creare un account di archiviazione con la versione minima di TLS impostata su TLS 1,0 (impostazione predefinita per un nuovo account) quando un criterio con un effetto di negazione richiede che la versione minima di TLS sia impostata su TLS 1,2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot che mostra l'errore che si verifica quando si crea un account di archiviazione in violazione dei criteri":::
+
+## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Autorizzazioni necessarie per richiedere una versione minima di TLS
+
+Per impostare la proprietà **MinimumTlsVersion** per l'account di archiviazione, un utente deve disporre delle autorizzazioni per creare e gestire gli account di archiviazione. I ruoli di controllo degli accessi in base al ruolo di Azure (RBAC) che forniscono queste autorizzazioni includono l'azione **Microsoft. storage/storageAccounts/Write** o **Microsoft. storage/storageAccounts/ \** _. I ruoli predefiniti con questa azione includono:
+
+- Ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
+- Ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
+- Il ruolo [collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Questi ruoli non forniscono l'accesso ai dati in un account di archiviazione tramite Azure Active Directory (Azure AD). Tuttavia, includono _ * Microsoft. storage/storageAccounts/listkeys/Action * *, che concede l'accesso alle chiavi di accesso dell'account. Con questa autorizzazione, un utente può usare le chiavi di accesso dell'account per accedere a tutti i dati in un account di archiviazione.
+
+Le assegnazioni di ruolo devono avere come ambito il livello dell'account di archiviazione o superiore per consentire a un utente di richiedere una versione minima di TLS per l'account di archiviazione. Per ulteriori informazioni sull'ambito del ruolo, vedere [understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Prestare attenzione a limitare l'assegnazione di questi ruoli solo a coloro che richiedono la possibilità di creare un account di archiviazione o di aggiornarne le proprietà. Usare il principio dei privilegi minimi per assicurarsi che gli utenti dispongano delle autorizzazioni minime necessarie per svolgere le proprie attività. Per altre informazioni sulla gestione dell'accesso con il controllo degli accessi in base al ruolo di Azure, vedere [procedure consigliate per RBAC](../../role-based-access-control/best-practices.md)
+
+> [!NOTE]
+> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, quindi un utente con uno di questi ruoli amministrativi può anche creare e gestire gli account di archiviazione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="network-considerations"></a>Considerazioni per la rete
 

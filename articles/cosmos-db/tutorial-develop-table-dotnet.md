@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a3eefdb742d847950819fccfd87b9b5501cbefd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f43a890185fcd69967fd2a035c27e1cf92798f04
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079241"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548155"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle con .NET SDK
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -83,7 +83,7 @@ Per ottenere il pacchetto NuGet, seguire questa procedura:
    }
    ```
 
-1. Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi** , **Nuovo elemento** e aggiungere una classe denominata **AppSettings.cs**.
+1. Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi**, **Nuovo elemento** e aggiungere una classe denominata **AppSettings.cs**.
 
 1. Aggiungere il codice seguente al file AppSettings.cs. Questo file legge la stringa di connessione dal file Settings.json e la assegna al parametro di configurazione:
 
@@ -91,7 +91,7 @@ Per ottenere il pacchetto NuGet, seguire questa procedura:
 
 ## <a name="parse-and-validate-the-connection-details"></a>Analizzare e convalidare i dettagli della connessione
 
-1. Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi** , **Nuovo elemento** e aggiungere una classe denominata **Common.cs**. Si scriverà il codice per convalidare i dettagli della connessione e creare una tabella in questa classe.
+1. Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi**, **Nuovo elemento** e aggiungere una classe denominata **Common.cs**. Si scriverà il codice per convalidare i dettagli della connessione e creare una tabella in questa classe.
 
 1. Definire un metodo `CreateStorageAccountFromConnectionString` come mostrato di seguito. Questo metodo analizzerà i dettagli della stringa di connessione e verificherà che il nome dell'account e i dettagli delle chiavi dell'account specificati nel file "Settings.json" siano validi.
 
@@ -113,7 +113,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 Per eseguire il mapping di entità a oggetti C#, viene utilizzata una classe personalizzata derivata da [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità.
 
-Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi** , **Nuova cartella** e assegnare il nome **Model**. All'interno della cartella Model aggiungere una classe denominata **CustimerEntity.cs** e aggiungere il codice seguente alla classe.
+Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi**, **Nuova cartella** e assegnare il nome **Model**. All'interno della cartella Model aggiungere una classe denominata **CustimerEntity.cs** e aggiungere il codice seguente alla classe.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
@@ -123,25 +123,25 @@ Questo codice consente di definire una classe di entità che usa il nome e il co
 
 Il codice di esempio seguente crea un oggetto entità e lo aggiunge alla tabella. Il metodo InsertOrMerge nella classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) viene usato per inserire o unire un'entità. Il metodo [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) viene chiamato per eseguire l'operazione. 
 
-Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi** , **Nuovo elemento** e aggiungere una classe denominata **SamplesUtils.cs**. Questa classe archivia tutto il codice richiesto per eseguire operazioni CRUD sulle entità. 
+Fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Scegliere **Aggiungi**, **Nuovo elemento** e aggiungere una classe denominata **SamplesUtils.cs**. Questa classe archivia tutto il codice richiesto per eseguire operazioni CRUD sulle entità. 
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
 
 ## <a name="get-an-entity-from-a-partition"></a>Ottenere un'entità da una partizione
 
-È possibile ottenere entità da una partizione usando il metodo Retrieve nella classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation). Il codice di esempio seguente ottiene la chiave di partizione, la chiave di riga l'indirizzo e-mail e il numero di telefono di un'entità cliente. Questo esempio stampa anche le unità richiesta utilizzate per eseguire query per l'entità. Per eseguire query per l'entità, aggiungere il codice seguente al file **SamplesUtils.cs** :
+È possibile ottenere entità da una partizione usando il metodo Retrieve nella classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation). Il codice di esempio seguente ottiene la chiave di partizione, la chiave di riga l'indirizzo e-mail e il numero di telefono di un'entità cliente. Questo esempio stampa anche le unità richiesta utilizzate per eseguire query per l'entità. Per eseguire query per l'entità, aggiungere il codice seguente al file **SamplesUtils.cs**:
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
 ## <a name="delete-an-entity"></a>Eliminare un'entità
 
-Per eliminare facilmente un'entità dopo averla recuperata, è possibile usare lo stesso modello illustrato per aggiornare un'entità. Il codice seguente consente di recuperare ed eliminare un'entità customer. Per eliminare un'entità, aggiungere il codice seguente al file **SamplesUtils.cs** : 
+Per eliminare facilmente un'entità dopo averla recuperata, è possibile usare lo stesso modello illustrato per aggiornare un'entità. Il codice seguente consente di recuperare ed eliminare un'entità customer. Per eliminare un'entità, aggiungere il codice seguente al file **SamplesUtils.cs**: 
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>Eseguire le operazioni CRUD sui dati di esempio
 
-Dopo aver definito i metodi per creare tabelle e inserire o unire entità, eseguire questi metodi sui dati di esempio. A tale scopo, fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Selezionare **Aggiungi** , **Nuovo elemento** e aggiungere una classe denominata **BasicSamples.cs** , quindi aggiungere il codice seguente alla classe. Questo codice crea una tabella e aggiunge entità al suo interno.
+Dopo aver definito i metodi per creare tabelle e inserire o unire entità, eseguire questi metodi sui dati di esempio. A tale scopo, fare clic con il pulsante destro del mouse sul progetto **CosmosTableSamples**. Selezionare **Aggiungi**, **Nuovo elemento** e aggiungere una classe denominata **BasicSamples.cs**, quindi aggiungere il codice seguente alla classe. Questo codice crea una tabella e aggiunge entità al suo interno.
 
 Se non si vogliono eliminare l'entità e la tabella alla fine del progetto, impostare come commenti i metodi `await table.DeleteIfExistsAsync()` e `SamplesUtils.DeleteEntityAsync(table, customer)` del codice seguente. È preferibile impostare questi metodi come commenti e verificare i dati prima di eliminare la tabella.
 
@@ -149,7 +149,7 @@ Se non si vogliono eliminare l'entità e la tabella alla fine del progetto, impo
 
 Il codice precedente crea una tabella che inizia con "demo" e il GUID generato viene aggiunto al nome della tabella. Aggiunge quindi un'entità cliente con nome e cognome "Harp Walter" e in seguito aggiorna il numero di telefono di questo utente. 
 
-In questa esercitazione è stato compilato il codice per eseguire operazioni CRUD di base sui dati archiviati nell'account API Tabella. È anche possibile eseguire operazioni avanzate quali inserimento di dati in batch, query su tutti i dati all'interno di una partizione, query su un intervallo di dati all'interno di una partizione, elencare le tabelle nell'account i cui nomi iniziano con il prefisso specificato. È possibile scaricare l'esempio completo dal repository GitHub [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started). La classe [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) ha più operazioni che è possibile eseguire sui dati.  
+In questa esercitazione è stato compilato il codice per eseguire operazioni CRUD di base sui dati archiviati nell'account API Tabella. È anche possibile eseguire operazioni avanzate quali inserimento di dati in batch, query su tutti i dati all'interno di una partizione, query su un intervallo di dati all'interno di una partizione, elencare le tabelle nell'account i cui nomi iniziano con il prefisso specificato. È possibile scaricare l'esempio completo dal repository GitHub [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started). La classe [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/main/CosmosTableSamples/AdvancedSamples.cs) ha più operazioni che è possibile eseguire sui dati.  
 
 ## <a name="run-the-project"></a>Eseguire il progetto
 

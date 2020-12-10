@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/07/2020
+ms.openlocfilehash: 520b4a0e87f27a90a604947ae0b558066b4ab82f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098485"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937594"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -65,7 +65,7 @@ Per le app per la logica create ed eseguite in un ISE, si paga un [prezzo fisso]
 
   * Per **sviluppatori** SKU ISE: un unico account di integrazione del [livello gratuito](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  Ogni SKU ISE è limitato a 5 account di integrazione totali. Per un costo aggiuntivo, è possibile avere più account di integrazione in base allo SKU ISE:
+  Indipendentemente dallo SKU, ogni ISE può avere un [numero limitato di account di integrazione](logic-apps-limits-and-config.md#integration-account-limits). È possibile aumentare questo limite per un costo aggiuntivo:
 
   * **Premium** SKU ISE: fino a altri quattro account standard. Nessun account gratuito o Basic.
 
@@ -85,13 +85,13 @@ I connettori delle app per la logica di Azure consentono all'app per la logica d
 
 Un trigger è sempre il primo passaggio di un flusso di lavoro dell'app per la logica ed è un'azione speciale che crea ed esegue un'istanza di app per la logica quando vengono soddisfatti criteri specifici o si verifica un evento specifico. I trigger agiscono in modi diversi, che influiscono sulla misurazione dell'app per la logica. Ecco i diversi tipi di trigger presenti nelle app per la logica di Azure:
 
-* **Trigger di ricorrenza** : è possibile usare questo trigger generico, che non è specifico per alcun servizio o sistema, per avviare qualsiasi flusso di lavoro dell'app per la logica e creare un'istanza dell'app per la logica che viene eseguita in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
+* **Trigger di ricorrenza**: è possibile usare questo trigger generico, che non è specifico per alcun servizio o sistema, per avviare qualsiasi flusso di lavoro dell'app per la logica e creare un'istanza dell'app per la logica che viene eseguita in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
 
-* **Trigger di polling** : è possibile usare questo trigger di ricorrenza più specializzato, che in genere è associato al connettore gestito per un servizio o un sistema specifico, per verificare la presenza di eventi o messaggi che soddisfino i criteri per la creazione e l'esecuzione di un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Anche quando non viene creata alcuna istanza di app per la logica, ad esempio quando i trigger vengono ignorati, il servizio app per la logica misura ogni richiesta di polling come esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
+* **Trigger di polling**: è possibile usare questo trigger di ricorrenza più specializzato, che in genere è associato al connettore gestito per un servizio o un sistema specifico, per verificare la presenza di eventi o messaggi che soddisfino i criteri per la creazione e l'esecuzione di un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Anche quando non viene creata alcuna istanza di app per la logica, ad esempio quando i trigger vengono ignorati, il servizio app per la logica misura ogni richiesta di polling come esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Trigger di Webhook** : invece di usare un trigger di polling, è possibile usare un trigger webhook per attendere che il client invii una richiesta all'app per la logica in un URL di endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di un'azione. Ad esempio, il trigger di richiesta e webhook HTTP sono entrambi trigger di Webhook generici. Alcuni connettori per i servizi o i sistemi hanno anche trigger di webhook.
+* **Trigger di Webhook**: invece di usare un trigger di polling, è possibile usare un trigger webhook per attendere che il client invii una richiesta all'app per la logica in un URL di endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di un'azione. Ad esempio, il trigger di richiesta e webhook HTTP sono entrambi trigger di Webhook generici. Alcuni connettori per i servizi o i sistemi hanno anche trigger di webhook.
 
 <a name="actions"></a>
 
@@ -118,15 +118,15 @@ Un [modello di determinazione prezzi fisso](https://azure.microsoft.com/pricing/
 
 App per la logica di Azure offre account di integrazione gratuito, di base e standard. I livelli Basic e standard sono supportati dal contratto di servizio delle app per la logica, mentre il livello gratuito non è supportato da un contratto di servizio e presenta limiti per la disponibilità, la velocità effettiva e l'utilizzo dell'area. Ad eccezione degli account di integrazione del livello gratuito, è possibile avere più di un account di integrazione in ogni area di Azure. Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-Se si dispone di un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Premium o Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), ISE può avere 5 account di integrazione totali. Per informazioni sul funzionamento del modello di determinazione prezzi fisso per un ISE, vedere la sezione [modello di determinazione prezzi fisso](#fixed-pricing) precedente in questo argomento. Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
+Se si dispone di un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), indipendentemente dallo [SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), ISE può avere un [numero limitato di account di integrazione](logic-apps-limits-and-config.md#integration-account-limits), ma è possibile [aumentare questo limite per un costo aggiuntivo](#fixed-pricing). Per informazioni sul funzionamento del modello di determinazione prezzi fisso per un ISE, vedere la sezione [modello di determinazione prezzi fisso](#fixed-pricing) precedente in questo argomento. Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Per scegliere tra un account di integrazione gratuito, Basic o standard, esaminare le descrizioni dei casi d'uso seguenti:
 
-* **Gratuito** : per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
+* **Gratuito**: per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
 
-* **Basic** : per i casi in cui si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
+* **Basic**: per i casi in cui si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
 
-* **Standard** : per le relazioni B2B più complesse e un numero maggiore di entità che è necessario gestire
+* **Standard**: per le relazioni B2B più complesse e un numero maggiore di entità che è necessario gestire
 
 <a name="data-retention"></a>
 
@@ -146,9 +146,9 @@ Per facilitare il monitoraggio del consumo di spazio di archiviazione dell'app p
 
 1. Nel portale di Azure trovare e aprire l'app per la logica.
 
-1. Dal menu dell'app per la logica, in **monitoraggio** selezionare **metriche** .
+1. Dal menu dell'app per la logica, in **monitoraggio** selezionare **metriche**.
 
-1. Nel riquadro di destra, in **titolo grafico** , dall'elenco **metrica** Selezionare **utilizzo fatturazione per le esecuzioni del consumo di archiviazione** .
+1. Nel riquadro di destra, in **titolo grafico**, dall'elenco **metrica** Selezionare **utilizzo fatturazione per le esecuzioni del consumo di archiviazione**.
 
    Questa metrica indica il numero di unità di consumo di archiviazione in GB al mese fatturate.
 
@@ -163,9 +163,9 @@ Per facilitare il monitoraggio del consumo di spazio di archiviazione dell'app p
 
 1. Scegliere **Panoramica** dal menu dell'app per la logica.
 
-1. Nel riquadro di destra, in **Cronologia esecuzioni** , selezionare l'esecuzione con gli input e gli output che si desidera controllare.
+1. Nel riquadro di destra, in **Cronologia esecuzioni**, selezionare l'esecuzione con gli input e gli output che si desidera controllare.
 
-1. In **esecuzione App** per la logica scegliere **Dettagli esecuzione** .
+1. In **esecuzione App** per la logica scegliere **Dettagli esecuzione**.
 
 1. Nella tabella Actions del riquadro **Dettagli esecuzione App** per la logica, che elenca lo stato e la durata di ogni azione, selezionare l'azione che si desidera visualizzare.
 

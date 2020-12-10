@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163187"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936370"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ I [criteri personalizzati](custom-policy-overview.md) sono file di configurazion
 1. Per **Opzioni** scegliere `Generate`.
 1. In **Nome** immettere `TokenEncryptionKeyContainer`. È possibile che il prefisso `B2C_1A`_ venga aggiunto automaticamente.
 1. Per **Tipo di chiave** selezionare **RSA**.
-1. In **Uso chiave**selezionare **Crittografia**.
+1. In **Uso chiave** selezionare **Crittografia**.
 1. Selezionare **Create** (Crea).
 
 ### <a name="create-the-facebook-key"></a>Creazione della chiave Facebook
@@ -213,6 +213,6 @@ Come specificato nella sezione [Prerequisiti](#prerequisites), Facebook *non* è
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare ad aggiungere Azure Active Directory (Azure AD) come provider di identità. Il file di base che è stato usato in questa Guida introduttiva contiene già parte del contenuto necessario per aggiungere altri provider di identità come Azure AD. Per informazioni sulla configurazione di Azure AD come provider di identità, vedere [configurare l'iscrizione e l'accesso con un account di Azure Active Directory usando Active Directory B2C criteri personalizzati](identity-provider-azure-ad-single-tenant-custom.md). 
+Provare ad aggiungere Azure Active Directory (Azure AD) come provider di identità. Il file di base che è stato usato in questa Guida introduttiva contiene già parte del contenuto necessario per aggiungere altri provider di identità come Azure AD. Per informazioni sulla configurazione di Azure AD come provider di identità, vedere [configurare l'iscrizione e l'accesso con un account di Azure Active Directory usando Active Directory B2C criteri personalizzati](identity-provider-azure-ad-single-tenant.md). 
 
 Visitare la [raccolta di partner](partner-gallery.md) per altre informazioni su come implementare l'integrazione ISV usando criteri personalizzati. 

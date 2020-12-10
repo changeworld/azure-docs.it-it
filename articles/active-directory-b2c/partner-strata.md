@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171416"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936693"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Esercitazione per estendere Azure AD B2C per proteggere le applicazioni locali usando gli strati
 
@@ -83,7 +83,7 @@ Per ottenere il software da usare per integrare l'app locale legacy con Azure AD
 
    c. Aggiungere un URI di reindirizzamento per l'applicazione. Questo URI corrisponderà al `oauthRedirectURL` parametro della configurazione del connettore Azure ad B2C dell'agente di orchestrazione, ad esempio `https://example.com/oidc-endpoint` .
 
-2. **Creare un flusso utente**: creare un [segno e un flusso utente di accesso](./tutorial-create-user-flows.md).
+2. **Creare un flusso utente**: creare un [flusso utente di iscrizione e accesso](./tutorial-create-user-flows.md).
 
 3. **Aggiungere un** provider di identità: scegliere di effettuare l'accesso dell'utente con un account locale o un [IDP](./tutorial-add-identity-providers.md)aziendale o sociale.
 
@@ -259,7 +259,7 @@ appgateways:
 
 È importante proteggere i segreti usati dall'agente di orchestrazione per connettersi a Azure AD B2C e a qualsiasi altro sistema di identità. Per impostazione predefinita, Maverics utilizzerà i segreti in testo normale, `maverics.yaml` ma in questa esercitazione si userà Azure Key Vault come provider di segreti.
 
-Seguire le istruzioni per [creare una nuova Key Vault](../key-vault/secrets/quick-create-portal.md) che l'istanza dell'agente di orchestrazione userà come provider di segreti. Aggiungere i segreti all'insieme di credenziali e prendere nota del `SECRET NAME` dato a ogni segreto. Ad esempio, `AzureADB2CClientSecret`
+Seguire le istruzioni per [creare una nuova Key Vault](../key-vault/secrets/quick-create-portal.md) che l'istanza dell'agente di orchestrazione userà come provider di segreti. Aggiungere i segreti all'insieme di credenziali e prendere nota del `SECRET NAME` dato a ogni segreto. Ad esempio: `AzureADB2CClientSecret`.
 
 Per dichiarare un valore come segreto in un file di configurazione `maverics.yaml`, racchiudere il segreto tra parentesi angolari:
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c7bb79cbd67ba2fb151641ddeeb31b54e399b906
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352338"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938257"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creazione della Knowledge base e gestione delle impostazioni
 
@@ -46,7 +46,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Abilita estrazione a più turni da URL e file PDF o DOCX)|Selezionato|
     |**Default answer text** (Testo della risposta predefinita)| `Quickstart - default answer not found.`|
-    |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add URL** (+ Aggiungi URL)|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Chit-chat**|Selezionare **Professional**|
 
 1. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
@@ -73,7 +73,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
        |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
        |Aggiorna contenuto|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La Knowledge base verrà aggiornata con il contenuto dell'URL più recente. Questa operazione non sta impostando una pianificazione regolare degli aggiornamenti.|
        |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|
-    |Comando Importa|È inoltre possibile importare qualsiasi Knowledge Base esistente selezionando il pulsante **Importa Knowledge base** . |
+    |Importa|È inoltre possibile importare qualsiasi Knowledge Base esistente selezionando il pulsante **Importa Knowledge base** . |
     |Aggiornamento|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione da portale di Azure.
 
   1. Dopo aver apportato le modifiche alla Knowledge base, selezionare **Salva e** Esegui il training nell'angolo superiore destro della pagina per rendere permanente le modifiche.

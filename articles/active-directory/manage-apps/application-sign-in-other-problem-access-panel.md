@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 14b49c531ae11c056f9b6970e1ac00adcd68b296
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651619"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937169"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Risolvere i problemi di accesso a un'applicazione da Azure AD app personali
 
@@ -61,6 +61,7 @@ L'accesso alle app personali può essere bloccato a causa di un problema con l'a
 -   [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status)
 -   [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 -   [Controllare le appartenenze a gruppi dell'utente](#check-a-users-group-memberships)
+-   [Controllare se un utente ha più di 999 assegnazioni di ruolo app](#check-if-a-user-has-more-than-999-app-role-assignments)
 -   [Controllare le licenze assegnate di un utente](#check-a-users-assigned-licenses)
 -   [Assegnare una licenza a un utente](#assign-a-user-a-license)
 
@@ -139,6 +140,16 @@ Per controllare l'appartenenza a gruppi di un utente, seguire questa procedura:
 6.  **Cercare** l'utente a cui si è interessati e **selezionare la riga** da selezionare.
 7.  Selezionare **gruppi** per visualizzare i gruppi di cui l'utente è membro.
 
+### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Controllare se un utente ha più di 999 assegnazioni di ruolo app
+Se a un utente sono state assegnate più di 999 assegnazioni di ruolo app, è possibile che non vengano visualizzate tutte le app nelle app personali.
+
+Questo perché le app attualmente leggono fino a 999 assegnazioni di ruolo app per determinare le app a cui gli utenti sono assegnati. Se un utente è assegnato a più di 999 app, non è possibile controllare quali di queste app verranno visualizzate nel portale app personali.
+
+Per controllare il numero di assegnazioni di ruolo app concesse a un utente, seguire questa procedura:
+1. Installare il modulo [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell.
+2. Eseguire `Connect-MgGraph -Scopes "Directory.Read.All"` e autenticare come **amministratore globale.**
+3. Eseguire `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` per determinare il numero di assegnazioni di ruolo dell'app che l'utente ha attualmente concesso.
+
 ### <a name="check-a-users-assigned-licenses"></a>Controllare le licenze assegnate di un utente
 Per controllare le licenze assegnate a un utente, seguire questa procedura:
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
@@ -172,14 +183,14 @@ Per verificare se il collegamento è corretto, seguire questa procedura:
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 2. Aprire l' **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
-4. Selezionare **applicazioni aziendali** nel menu di spostamento a sinistra Azure Active Directory.
-5. Selezionare **tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento a sinistra di Azure Active Directory.
+5. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
    * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 6. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 7. Aprire l' **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 8. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
-9. Selezionare **applicazioni aziendali** nel menu di spostamento a sinistra Azure Active Directory.
-10. Selezionare **tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+9. Fare clic su **Applicazioni aziendali** nel menu di spostamento a sinistra di Azure Active Directory.
+10. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
     * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 11. Selezionare l'applicazione per cui si desidera controllare il collegamento profondo.
 12. Trovare l'etichetta **URL accesso utente**. Il collegamento Deep deve corrispondere a questo URL.

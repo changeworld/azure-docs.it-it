@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 72d774b4ced6471ff7b355b2cb43c3c9127b5975
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f0c9a01e43f12e8fbe597c85c22b79c0994305e3
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658520"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938869"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versioni principali di PostgreSQL supportate
 
@@ -36,12 +36,12 @@ La versione secondaria corrente è 9.5.20. Per informazioni sui miglioramenti e 
 > In linea con i criteri di [controllo delle versioni](https://www.postgresql.org/support/versioning/)della community di Postgres, database di Azure per PostgreSQL ritirerà Postgres versione 9,5 l'11 febbraio 2021. Per ulteriori informazioni e restrizioni, vedere [criteri di controllo delle versioni di database di Azure per PostgreSQL](concepts-version-policy.md) .
 
 ## <a name="managing-upgrades"></a>Gestione degli aggiornamenti
-Il progetto PostgreSQL rilascia periodicamente versioni secondarie per correggere i bug segnalati. Database di Azure per PostgreSQL applica automaticamente patch ai server con versioni minori durante le distribuzioni mensili del servizio. 
+Il progetto PostgreSQL rilascia periodicamente versioni secondarie per correggere i bug segnalati. Database di Azure per PostgreSQL applica automaticamente patch ai server attraverso release minori durante le distribuzioni mensili del servizio. 
 
-Gli aggiornamenti sul posto automatici per le versioni principali non sono supportati. Per eseguire l'aggiornamento alla versione principale successiva, è possibile 
-   * Vedere diversi metodi per eseguire gli [aggiornamenti della versione principale tramite dump e Restore](./how-to-upgrade-using-dump-and-restore.md)
-   * Usare [pg_dump e pg_restore](./howto-migrate-using-dump-and-restore.md) per spostare un database in un server creato con la nuova versione del motore
-   * In alternativa, è possibile eseguire l'aggiornamento da PostgreSQL 10 a 11 usando il [servizio migrazione del database di Azure](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
+Gli aggiornamenti sul posto automatici per le versioni principali non sono supportati. Per eseguire l'aggiornamento a una versione principale più elevata, è possibile 
+   * Usare uno dei metodi descritti negli [aggiornamenti principali della versione tramite dump e Restore](./how-to-upgrade-using-dump-and-restore.md).
+   * Utilizzare [pg_dump e pg_restore](./howto-migrate-using-dump-and-restore.md) per spostare un database in un server creato con la nuova versione del motore.
+   * Usare il [servizio migrazione del database di Azure](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) per eseguire aggiornamenti online.
 
 ### <a name="version-syntax"></a>Sintassi della versione
 Prima di PostgreSQL versione 10, i [criteri di controllo delle versioni di PostgreSQL](https://www.postgresql.org/support/versioning/) consideravano un aggiornamento della _versione principale_ come un aumento del primo _o_ del secondo numero. Ad esempio, 9,5 a 9,6 è stato considerato un aggiornamento della versione _principale_ . A partire dalla versione 10, solo una modifica nel primo numero viene considerata un aggiornamento della versione principale. 10,0 a 10,1, ad esempio, è un aggiornamento della versione _secondaria_ . La versione da 10 a 11 è un aggiornamento della versione _principale_ .

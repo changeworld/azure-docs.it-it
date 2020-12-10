@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533749"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937288"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 
@@ -287,6 +287,23 @@ Dopo aver creato il criterio con l'effetto nega e averlo assegnato a un ambito, 
 La figura seguente mostra l'errore che si verifica se si tenta di creare un account di archiviazione che consente l'accesso pubblico (impostazione predefinita per un nuovo account) quando un criterio con un effetto di negazione richiede che l'accesso pubblico non sia consentito.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot che mostra l'errore che si verifica quando si crea un account di archiviazione in violazione dei criteri":::
+
+## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Autorizzazioni per consentire o impedire l'accesso pubblico
+
+Per impostare la proprietà **AllowBlobPublicAccess** per l'account di archiviazione, un utente deve disporre delle autorizzazioni per creare e gestire gli account di archiviazione. I ruoli di controllo degli accessi in base al ruolo di Azure (RBAC) che forniscono queste autorizzazioni includono l'azione **Microsoft. storage/storageAccounts/Write** o **Microsoft. storage/storageAccounts/ \** _. I ruoli predefiniti con questa azione includono:
+
+- Ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
+- Ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
+- Il ruolo [collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Questi ruoli non forniscono l'accesso ai dati in un account di archiviazione tramite Azure Active Directory (Azure AD). Tuttavia, includono _ * Microsoft. storage/storageAccounts/listkeys/Action * *, che concede l'accesso alle chiavi di accesso dell'account. Con questa autorizzazione, un utente può usare le chiavi di accesso dell'account per accedere a tutti i dati in un account di archiviazione.
+
+Le assegnazioni di ruolo devono avere come ambito il livello dell'account di archiviazione o superiore per consentire a un utente di consentire o impedire l'accesso pubblico per l'account di archiviazione. Per ulteriori informazioni sull'ambito del ruolo, vedere [understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Prestare attenzione a limitare l'assegnazione di questi ruoli solo a coloro che richiedono la possibilità di creare un account di archiviazione o di aggiornarne le proprietà. Usare il principio dei privilegi minimi per assicurarsi che gli utenti dispongano delle autorizzazioni minime necessarie per svolgere le proprie attività. Per altre informazioni sulla gestione dell'accesso con il controllo degli accessi in base al ruolo di Azure, vedere [procedure consigliate per RBAC](../../role-based-access-control/best-practices.md)
+
+> [!NOTE]
+> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, quindi un utente con uno di questi ruoli amministrativi può anche creare e gestire gli account di archiviazione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

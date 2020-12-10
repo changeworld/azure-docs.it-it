@@ -3,12 +3,12 @@ title: Proteggi le VM della soluzione VMware di Azure con l'integrazione del Cen
 description: Informazioni su come proteggere le VM della soluzione VMware di Azure con gli strumenti di sicurezza nativi di Azure da un singolo dashboard nel centro sicurezza di Azure.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 53669f2988a7ff7ab1150b155a65c7a187c6f1c8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370388"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937339"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure
 
@@ -100,7 +100,7 @@ Azure Defender estende la protezione avanzata dalle minacce del Centro sicurezza
 
 3. Selezionare il nome della risorsa. Viene visualizzata una pagina che mostra i dettagli di integrità della sicurezza della risorsa.
 
-4. In **elenco** raccomandazioni selezionare le schede **raccomandazioni** , **valutazioni passate** e valutazioni non **disponibili** per visualizzare questi dettagli.
+4. In **elenco** raccomandazioni selezionare le schede **raccomandazioni**, **valutazioni passate** e valutazioni non **disponibili** per visualizzare questi dettagli.
 
     :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Screenshot del Centro sicurezza di Azure che mostra le raccomandazioni e le valutazioni sulla sicurezza.":::
 
@@ -124,7 +124,7 @@ A questo punto si è pronti per connettere Sentinel di Azure con le origini dati
 
 3. Nella colonna Nome connettore selezionare **gli eventi di sicurezza** dall'elenco e quindi fare clic su **Apri pagina connettore**.
 
-4. Nella pagina Connector (connettore) selezionare gli eventi che si desidera trasmettere in streaming e quindi selezionare **Apply Changes (Applica modifiche** ).
+4. Nella pagina Connector (connettore) selezionare gli eventi che si desidera trasmettere in streaming e quindi selezionare **Apply Changes (Applica modifiche**).
 
     :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Screenshot della pagina degli eventi di sicurezza in Sentinel di Azure in cui è possibile selezionare gli eventi da trasmettere.":::
 
@@ -154,7 +154,7 @@ Dopo aver connesso le origini dati ad Azure Sentinel, è possibile creare regole
 
 4. Nella scheda **generale** immettere le informazioni necessarie.
 
-    - Name
+    - Nome
     - Descrizione
     - Tattiche
     - Gravità
@@ -173,7 +173,7 @@ Dopo aver connesso le origini dati ad Azure Sentinel, è possibile creare regole
         |where count_ > 3
         ```
         
-    - Entità map
+    - Entità mappa
     - Pianificazione di query
     - Soglia di avviso
     - Raggruppamento di eventi
@@ -225,7 +225,7 @@ Dopo il terzo tentativo di accesso a Windows Server, la regola creata attiva un 
 
 2. Immettere le informazioni seguenti per creare una query personalizzata.
 
-    - Name
+    - Nome
     - Descrizione
     - Query personalizzata
     - Immettere il mapping

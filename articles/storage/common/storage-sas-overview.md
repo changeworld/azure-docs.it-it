@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498184"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936540"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -76,6 +76,9 @@ Una firma di accesso condiviso può assumere una delle due forme seguenti:
 ## <a name="how-a-shared-access-signature-works"></a>Funzionamento della firma di accesso condiviso
 
 Una firma di accesso condiviso è un URI firmato che punta a una o più risorse di archiviazione. L'URI include un token che contiene un set speciale di parametri di query. Il token indica la modalità di accesso alla risorsa da parte del client. Uno dei parametri di query, ovvero la firma, viene creato dai parametri SAS e firmato con la chiave usata per creare la firma di accesso condiviso. Questa firma viene usata da Archiviazione di Azure per autorizzare l'accesso alla risorsa di archiviazione.
+
+> [!NOTE]
+> Non è possibile controllare la generazione di token di firma di accesso condiviso. Tutti gli utenti che dispongono dei privilegi per generare un token di firma di accesso condiviso, usando la chiave dell'account o tramite un'assegnazione di ruolo RBAC di Azure, possono farlo senza conoscere il proprietario dell'account di archiviazione. Prestare attenzione a limitare le autorizzazioni che consentono agli utenti di generare token SAS. Per impedire agli utenti di generare una firma di accesso condiviso con la chiave dell'account per i carichi di lavoro BLOB e di Accodamento, è possibile non consentire l'accesso alla chiave condivisa per l'account di archiviazione. Per altre informazioni, vedere [Impedisci l'autorizzazione con chiave condivisa](shared-key-authorization-prevent.md).
 
 ### <a name="sas-signature-and-authorization"></a>Firma e autorizzazione SAS
 

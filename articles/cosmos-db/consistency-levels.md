@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 965e4a8cd704670ec06ae6b927b97c3a8b93030c
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100457"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938665"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -44,20 +44,25 @@ La coerenza di lettura si applica a una singola operazione di lettura con ambito
 
 È possibile configurare il livello di coerenza predefinito nell'account Azure Cosmos in qualsiasi momento. Il livello di coerenza predefinito configurato per l'account si applica a tutti i database e contenitori di Azure Cosmos con tale account. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite su un contenitore o un database usano il livello di coerenza specificato. Per altre informazioni, vedere come [configurare il livello di coerenza predefinito](how-to-manage-consistency.md#configure-the-default-consistency-level). È anche possibile eseguire l'override del livello di coerenza predefinito per una richiesta specifica. per ulteriori informazioni, vedere come [sostituire l'articolo del livello di coerenza predefinito](how-to-manage-consistency.md?#override-the-default-consistency-level) .
 
+> [!IMPORTANT]
+> È necessario ricreare qualsiasi istanza di SDK dopo aver modificato il livello di coerenza predefinito. Questa operazione può essere eseguita riavviando l'applicazione. Ciò garantisce che l'SDK usi il nuovo livello di coerenza predefinito.
+
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanzie associate ai livelli di coerenza
 
 Azure Cosmos DB garantisce che il 100% delle richieste di lettura soddisfi la garanzia di coerenza per il livello di coerenza scelto. Le definizioni esatte dei cinque livelli di coerenza in Azure Cosmos DB usando il linguaggio di specifica di TLA + sono disponibili nel repository [Azure-Cosmos-TLA](https://github.com/Azure/azure-cosmos-tla) github.
 
 La semantica dei cinque livelli di coerenza è descritta qui:
 
-- **Forte** : la coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
+- **Forte**: la coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
 
   Il grafico seguente illustra la coerenza assoluta con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", quando si leggono i dati da altre aree, si ottiene il valore più recente:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="La coerenza come spettro" può essere configurato in due modi:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Illustrazione del livello di coerenza forte":::
 
-- Numero di versioni ( *K* ) dell'elemento
-- Le letture dell'intervallo di tempo ( *T* ) potrebbero ritardare dietro le Scritture
+- Decadimento **delimitato**: le letture sono garantite per rispettare la garanzia di prefisso coerente. È possibile che le letture ritardino alla base delle Scritture al massimo da *"K"* versioni (ovvero "aggiornamenti") di un elemento o dall'intervallo di tempo *"T"* , a seconda del valore raggiunto per primo. In altre parole, quando si sceglie il decadimento ristretto, il "obsolescenza" può essere configurato in due modi:
+
+- Numero di versioni (*K*) dell'elemento
+- Le letture dell'intervallo di tempo (*T*) potrebbero ritardare dietro le Scritture
 
 Per un account a singola area, il valore minimo di *K* e *T* è 10 operazioni di scrittura o 5 secondi. Per gli account in più aree il valore minimo di *K* e *T* è 100.000 operazioni di scrittura o 300 secondi.
 
@@ -72,7 +77,9 @@ All'interno della finestra di obsolescenza, il decadimento associato fornisce le
 
   Il decadimento ristretto viene spesso scelto da applicazioni distribuite a livello globale che prevedono latenze di scrittura ridotte, ma che richiedono la garanzia totale degli ordini globali Il decadimento ristretto è ideale per le applicazioni che includono la collaborazione e la condivisione di gruppi, il titolo di borsa, la pubblicazione-sottoscrizione/Accodamento e così via. Il grafico seguente illustra la coerenza con decadimento ristretto con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", le aree "Stati Uniti orientali 2" e "Australia orientale" leggono il valore scritto in base al tempo massimo di ritardo configurato o al numero massimo di operazioni:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="La coerenza come spettro" o si condivide il token di sessione per più writer.
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Illustrazione del livello di coerenza con obsolescenza ristretta":::
+
+- **Sessione**: all'interno di una singola sessione client le letture sono garantite per rispettare il prefisso coerente, le letture monotone, le Scritture monotone, la lettura delle Scritture e le garanzie Write-follows. Si presuppone una singola sessione "writer" o si condivide il token di sessione per più writer.
 
 I client al di fuori della sessione che esegue le Scritture vedranno le garanzie seguenti:
 
@@ -83,9 +90,9 @@ I client al di fuori della sessione che esegue le Scritture vedranno le garanzie
 
   La coerenza di sessione è il livello di coerenza più diffuso per l'area singola e per le applicazioni distribuite a livello globale. Fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di coerenza in base alle esigenze delle applicazioni scritte per funzionare nel contesto di un utente. Il grafico seguente illustra la coerenza della sessione con le note musicali. "West US 2 Writer" e "West US 2 Reader" usano la stessa sessione (Session A) in modo che entrambi leggano gli stessi dati nello stesso momento. Mentre l'area "Australia orientale" utilizza "sessione B", riceve i dati in un secondo momento, ma nello stesso ordine delle Scritture.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="La coerenza come spettro":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Illustrazione del livello di coerenza della sessione":::
 
-- **Prefisso coerente** : gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
+- **Prefisso coerente**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
 
 Se le Scritture sono state eseguite nell'ordine `A, B, C` , un client può vedere `A` , `A,B` o `A,B,C` , ma non le permutazioni non ordinate come `A,C` o `B,A,C` . Il prefisso coerente fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di ordine che soddisfano le esigenze degli scenari in cui l'ordine è importante.
 
@@ -98,18 +105,18 @@ Di seguito sono riportate le garanzie di coerenza per il prefisso coerente:
 
 Il grafico seguente illustra la coerenza del prefisso di coerenza con le note musicali. In tutte le aree, le letture non visualizzano mai le Scritture non in ordine:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="La coerenza come spettro":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Illustrazione del prefisso coerente":::
 
-- **Eventuale** : non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
+- **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
 La coerenza finale è la forma di coerenza più debole, perché un client può leggere i valori più vecchi di quelli precedentemente letti. La coerenza finale è ideale in cui l'applicazione non richiede alcuna garanzia di ordinamento. Gli esempi includono il numero di Retweet, mi piace o commenti non thread. Il grafico seguente illustra la coerenza finale con le note musicali.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="La coerenza come spettro":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration di coerenza finale":::
 
 ## <a name="consistency-guarantees-in-practice"></a>Garanzie di coerenza in pratica
 
 In pratica, è possibile che si ottengano spesso garanzie di coerenza più complesse. Per un'operazione di lettura, le garanzie di coerenza corrispondono al livello di aggiornamento e ordinamento dello stato del database richiesto. La coerenza di lettura è associata all'ordinamento e alla propagazione delle operazioni di scrittura/aggiornamento.  
 
-Se non sono presenti operazioni di scrittura nel database, è probabile che un'operazione di lettura con livelli di coerenza **finale** , **sessione** o **prefisso coerente** produca gli stessi risultati di un'operazione di lettura con un livello di coerenza forte.
+Se non sono presenti operazioni di scrittura nel database, è probabile che un'operazione di lettura con livelli di coerenza **finale**, **sessione** o **prefisso coerente** produca gli stessi risultati di un'operazione di lettura con un livello di coerenza forte.
 
 Se l'account Azure Cosmos è configurato con un livello di coerenza diverso da quello della coerenza assoluta, è possibile determinare la probabilità che i client ottengano letture solide e coerenti per i carichi di lavoro esaminando la metrica di *obsolescenza* (PBS) con decadimento ristretto. Questa metrica viene esposta nel portale di Azure. Per altre informazioni, vedere [Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
@@ -149,7 +156,7 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Livelli di coerenza e durabilità dei dati
 
-All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come **obiettivo del tempo di ripristino** ( **RTO** ). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come **obiettivo del punto di ripristino** ( **RPO** ).
+All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come **obiettivo del tempo di ripristino** (**RTO**). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come **obiettivo del punto di ripristino** (**RPO**).
 
 La tabella seguente definisce la relazione tra il modello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con coerenza assoluta, non è possibile avere un database distribuito con un RPO e RTO zero a causa del [teorema Cap](https://en.wikipedia.org/wiki/CAP_theorem).
 

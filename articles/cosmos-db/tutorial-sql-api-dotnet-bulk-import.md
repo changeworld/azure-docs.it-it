@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341241"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548070"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importare in blocco i dati nell'account dell'API SQL di Azure Cosmos DB con .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -86,7 +86,7 @@ L'applicazione di esempio deve eseguire l'autenticazione all'account Azure Cosmo
 
 1.  Accedere al [portale di Azure](https://portal.azure.com/).
 1.  Accedere all'account Azure Cosmos.
-1.  Aprire il riquadro **Chiavi** e copiare l' **URI** e la **CHIAVE PRIMARIA** dell'account.
+1.  Aprire il riquadro **Chiavi** e copiare l'**URI** e la **CHIAVE PRIMARIA** dell'account.
 
 Se si usa l'emulatore Azure Cosmos DB, ottenere le [credenziali dell'emulatore da questo articolo](local-emulator.md#authenticate-requests).
 
@@ -175,7 +175,7 @@ Per eseguire l'esempio, è sufficiente usare il comando `dotnet`:
 
 Se non si ha tempo per completare le procedure dell'esercitazione o se si vogliono solo scaricare gli esempi di codice, è possibile ottenerli da [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-Dopo aver clonato il progetto, assicurarsi di aggiornare le credenziali desiderate all'interno di [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
+Dopo aver clonato il progetto, assicurarsi di aggiornare le credenziali desiderate all'interno di [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
 
 È possibile eseguire l'esempio passando alla directory del repository e usando `dotnet`:
 

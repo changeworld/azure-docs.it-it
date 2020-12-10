@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905367"
+ms.locfileid: "96938410"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -64,7 +64,7 @@ Le regole predefinite di accesso alla rete per gli account di archiviazione poss
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu impostazioni denominato **rete**.
 
 1. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **Reti selezionate**. Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da **Tutte le reti**.
 
@@ -148,7 +148,7 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu impostazioni denominato **rete**.
 
 1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
@@ -272,7 +272,7 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu impostazioni denominato **rete**.
 
 1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
@@ -415,7 +415,7 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
+1. Fare clic sul menu impostazioni denominato **rete**.
 
 1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 

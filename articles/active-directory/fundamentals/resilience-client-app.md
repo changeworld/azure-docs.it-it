@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: fc15176318dcfae99434f50a0b4370f371cec05a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317470"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938240"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Aumentare la resilienza dell'autenticazione e dell'autorizzazione nelle applicazioni client sviluppate
 
@@ -30,7 +30,9 @@ MSAL memorizza nella cache i token e usa un modello di acquisizione di token inv
 
 ![Immagine del dispositivo con l'applicazione e usando MSAL per chiamare Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-Quando si usa MSAL, si ottengono la memorizzazione dei token nella cache, l'aggiornamento e l'acquisizione di token invisibile all'utente usando il modello seguente.
+Quando si usa MSAL, la memorizzazione di token nella cache, l'aggiornamento e l'acquisizione invisibile all'utente sono supportate automaticamente. È possibile usare modelli semplici per acquisire i token necessari per l'autenticazione moderna. Sono supportati molti linguaggi ed è possibile trovare un esempio che corrisponda alla lingua e allo scenario nella pagina degli [esempi](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) .
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 MSAL può in alcuni casi aggiornare in modo proattivo i token. Quando Microsoft Identity rilascia un token di lunga durata, può inviare al client informazioni per il tempo ottimale per l'aggiornamento del token ("Refresh \_ in"). MSAL aggiornerà in modo proattivo il token in base a queste informazioni. L'app continuerà a essere eseguita mentre il token precedente è valido, ma avrà un intervallo di tempo più lungo per eseguire un'altra acquisizione di token riuscita.
 
@@ -65,7 +89,9 @@ Gli sviluppatori devono disporre di un processo per l'aggiornamento alla version
 
 [Controllare la versione più recente di Microsoft. Identity. Web e le note sulla versione](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>Se non si usa MSAL, usare questi modelli resilienti per la gestione dei token
+## <a name="use-resilient-patterns-for-token-handling"></a>Usare i modelli resilienti per la gestione dei token
+
+Se non si usa MSAL, è possibile usare questi modelli resilienti per la gestione dei token. Queste procedure consigliate vengono implementate automaticamente dalla libreria MSAL. 
 
 In generale, un'applicazione che usa l'autenticazione moderna chiamerà un endpoint per recuperare i token che autenticano l'utente o autorizzare l'applicazione a chiamare le API protette. MSAL è progettato per gestire i dettagli dell'autenticazione e implementa diversi modelli per migliorare la resilienza del processo. Usare le linee guida in questa sezione per implementare le procedure consigliate Se si sceglie di usare una libreria diversa da MSAL. Se si usa MSAL, è possibile ottenere tutte queste procedure consigliate gratuitamente, poiché MSAL le implementa automaticamente.
 

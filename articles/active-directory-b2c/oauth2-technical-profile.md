@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 486622b37f02ab8b2a53a273a6eaea4cb5add3a5
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f9bb53f62c5edf055e17f198b7adb45a36bcb2f8
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750437"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936630"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -116,4 +116,4 @@ Quando si configura l'URI di reindirizzamento del provider di identità, immette
 
 Esempi:
 
-- [Aggiungere Google + come provider di identità OAuth2 usando criteri personalizzati](identity-provider-google-custom.md)
+- [Aggiungere Google + come provider di identità OAuth2 usando criteri personalizzati](identity-provider-google.md)

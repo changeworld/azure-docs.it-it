@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484890"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936727"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -23,13 +23,11 @@ Ogni richiesta sicura a un account di archiviazione di Azure deve essere autoriz
 Quando si impedisce l'autorizzazione della chiave condivisa per un account di archiviazione, archiviazione di Azure rifiuta tutte le richieste successive a tale account che sono autorizzate con le chiavi di accesso dell'account. Verranno riuscite solo le richieste protette autorizzate con Azure AD. Per altre informazioni sull'uso di Azure AD, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](storage-auth-aad.md).
 
 > [!WARNING]
-> Archiviazione di Azure supporta Azure AD autorizzazione solo per le richieste all'archiviazione BLOB e code. Se non si consente l'autorizzazione con la chiave condivisa per un account di archiviazione, le richieste di File di Azure o l'archiviazione tabelle che usano l'autorizzazione della chiave condivisa avranno esito negativo.
->
-> Durante l'anteprima, le richieste di File di Azure o l'archiviazione tabelle che usano token di firma di accesso condiviso (SAS) generate con le chiavi di accesso dell'account riusciranno quando l'autorizzazione della chiave condivisa non è consentita. Per ulteriori informazioni, vedere [informazioni sull'anteprima](#about-the-preview).
->
-> La disattivazione dell'accesso con chiave condivisa per un account di archiviazione non influisce sulle connessioni SMB ai File di Azure.
+> Archiviazione di Azure supporta Azure AD autorizzazione solo per le richieste all'archiviazione BLOB e code. Se non si consente l'autorizzazione con la chiave condivisa per un account di archiviazione, le richieste di File di Azure o l'archiviazione tabelle che usano l'autorizzazione della chiave condivisa avranno esito negativo. Poiché il portale di Azure usa sempre l'autorizzazione della chiave condivisa per accedere ai dati di file e tabelle, se non si consente l'autorizzazione con la chiave condivisa per l'account di archiviazione, non sarà possibile accedere ai dati di file o tabelle nel portale di Azure.
 >
 > Microsoft consiglia di eseguire la migrazione di tutti i dati di archiviazione di File di Azure o tabelle in un account di archiviazione separato prima di impedire l'accesso all'account tramite chiave condivisa o di non applicare questa impostazione agli account di archiviazione che supportano i carichi di lavoro di File di Azure o di archiviazione tabelle.
+>
+> La disattivazione dell'accesso con chiave condivisa per un account di archiviazione non influisce sulle connessioni SMB ai File di Azure.
 
 Questo articolo descrive come rilevare le richieste inviate con l'autorizzazione della chiave condivisa e come correggere l'autorizzazione della chiave condivisa per l'account di archiviazione. Per informazioni su come eseguire la registrazione per l'anteprima, vedere [informazioni sull'anteprima](#about-the-preview).
 
@@ -125,7 +123,7 @@ Per impostazione predefinita, la proprietà **AllowSharedKeyAccess** non viene i
 > [!WARNING]
 > Se un client sta attualmente accedendo ai dati nell'account di archiviazione con chiave condivisa, Microsoft consiglia di eseguire la migrazione di tali client a Azure AD prima di impedire l'accesso con chiave condivisa all'account di archiviazione.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per non consentire l'autorizzazione della chiave condivisa per un account di archiviazione nel portale di Azure, attenersi alla procedura seguente:
 
@@ -193,15 +191,32 @@ resources
 | project subscriptionId, resourceGroup, name, allowSharedKeyAccess
 ```
 
+## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Autorizzazioni per consentire o impedire l'accesso con chiave condivisa
+
+Per impostare la proprietà **AllowSharedKeyAccess** per l'account di archiviazione, un utente deve disporre delle autorizzazioni per creare e gestire gli account di archiviazione. I ruoli di controllo degli accessi in base al ruolo di Azure (RBAC) che forniscono queste autorizzazioni includono l'azione **Microsoft. storage/storageAccounts/Write** o **Microsoft. storage/storageAccounts/ \** _. I ruoli predefiniti con questa azione includono:
+
+- Ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
+- Ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
+- Il ruolo [collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Questi ruoli non forniscono l'accesso ai dati in un account di archiviazione tramite Azure Active Directory (Azure AD). Tuttavia, includono _ * Microsoft. storage/storageAccounts/listkeys/Action * *, che concede l'accesso alle chiavi di accesso dell'account. Con questa autorizzazione, un utente può usare le chiavi di accesso dell'account per accedere a tutti i dati in un account di archiviazione.
+
+Le assegnazioni di ruolo devono avere come ambito il livello dell'account di archiviazione o superiore per consentire a un utente di consentire o impedire l'accesso con chiave condivisa per l'account di archiviazione. Per ulteriori informazioni sull'ambito del ruolo, vedere [understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Prestare attenzione a limitare l'assegnazione di questi ruoli solo a coloro che richiedono la possibilità di creare un account di archiviazione o di aggiornarne le proprietà. Usare il principio dei privilegi minimi per assicurarsi che gli utenti dispongano delle autorizzazioni minime necessarie per svolgere le proprie attività. Per altre informazioni sulla gestione dell'accesso con il controllo degli accessi in base al ruolo di Azure, vedere [procedure consigliate per RBAC](../../role-based-access-control/best-practices.md)
+
+> [!NOTE]
+> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, quindi un utente con uno di questi ruoli amministrativi può anche creare e gestire gli account di archiviazione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Informazioni su come la disabilitazione della chiave condivisa influisca sui token SAS
 
-Quando la chiave condivisa non è consentita per l'account di archiviazione, archiviazione di Azure gestisce i token SAS in base al tipo di firma di accesso condiviso e al servizio di destinazione della richiesta. La tabella seguente illustra come viene autorizzato ogni tipo di firma di accesso condiviso e come archiviazione di Azure gestirà tale firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** per l'account di archiviazione è **false**.
+Quando l'accesso con chiave condivisa non è consentito per l'account di archiviazione, archiviazione di Azure gestisce i token SAS in base al tipo di firma di accesso condiviso e al servizio di destinazione della richiesta. La tabella seguente illustra come viene autorizzato ogni tipo di firma di accesso condiviso e come archiviazione di Azure gestirà tale firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** per l'account di archiviazione è **false**.
 
 | Tipo di firma di accesso condiviso | Tipo di autorizzazione | Comportamento quando AllowSharedKeyAccess è false |
 |-|-|-|
 | SAS di delega utente (solo archiviazione BLOB) | Azure AD | La richiesta è consentita. Microsoft consiglia di usare una firma di accesso condiviso di delega utente quando possibile per una sicurezza superiore. |
-| Firma di accesso condiviso del servizio | Chiave condivisa | La richiesta è stata negata per l'archiviazione BLOB. La richiesta è consentita per l'archiviazione delle code e tabelle e per File di Azure. Per altre informazioni, vedere le richieste con token di firma di accesso condiviso [sono consentite per le code, le tabelle e i file quando AllowSharedKeyAccess è false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) nella sezione **About The Preview** . |
-| Firma di accesso condiviso dell'account | Chiave condivisa | La richiesta è stata negata per l'archiviazione BLOB. La richiesta è consentita per l'archiviazione delle code e tabelle e per File di Azure. Per altre informazioni, vedere le richieste con token di firma di accesso condiviso [sono consentite per le code, le tabelle e i file quando AllowSharedKeyAccess è false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) nella sezione **About The Preview** . |
+| Firma di accesso condiviso del servizio | Chiave condivisa | La richiesta è stata negata per tutti i servizi di archiviazione di Azure. |
+| Firma di accesso condiviso dell'account | Chiave condivisa | La richiesta è stata negata per tutti i servizi di archiviazione di Azure. |
 
 Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](storage-sas-overview.md).
 
@@ -215,11 +230,11 @@ Alcuni strumenti di Azure offrono la possibilità di usare Azure AD autorizzazio
 |-|-|
 | Portale di Azure | Supportata. Per informazioni sull'autorizzazione con l'account Azure AD dall'portale di Azure, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Supportato per l'archiviazione BLOB. Per informazioni su come autorizzare le operazioni di AzCopy, vedere [scegliere come fornire le credenziali di autorizzazione](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) nella documentazione di AzCopy. |
-| Esplora archivi Azure | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure Storage Explorer | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell per operazioni BLOB o di Accodamento con Azure AD, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-powershell.md) o [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati della coda](../queues/authorize-data-operations-powershell.md). |
 | Interfaccia della riga di comando di Azure | Supportata. Per informazioni su come autorizzare i comandi dell'interfaccia della riga di comando di Azure con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi dell'interfaccia della riga di comando di Azure con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-cli.md) |
-| Hub IoT Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |
+| Hub IoT di Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
+| Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo di Azure. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
@@ -240,10 +255,6 @@ Le metriche e la registrazione di Azure in monitoraggio di Azure non distinguono
 - Una firma di accesso condiviso di delega utente è autorizzata con Azure AD e sarà consentita su una richiesta di archiviazione BLOB quando la proprietà **AllowSharedKeyAccess** è impostata su **false**.
 
 Quando si valuta il traffico verso l'account di archiviazione, tenere presente che le metriche e i log come descritto in [rilevare il tipo di autorizzazione usato dalle applicazioni client](#detect-the-type-of-authorization-used-by-client-applications) possono includere le richieste effettuate con una firma di accesso condiviso dell'utente. Per altre informazioni sul modo in cui archiviazione di Azure risponde a una firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** è impostata su **false**, vedere [informazioni sulla disabilitazione della chiave condivisa sui token SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
-
-### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Le richieste con token di firma di accesso condiviso sono consentite per le code, le tabelle e i file quando AllowSharedKeyAccess è false
-
-Quando l'accesso con chiave condivisa non è consentito per l'account di archiviazione durante l'anteprima, le firme di accesso condiviso che hanno come destinazione le risorse di Accodamento, tabelle o File di Azure continuano a essere consentite. Questa limitazione si applica sia ai token SAS del servizio sia ai token di firma di accesso condiviso dell'account. Entrambi i tipi di firma di accesso condiviso sono autorizzati con chiave condivisa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 502d5a5c4b3d13d32fece648ce1de6763d012096
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a0ef8d9f28f90db77686c3139c8b45eccfb669aa
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932286"
+ms.locfileid: "96938818"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -309,8 +309,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 > [!NOTE]
 > 
-> A partire da 1-Oct-2020, l'integrazione di ITSM Provence con Azure Alert non verrà più abilitata per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate. 
-> Saranno supportate le connessioni ITSM esistenti.
+> Microsoft propone ai clienti Provance di usare l' [azione webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) per Cherwell e Provance endpoint come un'altra soluzione per l'integrazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -367,8 +366,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 > [!NOTE]
 > 
-> Da 1-ott-2020 l'integrazione di Cherwell ITSM con Azure Alert non verrà più abilitata per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate. 
-> Saranno supportate le connessioni ITSM esistenti.
+> Microsoft propone ai clienti di Cherwell di usare l' [azione webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) per l'endpoint Cherwell e Provance come altra soluzione per l'integrazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 

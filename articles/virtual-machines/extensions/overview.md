@@ -9,17 +9,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: b1dd26fce2e0a761ceed211933cb79ce518905e2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dd3b713a027df80908e1a8a3ae53e8dc526d7d6e
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965885"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936948"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
 Le estensioni sono piccole applicazioni che forniscono configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. La piattaforma Azure ospita molte estensioni per la configurazione delle macchine virtuali, il monitoraggio, la sicurezza e le applicazioni di utilità. Gli editori accettano un'applicazione, ne esegue il wrapping in un'estensione e semplificano l'installazione. È sufficiente specificare parametri obbligatori. 
 
-## <a name="how-can-i-find-what-extensions-are-available"></a>Come trovare le estensioni disponibili
+## <a name="how-can-i-find-what-extensions-are-available"></a>Come è possibile individuare le estensioni disponibili?
 È possibile visualizzare le estensioni disponibili selezionando una macchina virtuale, selezionando **estensioni** nel menu a sinistra. Per ottenere un elenco completo delle estensioni, vedere [individuazione delle estensioni VM per Linux](features-linux.md) e [individuazione delle estensioni VM per Windows](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Come installare un'estensione

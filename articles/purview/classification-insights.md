@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745027"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938886"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Informazioni dettagliate sulla classificazione dei dati di Azure
 
@@ -44,7 +44,7 @@ In Azure, le classificazioni sono simili ai tag Subject e vengono usate per cont
 La competenza usa gli stessi tipi di informazioni riservate Microsoft 365, consentendo di ampliare i criteri di sicurezza e la protezione esistenti nell'intero data.
 
 > [!NOTE]
-> Dopo aver analizzato i tipi di origine, assegnare all'etichetta informazioni dettagliate per la **classificazione** di un paio di ore per riflettere i nuovi asset.
+> Dopo aver analizzato i tipi di origine, assegnare informazioni dettagliate di **classificazione** a un paio di ore per riflettere i nuovi asset.
 
 **Per visualizzare le informazioni dettagliate sulla classificazione:**
 

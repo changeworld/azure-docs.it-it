@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.author: b-juche
-ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95245875"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937475"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replica tra aree di volumi Azure NetApp Files
 
@@ -38,14 +38,15 @@ Azure NetApp Files replica del volume è attualmente disponibile nelle seguenti 
 * Stati Uniti centro-meridionali e Stati Uniti orientali
 * Stati Uniti centro-meridionali e Stati Uniti orientali 2 
 * Stati Uniti orientali 2 e Stati Uniti centrali 
-* Europa settentrionale e Europa occidentale
-* Regno Unito meridionale e Regno Unito occidentale
 * Australia orientale e Australia sudorientale
 * Canada centrale e Canada orientale
-* Giappone orientale e Giappone occidentale
-* Regno Unito meridionale e Germania centro-occidentale
-* Asia sudorientale e Australia orientale
 * India centrale e India meridionale
+* Germania centro-occidentale e Germania settentrionale
+* Giappone orientale e Giappone occidentale
+* Europa settentrionale e Europa occidentale
+* Asia sudorientale e Australia orientale
+* Regno Unito meridionale e Germania centro-occidentale
+* Regno Unito meridionale e Regno Unito occidentale
 
 ## <a name="service-level-objectives"></a>Obiettivi a livello di servizio
 
@@ -111,11 +112,11 @@ Il normale costo della capacità di archiviazione Azure NetApp Files per il mese
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md)
-* [Creazione della replica del volume](cross-region-replication-create-peering.md)
+* [Creare la replica di un volume](cross-region-replication-create-peering.md)
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
+* [Eliminare repliche di volumi o volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 
 

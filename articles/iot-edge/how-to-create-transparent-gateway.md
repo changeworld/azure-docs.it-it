@@ -11,22 +11,37 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147853"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938784"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurare un dispositivo IoT Edge come gateway trasparente
 
 Questo articolo fornisce istruzioni dettagliate per la configurazione di un dispositivo IoT Edge per funzionare come gateway trasparente per la comunicazione di altri dispositivi con l'hub Internet. Questo articolo usa il termine *IOT Edge Gateway* per fare riferimento a un dispositivo IOT Edge configurato come gateway trasparente. Per altre informazioni, vedere [come è possibile usare un dispositivo IOT Edge come gateway](./iot-edge-as-gateway.md).
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
 >Al momento:
 >
 > * I dispositivi abilitati per Edge non possono connettersi ai gateway IoT Edge.
 > * I dispositivi downstream non possono usare il caricamento dei file.
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Al momento:
+>
+> * I dispositivi downstream non possono usare il caricamento dei file.
+
+::: moniker-end
 
 Ci sono tre passaggi generali per configurare correttamente una connessione gateway trasparente. Questo articolo illustra il primo passaggio:
 

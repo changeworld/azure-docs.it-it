@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: ad7fe062d30f6858296ad4a2638b62c190862365
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309648"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936438"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -39,7 +39,7 @@ Riepilogo dei due scenari di base non esclusivi con SAML:
 | Scenario | Ruolo di Azure AD B2C | Procedure |
 | -------- | ----------------- | ------- |
 | L'applicazione prevede che un'asserzione SAML completi un'autenticazione. | **Azure AD B2C funge da provider di identità (IdP)**<br />Azure AD B2C funge da IdP SAML per le applicazioni. | Questo articolo. |
-| Gli utenti hanno bisogno dell'accesso Single Sign-On con un provider di identità conforme a SAML, ad esempio ADFS, Salesforce o Shibboleth.  | **Azure AD B2C funge da provider di servizi (SP)**<br />Azure AD B2C funge da provider di servizi per la connessione al provider di identità SAML. Si tratta di un proxy federativo tra l'applicazione e il provider di identità SAML.  | <ul><li>[Configurare l'accesso con ADFS come IdP SAML usando criteri personalizzati](identity-provider-adfs2016-custom.md)</li><li>[Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati](identity-provider-salesforce-custom.md)</li></ul> |
+| Gli utenti hanno bisogno dell'accesso Single Sign-On con un provider di identità conforme a SAML, ad esempio ADFS, Salesforce o Shibboleth.  | **Azure AD B2C funge da provider di servizi (SP)**<br />Azure AD B2C funge da provider di servizi per la connessione al provider di identità SAML. Si tratta di un proxy federativo tra l'applicazione e il provider di identità SAML.  | <ul><li>[Configurare l'accesso con ADFS come IdP SAML usando criteri personalizzati](identity-provider-adfs.md)</li><li>[Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati](identity-provider-salesforce.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -393,7 +393,7 @@ Per consentire Azure AD B2C di inviare asserzioni crittografate, impostare l'ele
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Abilita flusso avviato dal provider di identità (facoltativo)
 
-Nel flusso avviato dal provider di identità, il processo di accesso viene avviato dal provider di identità (Azure AD B2C), che invia una risposta SAML non richiesta al provider di servizi (l'applicazione relying party). Attualmente non sono supportati scenari in cui il provider di identità di avvio è un provider di identità esterno, ad esempio [ad FS](identity-provider-adfs2016-custom.md)o [Salesforce](identity-provider-salesforce-custom.md).
+Nel flusso avviato dal provider di identità, il processo di accesso viene avviato dal provider di identità (Azure AD B2C), che invia una risposta SAML non richiesta al provider di servizi (l'applicazione relying party). Attualmente non sono supportati scenari in cui il provider di identità di avvio è un provider di identità esterno, ad esempio [ad FS](identity-provider-adfs.md)o [Salesforce](identity-provider-salesforce.md).
 
 Per abilitare il flusso avviato dal provider di identità (Azure AD B2C), impostare l'elemento dei metadati **IdpInitiatedProfileEnabled** su `true` nel [profilo tecnico relying party](relyingparty.md#technicalprofile).
 

@@ -8,15 +8,15 @@ ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: 43ce1c4865b3458ccd9c0ac17589f8ca5d77d92f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921974"
+ms.locfileid: "96937713"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Valuta i risultati dell'esperimento di Machine Learning automatizzato
 
@@ -81,7 +81,7 @@ balanced_accuracy|balanced_accuracy è la media aritmetica del recupero per ogni
 f1_score|f1_score è la media armonica di precisione e recupero. Si tratta di una buona misura bilanciata di falsi positivi e falsi negativi. Tuttavia, non considera i veri negativi. <br> <br>**Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [0, 1]<br> <br>I nomi delle metriche supportati includono:<li>  `f1_score_macro`: media aritmetica del Punteggio F1 per ogni classe. <li> `f1_score_micro`: calcolato contando il totale dei veri positivi, falsi negativi e falsi positivi. <li> `f1_score_weighted`: ponderato media per frequenza della classe del Punteggio F1 per ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|Si tratta della funzione di perdita usata nella regressione logistica (Multinomial) e nelle estensioni di esso, ad esempio le reti neurali, definita come la probabilità di log negativa delle etichette vere, date le stime di un classificatore probabilistico. <br><br> **Obiettivo:** Più vicino a 0 migliore <br> **Intervallo:** [0, inf)|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| Il richiamo delle macro normalizzate viene richiamata macro-mediata e normalizzata, in modo che le prestazioni casuali abbiano un punteggio pari a 0, mentre le prestazioni perfette hanno un punteggio pari a 1. <br> <br>**Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>dove `R` è il valore previsto di `recall_score_macro` per le stime casuali.<br><br>`R = 0.5`&nbsp;per &nbsp; la &nbsp; classificazione binaria. <br>`R = (1 / C)` per i problemi di classificazione di classe C.|
-Coefficiente di correlazione Matthews | Il coefficiente di correlazione Matthews è una misura di accuratezza bilanciata, che può essere usata anche se una classe ha molti più campioni di un altro. Il coefficiente 1 indica una stima perfetta, una stima casuale 0 e una stima inversa di-1.<br><br> **Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [-1, 1]|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+matthews_correlation | Il coefficiente di correlazione Matthews è una misura di accuratezza bilanciata, che può essere usata anche se una classe ha molti più campioni di un altro. Il coefficiente 1 indica una stima perfetta, una stima casuale 0 e una stima inversa di-1.<br><br> **Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [-1, 1]|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
 precisione|La precisione è la capacità di un modello di evitare l'assegnazione di etichette a campioni negativi come positivi. <br><br> **Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [0, 1]<br> <br>I nomi delle metriche supportati includono: <li> `precision_score_macro`, la media aritmetica di precisione per ogni classe. <li> `precision_score_micro`, calcolato a livello globale contando i veri positivi totali e i falsi positivi. <li> `precision_score_weighted`, la media aritmetica di precisione per ogni classe, ponderata in base al numero di istanze true in ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
 richiamo| Il richiamo è la capacità di un modello di rilevare tutti i campioni positivi. <br><br> **Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [0, 1]<br> <br>I nomi delle metriche supportati includono: <li>`recall_score_macro`: media aritmetica da richiamare per ogni classe. <li> `recall_score_micro`: calcolato a livello globale contando i veri positivi totali, falsi negativi e falsi positivi.<li> `recall_score_weighted`: media aritmetica di richiamo per ogni classe, ponderata in base al numero di istanze true in ogni classe.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|L'accuratezza ponderata è l'accuratezza in cui ogni campione viene ponderato in base al numero totale di campioni appartenenti alla stessa classe. <br><br>**Obiettivo:** Più vicino a 1 migliore <br>**Intervallo:** [0, 1]|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -182,7 +182,7 @@ Un modello con un livello di attendibilità superiore stima le probabilità quas
 
 ## <a name="regressionforecasting-metrics"></a>Metriche di regressione/previsione
 
-Automatizzato ML calcola le stesse metriche delle prestazioni per ogni modello generato, indipendentemente dal fatto che si tratta di un esperimento di regressione o previsione. Queste metriche subiscono anche la normalizzazione per consentire il confronto tra i modelli sottoposti a training su dati con intervalli diversi. Per altre informazioni, vedere [normalizzazione delle metriche](#metric-normalization)  
+Automatizzato ML calcola le stesse metriche delle prestazioni per ogni modello generato, indipendentemente dal fatto che si tratta di un esperimento di regressione o previsione. Queste metriche subiscono anche la normalizzazione per consentire il confronto tra i modelli sottoposti a training su dati con intervalli diversi. Per altre informazioni, vedere [normalizzazione metrica](#metric-normalization).  
 
 La tabella seguente riepiloga le metriche delle prestazioni del modello generate per gli esperimenti di regressione e previsione. Analogamente alle metriche di classificazione, queste metriche sono basate anche sulle implementazioni di Scikit learn. La documentazione di Scikit learn appropriata è collegata di conseguenza nel campo **calcolo** .
 

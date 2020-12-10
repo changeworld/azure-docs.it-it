@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358712"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938631"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In quanto servizio di database nativo del cloud completamente gestito, Azure Cosmos DB semplifica la fatturazione addebitando solo le operazioni di database e l'archiviazione utilizzata. Non ci sono corrispettivi aggiuntivi per licenze, hardware, utenze o infrastrutture, a differenza delle alternative in locale o ospitate all'interno di sistemi IaaS. Se si considerano le funzionalità multiarea di Azure Cosmos DB, ci si rende conto che il servizio di database garantisce una riduzione sostanziale dei costi rispetto alle soluzioni locali o IaaS esistenti.
 
-- **Operazioni di database** : il modo in cui vengono addebitate le operazioni di database dipende dal tipo di account Azure Cosmos usato.
+- **Operazioni di database**: il modo in cui vengono addebitate le operazioni di database dipende dal tipo di account Azure Cosmos usato.
 
-  - **Velocità effettiva con provisioning** : viene addebitata una tariffa oraria per la velocità effettiva massima con provisioning per un'ora specifica, con incrementi di 100 ur/sec.
-  - Senza **Server** : viene addebitata una fatturazione oraria per la quantità totale di unità richiesta utilizzate dalle operazioni del database.
+  - **Velocità effettiva con provisioning**: viene addebitata una tariffa oraria per la velocità effettiva massima con provisioning per un'ora specifica, con incrementi di 100 ur/sec.
+  - Senza **Server**: viene addebitata una fatturazione oraria per la quantità totale di unità richiesta utilizzate dalle operazioni del database.
 
-- **Archiviazione** : viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (in GB) utilizzata dai dati e dagli indici per un'ora specifica.
+- **Archiviazione**: viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (in GB) utilizzata dai dati e dagli indici per un'ora specifica.
 
 Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
@@ -130,7 +130,7 @@ Si supponga di creare un contenitore Azure Cosmos negli Stati Uniti occidentali.
 |**Elemento** |**Utilizzo (mese)**|**Tariffa** |**Costo mensile** |
 |---------|---------|---------|-------|
 |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)       | 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora    |$ 1.152 |
-|Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale (operazioni di scrittura in tutte le aree)        | (3+1) * 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora   |$ 4.608 |
+|Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale (operazioni di scrittura in tutte le aree)        | 3 * 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora   |$3.456 |
 |Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali      | 250 GB    |$0,25/GB  |$ 62,50|
 |Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$0,25/GB  |$ 187,50|
 |**Totale**     |     |  |**$ 6.010**|

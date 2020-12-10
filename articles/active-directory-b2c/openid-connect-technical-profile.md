@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2010f55a28d393086aad544cbec3f5c009801872
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: ad9d3adacf36f0d224e2915836356c5a24e6256a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750493"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936676"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -132,6 +132,6 @@ Quando si configura l'URI di reindirizzamento del provider di identità, immette
 
 Esempi:
 
-- [Aggiungere un account Microsoft come provider di identità tramite i criteri personalizzati](identity-provider-microsoft-account-custom.md)
-- [Accedere usando gli account di Azure AD](identity-provider-azure-ad-single-tenant-custom.md)
-- [Consentire agli utenti di accedere a un provider di identità Azure AD multi-tenant tramite i criteri personalizzati](identity-provider-azure-ad-multi-tenant-custom.md)
+- [Aggiungere un account Microsoft come provider di identità tramite i criteri personalizzati](identity-provider-microsoft-account.md)
+- [Accedere usando gli account di Azure AD](identity-provider-azure-ad-single-tenant.md)
+- [Consentire agli utenti di accedere a un provider di identità Azure AD multi-tenant tramite i criteri personalizzati](identity-provider-azure-ad-multi-tenant.md)

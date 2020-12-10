@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cd6aa8c1936d9f07421f6508755a5b6d4852813
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e949501172dc0a156f5ecf450052f43f33a84daf
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859182"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938155"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -1625,7 +1625,7 @@ Per altre informazioni, vedere [Funzionamento: Reimpostazione della password sel
 
 **Tipo:** Fisso **Categoria di servizio:** Autenticazioni (accessi) **Funzionalità del prodotto:** Autenticazione dell'utente
 
-A partire da Azure AD Authentication Library (ADAL.NET) versione di anteprima 5.0.0, gli sviluppatori di app devono [serializzare una cache per ogni account per le app Web e le API Web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). In caso contrario, alcuni scenari che usano il [flusso per conto di](../develop/scenario-web-api-call-api-app-configuration.md?tabs=java) Java, insieme ad alcuni casi d'uso specifici di `UserAssertion` , possono determinare un'elevazione dei privilegi. Per evitare questa vulnerabilità, ADAL.NET ignora ora la cache condivisa di Microsoft Authentication Library per dotnet (MSAL.NET) per scenari di tipo On-Behalf-Of.
+A partire da Azure AD Authentication Library (ADAL.NET) versione di anteprima 5.0.0, gli sviluppatori di app devono [serializzare una cache per ogni account per le app Web e le API Web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). In caso contrario, alcuni scenari che usano il [flusso per conto di](../develop/scenario-web-api-call-api-app-configuration.md?tabs=java) Java, insieme ad alcuni casi d'uso specifici di `UserAssertion` , possono determinare un'elevazione dei privilegi. Per evitare questa vulnerabilità, ADAL.NET ignora ora la cache condivisa di Microsoft Authentication Library per DotNet (MSAL.NET) per gli scenari per conto di.
 
 Per altre informazioni su questo problema, vedere [Vulnerabilità relativa all'elevazione dei privilegi di Azure Active Directory Authentication Library](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
 
@@ -3465,7 +3465,7 @@ Sono state aggiunte API Microsoft Graph per l'amministrazione delle condizioni p
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** B2C - Consumer Identity Management **Funzionalità del prodotto:** B2B/B2C
 
-Usando criteri personalizzati, è ora possibile aggiungere l'endpoint comune di Azure AD come provider di identità in Azure AD B2C. In questo modo, si otterrà un singolo punto di ingresso per tutti gli utenti di Azure AD che accedono alle applicazioni. Per altre informazioni, vedere [Azure Active Directory B2C: Consentire agli utenti di accedere a un provider di identità Azure AD multi-tenant tramite i criteri personalizzati](../../active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom.md).
+Usando criteri personalizzati, è ora possibile aggiungere l'endpoint comune di Azure AD come provider di identità in Azure AD B2C. In questo modo, si otterrà un singolo punto di ingresso per tutti gli utenti di Azure AD che accedono alle applicazioni. Per altre informazioni, vedere [Azure Active Directory B2C: Consentire agli utenti di accedere a un provider di identità Azure AD multi-tenant tramite i criteri personalizzati](../../active-directory-b2c/identity-provider-azure-ad-multi-tenant.md).
 
 ---
 

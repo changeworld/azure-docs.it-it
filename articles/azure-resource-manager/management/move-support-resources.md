@@ -3,12 +3,12 @@ title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1304b273523d42ad62f4e392fb803e1c174b69
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780995"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937526"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -1423,7 +1423,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | networkinterfaces | Sì | Sì |
 > | networkprofiles | No | No |
 > | networksecuritygroups | Sì | Sì |
-> | networkwatchers | Sì | No |
+> | networkwatchers | No | No |
 > | networkwatchers/connectionmonitors | Sì | No |
 > | networkwatchers/flowlogs | Sì | No |
 > | networkwatchers/pingmeshes | Sì | No |

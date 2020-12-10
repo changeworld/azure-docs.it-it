@@ -8,22 +8,22 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 3b0a413db304b4f9d2c50a3d221c480f1e9dc37a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96552530"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938835"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Gestisci e aumenta le quote per le risorse con Azure competenza
  
 Azure competenza è un servizio cloud per l'uso da parte degli utenti di dati. Si usa Azure per gestire centralmente la governance dei dati nei propri dati, che comprendono ambienti cloud e locali. Il servizio consente agli analisti aziendali di cercare i dati rilevanti usando termini aziendali significativi. Per aumentare i limiti fino al valore massimo consentito per la sottoscrizione, contattare il supporto tecnico.
  
-## <a name="azure-purview-limits"></a>Limiti di competenza di Azure
+## <a name="azure-purview-limits"></a>Limiti di Azure Purview
  
 |**Risorsa**|  **Limite predefinito**  |**Limite Massimo**|
 |---|---|---|
-|Account di competenza per tenant (tutte le sottoscrizioni combinate)|3|Contattare il supporto tecnico|
+|Account di competenza per area, per tenant (tutte le sottoscrizioni combinate)|3|Contattare il supporto tecnico|
 |VCore disponibili per l'analisi, per account *|160|160|
 |Analisi simultanee, per account in un determinato punto. Il limite è basato sul tipo di origini dati analizzate *|5 | 10 |
 |Tempo massimo per l'esecuzione di un'analisi|7 giorni|7 giorni|
