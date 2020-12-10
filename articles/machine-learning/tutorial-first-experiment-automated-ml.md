@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359800"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921895"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 
@@ -50,7 +50,7 @@ Esistono molti [modi per creare un'area di lavoro](how-to-manage-workspace.md). 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Prendere nota dell' **area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
+> Prendere nota dell'**area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Iniziare con Azure Machine Learning Studio
 
@@ -112,7 +112,7 @@ Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro
     
     1. Selezionare il set di dati quando viene visualizzato nell'elenco.
     
-    1. Esaminare l' **anteprima dati** per assicurarsi di non avere incluso **day_of_week** e quindi scegliere **OK**.
+    1. Esaminare l'**anteprima dati** per assicurarsi di non avere incluso **day_of_week** e quindi scegliere **OK**.
 
     1. Selezionare **Avanti**.
 
@@ -241,7 +241,7 @@ In questa esercitazione di Machine Learning automatizzato è stata usata l'inter
 > [Utilizzare un servizio Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
-+ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification).
++ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md).
 + Altre informazioni sullo [sviluppo di funzionalità](how-to-configure-auto-features.md#featurization).
 + Altre informazioni sulla [profilatura dei dati](how-to-connect-data-ui.md#profile).
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356502"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921848"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda con Machine Learning automatizzato
 
@@ -86,7 +86,7 @@ Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro
 
     1. Il modulo **Schema** consente di configurare ulteriormente i dati per questo esperimento. 
     
-        1. Per questo esempio, scegliere di ignorare le colonne **casual** e **registered**. Queste colonne sono una scomposizione della colonna **cnt** , quindi non verranno incluse.
+        1. Per questo esempio, scegliere di ignorare le colonne **casual** e **registered**. Queste colonne sono una scomposizione della colonna **cnt**, quindi non verranno incluse.
 
         1. Sempre per questo esempio, lasciare i valori predefiniti per **Proprietà** e **Tipo**. 
         
@@ -145,7 +145,7 @@ Per completare l'esperimento di ML automatizzato, specificare il tipo di attivit
     Primary metric (Metrica principale)| Metrica di valutazione in base a cui verrà misurato l'algoritmo di Machine Learning.|Radice normalizzata dell'errore quadratico medio
     Modello esplicativo migliore| Mostra automaticamente il modello esplicativo migliore creato da ML automatizzato.| Abilitare
     Blocked algorithms (Algoritmi bloccati) | Algoritmi da escludere dal processo di training| Extreme Random Trees
-    Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello <br><br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_ : specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. | <br><br>Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
+    Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello <br><br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_: specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. | <br><br>Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
     Exit criterion (Esci da criterio)| Se viene soddisfatto un criterio, il processo di training viene arrestato. |Durata del&nbsp;processo&nbsp;di training (ore): 3 <br> Soglia&nbsp;punteggio&nbsp;metrica: nessuno
     Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 5
     Concorrenza| Il numero massimo di iterazioni parallele eseguite per ogni iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 6
@@ -179,7 +179,7 @@ Per questo esperimento, la distribuzione in un servizio Web implica che l'aziend
 
 Una volta completata l'esecuzione, tornare nella pagina di esecuzione padre selezionando **Esecuzione 1** nella parte superiore della schermata.
 
-Nella sezione **Riepilogo del modello migliore** , nel contesto di questo esperimento, viene considerato come migliore il modello **StackEnsemble** , in base alla metrica **Radice normalizzata dell'errore quadratico medio**.  
+Nella sezione **Riepilogo del modello migliore**, nel contesto di questo esperimento, viene considerato come migliore il modello **StackEnsemble**, in base alla metrica **Radice normalizzata dell'errore quadratico medio**.  
 
 Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti. Il processo di distribuzione comporta diversi passaggi, tra cui la registrazione del modello, la generazione delle risorse e la relativa configurazione per il servizio Web.
 
@@ -235,7 +235,7 @@ Per la procedura di creazione di uno schema supportato da Power BI che facilita 
 > [Utilizzare un servizio Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
-+ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification).
++ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md).
 + Altre informazioni sullo [sviluppo di funzionalità](how-to-configure-auto-features.md#featurization).
 + Altre informazioni sulla [profilatura dei dati](how-to-connect-data-ui.md#profile).
 

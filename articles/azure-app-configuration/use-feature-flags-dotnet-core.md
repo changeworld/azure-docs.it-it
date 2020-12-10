@@ -3,8 +3,7 @@ title: Esercitazione per l'uso dei flag di funzionalità in un'app .NET Core | M
 description: In questa esercitazione si apprenderà come implementare i flag di funzionalità nelle app .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746137"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929192"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -215,7 +214,7 @@ public class HomeController : Controller
 }
 ```
 
-Per poter eseguire l'azione `Index` seguente, il flag`FeatureA` deve essere *attivo* :
+Per poter eseguire l'azione `Index` seguente, il flag`FeatureA` deve essere *attivo*:
 
 ```csharp
 using Microsoft.FeatureManagement.Mvc;
@@ -227,7 +226,7 @@ public IActionResult Index()
 }
 ```
 
-Quando un controller o un'azione MVC viene bloccato perché il flag di funzionalità di controllo è *disattivato* , viene chiamata un'interfaccia `IDisabledFeaturesHandler` registrata. L'interfaccia `IDisabledFeaturesHandler` predefinita restituisce un codice di stato 404 al client senza alcun corpo della risposta.
+Quando un controller o un'azione MVC viene bloccato perché il flag di funzionalità di controllo è *disattivato*, viene chiamata un'interfaccia `IDisabledFeaturesHandler` registrata. L'interfaccia `IDisabledFeaturesHandler` predefinita restituisce un codice di stato 404 al client senza alcun corpo della risposta.
 
 ## <a name="mvc-views"></a>Viste MVC
 
