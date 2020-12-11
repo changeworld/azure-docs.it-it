@@ -4,16 +4,16 @@ description: Informazioni su come i tipi di nodo Service Fabric di Azure sono co
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.openlocfilehash: 7df7ed9fa1f872cd9554dcf4c8880b7c9d5e53c4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9e30c02de54806006a1881448bcb9f788a57310c
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576401"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095254"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
 
-I [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/index.yml) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura esattamente un set di scalabilità: non è possibile eseguire il backup di più tipi di nodo dallo stesso set di scalabilità e un tipo di nodo (nella maggior parte dei casi) deve essere supportato da più set di scalabilità. Un'eccezione a questo problema si verifica in rari casi di [ridimensionamento verticale](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) di un tipo di nodo, quando si dispone temporaneamente di due set di scalabilità con lo stesso `nodeTypeRef` valore durante la migrazione delle repliche dal set di scalabilità originale a quello aggiornato.
+I [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/index.yml) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura esattamente un set di scalabilità: non è possibile eseguire il backup di più tipi di nodo dallo stesso set di scalabilità e un tipo di nodo non deve essere supportato da più set di scalabilità.
 
 Il runtime di Service Fabric viene installato in ogni macchina virtuale nel set di scalabilità dall'estensione della macchina virtuale *Microsoft. Azure. ServiceFabric* . È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse.
 

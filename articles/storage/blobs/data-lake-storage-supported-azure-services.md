@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3d3fb983f5e55f8b262be0925c2138b465413fc3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600388"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095407"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Servizi di Azure che supportano Azure Data Lake Storage Gen2
 
@@ -41,10 +41,10 @@ Questa tabella elenca i servizi di Azure che è possibile usare con Azure Data L
 |Power BI|Disponibile a livello generale|Sì|Sì|[Analizzare i dati in Data Lake Storage Gen2 usando Power BI](/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics (in precedenza SQL Data Warehouse)|Disponibile a livello generale|Sì|Sì|[Usare con analisi delle sinapsi di Azure](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |SQL Server Integration Services (SSIS)|Disponibile a livello generale|Sì|Sì|[Gestione connessione di archiviazione di Azure](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
-|Esplora dati di Azure|Disponibile a livello generale|Sì|Sì|[Eseguire query sui dati in Azure Data Lake usando Azure Esplora dati](/azure/data-explorer/data-lake-query-data)|
+|Esplora dati di Azure|Disponibile a livello generale|Sì|Sì|[Eseguire query sui dati in Azure Data Lake usando Esplora dati di Azure](/azure/data-explorer/data-lake-query-data)|
 |Ricerca cognitiva di Azure|Anteprima|Sì|Sì|[Indicizzare e cercare Azure Data Lake Storage Gen2 documenti (anteprima)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Rete per la distribuzione di contenuti di Azure|Non ancora supportato|Non applicabile|Non applicabile|[Indicizzare e cercare Azure Data Lake Storage Gen2 documenti (anteprima)](../../cdn/cdn-overview.md)|
-|database SQL di Azure|Non ancora supportato|Non applicabile|Non applicabile|[Informazioni sul database SQL di Azure](/azure/azure-sql/database/sql-database-paas-overview.md)|
+|database SQL di Azure|Non ancora supportato|Non applicabile|Non applicabile|[Informazioni sul database SQL di Azure](/azure/azure-sql/database/sql-database-paas-overview)|
 
 ## <a name="see-also"></a>Vedere anche
 

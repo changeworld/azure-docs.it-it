@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701450"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094863"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -33,8 +33,6 @@ Esistono due tipologie di elenchi di controllo di accesso (ACL): **ACL di access
 
 
 Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
-
-
 
 > [!NOTE]
 > La modifica dell'ACL predefinito per un elemento padre non influisce sull'ACL di accesso o sull'ACL predefinito degli elementi figlio già esistenti.
@@ -74,9 +72,9 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 | Operazione | Oggetto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Elimina    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Creazione    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7555a0b9d7b3336b1020e8f1d9c3445e09afc6f0
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318223"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095186"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Esercitazione per la distribuzione della VM F5 BIG-IP Virtual Edition in Azure IaaS per l'accesso ibrido sicuro
 
@@ -44,7 +44,7 @@ Prima di F5 l'esperienza BIG-IP o la conoscenza non è necessaria, tuttavia, è 
 
 - Un carattere jolly o un certificato di nome alternativo del soggetto (SAN) per pubblicare applicazioni Web tramite Secure Socket Layer (SSL). [La crittografia](https://letsencrypt.org/) consente di ottenere un certificato gratuito di 90 giorni per i test.
 
-- Un certificato SSL per proteggere l'interfaccia di gestione BIG-IPs. È possibile usare un certificato usato per pubblicare le app Web, se il suo soggetto corrisponde al nome di dominio completo (FQDN) del BIG-IP. Ad esempio, un certificato con caratteri jolly definito con Subject *. contoso.com sarà adatto per https://big-ip-vm.contoso.com:8443
+- Un certificato SSL per proteggere l'interfaccia di gestione BIG-IPs. È possibile usare un certificato usato per pubblicare le app Web, se il suo soggetto corrisponde al nome di dominio completo (FQDN) del BIG-IP. Ad esempio, un certificato con caratteri jolly definito con Subject *. contoso.com sarà adatto per `https://big-ip-vm.contoso.com:8443`
 
 La distribuzione delle macchine virtuali e le configurazioni del sistema di base sono necessari circa 30 minuti. a questo punto la piattaforma BIG-IP sarà pronta per l'implementazione di uno degli scenari SHA elencati [qui](f5-aad-integration.md).
 
@@ -71,7 +71,7 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
 
 5. Selezionare **F5 Big-IP Virtual Edition (BYOL)**  >  **selezionare un piano software**  >  **F5 Big-IP ve-all (BYOL, 2 posizioni di avvio)**
 
-6. Selezionare **Crea**.
+6. Selezionare **Create** (Crea).
 
 ![L'immagine mostra i passaggi per selezionare un piano software](./media/f5ve-deployment-plan/software-plan.png)
 
@@ -79,7 +79,7 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
 
  |  Dettagli del progetto     |  Valore     |
  |:-------|:--------|
- |Subscription|Sottoscrizione di destinazione per la distribuzione di macchine virtuali BIG-IP|
+ |Sottoscrizione|Sottoscrizione di destinazione per la distribuzione di macchine virtuali BIG-IP|
  |Resource group | Gruppo di risorse di Azure esistente in cui verrà distribuita la VM BIG-IP o ne verrà creata una. Deve essere lo stesso gruppo di risorse del controller di dominio e delle macchine virtuali IIS|
  | **Dettagli istanza**|  |
  |Nome macchina virtuale| Esempio di BIG-IP-VM |
@@ -214,9 +214,9 @@ I passaggi seguenti presuppongono che la zona DNS del dominio pubblico usato per
 
  | Campo | Valore |
  |:-------|:-----------|
- |Subscription| Stessa sottoscrizione della BIG-IP-VM|
+ |Sottoscrizione| Stessa sottoscrizione della BIG-IP-VM|
  |Zona DNS| Zona DNS autorevole per il suffisso di dominio verificato che i siti Web pubblicati utilizzeranno, ad esempio, www.contoso.com |
- |Nome | Il nome host specificato verrà risolto nell'indirizzo IP pubblico associato all'IP secondario selezionato. Assicurarsi di definire il DNS corretto per i mapping IP. Vedere la sezione Last Image in networking configs, ad esempio intranet.contoso.com > 13.77.148.215|
+ |Name | Il nome host specificato verrà risolto nell'indirizzo IP pubblico associato all'IP secondario selezionato. Assicurarsi di definire il DNS corretto per i mapping IP. Vedere la sezione Last Image in networking configs, ad esempio intranet.contoso.com > 13.77.148.215|
  | TTL | 1 |
  |Unità TTL | Ore |
 
@@ -250,7 +250,7 @@ Per impostazione predefinita, Azure reti virtuali e le subnet associate sono ret
  |Protocollo| TCP |
  |Azione| Consenti|
  |Priorità|Valore minimo disponibile compreso tra 100 e 4096|
- |Nome | Nome descrittivo, ad esempio: `BIG-IP-VM_Web_Services_80_443`|
+ |Name | Nome descrittivo, ad esempio: `BIG-IP-VM_Web_Services_80_443`|
 
 3. Selezionare **Aggiungi** per confermare le modifiche e chiudere il menu **rete** .
 
@@ -296,7 +296,7 @@ Per poter configurare i servizi di pubblicazione e SHA, è necessario che sia at
 
 4. Selezionare **accetta** e attendere il completamento dell'attivazione, prima di selezionare **continua**.
 
-5. Eseguire nuovamente l'accesso e nella parte inferiore della pagina di riepilogo delle licenze selezionare **Avanti**. Il BIG-IP visualizzerà ora un elenco di moduli che forniscono le varie funzionalità necessarie per SHA. Se questa operazione non viene visualizzata, nella scheda principale passare a **System**  >  **provisioning risorse** di sistema.
+5. Eseguire nuovamente l'accesso e nella parte inferiore della pagina di riepilogo delle licenze selezionare **Avanti**. Il BIG-IP visualizzerà ora un elenco di moduli che forniscono le varie funzionalità necessarie per SHA. Se questa operazione non viene visualizzata, nella scheda principale passare a   >  **provisioning risorse** di sistema.
 
 6. Controllare la colonna di provisioning per i criteri di accesso (APM)
 
@@ -321,15 +321,15 @@ La protezione del traffico di gestione da e verso BIG-IPs configurazione Web è 
 
 3. Specificare la password per il certificato e quindi selezionare **Importa** .
 
-4. Dalla barra di spostamento a sinistra passare alla **System**  >  **piattaforma** di sistema
+4. Dalla barra di spostamento a sinistra passare alla   >  **piattaforma** di sistema
 
 5. Configurare la VM BIG-IP con un nome host completo e il fuso orario per il relativo ambiente, seguito da **Update**
 
 ![L'immagine mostra le proprietà generali](./media/f5ve-deployment-plan/general-properties.png)
 
-6. Dalla barra di spostamento a sinistra passare a configurazione di **sistema**  >  **Configuration**  >  **dispositivo**  >  **NTP**
+6. Dalla barra di spostamento a sinistra passare a configurazione di **sistema**  >    >  **dispositivo**  >  **NTP**
 
-7. Specificare un'origine NTP affidabile e selezionare **Aggiungi**, quindi **Aggiorna**. ad esempio, `time.windows.com`
+7. Specificare un'origine NTP affidabile e selezionare **Aggiungi**, quindi **Aggiorna**. Ad esempio, usare `time.windows.com`
 
 È ora necessario un record DNS per risolvere il nome FQDN BIG-IPs specificato nei passaggi precedenti, nel relativo indirizzo IP privato primario. È necessario aggiungere un record al DNS interno dell'ambiente o al file localhost di un PC che verrà usato per connettersi alla configurazione Web di BIG-IP. In entrambi i casi, l'avviso del browser non dovrebbe più essere visualizzato quando ci si connette direttamente alla configurazione Web. Ovvero non tramite il proxy di applicazione o qualsiasi altro proxy inverso.
 
@@ -370,7 +370,7 @@ Il provisioning di entrambi i profili SSL client e server avrà il BIG-IP precon
 
 ![L'immagine mostra l'aggiornamento del carattere jolly Big-IP contoso](./media/f5ve-deployment-plan/contoso-wildcard.png)
 
-10. Ripetere i passaggi 6-9 per creare un **profilo certificato server SSL**. Dalla barra multifunzione superiore selezionare **SSL**  >  **server** SSL  >  **Crea**.
+10. Ripetere i passaggi 6-9 per creare un **profilo certificato server SSL**. Dalla barra multifunzione superiore selezionare   >  **server** SSL  >  **Crea**.
 
 11. Nella pagina **nuovo profilo SSL server** specificare un nome descrittivo univoco per il nuovo profilo SSL del server e verificare che il profilo padre sia impostato su **serverssl**
 
@@ -383,7 +383,7 @@ Il provisioning di entrambi i profili SSL client e server avrà il BIG-IP precon
 
 Un passaggio finale della preparazione di un BIG-IP per SHA consiste nel garantire che sia in grado di individuare le risorse di pubblicazione e anche il servizio directory su cui si basa per SSO. Un BIG-IP ha due origini di risoluzione dei nomi, a partire dal relativo file locale/.../hosts, oppure se non viene trovato un record, il sistema BIG-IP usa qualsiasi servizio DNS con cui è stato configurato. Il metodo del file hosts non si applica ai nodi e ai pool APM che utilizzano un nome di dominio completo.
 
-1. Nel file di configurazione Web passare a configurazione di **sistema**  >  **Configuration**  >  **Device**  >  **DNS** del dispositivo
+1. Nel file di configurazione Web passare a configurazione di **sistema**  >    >    >  **DNS** del dispositivo
 
 2. Nell' **elenco server di ricerca DNS** immettere l'indirizzo IP del server DNS degli ambienti
 
@@ -411,7 +411,7 @@ Se non è possibile aggiornare la le TMO principale, valutare almeno l'aggiornam
 
 Con il sistema BIG-IP ora sottoposta a provisioning completo, è consigliabile eseguire un backup completo della relativa configurazione:
 
-1. Vai a archivi di **sistema**  >  **Archives**  >  **Crea**
+1. Vai a archivi di **sistema**  >    >  **Crea**
 
 2. Specificare un **nome file** univoco e abilitare la **crittografia** con una passphrase
 
@@ -450,7 +450,7 @@ New-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 Il ripristino di un BIG-IP segue una procedura simile al backup e può essere usato anche per la migrazione di configurazioni tra macchine virtuali di grandi dimensioni. Prima di importare un backup, è consigliabile osservare i percorsi di aggiornamento supportati.
 
-1. Vai a **System**  >  **archivi** di sistema
+1. Vai a   >  **archivi** di sistema
 
 2. Scegliere il collegamento di un backup da ripristinare oppure selezionare il pulsante **carica** per passare a un archivio UCS salvato in precedenza che non è incluso nell'elenco
 

@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648243"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095424"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 
@@ -53,7 +53,12 @@ Di seguito sono riportati alcuni dei motivi per cui è consigliabile trasferire 
 - Una parte del business è stata suddivisa in una società separata ed è necessario spostare alcune risorse in un'altra directory Azure AD.
 - Si desidera gestire alcune risorse in una directory Azure AD diversa a scopo di isolamento della sicurezza.
 
-Il trasferimento di una sottoscrizione richiede tempi di inattività per il completamento del processo. A seconda dello scenario, potrebbe essere preferibile ricreare solo le risorse e copiare i dati nella directory e nella sottoscrizione di destinazione.
+### <a name="alternate-approaches"></a>Approcci alternativi
+
+Il trasferimento di una sottoscrizione richiede tempi di inattività per il completamento del processo. A seconda dello scenario, è possibile considerare gli approcci alternativi seguenti:
+
+- Ricreare le risorse e copiare i dati nella directory e nella sottoscrizione di destinazione.
+- Adottare un'architettura a più directory e lasciare la sottoscrizione nella directory di origine. Usare Azure Lighthouse per delegare le risorse in modo che gli utenti nella directory di destinazione possano accedere alla sottoscrizione nella directory di origine. Per altre informazioni, vedere [Azure Lighthouse in Enterprise Scenarios](../lighthouse/concepts/enterprise.md).
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>Comprendere l'effetto del trasferimento di una sottoscrizione
 
@@ -68,7 +73,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Ruoli personalizzati | Sì | Sì | [Elencare ruoli personalizzati](#save-custom-roles) | Tutti i ruoli personalizzati vengono eliminati definitivamente. È necessario ricreare i ruoli personalizzati e le assegnazioni di ruolo. |
 | Identità gestite assegnate dal sistema | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario disabilitare e riabilitare le identità gestite. È necessario ricreare le assegnazioni di ruolo. |
 | Identità gestite assegnate dall'utente | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario eliminare, ricreare e collegare le identità gestite alla risorsa appropriata. È necessario ricreare le assegnazioni di ruolo. |
-| Azure Key Vault | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
+| Insieme di credenziali chiave di Azure | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
 | Database SQL di Azure con Azure AD Integration Authentication abilitato | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Archiviazione di Azure e Azure Data Lake Storage Gen2 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | Azure Data Lake Storage Gen1 | Sì | Sì |  | È necessario ricreare gli ACL. |
@@ -314,7 +319,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Disabilitare e riabilitare le identità gestite assegnate dal sistema.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -330,7 +335,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Elimina, ricrea e Connetti identità gestite assegnate dall'utente.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
@@ -383,3 +388,4 @@ Se si intende rimuovere l'accesso dagli utenti nella directory di origine in mod
 - [Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse in scenari aziendali](../lighthouse/concepts/enterprise.md)

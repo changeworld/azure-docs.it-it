@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 86d4eb68866e35300738a15cbd3549485c3cbafb
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999441"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096337"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -96,7 +96,17 @@ Le route Border Gateway Protocol (BGP) influiscono anche sul traffico dell'app. 
 
 ### <a name="azure-dns-private-zones"></a>Zone private di DNS di Azure 
 
-Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configurata la VNet. È possibile eseguire l'override di questo comportamento nell'app configurando l'impostazione dell'app WEBSITE_DNS_SERVER con l'indirizzo del server DNS desiderato. Se è stato configurato un server DNS personalizzato con il VNet ma si vuole che l'app usi zone private di DNS di Azure, è necessario impostare WEBSITE_DNS_SERVER con il valore 168.63.129.16. 
+Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configurata la VNet. Per impostazione predefinita, l'app non funzionerà con Zone private di DNS di Azure. Per usare Zone private di DNS di Azure, è necessario aggiungere le impostazioni dell'app seguenti:
+
+
+1. WEBSITE_DNS_SERVER con valore 168.63.129.16 1. WEBSITE_DNS_SERVER con valore 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL con valore 1 1. WEBSITE_VNET_ROUTE_ALL con valore 1
+
+
+Queste impostazioni invieranno tutte le chiamate in uscita dall'app in VNet, oltre a consentire all'app di usare le zone private di DNS di Azure.   Queste impostazioni invieranno tutte le chiamate in uscita dall'app in VNet. Consente inoltre all'app di usare il servizio DNS di Azure eseguendo una query sulla zona DNS privato a livello di lavoro. Questa funzionalità deve essere usata quando un'app in esecuzione accede a una zona DNS privato.
+
+> [!NOTE]
+>Il tentativo di aggiungere un dominio personalizzato a un'app Web con DNS privato zona non è possibile con l'integrazione rete virtuale. La convalida del dominio personalizzato viene eseguita a livello di controller, non a livello di ruolo di lavoro, che impedisce la visualizzazione dei record DNS. Per usare un dominio personalizzato da un'area di DNS privato, è necessario ignorare la convalida usando un gateway applicazione o un ambiente del servizio app ILB.
 
 ### <a name="private-endpoints"></a>Endpoint privati
 

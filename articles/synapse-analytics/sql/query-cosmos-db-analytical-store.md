@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744466"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095101"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query Azure Cosmos DB dati con un pool SQL senza server nell'anteprima di Azure sinapsi link
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Non usare `OPENROWSET` senza uno schema definito in modo esplicito perché potrebbe avere un effetto sulle prestazioni. Assicurarsi di usare le dimensioni più piccole possibili per le colonne, ad esempio VARCHAR (100) anziché VARCHAR default (8000). È consigliabile utilizzare alcune regole di confronto UTF-8 come regole di confronto predefinite del database o impostarle come regole di confronto della colonna esplicite per evitare il [problema di conversione UTF-8](/troubleshoot/reading-utf8-text). Le regole di confronto `Latin1_General_100_BIN2_UTF8` offrono prestazioni ottimali quando Yu filtra i dati usando alcune colonne stringa.
+Non usare `OPENROWSET` senza uno schema definito in modo esplicito perché potrebbe avere un effetto sulle prestazioni. Assicurarsi di usare le dimensioni più piccole possibili per le colonne, ad esempio VARCHAR (100) anziché VARCHAR default (8000). È consigliabile utilizzare alcune regole di confronto UTF-8 come regole di confronto predefinite del database o impostarle come regole di confronto della colonna esplicite per evitare il [problema di conversione UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). Le regole di confronto `Latin1_General_100_BIN2_UTF8` offrono prestazioni ottimali quando Yu filtra i dati usando alcune colonne stringa.
 
 ## <a name="query-nested-objects-and-arrays"></a>Eseguire query su oggetti e matrici annidati
 

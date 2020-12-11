@@ -3,12 +3,12 @@ title: Gestione dei progetti di migrazione su larga scala con Azure Migrate
 description: Informazioni su come usare efficacemente Azure Migrate sulle risorse dei clienti Delegate.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: d1a01149c80b30f279f7d68551946c3ffe404d5e
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621570"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095390"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gestione dei progetti di migrazione su larga scala con Azure Migrate
 
@@ -39,7 +39,7 @@ Questo approccio riduce al minimo il cambio di contesto per i provider di serviz
 Il flusso di lavoro per questo modello sarà simile al seguente:
 
 1. Il cliente è caricato [nel Faro di Azure](onboard-customer.md). Il ruolo predefinito collaboratore è necessario per l'identità che verrà utilizzata con Azure Migrate. Per un esempio di utilizzo di questo ruolo, vedere il modello di esempio [Delegated-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) .
-1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto di Azure migrate](/migrate/create-manage-projects.md), selezionando la sottoscrizione appropriata del cliente delegato.
+1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto di Azure migrate](/azure/migrate/create-manage-projects), selezionando la sottoscrizione appropriata del cliente delegato.
 1. L'utente esegue quindi i [passaggi per l'individuazione e la valutazione](../../migrate/tutorial-discover-vmware.md).
 
    Per le macchine virtuali VMware, prima di configurare il dispositivo, è possibile limitare l'individuazione a server vCenter Data Center, cluster, una cartella di cluster, host, una cartella di host o singole macchine virtuali. Per impostare l'ambito, assegnare le autorizzazioni per l'account usato dall'appliance per accedere al server vCenter. Questa operazione è utile se le macchine virtuali di più clienti sono ospitate nell'hypervisor. Non è possibile limitare l'ambito di individuazione di Hyper-V.
@@ -61,7 +61,7 @@ Questo approccio consente ai provider di servizi di avviare rapidamente i proget
 Il flusso di lavoro per questo modello sarà simile al seguente:
 
 1. Il cliente è caricato [nel Faro di Azure](onboard-customer.md). Il ruolo predefinito collaboratore è necessario per l'identità che verrà utilizzata con Azure Migrate. Per un esempio di utilizzo di questo ruolo, vedere il modello di esempio [Delegated-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) .
-1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto Azure migrate](/migrate/create-manage-projects.md) in una sottoscrizione appartenente al tenant di gestione.
+1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto Azure migrate](/azure/migrate/create-manage-projects) in una sottoscrizione appartenente al tenant di gestione.
 1. L'utente esegue quindi i [passaggi per l'individuazione e la valutazione](../../migrate/tutorial-discover-vmware.md). Le macchine virtuali locali verranno individuate e valutate nel progetto di migrazione creato nel tenant di gestione e quindi migrate da tale posizione.
 
    Se si gestiscono più clienti nello stesso host Hyper-V, è possibile individuare tutti i carichi di lavoro contemporaneamente. Le macchine virtuali specifiche del cliente possono essere selezionate nello stesso gruppo, quindi è possibile creare una valutazione e la migrazione può essere eseguita selezionando la sottoscrizione del cliente appropriata come destinazione di destinazione. Non è necessario limitare l'ambito di individuazione ed è possibile mantenere una panoramica completa di tutti i carichi di lavoro dei clienti in un progetto di migrazione.

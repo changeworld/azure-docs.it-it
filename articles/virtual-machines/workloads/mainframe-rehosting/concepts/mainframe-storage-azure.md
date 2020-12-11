@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8f57210ff6b65ee3a893fb344a48629466e90004
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977273"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095356"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Spostare l'archiviazione mainframe in Azure
 
@@ -51,7 +51,7 @@ Archiviazione di Azure è disponibile come Azure [disks](../../../managed-disks-
 
 <table>
 <thead>
-    <tr><th>Type</th><th>Descrizione</th><th>Usare quando si desidera:</th></tr>
+    <tr><th>Tipo</th><th>Descrizione</th><th>Usare quando si desidera:</th></tr>
 </thead>
 <tbody>
 <tr><td>File di Azure
@@ -94,7 +94,7 @@ Il tipo di archiviazione per un determinato sistema dipende dai requisiti del si
 
 Le unità SSD forniscono le massime prestazioni di archiviazione in Azure. Al momento della stesura di questo documento sono disponibili le opzioni seguenti:
 
-| Type         | Dimensione           | Operazioni di I/O al secondo                  |
+| Tipo         | Dimensione           | Operazioni di I/O al secondo                  |
 |--------------|----------------|-----------------------|
 | Ultra SSD    | da 4 GB a 64 TB  | da 1.200 a 160.000 IOPS |
 | SSD Premium  | da 32 GB a 32 TB | da 12 a 15.000 IOPS     |
@@ -127,4 +127,4 @@ Archiviazione BLOB fornisce il maggior volume di archiviazione in Azure. Oltre a
 ### <a name="more-migration-resources"></a>Altre risorse di migrazione
 
 - [Data center virtuale di Azure: guida al lift and shift](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) (iSCSI in GlusterFS)
+- [GlusterFS iSCSI](https://glusterdocs.readthedocs.io/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) (iSCSI in GlusterFS)

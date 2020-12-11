@@ -303,6 +303,8 @@
               href: storage-blob-create-account-block-blob.md
             - name: Aggiornare un account di archiviazione
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: consente di ripristinare un account di archiviazione eliminato
+              href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ottenere il tipo di account e il nome dello SKU (.NET)
               href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Creare e gestire contenitori

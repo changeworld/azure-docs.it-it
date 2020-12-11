@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: caad292f06710fca8d6f64476eead5dfcb164e9d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: f99aedc21c3b51975649f8944ab53536d365a7d1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96537000"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096378"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
@@ -34,7 +34,9 @@ I driver NVIDIA Tesla (CUDA) per le macchine virtuali serie NC, NCv2, NCv3, NCas
 
 Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA GRID per le macchine virtuali serie NV e NVv3 utilizzate come workstation virtuali o per le applicazioni virtuali. Installare solo i driver della griglia nelle macchine virtuali serie NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
 
-I driver della griglia ridistribuiti da Azure non funzionano con macchine virtuali serie non NV come le macchine virtuali serie NC, NCv2, NCv3, ND e NDv2. L'unica eccezione è rappresentata dalla serie di macchine virtuali NCas_T4_V3 in cui i driver della griglia abilitano le funzionalità grafiche simili alla serie NV.
+I driver della griglia ridistribuiti da Azure non funzionano con macchine virtuali serie non NV come le VM NCv2, NCv3, ND e NDv2. L'unica eccezione è rappresentata dalla serie di macchine virtuali NCas_T4_V3 in cui i driver della griglia abilitano le funzionalità grafiche simili alla serie NV.
+
+Le NC-Series con le GPU NVIDIA K80 non supportano le applicazioni GRID/graphics.  
 
 Si noti che l'estensione NVIDIA installerà sempre il driver più recente. Sono disponibili collegamenti alla versione precedente per i clienti che hanno una dipendenza da una versione precedente.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f424a2c3102f7b270a64c612a91d645ab71461fc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184094"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095305"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
 
@@ -22,7 +22,7 @@ Log Analytics si basa su archiviazione di Azure in diversi scenari. Questo utili
 
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Inserimento di log estensioni di Diagnostica di Azure (WAD/LAD)
 Gli agenti di estensione Diagnostica di Azure (detti anche WAD e LAD per gli agenti Windows e Linux rispettivamente) raccolgono vari log del sistema operativo e li archiviano in un account di archiviazione gestito dal cliente. È quindi possibile inserire questi log in Log Analytics per esaminarli e analizzarli.
-Come raccogliere i log di estensione Diagnostica di Azure dall'account di archiviazione, connettere l'account di archiviazione all'area di lavoro di Log Analytics come origine dati di archiviazione usando [il portale di Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) o chiamando l' [API di archiviazione Insights](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Come raccogliere i log di estensione Diagnostica di Azure dall'account di archiviazione, connettere l'account di archiviazione all'area di lavoro di Log Analytics come origine dati di archiviazione usando [il portale di Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) o chiamando l' [API di archiviazione Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Tipi di dati supportati:
 * syslog

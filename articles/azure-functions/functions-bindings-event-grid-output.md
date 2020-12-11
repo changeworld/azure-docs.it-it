@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 6bd4d5d82af213063b2000693e46d22744604480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888afdc2764fed9f0b2c8b548c3e2b1c48e9a31e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88214125"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094677"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associazioni di output di Griglia di eventi di Azure per Funzioni di Azure
 
@@ -100,6 +100,10 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+L'associazione di output di Griglia di eventi non è disponibile per Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli esempi seguenti illustrano i dati di associazione di output di Griglia di eventi nel file *function.json*.
@@ -160,6 +164,70 @@ module.exports = function(context) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Nell'esempio seguente viene illustrato come configurare una funzione per l'output di un messaggio di evento di griglia di eventi. La sezione `type` in cui è impostato per `eventGrid` configurare i valori necessari per stabilire un'associazione di output di griglia di eventi.
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    },
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+Nella funzione usare `Push-OutputBinding` per inviare un evento a un argomento personalizzato tramite l'associazione di output di griglia di eventi.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+
+Push-OutputBinding -Name outputEvent -Value  @{
+    id = "1"
+    EventType = "testEvent"
+    Subject = "testapp/testPublish"
+    EventTime = "2020-08-27T21:03:07+00:00"
+    Data = @{
+        Message = $message
+    }
+    DataVersion = "1.0"
+}
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. Invia quindi un evento all'argomento personalizzato, come specificato da `topicEndpointUri` .
@@ -194,7 +262,6 @@ import logging
 import azure.functions as func
 import datetime
 
-
 def main(eventGridEvent: func.EventGridEvent, 
          outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
 
@@ -209,10 +276,6 @@ def main(eventGridEvent: func.EventGridEvent,
             event_time=datetime.datetime.utcnow(),
             data_version="1.0"))
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-L'associazione di output di Griglia di eventi non è disponibile per Java.
 
 ---
 
@@ -237,19 +300,23 @@ Per un esempio completo, vedere l'[esempio](#example).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
+
+# <a name="java"></a>[Java](#tab/java)
+
+L'associazione di output di Griglia di eventi non è disponibile per Java.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 L'associazione di output di Griglia di eventi non è disponibile per Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-L'associazione di output di Griglia di eventi non è disponibile per Java.
 
 ---
 
@@ -280,17 +347,21 @@ Inviare messaggi con un parametro del metodo, ad esempio `out EventGridEvent par
 
 Inviare messaggi con un parametro del metodo, ad esempio `out EventGridEvent paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. Per scrivere più messaggi, è possibile usare `ICollector<EventGridEvent>` o `IAsyncCollector<EventGridEvent>` al posto di `out EventGridEvent`.
 
+# <a name="java"></a>[Java](#tab/java)
+
+L'associazione di output di Griglia di eventi non è disponibile per Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Accedere all'evento di output usando `context.bindings.<name>` dove `<name>` è il valore specificato nella proprietà `name` di *function.json*.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Accedere all'evento di output usando `Push-OutputBinding` cmdlet per inviare un evento all'associazione di output di griglia di eventi.
+
 # <a name="python"></a>[Python](#tab/python)
 
 L'associazione di output di Griglia di eventi non è disponibile per Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-L'associazione di output di Griglia di eventi non è disponibile per Java.
 
 ---
 

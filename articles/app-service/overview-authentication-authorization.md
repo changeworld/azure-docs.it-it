@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 4f1aceed7e6a41a8ad4f3a062f23a796e31e34ad
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601680"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095237"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
@@ -33,7 +33,7 @@ Per consentire processi sicuri di autenticazione e autorizzazione, è necessario
 
 Per informazioni specifiche per le app per dispositivi mobili native, vedere [Autenticazione e autorizzazione per le app per dispositivi mobili in Servizio app di Azure](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 ### <a name="on-windows"></a>In Windows
 
@@ -152,6 +152,7 @@ Con questa opzione non è necessario scrivere codice di autenticazione nell'app.
 
 ## <a name="more-resources"></a>Altre risorse
 
+* [Esercitazione: autenticare e autorizzare gli utenti in un'app Web che accede ad archiviazione di Azure e Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](tutorial-auth-aad.md)  
 * [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 * [Personalizzare l'autenticazione e l'autorizzazione nel servizio app](app-service-authentication-how-to.md)

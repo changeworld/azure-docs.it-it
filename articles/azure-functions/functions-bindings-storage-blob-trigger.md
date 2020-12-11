@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998840"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094846"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Trigger di archiviazione BLOB di Azure per funzioni di Azure
 
@@ -322,6 +322,9 @@ L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha att
 ## <a name="blob-name-patterns"></a>Modelli di nome BLOB
 
 È possibile specificare un modello di nome di BLOB nella proprietà `path` in *function.json* o nel costruttore dell'attributo `BlobTrigger`. Il modello di nome può essere un'[espressione di filtro o di associazione](./functions-bindings-expressions-patterns.md). Per esempi, vedere le sezioni seguenti.
+
+> [!TIP]
+> Un nome di contenitore non può contenere un resolver nel modello di nome.
 
 ### <a name="get-file-name-and-extension"></a>Ottenere l'estensione e il nome del file
 

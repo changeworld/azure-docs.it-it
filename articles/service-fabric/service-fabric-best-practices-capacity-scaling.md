@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531305"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095288"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
@@ -42,7 +42,7 @@ Con il ridimensionamento automatico tramite i set di scalabilità di macchine vi
 
 ## <a name="vertical-scaling-considerations"></a>Considerazioni sul ridimensionamento verticale
 
-Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-scale-out.md) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. Ad esempio:
+Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-scale-out.md) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. Esempio:
 
 * Prima del ridimensionamento, il cluster deve essere integro, In caso contrario, sarà necessario destabilizzare ulteriormente il cluster.
 * Il livello di durabilità Silver o un valore superiore è necessario per tutti i tipi di nodo del cluster Service Fabric che ospitano i servizi con stato.
@@ -50,21 +50,11 @@ Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-sca
 > [!NOTE]
 > Il tipo di nodo primario che ospita i servizi di sistema Service Fabric con stato deve essere di livello di durabilità Silver o superiore. Una volta abilitata la durabilità Silver, le operazioni del cluster quali gli aggiornamenti, l'aggiunta o la rimozione di nodi e così via saranno più lente perché il sistema ottimizza la protezione dei dati sulla velocità delle operazioni.
 
-Scalabilità verticale un set di scalabilità di macchine virtuali è un'operazione distruttiva. In alternativa, ridimensionare orizzontalmente il cluster aggiungendo un nuovo set di scalabilità con lo SKU desiderato. Eseguire quindi la migrazione dei servizi nello SKU desiderato per completare un'operazione di ridimensionamento verticale sicura. La modifica di uno SKU di risorse del set di scalabilità di macchine virtuali è un'operazione distruttiva perché ricrea le immagini degli host, che rimuove tutto lo stato locale salvato.
+Il ridimensionamento verticale di un set di scalabilità di macchine virtuali semplicemente modificando lo SKU di risorse è un'operazione distruttiva, perché ricrea le immagini degli host, rimuovendo così tutto lo stato locale salvato. È invece opportuno ridimensionare orizzontalmente il cluster aggiungendo un nuovo set di scalabilità con lo SKU desiderato e quindi migrare i servizi al nuovo set di scalabilità per completare un'operazione di ridimensionamento verticale sicura.
 
-Il cluster USA Service Fabric [proprietà del nodo e vincoli di posizionamento](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) per decidere dove ospitare i servizi dell'applicazione. Quando si esegue il ridimensionamento verticale del tipo di nodo primario, dichiarare valori di proprietà identici per `"nodeTypeRef"` . È possibile trovare questi valori nell'estensione Service Fabric per i set di scalabilità di macchine virtuali. 
-
-Il frammento di codice seguente di un modello di Gestione risorse Mostra le proprietà che verranno dichiarate. Ha lo stesso valore per i set di scalabilità di cui si sta eseguendo il ridimensionamento ed è supportato solo come servizio con stato temporaneo per il cluster.
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+Il cluster USA Service Fabric [proprietà del nodo e vincoli di posizionamento](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) per decidere dove ospitare i servizi dell'applicazione. Quando si esegue il ridimensionamento verticale di un tipo di nodo primario, si distribuirà un secondo tipo di nodo primario e quindi si imposterà ( `"isPrimary": false` ) sul tipo di nodo primario originale e si procederà con la disabilitazione dei nodi e la rimozione del set di scalabilità e delle risorse correlate. Per informazioni dettagliate, vedere [ridimensionare un Service Fabric tipo di nodo primario del cluster](service-fabric-scale-up-primary-node-type.md).
 
 > [!NOTE]
-> Non lasciare il cluster in esecuzione con più set di scalabilità che usano lo stesso `nodeTypeRef` valore di proprietà più lungo di quello necessario per completare un'operazione di ridimensionamento verticale corretta.
->
 > Convalidare sempre le operazioni negli ambienti di test prima di provare le modifiche nell'ambiente di produzione. Per impostazione predefinita, Service Fabric servizio di sistema cluster dispone di un vincolo di posizionamento solo per il tipo di nodo primario di destinazione.
 
 Con le proprietà dei nodi e i vincoli di posizionamento dichiarati, eseguire i passaggi seguenti in un'istanza di macchina virtuale alla volta. In questo modo, i servizi di sistema e i servizi con stato vengono arrestati correttamente nell'istanza di macchina virtuale che si sta rimuovendo quando vengono create nuove repliche altrove.
@@ -127,7 +117,7 @@ Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà 
 }
 ```
 
-È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). Ad esempio:
+È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). Esempio:
 
 ```csharp
 using (var client = new FabricClient())
@@ -170,7 +160,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Quando si esegue la scalabilità in un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). È possibile:
+> Quando si esegue la scalabilità in un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). È possibile scegliere:
 > * Chiamare il [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) con il nome del nodo appropriato.
 > * Distribuire il [Service Fabric applicazione di supporto per la scalabilità](https://github.com/Azure/service-fabric-autoscale-helper/) automatica nel cluster. Questa applicazione garantisce che i nodi con scalabilità orizzontale vengano cancellati dal Service Fabric Explorer.
 

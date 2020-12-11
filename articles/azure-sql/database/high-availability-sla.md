@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: e5e58f8592fcf8627870c3a574335bbe34394064
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452465"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095441"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -122,7 +122,7 @@ La disponibilità elevata è una parte fondamentale del database SQL e della pia
 
 |Tipo di distribuzione|PowerShell|API REST| Interfaccia della riga di comando di Azure|
 |:---|:---|:---|:---|
-|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover del database](/rest/api/sql/databases(failover)/failover/)|[AZ Rest](/cli/azure/reference-index#az-rest) può essere usato per richiamare una chiamata API REST dall'interfaccia della riga di comando di Azure|
+|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover del database](/rest/api/sql/databases/failover)|[AZ Rest](/cli/azure/reference-index#az-rest) può essere usato per richiamare una chiamata API REST dall'interfaccia della riga di comando di Azure|
 |Pool elastico|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover del pool elastico](/rest/api/sql/elasticpools(failover)/failover/)|[AZ Rest](/cli/azure/reference-index#az-rest) può essere usato per richiamare una chiamata API REST dall'interfaccia della riga di comando di Azure|
 |database SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Istanze gestite-failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[failover AZ SQL mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
 

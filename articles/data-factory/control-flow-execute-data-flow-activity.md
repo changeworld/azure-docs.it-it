@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 11/24/2020
-ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003948"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095084"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
@@ -61,7 +61,7 @@ Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | Sì
 integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati. Se non è specificato, verrà usato il runtime di integrazione di Azure per la risoluzione automatica. | IntegrationRuntimeReference | No
 Compute. coreCount | Il numero di core usati nel cluster Spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure per la risoluzione automatica | 8, 16, 32, 48, 80, 144, 272 | No
 Compute. computeType | Tipo di calcolo usato nel cluster Spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure per la risoluzione automatica | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging. linkedService | Se si usa un'origine o un sink di analisi sinapsi di Azure, specificare l'account di archiviazione usato per la gestione temporanea di base.<br/><br/>Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Sono inoltre disponibili informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.<br/> | LinkedServiceReference | Solo se il flusso di dati legge o scrive in un'analisi di sinapsi di Azure
+staging. linkedService | Se si usa un'origine o un sink di analisi sinapsi di Azure, specificare l'account di archiviazione usato per la gestione temporanea di base.<br/><br/>Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Sono inoltre disponibili informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.<br/> | LinkedServiceReference | Solo se il flusso di dati legge o scrive in un'analisi di sinapsi di Azure
 staging. folderPath | Se si usa un'origine o un sink di analisi sinapsi di Azure, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | string | Solo se il flusso di dati legge o scrive in Azure sinapsi Analytics
 traceLevel | Impostare il livello di registrazione dell'esecuzione dell'attività flusso di dati | Fine, grossolana, nessuna | No
 
@@ -88,7 +88,7 @@ Per le esecuzioni di pipeline, il cluster è un cluster di processi che richiede
 
 ### <a name="polybase"></a>PolyBase
 
-Se si usa un'analisi delle sinapsi di Azure (in precedenza SQL Data Warehouse) come sink o origine, è necessario scegliere un percorso di gestione temporanea per il carico batch di base. La polibase consente il caricamento batch in blocco anziché il caricamento dei dati riga per riga. La polibase riduce drasticamente il tempo di caricamento in Azure sinapsi Analytics.
+Se si usa un'analisi di sinapsi di Azure come sink o origine, è necessario scegliere un percorso di gestione temporanea per il carico batch di base. La polibase consente il caricamento batch in blocco anziché il caricamento dei dati riga per riga. La polibase riduce drasticamente il tempo di caricamento in Azure sinapsi Analytics.
 
 ## <a name="logging-level"></a>Livello di registrazione
 

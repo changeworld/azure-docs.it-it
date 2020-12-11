@@ -869,7 +869,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architecture
+            - name: Architettura
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md
@@ -944,8 +944,6 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Misurare il benchmark di un disco
               href: disks-benchmarks.md
-            - name: Ottimizzazione delle prestazioni
-              href: optimization.md
         - name: Trovare dischi non collegati - Interfaccia della riga di comando
           href: find-unattached-disks.md
         - name: Trovare dischi non collegati - Portale
