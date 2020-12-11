@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Eseguire esperimenti con ML automatizzato di Azure'
-description: Esercitazione su come eseguire esperimenti di Machine Learning usando Apache Spark e ML automatizzato di Azure
+title: 'Esercitazione: Eseguire il training di un modello in Python con ML automatizzato'
+description: Esercitazione su come eseguire il training di un modello di Machine Learning in Python in Azure Synapse usando Apache Spark e ML automatizzato.
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: abb7266d90171abc628739aa8f50f1760a32f68d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458828"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093333"
 ---
-# <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Esercitazione: Eseguire esperimenti con ML automatizzato di Azure e Apache Spark
+# <a name="tutorial-train-a-machine-learning-model-in-python-in-azure-synapse-with-apache-spark-and-automated-ml"></a>Esercitazione: Eseguire il training di un modello di Machine Learning in Python in Azure Synapse con Apache Spark e ML automatizzato
 
 Azure Machine Learning offre un ambiente basato sul cloud che consente di sottoporre a training, distribuire, automatizzare, gestire e monitorare i modelli di Machine Learning. 
 
@@ -155,11 +155,11 @@ Il codice seguente ottiene l'area di lavoro esistente e l'archivio dati predefin
 import pandas 
 from azureml.core import Dataset
 
-# Get the AML Default Datastore
+# Get the Azure Machine Learning Default Datastore
 datastore = ws.get_default_datastore()
 training_pd = training_data.toPandas().to_csv('training_pd.csv', index=False)
 
-# Convert into AML Tabular Dataset
+# Convert into Azure Machine Learning Tabular Dataset
 datastore.upload_files(files = ['training_pd.csv'],
                        target_path = 'train-dataset/tabular/',
                        overwrite = True,
@@ -168,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 ```
 ![Immagine del set di dati caricato.](./media/azure-machine-learning-spark-notebook/upload-dataset.png)
 
-## <a name="submit-an-automl-experiment"></a>Inviare un esperimento di ML automatizzato
+## <a name="submit-an-automated-ml-experiment"></a>Inviare un esperimento di ML automatizzato
 
 #### <a name="define-training-settings"></a>Definire le impostazioni di training
 1. Per inviare un esperimento, è necessario definire le relative impostazioni dei parametri e del modello per il training. L'elenco completo delle impostazioni è disponibile [qui](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
@@ -221,7 +221,7 @@ Una volta completato l'esperimento, l'output restituirà i dettagli sulle iteraz
 ![Screenshot dell'output del modello.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
-> Una volta inviato, l'esperimento AutoML eseguirà varie iterazioni e tipi di modello. Questa esecuzione richiede in genere 1-1,5 ore. 
+> Una volta inviato, l'esperimento di ML automatizzato eseguirà varie iterazioni e tipi di modello. Questa esecuzione richiede in genere 1-1,5 ore. 
 
 #### <a name="retrieve-the-best-model"></a>Recuperare il modello migliore
 Per selezionare il modello migliore dalle iterazioni, si userà la funzione ```get_output``` per restituire l'esecuzione migliore e il modello adattato. Il codice seguente recupera l'esecuzione migliore e il modello adattato per qualsiasi metrica registrata o per un'iterazione specifica.
@@ -325,7 +325,7 @@ plt.show()
 Una volta convalidato il modello migliore, è possibile registrarlo in Azure Machine Learning. Dopo la registrazione, è possibile scaricare o distribuire il modello registrato e ricevere tutti i file registrati.
 
 ```python
-description = 'My AutoML Model'
+description = 'My automated ML model'
 model_path='outputs/model.pkl'
 model = best_run.register_model(model_name = 'NYCGreenTaxiModel', model_path = model_path, description = description)
 print(model.name, model.version)
