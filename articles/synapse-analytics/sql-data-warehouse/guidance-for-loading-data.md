@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a96d49a029eb83e24c1fb86954406693aa9c33a3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456302"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093962"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati con pool SQL dedicati in Azure sinapsi Analytics
 
@@ -71,6 +71,9 @@ Connettersi al pool SQL dedicato e creare un utente. Il codice seguente presuppo
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>Si tratta di un esempio estremo di allocazione delle risorse del 100% del pool SQL a un singolo carico. Questa operazione consentirà di ottenere una concorrenza massima pari a 1. Tenere presente che questa operazione deve essere usata solo per il caricamento iniziale in cui è necessario creare gruppi di carico di lavoro aggiuntivi con le rispettive configurazioni per equilibrio le risorse nei carichi di lavoro. 
 
 Per eseguire un caricamento con risorse per il gruppo del carico di lavoro di caricamento, accedere come caricatore ed eseguire il caricamento.
 

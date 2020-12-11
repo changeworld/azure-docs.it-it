@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 12/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368815"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032967"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomi di sottodominio personalizzati per servizi cognitivi
 
@@ -39,7 +39,7 @@ No. L'endpoint a livello di area continuerà a funzionare per servizi cognitivi 
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>Che cosa succede se un SDK chiede l'area per una risorsa?
 
 > [!WARNING]
-> Al momento i servizi di riconoscimento vocale **non** supportano sottodomini personalizzati. Usare gli endpoint regionali quando si usano i servizi di riconoscimento vocale e gli SDK associati.
+> I servizi vocali usano sottodomini personalizzati **solo** con [endpoint privati](Speech-Service/speech-services-private-link.md) . In tutti gli altri casi, usare **endpoint internazionali** con servizi di riconoscimento vocale e SDK associati.
 
 Gli endpoint internazionali e i nomi di sottodominio personalizzati sono supportati e possono essere usati in modo interscambiabile. Tuttavia, l'endpoint completo è obbligatorio.
 

@@ -9,12 +9,12 @@ ms.date: 11/18/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: bad71cfeb8f15f463bb9659be704374325d1f50a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5efdfcea7b6d727038bad124368179b9395bfafd
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462003"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093278"
 ---
 # <a name="azure-synapse-analytics-notebooks"></a>Notebook di Azure sinapsi Analytics
 
@@ -51,4 +51,4 @@ I notebook sono anche ampiamente usati per la preparazione dei dati, la visualiz
   - [Creare un notebook](./spark/../../quickstart-apache-spark-notebook.md)
   - [Creare visualizzazioni usando i notebook di sinapsi Studio](./spark/../apache-spark-data-visualization-tutorial.md)
   - [Creazione di modelli di Machine Learning con Apache Spark MLlib](./spark/../apache-spark-machine-learning-mllib-notebook.md)
-  - [Creazione di modelli di Machine Learning con Azure AutoML](./spark/../apache-spark-azure-machine-learning-tutorial.md)
+  - [Creazione di modelli di Machine Learning con Azure Automated ML](./spark/../apache-spark-azure-machine-learning-tutorial.md)

@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
-ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 0719f2d9200741798c798aca4b4196812f1229c9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
+ms.openlocfilehash: 636f63b3f7e43bd8f27d1df58ab82d24bd19a616
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458448"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033749"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 
@@ -192,7 +192,7 @@ Per assegnare un'identità assegnata all'utente a un cluster di calcolo di Azure
 
 Per eseguire operazioni MLflow con l'area di lavoro Azure Machine Learning, usare gli ambiti seguenti per il ruolo personalizzato:
 
-| Operazione MLflow | Scope |
+| Operazione MLflow | Ambito |
 | --- | --- |
 | Elencare tutti gli esperimenti nell'archivio di rilevamento dell'area di lavoro, ottenere un esperimento in base all'ID, ottenere un esperimento per nome | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
 | Creare un esperimento con un nome, impostare un tag per un esperimento, ripristinare un esperimento contrassegnato per l'eliminazione| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 

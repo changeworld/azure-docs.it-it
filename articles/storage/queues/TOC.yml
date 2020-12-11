@@ -119,6 +119,8 @@
           href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Aggiornare un account di archiviazione
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: consente di ripristinare un account di archiviazione eliminato
+          href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Proteggere i dati della coda
       items:
         - name: Autorizzare l'accesso ai dati della coda

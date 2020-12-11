@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: 6c1b19927207e1accb4ae6c47625eed41a6b0b92
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83c149e92276265b5b5236ae56c475d7307c18e4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967789"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093911"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installazione di SAP HANA in macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
@@ -88,7 +88,7 @@ Una delle specifiche di Azure è l'installazione di un'estensione di macchina vi
 -  [Distribuzione di Macchine virtuali di Azure per SAP NetWeaver](./deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## <a name="sap-hana-installation"></a>Installazione di SAP HANA
-Con le macchine virtuali di Azure distribuite e i sistemi operativi registrati e configurati, è possibile installare SAP HANA in base all'installazione di SAP. Per iniziare a usare questa documentazione, iniziare da questo sito Web SAP [risorse Hana](https://www.sap.com/products/hana/implementation/resources.html)
+Con le macchine virtuali di Azure distribuite e i sistemi operativi registrati e configurati, è possibile installare SAP HANA in base all'installazione di SAP. Per iniziare a usare questa documentazione, iniziare da questo sito Web SAP [risorse Hana](https://www.sap.com/products/s4hana-erp.html?btp=9d3e6f82-d8ab-4122-8d2d-bf4971217afd)
 
 Per SAP HANA configurazioni con scalabilità orizzontale usando dischi collegati direttamente di archiviazione Premium di Azure o ultra disk, leggi le specifiche nel documento [SAP Hana le configurazioni e le operazioni dell'infrastruttura in Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 04621a37b53989ef36901c74421161eddd0a18f4
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 271812320b60daa8f975ed31b328fa143ec0feb3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753638"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094234"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Baseline della sicurezza di Azure per Azure Migrate
 
@@ -303,7 +303,7 @@ Modalità di configurazione
 
 ## <a name="logging-and-threat-detection"></a>Registrazione e rilevamento delle minacce
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>2\. Abilitare il rilevamento delle minacce per la gestione delle identità e degli accessi di Azure
 
@@ -467,7 +467,7 @@ Contrassegnare inoltre le risorse tramite tag e creare un sistema di denominazio
 
 ## <a name="posture-and-vulnerability-management"></a>Gestione del comportamento e della vulnerabilità
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Gestione del comportamento e della vulnerabilità](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Gestione del comportamento e della vulnerabilità](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Eseguire una simulazione di attacco regolare
 
@@ -517,9 +517,9 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 - [Cloud Adoption Framework - Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - Gestione degli asset](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - Gestione degli asset](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Azure Security Benchmark - Protezione dei dati](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Protezione dei dati](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -547,7 +547,7 @@ Assicurarsi che la strategia di segmentazione venga implementata in modo coerent
 
 **Linee guida**: misurare costantemente e attenuare i rischi per i singoli asset e per l'ambiente in cui sono ospitati. Assegnare la priorità agli asset di valore elevato e alle superfici di attacco altamente esposte, ad esempio applicazioni pubblicate, punti di ingresso e di uscita della rete, endpoint utente e amministratore e così via.
 
-- [Azure Security Benchmark - Gestione del comportamento e della vulnerabilità](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Gestione del comportamento e della vulnerabilità](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -588,7 +588,7 @@ La strategia deve includere linee guida documentate, criteri e standard per gli 
 Per altre informazioni, vedere i riferimenti seguenti:
 - [Procedura di sicurezza consigliata di Azure 11 - Architettura. Strategia di sicurezza unificata singola](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Sicurezza di rete](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Sicurezza di rete](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Panoramica della sicurezza di rete di Azure](../security/fundamentals/network-overview.md)
 
@@ -616,9 +616,9 @@ La strategia deve includere linee guida documentate, criteri e standard per gli 
 
 Per altre informazioni, vedere i riferimenti seguenti:
 
-- [Azure Security Benchmark - Gestione delle identità](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Gestione delle identità](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Azure Security Benchmark - Accesso con privilegi](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Accesso con privilegi](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Procedura di sicurezza consigliata di Azure 11 - Architettura. Strategia di sicurezza unificata singola](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -650,9 +650,9 @@ La strategia deve includere linee guida documentate, criteri e standard per gli 
 
 Per altre informazioni, vedere i riferimenti seguenti:
 
-- [Azure Security Benchmark - Registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Risposta agli eventi imprevisti](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Risposta agli eventi imprevisti](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Procedura di sicurezza consigliata di Azure 4 - Processo. Aggiornare i processi di risposta agli eventi imprevisti per il cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0dfb518a22fd84e0280577382715d6e554e914e8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: fa8f9ad2d15730d2a0a2c1a722aa3970bbc8f173
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753995"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033987"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -73,7 +73,7 @@ La tabella riepiloga i requisiti di migrazione senza agenti per le macchine virt
 **IPv6** | Non supportata.
 **Disco di destinazione** | È possibile eseguire la migrazione delle macchine virtuali solo a Managed Disks (standard HDD, SSD standard, unità SSD Premium) in Azure.
 **Replica simultanea** | 300 VM per ogni server vCenter. Se si dispone di altro, eseguirne la migrazione in batch di 300.
-
+**Installazione automatica dell'agente di macchine virtuali di Azure (agente Windows)** | Supportato per Windows Server 2008 R2 e versioni successive.
 
 ### <a name="appliance-requirements-agentless"></a>Requisiti del dispositivo (senza agenti)
 

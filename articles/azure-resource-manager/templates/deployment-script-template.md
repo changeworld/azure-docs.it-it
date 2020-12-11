@@ -7,16 +7,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030451"
+ms.locfileid: "97092755"
 ---
-# <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
+# <a name="use-deployment-scripts-in-arm-templates-preview"></a>Usare gli script di distribuzione nei modelli ARM (anteprima)
 
-Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager. Con un nuovo tipo di risorsa denominato `Microsoft.Resources/deploymentScripts` , gli utenti possono eseguire script nelle distribuzioni di modelli ed esaminare i risultati dell'esecuzione. Questi script possono essere usati per eseguire passaggi personalizzati, ad esempio:
+Informazioni su come usare gli script di distribuzione nei modelli di risorse di Azure (modelli ARM). Con un nuovo tipo di risorsa denominato `Microsoft.Resources/deploymentScripts` , gli utenti possono eseguire script nelle distribuzioni di modelli ed esaminare i risultati dell'esecuzione. Questi script possono essere usati per eseguire passaggi personalizzati, ad esempio:
 
 - Aggiungere utenti a una directory
 - Eseguire operazioni sul piano dati, ad esempio, copiare i BLOB o il database di inizializzazione
@@ -39,7 +39,7 @@ La risorsa script di distribuzione è disponibile solo nelle aree in cui è disp
 
 > [!IMPORTANT]
 > L'API della risorsa deploymentScripts versione 2020-10-01 supporta [OnBehalfofTokens (OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Con OBO, il servizio script di distribuzione usa il token dell'entità di distribuzione per creare le risorse sottostanti per l'esecuzione di script di distribuzione, tra cui l'istanza di contenitore di Azure, l'account di archiviazione di Azure e le assegnazioni di ruolo per l'identità gestita. Nella versione precedente dell'API, l'identità gestita viene usata per creare queste risorse.
-> La logica di ripetizione dei tentativi per l'accesso ad Azure è ora incorporata nello script wrapper. Se si concedono le autorizzazioni nello stesso modello in cui si eseguono gli script di distribuzione.  Il servizio script di distribuzione ritenta l'accesso per 10 minuti con un intervallo di 10 secondi fino a quando non viene replicata l'assegnazione del ruolo identità gestita.
+> La logica di ripetizione dei tentativi per l'accesso ad Azure ora è incorporata nello script wrapper. Se si concedono le autorizzazioni nello stesso modello in cui si eseguono gli script di distribuzione.  Il servizio script di distribuzione esegue nuovi tentativi di accesso per 10 minuti con intervallo di 10 secondi fino a quando non viene replicata l'assegnazione di ruolo identità gestita.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -143,7 +143,7 @@ Dettagli sui valori delle proprietà:
 - **azPowerShellVersion**/**azCliVersion**: Specificare la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [Prerequisiti](#prerequisites).
 - **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
 
-    Gli script di distribuzione suddividono gli argomenti in una matrice di stringhe richiamando la chiamata di sistema [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Questa operazione è necessaria perché gli argomenti vengono passati come [proprietà del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a un'istanza di contenitore di Azure e la proprietà Command è una matrice di stringa.
+    Gli script di distribuzione suddividono gli argomenti in una matrice di stringhe richiamando la chiamata di sistema [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Questo passaggio è necessario perché gli argomenti vengono passati come [proprietà del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a un'istanza di contenitore di Azure e la proprietà Command è una matrice di stringa.
 
     Se gli argomenti contengono caratteri di escape, usare [JsonEscaper](https://www.jsonescaper.com/) per eseguire il doppio escape dei caratteri. Incollare la stringa di escape originale nello strumento, quindi selezionare **escape**.  Lo strumento restituisce una doppia stringa con caratteri di escape. Nel modello di esempio precedente, ad esempio, l'argomento è **-Name \\ "John Dole \\ "**.  La stringa con caratteri di escape è il **nome \\ \\ \\ "John Dole \\ \\ \\ "**.
 
@@ -161,7 +161,7 @@ Dettagli sui valori delle proprietà:
 - **supportingScriptUris**: Specificare una matrice di URL accessibili pubblicamente per supportare i file che vengono chiamati in `ScriptContent` o `PrimaryScriptUri`.
 - **timeout**: specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
 - **cleanupPreference**. Specificare la preferenza per la pulizia delle risorse di distribuzione quando l'esecuzione dello script si trova in uno stato terminale. L'impostazione predefinita è **Sempre**, che indica l'eliminazione delle risorse nonostante lo stato del terminale (Riuscito, Non riuscito, Annullato). Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
-- **retentionInterval**: Specificare l'intervallo per cui il servizio mantiene le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione ha raggiunto uno stato finale. Le risorse dello script di distribuzione verranno eliminate alla scadenza di tale durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L'intervallo di conservazione è compreso tra 1 e 26 ore (PT26H). Questa proprietà viene usata quando l'opzione cleanupPreference è impostata su *OnExpiration*. La proprietà *OnExpiration* non è attualmente abilitata. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
+- **retentionInterval**: Specificare l'intervallo per cui il servizio mantiene le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione ha raggiunto uno stato finale. Le risorse dello script di distribuzione verranno eliminate alla scadenza di tale durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L'intervallo di conservazione è compreso tra 1 e 26 ore (PT26H). Questa proprietà viene usata quando l'opzione cleanupPreference è impostata su *OnExpiration*. La proprietà *Onexpirement* non è attualmente abilitata. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Altri esempi
 
@@ -209,7 +209,7 @@ Per visualizzare un esempio, selezionare [qui](https://github.com/Azure/azure-do
 
 I file di script esterni devono essere accessibili.  Per proteggere i file di script archiviati negli account di archiviazione di Azure, vedere [Distribuire un modello ARM privato con token di firma di accesso condiviso](./secure-template-with-sas-token.md).
 
-L'utente è responsabile di garantire l'integrità degli script a cui viene fatto riferimento dallo script di distribuzione, **PrimaryScriptUri** o **SupportingScriptUris**.  Fare riferimento solo a script attendibili.
+L'utente è responsabile di garantire l'integrità degli script a cui viene fatto riferimento dallo script di distribuzione, ovvero **PrimaryScriptUri** o **SupportingScriptUris**.  Fare riferimento solo a script attendibili.
 
 ## <a name="use-supporting-scripts"></a>Usare script di supporto
 
@@ -229,7 +229,7 @@ L'utente è responsabile di garantire l'integrità degli script a cui viene fatt
 
 I file script di supporto possono essere chiamati sia da script inline che da file di script primari. I file di script di supporto non prevedono alcuna restrizione sull'estensione di file.
 
-I file di supporto vengono copiati in azscripts/azscriptinput in fase di esecuzione. Usare il percorso relativo per fare riferimento ai file di supporto da script inline e file di script primari.
+I file di supporto vengono copiati in `azscripts/azscriptinput` in fase di esecuzione. Usare il percorso relativo per fare riferimento ai file di supporto da script inline e file di script primari.
 
 ## <a name="work-with-outputs-from-powershell-script"></a>Usare gli output dello script di PowerShell
 
@@ -245,7 +245,7 @@ reference('<ResourceName>').output.text
 
 ## <a name="work-with-outputs-from-cli-script"></a>Usare gli output dello script dell'interfaccia della riga di comando
 
-Diversamente dallo script di distribuzione di PowerShell, il supporto CLI/Bash non espone una variabile comune per archiviare gli output di script, ma è presente una variabile di ambiente denominata **AZ_SCRIPTS_OUTPUT_PATH** che archivia il percorso in cui risiede il file di output dello script. Se uno script di distribuzione viene eseguito da un modello di Resource Manager, questa variabile di ambiente viene impostata automaticamente dalla shell Bash.
+Diverso dallo script di distribuzione di PowerShell, il supporto CLI/bash non espone una variabile comune per archiviare gli output di script, ma è presente una variabile di ambiente denominata **AZ_SCRIPTS_OUTPUT_PATH** che archivia il percorso in cui risiede il file di output dello script. Se uno script di distribuzione viene eseguito da un modello di Resource Manager, questa variabile di ambiente viene impostata automaticamente dalla shell Bash.
 
 Gli output dello script di distribuzione devono essere salvati nel percorso AZ_SCRIPTS_OUTPUT_PATH e devono essere un oggetto stringa JSON valido. Il contenuto del file deve essere salvato come coppia chiave-valore. Una matrice di stringhe, ad esempio, viene archiviata come { "MyResult": [ "foo", "bar"] }.  L'archiviazione solo dei risultati della matrice, ad esempio [ "foo", "bar" ], non è valida.
 
@@ -309,15 +309,15 @@ Il servizio script imposta lo stato di provisioning delle risorse su **non riusc
 
 L'impostazione delle variabili di ambiente (EnvironmentVariable) nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Lo script di distribuzione gestisce variabili di ambiente non protette e protette in modo analogo all'istanza di contenitore di Azure. Per altre informazioni, vedere [Impostare variabili di ambiente in istanze di contenitore](../../container-instances/container-instances-environment-variables.md#secure-values).
 
-La dimensione massima consentita per le variabili di ambiente è 64 kB.
+La dimensione massima consentita per le variabili di ambiente è 64 KB.
 
 ## <a name="monitor-and-troubleshoot-deployment-scripts"></a>Monitorare e risolvere i problemi degli script di distribuzione
 
-Il servizio script crea un [account di archiviazione](../../storage/common/storage-account-overview.md) (a meno che non si specifichi un account di archiviazione esistente) e un'[istanza di contenitore](../../container-instances/container-instances-overview.md) per l'esecuzione dello script. Se queste risorse vengono create automaticamente dal servizio script, entrambe hanno il suffisso **azscripts** nei nomi delle risorse.
+Il servizio script crea un [account di archiviazione](../../storage/common/storage-account-overview.md) (a meno che non si specifichi un account di archiviazione esistente) e un'[istanza di contenitore](../../container-instances/container-instances-overview.md) per l'esecuzione dello script. Se queste risorse vengono create automaticamente dal servizio script, entrambe le risorse hanno il `azscripts` suffisso nei nomi delle risorse.
 
 ![Nomi delle risorse dello script di distribuzione del modello di Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
-Lo script utente, i risultati dell'esecuzione e il file stdout vengono archiviati nelle condivisioni file dell'account di archiviazione. È presente una cartella denominata **azscripts**. Nella cartella sono presenti altre due cartelle per i file di input e di output: **azscriptinput** e **azscriptoutput**.
+Lo script utente, i risultati dell'esecuzione e il file stdout vengono archiviati nelle condivisioni file dell'account di archiviazione. È presente una cartella denominata `azscripts` . Nella cartella sono disponibili altre due cartelle per i file di input e di output: `azscriptinput` e `azscriptoutput` .
 
 La cartella di output contiene un file **executionresult.json** e il file di output dello script. È possibile visualizzare il messaggio di errore dell'esecuzione dello script in **executionresult.json**. Il file di output viene creato solo quando lo script viene eseguito correttamente. La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. È possibile sostituire il file di script di distribuzione dell'utente con uno modificato ed eseguire nuovamente lo script di distribuzione dall'istanza di contenitore di Azure.
 
@@ -521,7 +521,7 @@ Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra 
 
 ## <a name="clean-up-deployment-script-resources"></a>Pulire le risorse dello script di distribuzione
 
-Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili opzioni per specificare un account di archiviazione esistente. In caso contrario, l'account di archiviazione e l'istanza di contenitore vengono creati automaticamente dal servizio script. Le due risorse create automaticamente vengono eliminate dal servizio script quando l'esecuzione dello script di distribuzione raggiunge uno stato finale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per informazioni sui prezzi, vedere [Prezzi di Istanze di Container](https://azure.microsoft.com/pricing/details/container-instances/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili opzioni per specificare un account di archiviazione esistente. In caso contrario, l'account di archiviazione e l'istanza di contenitore vengono creati automaticamente dal servizio script. Le due risorse create automaticamente vengono eliminate dal servizio script quando l'esecuzione dello script di distribuzione raggiunge uno stato finale. Verranno addebitate le risorse fino a quando le risorse non verranno eliminate. Per informazioni sui prezzi, vedere [Prezzi di Istanze di Container](https://azure.microsoft.com/pricing/details/container-instances/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Il ciclo di vita di queste risorse è controllato dalle proprietà seguenti nel modello:
 
@@ -536,13 +536,13 @@ Il ciclo di vita di queste risorse è controllato dalle proprietà seguenti nel 
 > [!NOTE]
 > Non è consigliabile usare l'account di archiviazione e l'istanza di contenitore generati dal servizio script per altri scopi. Le due risorse potrebbero essere rimosse a seconda del ciclo di vita dello script.
 
-Per mantenere l'istanza del contenitore e l'account di archiviazione per la risoluzione dei problemi, è possibile aggiungere un comando di sospensione nello script.  Ad esempio [, Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
+Per mantenere l'istanza del contenitore e l'account di archiviazione per la risoluzione dei problemi, è possibile aggiungere un comando di sospensione nello script.  Ad esempio, usare [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## <a name="run-script-more-than-once"></a>Eseguire lo script più di una volta
 
-L'esecuzione dello script di distribuzione è un'operazione idempotente. Se nessuna delle proprietà della risorsa deploymentScripts (incluso lo script inline) viene modificata, lo script non verrà eseguito quando si ridistribuisce il modello. Il servizio script di distribuzione confronta i nomi delle risorse nel modello con le risorse esistenti nello stesso gruppo di risorse. Se si vuole eseguire lo stesso script di distribuzione più volte, sono disponibili due opzioni:
+L'esecuzione dello script di distribuzione è un'operazione idempotente. Se nessuna delle proprietà della risorsa deploymentScripts (incluso lo script inline) viene modificata, lo script non viene eseguito quando si ridistribuisce il modello. Il servizio script di distribuzione confronta i nomi delle risorse nel modello con le risorse esistenti nello stesso gruppo di risorse. Se si vuole eseguire lo stesso script di distribuzione più volte, sono disponibili due opzioni:
 
-- Modificare il nome della risorsa deploymentScripts. Usare, ad esempio, la funzione di modello [utcNow](./template-functions-date.md#utcnow) come nome della risorsa o come parte del nome della risorsa. Se si modifica il nome della risorsa, viene creata una nuova risorsa deploymentScripts. È utile per mantenere una cronologia dell'esecuzione dello script.
+- Modificare il nome della risorsa deploymentScripts. Usare, ad esempio, la funzione di modello [utcNow](./template-functions-date.md#utcnow) come nome della risorsa o come parte del nome della risorsa. Se si modifica il nome della risorsa, viene creata una nuova risorsa deploymentScripts. È opportuno mantenere una cronologia dell'esecuzione dello script.
 
     > [!NOTE]
     > La funzione utcNow può essere usata solo nel valore predefinito per un parametro.
@@ -563,7 +563,7 @@ Una volta testato correttamente lo script, è possibile utilizzarlo come script 
 | Codice di errore | Descrizione |
 |------------|-------------|
 | DeploymentScriptInvalidOperation | La definizione di risorsa dello script di distribuzione nel modello contiene nomi di proprietà non validi. |
-| DeploymentScriptResourceConflict | Non è possibile eliminare una risorsa dello script di distribuzione che si trova nello stato non terminale e l'esecuzione non ha superato 1 ora. In alternativa, non è possibile eseguire di nuovo lo stesso script di distribuzione con lo stesso identificatore di risorsa (stessa sottoscrizione, nome del gruppo di risorse e nome della risorsa) ma contenuto del corpo dello script diverso nello stesso momento. |
+| DeploymentScriptResourceConflict | Non è possibile eliminare una risorsa dello script di distribuzione che si trova nello stato non terminale e l'esecuzione non ha superato 1 ora. In alternativa, non è possibile eseguire di nuovo lo stesso script di distribuzione con lo stesso identificatore di risorsa (stessa sottoscrizione, nome del gruppo di risorse e nome della risorsa), ma contenuto del corpo dello script diverso nello stesso momento. |
 | DeploymentScriptOperationFailed | Operazione script di distribuzione non riuscita internamente. Contattare il supporto tecnico Microsoft. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | La chiave di accesso non è stata specificata per l'account di archiviazione esistente.|
 | DeploymentScriptContainerGroupContainsInvalidContainers | Un gruppo di contenitori creato dal servizio script di distribuzione è stato modificato esternamente e sono stati aggiunti contenitori non validi. |

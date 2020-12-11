@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9fd361dea43b1cfa6ae45710a3a7bbf4e4de03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b18e1cd20a4b0a886258fd56003cd273d92381fa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006286"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093979"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architettura di rete di SAP HANA (istanze Large)
 
@@ -149,7 +149,7 @@ Per impostazione predefinita, il routing transitivo non funziona in questi scena
 Esistono tre modi per abilitare il routing transitivo in questi scenari:
 
 - Un proxy inverso per instradare i dati in modo bidirezionale. Ad esempio, F5 BIG-IP, NGINX con gestione traffico distribuito nella rete virtuale di Azure che si connette alle istanze large di HANA e a locale come soluzione di routing del traffico o del firewall virtuale.
-- [Regole di IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in una VM Linux per abilitare il routing tra le posizioni locali e le unità di istanze Large di HANA o fra tali unità in aree diverse. La VM che esegue IPTables deve essere distribuita nella rete virtuale di Azure che si connette alle istanze large di HANA e in locale. La macchina virtuale deve essere dimensionata di conseguenza, quindi la velocità effettiva della rete della macchina virtuale è sufficiente per il traffico di rete previsto. Per informazioni dettagliate sulla larghezza di banda della rete VM, vedere le [dimensioni degli articoli delle macchine virtuali Linux in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Regole di IPTables in una VM Linux per abilitare il routing tra le posizioni locali e le unità di istanze Large di HANA o fra tali unità in aree diverse. La VM che esegue IPTables deve essere distribuita nella rete virtuale di Azure che si connette alle istanze large di HANA e in locale. La macchina virtuale deve essere dimensionata di conseguenza, quindi la velocità effettiva della rete della macchina virtuale è sufficiente per il traffico di rete previsto. Per informazioni dettagliate sulla larghezza di banda della rete VM, vedere le [dimensioni degli articoli delle macchine virtuali Linux in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Il [firewall di Azure](https://azure.microsoft.com/services/azure-firewall/) costituisce un'altra soluzione per consentire il traffico diretto tra unità locali e istanze large di Hana. 
 
 Tutto il traffico di queste soluzioni verrà instradato attraverso una rete virtuale di Azure e, di conseguenza, il traffico potrebbe essere ulteriormente limitato dalle appliance Soft usate o dai gruppi di sicurezza di rete di Azure, quindi, che determinati indirizzi IP o intervalli di indirizzi IP dall'ambiente locale potrebbero essere bloccati o autorizzati in modo esplicito ad accedere alle istanze large di HANA. 

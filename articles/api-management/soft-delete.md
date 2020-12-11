@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: fca98414a87f3b8a4f3c0969a28ee95c7ed47dc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501574"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092143"
 ---
 # <a name="api-management-soft-delete-preview"></a>Eliminazione temporanea di gestione API (anteprima)
 
@@ -31,7 +31,7 @@ La funzionalità di eliminazione temporanea è disponibile tramite l' [API REST]
 |--|--|--|--|
 | [Crea o aggiorna](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Crea o aggiorna un servizio gestione API.  | Servizio gestione API | Qualsiasi |
 | [Crea o aggiorna](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) con la `restore` proprietà impostata su **true** | Annulla l'eliminazione del servizio gestione API se è stato precedentemente eliminato temporaneamente. Se `restore` viene specificato e impostato su `true` tutte le altre proprietà verranno ignorate.  | Servizio gestione API |  2020-06-01-anteprima |
-| [Elimina](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina un servizio gestione API esistente. | Servizio gestione API | 2020-01-01-anteprima|
+| [Eliminazione](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina un servizio gestione API esistente. | Servizio gestione API | 2020-01-01-anteprima|
 | [Ottieni per nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Ottenere il servizio gestione API eliminato temporaneamente in base al nome. | Servizi eliminati | 2020-06-01-anteprima |
 | [Elenca per sottoscrizione](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Elenca tutti i servizi eliminati temporaneamente disponibili per l'annullamento dell'eliminazione per la sottoscrizione specificata. | Servizi eliminati | 2020-06-01-anteprima
 | [Ripulisci](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Elimina il servizio gestione API (lo elimina senza alcuna opzione per annullare l'eliminazione). | Servizi eliminati | 2020-06-01-anteprima
@@ -48,7 +48,7 @@ Se l'istanza di gestione API non viene recuperata entro 48 ore, verrà eliminata
 
 ## <a name="list-deleted-apim-instances"></a>Elencare le istanze di gestione API eliminate
 
-È possibile verificare che sia disponibile un'istanza di gestione API eliminata temporaneamente per il ripristino (annullamento dell'eliminazione) utilizzando le operazioni di sottoscrizione [recuperate dai servizi eliminati in base al nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) o all' [elenco](/deletedservices/listbysubscription) .
+È possibile verificare che sia disponibile un'istanza di gestione API eliminata temporaneamente per il ripristino (annullamento dell'eliminazione) utilizzando le operazioni di sottoscrizione [recuperate dai servizi eliminati in base al nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) o all' [elenco](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) .
 
 ### <a name="get-a-soft-deleted-instance-by-name"></a>Ottenere un'istanza eliminata temporaneamente per nome
 
@@ -76,7 +76,7 @@ Se disponibile per l'annullamento dell'eliminazione, Azure restituirà un record
 
 ### <a name="list-all-soft-deleted-instances-for-a-given-subscription"></a>Elencare tutte le istanze eliminate temporaneamente per una determinata sottoscrizione
 
-Usare l'operazione [di elenco Gestione API per sottoscrizione](/deletedservices/listbysubscription) , sostituendo `{subscriptionId}` con l'ID sottoscrizione:
+Usare l'operazione [di elenco Gestione API per sottoscrizione](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) , sostituendo `{subscriptionId}` con l'ID sottoscrizione:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview

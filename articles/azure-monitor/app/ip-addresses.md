@@ -3,12 +3,12 @@ title: Indirizzi IP usati da Application Insights e Log Analytics | Microsoft Do
 description: Eccezioni del firewall del server necessarie per Application Insights
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 10328efa9b8b9cdbe1e57e1e982653aea7e39574
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: a8d2ce28414a80f26218b0d2f3b5c5c2b7c3b301
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748876"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094370"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
 Il servizio [Azure Application Insights](./app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
@@ -174,14 +174,33 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-Azure US Government (Not needed if you are an Azure Public cloud customer)
-
-20.140.48.160/27
-20.140.56.160/27
-20.140.64.160/27
-20.140.72.160/27
-52.127.49.96/27
 ```  
+
+#### <a name="azure-government"></a>Azure Government
+
+Non necessario se si è un cliente di cloud pubblico di Azure.
+
+```
+USGov Virginia
+52.227.229.80/31
+
+
+USGov Arizona
+52.244.35.112/31
+
+
+USGov Texas
+52.243.157.80/31
+
+
+USDoD Central
+52.182.23.96/31
+
+
+USDoD East
+52.181.33.96/31
+
+```
 
 ## <a name="application-insights--log-analytics-apis"></a>API Application Insights e Log Analytics
 

@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e89b2b7cf7c27a501d93f63c74d81d8fb40883c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452627"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033545"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -35,6 +35,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft. AutonomousSystems | [Sistemi autonomi](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Soluzione Azure VMware](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
+| Microsoft. AzureArcData | Registro dei servizi dati abilitati per Azure Arc |
 | Microsoft.AzureData | Registro SQL Server |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
@@ -137,7 +138,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.OperationsManagement | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Servizio di peering di Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Criteri di Azure](../../governance/policy/index.yml) |
-| Microsoft. Portal- [registrato](#registration) | [Portale di Azure](../../azure-portal/index.yml) |
+| Microsoft. Portal- [registrato](#registration) | [Azure portal](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
@@ -168,7 +169,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.StorageCache | [Cache HPC di Azure](../../hpc-cache/index.yml) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
-| Microsoft.StreamAnalytics | [Analisi di flusso di Azure](../../stream-analytics/index.yml) |
+| Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
 | Microsoft. support- [registrato](#registration) | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |

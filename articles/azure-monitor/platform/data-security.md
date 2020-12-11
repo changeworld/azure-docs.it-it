@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911635"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094336"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -76,10 +76,10 @@ La tabella seguente mostra esempi di tipi di dati:
 | --- | --- |
 | Avviso |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configurazione |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** Log Analytics raccoglie gli eventi scritti con campi personalizzati nel registro eventi di Windows. |
+| Event |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** Log Analytics raccoglie gli eventi scritti con campi personalizzati nel registro eventi di Windows. |
 | Metadati |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Prestazioni |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| Stato |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Sicurezza fisica
 Il servizio Log Analytics è gestito da personale Microsoft e tutte le attività vengono registrate e possono essere controllate. Log Analytics viene gestito come servizio di Azure e soddisfa tutti i requisiti di conformità e di sicurezza di Azure. È possibile verificare i dettagli sulla sicurezza fisica delle risorse di Azure a pagina 18 della [panoramica della sicurezza in Microsoft Azure](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). I diritti di accesso fisici per proteggere le aree vengono modificati nell'arco della giornata lavorativa per chi non è più responsabile del servizio Log Analytics, includendo il trasferimento e la chiusura. Altre informazioni sull'infrastruttura fisica globale sono disponibili nei [data center di Microsoft](https://azure.microsoft.com/global-infrastructure/).
@@ -127,7 +127,7 @@ Azure Log Analytics soddisfa i requisiti seguenti:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * Conformità al [Payment Card Industry Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) del PCI Security Standard Council
 * [Service Organization Controls (SOC) 1 di tipo 1 e SOC 2 di tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2)
-* [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) per le società che hanno un contratto di società in affari HIPAA
+* [HIPAA e HITECH](/compliance/regulatory/offering-hipaa-hitech) per le società che hanno un contratto di società in affari HIPAA
 * Criteri di progettazione comuni di Windows
 * Microsoft Trustworthy Computing
 * Come servizio di Azure, i componenti usati da Log Analytics aderiscono ai requisiti di conformità di Azure. Altre informazioni disponibili in [Centro protezione Microsoft - Conformità](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).

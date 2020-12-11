@@ -90,6 +90,8 @@
               href: data-box-local-web-ui-admin.md
             - name: Usare la spedizione autogestita
               href: data-box-portal-customer-managed-shipping.md
+            - name: Caricare i certificati personali
+              href: data-box-bring-your-own-certificates.md
             - name: Abilitare la chiave gestita dal cliente
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Usare Customer Lockbox

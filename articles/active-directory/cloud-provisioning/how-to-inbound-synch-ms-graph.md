@@ -11,12 +11,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 5c6ed106462d7dcac3f31a2ab157e5b634391006
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860356"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093452"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>Sincronizzazione in ingresso per il provisioning del cloud con MS API Graph
 
@@ -43,7 +43,7 @@ Usare questi comandi [modulo di Microsoft Azure Active Directory per Windows Pow
 Il primo di questi due comandi richiede le credenziali Azure Active Directory. Questi cmdlet identificano in modo implicito il tenant e lo abilitano per la sincronizzazione.
 
 ## <a name="create-service-principals"></a>Creare entità servizio
-Successivamente, è necessario creare l' [applicazione/entità servizio AD2AAD](https://docs.microsoft.com/graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
+Successivamente, è necessario creare l' [applicazione/entità servizio AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
 
 È necessario usare questo ID applicazione 1a4721b3-e57f-4451-ae87-ef078703ec94. DisplayName è l'URL del dominio di Active Directory, se usato nel portale (ad esempio, contoso.com), ma può essere denominato qualcos'altro.
 

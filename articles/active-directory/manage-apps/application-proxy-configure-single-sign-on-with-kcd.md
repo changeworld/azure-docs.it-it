@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
-ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bd657655d6857f1bb0e3c5a2d868169788e4998d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997580"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033528"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per Single Sign-On (SSO) alle app con il proxy di applicazione
 
@@ -53,7 +53,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Connettore e server applicazione nello stesso dominio
 1. In Active Directory passare a **strumenti**  >  **utenti e computer**.
 2. Selezionare il server che esegue il connettore.
-3. Fare clic con il pulsante **Properties** destro del mouse e scegliere  >  **delega** proprietà.
+3. Fare clic con il pulsante destro del mouse e scegliere  >  **delega** proprietà.
 4. Selezionare **Computer attendibile per la delega solo ai servizi specificati**. 
 5. Selezionare **Utilizza un qualsiasi protocollo di autenticazione**.
 6. In **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità SPN del server applicazioni. In questo modo il connettore proxy di applicazione può rappresentare gli utenti in AD nei confronti delle applicazioni definite nell'elenco.

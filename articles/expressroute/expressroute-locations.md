@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/25/2020
+ms.date: 12/10/2020
 ms.author: duau
-ms.openlocfilehash: fdb5b06a7e0b0001728954c1cdff37aa8e2484f4
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 6d39a4860e6db6f0f409ab5ce52260fd0ce2f3df
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763571"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092636"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partner di connettività e località di peering per ExpressRoute
 
@@ -52,7 +52,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **Corea del Sud** | Corea centrale, Corea meridionale |Busan, Seoul|
 | **Emirati Arabi Uniti** | Emirati Arabi centrali, Emirati Arabi settentrionali | Dubai, Dubai2 |
 | **Sud Africa** | Sudafrica occidentale, Sudafrica settentrionale |Città del Capo, Johannesburg |
-| **America del Sud** | Brasile meridionale |Sao Paulo |
+| **America del Sud** | Brasile meridionale |Bogotà, Sao Paulo |
 
 
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Aree e confini geopolitici per cloud nazionali

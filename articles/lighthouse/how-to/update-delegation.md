@@ -3,12 +3,12 @@ title: Aggiornare una delega
 description: Informazioni su come aggiornare una delega per un cliente caricato in precedenza in Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 90827281ac9b05105700298494af0b60b0fa511f
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96610902"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093418"
 ---
 # <a name="update-a-delegation"></a>Aggiornare una delega
 
@@ -17,7 +17,7 @@ Dopo aver caricato una sottoscrizione o un gruppo di risorse in Azure Lighthouse
 > [!TIP]
 > Anche se si fa riferimento a provider di servizi e clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per configurare il faro di Azure e consolidare la loro esperienza di gestione.
 
-Se il cliente è stato caricato [tramite modelli di Azure Resource Manager (ARM)](onboard-customer.md), è necessario eseguire una nuova distribuzione per quel cliente. A seconda di ciò che si sta modificando, è consigliabile aggiornare l'offerta originale oppure rimuovere l'offerta originale e crearne una nuova.
+Se il cliente è stato caricato [tramite modelli di Azure Resource Manager (modelli ARM)](onboard-customer.md), è necessario eseguire una nuova distribuzione per quel cliente. A seconda di ciò che si sta modificando, è consigliabile aggiornare l'offerta originale oppure rimuovere l'offerta originale e crearne una nuova.
 
 - **Se si modificano solo le autorizzazioni**: è possibile aggiornare la delega cambiando solo la sezione **autorizzazioni** del modello ARM.
 - **Se si modifica il tenant di gestione**: è necessario creare un nuovo modello ARM usando con un **mspOfferName** diverso rispetto all'offerta precedente.

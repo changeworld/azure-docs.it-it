@@ -3,14 +3,14 @@ title: Gestire Rilevamento modifiche e inventario in Automazione di Azure
 description: Questo articolo illustra come usare Rilevamento modifiche e inventario per tenere traccia delle modifiche apportate al software e ai servizi Microsoft nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/02/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288746"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093622"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gestire il rilevamento modifiche e l'inventario
 
@@ -45,7 +45,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 
 5. Selezionare **Modifica impostazioni** (simbolo dell'ingranaggio).
 
-6. Nella pagina Configurazione dell'area di lavoro selezionare **File Windows** , quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
+6. Nella pagina Configurazione dell'area di lavoro selezionare **File Windows**, quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
 
 7. Nel riquadro Aggiungi file Windows per Rilevamento modifiche immettere le informazioni per il file o la cartella da rilevare e fare clic su **Salva**. La tabella seguente definisce le proprietà che è possibile usare per le informazioni.
 
@@ -99,6 +99,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 Il rilevamento del contenuto del file consente di visualizzare il contenuto di un file prima e dopo una modifica rilevata. La funzionalità Salva il contenuto del file in un [account di archiviazione](../../storage/common/storage-account-overview.md) dopo ogni modifica. Ecco alcune regole da seguire per rilevare il contenuto dei file:
 
 * Un account di archiviazione standard con il modello di distribuzione di Gestione risorse è necessario per la memorizzazione del contenuto del file.
+* Per impostazione predefinita, gli account di archiviazione accettano connessioni da client di qualsiasi rete. Se l'account di archiviazione è stato protetto per consentire solo un determinato traffico, è necessario modificare le regole di configurazione per consentire all'account di automazione di connettersi a tale account. Vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](../../storage/common/storage-network-security.md).
 * Non usare account di archiviazione con modello di distribuzione classica e Premium. Vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-account-create.md).
 * È possibile connettere l'account di archiviazione a un solo account di automazione.
 * Rilevamento modifiche e l'inventario devono essere abilitati nell'account di automazione.

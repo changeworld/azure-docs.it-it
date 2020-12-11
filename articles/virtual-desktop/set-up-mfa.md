@@ -3,15 +3,15 @@ title: Configurare l'autenticazione a più fattori di Azure per desktop virtuale
 description: Come configurare l'autenticazione a più fattori di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312658"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092381"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per desktop virtuale Windows
 
@@ -44,9 +44,9 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
 3. Selezionare **Nuovi criteri**.
 4. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
 5. In **Assegnazioni** selezionare **Utenti e gruppi**.
-6. In **Includi**selezionare **Seleziona utenti e gruppi**  >  **utenti e gruppi** > scegliere il gruppo creato nella fase dei [prerequisiti](#prerequisites) .
-7. Selezionare **Operazione completata**.
-8. In **app Cloud o azioni**  >  **Includi**selezionare **Seleziona app**.
+6. In **Includi** selezionare **Seleziona utenti e gruppi**  >  **utenti e gruppi** > scegliere il gruppo creato nella fase dei [prerequisiti](#prerequisites) .
+7. Selezionare **Fine**.
+8. In **app Cloud o azioni**  >  **Includi** selezionare **Seleziona app**.
 9. Selezionare una delle app seguenti in base alla versione di desktop virtuale di Windows in uso.
    
    - Se si usa desktop virtuale di Windows (versione classica), scegliere le app seguenti:
@@ -84,10 +84,13 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
     >[!NOTE]
     >Per trovare l'ID app dell'app che si vuole selezionare, passare ad **applicazioni aziendali** e selezionare **applicazioni Microsoft** dal menu a discesa tipo di applicazione.
 
-12. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
-13. In **Access controls**  >  **sessione**controlli di accesso selezionare **frequenza**di accesso, impostare il valore sull'intervallo di tempo desiderato tra le richieste e quindi selezionare **Seleziona**. Se ad esempio si imposta il valore su **1** e l'unità su **ore**, sarà necessaria l'autenticazione a più fattori se una connessione viene avviata un'ora dopo l'ultima.
+12. In **controllo di accesso**  >  **concedere** selezionare **Concedi accesso**, **Richiedi autenticazione** a più fattori e quindi **selezionare**.
+13. In   >  **sessione** controlli di accesso selezionare **frequenza** di accesso, impostare il valore sull'intervallo di tempo desiderato tra le richieste e quindi selezionare **Seleziona**. Se ad esempio si imposta il valore su **1** e l'unità su **ore**, sarà necessaria l'autenticazione a più fattori se una connessione viene avviata un'ora dopo l'ultima.
 14. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 15. Selezionare **Crea** per abilitare i criteri.
+
+>[!NOTE]
+>Quando si usa il client Web per accedere a desktop virtuale Windows tramite il browser, il log elenca l'ID app client come a85cf173-4192-42F8-81fa-777a763e6e2c (client desktop virtuale Windows). Questo perché l'app client è collegata internamente all'ID app Server in cui sono stati impostati i criteri di accesso condizionale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

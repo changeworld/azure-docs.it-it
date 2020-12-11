@@ -4,16 +4,16 @@ description: Informazioni sui dischi ultra per le macchine virtuali di Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: aa1c681d4b34199456f3447bcac5587005a044ce
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9c3c1acbc2606d882ad45744457137be5014bc4c
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96016633"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093486"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso di Azure ultra Disks
 
@@ -56,7 +56,7 @@ La risposta sarà simile a quella riportata di seguito, dove X è la zona da usa
 
 Mantenere il valore **Zones** , che rappresenta la zona di disponibilità e sarà necessario per distribuire un disco Ultra.
 
-|ResourceType  |Nome  |Location  |Zone  |Restrizione  |Funzionalità  |Valore  |
+|ResourceType  |Nome  |Località  |Zone  |Restrizione  |Funzionalità  |Valore  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -165,14 +165,11 @@ Determinare prima di tutto le dimensioni della macchina virtuale da distribuire.
 
 È necessario creare una macchina virtuale in grado di usare dischi Ultra, per poter alleghiare un disco Ultra.
 
-Sostituire o impostare le variabili **$VMName**, **$RgName**, **$DiskName**, **$location**, $password **$User con** valori personalizzati. **$password** Impostare **$zone**  sul valore della zona di disponibilità ottenuta dall' [inizio di questo articolo](#determine-vm-size-and-region-availability). Eseguire quindi il comando dell'interfaccia della riga di comando seguente per creare una macchina virtuale ultra abilitata:
+Sostituire o impostare le variabili **$VMName**, **$RgName**, **$DiskName**, **$location**, $password **$User con** valori personalizzati.  Impostare **$zone**  sul valore della zona di disponibilità ottenuta dall' [inizio di questo articolo](#determine-vm-size-and-region-availability). Eseguire quindi il comando dell'interfaccia della riga di comando seguente per creare una macchina virtuale ultra abilitata:
 
 ```azurecli-interactive
 az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
-
-#create an ultra disk with 512 sector size
-az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -225,8 +222,59 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+```
 
-# Example for creating a disk with 512 sector size
+---
+
+## <a name="deploy-an-ultra-disk---512-byte-sector-size"></a>Distribuire una dimensione del settore del disco Ultra-512 byte
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+
+Il portale di Azure attualmente non supporta la creazione di un disco Ultra con dimensioni di settore a 512 byte. È invece possibile creare un disco Ultra con dimensioni di settore di 512 byte usando il modulo Azure PowerShell o l'interfaccia della riga di comando di Azure.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Determinare prima di tutto le dimensioni della macchina virtuale da distribuire. Per un elenco delle dimensioni delle VM supportate, vedere la sezione [ambito e limitazioni di GA](#ga-scope-and-limitations) .
+
+È necessario creare una macchina virtuale in grado di usare dischi Ultra, per poter alleghiare un disco Ultra.
+
+Sostituire o impostare le variabili **$VMName**, **$RgName**, **$DiskName**, **$location**, $password **$User con** valori personalizzati.  Impostare **$zone**  sul valore della zona di disponibilità ottenuta dall' [inizio di questo articolo](#determine-vm-size-and-region-availability). Eseguire quindi il comando CLI seguente per creare una macchina virtuale con un disco Ultra con dimensioni di settore di 512 byte:
+
+```azurecli
+#create an ultra disk with 512 sector size
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Determinare prima di tutto le dimensioni della macchina virtuale da distribuire. Per un elenco delle dimensioni delle VM supportate, vedere la sezione [ambito e limitazioni di GA](#ga-scope-and-limitations) .
+
+Per usare dischi Ultra, è necessario creare una macchina virtuale in grado di usare dischi Ultra. Sostituire o impostare le variabili **$ResourceGroup** e **$vmName** con valori personalizzati. Impostare **$zone** sul valore della zona di disponibilità ottenuta dall' [inizio di questo articolo](#determine-vm-size-and-region-availability). Eseguire quindi il comando [New-AzVm](/powershell/module/az.compute/new-azvm) seguente per creare una macchina virtuale ultra abilitata:
+
+```powershell
+New-AzVm `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
+    -Image "Win2016Datacenter" `
+    -EnableUltraSSD `
+    -size "Standard_D4s_v3" `
+    -zone $zone
+```
+
+Per creare e alleghi un disco Ultra con dimensioni di settore di 512 byte, è possibile usare lo script seguente:
+
+```powershell
+# Set parameters and select subscription
+$subscription = "<yourSubscriptionID>"
+$resourceGroup = "<yourResourceGroup>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$lun = 1
+Connect-AzAccount -SubscriptionId $subscription
+
+# Create the disk
 $diskconfig = New-AzDiskConfig `
 -Location 'EastUS2' `
 -DiskSizeGB 8 `
@@ -237,8 +285,17 @@ $diskconfig = New-AzDiskConfig `
 -CreateOption Empty `
 -zone $zone;
 
-```
+New-AzDisk `
+-ResourceGroupName $resourceGroup `
+-DiskName $diskName `
+-Disk $diskconfig;
 
+# add disk to VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+```
 ---
 ## <a name="attach-an-ultra-disk"></a>Alleghi un disco Ultra
 

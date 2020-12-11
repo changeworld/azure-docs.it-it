@@ -4,14 +4,14 @@ description: Informazioni su come gestire i metadati del progetto, i file di pro
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb106132cf0dfb14dc41c1d4b480fd3a1d7fd7fe
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852804"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093537"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gestione e configurazione di progetti in Azure Notebooks anteprima
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a>Gestione e configurazione di progetti in Azure Notebooks anteprima
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -64,7 +64,7 @@ Il comando **+ New** (Nuovo) (tasto di scelta rapida: n) consente di creare nuov
 | **File vuoto** | Un file in cui è possibile archiviare qualsiasi contenuto, tra cui testo, dati e così via. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 | **Markdown** | Un file markdown. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 
-### <a name="upload-files"></a>Caricare file
+### <a name="upload-files"></a>Caricare i file
 
 Il comando **upload** fornisce due opzioni per l'importazione di dati da altri percorsi: **da URL** e **dal computer**. Per altre informazioni, vedere [Usare file di dati in progetti di Azure Notebooks](work-with-project-data-files.md).
 
@@ -84,7 +84,7 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
 | Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
 | Elimina | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
-| Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
+| Sposta | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
 #### <a name="preview"></a>Anteprima
 

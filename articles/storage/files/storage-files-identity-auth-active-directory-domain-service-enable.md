@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 5d900f105728efc6f58c4f9f7412cea157cbfe20
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: deed7c3dce2d7da1940a8a4871efac7453e2cf60
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630380"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033681"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services in File di Azure
 
@@ -39,7 +39,7 @@ Prima di abilitare Azure AD su SMB per le condivisioni file di Azure, assicurars
 
     Per supportare l'autenticazione con credenziali di Azure AD, è necessario abilitare Azure AD Domain Services per il tenant di Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/tutorial-create-instance.md).
 
-    Il completamento di una distribuzione di Azure AD DS richiede in genere circa 15 minuti. Verificare che lo stato di integrità di Azure AD DS sia **in esecuzione** , con la sincronizzazione dell'hash delle password abilitata, prima di procedere al passaggio successivo.
+    Il completamento di una distribuzione di Azure AD DS richiede in genere circa 15 minuti. Verificare che lo stato di integrità di Azure AD DS sia **in esecuzione**, con la sincronizzazione dell'hash delle password abilitata, prima di procedere al passaggio successivo.
 
 1.  **Aggiungere un dominio a una macchina virtuale di Azure con Azure AD DS.**
 
@@ -125,7 +125,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Per abilitare l'autenticazione Azure AD su SMB con l'interfaccia della riga di comando di Azure, installare la versione più recente dell'interfaccia della riga di comando (versione 2.0.70 o Per altre informazioni sull'installazione dell'interfaccia della riga di comando di Azure, vedere [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Per creare un nuovo account di archiviazione, chiamare [AZ storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e impostare la `--enable-files-aadds` proprietà su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. (Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione della funzionalità è **file-AAD** ).
+Per creare un nuovo account di archiviazione, chiamare [AZ storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e impostare la `--enable-files-aadds` proprietà su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. (Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione della funzionalità è **file-AAD**).
 
 ```azurecli-interactive
 # Create a new storage account

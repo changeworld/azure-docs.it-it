@@ -10,13 +10,13 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.custom: contperfq1
-ms.openlocfilehash: 5b7d2c05df71e77d623aeb8a3842851db208f691
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 8c963f11a34217253f02cb5d116d66cdbf8bcc19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637428"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033958"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure
 
@@ -39,7 +39,7 @@ Per accedere ai dati BLOB con la chiave di accesso dell'account, è necessario d
 Quando si tenta di accedere ai dati BLOB nel portale di Azure, il portale verifica prima di tutto se è stato assegnato un ruolo con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale usa la chiave dell'account per accedere ai dati BLOB. Se a questa azione non è stato assegnato un ruolo, il portale tenta di accedere ai dati tramite l'account Azure AD.
 
 > [!NOTE]
-> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action** , in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usare l'account Azure AD
 

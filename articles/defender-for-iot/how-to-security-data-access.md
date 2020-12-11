@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 677ab3327f2357ce7b242c314b44702370779def
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c4f65da4f9a4f7ade94d76e99d57439e62b3c808
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351674"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092058"
 ---
 # <a name="access-your-security-data"></a>Accedere ai dati di sicurezza
 
@@ -37,7 +37,7 @@ Per accedere agli avvisi e alle raccomandazioni nell'area di lavoro Log Analytic
 1. Scegliere un avviso o una raccomandazione in Defender per l'intero.
 1. Fare clic su **ulteriori indagini**, quindi fare clic **per visualizzare i dispositivi con questo avviso fare clic qui e visualizzare la colonna DeviceID**.
 
-Per informazioni dettagliate sull'esecuzione di query sui dati di Log Analytics, vedere [Introduzione alle query in log Analytics](//azure/log-analytics/query-language/get-started-queries).
+Per informazioni dettagliate sull'esecuzione di query sui dati di Log Analytics, vedere [Introduzione alle query in log Analytics](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 
@@ -66,9 +66,9 @@ SecurityAlert
 
 | TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Descrizione                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-11-18T18:10:29.000 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Attacco di forza bruta riuscito           | Un attacco di forza bruta sul dispositivo è riuscito        |    {"Indirizzo di origine completo": "[ \" 10.165.12.18: \" ]", "nomi utente": "[ \" \" ]", "DeviceID": "Internet del dispositivo-dispositivo-Linux"}                                                                       |
-| 2018-11-19T12:40:31.000 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Accesso locale riuscito nel dispositivo      | È stato rilevato un accesso locale riuscito al dispositivo     | {"Indirizzo remoto": "?", "porta remota": "", "porta locale": "", "shell di accesso": "/bin/su", "ID processo di accesso": "28207", "nome utente": "pirata informatico", "DeviceId": "numero-dispositivo-Linux"} |
-| 2018-11-19T12:40:31.000 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Tentativo di accesso locale non riuscito nel dispositivo  | È stato rilevato un tentativo di accesso locale non riuscito al dispositivo |    {"Indirizzo remoto": "?", "porta remota": "", "porta locale": "", "shell di accesso": "/bin/su", "ID processo di accesso": "22644", "nome utente": "pirata informatico", "DeviceId": "numero-dispositivo-Linux"} |
+| 2018-11-18T18:10:29.000 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Attacco di forza bruta riuscito           | Un attacco di forza bruta sul dispositivo è riuscito        |    {"Indirizzo di origine completo": "[ \" 10.165.12.18: \" ]", "nomi utente": "[ \" \" ]", "DeviceID": "Internet del dispositivo-dispositivo-Linux"}                                                                       |
+| 2018-11-19T12:40:31.000 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Accesso locale riuscito nel dispositivo      | È stato rilevato un accesso locale riuscito al dispositivo     | {"Indirizzo remoto": "?", "porta remota": "", "porta locale": "", "shell di accesso": "/bin/su", "ID processo di accesso": "28207", "nome utente": "pirata informatico", "DeviceId": "numero-dispositivo-Linux"} |
+| 2018-11-19T12:40:31.000 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Tentativo di accesso locale non riuscito nel dispositivo  | È stato rilevato un tentativo di accesso locale non riuscito al dispositivo |    {"Indirizzo remoto": "?", "porta remota": "", "porta locale": "", "shell di accesso": "/bin/su", "ID processo di accesso": "22644", "nome utente": "pirata informatico", "DeviceId": "numero-dispositivo-Linux"} |
 
 ### <a name="device-summary"></a>Riepilogo dispositivo
 
@@ -89,9 +89,9 @@ SecurityAlert
 
 | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Conteggio |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
-| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Attacco di forza bruta riuscito           | 9   |
+| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Attacco di forza bruta riuscito           | 9   |
 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Media        | Tentativo di accesso locale non riuscito nel dispositivo  | 242 |
-| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Accesso locale riuscito nel dispositivo      | 31  |
+| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Accesso locale riuscito nel dispositivo      | 31  |
 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Media        | Crypto Coin Miner                     | 4   |
 
 ### <a name="iot-hub-summary"></a>Riepilogo dell'hub Internet
@@ -113,9 +113,9 @@ SecurityAlert
 
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
-| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Attacco di forza bruta riuscito           | 1          |
+| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alta          | Attacco di forza bruta riuscito           | 1          |
 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Media        | Tentativo di accesso locale non riuscito nel dispositivo  | 1          |
-| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Accesso locale riuscito nel dispositivo      | 1          |
+| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alta          | Accesso locale riuscito nel dispositivo      | 1          |
 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Media        | Crypto Coin Miner                     | 1          |
 
 ## <a name="security-recommendations"></a>Suggerimenti per la sicurezza
@@ -166,7 +166,7 @@ SecurityRecommendation
 
 | IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Conteggio |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
-| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 2   |
+| /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | 2   |
 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Media        | 1 |
 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 1  |
 | /Subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Media        | 4   |

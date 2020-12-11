@@ -4,12 +4,12 @@ description: Creare una nuova app per le funzioni in Azure dal portale.
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d19a269903de309bf219c2546fa70c3abe7be10
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80985015"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093590"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Creare un'app per le funzioni dal portale di Azure
 
@@ -31,10 +31,12 @@ Se si prevede di eseguire funzioni JavaScript in un piano dedicato (servizio app
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Le funzioni usano internamente l'archiviazione per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Questi account vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Le funzioni usano internamente l'archiviazione per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. 
+
+Gli account di un tipo non supportato vengono esclusi quando si crea un'app per le funzioni nella portale di Azure. Il portale consente anche di usare un account di archiviazione esistente solo quando tale account si trova nella stessa area dell'app per le funzioni che si sta creando. Se per qualche motivo si vuole violare la procedura consigliata per le prestazioni dell'account di archiviazione usato dall'app per le funzioni nella stessa area, è necessario creare l'app per le funzioni all'esterno del portale. 
 
 >[!NOTE]
->Quando si usa il piano di hosting a consumo, i file del codice di funzione e la configurazione di binding vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato.
+>Quando si usa il piano di hosting a consumo, i file del codice di funzione e la configurazione di binding vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato. 
 
 Per altre informazioni sui tipi di account di archiviazione, vedere l'[introduzione ai servizi di Archiviazione di Azure](../storage/common/storage-introduction.md#core-storage-services). 
 

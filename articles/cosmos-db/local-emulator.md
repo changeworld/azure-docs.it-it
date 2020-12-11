@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.custom: devx-track-csharp, contperf-fy21q1
+ms.openlocfilehash: 89e82e210dbf7c404ebd5978d87bf391d8565ee2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608623"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033970"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Installare e usare l'emulatore Azure Cosmos DB per lo sviluppo e il test locali
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -333,7 +333,7 @@ Per abilitare l'accesso alla rete per la prima volta, l'utente deve arrestare l'
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticare le connessioni quando si usa l'emulatore
 
-Come per Azure Cosmos DB nel cloud, tutte le richieste effettuate nell'emulatore di Azure Cosmos DB devono essere autenticate. L'emulatore Azure Cosmos DB supporta solo le comunicazioni protette tramite TLS. L'emulatore Azure Cosmos DB supporta un singolo account fisso e una chiave di autenticazione nota per l'autenticazione della chiave primaria. Questo account e questa chiave sono le uniche credenziali consentite per l'uso con l'emulatore di Azure Cosmos DB. ovvero:
+Come per Azure Cosmos DB nel cloud, tutte le richieste effettuate nell'emulatore di Azure Cosmos DB devono essere autenticate. L'emulatore Azure Cosmos DB supporta solo le comunicazioni protette tramite TLS. L'emulatore Azure Cosmos DB supporta un singolo account fisso e una chiave di autenticazione nota per l'autenticazione della chiave primaria. Questo account e questa chiave sono le uniche credenziali consentite per l'uso con l'emulatore di Azure Cosmos DB. Ad esempio:
 
 ```bash
 Account name: localhost:<port>

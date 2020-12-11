@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
-ms.custom: contperfq1
-ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565924"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034072"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 

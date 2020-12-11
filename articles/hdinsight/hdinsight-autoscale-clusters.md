@@ -6,20 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 09/14/2020
-ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620087"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033137"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
 La funzionalità di scalabilità automatica gratuita di Azure HDInsight può aumentare o ridurre automaticamente il numero di nodi del ruolo di lavoro nel cluster in base ai criteri impostati in precedenza. Si imposta un numero minimo e massimo di nodi durante la creazione del cluster, si stabiliscono i criteri di scalabilità usando una pianificazione giornaliera o metriche delle prestazioni specifiche e la piattaforma HDInsight esegue il resto.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 La funzionalità di scalabilità automatica usa due tipi di condizioni per attivare gli eventi di scalabilità: le soglie per diverse metriche delle prestazioni del cluster (denominate *scalabilità basata sul carico*) e i trigger basati sul tempo, denominati *scalabilità basata su pianificazione*. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione. La scalabilità basata sulla pianificazione modifica il numero di nodi nel cluster in base alle operazioni che si associano a date e ore specifiche.
 
@@ -72,7 +72,7 @@ Per il ridimensionamento automatico, la scalabilità automatica invia una richie
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Versione | Spark | Hive | Interactive Query | hbase | Kafka | Storm | ML |
+| Version | Spark | Hive | Interactive Query | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
 | HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
@@ -81,14 +81,14 @@ La tabella seguente descrive i tipi di cluster e le versioni compatibili con la 
 
 \* I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
 Per abilitare la funzionalità di scalabilità automatica con il ridimensionamento basato sul carico, completare i passaggi seguenti come parte del normale processo di creazione del cluster:
 
 1. Nella scheda **configurazione e prezzi** selezionare la casella di controllo **Abilita scalabilità** automatica.
-1. Selezionare **Load-based** in **tipo di scalabilità**automatica.
+1. Selezionare **Load-based** in **tipo di scalabilità** automatica.
 1. Immettere i valori desiderati per le proprietà seguenti:  
 
     * **Numero iniziale di nodi** per il nodo del ruolo di **lavoro**.
@@ -105,7 +105,7 @@ Per abilitare la funzionalità di scalabilità automatica con scalabilità basat
 
 1. Nella scheda **configurazione e prezzi** selezionare la casella di controllo **Abilita scalabilità** automatica.
 1. Immettere il **numero di nodi** per il nodo del ruolo di **lavoro**, che controlla il limite per la scalabilità verticale del cluster.
-1. Selezionare l'opzione **pianificazione-in base** al **tipo di scalabilità**automatica.
+1. Selezionare l'opzione **pianificazione-in base** al **tipo di scalabilità** automatica.
 1. Selezionare **Configure (Configura** ) per aprire la finestra di **configurazione della scalabilità automatica** .
 1. Selezionare il fuso orario e quindi fare clic su **+ Aggiungi condizione** .
 1. Consente di selezionare i giorni della settimana a cui deve essere applicata la nuova condizione.
@@ -195,11 +195,11 @@ Per altre informazioni sulla creazione del cluster HDInsight tramite il portale 
 
 #### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Per abilitare la scalabilità automatica in un cluster in esecuzione, selezionare **dimensioni del cluster** in **Impostazioni**. Selezionare quindi **Abilita scalabilità**automatica. Selezionare il tipo di scalabilità automatica desiderata e immettere le opzioni per la scalabilità basata sul carico o sulla pianificazione. Infine, selezionare **Salva**.
+Per abilitare la scalabilità automatica in un cluster in esecuzione, selezionare **dimensioni del cluster** in **Impostazioni**. Selezionare quindi **Abilita scalabilità** automatica. Selezionare il tipo di scalabilità automatica desiderata e immettere le opzioni per la scalabilità basata sul carico o sulla pianificazione. Infine, selezionare **Salva**.
 
 ![Abilitare la scalabilità automatica basata sulla pianificazione del nodo di lavoro in esecuzione nel cluster](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
 
-#### <a name="using-the-rest-api"></a>Utilizzo dell'API REST
+#### <a name="using-the-rest-api"></a>Uso dell'API REST
 
 Per abilitare o disabilitare la scalabilità automatica in un cluster in esecuzione usando l'API REST, effettuare una richiesta POST all'endpoint di scalabilità automatica:
 
@@ -225,7 +225,7 @@ Lo stato del cluster elencato nell'portale di Azure consente di monitorare le at
 
 Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati nell'elenco seguente.
 
-| Stato del cluster | Description |
+| Stato del cluster | Descrizione |
 |---|---|
 | In esecuzione | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
 | Aggiornamento  | È in corso l'aggiornamento della configurazione di scalabilità automatica del cluster.  |

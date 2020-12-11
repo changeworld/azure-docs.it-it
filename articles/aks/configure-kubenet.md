@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 82745d4f86a440c671e73ac3c74702a4a0c56b2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348203"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034055"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -38,7 +38,7 @@ Questo articolo illustra come usare le funzionalità di rete *kubenet* per crear
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Panoramica delle funzionalità di rete kubenet con la propria subnet
 
-Molti ambienti sono caratterizzati da reti virtuali e subnet definite con intervalli di indirizzi IP allocati. Queste risorse di rete virtuale vengono usate per supportare più servizi e applicazioni. Per fornire connettività di rete, i cluster del servizio Azure Kubernetes possono usare *kubenet* (funzionalità di rete di base) o Azure CNI ( *funzionalità di rete avanzate* ).
+Molti ambienti sono caratterizzati da reti virtuali e subnet definite con intervalli di indirizzi IP allocati. Queste risorse di rete virtuale vengono usate per supportare più servizi e applicazioni. Per fornire connettività di rete, i cluster del servizio Azure Kubernetes possono usare *kubenet* (funzionalità di rete di base) o Azure CNI (*funzionalità di rete avanzate*).
 
 Con *kubenet* solo i nodi ricevono un indirizzo IP nella subnet della rete virtuale. I pod non possono comunicare tra loro direttamente. Per la connettività tra i pod nei vari nodi vengono usati il routing definito dall'utente e l'inoltro di indirizzi IP. Per impostazione predefinita, la configurazione di inoltro IP e UdR viene creata e gestita dal servizio AKS, ma è possibile scegliere di [importare una tabella di route personalizzata per la gestione di route personalizzata][byo-subnet-route-table]. Si potrebbero anche distribuire i pod dietro un servizio che riceve un indirizzo IP assegnato e bilancia il carico del traffico dell'applicazione. Il diagramma seguente mostra che i nodi del servizio Azure Kubernetes ricevono un indirizzo IP nella subnet della rete virtuale, mentre i pod non lo ricevono:
 
@@ -69,10 +69,10 @@ Con *kubenet* è possibile usare un intervallo di indirizzi IP molto più ridott
 
 I seguenti calcoli di base mettono a confronto la differenza nei modelli di rete:
 
-- **kubenet** : un semplice intervallo di indirizzi IP */24* può supportare fino a *251* nodi nel cluster (ogni subnet di rete virtuale di Azure riserva i primi tre indirizzi IP per le operazioni di gestione)
-  - Questo numero di nodi potrebbe supportare fino a *27.610* pod (con un valore massimo predefinito di 110 pod per nodo con *kubenet* )
-- **Azure CNI** : lo stesso intervallo di indirizzi IP di base */24* della subnet potrebbe supportare solo un massimo di *8* nodi nel cluster
-  - Questo numero di nodi potrebbe supportare solo fino a *240* pod (con un valore massimo predefinito di 30 pod per nodo con *Azure CNI* )
+- **kubenet**: un semplice intervallo di indirizzi IP */24* può supportare fino a *251* nodi nel cluster (ogni subnet di rete virtuale di Azure riserva i primi tre indirizzi IP per le operazioni di gestione)
+  - Questo numero di nodi potrebbe supportare fino a *27.610* pod (con un valore massimo predefinito di 110 pod per nodo con *kubenet*)
+- **Azure CNI**: lo stesso intervallo di indirizzi IP di base */24* della subnet potrebbe supportare solo un massimo di *8* nodi nel cluster
+  - Questo numero di nodi potrebbe supportare solo fino a *240* pod (con un valore massimo predefinito di 30 pod per nodo con *Azure CNI*)
 
 > [!NOTE]
 > Questi valori massimi non tengono in considerazione le operazioni di aggiornamento o ridimensionamento. In pratica, non è possibile eseguire il numero massimo di nodi supportati dall'intervallo di indirizzi IP della subnet. Occorre lasciare alcuni indirizzi IP disponibili per l'uso durante le operazioni di ridimensionamento o aggiornamento.
@@ -102,7 +102,7 @@ Per ulteriori informazioni sulla scelta del modello di rete da utilizzare, veder
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creare una rete virtuale e una subnet
 
-Per usare *kubenet* e la propria subnet di rete virtuale, creare prima di tutto un gruppo di risorse usando il comando [az group create][az-group-create]. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus* :
+Per usare *kubenet* e la propria subnet di rete virtuale, creare prima di tutto un gruppo di risorse usando il comando [az group create][az-group-create]. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -168,7 +168,7 @@ Durante il processo di creazione del cluster vengono definiti anche gli interval
 
 * *--pod-cidr* deve essere uno spazio indirizzi ampio non in uso in qualsiasi altra posizione nell'ambiente di rete. Questo intervallo include gli intervalli di rete locali se ci si connette o si prevede di connettersi alle reti virtuali di Azure usando Express route o una connessione VPN da sito a sito.
     * Questo intervallo di indirizzi deve essere abbastanza ampio da contenere il numero di nodi in base a cui si prevede di aumentare le dimensioni. Non è possibile cambiare questo intervallo di indirizzi dopo la distribuzione del cluster, qualora fossero necessari altri indirizzi per nodi aggiuntivi.
-    * L'intervallo di indirizzi IP Pod viene usato per assegnare uno spazio degli indirizzi */24* a ogni nodo del cluster. Nell'esempio seguente, il *--Pod-CIDR* di *10.244.0.0/16* assegna il primo nodo *10.244.0.0/24* , il secondo nodo *10.244.1.0/24* e il terzo nodo *10.244.2.0/24*.
+    * L'intervallo di indirizzi IP Pod viene usato per assegnare uno spazio degli indirizzi */24* a ogni nodo del cluster. Nell'esempio seguente, il *--Pod-CIDR* di *10.244.0.0/16* assegna il primo nodo *10.244.0.0/24*, il secondo nodo *10.244.1.0/24* e il terzo nodo *10.244.2.0/24*.
     * Quando il cluster viene ridimensionato o aggiornato, la piattaforma di Azure continua ad assegnare un intervallo di indirizzi IP dei pod a ogni nuovo nodo.
     
 * *--Docker-Bridge-Address* consente ai nodi AKS di comunicare con la piattaforma di gestione sottostante. L'indirizzo IP non deve essere compreso nell'intervallo di indirizzi IP della rete virtuale del cluster e non deve sovrapporsi ad altri intervalli di indirizzi in uso nella rete.
@@ -224,7 +224,6 @@ La rete Kubenet richiede regole della tabella di route organizzata per indirizza
 Limitazioni
 
 * Le autorizzazioni devono essere assegnate prima della creazione del cluster, assicurarsi di usare un'entità servizio con autorizzazioni di scrittura per la subnet personalizzata e la tabella di route personalizzata.
-* Le identità gestite non sono attualmente supportate con le tabelle di route personalizzate in kubenet.
 * Una tabella di route personalizzata deve essere associata alla subnet prima di creare il cluster AKS.
 * Non è possibile aggiornare la risorsa della tabella di route associata dopo la creazione del cluster. Anche se non è possibile aggiornare la risorsa della tabella di route, è possibile modificare le regole personalizzate nella tabella di route.
 * Ogni cluster AKS deve usare una singola tabella di route univoca per tutte le subnet associate al cluster. Non è possibile riutilizzare una tabella di route con più cluster a causa della possibilità di sovrapposizione di Pod CIDRs e di regole di routing in conflitto.

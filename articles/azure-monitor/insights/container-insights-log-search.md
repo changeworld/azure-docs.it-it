@@ -3,12 +3,12 @@ title: Come eseguire query sui log da monitoraggio di Azure per i contenitori | 
 description: Il monitoraggio di Azure per i contenitori raccoglie le metriche e i dati di log e in questo articolo vengono descritti i record e sono incluse le query di esempio.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 9bfa63a49da33289b8c811007f210e6546579d9d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95747680"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033562"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
 
@@ -20,8 +20,8 @@ Nella tabella seguente vengono forniti i dettagli dei record raccolti da monitor
 
 | Dati | Origine dati | Tipo di dati | Campi |
 |------|-------------|-----------|--------|
-| Inventario contenitori | Kubelet | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Log contenitori | Docker | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Inventario contenitori | Kubelet | `ContainerInventory` | TimeGenerated, computer, Name, ContainerHostname, image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Log contenitori | Docker | `ContainerLog` | TimeGenerated, computer, ID immagine, nome, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Inventario di nodi contenitore | API Kube | `ContainerNodeInventory`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Inventario dei pod in un cluster Kubernetes | API Kube | `KubePodInventory` | TimeGenerated, computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, controllerName, ContainerStatus, ContainerStatusReason, containerID, ContainerName, nome, PodLabel, spazio dei nomi, PodStatus, clustername, PodIp, SourceSystem |
 | Inventario dei nodi di un cluster Kubernetes | API Kube | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
@@ -52,8 +52,8 @@ Spesso è utile creare una query a partire da qualche esempio e quindi modificar
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | Elencare tutte le informazioni sul ciclo di vita di un contenitore| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Eventi di Kubernetes|
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Inventario delle immagini | 
-| **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | CPU del contenitore | 
-| **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria del contenitore |
+| **Selezionare l'opzione di visualizzazione grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | CPU del contenitore | 
+| **Selezionare l'opzione di visualizzazione grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria del contenitore |
 | InsightsMetrics<br> &#124; dove name = = "requests_count"<br> &#124; riepilogare Val = any (Val) by TimeGenerated = bin (TimeGenerated, 1m)<br> &#124; Ordina per TimeGenerated ASC<br> &#124; Project RequestsPerMinute = Val-Prev (Val), TimeGenerated <br> Barchart di rendering &#124;  | Richieste al minuto con metriche personalizzate |
 
 ## <a name="query-prometheus-metrics-data"></a>Eseguire query sui dati di metrica Prometeo

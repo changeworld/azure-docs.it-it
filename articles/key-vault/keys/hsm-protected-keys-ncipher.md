@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a1f3b5e80152fb0fb9458aef0d3524dd2d6f5eb
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784661"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092330"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importare chiavi con protezione HSM per Key Vault (nCipher)
 
@@ -61,7 +61,7 @@ Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK
 | --- | --- |
 | Sottoscrizione di Azure |Per creare un insieme di credenziali delle chiavi di Azure, è necessaria una sottoscrizione di Azure: [Iscriversi per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | È inoltre necessario il livello di servizio Premium dell'insieme di credenziali delle chiavi di Azure per supportare chiavi HSM protette. |Per altre informazioni su livelli di servizio e funzionalità per l'insieme di credenziali delle chiavi di Azure, vedere il sito Web relativo ai [prezzi dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/). |
-| moduli di protezione hardware nCipher nShield, smart card e software di supporto |È necessario avere l'accesso ai moduli di protezione hardware nCipher e avere una conoscenza a livello operativo dei moduli di protezione hardware nCipher nShield. Per l'elenco dei modelli compatibili o per acquistare un modulo di protezione hardware qualora non se ne sia già in possesso, vedere [Modulo di protezione hardware nCipher nShield](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy). |
+| moduli di protezione hardware nCipher nShield, smart card e software di supporto |È necessario avere l'accesso ai moduli di protezione hardware nCipher e avere una conoscenza a livello operativo dei moduli di protezione hardware nCipher nShield. Per l'elenco dei modelli compatibili o per acquistare un modulo di protezione hardware qualora non se ne sia già in possesso, vedere [Modulo di protezione hardware nCipher nShield](https://go.ncipher.com/rs/104-QOX-775/images/nCipher_nShield_Family_Brochure.pdf?_ga=2.106120835.1607422418.1590478092-577009923.1587131206). |
 | Componenti hardware e software seguenti:<ol><li>Una workstation x64 offline con Windows 7 come versione minima del sistema operativo Windows e software nCipher nShield con versione minima 11.50.<br/><br/>Se questa workstation esegue Windows 7, è necessario [installare Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una workstation connessa a Internet con sistema operativo Windows 7 o versione successiva e con [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) **1.1.0** o versione successiva installato.</li><li>Unità USB o un altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol> |Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa indicazione tuttavia non viene applicata a livello di codice.<br/><br/>Nelle istruzioni seguenti questa workstation viene indicata come workstation disconnessa.</p></blockquote><br/>Inoltre, se la chiave del tenant è destinata a una rete di produzione, è consigliabile usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Nelle istruzioni seguenti la seconda workstation viene indicata come workstation connessa a Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure
@@ -255,7 +255,7 @@ Per questo secondo passaggio eseguire le procedure seguenti nella workstation no
 
 Installare il software di supporto nCipher in un computer Windows, quindi collegare un modulo di protezione hardware nCipher nShield a tale computer.
 
-Verificare che gli strumenti nCipher si trovino nel percorso ( **%nfast_home%\bin** ). Digitare ad esempio:
+Verificare che gli strumenti nCipher si trovino nel percorso ( **%nfast_home%\bin**). Digitare ad esempio:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ Per convalidare il pacchetto scaricato:
      >
 2. Assicurarsi di visualizzare il risultato positivo seguente, che indica il completamento della convalida: **Result: SUCCESS**
 
-Questo script consente di convalidare la catena di firmatari fino alla chiave radice di nShield. La funzione hash di questa chiave radice è incorporata nello script e il relativo valore deve essere **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** . Si può anche confermare questo valore separatamente sul [sito Web di nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
+Questo script consente di convalidare la catena di firmatari fino alla chiave radice di nShield. La funzione hash di questa chiave radice è incorporata nello script e il relativo valore deve essere **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Si può anche confermare questo valore separatamente sul [sito Web di nCipher](https://www.ncipher.com).
 
 È ora possibile creare una nuova chiave.
 
@@ -432,11 +432,11 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 Quando si esegue il comando, usare le istruzioni seguenti:
 
-* Il parametro *protect* deve essere impostato sul valore **module** , come illustrato. Verrà creata una chiave protetta tramite modulo. Il set di strumenti BYOK non supporta le chiavi protette con OCS.
+* Il parametro *protect* deve essere impostato sul valore **module**, come illustrato. Verrà creata una chiave protetta tramite modulo. Il set di strumenti BYOK non supporta le chiavi protette con OCS.
 * Sostituire il valore *contosokey* per **ident** e **plainname** con qualsiasi valore di stringa. Per ridurre il sovraccarico amministrativo e il rischio di errori, è consigliabile usare lo stesso valore per entrambi gli elementi. Il valore **ident** deve contenere solo numeri, trattini e lettere minuscole.
-* L'elemento pubexp viene lasciato vuoto in questo esempio (impostazione predefinita), ma è possibile indicare valori specifici. Per altre informazioni, vedere la [documentazione di nCipher](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based).
+* L'elemento pubexp viene lasciato vuoto in questo esempio (impostazione predefinita), ma è possibile indicare valori specifici. Per altre informazioni, vedere la [documentazione di nCipher](https://www.entrust.com/-/media/documentation/brochures/entrust-nshield-general-purpose-hsms-br-a4.pdf).
 
-Questo comando crea un file di chiave in formato token nella cartella %NFAST_KMDATA%\local con un nome che inizia con **key_simple_** seguito dall'elemento **ident** specificato nel comando. Ad esempio: **key_simple_contosokey** . Questo file contiene una chiave crittografata.
+Questo comando crea un file di chiave in formato token nella cartella %NFAST_KMDATA%\local con un nome che inizia con **key_simple_** seguito dall'elemento **ident** specificato nel comando. Ad esempio: **key_simple_contosokey**. Questo file contiene una chiave crittografata.
 
 Eseguire il backup del file di chiave in formato token in un percorso sicuro.
 
@@ -668,7 +668,7 @@ Quando si esegue il comando, usare le istruzioni seguenti:
 * Sostituire *SubscriptionID* con l'ID della sottoscrizione di Azure che contiene l'insieme di credenziali delle chiavi. Questo valore è stato recuperato in precedenza, in **Passaggio 1.2: Ottenere l'ID sottoscrizione di Azure** nel passaggio [Preparare la workstation connessa a Internet](#step-1-prepare-your-internet-connected-workstation).
 * Sostituire *ContosoFirstHSMKey* con un'etichetta che viene usata per il nome del file di output.
 
-Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente è presente un nuovo file con il nome: KeyTransferPackage- *ContosoFirstHSMkey* .byok
+Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente è presente un nuovo file con il nome: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passaggio 4.3: Copiare il pacchetto di trasferimento della chiave nella workstation connessa a Internet
 

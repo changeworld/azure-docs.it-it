@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e995cd8f300787a19934e9b9eeae1dea73e8576c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c694cf58f4c6b613cbc183753785a34bc15063bd
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457088"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093605"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -33,7 +33,7 @@ Anche se Data Factory è disponibile solo nelle aree **Stati Uniti occidentali**
 Azure Data Factory non archivia i dati ad eccezione delle credenziali del servizio collegato per gli archivi di dati cloud, che vengono crittografate tramite l'uso di certificati. Consente di creare flussi di lavoro basati sui dati per orchestrare lo spostamento di dati tra [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) e l'elaborazione di dati usando i [servizi di calcolo](data-factory-compute-linked-services.md) in altre aree o in un ambiente locale. Consente anche di [monitorare e gestire i flussi di lavoro](data-factory-monitor-manage-pipelines.md) usando meccanismi a livello di codice e di interfaccia utente.
 
 Lo spostamento dei dati con Azure Data Factory è stato **certificato** per:
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+-   [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
@@ -63,7 +63,7 @@ Alcuni archivi di dati supportano la crittografia dei dati inattivi. È consigli
 #### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 Transparent Data Encryption (Transparent Data Encryption) in Azure sinapsi Analytics aiuta a proteggersi dalla minaccia di attività dannose eseguendo la crittografia e la decrittografia in tempo reale dei dati inattivi. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [proteggere un database in Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Database SQL di Azure
+#### <a name="azure-sql-database"></a>database SQL di Azure
 Il database SQL di Azure supporta anche la funzionalità Transparent Data Encryption (TDE), che consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati, senza dover apportare modifiche all'applicazione. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Transparent Data Encryption con il database SQL di Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
@@ -117,7 +117,7 @@ Attualmente, il gateway di gestione dati usa un singolo **certificato**. Questo 
 | > = 2.4.xxxx.x | In locale | Protette tramite DPAPI | 
   
 
-### <a name="encryption-in-transit"></a>Crittografia in transito
+### <a name="encryption-in-transit"></a>Crittografia di dati in transito
 Tutti i trasferimenti di dati sono tramite il canale sicuro **https** e **TLS su TCP** per impedire attacchi man-in-the-Middle durante la comunicazione con i servizi di Azure.
  
 Inoltre, è possibile usare [VPN IPSec](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) o [Express Route](../../expressroute/expressroute-introduction.md) per proteggere ulteriormente il canale di comunicazione tra la rete locale e Azure.

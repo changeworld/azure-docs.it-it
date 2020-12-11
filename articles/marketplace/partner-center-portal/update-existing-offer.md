@@ -7,13 +7,13 @@ ms.topic: how-to
 author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
-ms.custom: contperfq2
-ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491954"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033358"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Aggiornare le offerte esistenti nel Marketplace commerciale
 
@@ -23,13 +23,13 @@ Questo articolo illustra come apportare aggiornamenti alle offerte e ai piani es
 
 Usare questi passaggi per aggiornare un'offerta pubblicata correttamente in anteprima o in stato attivo.
 
-1. Selezionare il nome dell'offerta che si desidera aggiornare. Lo stato dell'offerta può essere elencato come **Anteprima** , in **tempo reale** , **pubblicazione in corso** , **bozza** , **attenzione necessaria** o **non disponibile** (se si è scelto in precedenza di interrompere la vendita dell'offerta). Una volta selezionata, viene visualizzata la pagina di **Panoramica dell'offerta** per l'offerta.
-1. Selezionare la pagina offerta che si desidera aggiornare, ad esempio **Proprietà** , **elenco offerte** o **Anteprima** (oppure selezionare **Aggiorna** dalla scheda applicabile nella pagina Panoramica dell' **offerta** ).
+1. Selezionare il nome dell'offerta che si desidera aggiornare. Lo stato dell'offerta può essere elencato come **Anteprima**, in **tempo reale**, **pubblicazione in corso**, **bozza**, **attenzione necessaria** o **non disponibile** (se si è scelto in precedenza di interrompere la vendita dell'offerta). Una volta selezionata, viene visualizzata la pagina di **Panoramica dell'offerta** per l'offerta.
+1. Selezionare la pagina offerta che si desidera aggiornare, ad esempio **Proprietà**, **elenco offerte** o **Anteprima** (oppure selezionare **Aggiorna** dalla scheda applicabile nella pagina Panoramica dell' **offerta** ).
 1. Apportare le modifiche e selezionare **Salva bozza**. Ripetere questo processo fino a quando non vengono completate tutte le modifiche.
 1. Esaminare le modifiche nella pagina **[Confronta](#compare-changes-to-your-offer)** .
 1. Quando si è pronti per pubblicare l'offerta aggiornata, selezionare **revisione e pubblicazione** da qualsiasi pagina. Viene visualizzata la pagina **revisione e pubblicazione** . In questa pagina verrà visualizzato lo stato di completamento per le sezioni dell'offerta aggiornata: 
-    - **Modifiche non pubblicate** : la sezione è stata aggiornata ed è stata completata. Sono stati forniti tutti i dati necessari e non sono stati introdotti errori negli aggiornamenti.
-    - **Incompleto** : gli aggiornamenti apportati alla sezione hanno introdotto errori che devono essere corretti o sono necessarie altre informazioni.
+    - **Modifiche non pubblicate**: la sezione è stata aggiornata ed è stata completata. Sono stati forniti tutti i dati necessari e non sono stati introdotti errori negli aggiornamenti.
+    - **Incompleto**: gli aggiornamenti apportati alla sezione hanno introdotto errori che devono essere corretti o sono necessarie altre informazioni.
 2. Selezionare **pubblica** per inviare l'offerta aggiornata per la pubblicazione. L'offerta passerà quindi attraverso i [passaggi di convalida e pubblicazione](../review-publish-offer.md#validation-and-publishing-steps)standard.
 
 > [!IMPORTANT]
@@ -64,10 +64,10 @@ Dopo la pubblicazione di un piano di macchina virtuale, il relativo prezzo non p
 Ora che è stato nascosto il piano con il prezzo precedente, creare una copia del piano con il prezzo aggiornato:
 
 1. Nel centro per i partner tornare alla **Panoramica del piano**.
-2. Selezionare **Crea nuovo piano**. Immettere un **ID piano** e un **nome piano** , quindi selezionare **Crea**.
+2. Selezionare **Crea nuovo piano**. Immettere un **ID piano** e un **nome piano**, quindi selezionare **Crea**.
 1. Per riutilizzare la configurazione tecnica dal piano nascosto, selezionare la casella di controllo **Riutilizza configurazione tecnica** . Per altre informazioni, vedere [creare piani per un'offerta di macchina virtuale](../azure-vm-create-plans.md) .
     > [!IMPORTANT]
-    > Se si seleziona **questo piano riutilizza la configurazione tecnica da un altro piano** , non sarà più possibile smettere di vendere il piano padre in un secondo momento. Non usare questa opzione se si vuole interrompere la vendita del piano padre.
+    > Se si seleziona **questo piano riutilizza la configurazione tecnica da un altro piano**, non sarà più possibile smettere di vendere il piano padre in un secondo momento. Non usare questa opzione se si vuole interrompere la vendita del piano padre.
 3. Completare tutte le sezioni necessarie per il nuovo piano, incluso il nuovo prezzo.
 1. Selezionare **Salva bozza**.
 1. Dopo aver completato tutte le sezioni necessarie per il nuovo piano, selezionare **revisione e pubblicazione**. Questa operazione invierà l'offerta per la revisione e la pubblicazione. Per informazioni dettagliate, leggere [la recensione e pubblicare un'offerta nel Marketplace commerciale](../review-publish-offer.md) .
@@ -102,7 +102,7 @@ Prima di pubblicare gli aggiornamenti nell'offerta Live o in [Anteprima](#compar
   ![Filtri per il confronto degli aggiornamenti per l'offerta pubblicata o in anteprima](./media/compare-changes-marketplace.png)
 
 >[!NOTE]
-> Le pagine seguenti attualmente non supportano il **confronto** :
+> Le pagine seguenti attualmente non supportano il **confronto**:
 >- Destinatari del rivenditore CSP
 >- Configurazione tecnica test drive
 >- Elenco del Marketplace di test drive

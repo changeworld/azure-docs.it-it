@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 25e936aeadcc76d289d91e165548c7fb648f68b4
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6f29c0608ec1c928493bae792171967834ba35ca
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600762"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092653"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Baseline della sicurezza di Azure per il servizio Azure SignalR
 
@@ -829,7 +829,7 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 - [Azure Security Benchmark - Gestione delle identità](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Azure Security Benchmark - Accesso con privilegi](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Accesso con privilegi](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Procedura di sicurezza consigliata di Azure 11 - Architettura. Strategia di sicurezza unificata singola](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
