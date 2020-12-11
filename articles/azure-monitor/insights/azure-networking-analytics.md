@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854883"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032185"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 
@@ -120,6 +120,8 @@ La scheda "Visualizza metriche dettagliate" apre la cartella di lavoro pre-popol
 * Per pulire la soluzione Azure gateway Analytics dall'area di lavoro, è possibile eliminare la soluzione dalla pagina delle risorse della soluzione.
 
 [![Screenshot dell'opzione di eliminazione per applicazione Azure soluzione di analisi del gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+Per ulteriori informazioni sulle funzionalità della nuova soluzione cartella di lavoro [, vedere cartelle di lavoro-Panoramica](../platform/workbooks-overview.md)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Soluzione di analisi del gruppo di sicurezza di rete di Azure in Monitoraggio di Azure
 

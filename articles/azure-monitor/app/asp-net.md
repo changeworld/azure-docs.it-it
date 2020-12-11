@@ -3,13 +3,13 @@ title: Configurare il monitoraggio per ASP.NET con applicazione Azure Insights |
 description: Configurare gli strumenti di analisi delle prestazioni, della disponibilità e del comportamento degli utenti per un sito Web ASP.NET, ospitato in locale o in Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f9cb5370dcddf783e533664c4c141779402103f0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904177"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028989"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configurare Application Insights per il sito Web ASP.NET
 
@@ -43,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Questa sezione illustra come aggiungere automaticamente Application Insights a un'app Web ASP.NET basata su modelli. Dall'interno del progetto di app Web ASP.NET in Visual Studio:
 
 1. Selezionare **Aggiungi Application Insights Telemetry**  >  **Application Insights SDK (locale)**  >  **Avanti**  >  **fine**  >  **chiusura**.
-2. Aprire il file `ApplicationInsights.config` . 
+2. Aprire il file `ApplicationInsights.config`. 
 3. Prima del `</ApplicationInsights>` tag di chiusura aggiungere una riga contenente la chiave di strumentazione per la risorsa Application Insights.  La chiave di strumentazione è disponibile nel riquadro Panoramica della risorsa Application Insights appena creata creata come parte dei prerequisiti per questo articolo.
 
     ```xml

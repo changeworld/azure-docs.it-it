@@ -7,13 +7,13 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperfq1
-ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413174"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032372"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
@@ -111,7 +111,7 @@ Se non si ha un account di archiviazione di Azure esistente da esportare, seguir
 È possibile esportare i dati in un endpoint di Webhook HTTP disponibile pubblicamente. È possibile creare un endpoint del webhook di test usando [RequestBin](https://requestbin.net/). RequestBin limita la richiesta quando viene raggiunto il limite di richieste:
 
 1. Aprire [RequestBin](https://requestbin.net/).
-2. Creare un nuovo RequestBin e copiare l' **URL del contenitore**. Questo URL viene usato quando si esegue il test dell'esportazione dei dati.
+2. Creare un nuovo RequestBin e copiare l'**URL del contenitore**. Questo URL viene usato quando si esegue il test dell'esportazione dei dati.
 
 ## <a name="set-up-data-export"></a>Configurare l'esportazione dei dati
 
@@ -142,20 +142,20 @@ Ora che si dispone di una destinazione in cui esportare i dati, configurare l'es
 
     - **Filtrare** il flusso esportato in modo da contenere solo i dati di telemetria dai dispositivi che corrispondono al nome del dispositivo, all'ID del dispositivo e alla condizione di filtro del modello
     - **Filtrare** le funzionalità: se si sceglie un elemento di telemetria nell'elenco a discesa **nome** , il flusso esportato contiene solo dati di telemetria che soddisfano la condizione di filtro. Se si sceglie un elemento della proprietà del dispositivo o del cloud nell'elenco a discesa **nome** , il flusso esportato contiene solo i dati di telemetria dei dispositivi con proprietà che corrispondono alla condizione di filtro.
-    - **Filtro proprietà messaggio** : i dispositivi che usano gli SDK per dispositivi possono inviare *proprietà del messaggio* o *proprietà dell'applicazione* in ogni messaggio di telemetria. Le proprietà sono un contenitore di coppie chiave-valore che contrassegnano il messaggio con identificatori personalizzati. Per creare un filtro di proprietà del messaggio, immettere la chiave della proprietà del messaggio che si sta cercando e specificare una condizione. Vengono esportati solo i messaggi di telemetria con proprietà che corrispondono alla condizione di filtro specificata. Sono supportati gli operatori di confronto di stringhe seguenti: Equals, non uguale a, Contains, non contiene, EXISTS, non esiste. [Altre informazioni sulle proprietà dell'applicazione](../../iot-hub/iot-hub-devguide-messages-construct.md)sono disponibili nella documentazione dell'hub Internet.
+    - **Filtro proprietà messaggio**: i dispositivi che usano gli SDK per dispositivi possono inviare *proprietà del messaggio* o *proprietà dell'applicazione* in ogni messaggio di telemetria. Le proprietà sono un contenitore di coppie chiave-valore che contrassegnano il messaggio con identificatori personalizzati. Per creare un filtro di proprietà del messaggio, immettere la chiave della proprietà del messaggio che si sta cercando e specificare una condizione. Vengono esportati solo i messaggi di telemetria con proprietà che corrispondono alla condizione di filtro specificata. Sono supportati gli operatori di confronto di stringhe seguenti: Equals, non uguale a, Contains, non contiene, EXISTS, non esiste. [Altre informazioni sulle proprietà dell'applicazione](../../iot-hub/iot-hub-devguide-messages-construct.md)sono disponibili nella documentazione dell'hub Internet.
 
     Per filtrare le modifiche alle proprietà, utilizzare un **filtro funzionalità**. Scegliere un elemento proprietà nell'elenco a discesa. Il flusso esportato contiene solo le modifiche alla proprietà selezionata che soddisfano la condizione di filtro.
 
 <a name="DataExportEnrichmnents"></a>
 1. Facoltativamente, arricchire i messaggi esportati con metadati aggiuntivi della coppia chiave-valore. Per i tipi di esportazione dei dati di telemetria e delle modifiche delle proprietà sono disponibili le seguenti funzionalità:
 
-    - **Stringa personalizzata** : aggiunge una stringa statica personalizzata a ogni messaggio. Immettere una chiave qualsiasi e immettere qualsiasi valore stringa.
-    - **Property** : aggiunge la proprietà del dispositivo corrente segnalata o il valore della proprietà cloud a ogni messaggio. Immettere una chiave qualsiasi e scegliere una proprietà del dispositivo o del cloud. Se il messaggio esportato è da un dispositivo che non dispone della proprietà specificata, il messaggio esportato non ottiene l'arricchimento.
+    - **Stringa personalizzata**: aggiunge una stringa statica personalizzata a ogni messaggio. Immettere una chiave qualsiasi e immettere qualsiasi valore stringa.
+    - **Property**: aggiunge la proprietà del dispositivo corrente segnalata o il valore della proprietà cloud a ogni messaggio. Immettere una chiave qualsiasi e scegliere una proprietà del dispositivo o del cloud. Se il messaggio esportato è da un dispositivo che non dispone della proprietà specificata, il messaggio esportato non ottiene l'arricchimento.
 
 1. Aggiungere una nuova destinazione o aggiungere una destinazione già creata. Selezionare il collegamento **crea uno nuovo** e aggiungere le informazioni seguenti:
 
-    - **Nome destinazione** : il nome visualizzato della destinazione in IOT Central.
-    - **Tipo destinazione** : scegliere il tipo di destinazione. Se la destinazione non è già stata configurata, vedere [configurare la destinazione di esportazione](#set-up-export-destination).
+    - **Nome destinazione**: il nome visualizzato della destinazione in IOT Central.
+    - **Tipo destinazione**: scegliere il tipo di destinazione. Se la destinazione non è già stata configurata, vedere [configurare la destinazione di esportazione](#set-up-export-destination).
     - Per hub eventi di Azure, coda o argomento del bus di servizio di Azure, incollare la stringa di connessione per la risorsa e immettere il nome dell'hub eventi, della coda o dell'argomento con distinzione tra maiuscole e minuscole, se necessario.
     - Per archiviazione BLOB di Azure, incollare la stringa di connessione per la risorsa e immettere il nome del contenitore con distinzione tra maiuscole e minuscole, se necessario.
     - Per webhook incollare l'URL di callback per l'endpoint del webhook. Facoltativamente, è possibile configurare l'autorizzazione webhook (OAuth 2,0 e token di autorizzazione) e aggiungere intestazioni personalizzate. 
@@ -281,7 +281,7 @@ Nella tabella seguente vengono illustrate le differenze tra l' [esportazione dei
 | Tipi di dati disponibili | Telemetria, dispositivi, modelli di dispositivo | Telemetria, modifiche delle proprietà |
 | Filtro | Nessuno | Dipende dal tipo di dati esportato. Per la telemetria, filtra per telemetria, proprietà del messaggio, valori delle proprietà |
 | Arricchimenti | Nessuno | Arricchire con una stringa personalizzata o un valore di proprietà nel dispositivo |
-| Destinations | Hub eventi di Azure, code e argomenti del bus di servizio di Azure, archiviazione BLOB di Azure | Come per l'esportazione di dati legacy e i webhook|
+| Destinazioni | Hub eventi di Azure, code e argomenti del bus di servizio di Azure, archiviazione BLOB di Azure | Come per l'esportazione di dati legacy e i webhook|
 | Versioni applicazione supportate | V2, V3 | Solo V3 |
 | Limiti rilevanti | 5 esportazioni per app, 1 destinazione per esportazione | 10 esportazioni-connessioni di destinazione per app |
 

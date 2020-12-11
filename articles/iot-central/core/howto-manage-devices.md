@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.custom: contperfq2
-ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170334"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032525"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
@@ -50,9 +50,9 @@ Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 
 1. Scegliere + **New** (Nuovo).
 
-1. Attivare **o** **disattivare**l'interruttore **simulato** . Un dispositivo reale indica un dispositivo fisico che si connette a un'applicazione Azure IoT Central. Un dispositivo simulato contiene dati di esempio generati automaticamente da Azure IoT Central.
+1. Attivare **o** **disattivare** l'interruttore **simulato** . Un dispositivo reale indica un dispositivo fisico che si connette a un'applicazione Azure IoT Central. Un dispositivo simulato contiene dati di esempio generati automaticamente da Azure IoT Central.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Questo dispositivo viene ora visualizzato nell'elenco dei dispositivi per questo modello. Selezionare il dispositivo per visualizzare la pagina dei dettagli del dispositivo che contiene tutte le visualizzazioni del dispositivo.
 

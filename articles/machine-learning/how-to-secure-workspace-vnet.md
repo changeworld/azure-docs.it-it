@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316706"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029533"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteggere un'area di lavoro Azure Machine Learning con reti virtuali
 
@@ -62,7 +62,7 @@ Per ulteriori informazioni sulla configurazione di un'area di lavoro di collegam
 Azure Machine Learning supporta gli account di archiviazione configurati per l'uso di endpoint di servizio o di endpoint privati. Questa sezione illustra come proteggere un account di archiviazione di Azure usando gli endpoint di servizio. Per gli endpoint privati, vedere la sezione successiva.
 
 > [!IMPORTANT]
-> È possibile inserire sia l' _account di archiviazione predefinito_ per Azure Machine Learning, sia _gli account di archiviazione non predefiniti_ in una rete virtuale.
+> È possibile inserire sia l'_account di archiviazione predefinito_ per Azure Machine Learning, sia _gli account di archiviazione non predefiniti_ in una rete virtuale.
 >
 > Quando si crea un'area di lavoro, viene eseguito automaticamente il provisioning dell'account di archiviazione predefinito.
 >
@@ -87,7 +87,7 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
 
     1. Selezionare la casella di controllo __Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione__. Questa operazione non concede a tutti i servizi di Azure l'accesso all'account di archiviazione.
     
-        * Le risorse di alcuni servizi, **registrate nella sottoscrizione** , possono accedere all'account **di archiviazione nella stessa sottoscrizione** per le operazioni di selezione. Ad esempio la scrittura di log o la creazione di backup.
+        * Le risorse di alcuni servizi, **registrate nella sottoscrizione**, possono accedere all'account **di archiviazione nella stessa sottoscrizione** per le operazioni di selezione. Ad esempio la scrittura di log o la creazione di backup.
         * Alle risorse di alcuni servizi è possibile concedere l'accesso esplicito all'account di archiviazione __assegnando un ruolo di Azure__ all'identità gestita assegnata dal sistema.
 
         Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -95,7 +95,7 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
     > [!IMPORTANT]
     > Quando si usa Azure Machine Learning SDK, l'ambiente di sviluppo deve essere in grado di connettersi all'account di archiviazione di Azure. Se l'account di archiviazione si trova all'interno di una rete virtuale, il firewall deve consentire l'accesso dall'indirizzo IP dell'ambiente di sviluppo.
     >
-    > Per abilitare l'accesso all'account di archiviazione, vedere i __firewall e le reti virtuali__ per l'account di archiviazione *da un Web browser nel client di sviluppo*. Usare quindi la casella di controllo __Aggiungere l'indirizzo IP client__ per aggiungere l'indirizzo IP del client all' __intervallo di indirizzi__. È anche possibile usare il campo __INTERVALLO DI INDIRIZZI__ per immettere manualmente l'indirizzo IP dell'ambiente di sviluppo. Dopo aver aggiunto l'indirizzo IP per il client, è possibile accedere all'account di archiviazione usando l'SDK.
+    > Per abilitare l'accesso all'account di archiviazione, vedere i __firewall e le reti virtuali__ per l'account di archiviazione *da un Web browser nel client di sviluppo*. Usare quindi la casella di controllo __Aggiungere l'indirizzo IP client__ per aggiungere l'indirizzo IP del client all'__intervallo di indirizzi__. È anche possibile usare il campo __INTERVALLO DI INDIRIZZI__ per immettere manualmente l'indirizzo IP dell'ambiente di sviluppo. Dopo aver aggiunto l'indirizzo IP per il client, è possibile accedere all'account di archiviazione usando l'SDK.
 
    [![Il riquadro "Firewall e reti virtuali" nel portale di Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 

@@ -3,12 +3,12 @@ title: Domande frequenti su Integrità risorse di Azure
 description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ad8867b110039e4dcc34b20c8a61fccfd39eaf
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536495"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032865"
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
@@ -52,7 +52,6 @@ Integrità risorse [supporta](resource-health-alert-arm-template-guide.md) gli a
 Dopo avere eseguito l'accesso al portale di Azure, è possibile accedere a Integrità risorse in diversi modi:
 - Passare alla risorsa. Nel riquadro di spostamento a sinistra selezionare **Integrità risorse**.
 - Passare al pannello Integrità dei servizi di Azure.  Nella finestra di spostamento a sinistra selezionare **integrità risorse**.
-- Aprire il pannello **Guida e supporto** selezionando il punto interrogativo nell'angolo in alto a destra del portale e quindi selezionando **Guida e supporto**. Quando il pannello si apre, selezionare **Integrità risorse**.
 
 È anche possibile usare l'API di Integrità risorse per ottenere informazioni sullo stato delle risorse.
 
@@ -69,8 +68,6 @@ Integrità risorse è disponibile in tutte le aree geografiche di Azure.
 Le informazioni messe a disposizione da Integrità risorse sono più specifiche di quelle messe a disposizione da Stato di Azure o dal dashboard per l'integrità dei servizi di Azure.
 
 Diversamente dallo [Stato di Azure](https://status.azure.com) e dal dashboard per l'integrità dei servizi che segnalano la presenza di problemi che interessano un elevato numero di clienti, ad esempio quelli di una determinata area di Azure, Integrità risorse espone eventi più granulari rilevanti solo per la risorsa specifica. Se, ad esempio, un host viene riavviato in modo imprevisto, Integrità risorse avvisa solo i clienti le cui macchine virtuali sono in esecuzione nell'host.
-
-È importante notare che per garantire la visibilità completa degli eventi che incidono sulle risorse, Integrità risorse segnala anche gli eventi pubblicati sul dashboard per l'integrità dei servizi.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>È necessario attivare Integrità risorse per ogni risorsa?
 No, le informazioni di integrità sono disponibili per tutti i tipi di risorse supportati da Integrità risorse. 

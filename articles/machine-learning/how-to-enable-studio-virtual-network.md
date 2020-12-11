@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a90b98e8be976da9ee2669ab3b5fed4a890f0fb2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: contperf-fy20q4, tracking-python
+ms.openlocfilehash: 8dc8446ecbc203622ce7c2163136c1c26aac1cc7
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576621"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032729"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -67,7 +67,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Database SQL di Azure
+* database SQL di Azure
 
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita dall'area di lavoro
 

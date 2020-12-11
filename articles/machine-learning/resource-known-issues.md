@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting, contperfq4
+ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e383ac260a67c7334b806612325ed0b6a9fbbef9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780978"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030978"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione per Azure Machine Learning
 
@@ -61,7 +61,7 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
      
 * **Non è garantito che il pacchetto di spiegazione venga installato quando si installa azureml-Train-automl-client:** 
    
-   Quando si esegue un'esecuzione remota di AutoML con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che illustra l'installazione del pacchetto azureml-explain-Model per le spiegazioni del modello. Questo è un problema noto Come soluzione alternativa, attenersi a uno dei passaggi seguenti:
+   Quando si esegue un'esecuzione remota di AutoML con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che illustra l'installazione del pacchetto azureml-explain-Model per le spiegazioni del modello. Si tratta di un problema noto. Come soluzione alternativa, attenersi a uno dei passaggi seguenti:
   
   1. Installare azureml-explain-Model localmente.
    ```
@@ -218,7 +218,7 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
 ### <a name="data-labeling-projects"></a>Progetti di etichettatura dei dati
 
-|Problema  |Risoluzione  |
+|Problema  |Soluzione  |
 |---------|---------|
 |È possibile usare solo i set di dati creati negli archivi dati BLOB.     |  Si tratta di un limite noto della versione corrente.       |
 |Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo.     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
@@ -426,7 +426,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Eseguire queste azioni per gli errori seguenti:
 
-|Errore  | Risoluzione  |
+|Errore  | Soluzione  |
 |---------|---------|
 |Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
-ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy21q1
+ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318270"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031029"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli in Azure Machine Learning Studio
 
@@ -93,7 +93,7 @@ Usare la [procedura precedente](#portal-create) per creare l'istanza di calcolo.
 |Tipo di macchina virtuale |  Scegliere CPU o GPU. Questo tipo non può essere modificato dopo la creazione     |
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Abilitare/disabilitare l'accesso SSH     |   L'accesso SSH è disabilitato per impostazione predefinita.  L'accesso SSH non può essere. modificato dopo la creazione. Assicurarsi di abilitare l'accesso se si prevede di eseguire il debug in modo interattivo con [vs code remoto](how-to-set-up-vs-code-remote.md)   |
-|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse** , la **rete virtuale** e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](./how-to-secure-training-vnet.md) per vnet.  |
+|Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale** e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](./how-to-secure-training-vnet.md) per vnet.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Cluster di calcolo
 
@@ -108,13 +108,13 @@ Creare un cluster di calcolo a nodo singolo o a più nodi per i carichi di lavor
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Numero minimo di nodi | Numero minimo di nodi di cui si vuole eseguire il provisioning. Se si desidera un numero dedicato di nodi, impostare il conteggio qui. Per risparmiare sui costi, impostare il valore minimo su 0, in modo da non pagare per alcun nodo quando il cluster è inattivo. |
 |Numero massimo di nodi | Numero massimo di nodi di cui si vuole eseguire il provisioning. Il calcolo verrà ridimensionato automaticamente fino a un numero massimo di questo nodo quando viene inviato un processo. |
-|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse** , la **rete virtuale** e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](./how-to-secure-training-vnet.md) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
+|Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale** e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](./how-to-secure-training-vnet.md) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configurare l'identità gestita
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
-Durante la creazione del cluster o quando si modificano i dettagli del cluster di calcolo, nelle **Impostazioni avanzate** , impostare **assegna un'identità gestita** e specificare un'identità assegnata dal sistema o un'identità assegnata dall'utente.
+Durante la creazione del cluster o quando si modificano i dettagli del cluster di calcolo, nelle **Impostazioni avanzate**, impostare **assegna un'identità gestita** e specificare un'identità assegnata dal sistema o un'identità assegnata dall'utente.
 
 #### <a name="managed-identity-usage"></a>Utilizzo identità gestite
 

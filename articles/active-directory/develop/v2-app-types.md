@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit, contperfq2
-ms.openlocfilehash: 4c72d1b4b78c0b7ca9e7fa1f6468beb6fdd4b247
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.openlocfilehash: fd1fc59fd1ade6036c57f15415afccfc693f7bff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628085"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029754"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per Microsoft Identity Platform
 
@@ -107,7 +107,7 @@ Un'API Web può ricevere token di accesso da tutti i tipi di app, tra cui app pe
 
 Per informazioni su come proteggere un'API Web usando i token di accesso OAuth2, vedere gli esempi di codice dell'API Web nello [scenario dell'API Web protetta](scenario-protected-web-api-overview.md).
 
-In molti casi, le API Web devono anche effettuare richieste in uscita ad altre API Web downstream protette da Microsoft Identity Platform. A questo scopo, le API Web possono ricorrere al flusso **On-Behalf-Of** , che consente all'API Web di scambiare un token di accesso in ingresso con un altro token di accesso da usare in richieste in uscita. Per altre informazioni, vedere [Microsoft Identity Platform e flusso On-Behalf-Of di OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
+In molti casi, le API Web devono anche effettuare richieste in uscita ad altre API Web downstream protette da Microsoft Identity Platform. A questo scopo, le API Web possono ricorrere al flusso **On-Behalf-Of**, che consente all'API Web di scambiare un token di accesso in ingresso con un altro token di accesso da usare in richieste in uscita. Per altre informazioni, vedere [Microsoft Identity Platform e flusso On-Behalf-Of di OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>App per dispositivi mobili e native
 

@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2fd1f17d38b0a58fbf64670849a8d5e13bb00cf8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906251"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032712"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -84,7 +84,7 @@ Per le macchine virtuali che usano reti virtuali per la comunicazione è necessa
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicazione tramite collegamento privato in Azure
 
-Le macchine virtuali possono usare un [collegamento privato](../../../private-link/private-link-overview.md) per la comunicazione con il servizio di configurazione Guest. Applicare il tag con il nome `EnablePrivateNeworkGC` e il valore `TRUE` per abilitare questa funzionalità. Il tag può essere applicato prima o dopo l'applicazione delle definizioni dei criteri di configurazione Guest al computer.
+Le macchine virtuali possono usare un [collegamento privato](../../../private-link/private-link-overview.md) per la comunicazione con il servizio di configurazione Guest. Applicare il tag con il nome `EnablePrivateNetworkGC` e il valore `TRUE` per abilitare questa funzionalità. Il tag può essere applicato prima o dopo l'applicazione delle definizioni dei criteri di configurazione Guest al computer.
 
 Il traffico viene instradato tramite l' [indirizzo IP pubblico virtuale](../../../virtual-network/what-is-ip-address-168-63-129-16.md) di Azure per stabilire un canale protetto e autenticato con le risorse della piattaforma Azure.
 

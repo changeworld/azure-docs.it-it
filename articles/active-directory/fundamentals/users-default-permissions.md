@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: ajburnle
 ms.reviewer: vincesm
-ms.custom: it-pro, seodec18, contperfq1
+ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 2c556940ace02f2e7bf0354e67d32df7c5c6714e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602031"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032763"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
 In Azure Active Directory (Azure AD) a tutti gli utenti viene concesso un set di autorizzazioni predefinite. L'accesso di un utente è costituito dal tipo di utente, dalle [assegnazioni di ruolo](active-directory-users-assign-role-azure-portal.md) e dalla proprietà di singoli oggetti. Questo articolo descrive tali autorizzazioni predefinite e contiene un confronto delle impostazioni predefinite degli utenti membro e guest. Le autorizzazioni utente predefinite possono essere modificate solo nelle impostazioni utente in Azure AD.
@@ -34,7 +34,7 @@ Il set di autorizzazioni predefinite ricevuto varia a seconda che l'utente sia u
 ------------ | --------- | ---------- | ----------
 Utenti e contatti | <ul><li>Enumera l'elenco di tutti gli utenti e i contatti<li>Lettura di tutte le proprietà pubbliche di utenti e contatti</li><li>Invito di utenti guest<li>Modifica della propria password<li>Gestione del proprio numero di cellulare<li>Gestione della propria foto<li>Invalidare i propri token di aggiornamento</li></ul> | <ul><li>Lettura delle proprietà personali<li>Leggi nome visualizzato, indirizzo di posta elettronica, nome di accesso, foto, nome dell'entità utente e proprietà dei tipi di utente di altri utenti e contatti<li>Modifica della propria password<li>Cerca un altro utente in base a ObjectId (se consentito)<li>Leggere le informazioni di gestione e di report dirette di altri utenti</li></ul> | <ul><li>Lettura delle proprietà personali<li>Modifica della propria password</li></ul>
 Gruppi | <ul><li>Creazione di gruppi di sicurezza<li>Creare gruppi di Microsoft 365<li>Enumera l'elenco di tutti i gruppi<li>Lettura di tutte le proprietà dei gruppi<li>Lettura delle appartenenze a gruppi non nascoste<li>Lettura delle appartenenze a gruppi Microsoft 365 nascoste per il gruppo Unito<li>Gestione delle proprietà, della titolarità e dell'appartenenza a gruppi dell'utente<li>Aggiunta di utenti guest ai gruppi con proprietario<li>Gestire delle impostazioni di appartenenza dinamica<li>Eliminazione dei gruppi con proprietario<li>Ripristinare i gruppi di Microsoft 365 di proprietà</li></ul> | <ul><li>Leggere le proprietà dei gruppi non nascosti, incluse l'appartenenza e la proprietà (anche gruppi non aggiunti)<li>Lettura delle appartenenze ai gruppi Microsoft 365 nascoste per i gruppi aggiunti<li>Cerca i gruppi in base al nome visualizzato o ObjectId (se consentito)</li></ul> | <ul><li>Lettura ID oggetto per gruppi aggiunti<li>Leggere l'appartenenza e la proprietà dei gruppi Uniti in alcune app Microsoft 365 (se consentito)</li></ul>
-APPLICAZIONI | <ul><li>Registrazione (creazione) di una nuova applicazione<li>Enumera l'elenco di tutte le applicazioni<li>Lettura delle proprietà delle applicazioni aziendali e registrate<li>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<li>Creazione o eliminazione della password applicazione per un utente<li>Eliminazione delle applicazioni di proprietà<li>Ripristino delle applicazioni di proprietà</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate
+Applicazioni | <ul><li>Registrazione (creazione) di una nuova applicazione<li>Enumera l'elenco di tutte le applicazioni<li>Lettura delle proprietà delle applicazioni aziendali e registrate<li>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<li>Creazione o eliminazione della password applicazione per un utente<li>Eliminazione delle applicazioni di proprietà<li>Ripristino delle applicazioni di proprietà</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate
 Dispositivi</li></ul> | <ul><li>Enumera l'elenco di tutti i dispositivi<li>Lettura di tutte le proprietà dei dispositivi<li>Gestione di tutte le proprietà dei dispositivi con proprietario</li></ul> | Nessuna autorizzazione | Nessuna autorizzazione
 Directory | <ul><li>Lettura di tutte le informazioni aziendali<li>Lettura di tutti i domini<li>Lettura di tutti i contratti dei partner</li></ul> | <ul><li>Leggi nome visualizzato dell'azienda<li>Lettura di tutti i domini</li></ul> | <ul><li>Leggi nome visualizzato dell'azienda<li>Lettura di tutti i domini</li></ul>
 Ruoli e ambiti | <ul><li>Lettura di tutti i ruoli amministrativi e delle appartenenze<li>Lettura di tutte le proprietà e dell'appartenenza delle unità amministrative</li></ul> | Nessuna autorizzazione | Nessuna autorizzazione

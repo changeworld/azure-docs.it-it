@@ -10,13 +10,13 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
-ms.custom: contperfq1
-ms.openlocfilehash: 9b3ae58544504495c89fce0ca07bc96d5f2c6028
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 68ac9cd5e89617a820cba9a1d6c61890e50a56a7
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637489"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031743"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Scegliere come autorizzare l'accesso ai dati della coda nel portale di Azure
 
@@ -37,7 +37,7 @@ Per accedere ai dati della coda con la chiave di accesso dell'account, è necess
 Quando si tenta di accedere ai dati della coda nel portale di Azure, il portale verifica prima di tutto se è stato assegnato un ruolo con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale usa la chiave dell'account per accedere ai dati della coda. Se a questa azione non è stato assegnato un ruolo, il portale tenta di accedere ai dati tramite l'account Azure AD.
 
 > [!NOTE]
-> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action** , in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati della coda con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati della coda con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usare l'account Azure AD
 
