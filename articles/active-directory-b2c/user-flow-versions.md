@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67949c31c710d88a05e1e110860fe703caf66d04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ad3743a90f5773163a8f115e1924b8c5bbe097
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87481326"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108094"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versioni del flusso utente in Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ I flussi utente in Azure Active Directory B2C (Azure AD B2C) consentono di confi
 >- I flussi utente **consigliati** sono le nuove versioni di anteprima dei flussi utente. Sono testati accuratamente e combinano tutte le funzionalità delle versioni **v2** e **v 1.1** legacy. In futuro, i nuovi flussi utente consigliati verranno mantenuti e aggiornati. Quando si passa a questi nuovi flussi utente consigliati, sarà possibile accedere alle nuove funzionalità non appena vengono rilasciate.
 >- I flussi utente standard, precedentemente noti come **V1**, sono disponibili a **livello** generale, flussi utente pronti per la produzione. Se i flussi utente sono cruciali e dipendono da versioni altamente stabili, è possibile continuare a usare i flussi utente standard, rendendo conto che tali versioni non verranno gestite e aggiornate.
 >
->Tutti i flussi utente di anteprima legacy (V 1.1 e v2) si trovano in un percorso deprecato entro **il 1 agosto 2021**. Laddove possibile, è consigliabile [passare alle nuove versioni **consigliate** ](#how-to-switch-to-a-new-recommended-user-flow) appena possibile, in modo da poter sfruttare sempre le funzionalità e gli aggiornamenti più recenti. *Queste modifiche si applicano solo al cloud pubblico di Azure. Altri ambienti continueranno a usare il [controllo delle versioni legacy del flusso utente](user-flow-versions-legacy.md).*
+>Tutti i flussi utente di anteprima legacy (V 1.1 e v2) si trovano in un percorso deprecato entro **il 1 agosto 2021**. Laddove possibile, è consigliabile [passare alle nuove versioni **consigliate**](#how-to-switch-to-a-new-recommended-user-flow) appena possibile, in modo da poter sfruttare sempre le funzionalità e gli aggiornamenti più recenti. *Queste modifiche si applicano solo al cloud pubblico di Azure. Altri ambienti continueranno a usare il [controllo delle versioni legacy del flusso utente](user-flow-versions-legacy.md).*
 
 ## <a name="recommended-user-flows"></a>Flussi utente consigliati
 
@@ -35,11 +35,11 @@ I flussi utente consigliati sono versioni di anteprima che combinano nuove funzi
 
 | Flusso utente | Descrizione |
 | --------- | ----------- |
-| Reimpostazione della password (anteprima) | Consente a un utente di scegliere una nuova password dopo la verifica del rispettivo indirizzo di posta elettronica. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>Impostazioni di compatibilità dei token</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>[requisiti di complessità delle password](user-flow-password-complexity.md)</li></ul> |
+| Reimpostazione della password (anteprima) | Consente a un utente di scegliere una nuova password dopo la verifica del rispettivo indirizzo di posta elettronica. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>Impostazioni di compatibilità dei token</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>[requisiti di complessità delle password](password-complexity.md)</li></ul> |
 | Modifica del profilo (anteprima) | Consente a un utente di configurare i rispettivi attributi utente. Con questo flusso utente, è possibile configurare: <ul><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li></ul> |
-| Accedi (anteprima) | Consente a un utente di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>Personalizzazione della pagina di accesso</li></ul> |
-| Iscrizione (anteprima) | Consente a un utente di creare un account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>[Requisiti di complessità delle password](user-flow-password-complexity.md)</li></ul> |
-| Iscrizione e accesso (anteprima) | Consente a un utente di creare un account o di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>[Requisiti di complessità delle password](user-flow-password-complexity.md)</li></ul> |
+| Accedi (anteprima) | Consente a un utente di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>Personalizzazione della pagina di accesso</li></ul> |
+| Iscrizione (anteprima) | Consente a un utente di creare un account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>[Requisiti di complessità delle password](password-complexity.md)</li></ul> |
+| Iscrizione e accesso (anteprima) | Consente a un utente di creare un account o di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>[Controllo dell'accesso in base all'età](basic-age-gating.md)</li><li>[Requisiti di complessità delle password](password-complexity.md)</li></ul> |
 
 ## <a name="standard-user-flows"></a>Flussi utente standard
 
@@ -47,11 +47,11 @@ I flussi utente standard (indicati in precedenza come V1) sono disponibili a liv
 
 | Flusso utente | Descrizione |
 | --------- | ----------- | ----------- |
-| Reimpostazione della password | Consente a un utente di scegliere una nuova password dopo la verifica del rispettivo indirizzo di posta elettronica. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>Impostazioni di compatibilità dei token</li><li>[Requisiti di complessità delle password](user-flow-password-complexity.md)</li></ul> |
+| Reimpostazione della password | Consente a un utente di scegliere una nuova password dopo la verifica del rispettivo indirizzo di posta elettronica. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>Impostazioni di compatibilità dei token</li><li>[Requisiti di complessità delle password](password-complexity.md)</li></ul> |
 | Modifica del profilo | Consente a un utente di configurare i rispettivi attributi utente. Con questo flusso utente, è possibile configurare: <ul><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li></ul> |
-| Accedi | Consente a un utente di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>Blocco dell'accesso</li><li>Forzatura della reimpostazione della password</li><li>Opzione Mantieni l'accesso</ul><br>Non è possibile personalizzare l'interfaccia utente con questo flusso utente. |
-| Iscrizione | Consente a un utente di creare un account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Requisiti di complessità delle password](user-flow-password-complexity.md)</li></ul> |
-| Eseguire l'iscrizione e l'accesso | Consente a un utente di creare un account o di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](custom-policy-multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Requisiti di complessità delle password](user-flow-password-complexity.md)</li></ul>|
+| Accesso | Consente a un utente di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>Blocco dell'accesso</li><li>Forzatura della reimpostazione della password</li><li>Opzione Mantieni l'accesso</ul><br>Non è possibile personalizzare l'interfaccia utente con questo flusso utente. |
+| Iscrizione | Consente a un utente di creare un account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Requisiti di complessità delle password](password-complexity.md)</li></ul> |
+| Eseguire l'iscrizione e l'accesso | Consente a un utente di creare un account o di accedere al proprio account. Con questo flusso utente, è possibile configurare: <ul><li>[Autenticazione a più fattori](multi-factor-authentication.md)</li><li>[Durata del token](tokens-overview.md)</li><li>Impostazioni di compatibilità dei token</li><li>Comportamento della sessione</li><li>[Requisiti di complessità delle password](password-complexity.md)</li></ul>|
 
 
 ## <a name="how-to-switch-to-a-new-recommended-user-flow"></a>Come passare a un nuovo flusso utente consigliato

@@ -3,16 +3,15 @@ title: Che cos'è il marketplace commerciale Microsoft?
 description: Panoramica dei vantaggi e delle opzioni per i partner Microsoft che presentano soluzioni nel marketplace commerciale Microsoft.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: a559c8613af97251ea6e85ef2a16121a89ffb6ad
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94739769"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780315"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Che cos'è il marketplace commerciale Microsoft?
 
@@ -24,13 +23,13 @@ Il marketplace commerciale è disponibile in più di 100 paesi e aree geografich
 
 Il marketplace commerciale Microsoft ha due store online: [Microsoft AppSource](https://appsource.microsoft.com/) e [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contiene soluzioni aziendali, mentre Azure Marketplace contiene soluzioni IT. Il software e i servizi del marketplace commerciale sono disponibili anche in prodotti Microsoft come Microsoft 365, Dynamics 365, Microsoft Power Platform e Azure. Gli store online e le esperienze all'interno del prodotto attirano milioni di potenziali clienti ogni mese. Ogni store online offre scenari diversi per garantire che le soluzioni o i servizi degli ISV vengano presentati ai clienti adatti.
 
-Quando si crea un'offerta del marketplace commerciale nel Centro per i partner, può essere presentata in uno dei due store online o in entrambi in base al tipo di offerta, alle categorie e ad altre opzioni selezionate. Nel raro caso in cui l'offerta sia pertinente per gli utenti di entrambi gli store online, può essere visualizzata in entrambi. Per altre informazioni, vedere [Opzioni di presentazione e prezzi per store online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) e la [guida dell'acquirente a Microsoft AppSource e Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+Quando si crea un'offerta del marketplace commerciale nel Centro per i partner, può essere presentata in uno dei due store online o in entrambi in base al tipo di offerta, alle categorie e ad altre opzioni selezionate. Nel raro caso in cui l'offerta sia pertinente per gli utenti di entrambi gli store online, può essere visualizzata in entrambi. Per altre informazioni, vedere [Opzioni di inserzioni e prezzi per store online](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) e la [guida dell'acquirente a Microsoft AppSource e Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
 ### <a name="microsoft-appsource"></a>Microsoft AppSource
 
 [Microsoft AppSource](https://appsource.microsoft.com/) è riservato alle soluzioni aziendali, come le applicazioni SaaS (Software as a Service), e alle app che si estendono direttamente in Dynamics 365, Microsoft 365 e Microsoft Power Platform. I servizi di consulenza di AppSource sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Dynamics 365 e Power BI o di accelerarne l'uso.
 
-Ecco un esempio di una pagina di presentazione di un'offerta in AppSource:
+Ecco un esempio di pagina di inserzione per un'offerta in AppSource:
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Illustra una pagina di presentazione di un'offerta in Microsoft AppSource.":::
 
@@ -48,7 +47,7 @@ Questa opzione apre una finestra in cui è possibile cercare i componenti aggiun
 
 [Azure Marketplace](https://azuremarketplace.microsoft.com/) è riservato alle soluzioni basate su o create per Azure e destinate a professionisti IT e sviluppatori. In questo store vengono presentati anche i servizi di consulenza e i servizi gestiti. I servizi di consulenza di Azure Marketplace sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Azure o di accelerarne l'uso.
 
-Ecco un esempio di una pagina di presentazione di un'offerta in Azure Marketplace:
+Ecco un esempio di una pagina di inserzione per un'offerta in Azure Marketplace:
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustra una pagina di presentazione di un'offerta in Azure Marketplace."::: 
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e55bb9ba49cfcaf07e8d3dc17dc13e30036e100f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040452"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109046"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | US |
 | {Culture:RFC5646} | Codice RFC5646 della lingua. | en-US |
 
-### <a name="policy"></a>Criteri
+### <a name="policy"></a>Policy
 
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
@@ -88,7 +88,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:DateTimeInUtc} |Data e ora in formato UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |Modalità di distribuzione dei criteri.  | Produzione |
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
-| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  True |
+| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
 
 ### <a name="claims"></a>Attestazioni 
 
@@ -185,7 +185,7 @@ Con i resolver di attestazioni è possibile precompilare il nome di accesso o l'
 
 ### <a name="dynamic-ui-customization"></a>Personalizzazione dell'interfaccia utente dinamica
 
-Azure AD B2C consente di passare i parametri della stringa di query agli endpoint della definizione del contenuto HTML per eseguire dinamicamente il rendering del contenuto della pagina. Questa funzionalità consente, ad esempio, di modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o accesso in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
+Azure AD B2C consente di passare i parametri della stringa di query agli endpoint della definizione del contenuto HTML per eseguire dinamicamente il rendering del contenuto della pagina. Questa funzionalità consente, ad esempio, di modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o accesso in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
 
 Nell'esempio seguente viene passato il parametro della stringa di query denominato **campaignId** con il valore `Hawaii` , il codice della **lingua** `en-US` e l' **app** che rappresenta l'ID client:
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4befcaf6b8c6b6bc4fddacb179883551609f7e19
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928648"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108434"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di LexisNexis con Azure Active Directory B2C
 
@@ -95,7 +95,7 @@ Le impostazioni dell'applicazione possono essere [configurate nel servizio app i
 
 Questa soluzione USA modelli di interfaccia utente personalizzati caricati da Azure AD B2C. Questi modelli di interfaccia utente eseguono la profilatura inviata direttamente al servizio ThreatMetrix.
 
-Fare riferimento a queste [istruzioni](./custom-policy-ui-customization.md#custom-page-content-walkthrough) per distribuire i [file dell'interfaccia utente](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) inclusi in un account di archiviazione BLOB. Le istruzioni includono la configurazione di un account di archiviazione BLOB, la configurazione di CORS e l'abilitazione dell'accesso pubblico.
+Fare riferimento a queste [istruzioni](./customize-ui-with-html.md#custom-page-content-walkthrough) per distribuire i [file dell'interfaccia utente](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) inclusi in un account di archiviazione BLOB. Le istruzioni includono la configurazione di un account di archiviazione BLOB, la configurazione di CORS e l'abilitazione dell'accesso pubblico.
 
 L'interfaccia utente è basata sul [modello blu oceano](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Tutti i collegamenti all'interno dell'interfaccia utente devono essere aggiornati in modo da fare riferimento al percorso distribuito. Nella cartella dell'interfaccia utente trovare e sostituire https://yourblobstorage/blobcontainer con il percorso distribuito.
 

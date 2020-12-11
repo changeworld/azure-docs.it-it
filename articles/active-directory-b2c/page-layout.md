@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0bbe40a2329143b9abd4554ec715c64e5c26d4eb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028105"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108502"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
@@ -46,16 +46,17 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 
 - I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
 - È stato aggiunto un ritardo di convalida dell'input utente configurabile per migliorare l'esperienza utente.
+-  Correzioni di accessibilità
 - Correzione di un problema di accessibilità in modo che i messaggi di errore vengano ora letti dall'Assistente vocale. 
 - Lo stato attivo viene ora inserito nel campo password dopo la verifica del messaggio di posta elettronica.
 - Rimosso `autofocus` dal controllo CheckBox. 
-- Aggiunta del supporto per un widget di visualizzazione per la verifica del numero di telefono.
-- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+- Aggiunta del supporto per un controllo di visualizzazione per la verifica del numero di telefono.
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML] (Customize-UI-with-HTML. MD # Guidelines-for
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
 - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti.
 - Supporto per la conversione di Chrome.
-- Aggiunta del supporto per la personalizzazione del tenant nelle pagine del flusso utente.
+- Aggiunta del supporto per la personalizzazione dell'azienda nelle pagine del flusso utente.
 
 **1.1.0**
 
@@ -87,8 +88,8 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 **1.2.0**
 
 - I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
-- Correzioni di accessibilità.
-- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+-  Correzioni di accessibilità
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
 - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti.
@@ -118,7 +119,7 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 **1.2.0**
 
 -  Correzioni di accessibilità
-- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
 - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
@@ -144,7 +145,7 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 **1.2.0**
 
 -  Correzioni di accessibilità
-- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
 - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
@@ -165,7 +166,7 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 **1.2.0**
 
 -  Correzioni di accessibilità
-- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
 - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
@@ -177,4 +178,4 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni dettagliate su come personalizzare l'interfaccia utente delle applicazioni in criteri personalizzati, vedere [personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato](custom-policy-ui-customization.md).
+Per informazioni dettagliate su come personalizzare l'interfaccia utente delle applicazioni in criteri personalizzati, vedere [personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato](customize-ui-with-html.md).

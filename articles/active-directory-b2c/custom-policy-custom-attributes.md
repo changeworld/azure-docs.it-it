@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec99558f3a168b770ad19fb4f6c811a31c44f08
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389327"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108883"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: abilitare gli attributi personalizzati in un criterio del profilo personalizzato
 
-Nell'articolo [aggiungere attestazioni e personalizzare l'input dell'utente tramite criteri personalizzati](custom-policy-configure-user-input.md) viene illustrato come usare [gli attributi predefiniti del profilo utente](user-profile-attributes.md). In questo articolo viene abilitato un attributo personalizzato nella directory Azure Active Directory B2C (Azure AD B2C). Successivamente, è possibile usare il nuovo attributo come attestazione personalizzata in [flussi utente](user-flow-overview.md) o [criteri personalizzati](custom-policy-get-started.md) simultaneamente.
+Nell'articolo [aggiungere attestazioni e personalizzare l'input dell'utente tramite criteri personalizzati](configure-user-input.md) viene illustrato come usare [gli attributi predefiniti del profilo utente](user-profile-attributes.md). In questo articolo viene abilitato un attributo personalizzato nella directory Azure Active Directory B2C (Azure AD B2C). Successivamente, è possibile usare il nuovo attributo come attestazione personalizzata in [flussi utente](user-flow-overview.md) o [criteri personalizzati](custom-policy-get-started.md) simultaneamente.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -88,7 +88,7 @@ Per abilitare gli attributi personalizzati nei criteri, fornire l'ID **applicazi
 5. Selezionare **carica criteri personalizzati**, quindi caricare i file di criteri TrustFrameworkExtensions.xml modificati.
 
 > [!NOTE]
-> La prima volta che il Azure AD profilo tecnico rende persistente l'attestazione nella directory, verifica se l'attributo personalizzato esiste. In caso contrario, crea l'attributo personalizzato.  
+> La prima volta che il Azure AD profilo tecnico rende persistente l'attestazione nella directory, verifica se l'attributo personalizzato esiste. In caso contrario, crea l'attributo personalizzato.  
 
 ## <a name="create-a-custom-attribute-through-azure-portal"></a>Creazione di un attributo personalizzato tramite portale di Azure
 
@@ -132,7 +132,7 @@ Nell'esempio seguente viene illustrato l'utilizzo di un attributo personalizzato
 
 ## <a name="use-a-custom-attribute-in-a-policy"></a>Usare un attributo personalizzato in un criterio
 
-Seguire le istruzioni per [aggiungere attestazioni e personalizzare l'input utente usando criteri personalizzati](custom-policy-configure-user-input.md). Questo esempio usa un'attestazione predefinita "City". Per usare un attributo personalizzato, sostituire ' City ' con gli attributi personalizzati.
+Seguire le istruzioni per [aggiungere attestazioni e personalizzare l'input utente usando criteri personalizzati](configure-user-input.md). Questo esempio usa un'attestazione predefinita "City". Per usare un attributo personalizzato, sostituire ' City ' con gli attributi personalizzati.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

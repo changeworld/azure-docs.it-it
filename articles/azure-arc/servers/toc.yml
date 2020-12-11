@@ -55,6 +55,8 @@
               href: manage-vm-extensions-powershell.md
             - name: Distribuire le estensioni con un modello di Resource Manager
               href: manage-vm-extensions-template.md
+        - name: Identità gestite dall'utente nel server
+          href: managed-identity-authentication.md
         - name: Gestire l'agente
           href: manage-agent.md
     - name: Scenari

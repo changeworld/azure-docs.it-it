@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'uso delle f
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993704"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107347"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -131,7 +131,7 @@ Per altre informazioni sull'uso dei selettori di nodo, vedere [Assigning Pods to
 
 ### <a name="node-affinity"></a>Affinità tra nodi
 
-Un selettore di nodo è un modo semplice per assegnare pod a un determinato nodo. Una maggiore flessibilità è disponibile con l'*affinità tra nodi*. Usando l'affinità tra nodi, si definisce cosa accade se il pod non può essere associato a un nodo. È possibile *richiedere* che l'utilità di pianificazione di Kubernetes trovi una corrispondenza tra un pod e un host con etichetta. In alternativa, è possibile *preferire* una corrispondenza ma consentire la pianificazione del pod su un host differente se la corrispondenza non è disponibile.
+Un selettore di nodo è un modo semplice per assegnare pod a un determinato nodo. Una maggiore flessibilità è disponibile con l'*affinità tra nodi*. Usando l'affinità tra nodi, si definisce cosa accade se il pod non può essere associato a un nodo. È possibile *richiedere* che l'utilità di pianificazione di Kubernetes trovi una corrispondenza tra un pod e un host con etichetta. In alternativa, è possibile *preferire* una corrispondenza, ma consentire la pianificazione del pod in un host diverso se non è disponibile alcuna corrispondenza.
 
 Nell'esempio seguente l'affinità tra nodi viene impostata su *requiredDuringSchedulingIgnoredDuringExecution*. Questa affinità richiede che l'utilità di pianificazione di Kubernetes usi un nodo con un'etichetta corrispondente. Se non è disponibile alcun nodo, il pod rimane in attesa che la pianificazione continui. Per consentire la pianificazione del pod in un nodo diverso, è possibile impostare il valore su *preferredDuringSchedulingIgnoreDuringExecution*:
 

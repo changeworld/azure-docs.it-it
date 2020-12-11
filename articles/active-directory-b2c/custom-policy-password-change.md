@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a471f510f60eeb6428c5c4e8ec7cccd1e0804d10
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131752"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108859"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C
 
@@ -183,4 +183,4 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C](custom-policy-password-complexity.md).
+- Informazioni su come [Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C](password-complexity.md).

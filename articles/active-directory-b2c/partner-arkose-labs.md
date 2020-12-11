@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994061"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108553"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di arcose Labs con Azure Active Directory B2C
 
@@ -138,7 +138,7 @@ Scaricare git bash e seguire questa procedura:
 
 5. Caricare il file index.html nell'archivio BLOB creato in precedenza.
 
-6. Passare al **Storage**  >  caricamento del **contenitore** di archiviazione  >  **Upload**.
+6. Passare al   >  caricamento del **contenitore** di archiviazione  >  .
 
 #### <a name="set-up-azure-ad-b2c"></a>Configurare Azure AD B2C
 
@@ -147,9 +147,9 @@ Scaricare git bash e seguire questa procedura:
 
 1. Creare un flusso utente in base alle informazioni riportate [qui](tutorial-create-user-flows.md). Arrestare quando si raggiunge la sezione **testare il flusso utente**.
 
-2. Abilitare JavaScript nel [flusso utente](user-flow-javascript-overview.md).
+2. Abilitare JavaScript nel [flusso utente](javascript-and-page-layout.md).
 
-3. Nella stessa pagina flusso utente, Abilita URL pagina personalizzata: Vai al layout della pagina **flusso utente** usa il contenuto della pagina  >  **page layout**  >  **personalizzata**  =  **Sì**  >  **Inserisci URL pagina personalizzata**.
+3. Nella stessa pagina flusso utente, Abilita URL pagina personalizzata: Vai al layout della pagina **flusso utente** usa il contenuto della pagina  >    >  **personalizzata**  =  **Sì**  >  **Inserisci URL pagina personalizzata**.
 Questo URL di pagina personalizzata viene ottenuto dal percorso del file index.html all'interno dell'archivio BLOB  
 
    ![Screenshot che mostra l'URL di archiviazione di arcose Labs](media/partner-arkose-labs/arkose-storage-url.png)

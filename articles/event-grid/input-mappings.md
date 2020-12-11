@@ -3,22 +3,16 @@ title: Eseguire il mapping di campi personalizzati allo schema di Griglia di eve
 description: Questo articolo descrive come convertire lo schema personalizzato nello schema di griglia di eventi di Azure quando i dati dell'evento non corrispondono allo schema di griglia di eventi.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 836e7b340c5c89100207e2f9409710b8dfa5e3bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34381782c9337631b0aa04e47eb5897a8071139a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105524"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109199"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Eseguire il mapping di campi personalizzati allo schema di Griglia di eventi
 
 Se i dati dell'evento non corrispondono allo [schema di Griglia di eventi](event-schema.md) previsto, è comunque possibile usare Griglia di eventi per instradare l'evento ai sottoscrittori. Questo articolo descrive come eseguire il mapping di uno schema personalizzato allo schema di Griglia di eventi.
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>Installare la funzionalità di anteprima
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="original-event-schema"></a>Schema di eventi di origine
 
@@ -40,7 +34,7 @@ Anche se questo formato non corrisponde allo schema previsto, Griglia di eventi 
 
 Quando si crea un argomento personalizzato, specificare come eseguire il mapping dei campi dall'evento di origine allo schema di griglia di eventi. Per personalizzare il mapping, si usano tre valori:
 
-* Il valore relativo allo **schema di input** specifica il tipo di schema. Le opzioni disponibili sono lo schema CloudEvents, lo schema evento personalizzato e lo schema griglia di eventi. Il valore predefinito è lo schema griglia di eventi. Quando si crea un mapping personalizzato tra lo schema personalizzato e lo schema griglia di eventi, usare lo schema evento personalizzato. Quando gli eventi si trovano nello schema CloudEvents, usare lo schema CloudEvents.
+* Il valore relativo allo **schema di input** specifica il tipo di schema. Le opzioni disponibili sono lo schema CloudEvents, lo schema evento personalizzato e lo schema griglia di eventi. Il valore predefinito è lo schema griglia di eventi. Quando si crea un mapping personalizzato tra lo schema personalizzato e lo schema griglia di eventi, usare lo schema evento personalizzato. Quando gli eventi sono nel formato CloudEvents, usare lo schema CloudEvents.
 
 * La proprietà relativa ai **valori predefiniti di mapping** specifica i valori predefiniti per i campi nello schema griglia di eventi. È possibile impostare i valori predefiniti per `subject`, `eventtype` e `dataversion`. In genere, questo parametro si usa quando lo schema personalizzato non include un campo corrispondente a uno di questi tre campi. È ad esempio possibile specificare che la versione di dati sia sempre impostata su **1.0**.
 
@@ -49,10 +43,6 @@ Quando si crea un argomento personalizzato, specificare come eseguire il mapping
 Per creare un argomento personalizzato con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
@@ -65,11 +55,7 @@ az eventgrid topic create \
 Per PowerShell, usare:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName myResourceGroup `
   -Name demotopic `
   -Location eastus2 `
@@ -107,9 +93,9 @@ az eventgrid event-subscription create \
 L'esempio seguente indica come eseguire la sottoscrizione a un argomento di griglia di eventi e usa lo schema griglia di eventi. Per PowerShell, usare:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub1 `
   -EndpointType webhook `
@@ -120,7 +106,7 @@ New-AzureRmEventGridSubscription `
 L'esempio successivo usa lo schema di input dell'evento:
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub2 `
   -EndpointType webhook `
@@ -146,8 +132,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 Per PowerShell, usare:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
 
 $htbody = @{
     myEventTypeField="Created"

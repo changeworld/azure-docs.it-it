@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 731c608b8ac280a3a3c4e77c3a94533d258cb85d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 213184409c9f5ee21ac9f61be1ad138fbbaa3590
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618043"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107856"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guida alla migrazione da ADAL a MSAL per Python
 
@@ -50,7 +50,7 @@ Per altri dettagli sui diversi tipi di ambiti, fare riferimento [a autorizzazion
 
 ### <a name="error-handling"></a>Gestione degli errori
 
-Azure Active Directory Authentication Library (ADAL) per Python usa l'eccezione `AdalError` per indicare che si è verificato un problema. MSAL per Python usa in genere i codici di errore. Per altre informazioni, vedere  [MSAL per la gestione degli errori Python](./msal-handling-exceptions.md?tabs=python).
+Azure Active Directory Authentication Library (ADAL) per Python usa l'eccezione `AdalError` per indicare che si è verificato un problema. MSAL per Python usa in genere i codici di errore. Per altre informazioni, vedere [MSAL per la gestione degli errori Python](msal-error-handling-python.md).
 
 ### <a name="api-changes"></a>Modifiche all'API
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: f4dce87533927eebef792987b87d148e6a5268b4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b565a3e653d05ffcecfbc5718c74d07d8f45373
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500615"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109165"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Vantaggio Azure Hybrid: come viene applicato per macchine virtuali Linux
 
 ## <a name="overview"></a>Panoramica
 
-Vantaggio Azure Hybrid consente di eseguire più facilmente la migrazione delle macchine virtuali Red Hat Enterprise Linux in Azure (RHEL) e SUSE Linux Enterprise Server (SLES) in Azure usando la propria sottoscrizione di Red Hat o SUSE software già esistente. Con questo vantaggio, paghi solo per i costi di infrastruttura della VM perché la tariffa software è coperta dalla tua sottoscrizione RHEL o SLES. Il vantaggio è applicabile a tutte le immagini RHEL e SLES Marketplace con pagamento in base al consumo (PAYG).
+Vantaggio Azure Hybrid è un vantaggio della licenza che consente di ridurre significativamente i costi di esecuzione delle macchine virtuali Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) nel cloud. Con questo vantaggio, paghi solo per i costi di infrastruttura della VM perché la tariffa software è coperta dalla tua sottoscrizione RHEL o SLES. Il vantaggio è applicabile a tutte le immagini RHEL e SLES Marketplace con pagamento in base al consumo (PAYG).
 
 > [!IMPORTANT]
 > Vantaggio Azure Hybrid per le macchine virtuali Linux è ora disponibile per il pubblico

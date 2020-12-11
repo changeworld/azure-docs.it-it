@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673509"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107873"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utilizzare Microsoft Authentication Library per JavaScript per utilizzare Azure AD B2C
 
@@ -169,7 +169,7 @@ Nei passaggi seguenti si presuppone che siano già stati seguiti i passaggi desc
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Passaggio 2: intercettare e gestire gli errori di autenticazione nel metodo di accesso
 
-Quando un utente seleziona **password dimenticata** , l'applicazione genera un errore che dovrebbe essere intercettato nel codice e quindi gestito presentando il flusso utente appropriato. In questo caso, il `b2c_1_reset` flusso di reimpostazione della password.
+Quando un utente seleziona **password dimenticata**, l'applicazione genera un errore che dovrebbe essere intercettato nel codice e quindi gestito presentando il flusso utente appropriato. In questo caso, il `b2c_1_reset` flusso di reimpostazione della password.
 
 1. Estendere il metodo di accesso come segue:
 
@@ -207,9 +207,9 @@ Quando un utente seleziona **password dimenticata** , l'applicazione genera un e
 
     Dopo aver reimpostato la password, l'utente torna all'applicazione per accedere di nuovo.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Schermata di accesso visualizzata da Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Schermate del flusso di reimpostazione della password visualizzate da Azure AD B2C" border="false":::
 
-    Per ulteriori informazioni sui codici di errore e sulla gestione delle eccezioni, vedere [codici di errore e di eccezione MSAL](msal-handling-exceptions.md).
+    Per ulteriori informazioni sui codici di errore e sulla gestione delle eccezioni, vedere [codici di errore e di eccezione MSAL](msal-error-handling-js.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -217,4 +217,4 @@ Altre informazioni su questi Azure AD B2C concetti:
 
 - [Flussi utente](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md)
-- [Personalizzazione dell'esperienza utente](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [Personalizzazione dell'esperienza utente](../../active-directory-b2c/configure-user-input.md)

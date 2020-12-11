@@ -3,12 +3,12 @@ title: Profilo utente e ID da usare con Azure Notebooks Preview
 description: Come creare e gestire il profilo utente e l'ID utente con Azure Notebooks, che diventa parte dell'URL dei notebook condivisi.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d70365fcc0c72df01b4dc059b6e0f4cc607bba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831353"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109505"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Profilo e ID utente per Azure Notebooks anteprima
 
@@ -18,7 +18,7 @@ Nello spazio potente e collaborativo di Azure Notebooks, il profilo utente prese
 
 [![Pagina del profilo Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
-L'ID utente è parte della URL usata per condividere i progetti e i notebook. L'elenco seguente descrive i diversi modelli di URL:
+L'ID utente fa parte degli URL usati per condividere i progetti e i notebook. L'elenco seguente descrive i diversi modelli di URL:
 
 - `https://notebooks.azure.com/<user_id>`: Pagina del profilo.
 - `https://notebooks.azure.com/<user_id>/projects`: Progetti. Vengono visualizzati tutti i progetti; gli altri utenti vedono solo i progetti pubblici.
@@ -54,11 +54,11 @@ Per modificare il profilo, usare il comando **Modifica le informazioni del profi
 | Foto profilo | Un'immagine che viene visualizzata nella pagina del profilo. |
 | Informazioni account | Il nome visualizzato, l'ID utente e l'account di posta elettronica pubblico. In questo caso l'account di posta elettronica fornisce agli altri utenti un mezzo di contatto e può essere diverso dall'[account](azure-notebooks-user-account.md) usato per accedere ad Azure Notebooks stesso. |
 | Informazioni del profilo | Percorso, azienda, posizione, sito Web e una breve descrizione personale. |
-| Profili social | Di GItHub, Twitter e Facebook, se li si vuole condividere. |
-| impostazioni del profilo | Fornisce due comandi:<ul><li>**Esporta il profilo**: crea e scarica un file *.zip* che contiene tutte le informazioni che Azure Notebooks salva nel profilo, tra cui la foto, le informazioni del profilo e i log di protezione.</li><li>**Elimina account**personale: Elimina definitivamente tutte le informazioni personali archiviate in Azure Notebooks.</li></ul> |
-| Abilitare le funzionalità del sito | Consente di controllare gli aspetti del comportamento di Azure Notebooks:<ul><li>**Front-end unificato per Notebooks**: abilita l'avvio più veloce del notebook e una persistenza migliore.</li><li>**Esegui in JupyterLab per**impostazione predefinita: per impostazione predefinita, Azure Notebooks fornisce una semplice interfaccia utente adatta alla maggior parte degli utenti. JupyterLab fornisce un'interfaccia più completa ma più complessa per utenti esperti.</li><li>**Sito Web VNext**: consente il layout Web moderno mostrato in questa documentazione.</li></ul> |
+| Profili social | Gli ID GitHub, Twitter e Facebook, se si desidera condividerli. |
+| impostazioni del profilo | Fornisce due comandi:<ul><li>**Esporta il profilo**: crea e scarica un file *.zip* che contiene tutte le informazioni che Azure Notebooks salva nel profilo, tra cui la foto, le informazioni del profilo e i log di protezione.</li><li>**Elimina account** personale: Elimina definitivamente tutte le informazioni personali archiviate in Azure Notebooks.</li></ul> |
+| Abilitare le funzionalità del sito | Consente di controllare gli aspetti del comportamento di Azure Notebooks:<ul><li>**Front-end unificato per Notebooks**: abilita l'avvio più veloce del notebook e una persistenza migliore.</li><li>**Esegui in JupyterLab per** impostazione predefinita: per impostazione predefinita, Azure Notebooks fornisce una semplice interfaccia utente adatta alla maggior parte degli utenti. JupyterLab fornisce un'interfaccia più completa ma più complessa per utenti esperti.</li><li>**Sito Web VNext**: consente il layout Web moderno mostrato in questa documentazione.</li></ul> |
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare ed eseguire un Jupyter Notebook per la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Guida introduttiva: esportare un progetto di Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

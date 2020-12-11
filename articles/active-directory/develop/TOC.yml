@@ -563,10 +563,10 @@
             - name: Concessione delle credenziali di tipo password del proprietario delle risorse in OAuth 2.0
               displayName: ROPC
               href: v2-oauth-ropc.md
-            - name: Flusso di asserzione SAML Bearer di OAuth 2.0
-              href: v2-saml-bearer-assertion.md
             - name: Rollover della chiave di firma
               href: active-directory-signing-key-rollover.md
+            - name: Scenari di scambio di token
+              href: scenario-token-exchange-saml-oauth.md
             - name: Token ID
               href: id-tokens.md
             - name: Token di accesso

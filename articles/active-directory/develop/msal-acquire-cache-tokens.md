@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628136"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107839"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)
 
@@ -101,7 +101,7 @@ Per le applicazioni client pubbliche (app desktop o per dispositivi mobili):
 
 Per le applicazioni client riservate (app Web, API Web o un'applicazione daemon come un servizio Windows), è necessario:
 
-- Acquisire i token **per l'applicazione stessa** , anziché per un utente, usando il [flusso di credenziali client](msal-authentication-flows.md#client-credentials). Questa tecnica può essere utilizzata per sincronizzare gli strumenti o gli strumenti che elaborano gli utenti in generale e non in un utente specifico.
+- Acquisire i token **per l'applicazione stessa**, anziché per un utente, usando il [flusso di credenziali client](msal-authentication-flows.md#client-credentials). Questa tecnica può essere utilizzata per sincronizzare gli strumenti o gli strumenti che elaborano gli utenti in generale e non in un utente specifico.
 - Usare il [flusso per conto](msal-authentication-flows.md#on-behalf-of) di un'API Web per chiamare un'API per conto dell'utente. L'applicazione viene identificata con le credenziali client per acquisire un token basato su un'asserzione utente (SAML, ad esempio, o un token JWT). Questo flusso è usato dalle applicazioni che devono accedere alle risorse di un determinato utente nelle chiamate da servizio a servizio.
 - Acquisire i token usando il [flusso del codice di autorizzazione](msal-authentication-flows.md#authorization-code) nelle app Web dopo che l'utente esegue l'accesso tramite l'URL della richiesta di autorizzazione. Un'applicazione OpenID Connect in genere usa questo meccanismo, che consente all'utente di eseguire l'accesso usando OpenID Connect e quindi di accedere alle API Web per conto dell'utente.
 
@@ -122,6 +122,8 @@ Quando il client richiede un token di accesso, Azure AD restituisce anche un ris
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si usa MSAL per Java, informazioni sulla [serializzazione della cache dei token personalizzata in MSAL per Java](msal-java-token-cache-serialization.md).
-
-Informazioni sulla [gestione di errori ed eccezioni](msal-handling-exceptions.md).
+Diverse piattaforme supportate da MSAL contengono informazioni aggiuntive relative alla cache del token nella documentazione relativa alla libreria della piattaforma in questione. Ad esempio:
+- [Ottenere un token dalla cache dei token usando MSAL.NET](msal-net-acquire-token-silently.md)
+- [Single Sign-On con MSAL.js](msal-js-sso.md)
+- [Serializzazione della cache dei token personalizzati in MSAL per Python](msal-python-token-cache-serialization.md)
+- [Serializzazione della cache dei token personalizzati in MSAL per Java](msal-java-token-cache-serialization.md)

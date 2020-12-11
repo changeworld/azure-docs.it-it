@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d8e83c158cd14357a74b9dde4af1daba26dc36
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201515"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109114"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -60,9 +60,9 @@ Nell'esempio seguente viene illustrato un profilo tecnico **AAD-Common**:
 
 L'elemento InputClaims contiene un'attestazione, che viene usata per cercare un account nella directory o crearne uno nuovo. Nella raccolta di attestazioni di input deve essere presente esattamente un elemento attestazione per tutti i profili tecnici Azure AD. Potrebbe essere necessario eseguire il mapping del nome dell'attestazione definito nei criteri al nome definito in Azure Active Directory.
 
-Per leggere, aggiornare o eliminare un account utente esistente, l'attestazione di input è una chiave che identifica in modo univoco l'account nella directory Azure AD. Ad esempio **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username**o **alternativeSecurityId**. 
+Per leggere, aggiornare o eliminare un account utente esistente, l'attestazione di input è una chiave che identifica in modo univoco l'account nella directory Azure AD. Ad esempio **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username** o **alternativeSecurityId**. 
 
-Per creare un nuovo account utente, l'attestazione di input è una chiave che identifica in modo univoco un account locale o federato. Ad esempio, account locale: **signInNames. EmailAddress**o **signInNames. username**. Per un account federato: **alternativeSecurityId**.
+Per creare un nuovo account utente, l'attestazione di input è una chiave che identifica in modo univoco un account locale o federato. Ad esempio, account locale: **signInNames. EmailAddress** o **signInNames. username**. Per un account federato: **alternativeSecurityId**.
 
 L'elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) può contenere una raccolta di elementi di trasformazione delle attestazioni di input usati per modificare l'attestazione di input o generarne una nuova.
 
@@ -246,20 +246,20 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 ```
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | Operazione | Sì | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un errore se l'oggetto utente non esiste nella directory. I valori possibili sono: `true` o `false`. |
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Genera un errore se l'oggetto utente esiste già. I valori possibili sono: `true` o `false`.|
 | ApplicationObjectId | No | L'identificatore di oggetto dell'applicazione per gli attributi di estensione. Valore: ObjectID di un'applicazione. Per altre informazioni, vedere [usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](custom-policy-custom-attributes.md). |
 | ClientId | No | L'identificatore client per l'accesso ai tenant come terza parte. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](custom-policy-custom-attributes.md) |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 
 ### <a name="ui-elements"></a>Elementi dell'interfaccia utente
  
 Per configurare il messaggio di errore visualizzato in caso di errore, è possibile utilizzare le impostazioni seguenti. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization.md).
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalAlreadyExists | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalAlreadyExists) specificare il messaggio da visualizzare all'utente se l'oggetto utente esiste già. |
 | UserMessageIfClaimsPrincipalDoesNotExist | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalDoesNotExist), specificare il messaggio da visualizzare all'utente se l'oggetto utente non esiste. |
@@ -269,7 +269,7 @@ Per configurare il messaggio di errore visualizzato in caso di errore, è possib
 
 Vedere l'articolo seguente, ad esempio l'uso di Azure AD profilo tecnico:
 
-- [Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C](custom-policy-configure-user-input.md)
+- [Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C](configure-user-input.md)
 
 
 

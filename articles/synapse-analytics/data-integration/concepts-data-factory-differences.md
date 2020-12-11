@@ -2,50 +2,45 @@
 title: Differenze rispetto ad Azure Data Factory
 description: Informazioni sul modo in cui le funzionalità di integrazione dei dati di Azure sinapsi Analytics sono diverse da quelle di Azure Data Factory
 services: synapse-analytics
-author: shirleywangmsft
+author: kromerm
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.author: shwang
+ms.date: 12/10/2020
+ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: db5d05e1a211ce14926ee4031054669fff5110d9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a8fd0ef006b246e30c02cfb321c72b4e070f54de
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930212"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109148"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integrazione dei dati in Azure sinapsi Analytics rispetto a Azure Data Factory
 
-In Azure sinapsi Analytics le funzionalità di integrazione dei dati, ad esempio i flussi di dati e le pipeline di sinapsi, sono basate su quelle di Azure Data Factory. Per ulteriori informazioni, vedere [che cos'è Azure Data Factory](../../data-factory/introduction.md). Quasi tutte le funzionalità sono identiche o simili e la documentazione viene condivisa tra i due servizi. Questo articolo evidenzia e identifica le differenze attuali tra Azure Data Factory e la sinapsi di Azure.
+In Azure sinapsi Analytics le funzionalità di integrazione dei dati, ad esempio i flussi di dati e le pipeline di sinapsi, sono basate su quelle di Azure Data Factory. Per ulteriori informazioni, vedere [che cos'è Azure Data Factory](../../data-factory/introduction.md).
 
-Per verificare se un Azure Data Factory funzionalità o un articolo si applica a sinapsi di Azure, controllare il moniker nella parte superiore dell'articolo.
 
-![Si applica al moniker](../media/concepts-data-factory-differences/applies-to-moniker.png "Si applica al moniker")
+## <a name="available-features-in-azure-data-factory-and-azure-synapse-analytics"></a>Funzionalità disponibili in Azure Data Factory e Azure sinapsi Analytics
 
-## <a name="features-in-azure-data-factory-not-planned-for-azure-synapse"></a>Funzionalità di Azure Data Factory non pianificate per le sinapsi di Azure
+Per la disponibilità delle funzionalità, vedere la tabella seguente:
 
-Le funzionalità seguenti sono disponibili in Azure Data Factory, ma non sono pianificate per le sinapsi di Azure.
+| Category                 | Funzionalità    |  Azure Data Factory  | Azure Synapse Analytics |
+| ------------------------ | ---------- | :------------------: | :---------------------: |
+| **Integration Runtime**  | Uso di SSIS e SSIS Integration Runtime | ✓ | ✗ |
+|                          | Supporto per Integration Runtime tra aree (flussi di dati) | ✓ | ✗ |
+|                          | Condivisione Integration Runtime | ✓<br><small>*Può essere condiviso tra data factory diverse* | ✗ |
+|                          | Durata (TTL) | ✓ | ✗ |
+| **Attività pipeline** | Attività pacchetto SSIS | ✓ | ✗ |
+|                          | Supporto per l'attività Power Query | ✓ | ✓ |
+| **Raccolta di modelli e Knowledge Center** | Modelli di soluzioni | ✓<br><small>*Raccolta di modelli di Azure Data Factory* | ✓<br><small>*Centro informazioni area di lavoro sinapsi* |
+| **Integrazione del repository GIT** | Integrazione con GIT | ✓ | ✓ |
+| **Monitoring**           | Monitoraggio dei processi Spark per il flusso di dati | ✗ | ✓<br><small>*Sfruttare i pool di Spark sinapsi* |
+|                          | Integrazione con monitoraggio di Azure | ✓ | ✗ |
 
-* **Pacchetti SSIS di durata e spostamento:** In Azure Data Factory è possibile trasferire e spostare i pacchetti SSIS tramite il runtime di integrazione SSIS. Sia il runtime di integrazione SSIS che l'attività Esegui pacchetto SSIS non sono disponibili nelle aree di lavoro sinapsi. 
-* **Durata (TTL):** La durata (TTL) è un'impostazione nel runtime di integrazione di Azure che consente al cluster Spark di eseguire il mapping dei flussi di dati per restare *caldi* per un certo periodo di tempo dopo il completamento di un flusso di dati. Questa funzionalità non è disponibile nelle aree di lavoro sinapsi.
+> [!Note]
+> Il **tempo di** esecuzione è un'impostazione Azure Integration Runtime che consente al cluster Spark di *rimanere* attivo per un periodo di tempo dopo un'esecuzione del flusso di dati.
+>
 
-## <a name="azure-synapse-features-not-supported-in-azure-data-factory"></a>Le funzionalità di sinapsi di Azure non sono supportate in Azure Data Factory
-
-Le funzionalità seguenti sono disponibili in sinapsi di Azure, ma non sono pianificate per Azure Data Factory.
-
-* **Monitoraggio del processo Spark per il mapping dei flussi di dati:** In sinapsi, il motore di Spark è contenuto nella sottoscrizione dell'utente, in modo che gli utenti possano visualizzare i log dettagliati di Spark. In Azure Data Factory, l'esecuzione del processo viene eseguita in un cluster Spark gestito da Azure Data Factory e queste informazioni non sono disponibili. 
-
-## <a name="azure-data-factory-features-that-behave-differently-in-synapse"></a>Azure Data Factory funzionalità che si comportano in modo diverso in sinapsi
-
-Le funzionalità seguenti si comportano in modo diverso o non esistono attualmente in sinapsi di Azure. 
-
-* **Litigi dei flussi di dati:** L'attività flusso di dati in corso è disponibile solo in Azure Data Factory al momento.
-* **Raccolta di modelli di soluzione:** In Azure Data Factory gli utenti possono trovare modelli di pipeline nella raccolta di modelli di soluzione. Nelle aree di lavoro sinapsi, il centro informazioni contiene un set di modelli diverso insieme a set di dati aggiuntivi e script SQL. 
-* **Integrazione con monitoraggio di Azure:** Le aree di lavoro sinapsi non si integrano con monitoraggio di Azure come Azure Data Factory.
-* **Configurazione del runtime di integrazione ibrida:** All'interno di un'area di lavoro sinapsi, un utente non può avere sia un runtime di integrazione VNet gestito che un Azure IR. Questa funzionalità è supportata in Azure Data Factory.
-* **Condivisione del runtime di integrazione:** I runtime di integrazione self-hosted non possono essere condivisi tra le aree di lavoro sinapsi. Questa funzionalità è supportata in Azure Data Factory.
-* **Runtime di integrazione tra aree per i flussi di dati:** I flussi di dati non possono essere eseguiti in runtime di integrazione in aree diverse rispetto a un'area di lavoro sinapsi. Questa funzionalità è supportata in Azure Data Factory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

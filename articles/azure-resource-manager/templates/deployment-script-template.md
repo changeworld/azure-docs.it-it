@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7566235cf92965d5d3de1ec7f40353430ec7e0c6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092755"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107142"
 ---
 # <a name="use-deployment-scripts-in-arm-templates-preview"></a>Usare gli script di distribuzione nei modelli ARM (anteprima)
 
@@ -147,7 +147,7 @@ Dettagli sui valori delle proprietà:
 
     Se gli argomenti contengono caratteri di escape, usare [JsonEscaper](https://www.jsonescaper.com/) per eseguire il doppio escape dei caratteri. Incollare la stringa di escape originale nello strumento, quindi selezionare **escape**.  Lo strumento restituisce una doppia stringa con caratteri di escape. Nel modello di esempio precedente, ad esempio, l'argomento è **-Name \\ "John Dole \\ "**.  La stringa con caratteri di escape è il **nome \\ \\ \\ "John Dole \\ \\ \\ "**.
 
-    Per passare un parametro di modello ARM di tipo Object come argomento, convertire l'oggetto in una stringa usando la funzione [String ()](./template-functions-string.md#string) e quindi usare la funzione [Replace ()](./template-functions-string.md#replace) per sostituire qualsiasi **\\ "** into **\\ \\ \\ "**. Esempio:
+    Per passare un parametro di modello ARM di tipo Object come argomento, convertire l'oggetto in una stringa usando la funzione [String ()](./template-functions-string.md#string) e quindi usare la funzione [Replace ()](./template-functions-string.md#replace) per sostituire qualsiasi **\\ "** into **\\ \\ \\ "**. Ad esempio:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -529,14 +529,14 @@ Il ciclo di vita di queste risorse è controllato dalle proprietà seguenti nel 
 
   - **Sempre**: Eliminare le risorse create automaticamente una volta che l'esecuzione dello script si trova in uno stato terminale. Se viene usato un account di archiviazione esistente, il servizio script elimina la condivisione file creata nell'account di archiviazione. Poiché la risorsa deploymentScripts potrebbe essere ancora presente dopo la pulizia delle risorse, il servizio script Salva in modo permanente i risultati dell'esecuzione dello script, ad esempio stdout, output, valore restituito e così via, prima che le risorse vengano eliminate.
   - **OnSuccess**: Eliminare le risorse create automaticamente solo quando l'esecuzione dello script ha esito positivo. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file solo quando l'esecuzione dello script ha esito positivo. È comunque possibile accedere alle risorse per trovare le informazioni di debug.
-  - **Onexpireation**: eliminare le risorse create automaticamente solo quando l'impostazione **retentionInterval** è scaduta. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file, ma conserva l'account di archiviazione.
+  - **Onexpireation**: eliminare le risorse create automaticamente solo quando l'impostazione **retentionInterval** è scaduta. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file, ma mantiene l'account di archiviazione.
 
 - **retentionInterval**: Specificare l'intervallo di tempo durante il quale una risorsa di script verrà conservata e dopo cui scadrà e verrà eliminata.
 
 > [!NOTE]
 > Non è consigliabile usare l'account di archiviazione e l'istanza di contenitore generati dal servizio script per altri scopi. Le due risorse potrebbero essere rimosse a seconda del ciclo di vita dello script.
 
-Per mantenere l'istanza del contenitore e l'account di archiviazione per la risoluzione dei problemi, è possibile aggiungere un comando di sospensione nello script.  Ad esempio, usare [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
+L'istanza del contenitore e l'account di archiviazione vengono eliminati in base a **cleanupPreference**. Tuttavia, se lo script ha esito negativo e **cleanupPreference** non è impostato su **Always**, il processo di distribuzione mantiene automaticamente il contenitore in esecuzione per un'ora. Questa ora può essere usata per risolvere i problemi relativi allo script. Se si desidera lasciare il contenitore in esecuzione dopo le distribuzioni riuscite, aggiungere un passaggio di sospensione allo script. Ad esempio, aggiungere [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) alla fine dello script. Se non si aggiunge il passaggio di sospensione, il contenitore viene impostato su uno stato terminale e non è possibile accedervi anche se non è ancora stato eliminato.
 
 ## <a name="run-script-more-than-once"></a>Eseguire lo script più di una volta
 

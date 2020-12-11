@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119930"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107921"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Eseguire la migrazione di applicazioni a MSAL per iOS e macOS
 
@@ -61,7 +61,7 @@ In MSAL, l'interazione principale avviene tramite un `MSALPublicClientApplicatio
 
 In ADAL un'app doveva fornire un identificatore di *risorsa* come `https://graph.microsoft.com` per acquisire i token dall'endpoint Azure Active Directory versione 1.0. Una risorsa può definire un certo numero di ambiti, o oAuth2Permissions nel manifesto dell'applicazione, che riconosce. In questo modo le app client possono richiedere token da tale risorsa per un determinato set di ambiti predefiniti durante la registrazione dell'app.
 
-In MSAL, invece di un singolo identificatore di risorsa, le app forniscono un set di ambiti per ogni richiesta. Un ambito è un identificatore di risorsa seguito da un nome di autorizzazione nel formato risorsa/autorizzazione. Ad esempio: `https://graph.microsoft.com/user.read`
+In MSAL, invece di un singolo identificatore di risorsa, le app forniscono un set di ambiti per ogni richiesta. Un ambito è un identificatore di risorsa seguito da un nome di autorizzazione nel formato risorsa/autorizzazione. Ad esempio, usare `https://graph.microsoft.com/user.read`
 
 Esistono due modi per specificare gli ambiti in MSAL:
 
@@ -136,7 +136,7 @@ MSAL offre maggiore chiarezza tra gli errori che possono essere gestiti dall'app
 
 La gestione di tutti gli altri errori nell' [ `MSALError` elenco](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) è facoltativa. Per migliorare l'esperienza utente, è possibile utilizzare le informazioni contenute in tali errori.
 
-Per ulteriori informazioni sulla gestione degli errori MSAL, vedere [gestione di eccezioni ed errori mediante MSAL](msal-handling-exceptions.md) .
+Per ulteriori informazioni sulla gestione degli errori MSAL, vedere [gestione di eccezioni ed errori mediante MSAL](msal-error-handling-ios.md) .
 
 ### <a name="broker-support"></a>Supporto broker
 
@@ -226,7 +226,7 @@ Non è necessario modificare l'applicazione AAD esistente per passare a MSAL e a
 
 Il formato dell'URI di reindirizzamento deve essere il seguente: `msauth.<app.bundle.id>://auth` . Sostituire `<app.bundle.id>` con l'ID bundle dell'applicazione. Specificare l'URI di reindirizzamento nel [portale di Azure](https://aka.ms/MobileAppReg).
 
-Solo per iOS, per supportare l'autenticazione basata su certificati, è necessario registrare un URI di reindirizzamento aggiuntivo nell'applicazione e il portale di Azure nel formato seguente: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Ad esempio: `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+Solo per iOS, per supportare l'autenticazione basata su certificati, è necessario registrare un URI di reindirizzamento aggiuntivo nell'applicazione e il portale di Azure nel formato seguente: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Ad esempio, usare `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 È consigliabile che tutte le app registrino entrambi gli URI di reindirizzamento.
 

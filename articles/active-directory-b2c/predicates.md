@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203810"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108417"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
 
@@ -42,9 +42,9 @@ L'elemento **Predicates** contiene l'elemento seguente:
 
 L'elemento **Predicate** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
+| Id | Sì | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
 | Metodo | Sì | Tipo di metodo da usare per la convalida. I valori possibili sono: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) o [IsDateRange](#isdaterange).  |
 | HelpText | No | Messaggio di errore per gli utenti se il controllo ha esito negativo. Questa stringa può essere localizzata usando la [funzionalità di personalizzazione della lingua](localization.md). |
 
@@ -65,7 +65,7 @@ L'elemento **Parameter** contiene gli attributi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| ID | 1:1 | Identificatore del parametro. |
+| Id | 1:1 | Identificatore del parametro. |
 
 ### <a name="predicate-methods"></a>Metodi di predicato
 
@@ -73,7 +73,7 @@ L'elemento **Parameter** contiene gli attributi seguenti:
 
 Il metodo IsLengthRange controlla se la lunghezza di un valore di attestazione di stringa rientra nell'intervallo dei parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Numero massimo di caratteri che è possibile immettere. |
 | Minima | Sì | Numero minimo di caratteri che devono essere immessi. |
@@ -94,7 +94,7 @@ Nell'esempio seguente viene illustrato un metodo IsLengthRange con i parametri `
 
 Il metodo MatchesRegex controlla se un valore di attestazione stringa corrisponde a un'espressione regolare. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
 | RegularExpression | Sì | Criterio di espressione regolare di cui trovare la corrispondenza. |
 
@@ -112,7 +112,7 @@ L'esempio seguente mostra un metodo `MatchesRegex` con il parametro `RegularExpr
 
 Il metodo IncludesCharacters controlla se un valore di attestazione stringa contiene un set di caratteri. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
 | CharacterSet | Sì | Set di caratteri che è possibile immettere. Ad esempio, caratteri minuscoli,  `a-z` caratteri maiuscoli `A-Z` , cifre `0-9` o un elenco di simboli, ad esempio `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
@@ -130,7 +130,7 @@ L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `Chara
 
 Il metodo IsDateRange controlla se un valore di attestazione data è compreso tra un intervallo di parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Data massima consentita per l'immissione. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` . |
 | Minima | Sì | Data minima che è possibile immettere. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` .|
@@ -178,9 +178,9 @@ L'elemento **PredicateValidations** contiene l'elemento seguente:
 
 L'elemento **PredicateValidation** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
+| Id | Sì | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
 
 L'elemento **PredicateValidation** contiene l'elemento seguente:
 
@@ -196,9 +196,9 @@ L'elemento **PredicateGroups** contiene l'elemento seguente:
 
 L'elemento **PredicateGroup** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il gruppo di predicati.  |
+| Id | Sì | Identificatore usato per il gruppo di predicati.  |
 
 L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
@@ -209,7 +209,7 @@ L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
 L'elemento **PredicateReferences** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | MatchAtLeast | No | Specifica che il valore deve corrispondere almeno a quello di molte definizioni di predicato affinché l'input possa essere accettato. Se non specificato, il valore deve corrispondere a tutte le definizioni di predicato. |
 
@@ -221,9 +221,9 @@ L'elemento **PredicateReferences** contiene gli elementi seguenti:
 
 L'elemento **PredicateReference** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore che viene usato per la convalida del predicato.  |
+| Id | Sì | Identificatore che viene usato per la convalida del predicato.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurare la complessità delle password
@@ -428,4 +428,4 @@ Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C](custom-policy-password-complexity.md) usando le convalide di predicato.
+- Informazioni su come [configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C](password-complexity.md) usando le convalide di predicato.

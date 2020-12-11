@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873370"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108672"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -55,7 +55,7 @@ Gli ID seguenti vengono utilizzati per una definizione di contenuto con un ID `a
 | **local_intro_generic** | Accedi con {0} | `>= 2.1.0` |
 | **requiredField_generic** | Immettere il {0} | `>= 2.1.0` |
 | **invalid_generic** | Immettere un valore valido per {0} | `>= 2.1.1` |
-| **intestazione** | Accedi | `>= 2.1.1` |
+| **intestazione** | Accesso | `>= 2.1.1` |
 
 
 > [!NOTE]
@@ -442,7 +442,7 @@ Di seguito sono riportati gli ID dei messaggi di errore relativi al [profilo tec
 
 ## <a name="azure-ad-mfa-error-messages"></a>Azure AD messaggi di errore multi-factor authentication
 
-Di seguito sono riportati gli ID per un Azure AD i messaggi di errore del [profilo tecnico](multi-factor-auth-technical-profile.md) di autenticazione a più fattori:
+Di seguito sono riportati gli ID per un messaggio di errore del [profilo tecnico Azure ad](multi-factor-auth-technical-profile.md) autenticazione a più fattori:
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -547,5 +547,5 @@ Di seguito sono elencati gli ID dei messaggi di errore relativi alle trasformazi
 
 Per esempi di localizzazione, vedere gli articoli seguenti:
 
-- [Personalizzazione della lingua con criteri personalizzati in Azure Active Directory B2C](custom-policy-localization.md)
-- [Personalizzazione della lingua con i flussi utente in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personalizzazione della lingua con criteri personalizzati in Azure Active Directory B2C](language-customization.md)
+- [Personalizzazione della lingua con i flussi utente in Azure Active Directory B2C](language-customization.md)

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7243d24204c8e15ae4246718cafb24d31f804d02
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 62c30356017b5ea5d93351e6f22b8b7b0c22718c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519179"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109267"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Come configurare il controllo di accesso per l'area di lavoro sinapsi 
 
@@ -54,7 +54,7 @@ Per semplificare le istruzioni, in questa documentazione vengono usati nomi stan
 ## <a name="step-1-set-up-security-groups"></a>PASSAGGIO 1: configurare i gruppi di sicurezza
 
 >[!Note] 
->Durante l'anteprima, si consiglia di creare gruppi di sicurezza di cui è stato eseguito il mapping ai ruoli di amministratore di **SQL** sinapsi sinapsi e **sinapsi Apache Spark** .  Con l'introduzione di nuovi ruoli e ambiti delle sinapsi con granularità fine, è ora consigliabile usare queste nuove funzionalità per controllare l'accesso all'area di lavoro.  Questi nuovi ruoli e ambiti forniscono una maggiore flessibilità di configurazione e riconoscono che gli sviluppatori usano spesso una combinazione di SQL e Spark per la creazione di applicazioni di analisi e potrebbe essere necessario concedere l'accesso a risorse specifiche all'interno dell'area di lavoro. [Altre informazioni](./synapse-workspace-synapse-rbac.md)
+>Durante l'anteprima, si consiglia di creare gruppi di sicurezza di cui è stato eseguito il mapping ai ruoli di amministratore di **SQL** sinapsi sinapsi e **sinapsi Apache Spark** .  Con l'introduzione di nuovi ruoli e ambiti delle sinapsi con granularità fine, è ora consigliabile usare queste nuove funzionalità per controllare l'accesso all'area di lavoro.  Questi nuovi ruoli e ambiti forniscono una maggiore flessibilità di configurazione e riconoscono che gli sviluppatori usano spesso una combinazione di SQL e Spark per la creazione di applicazioni di analisi e possono avere l'esigenza di concedere l'accesso a risorse specifiche anziché all'intera area di lavoro. [Altre](./synapse-workspace-synapse-rbac.md) informazioni sulle sinapsi RBAC.
 
 Creare i seguenti gruppi di sicurezza per l'area di lavoro:
 
@@ -66,9 +66,9 @@ Creare i seguenti gruppi di sicurezza per l'area di lavoro:
 A breve verranno assegnati i ruoli sinapsi a questi gruppi nell'ambito dell'area di lavoro.  
 
 Creare anche questo gruppo di sicurezza: 
-- **`workspace1_SQLAdministrators`**, gruppo per gli utenti che necessitano di Active Directory autorità di amministrazione all'interno di pool SQL nell'area di lavoro. 
+- **`workspace1_SQLAdmins`**, gruppo per gli utenti che necessitano dell'autorità di amministrazione di SQL Active Directory all'interno di pool SQL nell'area di lavoro. 
 
-Il `workspace1_SynapseSQLAdministrators` gruppo verrà usato quando si configurano le autorizzazioni SQL nei pool SQL durante la creazione. 
+Il `workspace1_SQLAdmins` gruppo verrà usato quando si configurano le autorizzazioni SQL nei pool SQL durante la creazione. 
 
 Per una configurazione di base, questi cinque gruppi sono sufficienti. Successivamente, è possibile aggiungere gruppi di sicurezza per gestire gli utenti che necessitano di un accesso più specializzato o per concedere agli utenti l'accesso solo a risorse specifiche.
 
@@ -84,6 +84,7 @@ Per una configurazione di base, questi cinque gruppi sono sufficienti. Successiv
 Un'area di lavoro sinapsi usa un contenitore di archiviazione predefinito per:
   - Archiviare i file di dati di backup per le tabelle Spark
   - Eseguire i log per i processi Spark
+  - Gestione delle librerie che si sceglie di installare
 
 Identificare le seguenti informazioni sull'archiviazione:
 
@@ -94,7 +95,7 @@ Identificare le seguenti informazioni sull'archiviazione:
 
   - Assegnare il ruolo di **collaboratore dati BLOB di archiviazione** a `workspace1_SynapseAdmins` 
   - Assegnare il ruolo di **collaboratore dati BLOB di archiviazione** a `workspace1_SynapseContributors`
-  - Assegnare il ruolo di **collaboratore dati BLOB di archiviazione** a `workspace1_SynapseComputeOperators` **<< Validate**  
+  - Assegnare il ruolo di **collaboratore dati BLOB di archiviazione** a `workspace1_SynapseComputeOperators`
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASSAGGIO 3: creare e configurare l'area di lavoro Synapse
 
@@ -106,14 +107,14 @@ Nel portale di Azure, creare un'area di lavoro Synapse:
 - Scegliere `storage1` l'account di archiviazione
 - Scegliere `container1` per il contenitore usato come "filesystem".
 - Aprire WS1 in Synapse Studio
-- Passare a **Gestisci**  >  **controllo di accesso** e assegnare i ruoli sinapsi seguenti nell' *ambito dell'area di lavoro* ai gruppi di sicurezza.
+- Passare a **gestire**  >  il **controllo di accesso** e assegnare i ruoli sinapsi nell'ambito dell'area di *lavoro* ai gruppi di sicurezza nel modo seguente:
   - Assegnare il ruolo di **amministratore sinapsi** a `workspace1_SynapseAdministrators` 
   - Assegnare il ruolo **collaboratore sinapsi** a `workspace1_SynapseContributors` 
-  - Assegnare il ruolo **operatore di calcolo SQL di sinapsi** a `workspace1_SynapseComputeOperators`
+  - Assegnare il ruolo di **operatore di calcolo sinapsi** a `workspace1_SynapseComputeOperators`
 
 ## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>PASSAGGIO 4: concedere all'area di lavoro MSI l'accesso al contenitore di archiviazione predefinito
 
-Per eseguire pipeline ed eseguire attività di sistema, è necessario che l'identità del servizio gestito dall'area di lavoro (MSI) debba accedere a `container1` nell'account predefinito ADLS Gen2.
+Per eseguire pipeline ed eseguire attività di sistema, è necessario che l'identità del servizio gestito dell'area di lavoro (MSI) debba accedere a `container1` nell'account predefinito ADLS Gen2.
 
 - Aprire il portale di Azure
 - Individuare l'account di archiviazione, `storage1` , quindi `container1`
@@ -121,9 +122,9 @@ Per eseguire pipeline ed eseguire attività di sistema, è necessario che l'iden
   - Se non è assegnato, assegnarlo.
   - L'identità del servizio gestita presenta lo stesso nome dell'area di lavoro. In questo articolo, sarebbe `workspace1` .
 
-## <a name="step-5-grant-the-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>PASSAGGIO 5: concedere agli amministratori di sinapsi il ruolo di collaboratore di Azure nell'area di lavoro 
+## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>PASSAGGIO 5: concedere agli amministratori di sinapsi il ruolo di collaboratore di Azure nell'area di lavoro 
 
-Per creare pool SQL, pool di Apache Spark e runtime di integrazione, gli utenti devono avere almeno l'accesso di collaboratore Azure nell'area di lavoro. Il ruolo Collaboratore consente inoltre a questi utenti di gestire le risorse, incluse la sospensione e la scalabilità.
+Per creare pool SQL, pool di Apache Spark e runtime di integrazione, gli utenti devono avere almeno l'accesso collaboratore di Azure all'area di lavoro. Il ruolo Collaboratore consente inoltre a questi utenti di gestire le risorse, incluse la sospensione e la scalabilità.
 
 - Aprire il portale di Azure
 - Individuare l'area di lavoro, `workspace1`
@@ -131,44 +132,44 @@ Per creare pool SQL, pool di Apache Spark e runtime di integrazione, gli utenti 
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>PASSAGGIO 6: assegnare il ruolo di amministratore di SQL Active Directory
 
-La workstation Creator viene configurata automaticamente come amministratore Active Directory per l'area di lavoro.  Questo ruolo può essere concesso solo a un singolo utente o gruppo. In questo passaggio si assegna il Active Directory amministratore nell'area di lavoro al `workspace1_SynapseSQLAdministrators` gruppo di sicurezza.  L'assegnazione di questo ruolo concede a questo gruppo l'accesso amministratore con privilegi elevati a tutti i pool SQL.   
+La workstation Creator viene configurata automaticamente come amministratore di SQL Active Directory per l'area di lavoro.  Questo ruolo può essere concesso solo a un singolo utente o gruppo. In questo passaggio si assegna l'amministratore di SQL Active Directory nell'area di lavoro al `workspace1_SQLAdmins` gruppo di sicurezza.  L'assegnazione di questo ruolo concede a questo gruppo l'accesso amministratore con privilegi elevati a tutti i pool SQL e i database nell'area di lavoro.   
 
 - Aprire il portale di Azure
 - Passare a `workspace1`.
 - In **Impostazioni** selezionare **amministratore di SQL Active Directory**
-- Selezionare **imposta amministratore** e scegliere **`workspace1_SynapseSQLAdministrators`**
+- Selezionare **imposta amministratore** e scegliere **`workspace1_SQLAdmins`**
 
 >[!Note]
->Questo passaggio è facoltativo.  È possibile scegliere di concedere al gruppo Administrators di SQL un ruolo con privilegi di minore importanza. Per assegnare `db_owner` o altri ruoli SQL, è necessario eseguire gli script in ogni database SQL. 
+>Il passaggio 6 è facoltativo.  È possibile scegliere di concedere al `workspace1_SQLAdmins` gruppo un ruolo con privilegi minori. Per assegnare `db_owner` o altri ruoli SQL, è necessario eseguire gli script in ogni database SQL. 
 
 ## <a name="step-7-grant-access-to-sql-pools"></a>PASSAGGIO 7: concedere l'accesso ai pool SQL
 
-Per impostazione predefinita, a tutti gli utenti assegnati al ruolo di amministratore di sinapsi viene assegnato anche il `db_owner` ruolo SQL nel pool SQL senza server, ovvero "predefinito".
+Per impostazione predefinita, a tutti gli utenti assegnati al ruolo di amministratore di sinapsi viene assegnato anche il `db_owner` ruolo SQL nel pool SQL senza server, "predefinito" e tutti i relativi database.
 
-L'accesso ai pool SQL per altri utenti e per l'area di lavoro MSI viene controllato mediante le autorizzazioni SQL.  Per l'assegnazione delle autorizzazioni SQL è necessario che gli script SQL vengano eseguiti in ogni pool SQL dopo la creazione.  Esistono tre casi in cui è necessario eseguire gli script seguenti:
-1. Concessione ad altri utenti di accedere al pool SQL senza server,' predefinito '
-2. Concessione dell'accesso a un pool dedicato a tutti gli utenti
-3. Concessione dell'accesso MSI dell'area di lavoro a un pool SQL per consentire la corretta esecuzione delle pipeline che richiedono l'accesso al pool SQL.
+L'accesso ai pool SQL per altri utenti e per l'area di lavoro MSI viene controllato mediante le autorizzazioni SQL.  Per l'assegnazione delle autorizzazioni SQL è necessario che gli script SQL vengano eseguiti in ogni database SQL dopo la creazione.  Esistono tre casi in cui è necessario eseguire gli script seguenti:
+1. Concessione ad altri utenti di accedere al pool SQL senza server, "predefinito" e ai relativi database
+2. Concessione dell'accesso utente ai database di pool dedicati
+3. Concessione dell'accesso MSI dell'area di lavoro a un database del pool SQL per consentire la corretta esecuzione delle pipeline che richiedono l'accesso al pool SQL.
 
 Di seguito sono riportati gli script SQL di esempio.
 
-Per concedere l'accesso a un pool SQL dedicato, gli script possono essere eseguiti dal creatore dell'area di lavoro o da qualsiasi membro del `workspace1_SynapseSQL Administrators` gruppo.  
+Per concedere l'accesso a un database del pool SQL dedicato, gli script possono essere eseguiti dal creatore dell'area di lavoro o da qualsiasi membro del `workspace1_SQLAdmins` gruppo.  
 
-Per concedere l'accesso al pool SQL senza server,' built-in ', gli script possono essere eseguiti anche da qualsiasi membro del  `workspace1_SynapseAdministrators` gruppo. 
+Per concedere l'accesso al pool SQL senza server,' built-in ', gli script possono essere eseguiti da qualsiasi membro del `workspace1_SQLAdmins` gruppo o del  `workspace1_SynapseAdministrators` gruppo. 
 
 > [!TIP]
-> È necessario eseguire i passaggi seguenti per **ogni** pool SQL per concedere agli utenti l'accesso a tutti i database SQL tranne che nella sezione [autorizzazione con ambito area di lavoro](#workspace-scoped-permission) in cui è possibile assegnare un ruolo sysadmin all'utente.
+> È necessario eseguire i passaggi seguenti per **ogni** pool SQL per concedere agli utenti l'accesso a tutti i database SQL tranne che nella sezione [autorizzazione con ambito area di lavoro](#workspace-scoped-permission) in cui è possibile assegnare a un utente un ruolo sysadmin a livello di area di lavoro.
 
-### <a name="step-71-serverless-sql-pools"></a>PASSAGGIO 7,1: pool SQL senza server
+### <a name="step-71-serverless-sql-pool-built-in"></a>PASSAGGIO 7,1: pool SQL senza server, predefinito
 
-In questa sezione sono disponibili esempi su come concedere a un utente un'autorizzazione per un determinato database o autorizzazioni complete per il server.
+In questa sezione sono disponibili esempi di script che illustrano come concedere a un utente l'autorizzazione per accedere a un database specifico o a tutti i database nel pool SQL senza server, ovvero "predefinito".
 
 > [!NOTE]
 > Negli esempi di script sostituire *alias* con l'alias dell'utente o del gruppo a cui viene concesso l'accesso e il *dominio* con il dominio aziendale in uso.
 
-#### <a name="pool-scoped-permission"></a>Autorizzazione con ambito pool
+#### <a name="database-scoped-permission"></a>Autorizzazione con ambito database
 
-Per concedere l'accesso a un utente a un **singolo** pool SQL senza server, seguire i passaggi in questo esempio:
+Per concedere l'accesso a un utente a un **singolo** database SQL senza server, seguire i passaggi in questo esempio:
 
 1. CREATE LOGIN
 
@@ -182,7 +183,7 @@ Per concedere l'accesso a un utente a un **singolo** pool SQL senza server, segu
 2. CREATE USER
 
     ```sql
-    use yourdb -- Use your DB name
+    use yourdb -- Use your database name
     go
     CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
@@ -190,7 +191,7 @@ Per concedere l'accesso a un utente a un **singolo** pool SQL senza server, segu
 3. Aggiungere USER ai membri del ruolo specificato
 
     ```sql
-    use yourdb -- Use your DB name
+    use yourdb -- Use your database name
     go
     alter role db_owner Add member alias -- Type USER name from step 2
     ```
@@ -200,25 +201,27 @@ Per concedere l'accesso a un utente a un **singolo** pool SQL senza server, segu
 Per concedere l'accesso completo a **tutti** i pool SQL senza server nell'area di lavoro, usare lo script in questo esempio:
 
 ```sql
+use master
+go
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="step-72-dedicated-sql-pools"></a>PASSAGGIO 7,2: pool SQL dedicati
 
-Per concedere l'accesso a un **singolo** pool SQL dedicato, attenersi alla seguente procedura nell'editor di script sinapsi SQL:
+Per concedere l'accesso a un **singolo** database del pool SQL dedicato, attenersi alla seguente procedura nell'editor di script sinapsi SQL:
 
 1. Creare l'utente nel database eseguendo il comando seguente nel database di destinazione, selezionato usando l'elenco *a discesa Connetti a* :
 
     ```sql
-    --Create user in SQL DB
+    --Create user in the database
     CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
     ```
 
 2. Concedere all'utente un ruolo per l'accesso al database:
 
     ```sql
-    --Create user in SQL DB
+    --Grant role to the user in the database
     EXEC sp_addrolemember 'db_owner', '<alias@domain.com>';
     ```
 
@@ -226,32 +229,35 @@ Per concedere l'accesso a un **singolo** pool SQL dedicato, attenersi alla segue
 > *db_datareader* e *db_datawriter* possono funzionare per le autorizzazioni di lettura/scrittura se non si desidera concedere *db_owner* autorizzazione.
 > Per fare in modo che un utente Spark legga e scriva direttamente da Spark in o da un pool SQL, è richiesta l'autorizzazione *db_owner* .
 
-Dopo aver creato gli utenti, verificare che il pool SQL senza server sia in grado di eseguire query sull'account di archiviazione.
+Dopo aver creato gli utenti, eseguire le query per verificare che il pool SQL senza server sia in grado di eseguire query sull'account di archiviazione.
 
-### <a name="step-73-sl-access-control-for-workspace-pipeline-runs"></a>PASSAGGIO 7,3: controllo di accesso SL per le esecuzioni di pipeline dell'area di lavoro
+### <a name="step-73-sql-access-control-for-synapse-pipeline-runs"></a>PASSAGGIO 7,3: controllo di accesso SQL per le esecuzioni di pipeline sinapsi
 
 ### <a name="workspace-managed-identity"></a>Identità gestita dell'area di lavoro
 
 > [!IMPORTANT]
 > Per eseguire correttamente le pipeline che includono set di impostazioni o attività che fanno riferimento a un pool SQL, è necessario concedere all'identità dell'area di lavoro l'accesso al pool SQL.
 
-Eseguire i comandi seguenti in ogni pool SQL per consentire all'identità gestita dell'area di lavoro di eseguire le pipeline nel database del pool SQL:
+Eseguire i comandi seguenti in ogni pool SQL per consentire all'identità del sistema gestito dell'area di lavoro di eseguire le pipeline nei database del pool SQL:  
+
+>[!note]
+>Negli script riportati di seguito, per un database del pool SQL dedicato, DatabaseName corrisponde al nome del pool.  Per un database nel pool SQL senza server ' predefinito ', DatabaseName è il nome del database.
 
 ```sql
---Create user in DB
+--Create a SQL user for the workspace MSI in database
 CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
 
 --Granting permission to the identity
-GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+GRANT CONTROL ON DATABASE::<databasename> TO <workspacename>;
 ```
 
 Questa autorizzazione può essere rimossa eseguendo lo script seguente nello stesso pool SQL:
 
 ```sql
---Revoking permission to the identity
-REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+--Revoke permission granted to the workspace MSI
+REVOKE CONTROL ON DATABASE::<databasename> TO <workspacename>;
 
---Deleting the user in the DB
+--Delete the workspace MSI user in the database
 DROP USER [<workspacename>];
 ```
 

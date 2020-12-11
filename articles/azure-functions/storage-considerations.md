@@ -3,12 +3,12 @@ title: Considerazioni sull'archiviazione per Funzioni di Azure
 description: Informazioni sui requisiti di archiviazione di Funzioni di Azure e sulla crittografia dei dati archiviati.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318182"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107244"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerazioni sull'archiviazione per Funzioni di Azure
 
@@ -27,15 +27,19 @@ Funzioni di Azure richiede un account di Archiviazione di Azure quando si crea u
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Questo perché Funzioni di Azure si basa internamente su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle. Questi account includono gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Tali account non supportati vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Questo perché Funzioni di Azure si basa internamente su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle. Questi account includono gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle.
 
 Per altre informazioni sui tipi di account di archiviazione, vedere l'[introduzione ai servizi di Archiviazione di Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
-Sebbene sia possibile usare un account di archiviazione esistente con l'app per le funzioni, è necessario assicurarsi che soddisfi questi requisiti. Per gli account di archiviazione creati come parte del flusso di creazione dell'app per le funzioni, è garantito che soddisfino i requisiti dell'account di archiviazione.  
+Sebbene sia possibile usare un account di archiviazione esistente con l'app per le funzioni, è necessario assicurarsi che soddisfi questi requisiti. Gli account di archiviazione creati come parte dell'app per le funzioni crea flusso nel portale di Azure garantiscono che soddisfino i requisiti dell'account di archiviazione. Nel portale, gli account non supportati vengono filtrati quando si sceglie un account di archiviazione esistente durante la creazione di un'app per le funzioni. In questo flusso è possibile scegliere solo gli account di archiviazione esistenti nella stessa area dell'app per le funzioni che si sta creando. Per altre informazioni, vedere [percorso dell'account di archiviazione](#storage-account-location).
 
 ## <a name="storage-account-guidance"></a>Linee guida sugli account di archiviazione
 
 Ogni app per le funzioni richiede un account di archiviazione per funzionare. Se l'account viene eliminato, l'app per le funzioni non sarà eseguibile. Per risolvere i problemi correlati all'archiviazione, vedere [Come risolvere i problemi relativi all'archiviazione](functions-recover-storage-account.md). Le considerazioni aggiuntive seguenti sono valide per l'account di archiviazione usato dalle app per le funzioni.
+
+### <a name="storage-account-location"></a>Posizione dell'account di archiviazione
+
+Per ottenere prestazioni ottimali, l'app per le funzioni deve usare un account di archiviazione nella stessa area, riducendo la latenza. Il portale di Azure applica questa procedura consigliata. Se, per qualche motivo, è necessario usare un account di archiviazione in un'area diversa dall'app per le funzioni, è necessario creare l'app per le funzioni all'esterno del portale. 
 
 ### <a name="storage-account-connection-setting"></a>Impostazione di connessione dell'account di archiviazione
 

@@ -3,12 +3,12 @@ title: Gestione dell'agente server abilitati per Azure Arc
 description: Questo articolo descrive le diverse attività di gestione che in genere vengono eseguite durante il ciclo di vita di Azure Arc Enabled Servers Connected computer Agent.
 ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130970"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107193"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente Azure Connected Machine
 
@@ -64,7 +64,7 @@ Il pacchetto di aggiornamento per l'agente Azure Connected Machine per Windows �
 L'agente può essere aggiornato mediante diversi metodi per supportare il processo di gestione degli aggiornamenti software. Oltre al recupero da Microsoft Update, è possibile scaricare ed eseguire manualmente l'aggiornamento dal prompt dei comandi, da uno script o da un'altra soluzione di automazione oppure seguire la procedura guidata dell'interfaccia utente eseguendo `AzureConnectedMachine.msi`.
 
 > [!NOTE]
-> * Per aggiornare l'agente, sono necessarie le autorizzazioni di *Amministratore* .
+> * Per aggiornare l'agente, sono necessarie le autorizzazioni di *Amministratore*.
 > * Per eseguire l'aggiornamento manuale, occorre pima di tutto scaricare e copiare il pacchetto di installazione in una cartella nel server di destinazione o da una cartella di rete condivisa. 
 
 Se non si ha familiarità con le opzioni della riga di comando per i pacchetti Windows Installer, vedere [Opzioni della riga di comando di Msiexec standard](/windows/win32/msi/standard-installer-command-line-options) e [Opzioni della riga di comando di Msiexec](/windows/win32/msi/command-line-options).
@@ -148,26 +148,26 @@ Le azioni del comando [zypper](https://en.opensuse.org/Portal:Zypper), ad esempi
 
 Lo strumento Azcmagent (Azcmagent.exe) viene usato per configurare l'agente computer connesso dei server abilitati per Azure Arc durante l'installazione o modificare la configurazione iniziale dell'agente dopo l'installazione. Azcmagent.exe fornisce parametri della riga di comando per personalizzare l'agente e visualizzarne lo stato:
 
-* **Connetti** : permette di connettere il computer ad Azure Arc
+* **Connetti**: permette di connettere il computer ad Azure Arc
 
-* **Disconnetti** : permette di disconnettere il computer da Azure Arc
+* **Disconnetti**: permette di disconnettere il computer da Azure Arc
 
-* **Mostra** : permette di visualizzare lo stato dell'agente e le relative proprietà di configurazione (nome del gruppo di risorse, ID sottoscrizione, versione e così via), che possono essere utili per la risoluzione di eventuali problemi con l'agente. Includere il `-j` parametro per restituire i risultati in formato JSON.
+* **Mostra**: permette di visualizzare lo stato dell'agente e le relative proprietà di configurazione (nome del gruppo di risorse, ID sottoscrizione, versione e così via), che possono essere utili per la risoluzione di eventuali problemi con l'agente. Includere il `-j` parametro per restituire i risultati in formato JSON.
 
 * **Logs** : crea un file con estensione zip nella directory corrente contenente i log che facilitano la risoluzione dei problemi.
 
 * **Versione** : Mostra la versione dell'agente del computer connesso.
 
-* **-h o --help** : mostra i parametri della riga di comando disponibili
+* **-h o --help**: mostra i parametri della riga di comando disponibili
 
-    Per visualizzare ad esempio la guida dettagliata per il parametro **Riconnetti** , digitare `azcmagent reconnect -h`. 
+    Per visualizzare ad esempio la guida dettagliata per il parametro **Connect** , digitare `azcmagent connect -h` . 
 
-* **-v o --verbose** : permette di abilitare la registrazione dettagliata
+* **-v o --verbose**: permette di abilitare la registrazione dettagliata
 
 È possibile eseguire manualmente la **connessione** e la **disconnessione** mentre si è connessi in modo interattivo oppure automatizzare usando la stessa entità servizio usata per caricare più agenti o con un [token di accesso](../../active-directory/develop/access-tokens.md)della piattaforma Microsoft Identity. Se non è stata usata un'entità servizio per registrare il computer con i server abilitati per Azure Arc, vedere l' [articolo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) seguente per creare un'entità servizio.
 
 >[!NOTE]
->Per eseguire **azcmagent** , è necessario disporre delle autorizzazioni di accesso alla *radice* nei computer Linux.
+>Per eseguire **azcmagent**, è necessario disporre delle autorizzazioni di accesso alla *radice* nei computer Linux.
 
 ### <a name="connect"></a>Connessione
 
@@ -219,11 +219,11 @@ Entrambi i metodi seguenti consentono di rimuovere l'agente, ma non di rimuovere
 1. Per disinstallare l'agente di Windows dalla macchina virtuale, eseguire le operazioni seguenti:
 
     a. Accedere al computer con un account dotato di autorizzazioni di amministratore.  
-    b. In **Pannello di controllo** selezionare **Programmi e funzionalità** .  
-    c. In **Programmi e funzionalità** selezionare **Agente Azure Connected Machine** , selezionare **Disinstalla** e quindi **Sì** .  
+    b. In **Pannello di controllo** selezionare **Programmi e funzionalità**.  
+    c. In **Programmi e funzionalità** selezionare **Agente Azure Connected Machine**, selezionare **Disinstalla** e quindi **Sì**.  
 
     >[!NOTE]
-    > È anche possibile eseguire l'installazione guidata dell'agente facendo doppio clic sul pacchetto del programma di installazione **AzureConnectedMachineAgent.msi** .
+    > È anche possibile eseguire l'installazione guidata dell'agente facendo doppio clic sul pacchetto del programma di installazione **AzureConnectedMachineAgent.msi**.
 
 #### <a name="uninstall-from-the-command-line"></a>Eseguire la disinstallazione dalla riga di comando
 
@@ -281,7 +281,7 @@ Se si prevede di arrestare la gestione del computer con servizi di supporto in A
 
 1. Aprire i server abilitati per Azure Arc passando al [portale di Azure](https://aka.ms/hybridmachineportal).
 
-2. Selezionare la macchina virtuale nell'elenco, selezionare i puntini di sospensione ( **...** ) e quindi **Elimina** .
+2. Selezionare la macchina virtuale nell'elenco, selezionare i puntini di sospensione ( **...** ) e quindi **Elimina**.
 
 ## <a name="update-or-remove-proxy-settings"></a>Aggiornare o rimuovere le impostazioni proxy
 
