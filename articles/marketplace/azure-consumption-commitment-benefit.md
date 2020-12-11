@@ -7,13 +7,13 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
-ms.custom: contperfq2
-ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129542"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028547"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Vantaggi dell'impegno per il consumo di Azure
 
@@ -45,10 +45,10 @@ Se non si è certi che l'organizzazione abbia un contratto valido, accedere all'
  
 3. Le offerte verranno segnalate con il **vantaggio Azure idoneo** per indicare ulteriormente che i costi software/IP associati a questa offerta contribuiranno al consumo di Azure da parte dell'organizzazione su tutti i servizi di Azure fatturati per l'organizzazione.
 
-    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Badge idoneo per il vantaggio Azure.&quot;:::
+    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Badge idoneo per il vantaggio Azure.":::
 
    > [!NOTE]
-   > Microsoft Azure servizi addebitati all'organizzazione tramite una distribuzione di Azure Marketplace contribuirà in modo intrinseco all'impegno dell'organizzazione. Il vantaggio aggiuntivo per le offerte &quot;Azure benefit idonee" è che i costi software/IP passati dal fornitore di terze parti contribuiranno anche al 100% della fattura di Azure Marketplace.
+   > Microsoft Azure servizi addebitati all'organizzazione tramite una distribuzione di Azure Marketplace contribuirà in modo intrinseco all'impegno dell'organizzazione. Il vantaggio aggiuntivo per le offerte "Azure benefit idonee" è che i costi software/IP passati dal fornitore di terze parti contribuiranno anche al 100% della fattura di Azure Marketplace.
 
 4. Acquistare/creare l'offerta direttamente tramite Azure Marketplace. Microsoft contribuirà al 100% degli acquisti di offerte idonei per l'impegno di consumo di Azure dell'organizzazione in ogni periodo di fatturazione, inclusi i costi software/IP.
 

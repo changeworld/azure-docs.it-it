@@ -10,13 +10,13 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: c5b2003a290152533a0a8c0f88fe8eb1a410ccf9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: e239d9da4a083b50460ef746f9c538aa3081a577
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744330"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027323"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -43,7 +43,7 @@ Nella tabella seguente vengono descritte le considerazioni sulla sicurezza per i
 | Chiave di sicurezza FIDO2 (anteprima)   | Alta     | Alta      | Alta         |
 | Token hardware OATH (anteprima) | Livello medio   | Livello medio    | Alta         |
 | Token software OATH           | Livello medio   | Livello medio    | Alta         |
-| sms                            | Media   | Alto      | Medio       |
+| SMS                            | Media   | Alto      | Medio       |
 | Chiamata vocale                          | Livello medio   | Livello medio    | Livello medio       |
 | Password                       | Basso      | Alto      | Alta         |
 
@@ -65,7 +65,7 @@ La tabella seguente illustra quando è possibile usare un metodo di autenticazio
 | Chiave di sicurezza FIDO2 (anteprima)   | Sì                    | MFA                       |
 | Token hardware OATH (anteprima) | No                     | MFA                       |
 | Token software OATH           | No                     | MFA                       |
-| sms                            | Sì (anteprima)          | Autenticazione a più fattori e SSPR              |
+| SMS                            | Sì (anteprima)          | Autenticazione a più fattori e SSPR              |
 | Chiamata vocale                     | No                     | Autenticazione a più fattori e SSPR              |
 | Password                       | Sì                    |                           |
 

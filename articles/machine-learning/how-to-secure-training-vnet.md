@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 2b0a56bac1652881e9d1733bcb52b02610e27e9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314172"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029567"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteggere un ambiente di training Azure Machine Learning con reti virtuali
 
@@ -52,7 +52,7 @@ Questo articolo illustra come proteggere le risorse di calcolo di training segue
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Cluster di elaborazione e istanze di calcolo 
 
-Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) o un' [istanza __di calcolo di Azure Machine Learning__](concept-compute-instance.md) in una rete virtuale, è necessario che siano soddisfatti i seguenti requisiti di rete:
+Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) o un'[istanza __di calcolo di Azure Machine Learning__](concept-compute-instance.md) in una rete virtuale, è necessario che siano soddisfatti i seguenti requisiti di rete:
 
 > [!div class="checklist"]
 > * La rete virtuale deve trovarsi nella stessa sottoscrizione e area dell'area di lavoro di Azure Machine Learning.
@@ -111,7 +111,7 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 
 - Negare la connessione Internet in uscita usando le regole del gruppo di sicurezza di rete.
 
-- Per un' __istanza di calcolo__ o un __cluster di elaborazione__ , limitare il traffico in uscita agli elementi seguenti:
+- Per un'__istanza di calcolo__ o un __cluster di elaborazione__, limitare il traffico in uscita agli elementi seguenti:
    - Archiviazione di Azure, usando __tag del servizio__ di __Storage.RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
    - Registro Azure Container, usando il __tag del servizio__ di __AzureContainerRegistry.RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
    - Azure Machine Learning, usando il __tag del servizio__ di __AzureMachineLearning__
@@ -201,7 +201,7 @@ Per creare un cluster dell'ambiente di calcolo di Machine Learning seguire quest
 
 1. Nella finestra di dialogo di __creazione di un cluster di training__ espandere la sezione __Impostazioni avanzate__.
 
-1. Per configurare questa risorsa di calcolo per l'uso di una rete virtuale, eseguire le azioni seguenti nella sezione __Configura rete virtuale__ :
+1. Per configurare questa risorsa di calcolo per l'uso di una rete virtuale, eseguire le azioni seguenti nella sezione __Configura rete virtuale__:
 
     1. Nell'elenco a discesa __Gruppo di risorse__ selezionare il gruppo di risorse che contiene la rete virtuale.
     1. Selezionare la rete virtuale che contiene la subnet nell'elenco a discesa __Rete virtuale__.

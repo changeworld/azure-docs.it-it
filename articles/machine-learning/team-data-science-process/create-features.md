@@ -10,20 +10,20 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322015"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031862"
 ---
 # <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
 
 Questo articolo descrive la progettazione di funzionalità e il suo ruolo nel miglioramento dei dati di apprendimento automatico. A tale scopo, sono riportate illustrazioni dagli esperimenti di [Azure Machine Learning Studio (versione classica)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
-* **Progettazione di caratteristiche** : processo di creazione di nuove funzionalità da dati non elaborati per aumentare la potenza predittiva dell'algoritmo di apprendimento. Le funzionalità progettate devono acquisire informazioni aggiuntive che non sono facilmente evidenti nel set di funzionalità originale.
-* **Selezione delle funzionalità** : processo di selezione del subset principale delle funzionalità per ridurre la dimensionalità del problema di training.
+* **Progettazione di caratteristiche**: processo di creazione di nuove funzionalità da dati non elaborati per aumentare la potenza predittiva dell'algoritmo di apprendimento. Le funzionalità progettate devono acquisire informazioni aggiuntive che non sono facilmente evidenti nel set di funzionalità originale.
+* **Selezione delle funzionalità**: processo di selezione del subset principale delle funzionalità per ridurre la dimensionalità del problema di training.
 
 In genere la prima fase è la **progettazione di funzionalità** per generare altre funzioni, quindi si passa alla **selezione delle funzionalità** per eliminare quelle irrilevanti, ridondanti o altamente correlate.
 

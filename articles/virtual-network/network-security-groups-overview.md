@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.custom: contperfq1
-ms.openlocfilehash: 76f3ba000a9bde4a306d19e8281ebeb41f1616e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 4e23c6f25145724a5300c9e5cdcb55431fb0b4f2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335868"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028768"
 ---
 # <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 <a name="network-security-groups"></a>
@@ -52,7 +52,7 @@ Il numero di regole di sicurezza che è possibile creare in un gruppo di sicurez
 
 Azure crea le regole predefinite seguenti in ogni gruppo di sicurezza di rete creato:
 
-#### <a name="inbound"></a>In entrata
+#### <a name="inbound"></a>In ingresso
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 

@@ -1,5 +1,5 @@
 ---
-title: Problemi di accesso alle app configurate Single Sign-On basate su SAML
+title: Problemi di accesso ad app configurate per Single Sign-On basato su SAML
 description: Linee guida per gli errori specifici quando si esegue l'accesso a un'applicazione configurata per il Single Sign-On federato basato su SAML con Azure Active Directory
 services: active-directory
 author: kenwith
@@ -11,32 +11,32 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.custom: contperfq2
-ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651550"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028275"
 ---
-# <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemi di accesso alle app configurate Single Sign-On basate su SAML
+# <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemi di accesso ad app configurate per Single Sign-On basato su SAML
 Per risolvere i problemi di accesso indicati di seguito, è consigliabile eseguire una diagnosi migliore e automatizzare i passaggi di risoluzione:
 
-- Installare l' [estensione My App Secure Browser](./access-panel-deployment-plan.md) per semplificare la Azure Active Directory (Azure ad) per fornire una diagnosi e una risoluzione migliori quando si usa l'esperienza di test nel portale di Azure.
+- Installare l'[estensione My App Secure Browser](./access-panel-deployment-plan.md) per aiutare Azure Active Directory (Azure AD) a fornire diagnosi e risoluzioni migliori quando si usa l'esperienza di test nel portale di Azure.
 - Riprodurre l'errore usando l'esperienza di test nella pagina di configurazione dell'app nel portale di Azure. Altre informazioni sul [debug di applicazioni Single Sign-on basate su SAML](./debug-saml-sso-issues.md)
 
 Se si usa l' [esperienza di test](./debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente la procedura riportata di seguito per aprire la pagina di configurazione Single Sign-on basata su SAML.
 
-Per aprire la pagina di configurazione Single Sign-On basata su SAML:
+Per aprire la pagina di configurazione Single Sign-on basato su SAML:
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore**.
 1.  Aprire l' **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 1.  Digitare **"Azure Active Directory"** nella casella di ricerca del filtro e selezionare l'elemento di **Azure Active Directory** .
-1.  Selezionare **applicazioni aziendali** nel menu di spostamento a sinistra Azure Active Directory.
-1.  Selezionare **tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
-    Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni**.
+1.  Fare clic su **Applicazioni aziendali** nel menu di spostamento a sinistra di Azure Active Directory.
+1.  Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+    Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 1. Dopo il caricamento dell'applicazione, selezionare **Single Sign-on** nel menu di navigazione a sinistra dell'applicazione.
-1. Selezionare SSO basato su SAML.
+1. Selezionare SAML-based SSO (Single Sign-On basato su SAML).
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 `Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
@@ -145,7 +145,7 @@ Quando l'applicazione è stata aggiunta come un'app non inclusa nella raccolta, 
 
 Eliminare gli URL di risposta non utilizzati configurati per l'applicazione.
 
-Nella pagina configurazione SSO basato su SAML, nella sezione **URL di risposta (URL del servizio consumer di asserzione)** , eliminare gli URL di risposta non utilizzati o predefiniti creati dal sistema. Ad esempio, `https://127.0.0.1:444/applications/default.aspx`
+Nella pagina configurazione SSO basato su SAML, nella sezione **URL di risposta (URL del servizio consumer di asserzione)** , eliminare gli URL di risposta non utilizzati o predefiniti creati dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 ## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>Metodo di autenticazione in base al quale l'utente autenticato con il servizio non corrisponde al metodo di autenticazione richiesto

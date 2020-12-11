@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95902452"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030451"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
-Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager. Con un nuovo tipo di risorsa denominato `Microsoft.Resources/deploymentScripts`, gli utenti possono eseguire script di distribuzione nelle distribuzioni di modelli ed esaminare i risultati dell'esecuzione. Questi script possono essere usati per eseguire passaggi personalizzati, ad esempio:
+Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager. Con un nuovo tipo di risorsa denominato `Microsoft.Resources/deploymentScripts` , gli utenti possono eseguire script nelle distribuzioni di modelli ed esaminare i risultati dell'esecuzione. Questi script possono essere usati per eseguire passaggi personalizzati, ad esempio:
 
 - Aggiungere utenti a una directory
 - Eseguire operazioni sul piano dati, ad esempio, copiare i BLOB o il database di inizializzazione
@@ -29,7 +29,6 @@ I vantaggi dello script di distribuzione:
 
 - Semplifica la scrittura di codice, l'uso e l'esecuzione del debug. È possibile sviluppare script di distribuzione negli ambienti di sviluppo preferiti. Gli script possono essere incorporati in modelli o in file di script esterni.
 - È possibile specificare la piattaforma e il linguaggio dello script. Attualmente gli script di distribuzione di Azure PowerShell e dell'interfaccia della riga di comando di Azure nell'ambiente Linux sono supportati.
-- Consente di specificare le identità usate per eseguire gli script. Attualmente è supportata solo l'[Identità gestita assegnata dall'utente di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 - Consente di specificare gli argomenti della riga di comando da passare allo script.
 - Può specificare gli output dello script e passarli nuovamente alla distribuzione.
 
@@ -38,12 +37,13 @@ La risorsa script di distribuzione è disponibile solo nelle aree in cui è disp
 > [!IMPORTANT]
 > Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili le opzioni per specificare un account di archiviazione esistente. In caso contrario, l'account di archiviazione e l'istanza di contenitore vengono creati automaticamente dal servizio script. Le due risorse create automaticamente vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione raggiunge uno stato finale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
 
+> [!IMPORTANT]
+> L'API della risorsa deploymentScripts versione 2020-10-01 supporta [OnBehalfofTokens (OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Con OBO, il servizio script di distribuzione usa il token dell'entità di distribuzione per creare le risorse sottostanti per l'esecuzione di script di distribuzione, tra cui l'istanza di contenitore di Azure, l'account di archiviazione di Azure e le assegnazioni di ruolo per l'identità gestita. Nella versione precedente dell'API, l'identità gestita viene usata per creare queste risorse.
+> La logica di ripetizione dei tentativi per l'accesso ad Azure è ora incorporata nello script wrapper. Se si concedono le autorizzazioni nello stesso modello in cui si eseguono gli script di distribuzione.  Il servizio script di distribuzione ritenta l'accesso per 10 minuti con un intervallo di 10 secondi fino a quando non viene replicata l'assegnazione del ruolo identità gestita.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Identità gestita assegnata dall'utente con il ruolo di collaboratore per il gruppo di risorse di destinazione**. Questa identità viene usata per eseguire gli script di distribuzione. Per eseguire operazioni all'esterno del gruppo di risorse, è necessario concedere autorizzazioni aggiuntive. Ad esempio, assegnare l'identità al livello della sottoscrizione se si vuole creare un nuovo gruppo di risorse.
-
-  > [!NOTE]
-  > Il servizio script crea un account di archiviazione (a meno che non si specifichi un account di archiviazione esistente) e un'istanza di contenitore in background.  Un'identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione è obbligatoria se la sottoscrizione non ha registrato i provider di risorse dell'account di archiviazione di Azure (Microsoft.Storage) e dell'istanza di contenitore di Azure (Microsoft.ContainerInstance).
+- **(Facoltativo) identità gestita assegnata dall'utente con le autorizzazioni necessarie per eseguire le operazioni nello script**. Per l'API dello script di distribuzione versione 2020-10-01 o successiva, l'entità di distribuzione viene usata per creare risorse sottostanti. Se lo script deve eseguire l'autenticazione in Azure ed eseguire azioni specifiche di Azure, è consigliabile fornire lo script con un'identità gestita assegnata dall'utente. Per completare l'operazione nello script, l'identità gestita deve avere l'accesso richiesto nel gruppo di risorse di destinazione. È anche possibile accedere ad Azure nello script di distribuzione. Per eseguire operazioni all'esterno del gruppo di risorse, è necessario concedere autorizzazioni aggiuntive. Ad esempio, assegnare l'identità al livello della sottoscrizione se si vuole creare un nuovo gruppo di risorse. 
 
   Per creare un'identità, vedere [Creare un'identità gestita assegnata dall'utente usando il portale di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) o [usando l'interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) o [usando Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
@@ -135,7 +135,7 @@ Di seguito è riportato un file json di esempio.  Lo schema di modello più rece
 
 Dettagli sui valori delle proprietà:
 
-- **Identità**: Il servizio script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script. Attualmente è supportata solo l'Identità gestita assegnata dall'utente di Azure.
+- **Identità**: per l'API dello script di distribuzione versione 2020-10-01 o successiva, un'identità gestita assegnata dall'utente è facoltativa, a meno che non sia necessario eseguire azioni specifiche di Azure nello script.  Per la versione API 2019-10-01-Preview, è necessaria un'identità gestita perché il servizio script di distribuzione lo usa per eseguire gli script. Attualmente è supportata solo l'Identità gestita assegnata dall'utente di Azure.
 - **kind**: specificare il tipo di script. Attualmente sono supportati gli script Azure PowerShell e dell'interfaccia della riga di comando di Azure. I valori sono **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: La modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Se si usa la funzione newGuid () o utcNow (), entrambe le funzioni possono essere usate solo nel valore predefinito per un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
 - **containerSettings**: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  **containerGroupName** serve a specificare il nome del gruppo di contenitori.  Se non specificato, il nome del gruppo viene generato automaticamente.
@@ -147,7 +147,7 @@ Dettagli sui valori delle proprietà:
 
     Se gli argomenti contengono caratteri di escape, usare [JsonEscaper](https://www.jsonescaper.com/) per eseguire il doppio escape dei caratteri. Incollare la stringa di escape originale nello strumento, quindi selezionare **escape**.  Lo strumento restituisce una doppia stringa con caratteri di escape. Nel modello di esempio precedente, ad esempio, l'argomento è **-Name \\ "John Dole \\ "**.  La stringa con caratteri di escape è il **nome \\ \\ \\ "John Dole \\ \\ \\ "**.
 
-    Per passare un parametro di modello ARM di tipo Object come argomento, convertire l'oggetto in una stringa usando la funzione [String ()](./template-functions-string.md#string) e quindi usare la funzione [Replace ()](./template-functions-string.md#replace) per sostituire qualsiasi **\\ "** into **\\ \\ \\ "**. Ad esempio:
+    Per passare un parametro di modello ARM di tipo Object come argomento, convertire l'oggetto in una stringa usando la funzione [String ()](./template-functions-string.md#string) e quindi usare la funzione [Replace ()](./template-functions-string.md#replace) per sostituire qualsiasi **\\ "** into **\\ \\ \\ "**. Esempio:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -169,14 +169,11 @@ Dettagli sui valori delle proprietà:
 - [Esempio 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): creare un gruppo di risorse a livello di sottoscrizione, creare un insieme di credenziali delle chiavi nel gruppo di risorse e quindi usare lo script di distribuzione per assegnare un certificato all'insieme di credenziali delle chiavi.
 - [Esempio 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): creare un'identità gestita assegnata dall'utente, assegnare il ruolo Collaboratore all'identità a livello di gruppo di risorse, creare un insieme di credenziali delle chiavi e usare lo script di distribuzione per assegnare un certificato all'insieme di credenziali delle chiavi.
 
-> [!NOTE]
-> È consigliabile creare un'identità assegnata dall'utente e concedere in anticipo le autorizzazioni. È possibile che vengano restituiti errori di accesso e di autorizzazione se si crea l'identità e si concedono le autorizzazioni nello stesso modello in cui vengono eseguiti gli script di distribuzione. È necessario del tempo prima che le autorizzazioni diventino effettive.
-
 ## <a name="use-inline-scripts"></a>Usare script inline
 
 Il modello seguente include una risorsa definita con il tipo `Microsoft.Resources/deploymentScripts`. La parte evidenziata è lo script inline.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
 > Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere sottoposte a escape utilizzando un **&#92;** o racchiuso tra virgolette singole. È anche possibile prendere in considerazione l'uso della sostituzione di stringhe come illustrato nell'esempio JSON precedente.
@@ -188,11 +185,10 @@ Per eseguire lo script, selezionare **Prova** per aprire Cloud Shell e quindi in
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$id = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json" -identity $id
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -239,7 +235,7 @@ I file di supporto vengono copiati in azscripts/azscriptinput in fase di esecuzi
 
 Il modello seguente mostra come passare i valori tra due risorse di deploymentScripts:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
 Nella prima risorsa definire una variabile denominata **$DeploymentScriptOutputs** e usarla per archiviare i valori di output. Per accedere al valore di output da un'altra risorsa all'interno del modello, usare:
 
@@ -276,7 +272,7 @@ Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un ac
 
     Queste combinazioni supportano la condivisione file.  Per altre informazioni, vedere [creare una condivisione file di Azure](../../storage/files/storage-how-to-create-file-share.md) e [i tipi di account di archiviazione](../../storage/common/storage-account-overview.md).
 - Le regole del firewall dell'account di archiviazione non sono ancora supportate. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../../storage/common/storage-network-security.md).
-- L'identità gestita assegnata dall'utente dello script di distribuzione deve avere le autorizzazioni per gestire l'account di archiviazione, che include condivisioni file di lettura, creazione ed eliminazione.
+- L'entità di distribuzione deve avere le autorizzazioni per gestire l'account di archiviazione, che include le condivisioni file di lettura, creazione ed eliminazione.
 
 Per specificare un account di archiviazione esistente, aggiungere il file JSON seguente all'elemento della proprietà di `Microsoft.Resources/deploymentScripts`:
 
@@ -539,6 +535,8 @@ Il ciclo di vita di queste risorse è controllato dalle proprietà seguenti nel 
 
 > [!NOTE]
 > Non è consigliabile usare l'account di archiviazione e l'istanza di contenitore generati dal servizio script per altri scopi. Le due risorse potrebbero essere rimosse a seconda del ciclo di vita dello script.
+
+Per mantenere l'istanza del contenitore e l'account di archiviazione per la risoluzione dei problemi, è possibile aggiungere un comando di sospensione nello script.  Ad esempio [, Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## <a name="run-script-more-than-once"></a>Eseguire lo script più di una volta
 

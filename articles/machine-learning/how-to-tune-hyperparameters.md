@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: b65553edf61d8e646e7238a5385656fe75a3156f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311383"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029074"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ottimizzazione degli iperparametri per il modello con Azure Machine Learning
 
@@ -339,8 +339,8 @@ La ricerca dei migliori valori di iperparametri per il modello può essere un pr
 
 
 L'avvio a caldo viene gestito in modo diverso a seconda del metodo di campionamento:
-- **Campionamento Bayes** : le versioni di valutazione dell'esecuzione precedente vengono usate come informazioni precedenti per selezionare nuovi esempi e per migliorare la metrica primaria.
-- Campionamento **casuale** o **campionamento griglia** : la terminazione anticipata usa le informazioni delle esecuzioni precedenti per determinare le esecuzioni con prestazioni ridotte. 
+- **Campionamento Bayes**: le versioni di valutazione dell'esecuzione precedente vengono usate come informazioni precedenti per selezionare nuovi esempi e per migliorare la metrica primaria.
+- Campionamento **casuale** o **campionamento griglia**: la terminazione anticipata usa le informazioni delle esecuzioni precedenti per determinare le esecuzioni con prestazioni ridotte. 
 
 Consente di specificare l'elenco di esecuzioni padre da cui iniziare a caldo.
 

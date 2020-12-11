@@ -6,14 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006473"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029142"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di Analisi di flusso di Azure usando i log delle risorse
 
@@ -95,7 +95,7 @@ Analisi di flusso di Azure acquisisce due categorie di log di risorse:
 
 Tutti i log vengono archiviati in formato JSON. Ogni voce include i campi stringa comuni seguenti:
 
-Nome | Descrizione
+Name | Descrizione
 ------- | -------
 time | Timestamp del log (in UTC).
 resourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -113,10 +113,10 @@ I log di esecuzione hanno informazioni sugli eventi che si sono verificati duran
 
 Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici. È possibile ottenere altre informazioni sulla cause di diversi [errori di dati di input e di output](./data-errors.md).
 
-Nome | Descrizione
+Name | Descrizione
 ------- | -------
 Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
-Messaggio | Messaggio associato all'errore.
+Message | Messaggio associato all'errore.
 Tipo | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
@@ -134,10 +134,10 @@ In base al valore **operationName**, lo schema degli errori nei dati è il segue
 
 Gli eventi generici sono tutti gli altri.
 
-Nome | Descrizione
+Name | Descrizione
 -------- | --------
 Errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
-Messaggio| Messaggio del log.
+Message| Messaggio del log.
 Tipo | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | GUID che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 

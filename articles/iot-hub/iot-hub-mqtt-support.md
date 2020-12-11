@@ -12,15 +12,15 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-- contperfq1
+- contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 4e06edaf6323c13b3a5af037b5b85b5b0acecc79
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505649"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027799"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -145,7 +145,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
 * Per il campo **Username** usare `{iothubhostname}/{device_id}/?api-version=2018-06-30`, dove `{iothubhostname}` rappresenta il record CName completo dell'hub IoT.
 
-    Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01** , il campo **Username** completo deve contenere:
+    Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01**, il campo **Username** completo deve contenere:
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
@@ -166,7 +166,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
   
 2. Fare clic con il tasto destro sul dispositivo e selezionare **Genera token di firma di accesso condiviso per dispositivo**.
   
-3. Impostare l' **ora di scadenza** premere "Invio".
+3. Impostare l'**ora di scadenza** premere "Invio".
   
 4. Il token di firma di accesso condiviso viene creato e copiato negli appunti.
 
@@ -180,7 +180,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
 Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni** . Questo evento contiene informazioni aggiuntive che consentono di risolvere i problemi di connettività.
 
-L'app per dispositivo può specificare un messaggio **Will** nel pacchetto **CONNECT**. L'app per dispositivo deve usare `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come nome di argomento **Will** per definire i messaggi **Will** da inoltrare come messaggi di telemetria. In questo caso, se la connessione di rete viene chiusa, ma il dispositivo non ha prima ricevuto un pacchetto **DISCONNECT** , l'hub IoT invia il messaggio **Will** specificato nel pacchetto **CONNECT** al canale di telemetria. Quest'ultimo può essere l'endpoint **Events** predefinito o un endpoint personalizzato definito dal routing dell'hub IoT. Alla proprietà **iothub-MessageType** del messaggio è assegnato un valore **Will**.
+L'app per dispositivo può specificare un messaggio **Will** nel pacchetto **CONNECT**. L'app per dispositivo deve usare `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come nome di argomento **Will** per definire i messaggi **Will** da inoltrare come messaggi di telemetria. In questo caso, se la connessione di rete viene chiusa, ma il dispositivo non ha prima ricevuto un pacchetto **DISCONNECT**, l'hub IoT invia il messaggio **Will** specificato nel pacchetto **CONNECT** al canale di telemetria. Quest'ultimo può essere l'endpoint **Events** predefinito o un endpoint personalizzato definito dal routing dell'hub IoT. Alla proprietà **iothub-MessageType** del messaggio è assegnato un valore **Will**.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Uso diretto del protocollo MQTT (come modulo)
 
@@ -296,7 +296,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Di seguito è riportato un elenco di comportamenti specifici dell'implementazione dell'hub IoT:
 
-* L'hub IoT non supporta i messaggi di QoS 2. Quando un'app per dispositivo pubblica un messaggio con **QoS 2** , l'hub IoT chiude la connessione di rete.
+* L'hub IoT non supporta i messaggi di QoS 2. Quando un'app per dispositivo pubblica un messaggio con **QoS 2**, l'hub IoT chiude la connessione di rete.
 
 * L'hub IoT non rende persistenti i messaggi di mantenimento. Se un dispositivo invia un messaggio con il flag **Mantieni** impostato su 1, l'hub Internet aggiunge la proprietà dell'applicazione **MQTT-Mantieni** al messaggio. In tal caso, anziché rendere persistente il messaggio di mantenimento, l'hub IoT passa invece all'app back-end.
 
@@ -309,9 +309,9 @@ Per altre informazioni, vedere [Guida per gli sviluppatori sulla messaggistica](
 
 Per ricevere messaggi dall'hub IoT, un dispositivo deve eseguire la sottoscrizione con `devices/{device_id}/messages/devicebound/#` come **filtro di argomento**. Il carattere jolly a più livelli `#` nel filtro argomento viene usato solo per consentire al dispositivo di ricevere proprietà aggiuntive nel nome dell'argomento. L'hub IoT non consente l'uso dei caratteri jolly `#` o `?` per il filtro di argomenti secondari. Poiché l'hub IoT non è un broker di messaggistica di pubblicazione e sottoscrizione generico, supporta solo i nomi di argomento e i filtri di argomento documentati.
 
-Il dispositivo non riceve alcun messaggio dall'hub Internet fino a quando non ha completato la sottoscrizione all'endpoint specifico del dispositivo, rappresentato dal `devices/{device_id}/messages/devicebound/#` filtro dell'argomento. Dopo aver stabilito la sottoscrizione, il dispositivo inizierà a ricevere i messaggi da cloud a dispositivo che gli sono stati inviati dopo la sottoscrizione. Se il dispositivo si connette con il flag **CleanSession** impostato su **0** , la sottoscrizione sarà mantenuta tra sessioni diverse. In questo caso, alla connessione successiva con **CleanSession 0** il dispositivo riceverà i messaggi in sospeso che gli sono stati inviati mentre era disconnesso. Se il dispositivo usa il flag **CleanSession** impostato su **1** tuttavia, non riceverà i messaggi dall'hub IoT fino a quando non si registra presso l'endpoint del dispositivo.
+Il dispositivo non riceve alcun messaggio dall'hub Internet fino a quando non ha completato la sottoscrizione all'endpoint specifico del dispositivo, rappresentato dal `devices/{device_id}/messages/devicebound/#` filtro dell'argomento. Dopo aver stabilito la sottoscrizione, il dispositivo inizierà a ricevere i messaggi da cloud a dispositivo che gli sono stati inviati dopo la sottoscrizione. Se il dispositivo si connette con il flag **CleanSession** impostato su **0**, la sottoscrizione sarà mantenuta tra sessioni diverse. In questo caso, alla connessione successiva con **CleanSession 0** il dispositivo riceverà i messaggi in sospeso che gli sono stati inviati mentre era disconnesso. Se il dispositivo usa il flag **CleanSession** impostato su **1** tuttavia, non riceverà i messaggi dall'hub IoT fino a quando non si registra presso l'endpoint del dispositivo.
 
-L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{device_id}/messages/devicebound/` o `devices/{device_id}/messages/devicebound/{property_bag}` in presenza di proprietà dei messaggi. `{property_bag}` contiene coppie chiave/valore con codifica URL di proprietà dei messaggi. Solo le proprietà dell'applicazione e le proprietà di sistema configurabili dall'utente, ad esempio **messageId** o **correlationId** , sono incluse nel contenitore delle proprietà. I nomi delle proprietà di sistema hanno il prefisso **$** . Le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso. Per ulteriori informazioni sul formato del contenitore delle proprietà, vedere [invio di messaggi da dispositivo a cloud](#sending-device-to-cloud-messages).
+L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{device_id}/messages/devicebound/` o `devices/{device_id}/messages/devicebound/{property_bag}` in presenza di proprietà dei messaggi. `{property_bag}` contiene coppie chiave/valore con codifica URL di proprietà dei messaggi. Solo le proprietà dell'applicazione e le proprietà di sistema configurabili dall'utente, ad esempio **messageId** o **correlationId**, sono incluse nel contenitore delle proprietà. I nomi delle proprietà di sistema hanno il prefisso **$** . Le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso. Per ulteriori informazioni sul formato del contenitore delle proprietà, vedere [invio di messaggi da dispositivo a cloud](#sending-device-to-cloud-messages).
 
 Nei messaggi da cloud a dispositivo, i valori nel contenitore delle proprietà sono rappresentati come nella tabella seguente:
 
@@ -321,13 +321,13 @@ Nei messaggi da cloud a dispositivo, i valori nel contenitore delle proprietà s
 | stringa vuota | `key=` | Chiave seguita da un segno di uguale senza valore |
 | valore non null e non vuoto | `key=value` | Chiave seguita da un segno di uguale e dal valore |
 
-Nell'esempio seguente viene illustrato un contenitore delle proprietà contenente tre proprietà dell'applicazione: **Prop1** con il valore `null` ; **prop2** , una stringa vuota (""); e **Prop3** con il valore "a String".
+Nell'esempio seguente viene illustrato un contenitore delle proprietà contenente tre proprietà dell'applicazione: **Prop1** con il valore `null` ; **prop2**, una stringa vuota (""); e **Prop3** con il valore "a String".
 
 ```mqtt
 /?prop1&prop2=&prop3=a%20string
 ```
 
-Quando un'app del dispositivo esegue una sottoscrizione a un argomento con **QoS 2** , l'hub IoT concede il livello QoS 1 massimo nel pacchetto **SUBACK**. Successivamente, l'hub IoT invierà i messaggi al dispositivo tramite QoS 1.
+Quando un'app del dispositivo esegue una sottoscrizione a un argomento con **QoS 2**, l'hub IoT concede il livello QoS 1 massimo nel pacchetto **SUBACK**. Successivamente, l'hub IoT invierà i messaggi al dispositivo tramite QoS 1.
 
 ## <a name="retrieving-a-device-twins-properties"></a>Recupero delle proprietà dei dispositivi gemelli
 
@@ -432,7 +432,7 @@ Per ulteriori informazioni, vedere la [Guida per gli sviluppatori di dispositivi
 
 Un dispositivo deve effettuare la sottoscrizione a `$iothub/methods/POST/#`. L'hub IoT invia le richieste di metodo all'argomento `$iothub/methods/POST/{method name}/?$rid={request id}` con un codice JSON valido o un corpo vuoto.
 
-Per rispondere, il dispositivo invia un messaggio con un codice JSON valido o un corpo vuoto all'argomento `$iothub/methods/res/{status}/?$rid={request id}`. In questo messaggio, l' **ID della richiesta** deve corrispondere a quello nel messaggio della richiesta, e lo **stato** deve essere un numero intero.
+Per rispondere, il dispositivo invia un messaggio con un codice JSON valido o un corpo vuoto all'argomento `$iothub/methods/res/{status}/?$rid={request id}`. In questo messaggio, l'**ID della richiesta** deve corrispondere a quello nel messaggio della richiesta, e lo **stato** deve essere un numero intero.
 
 Per ulteriori informazioni, vedere la [Guida per gli sviluppatori di metodi diretti](iot-hub-devguide-direct-methods.md).
 

@@ -4,12 +4,12 @@ description: Informazioni su come usare le identità gestite in Azure Kubernetes
 services: container-service
 ms.topic: article
 ms.date: 12/06/2020
-ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 68d8111da5ec10f23d14b375a18229bca075da84
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751275"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97026830"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -34,7 +34,7 @@ Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e 
 
 AKS usa diverse identità gestite per i servizi e i componenti aggiuntivi predefiniti.
 
-| Identità                       | Nome    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
+| Identità                       | Name    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
 |----------------------------|-----------|----------|
 | Piano di controllo | non visibile | Usato dai componenti del piano di controllo AKS per gestire le risorse del cluster, inclusi i bilanciamenti del carico in ingresso e gli indirizzi IP pubblici gestiti da AKS e le operazioni di scalabilità automatica del cluster | Ruolo Collaboratore per il gruppo di risorse nodo | Anteprima
 | Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | NA (per kubernetes v 1.15 +) | Attualmente non supportato
@@ -119,7 +119,7 @@ Aggiornare l'identità assegnata dal sistema:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Aggiornare l'identità assegnata dall'utente:
+Registrare il flag funzionalità per l'identità assegnata dall'utente:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview

@@ -8,20 +8,20 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: apimpm
-ms.custom: contperfq1
-ms.openlocfilehash: 9892c311651df39b882c3aa38596a905d22a42ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: face4beab450e92be76b2bb90e45625e025de6ee
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618778"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027918"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteggere il back-end di un'API Web in gestione API di Azure usando l'autorizzazione OAuth 2,0 con Azure AD 
 
 Questa guida illustra come configurare l'istanza di [gestione API di Azure](api-management-key-concepts.md) per proteggere un'API usando il [protocollo OAuth 2,0 con Azure Active Directory (Azure ad)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
-> Questa funzionalità è disponibile nei livelli **Developer**, **Basic**, **standard**e **Premium** di gestione API.
+> Questa funzionalità è disponibile nei livelli **Developer**, **Basic**, **standard** e **Premium** di gestione API.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -93,9 +93,9 @@ Per registrare un'altra applicazione in Azure AD per rappresentare la console pe
 
 1. Creare un segreto client per l'applicazione da usare in un passaggio successivo.
 
-   1. Dall'elenco di pagine per l'app client selezionare **certificati & segreti**e selezionare **nuovo segreto client**.
+   1. Dall'elenco di pagine per l'app client selezionare **certificati & segreti** e selezionare **nuovo segreto client**.
 
-   1. In **Aggiungi un segreto client**specificare una **Descrizione**. Scegliere la scadenza della chiave e selezionare **Aggiungi**.
+   1. In **Aggiungi un segreto client** specificare una **Descrizione**. Scegliere la scadenza della chiave e selezionare **Aggiungi**.
 
 Quando viene creato il segreto, annotare il valore della chiave da usare in un passaggio successivo. 
 
@@ -109,11 +109,11 @@ Ora che sono state registrate due applicazioni per rappresentare l'API e la cons
 
 1. Selezionare **Aggiungi un'autorizzazione**.
 
-1. In **selezionare un'API**selezionare **API personali**, quindi individuare e selezionare l'app back-end.
+1. In **selezionare un'API** selezionare **API personali**, quindi individuare e selezionare l'app back-end.
 
-1. In **autorizzazioni delegate**selezionare le autorizzazioni appropriate per l'app back-end, quindi selezionare **Aggiungi autorizzazioni**.
+1. In **autorizzazioni delegate** selezionare le autorizzazioni appropriate per l'app back-end, quindi selezionare **Aggiungi autorizzazioni**.
 
-1. Facoltativamente, nella pagina **autorizzazioni API** selezionare Concedi il **consenso dell'amministratore per \<your-tenant-name> ** per concedere il consenso per conto di tutti gli utenti in questa directory. 
+1. Facoltativamente, nella pagina **autorizzazioni API** selezionare Concedi il **consenso dell'amministratore per \<your-tenant-name>** per concedere il consenso per conto di tutti gli utenti in questa directory. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Abilitare l'autorizzazione utente OAuth 2.0 nella console per sviluppatori
 
@@ -147,17 +147,17 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 
 1. Specificare quindi le credenziali del client. Queste sono le credenziali per l'app client.
 
-1. Per **ID client**usare l' **ID applicazione** dell'app client.
+1. Per **ID client** usare l' **ID applicazione** dell'app client.
 
 1. Per **Segreto client** usare la chiave creata in precedenza per l'app client. 
 
 1. Immediatamente dopo il segreto client è riportato il valore di **redirect_url** per il tipo di concessione con codice di autorizzazione. Prendere nota dell'URL.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Tornare alla registrazione dell'app client in Azure Active Directory e selezionare **autenticazione**.
 
-1. In **configurazioni piattaforma** fare clic su **Aggiungi piattaforma**e selezionare il tipo come **Web**, incollare il **redirect_url** in **URI di reindirizzamento**, quindi fare clic sul pulsante **Configura** per salvare.
+1. In **configurazioni piattaforma** fare clic su **Aggiungi piattaforma** e selezionare il tipo come **Web**, incollare il **redirect_url** in **URI di reindirizzamento**, quindi fare clic sul pulsante **Configura** per salvare.
 
 Ora che è stato configurato un server di autorizzazione OAuth 2.0, la console per sviluppatori può ottenere i token di accesso da Azure AD. 
 

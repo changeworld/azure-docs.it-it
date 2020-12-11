@@ -11,13 +11,13 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 964cd77a24a7a73bf1151ba9e6ab43509e664b9f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743072"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027000"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurare le impostazioni di Multi-Factor Authentication Azure AD
 
@@ -50,7 +50,7 @@ Sono disponibili le impostazioni seguenti:
 Per configurare le impostazioni di blocco degli account, completare le impostazioni seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-1. Passare a **Azure Active Directory**  >  **Security**  >  **MFA**  >  **blocco dell'account** multi-factor authentication.
+1. Passare a **Azure Active Directory**  >    >    >  **blocco dell'account** multi-factor authentication.
 1. Immettere i valori Richiedi per l'ambiente, quindi selezionare **Salva**.
 
     ![Screenshot delle impostazioni di blocco degli account nel portale di Azure](./media/howto-mfa-mfasettings/account-lockout-settings.png)
@@ -110,7 +110,7 @@ Selezionare **Azure Active Directory** > **Accessi** > **Dettagli di autenticazi
 
 Per configurare le notifiche di avviso di illecito, completare le impostazioni seguenti:
 
-1. Passare a **Azure Active Directory**  >  **Security**  >  **Multi-Factor Authentication**  >  **notifiche** multi-factor authentication sicurezza.
+1. Passare a **Azure Active Directory**  >    >    >  **notifiche** multi-factor authentication sicurezza.
 1. Immettere l'indirizzo di posta elettronica da aggiungere alla casella successiva.
 1. Per rimuovere un indirizzo di posta elettronica esistente, selezionare l'opzione **...** accanto all'indirizzo di posta elettronica desiderato, quindi selezionare **Elimina**.
 1. Al termine, selezionare **Salva**.
@@ -263,7 +263,7 @@ Indipendentemente dal fatto che siano definiti indirizzi IP attendibili, per i f
 
 È possibile usare le regole di accesso condizionale per definire le località denominate attenendosi alla procedura seguente:
 
-1. Nella portale di Azure cercare e selezionare **Azure Active Directory**, quindi passare ad **Security**  >  **accesso condizionale** di sicurezza  >  **località denominate**.
+1. Nella portale di Azure cercare e selezionare **Azure Active Directory**, quindi passare ad   >  **accesso condizionale** di sicurezza  >  **località denominate**.
 1. Selezionare **Nuova località**.
 1. Immettere un nome per la località.
 1. Selezionare **Contrassegna come posizione attendibile**.
@@ -274,7 +274,7 @@ Indipendentemente dal fatto che siano definiti indirizzi IP attendibili, per i f
 
 Per abilitare gli indirizzi IP attendibili usando i criteri di accesso condizionale, seguire questa procedura:
 
-1. Nella portale di Azure cercare e selezionare **Azure Active Directory**, quindi passare ad **Security**  >   **accesso condizionale** di sicurezza  >  **località denominate**.
+1. Nella portale di Azure cercare e selezionare **Azure Active Directory**, quindi passare ad   >   **accesso condizionale** di sicurezza  >  **località denominate**.
 1. Selezionare **Configura indirizzi IP attendibili MFA**.
 1. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una delle due opzioni seguenti:
 

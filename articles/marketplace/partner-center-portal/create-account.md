@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
-ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d88e2b18d4e4f9df0606832356e383aaaf51cf73
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458111"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028445"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -67,7 +67,7 @@ Il profilo di pubblicazione include il nome della società e l'ID MPN. Se non è
 
     Al termine della registrazione, verrà usata la pagina panoramica sul Marketplace commerciale. L'account Marketplace commerciale viene visualizzato nel riquadro sinistro.
 
-1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni** (icona a forma di ingranaggio) nell'angolo superiore destro > programmi **Impostazioni account**  >  **Programs**.
+1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni** (icona a forma di ingranaggio) nell'angolo superiore destro > programmi **Impostazioni account**  >  .
 
 A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Continuare ad [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -119,7 +119,7 @@ A questo punto è stato creato un account Marketplace commerciale nel centro per
 Quando si esegue la registrazione per il programma commerciale Marketplace con lo stesso account del programma per sviluppatori, è possibile visualizzare tutte le registrazioni dei programmi esistenti nel riquadro sinistro del centro per i partner.
 
 1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/) con l'account esistente.
-1. Selezionare **Impostazioni**  >  **account impostazioni**  >  **programmi**  >  **Get Started** per iniziare e immettere l'indirizzo di posta elettronica aziendale.
+1. Selezionare **Impostazioni**  >  **account impostazioni**  >  **programmi**  >  per iniziare e immettere l'indirizzo di posta elettronica aziendale.
 1. Completare i dettagli nella pagina del **profilo di pubblicazione** .
 2. Leggere i termini e le condizioni del [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560), quindi selezionare **accetta e continua** per completare la registrazione.
 
@@ -142,7 +142,7 @@ Il contratto di pubblicazione e le informazioni sul profilo della società passa
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Aggiungere nuovi editori al programma commerciale Marketplace
 
-Un'organizzazione può avere più editori associati a un account Marketplace commerciale. Un utente esistente può aggiungere altri server di pubblicazione dopo aver eseguito l'accesso al centro per i partner selezionando **Impostazioni**  >  **Impostazioni account**  >  **Organization Profile**  >  **identificatori** profilo organizzazione  >  **Aggiungi server di pubblicazione**.
+Un'organizzazione può avere più editori associati a un account Marketplace commerciale. Un utente esistente può aggiungere altri server di pubblicazione dopo aver eseguito l'accesso al centro per i partner selezionando **Impostazioni**  >  **Impostazioni account**  >    >  **identificatori** profilo organizzazione  >  **Aggiungi server di pubblicazione**.
 
 >[!NOTE]
 >Prima di aggiungere un nuovo server di pubblicazione, rivedere l'elenco dei server di pubblicazione esistenti accedendo al centro per i partner e selezionando **Impostazioni account** di  >  **pubblicazione**.

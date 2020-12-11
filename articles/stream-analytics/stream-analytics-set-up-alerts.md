@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
-ms.openlocfilehash: 6353fe988b9b94c27ab777741bf63d3869579d9e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8d591bb9c4b2ef8100946082f19115b99b30dde1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124442"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027493"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Impostare gli avvisi per i processi di Analisi di flusso di Azure
 
@@ -28,17 +28,17 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
 1. Nel portale di Azure aprire il processo di Analisi di flusso per cui si intende creare un avviso.
 
-2. Nella pagina **Processo** passare alla sezione **Monitoraggio** .  
+2. Nella pagina **Processo** passare alla sezione **Monitoraggio**.  
 
-3. Selezionare **Metriche** e quindi **Nuova regola di avviso** .
+3. Selezionare **Metriche** e quindi **Nuova regola di avviso**.
 
    ![Configurazione degli avvisi di Analisi di flusso nel portale di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. Il nome del processo di Analisi di flusso dovrebbe essere visualizzato automaticamente in **RISORSA** . Fare clic su **Aggiungi condizione** e selezionare **All Administrative operations** (Tutte le operazioni amministrative) in **Configura logica dei segnali** .
+4. Il nome del processo di Analisi di flusso dovrebbe essere visualizzato automaticamente in **RISORSA**. Fare clic su **Aggiungi condizione** e selezionare **All Administrative operations** (Tutte le operazioni amministrative) in **Configura logica dei segnali**.
 
    ![Selezionare il nome del segnale per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore** . Lasciare vuota l'opzione **Evento avviato da** e fare clic su **Chiudi** .
+5. In **Configura logica dei segnali** impostare **Livello evento** su **Tutti** e **Stato** su **Errore**. Lasciare vuota l'opzione **Evento avviato da** e fare clic su **Chiudi**.
 
    ![Configurare la logica dei segnali per l'avviso di Analisi di flusso](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -46,11 +46,11 @@ L'esempio seguente dimostra come configurare gli avvisi per l'attivazione di uno
 
    ![Configurazione di un avviso per un processo di Analisi di flusso di Azure](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Dovrebbe essere presente una voce per **RISORSA** , **CONDIZIONE** e **GRUPPI DI AZIONI** . Si noti che è necessario che le condizioni definite siano soddisfatte affinché sia possibile attivare gli avvisi. Ad esempio, è possibile misurare il valore medio di una metrica negli ultimi 15 minuti, ogni 5 minuti.
+7. Dovrebbe essere presente una voce per **RISORSA**, **CONDIZIONE** e **GRUPPI DI AZIONI**. Si noti che è necessario che le condizioni definite siano soddisfatte affinché sia possibile attivare gli avvisi. Ad esempio, è possibile misurare il valore medio di una metrica negli ultimi 15 minuti, ogni 5 minuti.
 
    ![Screenshot mostra la finestra di dialogo Crea regola con la risorsa, la condizione e il gruppo di azioni.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   Aggiungere **Nome regola di avviso** , **Descrizione** e **Gruppo di risorse** per **DETTAGLI AVVISO** e fare clic su **Crea regola di avviso** per creare la regola per il processo di Analisi di flusso.
+   Aggiungere **Nome regola di avviso**, **Descrizione** e **Gruppo di risorse** per **DETTAGLI AVVISO** e fare clic su **Crea regola di avviso** per creare la regola per il processo di Analisi di flusso.
 
    ![Screenshot mostra la finestra di dialogo Crea regola con i dettagli dell'avviso.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    

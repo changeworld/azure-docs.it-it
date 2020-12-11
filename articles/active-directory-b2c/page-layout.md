@@ -11,20 +11,28 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 868d99a82009dc8545fc24ad1cfa1da3959da131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bbe40a2329143b9abd4554ec715c64e5c26d4eb
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852066"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028105"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
 I pacchetti del layout di pagina vengono aggiornati periodicamente per includere correzioni e miglioramenti negli elementi della pagina. Nel log delle modifiche seguente vengono specificate le modifiche introdotte in ogni versione.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="self-asserted-page-selfasserted"></a>Pagina autocertificata (selfasserted)
+
+**2.1.1**
+
+- Aggiunta di un UXString `heading` , oltre a `intro` da visualizzare nella pagina come titolo. Questa operazione è nascosta per impostazione predefinita.
+- Aggiunta del supporto per il salvataggio delle password nel keychain di iCloud.
+- Aggiunta del supporto per l'utilizzo dei criteri o del parametro QueryString `pageFlavor` per selezionare il layout (classico, oceanBlue o GrigioArdesia).
+- Sono state aggiunte dichiarazioni di non responsabilità nella pagina autocertificata.
+- Lo stato attivo viene ora inserito nel primo campo modificabile quando viene caricata la pagina.
+- Lo stato attivo viene ora inserito nel primo campo di errore se più campi contengono errori.
+- Lo stato attivo viene ora inserito sul pulsante ' modifica ' dopo la verifica del codice di verifica tramite posta elettronica.
 
 **2.1.0**
 
@@ -38,12 +46,16 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 
 - I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
 - È stato aggiunto un ritardo di convalida dell'input utente configurabile per migliorare l'esperienza utente.
--  Correzioni di accessibilità
+- Correzione di un problema di accessibilità in modo che i messaggi di errore vengano ora letti dall'Assistente vocale. 
+- Lo stato attivo viene ora inserito nel campo password dopo la verifica del messaggio di posta elettronica.
+- Rimosso `autofocus` dal controllo CheckBox. 
+- Aggiunta del supporto per un widget di visualizzazione per la verifica del numero di telefono.
 - È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
-- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
-- Supporto per la conversione di Chrome
+- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti.
+- Supporto per la conversione di Chrome.
+- Aggiunta del supporto per la personalizzazione del tenant nelle pagine del flusso utente.
 
 **1.1.0**
 
@@ -58,6 +70,15 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Pagina di iscrizione dell'accesso unificato con collegamento per la reimpostazione della password (unifiedssp)
 
+**2.1.1**
+- Aggiunta di un UXString `heading` , oltre a `intro` da visualizzare nella pagina come titolo. Questa operazione è nascosta per impostazione predefinita.
+- Aggiunta del supporto per l'utilizzo dei criteri o del parametro QueryString `pageFlavor` per selezionare il layout (classico, oceanBlue o GrigioArdesia).
+- Aggiunta del supporto per il salvataggio delle password nel keychain di iCloud.
+- Lo stato attivo viene ora inserito nel primo campo di errore se più campi contengono errori.
+- Lo stato attivo viene ora inserito nel primo campo modificabile quando viene caricata la pagina.
+- È stato aggiunto un nuovo percorso per il collegamento di selezione del provider di attestazioni `bottomUnderFormClaimsProviderSelections` .
+- Rimossi UXStrings che non vengono più utilizzati.
+
 **2.1.0**
 
 - Aggiunta del supporto per più collegamenti di iscrizione.
@@ -66,12 +87,13 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 **1.2.0**
 
 - I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
--  Correzioni di accessibilità
+- Correzioni di accessibilità.
 - È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
-- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
-- Supporto per la conversione di Chrome
+- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti.
+- Supporto per la conversione di Chrome.
+- Aggiunta del supporto per la personalizzazione del tenant nelle pagine del flusso utente.
 
 **1.1.0**
 
@@ -82,6 +104,12 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 - Versione iniziale
 
 ## <a name="mfa-page-multifactor"></a>Pagina multi-factor authentication (a più fattori)
+
+**1.2.2**
+- Correzione di un problema relativo al completamento automatico del codice di verifica quando si utilizza iOS.
+- Correzione di un problema relativo al reindirizzamento di un token al relying party da Android WebView. 
+- Aggiunta di un UXString `heading` , oltre a `intro` da visualizzare nella pagina come titolo. Questa operazione è nascosta per impostazione predefinita.  
+- Aggiunta del supporto per l'utilizzo dei criteri o del parametro QueryString `pageFlavor` per selezionare il layout (classico, oceanBlue o GrigioArdesia).
 
 **1.2.1**
 
@@ -94,7 +122,8 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
 - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
-- Supporto per la conversione di Chrome
+- Supporto per la conversione di Chrome.
+- Aggiunta del supporto per la personalizzazione del tenant nelle pagine del flusso utente.
 
 **1.1.0**
 
