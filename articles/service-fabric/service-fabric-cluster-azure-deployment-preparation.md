@@ -3,12 +3,12 @@ title: Pianificare una distribuzione di Azure Service Fabric cluster
 description: Informazioni sulla pianificazione e la preparazione per la distribuzione di un cluster Service Fabric di produzione in Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281328"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109624"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Pianificare e preparare la distribuzione di un cluster
 
@@ -89,8 +89,6 @@ Il disco del sistema operativo temporaneo non è una funzionalità di Service Fa
 
 > [!NOTE]
 > Le applicazioni utente non devono avere alcuna dipendenza/file/artefatto nel disco del sistema operativo, perché il disco del sistema operativo andrebbe perso nel caso di un aggiornamento del sistema operativo.
-> Non è quindi consigliabile usare [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) con dischi temporanei.
->
 
 > [!NOTE]
 > Non è possibile aggiornare sul posto i VMSS non temporanei esistenti per l'uso di dischi temporanei.

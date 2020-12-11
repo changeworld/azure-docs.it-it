@@ -3,12 +3,12 @@ title: Sicurezza e autenticazione di Griglia di eventi di Azure
 description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 24954ce0a0dc54a04720c0d0b495d14e950a2f71
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328726"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109590"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizzazione dell'accesso alle risorse di griglia di eventi
 Griglia di eventi di Azure consente di controllare il livello di accesso assegnato a utenti diversi per eseguire varie **operazioni di gestione** , ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
@@ -17,17 +17,18 @@ Griglia di eventi di Azure consente di controllare il livello di accesso assegna
 > EventGrid non supporta il controllo degli accessi in base al ruolo di Azure per la pubblicazione di eventi in argomenti o domini Usare una chiave o un token di firma di accesso condiviso per autenticare i client che pubblicano gli eventi. Per altre informazioni, vedere [autenticare i client di pubblicazione](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Tipi di operazioni
+Per un elenco delle operazioni supportate da griglia di eventi di Azure, eseguire il comando dell'interfaccia della riga di comando di Azure seguente: 
 
-Griglia di eventi supporta le azioni seguenti:
+```azurecli-interactive
+az provider operation show --namespace Microsoft.EventGrid
+```
 
-* Microsoft.EventGrid/*/read
-* Microsoft.EventGrid/*/write
-* Microsoft.EventGrid/*/delete
+Le operazioni seguenti restituiscono informazioni potenzialmente segrete, che vengono filtrate dalle normali operazioni di lettura. È consigliabile limitare l'accesso a queste operazioni. 
+
 * Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-Le ultime tre operazioni restituiscono informazioni potenzialmente riservate che vengono filtrate dalle normali operazioni di lettura. È consigliabile limitare l'accesso a queste operazioni. 
 
 ## <a name="built-in-roles"></a>Ruoli predefiniti
 

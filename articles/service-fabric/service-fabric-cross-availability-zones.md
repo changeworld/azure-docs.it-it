@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e4a9201c14e71520bd58ff1017b700ca47fa21
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803739"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109819"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -332,4 +332,96 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ```
 
+## <a name="preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set"></a>Anteprima Abilitare più zone di disponibilità in un singolo set di scalabilità di macchine virtuali
+
+La soluzione indicata in precedenza usa un nodeType per AZ. La soluzione seguente consente agli utenti di distribuire 3 AZ nello stesso nodeType.
+
+Il modello di esempio completo è disponibile [qui](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
+
+![Architettura della zona di disponibilità di Azure Service Fabric][sf-multi-az-arch]
+
+### <a name="configuring-zones-on-a-virtual-machine-scale-set"></a>Configurazione di zone in un set di scalabilità di macchine virtuali
+Per abilitare le zone in un set di scalabilità di macchine virtuali, è necessario includere i tre valori seguenti nella risorsa del set di scalabilità di macchine virtuali.
+
+* Il primo valore è la proprietà **Zones** , che specifica il zone di disponibilità presente nel set di scalabilità di macchine virtuali.
+* Il secondo valore è la proprietà "singlePlacementGroup", che deve essere impostata su true.
+* Il terzo valore è "zoneBalance" ed è facoltativo, che garantisce un rigido bilanciamento della zona se impostato su true. Vedere informazioni su [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* Non è necessario configurare gli override di FaultDomain e UpgradeDomain.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "zones": ["1", "2", "3"],
+    "properties": {
+        "singlePlacementGroup": "true",
+        "zoneBalance": false
+    }
+}
+```
+
+>[!NOTE]
+> * **I cluster SF dovrebbero avere almeno un nodeType primario. Il durabilità della nodeTypes primaria deve essere Silver o superiore.**
+> * Il set di scalabilità AZ spanning di macchine virtuali deve essere configurato con almeno 3 zone di disponibilità indipendentemente da durabilità.
+> * AZ spanning set di scalabilità di macchine virtuali con durabilità Silver (o versione successiva) deve avere almeno 15 VM.
+> * AZ spanning set di scalabilità di macchine virtuali con durabilità Bronze deve avere almeno 6 macchine virtuali.
+
+### <a name="enabling-the-support-for-multiple-zones-in-the-service-fabric-nodetype"></a>Abilitazione del supporto per più zone nel Service Fabric nodeType
+Per supportare più zone di disponibilità, è necessario abilitare il nodeType Service Fabric.
+
+* Il primo valore è **multipleAvailabilityZones** che deve essere impostato su true per NodeType.
+* Il secondo valore è **sfZonalUpgradeMode** ed è facoltativo. Questa proprietà non può essere modificata se nel cluster è già presente un oggetto NodeType con più AZ.
+      La proprietà controlla il raggruppamento logico di macchine virtuali in domini di aggiornamento.
+          Se il valore è impostato su false (modalità flat): le VM sotto il tipo di nodo verranno raggruppate in UD ignorando le informazioni sulla zona in 5 UDs.
+          Se il valore viene omesso o è impostato su true (modalità gerarchica): le macchine virtuali verranno raggruppate per riflettere la distribuzione di zona in un massimo di 15 domini di UDs. Ognuna delle 3 zone avrà 5 domini di stato.
+          Questa proprietà definisce solo il comportamento di aggiornamento per l'applicazione ServiceFabric e gli aggiornamenti del codice. Gli aggiornamenti del set di scalabilità di macchine virtuali sottostanti saranno comunque paralleli in tutte le AZ.
+      Questa proprietà non avrà alcun effetto sulla distribuzione di UD per i tipi di nodo per i quali non sono abilitate più zone.
+* Il terzo valore è **vmssZonalUpgradeMode = Parallel**. Si tratta di una proprietà *obbligatoria* da configurare nel cluster, se viene aggiunto un NodeType con più AZs. Questa proprietà definisce la modalità di aggiornamento per gli aggiornamenti del set di scalabilità di macchine virtuali che si verificheranno in parallelo in tutte le AZ a una sola volta.
+      Al momento questa proprietà può essere impostata solo su Parallel.
+* La risorsa cluster Service Fabric apiVersion deve essere "2020-12-01-Preview" o una versione successiva.
+* La versione del codice del cluster deve essere "7.2.445" o successiva.
+
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "location": "[parameters('clusterLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+    ],
+    "properties": {
+        "SFZonalUpgradeMode": "Hierarchical",
+        "VMSSZonalUpgradeMode": "Parallel",
+        "nodeTypes": [
+          {
+                "name": "[parameters('vmNodeType0Name')]",
+                "multipleAvailabilityZones": true,
+          }
+        ]
+}
+```
+
+>[!NOTE]
+> * L'IP pubblico e le risorse di Load Balancer devono usare lo SKU standard come descritto in precedenza in questo articolo.
+> * la proprietà "multipleAvailabilityZones" in nodeType può essere definita solo al momento della creazione di nodeType e non può essere modificata in un secondo momento. Di conseguenza, non è possibile configurare nodeTypes esistenti con questa proprietà.
+> * Quando "hierarchicalUpgradeDomain" viene omesso o impostato su true, le distribuzioni del cluster e dell'applicazione saranno più lente perché sono presenti più domini di aggiornamento nel cluster. È importante regolare correttamente i timeout dei criteri di aggiornamento da incorporare per la durata dell'aggiornamento per 15 domini di aggiornamento.
+> * È consigliabile impostare il livello di affidabilità del cluster su platino per garantire che il cluster superi lo scenario di una zona inattiva.
+
+>[!NOTE]
+> Per la procedura consigliata, è consigliabile impostare hierarchicalUpgradeDomain su true o su omesso. La distribuzione seguirà la distribuzione di zona delle macchine virtuali che incidono su una minore quantità di repliche e/o istanze che li rendono più sicure.
+> Usare hierarchicalUpgradeDomain impostato su false se la velocità di distribuzione è una priorità o solo il carico di lavoro senza stato viene eseguito sul tipo di nodo con più AZ. Questa operazione comporterà il raggiungimento del percorso di UD in parallelo in tutte le AZ.
+
+### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migrazione al tipo di nodo con più zone di disponibilità
+Per tutti gli scenari di migrazione, è necessario aggiungere un nuovo nodeType che avrà più zone di disponibilità supportate. Non è possibile eseguire la migrazione di un nodeType esistente per supportare più zone.
+[Questo articolo illustra](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) i passaggi dettagliati per aggiungere un nuovo NodeType e aggiungere anche le altre risorse necessarie per il nuovo NodeType, ad esempio le risorse IP e lb. Lo stesso articolo descrive anche ora di ritirare il nodeType esistente dopo che il nodeType con più zone di disponibilità viene aggiunto al cluster.
+
+* Migrazione da un nodeType che usa le risorse LB e IP di base: questa operazione è già descritta [qui](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) per la soluzione con un tipo di nodo per AZ. 
+    Per il nuovo tipo di nodo, l'unica differenza è costituita dal fatto che esiste un solo set di scalabilità di macchine virtuali e 1 NodeType per tutte le AZ, anziché 1 ogni per AZ.
+* Migrazione da un oggetto nodeType che usa le risorse LB e IP dello SKU standard con NSG: seguire la stessa procedura descritta in precedenza, con l'eccezione che non è necessario aggiungere nuove risorse LB, IP e NSG e le stesse risorse possono essere riutilizzate nel nuovo nodeType.
+
+
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
+[sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
