@@ -1,22 +1,25 @@
 ---
-title: Connetti a Common Data Service
-description: Creare e gestire record di Common Data Service usando app per la logica di Azure
+title: Connetti a Common Data Service (Microsoft dataverse)
+description: Creare e gestire record di Common Data Service (Microsoft dataverse) usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 12/11/2020
 tags: connectors
-ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334583"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355121"
 ---
-# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Creare e gestire i record in Common Data Service usando app per la logica di Azure
+# <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Creare e gestire i record in Common Data Service (Microsoft dataverse) usando app per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Common Data Service](/connectors/commondataservice/)è possibile creare flussi di lavoro automatizzati per la gestione dei record nel database [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) . Questi flussi di lavoro possono creare record, aggiornare record ed eseguire altre operazioni. È anche possibile ottenere informazioni dal database Common Data Service e rendere disponibile l'output per altre azioni da usare nell'app per la logica. Ad esempio, quando un record viene aggiornato nel database di Common Data Service, è possibile inviare un messaggio di posta elettronica usando il connettore Office 365 Outlook.
+> [!NOTE]
+> Nel novembre 2020 Common Data Service è stato rinominato in Microsoft dataverse.
+
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Common Data Service](/connectors/commondataservice/)è possibile creare flussi di lavoro automatizzati per la gestione dei record nel [Common Data Service, ora Microsoft dataverse](/powerapps/maker/common-data-service/data-platform-intro) database. Questi flussi di lavoro possono creare record, aggiornare record ed eseguire altre operazioni. È anche possibile ottenere informazioni dal database Common Data Service e rendere disponibile l'output per altre azioni da usare nell'app per la logica. Ad esempio, quando un record viene aggiornato nel database di Common Data Service, è possibile inviare un messaggio di posta elettronica usando il connettore Office 365 Outlook.
 
 Questo articolo illustra come creare un'app per la logica che crea un record di attività ogni volta che viene creato un nuovo record lead.
 
@@ -49,7 +52,7 @@ Per questo esempio, aggiungere il trigger Common Data Service che viene attivato
 
    ![Attivare le informazioni per l'ambiente da monitorare](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Environment** | Sì | Ambiente da monitorare, ad esempio, "Fabrikam Sales Production". Per altre informazioni, vedere [Panoramica di Power Platform-environments](/power-platform/admin/environments-overview). |
    | **Nome entità** | Sì | Entità da monitorare, ad esempio, "Lead" |
@@ -70,7 +73,7 @@ Aggiungere ora una Common Data Service azione che crea un record di attività pe
 
    ![Informazioni sull'azione per l'ambiente in cui creare il record](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Nome organizzazione** | Sì | L'ambiente in cui si desidera creare il record, che non deve necessariamente essere lo stesso ambiente del trigger, ma è "Fabrikam Sales Production" in questo esempio |
    | **Nome entità** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" |
@@ -87,7 +90,7 @@ Aggiungere ora una Common Data Service azione che crea un record di attività pe
 
       ![Selezionare i trigger output da usare nel record attività](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | Output del trigger | Descrizione |
+      | Output del trigger | Description |
       |----------------|-------------|
       | **Nome** | Il primo nome del record principale da usare come contatto principale nel record dell'attività |
       | **Cognome** | Cognome del record principale da usare come contatto principale nel record dell'attività |
@@ -106,11 +109,11 @@ Aggiungere ora una Common Data Service azione che crea un record di attività pe
 
 Per i trigger che vengono eseguiti quando vengono aggiornati i record, ad esempio l'azione **quando un record viene aggiornato** , è possibile usare gli attributi di filtro in modo che l'app per la logica venga eseguita solo quando gli attributi specificati vengono aggiornati. Questa funzionalità consente di evitare l'esecuzione di app per la logica non necessarie.
 
-1. Nel trigger selezionare **filtri attributi**nell'elenco **Aggiungi nuovo parametro** .
+1. Nel trigger selezionare **filtri attributi** nell'elenco **Aggiungi nuovo parametro** .
 
    ![Screenshot che mostra l'azione "quando un record viene aggiornato" e l'elenco aperto "Aggiungi nuovo parametro" con la proprietà "filtri attributo" selezionata.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
-1. Per ogni **elemento filtri attributi**selezionare l'attributo che si desidera monitorare per gli aggiornamenti, ad esempio:
+1. Per ogni **elemento filtri attributi** selezionare l'attributo che si desidera monitorare per gli aggiornamenti, ad esempio:
 
    ![Aggiungere la proprietà "filtri attributo"](./media/connect-common-data-service/when-record-updated-trigger-select-attribute-filter.png)
 

@@ -4,16 +4,16 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512155"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356175"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -59,7 +59,7 @@ Se si imposta una variabile di ambiente tramite la riga di comando, tale variabi
 azcopy copy [source] [destination] [flags]
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Caricare un singolo file usando l'autenticazione OAuth. Se non è ancora stato effettuato l'accesso a AzCopy, eseguire il `azcopy login` comando prima di eseguire il comando seguente.
 
@@ -276,6 +276,8 @@ Trasferire i file e le directory nell'account di archiviazione di Azure e impost
 
 le stringhe **--include-after** includono solo i file modificati in o dopo la data/ora specificata. Il valore deve essere in formato ISO8601. Se non viene specificato alcun fuso orario, si presuppone che il valore si trovi nel fuso orario locale del computer che esegue AzCopy. ad esempio, `2020-08-19T15:04:00Z` per un'ora UTC o `2020-08-19` per la mezzanotte (00:00) nel fuso orario locale. Come in AzCopy 10,5, questo flag è valido solo per i file, non per le cartelle, quindi le proprietà delle cartelle non verranno copiate quando si usa questo flag con `--preserve-smb-info` o `--preserve-smb-permissions` .
 
+ **--include-before** stringa include solo i file modificati prima o nella data/ora specificata. Il valore deve essere in formato ISO8601. Se non viene specificato alcun fuso orario, si presuppone che il valore si trovi nel fuso orario locale del computer che esegue AzCopy. ad esempio `2020-08-19T15:04:00Z` per un'ora UTC o `2020-08-19` per la mezzanotte (00:00) nel fuso orario locale. A partire da AzCopy 10,7, questo flag è valido solo per i file, non per le cartelle, quindi le proprietà delle cartelle non verranno copiate quando si usa questo flag con `--preserve-smb-info` o `--preserve-smb-permissions` .
+
 **--include-Attributes** String (solo Windows) include i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
 
 **--include-percorso** stringa include solo questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: `myFolder;myFolder/subDirName/file.pdf` ).
@@ -322,6 +324,6 @@ le stringhe **--include-after** includono solo i file modificati in o dopo la da
 
 **--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8f8513746271fff0ab52603e31b75304d5ebc1bf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168983"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357977"
 ---
 # <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>Configurare Azure Load Balancer per l'istanza del cluster di failover VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +47,7 @@ Usare il [portale di Azure](https://portal.azure.com) per creare il servizio di 
 
 1. Nel portale di Azure passare al gruppo di risorse contenente le macchine virtuali.
 
-1. Selezionare **Aggiungi**. Cerca **Load Balancer**in Azure Marketplace. Selezionare **Bilanciamento del carico**.
+1. Selezionare **Aggiungi**. Cerca **Load Balancer** in Azure Marketplace. Selezionare **Bilanciamento del carico**.
 
 1. Selezionare **Crea**.
 
@@ -85,7 +86,7 @@ Usare il [portale di Azure](https://portal.azure.com) per creare il servizio di 
 
 1. Selezionare **Aggiungi**.
 
-1. Nel riquadro **Aggiungi Probe** di integrità <span id="probe"> </span> impostare i parametri del probe di integrità seguenti:
+1. Nel riquadro **Aggiungi Probe** di integrità <span id="probe"></span> impostare i parametri del probe di integrità seguenti:
 
    - **Name**: un nome per il probe di integrità.
    - **Protocollo**: TCP.
@@ -104,7 +105,7 @@ Usare il [portale di Azure](https://portal.azure.com) per creare il servizio di 
 1. Impostare i parametri della regola di bilanciamento del carico:
 
    - **Nome**: nome per le regole di bilanciamento del carico.
-   - **Indirizzo IP**front-end: indirizzo IP per il SQL Server FCI o la risorsa di rete in cluster del listener AG.
+   - **Indirizzo IP** front-end: indirizzo IP per il SQL Server FCI o la risorsa di rete in cluster del listener AG.
    - **Port**: SQL Server porta TCP. La porta predefinita dell'istanza è 1433.
    - **Porta back-end**: la stessa porta del valore della **porta** quando si Abilita l' **indirizzo IP mobile (Direct Server Return)**.
    - **Pool back-end**: il nome del pool back-end configurato in precedenza.

@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564481"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358011"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparare le macchine virtuali per un'istanza FCI (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,19 +48,22 @@ Per la funzionalità cluster di failover di è necessario che le macchine virtua
 
 Selezionare con attenzione l'opzione della disponibilità della macchina virtuale corrispondente alla configurazione del cluster desiderata: 
 
- - **Dischi condivisi di Azure** : [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurato con dominio di errore e dominio di aggiornamento impostato su 1 e inserito all'interno di un gruppo di [posizionamento di prossimità](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Condivisioni file Premium** : [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o [zona di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Le condivisioni file Premium sono l'unica opzione di archiviazione condivisa se si scelgono le zone di disponibilità come configurazione della disponibilità per le macchine virtuali. 
- - **Spazi di archiviazione diretta** : [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Azure Shared disks**: l'opzione di disponibilità varia se si usa SSD Premium o UltraDisk:
+   - SSD Premium: [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in domini di errore/aggiornamento diversi per le unità SSD Premium posizionate all'interno di un [gruppo di posizionamento di prossimità](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Disco Ultra: la [zona di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) , ma le macchine virtuali devono essere posizionate nella stessa zona di disponibilità, riducendo la disponibilità del cluster al 99,9%. 
+- **Condivisioni file Premium**: [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o [zona di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Spazi di archiviazione diretta**: [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->Non è possibile impostare o modificare il set di disponibilità dopo aver creato una macchina virtuale.
+> [!IMPORTANT]
+> Non è possibile impostare o modificare il set di disponibilità dopo aver creato una macchina virtuale.
 
 ## <a name="create-the-virtual-machines"></a>Creare le macchine virtuali
 
 Una volta configurata la disponibilità della macchina virtuale, si è pronti per creare le macchine virtuali. È possibile scegliere di usare un'immagine di Azure Marketplace in cui o non è già installato SQL Server. Tuttavia, se si sceglie un'immagine per SQL Server nelle macchine virtuali di Azure, sarà necessario disinstallare SQL Server dalla macchina virtuale prima di configurare l'istanza del cluster di failover. 
 
 ### <a name="considerations"></a>Considerazioni
-In un cluster di failover guest di macchine virtuali IaaS di Azure è consigliabile usare una sola scheda di rete per ogni server (nodo del cluster) e una sola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure.
+
+In un cluster di failover di macchine virtuali di Azure è consigliabile usare una singola scheda di interfaccia di rete per server (nodo del cluster) e una singola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure.
 
 Inserire entrambe le macchine virtuali:
 
@@ -109,9 +113,9 @@ In questa tabella vengono illustrate in dettaglio le porte che potrebbero essere
 
    | Scopo | Porta | Note
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta. </br> </br> **Utilizzato da** : tutte le configurazioni dell'istanza FCI. |
-   | Probe di integrità | TCP 59999 | Qualsiasi porta TCP aperta. Configurare il [Probe di integrità](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) del servizio di bilanciamento del carico e il cluster per usare questa porta. </br> </br> **Usato da** : FCI con Load Balancer. |
-   | Condivisione file | UDP 445 | Porta utilizzata dal servizio Condivisione file. </br> </br> **Usato da** : FCI con la condivisione file Premium. |
+   | SQL Server | TCP 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta. </br> </br> **Utilizzato da**: tutte le configurazioni dell'istanza FCI. |
+   | Probe di integrità | TCP 59999 | Qualsiasi porta TCP aperta. Configurare il [Probe di integrità](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) del servizio di bilanciamento del carico e il cluster per usare questa porta. </br> </br> **Usato da**: FCI con Load Balancer. |
+   | Condivisione file | UDP 445 | Porta utilizzata dal servizio Condivisione file. </br> </br> **Usato da**: FCI con la condivisione file Premium. |
 
 ## <a name="join-the-domain"></a>Accedere al dominio
 

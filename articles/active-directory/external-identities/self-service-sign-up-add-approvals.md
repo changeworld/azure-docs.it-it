@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860610"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355240"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service
 
@@ -26,6 +26,9 @@ Questo articolo fornisce un esempio di come eseguire l'integrazione con un siste
 
 - Approvare automaticamente l'utente e consentire Azure AD di creare l'account utente.
 - Attivare una revisione manuale. Se la richiesta viene approvata, il sistema di approvazione USA Microsoft Graph per eseguire il provisioning dell'account utente. Il sistema di approvazione può inoltre notificare all'utente che il proprio account è stato creato.
+
+> [!IMPORTANT]
+>**A partire dal 4 gennaio 2021**, Google sta [deprecando il supporto per l'accesso a WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se si usa la Federazione di Google o l'iscrizione self-service con Gmail, è necessario [testare le applicazioni native line-of-business per la compatibilità](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registrare un'applicazione per il sistema di approvazione
 
@@ -318,7 +321,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                           | Obbligatoria | Description                                                                                                                                                            |
+| Parametro                                           | Obbligatorio | Description                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | Sì      | Può essere generato accettando l' `email` attestazione inviata all'API, sostituendo il `@` carattere con `_` e pre-in sospeso a `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | Sì      | Il valore deve essere impostato su `true`.                                                                                                                                                 |

@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784f1cc7b7e063166dc1f24851ab217cef8d831a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89646604"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355648"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
-`id_tokens` vengono inviati all'applicazione client come parte di un flusso [OpenID Connect](v2-protocols-oidc.md) (OIDC). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
+`id_tokens` vengono inviati all'applicazione client come parte di un flusso [OpenID Connect](v2-protocols-oidc.md) (OIDC). Possono essere inviate insieme a un token di accesso, anziché a un token di accesso, e vengono usate dal client per autenticare l'utente.
 
 ## <a name="using-the-id_token"></a>Uso degli id_token
 
@@ -96,7 +96,7 @@ Questo elenco Mostra le attestazioni JWT che si trovano nella maggior parte dei 
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Uso di attestazioni per identificare in modo affidabile un utente (oggetto e ID oggetto)
 
-Quando si identifica un utente (ad indicare, si cerca in un database o si definiscono le autorizzazioni di cui dispone), è fondamentale usare le informazioni che rimarranno costanti e univoche nel tempo.  Le applicazioni legacy a volte usano un campo come l'indirizzo di posta elettronica, un numero di telefono o l'UPN.  Tutti questi possono cambiare nel tempo e possono essere riutilizzati anche nel tempo, quando un dipendente modifica il nome o un dipendente riceve un indirizzo di posta elettronica corrispondente a quello di un dipendente precedente, non più presente. Di conseguenza, è **fondamentale** che l'applicazione non usi dati leggibili per identificare un utente, in genere leggibile da un utente, che verrà letto da qualcuno e voglia modificarlo.  Usare invece le attestazioni fornite dallo standard OIDC o le attestazioni di estensione fornite da Microsoft-le attestazioni `sub` e `oid` .
+Quando si identifica un utente (ad indicare, si cerca in un database o si definiscono le autorizzazioni di cui dispone), è fondamentale usare le informazioni che rimarranno costanti e univoche nel tempo. Le applicazioni legacy a volte usano campi come l'indirizzo di posta elettronica, un numero di telefono o l'UPN.  Tutti questi possono cambiare nel tempo e possono essere riutilizzati anche nel tempo, quando un dipendente modifica il nome o un dipendente riceve un indirizzo di posta elettronica corrispondente a quello di un dipendente precedente, non più presente. Di conseguenza, è **fondamentale** che l'applicazione non usi dati leggibili per identificare un utente, in genere leggibile da un utente, che verrà letto da qualcuno e voglia modificarlo. Usare invece le attestazioni fornite dallo standard OIDC o le attestazioni di estensione fornite da Microsoft-le attestazioni `sub` e `oid` .
 
 Per archiviare correttamente le informazioni per utente, usare `sub` o `oid` da solo (che come GUID sono univoci), con `tid` usato per il routing o il partizionamento orizzontale, se necessario.  Se è necessario condividere i dati tra i servizi, `oid` + `tid` è preferibile che tutte le app ottengano le stesse `oid` `tid` attestazioni per un determinato utente.  L' `sub` attestazione nella piattaforma di identità Microsoft è "Pair-Wise", che è univoca in base a una combinazione di destinatario, tenant e utente del token.  Quindi, due app che richiedono token ID per un determinato utente riceveranno `sub` attestazioni diverse, ma le stesse `oid` attestazioni per tale utente.
 

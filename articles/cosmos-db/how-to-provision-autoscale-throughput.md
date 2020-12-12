@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100117"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357626"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Eseguire il provisioning della velocità effettiva di ridimensionamento automatico per database o contenitore nell'API Azure Cosmos DB-SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,13 +28,13 @@ Se si usa un'API diversa, vedere l'articolo relativo alle API [per MongoDB](how-
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o a [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
-1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati** .
+1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
 
-1. Selezionare **Nuovo contenitore** . Immettere un nome per il database, il contenitore e una chiave di partizione. In **Velocità effettiva** selezionare l'opzione **Scalabilità automatica** e impostare la [velocità effettiva massima (UR/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) per il dimensionamento del database o del contenitore.
+1. Selezionare **Nuovo contenitore**. Immettere un nome per il database, il contenitore e una chiave di partizione. In **Velocità effettiva** selezionare l'opzione **Scalabilità automatica** e impostare la [velocità effettiva massima (UR/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) per il dimensionamento del database o del contenitore.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creazione di un contenitore e configurazione del provisioning della velocità effettiva per la scalabilità automatica":::
 
-1. Selezionare **OK** .
+1. Selezionare **OK**.
 
 Per effettuare il provisioning della scalabilità automatica per il database con velocità effettiva condivisa, selezionare l'opzione **Provision database throughput** (Effettua il provisioning della velocità effettiva del database) durante la creazione di un nuovo database. 
 
@@ -45,13 +45,13 @@ Per effettuare il provisioning della scalabilità automatica per il database con
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o a [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
-1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati** .
+1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
 
 1. Selezionare **Scalabilità e impostazioni** per il contenitore oppure **Dimensiona** per il database.
 
-1. In **Dimensiona** selezionare l'opzione **Scalabilità automatica** e fare clic su **Salva** .
+1. In **Dimensiona** selezionare l'opzione **Scalabilità automatica** e fare clic su **Salva**.
 
-   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Creazione di un contenitore e configurazione del provisioning della velocità effettiva per la scalabilità automatica":::
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Abilitazione della scalabilità automatica per un contenitore esistente":::
 
 > [!NOTE]
 > Quando si abilita la scalabilità automatica per un database o un contenitore esistente, il valore iniziale per il numero massimo di UR/s è determinato dal sistema, in base alle impostazioni correnti del provisioning della velocità effettiva manuale e allo spazio di archiviazione. Al termine dell'operazione, se necessario, è possibile modificare il numero massimo di UR/s. [Altre informazioni.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
@@ -128,7 +128,7 @@ await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThrou
 // Create instance of CosmosClient
 CosmosAsyncClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildAsyncClient();
 
@@ -145,7 +145,7 @@ CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThro
 // Create instance of CosmosClient
 CosmosClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildClient();
 

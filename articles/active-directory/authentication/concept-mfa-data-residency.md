@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 788512db242bf1a1c6f18ffc0ee773bd3372aa42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744109"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355869"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Residenza dei dati e dati del cliente per Azure AD Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ Per i cloud pubblici di Azure, ad eccezione dell'autenticazione Azure B2C, dell'
 | Notifica di Microsoft Authenticator | In log di Azure Multi-Factor Authentication<br />Archivio dati dei report attività di Multi-Factor Authentication<br />Utenti bloccati in caso di segnalazione di frode<br />Richieste di modifica quando viene modificato il token del dispositivo di Microsoft Authenticator |
 
 > [!NOTE]
-> L'archivio dati dei report attività di Multi-Factor Authentication viene archiviato nel Stati Uniti per tutti i cloud, indipendentemente dall'area che elabora la richiesta di autenticazione. Microsoft Azure Germania, Microsoft Azure gestito da 21Vianet e il cloud Microsoft per enti pubblici hanno archivi dati indipendenti separati dagli archivi dati dell'area del cloud pubblico. Tuttavia questi dati vengono sempre archiviati negli Stati Uniti.
+> L'archivio dati dei report attività di Multi-Factor Authentication viene archiviato nel Stati Uniti per tutti i cloud, indipendentemente dall'area che elabora la richiesta di autenticazione. Microsoft Azure Germania, Microsoft Azure gestito da 21Vianet e il cloud Microsoft per enti pubblici hanno archivi dati indipendenti separati dagli archivi dati dell'area del cloud pubblico. Tuttavia questi dati vengono sempre archiviati negli Stati Uniti. Questi archivi dati contengono informazioni personali, ad esempio il nome dell'entità utente (UPN) e il numero di telefono completo. 
 
 Per Microsoft Azure per enti pubblici, Microsoft Azure Germania, Microsoft Azure gestito da 21Vianet, l'autenticazione Azure B2C, l'estensione NPS e la scheda AD FS di Windows Server 2016 o 2019 vengono archiviati i dati personali seguenti:
 

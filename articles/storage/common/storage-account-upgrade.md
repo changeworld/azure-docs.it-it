@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/25/2019
+ms.date: 12/11/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 10d9a74306fcdf3fe32db7019ba3b095727da4c0
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694584"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357365"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -168,4 +168,7 @@ I costi di trasferimento dati con replica geografica per gli account di archivia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Panoramica dell'account di archiviazione](storage-account-overview.md)
 * [Creare un account di archiviazione](storage-account-create.md)
+* [Spostare un account di archiviazione di Azure in un'altra area](storage-account-move.md)
+* [consente di ripristinare un account di archiviazione eliminato](storage-account-recover.md)

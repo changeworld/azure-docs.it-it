@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146672"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356753"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Esegui la migrazione del disco del log al disco Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,15 +45,15 @@ Per abilitare la compatibilità, attenersi alla seguente procedura:
 
 1. Passare alla macchina virtuale nell' [portale di Azure](https://portal.azure.com/). 
 1. Arrestare/deallocare la macchina virtuale. 
-1. Selezionare **dischi** in **Impostazioni** e quindi selezionare **Impostazioni aggiuntive** . 
+1. Selezionare **dischi** in **Impostazioni** e quindi selezionare **Impostazioni aggiuntive**. 
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Selezionare impostazioni aggiuntive per i dischi in impostazioni nel portale di Azure":::
 
-1. Selezionare **Sì** per **abilitare la compatibilità del disco Ultra** . 
+1. Selezionare **Sì** per **abilitare la compatibilità del disco Ultra**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selezionare impostazioni aggiuntive per i dischi in impostazioni nel portale di Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Screenshot che mostra l'opzione Sì.":::
 
-1. Selezionare **Salva** . 
+1. Selezionare **Salva**. 
 
 
 
@@ -83,7 +84,7 @@ Configurare SQL Server per l'uso della nuova unità di log. Questa operazione pu
 1. Verificare l'account di servizio utilizzato da SQL Server. A tale scopo, è possibile usare Gestione configurazione SQL Server o Services. msc.
 1. Passare al nuovo disco. 
 1. Creare una cartella o più cartelle da usare per il file di log. 
-1. Fare clic con il pulsante destro del mouse sulla cartella e scegliere **Proprietà** .
+1. Fare clic con il pulsante destro del mouse sulla cartella e scegliere **Proprietà**.
 1. Nella scheda **sicurezza** concedere l'accesso con controllo completo all'account del servizio SQL Server. 
 1. Selezionare **OK**  per salvare le impostazioni. 
 1. Ripetere questa operazione per ogni cartella a livello radice in cui si prevede di avere dati SQL. 
@@ -143,14 +144,14 @@ A questo punto, il database viene portato online con il log nella nuova posizion
 Usare SSMS per spostare i file esistenti in una nuova posizione:
 
 1. Connettersi al database in SQL Server Management Studio (SSMS). 
-1. Fare clic con il pulsante destro del mouse sul database, scegliere **Proprietà** e quindi selezionare **file** . 
+1. Fare clic con il pulsante destro del mouse sul database, scegliere **Proprietà** e quindi selezionare **file**. 
 1. Annotare il percorso dei file esistenti. 
 1. Selezionare **OK** per chiudere la finestra di dialogo. 
-1. Fare clic con il pulsante destro del mouse sul database e selezionare **attività**  >  **Disconnetti** . 
+1. Fare clic con il pulsante destro del mouse sul database e selezionare **attività**  >  **Disconnetti**. 
 1. Eseguire la procedura guidata per scollegare il database. 
 1. Utilizzare Esplora file per spostare manualmente il file di log nel nuovo percorso.
 1. Connessione del database in SQL Server Management Studio
-   1. Fare clic con il pulsante destro del mouse su **database** in **Esplora oggetti** e scegliere **Connetti database** . 
+   1. Fare clic con il pulsante destro del mouse su **database** in **Esplora oggetti** e scegliere **Connetti database**. 
    1. Utilizzando la finestra di dialogo, aggiungere ogni file, incluso il file di log, nella nuova posizione. 
    1. Selezionare **OK** per alleghi il database. 
 

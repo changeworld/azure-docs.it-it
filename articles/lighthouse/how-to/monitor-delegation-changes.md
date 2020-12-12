@@ -1,14 +1,14 @@
 ---
 title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
-ms.date: 09/08/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d254c90881d23255dda5c38a868eb61e51b4f08
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336599"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356413"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
@@ -175,9 +175,10 @@ Gli utenti a cui è stato assegnato il ruolo predefinito lettore di monitoraggio
 1. Passare alla pagina **clienti personali** , quindi selezionare **log attività** dal menu di spostamento a sinistra.
 1. Verificare che l' **attività directory** sia selezionata nel filtro vicino alla parte superiore della schermata.
 
-Verrà visualizzato un elenco di modifiche della delega. È possibile selezionare **modifica colonne** per visualizzare o nascondere lo **stato**, **la categoria di eventi**, l' **ora**, il **timestamp**, la **sottoscrizione**, l' **evento avviato da**, il **gruppo di risorse**, il tipo di **risorsa**e i valori **delle risorse** .
+Verrà visualizzato un elenco di modifiche della delega. È possibile selezionare **modifica colonne** per visualizzare o nascondere lo **stato**, **la categoria di eventi**, l' **ora**, il **timestamp**, la **sottoscrizione**, l' **evento avviato da**, il **gruppo di risorse**, il tipo di **risorsa** e i valori **delle risorse** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come caricare i clienti nel [Faro di Azure](../concepts/azure-delegated-resource-management.md).
 - Informazioni su [monitoraggio di Azure](../../azure-monitor/index.yml) e [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Esaminare la cartella di lavoro [di esempio log attività per dominio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) per informazioni su come visualizzare i log attività di Azure tra le sottoscrizioni con un'opzione per filtrarli in base al nome di dominio.

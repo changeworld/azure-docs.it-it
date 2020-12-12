@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265715"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355512"
 ---
 # <a name="identity-providers-for-external-identities"></a>Provider di identità per Identità esterne
 
@@ -25,6 +25,9 @@ Un *provider di identità* crea, mantiene e gestisce le informazioni sulle ident
 È tuttavia possibile consentire agli utenti di accedere con diversi provider di identità.
 
 - **Google**: Federazione Google consente agli utenti esterni di riscattare gli inviti dall'utente accedendo alle app con gli account Gmail personali. Federazione Google può essere usato anche nei flussi utente di iscrizione self-service.
+   > [!IMPORTANT]
+   > **A partire dal 4 gennaio 2021**, Google sta [deprecando il supporto per l'accesso a WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se si usa la Federazione di Google o l'iscrizione self-service con Gmail, è necessario [testare le applicazioni native line-of-business per la compatibilità](google-federation.md#deprecation-of-webview-sign-in-support).
+
    > [!NOTE]
    > Nell'anteprima corrente di iscrizione self-service, se un flusso utente è associato a un'app e si invia a un utente un invito a tale app, l'utente non sarà in grado di usare un account Gmail per riscattare l'invito. Come soluzione alternativa, l'utente può eseguire il processo di iscrizione self-service. In alternativa, è possibile riscattare l'invito accedendo a un'altra app o usando il portale App personali in https://myapps.microsoft.com.
 

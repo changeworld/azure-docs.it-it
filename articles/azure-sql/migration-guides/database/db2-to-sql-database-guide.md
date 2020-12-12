@@ -1,5 +1,5 @@
 ---
-title: Guida alla migrazione del database DB2 al database SQL
+title: 'Guida alla migrazione di DB2 al database SQL:'
 description: Seguire questa guida per eseguire la migrazione dei database DB2 al database SQL di Azure.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325163"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356345"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guida alla migrazione: DB2 al database SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]

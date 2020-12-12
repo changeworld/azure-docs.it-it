@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbcb3367f4a1b99ae6689a5d9fa33b7629145ead
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092573"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356124"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -51,6 +51,7 @@ Partner Microsoft con i seguenti ISV per l'autenticazione a più fattori e l'aut
 |:-------------------------|:--------------|
 | ![Screenshot di un logo HYPR](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) è un provider di autenticazione senza password, che sostituisce le password con crittografia a chiave pubblica, eliminando la frode, il phishing e il riutilizzo delle credenziali. |
 | ![Screenshot di un logo itsme](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) è una soluzione di identificazione digitale conforme ai servizi di identificazione, autenticazione e attendibilità (eiDAS) per consentire agli utenti di accedere in modo sicuro senza lettori di schede, password, autenticazione a due fattori e codici pin multipli. |
+| ![Screenshot di un logo Nevis](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) consente l'autenticazione senza password e offre un'esperienza utente finale per dispositivi mobili e completamente personalizzata con l'app di accesso Nevis per l'autenticazione avanzata dei clienti e per conformarsi ai requisiti delle transazioni di PSD2. |
 | ![Screenshot di un logo trusona](./media/partner-gallery/trusona-logo.png) | L'integrazione con [Trusona](./partner-trusona.md) consente di accedere in modo sicuro e consente l'autenticazione senza password, l'autenticazione a più fattori e l'analisi delle licenze digitali. |
 | ![Screenshot di un logo Twilio.](./media/partner-gallery/twilio-logo.png) | L' [app Twilio Verify](./partner-twilio.md) offre più soluzioni per abilitare l'autenticazione a più fattori tramite SMS, una password monouso (OTP), una password monouso basata sul tempo (TOTP) e le notifiche push e per conformarsi ai requisiti SCA per PSD2. |
 | ![Screenshot di un logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-twilio.md) consente un'autenticazione avanzata dei clienti analizzando il modello di digitazione di un utente. Consente alle aziende di abilitare un'autenticazione a più fattori invisibile all'utente e di conformarsi ai requisiti SCA per PSD2. |

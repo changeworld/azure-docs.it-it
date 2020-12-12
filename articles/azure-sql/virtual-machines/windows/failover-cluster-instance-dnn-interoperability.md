@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272617"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358215"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilità delle funzionalità con SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -86,7 +87,7 @@ Si supponga, ad esempio, di disporre di un server di pubblicazione configurato c
 
 Usare il nome completo dell'istanza per un'istanza denominata, come nell'esempio di immagine seguente: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configurare il nome DNS di DNN come alias di rete usando Gestione configurazione SQL Server." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Utilizzare il nome completo dell'istanza quando si configura un alias di rete per un'istanza denominata." :::
 
 ## <a name="database-mirroring"></a>Mirroring del database
 

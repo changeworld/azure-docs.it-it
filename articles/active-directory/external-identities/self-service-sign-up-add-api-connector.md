@@ -11,16 +11,19 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351760"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355394"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Aggiungere un connettore API a un flusso utente
 
 Per usare un [connettore API](api-connectors-overview.md), è necessario innanzitutto creare il connettore API e quindi abilitarlo in un flusso utente.
+
+> [!IMPORTANT]
+>**A partire dal 4 gennaio 2021**, Google sta [deprecando il supporto per l'accesso a WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se si usa la Federazione di Google o l'iscrizione self-service con Gmail, è necessario [testare le applicazioni native line-of-business per la compatibilità](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="create-an-api-connector"></a>Creare un connettore API
 
@@ -75,7 +78,7 @@ Content-type: application/json
 }
 ```
 
-Nella richiesta sono disponibili solo le proprietà utente e **Azure Active Directory** gli attributi personalizzati elencati nell'esperienza degli  >  **External Identities**  >  **attributi utente personalizzati** Azure Active Directory identità esterne.
+Nella richiesta sono disponibili solo le proprietà utente e gli attributi personalizzati elencati nell'esperienza degli  >    >  **attributi utente personalizzati** Azure Active Directory identità esterne.
 
 Gli attributi personalizzati sono disponibili nel formato **extension_ \<extensions-app-id> _AttributeName**  nella directory. L'API deve essere in attesa di ricevere attestazioni in questo stesso formato serializzato. Per altre informazioni sugli attributi personalizzati, vedere [definire attributi personalizzati per i flussi di iscrizione self-service](user-flow-add-custom-attributes.md).
 

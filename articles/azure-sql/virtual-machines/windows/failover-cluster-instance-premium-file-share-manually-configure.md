@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 56509bfcd267a590946eb750bd74ce1f67aecc00
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556404"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358079"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creare un'istanza FCI con una condivisione file Premium (SQL Server nelle VM di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +43,7 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 ## <a name="mount-premium-file-share"></a>Montare la condivisione file Premium
 
 1. Accedere al [portale di Azure](https://portal.azure.com). e passare all'account di archiviazione.
-1. Passare a **condivisioni file** in **servizio file** , quindi selezionare la condivisione file Premium che si vuole usare per l'archiviazione SQL.
+1. Passare a **condivisioni file** in **servizio file**, quindi selezionare la condivisione file Premium che si vuole usare per l'archiviazione SQL.
 1. Selezionare **Connetti** per visualizzare la stringa di connessione per la condivisione file.
 1. Nell'elenco a discesa selezionare la lettera di unità che si desidera utilizzare, quindi copiare entrambi i blocchi di codice nel blocco note.
 
@@ -94,7 +95,7 @@ Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni s
 1. In **Selezione di server o di un cluster** immettere i nomi di entrambe le macchine virtuali.
 1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. 
 1. Selezionare **Avanti**.
-1. In **Selezione dei test** selezionare tutti i test tranne **Archiviazione** e **Spazi di archiviazione diretta** , come illustrato di seguito:
+1. In **Selezione dei test** selezionare tutti i test tranne **Archiviazione** e **Spazi di archiviazione diretta**, come illustrato di seguito:
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Selezionare i test di convalida del cluster":::
 
@@ -149,7 +150,7 @@ Configurare la soluzione quorum più adatta alle proprie esigenze aziendali. È 
 
 ## <a name="test-cluster-failover"></a>Test del failover del cluster
 
-Testare il failover del cluster. In **Gestione cluster di failover** fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo** , quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
+Testare il failover del cluster. In **Gestione cluster di failover** fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo**, quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando le risorse principali negli altri nodi":::
 
@@ -168,7 +169,7 @@ Dopo aver configurato il cluster di failover, è possibile creare l'istanza del 
 
 1. Nel **Centro installazione SQL Server** selezionare **Installazione**.
 
-1. Selezionare **nuovo SQL Server installazione cluster di failover** , quindi seguire le istruzioni della procedura guidata per installare l'istanza FCI di SQL Server.
+1. Selezionare **nuovo SQL Server installazione cluster di failover**, quindi seguire le istruzioni della procedura guidata per installare l'istanza FCI di SQL Server.
 
    Le directory di dati dell'istanza del cluster di failover devono trovarsi nella condivisione file Premium. Immettere il percorso completo della condivisione, nel formato seguente: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Verrà visualizzato un avviso che informa che è stato specificato un file server come directory di dati. Si tratta di un avviso previsto. Assicurarsi che l'account utente usato per accedere alla macchina virtuale tramite RDP quando è stata resa permanente la condivisione file sia lo stesso account utilizzato dal servizio SQL Server per evitare possibili errori.
 
@@ -178,7 +179,7 @@ Dopo aver configurato il cluster di failover, è possibile creare l'istanza del 
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
-1. Aprire **Centro installazione SQL Server** , quindi selezionare **installazione**.
+1. Aprire **Centro installazione SQL Server**, quindi selezionare **installazione**.
 
 1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 

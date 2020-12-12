@@ -9,16 +9,17 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
+ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 37f6e60aea033dee8adfd66839c82b9fd165c879
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556273"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357909"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambiare il modello di licenza per una macchina virtuale SQL in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -65,7 +66,7 @@ Per cambiare il modello di licenza delle VM di SQL Server, sono previsti i requi
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e accedere alle risorse [macchine virtuali di SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) per la propria VM di SQL Server. 
 1. Selezionare **Configura** in **Impostazioni**. 
-1. Selezionare l'opzione **Vantaggio Azure Hybrid** , quindi selezionare la casella di controllo per confermare di avere una licenza di SQL Server con Software Assurance. 
+1. Selezionare l'opzione **Vantaggio Azure Hybrid**, quindi selezionare la casella di controllo per confermare di avere una licenza di SQL Server con Software Assurance. 
 1. Selezionare **Applica** nella parte inferiore della pagina **Configura**. 
 
 ![Vantaggio Azure Hybrid nel portale](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
@@ -75,7 +76,7 @@ Per cambiare il modello di licenza delle VM di SQL Server, sono previsti i requi
 
 È possibile usare l'interfaccia della riga di comando di Azure per cambiare il modello di licenza.  
 
-Specificare i valori seguenti per il **tipo di licenza** :
+Specificare i valori seguenti per il **tipo di licenza**:
 - `AHUB` per la Vantaggio Azure Hybrid
 - `PAYG` per il pagamento in base al consumo
 - `DR` per attivare la replica a disponibilità elevata/ripristino di emergenza
@@ -91,7 +92,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type <license-type
 
 È possibile usare PowerShell per cambiare il modello di licenza.
 
-Specificare i valori seguenti per il **tipo di licenza** :
+Specificare i valori seguenti per il **tipo di licenza**:
 - `AHUB` per la Vantaggio Azure Hybrid
 - `PAYG` per il pagamento in base al consumo
 - `DR` per attivare la replica a disponibilità elevata/ripristino di emergenza

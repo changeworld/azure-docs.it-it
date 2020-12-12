@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: dff6d69a107091a0ce030065da0f70a3d68c5841
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168843"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358317"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configurare un DNN per l'istanza del cluster di failover
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -131,14 +132,14 @@ Per aggiornare i proprietari possibili, attenersi alla procedura seguente:
 
 1. Deselezionare la casella di controllo per tutti i nodi che non fanno parte dell'istanza del cluster di failover. L'elenco dei possibili proprietari per la risorsa DNN deve corrispondere all'elenco dei possibili proprietari per la risorsa dell'istanza di SQL Server. Ad esempio, supponendo che data3 non partecipi all'istanza FCI, l'immagine seguente è un esempio di rimozione di data3 dall'elenco dei possibili proprietari per la risorsa DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu di scelta rapida per la risorsa DNN, con il comando Properties evidenziato.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Deselezionare la casella di controllo accanto ai nodi che non fanno parte dell'istanza FCI per i possibili proprietari della risorsa DNN":::
 
 1. Selezionare **OK** per salvare le impostazioni. 
 
 
 ## <a name="restart-sql-server-instance"></a>Riavvia SQL Server istanza 
 
-Utilizzare Gestione cluster di failover per riavviare l'istanza di SQL Server. Seguire questa procedura:
+Utilizzare Gestione cluster di failover per riavviare l'istanza di SQL Server. A tale scopo, seguire questa procedura:
 
 1. Passare alla risorsa SQL Server in Gestione cluster di failover.
 1. Fare clic con il pulsante destro del mouse sulla risorsa SQL Server e portarla offline. 

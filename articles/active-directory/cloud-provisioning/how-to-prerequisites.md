@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173703"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355859"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prerequisiti del provisioning cloud di Azure AD Connect
 Questo articolo fornisce indicazioni su come scegliere e usare il provisioning cloud di Azure Active Directory (Azure AD) Connect come soluzione di identità.
@@ -51,11 +51,23 @@ Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
-1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e il runtime di .NET 4.7.1 o versione successiva.
+ 1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e il runtime di .NET 4.7.1 o versione successiva.
 
-1. I criteri di esecuzione di PowerShell nel server locale devono essere impostati su Undefined o RemoteSigned.
+ >[!NOTE]
+ > Tenere presente che la definizione di un filtro di ambito comporta un costo di memoria per il server host.  Se non viene utilizzato alcun filtro di ambito, non è previsto alcun costo aggiuntivo per la memoria. Il valore minimo di 4 GB supporterà la sincronizzazione per un massimo di 12 unità organizzative definite nel filtro di ambito. Se è necessario sincronizzare altre unità organizzative, sarà necessario aumentare la quantità minima di memoria. Usare la tabella seguente come guida:
+ >
+ >  
+ >  | Numero di unità organizzative nel filtro di ambito| memoria minima richiesta|
+ >  | --- | --- |
+ >  | 12| 4 GB|
+ >  | 18|5,5 GB|
+ >  | 28|PIÙ DI 10 GB|
+ >
+ > 
 
-1. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
+ 2. I criteri di esecuzione di PowerShell nel server locale devono essere impostati su Undefined o RemoteSigned.
+
+ 3. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
    - Assicurarsi che gli agenti possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
 
         | Numero della porta | Uso |
@@ -100,7 +112,20 @@ Per abilitare il protocollo TLS 1.2, seguire questa procedura.
 
 1. Riavviare il server.
 
+## <a name="known-limitations"></a>Limitazioni note
+Di seguito sono riportate le limitazioni note:
 
+### <a name="delta-synchronization"></a>Sincronizzazione differenziale
+
+- Il filtro di ambito gruppo per la sincronizzazione Delta non supporta più di 1500 membri.
+- Quando si elimina un gruppo usato come parte di un filtro di ambito gruppo, gli utenti che sono membri del gruppo non vengono eliminati. 
+- Quando si rinomina l'unità organizzativa o il gruppo nell'ambito, la sincronizzazione Delta non rimuoverà gli utenti.
+
+### <a name="provisioning-logs"></a>Log di provisioning
+- I log di provisioning non distinguono chiaramente tra le operazioni di creazione e aggiornamento.  È possibile che venga visualizzata un'operazione di creazione per un aggiornamento e un'operazione di aggiornamento per un oggetto create.
+
+### <a name="group-re-naming-or-ou-re-naming"></a>Ridenominazione di gruppi o ridenominazione di unità organizzative
+- Se si rinomina un gruppo o un'unità organizzativa in Active Directory nell'ambito di una determinata configurazione, il processo di provisioning nel cloud non sarà in grado di riconoscere la modifica del nome in Active Directory. Il processo non entra in quarantena e rimarrà integro.
 
 
 ## <a name="next-steps"></a>Passaggi successivi 
