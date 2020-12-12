@@ -1,21 +1,21 @@
 ---
 title: Configurare le app nel portale
-description: Informazioni su come configurare le impostazioni comuni per un'app del servizio app nel portale di Azure. Impostazioni dell'app, stringhe di connessione, piattaforma, stack di lingue, contenitore e così via.
+description: Informazioni su come configurare le impostazioni comuni per un'app del servizio app nel portale di Azure. Impostazioni dell'app, configurazione dell'app, stringhe di connessione, piattaforma, stack di lingue, contenitore e così via.
 keywords: servizio app di Azure, app Web, impostazioni dell'app, variabili di ambiente
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4594a3a7ac7af7acf75fa5c47e2eab3246fc00e7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854649"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346760"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
-Questo argomento illustra come configurare le impostazioni comuni per le app Web, il back-end per dispositivi mobili o l'app per le API usando il [portale di Azure].
+Questo articolo illustra come configurare le impostazioni comuni per le app Web, il back-end per dispositivi mobili o l'app per le API usando il [portale di Azure].
 
 ## <a name="configure-app-settings"></a>Configurare le impostazioni applicazione
 
@@ -118,7 +118,10 @@ Nel [Azure portal] cercare e selezionare **Servizi app**, quindi selezionare la 
 
 Per gli sviluppatori ASP.NET e ASP.NET Core, l'impostazione delle stringhe di connessione nel servizio app è simile alla relativa impostazione in `<connectionStrings>` *Web.config*, ma i valori impostati nel servizio app sostituiscono quelli in *Web.config*. È possibile continuare a usare le impostazioni di sviluppo (ad esempio, un file di database) in *Web.config* e i segreti di produzione (ad esempio, le credenziali del database SQL) in modo sicuro nel servizio app. Lo stesso codice usa le impostazioni di sviluppo quando si esegue il debug in locale e usa i segreti di produzione durante la distribuzione in Azure.
 
-Per gli stack di altri linguaggi, è preferibile usare [le impostazioni dell'app](#configure-app-settings) , perché le stringhe di connessione richiedono una formattazione speciale nelle chiavi della variabile per accedere ai valori. Ecco un'unica eccezione. Tuttavia, quando si configurano le stringhe di connessione nell'app, viene eseguito il backup di alcuni tipi di database di Azure insieme all'app. Per altre informazioni, vedere [elementi di cui viene eseguito il backup](manage-backup.md#what-gets-backed-up). Se questo backup automatico non è necessario, usare le impostazioni dell'app.
+Per gli stack di altri linguaggi, è preferibile usare [le impostazioni dell'app](#configure-app-settings) , perché le stringhe di connessione richiedono una formattazione speciale nelle chiavi della variabile per accedere ai valori. 
+
+> [!NOTE]
+> Esiste un caso in cui è possibile usare le stringhe di connessione anziché le impostazioni dell'app per le lingue non-.NET: alcuni tipi di database di Azure vengono sottoposti a backup insieme all'app _solo_ se si configura una stringa di connessione per il database nell'app del servizio app. Per altre informazioni, vedere [elementi di cui viene eseguito il backup](manage-backup.md#what-gets-backed-up). Se questo backup automatico non è necessario, usare le impostazioni dell'app.
 
 In fase di esecuzione, le stringhe di connessione sono disponibili come variabili di ambiente, con prefisso i tipi di connessione seguenti:
 
@@ -224,25 +227,31 @@ Se l'app usa moduli che vengono indirizzati in base all'URL anziché al contenut
 
 ## <a name="configure-path-mappings"></a>Configurare i mapping dei percorsi
 
-Nel [Azure portal] cercare e selezionare **Servizi app**, quindi selezionare la propria app. Nel menu a sinistra dell'app selezionare mapping dei percorsi di **configurazione**  >  **Path mappings**.
+Nel [Azure portal] cercare e selezionare **Servizi app**, quindi selezionare la propria app. Nel menu a sinistra dell'app selezionare mapping dei percorsi di **configurazione**  >  .
 
 ![Mapping dei percorsi](./media/configure-common/open-path.png)
 
-La pagina **mapping percorsi** Mostra diversi elementi basati sul tipo di sistema operativo.
+> [!NOTE] 
+> Nella scheda **mapping percorsi** possono essere visualizzate impostazioni specifiche del sistema operativo diverse dall'esempio illustrato di seguito.
 
 ### <a name="windows-apps-uncontainerized"></a>App di Windows (non in contenitori)
 
 Per le app di Windows, è possibile personalizzare i mapping del gestore IIS e le applicazioni e le directory virtuali.
 
-I mapping dei gestori consentono di aggiungere processori script personalizzati per gestire le richieste di estensioni di file specifiche. Per aggiungere un gestore personalizzato, fare clic su **nuovo gestore**. Configurare il gestore come segue:
+I mapping dei gestori consentono di aggiungere processori script personalizzati per gestire le richieste di estensioni di file specifiche. Per aggiungere un gestore personalizzato, fare clic su **nuovo mapping del gestore**. Configurare il gestore come segue:
 
 - **Estensione**. Estensione di file che si desidera gestire, ad esempio *\* . php* o *handler. fcgi*.
 - **Processore di script**. Percorso assoluto del processore di script. Le richieste ai file che corrispondono all'estensione di file vengono elaborate dal processore di script. Utilizzare il percorso `D:\home\site\wwwroot` per fare riferimento alla directory radice della propria app.
 - **Argomenti**. Argomenti della riga di comando facoltativi per il processore di script.
 
-Ogni app ha il percorso radice predefinito ( `/` ) mappato a `D:\home\site\wwwroot` , in cui il codice viene distribuito per impostazione predefinita. Se la radice dell'app si trova in una cartella diversa o se il repository ha più di un'applicazione, è possibile modificare o aggiungere qui le applicazioni e le directory virtuali. Fare clic su **nuova applicazione virtuale o directory**.
+Ogni app ha il percorso radice predefinito ( `/` ) mappato a `D:\home\site\wwwroot` , in cui il codice viene distribuito per impostazione predefinita. Se la radice dell'app si trova in una cartella diversa o se il repository ha più di un'applicazione, è possibile modificare o aggiungere qui le applicazioni e le directory virtuali. 
 
-Per configurare le applicazioni e le directory virtuali, specificare ogni directory virtuale e il percorso fisico corrispondente rispetto alla radice del sito Web ( `D:\home` ). È facoltativamente possibile selezionare la casella di controllo **Applicazione** in modo da contrassegnare una directory virtuale come applicazione.
+Nella scheda **mapping percorsi** fare clic su **nuova applicazione virtuale o directory**. 
+
+- Per eseguire il mapping di una directory virtuale a un percorso fisico, lasciare selezionata la casella di controllo **directory** . Specificare la directory virtuale e il percorso relativo (fisico) corrispondente per la radice del sito Web ( `D:\home` ).
+- Per contrassegnare una directory virtuale come applicazione Web, deselezionare la casella di controllo **directory** .
+  
+  ![Casella di controllo Directory](./media/configure-common/directory-check-box.png)
 
 ### <a name="containerized-apps"></a>App in contenitori
 

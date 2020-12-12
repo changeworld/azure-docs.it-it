@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999910"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348068"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -51,16 +51,13 @@ Per modificare la proprietà di una risorsa, è possibile eseguire una di queste
 * Trasferire la [Proprietà](../../cost-management-billing/manage/billing-subscription-transfer.md) della sottoscrizione.
 * Esportare l'app LUIS come file e quindi importare l'app in una sottoscrizione diversa. L'esportazione è disponibile nella pagina **app personali** del portale Luis.
 
-
 ## <a name="resource-limits"></a>Limiti delle risorse
 
 ### <a name="authoring-key-creation-limits"></a>Creazione di limiti per la creazione di chiavi
 
-È possibile creare fino a 10 chiavi di creazione per ogni area, per sottoscrizione.
+È possibile creare fino a 10 chiavi di creazione per ogni area, per sottoscrizione. Le regioni di pubblicazione sono diverse dalle regioni di creazione. Assicurarsi di creare un'app nell'area di creazione che corrisponde all'area di pubblicazione in cui si desidera che venga individuata l'applicazione client. Per informazioni sul mapping delle aree di creazione alle aree di pubblicazione, vedere [Authoring and Publishing](luis-reference-regions.md)regions. 
 
-Per altre informazioni, vedere [limiti chiave](luis-limits.md#key-limits) e [aree di Azure](luis-reference-regions.md).
-
-Le regioni di pubblicazione sono diverse dalle regioni di creazione. Assicurarsi di creare un'app nell'area di creazione che corrisponde all'area di pubblicazione in cui si desidera che venga individuata l'applicazione client.
+Per altre informazioni sui limiti delle chiavi, vedere [limiti chiave](luis-limits.md#key-limits).
 
 ### <a name="errors-for-key-usage-limits"></a>Errori per i limiti di utilizzo della chiave
 

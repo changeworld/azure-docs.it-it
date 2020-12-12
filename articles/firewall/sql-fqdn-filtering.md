@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 7256f94b8e8376cf98a279d085a131a4ce84826f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2b1b68b32ccd5a4dda0b71736da4e2d1e2566b6b
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658623"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348017"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurare le regole dell'applicazione Firewall di Azure con FQDN di SQL
 
@@ -35,19 +35,56 @@ Se si usano porte non predefinite per il traffico IaaS SQL, è possibile configu
    > [!NOTE]
    > La modalità *proxy di SQL* può comportare una latenza maggiore rispetto al *reindirizzamento*. Se si vuole continuare a usare la modalità di reindirizzamento, che è l'impostazione predefinita per i client che si connettono all'interno di Azure, è possibile filtrare l'accesso usando il [tag di servizio](service-tags.md) di SQL nelle [regole di rete](tutorial-firewall-deploy-portal.md#configure-a-network-rule) del firewall.
 
-3. Configurare una regola dell'applicazione con il nome di dominio completo di SQL per consentire l'accesso a un server SQL:
+3. Creare una nuova raccolta di regole con una regola dell'applicazione usando il nome di dominio completo SQL per consentire l'accesso a un server SQL:
 
    ```azurecli
-   az extension add -n azure-firewall
+    az extension add -n azure-firewall
+    
+    az network firewall application-rule create \ 
+    -g FWRG \
+    --f azfirewall \ 
+    --c sqlRuleCollection \
+    --priority 1000 \
+    --action Allow \
+    --name sqlRule \
+    --protocols mssql=1433 \
+    --source-addresses 10.0.0.0/24 \
+    --target-fqdns sql-serv1.database.windows.net
+   ```
 
-   az network firewall application-rule create \
-   -g FWRG \
-   -f azfirewall \
-   -c FWAppRules \
-   -n srule \
-   --protocols mssql=1433 \
-   --source-addresses 10.0.0.0/24 \
-   --target-fqdns sql-serv1.database.windows.net
+## <a name="configure-using-azure-powershell"></a>Configurare con Azure PowerShell
+
+1. Distribuire un [firewall di Azure con Azure PowerShell](deploy-ps.md).
+2. Se si filtra il traffico verso il database SQL di Azure, Azure sinapsi Analytics o SQL Istanza gestita, assicurarsi che la modalità di connettività SQL sia impostata su **proxy**. Per informazioni su come cambiare la modalità di connettività SQL, vedere [Impostazioni di connettività per SQL di Azure](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli).
+
+   > [!NOTE]
+   > La modalità *proxy di SQL* può comportare una latenza maggiore rispetto al *reindirizzamento*. Se si vuole continuare a usare la modalità di reindirizzamento, che è l'impostazione predefinita per i client che si connettono all'interno di Azure, è possibile filtrare l'accesso usando il [tag di servizio](service-tags.md) di SQL nelle [regole di rete](tutorial-firewall-deploy-portal.md#configure-a-network-rule) del firewall.
+
+3. Creare una nuova raccolta di regole con una regola dell'applicazione usando il nome di dominio completo SQL per consentire l'accesso a un server SQL:
+
+   ```azurepowershell
+   $AzFw = Get-AzFirewall -Name "azfirewall" -ResourceGroupName "FWRG"
+    
+   $sqlRule = @{
+      Name          = "sqlRule"
+      Protocol      = "mssql:1433" 
+      TargetFqdn    = "sql-serv1.database.windows.net"
+      SourceAddress = "10.0.0.0/24"
+   }
+    
+   $rule = New-AzFirewallApplicationRule @sqlRule
+    
+   $sqlRuleCollection = @{
+      Name       = "sqlRuleCollection" 
+      Priority   = 1000 
+      Rule       = $rule
+      ActionType = "Allow"
+   }
+    
+   $ruleCollection = New-AzFirewallApplicationRuleCollection @sqlRuleCollection
+    
+   $Azfw.ApplicationRuleCollections.Add($ruleCollection)    
+   Set-AzFirewall -AzureFirewall $AzFw    
    ```
 
 ## <a name="configure-using-the-azure-portal"></a>Configurare con il Portale di Azure

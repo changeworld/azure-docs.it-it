@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9f6692db2da3722507136a468d1dcbdc2985e73f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340565"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347558"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Operazioni batch transazionali in Azure Cosmos DB con .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Batch transazionale descrive un gruppo di operazioni punto che devono avere esito positivo o negativo insieme alla stessa chiave di partizione in un contenitore. In .NET SDK, la `TranscationalBatch` classe viene usata per definire questo batch di operazioni. Se tutte le operazioni vengono eseguite correttamente nell'ordine in cui sono descritte nell'operazione batch transazionale, verrà eseguito il commit della transazione. Tuttavia, se un'operazione ha esito negativo, viene eseguito il rollback dell'intera transazione.
+Batch transazionale descrive un gruppo di operazioni punto che devono avere esito positivo o negativo insieme alla stessa chiave di partizione in un contenitore. In .NET SDK, la `TransactionalBatch` classe viene usata per definire questo batch di operazioni. Se tutte le operazioni vengono eseguite correttamente nell'ordine in cui sono descritte nell'operazione batch transazionale, verrà eseguito il commit della transazione. Tuttavia, se un'operazione ha esito negativo, viene eseguito il rollback dell'intera transazione.
 
 ## <a name="whats-a-transaction-in-azure-cosmos-db"></a>Informazioni sulle transazioni in Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Azure Cosmos DB attualmente supporta stored procedure, che forniscono anche l'am
 
 * **Opzione lingua** : il batch transazionale è supportato nell'SDK e nel linguaggio che si utilizza già, mentre le stored procedure devono essere scritte in JavaScript.
 * **Controllo** delle versioni del codice: il controllo delle versioni del codice dell'applicazione e il caricamento nella pipeline ci/CD è molto più naturale che orchestrare l'aggiornamento di un stored procedure e assicurarsi che il rollover avvenga al momento giusto. Consente inoltre di eseguire più facilmente il rollback delle modifiche.
-* **Prestazioni** : riduzione della latenza delle operazioni equivalenti fino al 30% rispetto all'esecuzione del stored procedure.
+* **Prestazioni** : latenza ridotta per operazioni equivalenti fino al 30% rispetto all'esecuzione del stored procedure.
 * **Serializzazione del contenuto** : ogni operazione all'interno di un batch transazionale può sfruttare le opzioni di serializzazione personalizzate per il payload.
 
 ## <a name="how-to-create-a-transactional-batch-operation"></a>Come creare un'operazione batch transazionale
@@ -51,13 +51,13 @@ TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(p
   .CreateItem<ChildClass>(child);
 ```
 
-Successivamente, sarà necessario chiamare `ExecuteAsync` :
+Sarà quindi necessario chiamare il `ExecuteAsync` batch:
 
 ```csharp
 TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
 ```
 
-Una volta ricevuta la risposta, è necessario esaminare se l'operazione ha esito positivo o meno ed estrarre i risultati:
+Una volta ricevuta la risposta, verificare se l'operazione ha esito positivo o meno ed estrarre i risultati:
 
 ```csharp
 using (batchResponse)
@@ -72,7 +72,7 @@ using (batchResponse)
 }
 ```
 
-Se si verifica un errore, l'operazione non riuscita avrà un codice di stato dell'errore corrispondente. Mentre tutte le altre operazioni avranno un codice di stato 424 (dipendenza non riuscita). Nell'esempio seguente l'operazione ha esito negativo perché tenta di creare un elemento già esistente (409 HttpStatusCode. Conflict). I codici di stato semplificano l'identificazione della causa di un errore di transazione.
+Se si verifica un errore, l'operazione non riuscita avrà un codice di stato dell'errore corrispondente. Tutte le altre operazioni avranno un codice di stato 424 (dipendenza non riuscita). Nell'esempio seguente l'operazione ha esito negativo perché tenta di creare un elemento già esistente (409 HttpStatusCode. Conflict). Il codice di stato consente di identificare la cause di un errore di transazione.
 
 ```csharp
 // Parent's birthday!
@@ -100,7 +100,7 @@ using (failedBatchResponse)
 
 Quando `ExecuteAsync` viene chiamato il metodo, tutte le operazioni nell' `TransactionalBatch` oggetto vengono raggruppate, serializzate in un singolo payload e inviate come singola richiesta al servizio Azure Cosmos DB.
 
-Il servizio riceve la richiesta ed esegue tutte le operazioni all'interno di un ambito transazionale e restituisce una risposta usando lo stesso protocollo di serializzazione. Questa risposta ha esito positivo o negativo e contiene tutte le singole risposte dell'operazione internamente.
+Il servizio riceve la richiesta ed esegue tutte le operazioni all'interno di un ambito transazionale e restituisce una risposta usando lo stesso protocollo di serializzazione. Questa risposta è un esito positivo o negativo e fornisce le singole risposte dell'operazione per ogni operazione.
 
 L'SDK espone la risposta per verificare il risultato e, facoltativamente, estrarre ogni risultato dell'operazione interna.
 
@@ -108,8 +108,8 @@ L'SDK espone la risposta per verificare il risultato e, facoltativamente, estrar
 
 Attualmente esistono due limiti noti:
 
-* Azure Cosmos DB limite delle dimensioni della richiesta specifica che le dimensioni del `TransactionalBatch` payload non possono superare i 2 MB e il tempo di esecuzione massimo è 5 secondi.
-* È previsto un limite corrente di 100 operazioni per `TransactionalBatch` per verificare che le prestazioni siano quelle previste e nei contratti di sicurezza.
+* Il limite delle dimensioni della richiesta Azure Cosmos DB vincola le dimensioni del `TransactionalBatch` payload a non superare i 2 MB e il tempo di esecuzione massimo è 5 secondi.
+* Esiste un limite corrente di 100 operazioni per `TransactionalBatch` per garantire che le prestazioni siano quelle previste e nei contratti di contratto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

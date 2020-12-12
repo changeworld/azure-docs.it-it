@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: c13f3e2e4e5ee6fb60f6691abe8164e9e7a03712
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 327ab63a048e08328cd5b1334b0a697a61ced6c8
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094659"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346334"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -379,7 +379,7 @@ Le proprietà seguenti sono supportate per l'archiviazione BLOB di Azure in `sto
 | OPZIONE 1: percorso statico<br> | Copia dal percorso del contenitore o della cartella/file specificato nel set di dati. Se si desidera copiare tutti i BLOB da un contenitore o da una cartella, specificare `wildcardFileName` anche come `_` . |  |
 | OPZIONE 2: prefisso BLOB<br>- prefisso | Prefisso per il nome del BLOB nel contenitore specificato configurato in un set di dati per filtrare i BLOB di origine. Sono selezionati i BLOB i cui nomi iniziano con `container_in_dataset/this_prefix` . Usa il filtro sul lato servizio per l'archiviazione BLOB, che offre prestazioni migliori rispetto a un filtro con caratteri jolly.<br><br>Quando si usa prefix e si sceglie di copiare in un sink basato su file con la gerarchia di mantenimento, tenere presente che il percorso secondario dopo l'ultimo "/" nel prefisso verrà mantenuto. Ad esempio, si dispone di source  `container/folder/subfolder/file.txt` e si configura Prefix come `folder/sub` , quindi il percorso del file mantenuto è `subfolder/file.txt` . | No                                                          |
 | OPZIONE 3: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly nel contenitore specificato configurato in un set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Utilizzare `^` per eseguire l'escape se il nome della cartella contiene caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
-| OPZIONE 3: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel contenitore e nel percorso della cartella specificati (o percorso della cartella con caratteri jolly) per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella contiene un carattere jolly o questo carattere di escape all'interno di. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
+| OPZIONE 3: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel contenitore e nel percorso della cartella specificati (o percorso della cartella con caratteri jolly) per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome del file contiene un carattere jolly o questo carattere di escape. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 4: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare un nome di file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
 | ***Impostazioni aggiuntive:** _ |  | |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando _ *ricorsive** è impostato su **true** e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |

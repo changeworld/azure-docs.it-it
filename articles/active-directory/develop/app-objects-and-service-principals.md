@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: e4325303f5a10fa1df670495dd6d8190167182e8
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: b08f00730e15dd0c7415a28adf85b87c95d7b1ed
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861103"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347146"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
@@ -47,9 +47,9 @@ L' [entità dell'applicazione][MS-Graph-App-Entity] Microsoft Graph definisce lo
 ## <a name="service-principal-object"></a>Oggetto entità servizio
 Per accedere alle risorse protette da un tenant di Azure AD, l'entità che richiede l'accesso deve essere rappresentata da un'entità di sicurezza. Questo requisito è valido sia per gli utenti (entità utente) che per le applicazioni (entità servizio). L'entità di sicurezza definisce i criteri di accesso e le autorizzazioni per l'utente/applicazione nel tenant di Azure AD. Ciò abilita le funzionalità di base, ad esempio l'autenticazione dell'utente/applicazione durante l'accesso e l'autorizzazione durante l'accesso alle risorse.
 
-Un'entità servizio è la rappresentazione locale o l'istanza dell'applicazione di un oggetto applicazione globale in un singolo tenant o directory. Un'entità servizio è un'istanza concreta creata dall'oggetto applicazione ed eredita determinate proprietà dall'oggetto applicazione.  Viene creata un'entità servizio in ogni tenant in cui viene usata l'applicazione e fa riferimento all'oggetto app univoco globale.  L'oggetto entità servizio definisce le operazioni che l'app può effettivamente eseguire nel tenant specifico, chi può accedere all'app e le risorse a cui l'app può accedere.
+Un'entità servizio è la rappresentazione locale o l'istanza dell'applicazione di un oggetto applicazione globale in un singolo tenant o directory. Un'entità servizio è un'istanza concreta creata dall'oggetto applicazione ed eredita determinate proprietà dall'oggetto applicazione. Viene creata un'entità servizio in ogni tenant in cui viene usata l'applicazione e fa riferimento all'oggetto app univoco globale.  L'oggetto entità servizio definisce le operazioni che l'app può effettivamente eseguire nel tenant specifico, chi può accedere all'app e le risorse a cui l'app può accedere.
 
-Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](developer-glossary.md#consent)), viene creato un oggetto entità servizio. È anche possibile creare un oggetto entità servizio in un tenant usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), l'interfaccia della riga di comando di [Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), il [portale di Azure][AZURE-Portal]e altri strumenti.  Quando si usa il portale, un'entità servizio viene creata automaticamente quando si registra un'applicazione.
+Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](developer-glossary.md#consent)), viene creato un oggetto entità servizio. È anche possibile creare oggetti entità servizio in un tenant usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), l'interfaccia della riga di comando di [Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), il [portale di Azure][AZURE-Portal]e altri strumenti. Quando si usa il portale, un'entità servizio viene creata automaticamente quando si registra un'applicazione.
 
 Il pannello **applicazioni aziendali** nel portale viene usato per elencare e gestire le entità servizio in un tenant. È possibile visualizzare le autorizzazioni dell'entità servizio, le autorizzazioni concesse dall'utente, gli utenti che hanno eseguito tale consenso, le informazioni di accesso e altro ancora.
 

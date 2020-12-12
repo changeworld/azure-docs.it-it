@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: jingwang
-ms.openlocfilehash: cbd277a817f2dad0eb5c1d2a7fc88b32d0775d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25829b45c06aa9e451c305eb319f650ed5b8e16a
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332067"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347303"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiare dati da un server FTP usando Azure Data Factory
 
@@ -175,13 +175,13 @@ Le proprietà seguenti sono supportate per FTP nelle impostazioni `storeSettings
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La proprietà type in `storeSettings` deve essere impostata su **FtpReadSettings**. | Sì                                           |
-| ***Individuare i file da copiare:*** |  |  |
-| OPZIONE 1: percorso statico<br> | Copia dal percorso di cartella/file specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `*`. |  |
+| **_Individuare i file da copiare:_* _ |  |  |
+| OPZIONE 1: percorso statico<br> | Copia dal percorso di cartella/file specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `_`. |  |
 | OPZIONE 2: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
-| OPZIONE 2: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel percorso folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
+| OPZIONE 2: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel percorso folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 3: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
-| ***Impostazioni aggiuntive:*** |  | |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
+| ***Impostazioni aggiuntive:** _ |  | |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono _ *true** (impostazione predefinita) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia di file binari. Valore predefinito: false. |No |
 | useBinaryTransfer | Specificare se usare la modalità di trasferimento binario. I valori sono true per la modalità binaria (predefinita) e false per ASCII. |No |
 | enablePartitionDiscovery | Per i file partizionati, specificare se analizzare le partizioni dal percorso del file e aggiungerle come colonne di origine aggiuntive.<br/>I valori consentiti sono **false** (impostazione predefinita) e **true**. | No                                            |

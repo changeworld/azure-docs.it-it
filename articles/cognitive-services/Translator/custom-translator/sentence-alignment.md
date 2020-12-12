@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366843"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347796"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Abbinamento e allineamento di frasi in documenti paralleli
 
-Durante l'esecuzione del training, le frasi presenti in documenti paralleli vengono abbinate o allineate. Custom Translator segnala il numero di frasi che è stato in grado di abbinare come frasi allineate in ogni set di dati.
+Una volta caricati i documenti, le frasi presenti nei documenti paralleli sono abbinate o allineate. Custom Translator segnala il numero di frasi che è stato in grado di abbinare come frasi allineate in ogni set di dati.
 
 ## <a name="pairing-and-alignment-process"></a>Processo di abbinamento e allineamento
 

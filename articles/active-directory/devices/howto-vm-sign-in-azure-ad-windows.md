@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8644040565bd46800b888a32653b6c8bbf89f096
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837125"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347439"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -125,7 +125,7 @@ az vm create \
 > [!NOTE]
 > È necessario abilitare l'identità gestita assegnata dal sistema nella macchina virtuale prima di installare l'estensione della VM di accesso Azure AD.
 
-La creazione della VM e delle risorse di supporto richiede alcuni minuti.
+La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti.
 
 Infine, installare l'estensione della macchina virtuale Azure AD login per abilitare Azure AD account di accesso per la macchina virtuale Windows. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [AZ VM Extension](/cli/azure/vm/extension#az-vm-extension-set) set per installare l'estensione AADLoginForWindows nella macchina virtuale denominata myVM nel gruppo di risorse myResourceGroup:
 
@@ -157,6 +157,9 @@ Ora che è stata creata la macchina virtuale, è necessario configurare i criter
 - Uso dell'esperienza del portale di Azure AD
 - Uso dell'esperienza Azure Cloud Shell
 
+> [!NOTE]
+> L'account di accesso dell'amministratore della macchina virtuale e i ruoli di accesso utente della macchina virtuale utilizzano le azioni dati e pertanto non possono essere assegnati all'ambito del gruppo di gestione. Attualmente questi ruoli possono essere assegnati solo nell'ambito della sottoscrizione.
+
 ### <a name="using-azure-ad-portal-experience"></a>Uso dell'esperienza del portale di Azure AD
 
 Per configurare le assegnazioni di ruolo per le macchine virtuali Windows Server 2019 datacenter abilitate per la Azure AD:
@@ -177,8 +180,8 @@ Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'a
 L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo Accesso amministratore alle macchine virtuali alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'ambito per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). L'ambito può essere assegnato anche a livello di gruppo di risorse o di sottoscrizione e si applicano le normali autorizzazioni di ereditarietà RBAC di Azure. Per altre informazioni, vedere [accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
-username=$(az account show --query user.name --output tsv)
-vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+$username=$(az account show --query user.name --output tsv)
+$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \

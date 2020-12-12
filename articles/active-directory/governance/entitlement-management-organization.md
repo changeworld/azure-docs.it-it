@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029371"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347490"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -29,7 +29,13 @@ Con la gestione dei diritti di Azure Active Directory (Azure AD), è possibile c
 
 ## <a name="what-is-a-connected-organization"></a>Che cos'è un'organizzazione connessa?
 
-Un'organizzazione connessa è una directory o un dominio di Azure AD esterno a cui è associata una relazione.
+Un'organizzazione connessa è un'altra organizzazione con cui esiste una relazione.  Affinché gli utenti dell'organizzazione siano in grado di accedere alle risorse, ad esempio i siti o le app di SharePoint Online, sarà necessaria una rappresentazione degli utenti dell'organizzazione in tale directory.  Poiché nella maggior parte dei casi gli utenti dell'organizzazione non sono già presenti nella directory di Azure AD, è possibile usare la gestione dei diritti per portarli nella directory Azure AD in base alle esigenze.  
+
+La gestione dei diritti consente di specificare in tre modi gli utenti che formano un'organizzazione connessa.  Potrebbe essere
+
+* utenti in un'altra directory Azure AD,
+* utenti in un'altra directory non Azure AD configurata per la Federazione diretta o
+* utenti in un'altra directory non Azure AD, i cui indirizzi di posta elettronica hanno tutti lo stesso nome di dominio in comune.
 
 Si supponga, ad esempio, di lavorare presso la Woodgrove Bank e di voler collaborare con due organizzazioni esterne. Queste due organizzazioni hanno configurazioni diverse:
 

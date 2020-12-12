@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/28/2020
-ms.openlocfilehash: 02cd14e29cfd51709e0a26e951a3124eb88bbd09
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: c0f7df8db79f549dfeca15e6411ae72cbe66d2bd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094608"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346283"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare e trasformare dati in Azure Data Lake Storage Gen2 tramite Azure Data Factory
 
@@ -299,7 +299,7 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 nelle impostaz
 | **_Individuare i file da copiare:_* _ |  |  |
 | OPZIONE 1: percorso statico<br> | Copia dal file system o dal percorso della cartella/del file specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella o da un file system, specificare anche `wildcardFileName` come `_`. |  |
 | OPZIONE 2: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly nel file system specificato configurato nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
-| OPZIONE 2: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel file system + percorso folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
+| OPZIONE 2: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel file system + percorso folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 3: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
 | ***Impostazioni aggiuntive:** _ |  | |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono _ *true** (impostazione predefinita) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |

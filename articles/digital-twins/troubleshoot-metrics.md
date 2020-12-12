@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763249"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347898"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -49,11 +49,22 @@ I dispositivi gemelli digitali di Azure forniscono diverse metriche per offrire 
 
 Le tabelle seguenti descrivono le metriche registrate da ogni istanza di Azure Digital Twins e il modo in cui ogni metrica è correlata allo stato generale dell'istanza.
 
+#### <a name="metrics-for-tracking-service-limits"></a>Metriche per il rilevamento dei limiti del servizio
+
+È possibile configurare queste metriche per tenere traccia di quando si raggiunge un [limite di servizio pubblicato](reference-service-limits.md#functional-limits) per alcuni aspetti della soluzione. 
+
+Per configurare questa impostazione, usare la funzionalità [avvisi](troubleshoot-alerts.md) di monitoraggio di Azure. È possibile definire le soglie per queste metriche in modo da ricevere un avviso quando una metrica raggiunge una determinata percentuale del limite pubblicato.
+
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Conteggio gemelli (anteprima) | Conteggio | Totale | Numero totale di gemelli nell'istanza di Azure Digital gemelli. Usare questa metrica per determinare se si sta raggiungendo il [limite del servizio](reference-service-limits.md#functional-limits) per il numero massimo di dispositivi gemelli consentiti per ogni istanza. |  Nessuno |
+| ModelCount | Conteggio modelli (anteprima) | Conteggio | Totale | Numero totale di modelli nell'istanza di Digital gemelli di Azure. Usare questa metrica per determinare se si sta raggiungendo il [limite del servizio](reference-service-limits.md#functional-limits) per il numero massimo di modelli consentiti per ogni istanza. | Nessuno |
+
 #### <a name="api-request-metrics"></a>Metriche delle richieste API
 
 Metriche che è necessario eseguire con le richieste API:
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | Richieste API | Conteggio | Totale | Il numero di richieste API effettuate per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. |  Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato |
 | ApiRequestsFailureRate | Frequenza errori richieste API | Percentuale | Media | Percentuale di richieste API ricevute dal servizio per l'istanza che forniscono un codice di risposta errore interno (500) per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. | Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato
@@ -63,7 +74,7 @@ Metriche che è necessario eseguire con le richieste API:
 
 Metriche che è necessario eseguire con la fatturazione:
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operazioni dell'API di fatturazione | Conteggio | Totale | Metrica di fatturazione per il conteggio di tutte le richieste API effettuate nel servizio Azure Digital Twins. | ID contatore |
 | BillingMessagesProcessed | Messaggi di fatturazione elaborati | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni.<br><br>Per essere considerato un singolo messaggio ai fini della fatturazione, un payload non deve avere una dimensione superiore a 1 KB. I payload di dimensioni maggiori di questo verranno conteggiati come messaggi aggiuntivi in incrementi di 1 KB (pertanto un messaggio compreso tra 1 e 2 KB verrà conteggiato come 2 messaggi, tra 2 e 3 KB sarà costituito da 3 messaggi e così via).<br>Questa restrizione si applica anche alle risposte, pertanto una chiamata che restituisce 1,5 KB nel corpo della risposta, ad esempio, verrà fatturata come 2 operazioni. | ID contatore |
@@ -75,7 +86,7 @@ Per altri dettagli sul modo in cui vengono fatturati i dispositivi gemelli digit
 
 Metriche che è necessario eseguire con l'ingresso dei dati:
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | IngressEvents | Eventi in ingresso | Conteggio | Totale | Il numero di eventi di telemetria in ingresso nei dispositivi gemelli digitali di Azure. | Risultato |
 | IngressEventsFailureRate | Frequenza degli errori degli eventi in ingresso | Percentuale | Media | Percentuale di eventi di telemetria in ingresso per i quali il servizio restituisce un codice di risposta errore interno (500). | Risultato |
@@ -85,7 +96,7 @@ Metriche che è necessario eseguire con l'ingresso dei dati:
 
 Metriche che è necessario eseguire con il routing:
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | MessagesRouted | Messaggi indirizzati | Conteggio | Totale | Il numero di messaggi indirizzati a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
 | RoutingFailureRate | Frequenza errori di routing | Percentuale | Media | Percentuale di eventi che generano un errore quando vengono instradati da dispositivi gemelli digitali di Azure a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |

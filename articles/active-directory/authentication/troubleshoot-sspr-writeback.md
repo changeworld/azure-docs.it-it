@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a3044127aacb5910a270d40d94d3255031a71a2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4d6bf4df1499d919cead0a184054e5ba0db9c06e
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741304"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346601"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Risolvere i problemi di writeback della reimpostazione della password self-service in Azure Active Directory
 
@@ -42,6 +42,11 @@ Per Azure AD Connect versione *1.1.443.0* e successive, è necessario l'accesso 
 
 * *\*. passwordreset.microsoftonline.com*
 * *\*. servicebus.windows.net*
+
+Endpoint di Azure [gov](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
+
+* *\*. passwordreset.microsoftonline.us*
+* *\*. servicebus.usgovcloudapi.net*
 
 Se è necessaria una maggiore granularità, vedere l' [elenco di Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653). Questo elenco viene aggiornato ogni mercoledì ed entrerà in vigore il lunedì successivo.
 

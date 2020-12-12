@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bc345509db1c2a14afb0ae781eccad8f77395c18
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782655"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347065"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Che cos'è un pool di Istanza gestita SQL di Azure (anteprima)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Inoltre, i pool di istanze supportano l'integrazione VNet nativa, in modo da pot
 
 I pool di istanze offrono i vantaggi seguenti:
 
-1. Possibilità di ospitare due istanze vCore. *\* Solo per le istanze nei pool di istanze* .
+1. Possibilità di ospitare due istanze vCore. *\* Solo per le istanze nei pool di istanze*.
 2. Tempo di distribuzione dell'istanza prevedibile e veloce (fino a 5 minuti).
 3. Allocazione minima degli indirizzi IP.
 
@@ -59,7 +59,7 @@ Nell'elenco seguente sono riportati i principali casi d'uso in cui devono essere
 
 ## <a name="architecture"></a>Architettura
 
-I pool di istanze hanno un'architettura simile alle istanze gestite regolari ( *Single* ). Per supportare le [distribuzioni nelle reti virtuali di Azure](../../virtual-network/virtual-network-for-azure-services.md) e garantire l'isolamento e la sicurezza per i clienti, i pool di istanze si basano anche sui [cluster virtuali](connectivity-architecture-overview.md#high-level-connectivity-architecture). I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet della rete virtuale del cliente.
+I pool di istanze hanno un'architettura simile alle istanze gestite regolari (*Single*). Per supportare le [distribuzioni nelle reti virtuali di Azure](../../virtual-network/virtual-network-for-azure-services.md) e garantire l'isolamento e la sicurezza per i clienti, i pool di istanze si basano anche sui [cluster virtuali](connectivity-architecture-overview.md#high-level-connectivity-architecture). I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet della rete virtuale del cliente.
 
 La differenza principale tra i due modelli di distribuzione consiste nel fatto che i pool di istanze consentono più distribuzioni di processi SQL Server nello stesso nodo della macchina virtuale, ovvero le risorse gestite tramite [gli oggetti processo di Windows](/windows/desktop/ProcThread/job-objects), mentre le singole istanze sono sempre da sole in un nodo della macchina virtuale.
 
@@ -78,7 +78,10 @@ Esistono diverse limitazioni delle risorse relative ai pool di istanze e alle is
 - Tutti i [limiti a livello di istanza](resource-limits.md#service-tier-characteristics) si applicano alle istanze create all'interno di un pool.
 - Oltre ai limiti a livello di istanza, *a livello di pool di istanze sono stati* imposti anche due limiti:
   - Dimensioni totali dello spazio di archiviazione per pool (8 TB).
-  - Numero totale di database per pool (100).
+  - Numero totale di database utente per pool. Questo limite dipende dal valore Vcore del pool:
+    - 8 il pool di Vcore supporta fino a 200 database,
+    - 16 il pool di Vcore supporta fino a 400 database,
+    - il pool Vcore superiore a 24 supporta fino a 500 database.
 - Non è possibile impostare l'amministratore di AAD per le istanze distribuite nel pool di istanze, pertanto non è possibile usare l'autenticazione AAD.
 
 L'allocazione totale dello spazio di archiviazione e il numero di database in tutte le istanze devono essere inferiori o uguali ai limiti esposti dai pool di istanze.
@@ -86,8 +89,9 @@ L'allocazione totale dello spazio di archiviazione e il numero di database in tu
 - I pool di istanze supportano 8, 16, 24, 32, 40, 64 e 80 vcore.
 - Le istanze gestite all'interno di pool supportano 2, 4, 8, 16, 24, 32, 40, 64 e 80 vcore.
 - Le istanze gestite all'interno dei pool supportano dimensioni di archiviazione comprese tra 32 GB e 8 TB, tranne:
-  - 2 le istanze di vCore supportano dimensioni comprese tra 32 GB e 640 GB
-  - 4 le istanze di vCore supportano dimensioni comprese tra 32 GB e 2 TB
+  - 2 le istanze di vCore supportano dimensioni comprese tra 32 GB e 640 GB,
+  - 4 le istanze di vCore supportano dimensioni comprese tra 32 GB e 2 TB.
+- Le istanze gestite all'interno dei pool hanno un limite di un massimo di 100 database utente per ogni istanza, ad eccezione di 2 istanze vCore che supportano fino a 50 database utente per ogni istanza.
 
 La [Proprietà livello servizio](resource-limits.md#service-tier-characteristics) è associata alla risorsa pool di istanze, quindi tutte le istanze in un pool devono corrispondere allo stesso livello di servizio del livello di servizio del pool. Al momento, è disponibile solo il livello di servizio per utilizzo generico (vedere la sezione seguente sulle limitazioni nell'anteprima corrente).
 
@@ -137,8 +141,8 @@ il prezzo vCore per un pool viene addebitato indipendentemente dal numero di ist
 
 Per il prezzo di calcolo (misurato in VCore), sono disponibili due opzioni di prezzo:
 
-  1. *Licenza inclusa* : è incluso il prezzo delle licenze SQL Server. Questa operazione è destinata ai clienti che scelgono di non applicare licenze di SQL Server esistenti con Software Assurance.
-  2. *Vantaggio Azure Hybrid* : prezzo ridotto che include Vantaggio Azure Hybrid per SQL Server. I clienti possono optare per questo prezzo usando le licenze di SQL Server esistenti con Software Assurance. Per informazioni sull'idoneità e altri dettagli, vedere [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licenza inclusa*: è incluso il prezzo delle licenze SQL Server. Questa operazione è destinata ai clienti che scelgono di non applicare licenze di SQL Server esistenti con Software Assurance.
+  2. *Vantaggio Azure Hybrid*: prezzo ridotto che include Vantaggio Azure Hybrid per SQL Server. I clienti possono optare per questo prezzo usando le licenze di SQL Server esistenti con Software Assurance. Per informazioni sull'idoneità e altri dettagli, vedere [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Non è possibile impostare opzioni di prezzo diverse per le singole istanze in un pool. Tutte le istanze nel pool padre devono essere al prezzo incluso per la licenza o Vantaggio Azure Hybrid prezzo. Il modello di licenza per il pool può essere modificato dopo la creazione del pool.
 

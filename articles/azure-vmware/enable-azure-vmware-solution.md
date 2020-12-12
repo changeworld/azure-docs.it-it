@@ -3,12 +3,12 @@ title: Come abilitare la risorsa della soluzione VMware di Azure
 description: Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della soluzione VMware di Azure. È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325078"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346538"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Come abilitare la risorsa della soluzione VMware di Azure
 Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della [soluzione VMware di Azure](introduction.md) . È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
@@ -18,7 +18,7 @@ Informazioni su come inviare una richiesta di supporto per abilitare la risorsa 
 Sarà necessario un account Azure in una sottoscrizione di Azure. La sottoscrizione di Azure deve essere conforme a uno dei criteri seguenti:
 
 * Una sottoscrizione in un [Enterprise Agreement di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
-* Sottoscrizione gestita di Cloud Solution Provider (CSP) in un piano di Azure.
+* Una sottoscrizione gestita da Cloud Solution Provider (CSP) in un provider CSP esistente di Azure offre un contratto o un piano di Azure.
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Abilitare la soluzione VMware di Azure per i clienti con contratto Enterprise
@@ -61,7 +61,7 @@ Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviar
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Abilitare la soluzione VMware di Azure per i clienti CSP 
 
-I CSP devono usare il centro per i [partner Microsoft](https://partner.microsoft.com) per abilitare la soluzione VMware di Azure per i clienti. 
+I CSP devono usare il centro per i [partner Microsoft](https://partner.microsoft.com) per abilitare la soluzione VMware di Azure per i clienti. Questo articolo usa il [piano CSP di Azure](/partner-center/azure-plan-lp.md) come esempio per illustrare la procedura di acquisto per i partner.
 
    >[!IMPORTANT] 
    >Il servizio della soluzione VMware di Azure non fornisce un multi-tenant richiesto. I partner di hosting che lo richiedono non sono supportati. 
@@ -76,9 +76,9 @@ I CSP devono usare il centro per i [partner Microsoft](https://partner.microsoft
 
 1. Selezionare **piano di Azure** e quindi selezionare **Aggiungi al carrello**. 
 
-1. Esaminare e completare la configurazione generale della sottoscrizione del piano Azure per il cliente. Per ulteriori informazioni, vedere la documentazione del centro per i [partner Microsoft](/partner-center/azure-plan-manage).
+1. Esaminare e completare la configurazione generale della sottoscrizione del piano Azure per il cliente. Per ulteriori informazioni, vedere la documentazione del centro per i [partner Microsoft](/partner-center/azure-plan-manage.md).
 
-Dopo aver configurato il piano di Azure e le autorizzazioni di vSphere RBAC necessarie sono disponibili come CSP, si interagisce con Microsoft per abilitare la quota per una sottoscrizione di piano di Azure. Accedere portale di Azure dal centro **per i partner usando la procedura di amministrazione per conto di** (Aobo).
+Dopo aver configurato il piano di Azure e le autorizzazioni di controllo degli accessi in base al ruolo di [Azure](/partner-center/azure-plan-manage.md) necessarie per la sottoscrizione, è necessario coinvolgere Microsoft per abilitare la quota per una sottoscrizione di piano di Azure. Accedere portale di Azure dal [centro per i partner Microsoft](https://partner.microsoft.com) usando **la procedura di amministrazione per conto di** (Aobo).
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com).
 

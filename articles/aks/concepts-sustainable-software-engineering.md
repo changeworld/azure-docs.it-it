@@ -4,16 +4,16 @@ description: Scopri di più sulla progettazione software sostenibile in Azure Ku
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 700723041855fdae4f994480d180292fdfd12e15
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984981"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346895"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Principi di progettazione software sostenibili in Azure Kubernetes Service (AKS)
 
-I principi di progettazione software sostenibili sono un insieme di competenze che consentono di definire, compilare ed eseguire applicazioni sostenibili. L'obiettivo complessivo è quello di ridurre l'impronta di carbonio di ogni aspetto dell'applicazione. Il [progetto principis. Green][principles-green] offre una panoramica dei principi della progettazione software sostenibile.
+I principi di progettazione software sostenibili sono un insieme di competenze che consentono di definire, compilare ed eseguire applicazioni sostenibili. L'obiettivo complessivo è quello di ridurre l'impronta di carbonio di ogni aspetto dell'applicazione. [I principi della progettazione di software sostenibili][principles-sse] hanno una panoramica dei principi della progettazione software sostenibile.
 
 Un'idea importante da comprendere sull'ingegneria del software sostenibile è che si tratta di un cambiamento delle priorità e dello stato attivo. In molti casi, il software viene progettato ed eseguito in modo da incentrarsi sulle prestazioni veloci e sulla bassa latenza. L'ingegneria del software sostenibile è incentrata sulla riduzione del minor consumo possibile di emissioni di CO2. In alcuni casi, l'applicazione di principi di progettazione software sostenibili può offrire prestazioni più elevate o una minore latenza, ad esempio abbassando il totale dei viaggi di rete. In altri casi, la riduzione delle emissioni di CO2 può causare un rallentamento delle prestazioni o una maggiore latenza, ad esempio ritardare i carichi di lavoro con priorità bassa. Prima di prendere in considerazione l'applicazione dei principi di progettazione software sostenibili alla propria applicazione, rivedere le priorità, le esigenze e i compromessi dell'applicazione.
 
@@ -32,7 +32,7 @@ Dopo aver esaminato l'utilizzo del cluster, provare a usare le funzionalità off
 
 L'aumento dell'utilizzo può anche ridurre i nodi in eccesso, riducendo così l'energia utilizzata dalle [prenotazioni di risorse in ogni nodo][resource-reservations].
 
-Esaminare inoltre le *richieste* e i *limiti* di CPU e memoria nei manifesti Kubernetes delle applicazioni. Quando si abbassano i valori per la memoria e la CPU, per il cluster sono disponibili più memoria e CPU per eseguire altri carichi di lavoro. Quando si eseguono più carichi di lavoro con CPU e memoria inferiori, il cluster viene allocato in modo più denso che aumenta l'utilizzo. Quando si riducono le risorse di CPU e memoria per le applicazioni, il comportamento delle applicazioni potrebbe risultare ridotto o instabile se si impostano questi valori su un valore troppo basso. Prima di modificare le *richieste* e i *limiti*della CPU e della memoria, provare a eseguire alcuni test di benchmarking per comprendere se tali valori sono impostati in modo appropriato. Inoltre, non ridurre mai questi valori fino al momento in cui l'applicazione diventa instabile.
+Esaminare inoltre le *richieste* e i *limiti* di CPU e memoria nei manifesti Kubernetes delle applicazioni. Quando si abbassano i valori per la memoria e la CPU, per il cluster sono disponibili più memoria e CPU per eseguire altri carichi di lavoro. Quando si eseguono più carichi di lavoro con CPU e memoria inferiori, il cluster viene allocato in modo più denso che aumenta l'utilizzo. Quando si riducono le risorse di CPU e memoria per le applicazioni, il comportamento delle applicazioni potrebbe risultare ridotto o instabile se si impostano questi valori su un valore troppo basso. Prima di modificare le *richieste* e i *limiti* della CPU e della memoria, provare a eseguire alcuni test di benchmarking per comprendere se tali valori sono impostati in modo appropriato. Inoltre, non ridurre mai questi valori fino al momento in cui l'applicazione diventa instabile.
 
 ## <a name="reduce-network-travel"></a>Ridurre i viaggi di rete
 
@@ -74,4 +74,4 @@ Altre informazioni sulle funzionalità di AKS citate in questo articolo:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/

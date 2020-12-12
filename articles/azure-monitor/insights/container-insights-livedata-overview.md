@@ -4,12 +4,12 @@ description: Questo articolo descrive la visualizzazione in tempo reale di log d
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: a97d7ed5fe513798f4265498f4efa60098ea15c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920718"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346832"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale
 
@@ -35,7 +35,7 @@ Usare la procedura seguente per visualizzare i log Live per le distribuzioni che
 
 5. Selezionare un pod per avviare la raccolta dei dati attivi.
 
-    ![Log dinamici della distribuzione](./media/container-insights-livedata-overview/live-data-deployment.png)
+    [![Log dinamici della distribuzione](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## <a name="view-logs"></a>Visualizzare i log
 
@@ -112,11 +112,17 @@ La funzionalità dati in tempo reale (anteprima) include funzionalità di ricerc
 
 ![Esempio di filtro del riquadro della console dati in tempo reale](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
+![Esempio di filtro del riquadro della console dati in tempo reale per la distribuzione](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+
 ### <a name="scroll-lock-and-pause"></a>BLOC SCORR e pause
 
 Per sospendere lo scorrimento automatico e controllare il comportamento del riquadro, consentendo di scorrere manualmente i nuovi dati letti, è possibile usare l'opzione di **scorrimento** . Per riabilitare lo scorrimento automatico, è sufficiente selezionare di nuovo l'opzione **Scroll** . È anche possibile sospendere il recupero dei dati di log o degli eventi selezionando l'opzione **Sospendi** e, quando si è pronti per riprendere, è sufficiente selezionare **Riproduci**.
 
 ![Sospensione della visualizzazione in tempo reale del riquadro della console dati attiva](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![Riquadro della console dati attivati sospendere la visualizzazione in tempo reale per la distribuzione](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
 
 >[!IMPORTANT]
 >È consigliabile sospendere o sospendere lo scorrimento automatico solo per un breve periodo di tempo durante la risoluzione di un problema. Queste richieste possono influisca sulla disponibilità e sulla limitazione dell'API Kubernetes nel cluster.

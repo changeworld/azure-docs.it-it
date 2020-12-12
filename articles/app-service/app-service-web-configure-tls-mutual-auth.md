@@ -3,14 +3,14 @@ title: Configurare l'autenticazione reciproca TLS
 description: Informazioni su come autenticare i certificati client in TLS. App Azure servizio può rendere disponibile il certificato client per il codice dell'app per la verifica.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 145b999d7bf8597c06d6e3d4a36d01b182c8ae68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213640"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347728"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app Azure
 
@@ -24,20 +24,33 @@ ms.locfileid: "88213640"
 
 ## <a name="enable-client-certificates"></a>Abilitare i certificati client
 
-Per configurare l'app in modo da richiedere i certificati client, è **possibile attivare il** Richiedi certificato in ingresso selezionando **configurazione**  >  **Impostazioni generali** dal portale di Azure o è necessario impostare l' `clientCertEnabled` impostazione per l'app su `true` . Per impostare l'impostazione, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com).
+Per configurare l'app per richiedere i certificati client:
+
+1. Dal percorso di spostamento a sinistra della pagina di gestione dell'app, selezionare **configurazione**  >  **Impostazioni generali**.
+
+1. Impostare la **modalità del certificato client** su **Richiedi**. Fare clic su **Salva** nella parte superiore della pagina.
+
+Per eseguire la stessa operazione con l'interfaccia della riga di comando di Azure, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
 ## <a name="exclude-paths-from-requiring-authentication"></a>Escludere i percorsi dalla richiesta di autenticazione
 
-Quando si Abilita l'autenticazione reciproca per l'applicazione, tutti i percorsi sotto la radice dell'app richiedono un certificato client per l'accesso. Per consentire a determinati percorsi di rimanere aperti per l'accesso anonimo, è possibile definire i percorsi di esclusione come parte della configurazione dell'applicazione.
+Quando si Abilita l'autenticazione reciproca per l'applicazione, tutti i percorsi sotto la radice dell'app richiedono un certificato client per l'accesso. Per rimuovere questo requisito per determinati percorsi, definire i percorsi di esclusione come parte della configurazione dell'applicazione.
 
-È possibile configurare i percorsi di esclusione **Configuration**selezionando  >  **Impostazioni generali** di configurazione e definendo un percorso di esclusione. In questo esempio, qualsiasi elemento sotto `/public` il percorso dell'applicazione non richiede un certificato client.
+1. Dal percorso di spostamento a sinistra della pagina di gestione dell'app, selezionare **configurazione**  >  **Impostazioni generali**.
+
+1. Accanto a **percorsi di esclusione client** fare clic sull'icona modifica.
+
+1. Fare clic su **nuovo percorso**, specificare un percorso e fare clic su **OK**.
+
+1. Fare clic su **Salva** nella parte superiore della pagina.
+
+Nella schermata seguente, qualsiasi elemento sotto il `/public` percorso dell'app non richiede un certificato client.
 
 ![Percorsi di esclusione dei certificati][exclusion-paths]
-
 
 ## <a name="access-client-certificate"></a>Accedere al certificato client
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca4b5486b54de28497ea41765337bfa19f12e3d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 780324d1a6f7d9edfb552377c3e966e6a186c231
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573120"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347932"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Aggiungere i Language Pack a un'immagine con più sessioni di Windows 10
 
@@ -52,6 +52,7 @@ Per personalizzare le immagini multisessione di Windows 10 Enterprise per aggiun
           - [Windows 10, versione 2004 o 20H2 **9B** LxP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
           - [Windows 10, versione 2004 o 20H2 **9C** LxP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
           - [Windows 10, versione 2004 o 20H2 **10C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, versione 2004 o 20H2 **11C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
 
 - Una condivisione File di Azure o una condivisione file in una macchina virtuale file server Windows
 

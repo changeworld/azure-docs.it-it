@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 70ce1807ea6080e3efc0cf3266a9940c9ddb9cd3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489353"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347864"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione tabelle di Azure per gestire i lead del marketplace commerciale
 
@@ -55,7 +55,7 @@ Se il sistema CRM (Customer Relationship Management, Gestione rapporti con clien
 
     ![Tabelle di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    È possibile usare [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) o qualsiasi altro strumento per visualizzare i dati nella tabella di archiviazione. È anche possibile esportare i dati nella tabella di Azure.
+    È possibile usare [Azure Storage Explorer](https://www.storageexplorer.com) o qualsiasi altro strumento per visualizzare i dati nella tabella di archiviazione. È anche possibile esportare i dati nella tabella di Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Facoltativo) Usare Power Automate per ottenere le notifiche dei lead
 
@@ -84,7 +84,7 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
    ![Scegliere un'azione](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. Nella finestra **Recupera ora precedente** impostare il valore di **Intervallo** su **1**. Dall’elenco a discesa **Unità di tempo** , selezionare **Ora**.
+1. Nella finestra **Recupera ora precedente** impostare il valore di **Intervallo** su **1**. Dall’elenco a discesa **Unità di tempo**, selezionare **Ora**.
 
     >[!IMPORTANT]
     >Assicurarsi che l’intervallo e l’unità di tempo del passaggio 8 corrispondano all'intervallo e alla frequenza configurati per la ricorrenza nel passaggio 5.
@@ -98,21 +98,21 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
 1. Selezionare **+ nuovo passaggio**. In seguito cercare **Recupera entità** nella finestra **Scegliere un'azione**.
 1. In **Azioni** selezionare **Recupera entità (Archiviazione tabelle di Azure)** .
-1. Nella finestra **Archiviazione tabelle di Azure** specificare le informazioni per le caselle seguenti e selezionare **Crea** :
+1. Nella finestra **Archiviazione tabelle di Azure** specificare le informazioni per le caselle seguenti e selezionare **Crea**:
 
-    * **Nome connessione** : specificare un nome significativo per la connessione che si sta stabilendo tra questo flusso e la tabella.
-    * **Nome dell'account di archiviazione** : specificare il nome dell'account di archiviazione per la tabella. È possibile trovare questo nome nella pagina **Chiavi di accesso** dell'account di archiviazione.
-    * **Chiave di archiviazione condivisa** : specificare il valore della chiave per l'account di archiviazione per la tabella. È possibile trovare questo valore nella pagina **Chiavi di accesso** dell'account di archiviazione.
+    * **Nome connessione**: specificare un nome significativo per la connessione che si sta stabilendo tra questo flusso e la tabella.
+    * **Nome dell'account di archiviazione**: specificare il nome dell'account di archiviazione per la tabella. È possibile trovare questo nome nella pagina **Chiavi di accesso** dell'account di archiviazione.
+    * **Chiave di archiviazione condivisa**: specificare il valore della chiave per l'account di archiviazione per la tabella. È possibile trovare questo valore nella pagina **Chiavi di accesso** dell'account di archiviazione.
 
       ![Finestra Archiviazione tabelle di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   Dopo aver selezionato **Crea** , viene visualizzata la finestra **Recupera entità**. Da qui selezionare **Mostra le opzioni avanzate** e specificare informazioni per le caselle seguenti:
+   Dopo aver selezionato **Crea**, viene visualizzata la finestra **Recupera entità**. Da qui selezionare **Mostra le opzioni avanzate** e specificare informazioni per le caselle seguenti:
 
-   * **Tabella** : selezionare il nome della tabella da [Crea una tabella](#create-a-table-in-your-storage-account). La figura seguente mostra la richiesta quando la `marketplaceleads` tabella è selezionata per questo esempio.
+   * **Tabella**: selezionare il nome della tabella da [Crea una tabella](#create-a-table-in-your-storage-account). La figura seguente mostra la richiesta quando la `marketplaceleads` tabella è selezionata per questo esempio.
 
      ![Finestra Recupera entità](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Query filtro** : selezionare questa casella e incollarvi la funzione seguente: `Timestamp gt datetime'@{body('Get_past_time')}'`
+   * **Query filtro**: selezionare questa casella e incollarvi la funzione seguente: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
      ![Recupera entità, casella Query filtro](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -134,8 +134,8 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
    Nei passaggi successivi viene configurata l'azione da eseguire in base al risultato della condizione:
 
-   * Se la condizione restituisce **Se no** , non eseguire alcuna operazione.
-   * Se la condizione si risolve in in **caso affermativo** , attivare un'azione che connette l'account aziendale o dell'Istituto di istruzione per inviare un messaggio di posta elettronica. 
+   * Se la condizione restituisce **Se no**, non eseguire alcuna operazione.
+   * Se la condizione si risolve in in **caso affermativo**, attivare un'azione che connette l'account aziendale o dell'Istituto di istruzione per inviare un messaggio di posta elettronica. 
 
 1. Selezionare **Aggiungi un'azione** in **Se sì**.
 
@@ -150,9 +150,9 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
 1. Nella finestra Office 365 Outlook specificare le informazioni per le caselle seguenti:
 
-    1. **A** : immettere un indirizzo di posta elettronica per tutti gli utenti che riceveranno la notifica.
-    1. **Soggetto** : specificare l'oggetto del messaggio di posta elettronica. Un esempio è **Nuovi lead**.
-    1. **Corpo** : aggiungere il testo da includere in ogni messaggio di posta elettronica (facoltativo) e incollarlo in `body('Get_entities')?['value']`.
+    1. **A**: immettere un indirizzo di posta elettronica per tutti gli utenti che riceveranno la notifica.
+    1. **Soggetto**: specificare l'oggetto del messaggio di posta elettronica. Un esempio è **Nuovi lead**.
+    1. **Corpo**: aggiungere il testo da includere in ogni messaggio di posta elettronica (facoltativo) e incollarlo in `body('Get_entities')?['value']`.
 
     >[!NOTE]
     >È possibile inserire punti dati statici o dinamici aggiuntivi al corpo del messaggio di posta elettronica.
@@ -193,7 +193,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 1. Incollare la stringa di connessione dall'account di archiviazione di Azure creato seguendo i passaggi precedenti nella casella **Stringa di connessione dell'account di archiviazione**.
      ![Gestione dei lead, Dettagli connessione, account di archiviazione](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
-1. **Indirizzo di posta elettronica del contatto** : immettere gli indirizzi degli utenti della società che devono ricevere notifiche di posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più indirizzi di posta elettronica separandoli con un punto e virgola.
+1. **Indirizzo di posta elettronica del contatto**: immettere gli indirizzi degli utenti della società che devono ricevere notifiche di posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più indirizzi di posta elettronica separandoli con un punto e virgola.
 
 1. Selezionare **OK**.
 

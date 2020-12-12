@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 9f2b0dccde0532646457a0841fc2798e103d8cc7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427599"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347949"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurare la replica di oggetti per i BLOB in blocchi
 
@@ -291,7 +291,7 @@ Per configurare la replica di oggetti nell'account di destinazione con un file J
 È quindi possibile scaricare un file JSON contenente la definizione dei criteri che è possibile fornire a un altro utente per configurare l'account di origine. Per scaricare questo file JSON, seguire questa procedura:
 
 1. Passare alle impostazioni di **replica degli oggetti** per l'account di destinazione nel portale di Azure.
-1. Selezionare il pulsante **altro** accanto al criterio che si desidera scaricare, quindi selezionare **Scarica regole** , come illustrato nella figura seguente.
+1. Selezionare il pulsante **altro** accanto al criterio che si desidera scaricare, quindi selezionare **Scarica regole**, come illustrato nella figura seguente.
 
     :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot che illustra come scaricare le regole di replica in un file JSON":::
 
@@ -314,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Per usare il file JSON per configurare i criteri di replica nell'account di origine con PowerShell, recuperare il file locale ed eseguire la conversione da JSON in un oggetto. Chiamare quindi il comando [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) per configurare i criteri nell'account di origine, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
+Per usare il file JSON per definire i criteri di replica nell'account di origine con PowerShell, recuperare il file locale ed eseguire la conversione da JSON a un oggetto. Chiamare quindi il comando [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) per configurare i criteri nell'account di origine, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
