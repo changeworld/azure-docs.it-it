@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e52925acb099190305e1f0609ac389565336e24b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d7dfe010a3f4a1559454c49545af81eb14797bf1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556506"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359915"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Usare modelli di avvio rapido di Azure per configurare un gruppo di disponibilità per SQL Server in una macchina virtuale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -116,14 +117,14 @@ Il listener del gruppo di disponibilità AlwaysOn richiede un'istanza interna di
 
 1. Nel portale di Azure aprire il gruppo di risorse contenente le macchine virtuali di SQL Server. 
 2. Nel gruppo di risorse selezionare **Aggiungi**.
-3. Cercare **servizio di bilanciamento del carico**. Nei risultati della ricerca selezionare **Bilanciamento del carico** , pubblicato da **Microsoft**.
+3. Cercare **servizio di bilanciamento del carico**. Nei risultati della ricerca selezionare **Bilanciamento del carico**, pubblicato da **Microsoft**.
 4. Nel pannello **Bilanciamento del carico** selezionare **Crea**.
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
    | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Immettere un nome di testo che rappresenti il bilanciamento del carico. Immettere ad esempio **sqlLB**. |
-   | **Tipo** |**Interna** : La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna** : consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
+   | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
    | **Rete virtuale** | Selezionare la rete virtuale in cui si trovano le istanze di SQL Server. |
    | **Subnet** | Selezionare la subnet in cui si trovano le istanze di SQL Server. |
    | **Assegnazione indirizzi IP** |**Statico** |
@@ -137,7 +138,7 @@ Il listener del gruppo di disponibilità AlwaysOn richiede un'istanza interna di
 
 
 >[!IMPORTANT]
-> La risorsa IP pubblico per ogni VM di SQL Server deve avere uno SKU Standard per essere compatibile con Load Balancer Standard. Per determinare lo SKU della risorsa IP pubblico della VM, andare a **Gruppo di risorse** , selezionare la risorsa **Indirizzo IP pubblico** per la VM di SQL Server e individuare il valore in **SKU**  nel pannello **Panoramica**. 
+> La risorsa IP pubblico per ogni VM di SQL Server deve avere uno SKU Standard per essere compatibile con Load Balancer Standard. Per determinare lo SKU della risorsa IP pubblico della VM, andare a **Gruppo di risorse**, selezionare la risorsa **Indirizzo IP pubblico** per la VM di SQL Server e individuare il valore in **SKU**  nel pannello **Panoramica**. 
 
 ## <a name="create-listener"></a>Creare un listener 
 
@@ -167,7 +168,7 @@ Per configurare il servizio di bilanciamento del carico interno e creare il list
    | **Listener** | Nome DNS da assegnare al listener. Per impostazione predefinita, questo modello specifica il nome "aglistener", ma il valore può essere modificato. Il nome non deve superare i 15 caratteri. |
    | **Listener Port** (Porta listener) | Porta da usare per il listener. In genere, questa porta deve essere impostata sul valore predefinito 1433, ovvero il numero di porta specificato dal modello. Tuttavia, se la porta predefinita è stata modificata, è necessario impostare la porta del listener sul valore corrispondente. | 
    | **Listener IP** (IP listener) | Indirizzo IP che si vuole usare per il listener. Questo indirizzo verrà creato durante la distribuzione del modello, quindi specificarne uno che non è già in uso.  |
-   | **Existing Subnet** (Subnet esistente) | Nome della subnet interna delle VM di SQL Server, ad esempio: *default*. È possibile determinare questo valore andando a **Gruppo di risorse** , selezionando la rete virtuale, selezionando **Subnet** nel riquadro **Impostazioni** e quindi copiando il valore in **Nome**. |
+   | **Existing Subnet** (Subnet esistente) | Nome della subnet interna delle VM di SQL Server, ad esempio: *default*. È possibile determinare questo valore andando a **Gruppo di risorse**, selezionando la rete virtuale, selezionando **Subnet** nel riquadro **Impostazioni** e quindi copiando il valore in **Nome**. |
    | **Existing Internal Load Balancer** (Servizio di bilanciamento del carico interno esistente) | Nome del servizio di bilanciamento del carico interno creato nel passaggio 3. |
    | **Porta probe** | Porta probe che deve essere usata dal servizio di bilanciamento del carico interno. Il modello usa 59999 per impostazione predefinita, ma è possibile modificare questo valore. |
    | &nbsp; | &nbsp; |

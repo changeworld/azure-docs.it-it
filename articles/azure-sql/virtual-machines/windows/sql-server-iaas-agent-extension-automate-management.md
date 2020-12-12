@@ -8,6 +8,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -16,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 572363f429cb828d44c9dd12ba2424930c94fefe
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553534"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359252"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizzare la gestione con l'estensione SQL Server agente IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,13 +36,13 @@ Questo articolo fornisce una panoramica dell'estensione. Per installare l'estens
 
 L'estensione SQL Server Agent IaaS offre numerosi vantaggi per SQL Server in macchine virtuali di Azure: 
 
-- **Vantaggi della funzionalità** : l'estensione consente di sbloccare diversi vantaggi della funzionalità di automazione, ad esempio la gestione del portale, la flessibilità delle licenze, il backup automatico, l'applicazione automatica di patch e altro ancora. Per informazioni dettagliate, vedere [vantaggi della funzionalità](#feature-benefits) più avanti in questo articolo. 
+- **Vantaggi della funzionalità**: l'estensione consente di sbloccare diversi vantaggi della funzionalità di automazione, ad esempio la gestione del portale, la flessibilità delle licenze, il backup automatico, l'applicazione automatica di patch e altro ancora. Per informazioni dettagliate, vedere [vantaggi della funzionalità](#feature-benefits) più avanti in questo articolo. 
 
-- **Conformità** : l'estensione offre un metodo semplificato per soddisfare la richiesta di notifica a Microsoft che la vantaggio Azure Hybrid è stata abilitata come indicato nelle condizioni del prodotto. Questo processo rimuove la necessità di gestire i moduli di registrazione delle licenze per ogni risorsa.  
+- **Conformità**: l'estensione offre un metodo semplificato per soddisfare la richiesta di notifica a Microsoft che la vantaggio Azure Hybrid è stata abilitata come indicato nelle condizioni del prodotto. Questo processo rimuove la necessità di gestire i moduli di registrazione delle licenze per ogni risorsa.  
 
-- **Gratuito** : l'estensione in tutte e tre le modalità di gestibilità è completamente gratuita. Non vi sono costi aggiuntivi associati all'estensione o con modalità di gestione mutevoli. 
+- **Gratuito**: l'estensione in tutte e tre le modalità di gestibilità è completamente gratuita. Non vi sono costi aggiuntivi associati all'estensione o con modalità di gestione mutevoli. 
 
-- **Gestione semplificata delle licenze** : l'estensione semplifica SQL Server la gestione delle licenze e consente di identificare rapidamente SQL Server VM con la vantaggio Azure Hybrid abilitata usando il [portale di Azure](manage-sql-vm-portal.md), l'interfaccia della riga di comando di Azure o PowerShell: 
+- **Gestione semplificata delle licenze**: l'estensione semplifica SQL Server la gestione delle licenze e consente di identificare rapidamente SQL Server VM con la vantaggio Azure Hybrid abilitata usando il [portale di Azure](manage-sql-vm-portal.md), l'interfaccia della riga di comando di Azure o PowerShell: 
 
    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -70,7 +71,7 @@ Il SQL Server estensione dell'agente IaaS sblocca diversi vantaggi di funzionali
 La tabella seguente illustra i vantaggi seguenti: 
 
 
-| Funzionalità | Descrizione |
+| Funzionalità | Description |
 | --- | --- |
 | **Gestione nel portale** | Sblocca [la gestione nel portale](manage-sql-vm-portal.md), in modo che sia possibile visualizzare tutte le macchine virtuali SQL Server in un'unica posizione, in modo che sia possibile abilitare e disabilitare funzionalità specifiche di SQL direttamente dal portale. 
 | **Backup automatico** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita o a un'istanza denominata [correttamente installata](frequently-asked-questions-faq.md#administration) di SQL Server nella macchina virtuale. Per altre informazioni, vedere l'articolo [Backup automatico per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-backup-sql-2014.md). |
@@ -238,7 +239,7 @@ Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Ser
 
 **Qual è il costo per la registrazione con l'estensione SQL IaaS Agent o con l'aggiornamento alla modalità di gestibilità completa?**
 
-No. Non sono previste tariffe associate alla registrazione con l'estensione SQL IaaS Agent o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con l'estensione è completamente gratuita. 
+Nessuno. Non sono previste tariffe associate alla registrazione con l'estensione SQL IaaS Agent o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con l'estensione è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'uso delle diverse modalità di gestibilità?**
 

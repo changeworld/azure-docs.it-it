@@ -1,5 +1,5 @@
 ---
-title: Guida alla migrazione da SQL Server a SQL Istanza gestita
+title: 'SQL Server a SQL Istanza gestita: Guida alla migrazione'
 description: Seguire questa guida per eseguire la migrazione dei database di SQL Server al Istanza gestita SQL di Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326897"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358895"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guida alla migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Se è necessario confrontare le prestazioni del carico di lavoro in un Istanza g
 In base alle informazioni della fase di individuazione e valutazione, creare un Istanza gestita SQL di destinazione con dimensioni appropriate. È possibile farlo usando il [portale di Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)o un [modello di Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
-## <a name="migrate"></a>Migrazione
+## <a name="migrate"></a>Migrate
 
 Dopo aver completato le attività associate alla fase pre-migrazione, è possibile eseguire lo schema e la migrazione dei dati. 
 

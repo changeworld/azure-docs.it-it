@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -13,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1c1dd2ba5eb6ee61a0f8cf151649441cbc783166
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553529"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359167"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estendere il supporto per SQL Server 2008 e SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +41,7 @@ I clienti con SQL Server 2008 dovranno eseguire l'installazione automatica o l'a
 Nelle immagini distribuite con Azure Marketplace è preinstallata l'estensione SQL IaaS. L'estensione SQL IaaS è un requisito per le licenze flessibili e l'applicazione automatica delle patch. I clienti che distribuiscono macchine virtuali installate automaticamente dovranno installare manualmente l'estensione SQL IaaS. L'estensione SQL IaaS non è supportata in Windows Server 2008.
 
 > [!NOTE]
-> Sebbene i pannelli **Crea** e **Gestisci** di SQL Server funzionino con l'immagine di SQL Server 2008 R2 nel portale di Azure, le funzionalità seguenti _non sono supportate_ : backup automatici, integrazione di Azure Key Vault, R Services e configurazione dell'archiviazione.
+> Sebbene i pannelli **Crea** e **Gestisci** di SQL Server funzionino con l'immagine di SQL Server 2008 R2 nel portale di Azure, le funzionalità seguenti _non sono supportate_: backup automatici, integrazione di Azure Key Vault, R Services e configurazione dell'archiviazione.
 
 ## <a name="licensing"></a>Gestione delle licenze
 Le distribuzioni con pagamento in base al consumo di SQL Server 2008 R2 possono essere convertite in [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -66,9 +67,9 @@ Il [servizio migrazione del database di Azure](../../../dms/dms-overview.md) è 
 
 Le soluzioni di ripristino di emergenza per la versione EOS di SQL Server in una macchina virtuale di Azure sono le seguenti:
 
-- **Backup di SQL Server** : usare Backup di Azure per proteggere la versione EOS di SQL Server 2008 e 2008 R2 da al ransomware, eliminazione accidentale e danneggiamento con RPO di 15 minuti e recupero temporizzato. Per altri dettagli, vedere [questo articolo](../../../backup/sql-support-matrix.md#scenario-support).
-- **Log shipping** : è possibile creare una replica di log shipping in un'altra zona o un'area di Azure con ripristini continui per ridurre il tempo di ripristino. È necessario configurare manualmente il log shipping.
-- **Azure Site Recovery** : è possibile replicare la macchina virtuale tra zone e aree usando la replica di Azure Site Recovery. SQL Server richiede snapshot coerenti con l'app per garantire il ripristino in caso di emergenza. Azure Site Recovery offre un RPO minimo di 1 ora e un RTO di 2 ore (più il tempo di ripristino di SQL Server) per il ripristino di emergenza di SQL Server EOS.
+- **Backup di SQL Server**: usare Backup di Azure per proteggere la versione EOS di SQL Server 2008 e 2008 R2 da al ransomware, eliminazione accidentale e danneggiamento con RPO di 15 minuti e recupero temporizzato. Per altri dettagli, vedere [questo articolo](../../../backup/sql-support-matrix.md#scenario-support).
+- **Log shipping**: è possibile creare una replica di log shipping in un'altra zona o un'area di Azure con ripristini continui per ridurre il tempo di ripristino. È necessario configurare manualmente il log shipping.
+- **Azure Site Recovery**: è possibile replicare la macchina virtuale tra zone e aree usando la replica di Azure Site Recovery. SQL Server richiede snapshot coerenti con l'app per garantire il ripristino in caso di emergenza. Azure Site Recovery offre un RPO minimo di 1 ora e un RTO di 2 ore (più il tempo di ripristino di SQL Server) per il ripristino di emergenza di SQL Server EOS.
 
 ## <a name="security-patching"></a>Patch di sicurezza
 

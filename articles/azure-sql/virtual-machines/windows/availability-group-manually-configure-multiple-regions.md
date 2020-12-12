@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094456"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359082"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurare un gruppo di disponibilità SQL Server Always On tra diverse aree di Azure
 
@@ -96,7 +97,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
 
 1. Aggiungere una risorsa indirizzo IP al cluster.
 
-   È possibile creare la risorsa indirizzo IP in Gestione cluster di failover. Selezionare il nome del cluster, fare clic con il pulsante destro del mouse sul nome del cluster in **Risorse principali del cluster** e selezionare **Proprietà** : 
+   È possibile creare la risorsa indirizzo IP in Gestione cluster di failover. Selezionare il nome del cluster, fare clic con il pulsante destro del mouse sul nome del cluster in **Risorse principali del cluster** e selezionare **Proprietà**: 
 
    ![Screenshot che mostra "Gestione cluster di failover" con il nome del cluster, "nome server" e "proprietà" selezionato.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
@@ -113,7 +114,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
 
 1. Aggiungere una risorsa indirizzo IP al ruolo del gruppo di disponibilità nel cluster. 
 
-   Fare clic con il pulsante destro del mouse sul ruolo del gruppo di disponibilità in Gestione cluster di failover, scegliere **Aggiungi risorsa** , **altre risorse** e selezionare **indirizzo IP** .
+   Fare clic con il pulsante destro del mouse sul ruolo del gruppo di disponibilità in Gestione cluster di failover, scegliere **Aggiungi risorsa**, **altre risorse** e selezionare **indirizzo IP**.
 
    ![Creare un indirizzo IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -170,16 +171,16 @@ Se non è possibile modificare le stringhe di connessione, è possibile configur
 Per testare la connettività del listener all'area remota, è possibile effettuare il failover della replica nell'area remota. Mentre la replica è asincrona, il failover è soggetto a perdita potenziale di dati. Per effettuare il failover senza perdita di dati, impostare la modalità di disponibilità come sincrona e la modalità di failover come automatica. Eseguire la procedura descritta di seguito:
 
 1. In **Esplora oggetti** connettersi all'istanza di SQL Server che ospita la replica primaria.
-1. In **gruppi di disponibilità AlwaysOn** , **gruppi di disponibilità** , fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **proprietà** .
-1. Nella pagina **Generale** in **Repliche di disponibilità** impostare la replica secondaria nel sito di ripristino di emergenza per l'uso della modalità di disponibilità **Commit sincrono** e della modalità di failover **Automatico** .
-1. Se è presente una replica secondaria nello stesso sito della replica primaria per la disponibilità elevata, impostare questa replica su **Commit asincrono** e **Manuale** .
+1. In **gruppi di disponibilità AlwaysOn**, **gruppi di disponibilità**, fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **proprietà**.
+1. Nella pagina **Generale** in **Repliche di disponibilità** impostare la replica secondaria nel sito di ripristino di emergenza per l'uso della modalità di disponibilità **Commit sincrono** e della modalità di failover **Automatico**.
+1. Se è presente una replica secondaria nello stesso sito della replica primaria per la disponibilità elevata, impostare questa replica su **Commit asincrono** e **Manuale**.
 1. Selezionare OK.
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Mostra dashboard** .
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul gruppo di disponibilità e scegliere **Mostra dashboard**.
 1. Nel dashboard verificare che la replica nel sito di ripristino di emergenza sia sincronizzata.
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul gruppo di disponibilità e selezionare **failover.** SQL Server Management Studio apre una procedura guidata per eseguire il failover SQL Server.  
 1. Selezionare **Avanti** e selezionare l'istanza SQL Server nel sito di ripristino di emergenza. Fare di nuovo clic su **Avanti** .
-1. Connettersi all'istanza di SQL Server nel sito di ripristino di emergenza e selezionare **Avanti** .
-1. Nella pagina **Riepilogo** verificare le impostazioni e fare clic su **fine** .
+1. Connettersi all'istanza di SQL Server nel sito di ripristino di emergenza e selezionare **Avanti**.
+1. Nella pagina **Riepilogo** verificare le impostazioni e fare clic su **fine**.
 
 Dopo avere testato la connettività, spostare di nuovo la replica primaria nel data center primario e configurare di nuovo la modalità di disponibilità sulle normali impostazioni operative. La tabella seguente indica le normali impostazioni operative per l'architettura descritta in questo documento:
 

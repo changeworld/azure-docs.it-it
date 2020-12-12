@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d2cf78d328017f96552bd51794ac997c394d18f1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008419"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360068"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Distribuire in host dedicati usando l'interfaccia della riga di comando di Azure
  
 
 Questo articolo illustra come creare un [host dedicato](../dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
-Assicurarsi di aver installato l'interfaccia della riga di comando di Azure nella versione 2.0.70 o successiva e di aver eseguito l'accesso a un account Azure usando `az login`. 
+Assicurarsi di aver installato l'interfaccia della riga di comando di Azure versione 2.16.0 o successiva e di aver eseguito l'accesso a un account Azure usando `az login` . 
 
 
 ## <a name="limitations"></a>Limitazioni

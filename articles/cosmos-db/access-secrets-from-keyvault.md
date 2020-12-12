@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341383"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359323"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteggere le chiavi di Azure Cosmos con Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 2. Selezionare **Create a resource > Security > Key Vault** (Crea risorsa > Sicurezza > Key Vault).  
 3. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:  
    * **Nome:** specificare un nome univoco per Key Vault.  
-   * **Sottoscrizione** : scegliere la sottoscrizione da usare.  
+   * **Sottoscrizione**: scegliere la sottoscrizione da usare.  
    * In **gruppo di risorse** scegliere **Crea nuovo** e immettere un nome per il gruppo di risorse.  
    * Scegliere un percorso nel menu a discesa Percorso.  
    * Lasciare invariati i valori predefiniti delle altre opzioni.  
@@ -59,7 +59,7 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 
 ## <a name="create-an-azure-web-application"></a>Creare un'applicazione Web di Azure
 
-1. Creare un'applicazione Web di Azure oppure scaricarla dal [repository GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). È una semplice applicazione MVC.  
+1. Creare un'applicazione Web di Azure oppure scaricarla dal [repository GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). È una semplice applicazione MVC.  
 
 2. Decomprimere l'applicazione scaricata e aprire il file **HomeController.cs**. Aggiornare l'ID del segreto nella riga seguente:
 
@@ -68,7 +68,7 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 3. **Salvare** il file, **compilare** la soluzione.  
 4. Distribuire quindi l'applicazione in Azure. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**. Creare un nuovo profilo di servizio app (è possibile denominare l'app WebAppKeyVault1) e selezionare **Pubblica**.   
 
-5. Una volta distribuita l'applicazione, dal portale di Azure passare all'app Web distribuita e attivare l' **Identità del servizio gestita** dell'applicazione.  
+5. Una volta distribuita l'applicazione, dal portale di Azure passare all'app Web distribuita e attivare l'**Identità del servizio gestita** dell'applicazione.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Identità del servizio gestita":::
 
@@ -80,9 +80,9 @@ Se si esegue ora l'applicazione, verrà visualizzato l'errore seguente poiché n
 
 In questa sezione viene registrata l'applicazione con Azure Active Directory e vengono assegnate le autorizzazioni all'applicazione per leggere l'insieme di credenziali delle chiavi. 
 
-1. Passare al portale di Azure, aprire l' **insieme di credenziali delle chiavi** creato nella sezione precedente.  
+1. Passare al portale di Azure, aprire l'**insieme di credenziali delle chiavi** creato nella sezione precedente.  
 
-2. Aprire **Criteri di accesso** , selezionare **+Aggiungi nuovo** trovare l'app Web distribuita, selezionare le autorizzazioni e selezionare **OK**.  
+2. Aprire **Criteri di accesso**, selezionare **+Aggiungi nuovo** trovare l'app Web distribuita, selezionare le autorizzazioni e selezionare **OK**.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Aggiungere un criterio di accesso":::
 

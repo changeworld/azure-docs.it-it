@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b6c75bc13bf26510ee72968c5a27407b6b7bfee6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 558f4792a055fc491f15600ecc5502c3a114a94b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937492"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360221"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
 
@@ -86,6 +86,9 @@ StorageBlobLogs
 ## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>Correggere i rischi per la sicurezza con una versione minima di TLS
 
 Quando si è certi che il traffico proveniente dai client che usano versioni precedenti di TLS è minimo o che è accettabile non rispondere alle richieste effettuate con una versione precedente di TLS, è possibile iniziare a applicare una versione minima di TLS nell'account di archiviazione. Richiedere che i client usino una versione minima di TLS per eseguire richieste a un account di archiviazione fanno parte di una strategia per ridurre al minimo i rischi di sicurezza per i dati.
+
+> [!IMPORTANT]
+> Se si usa un servizio che si connette ad archiviazione di Azure, assicurarsi che il servizio usi la versione appropriata di TLS per inviare richieste ad archiviazione di Azure prima di impostare la versione minima richiesta per un account di archiviazione.
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Configurare la versione minima di TLS per un account di archiviazione
 

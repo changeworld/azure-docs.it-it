@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 244fae9f8611acd21f2ee6cd7dafa45b88606456
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556387"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359354"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Per altre informazioni, vedere Panoramica di [FCI con SQL Server nelle macchine 
 Prima di completare le istruzioni riportate in questo articolo, è necessario avere già:
 
 - Una sottoscrizione di Azure. Inizia subito [gratuitamente](https://azure.microsoft.com/free/). 
-- [Due o più macchine virtuali di Windows Azure](failover-cluster-instance-prepare-vm.md). Sono supportati entrambi i [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md) e i gruppi di [posizionamento di prossimità](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs). Se si usa un PPG, tutti i nodi devono esistere nello stesso gruppo.
+- [Due o più macchine virtuali di Windows Azure](failover-cluster-instance-prepare-vm.md). I [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md) e i gruppi di posizionamento di [prossimità](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) supportati per le zone SSD Premium e di [disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) sono supportati per i dischi Ultra. Se si usa un PPG, tutti i nodi devono esistere nello stesso gruppo.
 - Un account con autorizzazioni per creare oggetti sia nelle macchine virtuali di Azure che in Active Directory.
 - La versione più recente di [PowerShell](/powershell/azure/install-az-ps). 
 
@@ -44,7 +44,7 @@ Distribuire un disco SSD Premium gestito con la funzionalità disco condiviso ab
 Aggiungere un disco condiviso di Azure seguendo questa procedura: 
 
 
-1. Salvare lo script seguente come *SharedDiskConfig.jsin* : 
+1. Salvare lo script seguente come *SharedDiskConfig.jsin*: 
 
    ```JSON
    { 
@@ -161,7 +161,7 @@ Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni s
 
 ## <a name="test-cluster-failover"></a>Test del failover del cluster
 
-Testare il failover del cluster. In **Gestione cluster di failover** fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo** , quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
+Testare il failover del cluster. In **Gestione cluster di failover** fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo**, quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando le risorse principali negli altri nodi":::
 
@@ -187,7 +187,7 @@ Le directory dei dati FCI devono trovarsi nei dischi condivisi di Azure.
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
-1. Aprire **Centro installazione SQL Server** , quindi selezionare **installazione**.
+1. Aprire **Centro installazione SQL Server**, quindi selezionare **installazione**.
 
 1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 

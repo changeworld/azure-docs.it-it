@@ -4,16 +4,16 @@ description: Questo articolo contiene una raccolta di comandi di esempio AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 11d40805cda2ea2e3693c6c93034ae19f1f0fcc0
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907518"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358759"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Caricare i file nell'archiviazione BLOB di Azure usando AzCopy V10
 
@@ -135,9 +135,11 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pat
 
 Le `--include-pattern` `--exclude-pattern` Opzioni e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
 
-### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Caricare i file che sono stati modificati dopo una data e un'ora 
+### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>Caricare i file che sono stati modificati prima o dopo una data e un'ora 
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-after` opzione. Specificare una data e un'ora in formato ISO-8601 (ad esempio: `2020-08-19T15:04:00Z` ). 
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-before` `--include-after` opzione o. Specificare una data e un'ora in formato ISO-8601 (ad esempio: `2020-08-19T15:04:00Z` ). 
+
+Negli esempi seguenti vengono caricati i file che sono stati modificati dopo la data specificata.
 
 |    |     |
 |--------|-----------|
@@ -186,10 +188,10 @@ Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
 Per altri esempi, vedere questi articoli:
 
-- [Esempi: download](storage-use-azcopy-blobs-download.md)
-- [Esempi: copia tra account](storage-use-azcopy-blobs-copy.md)
-- [Esempi: Synchronize](storage-use-azcopy-blobs-synchronize.md)
-- [Esempi: bucket di Amazon S3](storage-use-azcopy-s3.md)
+- [Esempi: Download](storage-use-azcopy-blobs-download.md)
+- [Esempi: Copiare tra account](storage-use-azcopy-blobs-copy.md)
+- [Esempi: Sincronizza](storage-use-azcopy-blobs-synchronize.md)
+- [Esempi: Bucket di Amazon S3](storage-use-azcopy-s3.md)
 - [Esempi: File di Azure](storage-use-azcopy-files.md)
 - [Eseguire la migrazione di dati locali in una risorsa di archiviazione cloud tramite AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)

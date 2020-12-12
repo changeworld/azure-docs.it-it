@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327475"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358931"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuità aziendale e HADR per la SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,9 +85,20 @@ Azure supporta le tecnologie SQL Server per la continuità aziendale:
 
 Se si dispone di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), è possibile implementare piani di ripristino di emergenza ibrido con SQL Server senza sostenere costi di licenza aggiuntivi per l'istanza di ripristino di emergenza passiva.
 
-Nell'immagine seguente il programma di installazione usa SQL Server in esecuzione in una macchina virtuale di Azure che usa 12 core come replica di ripristino di emergenza per una distribuzione di SQL Server locale che usa 12 core. In passato, è necessario concedere in licenza 12 core di SQL Server per la distribuzione locale e la distribuzione di macchine virtuali di Azure. Il nuovo vantaggio offre vantaggi della replica passiva per l'esecuzione in una macchina virtuale di Azure. A questo punto è necessario concedere in licenza solo 12 core di SQL Server eseguiti in locale, purché siano soddisfatti i criteri di ripristino di emergenza per la replica passiva in macchine virtuali di Azure.
+Ad esempio, è possibile avere un database primario attivo in locale e una secondaria passiva gratuita per il ripristino di emergenza in Azure: 
 
-![Replica di ripristino di emergenza gratuita in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Passiva secondaria gratuita in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
+
+Nell'immagine precedente, il programma di installazione usa SQL Server in esecuzione in una macchina virtuale di Azure che usa 12 core come replica di ripristino di emergenza per una distribuzione di SQL Server locale che usa 12 core. In passato, è necessario concedere in licenza 12 core di SQL Server per la distribuzione locale e la distribuzione di macchine virtuali di Azure. Il nuovo vantaggio offre vantaggi della replica passiva per l'esecuzione in una macchina virtuale di Azure. A questo punto è necessario concedere in licenza solo 12 core di SQL Server eseguiti in locale, purché siano soddisfatti i criteri di ripristino di emergenza per la replica passiva in macchine virtuali di Azure.
+
+Quando tutte e tre le repliche sono ospitate in Azure, è anche possibile avere due database secondari passivi gratuiti: 
+
+![Due passivi gratuiti quando tutto in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+In alternativa, è possibile configurare un ambiente di failover ibrido con un database primario con licenza locale, un passivo gratuito per la disponibilità elevata e due passivi gratuiti per il ripristino di emergenza: 
+
+![Tre passivi gratuiti quando l'ambiente è ibrido con una replica locale primaria](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
+
 
 Per altre informazioni, vedere le [condizioni di licenza per il prodotto](https://www.microsoft.com/licensing/product-licensing/products). 
 

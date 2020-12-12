@@ -1,5 +1,5 @@
 ---
-title: Configurare il servizio di bilanciamento del carico per il listener VNN AG
+title: Configurare il servizio di bilanciamento del carico per il listener VNN del gruppo di disponibilità
 description: Informazioni su come configurare un Azure Load Balancer per instradare il traffico al listener del nome di rete virtuale (VNN) per il gruppo di disponibilità con SQL Server in macchine virtuali di Azure per la disponibilità elevata e il ripristino di emergenza (HADR).
 services: virtual-machines-windows
 documentationcenter: na
@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a07f0416f26f81e8a2b6d22c79047dc8651bb78c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 2d89759438cb625a0e220af10ab6b287096f6390
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168836"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359881"
 ---
-# <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurare il servizio di bilanciamento del carico per il listener VNN AG
+# <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurare il servizio di bilanciamento del carico per il listener VNN del gruppo di disponibilità
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Nelle macchine virtuali di Azure, i cluster usano un servizio di bilanciamento del carico per contenere un indirizzo IP che deve trovarsi in un nodo del cluster alla volta. In questa soluzione, il servizio di bilanciamento del carico include l'indirizzo IP per il listener del nome di rete virtuale (VNN) per il gruppo di disponibilità Always On. 
@@ -47,7 +48,7 @@ Usare il [portale di Azure](https://portal.azure.com) per creare il servizio di 
 
 1. Nel portale di Azure passare al gruppo di risorse contenente le macchine virtuali.
 
-1. Selezionare **Aggiungi**. Cerca **Load Balancer**in Azure Marketplace. Selezionare **Bilanciamento del carico**.
+1. Selezionare **Aggiungi**. Cerca **Load Balancer** in Azure Marketplace. Selezionare **Bilanciamento del carico**.
 
 1. Selezionare **Crea**.
 
@@ -86,7 +87,7 @@ Usare il [portale di Azure](https://portal.azure.com) per creare il servizio di 
 
 1. Selezionare **Aggiungi**.
 
-1. Nel riquadro **Aggiungi Probe** di integrità <span id="probe"> </span> impostare i parametri del probe di integrità seguenti:
+1. Nel riquadro **Aggiungi Probe** di integrità <span id="probe"></span> impostare i parametri del probe di integrità seguenti:
 
    - **Name**: un nome per il probe di integrità.
    - **Protocollo**: TCP.
@@ -105,7 +106,7 @@ Usare il [portale di Azure](https://portal.azure.com) per creare il servizio di 
 1. Impostare i parametri della regola di bilanciamento del carico:
 
    - **Nome**: nome per le regole di bilanciamento del carico.
-   - **Indirizzo IP**front-end: indirizzo IP per la SQL Server failover o la risorsa di rete in cluster del listener AG.
+   - **Indirizzo IP** front-end: indirizzo IP per la SQL Server failover o la risorsa di rete in cluster del listener AG.
    - **Port**: SQL Server porta TCP. La porta predefinita dell'istanza è 1433.
    - **Porta back-end**: la stessa porta del valore della **porta** quando si Abilita l' **indirizzo IP mobile (Direct Server Return)**.
    - **Pool back-end**: il nome del pool back-end configurato in precedenza.

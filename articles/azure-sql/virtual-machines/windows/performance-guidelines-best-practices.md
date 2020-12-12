@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e9c18a50a95b98fe7907fb244acbb11c666104a6
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 2b4e8d980ee2b5c69687fc7ad8975e26fe38071a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094914"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360119"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server sulle macchine virtuali di Microsoft Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,7 +54,7 @@ Di seguito è riportato un elenco di controllo rapido per ottenere prestazioni o
 Per altre informazioni su *come* e *perché* eseguire queste ottimizzazioni, vedere i dettagli e le indicazioni riportate nelle sezioni seguenti.
 <br/><br/>
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Se si sta creando un nuovo SQL Server in una macchina virtuale di Azure e non si esegue la migrazione di un sistema di origine corrente, creare la nuova VM SQL Server in base ai requisiti del fornitore.  I requisiti del fornitore per una macchina virtuale SQL Server sono gli stessi di quelli distribuiti in locale. 
 

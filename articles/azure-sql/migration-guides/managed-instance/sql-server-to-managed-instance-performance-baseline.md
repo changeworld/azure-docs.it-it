@@ -1,5 +1,5 @@
 ---
-title: SQL Server a SQL Istanza gestita-analisi delle prestazioni
+title: 'SQL Server a SQL Istanza gestita: analisi delle prestazioni'
 description: Informazioni su come creare e confrontare una baseline delle prestazioni quando si esegue la migrazione dei database di SQL Server al Istanza gestita SQL di Azure.
 ms.service: sql-database
 ms.subservice: migration
@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: c47e4c1278f222feac35a2c6ab0b067c916c0217
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2b6f9bef445cc07a3aa00377b41010a536855935
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326846"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358861"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Prestazioni della migrazione: analisi delle prestazioni da SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Le risorse seguenti consentono di definire una linea di base per le prestazioni:
 
    - [Monitorare l'utilizzo della CPU ](https://techcommunity.microsoft.com/t5/azure-sql-database/monitor-cpu-usage-on-sql-server-and-azure-sql/ba-p/680777#M131)
    - [Monitorare l'utilizzo](/sql/relational-databases/performance-monitor/monitor-memory-usage)   della memoria e determinano la quantità di memoria usata da diversi componenti, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria permanenza presunta delle pagine. 
-   - Monitorare l'utilizzo dei dati di i/o su disco [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)nell'istanza di SQL Server di origine utilizzando i    [contatori delle prestazioni](/sql/relational-databases/performance-monitor/monitor-disk-usage)o della sys.dm_io_virtual_file_stats. 
+   - Monitorare l'utilizzo dei dati di i/o su disco [](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)nell'istanza di SQL Server di origine utilizzando i    [contatori delle prestazioni](/sql/relational-databases/performance-monitor/monitor-disk-usage)o della sys.dm_io_virtual_file_stats. 
    - Monitorare il carico di lavoro e le prestazioni delle query esaminando viste a gestione dinamica (o Query Store se si esegue la migrazione da SQL Server 2016 e versioni successive). Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro. 
 
 Eventuali problemi di prestazioni nel SQL Server di origine devono essere risolti prima della migrazione. La migrazione di problemi noti a qualsiasi nuovo sistema può causare risultati imprevisti e invalidare qualsiasi confronto delle prestazioni. 

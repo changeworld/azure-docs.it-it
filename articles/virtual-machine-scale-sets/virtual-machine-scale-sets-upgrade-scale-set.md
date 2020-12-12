@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016676"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358742"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 
@@ -350,12 +350,12 @@ Alcune proprietà possono essere modificate, con eccezioni che dipendono dal val
 
 - **singlePlacementGroup**: se singlePlacementGroup ha valore true, può essere impostata su false. Se invece singlePlacementGroup ha valore false, **non può** essere impostata su true.
 - **subnet**: la subnet di un set di scalabilità può essere modificata purché la subnet originale e la nuova subnet facciano parte della stessa rete virtuale.
+- **imageReferenceSku** : lo SKU di riferimento per le immagini può essere aggiornato per le [distribuzioni Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)approvate, le immagini di Windows Server/client e le immagini senza [informazioni sul piano](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Proprietà che richiedono la deallocazione per poter essere modificate
 Alcune proprietà possono essere modificate su determinati valori solo dopo la deallocazione delle macchine virtuali del set di scalabilità. Queste proprietà includono:
 
-- **Nome SKU**: se lo SKU della nuova macchina virtuale non è supportato nell'hardware in cui è attualmente in esecuzione il set di scalabilità, è necessario deallocare le macchine virtuali nel set di scalabilità prima di modificare il nome SKU. Per altre informazioni, vedere [Come ridimensionare una VM di Azure](../virtual-machines/windows/resize-vm.md).
-
+- **Nome SKU**: se lo SKU della nuova macchina virtuale non è supportato nell'hardware in cui è attualmente installato il set di scalabilità, è necessario deallocare le macchine virtuali nel set di scalabilità prima di modificare il nome dello SKU. Per altre informazioni, vedere [Come ridimensionare una VM di Azure](../virtual-machines/windows/resize-vm.md). 
 
 ## <a name="vm-specific-updates"></a>Aggiornamenti specifici delle macchine virtuali
 Alcune modifiche possono essere applicate solo a macchine virtuali specifiche anziché alle proprietà globali del set di scalabilità. Attualmente l'unico aggiornamento specifico della macchina virtuale supportato è il collegamento/scollegamento di dischi di dati a/da macchine virtuali nel set di scalabilità. Questa funzionalità è in anteprima. Per altre informazioni, vedere la [documentazione della versione di anteprima](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).

@@ -4,15 +4,15 @@ description: È possibile fornire le credenziali di autorizzazione per le operaz
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b13b5e1e27e9717066ff8f1aa8e245e8d9f54bbb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498116"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360289"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizzare l'accesso ai BLOB con AzCopy e Azure Active Directory (Azure AD)
 
@@ -73,7 +73,7 @@ Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. A
 
 Verrà visualizzata una finestra di accesso. In tale finestra accedere al proprio account Azure usando le relative credenziali. Dopo aver completato l'accesso, è possibile chiudere la finestra del browser e iniziare a usare AzCopy.
 
-<a id="service-principal"></a>
+<a id="managed-identity"></a>
 
 ## <a name="authorize-a-managed-identity"></a>Autorizzare un'identità gestita
 
@@ -116,6 +116,8 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
 Sostituire il `<resource-id>` segnaposto con l'ID risorsa dell'identità gestita assegnata dall'utente.
+
+<a id="service-principal"></a>
 
 ## <a name="authorize-a-service-principal"></a>Autorizzare un'entità servizio
 
@@ -181,8 +183,113 @@ Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o
 > [!NOTE]
 > Prendere in considerazione l'uso di un prompt, come illustrato in questo esempio. In questo modo, la password non verrà visualizzata nella cronologia dei comandi della console. 
 
-<a id="managed-identity"></a>
+## <a name="authorize-without-a-keyring-linux"></a>Autorizza senza un portachiavi (Linux)
 
+Se il sistema operativo non dispone di un archivio segreto, ad esempio un *portachiavi*, il `azcopy login` comando non funzionerà. In alternativa, è possibile impostare le variabili di ambiente in memoria prima di eseguire ciascuna operazione. Questi valori scompaiono dalla memoria al termine dell'operazione, quindi è necessario impostare queste variabili ogni volta che si esegue un comando azcopy.
+
+### <a name="authorize-a-user-identity"></a>Autorizzare un'identità utente
+
+Dopo aver verificato che all'identità utente è stato assegnato il livello di autorizzazione necessario, digitare il comando seguente, quindi premere il tasto INVIO.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=DEVICE
+```
+
+Eseguire quindi qualsiasi comando azcopy (ad esempio: `azcopy list https://contoso.blob.core.windows.net` ).
+
+Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. Aprire il sito Web, immettere il codice e quindi scegliere il pulsante **Avanti**.
+
+![Creare un contenitore](media/storage-use-azcopy-v10/azcopy-login.png)
+
+Verrà visualizzata una finestra di accesso. In tale finestra accedere al proprio account Azure usando le relative credenziali. Dopo aver eseguito l'accesso, è possibile completare l'operazione.
+
+### <a name="authorize-by-using-a-system-wide-managed-identity"></a>Autorizzare usando un'identità gestita a livello di sistema
+
+Assicurarsi prima di tutto che sia stata abilitata un'identità gestita a livello di sistema nella macchina virtuale. Vedere [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
+
+Digitare il comando seguente, quindi premere il tasto INVIO.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Eseguire quindi qualsiasi comando azcopy (ad esempio: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-by-using-a-user-assigned-managed-identity"></a>Autorizzare usando un'identità gestita assegnata dall'utente
+
+Assicurarsi prima di tutto che sia stata abilitata un'identità gestita assegnata dall'utente nella macchina virtuale. Vedere [identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
+
+Digitare il comando seguente, quindi premere il tasto INVIO.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+Quindi, digitare uno dei comandi seguenti, quindi premere il tasto INVIO.
+
+```bash
+export AZCOPY_MSI_CLIENT_ID=<client-id>
+```
+
+Sostituire il `<client-id>` segnaposto con l'ID client dell'identità gestita assegnata dall'utente.
+
+```bash
+export AZCOPY_MSI_OBJECT_ID=<object-id>
+```
+
+Sostituire il `<object-id>` segnaposto con l'ID oggetto dell'identità gestita assegnata dall'utente.
+
+```bash
+export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
+```
+
+Sostituire il `<resource-id>` segnaposto con l'ID risorsa dell'identità gestita assegnata dall'utente.
+
+Dopo aver impostato queste variabili, è possibile eseguire qualsiasi comando azcopy (ad esempio: `azcopy list https://contoso.blob.core.windows.net` ).
+
+### <a name="authorize-a-service-principal"></a>Autorizzare un'entità servizio
+
+Prima di eseguire uno script, è necessario eseguire l'accesso in modo interattivo almeno una volta, in modo da poter fornire a AzCopy le credenziali dell'entità servizio.  Queste credenziali vengono archiviate in un file protetto e crittografato, in modo che lo script non debba fornire tali informazioni riservate.
+
+È possibile accedere all'account usando un segreto client o usando la password di un certificato associato alla registrazione dell'app dell'entità servizio.
+
+#### <a name="authorize-a-service-principal-by-using-a-client-secret"></a>Autorizzare un'entità servizio usando un segreto client
+
+Digitare il comando seguente, quindi premere il tasto INVIO.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_APPLICATION_ID=<application-id>
+export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+```
+
+Sostituire il `<application-id>` segnaposto con l'ID applicazione della registrazione dell'app dell'entità servizio. Sostituire il `<client-secret>` segnaposto con il segreto client.
+
+> [!NOTE]
+> Prendere in considerazione l'uso di una richiesta di raccolta della password da parte dell'utente. In questo modo, la password non verrà visualizzata nella cronologia dei comandi. 
+
+Eseguire quindi qualsiasi comando azcopy (ad esempio: `azcopy list https://contoso.blob.core.windows.net` ).
+
+#### <a name="authorize-a-service-principal-by-using-a-certificate"></a>Autorizzare un'entità servizio tramite un certificato
+
+Se si preferisce usare le proprie credenziali per l'autorizzazione, è possibile caricare un certificato nella registrazione dell'app e quindi usare tale certificato per l'accesso.
+
+Oltre a caricare il certificato nella registrazione dell'app, è anche necessario disporre di una copia del certificato salvato nel computer o nella macchina virtuale in cui verrà eseguito AzCopy. Questa copia del certificato deve essere in. PFX o. Formato PEM e deve includere la chiave privata. La chiave privata deve essere protetta da password. 
+
+Digitare il comando seguente, quindi premere il tasto INVIO.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
+export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+```
+
+Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o il percorso completo del file di certificato. AzCopy Salva il percorso del certificato, ma non salva una copia del certificato, quindi assicurarsi di conservare il certificato. Sostituire il `<certificate-password>` segnaposto con la password del certificato.
+
+> [!NOTE]
+> Prendere in considerazione l'uso di una richiesta di raccolta della password da parte dell'utente. In questo modo, la password non verrà visualizzata nella cronologia dei comandi. 
+
+Eseguire quindi qualsiasi comando azcopy (ad esempio: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

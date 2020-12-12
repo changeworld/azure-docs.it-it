@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020093"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359201"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Aggiungere account non Microsoft all'app Microsoft Authenticator
 
-Aggiungere gli account non Microsoft, ad esempio per Google, Facebook o GitHub, all'app Microsoft Authenticator per la verifica a due fattori. L'app Microsoft Authenticator funziona con qualsiasi app che usa la verifica a due fattori e qualsiasi account che supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
+Se si dispone di account non Microsoft, ad esempio per Google, Facebook o GitHub, è possibile aggiungerli all'app Microsoft Authenticator per la verifica a due fattori. L'app Microsoft Authenticator funziona con qualsiasi app che usa la verifica a due fattori e qualsiasi account che supporti gli standard di password monouso basati sul tempo (TOTP).
 
 >[!Important]
 >Prima di poter aggiungere l'account, è necessario scaricare e installare l'app Microsoft Authenticator. Se non è ancora stato fatto, seguire i passaggi descritti nell'articolo [Scaricare e installare l'app](user-help-auth-app-download-install.md).
@@ -130,7 +130,7 @@ Per aggiungere l'account GitHub attivare la verifica a due fattori e quindi aggi
 
 1. Nella pagina **Autenticazione a due fattori** sul computer selezionare **Configura tramite un'app**.
 
-2. Salvare i codici di ripristino in modo da poter tornare all'account se si perde l'accesso, quindi selezionare **Avanti**. 
+2. Salvare i codici di ripristino in modo da poter tornare all'account se si perde l'accesso, quindi selezionare **Avanti**.
 
     È possibile salvare i codici personali scaricandoli sul proprio dispositivo, stampando una copia cartacea o copiandoli in uno strumento di gestione delle password.
 

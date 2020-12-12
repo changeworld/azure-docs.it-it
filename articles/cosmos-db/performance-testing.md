@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f27e4f9f8e9f027233db89838614b523c5d0fe1f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cb0dd8eb879c5511da3c79a3dee6a715fb1275e4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341774"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358644"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ Alla fine della lettura, si avranno le risposte alle domande seguenti:
 * Dove è possibile trovare un'applicazione client .NET di esempio per i test delle prestazioni di Azure Cosmos DB? 
 * Come si ottengono livelli di velocità effettiva elevati con Azure Cosmos DB dall'applicazione client?
 
-Per iniziare a usare il codice, scaricare il progetto dell'[esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+Per iniziare a usare il codice, scaricare il progetto dell'[esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
 > L'obiettivo di questa applicazione è illustrare come ottenere le migliori prestazioni da Azure Cosmos DB con un numero ridotto di computer client. L'obiettivo dell'esempio non è raggiungere la capacità di elaborazione massima di Azure Cosmos DB (che è possibile ridimensionare senza limiti).
@@ -37,7 +37,7 @@ Se si è interessati alle opzioni di configurazione lato client per migliorare l
 ## <a name="run-the-performance-testing-application"></a>Eseguire l'applicazione per il test delle prestazioni
 Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come descritto nella procedura seguente. È anche possibile rivedere il codice sorgente e implementare configurazioni analoghe nelle proprie applicazioni client.
 
-**Passaggio 1** : scaricare il progetto dell' [esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare una copia tramite fork del repository GitHub.
+**Passaggio 1**: scaricare il progetto dell'[esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark) o creare una copia tramite fork del repository GitHub.
 
 **Passaggio 2:** Modificare le impostazioni per EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) in App.config.
 
@@ -97,7 +97,7 @@ Quando l'app è in esecuzione, è possibile provare [criteri di indicizzazione](
 
 Questo articolo ha illustrato come eseguire i test delle prestazioni e della scalabilità con Azure Cosmos DB usando un'app console .NET. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Esempio di test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Esempio di test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark)
 * [Opzioni di configurazione client per migliorare le prestazioni di Azure Cosmos DB](performance-tips.md)
 * [Partizionamento lato server in Azure Cosmos DB](partitioning-overview.md)
 

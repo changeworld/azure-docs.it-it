@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: d4257e5ade1e32ec971bb77f9d5a686d30195735
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111330"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360323"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gestire l'accesso sicuro alle risorse in spoke reti virtuali per i client VPN utente
 
@@ -41,7 +41,11 @@ La configurazione da punto a sito (P2S) definisce i parametri per la connessione
 
 Quando si seleziona il metodo di autenticazione, sono disponibili tre opzioni. Ogni metodo presenta requisiti specifici. Selezionare uno dei metodi seguenti e quindi completare la procedura.
 
-* **Autenticazione Azure Active Directory:** Ottenere l'ID applicazione dell'applicazione aziendale VPN di Azure registrata nel tenant di Azure AD, [l'emittente](https://sts.windows.net/your-Directory-ID/)e [il tenant di Azure ad](https://login.microsoftonline.com/your-Directory-ID).
+* **Autenticazione Azure Active Directory:** Ottenere quanto segue:
+
+   * **ID applicazione** dell'applicazione aziendale VPN di Azure registrata nel tenant del Azure ad.
+   * **Autorità emittente**. Esempio: `https://sts.windows.net/your-Directory-ID`.
+   * **Tenant Azure ad**. Esempio: `https://login.microsoftonline.com/your-Directory-ID`.
 
 * **Autenticazione basata su RADIUS:** Ottenere l'indirizzo IP del server RADIUS, il segreto del server RADIUS e le informazioni sul certificato.
 

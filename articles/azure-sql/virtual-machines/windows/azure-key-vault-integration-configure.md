@@ -8,25 +8,26 @@ editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
+ms.subservice: security
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3fca190d4818dc2ee8d598a3a1d3535ba7132398
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6955b7fc4948faaea6db426545f8cc3d1eece35
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789965"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359898"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Configurare l'integrazione di Azure Key Vault per SQL Server nelle macchine virtuali di Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Esistono più funzionalità di crittografia di SQL Server, ad esempio [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption), [crittografia a livello di colonna (CLE)](/sql/t-sql/functions/cryptographic-functions-transact-sql) e [crittografia di backup](/sql/relational-databases/backup-restore/backup-encryption). Queste modalità di crittografia richiedono la gestione e l'archiviazione delle chiavi usate per la crittografia. Il servizio Azure Key Vault è progettato per migliorare la sicurezza e la gestione di queste chiavi in una posizione sicura e a elevata disponibilità. Il [connettore di SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) consente a SQL Server di usare queste chiavi dall'insieme di credenziali delle chiavi di Azure.
 
-Se si esegue SQL Server localmente, è possibile seguire una procedura per [accedere ad Azure Key Vault dall'istanza di SQL Server locale](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server). Se invece si esegue SQL Server in macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità *Integrazione di Azure Key Vault* .
+Se si esegue SQL Server localmente, è possibile seguire una procedura per [accedere ad Azure Key Vault dall'istanza di SQL Server locale](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server). Se invece si esegue SQL Server in macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità *Integrazione di Azure Key Vault*.
 
 Quando questa funzionalità è abilitata, installa automaticamente il connettore di SQL Server, configura il provider EKM per accedere all'insieme di credenziali delle chiavi di Azure e crea le credenziali per consentire l'accesso all'insieme di credenziali. Se sono stati esaminati i passaggi nella documentazione locale menzionati in precedenza, si noterà che questa funzionalità consente di automatizzare i passaggi 2 e 3. L'unica attività che è comunque necessario eseguire manualmente è la creazione delle chiavi e dell'insieme di credenziali delle chiavi. Una volta completata questa operazione, l'intera installazione della macchina virtuale di SQL Server è automatizzata. Quando la funzionalità ha completato l'installazione, è possibile eseguire istruzioni Transact-SQL (T-SQL) per iniziare la crittografia dei database o del backup con le modalità consuete.
 
@@ -50,7 +51,7 @@ Per la procedura dettagliata di provisioning, vedere [Effettuare il provisioning
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Per le macchine virtuali SQL esistenti, aprire la [risorsa Macchine virtuali SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selezionare **Sicurezza** in **Impostazioni** . Selezionare **Abilita** per abilitare l'integrazione di Azure Key Vault. 
+Per le macchine virtuali SQL esistenti, aprire la [risorsa Macchine virtuali SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selezionare **Sicurezza** in **Impostazioni**. Selezionare **Abilita** per abilitare l'integrazione di Azure Key Vault. 
 
 ![Integrazione di SQL Key Vault per le macchine virtuali esistenti](./media/azure-key-vault-integration-configure/azure-sql-rm-akv-existing-vms.png)
 

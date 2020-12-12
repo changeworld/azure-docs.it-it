@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486518"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359813"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Eseguire il backup e il ripristino dei modelli di riconoscimento moduli
 
@@ -69,7 +69,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-Il corpo della richiesta deve avere il formato seguente. È necessario immettere l'ID risorsa e il nome dell'area della risorsa di destinazione. Sono necessari anche l'ID modello, il token di accesso e il valore di scadenza copiati dal passaggio precedente.
+Il corpo della richiesta deve avere il formato seguente. È necessario immettere l'ID risorsa e il nome dell'area della risorsa di destinazione. È possibile trovare l'ID di risorsa nella scheda **Proprietà** della risorsa nella portale di Azure e trovare il nome dell'area nella scheda **chiavi ed endpoint** . Sono necessari anche l'ID modello, il token di accesso e il valore di scadenza copiati dal passaggio precedente.
 
 ```json
 {
@@ -91,7 +91,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Errori comuni
 
-|Errore|Risoluzione|
+|Errore|Soluzione|
 |:--|:--|
 | 400/richiesta non valida con `"code:" "1002"` | Indica un errore di convalida o una richiesta di copia non formattata correttamente. I problemi comuni includono: a) payload non valido o modificato `copyAuthorization` . b) valore scaduto per il `expirationDateTimeTicks` token (il `copyAuhtorization` payload è valido per 24 ore). c) non valido o non supportato `targetResourceRegion` . d) stringa non valida o con formato non valido `targetResourceId` .
 |
@@ -115,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Errori comuni
 
-|Errore|Risoluzione|
+|Errore|Soluzione|
 |:--|:--|
 |"Errors": [{"code": "AuthorizationError",<br>"message": "errore di autorizzazione a causa di <br>attestazioni di autorizzazione mancanti o non valide. "}]   | Si verifica quando il `copyAuthorization` payload o il contenuto viene modificato rispetto a quello restituito dall' `copyAuthorization` API. Verificare che il payload corrisponda esattamente al contenuto restituito dalla `copyAuthorization` chiamata precedente.|
 |"Errors": [{"code": "AuthorizationError",<br>"messaggio": "Impossibile recuperare l'autorizzazione <br>metadati. Se il problema persiste, usare un'altra <br>modello di destinazione in cui eseguire la copia. "}] | Indica che il `copyAuthorization` payload viene riutilizzato con una richiesta di copia. Una richiesta di copia che ha esito positivo non consentirà altre richieste che utilizzano lo stesso `copyAuthorization` payload. Se si genera un errore separato, ad esempio quelli indicati di seguito, e successivamente si ritenta la copia con lo stesso payload di autorizzazione, viene generato questo errore. La risoluzione consiste nel generare un nuovo `copyAuthorization` payload, quindi eseguire nuovamente la richiesta di copia.|

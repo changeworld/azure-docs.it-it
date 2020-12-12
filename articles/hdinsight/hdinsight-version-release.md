@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 2fd7a3e512b79651fdcf6a6ac0c14822361fc263
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8f9759d19089f74d62def41b205d862ce9a7d43
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350195"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359728"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
@@ -38,7 +38,12 @@ Hive supporta ora le viste materializzate dinamiche, o il precalcolo di riepilog
 
 ### <a name="hive-transactional-tables"></a>Tabelle transazionali di Hive
 
-HDI 4.0 include Apache Hive 3. Hive 3 richiede la conformità ad atomicità, consistenza, isolamento e durabilità per le tabelle transazionali che si trovano nel data warehouse di Hive. Hive accede alle tabelle e ai dati di tabella conformi ad ACID e li gestisce. I dati nelle tabelle di creazione, recupero, aggiornamento ed eliminazione (CRUD) devono usare il formato di file ORC (Optimized Row Column). Le tabelle di solo inserimento supportano tutti i formati.
+HDI 4.0 include Apache Hive 3. Hive 3 richiede la conformità ad atomicità, consistenza, isolamento e durabilità per le tabelle transazionali che si trovano nel data warehouse di Hive. Hive accede alle tabelle e ai dati di tabella conformi ad ACID e li gestisce. I dati nelle tabelle di creazione, recupero, aggiornamento ed eliminazione (CRUD) devono usare il formato di file ORC (Optimized Row Column). Le tabelle di solo inserimento supportano tutti i formati. 
+
+> [!Note]
+> Il supporto ACID/transazionale funziona solo per le tabelle gestite e non per le tabelle esterne. Le tabelle esterne hive sono progettate in modo che le parti esterne possano leggere e scrivere i dati della tabella, senza hive ad alcuna modifica dei dati sottostanti. Per le tabelle ACID, hive può modificare i dati sottostanti con compattazioni e transazioni.
+
+Di seguito sono riportati alcuni vantaggi delle tabelle ACID:
 
 * ACID v2 include miglioramenti per le prestazioni riguardo sia al formato di archiviazione sia al motore di esecuzione.
 

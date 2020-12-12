@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -13,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 801a9a112615bd6220b5f273b51ed39248ebcd45
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b6ea6f947b2cd8d7d9c38a0e5e440ce5fd273bb7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556472"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358827"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Modifica sul posto dell'edizione di SQL Server in una macchina virtuale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +36,7 @@ Per eseguire una modifica sul posto dell'edizione di SQL Server, è necessario q
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - Una [macchina virtuale SQL Server in Windows](./create-sql-vm-portal.md) registrata con l' [estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
-- Configurare i supporti con un' **edizione specifica** di SQL Server. I clienti che usano [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di configurazione da un'immagine della VM di SQL Server di Azure Marketplace con un'edizione specifica (in genere si trova in `C:\SQLServerFull`). 
+- Configurare i supporti con un'**edizione specifica** di SQL Server. I clienti che usano [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di configurazione da un'immagine della VM di SQL Server di Azure Marketplace con un'edizione specifica (in genere si trova in `C:\SQLServerFull`). 
 
 
 ## <a name="upgrade-an-edition"></a>Aggiornare un'edizione

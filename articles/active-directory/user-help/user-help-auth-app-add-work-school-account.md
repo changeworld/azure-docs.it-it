@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: e003c45aa1e7d75b709b7fbf99532fb1302fcbb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04c9bc429d9663f7ac36b6ba8f40abf225eb71c6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797650"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359115"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Aggiungere un account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator
 
@@ -27,30 +27,49 @@ Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'acco
 
 ## <a name="add-your-work-or-school-account"></a>Aggiungere l'account aziendale o dell'istituto di istruzione
 
-1. Nel computer in uso andare alla pagina [Verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
+È possibile aggiungere l'account aziendale o dell'Istituto di istruzione all'app Microsoft Authenticator eseguendo una delle operazioni seguenti:
 
-    >[!Note]
-    >Se non viene visualizzata la pagina **Verifica aggiuntiva di sicurezza**, è possibile che l'amministratore abbia attivato l'esperienza informazioni di sicurezza (anteprima). In tal caso è necessario seguire le istruzioni descritte nella sezione [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md). Se non è questo il caso, è necessario contattare l'help desk dell'organizzazione per ricevere assistenza. Per altri dettagli sulle informazioni di sicurezza, vedere [Panoramica (anteprima) delle informazioni di sicurezza](./security-info-setup-signin.md).
+- Credenziali Accedi con il tuo account aziendale o dell'istituto di istruzione (anteprima)
+- Eseguire la scansione di un codice a matrice
 
-2. Selezionare la casella accanto ad **App Authenticator** e quindi selezionare **Configura**.
+### <a name="sign-in-with-your-credentials"></a>Accedere con le proprie credenziali
 
-    Viene visualizzata la pagina **Configurare l'app per dispositivi mobili**.
+>[!Note]
+>Questa funzionalità può essere usata solo dagli utenti i cui amministratori hanno abilitato l'accesso tramite telefono tramite l'app Authenticator.
 
-    ![Schermata contenente il codice a matrice](./media/user-help-auth-app-download-install/auth-app-barcode.png)
+Per aggiungere un account effettuando l'accesso all'account aziendale o dell'Istituto di istruzione usando le credenziali:
 
-3. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Account aziendale o dell'istituto di istruzione**.
+1. Aprire l'app Microsoft Authenticator e selezionare il **+** pulsante e toccare **Aggiungi account aziendale o dell'Istituto di istruzione**. Fare clic su **Accedi**.
 
-    >[!Note]
-    >Se si configura l'app Microsoft Authenticator per la prima volta, è possibile che venga visualizzato un messaggio in cui viene richiesto se consentire all'app di accedere alla fotocamera (iOS) o se consentire all'app di scattare foto e registrare video (Android). Selezionare **Consenti** per consentire all'app Authenticator di accedere alla fotocamera per scattare una foto del codice a matrice nel passaggio successivo. Se non si consente l'accesso alla fotocamera, è comunque possibile configurare l'app Authenticator, ma sarà necessario aggiungere le informazioni sul codice manualmente. Per altre informazioni su come aggiungere manualmente un codice, vedere [Aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
+1. Immettere le credenziali dell'account aziendale o dell'Istituto di istruzione. Se si dispone di una sessione di accesso temporanea (TAP), è possibile usarla per accedere. A questo punto, è possibile che si possa impedire il proseguimento di una delle condizioni seguenti:
 
-4. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla schermata **Configura l'app per dispositivi mobili** del computer e quindi scegliere **Fine**.
+   - Se non si dispone di un numero sufficiente di metodi di autenticazione per l'account per ottenere un token di autenticazione sicuro, non sarà possibile procedere con l'aggiunta di un account.
 
-    >[!Note]
-    >Se la fotocamera non è in grado di acquisire il codice a matrice, è possibile aggiungere manualmente le informazioni dell'account all'app Microsoft Authenticator per la verifica a due fattori. Per altre informazioni e istruzioni su come eseguire questa operazione, consultare [Manually add your account](user-help-auth-app-add-account-manual.md) (Aggiungere manualmente l'account).
+   - Se si riceve il messaggio `You might be signing in from a location that is restricted by your admin` , l'utente viene bloccato ed è necessario un amministratore per sbloccare le [informazioni di sicurezza](https://mysignins.microsoft.com/security-info).
 
-5. Rivedere la schermata **Account** dell'app nel dispositivo per assicurarsi che l'account sia corretto e che sia associato a un codice di verifica a sei cifre. Per una maggiore sicurezza, il codice di verifica cambia ogni 30 secondi per impedire che venga usato più volte.
+   - Se non si è bloccati per l'accesso tramite telefono tramite l'app Authenticator dall'amministratore, sarà possibile passare attraverso la registrazione del dispositivo per configurare l'accesso tramite telefono senza password e Azure Multi-Factor Authentication (multi-factor authentication).
 
-    ![Schermata Account](./media/user-help-auth-app-download-install/auth-app-accounts.png)
+1. A questo punto, è possibile che venga richiesto di eseguire la scansione di un codice a matrice fornito dall'organizzazione per configurare un account di autenticazione a più fattori locale nell'app. Questa operazione è necessaria solo se l'organizzazione usa un server di autenticazione a più fattori locale.
+
+1. Nel dispositivo toccare l'account e verificare nella visualizzazione a schermo intero che l'account sia corretto e che sia presente un codice di verifica a sei cifre associato. Per una maggiore sicurezza, il codice di verifica cambia ogni 30 secondi per impedire che venga usato più volte.
+
+## <a name="sign-in-with-a-qr-code"></a>Accedere con un codice a matrice
+
+Per aggiungere un account eseguendo la scansione di un codice a matrice, procedere come segue:
+
+1. Nel computer in uso andare alla pagina **Verifica aggiuntiva di sicurezza**.
+
+   >[!Note]
+   >Se non viene visualizzata la pagina **Verifica aggiuntiva di sicurezza**, è possibile che l'amministratore abbia attivato l'esperienza informazioni di sicurezza (anteprima). In tal caso è necessario seguire le istruzioni descritte nella sezione [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md). Se non è questo il caso, è necessario contattare l'help desk dell'organizzazione per ricevere assistenza. Per altre informazioni sulle informazioni di sicurezza, vedere [configurare le info di sicurezza da una richiesta di accesso](security-info-setup-signin.md).
+
+1. Selezionare la casella di controllo accanto a app Authenticator, quindi selezionare **Configura**. Viene visualizzata la pagina **Configurare l'app per dispositivi mobili**.
+
+   ![Schermata che fornisce un codice a matrice](./media/user-help-auth-app-add-work-school-account/auth-app-barcode.png)
+
+1. Aprire l'app Microsoft Authenticator, selezionare l'icona più ![ selezionare l'icona più nei dispositivi iOS o Android ](media/user-help-auth-app-add-work-school-account/plus-icon.png) e selezionare **Aggiungi account**, quindi selezionare account aziendale **o dell'Istituto di istruzione** e quindi **eseguire la scansione di un codice a** matrice.
+   Se non si dispone di un account configurato nell'app Authenticator, verrà visualizzato un pulsante blu grande con la dicitura **Aggiungi account**.
+
+Se non viene richiesto di usare la fotocamera per eseguire la scansione di un codice a matrice, nelle impostazioni del telefono assicurarsi che l'app Authenticator abbia accesso alla fotocamera del telefono.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

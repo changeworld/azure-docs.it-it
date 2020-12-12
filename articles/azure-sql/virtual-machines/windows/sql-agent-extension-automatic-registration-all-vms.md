@@ -5,16 +5,17 @@ author: MashaMSFT
 ms.author: mathoma
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: a8eb112b0895d1c7a927621e6fb9e5160038692d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557772"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360000"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registrazione automatica con l'estensione SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +43,7 @@ Per registrare la macchina virtuale SQL Server con l'estensione, è necessario:
 - Una macchina virtuale modello di risorse di Azure [Windows Server 2008 R2 (o versione successiva)](../../../virtual-machines/windows/quick-create-portal.md) con [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuita nel cloud pubblico o Azure per enti pubblici. Windows Server 2008 non è supportato. 
 
 
-## <a name="enable"></a>Abilitare
+## <a name="enable"></a>Abilita
 
 Per abilitare la registrazione automatica delle macchine virtuali SQL Server nel portale di Azure, seguire questa procedura:
 
@@ -56,7 +57,7 @@ Per abilitare la registrazione automatica delle macchine virtuali SQL Server nel
 1. Leggere le condizioni e, se si accettano le condizioni **, selezionare Accetto**. 
 1. Selezionare **Register (registra** ) per abilitare la funzionalità e registrare automaticamente tutte le VM SQL Server correnti e future con l'estensione SQL IaaS Agent. Il servizio SQL Server non verrà riavviato in nessuna delle macchine virtuali. 
 
-## <a name="disable"></a>Disabilitazione
+## <a name="disable"></a>Disabilita
 
 Usare l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/install-az-ps) per disabilitare la funzionalità di registrazione automatica. Quando la funzionalità di registrazione automatica è disabilitata, SQL Server macchine virtuali aggiunte alla sottoscrizione devono essere registrate manualmente con l'estensione SQL IaaS Agent. Non verrà annullata la registrazione di macchine virtuali SQL Server esistenti che sono già state registrate.
 
