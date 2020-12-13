@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 986a3c56a1e0dcc79ab472a7e18d7eeb7e2fddb5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b437ce7b6894ebefe38b32f27d370d9f8c4bfe80
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448343"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369022"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Preparare un errore del dispositivo GPU Pro Azure Stack Edge
 
@@ -25,20 +25,20 @@ L'articolo non include i passaggi per eseguire il backup dei contenitori Kuberne
 
 Il dispositivo GPU Pro Azure Stack Edge può riscontrare due tipi di errori hardware.
 
-- Errori tollerabili che richiedono la sostituzione di un componente hardware. Questi errori consentiranno di usare il dispositivo in uno stato danneggiato. Esempi di questi errori includono un'unica unità alimentatore (alimentatore) non riuscita o un singolo disco guasto nel dispositivo. In ognuno di questi casi, il dispositivo può continuare a funzionare. Si consiglia di contattare supporto tecnico Microsoft al primo posto per sostituire i componenti non riusciti.
+- Errori tollerabili che richiedono la sostituzione di un componente hardware. Questi errori consentiranno di usare il dispositivo in uno stato danneggiato. Esempi di questi errori includono un'unica unità alimentatore (alimentatore) non riuscita o un singolo disco guasto nel dispositivo. In ognuno di questi casi, il dispositivo può continuare a funzionare. Per sostituire i componenti non riusciti, contattare supporto tecnico Microsoft il prima possibile.
 
-- Errori non tollerabili che richiedono la sostituzione dell'intero dispositivo. Un esempio di questo errore si verifica quando due dischi non sono riusciti nel dispositivo. In questi casi, si contatta supporto tecnico Microsoft e dopo aver determinato che è necessaria una sostituzione del dispositivo, è possibile semplificare la sostituzione del dispositivo Azure Stack Edge.
+- Errori non tollerabili che richiedono la sostituzione dell'intero dispositivo, ad esempio quando due dischi non sono riusciti nel dispositivo. In questi casi, contattare immediatamente supporto tecnico Microsoft. Dopo aver determinato che la sostituzione di un dispositivo è necessaria, il supporto contribuirà alla sostituzione del dispositivo Azure Stack Edge.
 
-Per preparare gli errori non tollerabili, è necessario eseguire il backup di quanto segue nel dispositivo:
+Per preparare gli errori non tollerabili, è necessario eseguire il backup degli elementi seguenti nel dispositivo:
 
-- Informazioni sulla configurazione del dispositivo.
-- Dati che si trovano in condivisioni locali perimetrali e condivisioni cloud perimetrali.
-- File e cartelle associati alle VM in esecuzione nel dispositivo.
+- Informazioni sulla configurazione del dispositivo
+- Dati in condivisioni locali perimetrali e condivisioni cloud perimetrali
+- File e cartelle associati alle VM in esecuzione nel dispositivo
 
 
 ## <a name="back-up-device-configuration"></a>Eseguire il backup della configurazione del dispositivo
 
-Durante la configurazione iniziale del dispositivo, è importante salvare una copia delle informazioni di configurazione del dispositivo come indicato nell' [elenco di controllo della distribuzione](azure-stack-edge-gpu-deploy-checklist.md). Durante il ripristino, verranno usate le informazioni di configurazione per applicare il nuovo dispositivo sostitutivo. 
+Durante la configurazione iniziale del dispositivo, è importante salvare una copia delle informazioni di configurazione del dispositivo come indicato nell'elenco di controllo della [distribuzione](azure-stack-edge-gpu-deploy-checklist.md). Durante il ripristino, verranno usate le informazioni di configurazione per applicare il nuovo dispositivo sostitutivo. 
 
 ## <a name="protect-device-data"></a>Proteggere i dati del dispositivo
 
@@ -52,9 +52,9 @@ Le sezioni seguenti illustrano i passaggi e le raccomandazioni per proteggere og
 
 ## <a name="protect-data-in-edge-cloud-shares"></a>Proteggere i dati nelle condivisioni cloud perimetrali
 
-È possibile creare condivisioni cloud perimetrali per i dati di livello dal dispositivo ad Azure. A seconda della larghezza di banda di rete disponibile, configurare i modelli di larghezza di banda nel dispositivo per ridurre al minimo la perdita di dati in caso di errore non tollerabile.
+È possibile creare condivisioni cloud perimetrali per i dati di livello dal dispositivo ad Azure. A seconda della larghezza di banda di rete disponibile, configurare i modelli di larghezza di banda nel dispositivo per ridurre al minimo eventuali perdite di dati in caso di errore non tollerabile.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Se il dispositivo ha un errore non tollerabile, i dati locali che non sono suddivisi in livelli dal dispositivo ad Azure potrebbero andare persi. 
 
 ## <a name="protect-data-in-edge-local-shares"></a>Proteggere i dati nelle condivisioni locali perimetrali
@@ -65,9 +65,10 @@ Le soluzioni di protezione dei dati di terze parti seguenti possono fornire una 
 
 | Software di terze parti           | Riferimento alla soluzione                               |
 |--------------------------------|---------------------------------------------------------|
-| Cohesity                       | https://www.cohesity.com/solution/cloud/azure/ <br> Per informazioni dettagliate, contattare Cohesity.          |
-| CommVault                      | https://www.commvault.com/azure <br> Per informazioni dettagliate, contattare CommVault.          |
-| Veritas                        | http://veritas.com/azure <br> Per informazioni dettagliate, contattare Veritas.   |
+| Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> Per informazioni dettagliate, contattare Cohesity.          |
+| CommVault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> Per informazioni dettagliate, contattare CommVault.          |
+| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> Per informazioni dettagliate, contattare Veritas.   |
+| Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> Per informazioni dettagliate, contattare Veeam. |
 
 
 ## <a name="protect-files-and-folders-on-vms"></a>Proteggere file e cartelle nelle VM
@@ -75,13 +76,13 @@ Le soluzioni di protezione dei dati di terze parti seguenti possono fornire una 
 Azure Stack Edge funziona con backup di Azure e altre soluzioni di protezione dei dati di terze parti per fornire una soluzione di backup per proteggere i dati contenuti nelle VM distribuite nel dispositivo. Nella tabella seguente sono elencati i riferimenti alle soluzioni disponibili tra cui è possibile scegliere.
 
 
-| Soluzioni di backup        | Sistema operativo supportato   | Informazioni di riferimento                                                                |
+| Soluzioni di backup        | Sistema operativo supportato   | Riferimento                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente di Servizi di ripristino di Microsoft Azure (MARS) per backup di Azure | Windows        | [Informazioni sull'agente MARS](../backup/backup-azure-about-mars.md)    |
-| Cohesity                | Windows, Linux | [Riepilogo della soluzione di integrazione, backup e ripristino Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Per informazioni dettagliate, contattare Cohesity.                          |
-| CommVault               | Windows, Linux | https://www.commvault.com/azure <br>Per informazioni dettagliate, contattare CommVault.                          |
-| Veritas                 | Windows, Linux | http://veritas.com/azure <br> Per informazioni dettagliate, contattare Veritas.                    |
-
+| Cohesity                | Windows, Linux | [Integrazione di Microsoft Azure, soluzione backup & Recovery Brief](https://www.cohesity.com/solution/cloud/azure) <br>Per informazioni dettagliate, contattare Cohesity.                          |
+| CommVault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br>Per informazioni dettagliate, contattare CommVault.                          |
+| Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370](https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370) <br> Per informazioni dettagliate, contattare Veritas.                    |
+| Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> Per informazioni dettagliate, contattare Veeam. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

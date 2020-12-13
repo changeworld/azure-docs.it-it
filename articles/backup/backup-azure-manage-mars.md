@@ -4,12 +4,12 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145570"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368597"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
@@ -29,7 +29,7 @@ Quando si modificano i criteri di backup, è possibile aggiungere nuovi elementi
 
 ### <a name="add-new-items-to-existing-policy"></a>Aggiungi nuovi elementi a criteri esistenti
 
-1. In **azioni**selezionare **Pianifica backup**.
+1. In **azioni** selezionare **Pianifica backup**.
 
     ![Pianificare un backup di Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
@@ -59,7 +59,7 @@ Quando si modificano i criteri di backup, è possibile aggiungere nuovi elementi
 
     ![Impostazioni di esclusione](./media/backup-azure-manage-mars/select-exclusion-settings.png)
 
-2. In **impostazioni di esclusione**selezionare **Aggiungi esclusione**.
+2. In **impostazioni di esclusione** selezionare **Aggiungi esclusione**.
 
     ![Aggiungi esclusione](./media/backup-azure-manage-mars/add-exclusion.png)
 
@@ -100,7 +100,7 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Arrestare la protezione e conservare i dati di backup
 
-1. Aprire la console di gestione di MARS, passare al **riquadro azioni**e **selezionare Pianifica backup**.
+1. Aprire la console di gestione di MARS, passare al **riquadro azioni** e **selezionare Pianifica backup**.
 
     ![Selezione pianificazione backup](./media/backup-azure-manage-mars/mars-actions.png)
 1. Nella pagina **Selezione elemento criteri** selezionare **Modifica pianificazione backup per i file e le cartelle** e selezionare **Avanti**.
@@ -109,10 +109,10 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 1. Nella pagina **modificare o arrestare un backup pianificato** selezionare **Interrompi utilizzando questa pianificazione del backup, ma Mantieni i backup archiviati fino a quando non viene attivata nuovamente una pianificazione**. Quindi selezionare **Avanti**.
 
     ![Arrestare un backup pianificato.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. In **Sospendi backup pianificato**esaminare le informazioni e selezionare **fine**.
+1. In **Sospendi backup pianificato** esaminare le informazioni e selezionare **fine**.
 
     ![Sospendere un backup pianificato.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. In **modifica stato backup**verificare che la pianificazione della sospensione del backup sia in stato di esito positivo e selezionare **Chiudi** per terminare.
+1. In **modifica stato backup** verificare che la pianificazione della sospensione del backup sia in stato di esito positivo e selezionare **Chiudi** per terminare.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrestare la protezione ed eliminare i dati di backup
 
@@ -125,8 +125,8 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 
     ![Arrestare un backup pianificato e selezionare fine](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Viene richiesto di immettere un PIN di sicurezza (Personal Identification Number), che è necessario generare manualmente. A tale scopo, accedere prima al portale di Azure.
-5. Passare a impostazioni dell'insieme di credenziali di **servizi di ripristino**  >  **Settings**  >  **Proprietà**.
-6. In **pin di sicurezza**selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
+5. Passare a impostazioni dell'insieme di credenziali di **servizi di ripristino**  >    >  **Proprietà**.
+6. In **pin di sicurezza** selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
 7. Nella console di gestione incollare il PIN e quindi fare clic su **OK**.
 
     ![Generare un PIN di sicurezza.](./media/backup-azure-delete-vault/security-pin.png)
@@ -145,11 +145,11 @@ Se la protezione è stata interrotta durante la conservazione dei dati e si è d
 1. Selezionare **riabilita pianificazione backup. È anche possibile modificare gli elementi o le ore di backup e fare** clic su **Avanti**.<br>
 
     ![Riattivare la pianificazione del backup](./media/backup-azure-manage-mars/re-enable-policy-next.png)
-1. In **Seleziona elementi di cui eseguire il backup**selezionare **Avanti**.
+1. In **Seleziona elementi di cui eseguire il backup** selezionare **Avanti**.
 
     ![Selezionare gli elementi di cui eseguire il backup](./media/backup-azure-manage-mars/re-enable-next.png)
-1. In **specificare la pianificazione del backup**specificare la pianificazione del backup e fare clic su **Avanti**.
-1. In **Seleziona criteri di conservazione**specificare durata conservazione e selezionare **Avanti**.
+1. In **specificare la pianificazione del backup** specificare la pianificazione del backup e fare clic su **Avanti**.
+1. In **Seleziona criteri di conservazione** specificare durata conservazione e selezionare **Avanti**.
 1. Infine, nella schermata di **conferma** esaminare i dettagli dei criteri e selezionare **fine**.
 
 ## <a name="re-generate-passphrase"></a>Genera di nuovo passphrase
@@ -189,6 +189,19 @@ La gestione dei criteri di backup per MARS viene eseguita tramite la console MAR
   1. Installare l'agente e ripetere la registrazione nello stesso insieme di credenziali e con la stessa passphrase
   1. Avviare il client MARS per estendere la durata di conservazione in base ai requisiti
 - Il computer appena ripristinato, protetto con MARS, continuerà a eseguire i backup.  
+
+## <a name="configuring-antivirus-for-the-mars-agent"></a>Configurazione del software antivirus per l'agente MARS
+
+Per evitare conflitti con il funzionamento dell'agente MARS, è consigliabile eseguire la configurazione seguente per il software antivirus.
+
+1. **Aggiunta di esclusioni di percorso**: per evitare il calo delle prestazioni e dei possibili conflitti, escludere i percorsi seguenti dal monitoraggio in tempo reale da parte del software antivirus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` e sottocartelle
+    1. **Cartella Scratch**: se la cartella Scratch non si trova nella posizione standard, aggiungerla anche alle esclusioni.  Per informazioni sui passaggi per determinare il percorso della cartella Scratch, [vedere qui](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) .
+1. **Aggiunta di esclusioni binarie**: per evitare la riduzione delle attività di backup e console, escludere i processi per i file binari seguenti dal monitoraggio in tempo reale da parte del software antivirus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>Sebbene l'esclusione di questi percorsi sia sufficiente per la maggior parte del software antivirus, alcune potrebbero continuare a interferire con le operazioni dell'agente MARS. Se vengono visualizzati errori imprevisti, disinstallare temporaneamente il software antivirus e monitorarlo per verificare se il problema si è verificato. Se il problema persiste, contattare il fornitore del software antivirus per ottenere assistenza sulla corretta configurazione del prodotto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

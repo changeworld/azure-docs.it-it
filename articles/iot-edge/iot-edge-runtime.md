@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 133be436853ee8c2b04df2f943368513108b226b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c0c3a452c93b88483ac7027405665c26ceab8183
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444308"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368511"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -81,7 +81,7 @@ L'hub IoT Edge non è una versione completa dell'hub Internet in esecuzione in l
 
 Per ridurre la larghezza di banda usata dalla soluzione IoT Edge, l'hub IoT Edge Ottimizza il numero di connessioni effettive effettuate al cloud. IoT Edge Hub prende le connessioni logiche da moduli o dispositivi downstream e li combina per una singola connessione fisica al cloud. I dettagli di questo processo sono trasparenti per il resto della soluzione. Ai client sembra di avere ognuno la propria la connessione al cloud ma in realtà usano tutti la stessa connessione. L'hub IoT Edge può usare il protocollo AMQP o MQTT per comunicare upstream con il cloud, indipendentemente dai protocolli usati dai dispositivi downstream. Tuttavia, l'hub IoT Edge supporta attualmente solo la combinazione di connessioni logiche in una singola connessione fisica usando AMQP come protocollo upstream e le sue funzionalità di multiplexing. AMQP è il protocollo upstream predefinito.
 
-![L'hub di IoT Edge è un gateway tra dispositivi fisici e l'hub IoT](./media/iot-edge-runtime/Gateway.png)
+![L'hub di IoT Edge è un gateway tra dispositivi fisici e l'hub IoT](./media/iot-edge-runtime/gateway-communication.png)
 
 L'hub di IoT Edge può determinare se è connesso all'hub IoT. Se la connessione viene persa, l'hub di IoT Edge salva i messaggi o gli aggiornamenti gemelli in locale. Quando viene ristabilita la connessione, tutti i dati vengono sincronizzati. Il percorso usato per questa cache temporanea è determinato da una proprietà del gemello del modulo dell'hub IoT Edge. Le dimensioni della cache non sono limitate e aumentano fino a quando il dispositivo ha capacità di archiviazione. Per ulteriori informazioni, vedere [funzionalità offline](offline-capabilities.md).
 
@@ -94,7 +94,7 @@ L'hub di IoT Edge facilita la comunicazione tra moduli. L'uso dell'hub di IoT Ed
 
 ![L'hub di IoT Edge facilita la comunicazione tra moduli](./media/iot-edge-runtime/module-endpoints.png)
 
-Per inviare i dati all'hub di IoT Edge, un modulo chiama il metodo SendEventAsync. Il primo argomento specifica su quale output inviare il messaggio. Lo pseudocodice seguente invia un messaggio in **output1** :
+Per inviare i dati all'hub di IoT Edge, un modulo chiama il metodo SendEventAsync. Il primo argomento specifica su quale output inviare il messaggio. Lo pseudocodice seguente invia un messaggio in **output1**:
 
    ```csharp
    ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings);
@@ -102,7 +102,7 @@ Per inviare i dati all'hub di IoT Edge, un modulo chiama il metodo SendEventAsyn
    await client.SendEventAsync("output1", message);
    ```
 
-Per ricevere un messaggio, registrare un callback che elabori i messaggi in arrivo in un input specifico. Lo pseudocodice seguente registra la funzione messageProcessor da usare per l'elaborazione di tutti i messaggi ricevuti in **INPUT1** :
+Per ricevere un messaggio, registrare un callback che elabori i messaggi in arrivo in un input specifico. Lo pseudocodice seguente registra la funzione messageProcessor da usare per l'elaborazione di tutti i messaggi ricevuti in **INPUT1**:
 
    ```csharp
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
@@ -112,7 +112,7 @@ Per altre informazioni sulla classe ModuleClient e sui relativi metodi di comuni
 
 Lo sviluppatore di soluzioni è responsabile della definizione delle regole che determinano il modo in cui l'hub di IoT Edge passa i messaggi tra i moduli. Le regole di routing sono definite nel cloud ed è stato eseguito il push all'hub IoT Edge nel gemello del modulo. La stessa sintassi per le route dell'hub IoT viene usata per definire le route tra i moduli di Azure IoT Edge. Per altre informazioni, vedere [Informazioni su come distribuire moduli e definire route in IoT Edge](module-composition.md).
 
-![Le route tra i moduli passano attraverso l'hub di IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![Le route tra i moduli passano attraverso l'hub di IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 ::: moniker-end
 
 <!-- <1.2> -->
@@ -134,7 +134,7 @@ L'hub IoT Edge supporta due meccanismi di Service Broker:
 
 Il primo meccanismo di Service Broker sfrutta le stesse funzionalità di routing dell'hub Internet per specificare il modo in cui i messaggi vengono passati tra dispositivi o moduli. I primi dispositivi o moduli specificano gli input sui quali accettano i messaggi e gli output in cui scrivono i messaggi. Uno sviluppatore di soluzioni può quindi instradare i messaggi tra un'origine, ad esempio gli output, e una destinazione, ad esempio gli input, con filtri potenziali.
 
-![Le route tra i moduli passano attraverso l'hub di IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![Le route tra i moduli passano attraverso l'hub di IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 
 Il routing può essere usato da dispositivi o moduli compilati con gli SDK per dispositivi Azure Internet, tramite il protocollo AMQP o MQTT. Sono supportate tutte le primitive dell'hub degli elementi di messaggistica, ad esempio i dati di telemetria, i metodi diretti, C2D, i gemelli, ma la comunicazione sugli argomenti definiti dall'utente non è supportata.
 
@@ -159,7 +159,7 @@ Per ulteriori informazioni su MQTT broker, vedere [pubblicare e sottoscrivere co
 
 Di seguito sono riportate le funzionalità disponibili in ogni meccanismo di Service Broker:
 
-|Funzionalità  | Routing  | Broker MQTT  |
+|Funzionalità  | Routing.  | Broker MQTT  |
 |---------|---------|---------|
 |Telemetria D2C    |     &#10004;    |         |
 |Telemetria locale     |     &#10004;    |    &#10004;     |

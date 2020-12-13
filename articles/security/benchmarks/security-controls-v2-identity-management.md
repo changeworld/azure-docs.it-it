@@ -7,45 +7,45 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2b21bea924ee8eaed37246ce55feaf8243e3e7d4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 33f5dff65fa7ad8274051f784f2e61dc8366d389
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408738"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368852"
 ---
 # <a name="security-control-v2-identity-management"></a>Controllo di sicurezza V2: gestione delle identità
 
 Gestione delle identità riguarda i controlli per stabilire un'identità sicura e i controlli di accesso usando Azure Active Directory. Sono inclusi l'uso di Single Sign-On, le autenticazioni complesse, le identità gestite (e i principi di servizio) per le applicazioni, l'accesso condizionale e il monitoraggio delle anomalie dell'account.
 
-## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: standardizzare Azure Active Directory come sistema di autenticazione e identità centrale
+## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standardizzare Azure Active Directory come sistema di identità e autenticazione centrale
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
 
-Azure Active Directory (Azure AD) è il servizio di gestione delle identità e degli accessi predefinito di Azure. È necessario standardizzare i Azure AD per gestire la gestione delle identità e degli accessi dell'organizzazione in:
-- Risorse cloud Microsoft, ad esempio portale di Azure, archiviazione di Azure, macchine virtuali di Azure (Linux e Windows), Azure Key Vault, PaaS e applicazioni SaaS.
+Azure Active Directory (Azure AD) è il servizio di gestione delle identità e degli accessi predefinito di Azure. Usare Azure AD come standard per regolamentare la gestione delle identità e degli accessi dell'organizzazione in:
+- Risorse cloud Microsoft, come il portale di Azure, Archiviazione di Azure, Macchine virtuali di Azure (Linux e Windows), Azure Key Vault, PaaS e applicazioni SaaS.
 
-- Le risorse dell'organizzazione, ad esempio le applicazioni in Azure o le risorse della rete aziendale.
+- Risorse dell'organizzazione, come le applicazioni in Azure o le risorse della rete aziendale.
 
-La protezione di Azure AD deve essere una priorità elevata nella procedura di sicurezza del cloud dell'organizzazione. Azure AD fornisce un punteggio sicuro per l'identità che consente di valutare la postura di sicurezza delle identità rispetto alle procedure consigliate di Microsoft. Usare il punteggio per misurare la precisione con cui la configurazione corrisponde ai consigli delle procedure consigliate e per apportare miglioramenti in termini di sicurezza.
+La protezione di Azure AD dovrebbe avere la massima priorità nelle procedure di sicurezza del cloud dell'organizzazione. Azure AD fornisce un punteggio di sicurezza delle identità che consente di valutare il comportamento di sicurezza delle identità rispetto alle procedure consigliate Microsoft. Usare il punteggio per misurare la precisione con cui la configurazione aderisce alle raccomandazioni delle procedure consigliate e per migliorare il comportamento di sicurezza.
 
-Nota: Azure AD supporta provider di identità esterni, che consentono agli utenti senza account Microsoft di accedere alle applicazioni e alle risorse con l'identità esterna.
+Nota: Azure AD supporta provider di identità esterni, che consentono agli utenti che non hanno un account Microsoft di accedere alle proprie applicazioni e risorse con l'identità esterna.
 
-- [Locazione in Azure AD](../../active-directory/develop/single-and-multi-tenant-apps.md)
+- [Tenancy in Azure AD](../../active-directory/develop/single-and-multi-tenant-apps.md)
 
 - [Come creare e configurare un'istanza di Azure AD](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Definire Azure AD tenant](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
+- [Definire i tenant di Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
 - [Usare provider di identità esterni per un'applicazione](../../active-directory/external-identities/identity-providers.md)
 
-- [Qual è il Punteggio di sicurezza identità in Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
+- [Che cos'è il punteggio di sicurezza delle identità in Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -55,9 +55,9 @@ Nota: Azure AD supporta provider di identità esterni, che consentono agli utent
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: gestire le identità dell'applicazione in modo sicuro e automatico
+## <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Gestire le identità dell'applicazione in modo sicuro e automatico
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-2 | N/D | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
@@ -75,17 +75,17 @@ Per i servizi che non supportano le identità gestite, usare Azure AD per creare
 
 Usare Azure Key Vault per la registrazione dell'entità di sicurezza: Authentication # autorizzi-a-Security-Principal-to-Access-Key-Vault
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: usare Azure AD Single Sign-On (SSO) per l'accesso alle applicazioni
+## <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Usare l'accesso Single Sign-On (SSO) di Azure per accedere alle applicazioni
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-3 | 4.4 | IA-2, IA-4 |
 
@@ -95,9 +95,9 @@ Usare Azure AD Single Sign-On (SSO) per gestire e proteggere l'accesso ai dati e
 
 - [Informazioni sull'accesso Single Sign-on dell'applicazione con Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -105,9 +105,9 @@ Usare Azure AD Single Sign-On (SSO) per gestire e proteggere l'accesso ai dati e
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: usare controlli di autenticazione avanzata per tutti gli accessi in base al Azure Active Directory
+## <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Usare i controlli di autenticazione avanzata per tutti gli accessi basati su Azure Active Directory
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
 
@@ -124,15 +124,15 @@ Nota: l'autenticazione basata solo sulle credenziali password è soggetta ai met
 
 - [Come abilitare MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Introduzione alle opzioni di autenticazione con password per Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)
+- [Introduzione alle opzioni di autenticazione senza password per Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)
 
-- [Azure AD criteri password predefiniti](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
+- [Criteri password predefiniti di Azure AD](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
 
-- [Eliminare le password non valide usando la protezione Azure AD password](../../active-directory/authentication/concept-password-ban-bad.md)
+- [Eliminare le password non valide usando la funzionalità di protezione password di Azure AD](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -140,9 +140,9 @@ Nota: l'autenticazione basata solo sulle credenziali password è soggetta ai met
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: monitoraggio e avviso per le anomalie degli account
+## <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: Monitorare e segnalare le anomalie degli account
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-5 | 4,8, 4,9, 16,12, 16,13 | AC-2, AC-3, AC-7, AU-6 |
 
@@ -155,7 +155,7 @@ Azure AD fornisce le origini dati seguenti:
 
 -   Utenti contrassegnati per il rischio. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso.
 
-Queste origini dati possono essere integrate con monitoraggio di Azure, Azure Sentinel o sistemi SIEM di terze parti.
+Queste origini dati possono essere integrate con Monitoraggio di Azure, Azure Sentinel o sistemi SIEM di terze parti.
 
 Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività sospette, ad esempio un numero eccessivo di tentativi di autenticazione non riusciti e gli account deprecati nella sottoscrizione. 
 
@@ -169,7 +169,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 - [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../../security-center/security-center-identity-access.md)
 
-- [Avvisi nel modulo di protezione dalle minacce per il Centro sicurezza di Azure](../../security-center/alerts-reference.md)
+- [Avvisi nel modulo di protezione dell'intelligence sulle minacce del Centro sicurezza di Azure](../../security-center/alerts-reference.md)
 
 - [Come integrare i log attività di Azure in monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -177,17 +177,17 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: limitare l'accesso alle risorse di Azure in base alle condizioni
+## <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Limitare l'accesso alle risorse di Azure in base alle condizioni
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-6 | N/D | AC-2, AC-3 |
 
@@ -199,9 +199,9 @@ Usare Azure AD accesso condizionale per un controllo di accesso più granulare i
 
 - [È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -211,23 +211,23 @@ Usare Azure AD accesso condizionale per un controllo di accesso più granulare i
 
 - [Intelligence per le minacce](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: eliminare l'esposizione delle credenziali non intenzionali
+## <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Eliminare l'esposizione non intenzionale delle credenziali
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-7 | 18,1, 18,7 | IA-5 |
 
 Implementare Azure DevOps Credential scanner per identificare le credenziali all'interno del codice. Credential scanner consiglia inoltre di trasferire le credenziali individuate a posizioni più sicure, ad esempio Azure Key Vault.
 
-Per GitHub, è possibile usare la funzionalità di analisi dei segreti nativi per identificare le credenziali o altre forme di segreti all'interno del codice.
+Per GitHub, è possibile usare la funzionalità di analisi dei segreti nativa per identificare le credenziali o altre forme di segreti all'interno del codice.
 
 - [Come impostare Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 - [Analisi dei segreti di GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -235,7 +235,7 @@ Per GitHub, è possibile usare la funzionalità di analisi dei segreti nativi pe
 
 ## <a name="im-8-secure-user-access-to-legacy-applications"></a>IM-8: proteggere l'accesso degli utenti alle applicazioni legacy
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | IM-8 | 14,6 | AC-2, AC-3, SC-11 |
 
@@ -245,13 +245,13 @@ Azure AD proxy di applicazione consente di pubblicare applicazioni locali legacy
 
 In alternativa, Microsoft Cloud App Security è un servizio CASB (cloud Access Security Broker) che può fornire controlli per il monitoraggio delle sessioni dell'applicazione di un utente e delle azioni di blocco (per le applicazioni locali legacy e le applicazioni SaaS (cloud Software as a Service). 
 
-- [Proxy dell'applicazione di Azure AD](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
+- [Proxy applicazione Azure AD](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 
 - [Procedure consigliate Microsoft Cloud App Security](/cloud-app-security/best-practices)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

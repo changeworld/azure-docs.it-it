@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feb647cc42c878778b4326c9ee76a32809751314
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790847"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369311"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST
 
@@ -58,21 +58,21 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Ambito | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Risorsa |
 
-    Nell'esempio precedente Microsoft. Web è un provider di risorse che fa riferimento a un'istanza del servizio app. Analogamente, è possibile usare qualsiasi altro provider di risorse e specificare l'ambito. Per altre informazioni, vedere [provider di risorse di Azure e tipi](../azure-resource-manager/management/resource-providers-and-types.md) e [le operazioni supportate Azure Resource Manager provider di risorse](resource-provider-operations.md).  
+    Nell'esempio precedente Microsoft. Web è un provider di risorse che fa riferimento a un'istanza del servizio app. Analogamente, è possibile usare qualsiasi altro provider di risorse e specificare l'ambito. Per altre informazioni, vedere [provider di risorse di Azure e tipi](../azure-resource-manager/management/resource-providers-and-types.md) e [operazioni del provider di risorse di Azure](resource-provider-operations.md)supportate.  
 
 1. Sostituire *{roleAssignmentId}* con l'identificatore GUID dell'assegnazione di ruolo.
 
 1. Nel corpo della richiesta sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Ambito | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -132,7 +132,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo Az
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Ambito | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |

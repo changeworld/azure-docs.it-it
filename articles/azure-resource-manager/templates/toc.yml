@@ -515,6 +515,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Risorse
   items:
+    - name: Sviluppare le proprie competenze con Microsoft Learn
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: Modelli di Guida introduttiva di Azure
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Roadmap per Azure

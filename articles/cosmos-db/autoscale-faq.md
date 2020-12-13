@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/11/2020
+ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092688"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368580"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Negli account con singola area di scrittura, la velocità di scalabilità automa
 Negli account con più aree di scrittura, la velocità di scalabilità automatica per 100 ur/sec corrisponde alla frequenza per la velocità effettiva del provisioning di più aree di scrittura standard (manuale). Nella fattura sarà visualizzato il contatore più aree di scrittura esistenti. Poiché le tariffe sono le stesse, se si usa la scalabilità automatica viene visualizzata la stessa quantità rispetto alla velocità effettiva standard.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>La scalabilità automatica funziona con la capacità riservata?
-Sì. Quando si acquista la capacità riservata per gli account con più aree di scrittura, lo sconto per la prenotazione per le risorse di scalabilità automatica viene applicato all'utilizzo del contatore a un rapporto di 1,5 * il [rapporto dell'area specifica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sì. Quando si acquista la capacità riservata per gli account con singole aree di scrittura, lo sconto relativo alla prenotazione per le risorse di scalabilità automatica viene applicato all'utilizzo del contatore a un rapporto di 1,5 * il [rapporto dell'area specifica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
 La capacità riservata dell'area con più scritture funziona allo stesso tempo per la scalabilità automatica e la velocità effettiva con provisioning standard (manuale). Vedere [Capacità riservata di Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
@@ -109,9 +109,9 @@ Quando si invia una richiesta di aumento del numero massimo di UR/s `Tmax`, a se
 #### <a name="lowering-the-max-rus"></a>Riduzione del numero massimo di UR/s
 Quando si riduce il numero massimo di UR/s, il valore minimo che è possibile impostare è `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, arrotondato al migliaio di UR/s più vicino. 
 
-Esempio 1: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 20.000 (con scalabilità compresa tra 2000 e 20.000 UR/s) e 50 GB di spazio di archiviazione. Il valore minimo più basso per il quale è possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, 20.000/10, **50 * 100** ) = 5000 UR/s (con scalabilità compresa tra 500 e 5000 UR/s).
+Esempio 1: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 20.000 (con scalabilità compresa tra 2000 e 20.000 UR/s) e 50 GB di spazio di archiviazione. Il valore minimo più basso per il quale è possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, 20.000/10, **50 * 100**) = 5000 UR/s (con scalabilità compresa tra 500 e 5000 UR/s).
 
-Esempio 2: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 100.000 e 100 GB di spazio di archiviazione. Si decide ora di ridimensionare il numero massimo di UR/s a 150.000 (con scalabilità compresa tra 15.000 e 150.000 UR/s). Il valore minimo più basso per il quale è ora possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, **150.000/10** , 100 * 100) = 15,000 UR/s (con scalabilità compresa tra 1500 e 15,000 UR/s). 
+Esempio 2: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 100.000 e 100 GB di spazio di archiviazione. Si decide ora di ridimensionare il numero massimo di UR/s a 150.000 (con scalabilità compresa tra 15.000 e 150.000 UR/s). Il valore minimo più basso per il quale è ora possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, **150.000/10**, 100 * 100) = 15,000 UR/s (con scalabilità compresa tra 1500 e 15,000 UR/s). 
 
 Per un database con velocità effettiva condivisa, quando si riduce il numero massimo di UR/s, il valore minimo che è possibile impostare è `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arrotondato al migliaio di UR/s più vicino.  
 

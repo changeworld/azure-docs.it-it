@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368248"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369277"
 ---
 # <a name="list-azure-role-definitions"></a>Elencare le definizioni dei ruoli di Azure
 
@@ -37,7 +37,7 @@ Attenersi alla seguente procedura per elencare tutti i ruoli nel portale di Azur
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic su **Ruoli** per visualizzare l'elenco di tutti i ruoli predefiniti e personalizzati.
 
@@ -351,12 +351,12 @@ Per elencare le definizioni dei ruoli, usare l'API REST per l' [elenco delle def
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Risorsa |
 
-    Nell'esempio precedente Microsoft. Web è un provider di risorse che fa riferimento a un'istanza del servizio app. Analogamente, è possibile usare qualsiasi altro provider di risorse e specificare l'ambito. Per altre informazioni, vedere [provider di risorse di Azure e tipi](../azure-resource-manager/management/resource-providers-and-types.md) e [le operazioni supportate Azure Resource Manager provider di risorse](resource-provider-operations.md).  
+    Nell'esempio precedente Microsoft. Web è un provider di risorse che fa riferimento a un'istanza del servizio app. Analogamente, è possibile usare qualsiasi altro provider di risorse e specificare l'ambito. Per altre informazioni, vedere [provider di risorse di Azure e tipi](../azure-resource-manager/management/resource-providers-and-types.md) e [operazioni del provider di risorse di Azure](resource-provider-operations.md)supportate.  
      
 1. Sostituire *{Filter}* con la condizione che si vuole applicare per filtrare l'elenco di definizioni di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Descrizione |
+    > | Filtra | Description |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Elenca le definizioni dei ruoli per l'ambito specificato e per qualsiasi ambito. |
     > | `$filter=type+eq+'{type}'` | Elenca le definizioni dei ruoli del tipo specificato. Il tipo di ruolo può essere `CustomRole` o `BuiltInRole` . |

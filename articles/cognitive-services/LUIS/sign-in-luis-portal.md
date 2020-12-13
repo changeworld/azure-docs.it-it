@@ -9,14 +9,16 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 3235f6285edb99776b42014678cd2b6c60d17f62
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: b8382b76496976054ebb452e39866765d986ccbb
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763842"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368180"
 ---
 # <a name="sign-in-to-luis-portal"></a>Accedere al portale LUIS
+
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
 
 Usare questo articolo per iniziare a usare il portale LUIS e creare una risorsa di creazione. Dopo aver completato i passaggi descritti in questo articolo, sarà possibile creare e pubblicare app LUIS.
 

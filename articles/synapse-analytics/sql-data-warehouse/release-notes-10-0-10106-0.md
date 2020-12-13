@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534047"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369005"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Pool SQL dedicato (noto in precedenza come SQL DW) nelle note sulla versione di Azure sinapsi Analytics
 
@@ -59,7 +59,7 @@ Per i miglioramenti agli strumenti, verificare che sia installata la versione co
 | Miglioramenti al servizio | Dettagli |
 | --- | --- |
 |**Gestione del carico di lavoro-esperienza del portale**|Gli utenti possono configurare e gestire le impostazioni di gestione del carico di lavoro tramite il portale di Azure. È anche possibile configurare [gruppi di carico di lavoro](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) e [classificatori del carico di lavoro](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) con importanza.|
-|**Vista del catalogo migliorata dei mapping delle tabelle**|La nuova vista del catalogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) esegue il mapping **object_ids** di tabelle utente permanenti ai rispettivi nomi di tabella fisica.|
+|**Vista del catalogo migliorata dei mapping delle tabelle**|La nuova vista del catalogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) esegue il mapping **object_ids** di tabelle utente permanenti ai rispettivi nomi di tabella fisica.|
 
 ## <a name="july-2020"></a>Luglio 2020
 

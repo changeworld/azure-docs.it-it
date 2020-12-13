@@ -1,5 +1,5 @@
 ---
-title: Creare una query semplice
+title: Usare la sintassi di query Lucene semplice
 titleSuffix: Azure Cognitive Search
 description: Per informazioni sull'esecuzione di query in base alla semplice sintassi per la ricerca full-text, la ricerca di filtri, la ricerca geografica e la ricerca in base a un indice di ricerca cognitiva di Azure.
 manager: nitinme
@@ -7,135 +7,115 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: 027852216b3f2055a5a381d00aff94526953b898
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 12/12/2020
+ms.openlocfilehash: 51d36211c7ffa0507a186c9a1e1f2b52d478fe4e
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007875"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369098"
 ---
-# <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creare una query semplice in Azure ricerca cognitiva
+# <a name="use-the-simple-search-syntax-in-azure-cognitive-search"></a>Usare la sintassi di ricerca "Simple" in Azure ricerca cognitiva
 
-In ricerca cognitiva di Azure, la [sintassi di query semplice](query-simple-syntax.md) richiama il parser di query predefinito per l'esecuzione di query di ricerca full-text su un indice. Questo parser è veloce e gestisce scenari comuni, tra cui ricerca full-text, ricerca filtrata e sfaccettata e ricerca geografica. 
+In ricerca cognitiva di Azure, la [sintassi di query semplice](query-simple-syntax.md) richiama il parser di query predefinito per la ricerca full-text. Il parser è veloce e gestisce scenari comuni, tra cui ricerca full-text, ricerca filtrata e sfaccettata e ricerca di prefisso. Questo articolo usa esempi per illustrare l'utilizzo semplice della sintassi in una richiesta di [ricerca di documenti (API REST)](/rest/api/searchservice/search-documents) .
 
-In questo articolo vengono usati esempi per illustrare la sintassi semplice, popolando il `search=` parametro di un'operazione di [ricerca nei documenti](/rest/api/searchservice/search-documents) .
+> [!NOTE]
+> Una sintassi di query alternativa è [Lucene completa](query-lucene-syntax.md), che supporta strutture di query più complesse, come la ricerca fuzzy e la ricerca con caratteri jolly. Per altre informazioni ed esempi, vedere [usare la sintassi Lucene completa](search-query-lucene-examples.md).
 
-Una sintassi di query alternativa è [Lucene completa](query-lucene-syntax.md), che supporta strutture di query più complesse, come la ricerca fuzzy e la ricerca con caratteri jolly, che può richiedere ulteriore tempo per l'elaborazione. Per altre informazioni ed esempi che illustrano la sintassi completa, vedere [usare la sintassi Lucene completa](search-query-lucene-examples.md).
+## <a name="nyc-jobs-examples"></a>Esempi di processi NYC
 
-Per inviare query, scegliere tra gli strumenti e le API seguenti.
+Gli esempi seguenti sfruttano l' [indice di ricerca dei processi NYC](https://azjobsdemo.azurewebsites.net/) costituito da processi disponibili in base a un set di dati fornito dalla [città di New York parte Initiative](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o un ricerca cognitiva di Azure per provare queste query.
 
-| Metodologia | Descrizione |
-|-------------|-------------|
-| [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. Consigliato per l'esplorazione, il test e la convalida. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
-| [Postazione o Visual Studio Code](search-get-started-rest.md) | Gli strumenti di test Web sono un'ottima scelta per la formulazione delle chiamate REST di [ricerca nei documenti](/rest/api/searchservice/search-documents) . L'API REST supporta tutte le operazioni a livello di codice in Azure ricerca cognitiva, quindi è possibile inviare richieste in modo interattivo per concentrare l'esplorazione su un'attività specifica.  |
-| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client che può essere usato per eseguire query su un indice ricerca cognitiva di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md)  |
+È necessario disporre di un post o di uno strumento equivalente per emettere la richiesta HTTP su GET o POST. Se non si ha familiarità con questi strumenti, vedere [Guida introduttiva: esplorare Azure ricerca cognitiva API REST](search-get-started-rest.md).
 
-## <a name="formulate-requests-in-postman"></a>Formulare richieste in Postman
+## <a name="set-up-the-request"></a>Configurare la richiesta
 
-Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opportunità di lavoro disponibili in base a un set di dati fornito dall'iniziativa [City of New York OpenData](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o un ricerca cognitiva di Azure per provare queste query.
+1. Le intestazioni della richiesta devono contenere i valori seguenti:
 
-È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Guida introduttiva: esplorare Azure ricerca cognitiva API REST](search-get-started-rest.md).
+   | Chiave | valore |
+   |-----|-------|
+   | Content-Type | `application/json`|
+   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (si tratta della chiave API di query effettiva per il servizio di ricerca sandbox che ospita l'indice dei processi NYC) |
 
-### <a name="set-the-request-header"></a>Impostare l'intestazione della richiesta
+1. Impostare il verbo su **`GET`** .
 
-1. Nell'intestazione della richiesta impostare **Content-Type** su `application/json`.
+1. Impostare l'URL su **`https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$count=true`** . 
 
-2. Aggiungere una **chiave API** e impostarla su questa stringa: `252044BE3886FE4A8E3BAA4F595114BB`. Si tratta di una chiave di query per il servizio di ricerca sandbox che ospita l'indice NYC Jobs.
+   + La raccolta Documents nell'indice contiene tutti i contenuti disponibili per la ricerca. La chiave API di query fornita nell'intestazione della richiesta funziona solo per le operazioni di lettura destinate alla raccolta Documents.
 
-Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=**. 
+   + **`$count=true`** Restituisce un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, il conteggio sarà costituito da tutti i documenti nell'indice (circa 2558 nel caso dei processi NYC).
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+   + **`search=*`** query non specificata, equivalente a una ricerca vuota o null. Non è particolarmente utile, ma è la ricerca più semplice che è possibile eseguire e Mostra tutti i campi recuperabili nell'indice, con tutti i valori.
 
-### <a name="set-the-request-url"></a>Impostare l'URL della richiesta
+1. Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati.
 
-Request è un comando GET associato a un URL contenente l'endpoint di Azure ricerca cognitiva e la stringa di ricerca.
+   ```http
+   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
+   ```
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="GET dell'intestazione della richiesta post" border="false":::
+### <a name="how-to-invoke-simple-query-parsing"></a>Come richiamare l'analisi di query semplice
 
-La composizione dell'URL presenta i seguenti elementi:
-
-+ **`https://azs-playground.search.windows.net/`** è un servizio di ricerca sandbox gestito dal team di sviluppo di Azure ricerca cognitiva. 
-+ **`indexes/nycjobs/`** è l'indice dei processi NYC nella raccolta Indexes di tale servizio. Il nome e l'indice del servizio sono entrambi necessari sulla richiesta.
-+ **`docs`** raccolta documenti che contiene tutti i contenuti disponibili per la ricerca. La chiave API della query fornita nell'intestazione della richiesta funziona solo nelle operazioni di lettura destinate alla raccolta di documenti.
-+ **`api-version=2020-06-30`** imposta la versione API, che è un parametro obbligatorio per ogni richiesta.
-+ **`search=*`** stringa di query, che nella query iniziale è null, che restituisce i primi 50 risultati (per impostazione predefinita).
-
-## <a name="send-your-first-query"></a>Inviare la prima query
-
-Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati. Vengono restituiti interi documenti, che consentono di visualizzare tutti i campi e tutti i valori.
-
-Incollare l'URL in un client REST come passaggio di convalida e visualizzare la struttura del documento.
-
-  ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
-  ```
-
-La stringa di query, **`search=*`** , è una ricerca non specificata equivalente a null o a una ricerca vuota. Non è particolarmente utile, ma è la ricerca più semplice che sia possibile eseguire.
-
-Facoltativamente, è possibile aggiungere **`$count=true`** all'URL per restituire un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, sono tutti i documenti nell'indice (circa 2800 nel caso di NYC Jobs).
-
-## <a name="how-to-invoke-simple-query-parsing"></a>Come richiamare l'analisi di query semplice
-
-Per le query interattive, non è necessario specificare nulla: la sintassi semplice è quella predefinita. Nel codice, se è stato richiamato **queryType=full** per la sintassi di query completa, è possibile tornare al valore predefinito con **queryType=simple**.
-
-## <a name="example-1-field-scoped-query"></a>Esempio 1: query con ambito campo
-
-Questo primo esempio non è specifico del parser, ma viene presentato per primo come introduzione al primo concetto fondamentale delle query: l'indipendenza. Questo esempio limita l'ambito dell'esecuzione di query e della risposta a un numero ridotto di campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
-
-In breve, la query punta solo al campo *business_title* e specifica che vengano restituite solo le qualifiche professionali. La sintassi è **searchFields** per limitare l'esecuzione della query al campo business_title e **select** per specificare i campi da includere nella risposta.
-
-### <a name="partial-query-string"></a>Stringa di query parziale
+Per le query interattive, non è necessario specificare nulla: la sintassi semplice è quella predefinita. Nel codice, se in precedenza è stato richiamato **`queryType=full`** , è possibile reimpostare il valore predefinito con **`queryType=simple`** .
 
 ```http
-searchFields=business_title&$select=business_title&search=*
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "simple",
+    "search": "*"
+}
 ```
 
-Di seguito è illustrata la stessa query con più campi in un elenco delimitato da virgole.
+## <a name="example-1-full-text-search-on-specific-fields"></a>Esempio 1: ricerca full-text in campi specifici
+
+Questo primo esempio non è specifico del parser, ma viene presentato per primo come introduzione al primo concetto fondamentale delle query: l'indipendenza. Questo esempio limita l'esecuzione delle query e la risposta ad alcuni campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
+
+Questa query è destinata solo a *business_title* in **`searchFields`** , specificando tramite il **`select`** parametro lo stesso campo nella risposta.
 
 ```http
-search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
-```
-
-### <a name="full-url"></a>URL completo
-
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchFields=business_title&$select=business_title&search=*
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "simple",
+    "search": "*",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
 La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
   :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Risposta di esempio di Postman" border="false":::
 
-Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi uniformi pari a 1 in assenza di classificazione perché la ricerca non è una ricerca full-text o perché non sono stati applicati criteri. Per ricerche Null senza criteri le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
+Si sarà notato il punteggio di ricerca nella risposta. I punteggi uniformi di **1** si verificano quando non esiste alcun rango, perché la ricerca non è full-text o perché non è stato fornito alcun criterio. Per una ricerca vuota, le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
 
 ## <a name="example-2-look-up-by-id"></a>Esempio 2: ricerca per ID
 
-Questo esempio è un po' atipico, ma quando si valutano i comportamenti di ricerca è possibile ispezionare l'intero contenuto di un documento specifico per capire perché è stato incluso o escluso dai risultati. Per restituire un intero documento, usare un'[operazione di ricerca](/rest/api/searchservice/lookup-document) per passare l'ID documento.
+Quando si restituiscono i risultati della ricerca in una query, un passaggio logico successivo consiste nel fornire una pagina di dettagli che includa più campi dal documento. Questo esempio Mostra come restituire un singolo documento usando un'operazione di [ricerca](/rest/api/searchservice/lookup-document) per passare l'ID del documento.
 
 Tutti i documenti dispongono di un identificatore unico. Per provare la sintassi per una query di ricerca, restituire innanzitutto un elenco di ID documento per trovarne uno da usare. Per NYC Jobs, gli identificatori sono archiviati nel campo `id`.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchFields=id&$select=id&search=*
+GET /indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
 ```
 
-L'esempio seguente è una query di ricerca che restituisce un documento in base a `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", che compariva per primo nella risposta precedente. La query seguente restituisce l'intero documento, non solo i campi selezionati. 
+Recuperare quindi un documento dalla raccolta in base a `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", che è comparso per primo nella risposta precedente. La query seguente restituisce tutti i campi recuperabili per l'intero documento.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30&$count=true&search=*
+GET /indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
 ```
 
 ## <a name="example-3-filter-queries"></a>Esempio 3: query filtro
 
-La [sintassi del filtro](./search-query-odata-filter.md) è un'espressione OData che si può usare con **search** o in modo autonomo. Un filtro autonomo, senza un parametro di ricerca, è utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio (tutti i punteggi corrispondono a 1) e una classificazione. Si noti che la stringa di ricerca è vuota.
+La [sintassi del filtro](./search-query-odata-filter.md) è un'espressione OData che è possibile utilizzare autonomamente o con **`search`** . Un filtro autonomo, senza un parametro di ricerca, è utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio (tutti i punteggi corrispondono a 1) e una classificazione. Si noti che la stringa di ricerca è vuota.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "job_id, business_title, agency, salary_range_from",
-      "count": "true"
+      "select": "job_id, business_title, agency, salary_range_from"
     }
 ```
 
@@ -143,16 +123,16 @@ Usati insieme, il filtro viene applicato per primo all'intero indice, quindi la 
 
   :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Filtrare le risposte della query" border="false":::
 
-Se si vuole provare questo esempio in Postman usando GET, incollare questa stringa:
-
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
-```
-
 Un altro modo efficace per combinare il filtro e la ricerca avviene tramite **`search.ismatch*()`** un'espressione di filtro, in cui è possibile usare una query di ricerca all'interno del filtro. L'espressione filtro usa un carattere jolly nell'elemento *plan* per selezionare business_title includendo i termini plan, planner, planning, e così via.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "",
+      "filter": "search.ismatch('plan*', 'business_title', 'full', 'any')",
+      "select": "job_id, business_title, agency, salary_range_from"
+    }
 ```
 
 Per altre informazioni sulla funzione, vedere [search.ismatch in "Esempi di filtro"](./search-query-odata-full-text-search-functions.md#examples).
@@ -161,148 +141,201 @@ Per altre informazioni sulla funzione, vedere [search.ismatch in "Esempi di filt
 
 Il filtro di intervallo è supportato tramite **`$filter`** espressioni per qualsiasi tipo di dati. Gli esempi seguenti eseguono la ricerca nei campi numerici e nei campi stringa. 
 
-I tipi di dati sono importanti nei filtri di intervallo e funzionano in modo ottimale quando i dati numerici si trovano nei campi numerici e i dati di tipo stringa nei campi stringa. I dati numerici nei campi stringa non sono adatti per gli intervalli perché le stringhe numeriche non sono confrontabili in ricerca cognitiva di Azure. 
+I tipi di dati sono importanti nei filtri di intervallo e funzionano in modo ottimale quando i dati numerici si trovano nei campi numerici e i dati di tipo stringa nei campi stringa. I dati numerici nei campi stringa non sono adatti per gli intervalli perché le stringhe numeriche non sono confrontabili in ricerca cognitiva di Azure.
 
-Per una migliore leggibilità, gli esempi riportati di seguito sono in formato POST (intervallo numerico seguito dall'intervallo di testo):
+La query seguente è un intervallo numerico:
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
       "select": "job_id, business_title, num_of_positions, agency",
-      "orderby": "agency",
-      "count": "true"
+      "orderby": "agency"
     }
 ```
+La risposta per questa query dovrebbe essere simile alla seguente schermata.
+
   :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Filtro di intervallo per intervalli numerici" border="false":::
 
+In questa query l'intervallo è posizionato su un campo stringa (business_title):
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
       "select": "job_id, business_title, agency",
-      "orderby": "business_title",
-      "count": "true"
+      "orderby": "business_title"
     }
 ```
 
+La risposta per questa query dovrebbe essere simile alla seguente schermata.
+
   :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Filtro di intervallo per intervalli di testo" border="false":::
 
-È anche possibile provare questi esempi in Postman usando GET:
-
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
-```
-
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
-```
-
 > [!NOTE]
-> L'esplorazione in base a facet su intervalli di valori è un requisito comune delle applicazioni di ricerca. Per altre informazioni ed esempi sulla creazione dei filtri per le strutture di navigazione facet, vedere ["Filtro basato su un intervallo" in *Come implementare l'esplorazione in base a facet*](search-faceted-navigation.md#filter-based-on-a-range).
+> L'esplorazione in base a facet su intervalli di valori è un requisito comune delle applicazioni di ricerca. Per ulteriori informazioni ed esempi, vedere [la pagina relativa alla modalità di compilazione di un filtro facet](search-filters-facets.md).
 
 ## <a name="example-5-geo-search"></a>Esempio 5: ricerca geografica
 
-L'indice degli esempi include un campo geo_location con le coordinate di latitudine e longitudine. Questo esempio usa la [funzione geo.distance](./search-query-odata-geo-spatial-functions.md#examples) che applica il filtro ai documenti all'interno della circonferenza di un punto di partenza, fino a una distanza arbitraria (in chilometri) specificata. È possibile modificare l'ultimo valore nella query (4) per ridurre o aumentare l'area della query.
-
-Per una migliore leggibilità, l'esempio riportato di seguito è in formato POST:
+L'indice degli esempi include un campo geo_location con le coordinate di latitudine e longitudine. Questo esempio usa la [funzione geo.distance](search-query-odata-geo-spatial-functions.md#examples) che applica il filtro ai documenti all'interno della circonferenza di un punto di partenza, fino a una distanza arbitraria (in chilometri) specificata. È possibile modificare l'ultimo valore nella query (4) per ridurre o aumentare l'area della query.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
-      "select": "job_id, business_title, work_location",
-      "count": "true"
+      "select": "business_title, work_location"
     }
 ```
-Per ottenere risultati più leggibili, i risultati della ricerca vengono rimossi per includere un ID processo, un titolo del processo e il percorso di lavoro. Le coordinate di inizio sono state ottenute da un documento casuale nell'indice (in questo caso, per una località di lavoro a Staten Island).
 
-È anche possibile provare questo esempio in Postman usando GET:
+Per ottenere risultati più leggibili, i risultati della ricerca vengono tagliati per includere il titolo del processo e il percorso di lavoro. Le coordinate di inizio sono state ottenute da un documento casuale nell'indice (in questo caso, per una località di lavoro a Staten Island).
 
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
-```
+  :::image type="content" source="media/search-query-simple-examples/geo-search.png" alt-text="Mappa di Staten Island" border="false":::
 
 ## <a name="example-6-search-precision"></a>Esempio 6: precisione della ricerca
 
 Le query basate su termini sono composte da singoli termini valutati separatamente. Le query basate su frasi sono racchiuse tra virgolette e vengono valutate come stringhe verbatim. La precisione della corrispondenza è controllata da operatori e searchMode.
 
-Esempio 1: **`&search=fire`**  restituisce i risultati 150, dove tutte le corrispondenze contengono la parola Fire in un punto del documento.
+Esempio 1: `search=fire`  corrisponde ai risultati 140, in cui tutte le corrispondenze contengono la parola Fire in qualche punto del documento.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=fire
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "fire"
+    }
 ```
 
-Esempio 2: **`&search=fire department`** restituisce 2002 risultati. Vengono restituite corrispondenze per i documenti contenenti fire o department.
+Esempio 2: `search=fire department` restituisce 2002 risultati. Vengono restituite corrispondenze per i documenti contenenti fire o department.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=fire department
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "fire department"
+    }
 ```
 
-Esempio 3: **`&search="fire department"`** restituisce 82 risultati. Racchiudendo la stringa tra virgolette si crea una ricerca verbatim su entrambi i termini e le corrispondenze vengono trovate su termini in formato token nell'indice composto dai termini combinati. Questo spiega perché una ricerca come **`search=+fire +department`** non è equivalente. Entrambi i termini sono necessari, ma vengono analizzati in modo indipendente. 
+Esempio 3: `search="fire department"` restituisce 77 risultati. Racchiudendo la stringa tra virgolette si crea una ricerca di frasi costituita da entrambi i termini e le corrispondenze si trovano nei termini in formato token nell'indice costituito dai termini combinati. Questo spiega perché una ricerca come `search=+fire +department` non è equivalente. Entrambi i termini sono necessari, ma vengono analizzati in modo indipendente. 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search="fire department"
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+    "count": true,
+    "search": "\"fire department\""
+    }
 ```
+
+> [!Note]
+> Poiché una query di frase viene specificata tramite virgolette, in questo esempio viene aggiunto un carattere di escape ( `\` ) per mantenere la sintassi.
 
 ## <a name="example-7-booleans-with-searchmode"></a>Esempio 7: valori booleani con searchMode
 
-La sintassi semplice supporta gli operatori booleani sotto forma di caratteri (`+, -, |`). Il parametro searchMode indica compromessi tra la precisione e il richiamo, con `searchMode=any` che favorisce il richiamo (la corrispondenza su qualsiasi criterio rende idoneo un documento al set di risultati) e `searchMode=all` che favorisce la precisione (deve esistere una corrispondenza per tutti i criteri). Il valore predefinito è `searchMode=any`, che può creare confusione se si impila una query con più operatori e si ottengono risultati più ampi anziché limitati. Questo è particolarmente vero con NOT, dove i risultati includono tutti i documenti che "non contengono" un termine specifico.
+La sintassi semplice supporta gli operatori booleani sotto forma di caratteri (`+, -, |`). Il parametro searchMode informa i compromessi tra precisione e richiamo, **`searchMode=any`** che favorisce il richiamo (la corrispondenza in base a qualsiasi criterio qualifica un documento per il set di risultati) e **`searchMode=all`** privilegia la precisione (tutti i criteri devono corrispondere). 
 
-Con il parametro searchMode predefinito (qualsiasi), vengono restituiti 2800 documenti: quelli che contengono il termine in più parti "fire department", più tutti i documenti che non contengono il termine "Metrotech Center".
+Il valore predefinito è **`searchMode=any`** , che può essere confuso se si sta impilando una query con più operatori e ottenendo risultati più ampi anziché più ristretti. Questo è particolarmente vero con NOT, dove i risultati includono tutti i documenti che "non contengono" un termine specifico.
+
+Usando il valore predefinito searchMode (any), vengono restituiti i documenti 2800: quelli che contengono la frase "Fire Department", più tutti i documenti che non hanno la frase "Metrotech Center".
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "\"fire department\"-\"Metrotech Center\"",
+      "searchMode": "any"
+    }
 ```
+
+La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
   :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="modalità di ricerca = qualsiasi" border="false":::
 
-La modifica del parametro searchMode in `all` implica un effetto cumulativo sui criteri e restituisce un set di risultati ridotto - 21 documenti (documenti contenenti l'intera frase "fire department"), meno le posizioni lavorative all'indirizzo Metrotech Center.
+La modifica di per **`searchMode=all`** impone un effetto cumulativo sui criteri e restituisce un set di risultati più piccolo, ovvero 21 documenti, costituito da documenti che contengono l'intera frase "Fire Department", meno quei processi all'indirizzo Metrotech Center.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "\"fire department\"-\"Metrotech Center\"",
+      "searchMode": "all"
+    }
 ```
+
   :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="modalità di ricerca = tutto" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Esempio 8: strutturazione dei risultati
 
-Più parametri determinano i campi presenti nei risultati di ricerca, il numero di documenti restituiti in ciascun batch e l'ordinamento. In questo esempio riaffiorano alcuni degli esempi precedenti, limitando i risultati a campi specifici usando l'istruzione **$select** e i criteri di ricerca verbatim, restituendo 82 corrispondenze 
+Più parametri determinano i campi presenti nei risultati di ricerca, il numero di documenti restituiti in ciascun batch e l'ordinamento. Questo esempio illustra alcuni esempi precedenti, limitando i risultati a campi specifici usando l' **`$select`** istruzione e i criteri di ricerca Verbatim, restituendo 82 corrispondenze.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "\"fire department\"",
+      "searchMode": "any",
+      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description"
+    }
 ```
+
 Aggiunto all'esempio precedente, è possibile ordinare in base al titolo. Questo ordinamento funziona perché civil_service_title è *ordinabile* nell'indice.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "\"fire department\"",
+      "searchMode": "any",
+      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
+      "orderby": "civil_service_title"
+    }
 ```
 
-Il paging dei risultati viene implementato usando il parametro **$top**, in questo caso restituendo i primi 5 documenti:
+Il paging dei risultati viene implementato utilizzando il **`$top`** parametro, in questo caso restituendo i primi 5 documenti:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=0
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "\"fire department\"",
+      "searchMode": "any",
+      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
+      "orderby": "civil_service_title",
+      "top": "5"
+    }
 ```
 
 Per ottenere i successivi 5, ignorare il primo batch:
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "\"fire department\"",
+      "searchMode": "any",
+      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
+      "orderby": "civil_service_title",
+      "top": "5",
+      "skip": "5"
+    }
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare a specificare le query nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca per l'API .NET e l'API REST usando la sintassi semplice predefinita.
 
-* [Eseguire query sull'indice usando .NET SDK](./search-get-started-dotnet.md)
-* [Eseguire query sull'indice usando l'API REST](./search-get-started-powershell.md)
+Provare a specificare le query nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca usando gli Azure SDK.
+
++ [Eseguire query sull'indice usando .NET SDK](search-get-started-dotnet.md)
++ [Eseguire query sull'indice con Python SDK](search-get-started-python.md)
++ [Eseguire query sull'indice tramite JavaScript SDK](search-get-started-javascript.md)
 
 Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono disponibili nei collegamenti seguenti:
 
 + [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
 + [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
-+ [Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Query Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Sintassi del filtro e sintassi Orderby](/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Sintassi di query semplice](query-simple-syntax.md)
++ [Sintassi di query Lucene completa](query-lucene-syntax.md)
++ [Sintassi del filtro](search-query-odata-filter.md)

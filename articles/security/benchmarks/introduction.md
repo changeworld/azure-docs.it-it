@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32aa64a9343a8e3c62af4322b3320b28ce805064
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328259"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369192"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduzione al benchmark di sicurezza di Azure
 
@@ -27,7 +27,7 @@ Il benchmark di sicurezza di Azure include una raccolta di consigli sulla sicure
 - **Baseline del servizio**: questi applicano i controlli ai singoli servizi di Azure per fornire consigli sulla configurazione di sicurezza del servizio.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementare il benchmark di sicurezza di Azure
-- **Pianificare** l'implementazione del benchmark di sicurezza di Azure esaminando la [documentazione](overview.md) per i controlli aziendali e le linee di base specifiche del servizio per pianificare il Framework di controllo e il modo in cui viene eseguito il mapping a linee guida come CIS (Controls v 7.1) e NIST (SP800-53) Framework.
+- **Pianificare** l'implementazione del benchmark di sicurezza di Azure esaminando la [documentazione](overview.md) per i controlli aziendali e le linee di base specifiche del servizio per pianificare il Framework di controllo e il modo in cui viene eseguito il mapping a linee guida come CIS (Controls v 7.1) e il framework NIST (SP 800-53).
 - **Monitorare** la conformità con lo stato del benchmark di sicurezza di Azure (e altri set di controllo) usando il [dashboard di conformità normativa](../../security-center/security-center-compliance-dashboard.md)del Centro sicurezza di Azure.
 - **Definire Guardrails** per automatizzare le configurazioni protette e applicare la conformità al benchmark di sicurezza di Azure e ad altri requisiti dell'organizzazione con i progetti di Azure e i criteri di Azure.
  
@@ -50,6 +50,6 @@ I termini "Control", "benchmark" e "baseline" vengono usati spesso nella documen
 |--|--|--|
 | Controllo | Un controllo è una descrizione di alto livello di una funzionalità o di un'attività che deve essere risolta e non è specifica di una tecnologia o di un'implementazione. | La protezione dei dati è uno dei controlli di sicurezza. Questo controllo contiene azioni specifiche che devono essere risolte per garantire la protezione dei dati. |
 | Benchmark | Un benchmark contiene raccomandazioni sulla sicurezza per una tecnologia specifica, ad esempio Azure. Le raccomandazioni vengono classificate in base al controllo a cui appartengono. | Il benchmark di sicurezza di Azure include i consigli sulla sicurezza specifici della piattaforma Azure |
-| Di base | Una linea di base è l'implementazione del benchmark per il singolo servizio di Azure. Ogni organizzazione decide la raccomandazione di benchmark e le configurazioni corrispondenti sono necessarie nell'ambito di implementazione di Azure. | L'azienda Contoso cerca di abilitare le funzionalità di sicurezza di Azure SQL seguendo la configurazione consigliata nella baseline della sicurezza di Azure SQL.
+| Versione di base | Una linea di base è l'implementazione del benchmark per il singolo servizio di Azure. Ogni organizzazione decide la raccomandazione di benchmark e le configurazioni corrispondenti sono necessarie nell'ambito di implementazione di Azure. | L'azienda Contoso cerca di abilitare le funzionalità di sicurezza di Azure SQL seguendo la configurazione consigliata nella baseline della sicurezza di Azure SQL.
 
 I commenti e suggerimenti sul benchmark di sicurezza di Azure sono benvenuti. Si consiglia di fornire commenti nell'area commenti e suggerimenti riportata di seguito. Se si preferisce condividere l'input in modo più privato con il team di benchmark di sicurezza di Azure, è possibile compilare il modulo all'indirizzo https://aka.ms/AzSecBenchmark

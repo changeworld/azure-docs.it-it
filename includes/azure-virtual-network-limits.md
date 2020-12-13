@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9751bd082947e66b3fc5ea47448857558301a1e7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329550"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366415"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alla rete - Azure Resource Manager
 I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
@@ -73,7 +73,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Regole per scheda di interfaccia di rete (per tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                           |
 | Configurazioni IP front-end              | 600                           |
 | Dimensioni del pool back-end                       | 1\.000 configurazioni IP, singola rete virtuale |
-| Risorse di back-end per Load Balancer<sup>1<sup> | 150                   |
+| Risorse di back-end per Load Balancer<sup>1<sup> | 250                   |
 | Porte a disponibilità elevata                 | 1 per front-end interno       |
 | Regole in uscita per Load Balancer        | 600                           |
 | Numero di Load Balancer per macchina virtuale                   | 2 (1 pubblico e 1 interno)   |

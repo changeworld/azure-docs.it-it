@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349130"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368739"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Per stimare la velocità effettiva minima richiesta da un database con velocità
 * Unità richiesta/sec massime con provisioning nel database/100
 * 400 + MAX (conteggio contenitori-25,0) * 100 ur/sec
 
-Esempio: si supponga di avere un database di cui è stato effettuato il provisioning con 400 ur/s, 15 GB di spazio di archiviazione e 10 contenitori. Il numero minimo di ur/sec è `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ur/sec. Se nel database sono presenti 30 contenitori, le UR/sec minime saranno `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 ur/sec. 
+Esempio: si supponga di avere un database di cui è stato effettuato il provisioning con 400 ur/s, 15 GB di spazio di archiviazione e 10 contenitori. Il numero minimo di ur/sec è `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ur/sec. Se nel database sono presenti 30 contenitori, le UR/sec minime saranno `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ur/sec. 
 
 **Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
 

@@ -6,18 +6,16 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481330"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369227"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creare o aggiornare ruoli personalizzati di Azure usando il portale di Azure
 
@@ -31,14 +29,12 @@ Per creare ruoli personalizzati è necessario:
 
 ## <a name="step-1-determine-the-permissions-you-need"></a>Passaggio 1: determinare le autorizzazioni necessarie
 
-Azure dispone di migliaia di autorizzazioni che possono essere potenzialmente incluse nel ruolo personalizzato. Di seguito sono illustrati quattro modi per determinare le autorizzazioni che si desidera aggiungere al ruolo personalizzato:
+Azure dispone di migliaia di autorizzazioni che possono essere potenzialmente incluse nel ruolo personalizzato. Di seguito sono riportati alcuni metodi che consentono di determinare le autorizzazioni che si desidera aggiungere al ruolo personalizzato:
 
-| Metodo | Descrizione |
-| --- | --- |
-| Esaminare i ruoli esistenti | È possibile esaminare i ruoli esistenti per vedere quali autorizzazioni vengono usate. Per altre informazioni, vedere [Ruoli predefiniti di Azure](built-in-roles.md). |
-| Cerca autorizzazioni per parola chiave | Quando si crea un ruolo personalizzato usando il portale di Azure, è possibile cercare le autorizzazioni in base alla parola chiave. Ad esempio, è possibile cercare le autorizzazioni per la *macchina virtuale* o la *fatturazione* . Questa funzionalità di ricerca è descritta più avanti nel [passaggio 4: autorizzazioni](#step-4-permissions). |
-| Scarica tutte le autorizzazioni | Quando si crea un ruolo personalizzato usando il portale di Azure, è possibile scaricare tutte le autorizzazioni come file CSV e quindi eseguire la ricerca nel file. Nel riquadro **Aggiungi autorizzazioni** fare clic sul pulsante **Scarica tutte le autorizzazioni** per scaricare tutte le autorizzazioni. Per ulteriori informazioni sul riquadro Aggiungi autorizzazioni, vedere [Step 4: Permissions](#step-4-permissions). |
-| Visualizzare le autorizzazioni nella documentazione | È possibile visualizzare le autorizzazioni disponibili in [Azure Resource Manager operazioni del provider di risorse](resource-provider-operations.md). |
+- Esaminare i [ruoli predefiniti](built-in-roles.md)esistenti.
+- Elencare i servizi di Azure a cui si vuole concedere l'accesso.
+- Determinare i [provider di risorse che vengono mappati ai servizi di Azure](../azure-resource-manager/management/azure-services-resource-providers.md). Un metodo di ricerca viene descritto più avanti nel [passaggio 4: autorizzazioni](#step-4-permissions).
+- Cercare le autorizzazioni [disponibili](resource-provider-operations.md) per individuare le autorizzazioni che si desidera includere. Un metodo di ricerca viene descritto più avanti nel [passaggio 4: autorizzazioni](#step-4-permissions).
 
 ## <a name="step-2-choose-how-to-start"></a>Passaggio 2: scegliere la modalità di avvio
 
@@ -339,4 +335,4 @@ Per visualizzare i ruoli personalizzati, seguire questa procedura.
 
 - [Esercitazione: Creare un ruolo personalizzato di Azure con Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Ruoli personalizzati di Azure](custom-roles.md)
-- [Operazioni dei provider di risorse di Azure Resource Manager](resource-provider-operations.md)
+- [Operazioni del provider di risorse di Azure](resource-provider-operations.md)

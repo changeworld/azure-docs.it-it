@@ -9,222 +9,212 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: ae4dd8b82e40b46da52a1b1f396569fda1dfea2b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 406233fd93ca76a683cf9f9a9e857de9099705ef
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694627"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368546"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Usare la sintassi di ricerca Lucene "completa" (query avanzate in Azure ricerca cognitiva)
 
-Quando si creano query per Azure ricerca cognitiva, è possibile sostituire il [parser di query semplice](query-simple-syntax.md) predefinito con il parser di query Lucene più espansivo [in Azure ricerca cognitiva](query-lucene-syntax.md) per formulare definizioni di query specializzate e avanzate. 
+Quando si creano query per Azure ricerca cognitiva, è possibile sostituire il [parser di query semplice](query-simple-syntax.md) predefinito con il parser di query Lucene più potente [in Azure ricerca cognitiva](query-lucene-syntax.md) per formulare definizioni di query specializzate e avanzate. 
 
-Il parser Lucene supporta costrutti di query complessi, ad esempio query con ambito campo, ricerca fuzzy, ricerca con caratteri jolly infissi e suffissi, ricerca di prossimità, aumento della priorità dei termini e ricerca di espressioni regolari. Il livello più avanzato comporta requisiti di elaborazione aggiuntivi. È pertanto opportuno prevedere un tempo di esecuzione leggermente superiore. In questo articolo vengono illustrati esempi di operazioni di query disponibili quando si usa la sintassi completa.
+Il parser Lucene supporta costrutti di query complessi, ad esempio query con ambito campo, ricerca fuzzy, ricerca con caratteri jolly infissi e suffissi, ricerca di prossimità, aumento della priorità dei termini e ricerca di espressioni regolari. Il livello più avanzato comporta requisiti di elaborazione aggiuntivi. È pertanto opportuno prevedere un tempo di esecuzione leggermente superiore. In questo articolo è possibile esaminare gli esempi che illustrano le operazioni di query in base alla sintassi completa.
 
 > [!Note]
 > Molte delle costruzioni di query specializzate possibili attraverso la sintassi di query Lucene completa non vengono [analizzate dal punto di vista del testo](search-lucene-query-architecture.md#stage-2-lexical-analysis), fatto che può sembrare sorprendente se ci si aspetta lo stemming o la lemmatizzazione. L'analisi lessicale viene eseguita solo su termini completi, la query di un termine o di una locuzione. I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita su termini di query parziali è minuscole. 
 >
 
-## <a name="formulate-requests-in-postman"></a>Formulare richieste in Postman
+## <a name="nyc-jobs-examples"></a>Esempi di processi NYC
 
-Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opportunità di lavoro disponibili in base a un set di dati fornito dall'iniziativa [City of New York OpenData](https://opendata.cityofnewyork.us/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o un ricerca cognitiva di Azure per provare queste query.
+Gli esempi seguenti sfruttano l' [indice di ricerca dei processi NYC](https://azjobsdemo.azurewebsites.net/)  costituito da processi disponibili in base a un set di dati fornito dalla [città di New York parte Initiative](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o un ricerca cognitiva di Azure per provare queste query.
 
-È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Esplorare con client REST](search-get-started-rest.md).
+È necessario disporre di un post o di uno strumento equivalente per emettere la richiesta HTTP su GET o POST. Se non si ha familiarità con questi strumenti, vedere [Guida introduttiva: esplorare Azure ricerca cognitiva API REST](search-get-started-rest.md).
 
-### <a name="set-the-request-header"></a>Impostare l'intestazione della richiesta
+## <a name="set-up-the-request"></a>Configurare la richiesta
 
-1. Nell'intestazione della richiesta impostare **Content-Type** su `application/json`.
+1. Le intestazioni della richiesta devono contenere i valori seguenti:
 
-2. Aggiungere una **chiave API** e impostarla su questa stringa: `252044BE3886FE4A8E3BAA4F595114BB`. Si tratta di una chiave di query per il servizio di ricerca sandbox che ospita l'indice NYC Jobs.
+   | Chiave | valore |
+   |-----|-------|
+   | Content-Type | `application/json`|
+   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (si tratta della chiave API di query effettiva per il servizio di ricerca sandbox che ospita l'indice dei processi NYC) |
 
-Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=**. 
+1. Impostare il verbo su **`GET`** .
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+1. Impostare l'URL su **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**
 
-### <a name="set-the-request-url"></a>Impostare l'URL della richiesta
+   + La raccolta Documents nell'indice contiene tutti i contenuti disponibili per la ricerca. Una chiave API di query fornita nell'intestazione della richiesta funziona solo per le operazioni di lettura destinate alla raccolta Documents.
 
-Request è un comando GET associato a un URL contenente l'endpoint di Azure ricerca cognitiva e la stringa di ricerca.
+   + **`$count=true`** Restituisce un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, il conteggio sarà costituito da tutti i documenti nell'indice (circa 2558 nel caso dei processi NYC).
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="GET dell'intestazione della richiesta post" border="false":::
+   + **`search=*`** query non specificata, equivalente a una ricerca vuota o null. Non è particolarmente utile, ma è la ricerca più semplice che è possibile eseguire e Mostra tutti i campi recuperabili nell'indice, con tutti i valori.
 
-La composizione dell'URL presenta i seguenti elementi:
+   + **`queryType=full`** richiama l'analizzatore Lucene completo.
 
-+ **`https://azs-playground.search.windows.net/`** è un servizio di ricerca sandbox gestito dal team di sviluppo di Azure ricerca cognitiva. 
-+ **`indexes/nycjobs/`** è l'indice dei processi NYC nella raccolta Indexes di tale servizio. Il nome e l'indice del servizio sono entrambi necessari sulla richiesta.
-+ **`docs`** raccolta documenti che contiene tutti i contenuti disponibili per la ricerca. La chiave API della query fornita nell'intestazione della richiesta funziona solo nelle operazioni di lettura destinate alla raccolta di documenti.
-+ **`api-version=2020-06-30`** imposta la versione API, che è un parametro obbligatorio per ogni richiesta.
-+ **`search=*`** stringa di query, che nella query iniziale è null, che restituisce i primi 50 risultati (per impostazione predefinita).
+1. Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati.
 
-## <a name="send-your-first-query"></a>Inviare la prima query
+   ```http
+   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
+   ```
 
-Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati. Vengono restituiti interi documenti, che consentono di visualizzare tutti i campi e tutti i valori.
+### <a name="how-to-invoke-full-lucene-parsing"></a>Come richiamare l'analisi completa di Lucene
 
-Incollare l'URL in un client REST come passaggio di convalida e visualizzare la struttura del documento.
+Aggiungere **`queryType=full`** per richiamare la sintassi di query completa, eseguendo l'override della sintassi di query semplice predefinita. Tutti gli esempi in questo articolo specificano il **`queryType=full`** parametro Search, che indica che la sintassi completa viene gestita dal parser di query Lucene. 
 
-  ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
-  ```
-
-La stringa di query, **`search=*`** , è una ricerca non specificata equivalente a null o a una ricerca vuota. Si tratta della ricerca più semplice che è possibile eseguire.
-
-Facoltativamente, è possibile aggiungere **`$count=true`** all'URL per restituire un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, sono tutti i documenti nell'indice (circa 2800 nel caso di NYC Jobs).
-
-## <a name="how-to-invoke-full-lucene-parsing"></a>Come richiamare l'analisi completa di Lucene
-
-Aggiungere **queryType=full** per richiamare la sintassi di query completa che sostituisce la sintassi di query semplice predefinita. 
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&search=*
+```http
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "*"
+}
 ```
-
-Tutti gli esempi in questo articolo specificano il parametro di ricerca **queryType=full**, che indica che la sintassi completa viene gestita dal parser di query Lucene. 
 
 ## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Esempio 1: query con ambito per un elenco di campi
 
-Questo primo esempio non è specifico di Lucene, ma viene introdotto il primo concetto di query fondamentale, ovvero l'ambito del campo. In questo esempio viene definito l'ambito dell'intera query e della risposta solo ad alcuni campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
+Questo primo esempio non è specifico del parser, ma viene presentato per primo come introduzione al primo concetto fondamentale delle query: l'indipendenza. Questo esempio limita l'esecuzione delle query e la risposta ad alcuni campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
 
-In breve, la query punta solo al campo *business_title* e specifica che vengano restituite solo le qualifiche professionali. Il parametro **searchFields** limita l'esecuzione delle query al solo campo business_title e **SELECT** specifica i campi inclusi nella risposta.
-
-### <a name="search-expression"></a>Espressione di ricerca
+Questa query è destinata solo a *business_title* in **`searchFields`** , specificando tramite il **`select`** parametro lo stesso campo nella risposta.
 
 ```http
-&search=*&searchFields=business_title&$select=business_title
-```
-
-Di seguito è illustrata la stessa query con più campi in un elenco delimitato da virgole.
-
-```http
-search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
-```
-
-Gli spazi dopo le virgole sono facoltativi.
-
-> [!Tip]
-> Quando si usa l'API REST dal codice dell'applicazione, non dimenticare i parametri di codifica URL, ad esempio `$select` e `searchFields` .
-
-### <a name="full-url"></a>URL completo
-
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
+POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "*",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
 La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
   ![Esempio di risposta ai punteggi](media/search-query-lucene-examples/postman-sample-results.png)
 
-Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi uniformi pari a 1 in assenza di classificazione perché la ricerca non è una ricerca full-text o perché non sono stati applicati criteri. Per ricerche Null senza criteri le righe vengono restituite in ordine arbitrario. Quando si includono i criteri di ricerca effettivi, si noterà che i punteggi di ricerca si evolvono in valori significativi.
+Si sarà notato il punteggio di ricerca nella risposta. I punteggi uniformi di **1** si verificano quando non esiste alcun rango, perché la ricerca non è full-text o perché non è stato fornito alcun criterio. Per una ricerca vuota, le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
 
 ## <a name="example-2-fielded-search"></a>Esempio 2: ricerca nel campo
 
-La sintassi Lucene completa supporta l'ambito di singole espressioni di ricerca in un campo specifico. Questo esempio cerca i titoli aziendali con il termine senior, ma non Junior.
-
-### <a name="search-expression"></a>Espressione di ricerca
+La sintassi Lucene completa supporta l'ambito di singole espressioni di ricerca in un campo specifico. Questo esempio cerca i titoli aziendali con il termine senior, ma non Junior. È possibile specificare più campi utilizzando e.
 
 ```http
-$select=business_title&search=business_title:(senior NOT junior)
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:(senior NOT junior) AND posting_type:external",
+    "searchFields": "business_title, posting_type",
+    "select": "business_title, posting_type"
+}
 ```
 
-Di seguito è illustrata la stessa query con più campi.
-
-```http
-$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
-```
-
-### <a name="full-url"></a>URL completo
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
-```
+La risposta per questa query dovrebbe avere un aspetto simile allo screenshot seguente (posting_type non viene visualizzata).
 
   :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Espressione di ricerca della risposta di esempio del post" border="false":::
 
-È possibile definire un'operazione di ricerca in campo con la sintassi **FieldName: searchExpression** , in cui l'espressione di ricerca può essere costituita da una singola parola o una frase o da un'espressione più complessa tra parentesi, facoltativamente con operatori booleani. Ecco alcuni esempi:
+L'espressione di ricerca può essere costituita da una singola parola o frase o da un'espressione più complessa tra parentesi, facoltativamente con operatori booleani. Ecco alcuni esempi:
 
-- `business_title:(senior NOT junior)`
-- `state:("New York" OR "New Jersey")`
-- `business_title:(senior NOT junior) AND posting_type:external`
++ `business_title:(senior NOT junior)`
++ `state:("New York" OR "New Jersey")`
++ `business_title:(senior NOT junior) AND posting_type:external`
 
-Assicurarsi di inserire più stringhe tra virgolette se si desidera che entrambe le stringhe vengano valutate come una singola entità, come in questo caso la ricerca di due posizioni distinte nel `state` campo. Assicurarsi anche che l'operatore sia in lettere maiuscole, come NOT e AND.
+Assicurarsi di inserire più stringhe tra virgolette se si desidera che entrambe le stringhe vengano valutate come una singola entità, come in questo caso la ricerca di due posizioni distinte nel `state` campo. A seconda dello strumento, potrebbe essere necessario utilizzare caratteri di escape ( `\` ) per le virgolette. 
 
 Il campo specificato in **FieldName: searchExpression** deve essere un campo ricercabile. Per informazioni dettagliate sull'uso degli attributi di indice nelle definizioni di campo, vedere [create index (API REST di Azure ricerca cognitiva)](/rest/api/searchservice/create-index) .
 
 > [!NOTE]
-> Nell'esempio precedente non è stato necessario usare il `searchFields` parametro perché ogni parte della query ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. La query, ad esempio, `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` corrisponderà `senior NOT junior` solo al `business_title` campo, mentre corrisponderebbe a "External" con il `posting_type` campo. Il nome del campo specificato in **FieldName: searchExpression** ha sempre la precedenza sul `searchFields` parametro, motivo per cui in questo esempio non è necessario includere `business_title` nel `searchFields` parametro.
+> Nell'esempio precedente, il **`searchFields`** parametro viene omesso perché ogni parte della query ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile usare **`searchFields`** se la query contiene più parti (usando le istruzioni e). La query, ad esempio, `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` corrisponderà `senior NOT junior` solo al `business_title` campo, mentre corrisponderebbe a "External" con il `posting_type` campo. Il nome del campo fornito in ha `fieldName:searchExpression` sempre la precedenza su **`searchFields`** , motivo per cui in questo esempio è possibile omettere `business_title` **`searchFields`** .
 
 ## <a name="example-3-fuzzy-search"></a>Esempio 3: ricerca fuzzy
 
 La sintassi Lucene completa supporta anche la ricerca fuzzy, basata sui termini che hanno una costruzione simile. Per eseguire una ricerca fuzzy, aggiungere il simbolo tilde `~` alla fine di una parola con un parametro facoltativo, un valore compreso tra 0 e 2, che specifica la distanza di edit. Ad esempio, `blue~` o `blue~1` restituirà blue, blues e glue.
 
-### <a name="search-expression"></a>Espressione di ricerca
-
 ```http
-searchFields=business_title&$select=business_title&search=business_title:asosiate~
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:asosiate~",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
-Le frasi non sono supportate direttamente, ma è possibile specificare una corrispondenza fuzzy sulle parti componente di una frase.
+Le frasi non sono supportate direttamente, ma è possibile specificare una corrispondenza fuzzy per ogni termine di una frase in più parti, ad esempio `search=business_title:asosiate~ AND comm~` .  Nella schermata riportata di seguito, la risposta include una corrispondenza nell' *associazione della community*.
 
-```http
-searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
-```
-
-
-### <a name="full-url"></a>URL completo
-
-Questa query cerca le opportunità di lavoro con il termine "associate" (scritto erroneamente di proposito):
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
-```
-  ![Risposta di Ricerca fuzzy](media/search-query-lucene-examples/fuzzysearch.png)
-
+  :::image type="content" source="media/search-query-lucene-examples/fuzzysearch.png" alt-text="Risposta di Ricerca fuzzy" border="false":::
 
 > [!Note]
-> Le query fuzzy non vengono [analizzate](search-lucene-query-architecture.md#stage-2-lexical-analysis). I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
+> Le query fuzzy non vengono [analizzate](search-lucene-query-architecture.md#stage-2-lexical-analysis). I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita su termini di query parziali è minuscole.
 >
 
 ## <a name="example-4-proximity-search"></a>Esempio 4: ricerca di prossimità
+
 Le ricerche per prossimità vengono usate per trovare termini che si trovano vicini in un documento. Inserire un carattere tilde "~" alla fine di una frase seguito dal numero di parole che creano il limite di prossimità. Ad esempio, "hotel airport"~5 troverà i termini hotel e airport entro 5 parole di distanza una dall'altra in un documento.
 
-### <a name="search-expression"></a>Espressione di ricerca
+Questa query cerca i termini "senior" e "Analyst", dove ogni termine è separato da più di una parola e le virgolette sono precedute da un carattere di escape ( `\"` ) per mantenere la frase:
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:\"senior analyst\"~1",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
-### <a name="full-url"></a>URL completo
+La risposta per questa query dovrebbe avere un aspetto simile allo screenshot seguente 
 
-In questa query per le opportunità di lavoro contenenti il termine "senior analyst" separato da non più di una parola:
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
-```
   :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Query di prossimità" border="false":::
 
-Riprovare rimuovendo le parole tra il termine "senior analyst". Si noti che vengono restituiti 8 documenti per questa query, rispetto ai 10 per la query precedente.
+Riprovare, eliminando qualsiasi distanza ( `~0` ) tra i termini "analista senior". Si noti che vengono restituiti 8 documenti per questa query, rispetto ai 10 per la query precedente.
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
+```http
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:\"senior analyst\"~0",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
 ## <a name="example-5-term-boosting"></a>Esempio 5: aumento priorità termine
-Questa definizione si riferisce alla termine si riferisce alla classificazione più alta di un documento se contiene il termine con aumento di priorità, rispetto a documenti che non contengono il termine. Per aumentare la priorità di un termine, usare il carattere accento circonflesso "^", con un fattore di aumento di priorità (un numero) alla fine del termine da cercare. 
 
-### <a name="full-urls"></a>URL completi
+Questa definizione si riferisce alla termine si riferisce alla classificazione più alta di un documento se contiene il termine con aumento di priorità, rispetto a documenti che non contengono il termine. Per incrementare un termine, usare il punto di inserimento, `^` , simbolo con un fattore di incremento (un numero) alla fine del periodo di ricerca.
 
 In questa query "before" cercare le opportunità di lavoro con il termine *computer analyst* e si noti che non vi sono risultati con le parole *computer* e *analyst*, eppure i lavori *computer* sono i primi risultati.
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
+```http
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:computer analyst",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
-  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Aumento priorità termini &quot;before&quot;" border="false":::
 
-Nella query "after", ripetere la ricerca, questa volta aumentando la priorità dei risultati con il termine *analyst* rispetto al termine *computer* se nessuna delle due parole esiste. 
+Nella query "after", ripetere la ricerca, questa volta aumentando la priorità dei risultati con il termine *analyst* rispetto al termine *computer* se nessuna delle due parole esiste. Una versione leggibile della query è `search=business_title:computer analyst^2` . Per una query praticabile nel post, `^2` viene codificato come `%5E2` .
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
+```http
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:computer analyst%5e2",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
-Una versione maggiormente leggibile della query precedente è `search=business_title:computer analyst^2`. Per una query di lavoro `^2` viene codificato come `%5E2`, più difficile da vedere.
+
+La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
   :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Aumento priorità termini &quot;after&quot;" border="false":::
 
@@ -234,62 +224,66 @@ Considerare un profilo di punteggio che migliora le corrispondenze in un determi
 
 Quando si imposta il fattore, maggiore è il fattore di aumento, maggiore è la rilevanza del termine relativamente ad altri termini di ricerca. Per impostazione predefinita, il fattore di aumento di priorità è 1. Anche se il fattore di aumento di priorità deve essere positivo, può essere minore di 1 (ad esempio 0,2).
 
-
 ## <a name="example-6-regex"></a>Esempio 6: Regex
 
 Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-### <a name="search-expression"></a>Espressione di ricerca
-
 ```http
-searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:/(Sen|Jun)ior/",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
-### <a name="full-url"></a>URL completo
-
-In questa query cercare i processi con il termine senior o Junior: `search=business_title:/(Sen|Jun)ior/` .
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
-```
+La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
   :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Query Regex" border="false":::
 
 > [!Note]
-> Le query Regex non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
+> Le query Regex non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita su termini di query parziali è minuscole.
 >
 
 ## <a name="example-7-wildcard-search"></a>Esempio 7: ricerca con caratteri jolly
+
 È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (\*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
 
-### <a name="search-expression"></a>Espressione di ricerca
+In questa query cercare le opportunità di lavoro che contengono il prefisso 'prog' che include le qualifiche professionali con i termini programming e programmer. Non è possibile usare `*` un `?` simbolo o come primo carattere di una ricerca.
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:prog*
+POST /indexes/nycjobs/docs?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "business_title:prog*",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
-### <a name="full-url"></a>URL completo
+La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
-In questa query cercare le opportunità di lavoro che contengono il prefisso 'prog' che include le qualifiche professionali con i termini programming e programmer. Non è possibile usare un carattere * o ? come primo carattere di una ricerca.
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
-```
   :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Query con caratteri jolly" border="false":::
 
 > [!Note]
-> Le query con caratteri jolly non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
+> Le query con caratteri jolly non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita su termini di query parziali è minuscole.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare a specificare il parser di query Lucene nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca per .NET e l'API REST. I collegamenti usano la sintassi semplice predefinita, quindi è necessario applicare quanto appreso in questo articolo per specificare il parametro **queryType**.
 
-* [Eseguire query sull'indice usando .NET SDK](./search-get-started-dotnet.md)
-* [Eseguire query sull'indice usando l'API REST](./search-get-started-powershell.md)
+Provare a specificare le query nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca usando gli Azure SDK.
+
++ [Eseguire query sull'indice usando .NET SDK](search-get-started-dotnet.md)
++ [Eseguire query sull'indice con Python SDK](search-get-started-python.md)
++ [Eseguire query sull'indice tramite JavaScript SDK](search-get-started-javascript.md)
 
 Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono disponibili nei collegamenti seguenti:
 
-+ [Esempi di query con sintassi semplice](search-query-simple-examples.md)
++ [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
 + [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
-+ [Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Sintassi di query Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Sintassi di query semplice](query-simple-syntax.md)
++ [Sintassi di query Lucene completa](query-lucene-syntax.md)
++ [Sintassi del filtro](search-query-odata-filter.md)

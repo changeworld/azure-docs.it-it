@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: keithp
-ms.openlocfilehash: 61a9fcc5490c20383a2ae7d5c57b7fda7567c643
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 1f349931fb479be3b3ba936b3d0a665427357f29
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095152"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369039"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -277,8 +277,8 @@ Il servizio HSM dedicato provisioning di Thales Network Luna HSM 7 Appliance. Qu
   * RC5
   * CAST
   * Hash/Digest del messaggio/HMAC: SHA-1, SHA-2, SM3
-  * Derivazione chiave: SP800-108 modalità contatore
-  * Wrapping della chiave: SP800-38F
+  * Derivazione della chiave: modalità contatore SP 800-108
+  * Wrapping della chiave: SP 800-38F
   * Generazione di numeri casuali: DRBG approvato FIPS 140-2 (SP 800-90 modalità CTR), conforme a BSI DRG.4
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>D: HSM dedicato è convalidato FIPS 140-2 Livello 3?

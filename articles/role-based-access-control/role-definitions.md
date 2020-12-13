@@ -15,12 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511637"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369260"
 ---
 # <a name="understand-azure-role-definitions"></a>Informazioni sulle definizioni dei ruoli di Azure
 
@@ -80,7 +80,7 @@ Le operazioni vengono specificate con stringhe che hanno il formato seguente:
 
 La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di operazioni che è possibile eseguire su un tipo di risorsa. In `{action}` possono ad esempio essere elencate le sottostringhe seguenti:
 
-| Sottostringa azione    | Descrizione         |
+| Sottostringa azione    | Description         |
 | ------------------- | ------------------- |
 | `*` | Il carattere jolly concede l'accesso a tutte le operazioni che corrispondono alla stringa. |
 | `read` | Abilita le operazioni di lettura (GET). |
@@ -281,7 +281,7 @@ Per visualizzare e usare le operazioni di dati di API REST, è necessario impost
 L'autorizzazione `Actions` specifica le operazioni di gestione che il ruolo consente di eseguire. Si tratta di una raccolta di stringhe di operazione che identificano operazioni a protezione diretta dei provider di risorse di Azure. Di seguito sono riportati alcuni esempi di operazioni di gestione che possono essere usate in `Actions`.
 
 > [!div class="mx-tableFixed"]
-> | Stringa operazione    | Descrizione         |
+> | Stringa operazione    | Description         |
 > | ------------------- | ------------------- |
 > | `*/read` | Concede l'accesso a operazioni di lettura per tutti i tipi di risorse di tutti i provider di risorse di Azure.|
 > | `Microsoft.Compute/*` | Concede l'accesso a tutte le operazioni per tutti i tipi di risorse nel provider di risorse Microsoft.Compute.|
@@ -302,7 +302,7 @@ L'autorizzazione `NotActions` specifica le operazioni di gestione che sono esclu
 L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati di BLOB per un account di archiviazione, può leggere i BLOB all'interno di tale account. Di seguito sono riportati alcuni esempi di operazioni sui dati che possono essere usate in `DataActions`.
 
 > [!div class="mx-tableFixed"]
-> | Stringa operazione    | Descrizione         |
+> | Stringa operazione    | Description         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Restituisce un BLOB o un elenco di BLOB. |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Restituisce il risultato della scrittura su un BLOB. |
@@ -339,4 +339,4 @@ Per informazioni sui `AssignableScopes` ruoli personalizzati, vedere [ruoli pers
 
 * [Ruoli predefiniti di Azure](built-in-roles.md)
 * [Ruoli personalizzati di Azure](custom-roles.md)
-* [Operazioni dei provider di risorse di Azure Resource Manager](resource-provider-operations.md)
+* [Operazioni del provider di risorse di Azure](resource-provider-operations.md)

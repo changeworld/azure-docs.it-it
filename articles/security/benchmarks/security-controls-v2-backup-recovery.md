@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698802"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368886"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controllo di sicurezza V2: backup e ripristino
 
@@ -20,7 +20,7 @@ Il servizio di backup e ripristino copre i controlli per garantire che i backup 
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: garantire backup automatici regolari
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -34,7 +34,7 @@ Per un livello di protezione più elevato, è possibile abilitare l'opzione di a
 
 - [Come abilitare backup di Azure](../../backup/index.yml)
 
-- [Come abilitare il ripristino tra aree](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Come abilitare il ripristino tra aree geografiche](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
 **Responsabilità**: Customer
 
@@ -50,7 +50,7 @@ Per un livello di protezione più elevato, è possibile abilitare l'opzione di a
 
 ## <a name="br-2-encrypt-backup-data"></a>BR-2: crittografare i dati di backup
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
@@ -78,9 +78,9 @@ Usare il controllo degli accessi in base al ruolo di Azure in backup di Azure, A
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: convalida tutti i backup, incluse le chiavi gestite dal cliente
+## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: Convalidare tutti i backup che includono chiavi gestite dal cliente
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-3 | 10.3 | CP-4, CP-9 |
 
@@ -98,15 +98,15 @@ Eseguire periodicamente il ripristino dei dati del backup. Assicurarsi che sia p
 
 - [Gestione della conformità della sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: ridurre il rischio di chiavi perse
+## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Attenuare il rischio di chiavi perse
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-Assicurarsi di disporre di misure per prevenire e ripristinare la perdita di chiavi. Abilitare l'eliminazione temporanea e ripulire la protezione in Azure Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.  
+Assicurarsi di disporre di misure per prevenire e ripristinare la perdita di chiavi. Abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Azure Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.  
 
-- [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilità**: Customer
 

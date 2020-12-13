@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5cd518828668ed20a4fa7be0cd6c9798a013055a
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 799475db567c88f067192d027589e9185ee1782b
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909574"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369175"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Creare o aggiornare ruoli personalizzati di Azure con Azure PowerShell
 
@@ -163,7 +163,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 Quando si crea un ruolo personalizzato con PowerShell è possibile usare come punto di partenza uno dei [ruoli predefiniti](built-in-roles.md) o iniziare da zero. Nel primo esempio riportato in questa sezione si inizia con un ruolo predefinito e quindi lo si personalizza con più autorizzazioni. Modificare gli attributi e aggiungere gli attributi `Actions`, `NotActions` o `AssignableScopes` desiderati e quindi salvare le modifiche come nuovo ruolo.
 
-L'esempio seguente inizia con il ruolo predefinito [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) per creare un ruolo personalizzato denominato *Virtual Machine Operator* . Il nuovo ruolo concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute* , *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni.
+L'esempio seguente inizia con il ruolo predefinito [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) per creare un ruolo personalizzato denominato *Virtual Machine Operator*. Il nuovo ruolo concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"
@@ -187,7 +187,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-L'esempio illustra un altro modo di creare il ruolo personalizzato *Virtual Machine Operator* . Si inizia creando un nuovo oggetto `PSRoleDefinition`. Le operazioni di azione vengono specificate nella variabile `perms` e impostate nella proprietà `Actions`. La proprietà `NotActions` viene impostata tramite la lettura di `NotActions` dal ruolo predefinito [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor). Poiché [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor) non presenta alcun `NotActions`, questa riga non è obbligatoria, ma illustra come è possibile recuperare informazioni da un altro ruolo.
+L'esempio illustra un altro modo di creare il ruolo personalizzato *Virtual Machine Operator*. Si inizia creando un nuovo oggetto `PSRoleDefinition`. Le operazioni di azione vengono specificate nella variabile `perms` e impostate nella proprietà `Actions`. La proprietà `NotActions` viene impostata tramite la lettura di `NotActions` dal ruolo predefinito [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor). Poiché [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor) non presenta alcun `NotActions`, questa riga non è obbligatoria, ma illustra come è possibile recuperare informazioni da un altro ruolo.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -403,4 +403,4 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 - [Esercitazione: Creare un ruolo personalizzato di Azure con Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Ruoli personalizzati di Azure](custom-roles.md)
-- [Operazioni dei provider di risorse di Azure Resource Manager](resource-provider-operations.md)
+- [Operazioni del provider di risorse di Azure](resource-provider-operations.md)

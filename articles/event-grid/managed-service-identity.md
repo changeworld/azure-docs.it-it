@@ -3,12 +3,12 @@ title: Recapito di eventi, identità del servizio gestito e collegamento privato
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di Griglia di eventi di Azure e per usarla per inviare eventi alle destinazioni supportate.
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: edb3e5ac8257a29ecd3835e1dfd4c116c3cc7164
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491716"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368614"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
 Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
@@ -47,7 +47,7 @@ La procedura seguente illustra come abilitare l'identità gestita dal sistema pe
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Cercare gli **argomenti di griglia di eventi** nella barra di ricerca nella parte superiore.
-3. Selezionare l' **argomento** per cui si vuole abilitare l'identità gestita. 
+3. Selezionare l'**argomento** per cui si vuole abilitare l'identità gestita. 
 4. Passare alla scheda **Identità**. 
 5. Attivare l'opzione per **abilitare l'identità** . 
 1. Selezionare **Salva** sulla barra degli strumenti per salvare l'impostazione. 
@@ -91,7 +91,7 @@ Nell'esempio seguente viene aggiunta un'identità gestita relativa a un argoment
 1. Nella sezione **Aggiungi un'assegnazione di ruolo** selezionare **Aggiungi**. 
 1. Nella pagina **Aggiungi un'assegnazione di ruolo** seguire questa procedura:
     1. Selezionare il ruolo. In questo caso: **Mittente dei dati del bus di servizio di Azure**. 
-    1. Selezionare l' **identità** relativa all'argomento o al dominio. 
+    1. Selezionare l'**identità** relativa all'argomento o al dominio. 
     1. Selezionare **Save (Salva** ) per salvare la configurazione.
 
 Per aggiungere un'identità agli altri ruoli specificati nella tabella, sarà necessario seguire una procedura simile. 

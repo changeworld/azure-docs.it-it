@@ -7,30 +7,30 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 687c344aefc70729c85fb37d615ec0a272ff4fde
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701049"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368869"
 ---
 # <a name="security-control-v2-data-protection"></a>Controllo di sicurezza V2: protezione dei dati
 
 La protezione dei dati copre il controllo della protezione dei dati inattivi, in transito e tramite meccanismi di accesso autorizzati. Sono inclusi l'individuazione, la classificazione, la protezione e il monitoraggio di asset di dati sensibili tramite il controllo di accesso, la crittografia e la registrazione in Azure.
 
-## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: individuazione, classificazione e assegnazione di etichette ai dati sensibili
+## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Individuare, classificare e assegnare un'etichetta ai dati sensibili
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | DP-1 | 13,1, 14,5, 14,7 | SC-28 |
 
 Individuare, classificare e assegnare etichette ai dati sensibili per poter progettare i controlli appropriati per garantire che le informazioni riservate vengano archiviate, elaborate e trasmesse in modo sicuro dai sistemi tecnologici dell'organizzazione. 
 
-Usare Azure Information Protection (e lo strumento di analisi associato) per informazioni riservate nei documenti di Office in Azure, in locale, in Office 365 e in altre posizioni. 
+Usare Azure Information Protection (e lo strumento di analisi associato) per le informazioni riservate contenute in documenti di Office archiviati in Azure, in locale, in Office 365 e in altre posizioni. 
 
-È possibile usare Information Protection SQL di Azure per semplificare la classificazione e l'assegnazione di etichette alle informazioni archiviate nei database SQL di Azure.
+È possibile usare Azure SQL Information Protection per semplificare la classificazione e l'assegnazione di etichette alle informazioni archiviate nei database SQL di Azure.
 
-- [Contrassegnare le informazioni riservate usando Azure Information Protection](/azure/information-protection/what-is-information-protection) 
+- [Assegnare tag alle informazioni riservate usando Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
 - [Come implementare l'individuazione dati SQL di Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
@@ -44,17 +44,17 @@ Usare Azure Information Protection (e lo strumento di analisi associato) per inf
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-## <a name="dp-2-protect-sensitive-data"></a>DP-2: proteggere i dati sensibili
+## <a name="dp-2-protect-sensitive-data"></a>DP-2: Proteggere i dati sensibili
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | DP-2 | 13,2, 2,10 | SC-7, AC-4 |
 
 Proteggi i dati sensibili limitando l'accesso usando il controllo degli accessi in base al ruolo di Azure (RBAC), i controlli di accesso basati sulla rete e controlli specifici nei servizi di Azure, ad esempio la crittografia in SQL e altri database. 
 
-Per garantire un controllo di accesso coerente, tutti i tipi di controllo di accesso devono essere allineati alla strategia di segmentazione aziendale. La strategia di segmentazione aziendale deve anche essere informata dalla posizione dei dati e dei sistemi sensibili o aziendali critici.
+Per garantire un controllo di accesso coerente, tutti i tipi di controllo di accesso devono essere in linea con la strategia di segmentazione aziendale. Questa strategia deve inoltre tenere conto della posizione dei dati e dei sistemi sensibili o business critical.
 
-Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato alcuni controlli e funzionalità predefiniti per la protezione dei dati.
+Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e li protegge dalla perdita e dall'esposizione. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato alcuni controlli e funzionalità predefiniti per la protezione dei dati.
 
 - [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)
 
@@ -70,37 +70,37 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-## <a name="dp-3-monitor-for-unauthorized-transfer-of-sensitive-data"></a>DP-3: monitoraggio per il trasferimento non autorizzato di dati sensibili
+## <a name="dp-3-monitor-for-unauthorized-transfer-of-sensitive-data"></a>DP-3: Monitorare il trasferimento non autorizzato di dati sensibili
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | DP-3 | 13,3 | AC-4, SI-4 |
 
-Monitorare il trasferimento non autorizzato dei dati a posizioni esterne a visibilità e controllo aziendali. Ciò comporta in genere il monitoraggio di attività anomale (trasferimenti grandi o insoliti) che potrebbero indicare dati non autorizzati exfiltration. 
+Monitorare il trasferimento non autorizzato dei dati a posizioni esterne a visibilità e controllo aziendali. Ciò comporta in genere il monitoraggio di attività anomale (trasferimenti insoliti o di grandi quantità di dati) che potrebbero indicare un'esfiltrazione di dati non autorizzata. 
 
-Azure Storage Advanced Threat Protection (ATP) e Azure SQL ATP possono avvertire un trasferimento anomalo di informazioni che potrebbero indicare trasferimenti non autorizzati di informazioni riservate. 
+Con Advanced Threat Protection (ATP) di Archiviazione di Azure e di Azure SQL è possibile ricevere avvisi relativi a trasferimenti anomali di informazioni che potrebbero indicare trasferimenti non autorizzati di informazioni riservate. 
 
-Azure Information Protection (AIP) fornisce funzionalità di monitoraggio per le informazioni classificate e con etichetta. 
+Azure Information Protection (AIP) fornisce funzionalità di monitoraggio delle informazioni classificate ed etichettate. 
 
-Se necessario per la conformità della prevenzione della perdita dei dati (DLP), è possibile usare una soluzione DLP basata su host per applicare controlli di detective e/o preventivo per impedire i dati exfiltration.
+Se necessario per garantire la conformità della prevenzione della perdita dei dati (DLP), è possibile usare una soluzione DLP basata su host per applicare controlli di rilevamento e/o preventivi per impedire l'esfiltrazione di dati.
 
-- [Abilitare Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
+- [Abilitare Advanced Threat Protection di Azure SQL](../../azure-sql/database/threat-detection-overview.md)
 
-- [Abilitare Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
+- [Abilitare Advanced Threat Protection di Archiviazione di Azure](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsabilità**: Condiviso
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-## <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: crittografare le informazioni riservate in transito
+## <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Crittografare le informazioni sensibili in transito
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | DP-4 | 14,4 | SC-8 |
 
@@ -128,9 +128,9 @@ Per impostazione predefinita, Azure fornisce la crittografia per i dati in trans
 
 - [Sicurezza dei dati](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
 
-## <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: crittografare i dati sensibili inattivi
+## <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: Crittografare i dati sensibili inattivi
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | DP-5 | 14.8 | SC-28, SC-12 |
 
@@ -138,7 +138,7 @@ Per completare i controlli di accesso, i dati inattivi devono essere protetti da
 
 Per impostazione predefinita, Azure fornisce la crittografia per i dati inattivi. Per i dati altamente sensibili, sono disponibili opzioni per implementare la crittografia aggiuntiva dei dati inattivi in tutte le risorse di Azure, se disponibili. Azure gestisce le chiavi di crittografia per impostazione predefinita, ma Azure fornisce opzioni per gestire le proprie chiavi (chiavi gestite dal cliente) per determinati servizi di Azure.
 
-- [Informazioni sulla crittografia inattiva in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
+- [Informazioni sulla crittografia dei dati inattivi in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
 - [Come configurare le chiavi di crittografia gestite dal cliente](../../storage/common/customer-managed-keys-configure-key-vault.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408703"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369073"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controllo di sicurezza V2: registrazione e rilevamento minacce
 
@@ -20,7 +20,7 @@ Registrazione e rilevamento delle minacce copre i controlli per il rilevamento d
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: abilitazione del rilevamento delle minacce per le risorse di Azure
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -38,13 +38,13 @@ Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che 
 
 - [Intelligence per le minacce informatiche con Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -52,9 +52,9 @@ Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che 
 
 - [Intelligence per le minacce](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: abilitare il rilevamento delle minacce per la gestione delle identità e degli accessi di Azure
+## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Abilitare il rilevamento delle minacce per la gestione delle identità e degli accessi di Azure
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-2 | 6.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -75,13 +75,13 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 - [Protezione dalle minacce nel Centro sicurezza di Azure](../../security-center/azure-defender.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -89,9 +89,9 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 - [Intelligence per le minacce](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: abilitare la registrazione per le attività di rete di Azure
+## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Abilitare la registrazione per le attività di rete di Azure
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-3 | 9,3, 12,2, 12,5, 12,8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -109,13 +109,13 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 
 - [Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione Analisi DNS](../../azure-monitor/insights/dns-analytics.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -123,9 +123,9 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 
 - [Intelligence per le minacce](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: abilitare la registrazione per le risorse di Azure
+## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Abilitare la registrazione per le risorse di Azure
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-4 | 6,2, 6,3, 8,8 | AU-3, AU-12 |
 
@@ -137,11 +137,11 @@ Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requi
 
 - [Informazioni sulla raccolta dati del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md)
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Sicurezza dell'infrastruttura e degli endpoint 
 
@@ -149,9 +149,9 @@ Sicurezza dell'infrastruttura e degli endpoint
 
 - [Intelligence per le minacce](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: centralizzare la gestione e l'analisi dei log di sicurezza
+## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizzare la gestione e l'analisi dei log di sicurezza
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-5 | 6,5, 6,6 | AU-3, SI-4 |
 
@@ -167,9 +167,9 @@ Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usa
 
 - [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -177,9 +177,9 @@ Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usa
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-## <a name="lt-6-configure-log-storage-retention"></a>LT-6: configurare la conservazione dell'archiviazione dei log
+## <a name="lt-6-configure-log-storage-retention"></a>LT-6: Configurare la conservazione dell'archiviazione dei log
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
@@ -193,21 +193,21 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 - [Esportazione avvisi e raccomandazioni del Centro sicurezza di Azure](../../security-center/continuous-export.md)
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Gestione della conformità alla sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 ## <a name="lt-7-use-approved-time-synchronization-sources"></a>LT-7: usare le origini di sincronizzazione dell'ora approvate
 
-| ID Azure | Controlli CIS v 7.1 ID/i | ID NIST SP800-53 R4 |
+| ID Azure | Controlli CIS v 7.1 ID/i | ID del NIST SP 800-53 R4 |
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
@@ -221,9 +221,9 @@ Tutti i log generati dalle risorse in Azure forniscono indicatori temporali con 
 
 - [Come disabilitare UDP in ingresso per i servizi di Azure](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Criteri e standard](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

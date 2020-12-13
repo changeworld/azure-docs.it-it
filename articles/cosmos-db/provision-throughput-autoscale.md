@@ -5,14 +5,14 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/11/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337543"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368665"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creare contenitori e database di Azure Cosmos con velocità effettiva a scalabilità automatica
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -27,25 +27,25 @@ I database e i contenitori di Azure Cosmos configurati con la velocità effettiv
 
 * **Simple:** La scalabilità automatica elimina la complessità della gestione di UR/sec basata su script personalizzati o sulla capacità di scalabilità manuale. 
 
-* **Scalabilità** : I database e i contenitori ridimensionano automaticamente la velocità effettiva con provisioning in base alle esigenze, senza interruzioni delle connessioni client o delle applicazioni né alcun impatto sui contratti di servizio di Azure Cosmos DB.
+* **Scalabilità**: I database e i contenitori ridimensionano automaticamente la velocità effettiva con provisioning in base alle esigenze, senza interruzioni delle connessioni client o delle applicazioni né alcun impatto sui contratti di servizio di Azure Cosmos DB.
 
-* **Convenienza** : La scalabilità automatica consente di ottimizzare l'utilizzo di UR/sec e i costi grazie alla riduzione quando non è in uso. Si paga solo per le risorse necessarie per i carichi di lavoro su base oraria. Di tutte le ore in un mese, se si imposta la scalabilità automatica max ur/s (tmax) e si usa la quantità totale tmax per il 66% delle ore o meno, sarà possibile risparmiare con la scalabilità automatica. Per altre informazioni, vedere l'articolo [come scegliere tra la velocità effettiva con provisioning standard (manuale) e scalabilità](how-to-choose-offer.md) automatica.
+* **Convenienza**: La scalabilità automatica consente di ottimizzare l'utilizzo di UR/sec e i costi grazie alla riduzione quando non è in uso. Si paga solo per le risorse necessarie per i carichi di lavoro su base oraria. Di tutte le ore in un mese, se si imposta la scalabilità automatica max ur/s (tmax) e si usa la quantità totale tmax per il 66% delle ore o meno, sarà possibile risparmiare con la scalabilità automatica. Per altre informazioni, vedere l'articolo [come scegliere tra la velocità effettiva con provisioning standard (manuale) e scalabilità](how-to-choose-offer.md) automatica.
 
-* **Disponibilità elevata** : I database e i contenitori che usano la scalabilità automatica usano lo stesso back-end di Azure Cosmos DB distribuito a livello globale, a tolleranza di errore e a disponibilità elevata per garantire la durabilità e un'elevata disponibilità dei dati.
+* **Disponibilità elevata**: I database e i contenitori che usano la scalabilità automatica usano lo stesso back-end di Azure Cosmos DB distribuito a livello globale, a tolleranza di errore e a disponibilità elevata per garantire la durabilità e un'elevata disponibilità dei dati.
 
 ## <a name="use-cases-of-autoscale"></a>Casi d'uso di scalabilità automatica
 
 I casi d'uso di scalabilità automatica includono:
 
-* **Carichi di lavoro variabili o imprevedibili** : Quando i carichi di lavoro hanno picchi di utilizzo variabili o imprevedibili, la scalabilità automatica consente di aumentare o ridurre automaticamente la capacità in base all'utilizzo. Gli esempi includono i siti Web di vendita al dettaglio con modelli di traffico diversi a seconda della stagionalità, i carichi di lavoro IoT con picchi in diversi momenti della giornata, le applicazioni line-of-business per le quali i picchi si verificano alcune volte al mese o all'anno e così via. Con la scalabilità automatica non è più necessario eseguire manualmente il provisioning per la capacità massima o media. 
+* **Carichi di lavoro variabili o imprevedibili**: Quando i carichi di lavoro hanno picchi di utilizzo variabili o imprevedibili, la scalabilità automatica consente di aumentare o ridurre automaticamente la capacità in base all'utilizzo. Gli esempi includono i siti Web di vendita al dettaglio con modelli di traffico diversi a seconda della stagionalità, i carichi di lavoro IoT con picchi in diversi momenti della giornata, le applicazioni line-of-business per le quali i picchi si verificano alcune volte al mese o all'anno e così via. Con la scalabilità automatica non è più necessario eseguire manualmente il provisioning per la capacità massima o media. 
 
-* **Nuove applicazioni** : Se si sta sviluppando una nuova applicazione e non si è certi della velocità effettiva (UR/sec) necessaria, la scalabilità automatica semplifica le operazioni iniziali. È possibile iniziare con un punto di ingresso per la scalabilità automatica di 400-4000 UR/sec, monitorare l'utilizzo e stabilire qual è il valore UR/sec corretto nel tempo.
+* **Nuove applicazioni**: Se si sta sviluppando una nuova applicazione e non si è certi della velocità effettiva (UR/sec) necessaria, la scalabilità automatica semplifica le operazioni iniziali. È possibile iniziare con un punto di ingresso per la scalabilità automatica di 400-4000 UR/sec, monitorare l'utilizzo e stabilire qual è il valore UR/sec corretto nel tempo.
 
-* **Applicazioni usate raramente** : Se un'applicazione viene usata solo per poche ore alcune volte al giorno, alla settimana o al mese, ad esempio un sito applicazione, Web o blog con volume ridotto, la scalabilità automatica regola la capacità in modo da gestire il momento di utilizzo massimo e ridurre le prestazioni quando termina. 
+* **Applicazioni usate raramente**: Se un'applicazione viene usata solo per poche ore alcune volte al giorno, alla settimana o al mese, ad esempio un sito applicazione, Web o blog con volume ridotto, la scalabilità automatica regola la capacità in modo da gestire il momento di utilizzo massimo e ridurre le prestazioni quando termina. 
 
-* **Carichi di lavoro per sviluppo e test** : Se l'utente o il suo team usa i database e i contenitori di Azure Cosmos durante le ore di lavoro, ma non ne ha bisogno nelle ore notturne o nei fine settimana, la scalabilità automatica consente di risparmiare sui costi riducendo la capacità al minimo quando non è in uso. 
+* **Carichi di lavoro per sviluppo e test**: Se l'utente o il suo team usa i database e i contenitori di Azure Cosmos durante le ore di lavoro, ma non ne ha bisogno nelle ore notturne o nei fine settimana, la scalabilità automatica consente di risparmiare sui costi riducendo la capacità al minimo quando non è in uso. 
 
-* **Carichi di lavoro e query di produzione pianificati** : Se si prevede di eseguire una serie di richieste, operazioni o query pianificate durante i periodi di inattività, la scalabilità automatica può essere molto utile. Quando è necessario eseguire il carico di lavoro, la velocità effettiva viene aumentata automaticamente in base alle esigenze e successivamente viene ridotta. 
+* **Carichi di lavoro e query di produzione pianificati**: Se si prevede di eseguire una serie di richieste, operazioni o query pianificate durante i periodi di inattività, la scalabilità automatica può essere molto utile. Quando è necessario eseguire il carico di lavoro, la velocità effettiva viene aumentata automaticamente in base alle esigenze e successivamente viene ridotta. 
 
 La creazione di una soluzione personalizzata a questi problemi non solo richiede una quantità di tempo enorme, ma introduce anche complessità nella configurazione o nel codice dell'applicazione. La scalabilità automatica consente di gestire con facilità gli scenari precedenti ed elimina la necessità di procedure personalizzate o manuali di ridimensionamento della capacità. 
 
@@ -59,7 +59,7 @@ Il punto di ingresso per la velocità effettiva massima a scalabilità automatic
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Abilitare la scalabilità automatica per le risorse esistenti
 
-Usare il [portale di Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) per abilitare la scalabilità automatica per un database o un contenitore esistente. È possibile passare dalla velocità effettiva con provisioning a scalabilità automatica alla velocità effettiva con provisioning standard (manuale) e viceversa in qualsiasi momento. Per altre informazioni, vedere questa [documentazione](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work). Attualmente, per tutte le API, è possibile usare la portale di Azure solo per abilitare la scalabilità automatica sulle risorse esistenti.
+Usare il [portale di Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), il [modello di Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), l' [interfaccia](how-to-provision-autoscale-throughput.md#azure-cli) della riga di comando o [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) per abilitare la scalabilità automatica su un database o un contenitore esistente. È possibile passare dalla velocità effettiva con provisioning a scalabilità automatica alla velocità effettiva con provisioning standard (manuale) e viceversa in qualsiasi momento. Per altre informazioni, vedere questa [documentazione](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work).
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limiti di archiviazione e velocità effettiva per la scalabilità automatica
 
