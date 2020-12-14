@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e07876f9e28e7f3245f2524b5ef5da08de085ec1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 75ea3eec50516c9ba08504dd149d4bd08f8abbb6
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486471"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371935"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -47,6 +47,8 @@ In caso di domande specifiche, in questa sezione della pagina iniziale verrà fa
 - Per sapere quali servizi, tipi di VM e servizi di archiviazione di Azure sono disponibili nelle diverse aree, controllare il sito [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) 
 - Sono supportati i frame a disponibilità elevata di terze parti, oltre a Windows e pacemaker supportati? Controllare la parte inferiore della [Nota di supporto SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - Quale archiviazione di Azure è migliore per lo scenario? Leggere [i tipi di archiviazione di Azure per carichi di lavoro SAP](./planning-guide-storage.md)
+- Il kernel Red Hat in Oracle Enterprise Linux è supportato da SAP? Leggi la [Nota di supporto](https://launchpad.support.sap.com/#/notes/1565179) sap SAP #1565179
+- Perché le famiglie di macchine virtuali di Azure [da V4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)(s) / [](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) non sono certificate per SAP Hana? Le famiglie di macchine virtuali das/EAS di Azure sono basate su hardware AMD basato su processore. SAP HANA non supporta i processori AMD, neanche negli scenari virtualizzati.
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
@@ -74,12 +76,13 @@ In questa sezione è possibile trovare informazioni su come configurare SSO con 
 
 
 ## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>Documentazione sull'integrazione dei servizi di Azure in componenti SAP
-In questa sezione vengono illustrati i documenti sull'integrazione di Power bi nelle origini dati SAP e l'integrazione Azure Data Factory in SAP BW.
+In questa sezione vengono illustrati i documenti sull'integrazione di Microsoft Power BI nelle origini dati SAP, oltre che Azure Data Factory integrazione in SAP BW.
 
 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
+- 12/12/2020: aggiunto il puntatore alla nota SAP per chiarire i dettagli sul supporto di Oracle Enterprise Linux da SAP in merito al [software SAP supportato per le distribuzioni di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 11/26/2020: adattare [SAP Hana le configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md) e [i tipi di archiviazione di Azure per il carico di lavoro SAP](./planning-guide-storage.md) per modificare i [contratti](https://azure.microsoft.com/support/legal/sla/virtual-machines) di
 - 11/05/2020: modifica del collegamento alla nuova nota SAP relativa ai tipi di file system supportati da HANA in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md) 
 - 10/26/2020: modifica di alcune tabelle per la configurazione di archiviazione Premium di Azure per chiarire il provisioning e la velocità effettiva in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md)

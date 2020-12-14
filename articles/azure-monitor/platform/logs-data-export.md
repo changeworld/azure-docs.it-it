@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 4155cda1e1de6f15aefa6d5fc960988eba15068d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309835"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371969"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -48,7 +48,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 > [!NOTE]
 > Log Analytics esportazione dei dati scrive i dati come BLOB di Accodamento, attualmente in anteprima per Azure Data Lake Storage Gen2. È necessario aprire una richiesta di supporto prima di configurare l'esportazione in questa risorsa di archiviazione. Usare i dettagli seguenti per questa richiesta.
 > - Tipo di problema: tecnico
-> - Sottoscrizione: sottoscrizione
+> - Sottoscrizione: Sottoscrizione in uso
 > - Servizio: Data Lake Storage Gen2
 > - Risorsa: nome della risorsa
 > - Riepilogo: è richiesta la registrazione della sottoscrizione per accettare i dati da Log Analytics esportazione dei dati.
@@ -58,7 +58,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="data-completeness"></a>Completezza dei dati
 L'esportazione dei dati continuerà a ritentare l'invio dei dati per un massimo di 30 minuti nel caso in cui la destinazione non sia disponibile. Se non è ancora disponibile dopo 30 minuti, i dati verranno rimossi finché la destinazione non sarà disponibile.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Costo
 Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esportazione dei dati. I prezzi per l'esportazione dei dati verranno annunciati in futuro e un avviso fornito prima dell'avvio della fatturazione. Se si sceglie di continuare a usare l'esportazione dei dati dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="export-destinations"></a>Esporta destinazioni
@@ -118,7 +118,11 @@ Se l'account di archiviazione è stato configurato per consentire l'accesso da r
 Una regola di esportazione dei dati consente di definire i dati da esportare per un set di tabelle in una singola destinazione. È possibile creare una regola per ogni destinazione.
 
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/D
 
@@ -133,13 +137,22 @@ az monitor log-analytics workspace table list -resource-group resourceGroupName 
 Usare il comando seguente per creare una regola di esportazione dei dati in un account di archiviazione usando l'interfaccia della riga di comando.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-Usare il comando seguente per creare una regola di esportazione dei dati in un hub eventi usando l'interfaccia della riga di comando.
+Usare il comando seguente per creare una regola di esportazione dei dati in un hub eventi usando l'interfaccia della riga di comando. Viene creato un hub eventi separato per ogni tabella.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+$eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesResourceId
+```
+
+Usare il comando seguente per creare una regola di esportazione dei dati in un hub eventi specifico usando l'interfaccia della riga di comando. Tutte le tabelle vengono esportate nel nome dell'hub eventi specificato. 
+
+```azurecli
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -205,9 +218,13 @@ Di seguito è riportato un corpo di esempio per la richiesta REST per un hub eve
 ```
 ---
 
-## <a name="view-data-export-configuration"></a>Visualizza configurazione esportazione dati
+## <a name="view-data-export-rule-configuration"></a>Visualizzazione della configurazione delle regole di esportazione dei dati
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/D
 
@@ -230,7 +247,11 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="disable-an-export-rule"></a>Disabilitare una regola di esportazione
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/D
 
@@ -268,7 +289,11 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Eliminare una regola di esportazione
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/D
 
@@ -291,7 +316,11 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Visualizzare tutte le regole di esportazione dei dati in un'area di lavoro
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/D
 
@@ -315,7 +344,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Tabelle non supportate
 Se la regola di esportazione dei dati include una tabella non supportata, la configurazione avrà esito positivo, ma non verranno esportati dati per tale tabella. Se la tabella è supportata in un secondo momento, i relativi dati verranno esportati in quel momento.
 
-Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore ```Table <tableName> does not exist in the workspace.```
+Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore "la tabella non <tableName> esiste nell'area di lavoro".
 
 
 ## <a name="supported-tables"></a>Tabelle supportate

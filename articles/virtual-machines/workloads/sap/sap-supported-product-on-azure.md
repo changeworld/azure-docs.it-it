@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a02c30423ab3c6de87eac7d34b5f0004e54a8d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957810"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371850"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Quale software SAP è supportato per le distribuzioni di Azure
 Questo articolo descrive come scoprire quale software SAP è supportato per le distribuzioni di Azure e quali sono le versioni del sistema operativo necessarie o le versioni DBMS.
@@ -82,6 +82,12 @@ Il sistema operativo, le versioni DBMS Oracle e le funzionalità Oracle supporta
 - I sistemi SAP non Unicode sono supportati solo con i server applicazioni che eseguono con sistema operativo guest Windows. Il sistema operativo guest del sistema DBMS può essere Oracle Linux o Windows. Il motivo di questa restrizione è evidente quando si verifica la matrice di disponibilità del prodotto SAP (PAM). Per Oracle Linux, SAP non ha mai rilasciato kernel SAP non Unicode
 
 Conoscere le versioni DBMS supportate con l'infrastruttura di Azure di destinazione è necessario controllare la matrice di disponibilità del prodotto SAP se le versioni del sistema operativo e il sistema DBMS necessario sono supportati con le versioni del prodotto SAP che si intende eseguire. 
+
+## <a name="oracle-linux"></a>Oracle Linux
+La domanda più importante in merito a Oracle Linux è se SAP supporta il kernel Red Hat che fa parte integrante anche di Oracle Linux. Per informazioni dettagliate, vedere la [Nota di supporto SAP #1565179](https://launchpad.support.sap.com/#/notes/1565179).
+
+## <a name="other-database-than-sap-hana"></a>Altro database di SAP HANA
+Il supporto dei database non HANA per il carico di lavoro SAP è documentato nella [Nota di supporto sap #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
 
 ## <a name="sap-hana-support"></a>Supporto SAP HANA
