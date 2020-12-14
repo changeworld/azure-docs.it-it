@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 38c006bd1cda1494b284f742459aaf539ed4a2d1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539708"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386715"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -55,6 +55,7 @@ Gli elementi seguenti non sono supportati:
 - DEFINER: Richiede privilegi avanzati per la creazione e presenta restrizioni. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
 - Database di sistema: il [database di sistema MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) è di sola lettura e viene usato per supportare varie funzionalità PaaS. Non è possibile apportare modifiche al `mysql` database di sistema.
 - `SELECT ... INTO OUTFILE`: Non supportato nel servizio.
+- `LOAD_FILE(file_name)`: Non supportato nel servizio.
 
 ### <a name="supported"></a>Supportato
 - L'istruzione `LOAD DATA INFILE` è supportata ma è necessario specificare il parametro `[LOCAL]` che deve essere indirizzato a un percorso UNC (archiviazione di Azure montata tramite SMB).

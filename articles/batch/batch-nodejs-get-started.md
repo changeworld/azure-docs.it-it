@@ -1,44 +1,45 @@
 ---
-title: 'Esercitazione: Usare la libreria client di Azure Batch per Node.js'
+title: Usare la libreria client di Azure Batch per Node.js
 description: Informazioni sui concetti di base di Azure Batch e compilazione di una soluzione semplice con Node.js.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850609"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106700"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
 
 Questo articolo illustra i concetti di base relativi alla compilazione di un client Batch in Node.js con l'[SDK di Azure Batch per Node.js](/javascript/api/overview/azure/batch). Verrà adottato un approccio graduale che prevede la definizione di uno scenario per un'applicazione batch e quindi la relativa configurazione con un client Node.js.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Questo articolo presuppone che l'utente sappia usare Node.js e abbia familiarità con Linux. Presuppone anche che abbia un account Azure configurato con i diritti di accesso necessari per creare servizi Batch e Archiviazione.
 
 Prima di affrontare i passaggi descritti in questo articolo, è consigliabile vedere la [panoramica tecnica di Azure Batch](batch-technical-overview.md).
 
-## <a name="the-tutorial-scenario"></a>Scenario dell'esercitazione
-In questo scenario di flusso di lavoro batch, un semplice script scritto in Python scarica tutti i file CSV da un contenitore di archiviazione BLOB di Azure e li converte in JSON. Per elaborare in parallelo più contenitori dell'account di archiviazione, è possibile distribuire lo script come processo di Azure Batch.
+## <a name="understand-the-scenario"></a>Informazioni sullo scenario
+
+Questo semplice script scritto in Python scarica tutti i file CSV da un contenitore di archiviazione BLOB di Azure e li converte in JSON. Per elaborare in parallelo più contenitori dell'account di archiviazione, è possibile distribuire lo script come processo di Azure Batch.
 
 ## <a name="azure-batch-architecture"></a>Architettura di Azure Batch
+
 Il diagramma seguente illustra come è possibile ridimensionare lo script Python usando Azure Batch e un client Node.js.
 
-![Scenario di Azure Batch](./media/batch-nodejs-get-started/BatchScenario.png)
+![Diagramma che illustra l'architettura dello scenario.](./media/batch-nodejs-get-started/BatchScenario.png)
 
 Il client Node.js distribuisce un processo batch con un'attività di preparazione (illustrata in dettaglio più avanti) e un set di attività in base al numero di contenitori nell'account di archiviazione. È possibile scaricare gli script dal repository GitHub.
 
-* [Client Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-* [Script della shell per l'attività di preparazione](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-* [Processore Python per la conversione da CSV a JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Client Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
+- [Script della shell per l'attività di preparazione](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
+- [Processore Python per la conversione da CSV a JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
 > Il client Node.js del collegamento riportato non contiene codice specifico da distribuire come app per le funzioni di Azure. Per istruzioni per crearne una, vedere i collegamenti seguenti.
 > - [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md)
 > - [Creare una funzione trigger timer](../azure-functions/functions-bindings-timer.md)
->
->
 
 ## <a name="build-the-application"></a>Compilare l'applicazione
 
@@ -54,8 +55,6 @@ Questo comando installa l'ultima versione dell'SDK azure-batch per Node.
 
 >[!Tip]
 > In un'app per le funzioni di Azure, è possibile passare alla "console Kudu" nella scheda Impostazioni di Funzioni di Azure per eseguire i comandi npm install, in questo caso per installare l'SDK di Azure Batch per Node.js.
->
->
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Passaggio 2: Creare un account Azure Batch
 
@@ -78,6 +77,7 @@ Ogni account Batch ha chiavi di accesso corrispondenti, necessarie per creare al
 Copiare e archiviare la chiave da usare nei passaggi successivi.
 
 ### <a name="step-3-create-an-azure-batch-service-client"></a>Passaggio 3: creare un client del servizio Azure Batch
+
 Il frammento di codice seguente importa il modulo Node.js azure-batch e quindi crea un client del servizio Batch. È necessario prima di tutto creare un oggetto SharedKeyCredentials con la chiave dell'account Batch copiata nel passaggio precedente.
 
 ```nodejs
@@ -109,19 +109,16 @@ Fare riferimento allo screenshot:
 
 ![URI di Azure Batch](./media/batch-nodejs-get-started/azurebatchuri.png)
 
-
-
 ### <a name="step-4-create-an-azure-batch-pool"></a>Passaggio 4: Creare un pool di Azure Batch
+
 Un pool di Azure Batch è costituito da più VM, dette anche nodi Batch. Il servizio Azure Batch distribuisce le attività in questi nodi e li gestisce. È possibile definire i parametri di configurazione per il pool.
 
-* Tipo di immagine di macchina virtuale
-* Dimensioni dei nodi macchina virtuale
-* Numero di nodi macchina virtuale
+- Tipo di immagine di macchina virtuale
+- Dimensioni dei nodi macchina virtuale
+- Numero di nodi macchina virtuale
 
-> [!Tip]
+> [!TIP]
 > Le dimensioni e il numero dei nodi macchina virtuale dipendono in gran parte dal numero di attività che si vuole eseguire in parallelo e anche dall'attività stessa. È consigliabile eseguire test per determinare il numero e le dimensioni ideali.
->
->
 
 Il frammento di codice seguente crea gli oggetti dei parametri di configurazione.
 
@@ -139,10 +136,8 @@ var vmSize = "STANDARD_F4"
 var numVMs = 4
 ```
 
-> [!Tip]
+> [!TIP]
 > Per l'elenco delle immagini di VM Linux disponibili per Azure Batch e dei relativi ID SKU, vedere [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images).
->
->
 
 Dopo aver definito la configurazione del pool, è possibile creare il pool di Azure Batch. Il comando per il pool di Batch crea i nodi macchina virtuale di Azure e li prepara in modo che siano pronti a ricevere le attività da eseguire. Ogni pool dovrà avere un ID univoco a cui fare riferimento nei passaggi successivi.
 
@@ -245,40 +240,37 @@ Di seguito è riportato un oggetto risultato di esempio restituito dalla funzion
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
-
 ### <a name="step-4-submit-an-azure-batch-job"></a>Passaggio 4: inviare un processo di Azure Batch
+
 Un processo di Azure Batch è un gruppo logico di attività simili. In questo scenario, esegue l'elaborazione da CSV a JSON. Ogni attività potrà elaborare i file CSV presenti in ogni contenitore di archiviazione di Azure.
 
 Queste attività verranno eseguite in parallelo e distribuite in più nodi, orchestrati dal servizio Azure Batch.
 
-> [!Tip]
+> [!TIP]
 > È possibile usare la proprietà [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) per specificare il numero massimo di attività che è possibile eseguire simultaneamente in un singolo nodo.
->
->
 
 #### <a name="preparation-task"></a>Attività di preparazione
 
 I nodi VM creati sono nodi Ubuntu vuoti. Spesso è necessario installare un set di programmi come prerequisito.
 Per i nodi Linux è in genere possibile usare uno script della shell che installa i prerequisiti prima dell'esecuzione delle attività effettive. Può tuttavia trattarsi di qualsiasi eseguibile programmabile.
+
 Lo [script della shell](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) di questo esempio installa Python-pip e Azure Storage SDK per Python.
 
 È possibile caricare lo script in un account di archiviazione di Azure e generare un URI di firma di accesso condiviso per accedere allo script. Questo processo può essere automatizzato con Azure Storage SDK per Node.js.
 
-> [!Tip]
+> [!TIP]
 > Un'attività di preparazione per un processo viene eseguita solo sui nodi VM in cui deve essere eseguita l'attività specifica. Se si vogliono installare i prerequisiti in tutti i nodi indipendentemente dalle attività in essi eseguite, si può usare la proprietà [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) durante l'aggiunta di un pool. È possibile usare la definizione di attività di preparazione seguente come riferimento.
->
->
 
 Un'attività di preparazione viene specificata durante l'invio del processo di Azure Batch. Di seguito sono riportati i parametri di configurazione dell'attività di preparazione.
 
-* **ID**: identificatore univoco dell'attività di preparazione
-* **commandLine**: riga di comando per eseguire l'eseguibile dell'attività
-* **resourceFiles**: matrice di oggetti che specifica i dettagli dei file da scaricare per l'esecuzione dell'attività.  Di seguito sono riportate le opzioni.
-    - blobSource: URI di firma di accesso condiviso del file
-    - filePath: percorso locale per il download e il salvataggio del file
-    - fileMode: applicabile solo per nodi Linux, fileMode è in formato ottale con valore predefinito 0770
-* **waitForSuccess**: se è impostato su true, l'attività non viene eseguita in caso di errori dell'attività di preparazione
-* **runElevated**: impostare su true se sono necessari privilegi elevati per eseguire l'attività.
+- **ID**: identificatore univoco dell'attività di preparazione
+- **commandLine**: riga di comando per eseguire l'eseguibile dell'attività
+- **resourceFiles**: matrice di oggetti che specifica i dettagli dei file da scaricare per l'esecuzione dell'attività.  Di seguito sono riportate le opzioni.
+  - blobSource: URI di firma di accesso condiviso del file
+  - filePath: percorso locale per il download e il salvataggio del file
+  - fileMode: applicabile solo per nodi Linux, fileMode è in formato ottale con valore predefinito 0770
+- **waitForSuccess**: se è impostato su true, l'attività non viene eseguita in caso di errori dell'attività di preparazione
+- **runElevated**: impostare su true se sono necessari privilegi elevati per eseguire l'attività.
 
 Il frammento di codice seguente illustra un esempio di configurazione dello script dell'attività di preparazione:
 
@@ -302,15 +294,14 @@ Se per l'esecuzione delle attività non è necessario installare prerequisiti, �
      }});
 ```
 
-
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Passaggio 5: inviare le attività di Azure Batch per un processo
 
 Dopo aver creato il processo per l'elaborazione dei file CSV, si creeranno le attività per tale processo. Supponendo di avere quattro contenitori, è necessario creare quattro attività, una per ogni contenitore.
 
 Lo [script Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) accetta due parametri.
 
-* container name: contenitore di archiviazione da cui scaricare i file
-* pattern: parametro facoltativo del criterio nome file
+- container name: contenitore di archiviazione da cui scaricare i file
+- pattern: parametro facoltativo del criterio nome file
 
 Supponendo di avere i quattro contenitori "con1", "con2", "con3" e "con4", il codice seguente illustra l'invio delle attività al processo "process csv" di Azure Batch creato in precedenza.
 
@@ -347,4 +338,3 @@ Il portale offre visualizzazioni dettagliate delle attività e degli stati del p
 
 - Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md) come pool, nodi, processi e attività.
 - Per esplorare l'API Batch, vedere le [informazioni di riferimento su Node.js per Batch](/javascript/api/overview/azure/batch).
-

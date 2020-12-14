@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con GitHub | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e GitHub.
+title: "Esercitazione: Integrazione di Azure Active Directory con un'istanza di GitHub Enterprise Cloud - Organization | Microsoft Docs"
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e un'istanza di GitHub Enterprise Cloud - Organization.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: cb5ef751a3fc2241924eaee1c5da9507006389cc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 67a17aaa647d9aa6943b37d54fc0e3308ad8955f
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449271"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558539"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con un'istanza di GitHub Enterprise Cloud - Organization
 
-Questa esercitazione descrive come integrare GitHub con Azure Active Directory (Azure AD). Integrando GitHub con Azure AD, è possibile:
+Questa esercitazione descrive come integrare un'**organizzazione** GitHub Enterprise Cloud con Azure Active Directory (Azure AD). Integrando un'istanza di GitHub Enterprise Cloud - Organization con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere all'organizzazione GitHub Enterprise Cloud.
 * Gestire l'accesso all'organizzazione GitHub Enterprise Cloud in un'unica posizione centrale: il portale di Azure.
@@ -29,7 +29,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con GitHub, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con un'istanza di GitHub Enterprise Cloud - Organization, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Un'organizzazione GitHub creata in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), che richiede il [piano di fatturazione GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
@@ -48,15 +48,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di GitHub in Azure AD, è necessario aggiungere GitHub dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **GitHub** nella casella di ricerca.
-1. Selezionare **GitHub** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
+1. Selezionare **GitHub Enterprise Cloud - Organization** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per GitHub
 
-Configurare e testare l'accesso SSO di Azure AD con GitHub usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in GitHub.
+Configurare e testare l'accesso SSO di Azure AD con GitHub usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in GitHub.
 
 Per configurare e testare l'accesso SSO di Azure AD con GitHub, completare le procedure di base seguenti:
 
@@ -71,8 +71,8 @@ Per configurare e testare l'accesso SSO di Azure AD con GitHub, completare le pr
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **GitHub** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina di integrazione dell'applicazione **GitHub** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -89,11 +89,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. In questo caso, è consigliabile di usare il valore univoco della stringa nell'identificatore. Passare alla sezione Admin di GitHub per recuperare questi valori.
 
-5. L'applicazione GitHub prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti in cui **Identificatore utente univoco (ID nome)** è associato a **user.userprincipalname** . L'applicazione GitHub prevede che **Identificatore utente univoco (ID nome)** sia associato a **user.mail** , di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping dell'attributo.
+5. L'applicazione GitHub prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti in cui **Identificatore utente univoco (ID nome)** è associato a **user.userprincipalname**. L'applicazione GitHub prevede che **Identificatore utente univoco (ID nome)** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping dell'attributo.
 
     ![Screenshot che mostra la sezione "Attributi utente" con l'icona "Modifica" selezionata.](common/edit-attribute.png)
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -111,25 +111,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a GitHub.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **GitHub** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **GitHub**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
@@ -141,7 +141,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     > [!NOTE]
     > L'opzione **Selezionare un ruolo** verrà disabilitata e il ruolo predefinito è UTENTE per l'utente selezionato.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-github-sso"></a>Configurare l'accesso Single Sign-On di GitHub
 
@@ -167,11 +167,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     b. Nella casella di testo **Autorità di certificazione** incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    c. Aprire il certificato scaricato nel Blocco note dal portale di Azure e incollarne il contenuto nella casella di testo **Certificato pubblico** .
+    c. Aprire il certificato scaricato nel Blocco note dal portale di Azure e incollarne il contenuto nella casella di testo **Certificato pubblico**.
 
     d. Fare clic sull'icona **Modifica** icona per modificare **Metodo di firma** e **Metodo digest** da **RSA-SHA1** e **SHA1** alla **RSA-SHA256** e **SHA256** come illustrato di seguito.
     
-    e. Aggiornare l' **URL del servizio consumer di asserzione (URL di risposta)** dall'URL predefinito in modo che l'URL in GitHub corrisponda all'URL nella registrazione dell'app di Azure.
+    e. Aggiornare l'**URL del servizio consumer di asserzione (URL di risposta)** dall'URL predefinito in modo che l'URL in GitHub corrisponda all'URL nella registrazione dell'app di Azure.
 
     ![image](./media/github-tutorial/tutorial_github_sha.png)
 

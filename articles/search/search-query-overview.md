@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: 9cac0a0026a7007e227607e04e03a77e4df99ecd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368121"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387667"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Esecuzione di query in Azure ricerca cognitiva
 
-Azure ricerca cognitiva offre un linguaggio di query esteso per supportare un'ampia gamma di scenari, dalla ricerca in formato libero, ai modelli di query altamente specificati. Questo articolo riepiloga i tipi di query che è possibile creare.
+Azure ricerca cognitiva offre un linguaggio di query avanzato per supportare un'ampia gamma di scenari, dalla ricerca di testo disponibile, ai modelli di query altamente specificati. Questo articolo riepiloga i tipi di query che è possibile creare.
 
 In ricerca cognitiva, una query è una specifica completa di un'operazione di round trip **`search`** , con parametri che comunicano l'esecuzione delle query e formano la risposta che viene restituita. I parametri e i parser determinano il tipo di richiesta di query. L'esempio di query seguente usa i [documenti di ricerca (API REST)](/rest/api/searchservice/search-documents), che hanno come destinazione l' [Indice demo degli hotel](search-get-started-portal.md).
 
@@ -38,7 +38,7 @@ Parametri utilizzati durante l'esecuzione della query:
 
 + **`queryType`** imposta il parser, che è il [parser di query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per i costrutti di query avanzati, come le espressioni regolari, la ricerca di prossimità, la ricerca fuzzy e il carattere jolly, per citarne alcuni.
 
-+ **`search`** fornisce i criteri di corrispondenza, in genere termini interi o frasi, con o senza operatori. Qualsiasi campo attribuito come *ricercabile* nello schema dell'indice è un candidato per questo parametro. 
++ **`search`** fornisce i criteri di corrispondenza, in genere termini interi o frasi, con o senza operatori. Qualsiasi campo attribuito come *ricercabile* nello schema dell'indice è un candidato per questo parametro.
 
 + **`searchFields`** vincola l'esecuzione di query a campi ricercabili specifici.
 
@@ -82,7 +82,7 @@ I filtri sono ampiamente usati nelle app che includono ricerca cognitiva. Nelle 
 
 Potrebbero inoltre essere necessari filtri per richiamare un modulo di query specializzato, come descritto nella tabella seguente. È possibile usare un filtro con una ricerca non specificata ( **`search=*`** ) o con una stringa di query che include termini, frasi, operatori e modelli.
 
-| Scenario di filtro | Description |
+| Scenario di filtro | Descrizione |
 |-----------------|-------------|
 | Filtri di intervallo | In ricerca cognitiva di Azure, le query di intervallo vengono compilate utilizzando il parametro Filter. Per ulteriori informazioni ed esempi, vedere [esempio di filtro di intervallo](search-query-simple-examples.md#example-4-range-filters). |
 | Ricerca geografica | Se un campo ricercabile è di [tipo EDM. GeographyPoint](/rest/api/searchservice/supported-data-types), è possibile creare un'espressione di filtro per i controlli di ricerca "trova nelle vicinanze" o per la ricerca basata su mapping. I campi che guidano la ricerca geografica contengono le coordinate. Per altre informazioni e un esempio, vedere [esempio di ricerca geografica](search-query-simple-examples.md#example-5-geo-search). |
@@ -110,10 +110,8 @@ Un modulo di query avanzato dipende dal parser Lucene completo e dagli operatori
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare il portale o un altro strumento, ad esempio postazione o Visual Studio Code, oppure uno degli SDK per esplorare le query in modo più approfondito. I collegamenti seguenti consentono di iniziare.
+Per un'analisi più approfondita dell'implementazione di query, vedere gli esempi per ogni sintassi. Se non si ha familiarità con la ricerca full-text, un'occhiata più approfondita del motore di query potrebbe essere una scelta altrettanto adatta.
 
-+ [Esplora ricerche](search-explorer.md)
-+ [Come eseguire query in REST](search-get-started-rest.md)
-+ [Come eseguire query in .NET](search-get-started-dotnet.md)
-+ [Come eseguire query in Python](search-get-started-python.md)
-+ [Come eseguire query in JavaScript](search-get-started-javascript.md)
++ [Esempi di query semplici](search-query-simple-examples.md)
++ [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
++ [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)

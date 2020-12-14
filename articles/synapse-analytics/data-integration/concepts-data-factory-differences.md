@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: a8fd0ef006b246e30c02cfb321c72b4e070f54de
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8818d4db489cef8203ae515c18c61e215d577033
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109148"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387616"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integrazione dei dati in Azure sinapsi Analytics rispetto a Azure Data Factory
 
 In Azure sinapsi Analytics le funzionalità di integrazione dei dati, ad esempio i flussi di dati e le pipeline di sinapsi, sono basate su quelle di Azure Data Factory. Per ulteriori informazioni, vedere [che cos'è Azure Data Factory](../../data-factory/introduction.md).
 
 
-## <a name="available-features-in-azure-data-factory-and-azure-synapse-analytics"></a>Funzionalità disponibili in Azure Data Factory e Azure sinapsi Analytics
+## <a name="available-features-in-adf--azure-synapse-analytics"></a>Funzionalità disponibili in ADF & Azure sinapsi Analytics
 
 Per la disponibilità delle funzionalità, vedere la tabella seguente:
 
-| Category                 | Funzionalità    |  Azure Data Factory  | Azure Synapse Analytics |
+| Categoria                 | Funzionalità    |  Azure Data Factory  | Azure Synapse Analytics |
 | ------------------------ | ---------- | :------------------: | :---------------------: |
 | **Integration Runtime**  | Uso di SSIS e SSIS Integration Runtime | ✓ | ✗ |
 |                          | Supporto per Integration Runtime tra aree (flussi di dati) | ✓ | ✗ |

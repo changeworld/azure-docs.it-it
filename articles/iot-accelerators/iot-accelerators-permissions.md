@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 5a088cb07fa74b65e497de54be8c97bd51d31c16
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853229"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387837"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Usare il sito azureiotsolutions.com per distribuire acceleratori di soluzioni
 
 È possibile distribuire acceleratori di soluzioni di Azure IoT nella sottoscrizione di Azure da [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com ospita sia acceleratori di soluzioni open source Microsoft che di partner. Questi acceleratori di soluzioni sono allineati all'[Architettura di riferimento di Azure IoT](/azure/architecture/reference-architectures/iot). È possibile usare il sito per distribuire rapidamente un acceleratore di soluzione come ambiente demo o di produzione.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="Soluzioni Internet home page":::
 
 > [!TIP]
 > Se è necessario un maggiore controllo sul processo di distribuzione, è possibile usare l'interfaccia della riga di comando per distribuire un acceleratore di soluzione.

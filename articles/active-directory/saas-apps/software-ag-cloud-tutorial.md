@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182356"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602020"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Software AG Cloud
 
@@ -77,9 +77,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Software AG Cloud](mailto:support@softwareag.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -121,19 +121,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1.  Fare clic su **Administration** (Amministrazione)
 
-    ![Configurazione di Software AG Cloud - 1](./media/software-ag-cloud-tutorial/admin.png)
+    ![Configurazione dell'opzione Administration di Software AG Cloud](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Passare a **Single-sign on > Add identity provider** (Accesso Single Sign-On > Aggiungi provider di identità)
 
-    ![Configurazione di Software AG Cloud - 2](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Configurazione del provider di identità di Software AG Cloud](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. Nella pagina successiva seguire questa procedura.
 
-    ![Configurazione di Software AG Cloud - 3](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Configurazione di Software AG Cloud - Passaggi successivi](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. Nella casella di testo **Identity provider display name** (Nome visualizzato del provider di identità) specificare un nome valido, ad esempio `azure ad`.
 
-    b. Nella casella di testo **Identity provider unique identifier for use in Software AG Cloud redirect URI** (Identificatore univoco del provider di identità da usare nell'URL di reindirizzamento di Software AG Cloud) incollare il valore di **ID entità** copiato dal portale di Azure.
+    b. Nella casella di testo **Identity provider unique identifier for use in Software AG Cloud redirect URI** (Identificatore univoco del provider di identità da usare nell'URL di reindirizzamento di Software AG Cloud) immettere un nome univoco per il provider di identità. Il campo **Software AG Cloud redirect URI** (URI di reindirizzamento di Software AG Cloud) verrà aggiornato e popolato con l'URI. Copiare questo URI e usarlo per configurare il valore di **Entity ID** (ID entità) e altre informazioni nel portale di Azure in base ai criteri definiti.
 
     c. Importare il file **XML dei metadati di federazione** in **Identity provider configuration** (Configurazione del provider di identità) e fare clic su **Next** (Avanti).
 
@@ -147,11 +147,12 @@ In questa sezione viene creato un utente di nome Britta Simon in Software AG Clo
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-1. Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di Software AG Cloud, in cui è possibile avviare il flusso di accesso. 
+* Presupponendo che Microsoft Azure sia configurato come provider in Software AG Cloud, passare a `www.softwareag.cloud`, fare clic sul pulsante Login (Accedi) e quindi immettere il nome dell'ambiente. Nella schermata successiva fare clic sul collegamento "Log in with <IDP NAME>" (Accedi con NOME_IDP) e immettere le credenziali. Dopo l'autenticazione verrà eseguito l'accesso e verrà visualizzata la home page di Software AG Cloud.
 
-2. Passare direttamente all'URL di accesso di Software AG Cloud e avviare il flusso di accesso da questa posizione.
+* Passare direttamente all'URL di accesso di Software AG Cloud e avviare il flusso di accesso da questa posizione.
 
-3. È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro di Software AG Cloud nel pannello di accesso, si verrà reindirizzati all'URL di accesso di Software AG Cloud. Per altre informazioni in proposito, vedere l'[introduzione al pannello di accesso](../user-help/my-apps-portal-end-user-access.md)
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Software AG Cloud in App personali, si verrà reindirizzati all'URL di accesso di Software AG Cloud. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

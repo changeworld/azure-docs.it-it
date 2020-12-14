@@ -141,6 +141,8 @@
           href: howto-firewall.md
         - name: Configurare la connettività del collegamento privato
           href: howto-private-link.md
+        - name: Gestire l'accesso alle risorse - VPN spoke da punto a sito
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: Monitoraggio
       items:
         - name: Log e metriche

@@ -1,5 +1,5 @@
 ---
-title: Riferimenti - Framework attendibilità in Azure Active Directory B2C | Microsoft Docs
+title: Panoramica dei criteri personalizzati Azure AD B2C | Microsoft Docs
 description: Informazioni sui criteri personalizzati e sul framework dell'esperienza di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -7,121 +7,170 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2017
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d29bd05f67d00047499dc256e5e1a82f98693a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95990984"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387038"
 ---
-# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definizione dei framework attendibilità basati sul Framework dell'esperienza di gestione delle identità di Azure AD B2C
+# <a name="azure-ad-b2c-custom-policy-overview"></a>Panoramica dei criteri personalizzati Azure AD B2C
 
-I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) che usano il Framework dell'esperienza di gestione delle identità offrono all'organizzazione un servizio centralizzato. Questo servizio riduce la complessità della federazione delle identità in una community di interesse di grandi dimensioni a una singola relazione di trust e a un singolo scambio di metadati.
+I criteri personalizzati sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory B2C (Azure AD B2C). Mentre i [flussi utente](user-flow-overview.md) sono predefiniti nel portale Azure ad B2C per le attività più comuni relative alle identità. I criteri personalizzati possono essere modificati completamente da uno sviluppatore di identità per completare molte attività diverse.
 
-Azure AD B2C criteri personalizzati usano il Framework dell'esperienza di identità per rispondere alle domande seguenti:
+Un criterio personalizzato è completamente configurabile e basato sui criteri che orchestra la relazione di trust tra le entità nei formati di protocollo standard, ad esempio OpenID Connect, OAuth, SAML e alcuni non standard, ad esempio scambi di attestazioni da sistema a sistema basato su API REST. Il Framework crea esperienze intuitive e con etichetta bianca.
 
-- Quali criteri legali, di sicurezza, privacy e protezione dei dati devono essere rispettati?
-- Chi sono i contatti e quali sono le procedure per diventare membro accreditato?
-- Chi sono i provider di informazioni di identità accreditati (anche noti come "provider di attestazioni") e cosa offrono?
-- Chi sono le relying party accreditate e, facoltativamente, cosa richiedono?
-- Quali sono i requisiti tecnici di interoperabilità "in transito" per i membri?
-- Quali sono le regole operative di "runtime" che devono essere applicate per lo scambio di informazioni di identità digitali?
+Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. Gli elementi XML definiscono gli elementi costitutivi, l'interazione con l'utente e altre parti e la logica di business. 
 
-Per rispondere a tutte queste domande, i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità usano il costrutto del framework attendibilità. Esaminiamo ora questo costrutto e il suo contributo in questo senso.
+## <a name="custom-policy-starter-pack"></a>Pacchetto Starter per i criteri personalizzati
 
-## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Nozioni fondamentali sul framework attendibilità e sulla gestione della federazione
+Azure AD B2C [Starter Pack](custom-policy-get-started.md#get-the-starter-pack) per criteri personalizzati è dotato di diversi criteri predefiniti che consentono di iniziare rapidamente. Ogni pacchetto Starter contiene il numero minimo di profili tecnici e percorsi utente necessario per conseguire gli scenari descritti:
 
-Il framework attendibilità è una specifica scritta dei criteri di identità, sicurezza, privacy e protezione dei dati a cui i membri di una community di interesse devono conformarsi.
+- **LocalAccounts** - Consente l'uso solo di account locali.
+- **SocialAccounts** - Consente l'uso solo di account di social networking (o federati).
+- **SocialAndLocalAccounts** - Consente sia l'uso di account locali che di account di social networking. La maggior parte degli esempi fa riferimento a questo criterio.
+- **SocialAndLocalAccountsWithMFA** - Consente l'uso di opzioni di social networking, locali e di autenticazione a più fattori.
 
-L'identità federata rappresenta la base per ottenere la verifica delle identità degli utenti finali a livello di Internet. Se si delega la gestione delle identità a terze parti, una singola identità digitale per un utente finale può essere usata con più relying party.
+## <a name="understanding-the-basics"></a>Informazioni sulle nozioni di base 
 
-La verifica delle identità richiede che i provider di identità (IdP) e i provider di attributi aderiscano a procedure e criteri operativi, di privacy e sicurezza specifici.  Se non possono eseguire ispezioni dirette, le relying party (RP) devono sviluppare relazioni di trust con i provider di identità e i provider di attributi con i quali scelgono di lavorare.
+### <a name="claims"></a>Attestazioni
 
-Con l'aumento del numero di consumer e di provider di informazioni di identità digitali, diventa difficile proseguire la gestione pairwise di queste relazioni di trust o anche lo scambio pairwise dei metadati tecnici necessari per la connettività di rete.  Gli hub di federazione hanno risolto questi problemi solo in parte.
+Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzione dei criteri di Azure AD B2C. Può archiviare informazioni relative all'utente, ad esempio nome, cognome o qualsiasi altra attestazione ottenuta dall'utente o da altri sistemi (scambi di attestazioni). Lo [schema di attestazioni](claimsschema.md) è la posizione in cui si dichiarano le attestazioni. 
 
-### <a name="what-a-trust-framework-specification-defines"></a>Contenuto definito in una specifica di framework di attendibilità
-I framework attendibilità rappresentano il cardine del modello di Open Identity Exchange (OIX), in cui ogni community di interesse è regolata da una specifica di framework attendibilità. Questa specifica di framework attendibilità definisce:
+Quando il criterio viene eseguito, Azure AD B2C Invia e riceve attestazioni da e verso entità interne ed esterne e quindi Invia un subset di tali attestazioni all'applicazione relying party come parte del token. Le attestazioni vengono utilizzate nei modi seguenti: 
 
-- **Le metriche di sicurezza e privacy per la community di interesse con la definizione degli elementi seguenti:**
-    - I livelli di verifica che sono offerti/richiesti dai membri, ad esempio un set ordinato di valutazioni di attendibilità per l'autenticità di informazioni su identità digitali.
-    - I livelli di protezione offerti/richiesti dai membri, ad esempio un set ordinato di valutazioni di attendibilità per la protezione di informazioni su identità digitali gestite da membri nella community di interesse.
+- Un'attestazione viene salvata, letta o aggiornata in base all'oggetto utente della directory.
+- Un'attestazione viene ricevuta da un provider di identità esterno.
+- Le attestazioni vengono inviate o ricevute usando un servizio API REST personalizzato.
+- I dati vengono raccolti come attestazioni dall'utente durante i flussi di iscrizione o di modifica del profilo.
 
-- **La descrizione delle informazioni su identità digitali offerte/richieste dai membri**.
+### <a name="manipulating-your-claims"></a>Modifica delle attestazioni
 
-- **I criteri tecnici per la produzione e l'utilizzo di informazioni di identità digitali e pertanto per la misurazione di LOA e LOP. Questi criteri scritti includono in genere le categorie di criteri seguenti:**
-    - Criteri di verifica dell'identità, ad esempio *con quale rigore vengono controllate le informazioni sull'identità di un utente?*
-    - Criteri di sicurezza, ad esempio *con quale rigore vengono protette l'integrità e la riservatezza delle informazioni?*
-    - Criteri di privacy, ad esempio *quale controllo ha un utente sulle informazioni di identificazione personale*?
-    - Criteri di capacità di sopravvivenza, ad esempio *come vengono gestite la continuità e la protezione delle informazioni di identificazione personale se un provider cessa l'attività?*
+Le [trasformazioni delle attestazioni](claimstransformations.md) sono funzioni predefinite che possono essere usate per convertire un'attestazione specificata in un'altra, valutare un'attestazione o impostare un valore di attestazione. Ad esempio l'aggiunta di un elemento a una raccolta di stringhe, la modifica del case di una stringa o la valutazione di un'attestazione di dati e ora. Una trasformazione delle attestazioni specifica un metodo Transform. 
 
-- **Profili tecnici per la produzione e l'utilizzo di informazioni di identità digitali. Questi profili includono:**
-    - Interfacce di ambito per le quali sono disponibili le informazioni su identità digitali al livello di verifica specificato.
-    - Requisiti tecnici per l'interoperabilità in transito.
+### <a name="customize-and-localize-your-ui"></a>Personalizzare e localizzare l'interfaccia utente
 
-- **Le descrizioni dei diversi ruoli che i membri della community possono rivestire insieme alle qualifiche necessarie per adempiere a questi ruoli.**
+Quando si desidera raccogliere informazioni dagli utenti presentando una pagina nel browser Web, usare il [profilo tecnico autocertificato](self-asserted-technical-profile.md). È possibile modificare il profilo tecnico autocertificato per [aggiungere attestazioni e personalizzare l'input dell'utente](custom-policy-configure-user-input.md).
 
-Una specifica di framework attendibilità determina quindi la modalità di scambio delle informazioni di identità tra i membri della community di interesse: relying party, provider di identità e di attributi e verificatori di attributi.
+Per [personalizzare l'interfaccia utente](customize-ui-with-html.md) per il profilo tecnico autocertificato, è necessario specificare un URL nell'elemento di [definizione del contenuto](contentdefinitions.md) con contenuto HTML personalizzato. Nel profilo tecnico autocertificato puntare a questo ID definizione del contenuto.
 
-Una specifica di framework attendibilità è organizzata in uno o più documenti che fungono da riferimento per la governance della community di interesse, regolando l'asserzione e l'uso di informazioni su identità digitali all'interno della community. Ciò implica una serie documentata di criteri e procedure, progettati per stabilire l'attendibilità nelle identità digitali usate per le transazioni online tra i membri di una community di interesse.
+Per personalizzare le stringhe specifiche della lingua, usare l'elemento [Localization](localization.md) . Una definizione del contenuto può contenere un riferimento alla [localizzazione](localization.md) che specifica un elenco di risorse localizzate da caricare. Azure AD B2C unisce elementi dell'interfaccia utente con il contenuto HTML caricato dall'URL e quindi mostra la pagina all'utente. 
 
-Una specifica di framework attendibilità definisce quindi le regole per la creazione di un ecosistema di identità federate valido per una community.
+## <a name="relying-party-policy-overview"></a>Panoramica dei criteri della relying party
 
-Il vantaggio di questo approccio è oggi ampiamente riconosciuto. Senza dubbio le specifiche di framework attendibilità semplificano lo sviluppo di ecosistemi di identità digitali con caratteristiche verificabili di sicurezza, verifica e privacy che ne consentono il riutilizzo in più community di interesse.
+Un'applicazione relying party, o nel protocollo SAML noto come provider di servizi, chiama il [criterio relying party](relyingparty.md) per eseguire un percorso utente specifico. I criteri di relying party specificano il percorso utente da eseguire e l'elenco delle attestazioni incluse nel token. 
 
-Per questo motivo, i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità usano la specifica come base della rappresentazione dei dati per un framework attendibilità per semplificare l'interoperabilità.
+![Diagramma che mostra il flusso di esecuzione dei criteri](./media/custom-policy-trust-frameworks/custom-policy-execution.png)
 
-I criteri personalizzati di Azure Active Directory B2C che si basano sul Framework dell'esperienza di gestione delle identità rappresentano una specifica di framework attendibilità come una combinazione di dati leggibili da computer e da risorse umane. Alcune sezioni di questo modello (in genere le sezioni più orientate alla governance) vengono rappresentate come riferimenti a documentazione pubblicata sui criteri di sicurezza e privacy insieme alle procedure correlate (se presenti). Altre sezioni descrivono in dettaglio le regole di runtime e i metadati di configurazione che facilitano l'automazione operativa.
+Tutte le applicazioni relying party che usano lo stesso criterio, ricevono le stesse attestazioni del token e l'utente passa attraverso lo stesso percorso utente.
 
-## <a name="understand-trust-framework-policies"></a>Criteri di framework attendibilità
+### <a name="user-journeys"></a>Percorsi utente
 
-In termini di implementazione, la specifica di framework attendibilità è costituita da un set di criteri che offrono il controllo completo sulle esperienze e sui comportamenti delle identità.  I criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità consentono di creare framework attendibilità personali tramite tali criteri dichiarativi che possono definire e configurare:
+I [percorsi utente](userjourneys.md) consentono di definire la logica di business con il percorso attraverso il quale l'utente seguirà per accedere all'applicazione. L'utente viene sottoposto al percorso utente per recuperare le attestazioni da presentare all'applicazione. Un percorso utente è costituito da una sequenza di [passaggi dell'orchestrazione](userjourneys.md#orchestrationsteps). Un utente deve raggiungere l'ultimo passaggio per acquisire un token. 
 
-- I documenti o i riferimenti che definiscono l'ecosistema di identità federative della community in relazione al framework attendibilità. Si tratta di collegamenti alla documentazione relativa al framework di attendibilità. Le regole operative di "runtime" predefinite oppure i percorsi utente che automatizzano e/o controllano lo scambio e l'uso delle attestazioni. Questi percorsi utente sono associati a un livello di verifica e a un livello di protezione. Un criterio può quindi avere percorsi utente con livelli di verifica e livelli di protezione differenti.
+Di seguito viene descritto come è possibile aggiungere passaggi di orchestrazione ai criteri di [Starter Pack per gli account di social networking e locali](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts) . Di seguito è riportato un esempio di una chiamata API REST aggiunta.
 
-- I provider di identità e di attributi o i provider di attestazioni nella community di interesse e i profili tecnici supportati insieme all'accreditamento dei livelli di verifica e di protezione fuori banda correlati.
+![percorso utente personalizzato](media/custom-policy-trust-frameworks/user-journey-flow.png)
 
-- L'integrazione con verificatori di attributi o provider di attestazioni.
 
-- Le relying party nella community (per inferenza).
+### <a name="orchestration-steps"></a>Passaggi dell'orchestrazione
 
-- I metadati per stabilire comunicazioni di rete tra i membri. Questi metadati vengono usati insieme ai profili tecnici durante una transazione per ottimizzare l'interoperabilità "in transito" tra la relying party e altri membri della community.
+Il passaggio dell'orchestrazione fa riferimento a un metodo che implementa la funzionalità o lo scopo designato. Questo metodo è denominato [profilo tecnico](technicalprofiles.md). Quando il percorso utente richiede una diramazione per rappresentare meglio la logica di business, il passaggio dell'orchestrazione fa riferimento a [subjourney](subjourneys.md). Un sub-Journey contiene un set di passaggi di orchestrazione.
 
-- L'eventuale conversione dei protocolli, ad esempio SAML 2.0, OAuth2, WS-Federation e OpenID Connect.
+Per acquisire un token, un utente deve raggiungere l'ultimo passaggio dell'orchestrazione nel percorso utente. Tuttavia, gli utenti potrebbero non dover attraversare tutti i passaggi dell'orchestrazione. I passaggi di orchestrazione possono essere eseguiti in modo condizionale in base alle [precondizioni](userjourneys.md#preconditions) definite nel passaggio dell'orchestrazione. 
 
-- I requisiti di autenticazione.
+Al termine di un passaggio di orchestrazione, Azure AD B2C archivia le attestazioni in output nell' **elenco delle attestazioni**. Le attestazioni nel contenitore delle attestazioni possono essere utilizzate da altri passaggi di orchestrazione nel percorso utente.
 
-- L'eventuale orchestrazione a più fattori.
+Nel diagramma seguente viene illustrato il modo in cui i passaggi dell'orchestrazione del percorso utente possono accedere all'elenco di attestazioni.
 
-- Uno schema condiviso per tutte le attestazioni disponibili e i mapping ai membri di una community di interesse.
+![Percorso utente Azure AD B2C](media/custom-policy-trust-frameworks/user-journey-diagram.png)
 
-- Tutte le trasformazioni di attestazioni, insieme all'eventuale riduzione dei dati in questo contesto, per sostenere lo scambio e l'uso delle attestazioni.
+### <a name="technical-profile"></a>Profilo tecnico
 
-- Il binding e la crittografia.
+Un profilo tecnico fornisce un'interfaccia per comunicare con diversi tipi di entità. Un percorso utente combina la chiamata ai profili tecnici tramite i passaggi dell'orchestrazione per definire la logica di business.
 
-- L'archivio delle attestazioni.
+Tutti i tipi di profili tecnici condividono lo stesso concetto. È possibile inviare attestazioni di input, eseguire la trasformazione delle attestazioni e comunicare con l'entità configurata. Al termine del processo, il profilo tecnico restituisce le attestazioni di output per il contenitore delle attestazioni. Per altre informazioni, vedere [Cenni preliminari sui profili tecnici](technicalprofiles.md)
 
-### <a name="understand-claims"></a>Attestazioni
+### <a name="validation-technical-profile"></a>Profilo tecnico di convalida
 
-> [!NOTE]
-> Sono definiti "attestazioni" tutti i possibili tipi di informazioni di identità che possono essere scambiati come "attestazioni": attestazioni sulle credenziali di autenticazione di un utente finale, controllo delle identità, dispositivo di comunicazione, posizione fisica, attributi di identificazione personale e così via.
->
-> Si usa il termine "attestazioni" anziché "attributi" perché nelle transazioni online questi elementi dati non possono essere verificati direttamente dalla relying party. Si tratta piuttosto di asserzioni o attestazioni su fatti verso cui la relying party deve sviluppare una fiducia sufficiente a garantire la transazione richiesta dell'utente finale.
->
-> Si usa il termine "attestazioni" anche perché i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità sono progettati per semplificare lo scambio di tutti i tipi di informazioni di identità digitale in modo coerente, indipendentemente dal fatto che il protocollo sottostante sia definito per l'autenticazione utente o il recupero di attributi.  Si usa analogamente il termine "provider di attestazioni" per fare riferimento ai provider di identità, i provider di attributi e i verificatori di attributi, quando non si intende distinguerli in base alle funzioni specifiche.
+Quando un utente interagisce con l'interfaccia utente, può essere opportuno convalidare i dati raccolti. Per interagire con l'utente, è necessario usare un [profilo tecnico autocertificato](self-asserted-technical-profile.md) .
 
-Questi determinano la modalità di scambio delle informazioni di identità tra una relying party, i provider di identità e di attributi e i verificatori di attributi. Stabiliscono i provider di identità e di attributi necessari per l'autenticazione di una relying party. Devono essere considerati un linguaggio specifico di dominio, ovvero un linguaggio di programmazione specializzato per un determinato dominio dell'applicazione con ereditarietà, istruzioni *if* e polimorfismo.
+Per convalidare l'input dell'utente, i [profili tecnici di convalida](validation-technical-profile.md) vengono chiamati dal profilo tecnico autocertificato. 
 
-Questi criteri costituiscono la parte leggibile dal computer del costrutto TF nei criteri personalizzati di Azure Active Directory B2C basati sul Framework dell'esperienza di gestione delle identità. Includono tutti i dettagli operativi, inclusi i metadati e i profili tecnici dei provider di attestazioni, le definizioni dello schema di attestazioni, le funzioni di trasformazione di attestazioni e i percorsi utente che vengono compilati per facilitare l'automazione e l'orchestrazione operative.
+Un profilo tecnico di convalida è un metodo per chiamare qualsiasi profilo tecnico non interattivo. In questo caso, il profilo tecnico può restituire attestazioni di output o un messaggio di errore. Viene eseguito il rendering del messaggio di errore all'utente sullo schermo, consentendo all'utente di riprovare.
 
-Questi sono considerati *documenti in continua modifica* perché è probabile che il relativo contenuto verrà cambiato nel tempo relativamente ai membri attivi dichiarati nei criteri. È possibile che cambino anche le condizioni per diventare membri.
+Nel diagramma seguente viene illustrato il modo in cui Azure AD B2C utilizza un profilo tecnico di convalida per convalidare le credenziali utente.
 
-La configurazione e la manutenzione della federazione risultano notevolmente semplificate schermando le relying party da continue riconfigurazioni di attendibilità e connettività quando diversi provider di attestazioni/verificatori entrano o escono dalla community rappresentata dal set di criteri.
+![Diagramma profilo tecnico di convalida](media/custom-policy-trust-frameworks/validation-technical-profile.png)
 
-L'interoperabilità è un'altra sfida importante. È necessario integrare altri provider di attestazioni/verificatori, perché è improbabile che le relying party supportino tutti i protocolli necessari. I criteri personalizzati di Azure AD B2C risolvono questo problema supportando protocolli standard del settore e applicando percorsi utente specifici per trasporre le richieste quando le relying party e i provider di attributi non supportano lo stesso protocollo.
+## <a name="inheritance-model"></a>Modello di ereditarietà
 
-I percorsi utente includono profili di protocolli e metadati che vengono usati per ottimizzare l'interoperabilità "in transito" tra la relying party e altri membri. Sono anche disponibili regole di runtime operative che vengono applicate ai messaggi di richiesta/risposta per lo scambio di informazioni di identità ai fini della conformità con i criteri pubblicati nell'ambito della specifica di framework attendibilità. Il concetto di percorso utente è fondamentale per la personalizzazione dell'esperienza del cliente. Chiarisce anche il funzionamento del sistema a livello di protocollo.
+Ogni Starter Pack include i file seguenti:
 
-Su questa base, le applicazioni e i portali delle relying party possono, a seconda del contesto, richiamare i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità passando il nome di un criterio specifico e ottenere esattamente il comportamento e lo scambio di informazioni desiderati in modo semplice e senza rischi.
+- un file di **base** che contiene la maggior parte delle definizioni. Si consiglia di apportare un numero minimo di modifiche a questo file per contribuire alla risoluzione dei problemi e alla manutenzione a lungo termine dei criteri.
+- Un file di **estensioni** che include le modifiche di configurazione univoche per il tenant. Questo file dei criteri è derivato dal file di base. Usare questo file per aggiungere nuove funzionalità o eseguire l'override delle funzionalità esistenti. Ad esempio, usare questo file per la federazione con nuovi provider di identità.
+- Un file **Relying Party (RP)** è l'unico file incentrato sulle attività che viene chiamato direttamente dell'applicazione relying party, come applicazioni Web, mobili o desktop. Ogni attività univoca, ad esempio iscrizione, accesso, reimpostazione della password o modifica del profilo, richiede un proprio file di criteri relying party. Il file dei criteri è derivato dal file delle estensioni.
+
+Il modello di ereditarietà è come segue:
+
+- Il criterio figlio a qualsiasi livello può ereditare dal criterio padre ed estenderlo aggiungendo nuovi elementi.
+- Per scenari più complessi, è possibile aggiungere un livello di inhabition maggiore (fino a 5 in totale)
+- È possibile aggiungere altri criteri di relying party. Ad esempio, eliminare il mio account, modificare un numero di telefono, SAML relying party Policy e altro ancora.
+
+Il diagramma seguente mostra la relazione tra i file di criteri e le applicazioni relying party.
+
+![Diagramma che mostra il modello di ereditarietà dei criteri di Framework attendibilità](media/custom-policy-trust-frameworks/policies.png)
+
+
+## <a name="guidance-and-best-practices"></a>Materiale sussidiario e procedure consigliate
+
+### <a name="best-practices"></a>Procedure consigliate
+
+All'interno di un Azure AD B2C criteri personalizzati, è possibile integrare la logica di business per creare l'esperienza utente necessaria ed estendere la funzionalità del servizio. Per iniziare, abbiamo un set di procedure consigliate e consigli.
+
+- Creare la logica entro i **criteri di estensione** o **inoltrare i criteri delle entità**. È possibile aggiungere nuovi elementi, che sostituiranno i criteri di base facendo riferimento allo stesso ID. In questo modo sarà possibile scalare verticalmente il progetto, rendendo più semplice l'aggiornamento dei criteri di base in un secondo momento se Microsoft rilascia nuovi Starter Pack.
+- All'interno dei **criteri di base**, è consigliabile evitare di apportare modifiche.  Quando necessario, effettuare commenti in cui vengono apportate le modifiche.
+- Quando si esegue l'override di un elemento, ad esempio i metadati del profilo tecnico, evitare di copiare l'intero profilo tecnico dai criteri di base. Copiare invece solo la sezione obbligatoria dell'elemento. Vedere [disabilitare la verifica della posta elettronica](custom-policy-disable-email-verification.md) per un esempio di come apportare la modifica.
+- Per ridurre la duplicazione dei profili tecnici, in cui è condivisa la funzionalità di base, usare l' [inclusione del profilo tecnico](technicalprofiles.md#include-technical-profile).
+- Evitare di scrivere nella directory Azure AD durante l'accesso, il che potrebbe causare problemi di limitazione delle richieste.
+- Se i criteri hanno dipendenze esterne, ad esempio l'API REST, verificare che siano a disponibilità elevata.
+- Per migliorare l'esperienza utente, assicurarsi che i modelli HTML personalizzati siano distribuiti a livello globale tramite la [distribuzione di contenuti online](https://docs.microsoft.com/azure/cdn/). La rete per la distribuzione di contenuti (CDN) di Azure consente di ridurre i tempi di caricamento, risparmiare larghezza di banda e velocità di risposta.
+- Se si desidera apportare una modifica al percorso utente. Copiare l'intero percorso utente dal criterio di base ai criteri di estensione. Fornire un ID percorso utente univoco al percorso utente copiato. Quindi, nel [criterio di relying party](relyingparty.md)modificare l'elemento [percorso utente predefinito](relyingparty.md#defaultuserjourney) in modo che punti al nuovo percorso utente.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Quando si sviluppa con criteri di Azure AD B2C, è possibile che si verifichino errori o eccezioni durante l'esecuzione del percorso utente. L'oggetto può essere analizzato utilizzando Application Insights.
+
+- Integrare Application Insights con Azure AD B2C per [diagnosticare le eccezioni](troubleshoot-with-application-insights.md).
+- L' [estensione Azure ad B2C per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) consente di accedere ai [log e visualizzarli](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) in base al nome e all'ora dei criteri.
+- L'errore più comune nell'impostazione dei criteri è la formattazione XML non corretta. Utilizzare [XML schema convalida](troubleshoot-custom-policies.md) per identificare gli errori prima di caricare il file XML.
+
+## <a name="continuous-integration"></a>Integrazione continua
+
+Usando una pipeline di integrazione e recapito continua configurata in Azure Pipelines, è possibile [includere i Azure ad B2C criteri personalizzati nell'](deploy-custom-policies-devops.md) automazione del controllo del codice e della distribuzione del software. Quando si esegue la distribuzione in ambienti Azure AD B2C diversi, ad esempio sviluppo, test e produzione, è consigliabile rimuovere i processi manuali ed eseguire test automatizzati usando Azure Pipelines.
+
+## <a name="prepare-your-environment"></a>Preparare l'ambiente
+
+Si inizia con Azure AD B2C criteri personalizzati:
+
+1. [Creare un tenant di Azure AD B2C](tutorial-create-tenant.md)
+1. [Registrare un'applicazione Web](tutorial-register-applications.md) usando il portale di Azure. Sarà quindi possibile testare i criteri.
+1. Aggiungere le [chiavi dei criteri](custom-policy-get-started.md#add-signing-and-encryption-keys) necessarie e [registrare le applicazioni Framework dell'esperienza di identità](custom-policy-get-started.md#register-identity-experience-framework-applications)
+1. [Ottenere lo Starter Pack per i criteri di Azure ad B2C](custom-policy-get-started.md#get-the-starter-pack) e caricarlo nel tenant. 
+1. Dopo aver caricato il pacchetto Starter, [testare i criteri di iscrizione o di accesso](custom-policy-get-started.md#test-the-custom-policy)
+1. Si consiglia di scaricare e installare [Visual Studio Code](https://code.visualstudio.com/) (vs code). Visual Studio Code è un editor di codice sorgente leggero ma potente che viene eseguito sul desktop ed è disponibile per Windows, macOS e Linux. Con VS Code è possibile modificare i file XML dei criteri personalizzati Azure AD B2C.
+1. Per spostarsi rapidamente tra Azure AD B2C criteri personalizzati, si consiglia di installare [Azure ad B2C estensione per vs code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+ 
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver configurato e testato i criteri di Azure AD B2C, è possibile iniziare a personalizzare i criteri. Vedere gli articoli seguenti per informazioni su come:
+
+- [Aggiungere attestazioni e personalizzare l'input utente](custom-policy-configure-user-input.md) usando criteri personalizzati. Informazioni su come definire un'attestazione, aggiungere un'attestazione all'interfaccia utente personalizzando alcuni dei profili tecnici degli Starter Pack.
+- [Personalizzare l'interfaccia utente](customize-ui-with-html.md) dell'applicazione usando un criterio personalizzato. Informazioni su come creare contenuto HTML personalizzato e personalizzare la definizione del contenuto.
+- [Localizzare l'interfaccia utente](custom-policy-localization.md) dell'applicazione usando un criterio personalizzato. Informazioni su come configurare l'elenco delle lingue supportate e fornire etichette specifiche della lingua, aggiungendo l'elemento resources localizzato.
+- Durante lo sviluppo e il test dei criteri è possibile [disabilitare la verifica tramite posta elettronica](custom-policy-disable-email-verification.md). Informazioni su come sovrascrivere i metadati di un profilo tecnico.
+- [Configurare l'accesso con un account Google](identity-provider-google-custom.md) usando criteri personalizzati. Informazioni su come creare un nuovo provider di attestazioni con il profilo tecnico OAuth2. Personalizzare quindi il percorso utente per includere l'opzione di accesso a Google.
+- Per diagnosticare i problemi relativi ai criteri personalizzati, è possibile [raccogliere Azure Active Directory B2C log con Application Insights](troubleshoot-with-application-insights.md). Informazioni su come aggiungere nuovi profili tecnici e configurare i criteri dell'entità di inoltro.

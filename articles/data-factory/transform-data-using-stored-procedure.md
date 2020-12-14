@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d62619fe2641ec1aded39650b47b53cf4269d8b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f20af5ea9628dd6c8aa732ac1d09625156eed0c4
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368877"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387542"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -33,7 +33,7 @@ Le attività di trasformazione dei dati in una [pipeline](concepts-pipelines-act
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure: 
 
 - database SQL di Azure
-- Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+- Azure Synapse Analytics
 - Database di SQL Server.  Se si usa SQL Server, è necessario installare Runtime di integrazione (self-hosted) nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Runtime di integrazione (self-hosted) è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per informazioni dettagliate, vedere l'articolo [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
@@ -88,9 +88,7 @@ Il tipo di dati specificato per il parametro è il tipo di Azure Data Factory ch
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
-## <a name="error-info"></a>Informazioni sull'errore
 
-Quando una stored procedure ha esito negativo e restituisce i dettagli dell'errore, non è possibile acquisire le informazioni sull'errore direttamente nell'output dell'attività. Tuttavia, Data Factory invia tutti gli eventi di esecuzione attività a Monitoraggio di Azure. Oltre a inviare gli eventi a Monitoraggio di Azure, Data Factory esegue il push dei dettagli degli errori. È possibile, ad esempio, configurare avvisi tramite posta elettronica da questi eventi. Per altre informazioni, vedere [Avvisi e monitoraggio delle data factory con Monitoraggio di Azure](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 
@@ -102,5 +100,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Attività di esecuzione batch Azure Machine Learning Studio (classica)](transform-data-using-machine-learning.md)
+* [Attività di esecuzione batch di Azure Machine Learning Studio (versione classica)](transform-data-using-machine-learning.md)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 354c6f9710b7cbd70e0631bc973b2482ea8d8bb3
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203096"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386885"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,14 +38,14 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 
 L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
 | TenantObjectId | No | Identificatore di oggetto univoco del tenant di Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
 | PolicyId | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
-| DeploymentMode | No | Valori possibili: `Production` , o `Development` . Il valore predefinito è `Production`. Usare questa proprietà per eseguire il debug del criterio. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
+| DeploymentMode | No | Valori possibili: `Production` , o `Development` . `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
 
 
@@ -62,27 +62,15 @@ Nell'esempio seguente viene illustrato come specificare l'elemento **TrustFramew
    PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
-## <a name="inheritance-model"></a>Modello di ereditarietà
+L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
-Questi tipi di file dei criteri vengono in genere utilizzati in un percorso utente:
-
-- un file di **base** che contiene la maggior parte delle definizioni. Si consiglia di apportare un numero minimo di modifiche a questo file per contribuire alla risoluzione dei problemi e alla manutenzione a lungo termine dei criteri.
-- Un file di **estensioni** che include le modifiche di configurazione univoche per il tenant. Questo file dei criteri è derivato dal file di base. Usare questo file per aggiungere nuove funzionalità o eseguire l'override delle funzionalità esistenti. Ad esempio, usare questo file per la federazione con nuovi provider di identità.
-- Un file **Relying Party (RP)** è l'unico file incentrato sulle attività che viene chiamato direttamente dell'applicazione relying party, come applicazioni Web, mobili o desktop. Ogni attività univoca, ad esempio l'iscrizione, l'accesso, la reimpostazione della password o la modifica del profilo richiede un proprio file di criteri di relying party. Questo file di criteri è derivato dal file di estensioni.
-
-Un'applicazione relying party chiama il file di criteri relying party per l'esecuzione di un'attività specifica. Ad esempio, per avviare il flusso di accesso. Il Framework di esperienza di identità in Azure AD B2C aggiunge tutti gli elementi prima dal file di base, poi dal file delle estensioni e infine dal file di criteri relying party per assemblare i criteri correnti in vigore. Gli elementi dello stesso tipo e nome nel file relying party eseguono l'override nelle estensioni e le estensioni eseguono l'override nel file di base. Il diagramma seguente mostra la relazione tra i file di criteri e le applicazioni relying party.
-
-![Diagramma che mostra il modello di ereditarietà dei criteri di Framework attendibilità](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
-
-Il modello di ereditarietà è come segue:
-
-- I criteri padre e figlio sono dello stesso schema.
-- Il criterio figlio a qualsiasi livello può ereditare dal criterio padre ed estenderlo aggiungendo nuovi elementi.
-- Non sono previsti limiti per il numero di livelli.
-
-Per altre informazioni, vedere [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
-
-## <a name="base-policy"></a>Criteri di base
+| Elemento | Occorrenze | Descrizione |
+| ------- | ----------- | ----------- |
+| BasePolicy| 0:1| Identificatore di un criterio di base. |
+| [BuildingBlocks](buildingblocks.md) | 0:1 | Blocchi predefiniti dei criteri. |
+| [ClaimsProviders](claimsproviders.md) | 0:1 | Raccolta di provider di attestazioni. |
+| [UserJourneys](userjourneys.md) | 0:1 | Raccolta di percorsi utente. |
+| [RelyingParty](relyingparty.md) | 0:1 | Definizione di un criterio di relying party. |
 
 Per ereditare un criterio da un altro criterio, un elemento **BasePolicy** deve essere dichiarato sotto l'elemento **TrustFrameworkPolicy** del file di criteri. L'elemento **BasePolicy** è un riferimento ai criteri di base da cui deriva questo criterio.
 
@@ -114,46 +102,3 @@ L'esempio seguente mostra come specificare un criterio di base. Questo criterio 
 </TrustFrameworkPolicy>
 ```
 
-## <a name="policy-execution"></a>Esecuzione criteri
-
-Un'applicazione relying party, ad esempio un'applicazione Web, mobile o desktop, chiama i [criteri relying party (RP)](relyingparty.md). Il file di criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Il criterio di relying party configura l'elenco di attestazioni che l'applicazione relying party riceve come parte del token emesso. Più applicazioni possono usare gli stessi criteri. Tutte le applicazioni ricevono lo stesso token con attestazioni e l'utente passa attraverso lo stesso percorso utente. Una singola applicazione può usare più criteri.
-
-All'interno del file di criteri di relying party, si specifica l'elemento **DefaultUserJourney**, che fa riferimento a [UserJourney](userjourneys.md). Il percorso utente viene in genere definito nei criteri di base o nelle estensioni.
-
-Criterio B2C_1A_signup_signin:
-
-```xml
-<RelyingParty>
-  <DefaultUserJourney ReferenceId="SignUpOrSignIn">
-  ...
-```
-
-B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
-
-```xml
-<UserJourneys>
-  <UserJourney Id="SignUpOrSignIn">
-  ...
-```
-
-Un percorso utente definisce la logica di business di ciò che un utente effettua. Ogni percorso utente è un set di passaggi di orchestrazione che esegue una serie di azioni, in sequenza in termini di autenticazione e raccolta di informazioni.
-
-Il file di criteri **SocialAndLocalAccounts** nel [pacchetto starter](custom-policy-get-started.md#custom-policy-starter-pack) contiene i percorsi utente SignUpOrSignIn, ProfileEdit, PasswordReset. È possibile aggiungere altri percorsi utente per altri scenari, ad esempio la modifica di un indirizzo di posta elettronica o il collegamento e lo scollegamento di un account di social networking.
-
-I passaggi di orchestrazione possono chiamare un [profilo tecnico](technicalprofiles.md). Un profilo tecnico offre un framework con un meccanismo incorporato per comunicare con diversi tipi di entità. Ad esempio, un profilo tecnico può eseguire queste azioni tra le altre:
-
-- Eseguire il rendering di un'esperienza utente.
-- Consentire agli utenti di accedere con social network o un account dell'organizzazione, ad esempio Facebook, account Microsoft, Google, Salesforce o qualsiasi altro provider di identità.
-- Configurare la verifica tramite telefono per l'autenticazione a più fattori.
-- Leggere e scrivere dati da e verso un archivio identità di Azure AD B2C.
-- Chiamare un servizio API Restful personalizzato.
-
-![Diagramma che mostra il flusso di esecuzione dei criteri](./media/trustframeworkpolicy/custom-policy-execution.png)
-
- L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
-
-- BasePolicy come specificato sopra
-- [BuildingBlocks](buildingblocks.md)
-- [ClaimsProviders](claimsproviders.md)
-- [UserJourneys](userjourneys.md)
-- [RelyingParty](relyingparty.md)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/25/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5aca04a649dfa5228d12737b21ef2ee2b14013b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750451"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386851"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -122,7 +122,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimUsedForRequestPayload| No | Nome di un'attestazione di stringa che contiene il payload da inviare all'API REST. |
 | DebugMode | No | Il profilo tecnico viene eseguito in modalità debug. Valori possibili: `true` o `false` (impostazione predefinita). In modalità debug, l'API REST può restituire altre informazioni. Vedere la sezione [restituzione del messaggio di errore](#returning-validation-error-message) . |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
-| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true` o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized` o `data.0.to.0.email` .|
+| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true` o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#output-claims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized` o `data.0.to.0.email` .|
 | UseClaimAsBearerToken| No| Nome dell'attestazione che contiene il bearer token.|
 
 ## <a name="error-handling"></a>Gestione degli errori

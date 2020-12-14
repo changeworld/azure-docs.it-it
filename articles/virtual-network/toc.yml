@@ -39,6 +39,8 @@
       href: template-samples.md
 - name: Concetti
   items:
+    - name: Concetti e procedure consigliate
+      href: concepts-and-best-practices.md
     - name: Continuità aziendale
       href: virtual-network-disaster-recovery-guidance.md
     - name: Connettività

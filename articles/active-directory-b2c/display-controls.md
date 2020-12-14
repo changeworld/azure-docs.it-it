@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532376"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387055"
 ---
 # <a name="display-controls"></a>Controlli per la visualizzazione
 
@@ -44,18 +44,18 @@ Nell'immagine seguente viene illustrata una pagina di iscrizione autocertificata
 
 L'elemento **DisplayControl** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il controllo di visualizzazione. È possibile [farvi riferimento](#referencing-display-controls). |
+| Id | Sì | Identificatore usato per il controllo di visualizzazione. È possibile [farvi riferimento](#referencing-display-controls). |
 | UserInterfaceControlType | Sì | Tipo del controllo di visualizzazione. Attualmente supportato è [VerificationControl](display-control-verification.md) |
 
 L'elemento **DisplayControl** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** vengono utilizzati per prepopolare il valore delle attestazioni da raccogliere dall'utente. Per altre informazioni, vedere elemento [InputClaims](technicalprofiles.md#inputclaims) . |
+| InputClaims | 0:1 | **InputClaims** vengono utilizzati per prepopolare il valore delle attestazioni da raccogliere dall'utente. Per altre informazioni, vedere elemento [InputClaims](technicalprofiles.md#input-claims) . |
 | DisplayClaims | 0:1 | **DisplayClaims** vengono utilizzati per rappresentare le attestazioni che devono essere raccolte dall'utente. Per altre informazioni, vedere elemento [DisplayClaim](technicalprofiles.md#displayclaim) .|
-| OutputClaims | 0:1 | **OutputClaims** vengono utilizzati per rappresentare le attestazioni da salvare temporaneamente per questo **DisplayControl**. Per altre informazioni, vedere elemento [OutputClaims](technicalprofiles.md#outputclaims) .|
+| OutputClaims | 0:1 | **OutputClaims** vengono utilizzati per rappresentare le attestazioni da salvare temporaneamente per questo **DisplayControl**. Per altre informazioni, vedere elemento [OutputClaims](technicalprofiles.md#output-claims) .|
 | Azioni | 0:1 | Le **azioni** vengono usate per elencare i profili tecnici di convalida da richiamare per le azioni dell'utente che si verificano nel front-end. |
 
 ### <a name="input-claims"></a>Attestazioni di input
@@ -94,7 +94,7 @@ Per eseguire il propagazione delle attestazioni di output al passaggio successiv
 
 Le **azioni** di un controllo di visualizzazione sono procedure che si verificano nel Azure ad B2C back-end quando un utente esegue una determinata azione sul lato client (il browser). Ad esempio, le convalide da eseguire quando l'utente seleziona un pulsante nella pagina.
 
-Un'azione definisce un elenco di **profili tecnici di convalida**. Vengono utilizzati per la convalida di alcune o tutte le attestazioni di visualizzazione del controllo di visualizzazione. Il profilo tecnico di convalida convalida l'input dell'utente e può restituire un errore all'utente. È possibile usare **ContinueOnError** , **ContinueOnSuccess** e **precondizioni** nell'azione di controllo dello schermo Analogamente al modo in cui vengono usati nei [profili tecnici di convalida](validation-technical-profile.md) in un profilo tecnico autocertificato.
+Un'azione definisce un elenco di **profili tecnici di convalida**. Vengono utilizzati per la convalida di alcune o tutte le attestazioni di visualizzazione del controllo di visualizzazione. Il profilo tecnico di convalida convalida l'input dell'utente e può restituire un errore all'utente. È possibile usare **ContinueOnError**, **ContinueOnSuccess** e **precondizioni** nell'azione di controllo dello schermo Analogamente al modo in cui vengono usati nei [profili tecnici di convalida](validation-technical-profile.md) in un profilo tecnico autocertificato.
 
 #### <a name="actions"></a>Azioni
 
@@ -108,9 +108,9 @@ L'elemento **Actions** contiene l'elemento seguente:
 
 L'elemento **Action** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Tipo di operazione. I valori possibili sono: `SendCode` o `VerifyCode`. Il `SendCode` valore Invia un codice all'utente. Questa azione può contenere due profili tecnici di convalida: uno per generare un codice e uno per inviarlo. Il `VerifyCode` valore verifica il codice digitato dall'utente nella casella di testo di input. |
+| Id | Sì | Tipo di operazione. I valori possibili sono: `SendCode` o `VerifyCode`. Il `SendCode` valore Invia un codice all'utente. Questa azione può contenere due profili tecnici di convalida: uno per generare un codice e uno per inviarlo. Il `VerifyCode` valore verifica il codice digitato dall'utente nella casella di testo di input. |
 
 L'elemento **Action** contiene l'elemento seguente:
 
@@ -128,7 +128,7 @@ L'elemento **ValidationClaimsExchange** contiene l'elemento seguente:
 
 L'elemento **tecnico** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
 |ContinueOnError|No| Indica se la convalida di tutti i profili tecnici di convalida successivi deve continuare se il profilo tecnico di convalida genera un errore. Possibili valori: `true` o `false` (impostazione predefinita, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
@@ -142,7 +142,7 @@ L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:
 
 L'elemento **precondition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di controllo o query da eseguire per la precondizione. I valori possibili sono: `ClaimsExist` o `ClaimEquals`. `ClaimsExist` Specifica che le azioni devono essere eseguite se le attestazioni specificate sono presenti nel set di attestazioni corrente dell'utente. `ClaimEquals` Specifica che le azioni devono essere eseguite se l'attestazione specificata esiste e se il relativo valore è uguale al valore specificato. |
 | `ExecuteActionsIf` | Sì | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |
@@ -151,7 +151,7 @@ L'elemento **Precondition** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, Consente di specificare il valore da archiviare in un altro elemento valore.|
+| Valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, Consente di specificare il valore da archiviare in un altro elemento valore.|
 | Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore dell' **azione** è impostato su `SkipThisValidationTechnicalProfile` , che specifica che il profilo tecnico di convalida associato non deve essere eseguito. |
 
 Nell'esempio seguente viene inviato e verificato l'indirizzo di posta elettronica utilizzando [Azure ad profilo tecnico SSPR](aad-sspr-technical-profile.md).

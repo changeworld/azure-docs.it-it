@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49d8e83c158cd14357a74b9dde4af1daba26dc36
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: c8f4c91070d87e9e6e3cdbb5534b988063eaba14
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109114"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387177"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -64,13 +64,13 @@ Per leggere, aggiornare o eliminare un account utente esistente, l'attestazione 
 
 Per creare un nuovo account utente, l'attestazione di input è una chiave che identifica in modo univoco un account locale o federato. Ad esempio, account locale: **signInNames. EmailAddress** o **signInNames. username**. Per un account federato: **alternativeSecurityId**.
 
-L'elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) può contenere una raccolta di elementi di trasformazione delle attestazioni di input usati per modificare l'attestazione di input o generarne una nuova.
+L'elemento [InputClaimsTransformations](technicalprofiles.md#input-claims-transformations) può contenere una raccolta di elementi di trasformazione delle attestazioni di input usati per modificare l'attestazione di input o generarne una nuova.
 
 ## <a name="outputclaims"></a>OutputClaims
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni restituite dal profilo tecnico di Azure AD. Potrebbe essere necessario eseguire il mapping del nome dell'attestazione definito nei criteri al nome definito in Azure Active Directory. È anche possibile includere le attestazioni che non vengono restituite da Azure Active Directory, fino a quando è impostato l'attributo `DefaultValue`.
 
-L'elemento [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
+L'elemento [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
 
 Ad esempio, il profilo tecnico **AAD-UserWriteUsingLogonEmail** crea un account locale e restituisce le attestazioni seguenti:
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b321985bf7920934193723b60abb7bfb28482e6d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 2daf445c6721b4b6c3b2a57e7ef65f52eabd8a4c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862242"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347133"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Esercitazione: Compilare un'app PHP e MySQL nel Servizio app di Azure
 
@@ -162,7 +162,7 @@ In questo passaggio viene creato un database MySQL in [Database di Azure per MyS
 
 In Cloud Shell creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create).
 
-Nel comando seguente sostituire con un nome di server univoco il segnaposto *\<mysql-server-name>* , con un nome utente il segnaposto *\<admin-user>* e con una password il segnaposto *\<admin-password>* . Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure. Per informazioni dettagliate sulla selezione dello SKU del database per MySQL, vedere [Creare un database di Azure per il server MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
+Nel comando seguente sostituire con un nome di server univoco il segnaposto *\<mysql-server-name>* , con un nome utente il segnaposto *\<admin-user>* e con una password il segnaposto *\<admin-password>* . Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure. Per i dettagli sulla selezione dello SKU di database MySQL, vedere [Creare un server di Database di Azure per MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -451,7 +451,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
+remote: Updating branch 'master'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -482,7 +482,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
+remote: Updating branch 'master'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -634,7 +634,7 @@ Eseguire il commit di tutte le modifiche in Git e quindi effettuare il push dell
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure main
+git push azure master
 ```
 
 Dopo aver completato `git push`, passare all'app Azure e testare la nuova funzionalità.

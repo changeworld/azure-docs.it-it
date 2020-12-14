@@ -1095,9 +1095,9 @@
         - name: Usare la procedura guidata di assegnazione di punteggi per i pool SQL dedicati
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
-        - name: Eseguire il training di un modello senza codice con Azure AutoML
+        - name: Eseguire il training di un modello senza codice con ML automatizzato
           href: ./machine-learning/tutorial-automl.md
-        - name: Eseguire il training di un modello in Python con Azure AutoML
+        - name: Eseguire il training di un modello in Python con ML automatizzato
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
         - name: Creare un modello con MLlib di Apache Spark

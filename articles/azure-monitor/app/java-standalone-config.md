@@ -1,19 +1,19 @@
 ---
-title: Opzioni di configurazione-monitoraggio di Azure Application Insights Java
-description: Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
+title: Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
+description: Come configurare Application Insights di monitoraggio di Azure per Java
 ms.topic: conceptual
 ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9240253b385a0b53868c5a8a79c751c2f7c09c0
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b5c1ab7db818daa91497728299d2247f612fe21b
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601085"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387752"
 ---
-# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
+# <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
 
 > [!WARNING]
 > **Se si esegue l'aggiornamento da 3,0 Preview**

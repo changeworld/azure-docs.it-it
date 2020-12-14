@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a0dd00709dbe8a1b0e037fe22750adea7e071162
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791920"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97372003"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduzione ad Azure Defender per Kubernetes
 
@@ -31,7 +31,7 @@ Per abilitare il rilevamento delle minacce a livello di host per i nodi del serv
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|**Azure Defender per Kubernetes** è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)|
 |Autorizzazioni e ruoli obbligatori:|Il ruolo **Amministratore della sicurezza** può ignorare gli avvisi.<br>Il **ruolo con autorizzazioni di lettura per la sicurezza** può visualizzare i risultati.|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Governo cinese<br>![No](./media/icons/no-icon.png) US Gov, altri governi|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quali sono i vantaggi di Azure Defender per Kubernetes?
@@ -49,7 +49,7 @@ Il Centro sicurezza offre protezione dalle minacce a diversi livelli:
     >[!IMPORTANT]
     > Se si sceglie di non installare gli agenti negli host, si riceverà solo una parte dei vantaggi della protezione dalle minacce e degli avvisi di sicurezza. Si riceveranno comunque gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
 
-- **Livello di cluster del servizio Azure Kubernetes (fornito da Azure Defender per Kubernetes)** : la protezione dalle minacce a questo livello è basata sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio **senza agente** , abilitare Azure Defender. Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti dal servizio Azure Kubernetes usando i log recuperati da quest'ultimo. Esempi di eventi a questo livello includono dashboard di Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
+- **Livello di cluster del servizio Azure Kubernetes (fornito da Azure Defender per Kubernetes)** : la protezione dalle minacce a questo livello è basata sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio **senza agente**, abilitare Azure Defender. Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti dal servizio Azure Kubernetes usando i log recuperati da quest'ultimo. Esempi di eventi a questo livello includono dashboard di Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
 
     Per un elenco degli avvisi a livello di cluster del servizio Azure Kubernetes, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-akscluster).
 
@@ -72,7 +72,7 @@ Come si può vedere, gli elementi ricevuti e analizzati dal Centro sicurezza inc
 - log di controllo del server API
 - eventi di sicurezza non elaborati dall'agente di Log Analytics
 - informazioni di configurazione del cluster dal cluster del servizio Azure Kubernetes
-- configurazione dei carichi di lavoro da Criteri di Azure (tramite il **componente aggiuntivo Criteri di Azure per Kubernetes** ). [Altre informazioni sulle procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- configurazione dei carichi di lavoro da Criteri di Azure (tramite il **componente aggiuntivo Criteri di Azure per Kubernetes**). [Altre informazioni sulle procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architettura generale dell'interazione tra il Centro sicurezza di Azure, il servizio Azure Kubernetes e Criteri di Azure" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 

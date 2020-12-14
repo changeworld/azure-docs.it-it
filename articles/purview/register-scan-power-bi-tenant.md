@@ -7,19 +7,19 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904993"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387582"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
 Questo articolo illustra come usare il portale di Azure per la registrazione e l'analisi di un tenant di Power BI.
 
 > [!Note]
-> Se l'istanza di ambito e il tenant di Power BI si trovano nello stesso tenant di Azure, è possibile usare solo l'autenticazione identità gestita (MSI) per configurare un'analisi di un tenant di Power BI. Se l'istanza di competenza e il tenant di Power BI si trovano in tenant di Azure diversi, è necessario eseguire l'autenticazione con l'autenticazione delegata ed è necessario usare PowerShell per configurare le analisi. Vedere [usare PowerShell per registrare e analizzare Power bi](powershell-register-scan-power-bi.md).
+> Se l'istanza di ambito e il tenant di Power BI si trovano nello stesso tenant di Azure, è possibile usare solo l'autenticazione identità gestita (MSI) per configurare un'analisi di un tenant di Power BI. 
 
 ## <a name="create-a-security-group-for-permissions"></a>Creare un gruppo di sicurezza per le autorizzazioni
 

@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare e configurare insiemi di crede
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548427"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387735"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -77,8 +77,9 @@ Un insieme di credenziali creato con ridondanza GRS include l'opzione per config
 
  ![Banner di configurazione di backup](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. Dal portale passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà.
-2. Per abilitare la funzionalità, selezionare **Abilita ripristino tra aree in questo** insieme di credenziali.
+1. Dal portale passare all'insieme di credenziali di servizi di ripristino > **Proprietà** (in **Impostazioni**).
+1. In **configurazione backup** selezionare **Aggiorna**.
+1. Per abilitare la funzionalità, selezionare **Abilita ripristino tra aree in questo** insieme di credenziali.
 
    ![Abilita ripristino tra aree](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 

@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Documentazione condivisa
   items:
+    - name: Distribuzione di database
+      items:
+        - name: Github Actions
+          href: how-to-deploy-github-action.md
     - name: Migrazione
       items:
         - name: Eseguire la migrazione dei dati con pg_dump e pg_restore
@@ -202,6 +206,8 @@
               displayName: 'query store, performance, optimize, recommendations'
         - name: Sviluppo di app
           items:
+            - name: Procedure consigliate
+              href: application-best-practices.md
             - name: Raccolte di connessioni
               href: concepts-connection-libraries.md
               displayName: 'libraries, drivers'
@@ -416,10 +422,16 @@
               href: flexible-server/connect-python.md
     - name: Esercitazioni
       items:
-        - name: Creare un'app Web in una rete virtuale
-          href: flexible-server/tutorial-webapp-server-vnet.md
-        - name: Distribuire un'app Django
-          href: flexible-server/tutorial-django-app-service-postgres.md
+        - name: Sviluppare con il servizio Azure Kubernetes
+          items:
+            - name: Distribuire app Python in Kubernetes
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: Sviluppare con i servizi app
+          items:
+            - name: Creare un'app Web in una rete virtuale
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: Distribuire un'app Django nel servizio app
+              href: flexible-server/tutorial-django-app-service-postgres.md
     - name: Concetti
       items:
         - name: Server
@@ -466,6 +478,8 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: Interfaccia della riga di comando di Azure
               href: flexible-server/how-to-manage-server-cli.md
+            - name: Guida alla connessione e all'esecuzione di query
+              href: flexible-server/how-to-connect-query-guide.md
         - name: Manutenzione pianificata
           items:
             - name: Portale di Azure
