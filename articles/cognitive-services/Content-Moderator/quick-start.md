@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, moderazione del contenuto
-ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143696"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905214"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Avvio rapido: Provare Content Moderator sul Web
 
@@ -42,7 +42,7 @@ A questo punto, creare un team di revisione. In uno scenario operativo, questo t
 > [!div class="mx-imgBorder"]
 > ![Invitare un membro del team](images/create-team.png)
 
-Se si sceglie di crittografare i dati usando una chiave gestita dal cliente, verrà richiesto di specificare l' **ID risorsa** di Content Moderator nel piano tariffario di E0. La risorsa specificata deve essere univoca per questo team. 
+Se si sceglie di crittografare i dati usando una chiave gestita dal cliente, verrà richiesto di specificare l'**ID risorsa** di Content Moderator nel piano tariffario di E0. La risorsa specificata deve essere univoca per questo team. 
 
 > [!div class="mx-imgBorder"]
 > ![Invitare un membro del team con una chiave gestita dal cliente](images/create-team-cmk.png)
@@ -88,6 +88,6 @@ In alternativa, continuare con i passaggi successivi per iniziare a usare le API
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa sezione vengono fornite informazioni su come usare le API di moderazione nell'app.
-- Implementare la moderazione delle immagini. Usare la [console API](try-image-api.md) oppure seguire l'[avvio rapido per la libreria client](client-libraries.md) per analizzare le immagini e rilevare potenziali contenuti spinti e per adulti usando tag, punteggi di attendibilità e altre informazioni estratte.
-- Implementare la moderazione del testo. Usare la [console API](try-text-api.md) oppure usare l'[avvio rapido per la libreria client](client-libraries.md) per analizzare il contenuto di testo per rilevare potenziali contenuti volgari, una classificazione del testo indesiderato automatica (anteprima) e dati personali.
+- Implementare la moderazione delle immagini. Usare la [console API](try-image-api.md) oppure seguire una [guida di avvio rapido sull'uso della libreria client o dell'API REST](client-libraries.md) per analizzare le immagini e rilevare potenziali contenuti spinti e per adulti usando tag, punteggi di attendibilità e altre informazioni estratte.
+- Implementare la moderazione del testo. Usare la [console API](try-text-api.md) oppure seguire una [guida di avvio rapido sull'uso della libreria client o dell'API REST](client-libraries.md) per analizzare il contenuto di testo e rilevare potenziali espressioni volgari, la classificazione di testo indesiderato basata su Machine Learning (anteprima) e dati personali.
 - Implementare la moderazione video. Seguire la [Guida pratica alla moderazione video per C#](video-moderation-api.md) per analizzare i video e rilevare potenziali contenuti spinti e per adulti. 

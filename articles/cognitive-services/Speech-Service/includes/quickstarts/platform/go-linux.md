@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: 06e4eea32aefcb400c144be98c274e3e4bb4b121
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f674edd15b86f49d60450a53f5df5852b32f95a4
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188260"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906437"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Linux
 
@@ -54,17 +54,19 @@ Per completare questo argomento di avvio rapido, sono necessari gli elementi seg
 
 ## <a name="configure-go-environment"></a>Configurare l'ambiente Go
 
+Eseguire la procedura seguente per configurare l'ambiente Go e trovare Speech SDK. In entrambi i passaggi sostituire `<architecture>` con l'architettura di processore della propria CPU. Può essere `x86`, `x64`, `arm32` o `arm64`.
+
 1. Poiché i binding si basano su `cgo`, è necessario impostare le variabili di ambiente in modo che Go trovi l'SDK:
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. Inoltre, per eseguire le applicazioni, incluso l'SDK, è necessario indicare al sistema operativo dove trovare le librerie:
+1. Per eseguire le applicazioni, incluso l'SDK, è necessario indicare al sistema operativo dove trovare le librerie:
 
    ```sh
-   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi

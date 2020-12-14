@@ -15,27 +15,30 @@ ms.custom:
 - devx-track-js
 - devx-track-csharp
 - cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-one
+zone_pivot_groups: programming-languages-computer-vision
 keywords: visione artificiale, servizio visione artificiale
-ms.openlocfilehash: c0ed1d534ce76f870b34c626b1b21f7745aa3247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20378eff09abed0eb4d7587211f576de6313ea1d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309822"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533308"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Avvio rapido: Usare la libreria client di Visione artificiale
 
-Introduzione alla libreria client di Visione artificiale. Il servizio Visione artificiale fornisce algoritmi di intelligenza artificiale avanzati per l'elaborazione delle immagini e la restituzione di informazioni sulle relative caratteristiche visive. Seguire questi passaggi per installare un pacchetto nell'applicazione e provare il codice di esempio per le attività di base.
+Introduzione all'API REST o alle librerie client di Visione artificiale. Il servizio Visione artificiale fornisce algoritmi di intelligenza artificiale avanzati per l'elaborazione delle immagini e la restituzione di informazioni sulle relative caratteristiche visive. Seguire questi passaggi per installare un pacchetto nell'applicazione e provare il codice di esempio per le attività di base.
 
-Usare la libreria client di Visione artificiale per:
 
-* Analizzare un'immagine per trovare tag, descrizioni di testo, visi, contenuto per adulti e altro ancora.
-* Eseguire la lettura del testo stampato e scritto a mano con l'API di lettura.
 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# SDK quickstart](../includes/quickstarts-sdk/csharp-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
 
 ::: zone-end
 
@@ -51,14 +54,14 @@ Usare la libreria client di Visione artificiale per:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]
 
 ::: zone-end

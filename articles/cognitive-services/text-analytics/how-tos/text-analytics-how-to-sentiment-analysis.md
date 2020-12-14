@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2c592a959dfb9d4e93f97488a9ac1b1f6683c23e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968272"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558760"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedura: Analisi del sentiment e opinion mining
 
-La funzionalità Analisi del sentiment dell'API Analisi del testo consente di rilevare il sentiment positivo e negativo in due modi. Se si invia una richiesta di Analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento. È anche possibile inviare richieste di opinion mining usando l'endpoint di Analisi del sentiment, che fornisce informazioni granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
+La funzionalità Analisi del sentiment dell'API Analisi del testo consente di rilevare il sentiment positivo e negativo in due modi. Se si invia una richiesta di Analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento. È anche possibile inviare richieste di opinion mining usando l'endpoint di Analisi del sentiment, che fornisce informazioni granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi. 
 
 I modelli di intelligenza artificiale usati dall'API vengono forniti dal servizio, quindi è sufficiente inviare contenuto per l'analisi.
 
@@ -51,13 +51,14 @@ I punteggi di attendibilità sono compresi tra 1 e 0. I punteggi più prossimi a
 
 ## <a name="opinion-mining"></a>Opinion mining
 
-Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1-Preview.1. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
+Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1-Preview.1. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi. 
 
 Se ad esempio un cliente lascia il feedback su un hotel, come "la stanza è fantastica, ma il personale è scortese", la funzionalità di opinion mining individuerà gli aspetti nel testo oltre alle opinioni e ai sentiment associati. Analisi del sentiment potrebbe segnalare solo un sentiment negativo.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Diagramma dell'esempio di opinion mining" lightbox="../media/how-tos/opinion-mining.png":::
 
-Per ottenere i risultati di opinion mining, è necessario includere il flag `opinionMining=true` in una richiesta di analisi del sentiment. I risultati di opinion mining verranno inclusi nella risposta dell'analisi del sentiment.
+Per ottenere i risultati di opinion mining, è necessario includere il flag `opinionMining=true` in una richiesta di analisi del sentiment. I risultati di opinion mining verranno inclusi nella risposta dell'analisi del sentiment. La funzionalità di opinion mining è un'estensione di Analisi del sentiment ed è inclusa nel [piano tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) corrente.
+
 
 ## <a name="sending-a-rest-api-request"></a>Invio di una richiesta all'API REST 
 

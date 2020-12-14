@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422400"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546906"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Nozioni di base sull'interfaccia della riga di comando per Voce
 
-Questo articolo illustra i modelli d'uso di base dell'interfaccia della riga di comando per Voce, uno strumento da riga di comando per usare il servizio Voce senza scrivere codice. È possibile testare rapidamente le funzionalità principali del servizio Voce, senza creare ambienti di sviluppo né scrivere codice, per verificare se i casi d'uso possono essere soddisfatti adeguatamente. L'interfaccia della riga di comando per Voce, inoltre, è pronta per la produzione e può essere usata per automatizzare flussi di lavoro semplici nel servizio Voce, usando `.bat` o script della shell.
+Questo articolo illustra i modelli d'uso di base dell'interfaccia della riga di comando per Voce, uno strumento da riga di comando per usare il servizio Voce senza scrivere codice. È possibile testare rapidamente le funzionalità principali del servizio Voce, senza creare ambienti di sviluppo né scrivere codice, per verificare se i casi d'uso possono essere soddisfatti adeguatamente. L'interfaccia della riga di comando per Voce è pronta per la produzione e può essere usata per automatizzare flussi di lavoro semplici nel servizio Voce, usando `.bat` o script della shell.
+
+Questo articolo presuppone che si abbia una conoscenza operativa del prompt dei comandi, del terminale o di PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Immettere il comando seguente per visualizzare le opzioni del comando recognize:
 spx help recognize
 ```
 
-Ora usare il servizio Voce per eseguire alcune operazioni di riconoscimento vocale con il microfono predefinito eseguendo il comando seguente.
+Ora verrà usata l'interfaccia della riga di comando di Voce per eseguire il riconoscimento vocale usando il microfono predefinito del sistema. 
+
+>[!WARNING]
+> Se si usa un contenitore Docker, questo comando non funziona.
+
+Eseguire questo comando:
 
 ```shell
 spx recognize --microphone
 ```
+
+Con l'interfaccia della riga di comando di Voce è anche possibile riconoscere la voce da un file audio.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Se si esegue il riconoscimento vocale da un file audio in un contenitore Docker, assicurarsi che tale file si trovi nella directory montata nel passaggio precedente.
 
 Dopo l'immissione del comando, SPX inizierà ad ascoltare l'audio sul dispositivo di input attivo corrente e si arresterà dopo che l'utente preme `ENTER`. Le parole registrate vengono quindi riconosciute e convertite in testo nell'output della console. L'interfaccia della riga di comando per Voce consente di eseguire il modo semplice anche la sintesi vocale. 
 

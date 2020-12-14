@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 434548d7d00468605ad0f1a52af99fbc4278adc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: de1266d9086cd3b2472db2552210f24d9a51add7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482735"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912328"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -40,7 +40,7 @@ using namespace Microsoft::CognitiveServices::Speech;
 auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 ```
 
-Esistono alcuni altri modi per inizializzare [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
+Esistono alcuni altri modi per inizializzare una classe [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
 
 * Con un endpoint: passare un endpoint del servizio Voce. La chiave e il token di autorizzazione sono facoltativi.
 * Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
@@ -222,10 +222,14 @@ config->SetSpeechRecognitionLanguage("de-DE");
 
 ## <a name="improve-recognition-accuracy"></a>Migliorare l'accuratezza del riconoscimento
 
-È possibile migliorare l'accuratezza del riconoscimento in vari modi con Speech SDK. Esaminiamo gli elenchi di frasi. Gli elenchi di frasi vengono usati per identificare frasi note nei dati audio, ad esempio il nome di una persona o una specifica località. All'elenco di frasi è possibile aggiungere singole parole o frasi complete. Durante il riconoscimento, se nell'audio è inclusa una corrispondenza esatta per l'intera frase, viene aggiunta una voce nell'elenco di frasi. Se non si trova una corrispondenza esatta, il riconoscimento non è assistito.
+Gli elenchi di frasi vengono usati per identificare frasi note nei dati audio, ad esempio il nome di una persona o una specifica località. Se si fornisce un elenco di frasi, è possibile migliorare l'accuratezza del riconoscimento vocale.
+
+Se ad esempio è presente un comando "Sposta in" e una delle possibili destinazioni pronunciabili è "Vaso", è possibile aggiungere la voce "Sposta in vaso". L'aggiunta di una frase aumenta la probabilità che, durante il riconoscimento dell'audio, venga riconosciuta la frase "Sposta in vaso" invece di "Sposta invaso"
+
+All'elenco di frasi è possibile aggiungere singole parole o frasi complete. Una voce di un elenco di frasi viene usata per migliorare il riconoscimento di parole e frasi dell'elenco, anche quando le voci capitano nel mezzo di un'espressione. 
 
 > [!IMPORTANT]
-> La funzionalità dell'elenco di frasi è disponibile solo in inglese.
+> La funzionalità dell'elenco di frasi è disponibile nelle lingue seguenti: en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
 
 Per usare un elenco di frasi, creare prima di tutto un oggetto [`PhraseListGrammar`](/cpp/cognitive-services/speech/phraselistgrammar), quindi aggiungere parole o frasi specifiche con [`AddPhrase`](/cpp/cognitive-services/speech/phraselistgrammar#addphrase).
 
@@ -246,5 +250,5 @@ phraseListGrammar->Clear();
 
 Gli elenchi di frasi sono solo una delle opzioni disponibili per migliorare l'accuratezza del riconoscimento. È anche possibile: 
 
-* [Migliorare l'accuratezza con Riconoscimento vocale personalizzato](../../../how-to-custom-speech.md)
+* [Migliorare l'accuratezza con Riconoscimento vocale personalizzato](../../../custom-speech-overview.md)
 * [Migliorare l'accuratezza con i modelli di tenant](../../../tutorial-tenant-model.md)

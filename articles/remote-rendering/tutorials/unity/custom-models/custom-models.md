@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ebadaf51a7dfbb286dac0bbdb0c3c8437ae2356f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5793e2958edce0a4c97660a75d0ecefa914c12d2
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022225"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559083"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Esercitazione: Interfacce e modelli personalizzati
 
@@ -30,18 +30,18 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="get-started-with-the-mixed-reality-toolkit-mrtk"></a>Introduzione a Mixed Reality Toolkit (MRTK)
 
-Mixed Reality Toolkit (MRTK) è un toolkit multipiattaforma per la creazione di esperienze di realtà mista. Verrà usato MRTK 2.3 verrà usato per le funzionalità di interazione e visualizzazione.
+Mixed Reality Toolkit (MRTK) è un toolkit multipiattaforma per la creazione di esperienze di realtà mista. Verrà usato MRTK 2.5.1 per le funzionalità di interazione e visualizzazione che offre.
 
-Per aggiungere MRTK, seguire i [passaggi necessari](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#required) descritti in [Introduzione a MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html).
+Per aggiungere MRTK, seguire i [passaggi necessari](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#required) descritti nella [guida all'installazione di MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html).
 
 I passaggi sono:
- - [Ottenere i pacchetti più recenti di MRTK Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#get-the-latest-mrtk-unity-packages)
-     - Anche se sono indicati i pacchetti più recenti, questa esercitazione riguarda la versione 2.3.
+ - [Ottenere i pacchetti più recenti di MRTK Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#1-get-the-latest-mrtk-unity-packages)
+     - Anche se è presente l'indicazione "più recente", usare la versione 2.5.1 dalla pagina di versioni di MRTK.
      - Per l'esercitazione verrà usato solo il pacchetto *Foundation*. I pacchetti *Extensions*, *Tools* e *Examples* non sono necessari.
- - [Importare i pacchetti MRTK nel progetto Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#import-mrtk-packages-into-your-unity-project)
- - [Passare il progetto Unity alla piattaforma di destinazione](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#switch-your-unity-project-to-the-target-platform)
+ - [Importare i pacchetti MRTK nel progetto Unity](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#2-import-mrtk-packages-into-your-unity-project)
+ - [Passare il progetto Unity alla piattaforma di destinazione](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#3-switch-your-unity-project-to-the-target-platform)
      - Questo passaggio dovrebbe essere già stato eseguito nel primo capitolo, ma è consigliabile verificarlo.
- - [Aggiungere MRTK a una nuova scena o a un nuovo progetto](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#add-mrtk-to-a-new-scene-or-new-project)
+ - [Aggiungere MRTK a una nuova scena o a un nuovo progetto](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#4-add-and-configure-mrtk-with-a-new-scene)
      - È possibile aggiungere MRTK a una nuova scena e aggiungere di nuovo gli oggetti/script di coordinatore e modello oppure è possibile aggiungere MRTK alla scena esistente con il comando di menu *Mixed Reality Toolkit -> Add to Scene and Configure* (Mixed Reality Toolkit ->Aggiungi alla scena e configura).
 
 ## <a name="import-assets-used-by-this-tutorial"></a>Importare gli asset usati da questa esercitazione
