@@ -3,12 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 18da50fe763ef7c5fc3c06ac00052679c488cae7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015635"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400846"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -23,9 +23,23 @@ Questo articolo illustra quanto segue:
 
 <hr width=100%>
 
+## <a name="december-14-2020"></a>14 dicembre 2020
+Questa versione è la versione di aggiornamento dell'anteprima pubblica di analisi video in tempo reale su IoT Edge. Il tag di versione è
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### <a name="module-updates"></a>Aggiornamenti del modulo
+* Aggiunta del supporto per l'utilizzo di più processori di estensione HTTP e processore di estensione gRPC per ogni topologia Graph.
+* Aggiunta del supporto per la gestione dello spazio su disco per i nodi sink.
+* `MediaGraphGrpcExtension` il nodo supporta ora la proprietà [extensionConfiguration](grpc-extension-protocol.md) per l'uso di più modelli di intelligenza artificiale all'interno di un singolo server gRPC.
+* Aggiunta del supporto per la raccolta di metriche del modulo di analisi video in tempo reale nel [formato Prometeo](https://prometheus.io/docs/practices/naming/) 
+* Il processore del filtro della frequenza del frame è **deprecato**.  
+    * La gestione della frequenza dei fotogrammi è ora disponibile all'interno dei nodi del processore dell'estensione Graph.
+
 ## <a name="september-22-2020"></a>22 settembre 2020
 
-Questo tag di versione per l'aggiornamento di settembre 2020 del modulo è:
+Questo tag di versione è relativo all'aggiornamento di settembre 2020 del modulo:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -48,7 +62,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## <a name="august-19-2020"></a>19 agosto 2020
 
-Questo tag di versione per l'aggiornamento del 2020 agosto del modulo è:
+Questo tag di versione è per l'aggiornamento del 2020 agosto del modulo:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -73,7 +87,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ## <a name="july-13-2020"></a>13 luglio 2020
 
-Questo tag di versione per l'aggiornamento del 2020 luglio del modulo è:
+Questo tag di versione è per l'aggiornamento del 2020 luglio del modulo:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2
@@ -118,4 +132,4 @@ Questa è la prima versione di anteprima pubblica di analisi video in tempo real
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](overview.md)
+[Panoramica](overview.md)

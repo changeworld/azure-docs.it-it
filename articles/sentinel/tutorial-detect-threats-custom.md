@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: b685f716688cfbe732fa7d3566e1af97cc81272a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 390d2c8488fd2b35c775eabe43677b9349b547a1
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652111"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401645"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Esercitazione: creare regole di analisi personalizzate per rilevare le minacce
 
@@ -104,7 +104,7 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
        > [!IMPORTANT]
        > Il raggruppamento di eventi è attualmente disponibile in anteprima pubblica. Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
     
-    1. Nella sezione **eliminazione** , è possibile attivare l'impostazione **Interrompi esecuzione query dopo la generazione** dell' **On** avviso se, dopo aver ricevuto un avviso, si desidera sospendere il funzionamento di questa regola per un periodo di tempo superiore all'intervallo di query. Se si attiva questa impostazione, è necessario impostare **Interrompi esecuzione query per** sull'intervallo di tempo durante il quale la query deve arrestarsi, fino a 24 ore.
+    1. Nella sezione **eliminazione** , è possibile attivare l'impostazione **Interrompi esecuzione query dopo la generazione** dell'  avviso se, dopo aver ricevuto un avviso, si desidera sospendere il funzionamento di questa regola per un periodo di tempo superiore all'intervallo di query. Se si attiva questa impostazione, è necessario impostare **Interrompi esecuzione query per** sull'intervallo di tempo durante il quale la query deve arrestarsi, fino a 24 ore.
 
 1. Nella scheda **Impostazioni evento imprevisto** è possibile scegliere se e in che modo Azure Sentinel attiva gli avvisi in eventi imprevisti. Se questa scheda viene lasciata da sola, Azure Sentinel creerà un singolo evento imprevisto separato da ogni avviso. È possibile scegliere di non creare eventi imprevisti o di raggruppare più avvisi in un singolo evento imprevisto, modificando le impostazioni in questa scheda.
 
@@ -145,7 +145,13 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Non è stato possibile eseguire una regola pianificata o viene visualizzato con la DISABILITAzione automatica aggiunta al nome
+### <a name="issue-no-events-appear-in-query-results"></a>Problema: nessun evento viene visualizzato nei risultati della query
+
+Se il **raggruppamento di eventi** è impostato in modo da **attivare un avviso per ogni evento**, in determinati scenari, quando si visualizzano i risultati della query in un secondo momento, ad esempio quando si esegue la trasformazione tramite pivot verso gli avvisi di un evento imprevisto, è possibile che non venga visualizzato alcun risultato della query. Questo perché la connessione dell'evento all'avviso viene eseguita tramite l'hashing delle informazioni dell'evento specifico e l'inclusione dell'hash nella query. Se i risultati della query sono stati modificati dopo la generazione dell'avviso, l'hash non sarà più valido e non verrà visualizzato alcun risultato. 
+
+Per visualizzare gli eventi, rimuovere manualmente la riga con l'hash dalla query della regola ed eseguire la query.
+
+### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problema: una regola pianificata non è stata eseguita o viene visualizzata con il nome DISABILITAto automatico aggiunto al nome
 
 Si tratta di un caso raro in cui non è possibile eseguire una regola di query pianificata, ma ciò può verificarsi. Azure Sentinel classifica gli errori in primo piano come temporanei o permanenti in base al tipo specifico di errore e alle circostanze che lo hanno generato.
 

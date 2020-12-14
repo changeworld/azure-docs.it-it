@@ -3,12 +3,12 @@ title: Registrazione video basata su eventi-Azure
 description: Per registrazione video basata su eventi (EVR) si intende il processo di registrazione video attivato da un evento. L'evento in questione potrebbe avere origine a causa dell'elaborazione del segnale video stesso (ad esempio, il rilevamento sul movimento) o da un'origine indipendente (ad esempio, l'apertura di una porta).  In questo articolo sono descritti alcuni casi d'uso correlati alla registrazione video basata su eventi.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a5f4873b2cfef8d9a6594916d82cd30a3bc1cc2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89568498"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401603"
 ---
 # <a name="event-based-video-recording"></a>Registrazione di video basata su eventi  
  
@@ -46,7 +46,7 @@ Un evento del nodo del rilevamento del movimento attiverà il nodo del processor
 In questo caso di utilizzo, è possibile usare i segnali di un altro sensore Internet per attivare la registrazione del video. Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale che risolve questo caso d'uso. La rappresentazione JSON della topologia Graph di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Registrazione video basata sul rilevamento del movimento":::
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Registrazione video basata sugli eventi di altre origini":::
 
 Nel diagramma il sensore esterno invia gli eventi all'hub IoT Edge. Gli eventi vengono quindi indirizzati al nodo del processore del Gate del segnale tramite il nodo di [origine del messaggio dell'hub](media-graph-concept.md#iot-hub-message-source) Internet. Il comportamento del nodo del processore del controllo del segnale è identico a quello del caso di utilizzo precedente. verrà aperto e il flusso del feed video in tempo reale passerà dal nodo di origine RTSP al nodo sink di file (o al nodo sink di asset) quando viene attivato dall'evento esterno. 
 
@@ -57,13 +57,13 @@ Se si usa un nodo di sink di file, il video verrà registrato nella file system 
 In questo caso di utilizzo è possibile registrare clip video in base a un segnale da un sistema di logica esterno. Un esempio di questo caso d'uso potrebbe essere la registrazione di un clip video solo quando viene rilevato un camion nel feed video di traffico su un'autostrada. Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale che risolve questo caso d'uso. La rappresentazione JSON della topologia Graph di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Registrazione video basata sul rilevamento del movimento":::
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Registrazione video basata su un modulo esterno di inferenza":::
 
-Nel diagramma il nodo di origine RTSP acquisisce il feed video live dalla fotocamera e lo recapita a due rami: uno ha un nodo del [processore](media-graph-concept.md#signal-gate-processor) di controllo del segnale e l'altro usa un nodo di [estensione http](media-graph-concept.md) per inviare dati a un modulo logico esterno. Il nodo estensione HTTP consente al grafico multimediale di inviare fotogrammi immagine (in formati JPEG, BMP o PNG) a un servizio di inferenza esterno su REST. Questo percorso del segnale può in genere supportare solo frequenze di fotogrammi insufficienti (<5fps). È possibile usare il nodo [processore filtro frequenza frame](media-graph-concept.md#frame-rate-filter-processor) per abbassare la frequenza dei fotogrammi del video che passa al nodo estensione http.
+Nel diagramma il nodo di origine RTSP acquisisce il feed video live dalla fotocamera e lo recapita a due rami: uno ha un nodo del [processore](media-graph-concept.md#signal-gate-processor) di controllo del segnale e l'altro usa un nodo di [estensione http](media-graph-concept.md) per inviare dati a un modulo logico esterno. Il nodo estensione HTTP consente al grafico multimediale di inviare fotogrammi immagine (in formati JPEG, BMP o PNG) a un servizio di inferenza esterno su REST. Questo percorso del segnale può in genere supportare solo frequenze di fotogrammi insufficienti (<5fps). È possibile usare il nodo processore di estensione HTTP per abbassare la frequenza dei fotogrammi del video passando al modulo esterno di inferenza.
 
 I risultati del servizio di inferenza esterno vengono recuperati dal nodo di estensione HTTP e inoltrati all'hub IoT Edge tramite il nodo del sink di messaggi dell'hub Internet, dove possono essere ulteriormente elaborati dal modulo di logica esterno. Se il servizio di inferenza è in grado di rilevare i veicoli, ad esempio, il modulo per la logica potrebbe cercare un veicolo specifico, ad esempio un bus o un camion. Quando il modulo della logica rileva l'oggetto di interesse, può attivare il nodo del processore del Gate del segnale inviando un evento tramite l'hub IoT Edge al nodo di origine del messaggio dell'hub Internet nel grafico. L'output del Gate del segnale viene visualizzato in un nodo sink di file o in un nodo di sink di asset. Nel primo caso, il video verrà registrato nella file system locale sul dispositivo perimetrale. Nel secondo caso, il video verrà registrato in un asset.
 
-Un miglioramento di questo esempio prevede l'uso di un processore del rilevamento di movimento in avanti rispetto al nodo del processore del filtro della frequenza dei fotogrammi. In questo modo si riduce il carico sul servizio di inferenza, ad esempio la notte, quando potrebbe verificarsi un lungo periodo di tempo quando non ci sono veicoli sull'autostrada. 
+Un miglioramento di questo esempio consiste nell'utilizzo di un processore di rilevamento di movimento rispetto al nodo del processore di estensione HTTP. In questo modo si riduce il carico sul servizio di inferenza, ad esempio la notte, quando potrebbe verificarsi un lungo periodo di tempo quando non ci sono veicoli sull'autostrada. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

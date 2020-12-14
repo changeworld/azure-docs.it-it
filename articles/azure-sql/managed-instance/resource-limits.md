@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077371"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400574"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -108,7 +108,7 @@ Nel livello di servizio per utilizzo generico ogni file di database ottiene IOPS
 
 Se si nota una latenza di I/O elevata per un file di database o si scopre che il rapporto IOPS/velocità effettiva sta raggiungendo il limite, è possibile migliorare le prestazioni [aumentando le dimensioni del file](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-Esiste inoltre un limite a livello di istanza per la massima velocità effettiva di scrittura del log (ovvero 22 MB/s), pertanto potrebbe non essere possibile raggiungere il file massimo in tutto il file di log perché si sta raggiungendo il limite di velocità effettiva dell'istanza.
+Esiste inoltre un limite a livello di istanza per la massima velocità effettiva di scrittura del log (vedere sopra per i valori, ad esempio 22 MB/s), quindi potrebbe non essere possibile raggiungere il file max in tutto il file di log perché si raggiunge il limite di velocità effettiva dell'istanza.
 
 ## <a name="supported-regions"></a>Aree supportate
 
@@ -132,8 +132,8 @@ SQL Istanza gestita supporta attualmente la distribuzione solo sui seguenti tipi
 
 I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. SQL Istanza gestita prevede due limiti predefiniti per ogni area di Azure, che possono essere aumentati su richiesta creando una [richiesta di supporto speciale nell'portale di Azure](../database/quota-increase-request.md) a seconda del tipo di sottoscrizione:
 
-- **Limite subnet** : numero massimo di subnet in cui le istanze di SQL istanza gestita vengono distribuite in una singola area.
-- **Limite unità vCore** : il numero massimo di unità vCore che possono essere distribuite in tutte le istanze di una singola area. Un vCore di Utilizzo generico usa un'unità vCore, mentre un vCore Business Critical accetta 4 unità vCore. Il numero totale di istanze non è limitato, almeno finché rientra nel limite massimo di unità vCore.
+- **Limite subnet**: numero massimo di subnet in cui le istanze di SQL istanza gestita vengono distribuite in una singola area.
+- **Limite unità vCore**: il numero massimo di unità vCore che possono essere distribuite in tutte le istanze di una singola area. Un vCore di Utilizzo generico usa un'unità vCore, mentre un vCore Business Critical accetta 4 unità vCore. Il numero totale di istanze non è limitato, almeno finché rientra nel limite massimo di unità vCore.
 
 > [!Note]
 > Questi limiti sono impostazioni predefinite e non limitazioni tecniche. I limiti possono essere aumentati su richiesta creando una richiesta di [supporto speciale nel portale di Azure](../database/quota-increase-request.md) se sono necessarie più istanze nell'area corrente. In alternativa, è possibile creare nuove istanze di SQL Istanza gestita in un'altra area di Azure senza inviare richieste di supporto.
@@ -150,7 +150,7 @@ La tabella seguente illustra i **limiti predefiniti a livello di area** per i ti
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e MSDN Platforms|2|32|
 
-\* Nella pianificazione delle distribuzioni, tenere presente che il livello di servizio Business Critical (BC) richiede una quantità di vCore quattro (4) volte superiore rispetto al livello di servizio Utilizzo generico (GP). Ad esempio: 1 vCore GP = 1 unità vCore e 1 vCore BC = 4 unità vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui viene distribuito SQL Istanza gestita e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** si applica a ogni sottoscrizione presente in un'area. Non esiste alcun limite per singole subnet, ad eccezione del fatto che la somma di tutti i vCore distribuiti tra più subnet deve essere inferiore o uguale al **numero massimo di unità vCore** .
+\* Nella pianificazione delle distribuzioni, tenere presente che il livello di servizio Business Critical (BC) richiede una quantità di vCore quattro (4) volte superiore rispetto al livello di servizio Utilizzo generico (GP). Ad esempio: 1 vCore GP = 1 unità vCore e 1 vCore BC = 4 unità vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui viene distribuito SQL Istanza gestita e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** si applica a ogni sottoscrizione presente in un'area. Non esiste alcun limite per singole subnet, ad eccezione del fatto che la somma di tutti i vCore distribuiti tra più subnet deve essere inferiore o uguale al **numero massimo di unità vCore**.
 
 \*\* Sono disponibili limiti di subnet e vCore maggiori nelle aree geografiche seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
 

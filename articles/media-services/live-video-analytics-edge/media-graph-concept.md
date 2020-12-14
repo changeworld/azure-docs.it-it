@@ -3,12 +3,12 @@ title: Concetto di grafico multimediale-Azure
 description: Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. Questo articolo fornisce una descrizione dettagliata del concetto di grafico multimediale.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5efb62440b52d6219373d15ba3d19ddac1a2a834
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007841"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401101"
 ---
 # <a name="media-graph"></a>Grafico multimediale
 
@@ -87,6 +87,8 @@ Il nodo processore rilevamento movimento consente di rilevare il movimento in vi
 #### <a name="frame-rate-filter-processor"></a>Processore filtro frequenza frame  
 
 Il nodo processore filtro frequenza frame consente di campionare i frame dal flusso video in ingresso a una frequenza specificata. In questo modo è possibile ridurre il numero di frame inviati ai componenti del flusso inferiore, ad esempio il nodo del processore di estensione HTTP, per un'ulteriore elaborazione.
+>[!WARNING]
+> Questo processore è **deprecato** nella versione più recente di analisi video live sul modulo IOT Edge. La gestione della frequenza dei fotogrammi è ora supportata all'interno dei processori di estensione Graph.
 
 #### <a name="http-extension-processor"></a>Processore di estensione HTTP
 
@@ -108,8 +110,9 @@ Un nodo di sink di asset consente di scrivere dati multimediali (video e/o audio
 
 #### <a name="file-sink"></a>Sink di file  
 
-Il nodo sink di file consente di scrivere dati multimediali (video e/o audio) in una posizione nella file system locale del dispositivo IoT Edge. Può essere presente un solo nodo di sink di file in un grafico multimediale e deve essere a valle di un nodo del processore del Gate del segnale. In questo modo, la durata dei file di output viene limitata ai valori specificati nelle proprietà del nodo del processore del Gate del segnale.
-
+Il nodo sink di file consente di scrivere dati multimediali (video e/o audio) in una posizione nella file system locale del dispositivo IoT Edge. Può essere presente un solo nodo di sink di file in un grafico multimediale e deve essere a valle di un nodo del processore del Gate del segnale. In questo modo, la durata dei file di output viene limitata ai valori specificati nelle proprietà del nodo del processore del Gate del segnale. Per assicurarsi che il dispositivo perimetrale non esaurisca lo spazio su disco, è anche possibile impostare le dimensioni massime che possono essere usate dal modulo di analisi video live in IoT Edge per archiviare i dati.  
+> [!NOTE]
+Se il sink di file è pieno, l'analisi video attiva sul modulo IoT Edge inizierà a eliminare i dati meno recenti e a sostituirli con quello nuovo.
 #### <a name="iot-hub-message-sink"></a>Sink messaggi dell'hub Internet  
 
 Un nodo del sink di messaggi dell'hub Internet consente di pubblicare eventi nell'hub IoT Edge. L'hub IoT Edge può quindi instradare i dati ad altri moduli o app sul dispositivo perimetrale o all'hub di tutto il cloud (per le route specificate nel manifesto di distribuzione). Il nodo del sink di messaggi dell'hub Internet può accettare eventi da processori upstream, ad esempio un nodo del processore di rilevamento del movimento, o da un servizio di inferenza esterno tramite un nodo processore di estensione HTTP.

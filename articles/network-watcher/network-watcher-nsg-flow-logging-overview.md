@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033426"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399248"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -371,9 +371,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Abilita su reti virtuali/subnet critiche**: i log di flusso devono essere abilitati in tutte le reti virtuali/subnet critiche nella sottoscrizione come procedura di controllo e sicurezza consigliata. 
 
-**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi, è consigliabile abilitare i log dei flussi NSG in tutti i gruppi applicati alla subnet o all'interfaccia di rete di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni, vedere [come viene valutato il traffico](../virtual-network/network-security-group-how-it-works.md) nei gruppi di sicurezza di rete.
+**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi, è consigliabile abilitare i log dei flussi NSG in tutti i gruppi applicati alla subnet o all'interfaccia di rete della risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni, vedere [come viene valutato il traffico](../virtual-network/network-security-group-how-it-works.md) nei gruppi di sicurezza di rete. 
 
-**Con NSG a livello di nic e di subnet**: nel caso in cui NSG sia configurato nella scheda di interfaccia di rete e nel livello di subnet, la registrazione del flusso deve essere abilitata in entrambi i gruppi. 
+Pochi scenari comuni:
+1. **Più NSG di rete in una scheda** di interfaccia di rete: se più gruppi sono collegati a una scheda di interfaccia di rete, la registrazione dei flussi deve essere abilitata su tutte
+1. **Con NSG a livello di nic e di subnet**: nel caso in cui NSG sia configurato nella scheda di interfaccia di rete e nel livello di subnet, la registrazione del flusso deve essere abilitata in entrambi i gruppi. 
 
 **Provisioning dell'archiviazione**: è necessario eseguire il provisioning dell'archiviazione in sintonia con il volume di log di flusso previsto.
 

@@ -3,12 +3,12 @@ title: Code e argomenti del bus di servizio come gestori per gli eventi di Grigl
 description: Descrive come usare code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96024215"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399860"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è il **bus di servizio di Azure**. 
@@ -40,7 +40,7 @@ Nel portale di Azure, durante la creazione di una sottoscrizione di eventi, sele
 
 ### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Uso dell'interfaccia della riga di comando per aggiungere un gestore di argomenti del bus di servizio
 
-Per l'interfaccia della riga di comando di Azure, l'esempio seguente sottoscrive e connette un argomento di Griglia di eventi a una coda del bus di servizio:
+Per l'interfaccia della riga di comando di Azure, l'esempio seguente sottoscrive e connette un argomento di griglia di eventi a un argomento del bus di servizio:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

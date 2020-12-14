@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530751"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399367"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -95,8 +95,8 @@ La tabella seguente confronta gli standard principali: Open Authentication 2,0 (
 | Single Sign-out basato sul Web| √| √ |
 | Single Sign-On basati su dispositivi mobili| √| √* |
 | Single Sign-out basato su dispositivi mobili| √| √* |
-| Criteri di accesso condizionale per le applicazioni per dispositivi mobili| √| X |
-| Esperienza multi-factor authentication per applicazioni per dispositivi mobili| √| X |
+| Criteri di accesso condizionale per le applicazioni per dispositivi mobili| √| √* |
+| Esperienza multi-factor authentication per applicazioni per dispositivi mobili| √| √* |
 | Provisioning SCIM| √| √ |
 | Accesso a Microsoft Graph| √| X |
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a6b328bc076ffa619921a8698549e95e6f15c60
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013650"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400761"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Eseguire query di log in monitoraggio di Azure che si estendono su più aree di lavoro e app
 
@@ -22,7 +22,7 @@ Esistono due metodi per eseguire query sui dati archiviati in più aree di lavor
 2. Utilizzando in modo implicito le [query del contesto delle risorse](../platform/design-logs-deployment.md#access-mode). Quando si esegue una query nel contesto di una risorsa specifica, un gruppo di risorse o una sottoscrizione, i dati rilevanti verranno recuperati da tutte le aree di lavoro che contengono i dati per queste risorse. I dati Application Insights archiviati nelle app non verranno recuperati.
 
 > [!IMPORTANT]
-> Se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md), i dati di telemetria vengono archiviati in un'area di lavoro Log Analytics con tutti gli altri dati di log. Usare l'espressione log () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
+> Se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md), i dati di telemetria vengono archiviati in un'area di lavoro Log Analytics con tutti gli altri dati di log. Usare l'espressione Workspace () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
 
 
 ## <a name="cross-resource-query-limits"></a>Limiti di query tra risorse 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ece6dfb5277e7ca363548c8d90021835a96a61ba
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937356"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401560"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ Le colonne indicano se il tag:
 Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l'intero cloud. Alcuni tag del servizio consentono un controllo più granulare limitando gli intervalli IP corrispondenti a un'area specificata. Ad esempio, il tag di servizio **Archiviazione** rappresenta Archiviazione di Azure per l'intero cloud, ma **storage.Westus** restringe l'intervallo solo agli intervalli di indirizzi IP di archiviazione dall'area WestUS. La tabella seguente indica se ogni tag del servizio supporta tale ambito regionale.  
 
 | Tag | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **ActionGroup** | Gruppo di azioni | In ingresso | No | No |
 | **Gestione API** | Traffico per distribuzioni dedicate di Gestione API di Azure. <br/><br/>*Nota:* questo tag rappresenta l'endpoint del servizio Gestione API di Azure per il piano di controllo per area. Ciò consente ai clienti di eseguire operazioni di gestione su API, operazioni, criteri e valori denominati nel servizio Gestione API.  | In ingresso | Sì | Sì |
 | **ApplicationInsightsAvailability** | Disponibilità di Application Insights. | In ingresso | No | No |

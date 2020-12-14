@@ -6,13 +6,13 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: 4067d157a13618b008e2cb1a5fee31259bfd43a9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 12/14/2020
+ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094353"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400256"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Usare i filtri di connessioni IP del servizio Device Provisioning in hub IoT di Azure
 
@@ -58,7 +58,7 @@ Dopo aver compilato i campi, selezionare **Salva** per salvare la regola. Viene 
 
 ![Notifica sul salvataggio di una regola di filtro IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-L'opzione **Aggiungi** è disabilitata quando si raggiunge il numero massimo di dieci regole del filtro IP.
+L'opzione **Aggiungi** è disabilitata quando si raggiunge il numero massimo di 100 regole del filtro IP.
 
 Per modificare una regola esistente, selezionare i dati che si desidera modificare, apportare le modifiche, quindi selezionare **Salva** per salvare la modifica.
 
