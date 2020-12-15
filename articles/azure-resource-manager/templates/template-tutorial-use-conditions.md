@@ -5,16 +5,16 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896991"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931368"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
-Informazioni su come distribuire le risorse di Azure in base alle condizioni in un modello di Azure Resource Manager (ARM).
+Informazioni su come distribuire le risorse di Azure in base alle condizioni in un modello di Azure Resource Manager (modello di ARM).
 
 Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./template-tutorial-create-templates-with-dependent-resources.md) si creano una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti, tra cui un account di archiviazione. Invece di creare ogni volta un nuovo account di archiviazione, si consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. Per raggiungere questo obiettivo, si definisce un parametro aggiuntivo. Se il valore del parametro è "new", viene creato un nuovo account di archiviazione. In caso contrario, viene usato un account di archiviazione esistente con il nome specificato.
 
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```console
@@ -117,7 +117,7 @@ Di seguito è riportata la procedura per apportare le modifiche:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    La condizione controlla il valore di un parametro denominato **newOrExisting**. Se il valore del parametro è **new** , con la distribuzione viene creato l'account di archiviazione.
+    La condizione controlla il valore di un parametro denominato **newOrExisting**. Se il valore del parametro è **new**, con la distribuzione viene creato l'account di archiviazione.
 
     La definizione aggiornata dell'account di archiviazione si presenta come segue:
 
@@ -172,7 +172,7 @@ Di seguito è riportata la procedura per apportare le modifiche:
     ```
 
     > [!NOTE]
-    > Se **newOrExisting** è **new** , ma l'account di archiviazione con il nome specificato esiste già, la distribuzione ha esito negativo.
+    > Se **newOrExisting** è **new**, ma l'account di archiviazione con il nome specificato esiste già, la distribuzione ha esito negativo.
 
 Provare a ripetere la distribuzione con il parametro **newOrExisting** impostato su "existing" e specificare un account di archiviazione esistente. Per creare prima un account di archiviazione, vedere [Creare un account di archiviazione](../../storage/common/storage-account-create.md).
 

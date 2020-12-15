@@ -1,21 +1,21 @@
 ---
 title: Creare più istanze di risorse
-description: Informazioni su come creare un modello di Azure Resource Manager per creare più istanze di risorse di Azure.
+description: Informazioni su come creare un modello di Azure Resource Manager (modello di ARM) per creare più istanze di risorse di Azure.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: dac1e9429965607aea1490f0ec3b540d7b441d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614394"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930799"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Esercitazione: Creare più istanze di risorse con modelli di Azure Resource Manager
 
-Informazioni su come eseguire un'iterazione del modello di Azure Resource Manager (ARM) per creare più istanze di una risorsa di Azure. In questa esercitazione si modifica un modello per creare tre istanze di account di archiviazione.
+Informazioni su come eseguire un'iterazione del modello di Azure Resource Manager (modello di ARM) per creare più istanze di una risorsa di Azure. In questa esercitazione si modifica un modello per creare tre istanze di account di archiviazione.
 
 ![Diagramma creazione di più istanze con Azure Resource Manager](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 

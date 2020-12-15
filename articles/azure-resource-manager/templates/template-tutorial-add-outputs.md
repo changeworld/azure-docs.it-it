@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Aggiungere output al modello'
-description: Aggiungere output al modello di Azure Resource Manager per semplificare la sintassi.
+description: Aggiungere output al modello di Azure Resource Manager (modello di ARM) per semplificare la sintassi.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: abd5fbed4ab19135fb30ec5adda387d839df3ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613867"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931742"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Esercitazione: Aggiungere output al modello di Azure Resource Manager
 
-Questa esercitazione illustra come restituire un valore dal modello di Azure Resource Manager (ARM). Gli output vengono usati quando è necessario ottenere un valore da una risorsa distribuita. Per completare l'esercitazione, sono necessari **7 minuti**.
+Questa esercitazione illustra come restituire un valore dal modello di Azure Resource Manager (modello di ARM). Gli output vengono usati quando è necessario ottenere un valore da una risorsa distribuita. Per completare l'esercitazione, sono necessari **7 minuti**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

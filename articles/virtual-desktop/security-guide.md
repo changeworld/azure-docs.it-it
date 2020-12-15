@@ -3,15 +3,15 @@ title: Procedure consigliate per la sicurezza del Desktop virtuale Windows - Azu
 description: Procedure consigliate per garantire la sicurezza dell'ambiente Desktop virtuale Windows.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023157"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511536"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -98,6 +98,25 @@ Monitorare l'uso e la disponibilità del servizio Desktop virtuale Windows con [
 ## <a name="session-host-security-best-practices"></a>Procedure consigliate per la sicurezza dell'host di sessione
 
 Gli host di sessione sono macchine virtuali che vengono eseguite all'interno di una sottoscrizione di Azure e di una rete virtuale. La sicurezza complessiva della distribuzione di Desktop virtuale Windows dipende dai controlli di sicurezza associati agli host di sessione. Questa sezione descrive le procedure consigliate per proteggere gli host di sessione.
+
+### <a name="enable-screen-capture-protection-preview"></a>Abilita protezione acquisizione schermo (anteprima)
+
+La funzionalità di protezione acquisizione schermo impedisce l'acquisizione di informazioni riservate sugli endpoint client. Quando si abilita questa funzionalità, il contenuto remoto verrà automaticamente bloccato o nascosto nelle schermate e nelle condivisioni dello schermo. Verrà inoltre nascosta da software dannoso che potrebbe essere in grado di acquisire continuamente il contenuto della schermata.
+
+Questo criterio viene applicato a livello di host configurando una chiave del registro di sistema. Per abilitare questo criterio, aprire PowerShell e impostare la chiave del registro di sistema **fEnableScreenCaptureProtection** eseguendo questo cmdlet:
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+Per testare la nuova funzionalità:
+
+- Assicurarsi che sia stato effettuato il provisioning dei pool host nell'ambiente di convalida.
+- Assicurarsi di aver scaricato e installato il client desktop di Windows, versione 1.2.1526 o successiva.
+
+>[!NOTE]
+>Durante l'anteprima, solo le connessioni desktop complete dagli endpoint di Windows 10 supportano questa funzionalità.
+
 
 ### <a name="enable-endpoint-protection"></a>Abilita la protezione dell'endpoint
 

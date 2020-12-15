@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 13a82aaa31734e98377d9f68c59c25c83a5d5f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c01883c75ad5d6633abeffcd29a7d3cf2485d6fc
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259133"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511723"
 ---
 # <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importare una raccolta Postman con operazioni di streaming live
 
@@ -26,12 +26,12 @@ ms.locfileid: "89259133"
 
 Questo articolo contiene una definizione della raccolta **Postman** in cui sono incluse le richieste HTTP raggruppate che chiamano le API REST di Servizi multimediali di Azure con **streaming live**. Per informazioni su come configurare **Postman** per poterlo usare per chiamare le API REST di Servizi multimediali, vedere l'esercitazione [Configurare Postman per le chiamate API REST di Servizi multimediali](media-rest-apis-with-postman.md).
 
-```
+```json
 {
     "info": {
         "name": "Azure Media Live Streaming Quickstart",
         "_postman_id": "0dc5e4c6-4865-cbe9-250c-78e40b634256",
-        "description": "Quickstart collection to use Live Streaming and Encding on Azure Media Services\n",
+        "description": "Quickstart collection to use Live Streaming and Encoding on Azure Media Services\n",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [

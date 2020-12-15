@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Aggiungere le funzioni del modello'
-description: Aggiungere funzioni del modello al modello di Azure Resource Manager per costruire valori.
+description: Aggiungere funzioni del modello al modello di Azure Resource Manager (modello di ARM) per costruire valori.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613850"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931045"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Esercitazione: Aggiungere funzioni del modello al modello di Azure Resource Manager
 
-Questa esercitazione illustra come aggiungere [funzioni del modello](template-functions.md) al modello di Azure Resource Manager (ARM). Le funzioni consentono di costruire i valori in modo dinamico. Oltre alle funzioni del modello fornite dal sistema, è anche possibile creare [funzioni definite dall'utente](./template-user-defined-functions.md). Per completare l'esercitazione, sono necessari **7 minuti**.
+Questa esercitazione illustra come aggiungere [funzioni del modello](template-functions.md) al modello di Azure Resource Manager (modello di ARM). Le funzioni consentono di costruire i valori in modo dinamico. Oltre alle funzioni del modello fornite dal sistema, è anche possibile creare [funzioni definite dall'utente](./template-user-defined-functions.md). Per completare l'esercitazione, sono necessari **7 minuti**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ La località dell'account di archiviazione è impostata come hardcoded su **Stat
 
 ## <a name="use-function"></a>Usare la funzione
 
-Se è stata completata l'esercitazione precedente di questa serie, è già stata usata una funzione. Quando si è aggiunto **"[parameters('storageName')]"** , si è usata la funzione [parameters](template-functions-deployment.md#parameters). Le parentesi quadre indicano che la sintassi racchiusa tra parentesi è un'[espressione del modello](template-expressions.md). Resource Manager risolve la sintassi invece di considerarla come valore letterale.
+Se è stata completata l'esercitazione precedente di questa serie, è già stata usata una funzione. Quando si è aggiunto `"[parameters('storageName')]"` , si è usata la funzione [parameters](template-functions-deployment.md#parameters). Le parentesi quadre indicano che la sintassi racchiusa tra parentesi è un'[espressione del modello](template-expressions.md). Resource Manager risolve la sintassi invece di considerarla come valore letterale.
 
 Le funzioni aggiungono flessibilità al modello perché consentono di ottenere i valori in modo dinamico durante la distribuzione. In questa esercitazione si userà una funzione per ottenere la località del gruppo di risorse usato per la distribuzione.
 

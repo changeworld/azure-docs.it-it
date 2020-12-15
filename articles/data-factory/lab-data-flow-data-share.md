@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489038"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921026"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integrazione dei dati con Azure Data Factory e Condivisione dati di Azure
 
@@ -34,7 +34,7 @@ I dati usati in questo lab sono relativi ai taxi di New York. Per importarli nel
 
 * **Account di archiviazione di Azure Data Lake Storage Gen2** : se non è disponibile, vedere come [creare un account di archiviazione di ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (in precedenza SQL DW)** : se non è disponibile, vedere come [creare un'istanza di Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics**: se non è disponibile, vedere come [creare un'istanza di Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory**: se non è stata creata una data factory, vedere come [crearla](./quickstart-create-data-factory-portal.md).
 
@@ -79,7 +79,7 @@ Nei servizi collegati di Azure Data Factory definire le informazioni per la conn
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Creare un servizio collegato Azure Synapse Analytics
 
-1. Ripetere la stessa procedura per aggiungere un servizio collegato Azure Synapse Analytics. Nella scheda Connessioni fare clic su **Nuovo**. Selezionare il riquadro **Azure Synapse Analytics (in precedenza SQL DW)** e fare clic su Continua.
+1. Ripetere la stessa procedura per aggiungere un servizio collegato Azure Synapse Analytics. Nella scheda Connessioni fare clic su **Nuovo**. Selezionare il riquadro **Azure Synapse Analytics** e fare clic su Continua.
 
     ![Configurazione nel portale 6](media/lab-data-flow-data-share/configure6.png)
 1. Nel riquadro di configurazione del servizio collegato immettere 'SQLDW' come nome. Immettere le proprie credenziali per consentire alla data factory di connettersi al database. Se si usa l'autenticazione SQL, immettere il nome del server, il database, il nome utente e la password. Per verificare se le informazioni per la connessione sono corrette, fare clic su **Test connessione**. Al termine, fare clic su **Crea**.
@@ -274,7 +274,7 @@ Il flusso di dati creato in questo passaggio unisce tramite inner join il set di
 
     ![Sink nel portale 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Selezionare il riquadro **Azure Synapse Analytics (in precedenza SQL DW)** e fare clic su Continua.
+1. Selezionare il riquadro **Azure Synapse Analytics** e fare clic su Continua.
 
     ![Sink nel portale 3](media/lab-data-flow-data-share/sink3.png)
 1. Assegnare al set di dati il nome 'AggregatedTaxiData'. Selezionare 'SQLDW' come servizio collegato. Selezionare **Crea nuova tabella** e assegnare alla nuova tabella il nome dbo.AggregateTaxiData. Al termine, fare clic su OK

@@ -143,7 +143,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Dati
+    - name: Data
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -503,7 +503,7 @@
       displayName: pipelines
       items:
         - name: Creare pipeline di Machine Learning (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: Spostamento di dati in e tra i passaggi della pipeline ML (Python)
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Distribuire pipeline di ML (Python)

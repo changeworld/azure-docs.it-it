@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840407"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509802"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
@@ -45,14 +45,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
 | client_id | Sì | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
 | nonce | Sì | Valore incluso nella richiesta, generato dall'applicazione, incluso nel token ID risultante come attestazione. L'applicazione può quindi verificare questo valore per attenuare gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
 | response_type | Sì | Deve includere un token ID per OpenID Connect. Se l'applicazione Web richiede anche token per chiamare un'API Web, è possibile usare `code+id_token` . |
-| scope | Sì | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. L' `offline_access` ambito è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un token di *aggiornamento* per l'accesso esteso alle risorse. |
+| ambito | Sì | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. L' `offline_access` ambito è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un token di *aggiornamento* per l'accesso esteso alle risorse. |
 | prompt | No | Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. |
 | redirect_uri | No | Il `redirect_uri` parametro dell'applicazione, in cui le risposte di autenticazione possono essere inviate e ricevute dall'applicazione. Deve corrispondere esattamente a uno dei `redirect_uri` parametri registrati nella portale di Azure, ad eccezione del fatto che deve essere codificato in URL. |
 | response_mode | No | Metodo utilizzato per inviare di nuovo il codice di autorizzazione risultante all'applicazione. Può essere `query`, `form_post` o `fragment`.  `form_post` è la modalità di risposta consigliata perché offre la sicurezza migliore. |
@@ -144,7 +144,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | codice | Sì | Codice di autorizzazione acquisito all'inizio del flusso utente. |
 | grant_type | Sì | Tipo di concessione, che deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | redirect_uri | Sì | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| scope | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di parametri id_token. Può essere usato per ottenere i token per l'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
+| ambito | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di parametri id_token. Può essere usato per ottenere i token per l'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -173,7 +173,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
 | not_before | Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type | Valore del tipo di token. `Bearer` è l'unico tipo supportato. |
 | access_token | Il token JWT firmato richiesto. |
-| scope | Ambiti per il quale il token è valido. |
+| ambito | Ambiti per il quale il token è valido. |
 | expires_in | Periodo di validità del token di accesso (in secondi). |
 | token di aggiornamento | Token di aggiornamento di OAuth 2.0. L'applicazione può usare questo token per acquisire token aggiuntivi dopo la scadenza del token corrente. I token di aggiornamento possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. `offline_access`Per ricevere un token di aggiornamento, è necessario che l'ambito sia stato usato nelle richieste di autorizzazione e di token. |
 
@@ -213,7 +213,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
@@ -222,7 +222,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | grant_type | Sì | Tipo di concessione, che deve essere `refresh_token` per questa parte del flusso del codice di autorizzazione. |
 | token di aggiornamento | Sì | Token di aggiornamento originale acquisito nella seconda parte del flusso. `offline_access`Per ricevere un token di aggiornamento, è necessario usare l'ambito nelle richieste di autorizzazione e di token. |
 | redirect_uri | No | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| scope | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Può essere usato per inviare token all'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
+| ambito | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Può essere usato per inviare token all'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -242,7 +242,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
 | not_before | Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type | Valore del tipo di token. `Bearer` è l'unico tipo supportato. |
 | access_token | Token JWT firmato che è stato richiesto. |
-| scope | Ambito per il quale il token è valido. |
+| ambito | Ambito per il quale il token è valido. |
 | expires_in | Periodo di validità del token di accesso (in secondi). |
 | token di aggiornamento | Token di aggiornamento di OAuth 2.0. L'applicazione può usare questo token per acquisire token aggiuntivi dopo la scadenza del token corrente. I token di aggiornamento possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. |
 
@@ -262,7 +262,7 @@ Le risposte di errore si presentano nel modo seguente:
 
 ## <a name="send-a-sign-out-request"></a>Inviare una richiesta di disconnessione
 
-Quando si desidera disconnettersi l'utente dall'applicazione, non è sufficiente cancellare i cookie dell'applicazione o terminare la sessione con l'utente. Reindirizza l'utente a Azure AD B2C per la disconnessione. Se l'operazione non riesce, l'utente potrebbe essere in grado di eseguire di nuovo l'autenticazione all'applicazione senza immettere di nuovo le credenziali. Per ulteriori informazioni, vedere [Azure ad B2C sessione](session-overview.md).
+Quando si desidera disconnettersi l'utente dall'applicazione, non è sufficiente cancellare i cookie dell'applicazione o terminare la sessione con l'utente. Reindirizza l'utente a Azure AD B2C per la disconnessione. Se l'operazione non riesce, l'utente potrebbe essere in grado di eseguire di nuovo l'autenticazione all'applicazione senza immettere di nuovo le credenziali. Per ulteriori informazioni, vedere [Azure ad B2C sessione](session-behavior.md).
 
 Per disconnettere l'utente, reindirizzare l'utente all' `end_session` endpoint elencato nel documento di metadati di OpenID Connect descritto in precedenza:
 
@@ -270,7 +270,7 @@ Per disconnettere l'utente, reindirizzare l'utente all' `end_session` endpoint e
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da usare per disconnettere l'utente dall'applicazione. |
@@ -283,8 +283,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 Dopo la disconnessione, l'utente viene reindirizzato all'URI specificato nel `post_logout_redirect_uri` parametro, indipendentemente dagli URL di risposta specificati per l'applicazione. Tuttavia, se viene passato un oggetto valido `id_token_hint` e il **token ID richiesto nelle richieste di disconnessione** viene attivato, Azure ad B2C verifica che il valore `post_logout_redirect_uri` corrisponda a uno degli URI di reindirizzamento configurati dell'applicazione prima di eseguire il reindirizzamento. Se per l'applicazione non è stato configurato alcun URL di risposta corrispondente, viene visualizzato un messaggio di errore e l'utente non viene reindirizzato.
 
-Per impostare il token ID necessario nelle richieste di disconnessione, vedere [configurare il comportamento della sessione in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect)e [configurare il comportamento della sessione usando criteri personalizzati in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
+Per impostare il token ID necessario nelle richieste di disconnessione, vedere [configurare il comportamento della sessione in Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla [sessione Azure AD B2C](session-overview.md).
+- Altre informazioni sulla [sessione Azure AD B2C](session-behavior.md).

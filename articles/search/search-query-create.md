@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: a02d51d66b9d2b8bf3c08d4515713ecb062e0c8e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400217"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510465"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Creare una query in Azure ricerca cognitiva
 
@@ -76,31 +76,7 @@ Se la query è una ricerca full-text, verrà utilizzato un parser per elaborare 
 
 La [sintassi di query Lucene completa](query-Lucene-syntax.md#bkmk_syntax), abilitata quando si aggiunge `queryType=full` alla richiesta, è basata sul [parser Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-La sintassi completa è un'estensione della sintassi semplice, con più operatori che consentono di creare query avanzate, ad esempio ricerca fuzzy, ricerca con caratteri jolly, ricerca di prossimità ed espressioni regolari. Gli esempi seguenti illustrano il punto: la stessa query, ma con **`queryType`** impostazioni diverse che producono risultati diversi. Nella prima query semplice, `^3` dopo `historic` viene considerato come parte del termine di ricerca. Il risultato in primo piano per questa query è "Marquis Plaza & Suites", che ha l' *oceano* nella sua descrizione.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "simple",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
-
-La stessa query che usa il parser Lucene completo interpreta `^3` come un richiamo di termine nel campo. Il passaggio dei parser comporta la modifica del rango, con risultati che contengono il termine spostamento *cronologico* verso l'alto.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
+La sintassi completa e la sintassi semplice si sovrappongono alla dimensione che supportano entrambe le stesse operazioni di prefisso e booleano, ma la sintassi completa fornisce più operatori. In completo sono presenti più operatori per le espressioni booleane e più operatori per query avanzate, ad esempio ricerca fuzzy, ricerca con caratteri jolly, ricerca di prossimità ed espressioni regolari.
 
 ## <a name="choose-query-methods"></a>Scegliere i metodi di query
 

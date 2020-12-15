@@ -1,6 +1,6 @@
 ---
 title: Usare gli script di distribuzione del modello | Microsoft Docs
-description: Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager.
+description: Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager (modelli di ARM).
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825495"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931436"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato (anteprima)
 
-Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager (ARM). Gli script di distribuzione possono essere usati per eseguire passaggi personalizzati che non possono essere eseguiti dai modelli di Azure Resource Manager. Ad esempio, la creazione di un certificato autofirmato.  In questa esercitazione viene creato un modello per distribuire un insieme di credenziali delle chiavi di Azure e quindi viene usata una risorsa `Microsoft.Resources/deploymentScripts` nello stesso modello per creare un certificato e infine viene aggiunto il certificato all'insieme di credenziali delle chiavi. Per altre informazioni sullo script di distribuzione, vedere [Usare gli script di distribuzione nei modelli di Azure Resource Manager](./deployment-script-template.md).
+Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager (modelli di ARM). Gli script di distribuzione possono essere usati per eseguire passaggi personalizzati che non possono essere eseguiti dai modelli di Azure Resource Manager. Ad esempio, la creazione di un certificato autofirmato.  In questa esercitazione viene creato un modello per distribuire un insieme di credenziali delle chiavi di Azure e quindi viene usata una risorsa `Microsoft.Resources/deploymentScripts` nello stesso modello per creare un certificato e infine viene aggiunto il certificato all'insieme di credenziali delle chiavi. Per altre informazioni sullo script di distribuzione, vedere [Usare gli script di distribuzione nei modelli di Azure Resource Manager](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio di script quando l'esecuzione dello script raggiunge uno stato finale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -40,7 +40,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene usata per eseguire gli script di distribuzione. Per crearne una, vedere [Identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 

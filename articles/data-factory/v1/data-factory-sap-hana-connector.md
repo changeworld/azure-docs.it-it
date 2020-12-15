@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c08aeca8e7aaa71e5a2a80cbdece762b989e28c2
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019566"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510142"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Spostare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -38,7 +38,7 @@ Per abilitare la connettività all'istanza di SAP HANA, installare i componenti 
 - **Gateway di gestione dati**: il servizio Data Factory supporta la connessione ad archivi dati locali (incluso SAP HANA) usando un componente denominato Gateway di gestione dati. Per informazioni su Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). Il gateway è necessario anche se il database SAP HANA è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 - **Driver ODBC di SAP HANA** nel computer del gateway. È possibile scaricare il driver ODBC di SAP HANA dall'[area per il download di software SAP](https://support.sap.com/swdc). Per cercare il driver, usare la parola chiave **SAP HANA CLIENT for Windows**. 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con un'attività di copia che sposta i dati da un archivio dati SAP HANA locale usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
@@ -296,10 +296,10 @@ NVARCHAR | string
 CLOB | Byte[]
 ALPHANUM | string
 BLOB | Byte[]
-DATE | Datetime
+DATE | DateTime
 TIME | TimeSpan
-timestamp | Datetime
-SECONDDATE | Datetime
+timestamp | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Limitazioni note
 Quando si copiano dati da SAP HANA, è necessario tenere conto di alcune limitazioni:

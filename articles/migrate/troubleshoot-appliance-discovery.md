@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 90abe6bf680f6a186b970631dcd0a42d6d36bf94
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753417"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511587"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -27,7 +27,7 @@ Questo articolo illustra come risolvere i problemi durante la distribuzione del 
 
 Se viene visualizzato l'errore "il file manifesto specificato non è valido: voce del manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-discover-vmware.md) Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
+1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-discover-vmware.md). Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
@@ -41,6 +41,13 @@ Questo problema può verificarsi se il computer dell'appliance si trova dietro u
 - Assicurarsi di specificare le credenziali di autorizzazione, se richieste dal proxy.
 - Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, aggiungere [questi URL](migrate-appliance.md#url-access) a un elenco Consenti.
 - Se si usa un proxy di intercettazione per connettersi a Internet, importare il certificato proxy nella macchina virtuale dell'appliance seguendo [questa procedura](./migrate-appliance.md).
+
+
+## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Facendo clic sul pulsante "login" si apre una nuova scheda senza codice dispositivo
+
+Se dopo aver fatto clic su "login in Gestione configurazione Appliance" si apre una nuova scheda senza codice, tornare alla scheda Gestione configurazione Appliance ed è possibile trovare il codice del dispositivo in grassetto nel pulsante "login", come illustrato nella schermata seguente. Copiare il codice e incollarlo nella scheda account di accesso per l'autenticazione con Azure.
+
+![Codice del dispositivo](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Non è possibile accedere ad Azure dall'app Web Appliance
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: duau
-ms.openlocfilehash: e24c0aacd1b10615e645c14ceb2b8d31f1f75e40
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: ae63173f683c97d71f22e0dd4d438be0a999bc08
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093894"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511196"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -83,7 +83,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/d | 10 G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/d | 10 G | AIS, UIH |
 | **Berlino** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Germania settentrionale | 10 G | Equinix, NTT Global datacenters EMEA|
-| **Bogota** | [BG1 Equinix](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 3 | n/d | 10 G | |
+| **Bogota** | [BG1 Equinix](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/d | 10 G | |
 | **Busan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Corea meridionale | n/d | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale | 10 G, 100 G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale 2| 10 G, 100 G | CDC, Equinix |

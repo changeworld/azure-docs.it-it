@@ -3,19 +3,19 @@ title: Aggiungere proprietari e utenti in Azure DevTest Labs | Documentazione Mi
 description: Aggiungere proprietari e utenti in Azure DevTest Labs usando il portale di Azure o PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6d6af68cd663e88af90d690375a4d45c538aad1d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2ca6a1ffa66ab294e34a1b4866953a393aba4d6d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330190"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511978"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-L'accesso in Azure DevTest Labs è controllato dal [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md). Con il controllo degli accessi in base al ruolo di Azure, è possibile separare i compiti all'interno del team in *ruoli* in cui si concede solo la quantità di accesso necessaria agli utenti per svolgere il proprio lavoro. Tre di questi ruoli di Azure sono *proprietario*, *utente DevTest Labs*e *collaboratore*. Questo articolo illustra le azioni che possono essere eseguite in ognuno dei tre ruoli principali di Azure. Viene poi illustrato come aggiungere utenti a un lab, sia tramite il portale che tramite uno script di PowerShell, e come aggiungere utenti a livello di sottoscrizione.
+L'accesso in Azure DevTest Labs è controllato dal [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md). Con il controllo degli accessi in base al ruolo di Azure, è possibile separare i compiti all'interno del team in *ruoli* in cui si concede solo la quantità di accesso necessaria agli utenti per svolgere il proprio lavoro. Tre di questi ruoli di Azure sono *proprietario*, *utente DevTest Labs* e *collaboratore*. Questo articolo illustra le azioni che possono essere eseguite in ognuno dei tre ruoli principali di Azure. Viene poi illustrato come aggiungere utenti a un lab, sia tramite il portale che tramite uno script di PowerShell, e come aggiungere utenti a livello di sottoscrizione.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Azioni che possono essere eseguite in ogni ruolo
 Esistono tre ruoli principali che è possibile assegnare a un utente:
@@ -34,7 +34,7 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 | **Attività di base delle VM** | | | |
 | Aggiungere e rimuovere immagini personalizzate |No |Sì |Sì |
 | Aggiungere, aggiornare ed eliminare formule |Sì |Sì |Sì |
-| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No |Sì |Sì |
+| Abilita immagini del Marketplace |No |Sì |Sì |
 | **Attività della macchina virtuale** | | | |
 | Creare VM |Sì |Sì |Sì |
 | Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Sì |Sì |
@@ -118,7 +118,7 @@ Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi pas
     ![Utenti di accesso](./media/devtest-lab-add-devtest-user/access-users.png)
 5. Nel pannello **utenti** selezionare **Aggiungi**.
    
-    ![Add User](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+    ![Aggiungi utente](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 6. Nel pannello **Selezionare un ruolo** selezionare **Proprietario**.
 7. Nel pannello **Aggiungi utenti** immettere l'indirizzo di posta elettronica o il nome dell'utente che si vuole aggiungere come proprietario. Se l'utente non viene trovato, si riceve un messaggio di errore che spiega il problema. Se l'utente viene trovato, tale utente viene elencato sotto la casella di testo **Utente** .
 8. Selezionare il nome utente individuato.

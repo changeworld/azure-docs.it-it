@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 4d74d2a5f23fce28eed4901d1f5a5a4a6537adf5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 46fd9285f550b1a730b9040c46bacd7e34650b1e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852541"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511672"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Copertura di rete CDN di Azure con Metro 
 > [!div class="op_single_selector"]
@@ -49,4 +49,4 @@ Questo articolo elenca le Metro correnti che contengono le località POP (point 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per ottenere gli indirizzi IP più recenti da inserire nell'elenco degli elementi consentiti, vedere [Azure CDN Edge Nodes API](/rest/api/cdn/edgenodes) (API Edge Nodes della rete CDN di Azure).
+* Per ottenere gli indirizzi IP più recenti per allowlisting, vedere l' [API del nodo perimetrale](/rest/api/cdn/edgenodes)della rete CDN di Azure.

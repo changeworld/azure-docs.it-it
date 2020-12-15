@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 4c11e8c9cbd767bb95e094535a8a6cd7c8fe84fc
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b4fc6b9facc79db109c5ce5be09576b16a2abdc7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340884"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510890"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -119,7 +119,7 @@ I criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) d
 - **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
 
 > [!NOTE]
-> Per consentire all'utente di accedere alla macchina virtuale su SSH, è necessario assegnare il ruolo *Accesso amministratore alle macchine virtuali* oppure *Accesso utente alle macchine virtuali*. Un utente di Azure a cui è stato assegnato il ruolo *Proprietario* oppure *Collaboratore* per una macchina virtuale non dispone automaticamente dei privilegi per accedere alla macchina virtuale su SSH.
+> Per consentire all'utente di accedere alla macchina virtuale su SSH, è necessario assegnare il ruolo *Accesso amministratore alle macchine virtuali* oppure *Accesso utente alle macchine virtuali*. L'account di accesso dell'amministratore della macchina virtuale e i ruoli di accesso utente della macchina virtuale utilizzano le azioni dati e pertanto non possono essere assegnati all'ambito del gruppo di gestione. Attualmente questi ruoli possono essere assegnati solo a livello di sottoscrizione, gruppo di risorse o ambito di risorse. Un utente di Azure a cui è stato assegnato il ruolo *Proprietario* oppure *Collaboratore* per una macchina virtuale non dispone automaticamente dei privilegi per accedere alla macchina virtuale su SSH. 
 
 L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo *Accesso amministratore alle macchine virtuali* alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'*ambito* per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). L'ambito può essere assegnato anche a livello di gruppo di risorse o di sottoscrizione e si applicano le normali autorizzazioni di ereditarietà RBAC di Azure. Per altre informazioni, vedere [RBAC di Azure](../../role-based-access-control/overview.md)
 
@@ -138,7 +138,12 @@ az role assignment create \
 
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere uso dell'interfaccia della riga di comando di [Azure](../../role-based-access-control/role-assignments-cli.md), [portale di Azure](../../role-based-access-control/role-assignments-portal.md)o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-È anche possibile configurare Azure AD per richiedere l'autenticazione a più fattori per un utente specifico per eseguire l'accesso alla macchina virtuale Linux. Per altre informazioni, vedere [Introduzione a Azure AD multi-factor authentication nel cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
+## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
+
+È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso degli utenti prima di autorizzare l'accesso alle macchine virtuali Linux in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'app "Azure Linux VM Sign-in" dall'opzione app Cloud o assegnazione azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
+
+> [!WARNING]
+> La Azure AD Multi-Factor Authentication abilitata/applicata per utente non è supportata per l'accesso alla macchina virtuale.
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Accedere alla macchina virtuale Linux
 
@@ -195,6 +200,8 @@ Using keyboard-interactive authentication.
 Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute/virtualMachines/login/action', for example 'Virtual Machine User Login'
 Access denied
 ```
+> [!NOTE]
+> Se si verificano problemi con le assegnazioni di ruolo di Azure, vedere risolvere i problemi [relativi a RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
 
 ### <a name="continued-ssh-sign-in-prompts"></a>Prompt di accesso SSH continui
 

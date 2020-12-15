@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460700"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852235"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente usando l'interfaccia della riga di comando di Azure
 
@@ -233,14 +233,14 @@ L'output sarà simile a quello riportato nell'immagine seguente:
 
 ![Screenshot che mostra l'output nella finestra di PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-A questo punto, sono state allocate tutte le risorse per una distribuzione a disponibilità elevata con due moduli di protezione hardware e sono stati convalidati l'accesso e lo stato operativo. Qualsiasi ulteriore configurazione o test prevede operazioni aggiuntive con il dispositivo HSM stesso. A tale scopo, seguire le istruzioni riportate nel capitolo 7 della guida all'amministrazione di Gemalto Luna Network HSM 7 per inizializzare il modulo di protezione hardware e creare partizioni. Tutta la documentazione e il software sono scaricabili direttamente da Gemalto dopo aver effettuato la registrazione nel portale di supporto tecnico di Gemalto e aver acquisito un ID cliente. Per ottenere tutti i componenti necessari, scaricare la versione 7.2 del software client.
+A questo punto, sono state allocate tutte le risorse per una distribuzione a disponibilità elevata con due moduli di protezione hardware e sono stati convalidati l'accesso e lo stato operativo. Qualsiasi ulteriore configurazione o test prevede operazioni aggiuntive con il dispositivo HSM stesso. A tale scopo, seguire le istruzioni riportate nel capitolo 7 della guida all'amministrazione di Thales Luna Network HSM 7 per inizializzare il modulo di protezione hardware e creare partizioni. Tutta la documentazione e il software sono scaricabili direttamente da Thales dopo aver effettuato la registrazione nel portale di supporto tecnico di Thales e aver acquisito un ID cliente. Per ottenere tutti i componenti necessari, scaricare la versione 7.2 del software client.
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminazione o pulizia delle risorse
 
 Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa e tornare a far parte del pool libero. In questo caso, la fonte di preoccupazione è ovviamente costituita dagli eventuali dati sensibili dei clienti presenti nel dispositivo. Il modo migliore per azzerare un dispositivo consiste nell'usare tre volte una password errata per l'amministratore del modulo di protezione hardware. Si noti che non si tratta dell'amministratore dell'appliance ma dell'amministratore effettivo del modulo di protezione hardware. Come misura di sicurezza per proteggere il materiale della chiave, non è possibile eliminare il dispositivo come una risorsa di Azure finché si trova nello stato azzerato.
 
 > [!NOTE]
-> In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
+> In caso di problemi con la configurazione del dispositivo Thales, contattare il [supporto tecnico di Thales](https://safenet.gemalto.com/technical-support/).
 
 Se tutte le risorse di questo gruppo di risorse non sono più necessarie, è possibile rimuoverle tutte con il comando seguente:
 

@@ -3,12 +3,12 @@ title: Connettere gli ambienti ai VNET di un Lab in Azure DevTest Labs | Microso
 description: Informazioni su come connettere un ambiente (ad esempio Service Fabric cluster) alla rete virtuale del Lab in Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 31f924a4b6d7cbe1b6f71c7e34d43fd9c135bac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980c6317ded70db374c2b948075f060754168b0f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483772"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511961"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Connettere un ambiente alla rete virtuale del Lab in Azure DevTest Labs
 Azure DevTest Labs semplifica la creazione di macchine virtuali in un Lab con [funzionalità di rete predefinite](devtest-lab-configure-vnet.md). È molto flessibile con la possibilità di creare ambienti con più [macchine virtuali](devtest-lab-test-env.md). Questo articolo illustra come connettere le macchine virtuali in un ambiente alla rete virtuale Lab. Uno scenario in cui si usa questa funzionalità è la configurazione di un'app a più livelli con un SQL Server livello dati connesso al Lab VNet che consente alle macchine virtuali di test nel Lab di accedervi.  

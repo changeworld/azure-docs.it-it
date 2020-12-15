@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896850"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905775"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -76,18 +76,18 @@ Prima di sviluppare un'applicazione di tipo localizzatore di punti vendita, è n
 
 Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
 
-* Le informazioni sulla posizione sono archiviate mediante le colonne **AddressLine** , **City** , **Municipality** (comune), **AdminDivision** (stato/provincia), **PostCode** (codice postale) e **Country** .  
+* Le informazioni sulla posizione sono archiviate mediante le colonne **AddressLine**, **City**, **Municipality** (comune), **AdminDivision** (stato/provincia), **PostCode** (codice postale) e **Country**.  
 * Le colonne **Latitude** e **Longitude** contengono le coordinate per ogni posizione dei bar Contoso Coffee. Se non sono disponibili informazioni sulle coordinate, è possibile usare i servizi di ricerca in Mappe di Azure per determinare le coordinate relative alle posizioni.
 * Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane e orari di apertura e chiusura del bar nel formato 24 ore. Le colonne booleane contengono i dati per la disponibilità del Wi-Fi e l'accessibilità per disabili. È possibile creare colonne personalizzate contenenti i metadati più pertinenti per i dati di posizione specifici.
 
 > [!NOTE]
-> Mappe di Azure esegue il rendering dei dati nella proiezione sferica di Mercatore "EPSG:3857", ma legge i dati in "EPSG:4325" che usano il dato WGS84.
+> Mappe di Azure esegue il rendering dei dati nella proiezione sferica di Mercatore "EPSG:3857", ma legge i dati in "EPSG:4326" che usano il dato WGS84.
 
 È possibile esporre in molti modi il set di dati all'applicazione. Un approccio consiste nel caricare i dati in un database ed esporre un servizio Web che esegue query sui dati e invia i risultati al browser dell'utente. Questa opzione è ideale per set di dati di grandi dimensioni o per set di dati che vengono aggiornati spesso. Questa opzione richiede tuttavia un maggior numero di attività di sviluppo e prevede costi più elevati.
 
 Un altro approccio consiste nel convertire questo set di dati in un file flat di testo che può essere analizzato con facilità dal browser. Il file stesso può essere ospitato insieme al resto dell'applicazione. Questa opzione consente di semplificare le procedure, ma è ideale solo per set di dati più piccoli perché l'utente scarica tutti i dati. Per questo set di dati viene usato il file flat di testo perché le dimensioni del file di dati sono inferiori a 1 MB.  
 
-Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome** . Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file.
+Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file.
 
 ![Screenshot della finestra di dialogo con Tipo file](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura 
 
 ## <a name="set-up-the-project"></a>Configurare il progetto
 
-Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html* , *index.css* e *index.js* . Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images* . In questa applicazione vengono usate 10 immagini per icone, pulsanti e indicatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
+Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html*, *index.css* e *index.js*. Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images*. In questa applicazione vengono usate 10 immagini per icone, pulsanti e indicatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
 
 ![Screenshot della cartella del progetto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Creare l'interfaccia utente
 
-Per creare l'interfaccia utente, aggiungere codice a *index.html* :
+Per creare l'interfaccia utente, aggiungere codice a *index.html*:
 
-1. Aggiungere i tag `meta` seguenti a `head` di *index.html* . Il tag `charset` definisce il set di caratteri (UTF-8). Il valore di `http-equiv` indica a Internet Explorer e Microsoft Edge di usare le versioni più recenti del browser. Inoltre, l'ultimo tag `meta` specifica un riquadro di visualizzazione che funziona in modo ottimale per i layout reattivi.
+1. Aggiungere i tag `meta` seguenti a `head` di *index.html*. Il tag `charset` definisce il set di caratteri (UTF-8). Il valore di `http-equiv` indica a Internet Explorer e Microsoft Edge di usare le versioni più recenti del browser. Inoltre, l'ultimo tag `meta` specifica un riquadro di visualizzazione che funziona in modo ottimale per i layout reattivi.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Per creare l'interfaccia utente, aggiungere codice a *index.html* :
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Aggiungere riferimenti ai file *index.js* e *index.css* :
+1. Aggiungere riferimenti ai file *index.js* e *index.css*:
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Aggiungere codice al file *index.js* . Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](/javascript/api/azure-maps-control/atlas.map#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
+1. Aggiungere codice al file *index.js*. Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](/javascript/api/azure-maps-control/atlas.map#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
 
    Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy in base alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi/aree geografiche all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
@@ -432,7 +432,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -472,7 +472,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1

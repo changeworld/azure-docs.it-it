@@ -5,35 +5,35 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 11/1/2018
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: fd1cad4031d83fd0e17286bfaabb77aa746b646a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 254f5909e7ed8db4dc18ade2677a3213b268cf41
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202328"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511264"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute
 
-ExpressRoute supporta il rilevamento di inoltri bidirezionale (BFD) sia sul peering privato che sul peering Microsoft. Abilitando BFD su ExpressRoute, è possibile velocizzare il rilevamento degli errori di collegamento tra i dispositivi Microsoft Enterprise Edge (MSEE) e i router in cui si termina il circuito ExpressRoute (CE/PE). È possibile terminare ExpressRoute sui dispositivi di routing Edge di clienti o partner (se si è usato il servizio di connessione gestita di livello 3). Questo documento illustra i vantaggi offerti dal rilevamento dell'inoltro bidirezionale e mostra come abilitare questa funzionalità su ExpressRoute.
+ExpressRoute supporta il rilevamento di inoltri bidirezionale (BFD) sia sul peering privato che sul peering Microsoft. Quando si Abilita BFD su ExpressRoute, è possibile velocizzare il rilevamento degli errori di collegamento tra i dispositivi Microsoft Enterprise Edge (MSEE) e i router che il circuito ExpressRoute viene configurato (CE/PE). È possibile configurare ExpressRoute sui dispositivi di routing perimetrale o sui dispositivi di routing Edge del partner (se si è scelto di usare il servizio di connessione managed Layer 3). Questo documento illustra i vantaggi offerti dal rilevamento dell'inoltro bidirezionale e mostra come abilitare questa funzionalità su ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Vantaggi del rilevamento dell'inoltro bidirezionale
 
 Il diagramma seguente illustra i vantaggi offerti dall'abilitazione del rilevamento dell'inoltro bidirezionale sul circuito ExpressRoute: [![1]][1]
 
-È possibile abilitare un circuito ExpressRoute tramite connessioni di livello 2 o connessioni gestite di livello 3. In entrambi i casi, se è presente almeno un dispositivo di livello 2 nel percorso di connessione ExpressRoute, la responsabilità di rilevare eventuali errori di collegamento nel percorso spetta al protocollo BGP (Border Gateway Protocol) soprastante.
+È possibile abilitare un circuito ExpressRoute tramite connessioni di livello 2 o connessioni gestite di livello 3. In entrambi i casi, se sono presenti più dispositivi di livello 2 nel percorso di connessione ExpressRoute, la responsabilità del rilevamento di eventuali errori di collegamento nel percorso è la sessione BGP sovrapposta.
 
-Nei dispositivi MSEE, per i tempi di keep-alive e attesa della sessione BGP sono in genere configurati rispettivamente 60 e 180 secondi. Pertanto, in seguito a un errore di collegamento, possono essere necessari fino a tre minuti per rilevare eventuali errori di collegamento e passare il traffico a una connessione alternativa.
+Nei dispositivi MSEE, i tempi di attesa e di conservazione BGP sono in genere configurati rispettivamente come 60 e 180 secondi. Per questo motivo, quando si verifica un errore di collegamento, possono essere necessari fino a tre minuti per rilevare eventuali errori di collegamento e passare il traffico alla connessione alternativa.
 
-È possibile controllare i timer BGP configurando tempi di keep-alive e attesa della sessione BGP inferiori nel dispositivo di peering perimetrale del cliente. Se tra i due dispositivi di peering i timer BGP non corrispondono, la sessione BGP tra i peer userà il valore di timer inferiore. Come tempo di keep-alive BGP può essere impostato un minimo di tre secondi e il tempo di attesa può essere dell'ordine di decine di secondi. Tuttavia, l'impostazione di timer BGP in modo aggressivo è meno preferibile perché il protocollo è a elevato utilizzo di processi.
+È possibile controllare i timer BGP configurando un livello di conservazione e di conservazione BGP inferiore sul dispositivo di peering perimetrale. Se i timer BGP non sono gli stessi tra i due dispositivi peering, la sessione BGP stabilirà usando il valore di tempo più basso. Il Keep-Alive BGP può essere impostato su un minimo di tre secondi e il tempo di attesa è inferiore a 10 secondi. Tuttavia, l'impostazione di un timer BGP molto aggressivo non è consigliata perché il protocollo è a elevato utilizzo di processi.
 
 In questo scenario, il rilevamento dell'inoltro bidirezionale può essere di aiuto poiché consente di rilevare gli errori di collegamento con un sovraccarico ridotto in un intervallo di frazioni di secondo. 
 
 
 ## <a name="enabling-bfd"></a>Abilitazione del rilevamento dell'inoltro bidirezionale
 
-Il rilevamento dell'inoltro bidirezionale è configurato per impostazione predefinita in tutte le nuove interfacce di peering privato ExpressRoute create sui dispositivi MSEE. Per abilitare BFD, è quindi necessario configurare BFD solo in CEs/PEs (sia nei dispositivi primari che secondari). La configurazione di BFD è un processo in due passaggi: è necessario configurare BFD sull'interfaccia e quindi collegarlo alla sessione BGP.
+Il rilevamento dell'inoltro bidirezionale è configurato per impostazione predefinita in tutte le nuove interfacce di peering privato ExpressRoute create sui dispositivi MSEE. Per abilitare BFD, è necessario configurare BFD solo nei dispositivi primari e secondari. La configurazione di BFD è un processo in due passaggi. Il BFD viene configurato sull'interfaccia e quindi collegato alla sessione BGP.
 
 Di seguito è riportata una configurazione di esempio CE/PE (usando Cisco IOS XE). 
 
@@ -62,10 +62,10 @@ router bgp 65020
 
 ## <a name="bfd-timer-negotiation"></a>Negoziazione dei timer di rilevamento dell'inoltro bidirezionale
 
-Tra i due peer di rilevamento dell'inoltro bidirezionale, quello più lento determina la velocità di trasmissione. Gli intervalli di trasmissione/ricezione del rilevamento dell'inoltro bidirezionale su dispositivi MSEE sono impostati su 300 millisecondi. In alcuni scenari, l'intervallo può essere impostato su un valore più elevato di 750 millisecondi. Configurando valori più alti, è possibile imporre intervalli più lunghi, ma non più brevi.
+Tra i due peer di rilevamento dell'inoltro bidirezionale, quello più lento determina la velocità di trasmissione. Gli intervalli di trasmissione/ricezione del rilevamento dell'inoltro bidirezionale su dispositivi MSEE sono impostati su 300 millisecondi. In alcuni scenari, l'intervallo può essere impostato su un valore più elevato di 750 millisecondi. Configurando un valore più elevato, è possibile forzare gli intervalli in modo che siano più lunghi, ma non è possibile renderli più brevi.
 
 >[!NOTE]
->Se sono stati configurati circuiti ExpressRoute con ridondanza geografica o si usa la connettività VPN IPSec da sito a sito come backup; l'abilitazione di BFD consente il failover più rapido dopo un errore di connettività di ExpressRoute. 
+>Se sono stati configurati circuiti ExpressRoute con ridondanza geografica o si usa la connettività VPN IPSec da sito a sito come backup. L'abilitazione di BFD consente il failover più rapido dopo un errore di connettività di ExpressRoute. 
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

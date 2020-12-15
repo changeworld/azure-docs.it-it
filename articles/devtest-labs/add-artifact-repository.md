@@ -3,12 +3,12 @@ title: Aggiungere un repository di artefatti al Lab in Azure DevTest Labs | Micr
 description: Informazioni su come specificare il repository di artefatti per il Lab in Azure DevTest Labs per archiviare gli strumenti non disponibili nel repository di artefatti pubblici.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270989"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512012"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Aggiungere un repository di artefatti al Lab in DevTest Labs
 DevTest Labs consente di specificare un elemento da aggiungere a una macchina virtuale al momento della creazione della macchina virtuale o dopo la creazione della macchina virtuale. Questo artefatto potrebbe essere uno strumento o un'applicazione che si vuole installare nella macchina virtuale. Gli artefatti vengono definiti in un file JSON caricato da un repository di GitHub o Azure DevOps git.
@@ -26,7 +26,7 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 
 1. Andare alla home page del repository GitHub contenente le definizioni degli elementi o dei modelli di Resource Manager.
 2. Selezionare **Clona o scarica**.
-3. Per copiare l'URL negli Appunti, fare clic sul pulsante**HTTPS clone url** (URL clone HTTPS). Salvare l'URL per usarlo in seguito.
+3. Per copiare l'URL negli Appunti, fare clic sul pulsante **HTTPS clone url** (URL clone HTTPS). Salvare l'URL per usarlo in seguito.
 4. Nell'angolo superiore destro di GitHub selezionare l'immagine del profilo e quindi **Settings** (Impostazioni).
 5. Nel menu **impostazioni personali** a sinistra selezionare **Impostazioni sviluppatore**.
 6. Selezionare **token di accesso personali** nel menu a sinistra.
@@ -46,10 +46,10 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 8. Nella pagina **Crea un nuovo token di accesso personale** :
    1. Immettere un **nome** per il token.
    2. Nell'elenco **organizzazione** selezionare **tutte le organizzazioni accessibili**.
-   3. Nell'elenco **scadenza (UTC)** selezionare **90 giorni**o un periodo di scadenza definito personalizzato.
+   3. Nell'elenco **scadenza (UTC)** selezionare **90 giorni** o un periodo di scadenza definito personalizzato.
    4. Consente di selezionare l'opzione di **accesso completo** per gli ambiti.
-   5. Selezionare **Crea**.
-9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token**e quindi salvare il valore del token da usare in un momento successivo.
+   5. Selezionare **Create** (Crea).
+9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token** e quindi salvare il valore del token da usare in un momento successivo.
 10. Passare alla sezione Connettere il lab al repository .
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure

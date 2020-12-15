@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Aggiungere una variabile al modello'
-description: Aggiungere variabili al modello di Azure Resource Manager per semplificare la sintassi.
+description: Aggiungere variabili al modello di Azure Resource Manager (modello di ARM) per semplificare la sintassi.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 482608172ac9e6e2b9765f236a4b6d655e2455fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613153"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930729"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Esercitazione: Aggiungere variabili al modello di Azure Resource Manager
 
-Questa esercitazione illustra come aggiungere una variabile al modello di Azure Resource Manager (ARM). Le variabili semplificano i modelli perché consentono di scrivere un'espressione una sola volta e di riutilizzarla nel modello. Per completare l'esercitazione, sono necessari **7 minuti**.
+Questa esercitazione illustra come aggiungere una variabile al modello di Azure Resource Manager (modello di ARM). Le variabili semplificano i modelli perché consentono di scrivere un'espressione una sola volta e di riutilizzarla nel modello. Per completare l'esercitazione, sono necessari **7 minuti**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

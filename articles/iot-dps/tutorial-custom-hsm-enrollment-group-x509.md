@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f6026680dd566bf7a13c83b37883341bff8b4570
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354794"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780094"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Esercitazione: Effettuare il provisioning di più dispositivi X.509 usando i gruppi di registrazioni
 
@@ -26,7 +26,7 @@ Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
 
 Questa esercitazione è simile alle esercitazioni precedenti che illustrano come usare i gruppi di registrazioni per effettuare il provisioning di gruppi di dispositivi. In questa esercitazione verranno però usati certificati X.509 al posto delle chiavi simmetriche. Rivedere le esercitazioni precedenti in questa sezione per un approccio semplice tramite l'uso delle [chiavi simmetriche](./concepts-symmetric-key-attestation.md).
 
-In questa esercitazione verrà illustrato l'[esempio di modulo di protezione hardware personalizzato](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) che fornisce un'implementazione stub per l'interazione con l'archiviazione sicura basata su hardware. Un [modulo di protezione hardware (HSM)](./concepts-service.md#hardware-security-module) viene usato per l'archiviazione sicura basata su hardware dei segreti dei dispositivi. Può essere usato con una chiave simmetrica, un certificato X.509 o un'attestazione TPM per fornire uno spazio di archiviazione sicuro per i segreti. L'archiviazione basata su hardware dei segreti dei dispositivi è fortemente consigliata.
+In questa esercitazione verrà illustrato l'[esempio di modulo di protezione hardware personalizzato](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) che fornisce un'implementazione stub per l'interazione con l'archiviazione sicura basata su hardware. Un [modulo di protezione hardware (HSM)](./concepts-service.md#hardware-security-module) viene usato per l'archiviazione sicura basata su hardware dei segreti dei dispositivi. Può essere usato con una chiave simmetrica, un certificato X.509 o un'attestazione TPM per fornire uno spazio di archiviazione sicuro per i segreti. L'archiviazione basata su hardware dei segreti del dispositivo non è obbligatoria, ma è consigliabile per proteggere le informazioni riservate come la chiave privata del certificato del dispositivo.
 
 Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica relativa al [provisioning](about-iot-dps.md#provisioning-process). Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](quick-setup-auto-provision.md) prima di continuare con questa esercitazione. 
 
@@ -225,7 +225,9 @@ Per creare la catena di certificati:
 
 ## <a name="configure-the-custom-hsm-stub-code"></a>Configurare il codice stub del modulo di protezione hardware personalizzato
 
-Le specifiche di interazione con uno spazio di archiviazione sicuro reale basato su hardware variano a seconda dell'hardware. Di conseguenza, la catena di certificati usata dal dispositivo in questa esercitazione verrà impostata come hardcoded nel codice stub del modulo di protezione hardware personalizzato. In uno scenario reale, la catena di certificati verrebbe archiviata nell'hardware del modulo di protezione hardware effettivo per offrire una maggiore sicurezza per le informazioni sensibili. Verrebbero quindi implementati metodi simili ai metodi stub mostrati in questo esempio per leggere i segreti da tale archiviazione basata su hardware.
+Le specifiche di interazione con uno spazio di archiviazione sicuro reale basato su hardware variano a seconda dell'hardware. Di conseguenza, la catena di certificati usata dal dispositivo in questa esercitazione verrà impostata come hardcoded nel codice stub del modulo di protezione hardware personalizzato. In uno scenario reale, la catena di certificati verrebbe archiviata nell'hardware del modulo di protezione hardware effettivo per offrire una maggiore sicurezza per le informazioni sensibili. Verrebbero quindi implementati metodi simili ai metodi stub mostrati in questo esempio per leggere i segreti da tale archiviazione basata su hardware. 
+
+Sebbene non sia necessario hardware HSM, non è consigliabile che le informazioni riservate, ad esempio la chiave privata del certificato, siano archiviate nel codice sorgente. Questa operazione espone la chiave a chiunque possa visualizzare il codice, quindi viene eseguita in questo articolo solo per facilitare l'apprendimento.
 
 Per aggiornare il codice stub del modulo di protezione hardware personalizzato per questa esercitazione:
 
@@ -287,7 +289,7 @@ Per aggiornare il codice stub del modulo di protezione hardware personalizzato p
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>Verificare la proprietà del certificato radice
 
-1. Usando le istruzioni disponibili in [Registrare la parte pubblica di un certificato X.509 e ottenere un codice di verifica](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), caricare il certificato radice e ottenere un codice di verifica dal servizio Device Provisioning.
+1. Usando le istruzioni disponibili in [Registrare la parte pubblica di un certificato X.509 e ottenere un codice di verifica](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), caricare il certificato radice (`./certs/azure-iot-test-only.root.ca.cert.pem`) e ottenere un codice di verifica dal servizio Device Provisioning.
 
 2. Dopo aver ottenuto dal servizio Device Provisioning un codice di verifica per il certificato radice, eseguire il comando seguente dalla directory di lavoro degli script dei certificati per generare un certificato di verifica.
  
@@ -297,7 +299,7 @@ Per aggiornare il codice stub del modulo di protezione hardware personalizzato p
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    Questo script crea un certificato firmato dal certificato radice con il nome soggetto impostato sul codice di verifica. Questo certificato consente al servizio Device Provisioning di verificare se si ha accesso alla chiave privata del certificato radice. Si noti la posizione del certificato di verifica nell'output dello script.
+    Questo script crea un certificato firmato dal certificato radice con il nome soggetto impostato sul codice di verifica. Questo certificato consente al servizio Device Provisioning di verificare se si ha accesso alla chiave privata del certificato radice. Si noti la posizione del certificato di verifica nell'output dello script. Questo certificato viene generato nel formato `.pfx`.
 
     ```output
     Leaf Device PFX Certificate Generated At:

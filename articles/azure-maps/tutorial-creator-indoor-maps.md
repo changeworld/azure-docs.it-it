@@ -1,21 +1,27 @@
 ---
-title: 'Esercitazione: Usare Creator per creare piante di interni'
-description: Esercitazione sull'uso di Creator di Mappe di Azure per creare piante di interni
+title: 'Esercitazione: Usare Creator di Mappe di Microsoft Azure (anteprima) per creare piante di interni'
+description: Esercitazione su come usare Creator di Mappe di Microsoft Azure (anteprima) per creare piante di interni
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896780"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905724"
 ---
-# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Esercitazione: Usare Creator per creare piante di interni
+# <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Esercitazione: Usare Creator (anteprima) per creare piante di interni
+
+> [!IMPORTANT]
+> I servizi Creator di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 
 Questa esercitazione mostra come creare piante di interni. Questa esercitazione descrive come usare l'API per:
 
@@ -34,7 +40,7 @@ Per creare piante di interni è necessario:
 
 1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
-3. [Creare una risorsa Creator](how-to-manage-creator.md)
+3. [Creare una risorsa Creator (anteprima)](how-to-manage-creator.md)
 4. Scaricare il [pacchetto di disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip)
 
 Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), tuttavia è possibile scegliere un ambiente di sviluppo API diverso.
@@ -102,7 +108,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
  Ora che il pacchetto di disegno è stato caricato, si userà `udid` per il pacchetto caricato per convertirlo in dati della pianta. L'API Conversion usa una transazione con esecuzione prolungata, che implementa il modello definito in [questo articolo](creator-long-running-operation.md). Al termine dell'operazione, viene usato `conversionId` per accedere ai dati convertiti. Seguire questa procedura per ottenere `conversionId`.
 
-1. Selezionare **Nuovo** . Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Salva** .
+1. Selezionare **Nuovo**. Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Salva**.
 
 2. Selezionare il metodo HTTP **POST** nella scheda del generatore e immettere l'URL seguente per convertire il pacchetto di disegno caricato in dati della pianta. Usare `udid` per il pacchetto caricato.
 
@@ -111,7 +117,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
     ```
 
     >[!IMPORTANT]
-    > Potrebbe essere necessario modificare gli URL dell'API riportati in questo documento con il percorso della risorsa Creator. Per altre informazioni, vedere [Accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
+    > Potrebbe essere necessario modificare gli URL dell'API riportati in questo documento con il percorso della risorsa Creator. Per altre informazioni, vedere [Accesso ai servizi Creator (anteprima)](how-to-manage-creator.md#access-to-creator-services).
 
 3. Fare clic su **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda della risposta **Headers** (Intestazioni) e cercare la chiave **Location** (Posizione). Copiare il valore della chiave **Location** (Posizione), che è lo `status URL` per la richiesta di conversione. Questo valore verrà usato nel passaggio successivo.
 
@@ -168,7 +174,7 @@ Il set di dati è una raccolta di funzionalità della pianta come edifici, livel
 
 1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
-2. Per creare un nuovo set di dati, creare una richiesta **POST** all' [API Dataset Create](/rest/api/maps/dataset/createpreview). Prima di inviare la richiesta, accodare sia la chiave di sottoscrizione sia il `conversionId` con il `conversionId` ottenuto durante il processo di conversione nel passaggio 5.  La richiesta deve essere simile all'URL seguente:
+2. Per creare un nuovo set di dati, creare una richiesta **POST** all'[API Dataset Create](/rest/api/maps/dataset/createpreview). Prima di inviare la richiesta, accodare sia la chiave di sottoscrizione sia il `conversionId` con il `conversionId` ottenuto durante il processo di conversione nel passaggio 5.  La richiesta deve essere simile all'URL seguente:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -224,7 +230,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
 ## <a name="query-datasets-with-wfs-api"></a>Eseguire query sui set di dati con l'API WFS
 
- È possibile eseguire query sui set di dati usando l'[API WFS](/rest/api/maps/wfs). Con l'API WFS è possibile eseguire una query per le raccolte di funzionalità, per una raccolta specifica o per una funzionalità specifica con una funzionalità **ID** . La funzionalità **ID** identifica in modo univoco la funzionalità all'interno del set di dati. Viene usato, ad esempio, per identificare lo stato della funzionalità da aggiornare all'interno di un determinato set di stati.
+ È possibile eseguire query sui set di dati usando l'[API WFS](/rest/api/maps/wfs). Con l'API WFS è possibile eseguire una query per le raccolte di funzionalità, per una raccolta specifica o per una funzionalità specifica con una funzionalità **ID**. La funzionalità **ID** identifica in modo univoco la funzionalità all'interno del set di dati. Viene usato, ad esempio, per identificare lo stato della funzionalità da aggiornare all'interno di un determinato set di stati.
 
 1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
@@ -310,7 +316,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Negli **Headers** (Intestazioni) della richiesta **POST** , impostare `Content-Type` su `application/json`. In **Body** (Corpo), specificare gli stili seguenti per riflettere le modifiche apportate agli *stati* `occupied` e `temperature`. Al termine, fare clic su **Send** (Invia).
+3. Negli **Headers** (Intestazioni) della richiesta **POST**, impostare `Content-Type` su `application/json`. In **Body** (Corpo), specificare gli stili seguenti per riflettere le modifiche apportate agli *stati* `occupied` e `temperature`. Al termine, fare clic su **Send**(Invia).
 
     ```json
     {
@@ -383,7 +389,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. Negli **Headers** (Intestazioni) della richiesta **POST** , impostare `Content-Type` su `application/json`. Nel **BODY** (CORPO) della richiesta **POST** copiare e incollare il codice JSON nell'esempio seguente.
+6. Negli **Headers** (Intestazioni) della richiesta **POST**, impostare `Content-Type` su `application/json`. Nel **BODY** (CORPO) della richiesta **POST** copiare e incollare il codice JSON nell'esempio seguente.
 
     ```json
     {
@@ -404,7 +410,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
 L'[API Feature Get States](/rest/api/maps/featurestate/getstatespreview) consente di recuperare lo stato di una funzionalità usando la relativa funzionalità `ID`. È anche possibile eliminare i set di stati e le relative risorse usando l'[API Feature State Delete](/rest/api/maps/featurestate/deletestatesetpreview).
 
-Per informazioni sui diversi servizi Creator di Mappe di Azure descritti in questo articolo, vedere [Piante di interni di Creator](creator-indoor-maps.md).
+Per informazioni sui diversi servizi Creator di Mappe di Azure (anteprima) descritti in questo articolo, vedere [Piante di interni di Creator](creator-indoor-maps.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

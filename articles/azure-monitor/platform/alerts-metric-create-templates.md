@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: e5f78c8b58cc3100d746957094ddfd9bab2b29fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51ae97567e9c3720c7e36a81bfa7bff44935aac6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91813220"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511621"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -270,7 +270,7 @@ az login
 
 az deployment group create \
     --name AlertDeployment \
-    --resource-group ResourceGroupofTargetResource \
+    --resource-group ResourceGroupOfTargetResource \
     --template-file simplestaticmetricalert.json \
     --parameters @simplestaticmetricalert.parameters.json
 ```
@@ -377,7 +377,7 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.json ai fini di qu
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -518,7 +518,7 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.parameters.json e 
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -570,7 +570,6 @@ Si notino i vincoli seguenti quando si usano le dimensioni in una regola di avvi
 - Non è possibile usare "\*" come valore di dimensione.
 - Quando le metriche configurate in criteri diversi supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nei criteri pertinenti).
     - Nelle esempio seguente, poiché sia le metriche **Transactions** che **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName**, anche *criterion2* deve impostare un valore *"GetBlob"* per la dimensione **ApiName**.
-
 
 Salvare il codice JSON seguente come advancedstaticmetricalert.json ai fini di questa procedura dettagliata.
 
@@ -976,7 +975,7 @@ Al fine di questa procedura dettagliata, salvare e modificare il codice JSON seg
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }

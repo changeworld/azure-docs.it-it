@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/3/2020
+ms.date: 12/15/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0e4674c9e0513a0b8dae29f5868b1da79da8ab84
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920557"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510683"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -41,10 +41,10 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Servizi cloud classici](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Macchine virtuali classiche](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Sì | No | [Account di archiviazione (versione classica)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft.ClassicStorage/storageAccounts/blobServices | Sì | No | |
-|Microsoft.ClassicStorage/storageAccounts/fileServices | Sì | No | |
-|Microsoft.ClassicStorage/storageAccounts/queueServices | Sì | No | |
-|Microsoft.ClassicStorage/storageAccounts/tableServices | Sì | No | |
+|Microsoft.ClassicStorage/storageAccounts/blobServices | Sì | No | [Account di archiviazione (versione classica)-BLOB](./metrics-supported.md#microsoftclassicstoragestorageaccountsblobservices) |
+|Microsoft.ClassicStorage/storageAccounts/fileServices | Sì | No | [Account di archiviazione (versione classica)-file](./metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
+|Microsoft.ClassicStorage/storageAccounts/queueServices | Sì | No | [Account di archiviazione (versione classica)-code](./metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
+|Microsoft.ClassicStorage/storageAccounts/tableServices | Sì | No | [Account di archiviazione (versione classica)-tabelle](./metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CognitiveServices/accounts | Sì | No | [Servizi cognitivi](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | Sì | Sì<sup>1</sup> | [Macchine virtuali](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Sì | No |[Set di scalabilità di macchine virtuali](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
@@ -57,10 +57,9 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.DataShare/accounts | Sì | No | |
 |Microsoft.DBforMariaDB/servers | No | No | [DB per MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[Database per MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Sì | No | |
 |Microsoft.DBforPostgreSQL/servers | No | No | [Database per PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB per PostgreSQL V2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft. DBforPostgreSQL/flessibile | No | No | [DB per PostgreSQL (server flessibili)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
+|Microsoft.DBforPostgreSQL/flexibleServers | Sì | No | [DB per PostgreSQL (server flessibili)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Sì | No |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Sì | No | [Servizi Device provisioning](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft. DigitalTwins/digitalTwinsInstances | Sì | No | |
@@ -104,7 +103,10 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.Sql/servers/databases | No | Sì | [Database SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servers/elasticPools | No | Sì | [Pool elastici SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft.Storage/storageAccounts |Sì | No | [Account di archiviazione](./metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services | Sì| No | [Servizi BLOB](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [servizi file](./metrics-supported.md#microsoftstoragestorageaccountsfileservices), [servizi di accodamento](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [servizi tabelle](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.Storage/storageAccounts/blobServices | Sì| No | [Account di archiviazione-BLOB](./metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
+|Microsoft.Storage/storageAccounts/fileServices | Sì| No | [Account di archiviazione-file](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
+|Microsoft.Storage/storageAccounts/queueServices | Sì| No | [Account di archiviazione-code](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
+|Microsoft.Storage/storageAccounts/tableServices | Sì| No | [Account di archiviazione-tabelle](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
 |Microsoft.StorageCache/caches | Sì | No | |
 |Microsoft. StorageSync/storageSyncServices | Sì | No | [Servizi di sincronizzazione archiviazione](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Sì | No | [Analisi di flusso](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |

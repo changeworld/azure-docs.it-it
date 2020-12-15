@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959629"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932388"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Esercitazione: Eseguire il training e distribuire un modello di Azure Machine Learning
 
@@ -26,6 +26,14 @@ In questo articolo si apprenderà come eseguire le attività seguenti:
 Azure Notebooks sfrutta un'area di lavoro di Azure Machine Learning, un elemento di base usato per sperimentare, eseguire il training e distribuire modelli di Machine Learning.
 
 I passaggi di questo articolo vengono in genere eseguiti da data scientist.
+
+In questa sezione dell'esercitazione si apprende come:
+
+> [!div class="checklist"]
+>
+> * Creare un progetto Azure Notebooks per eseguire il training di un modello di Machine Learning.
+> * Distribuire in un contenitore il modello di Machine Learning addestrato.
+> * Creare un modulo Azure IoT Edge dal modello di Machine Learning in contenitori.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -179,6 +187,10 @@ Per verificare se i notebook sono stati completati correttamente, controllare ch
 È possibile inserire istruzioni Python nel notebook ai fini del debug, ad esempio il comando `print()` per mostrare i valori. Se vengono visualizzate variabili o oggetti che non sono definiti, eseguire le celle in cui vengono dichiarati o di cui viene creata un'istanza la prima volta.
 
 Se è necessario ripetere i notebook, potrebbe essere necessario eliminare i file creati in precedenza e le risorse di Azure.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Questa esercitazione fa parte di un set in cui ogni articolo si basa sul lavoro svolto nei precedenti. Prima di pulire le risorse attendere il completamento dell'esercitazione finale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

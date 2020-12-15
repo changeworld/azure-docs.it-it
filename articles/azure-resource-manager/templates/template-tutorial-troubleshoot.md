@@ -1,20 +1,20 @@
 ---
 title: Risolvere i problemi delle distribuzioni
-description: Informazioni su come monitorare le distribuzioni di modelli di Azure Resource Manager e risolverne i problemi. Mostra i log attività e la cronologia di distribuzione.
+description: Informazioni su come monitorare le distribuzioni di modelli di Azure Resource Manager (modello di ARM) e risolverne i problemi. Mostra i log attività e la cronologia di distribuzione.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891806"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928529"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni di modelli di Azure Resource Manager
 
-Questa esercitazione illustra come risolvere gli errori nelle distribuzioni dei modelli di Azure Resource Manager (ARM). Nel corso dell'esercitazione si configurano due errori in un modello e si apprende come usare i log attività e la cronologia di distribuzione per risolvere i problemi.
+Questa esercitazione illustra come risolvere gli errori nelle distribuzioni dei modelli di Azure Resource Manager (modello di ARM). Nel corso dell'esercitazione si configurano due errori in un modello e si apprende come usare i log attività e la cronologia di distribuzione per risolvere i problemi.
 
 Alla distribuzione dei modelli sono correlati due tipi di errori:
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-- Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Creare un modello con errori
 

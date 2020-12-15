@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6a337ad4d623ef73657d473974248cbefd016ba3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a44838076b80c1b745937cf44f241c40ce6e5c2
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495549"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510159"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -137,38 +137,39 @@ Per eseguire lo script Hive in una pipeline di Data factory, è necessario segui
    > 
 5. Creare la pipeline riportata con l'attività HDInsightHive. L'attività elabora/trasforma i dati.
 
-    ```JSON   
-    {   
-        "name": "HiveActivitySamplePipeline",
-        "properties": {
-        "activities": [
-            {
-                "name": "HiveActivitySample",
-                "type": "HDInsightHive",
-                "inputs": [
-                {
-                    "name": "HiveSampleIn"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "HiveSampleOut"
-                }
-                ],
-                "linkedServiceName": "HDInsightLinkedService",
-                "typeproperties": {
-                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                    "scriptLinkedService": "StorageLinkedService"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                }
-            }
-            ]
+  ```json
+  {
+    "name": "HiveActivitySamplePipeline",
+       "properties": {
+    "activities": [
+      {
+        "name": "HiveActivitySample",
+        "type": "HDInsightHive",
+        "inputs": [
+        {
+          "name": "HiveSampleIn"
         }
+        ],
+             "outputs": [
+               {
+                "name": "HiveSampleOut"
+               }
+             ],
+             "linkedServiceName": "HDInsightLinkedService",
+             "typeproperties": {
+                 "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                 "scriptLinkedService": "StorageLinkedService"
+             },
+              "scheduler": {
+          "frequency": "Hour",
+                   "interval": 1
+             }
+           }
+      ]
     }
-    ```
+  }
+  ```
+
 6. Distribuire la pipeline. Per informazioni dettagliate, vedere l'argomento relativo alla [creazione di pipeline](data-factory-create-pipelines.md) . 
 7. Monitorare la pipeline mediante le viste di monitoraggio e gestione delle pipeline di Data factory. Per informazioni dettagliate, vedere [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-monitor-manage-pipelines.md) . 
 
@@ -179,7 +180,7 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
 
 * Definire i parametri in **defines**.
 
-    ```JSON  
+  ```JSON  
     {
         "name": "HiveActivitySamplePipeline",
           "properties": {
@@ -241,7 +242,7 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-  ## <a name="see-also"></a>Vedere anche
+  ## <a name="see-also"></a>Vedi anche
 * [Attività Pig](data-factory-pig-activity.md)
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)

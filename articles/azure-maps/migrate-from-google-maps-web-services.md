@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 813cb567ab3edddd6fb37cee050dc5e38ee4289f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187035"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904891"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Esercitazione - Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -40,19 +40,19 @@ La tabella seguente illustra le API del servizio Mappe di Azure che forniscono f
 
 | API del servizio Google Maps | API del servizio Mappe di Azure                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Indicazioni              | [Route](/rest/api/maps/route)                                     |
-| Matrice di distanze         | [Matrice di percorsi](/rest/api/maps/route/postroutematrixpreview)       |
-| Geocodifica               | [Ricerca](/rest/api/maps/search)                                   |
-| Ricerca luoghi           | [Ricerca](/rest/api/maps/search)                                   |
-| Completamento automatico luoghi      | [Ricerca](/rest/api/maps/search)                                   |
-| Blocca sulla strada            | Vedere la sezione [Calcolare percorsi e indicazioni](#calculate-routes-and-directions).            |
-| Limiti di velocità            | Vedere la sezione [Geocodifica inversa di una coordinata](#reverse-geocode-a-coordinate).                  |
-| Mappa statica              | [Rendering](/rest/api/maps/render/getmapimage)                       |
-| Fuso orario               | [Fusi orari](/rest/api/maps/timezone)                              |
+| Indicazioni              | [Route](/rest/api/maps/route)                                     |                         
+| Matrice di distanze         | [Matrice di percorsi](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Geocodifica               | [Ricerca](/rest/api/maps/search)                                   |                         
+| Ricerca luoghi           | [Ricerca](/rest/api/maps/search)                                   |                         
+| Completamento automatico luoghi      | [Ricerca](/rest/api/maps/search)                                   |                         
+| Blocca sulla strada            | Vedere la sezione [Calcolare percorsi e indicazioni](#calculate-routes-and-directions).            
+| Limiti di velocità            | Vedere la sezione [Geocodifica inversa di una coordinata](#reverse-geocode-a-coordinate).                  
+| Mappa statica              | [Rendering](/rest/api/maps/render/getmapimage)                       |                         
+| Fuso orario               | [Fusi orari](/rest/api/maps/timezone)                              |                         
+| Altitudine               | [Altitudine (anteprima)](/rest/api/maps/elevation)                   |                         |
 
 Le API dei servizi seguenti non sono attualmente disponibili in Mappe di Azure:
 
-- Altitudine
 - Georilevazione
 - Dettagli e foto di luoghi - I numeri di telefono e gli URL dei siti Web sono disponibili nell'API di ricerca di Mappe di Azure.
 - URL mappa
@@ -203,7 +203,7 @@ Il servizio di pianificazione percorso di Mappe di Azure fornisce le API seguent
 
 - [**Calcolo percorso**](/rest/api/maps/route/getroutedirections): consente di calcolare un percorso e di elaborare immediatamente la richiesta. Questa API supporta le richieste GET e POST. Le richieste POST sono consigliate quando si specifica un numero elevato di punti di tragitto o quando si usano molte opzioni pel percorso per assicurarsi che la richiesta URL non diventi troppo lunga e causi problemi. La direzione del percorso POST in Mappe di Azure offre un'opzione che può contenere migliaia di [punti di supporto](/rest/api/maps/route/postroutedirections#supportingpoints) e li userà per ricreare un percorso logico tra di essi (blocca sulla strada). 
 - [**Percorso batch**](/rest/api/maps/route/postroutedirectionsbatchpreview): consente di creare una richiesta contenente fino a 1.000 richieste di percorso e le elabora in un certo periodo di tempo. Tutti i dati verranno elaborati in parallelo nel server e, al termine dell'operazione, sarà possibile scaricare il set di risultati completo.
-- [**Servizi di mobilità**](/rest/api/maps/mobility): consente di calcolare percorsi e indicazioni usando il trasporto pubblico.
+- [**Servizi di mobilità (anteprima) **](/rest/api/maps/mobility): consente di calcolare percorsi e indicazioni usando il trasporto pubblico.
 
 La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e dei parametri equivalenti dell'API in Mappe di Azure.
 
@@ -221,8 +221,8 @@ La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e 
 | `origin`                       | `query`                            |
 | `region`                       | *N/D*: si tratta di una funzionalità relativa alla geocodifica. Usare il parametro *countrySet* quando si usa l'API di geocodifica di Mappe di Azure.  |
 | `traffic_model`               | *N/D*: può specificare solo se usare o meno i dati del traffico con il parametro *traffic*. |
-| `transit_mode`                | Vedere la [documentazione dei servizi di mobilità](/rest/api/maps/mobility) |
-| `transit_routing_preference` | Vedere la [documentazione dei servizi di mobilità](/rest/api/maps/mobility) |
+| `transit_mode`                | Vedere la [documentazione dei servizi di mobilità (anteprima)](/rest/api/maps/mobility) |
+| `transit_routing_preference` | Vedere la [documentazione dei servizi di mobilità (anteprima)](/rest/api/maps/mobility) |
 | `units`                        | *N/D*: Mappe di Azure usa solo il sistema metrico.  |
 | `waypoints`                    | `query`                            |
 

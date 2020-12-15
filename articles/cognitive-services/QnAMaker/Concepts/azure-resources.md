@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351896"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512046"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Risorse di Azure per QnA Maker
 
@@ -104,11 +104,11 @@ La tabella seguente indica alcune linee guida generali.
 
 |QUERY al secondo di destinazione | Servizio app | Ricerca cognitiva di Azure |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 1 istanza   | S1, 1 istanza    |
-| 50         | S3, 10 istanze       | S1, 12 istanze         |
-| 80         | S3, 10 istanze      |  S3, 12 istanze  |
-| 100         | P3V2, 10 istanze  | S3, 12 istanze, 3 partizioni   |
-| da 200 a 250         | P3V2, 20 istanze | S3, 12 istanze, 3 partizioni    |
+| 3             | S1, 1 replica   | S1, 1 replica    |
+| 50         | S3, 10 repliche       | S1, 12 repliche         |
+| 80         | S3, 10 repliche      |  S3, 12 repliche  |
+| 100         | P3V2, 10 repliche  | S3, 12 repliche, 3 partizioni   |
+| da 200 a 250         | P3V2, 20 repliche | S3, 12 repliche, 3 partizioni    |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
@@ -120,7 +120,7 @@ QnA Maker Managed è un servizio gratuito e la velocità effettiva è attualment
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
-|Aggiornamento|Motivo|
+|Aggiornamento di versione/Aggiornare la versione|Motivo|
 |--|--|
 |[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) di SKU di gestione QnA Maker|Si desidera avere più coppie di QnA o origini documenti nella Knowledge base.|
 |[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) di SKU del servizio app e controllare ricerca cognitiva livello e [creare repliche ricerca cognitiva](../../../search/search-capacity-planning.md)|La Knowledge base deve soddisfare un numero maggiore di richieste provenienti dall'app client, ad esempio un bot di chat.|
@@ -210,7 +210,7 @@ Per eseguire una query sulla Knowledge base pubblicata, tutte le Knowledge base 
 
 QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, usare la tabella seguente per comprendere cosa è possibile e non è possibile condividere:
 
-|Service|Condivisione|Motivo|
+|Servizio|Condivisione|Motivo|
 |--|--|--|
 |Servizi cognitivi|X|Non possibile dalla progettazione|
 |Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app usano spazio su disco significativo, si verificheranno problemi nell'istanza del servizio app QnAMaker.|
@@ -240,7 +240,7 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 |Nome|Location|Scopo|
 |--|--|--|
-|Chiave di creazione|[Portale di Azure](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
 |Chiave endpoint query|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per eseguire una query sull'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint di query viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
 
 ### <a name="subscription-keys"></a>Chiavi di sottoscrizione
@@ -317,8 +317,8 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 |Nome|Location|Scopo|
 |--|--|--|
-|Chiave di creazione|[Portale di Azure](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
-|Chiave amministratore di Azure ricerca cognitiva|[Portale di Azure](../../../search/search-security-api-keys.md)|Queste chiavi vengono usate per comunicare con il servizio di ricerca cognitivo di Azure distribuito nella sottoscrizione di Azure dell'utente. Quando si associa una ricerca cognitiva di Azure al servizio QnA Maker gestito (anteprima), la chiave di amministrazione viene passata automaticamente al servizio di QnA Maker. <br><br>È possibile trovare queste chiavi nella risorsa **ricerca cognitiva di Azure** nella pagina **chiavi** .|
+|Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave amministratore di Azure ricerca cognitiva|[Azure portal](../../../search/search-security-api-keys.md)|Queste chiavi vengono usate per comunicare con il servizio di ricerca cognitivo di Azure distribuito nella sottoscrizione di Azure dell'utente. Quando si associa una ricerca cognitiva di Azure al servizio QnA Maker gestito (anteprima), la chiave di amministrazione viene passata automaticamente al servizio di QnA Maker. <br><br>È possibile trovare queste chiavi nella risorsa **ricerca cognitiva di Azure** nella pagina **chiavi** .|
 
 ### <a name="subscription-keys"></a>Chiavi di sottoscrizione
 

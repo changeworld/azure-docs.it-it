@@ -1,21 +1,21 @@
 ---
 title: Usare Azure Key Vault nei modelli
-description: Informazioni su come usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione di modelli di Resource Manager
+description: Informazioni su come usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione di modelli di Azure Resource Manager (modello di ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119277"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929317"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager
 
-Informazioni su come recuperare i segreti da Azure Key Vault e passarli come parametri quando si distribuisce un modello di Azure Resource Manager (ARM). Il valore dei parametri non viene mai esposto perché si fa riferimento solo al relativo ID dell'insieme di credenziali delle chiavi. Per fare riferimento al segreto dell'insieme di credenziali delle chiavi, è possibile usare un ID statico o un ID dinamico. In questa esercitazione viene usato un ID statico. Con l'approccio basato sull'ID statico, si fa riferimento all'insieme di credenziali delle chiavi nel file dei parametri del modello, non nel file del modello. Per altre informazioni su entrambi gli approcci, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
+Informazioni su come recuperare i segreti da Azure Key Vault e passarli come parametri quando si distribuisce un modello di Azure Resource Manager (modello di ARM). Il valore dei parametri non viene mai esposto perché si fa riferimento solo al relativo ID dell'insieme di credenziali delle chiavi. Per fare riferimento al segreto dell'insieme di credenziali delle chiavi, è possibile usare un ID statico o un ID dinamico. In questa esercitazione viene usato un ID statico. Con l'approccio basato sull'ID statico, si fa riferimento all'insieme di credenziali delle chiavi nel file dei parametri del modello, non nel file del modello. Per altre informazioni su entrambi gli approcci, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
 
 Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./template-tutorial-create-templates-with-dependent-resources.md) viene creata una macchina virtuale. È necessario specificare il nome utente e la password dell'amministratore della macchina virtuale. Invece di immettere la password, è possibile archiviarla preventivamente in Azure Key Vault e quindi personalizzare il modello per recuperare la password dall'insieme di credenziali delle chiavi durante la distribuzione.
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Ecco un esempio di generazione di una password:
 
     ```console

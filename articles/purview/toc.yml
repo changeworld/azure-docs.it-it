@@ -104,8 +104,6 @@ items:
                 href: register-scan-on-premises-sql-server.md
               - name: Tenant di Power BI - Portale
                 href: register-scan-power-bi-tenant.md
-              - name: Tenant di Power BI - PowerShell
-                href: powershell-register-scan-power-bi.md
       - name: Glossario aziendale
         items:
           - name: 'Creare, importare ed esportare termini di glossario'

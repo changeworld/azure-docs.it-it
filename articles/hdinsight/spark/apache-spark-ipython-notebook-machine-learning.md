@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Compilare un'app di apprendimento automatico Spark - Azure HDInsight"
-description: Esercitazione - Istruzioni dettagliate su come compilare applicazioni di Machine Learning Apache Spark nei cluster HDInsight Spark usando Jupyter notebook.
+description: Esercitazione - Istruzioni dettagliate su come compilare applicazioni di Machine Learning Apache Spark nei cluster HDInsight Spark usando Jupyter Notebook.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 753f45257f820f87f2e4bfb1893f581bee167a4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af50bae075e88ac3bbba39cba9c9042eee2000e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230926"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932246"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in Azure HDInsight
 
@@ -41,7 +41,7 @@ L'applicazione usa i dati di **HVAC.csv** di esempio disponibili in tutti i clus
 
 In questa applicazione viene usata una [pipeline di Machine Learning](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) Spark per eseguire la classificazione di un documento. Le pipeline di Machine Learning offrono un set uniforme di API generali basate su dataframe. I dataframe consentono di creare e ottimizzare pipeline di Machine Learning pratiche. Nella pipeline il documento è stato suddiviso in parole, le parole sono state convertite in un vettore di funzionalità numerico e infine è stato creato un modello di stima usando le etichette e i vettori di funzionalità. Procedere come descritto di seguito per creare l'applicazione.
 
-1. Creare un notebook di Jupyter usando il kernel PySpark. Per istruzioni, vedere [Creare un file di notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Creare un Jupyter Notebook usando il kernel PySpark. Per istruzioni, vedere [Creare un file di Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Importare i tipi richiesti per questo scenario. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
 
@@ -186,7 +186,7 @@ In questa applicazione viene usata una [pipeline di Machine Learning](https://sp
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Usare la libreria Anaconda scikit-learn per Machine Learning Spark
 
-I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-learn** per Machine Learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'uso della libreria scikit-learn, vedere [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
+I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-learn** per Machine Learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un Jupyter Notebook. Per esempi sull'uso della libreria scikit-learn, vedere [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

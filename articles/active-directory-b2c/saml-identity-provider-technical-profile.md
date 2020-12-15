@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 572d6964384c711a7d2b98b0fa27852a7d28951f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 3f8ba563345f5aa4f35bcf07546abdad05c3b6ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936710"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509785"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico del provider di identità SAML in un Azure Active Directory B2C criteri personalizzati
 
@@ -168,7 +168,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 | IncludeAuthnContextClassReferences | No | Specifica uno o più riferimenti URI che identificano le classi contesto di autenticazione. Ad esempio, per consentire a un utente di accedere solo con nome utente e password, impostare il valore su `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Per consentire l'accesso tramite nome utente e password in una sessione protetta (SSL/TLS), specificare `PasswordProtectedTransport`. Esaminare la documentazione del provider di identità per materiale sussidiario sugli URI **AuthnContextClassRef** supportati. Specificare più URI come elenco delimitato da virgole. |
 | IncludeKeyInfo | No | Indica se la richiesta di autenticazione SAML contiene la chiave pubblica del certificato quando l'associazione è impostata su `HTTP-POST`. I valori possibili sono: `true` o `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
-|SingleLogoutEnabled| No| Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-overview.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` .|
+|SingleLogoutEnabled| No| Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-behavior.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` .|
 
 ## <a name="cryptographic-keys"></a>Chiavi di crittografia
 

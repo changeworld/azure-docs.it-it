@@ -1,21 +1,21 @@
 ---
 title: Distribuire estensioni di VM con un modello
-description: Informazioni su come distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager
+description: Informazioni su come distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager (modelli di ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f82e0eb45f4bc7c3260554b1b1120025029336bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073643"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931453"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
-Questo articolo illustra come usare le [estensioni di macchina virtuale di Azure](../../virtual-machines/extensions/features-windows.md) per eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. In questa esercitazione si distribuisce un'estensione di script personalizzati da un modello di Azure Resource Manager per eseguire uno script PowerShell in una macchina virtuale Windows.  Lo script installa un server Web nella VM.
+Questo articolo illustra come usare le [estensioni di macchina virtuale di Azure](../../virtual-machines/extensions/features-windows.md) per eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. In questa esercitazione si distribuisce un'estensione di script personalizzati da un modello di Azure Resource Manager (modello di ARM) per eseguire uno script PowerShell in una macchina virtuale Windows. Lo script installa un server Web nella VM.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -31,14 +31,14 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
+    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di ARM](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="prepare-a-powershell-script"></a>Preparare uno script di PowerShell
 

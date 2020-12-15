@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: 07af7f7f716a83ee9fa47619c1334a29786818d7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4c40d394e48cb0cd8bc02ef7b37e7ed2b27e13c4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033086"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511553"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creare un trigger per l'esecuzione di una pipeline in una finestra a cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -98,10 +98,10 @@ La tabella seguente fornisce una panoramica generale degli elementi JSON princip
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | Tipo di trigger. Il tipo è il valore fisso "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | Sì |
 | **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly> . | string | "Started", "Stopped", "Disabled" | Sì |
-| **frequency** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2017-09-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | Sì |
+| **frequenza** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2017-09-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | Sì |
 | **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "hour", il trigger si ripete ogni 3 ore. <br/>**Nota**: l'intervallo minimo della finestra è 5 minuti. | Integer | Numero intero positivo. | Sì |
-| **startTime**| Prima occorrenza, che può essere nel passato. Il primo intervallo di trigger è (**startTime**, **startTime** + **interval**). | Datetime | Valore DateTime. | Sì |
-| **endTime**| Ultima occorrenza, che può essere nel passato. | Datetime | Valore DateTime. | Sì |
+| **startTime**| Prima occorrenza, che può essere nel passato. Il primo intervallo di trigger è (**startTime**, **startTime** + **interval**). | DateTime | Valore DateTime. | Sì |
+| **endTime**| Ultima occorrenza, che può essere nel passato. | DateTime | Valore DateTime. | Sì |
 | **ritardo** | Periodo di tempo in base a cui ritardare l'avvio dell'elaborazione dei dati per la finestra. L'esecuzione della pipeline viene avviata dopo il tempo di esecuzione previsto più il periodo di **ritardo**. Il valore **delay** definisce per quanto tempo il trigger rimane in attesa dopo la scadenza prima di attivare una nuova esecuzione. Il valore **delay** non modifica il valore **startTime** della finestra. Ad esempio, un valore di **delay** pari a 00:10:00 implica un ritardo di 10 minuti. | TimeSpan<br/>(hh:mm:ss)  | Valore di un intervallo di tempo il cui il valore predefinito è 00:00:00. | No |
 | **maxConcurrency** | Il numero di esecuzioni di trigger simultanee che vengono generate per le finestre che sono pronte. Ad esempio, per recuperare le informazioni relative alle esecuzioni ogni ora per i risultati del giorno prima in 24 finestre. Se **maxConcurrency** = 10, gli eventi di attivazione vengono generati solo per le prime 10 finestre (00:00-01:00 - 09:00-10:00). Al termine delle prime 10 esecuzioni di pipeline attivate, le esecuzioni di trigger vengono generate per le 10 finestre successive (10:00-11:00 - 19:00-20:00). Continuando con questo esempio di **maxConcurrency** = 10, se sono pronte 10 finestre, ci sono 10 esecuzioni di pipeline totali. Se c'è solo una finestra pronta, è disponibile solo un'esecuzione di pipeline. | Integer | Numero intero compreso tra 1 e 50. | Sì |
 | **retryPolicy: Count** | Numero di tentativi prima che l'esecuzione della pipeline venga contrassegnata come "Non riuscita".  | Integer | Numero intero, in cui il valore predefinito è 0 (nessun tentativo). | No |

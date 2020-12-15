@@ -8,16 +8,23 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d86a273a69203a92a9b437f021486feb3bcb31da
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433487"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932371"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Esercitazione: Configurare un ambiente di Machine Learning in IoT Edge
 
 Questo articolo illustra come preparare l'ambiente per lo sviluppo e la distribuzione. Configurare prima di tutto un computer di sviluppo con tutti gli strumenti necessari. Quindi creare le risorse cloud necessarie in Azure.
+
+In questa sezione dell'esercitazione si apprende come:
+
+> [!div class="checklist"]
+>
+> * Configurare una macchina virtuale per lo sviluppo.
+> * Configurare un hub IoT e l'archiviazione nel cloud per l'ambiente di sviluppo da usare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -210,15 +217,13 @@ Durante la creazione dell'hub IoT, lo script eseguito nella sezione precedente h
 
 1. Poiché non sono state apportate modifiche, chiudere questa pagina.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Questa esercitazione fa parte di un set in cui ogni articolo si basa sul lavoro svolto nei precedenti. Prima di pulire le risorse attendere il completamento dell'esercitazione finale.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo è stato creato un hub IoT ed è stata configurata una route a un account di archiviazione di Azure. Successivamente verranno inviati i dati di un set di dispositivi simulati all'account di archiviazione tramite l'hub IoT. Più avanti nell'esercitazione, dopo aver configurato il dispositivo e i moduli IoT Edge, verranno riviste le route e verranno fornite altre informazioni sulla query di routing.
-
-Per altre informazioni sui passaggi descritti in questa sezione dell'esercitazione su Machine Learning in IoT Edge, vedere:
-
-* [Nozioni fondamentali su Azure IoT](../iot-fundamentals/index.yml)
-* [configurare il routing dei messaggi con l'hub IoT](../iot-hub/tutorial-routing.md)
-* [Creare un hub IoT usando il portale di Azure](../iot-hub/iot-hub-create-through-portal.md)
 
 Continuare con l'articolo successivo per creare un dispositivo simulato da monitorare.
 

@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 166bdb7a2cf15a84e1b826a9a798042c568bb227
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922150"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608232"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
 
@@ -99,19 +100,21 @@ Dopo aver creato l'applicazione per il provider di identità che si vuole aggiun
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Provider di identità** e quindi selezionare **Nuovo provider di OpenID Connect**.
 1. Immettere un **Nome**. Ad esempio, immettere *Contoso Azure AD*.
-1. In **URL dei metadati** immettere l'URL seguente, sostituendo `your-AD-tenant-domain` con il nome di dominio del tenant di Azure AD:
+1. In **URL dei metadati** immettere l'URL seguente, sostituendo `{tenant}` con il nome di dominio del tenant di Azure AD:
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    Ad esempio: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    Ad esempio: `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    Ad esempio: `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. Per **ID client**, immettere l'ID applicazione registrato in precedenza.
 1. In **Segreto client** immettere il segreto client registrato in precedenza.
-1. Lasciare i valori predefiniti per **Ambito**, **Tipo di risposta** e **Modalità di risposta**.
-1. (Facoltativo) Immettere un valore per **Domain_hint**. Ad esempio, *ContosoAD*. Gli [hint di dominio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) sono direttive incluse nella richiesta di autenticazione da un'applicazione. Possono essere usate per accelerare l'indirizzamento dell'utente alla rispettiva pagina di accesso dell'IdP federato. Oppure possono essere usati da un'applicazione multi-tenant per accelerare l'utente direttamente verso la pagina di accesso di Azure AD personalizzata per il suo tenant.
-1. In **Mapping delle attestazioni del provider di identità** immettere i valori dei mapping delle attestazioni seguenti:
+1. In **Ambito**, immettere il `openid profile`.
+1. Lasciare i valori predefiniti per **Tipo di risposta** e **Modalità di risposta**.
+1. (Opzionale) Per l'**hint di dominio**, immettere `contoso.com`. Per altre informazioni, vedere [Configurare l'accesso diretto tramite Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. In **Mapping delle attestazioni del provider di identità** selezionare le attestazioni seguenti:
 
     * **ID utente**: *oid*
     * **Nome visualizzato**: *name*

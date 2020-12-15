@@ -1,20 +1,20 @@
 ---
-title: Esercitazione - Eseguire la migrazione di un'app Web da Google Maps | Mappe di Microsoft Azure
+title: Esercitazione - Eseguire la migrazione di un'app Web da Google Maps a Mappe di Microsoft Azure
 description: Questa esercitazione illustra come eseguire la migrazione di un'app Web da Google Maps a Mappe di Microsoft Azure
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896447"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905061"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Esercitazione: Eseguire la migrazione di un'app Web da Google Maps
 
@@ -75,7 +75,7 @@ La tabella elenca le principali funzionalità dell'API di Google Maps V3 JavaScr
 | Servizio di geocodifica        | ✓                          |
 | Servizio Indicazioni      | ✓                          |
 | Servizio Matrice di distanze | ✓                          |
-| Servizio Elevazione       | Pianificata                     |
+| Servizio Elevazione       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Differenze significative tra i Web SDK
 
@@ -332,9 +332,9 @@ map.setStyle({
 
 In Mappe di Azure esistono diversi modi in cui è possibile eseguire il rendering dei dati punto sulla mappa:
 
-- **Indicatori HTML** : il rendering dei punti viene eseguito usando elementi DOM tradizionali. Gli indicatori HTML supportano il trascinamento.
-- **Livello simbolo** : il rendering dei punti viene eseguito con un'icona o un testo all'interno del contesto WebGL.
-- **Livello bolla** : il rendering dei punti viene eseguito come cerchi sulla mappa. I raggi dei cerchi possono essere ridimensionati in base alle proprietà nei dati.
+- **Indicatori HTML**: il rendering dei punti viene eseguito usando elementi DOM tradizionali. Gli indicatori HTML supportano il trascinamento.
+- **Livello simbolo**: il rendering dei punti viene eseguito con un'icona o un testo all'interno del contesto WebGL.
+- **Livello bolla**: il rendering dei punti viene eseguito come cerchi sulla mappa. I raggi dei cerchi possono essere ridimensionati in base alle proprietà nei dati.
 
 Eseguire il rendering dei livelli simbolo e bolla all'interno del contesto WebGL. Entrambi i livelli possono eseguire il rendering di grandi set di punti sulla mappa e richiedono che i dati siano archiviati in un'origine dati. È necessario aggiungere le origini dati e i livelli di rendering alla mappa dopo che è stato attivato l'evento `ready`. Per gli indicatori HTML il rendering viene eseguito come elementi DOM all'interno della pagina e non è previsto l'uso di un'origine dati. Maggiore è il numero di elementi DOM della pagina, più lenta sarà la pagina. Se si esegue il rendering di più di qualche centinaio di punti su una mappa, è consigliabile usare uno dei livelli di rendering.
 

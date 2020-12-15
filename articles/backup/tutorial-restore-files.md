@@ -4,12 +4,12 @@ description: Informazioni su come eseguire un ripristino a livello di file su un
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 236b2c2c7799ef6a0df1da2ddded0e689349e222
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d977919b806be32b84001a9b91dc9e396fbd63ce
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842210"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557910"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Ripristinare file in una macchina virtuale in Azure
 
@@ -21,13 +21,15 @@ Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di c
 > * Connettere un punto di recupero a una macchina virtuale
 > * Ripristinare file da un punto di recupero
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.18 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per questa esercitazione è necessaria una macchina virtuale Linux protetta con Backup di Azure. Per simulare un processo di eliminazione accidentale e ripristino di un file, si elimina una pagina da un server Web. Se si necessita di una macchina virtuale Linux che esegue un server Web ed è protetta con Backup di Azure, vedere [Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando](quick-backup-vm-cli.md).
+
+Preparare l'ambiente:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Questo articolo richiede la versione 2.0.18 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="backup-overview"></a>Panoramica del servizio Backup
 

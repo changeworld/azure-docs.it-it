@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95529732"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558692"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -25,7 +25,7 @@ I processi di questa guida di avvio rapido consentono di ottenere un ambiente pr
 Identificare la sottoscrizione che si vuole usare per distribuire la soluzione Azure VMware.  È possibile creare una nuova sottoscrizione o riutilizzare una sottoscrizione esistente.
 
 >[!NOTE]
->La sottoscrizione deve essere associata a un Contratto Enterprise Microsoft.
+>La sottoscrizione deve essere associata a un Contratto Enterprise Microsoft o a un piano di Azure Cloud Solution Provider. Per altre informazioni, vedere [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md).
 
 ## <a name="resource-group"></a>Resource group
 

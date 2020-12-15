@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 1c059edb1422a572011f167f7f1c02d5e87e5da2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 12e6aa85f7d8c2c4aebe80efc92f771917e6a1d5
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324824"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746013"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di raccolta dati in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'[agente di Log Analytics](../platform/log-analytics-agent.md) e l'[estensione di diagnostica](../platform/diagnostics-extension-overview.md) per le macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
@@ -19,7 +19,7 @@ Questo articolo include esempi di [modelli di Azure Resource Manager](../../azur
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="create-association-between-azure-vm-and-rule"></a>Creare un'associazione tra una VM di Azure e una regola
+## <a name="create-association-with-azure-vm"></a>Creare un'associazione con la macchina virtuale di Azure
 
 L'esempio seguente installa l'agente di Monitoraggio di Azure in una macchina virtuale Windows di Azure. Viene creata un'associazione tra una macchina virtuale di Azure e una regola di raccolta dati.
 
@@ -80,7 +80,7 @@ L'esempio seguente installa l'agente di Monitoraggio di Azure in una macchina vi
 }
 ```
 
-## <a name="create-association-between-azure-arc-and-rule"></a>Creare un'associazione tra Azure Arc e una regola
+## <a name="create-association-ith-azure-arc"></a>Creare un'associazione con Azure Arc
 
 L'esempio seguente installa l'agente di Monitoraggio di Azure in una macchina virtuale Windows di Azure. Viene creata un'associazione tra un computer server con abilitazione di Azure Arc e una regola di raccolta dati.
 

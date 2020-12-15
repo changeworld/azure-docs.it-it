@@ -1,20 +1,24 @@
 ---
 title: Creare funzioni di Azure in Linux tramite un'immagine personalizzata
 description: Informazioni su come creare Funzioni di Azure in esecuzione in un'immagine personalizzata di Linux.
-ms.date: 03/30/2020
+ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: af63eb68ec82a0725befed723298c079e82bdfdb
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+zone_pivot_groups: programming-languages-set-functions-full
+ms.openlocfilehash: f270f74f97a9b9306d7b23dacec12c38f418dbd1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327101"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921823"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
 In questa esercitazione si crea e si distribuisce codice in Funzioni di Azure come contenitore Docker personalizzato usando un'immagine di base di Linux. In genere si usa un'immagine personalizzata quando le funzioni richiedono una specifica versione del linguaggio oppure hanno una specifica dipendenza o configurazione non disponibile dall'immagine predefinita.
+
+::: zone pivot="programming-language-other"
+Funzioni di Azure supporta qualsiasi linguaggio o runtime usando [gestori personalizzati](functions-custom-handlers.md). Per alcuni linguaggi, ad esempio il linguaggio di programmazione R usato in questa esercitazione, è necessario installare il runtime o librerie aggiuntive come dipendenze che richiedono l'uso di un contenitore personalizzato.
+::: zone-end
 
 Per distribuire il codice della funzione in un contenitore Linux personalizzato richiede l'hosting con un [piano Premium](functions-premium-plan.md#features) o un [piano Dedicato (Servizio app)](functions-scale.md#app-service-plan). Il completamento di questa esercitazione comporta l'addebito di alcuni euro sull'account Azure, ma per ridurre i costi [pulire le risorse](#clean-up-resources) al termine dell'esercitazione.
 
@@ -22,6 +26,7 @@ Per distribuire il codice della funzione in un contenitore Linux personalizzato 
 
 In questa esercitazione verranno illustrate le procedure per:
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 > [!div class="checklist"]
 > * Creare un'app per le funzioni e un Dockerfile usando Azure Functions Core Tools.
 > * Creare un'immagine personalizzata tramite Docker.
@@ -32,6 +37,18 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Abilitare la distribuzione continua.
 > * Abilitare le connessioni SSH al contenitore.
 > * Aggiungere un'associazione di output dell'archiviazione code. 
+::: zone-end
+::: zone pivot="programming-language-other"
+> [!div class="checklist"]
+> * Creare un'app per le funzioni e un Dockerfile usando Azure Functions Core Tools.
+> * Creare un'immagine personalizzata tramite Docker.
+> * Pubblicare un'immagine personalizzata in un registro contenitori.
+> * Creare le risorse di supporto in Azure per l'app per le funzioni
+> * Distribuire un'app per le funzioni dall'hub Docker.
+> * Aggiungere le impostazioni applicazione all'app per le funzioni.
+> * Abilitare la distribuzione continua.
+> * Abilitare le connessioni SSH al contenitore.
+::: zone-end
 
 È possibile seguire questa esercitazione in qualsiasi computer che esegue Windows, macOS o Linux. 
 
@@ -103,7 +120,7 @@ Il parametro `-DjavaVersion` indica al runtime di Funzioni la versione di Java d
 Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione.   
 Quando richiesto, specificare i valori seguenti:
 
-| Prompt | Valore | Descrizione |
+| Prompt | valore | Descrizione |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Un valore che identifica in modo univoco il progetto tra tutti gli altri, seguendo le [regole di denominazione dei pacchetti](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) per Java. |
 | **artifactId** | `fabrikam-functions` | Un valore che corrisponde al nome del jar, senza un numero di versione. |
@@ -114,10 +131,17 @@ Digitare `Y` o premere INVIO per confermare.
 
 Maven crea i file di progetto in una nuova cartella denominata _artifactId_, che in questo esempio è `fabrikam-functions`. 
 ::: zone-end
+
+::: zone pivot="programming-language-other"  
+```console
+func init LocalFunctionsProject --worker-runtime custom --docker
+```
+::: zone-end
+
 L'opzione `--docker` genera un `Dockerfile` per il progetto, che definisce un contenitore personalizzato adatto da usare con Funzioni di Azure e con il runtime selezionato.
 
 Passare alla cartella del progetto:
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 ```console
 cd LocalFunctionsProject
 ```
@@ -133,7 +157,97 @@ Aggiungere una funzione al progetto usando il comando seguente, in cui l'argomen
 ```console
 func new --name HttpExample --template "HTTP trigger"
 ```
-::: zone-end  
+::: zone-end
+
+::: zone pivot="programming-language-other" 
+Aggiungere una funzione al progetto usando il comando seguente, in cui l'argomento `--name` è il nome univoco della funzione e l'argomento `--template` specifica il trigger della funzione. `func new` crea una sottocartella corrispondente al nome della funzione che contiene un file di configurazione denominato *function.json*.
+
+```console
+func new --name HttpExample --template "HTTP trigger"
+```
+
+In un editor di testo creare un file nella cartella del progetto denominata *handler.R*. Aggiungere quanto segue come contenuto.
+
+```r
+library(httpuv)
+
+PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
+PORT <- strtoi(PORTEnv , base = 0L)
+
+http_not_found <- list(
+  status=404,
+  body='404 Not Found'
+)
+
+http_method_not_allowed <- list(
+  status=405,
+  body='405 Method Not Allowed'
+)
+
+hello_handler <- list(
+  GET = function (request) {
+    list(body=paste(
+      "Hello,",
+      if(substr(request$QUERY_STRING,1,6)=="?name=") 
+        substr(request$QUERY_STRING,7,40) else "World",
+      sep=" "))
+  }
+)
+
+routes <- list(
+  '/api/HttpExample' = hello_handler
+)
+
+router <- function (routes, request) {
+  if (!request$PATH_INFO %in% names(routes)) {
+    return(http_not_found)
+  }
+  path_handler <- routes[[request$PATH_INFO]]
+
+  if (!request$REQUEST_METHOD %in% names(path_handler)) {
+    return(http_method_not_allowed)
+  }
+  method_handler <- path_handler[[request$REQUEST_METHOD]]
+
+  return(method_handler(request))
+}
+
+app <- list(
+  call = function (request) {
+    response <- router(routes, request)
+    if (!'status' %in% names(response)) {
+      response$status <- 200
+    }
+    if (!'headers' %in% names(response)) {
+      response$headers <- list()
+    }
+    if (!'Content-Type' %in% names(response$headers)) {
+      response$headers[['Content-Type']] <- 'text/plain'
+    }
+
+    return(response)
+  }
+)
+
+cat(paste0("Server listening on :", PORT, "...\n"))
+runServer("0.0.0.0", PORT, app)
+```
+
+In *host.json*, modificare la sezione `customHandler` per configurare il comando di avvio del gestore personalizzato.
+
+```json
+"customHandler": {
+  "description": {
+      "defaultExecutablePath": "Rscript",
+      "arguments": [
+      "handler.R"
+    ]
+  },
+  "enableForwardingHttpRequest": true
+}
+```
+::: zone-end
+
 Per testare la funzione in locale, avviare l'host di runtime locale di Funzioni di Azure nella radice della cartella del progetto: 
 ::: zone pivot="programming-language-csharp"  
 ```console
@@ -157,14 +271,41 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
+::: zone pivot="programming-language-other"
+```console
+R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
+func start
+```
+::: zone-end 
+
 Quando nell'output viene visualizzato l'endpoint `HttpExample`, passare a `http://localhost:7071/api/HttpExample?name=Functions`. Nel browser verrà visualizzato un messaggio "hello" che richiama `Functions`, il valore fornito al parametro di query `name`.
 
 Premere **CTRL**-**C** per arrestare l'host.
 
 ## <a name="build-the-container-image-and-test-locally"></a>Creare l'immagine del contenitore e testarla localmente
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 Facoltativo - Esaminare il *Dockerfile* nella radice della cartella del progetto. Il Dockerfile descrive l'ambiente necessario per eseguire l'app per le funzioni in Linux.  L'elenco completo di immagini di base supportate per Funzioni di Azure è disponibile nella [pagina delle immagini di base per Funzioni di Azure](https://hub.docker.com/_/microsoft-azure-functions-base).
-    
+::: zone-end
+
+::: zone pivot="programming-language-other"
+Esaminare il *Dockerfile* nella radice della cartella del progetto. Il Dockerfile descrive l'ambiente necessario per eseguire l'app per le funzioni in Linux. Le applicazioni di gestione personalizzate usano l'immagine `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` come base.
+
+Modificare il *Dockerfile* per installare R. Sostituire il contenuto di *Dockerfile* con il seguente.
+
+```dockerfile
+FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice 
+ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+
+RUN apt update && \
+    apt install -y r-base && \
+    R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
+
+COPY . /home/site/wwwroot
+```
+::: zone-end
+
 Nella cartella radice del progetto eseguire il comando [docker build](https://docs.docker.com/engine/reference/commandline/build/) e specificare il nome `azurefunctionsimage` e il tag `v1.0.0`. Sostituire `<DOCKER_ID>` con l'ID dell'account Docker Hub. Questo comando compila l'immagine Docker per il contenitore.
 
 ```console
@@ -179,7 +320,7 @@ Per testare la compilazione, eseguire l'immagine in un contenitore locale usando
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 Quando l'immagine è in esecuzione in un contenitore locale, aprire un browser all'indirizzo `http://localhost:8080`, che dovrebbe visualizzare l'immagine segnaposto indicata di seguito. L'immagine viene visualizzata a questo punto perché la funzione è in esecuzione nel contenitore locale, allo stesso modo che in Azure, il che significa che è protetta da una chiave di accesso, definita nel file *function.json* con la proprietà `"authLevel": "function"`. Tuttavia, il contenitore non è stato ancora pubblicato in un'app per le funzioni in Azure, quindi la chiave non è ancora disponibile. Se si vuole eseguire il test nel contenitore locale, arrestare Docker, impostare la proprietà di autorizzazione su `"authLevel": "anonymous"`, ricompilare l'immagine e riavviare Docker. Quindi reimpostare `"authLevel": "function"` in *function.json*. Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Immagine segnaposto che indica che il contenitore è in esecuzione in locale](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
@@ -258,13 +399,20 @@ Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano d
 
 1. Creare l'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). Nell'esempio seguente sostituire `<storage_name>` con il nome usato nella sezione precedente per l'account di archiviazione. Sostituire inoltre `<app_name>` con un nome di app univoco a livello globale appropriato e `<docker_id>` con l'ID Docker.
 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
     ```azurecli
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
+    ::: zone-end
+    ::: zone pivot="programming-language-other"
+    ```azurecli
+    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime custom --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    ```
+    ::: zone-end
     
     Il parametro *deployment-container-image-name* specifica l'immagine da usare per l'app per le funzioni. È possibile usare il comando [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) per visualizzare informazioni sull'immagine usata per la distribuzione. È anche possibile usare il comando [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) per eseguire la distribuzione da un'immagine diversa.
 
-1. Recuperare la stringa di connessione per l'account di archiviazione creato usando il comando [az storage account show-connection-string](/cli/azure/storage/account), assegnandola alla variabile della shell `storageConnectionString`:
+1. Visualizzare la stringa di connessione per l'account di archiviazione creato usando il comando [az storage account show-connection-string](/cli/azure/storage/account). Sostituire `<storage-name>` con il nome dell'account di archiviazione creato in precedenza:
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
@@ -275,8 +423,6 @@ Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano d
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
     ```
-
-1. La funzione può ora usare questa stringa di connessione per accedere all'account di archiviazione.
 
     > [!TIP]
     > In Bash è possibile usare una variabile della shell per acquisire la stringa di connessione invece di usare gli Appunti. Prima di tutto, usare il comando seguente per creare una variabile con la stringa di connessione:
@@ -290,6 +436,8 @@ Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano d
     > ```azurecli
     > az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
     > ```
+
+1. La funzione può ora usare questa stringa di connessione per accedere all'account di archiviazione.
 
 > [!NOTE]    
 > Se si pubblica l'immagine personalizzata in un account contenitore privato, è invece necessario usare le variabili di ambiente nel Dockerfile per la stringa di connessione. Per altre informazioni, vedere l'[istruzione ENV](https://docs.docker.com/engine/reference/builder/#env). È inoltre necessario impostare le variabili `DOCKER_REGISTRY_SERVER_USERNAME` e `DOCKER_REGISTRY_SERVER_PASSWORD`. Per usare i valori, è quindi necessario ricompilare l'immagine, effettuarne il push nel registro e quindi riavviare l'app per le funzioni in Azure.
@@ -439,6 +587,8 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Con SSH abi
 
     ![Comando top di Linux in esecuzione in una sessione SSH](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## <a name="write-to-an-azure-storage-queue"></a>Scrivere in una coda dell'account di archiviazione di Azure
 
 La soluzione Funzioni di Azure consente di connettere le funzioni ad altri servizi e risorse di Azure senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding*, che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un *trigger* è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
@@ -446,6 +596,7 @@ La soluzione Funzioni di Azure consente di connettere le funzioni ad altri servi
 Questa sezione illustra come integrare la funzione con una coda di archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati di una richiesta HTTP in un messaggio della coda.
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
+::: zone-end
 
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
@@ -458,9 +609,12 @@ Questa sezione illustra come integrare la funzione con una coda di archiviazione
 [!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 ::: zone-end  
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## <a name="add-code-to-use-the-output-binding"></a>Aggiungere il codice per usare il binding di output
 
 Una volta definita l'associazione della coda, è possibile aggiornare la funzione per ricevere il parametro di output `msg` e scrivere i messaggi nella coda.
+::: zone-end
 
 ::: zone pivot="programming-language-python"     
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
@@ -488,6 +642,7 @@ Una volta definita l'associazione della coda, è possibile aggiornare la funzion
 [!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 ### <a name="update-the-image-in-the-registry"></a>Aggiornare l'immagine nel registro
 
 1. Nella cartella radice eseguire di nuovo il comando `docker build` e questa volta aggiornare la versione nel tag impostandola su `v1.0.1`. Come prima, sostituire `<docker_id>` con l'ID dell'account Docker Hub:
@@ -509,6 +664,8 @@ Una volta definita l'associazione della coda, è possibile aggiornare la funzion
 In un browser usare lo stesso URL di prima per richiamare la funzione. Il browser deve visualizzare la stessa risposta precedente, perché questa parte del codice della funzione non è stata modificata. Il codice aggiunto, tuttavia, ha scritto un messaggio usando il parametro URL `name` nella coda di archiviazione `outqueue`.
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
+
+::: zone-end
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

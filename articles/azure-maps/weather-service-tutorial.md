@@ -1,24 +1,28 @@
 ---
-title: 'Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python) | Mappe di Microsoft Azure'
+title: 'Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python) con Mappe di Microsoft Azure'
 description: Esercitazione su come unire i dati dei sensori con i dati delle previsioni meteo del servizio meteo di Mappe di Microsoft Azure usando Azure Notebooks (Python).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/29/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6d2ede8ab49b22a22d8959ce296182a2210640d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896600"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905469"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python)
 
-L'energia eolica è una delle fonti energetiche alternative ai combustibili fossili per contrastare il cambiamento climatico. Poiché il vento non è coerente per natura, gli operatori di energia eolica devono creare modelli di Machine Learning (ML) per prevedere la capacità di energia eolica. Questa previsione è necessaria per soddisfare la domanda di energia elettrica e garantire la stabilità della rete. Questa esercitazione illustra come combinare i dati delle previsioni meteo di Mappe di Azure con un set di dati demo per le letture del meteo. I dati delle previsioni meteo vengono richiesti con una chiamata al servizio meteo di Mappe di Azure.
+> [!IMPORTANT]
+> I servizi Meteo di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+L'energia eolica è una delle fonti energetiche alternative ai combustibili fossili per contrastare il cambiamento climatico. Poiché il vento non è coerente per natura, gli operatori di energia eolica devono creare modelli di Machine Learning (ML) per prevedere la capacità di energia eolica. Questa previsione è necessaria per soddisfare la domanda di energia elettrica e garantire la stabilità della rete. Questa esercitazione illustra come combinare i dati delle previsioni meteo di Mappe di Azure con un set di dati demo per le letture del meteo. I dati delle previsioni meteo vengono richiesti con una chiamata ai servizi meteo di Mappe di Azure (anteprima).
 
 In questa esercitazione si apprenderà come:
 
@@ -68,7 +72,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Richiedere i dati delle previsioni giornaliere
 
-In questo scenario verranno richieste le previsioni giornaliere per ogni posizione dei sensori. Lo script seguente chiama l'[API delle previsioni giornaliere](/rest/api/maps/weather/getdailyforecastpreview) del servizio meteorologico di Mappe di Azure. Questa API restituisce le previsioni meteorologiche per ogni turbina eolica per i 15 giorni successivi dalla data corrente.
+In questo scenario verranno richieste le previsioni giornaliere per ogni posizione dei sensori. Lo script seguente chiama l'[API delle previsioni giornaliere](/rest/api/maps/weather/getdailyforecastpreview) dei servizi meteorologici di Mappe di Azure (anteprima). Questa API restituisce le previsioni meteorologiche per ogni turbina eolica per i 15 giorni successivi dalla data corrente.
 
 
 ```python
@@ -82,7 +86,7 @@ years,months,days = [],[],[]
 dates_check=set()
 wind_speeds, wind_direction = [], []
 
-# Call azure maps weather service to get daily forecast data for 15 days from current date
+# Call azure maps Weather services (Preview) to get daily forecast data for 15 days from current date
 session = aiohttp.ClientSession()
 j=-1
 for i in range(0, len(coords), 2):

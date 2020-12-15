@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 12/04/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656446"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928468"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -51,8 +51,12 @@ Per la disponibilità elevata nell'ambiente di produzione è consigliabile avere
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp] "EnableDefaultHttp2"=dword:00000000
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 Value: 0
 > ```
+>
+> La chiave può essere impostata da PowerShell con il comando seguente.
+> ```
+> Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
 >
 
 #### <a name="recommendations-for-the-connector-server"></a>Raccomandazioni per il server del connettore
@@ -87,6 +91,9 @@ Per abilitare TLS 1.2:
 
 1. Riavviare il server.
 
+> [!Note]
+> Microsoft sta aggiornando i servizi di Azure per l'uso di certificati TLS emessi da un set diverso di autorità di certificazione (CA) radice. Questa modifica viene apportata perché i certificati della CA corrente non sono conformi a uno dei requisiti correnti di CA/Browser Forum Baseline. Per altre informazioni, vedere [Modifiche ai certificati TLS di Azure](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes).
+
 ## <a name="prepare-your-on-premises-environment"></a>Preparare l'ambiente locale
 
 Per iniziare, abilitare la comunicazione ai data center di Azure per preparare l'ambiente per il proxy di applicazione di Azure AD,. Se nel percorso è presente un firewall, assicurarsi che sia aperto. Un firewall aperto consente al connettore di eseguire richieste HTTPS (TCP) al proxy di applicazione.
@@ -113,7 +120,7 @@ Consentire l'accesso agli URL seguenti:
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |Il connettore usa questi URL per verificare i certificati. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |Il connettore usa questi URL durante il processo di registrazione. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |Il connettore usa questi URL durante il processo di registrazione. |
 | ctldl.windowsupdate.com | 80/HTTP |Il connettore usa questo URL durante il processo di registrazione. |
 
 È possibile consentire le connessioni a &ast;.msappproxy.net, &ast;.servicebus.windows.net e agli altri URL precedenti se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
@@ -184,7 +191,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 1. Accedere come amministratore al [portale di Azure](https://portal.azure.com/).
 2. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
 3. Selezionare **Applicazioni aziendali** e quindi selezionare **Nuova applicazione**.
-4. Nella sezione **Applicazioni locali** selezionare **Aggiungi un'applicazione locale**.
+4. Nella sezione **Crea un'applicazione personalizzata** selezionare **Configurare il proxy applicazione per l'accesso remoto sicuro a un'applicazione locale**.
 5. Nella sezione **Aggiungi applicazione locale personalizzata** fornire le informazioni seguenti sull'applicazione:
 
     | Campo | Descrizione |

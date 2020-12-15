@@ -11,12 +11,12 @@ ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: references_regions
-ms.openlocfilehash: d46f8b518476cdf2f68b51ed93498cf822f8d8a5
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 4ecf8a578343a10e7c1ddb0ac5e9345a652bc9af
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504152"
+ms.locfileid: "97511706"
 ---
 # <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>Abilitazione delle funzionalità dell'area di lavoro sinapsi in un pool SQL dedicato (in precedenza SQL DW) nella propria area.
 
@@ -39,7 +39,7 @@ La tabella seguente riepiloga l'area in cui la capacità di abilitare le funzion
  
  
 > [!NOTE]
-> L'elenco delle aree precedenti si riferisce solo alle aree in cui l'abilitazione delle funzionalità dell'area di lavoro sinapsi non è attualmente disponibile. 
+> L'elenco dell'area precedente è correlato solo alle aree in cui l'abilitazione delle funzionalità dell'area di lavoro sinapsi non è attualmente disponibile. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Introduzione all' [area di lavoro sinapsi e a Studio](../get-started.md).

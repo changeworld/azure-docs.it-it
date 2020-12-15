@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: ae96a81485064637db9e23b7164021bfbc952162
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 12/09/2020
+ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555945"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920863"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copiare più tabelle in blocco con Azure Data Factory nel portale di Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure Synapse Analytics (in precedenza SQL Data Warehouse)** . È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/Azure Synapse Analytics (in precedenza SQL Data Warehouse)/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
+Questa esercitazione illustra come **copiare alcune tabelle dal database SQL di Azure in Azure Synapse Analytics**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/Azure Synapse Analytics/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
 
 > [!NOTE]
 > - Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
@@ -31,8 +31,8 @@ A livello generale, questa esercitazione prevede la procedura seguente:
 
 > [!div class="checklist"]
 > * Creare una data factory.
-> * Creare un database SQL di Azure, Azure Synapse Analytics (in precedenza SQL Data Warehouse) e servizi collegati di Archiviazione di Azure.
-> * Creare set di dati di database SQL di Azure e Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+> * Creare i servizi collegati Database SQL di Azure, Azure Synapse Analytics e Archiviazione di Azure.
+> * Creare set di dati di Database SQL di Azure e Azure Synapse Analytics.
 > * Creare una pipeline per cercare le tabelle da copiare e un'altra pipeline per eseguire l'operazione di copia effettiva. 
 > * Avviare un'esecuzione della pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
@@ -40,35 +40,35 @@ A livello generale, questa esercitazione prevede la procedura seguente:
 Questa esercitazione usa il portale di Azure. Per informazioni sull'uso di altri strumenti/SDK per creare una data factory, vedere le [Guide introduttive](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Flusso di lavoro end-to-end
-In questo scenario il database SQL di Azure include alcune tabelle da copiare in Azure Synapse Analytics (in precedenza SQL Data Warehouse). Ecco la sequenza logica di passaggi nel flusso di lavoro che si verifica nelle pipeline:
+In questo scenario il database SQL di Azure include alcune tabelle da copiare in Azure Synapse Analytics. Ecco la sequenza logica di passaggi nel flusso di lavoro che si verifica nelle pipeline:
 
 ![Flusso di lavoro](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * La prima pipeline cerca l'elenco di tabelle da copiare negli archivi dati sink.  In alternativa è possibile mantenere una tabella di metadati che elenca tutte le tabelle da copiare nell'archivio dati sink. La pipeline attiva quindi un'altra pipeline, che esegue l'iterazione di ogni tabella nel database ed esegue l'operazione di copia dei dati.
-* La seconda pipeline esegue la copia effettiva. Accetta l'elenco di tabelle come parametro. Per ogni tabella nell'elenco è necessario copiare la tabella specifica del database SQL di Azure nella tabella corrispondente in Azure Synapse Analytics (in precedenza SQL Data Warehouse) usando una [copia di staging tramite l'archivio BLOB e PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) per prestazioni ottimali. In questo esempio la prima pipeline passa l'elenco di tabelle come valore per il parametro. 
+* La seconda pipeline esegue la copia effettiva. Accetta l'elenco di tabelle come parametro. Per ogni tabella dell'elenco è necessario copiare quella specifica di Database SQL di Azure in quella corrispondente di Azure Synapse Analytics usando una [copia in fasi tramite archiviazione BLOB e PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) per prestazioni ottimali. In questo esempio la prima pipeline passa l'elenco di tabelle come valore per il parametro. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Account di archiviazione di Azure**. L'account di archiviazione di Azure viene usato come archivio BLOB di staging nell'operazione di copia in blocco. 
 * **Database SQL di Azure**. Questo database contiene i dati di origine. 
-* **Azure Synapse Analytics (in precedenza SQL Data Warehouse)** . Questo data warehouse include i dati copiati dal database SQL. 
+* **Azure Synapse Analytics**. Questo data warehouse include i dati copiati dal database SQL. 
 
-### <a name="prepare-sql-database-and-azure-synapse-analytics-formerly-sql-dw"></a>Preparare il database SQL e Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>Preparare Database SQL e Azure Synapse Analytics 
 
 **Preparare il database SQL di Azure di origine**:
 
-Creare un database in Database SQL con i dati dell'esempio Adventure Works LT, seguendo l'articolo [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+Creare un database in Database SQL con i dati dell'esempio Adventure Works LT, seguendo l'articolo [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in Azure Synapse Analytics.
 
-**Preparare l'istanza sink di Azure Synapse Analytics (in precedenza SQL Data Warehouse)** :
+**Preparare l'istanza sink di Azure Synapse Analytics**:
 
-1. Se non è disponibile un'area di lavoro di Azure Synapse Analytics (in precedenza SQL Data Warehouse), vedere l'articolo [Introduzione ad Azure Synapse Analytics](..\synapse-analytics\get-started.md) per la procedura per crearne una.
+1. Se non è disponibile un'area di lavoro di Azure Synapse Analytics, vedere l'articolo [Introduzione ad Azure Synapse Analytics](..\synapse-analytics\get-started.md) per la procedura per crearne una.
 
-1. Creare gli schemi di tabella corrispondenti in Azure Synapse Analytics (in precedenza SQL Data Warehouse). Azure Data Factory viene usato in un passaggio successivo per la migrazione/copia dei dati.
+1. Creare gli schemi di tabella corrispondenti in Azure Synapse Analytics. Azure Data Factory viene usato in un passaggio successivo per la migrazione/copia dei dati.
 
 ## <a name="azure-services-to-access-sql-server"></a>Accesso dei servizi di Azure a SQL Server
 
-Per il database SQL e per Azure Synapse Analytics (in precedenza SQL Data Warehouse) è necessario consentire ai servizi di Azure di accedere a SQL server. Assicurarsi che l'impostazione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** sia attivata (**ON**) per il server. Questa impostazione consente al servizio Data Factory di leggere dati dal database SQL di Azure e di scrivere dati in Azure Synapse Analytics (in precedenza SQL Data Warehouse). 
+Per Database SQL e Azure Synapse Analytics, consentire ai servizi di Azure di accedere a SQL Server. Assicurarsi che l'impostazione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** sia attivata (**ON**) per il server. Questa impostazione consente al servizio Data Factory di leggere dati da Database SQL di Azure e di scriverli in Azure Synapse Analytics. 
 
 Per verificare e attivare l'impostazione, passare al server > Sicurezza > Firewall e reti virtuali, quindi impostare l'opzione **Consenti alle risorse e ai servizi di Azure di accedere a questo server** su **ON**.
 
@@ -106,7 +106,7 @@ Per verificare e attivare l'impostazione, passare al server > Sicurezza > Firewa
 ## <a name="create-linked-services"></a>Creare servizi collegati
 Si creano servizi collegati per collegare gli archivi dati e le risorse di calcolo a una data factory. Un servizio collegato include le informazioni di connessione usate dal servizio Data Factory per connettersi all'archivio dati in fase di esecuzione. 
 
-In questa esercitazione gli archivi dati del database SQL di Azure, di Azure Synapse Analytics (in precedenza SQL Data Warehouse) e dell'Archiviazione BLOB di Azure vengono collegati alla data factory. Il database SQL di Azure è l'archivio dati di origine. Azure Synapse Analytics (in precedenza SQL Data Warehouse) è l'archivio dati del sink/di destinazione. L'Archiviazione BLOB di Azure consente di eseguire lo staging dei dati prima del caricamento dei dati in Azure Synapse Analytics (in precedenza SQL Data Warehouse) tramite PolyBase. 
+In questa esercitazione gli archivi dati del database SQL di Azure, di Azure Synapse Analytics e dell'Archiviazione BLOB di Azure vengono collegati alla data factory. Il database SQL di Azure è l'archivio dati di origine. Azure Synapse Analytics è l'archivio dati del sink/di destinazione. L'Archiviazione BLOB di Azure consente di eseguire lo staging dei dati prima del caricamento dei dati in Azure Synapse Analytics tramite PolyBase. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creare il servizio collegato database SQL di Azure di origine
 In questo passaggio viene creato un servizio per collegare il database in Database SQL di Azure alla data factory. 
@@ -134,11 +134,11 @@ In questo passaggio viene creato un servizio per collegare il database in Databa
     g. Fare clic su **Crea** per salvare il servizio collegato.
 
 
-### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>Creare il servizio collegato sink Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+### <a name="create-the-sink-azure-synapse-analytics-linked-service"></a>Creare il servizio collegato del sink di Azure Synapse Analytics
 
 1. Nella scheda **Connessioni** fare di nuovo clic su **+ Nuovo** sulla barra degli strumenti. 
-1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Azure Synapse Analytics (in precedenza SQL Data Warehouse)** e fare clic su **Continua**. 
-1. Nella finestra **New Linked Service (Azure Synapse Analytics (formerly SQL DW))** (Nuovo servizio collegato - Azure Synapse Analytics (in precedenza SQL Data Warehouse)), procedere come segue: 
+1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Azure Synapse Analytics** e fare clic su **Continua**. 
+1. Nella finestra **New Linked Service (Azure Synapse Analytics)** (Nuovo servizio collegato - Azure Synapse Analytics), procedere come segue: 
    
     a. Immettere **AzureSqlDWLinkedService** per **Nome**.
      
@@ -171,7 +171,7 @@ In questa esercitazione vengono creati i set di dati di origine e sink, che spec
 
 Il set di dati di input **AzureSqlDatabaseDataset** fa riferimento ad **AzureSqlDatabaseLinkedService**. Il servizio collegato specifica la stringa di connessione per la connessione al database. Il set di dati specifica il nome del database e la tabella che contiene i dati di origine. 
 
-Il set di dati di output **AzureSqlDWDataset** fa riferimento ad **AzureSqlDWLinkedService**. Il servizio collegato specifica la stringa di connessione per la connessione ad Azure Synapse Analytics (in precedenza SQL Data Warehouse). Il set di dati specifica il database e la tabella in cui vengono copiati i dati. 
+Il set di dati di output **AzureSqlDWDataset** fa riferimento ad **AzureSqlDWLinkedService**. Il servizio collegato specifica la stringa di connessione per la connessione ad Azure Synapse Analytics. Il set di dati specifica il database e la tabella in cui vengono copiati i dati. 
 
 In questa esercitazione le tabelle SQL di origine e di destinazione non sono hardcoded nelle definizioni del set di dati. L'attività ForEach passa invece il nome della tabella in fase di esecuzione all'attività di copia. 
 
@@ -187,10 +187,10 @@ In questa esercitazione le tabelle SQL di origine e di destinazione non sono har
 1. Passare alla scheda **Connessione** e selezionare una tabella per **Tabella**. Questa è una tabella fittizia. Specificare una query sul set di dati di origine quando si crea una pipeline. La query viene usata per estrarre dati dal database. In alternativa è possibile selezionare la casella di controllo **Modifica** e immettere **dbo.dummyName** come nome della tabella. 
  
 
-### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Creare un set di dati per l'istanza sink di Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>Creare un set di dati per il sink di Azure Synapse Analytics 
 
 1. Fare clic su **+ (segno più)** nel riquadro a sinistra e quindi su **Set di dati**. 
-1. Nella finestra **Nuovo set di dati** selezionare **Azure Synapse Analytics (in precedenza SQL Data Warehouse)** e quindi fare clic su **Continua**.
+1. Nella finestra **New Dataset** (Nuovo set di dati) selezionare **Azure Synapse Analytics** e quindi fare clic su **Continua**.
 1. Nella finestra **Imposta proprietà**, in **Nome**, immettere **AzureSqlDWDataset**. In **Servizio collegato** selezionare **AzureSqlDWLinkedService**. Fare quindi clic su **OK**.
 1. Passare alla scheda **Parametri**, fare clic su **+ Nuovo** e immettere **DWTableName** come nome del parametro. Fare di nuovo clic su **+ Nuovo** e immettere **DWSchema** come nome del parametro. Se si copia/incolla questo nome dalla pagina, assicurarsi che non siano presenti **spazi finali** dopo *DWTableName* e *DWSchema*. 
 1. Passare alla scheda **Connessione**. 
@@ -212,7 +212,7 @@ La pipeline **GetTableListAndTriggerCopyData** esegue due azioni:
 * Ricerca della tabella di sistema del database SQL di Azure per ottenere l'elenco di tabelle da copiare.
 * Attivazione della pipeline **IterateAndCopySQLTables** per l'esecuzione della copia effettiva dei dati.
 
-La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parametro. Per ogni tabella dell'elenco, copia i dati dalla tabella del database SQL di Azure ad Azure Synapse Analytics (in precedenza SQL Data Warehouse) usando una copia di staging e PolyBase.
+La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parametro. Per ogni tabella dell'elenco, copia i dati dalla tabella di Database SQL di Azure ad Azure Synapse Analytics usando una copia in fasi e PolyBase.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Creare la pipeline IterateAndCopySQLTables
 
@@ -393,15 +393,15 @@ Questa pipeline esegue due azioni:
     ```    
 1. Per tornare alla visualizzazione **Esecuzioni della pipeline**, fare clic sul collegamento **Tutte le esecuzioni della pipeline** nella parte superiore del menu di navigazione. Fare clic sul collegamento **IterateAndCopySQLTables** (nella colonna **PIPELINE NAME**) per visualizzare le esecuzioni attività della pipeline. Si noti che è presente un'esecuzione attività **Copia** per ogni tabella nell'output dell'attività **Cerca**. 
 
-1. Verificare che i dati siano stati copiati nell'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse) di destinazione usata in questa esercitazione. 
+1. Verificare che i dati siano stati copiati nell'istanza di Azure Synapse Analytics di destinazione usata in questa esercitazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione sono stati eseguiti i passaggi seguenti: 
 
 > [!div class="checklist"]
 > * Creare una data factory.
-> * Creare un database SQL di Azure, Azure Synapse Analytics (in precedenza SQL Data Warehouse) e servizi collegati di Archiviazione di Azure.
-> * Creare set di dati di database SQL di Azure e Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+> * Creare i servizi collegati Database SQL di Azure, Azure Synapse Analytics e Archiviazione di Azure.
+> * Creare set di dati di Database SQL di Azure e Azure Synapse Analytics.
 > * Creare una pipeline per cercare le tabelle da copiare e un'altra pipeline per eseguire l'operazione di copia effettiva. 
 > * Avviare un'esecuzione della pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.

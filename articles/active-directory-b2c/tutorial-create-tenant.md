@@ -7,19 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447045"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859613"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
-Prima che le applicazioni possano interagire con Azure Active Directory B2C (Azure AD B2C), devono essere registrate in un tenant gestito.
+Prima che le applicazioni possano interagire con Azure Active Directory B2C (Azure AD B2C), devono essere registrate in un tenant gestito. 
+
+> [!NOTE]
+> È possibile creare fino a 20 tenant per sottoscrizione. Questo limite consente di proteggere le risorse dalle minacce, ad esempio gli attacchi Denial of Service, e viene applicato sia nel portale di Azure che nell'API di creazione del tenant sottostante. Se è necessario creare più di 20 tenant, contattare il [supporto tecnico Microsoft](support-options.md).
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -46,8 +49,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     ![Tenant della sottoscrizione, filtro Directory e sottoscrizione con il tenant della sottoscrizione selezionato](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
+
+   ![Selezionare il pulsante Crea una risorsa](media/tutorial-create-tenant/create-a-resource.png)
+
 1. Cercare **Azure Active Directory B2C** e quindi fare clic su **Crea**.
-1. Selezionare **Crea un nuovo tenant Azure AD B2C**.
+2. Selezionare **Crea un nuovo tenant Azure AD B2C**.
 
     ![Opzione Crea un nuovo tenant di Azure AD B2C selezionata nel portale di Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -57,7 +63,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    - **Nome di dominio iniziale**: immettere un nome di dominio per il tenant di Azure AD B2C.
    - **Paese o area geografica**: selezionare il paese o l'area geografica dall'elenco. Non sarà possibile modificare questa selezione in seguito.
    - **Sottoscrizione**: selezionare la sottoscrizione dall'elenco.
-   - **Gruppo di risorse**: selezionare il gruppo di risorse che conterrà il tenant. In alternativa, selezionare **Crea nuovo**, immettere un **Nome** per il gruppo di risorse, selezionare un valore in **Località del gruppo di risorse** e infine fare clic su **OK**.
+   - **Gruppo di risorse**: selezionare o cercare il gruppo di risorse che conterrà il tenant.
 
     ![Modulo di creazione tenant con valori di esempio nel portale di Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 

@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959680"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932405"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Esercitazione: Generare dati di dispositivi simulati
 
@@ -42,6 +42,14 @@ Il progetto DeviceHarness è un progetto .NET Core scritto in C# e costituito da
 Per completare le attività descritte in questo articolo, dovrebbero essere necessari circa 20 minuti.
 
 Nella realtà, le operazioni equivalenti di questo passaggio verranno probabilmente eseguite da sviluppatori di dispositivi e sviluppatori cloud.
+
+In questa sezione dell'esercitazione si apprende come:
+
+> [!div class="checklist"]
+>
+> * Incorporare un progetto esterno nell'ambiente di sviluppo.
+> * Usare il progetto DeviceHarness di esempio per generare dati del dispositivo IoT simulati.
+> * Visualizzare i dati generati nell'hub IoT.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -157,6 +165,10 @@ I dati appena inviati all'hub IoT sono stati instradati al contenitore di archiv
 1. I file sono scritti in formato [Avro](https://avro.apache.org/). Fare doppio clic su uno di questi file per aprire un'altra scheda del browser ed eseguire il rendering parziale dei dati. Se viene chiesto di aprire il file in un programma, è possibile scegliere VS Code, che eseguirà correttamente il rendering.
 
 1. Non è necessario provare a leggere o interpretare i dati in questo momento. Questa operazione verrà eseguita nell'articolo successivo.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Questa esercitazione fa parte di un set in cui ogni articolo si basa sul lavoro svolto nei precedenti. Prima di pulire le risorse attendere il completamento dell'esercitazione finale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

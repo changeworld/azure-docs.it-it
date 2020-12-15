@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517088"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511281"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
 In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
@@ -38,7 +38,7 @@ Prima di archiviare il codice, eseguire [revisioni del codice](/azure/devops/lea
 
 ### <a name="perform-static-code-analysis"></a>Eseguire l'analisi codice statico
 
-L' [analisi codice statico](https://owasp.org/www-community/controls/Static_Code_Analysis), nota anche come *analisi del codice sorgente* viene in genere eseguita come parte di una revisione del codice. L'analisi codice statico si riferisce comunemente all'esecuzione di strumenti di analisi codice statico per individuare potenziali vulnerabilità nel codice non in esecuzione, usando tecniche come il [controllo dei dati](https://en.wikipedia.org/wiki/Taint_checking) e l'[analisi del flusso di dati](https://en.wikipedia.org/wiki/Data-flow_analysis).
+L'[analisi codice statico](https://owasp.org/www-community/controls/Static_Code_Analysis), nota anche come *analisi del codice sorgente* viene in genere eseguita come parte di una revisione del codice. L'analisi codice statico si riferisce comunemente all'esecuzione di strumenti di analisi codice statico per individuare potenziali vulnerabilità nel codice non in esecuzione, usando tecniche come il [controllo dei dati](https://en.wikipedia.org/wiki/Taint_checking) e l'[analisi del flusso di dati](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace offre [strumenti di sviluppo](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) che eseguono l'analisi codice statico e assistono nelle revisioni del codice.
 
@@ -48,21 +48,21 @@ Considerare tutti gli input come non attendibili per proteggere l'applicazione d
 
 Convalidare l'input all'inizio del flusso di dati per garantire che solo i dati in formato corretto entrino nel flusso di lavoro. I dati in formato non valido non devono essere salvati nel database o causare il malfunzionamento di un componente downstream.
 
-L'inserimento nella blacklist e l'elenco elementi consentiti sono due approcci generali per eseguire la convalida della sintassi di input:
+Blocklisting e allowlisting sono due approcci generali per eseguire la convalida della sintassi di input:
 
-  - L'inserimento nella blacklist tenta di verificare che l'input di un determinato utente non contenga contenuti "noti come dannosi".
+  - Blocklisting tenta di verificare che un determinato input utente non contenga contenuto "noto come dannoso".
 
-  - L'elenco elementi consentiti tenta di verificare che l'input di un determinato utente corrisponda a un set di input "validi noti". L'elenco elementi consentiti basato su caratteri è un tipo di elenco elementi consentiti in cui un'applicazione controlla che l'input dell'utente contenga solo caratteri "validi noti" o che l'input corrisponda a un formato noto.
+  - Allowlisting tenta di verificare che un determinato input utente corrisponda a un set di input "noti" validi. Allowlisting basato su caratteri è una forma di allowlisting in cui un'applicazione controlla che l'input dell'utente contenga solo caratteri "noti" o che l'input corrisponda a un formato noto.
     Ad esempio, ciò potrebbe comportare la verifica che un nome utente contenga solo caratteri alfanumerici o che contenga esattamente due numeri.
 
-L'elenco elementi consentiti è l'approccio preferito per la creazione di software protetto.
-L'inserimento nella blacklist è soggetto a errori, perché non è possibile pensare a un elenco completo di input potenzialmente dannoso.
+Allowlisting è l'approccio preferito per la creazione di software protetto.
+Blocklisting è soggetto a errori perché non è possibile pensare a un elenco completo di input potenzialmente errato.
 
 Eseguire questa operazione sul server, non sul lato client o sul server e sul lato client.
 
 ### <a name="verify-your-applications-outputs"></a>Verificare l'output dell'applicazione
 
-Qualsiasi output presentato in modo visivo o all'interno di un documento deve essere sempre codificato e preceduto da un carattere di escape. L' [escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), noto anche come *codifica di output* , viene usato per garantire che i dati non attendibili non siano un veicolo per un attacco injection. L'escape, combinato con la convalida dei dati, fornisce difese a più livelli per aumentare la sicurezza del sistema nel suo complesso.
+Qualsiasi output presentato in modo visivo o all'interno di un documento deve essere sempre codificato e preceduto da un carattere di escape. L'[escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), noto anche come *codifica di output*, viene usato per garantire che i dati non attendibili non siano un veicolo per un attacco injection. L'escape, combinato con la convalida dei dati, fornisce difese a più livelli per aumentare la sicurezza del sistema nel suo complesso.
 
 L'escape garantisce che tutti gli elementi vengano visualizzati come *output*. L'escape consente inoltre all'interprete di tenere presente che i dati non sono destinati a essere eseguiti e questo impedisce il funzionamento degli attacchi. Si tratta di un'altra tecnica di attacco comune denominata *cross-site scripting* (XSS).
 

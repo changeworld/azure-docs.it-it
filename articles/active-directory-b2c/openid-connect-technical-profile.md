@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ad9d3adacf36f0d224e2915836356c5a24e6256a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 10b01538c26f301a375a6d9b1660895dc3e3108b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936676"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509836"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -85,7 +85,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ProviderName | No | Il nome del provider di identità.  |
 | response_types | No | Il tipo di risposta in base alla specifica di OpenID Connect Core 1.0. I valori possibili sono: `id_token`, `code` o `token`. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
-| scope | No | Ambito della richiesta definito in base alla specifica di OpenID Connect Core 1,0. Ad esempio `openid`, `profile`, e `email`. |
+| ambito | No | Ambito della richiesta definito in base alla specifica di OpenID Connect Core 1,0. Ad esempio `openid`, `profile`, e `email`. |
 | HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I valori possibili sono: `GET` o `POST`.  |
 | ValidTokenIssuerPrefixes | No | Una chiave che può essere usata per accedere ai tenant quando si usa un provider di identità multi-tenant, ad esempio Azure Active Directory. |
 | UsePolicyInRedirectUri | No | Indica se usare un criterio durante la costruzione dell'URI di reindirizzamento. Quando si configura l'applicazione nel provider di identità, è necessario specificare l'URI di reindirizzamento. L'URI di reindirizzamento punta a Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` .  Se si specifica `false`, è necessario aggiungere un URI di reindirizzamento per ogni criterio usato. Ad esempio: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
@@ -93,7 +93,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | DiscoverMetadataByTokenIssuer | No | Indica se i metadati OIDC devono essere individuati tramite l'autorità di certificazione nel token JWT. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 |token_endpoint_auth_method| No| Specifica il modo in cui Azure AD B2C invia l'intestazione di autenticazione all'endpoint del token. Valori possibili: `client_secret_post` (impostazione predefinita) e `client_secret_basic` (anteprima pubblica). Per altre informazioni, vedere la [sezione autenticazione client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-|SingleLogoutEnabled| No| Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-overview.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` .|
+|SingleLogoutEnabled| No| Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-behavior.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` .|
 
 ```xml
 <Metadata>

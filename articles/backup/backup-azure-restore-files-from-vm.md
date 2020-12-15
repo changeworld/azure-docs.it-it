@@ -2,14 +2,14 @@
 title: Ripristinare file e cartelle da un backup di macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare file e cartelle da un punto di ripristino di macchine virtuali di Azure.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b9d5c90634dac3229e756ad93c10db91b268080c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841163"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511655"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -156,7 +156,7 @@ Quando si esegue il file eseguibile, il sistema operativo monta i nuovi volumi e
 
    ![Volumi di ripristino collegati](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**Per le macchine virtuali di cui è stato eseguito il backup con dischi di grandi dimensioni (Windows)**
+#### <a name="for-backed-up-vms-with-large-disks-windows"></a>Per le macchine virtuali di cui è stato eseguito il backup con dischi di grandi dimensioni (Windows)
 
 Se il processo di ripristino dei file si blocca dopo l'esecuzione dello script di ripristino del file, ad esempio se i dischi non sono mai montati o se sono montati ma i volumi non vengono visualizzati, seguire questa procedura:
   
@@ -182,7 +182,7 @@ In Linux i volumi del punto di ripristino sono montati nella cartella in cui vie
   ![Menu Ripristino file per Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**Per le macchine virtuali di cui è stato eseguito il backup con dischi di grandi dimensioni (Linux)**
+#### <a name="for-backed-up-vms-with-large-disks-linux"></a>Per le macchine virtuali di cui è stato eseguito il backup con dischi di grandi dimensioni (Linux) * *
 
 Se il processo di ripristino dei file si blocca dopo l'esecuzione dello script di ripristino del file, ad esempio se i dischi non sono mai montati o se sono montati ma i volumi non vengono visualizzati, seguire questa procedura:
 

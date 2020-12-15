@@ -4,23 +4,22 @@ titleSuffix: Azure App Configuration
 description: In questa esercitazione viene illustrato come aggiornare dinamicamente i dati di configurazione per le app ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076998"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930552"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
 
@@ -57,7 +56,7 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
 1. Selezionare **Applica**.
 
 > [!NOTE]
-> Se non si usa una chiave Sentinel, è necessario registrare manualmente ogni chiave da controllare.
+> Se non si usa una chiave Sentinel, è necessario registrare manualmente ogni chiave da controllare.
 
 ## <a name="reload-data-from-app-configuration"></a>Ricaricare i dati di Configurazione app
 
@@ -161,7 +160,7 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
     ```
     ---
     > [!Tip]
-    > Per altre informazioni sul modello di opzioni durante la lettura dei valori di configurazione, vedere  [Modelli di opzioni in ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Per altre informazioni sul modello di opzioni durante la lettura dei valori di configurazione, vedere [Modelli di opzioni in ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Aggiornare il metodo `Configure` aggiungendo il middleware `UseAzureAppConfiguration` per consentire l'aggiornamento delle impostazioni di configurazione appositamente registrate mentre l'app Web ASP.NET Core continua a ricevere richieste.
 
@@ -221,6 +220,9 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
     ---
     
     Il middleware usa la configurazione di aggiornamento specificata nel metodo `AddAzureAppConfiguration` in `Program.cs` per attivare un aggiornamento per ogni richiesta ricevuta dall'app Web ASP.NET Core. Per ogni richiesta, viene attivata un'operazione di aggiornamento e la libreria client verifica se il valore memorizzato nella cache per l'impostazione di configurazione registrata è scaduto. Se è scaduto, viene aggiornato.
+
+    > [!NOTE]
+    > Per assicurarsi che la configurazione venga aggiornata, aggiungere non appena opportuno il middleware alla pipeline di richieste, in modo che un altro middleware nell'applicazione non provochi un cortocircuito.
 
 ## <a name="use-the-latest-configuration-data"></a>Usare i dati di configurazione più recenti
 
@@ -331,7 +333,7 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
 
 1. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:BackgroundColor | green |
     | TestApp:Settings:FontColor | lightGray |

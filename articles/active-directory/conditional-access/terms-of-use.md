@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837601"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509989"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
-Azure AD condizioni per l'utilizzo fornisce un metodo semplice che le organizzazioni possono utilizzare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare le condizioni per l'utilizzo.
+Azure AD condizioni per l'utilizzo fornisce un metodo semplice che le organizzazioni possono utilizzare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare le condizioni per l'utilizzo (ToU).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -104,14 +104,14 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
    | Alice | 1 gen | 1 feb | 1 mar | 1 apr |
    | Bob | 15 gen | 1 feb | 1 mar | 1 apr |
 
-1. Per specificare il numero di giorni prima che l'utente debba accettare di nuovo le condizioni per l'utilizzo, utilizzare l'impostazione **durata prima di riaccettazione richiede (giorni)** . Ciò consente agli utenti di seguire una pianificazione personalizzata. Ad esempio, se si imposta la durata su **30** giorni, ecco come le scadenze potrebbero verificarsi per due utenti:
+1. Per specificare il numero di giorni prima che l'utente debba riaccettare le condizioni per l'utilizzo, utilizzare l'impostazione **durata prima della riaccettazione richiede (giorni)** . Ciò consente agli utenti di seguire una pianificazione personalizzata. Ad esempio, se si imposta la durata su **30** giorni, ecco come le scadenze potrebbero verificarsi per due utenti:
 
    | Utente | Prima data di accettazione | Prima data di scadenza | Seconda data di scadenza | Terza data di scadenza |
    | --- | --- | --- | --- | --- |
    | Alice | 1 gen | 31 gen | 2 mar | 1 apr |
    | Bob | 15 gen | 14 feb | 16 mar | 15 apr |
 
-   È possibile usare le impostazioni **Scadenza consensi** e **Durata prima di una nuova accettazione richiede (giorni)** insieme, ma in genere si usa o l'una o l'altra.
+   È possibile utilizzare i **consensi di scadenza** e la **durata prima che riaccettino le impostazioni (giorni)** , ma in genere si utilizza una o l'altra.
 
 1. In **accesso condizionale** usare l'elenco **applica con i modelli di criteri di accesso condizionale** per selezionare il modello per applicare le condizioni per l'utilizzo.
 
@@ -119,8 +119,8 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
    | Modello | Descrizione |
    | --- | --- |
-   | **Accesso alle app cloud per tutti i guest** | Verranno creati criteri di accesso condizionale per tutti i guest e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Dopo la creazione, potrebbe essere necessario disconnettersi e accedere. |
-   | **Accesso alle app cloud per tutti gli utenti** | Verranno creati criteri di accesso condizionale per tutti gli utenti e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Dopo la creazione, sarà necessario disconnettersi e accedere. |
+   | **Accesso alle app cloud per tutti i guest** | Verranno creati criteri di accesso condizionale per tutti i guest e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Al termine della creazione, potrebbe essere necessario disconnettersi ed eseguire l'accesso. |
+   | **Accesso alle app cloud per tutti gli utenti** | Verranno creati criteri di accesso condizionale per tutti gli utenti e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Una volta creato, sarà necessario disconnettersi ed eseguire l'accesso. |
    | **Criteri personalizzati** | Selezionare gli utenti, i gruppi e le app a cui verranno applicate le condizioni per l'utilizzo. |
    | **Crea criteri di accesso condizionale in un secondo momento** | Queste condizioni per l'utilizzo verranno visualizzate nell'elenco di controllo di concessione quando si crea un criterio di accesso condizionale. |
 
@@ -219,15 +219,55 @@ Gli utenti possono esaminare e visualizzare le condizioni per l'utilizzo accetta
 1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [https://aka.ms/catou](https://aka.ms/catou).
 1. Selezionare le condizioni per l'utilizzo che si desidera modificare.
 1. Fare clic su **Modifica le condizioni**.
-1. Nel riquadro della modifica delle condizioni per l'utilizzo, modificare il nome, il nome visualizzato o richiedere che gli utenti espandano i valori.
+1. Nel riquadro Modifica condizioni per l'utilizzo è possibile modificare gli elementi seguenti:
+     - **Nome** : nome interno delle condizioni non condivise con gli utenti finali
+     - **Nome visualizzato** : questo è il nome che gli utenti finali possono visualizzare quando si visualizzano le condizioni
+     - **Richiedi agli utenti di espandere le condizioni** per l'utilizzo. Se si imposta questa opzione **su on** , l'utilizzo finale verrà forzato per espandere il documento relativo alle condizioni per l'utilizzo prima di accettarlo.
+     - Anteprima È possibile **aggiornare un documento sulle condizioni per l'utilizzo esistente**
+     - È possibile aggiungere una lingua a una ToU esistente
 
    Se sono presenti altre impostazioni che si desidera modificare, ad esempio il documento PDF, richiedere agli utenti di fornire il consenso su ogni dispositivo, scadenza dei consensi, durata prima della riaccettazione o criteri di accesso condizionale, è necessario creare nuove condizioni per l'utilizzo.
 
-   ![Modificare il riquadro Condizioni per l'utilizzo mostrando le opzioni nome ed Espandi](./media/terms-of-use/edit-tou.png)
+    ![Modificare la visualizzazione di opzioni di lingua diverse ](./media/terms-of-use/edit-terms-use.png)
 
-1. Fare clic su **Salva** per salvare le modifiche.
+1. Al termine, fare clic su **Salva** per salvare le modifiche.
 
-   Dopo aver salvato le modifiche, gli utenti non dovranno accettare nuovamente le condizioni nuove.
+## <a name="update-the-version-or-pdf-of-an-existing-terms-of-use"></a>Aggiornare la versione o il PDF delle condizioni per l'utilizzo esistenti
+
+1.  Accedere ad Azure e passare a [condizioni per l'utilizzo](https://aka.ms/catou)
+2.  Selezionare le condizioni per l'utilizzo che si desidera modificare.
+3.  Fare clic su **Modifica le condizioni**.
+4.  Per la lingua che si desidera aggiornare una nuova versione, fare clic su **Aggiorna** nella colonna azione
+ 
+     ![Modificare il riquadro Condizioni per l'utilizzo mostrando le opzioni nome ed Espandi](./media/terms-of-use/edit-terms-use.png)
+
+5.  Nel riquadro a destra caricare il file PDF per la nuova versione
+6.  Qui è disponibile anche un'opzione di attivazione/disconnessione **, se si desidera richiedere agli** utenti di accettare la nuova versione al successivo accesso. Se è necessario che gli utenti riaccettino, la volta successiva che tentano di accedere alla risorsa definita nei criteri di accesso condizionale verrà richiesto di accettare la nuova versione. Se non è necessario che gli utenti riaccettino, il consenso precedente resterà aggiornato e solo i nuovi utenti che non hanno acconsentito prima o il cui consenso scade vedranno la nuova versione.
+
+    ![Modifica l'opzione di riaccettazione delle condizioni per l'utilizzo evidenziata](./media/terms-of-use/re-accept.png)
+
+7.  Dopo aver caricato il nuovo PDF e aver deciso di riaccettarlo, fare clic su Aggiungi nella parte inferiore del riquadro.
+8.  Verrà ora visualizzata la versione più recente sotto la colonna documento.
+
+## <a name="view-previous-versions-of-a-terms-of-use"></a>Visualizzare le versioni precedenti di condizioni per l'utilizzo
+
+1.  Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo https://aka.ms/catou.
+2.  Selezionare le condizioni per l'utilizzo per le quali si desidera visualizzare la cronologia delle versioni.
+3.  Fare clic su **lingue e cronologia versioni**
+4.  Fare clic su **vedere versioni precedenti.**
+
+    ![dettagli del documento, incluse le versioni della lingua](./media/terms-of-use/document-details.png)
+
+5.  È possibile fare clic sul nome del documento per scaricare la versione
+
+## <a name="see-who-has-accepted-each-version"></a>Vedere chi ha accettato ogni versione
+
+1.  Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo https://aka.ms/catou.
+2.  Per visualizzare gli utenti che hanno attualmente accettato le condizioni, fare clic sul numero nella colonna **accettato** per le condizioni desiderate.
+3.  Per impostazione predefinita, nella pagina successiva verrà visualizzato lo stato corrente di ogni utente che accetta le condizioni
+4.  Se si desidera visualizzare gli eventi di consenso precedenti, è possibile selezionare **tutto** dall'elenco a discesa **stato corrente** . Ora è possibile visualizzare tutti gli eventi degli utenti in dettagli su ogni versione e cosa è successo.
+5.  In alternativa, è possibile selezionare una versione specifica dall'elenco a discesa **versione**  per vedere chi ha accettato la versione specifica.
+
 
 ## <a name="add-a-terms-of-use-language"></a>Aggiungere una lingua per le condizioni per l'utilizzo
 
@@ -235,14 +275,14 @@ Nella procedura riportata di seguito viene descritto come aggiungere un linguagg
 
 1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [https://aka.ms/catou](https://aka.ms/catou).
 1. Selezionare le condizioni per l'utilizzo che si desidera modificare.
-1. Nel riquadro dei dettagli fare clic sulla scheda **Lingue**.
-
-   ![Condizioni per l'utilizzo selezionata e visualizzata la scheda lingue nel riquadro dei dettagli](./media/terms-of-use/languages-tou.png)
-
-1. Fare clic su **Aggiungi lingua**.
+1. Fare clic su **modifica termini**
+1. Fare clic su **Aggiungi lingua** nella parte inferiore della pagina.
 1. Nel riquadro Aggiungi la lingua delle condizioni per l'utilizzo caricare il PDF localizzato e selezionare la lingua.
 
-   ![Aggiungere il riquadro dei termini del linguaggio di utilizzo con le opzioni per caricare i file PDF localizzati](./media/terms-of-use/language-add-tou.png)
+   ![Condizioni per l'utilizzo selezionata e visualizzata la scheda lingue nel riquadro dei dettagli](./media/terms-of-use/select-language.png)
+
+1. Fare clic su **Aggiungi lingua**.
+1. Fare clic su **Save** (Salva).
 
 1. Fare clic su **Aggiungi** per aggiungere la lingua.
 
@@ -318,7 +358,7 @@ I criteri di accesso condizionale hanno effetto immediato. In questo caso l'ammi
 > - un criterio di accesso condizionale è abilitato per le condizioni per l'utilizzo
 > - o viene creata una seconda condizione
 
-## <a name="b2b-guests-preview"></a>Guest B2B (anteprima)
+## <a name="b2b-guests"></a>Guest B2B
 
 La maggior parte delle organizzazioni dispone di un processo per consentire ai dipendenti di fornire il consenso alle condizioni per l'utilizzo e alle informative sulla privacy dell'organizzazione. Ma come è possibile applicare gli stessi consensi per i guest di Azure AD business-to-business (B2B) quando vengono aggiunti tramite SharePoint o i team? Usando l'accesso condizionale e le condizioni per l'utilizzo, è possibile applicare un criterio direttamente agli utenti Guest B2B. Durante il flusso di riscatto dell'invito, l'utente viene visualizzato con le condizioni per l'utilizzo. Questo supporto è attualmente disponibile in versione di anteprima.
 
@@ -326,7 +366,7 @@ Le Condizioni per l'utilizzo verranno visualizzate solo quando l'utente dispone 
 
 ![Riquadro utenti e gruppi-scheda Includi con l'opzione tutti gli utenti Guest selezionata](./media/terms-of-use/b2b-guests.png)
 
-## <a name="support-for-cloud-apps-preview"></a>Supporto per le app cloud (anteprima)
+## <a name="support-for-cloud-apps"></a>Supporto per le app Cloud
 
 Le Condizioni per l'utilizzo possono essere usate per diverse app cloud, ad esempio Azure Information Protection e Microsoft Intune. Questo supporto è attualmente disponibile in versione di anteprima.
 

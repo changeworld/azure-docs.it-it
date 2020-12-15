@@ -1,20 +1,20 @@
 ---
 title: Modello con risorse dipendenti
-description: Informazioni su come creare un modello di Azure Resource Manager con più risorse e come eseguirne la distribuzione tramite il portale di Azure
+description: Informazioni su come creare un modello di Azure Resource Manager (modello di ARM) con più risorse e come eseguirne la distribuzione tramite il portale di Azure
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86102073"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931589"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
-Informazioni su come creare un modello di Azure Resource Manager (ARM) per distribuire più risorse e configurare l'ordine di distribuzione. Dopo aver creato il modello, è possibile distribuire il modello usando Cloud Shell dal portale di Azure.
+Informazioni su come creare un modello di Azure Resource Manager (modello di ARM) per distribuire più risorse e configurare l'ordine di distribuzione. Dopo aver creato il modello, è possibile distribuire il modello usando Cloud Shell dal portale di Azure.
 
 In questa esercitazione si creano un account di archiviazione, una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti. Alcune delle risorse non possono essere distribuite finché non esiste un'altra risorsa. Ad esempio, non è possibile creare la macchina virtuale finché non esistono la relativa interfaccia di rete e l'account di archiviazione. Per definire questa relazione, si contrassegna una risorsa come dipendente dalle altre. Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. Per altre informazioni, vedere [Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager](./define-resource-dependency.md).
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```console
@@ -67,7 +67,7 @@ Quando si esplora il modello in questa sezione, provare a rispondere alle domand
 
 1. Da Visual Studio Code, comprimere gli elementi finché non vengono visualizzati solo gli elementi di primo livello e gli elementi di secondo livello all'interno di **resources**:
 
-    ![Modelli di Azure Resource Manager in Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
+    ![Modelli di ARM in Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Sono presenti sei risorse definite dal modello:
 
@@ -82,19 +82,19 @@ Quando si esplora il modello in questa sezione, provare a rispondere alle domand
 
 1. Espandere la prima risorsa. È un account di archiviazione. Confrontare la definizione della risorsa con le [informazioni di riferimento sui modelli](/azure/templates/Microsoft.Storage/storageAccounts).
 
-    ![Modelli di Azure Resource Manager in Visual Studio Code - definizione dell'account di archiviazione](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    ![Modelli di ARM in Visual Studio Code - definizione dell'account di archiviazione](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 1. Espandere la seconda risorsa. La risorsa è di tipo `Microsoft.Network/publicIPAddresses`. Confrontare la definizione della risorsa con le [informazioni di riferimento sui modelli](/azure/templates/microsoft.network/publicipaddresses).
 
-    ![Modelli di Azure Resource Manager in Visual Studio Code - definizione dell'indirizzo IP pubblico](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+    ![Modelli di ARM in Visual Studio Code - definizione dell'indirizzo IP pubblico](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 
 1. Espandere la terza risorsa. La risorsa è di tipo `Microsoft.Network/networkSecurityGroups`. Confrontare la definizione della risorsa con le [informazioni di riferimento sui modelli](/azure/templates/microsoft.network/networksecuritygroups).
 
-    ![Modelli di Azure Resource Manager in Visual Studio Code - definizione del gruppo di sicurezza di rete](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![Modelli di ARM in Visual Studio Code - definizione del gruppo di sicurezza di rete](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Espandere la quarta risorsa. La risorsa è di tipo `Microsoft.Network/virtualNetworks`:
 
-    ![Modelli di Azure Resource Manager in Visual Studio Code - elemento dependsOn per la rete virtuale](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![Modelli di ARM in Visual Studio Code - elemento dependsOn per la rete virtuale](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
     L'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Questa risorsa dipende da un'altra risorsa:
 
@@ -112,7 +112,7 @@ Quando si esplora il modello in questa sezione, provare a rispondere alle domand
 
 Il diagramma seguente illustra le risorse e le informazioni sulle dipendenze per questo modello:
 
-![Modelli di Azure Resource Manager in Visual Studio Code - diagramma delle dipendenze](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
+![Modelli di ARM in Visual Studio Code - diagramma delle dipendenze](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
 Specificando le dipendenze, Resource Manager distribuisce in modo efficiente la soluzione. Distribuisce l'account di archiviazione, l'indirizzo IP pubblico e la rete virtuale in parallelo poiché non hanno dipendenze. Dopo aver distribuito l'indirizzo IP pubblico e la rete virtuale, viene creata l'interfaccia di rete. Quando sono state distribuite tutte le altre risorse, Resource Manager distribuisce la macchina virtuale.
 

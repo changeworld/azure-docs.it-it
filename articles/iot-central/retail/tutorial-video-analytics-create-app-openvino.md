@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: af967c58cdeb2c750178141193a711a66af7477c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: fbe1e84525eed47127a08abc9fb7ec5d1144d02f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426742"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763613"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>Esercitazione: Creare un'applicazione Analisi video - rilevamento movimento e oggetti in Azure IoT Central (OpenVINO&trade;)
 
@@ -24,10 +24,10 @@ Questa esercitazione illustra agli sviluppatori di soluzioni come creare un'appl
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt): questo file consente di registrare le varie opzioni di configurazione necessarie durante l'utilizzo di queste esercitazioni.
 - [deployment.openvino.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json): è necessario scaricare questo file solo se si prevede di usare il dispositivo Intel NUC nella seconda esercitazione.
 
 [!INCLUDE [iot-central-video-analytics-part2](../../../includes/iot-central-video-analytics-part2.md)]
 
@@ -39,7 +39,7 @@ Per preparare il manifesto della distribuzione:
 
 1. Aprire il file *deployment.openvino.amd64.json* salvato nella cartella *lva-configuration* usando un editor di testo.
 
-1. Individuare le impostazioni `LvaEdgeGatewayModule` e modificare il nome dell'immagine come illustrato nel frammento di codice seguente:
+1. Trovare le impostazioni di `LvaEdgeGatewayModule` e verificare che il nome dell'immagine sia quello illustrato nel frammento di codice seguente:
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -47,7 +47,7 @@ Per preparare il manifesto della distribuzione:
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Aggiungere il nome dell'account di Servizi multimediali nel nodo `env` nella sezione `LvaEdgeGatewayModule`. Il nome dell'account è stato annotato nel file *scratchpad.txt*:
+1. Aggiungere il nome dell'account di Servizi multimediali nel nodo `env` nella sezione `LvaEdgeGatewayModule`. È stato annotato il nome dell'account di Servizi multimediali nel file *scratchpad.txt*:
 
     ```json
     "env": {
@@ -55,7 +55,7 @@ Per preparare il manifesto della distribuzione:
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -64,7 +64,16 @@ Per preparare il manifesto della distribuzione:
 
     `azureMediaServicesArmId` è il valore di **ID risorsa** annotato nel file *scratchpad.txt* quando è stato creato l'account di Servizi multimediali.
 
-    I valori `aadTenantId`, `aadServicePrincipalAppId` e `aadServicePrincipalSecret` sono stati annotati nel file *scratchpad.txt* quando è stata creata l'entità servizio per l'account di Servizi multimediali:
+    La tabella seguente mostra i valori dell'**API Connettersi a Servizi multimediali (JSON)** nel file *scratchpad.txt* da usare nel manifesto della distribuzione:
+
+    | Manifesto della distribuzione       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Usare la tabella precedente per assicurarsi di aggiungere i valori corretti nel manifesto di distribuzione. In caso contrario, il dispositivo non funzionerà.
 
     ```json
     {

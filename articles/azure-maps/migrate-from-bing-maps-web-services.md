@@ -3,18 +3,18 @@ title: 'Esercitazione: Eseguire la migrazione dei servizi Web da Bing Maps | Map
 description: Questa esercitazione illustra come eseguire la migrazione di servizi Web da Bing Maps a Mappe di Microsoft Azure.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897025"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904959"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>Esercitazione - Eseguire la migrazione di un servizio Web da Bing Maps
 
@@ -37,21 +37,21 @@ La tabella seguente illustra le API del servizio Mappe di Azure che forniscono f
 | Servizi dati spaziali (SDS)           | [Ricerca](/rest/api/maps/search) + [Percorso](/rest/api/maps/route) e altri servizi di Azure |
 | Fuso orario                             | [Fusi orari](/rest/api/maps/timezone)  |
 | Incidenti stradali                     | [Dettagli degli incidenti stradali](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Altitudine                             | [Altitudine (anteprima)](/rest/api/maps/elevation)
 
 Le API dei servizi seguenti non sono attualmente disponibili in Mappe di Azure:
 
--   Altitudine - Pianificata
 -   Percorsi di itinerari ottimizzati - Pianificata. L'API Percorso di Mappe di Azure supporta l'ottimizzazione del tragitto di minima percorrenza per un singolo veicolo.
 -   Metadati delle immagini: usati principalmente per ottenere gli URL delle tessere in Bing Maps. Mappe di Azure include un servizio autonomo per l'accesso diretto alle tessere mappa.
 
 Mappe di Azure include numerosi servizi Web REST aggiuntivi che possono risultare utili:
 
--   [Creator di Mappe di Azure](./creator-indoor-maps.md): creare un gemello digitale privato personalizzato di edifici e spazi.
+-   [Creator di Mappe di Azure (anteprima)](./creator-indoor-maps.md): creare un gemello digitale privato personalizzato di edifici e spazi.
 -   [Operazioni spaziali](/rest/api/maps/spatial): trasferire il carico di operazioni e calcoli spaziali complessi, ad esempio il geofencing, a un servizio.
 -   [Tessere mappa](/rest/api/maps/render/getmaptile): accedere alle tessere di strade e immagini da Mappe di Azure come tessere raster e vettoriali.
 -   [Pianificazione di percorsi in batch](/rest/api/maps/route/postroutedirectionsbatchpreview): consente di effettuare fino a 1.000 richieste di percorsi in un singolo batch in un determinato periodo di tempo. I percorsi vengono calcolati in parallelo nel server per accelerare l'elaborazione.
 -   [Flusso del traffico](/rest/api/maps/traffic): accedere ai dati del flusso del traffico in tempo reale come tessere raster e vettoriali.
--   [API di georilevazione](/rest/api/maps/geolocation/getiptolocationpreview): ottenere la posizione di un indirizzo IP.
+-   [API di georilevazione (anteprima)](/rest/api/maps/geolocation/getiptolocationpreview): ottenere la posizione di un indirizzo IP.
 -   [Servizi meteorologici](/rest/api/maps/weather): ottenere l'accesso a dati meteorologici in tempo reale e di previsione.
 
 Assicurarsi di consultare anche le seguenti guide alle procedure consigliate:
@@ -186,7 +186,7 @@ Il servizio di pianificazione percorso di Mappe di Azure fornisce le API seguent
 
 -   [Calcolo percorso](/rest/api/maps/route/getroutedirections): consente di calcolare un percorso e di elaborare immediatamente la richiesta. Questa API supporta le richieste GET e POST. Le richieste POST sono consigliate quando si specifica un numero elevato di punti di tragitto o quando si usano molte opzioni pel percorso per assicurarsi che la richiesta URL non diventi troppo lunga e causi problemi.
 -   [Percorso batch](/rest/api/maps/route/postroutedirectionsbatchpreview): consente di creare una richiesta contenente fino a 1.000 richieste di percorso e le elabora in un certo periodo di tempo. Tutti i dati verranno elaborati in parallelo nel server e, al termine dell'operazione, sarà possibile scaricare il set di risultati completo.
--   [Servizi di mobilità](/rest/api/maps/mobility): consente di calcolare percorsi e indicazioni usando il trasporto pubblico.
+-   [Servizi di mobilità (anteprima)](/rest/api/maps/mobility): consente di calcolare percorsi e indicazioni usando il trasporto pubblico.
 
 La tabella seguente include i riferimenti incrociati tra i parametri delle API di Bing Maps e i parametri equivalenti delle API di Mappe di Azure.
 

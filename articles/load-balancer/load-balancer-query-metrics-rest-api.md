@@ -10,12 +10,12 @@ ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: eeca560989c174bcb654116eb13da40d6ec79e60
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: fbf21ba359ae7914acd2d812ec9e12f9f3ee557a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700512"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511944"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Ottenere Load Balancer metriche di utilizzo usando l'API REST
 
@@ -52,7 +52,7 @@ Gli argomenti seguenti sono obbligatori:
 | timespan | Intervallo di tempo della query. Si tratta di una stringa con il formato seguente `startDateTime_ISO/endDateTime_ISO` . Questo parametro facoltativo è impostato per restituire, nell'esempio, i dati relativi a un singolo giorno. |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 Per questa operazione non è necessario alcun corpo della richiesta.
 

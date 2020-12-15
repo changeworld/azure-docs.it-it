@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/30/2020
-ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/14/2020
+ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793161"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512029"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Livelli di servizio del database SQL di Azure e di Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Nella tabella seguente vengono descritte le differenze principali tra i livelli 
 | **Velocità effettiva scrittura log** | Database SQL | [1,875 MB/s per vCore (massimo 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s per vCore (Max 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Istanza gestita di SQL | [3 MB/s per vCore (massimo 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s per Vcore (max 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**Disponibilità**|Tutti| 99,99% |  [99,95% con una replica secondaria, 99,99% con più repliche](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% con database singolo con ridondanza della zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Backup**|Tutti|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)| RA-GRS, 7 giorni, ripristino temporizzato a tempo costante (ripristino temporizzato) | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
+|**Backup**|Tutti|RA-GRS, 7-35 giorni (7 giorni per impostazione predefinita). La conservazione massima per il livello Basic è di 7 giorni. | RA-GRS, 7 giorni, ripristino temporizzato a tempo costante (ripristino temporizzato) | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
 |**OLTP in memoria** | | N/D | N/D | Disponibile |
 |**Repliche di sola lettura**| | 0 incorporato <br> 0-4 uso della [replica geografica](active-geo-replication-overview.md) | 0-4 predefinito | 1 incorporato, incluso nel prezzo <br> 0-4 uso della [replica geografica](active-geo-replication-overview.md) |
 |**Prezzi/fatturazione** | Database SQL | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. | vengono addebitati [vCore per ogni replica e l'archiviazione usata](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>IOPS non ancora addebitato. | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. |
@@ -93,8 +93,8 @@ Per monitorare la dimensione totale corrente dei file MDF e LDF, usare [sp_space
 
 Lo spazio di archiviazione per i backup di database è allocato per supportare le funzionalità di ripristino temporizzato (ripristino temporizzato) e [conservazione a lungo termine (LTR)](long-term-retention-overview.md) del database SQL e di SQL istanza gestita. Queste risorse vengono allocate separatamente per ogni database e fatturate come due costi distinti.
 
-- **Ripristino temporizzato** : i singoli backup di database vengono copiati automaticamente nell' [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md) . Le dimensioni di archiviazione aumentano in modo dinamico man mano che vengono creati nuovi backup. L'archiviazione viene utilizzata da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni, copiati ogni 5 minuti. Il consumo di spazio di archiviazione dipende dalla frequenza di modifica del database e dal periodo di memorizzazione per i backup. È possibile configurare un periodo di conservazione separato per ogni database compreso tra 7 e 35 giorni. Un importo di archiviazione minimo pari al 100% (1x) delle dimensioni del database viene fornito senza costi aggiuntivi. Per la maggior parte dei database, questa quantità è sufficiente per un periodo di archiviazione dei backup di 7 giorni.
-- **LTR** : è anche possibile configurare la conservazione a lungo termine dei backup completi per un massimo di 10 anni. questa funzionalità è in [anteprima pubblica limitata per SQL istanza gestita](long-term-retention-overview.md#sql-managed-instance-support). Se si configura un criterio LTR, questi backup vengono archiviati automaticamente nell'archiviazione RA-GRS, ma è possibile controllare la frequenza con cui vengono copiati i backup. Per soddisfare i diversi requisiti di conformità, è possibile selezionare diversi periodi di conservazione per i backup settimanali, mensili e/o annuali. La configurazione scelta determina la quantità di spazio di archiviazione che verrà usata per i backup con LTR. Per stimare il costo dell'archiviazione di LTR, è possibile usare il calcolatore dei prezzi di LTR. Per altre informazioni, vedere [conservazione a lungo termine del database SQL](long-term-retention-overview.md).
+- **Ripristino temporizzato**: i singoli backup di database vengono copiati automaticamente nell' [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md) . Le dimensioni di archiviazione aumentano in modo dinamico man mano che vengono creati nuovi backup. L'archiviazione viene utilizzata da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni, copiati ogni 5 minuti. Il consumo di spazio di archiviazione dipende dalla frequenza di modifica del database e dal periodo di memorizzazione per i backup. È possibile configurare un periodo di conservazione separato per ogni database compreso tra 7 e 35 giorni. Un importo di archiviazione minimo pari al 100% (1x) delle dimensioni del database viene fornito senza costi aggiuntivi. Per la maggior parte dei database, questa quantità è sufficiente per un periodo di archiviazione dei backup di 7 giorni.
+- **LTR**: è anche possibile configurare la conservazione a lungo termine dei backup completi per un massimo di 10 anni. questa funzionalità è in [anteprima pubblica limitata per SQL istanza gestita](long-term-retention-overview.md#sql-managed-instance-support). Se si configura un criterio LTR, questi backup vengono archiviati automaticamente nell'archiviazione RA-GRS, ma è possibile controllare la frequenza con cui vengono copiati i backup. Per soddisfare i diversi requisiti di conformità, è possibile selezionare diversi periodi di conservazione per i backup settimanali, mensili e/o annuali. La configurazione scelta determina la quantità di spazio di archiviazione che verrà usata per i backup con LTR. Per stimare il costo dell'archiviazione di LTR, è possibile usare il calcolatore dei prezzi di LTR. Per altre informazioni, vedere [conservazione a lungo termine del database SQL](long-term-retention-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Aggiungere tag alle risorse nel modello'
-description: Aggiungere tag alle risorse distribuite in un modello di Azure Resource Manager. I tag consentono di organizzare le risorse in modo logico.
+description: Aggiungere tag alle risorse distribuite in un modello di Azure Resource Manager (modello di ARM). I tag consentono di organizzare le risorse in modo logico.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 16fc294784d9d6ff3c2fdd920d053eae5cd4b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4084508202fc7db5280d34c157552fe723b1dfba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613204"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930943"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Esercitazione: Aggiungere tag nel modello di Azure Resource Manager
 
-Questa esercitazione illustra come aggiungere tag alle risorse nel modello di Azure Resource Manager (ARM). I [tag](../management/tag-resources.md) consentono di organizzare le risorse in modo logico. I valori dei tag vengono visualizzati nei report sui costi. Per completare l'esercitazione, sono necessari **8 minuti**.
+Questa esercitazione illustra come aggiungere tag alle risorse nel modello di Azure Resource Manager (modello di ARM). I [tag](../management/tag-resources.md) consentono di organizzare le risorse in modo logico. I valori dei tag vengono visualizzati nei report sui costi. Per completare l'esercitazione, sono necessari **8 minuti**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

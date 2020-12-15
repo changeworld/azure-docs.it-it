@@ -1,20 +1,20 @@
 ---
 title: Importare file BACPAC SQL con i modelli
-description: Informazioni su come usare estensioni per il database SQL di Azure per importare file BACPAC SQL con modelli di Azure Resource Manager.
+description: Informazioni su come usare estensioni per il database SQL di Azure per importare file BACPAC SQL con modelli di Azure Resource Manager (modelli di ARM).
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101886"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931402"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager
 
-Informazioni su come usare estensioni per il database SQL di Azure per importare un file BACPAC con modelli di Azure Resource Manager. Gli artefatti della distribuzione sono tutti i file, oltre ai file modello principali, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi.
+Informazioni su come usare estensioni per il database SQL di Azure per importare file BACPAC con modelli di Azure Resource Manager (modelli di ARM). Gli artefatti della distribuzione sono tutti i file, oltre ai file modello principali, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi.
 
 In questa esercitazione verrà creato un modello per distribuire un [server SQL logico](../../azure-sql/database/logical-servers.md) e un database singolo e importare un file BACPAC. Per informazioni su come distribuire le estensioni macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager](./template-tutorial-deploy-vm-extensions.md).
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore del server. Di seguito è riportato un esempio che è possibile usare per generare una password:
 
     ```console
