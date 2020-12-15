@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977868"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576469"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Sono disponibili due famiglie separate di librerie client per le chiamate: per i *client* e per i *servizi* . Le librerie client attualmente disponibili sono destinate all'esperienza degli utenti finali: siti Web e app native.
+Sono disponibili due famiglie separate di librerie client per le chiamate: per i *client* e per i *servizi*. Le librerie client attualmente disponibili sono destinate all'esperienza degli utenti finali: siti Web e app native.
 
 Le librerie client del servizio non sono ancora disponibili e forniscono l'accesso ai piani dati vocali e video non elaborati, adatti per l'integrazione con i bot e altri servizi.
 
@@ -64,12 +64,32 @@ La tabella seguente rappresenta il set di versioni e browser supportati attualme
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Libreria client per le chiamate** | Chrome*, nuovo Microsoft Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+| **Libreria client per le chiamate** | Chrome*, nuovo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
 *Si noti che la versione più recente di Chrome è supportata in aggiunta alle due versioni precedenti.<br/>
 
 **Si noti che sono supportate le versioni di Safari 13.1 e successive. Il video in uscita per Safari macOS non è ancora supportato, ma è supportato in iOS. La condivisione dello schermo in uscita è supportata solo in iOS per desktop.
+
+## <a name="calling-client---browser-security-model"></a>Client chiamante - modello di sicurezza del browser
+
+### <a name="user-webrtc-over-https"></a>WebRTC utente su HTTPS
+
+Un requisito delle API WebRTC come `getUserMedia` è che l'app che chiama queste API sia servita tramite HTTPS.
+
+Per lo sviluppo locale è possibile usare `http://localhost`.
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Incorporare l'SDK per le chiamate di Servizi di comunicazione in un iframe
+
+Diversi browser stanno adottando nuovi [criteri di autorizzazioni (detti anche criteri di funzionalità)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute). Questi criteri influiscono sugli scenari di chiamata controllando il modo in cui le applicazioni possono accedere alla fotocamera e al microfono di un dispositivo tramite un elemento iframe tra diverse origini.
+
+Se si vuole usare un iframe per ospitare parte dell'app da un dominio diverso, occorre aggiungere l'attributo `allow` con il valore corretto all'iframe.
+
+Ad esempio, questo iframe consente l'accesso sia alla fotocamera che al microfono:
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

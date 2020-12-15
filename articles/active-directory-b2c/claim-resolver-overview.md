@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e55bb9ba49cfcaf07e8d3dc17dc13e30036e100f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109046"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508017"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | US |
 | {Culture:RFC5646} | Codice RFC5646 della lingua. | en-US |
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Criteri
 
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
@@ -88,7 +88,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:DateTimeInUtc} |Data e ora in formato UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |Modalità di distribuzione dei criteri.  | Produzione |
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
-| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
+| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) è selezionata. |  true |
 
 ### <a name="claims"></a>Attestazioni 
 
@@ -133,7 +133,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 È possibile usare i resolver di attestazioni con gli elementi seguenti:
 
-| Elemento | Elemento | Impostazioni |
+| Item | Elemento | Impostazioni |
 | ----- | ----------------------- | --------|
 |Profilo tecnico di Application Insights |`InputClaim` | |
 |[Azure Active Directory](active-directory-technical-profile.md) profilo tecnico| `InputClaim`, `OutputClaim`| 1, 2|

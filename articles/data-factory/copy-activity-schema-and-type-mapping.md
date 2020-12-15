@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637259"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507524"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapping dei tipi di dati nell'attività di copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -58,7 +58,7 @@ Altre informazioni su:
 
 Le proprietà seguenti sono supportate `translator` in oltre a `mappings` :
 
-| Proprietà            | Descrizione                                                  | Obbligatoria |
+| Proprietà            | Descrizione                                                  | Obbligatorio |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Applicare quando si copiano dati da un'origine gerarchica, ad esempio Cosmos DB, MongoDB o connettori REST.<br>Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. | No       |
 
@@ -170,7 +170,7 @@ Ad esempio, se si dispone di un documento di origine MongoDB con il contenuto se
 }
 ```
 
-E si desidera copiarlo in un file di testo nel formato seguente con la riga di intestazione, rendendo flat i dati all'interno della matrice *(order_pd e order_price)* e cross join con le informazioni radice comuni *(numero, data e città)* :
+E si desidera copiarlo in un file di testo nel formato seguente con la riga di intestazione, rendendo flat i dati all'interno della matrice *(order_pd e order_price)* e cross join con le informazioni radice comuni *(numero, data e città)*:
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -182,13 +182,13 @@ E si desidera copiarlo in un file di testo nel formato seguente con la riga di i
 
 1. Nella scheda mapping dell'attività di copia > fare clic sul pulsante **Importa schema** per importare gli schemi di origine e sink. Data Factory esegue il campionamento dei primi oggetti quando si importa lo schema, se un campo non viene visualizzato, è possibile aggiungerlo al livello corretto nella gerarchia-passare il puntatore del mouse su un nome di campo esistente e scegliere di aggiungere un nodo, un oggetto o una matrice.
 
-2. Selezionare la matrice da cui si desidera eseguire l'iterazione ed estrarre i dati. Verrà popolato automaticamente come **riferimento alla raccolta** . Si noti che per tale operazione è supportata una sola matrice.
+2. Selezionare la matrice da cui si desidera eseguire l'iterazione ed estrarre i dati. Verrà popolato automaticamente come **riferimento alla raccolta**. Si noti che per tale operazione è supportata una sola matrice.
 
 3. Eseguire il mapping dei campi necessari per il sink. Data Factory determina automaticamente i percorsi JSON corrispondenti per il lato gerarchico.
 
 ![Mappa gerarchica a tabulare usando l'interfaccia utente](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-È anche possibile passare all' **Editor avanzato** , nel qual caso è possibile visualizzare e modificare direttamente i percorsi JSON dei campi. Se si sceglie di aggiungere nuovo mapping in questa visualizzazione, specificare il percorso JSON.
+È anche possibile passare all' **Editor avanzato**, nel qual caso è possibile visualizzare e modificare direttamente i percorsi JSON dei campi. Se si sceglie di aggiungere nuovo mapping in questa visualizzazione, specificare il percorso JSON.
 
 ![Eseguire il mapping gerarchico a tabulare mediante l'editor avanzato](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -307,7 +307,7 @@ Le conversioni dei tipi di dati seguenti sono supportate tra i tipi provvisori d
 
 Le proprietà seguenti sono supportate nell'attività di copia per la conversione del tipo di dati (nella `translator` sezione relativa alla creazione a livello di codice):
 
-| Proprietà                         | Descrizione                                                  | Obbligatoria |
+| Proprietà                         | Descrizione                                                  | Obbligatorio |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | Abilitare la nuova esperienza di conversione del tipo di dati. <br>Il valore predefinito è false a causa della compatibilità con le versioni precedenti.<br><br>Per le nuove attività di copia create tramite l'interfaccia utente di creazione Data Factory dalla fine del 2020 giugno, questa conversione del tipo di dati è abilitata per impostazione predefinita per un'esperienza ottimale ed è possibile visualizzare le seguenti impostazioni di conversione dei tipi nell'attività di copia-scheda mapping > per gli scenari applicabili. <br>Per creare una pipeline a livello di codice, è necessario impostare in modo esplicito la `typeConversion` proprietà su true per abilitarla.<br>Per le attività di copia esistenti create prima del rilascio di questa funzionalità, non verranno visualizzate le opzioni di conversione dei tipi nell'interfaccia utente di creazione Data Factory per la compatibilità con le versioni precedenti. | No       |
 | typeConversionSettings           | Gruppo di impostazioni di conversione dei tipi. Applicare quando `typeConversion` è impostato su `true` . Le proprietà seguenti sono tutte sottoposte a questo gruppo. | No       |
@@ -356,7 +356,7 @@ Le proprietà seguenti sono supportate nell'attività di copia per la conversion
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Mapping di colonne alternativo (modello Legacy)
 
-È possibile specificare l'attività di copia-> per eseguire il `translator`  ->  `columnMappings` mapping tra dati a forma di tabulazione. In questo caso, la sezione "Structure" è obbligatoria per i set di dati di input e di output. Il mapping di colonne supporta il **mapping di tutte le colonne o di un sottoinsieme delle colonne nella "struttura" del set di dati di origine a tutte le colonne della "struttura" del set di dati del sink** . Le seguenti sono condizioni di errore che generano un'eccezione:
+È possibile specificare l'attività di copia-> per eseguire il `translator`  ->  `columnMappings` mapping tra dati a forma di tabulazione. In questo caso, la sezione "Structure" è obbligatoria per i set di dati di input e di output. Il mapping di colonne supporta il **mapping di tutte le colonne o di un sottoinsieme delle colonne nella "struttura" del set di dati di origine a tutte le colonne della "struttura" del set di dati del sink**. Le seguenti sono condizioni di errore che generano un'eccezione:
 
 - Il risultato della query dell'archivio dati di origine non ha un nome colonna specificato nella sezione "struttura" del set di dati di input.
 - L'archivio dati sink (con schema predefinito) non ha un nome colonna specificato nella sezione "struttura" del set di dati di output.
@@ -455,7 +455,7 @@ La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyNam
 | Proprietà            | Descrizione                                                  | Obbligatoria |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | La proprietà Type del convertitore dell'attività di copia deve essere impostata su: **TabularTranslator** | Sì      |
-| schemaMapping       | Raccolta di coppie chiave-valore che rappresenta la relazione di mapping **dal lato di origine al lato del sink** .<br/>- **Key:** rappresenta l'origine. Per l' **origine tabulare** , specificare il nome della colonna come definito nella struttura del set di dati. per l' **origine gerarchica** , specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare.<br>- **Valore:** rappresenta il sink. Per il **sink tabulare** , specificare il nome della colonna come definito nella struttura del set di dati. per il **sink gerarchico** , specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare. <br>Nel caso di dati gerarchici, per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice $; per i campi all'interno della matrice scelta dalla `collectionReference` proprietà, il percorso JSON inizia dall'elemento della matrice. | Sì      |
+| schemaMapping       | Raccolta di coppie chiave-valore che rappresenta la relazione di mapping **dal lato di origine al lato del sink**.<br/>- **Key:** rappresenta l'origine. Per l' **origine tabulare**, specificare il nome della colonna come definito nella struttura del set di dati. per l' **origine gerarchica**, specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare.<br>- **Valore:** rappresenta il sink. Per il **sink tabulare**, specificare il nome della colonna come definito nella struttura del set di dati. per il **sink gerarchico**, specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare. <br>Nel caso di dati gerarchici, per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice $; per i campi all'interno della matrice scelta dalla `collectionReference` proprietà, il percorso JSON inizia dall'elemento della matrice. | Sì      |
 | collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No       |
 
 **Esempio: copia da MongoDB a Oracle:**
@@ -487,7 +487,7 @@ Se ad esempio si ha un il documento di MongoDB con il contenuto seguente:
 }
 ```
 
-e si vuole copiare tale contenuto in una tabella SQL di Azure nel formato seguente, rendendo flat i dati nella matrice *(order_pd e order_price)* e nel crossjoin con le informazioni radice comuni *(numero, data e città)* :
+e si vuole copiare tale contenuto in una tabella SQL di Azure nel formato seguente, rendendo flat i dati nella matrice *(order_pd e order_price)* e nel crossjoin con le informazioni radice comuni *(numero, data e città)*:
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |

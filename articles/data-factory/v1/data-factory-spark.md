@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495073"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508425"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
@@ -118,13 +118,13 @@ In questo passaggio viene creato un servizio collegato HDInsight per collegare i
 
 1. Copiare e incollare il frammento di codice seguente nella finestra Bozza-1. Nell'editor JSON eseguire la procedura seguente:
 
-    a. Specificare l'URI per il cluster Spark HDInsight. Ad esempio: `https://<sparkclustername>.azurehdinsight.net/`.
+    1. Specificare l'URI per il cluster Spark HDInsight. Ad esempio: `https://<sparkclustername>.azurehdinsight.net/`.
 
-    b. Specificare il nome dell'utente che ha accesso al cluster Spark.
+    1. Specificare il nome dell'utente che ha accesso al cluster Spark.
 
-    c. Specificare la password dell'utente.
+    1. Specificare la password dell'utente.
 
-    d. Specificare il servizio collegato di archiviazione associato al cluster Spark HDInsight. In questo esempio è AzureStorageLinkedService.
+    1. Specificare il servizio collegato di archiviazione associato al cluster Spark HDInsight. In questo esempio è AzureStorageLinkedService.
 
     ```json
     {
@@ -213,20 +213,21 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
         }
     }
     ```
+
     Tenere presente quanto segue:
 
-    a. La proprietà **Type** è impostata su **HDInsightSpark**.
+    1. La proprietà **Type** è impostata su **HDInsightSpark**.
 
-    b. La proprietà **rootPath** è impostata su **adfspark\\pyFiles**, dove adfspark è il contenitore BLOB e pyFiles è la cartella di file nel contenitore. In questo esempio, l'archivio BLOB è quello associato al cluster Spark. È possibile caricare il file in un account di archiviazione diverso. In tal caso, creare un servizio collegato di archiviazione per collegare l'account di archiviazione alla data factory. Specificare quindi il nome del servizio collegato come valore per la proprietà **sparkJobLinkedService** . Per altre informazioni su questa e altre proprietà supportate dall'attività Spark, vedere [Proprietà dell'attività Spark](#spark-activity-properties).
+    1. La proprietà **rootPath** è impostata su **adfspark\\pyFiles**, dove adfspark è il contenitore BLOB e pyFiles è la cartella di file nel contenitore. In questo esempio, l'archivio BLOB è quello associato al cluster Spark. È possibile caricare il file in un account di archiviazione diverso. In tal caso, creare un servizio collegato di archiviazione per collegare l'account di archiviazione alla data factory. Specificare quindi il nome del servizio collegato come valore per la proprietà **sparkJobLinkedService** . Per altre informazioni su questa e altre proprietà supportate dall'attività Spark, vedere [Proprietà dell'attività Spark](#spark-activity-properties).
 
-    c. La proprietà **entryFilePath** è impostata su **test.py**, ovvero sul file Python.
+    1. La proprietà **entryFilePath** è impostata su **test.py**, ovvero sul file Python.
 
-    d. La proprietà **getDebugInfo** è impostata su **Always**, il che significa che i file di log vengono sempre generati (esito positivo o negativo).
+    1. La proprietà **getDebugInfo** è impostata su **Always**, il che significa che i file di log vengono sempre generati (esito positivo o negativo).
 
-    > [!IMPORTANT]
-    > Non è consigliabile impostare questa proprietà su `Always` in un ambiente di produzione, a meno che non si stia tentando di risolvere un problema.
+       > [!IMPORTANT]
+       > Si consiglia di non impostare questa proprietà su `Always` in un ambiente di produzione a meno che non si stia risolvendo un problema.
 
-    e. La sezione **Outputs** include un set di dati di output. Anche se il programma Spark non genera alcun output, è necessario specificare un set di dati di output. Il set di dati di output è ciò su cui si basa la pianificazione della pipeline (oraria, giornaliera).
+    1. La sezione **Outputs** include un set di dati di output. Anche se il programma Spark non genera alcun output, è necessario specificare un set di dati di output. Il set di dati di output è ciò su cui si basa la pianificazione della pipeline (oraria, giornaliera).
 
     Per altre informazioni sulle proprietà supportate dall'attività Spark, vedere la sezione [Proprietà dell'attività Spark](#spark-activity-properties).
 

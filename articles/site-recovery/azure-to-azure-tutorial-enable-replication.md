@@ -4,12 +4,12 @@ description: Questa esercitazione descrive come configurare il ripristino di eme
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394101"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922488"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Esercitazione: Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -56,7 +56,7 @@ L'account Azure deve avere le autorizzazioni per creare un insieme di credenzial
 
 ### <a name="verify-target-settings"></a>Verificare le impostazioni di destinazione
 
-Durante il ripristino dell'individuazione, quando si esegue il failover dall'area di origine, vengono create le macchine virtuali nell'area di destinazione. 
+Se durante il ripristino di emergenza si esegue il failover dall'area di origine, le VM vengono create nell'area di destinazione. 
 
 Verificare che la sottoscrizione disponga di un numero sufficiente di risorse nell'area di destinazione. È necessario poter creare le macchine virtuali con dimensioni corrispondenti a quelle delle macchine virtuali nell'area di origine. Quando si configura il ripristino di emergenza, Site Recovery sceglie le stesse dimensioni o le dimensioni più vicine possibile per la macchina virtuale di destinazione.
 

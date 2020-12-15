@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 448707ab84ccca03dc0572d2ebed1b4bd1b6325f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505292"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750901"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Avvio rapido: Distribuire la prima applicazione Azure Spring Cloud
 
@@ -140,7 +140,7 @@ In Visual Studio creare un'applicazione Web ASP.NET Core denominata "hello-world
    }
    ```
    
-1. Aggiungere le dipendenze e un'attività `Zip` al file con estensione *csproj* :
+1. Aggiungere le dipendenze e un'attività `Zip` al file con estensione *csproj*:
 
    ```xml
    <ItemGroup>
@@ -219,9 +219,9 @@ Nella procedura seguente viene creata un'istanza di Azure Spring Cloud usando il
 1. Compilare il modulo nella pagina di **creazione** di Azure Spring Cloud.  Considerare le linee guida seguenti:
 
    * **Sottoscrizione** selezionare la sottoscrizione da fatturare per questa risorsa.
-   * **Gruppo di risorse** : Creare un nuovo gruppo di risorse. Il nome immesso qui verrà usato come **\<resource group name\>** nei passaggi successivi.
-   * **Dettagli servizio/Nome** : specificare il **\<service instance name\>** .  Il nome deve essere composto da 4-32 caratteri e può contenere solo lettere in minuscolo, numeri e trattini.  Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.
-   * **Area** : selezionare l'area per l'istanza del servizio.
+   * **Gruppo di risorse**: Creare un nuovo gruppo di risorse. Il nome immesso qui verrà usato come **\<resource group name\>** nei passaggi successivi.
+   * **Dettagli servizio/Nome**: specificare il **\<service instance name\>** .  Il nome deve essere composto da 4-32 caratteri e può contenere solo lettere in minuscolo, numeri e trattini.  Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.
+   * **Area**: selezionare l'area per l'istanza del servizio.
 
    ![Avvio del portale di Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -251,7 +251,7 @@ La procedura seguente compila e distribuisce il progetto creato in precedenza.
    az spring-cloud app deploy -n hello-world -s <service instance name> -g <resource group name> --runtime-version NetCore_31 --main-entry hello-world.dll --artifact-path ./deploy.zip
    ```
 
-   L'opzione `--main-entry` identifica il file *DLL* contenente il punto di ingresso dell'applicazione. Dopo aver caricato il file *ZIP* , il servizio estrae tutti i file e le cartelle e prova a eseguire il punto di ingresso nel file *DLL* specificato da `--main-entry`.
+   L'opzione `--main-entry` identifica il file *DLL* contenente il punto di ingresso dell'applicazione. Dopo aver caricato il file *ZIP*, il servizio estrae tutti i file e le cartelle e prova a eseguire il punto di ingresso nel file *DLL* specificato da `--main-entry`.
 
    Per completare la distribuzione dell'applicazione sono necessari alcuni minuti. Per verificare che sia stata distribuita, passare al pannello **App** nel portale di Azure.
 
@@ -352,6 +352,9 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 
   ![Pagina di Initializr](media/spring-cloud-quickstart-java/initializr-page.png)
 
+> [!NOTE]
+> Il team Microsoft ha identificato un problema con Spring Boot 2.4 nell'autenticazione TLS tra le app ed Eureka e sta collaborando con la community di Spring per risolverlo. Vedere le [domande frequenti](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) per la soluzione alternativa.
+
 1. Dopo aver impostato tutte le dipendenze, fare clic su **Generate** (Genera). Scaricare e decomprimere il pacchetto, quindi creare un controller Web per una semplice applicazione Web aggiungendo `src/main/java/com/example/hellospring/HelloController.java` come indicato di seguito:
 
     ```java
@@ -388,9 +391,9 @@ Nella procedura seguente viene creata un'istanza di Azure Spring Cloud usando il
 
 5. Compilare il modulo nella pagina di **creazione** di Azure Spring Cloud.  Considerare le linee guida seguenti:
     - **Sottoscrizione** selezionare la sottoscrizione da fatturare per questa risorsa.
-    - **Gruppo di risorse** : è consigliabile creare un nuovo gruppo di risorse per le nuove risorse. Verrà usato in passaggi successivi come **\<resource group name\>** .
-    - **Dettagli servizio/Nome** : specificare il **\<service instance name\>** .  Il nome deve essere composto da 4-32 caratteri e può contenere solo lettere in minuscolo, numeri e trattini.  Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.
-    - **Località** : selezionare l'area per l'istanza del servizio.
+    - **Gruppo di risorse**: è consigliabile creare un nuovo gruppo di risorse per le nuove risorse. Verrà usato in passaggi successivi come **\<resource group name\>** .
+    - **Dettagli servizio/Nome**: specificare il **\<service instance name\>** .  Il nome deve essere composto da 4-32 caratteri e può contenere solo lettere in minuscolo, numeri e trattini.  Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.
+    - **Località**: selezionare l'area per l'istanza del servizio.
 
     ![Avvio del portale di Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -481,7 +484,7 @@ I log vengono visualizzati nei risultati:
 
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
-1. Selezionare **Azure Explorer** , quindi **Spring Cloud**.
+1. Selezionare **Azure Explorer**, quindi **Spring Cloud**.
 1. Fare clic con il pulsante destro del mouse sull'app in esecuzione.
 1. Selezionare **Streaming Logs** (Log in streaming) dall'elenco a discesa.
 1. Selezione l'istanza.

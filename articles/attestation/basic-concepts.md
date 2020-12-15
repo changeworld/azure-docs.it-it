@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236920"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921623"
 ---
 # <a name="basic-concepts"></a>Concetti di base
 
@@ -30,7 +30,7 @@ Di seguito sono riportati alcuni concetti di base relativi ad Attestazione di Mi
 
 Il provider di attestazioni appartiene al provider di risorse di Azure denominato Microsoft.Attestation. Il provider di risorse è un endpoint del servizio che fornisce il contratto REST di Attestazione di Azure e viene distribuito con [Azure Resource Manager](../azure-resource-manager/management/overview.md). Ogni provider di attestazioni rispetta criteri specifici individuabili. 
 
-I provider di attestazioni vengono creati con un criterio predefinito per ogni tipo di ambiente TEE (si noti che l'enclave VBS non include criteri predefiniti). Per informazioni dettagliate sui criteri predefiniti per SGX, vedere [Esempi di un criterio di attestazione](policy-examples.md).
+I provider di attestazioni vengono creati con un criterio predefinito per ogni tipo di attestazione (si noti che l'enclave VBS non include criteri predefiniti). Per informazioni dettagliate sui criteri predefiniti per SGX, vedere [Esempi di un criterio di attestazione](policy-examples.md).
 
 ### <a name="regional-default-provider"></a>Provider predefinito a livello di area
 
@@ -38,11 +38,11 @@ Attestazione di Azure prevede un provider predefinito in ogni area. I clienti po
 
 | Area | URI di attestazione | 
 |--|--|
-| Regno Unito meridionale | https://shareduks.uks.attest.azure.net | 
-| Stati Uniti orientali 2 | https://sharedeus2.eus2.attest.azure.net | 
-| Stati Uniti centrali | https://sharedcus.cus.attest.azure.net | 
-| Stati Uniti orientali| https://sharedeus.eus.attest.azure.net | 
-| Canada centrale | https://sharedcac.cac.attest.azure.net | 
+| Regno Unito meridionale | `https://shareduks.uks.attest.azure.net` | 
+| Stati Uniti orientali 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| Stati Uniti centrali | `https://sharedcus.cus.attest.azure.net` | 
+| Stati Uniti orientali| `https://sharedeus.eus.attest.azure.net` | 
+| Canada centrale | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Richiesta di attestazione
 
@@ -50,13 +50,13 @@ La richiesta di attestazione è un oggetto JSON serializzato inviato dall'applic
 - "Quote": il valore della proprietà "Quote" è una stringa contenente una rappresentazione con codifica Base64URL dell'offerta di attestazione
 - "EnclaveHeldData": il valore della proprietà "EnclaveHeldData" è una stringa contenente una rappresentazione con codifica Base64URL dei dati contenuti nell'enclave.
 
-Attestazione di Azure convaliderà l'"offerta" fornita da TEE e si assicurerà che l'hash SHA256 dei dati contenuti nell'enclave forniti venga espresso nei primi 32 byte del campo reportData dell'offerta. 
+Il servizio di attestazione di Azure convaliderà l'offerta fornita e verificherà che l'hash SHA256 dei dati contenuti nell'enclave forniti sia espresso nei primi 32 byte del campo reportData dell'offerta. 
 
 ## <a name="attestation-policy"></a>Criteri di attestazione
 
 Il criterio di attestazione viene usato per elaborare l'evidenza dell'attestazione ed è configurabile dai clienti. Alla base di Attestazione di Azure è presente un motore di criteri che elabora le attestazioni che costituiscono l'evidenza. I criteri vengono usati per determinare se Attestazione di Azure emetterà un token di attestazione in base all'evidenza (o meno) e quindi approverà l'attestatore (o meno). Di conseguenza, se i criteri non vengono tutti soddisfatti, non verranno emessi token JWT.
 
-Se il criterio TEE predefinito nel provider di attestazioni non soddisfa le esigenze, i clienti saranno in grado di creare criteri personalizzati in tutte le aree supportate da Attestazione di Azure. La gestione dei criteri è una funzionalità chiave fornita ai clienti da Attestazione di Azure. I criteri saranno specifici di TEE e potranno essere usati per identificare le enclavi o aggiungere attestazioni al token di output oppure per modificare le attestazioni in un token di output. 
+Se il criterio predefinito nel provider di attestazioni non soddisfa le esigenze, i clienti potranno creare criteri personalizzati in tutte le aree supportate da Attestazione di Azure. La gestione dei criteri è una funzionalità chiave fornita ai clienti da Attestazione di Azure. I criteri saranno specifici del tipo di attestazione e potranno essere usati per identificare le enclavi o aggiungere attestazioni al token di output oppure per modificare le attestazioni in un token di output. 
 
 Per informazioni sui contenuti e gli esempi di criteri predefiniti, vedere [Esempi di un criterio di attestazione](policy-examples.md).
 
@@ -99,6 +99,15 @@ Esempio di token JWT generato per un'enclave SGX:
 }.[Signature]
 ```
 Attestazioni come "exp", "iat", "iss" e "nbf" vengono definite da [JWT RFC](https://tools.ietf.org/html/rfc7517) e le altre vengono generate da Attestazione di Azure. Per altre informazioni, vedere [Attestazioni emesse da Attestazione di Azure](claim-sets.md).
+
+## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
+
+Per proteggere i dati dei clienti, il servizio di attestazione di Azure salva in modo permanente i dati in Archiviazione di Azure. Archiviazione di Azure fornisce la crittografia dei dati inattivi man mano che vengono scritti nei data center e li decrittografa per consentire ai clienti di accedervi. Questa crittografia viene eseguita tramite una chiave di crittografia gestita da Microsoft. 
+
+Oltre a proteggere i dati in Archiviazione di Azure, Attestazione di Azure usa anche Crittografia dischi di Azure per crittografare le macchine virtuali del servizio. L'estensione di Crittografia dischi di Azure non è attualmente supportata per il servizio di attestazione di Azure in esecuzione in un'enclave in ambienti di confidential computing di Azure. In scenari di questo tipo il file di paging è disabilitato per impedire l'archiviazione dei dati in memoria. 
+
+Nessun dato dei clienti viene salvato in modo permanente nelle unità disco rigido locali dell'istanza di Attestazione di Azure.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

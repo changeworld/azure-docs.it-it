@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 74e9224b30ccee274eaf52ba47a0ec05573c2e9d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992319"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558726"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -109,7 +109,7 @@ Se si prevede di aggiungere nuove immagini al set di dati, usare l'aggiornamento
 
 Per aggiungere altre immagini al progetto, usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per eseguire il caricamento nella cartella appropriata dell'archivio BLOB. 
 
-Selezionare la casella **Abilita aggiornamento incrementale** se si vuole che il progetto monitori continuamente la presenza di nuovi dati nell'archivio dati.
+Selezionare la casella **Abilita aggiornamento incrementale** se si vuole che il progetto monitori continuamente la presenza di nuovi dati nell'archivio dati. Questi dati verranno inseriti nel progetto una volta al giorno, se la funzionalità è abilitata.
 
 Deselezionare questa casella di controllo se non si vuole che le nuove immagini visualizzate nell'archivio dati vengano aggiunte al progetto.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 383cd286f89bde13f5e557792e980f0455e00917
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 472c1770e2793d8da4e8fc76fafbf3b9073b746d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876694"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763427"
 ---
 ## <a name="deploy-and-configure-azure-media-services"></a>Distribuire e configurare Servizi multimediali di Azure
 
@@ -34,7 +34,15 @@ Creare l'[account di Servizi multimediali nel portale di Azure](https://portal.a
 
 Prendere nota del nome dell'account di **Servizi multimediali** nel file *scratchpad.txt*.
 
-Al termine della distribuzione, passare alla pagina **Proprietà** per l'account di **Servizi multimediali**. Prendere nota dell'**ID risorsa** nel file *scratchpad.txt* perché questo valore verrà usato in seguito durante la configurazione del modulo IoT Edge.
+Al termine della distribuzione, aprire un'istanza di Cloud Shell ed eseguire il comando seguente per recuperare l'**ID risorsa** dell'account di Servizi multimediali:
+
+```azurecli
+az resource list --resource-group lva-rg --resource-type microsoft.media/mediaservices --output table --query "[].{ResourceID:id}"
+```
+
+:::image type="content" source="media/iot-central-video-analytics-part2/get-resource-id.png" alt-text="Usare Cloud Shell per ottenere l'ID risorsa":::
+
+Prendere nota dell'**ID risorsa** nel file *scratchpad.txt* perché questo valore verrà usato in seguito durante la configurazione del modulo IoT Edge.
 
 Configurare quindi un'entità servizio Azure Active Directory per la risorsa di Servizi multimediali. Selezionare **Accesso all'API** e quindi **Autenticazione tramite entità servizio**. Creare una nuova app di Azure Active Directory con lo stesso nome della risorsa di Servizi multimediali e creare un segreto con una descrizione *IoT Edge Access*.
 
@@ -74,7 +82,7 @@ Per creare una nuova applicazione di analisi video:
 
 1. Selezionare **Crea**.
 
-    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Configurare un'app di Azure AD per Servizi multimediali di Azure":::
+    :::image type="content" source="./media/iot-central-video-analytics-part2/new-application.png" alt-text="Pagina Crea applicazione di Azure IoT Central":::
 
 ### <a name="retrieve-the-configuration-data"></a>Recuperare i dati di configurazione
 
@@ -82,11 +90,11 @@ Più avanti in questa esercitazione quando si configura il gateway IoT Edge sono
 
 Nella sezione **Amministrazione** selezionare **Applicazione** e prendere nota dei valori di **URL applicazione** e **ID applicazione** nel file *scratchpad.txt*:
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Configurare un'app di Azure AD per Servizi multimediali di Azure":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/administration.png" alt-text="Screenshot che mostra il riquadro Amministrazione di una pagina di analisi video con le opzioni URL applicazione e ID applicazione evidenziate.":::
 
 Selezionare **Token API** e generare un nuovo token denominato **LVAEdgeToken** per il ruolo **Operatore**:
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Configurare un'app di Azure AD per Servizi multimediali di Azure":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/token.png" alt-text="Generare token":::
 
 Prendere nota del token nel file *scratchpad.txt* per usarlo in seguito. Dopo la chiusura della finestra di dialogo, non sarà più possibile visualizzare il token.
 

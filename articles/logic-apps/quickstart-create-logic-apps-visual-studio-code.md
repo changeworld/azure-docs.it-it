@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/28/2020
-ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c4d4c659fd1c33c9ffc1b833b92d0727b5c17bf7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099189"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922894"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Guida introduttiva: Creare e gestire definizioni dei flussi di lavoro delle app per la logica con Visual Studio Code
 
@@ -93,7 +93,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
    ![Selezionare la sottoscrizione ad Azure](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
    > [!TIP]
-   > In **Account di integrazione** , la selezione della sottoscrizione mostra tutti gli account di integrazione presenti nella sottoscrizione.
+   > In **Account di integrazione**, la selezione della sottoscrizione mostra tutti gli account di integrazione presenti nella sottoscrizione.
 
 <a name="create-logic-app"></a>
 
@@ -307,4 +307,4 @@ In Visual Studio Code è possibile aprire ed esaminare le versioni precedenti de
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare app per la logica con stato o senza stato in Visual Studio Code (anteprima)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Creare app per la logica con stato e senza stato in Visual Studio Code (anteprima)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

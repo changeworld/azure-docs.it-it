@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e860a33ba44743dcc5a96d7656f22fd952a1d0b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995157"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762568"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Avvio rapido: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione Web Node con il flusso di codice di autorizzazione
 
@@ -42,15 +42,14 @@ Questo argomento di avvio rapido usa Microsoft Authentication Library per Node.j
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com).
-> 1. Se l'account consente di accedere a più tenant, selezionare l'account in alto a destra e quindi impostare la sessione del portale sul tenant di Azure AD che si vuole usare.
-> 1. Selezionare [Registrazioni per l'app](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Selezionare **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
+> 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+> 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+> 1. Immettere un **nome** per l'applicazione. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
 > 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
 > 1. Impostare il valore del campo **URI di reindirizzamento** su `http://localhost:3000/redirect`.
 > 1. Selezionare **Registra**. 
 > 1. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)** per uso successivo.
-> 1. In **Certificati e segreti** selezionare **Nuovo segreto client**.  Lasciare vuota la descrizione e mantenere invariata la scadenza predefinita, quindi fare clic su **Aggiungi**.
+> 1. In **Gestisci** selezionare **Certificati e segreti** > **Nuovo segreto client**.  Lasciare vuota la descrizione e mantenere invariata la scadenza predefinita, quindi selezionare **Aggiungi**.
 > 1. Prendere nota del **valore** di **Segreto client** per usarlo successivamente.
 
 #### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb91a09ed31658c2d547a7b46cf2f986bfbd0e50
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019583"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508289"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Spostare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -42,7 +42,7 @@ Per abilitare la connettività all'istanza di SAP BW, installare i componenti se
 > [!TIP]
 > Inserire le DLL estratte dall'SDK di NetWeaver RFC nella cartella system32.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
@@ -278,8 +278,6 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 }
 ```
 
-
-
 ### <a name="type-mapping-for-sap-bw"></a>Mapping dei tipi per SAP BW
 Come indicato nell'articolo [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni di tipi automatiche dai tipi di origine ai tipi di sink con l'approccio in due passaggi seguente:
 
@@ -293,9 +291,9 @@ Tipo di dati nel dizionario ABAP | Tipo di dati .NET
 ACCP |  Int
 CHAR | string
 CLNT | string
-CURR | Decimale
+CURR | Decimal
 CUKY | string
-DEC | Decimale
+DEC | Decimal
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
@@ -304,7 +302,7 @@ LANG | string
 LCHR | string
 LRAW | Byte[]
 PREC | Int16
-QUAN | Decimale
+QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
 STRING | string

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393219"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570961"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Esercitazione: Eseguire uno script "Hello world!" di Python t (parte 2 di 4)
 
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>Testare lo script in locale
+
+### <a name="test-your-script-locally"></a><a name="test"></a>Testare lo script in locale
 
 È possibile eseguire il codice in locale, usando l'IDE preferito o un terminale. L'esecuzione in locale offre il vantaggio del debug interattivo del codice.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>Creare uno script di controllo
+> [!div class="nextstepaction"]
+> [Lo script è stato eseguito in locale](?success=run-local#control-script) [Si è verificato un problema](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> Creare uno script di controllo
 
 Uno *script di controllo* consente di eseguire lo script `hello.py` nel cloud. Usare lo script di controllo per controllare come e dove viene eseguito il codice di Machine Learning.  
 
@@ -89,6 +93,8 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+
 
 ### <a name="understand-the-code"></a>Informazioni sul codice
 
@@ -135,7 +141,10 @@ Ecco come funziona lo script di controllo:
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>Inviare ed eseguire il codice nel cloud
+> [!div class="nextstepaction"]
+> [Lo script di controllo è stato creato](?success=create-control-script#submit) [Si è verificato un problema](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Inviare ed eseguire il codice nel cloud
 
 Eseguire lo script di controllo, che a sua volta esegue `hello.py` nel cluster di elaborazione creato nell'[esercitazione relativa alla configurazione](tutorial-1st-experiment-sdk-setup-local.md).
 
@@ -154,7 +163,10 @@ python 03-run-hello.py
 > [!TIP]
 > Se l'esecuzione di questo codice genera un messaggio di errore che indica che non si ha accesso alla sottoscrizione, vedere [Connettersi a un'area di lavoro](how-to-manage-workspace.md?tab=python#connect-multi-tenant) per informazioni sulle opzioni di autenticazione.
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitorare il codice nel cloud usando Studio
+> [!div class="nextstepaction"]
+> [Il codice è stato inviato nel cloud](?success=submit-to-cloud#monitor) [Si è verificato un problema](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Monitorare il codice nel cloud usando Studio
 
 L'output conterrà un collegamento a Studio simile al seguente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
@@ -185,6 +197,9 @@ Seguire il collegamento e passare alla scheda **Output e log**, in cui è possib
 Nella riga 8 verrà visualizzato l'output "Hello World!".
 
 Il file `70_driver_log.txt` contiene l'output standard di un'esecuzione. Questo file può risultare utile per il debug di esecuzioni remote nel cloud.
+
+> [!div class="nextstepaction"]
+> [Il log è visibile in Studio](?success=monitor-in-studio#next-steps) [Si è verificato un problema](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

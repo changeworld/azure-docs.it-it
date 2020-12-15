@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fc68170a89a3d9a359ae9cb2c0d5543af301e738
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658384"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573035"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -70,7 +70,8 @@ Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non f
 |Il DNS personalizzato non supporta il tunneling forzato|Se il tunneling forzato è abilitato, il DNS personalizzato non funziona.|È in corso la ricerca di una correzione.|
 |Supporto del nuovo indirizzo IP pubblico per più zone di disponibilità|Non è possibile aggiungere un nuovo indirizzo IP pubblico quando si distribuisce un firewall con due zona di disponibilità (1 e 2, 2 e 3 o 1 e 3)|Questa è una limitazione della risorsa indirizzo IP pubblico.|
 |L'avvio/arresto non funziona con un firewall configurato in modalità di tunneling forzato|L'avvio/arresto non funziona con Firewall di Azure configurato in modalità di tunneling forzato. Se si tenta di avviare Firewall di Azure con il tunneling forzato configurato, si verifica l'errore seguente:<br><br>*Set-AzFirewall: Non è possibile aggiungere la configurazione IP di gestione del Firewall di Azure FW-xx a un firewall esistente. Per usare il supporto del tunneling forzato, ridistribuire con una configurazione IP di gestione.<br>StatusCode: 400<br>ReasonPhrase: Richiesta non valida*|In fase di analisi.<br><br>Come soluzione alternativa, è possibile eliminare il firewall esistente e crearne uno nuovo con gli stessi parametri.|
-|Non è possibile aggiungere tag dei criteri firewall usando il portale|I criteri di Firewall di Azure hanno una limitazione del supporto delle patch che impedisce di aggiungere un tag usando il portale di Azure. Viene generato l'errore seguente: *Non è stato possibile salvare i tag per la risorsa*.|È in corso la ricerca di una correzione. In alternativa, è possibile usare il cmdlet `Set-AzFirewallPolicy` di Azure PowerShell per aggiornare i tag.
+|Non è possibile aggiungere tag dei criteri firewall usando il portale|I criteri di Firewall di Azure hanno una limitazione del supporto delle patch che impedisce di aggiungere un tag usando il portale di Azure. Viene generato l'errore seguente: *Non è stato possibile salvare i tag per la risorsa*.|È in corso la ricerca di una correzione. In alternativa, è possibile usare il cmdlet `Set-AzFirewallPolicy` di Azure PowerShell per aggiornare i tag.|
+|IPv6 non ancora supportato|Se si aggiunge un indirizzo IPv6 a una regola, si verifica un errore del firewall.|Usare solo indirizzi IPv4. Il supporto di IPv6 è in fase di analisi.|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

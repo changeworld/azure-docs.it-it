@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 28358db2e538867957fcc8d4984cf1c028f9ab2c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030366"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575959"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione
 
@@ -123,7 +123,7 @@ Per altre informazioni sull'utilizzo del servizio Web, vedere [Usare un modello 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati illustrati i principali passaggi per creare, distribuire e usare un modello di Machine Learning nella finestra di progettazione. Per altre informazioni su come usare la finestra di progettazione per risolvere altri tipi di problemi, vedere le altre pipeline di esempio.
+In questa esercitazione sono stati illustrati i principali passaggi per creare, distribuire e usare un modello di Machine Learning nella finestra di progettazione. Per informazioni su come usare la finestra di progettazione, vedere i collegamenti seguenti:
 
-> [!div class="nextstepaction"]
-> [Esempi della finestra di progettazione](samples-designer.md)
++ [Esempi della finestra di progettazione](samples-designer.md): informazioni su come usare la finestra di progettazione per risolvere altri tipi di problemi.
++ [Usare Azure Machine Learning in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md).

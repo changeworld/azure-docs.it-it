@@ -2,20 +2,20 @@
 title: Confrontare i servizi basati su Active Directory in Azure | Microsoft Docs
 description: In questa panoramica vengono confrontate le diverse offerte di gestione delle identità relativamente ad Active Directory Domain Services, Azure Active Directory e Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: joflore
-ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 479cc036ed3231d970d46eef9d89daa39a0b0876
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962667"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620189"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Confrontare soluzioni Active Directory Domain Services autogestite, Azure Active Directory e Azure Active Directory Domain Services gestite
 
@@ -114,6 +114,9 @@ Con dispositivi aggiunti ad Azure AD DS, le applicazioni possono usare i protoco
 | Gestione                      | Software di gestione di dispositivi mobili (MDM), ad esempio Intune | Criteri di gruppo                                                              |
 | Rete                      | Funziona attraverso Internet                             | Deve essere connesso o associato alla rete virtuale in cui è distribuito il dominio gestito |
 | Ideale per...                    | Dispositivi mobili o desktop degli utenti finali                  | VM server distribuite in Azure                                              |
+
+
+Se Active Directory Domain Services locale e Azure AD sono configurati per l'autenticazione federata tramite ADFS, non è disponibile alcun hash delle password (corrente/valido) in Azure DS. Gli account utente di Azure AD creati prima dell'implementazione dell'autenticazione federata potrebbero avere un hash delle password precedente, che probabilmente non corrisponde a un hash della password locale. Di conseguenza Azure Active Directory Domain Services non sarà in grado di convalidare le credenziali degli utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

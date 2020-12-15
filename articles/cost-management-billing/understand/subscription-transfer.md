@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82b33a7a9403993ec883090559884a45d04b7aa2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149385"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932201"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Informazioni sul trasferimento della proprietà della fatturazione per una sottoscrizione di Azure
 
@@ -36,7 +36,7 @@ Solo l'amministratore della fatturazione di un account può trasferire la propri
 
 L'amministratore della fatturazione è una persona autorizzata a gestire la fatturazione per un account. Ha l'autorizzazione per accedere alla fatturazione nel [portale di Azure](https://portal.azure.com) ed eseguire varie attività collegate, ad esempio creare sottoscrizioni, visualizzare e pagare fatture oppure aggiornare i metodi di pagamento.
 
-Per identificare gli account per i quali si è amministratori della fatturazione, visitare la [pagina Gestione dei costi e fatturazione nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Selezionare quindi **Tutti gli ambiti di fatturazione** nel riquadro sinistro. La pagina delle sottoscrizioni illustra tutte le sottoscrizioni per le quali l'utente ha il ruolo di amministratore della fatturazione.
+Per identificare gli account per i quali si è amministratori della fatturazione, visitare la [pagina Gestione dei costi e fatturazione nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Selezionare quindi **Tutti gli ambiti di fatturazione** nel riquadro sinistro. La pagina delle sottoscrizioni mostra tutte le sottoscrizioni per le quali si ha il ruolo di amministratore della fatturazione.
 
 Se non si conosce chi ha il ruolo di amministratore dell'account per una sottoscrizione, visitare la [pagina Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Scegliere quindi la sottoscrizione da controllare e quindi analizzare la sezione **Impostazioni**. Selezionare **Proprietà** e l'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore dell'account**.
 

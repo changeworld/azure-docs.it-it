@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Usare una chiave simmetrica per effettuare il provisioning di un dispositivo simulato nell'hub IoT di Azure con C"
-description: In questa guida di avvio rapido verrà usato l'SDK per dispositivi C per creare un dispositivo simulato che usa la chiave simmetrica con il servizio Device Provisioning in hub IoT di Azure.
+title: Avvio rapido - Usare una chiave simmetrica per effettuare il provisioning di dispositivi nell'hub IoT di Azure con C
+description: In questa guida di avvio rapido verrà usato l'SDK per dispositivi C per effettuare il provisioning un dispositivo che usa la chiave simmetrica con il servizio Device Provisioning in hub IoT di Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ab998756f219cd7bc155f98c2d29454be8018825
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7df7c9ab6bfbc8a39050b78a76114ae2a0a9d9b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968214"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746506"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche
+# <a name="quickstart-provision-a-device-with-symmetric-keys"></a>Avvio rapido: Effettuare il provisioning di un dispositivo con chiavi simmetriche
 
-In questa guida introduttiva si apprenderà come creare ed eseguire un simulatore di dispositivo in un computer di sviluppo Windows. Si configurerà il dispositivo simulato per usare una chiave simmetrica da autenticare con un'istanza del servizio Device Provisioning e da assegnare a un hub IoT. Si userà un codice di esempio da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per simulare una sequenza di avvio per il dispositivo che avvia il processo di provisioning. Il dispositivo verrà riconosciuto in base alla registrazione singola nell'istanza del servizio di provisioning e assegnato all'hub IoT.
+Questa guida di avvio rapido illustra come eseguire il codice di provisioning di un dispositivo in un computer di sviluppo Windows per connetterlo a un hub IoT come dispositivo IoT. Questo dispositivo verrà configurato per usare l'autenticazione tramite chiave simmetrica con un'istanza del servizio Device Provisioning e verrà assegnato a un hub IoT. Per effettuare il provisioning del dispositivo, verrà usato il codice di esempio di [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Il dispositivo verrà riconosciuto in base alla registrazione singola nell'istanza del servizio di provisioning e assegnato all'hub IoT.
 
 Anche se questo articolo illustra il provisioning con una registrazione singola, è possibile usare gruppi di registrazioni. Esistono alcune differenze quando si usano i gruppi di registrazioni. È ad esempio necessario usare una chiave di dispositivo derivata con un ID registrazione univoco per il dispositivo. Anche se i gruppi di registrazione di chiave simmetrica non sono limitati per i dispositivi legacy, in [Come eseguire il provisioning di dispositivi legacy usando l'attestazione di chiave simmetrica](how-to-legacy-device-symm-key.md) viene fornito un esempio di gruppo di registrazione. Per altre informazioni, vedere [Attestazione con chiave simmetrica delle registrazioni di gruppo](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](about-iot-dps.md#provisioning-process). 
+Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica relativa al [provisioning](about-iot-dps.md#provisioning-process). 
 
 Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questa guida introduttiva. Questa guida introduttiva prevede che sia già stata creata un'istanza del servizio Device Provisioning.
 
@@ -46,7 +46,7 @@ I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Li
 
 In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
 
-L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo simulato tenterà di effettuare il provisioning durante la sequenza di avvio del dispositivo.
+L'SDK include il codice di esempio di provisioning per dispositivi. Questo codice tenterà di effettuare il provisioning durante la sequenza di avvio del dispositivo.
 
 1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
@@ -73,7 +73,7 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
     cd cmake
     ```
 
-5. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
+5. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il codice di provisioning di dispositivi nella directory `cmake`. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -123,7 +123,7 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>Simulare la sequenza del primo avvio per il dispositivo
+## <a name="run-the-provisioning-code-for-the-device"></a>Eseguire il codice di provisioning per il dispositivo
 
 In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza di avvio del dispositivo all'istanza del servizio Device Provisioning. Con questa sequenza di avvio il dispositivo verrà riconosciuto e assegnato a un hub IoT collegato all'istanza del servizio Device Provisioning.
 
@@ -158,7 +158,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Individuare la chiamata a `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** che è impostata come commento.
+6. Trovare la chiamata a `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** che è impostata come commento.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -176,9 +176,9 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
 
 7. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** e scegliere **Imposta come progetto di avvio**. 
 
-8. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
+8. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Quando viene chiesto di ricompilare il progetto, selezionare **Sì** per ricompilare il progetto prima di eseguirlo.
 
-    Il seguente output è un esempio di dispositivo simulato che si avvia correttamente e si connette all'istanza del servizio di provisioning da assegnare all'hub IoT:
+    L'output seguente è un esempio di dispositivo che si connette correttamente all'istanza del servizio di provisioning da assegnare all'hub IoT:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -194,7 +194,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     Press enter key to exit:
     ```
 
-9. Nel portale passare all'hub IoT a cui è stato assegnato il dispositivo simulato e selezionare la scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario premere il pulsante **Aggiorna** nella parte superiore. 
+9. Nel portale passare all'hub IoT a cui è stato assegnato il dispositivo e selezionare la scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario premere il pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
@@ -209,7 +209,7 @@ Se si prevede di continuare a usare ed esplorare l'esempio di client dispositivo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato creato un dispositivo simulato nel computer Windows e ne è stato effettuato il provisioning nell'hub IoT usando la chiave simmetrica con il servizio Device Provisioning in hub IoT di Azure nel portale. Per informazioni su come registrare il dispositivo a livello di codice, passare all'argomento di avvio rapido per la registrazione a livello di codice dei dispositivi X.509. 
+In questa guida di avvio rapido è stato eseguito il codice di provisioning del dispositivo nel computer Windows.  Il dispositivo è stato autenticato e ne è stato effettuato il provisioning nell'hub IoT usando una chiave simmetrica. Per informazioni su come effettuare il provisioning di un dispositivo con certificato X.509, continuare con la guida di avvio rapido per i dispositivi X.509. 
 
 > [!div class="nextstepaction"]
-> [Avvio rapido di Azure: Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-java.md)
+> [Avvio rapido di Azure - Effettuare il provisioning di un dispositivo X.509 tramite Azure IoT C SDK](quick-create-simulated-device-x509.md)

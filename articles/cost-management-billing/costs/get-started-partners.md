@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657313"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905679"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -262,7 +262,7 @@ I dati sull'utilizzo del servizio in genere vengono visualizzati in Gestione cos
 
 ## <a name="export-cost-data-to-azure-storage"></a>Esportare i dati sui costi in Archiviazione di Azure
 
-I partner con accesso agli ambiti di fatturazione in un tenant partner possono esportare i propri dati su costi e utilizzo in un BLOB del servizio di archiviazione di Azure. Il BLOB deve trovarsi in una sottoscrizione nel tenant partner che non è una sottoscrizione del servizio condiviso o una sottoscrizione di un cliente. Per abilitare l'esportazione dei dati sui costi, è consigliabile configurare una sottoscrizione indipendente con pagamento in base al consumo nel tenant partner per ospitare i dati sui costi esportati. L'account di archiviazione di esportazione viene creato nel BLOB di Archiviazione di Azure ospitato nella sottoscrizione con pagamento in base al consumo. In base all'ambito in cui il partner crea l'esportazione, i dati associati vengono esportati automaticamente nell'account di archiviazione a scadenze regolari.
+I partner con accesso agli ambiti di fatturazione in un tenant partner possono esportare i propri dati su costi e utilizzo in un BLOB del servizio di archiviazione di Azure. Il BLOB deve trovarsi in una sottoscrizione del tenant partner che non sia una [sottoscrizione di un servizio condiviso](/partner-center/shared-services) o una sottoscrizione di un cliente. Per abilitare l'esportazione dei dati sui costi, è consigliabile configurare una sottoscrizione indipendente con pagamento in base al consumo nel tenant partner per ospitare i dati sui costi esportati. L'account di archiviazione di esportazione viene creato nel BLOB di Archiviazione di Azure ospitato nella sottoscrizione con pagamento in base al consumo. In base all'ambito in cui il partner crea l'esportazione, i dati associati vengono esportati automaticamente nell'account di archiviazione a scadenze regolari.
 
 Gli utenti con accesso di Controllo degli accessi in base al ruolo di Azure alla sottoscrizione possono anche esportare i dati sui costi in un BLOB di Archiviazione di Azure ospitato in qualsiasi sottoscrizione nel tenant cliente.
 

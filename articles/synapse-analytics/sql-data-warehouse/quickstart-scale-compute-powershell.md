@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Ridimensionare le risorse di calcolo per il pool SQL di Synapse (Azure PowerShell)'
-description: È possibile ridimensionare le risorse di calcolo per il pool SQL di Synapse (data warehouse) con Azure PowerShell.
+title: 'Avvio rapido: Ridimensionare le risorse di calcolo per un pool SQL dedicato (in precedenza SQL Data Warehouse) (Azure PowerShell)'
+description: È possibile ridimensionare le risorse di calcolo per un pool SQL dedicato (in precedenza SQL Data Warehouse) usando Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87e10740e6081431bad96daa930f61238ca495bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91566143"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921903"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Guida introduttiva: Ridimensionare le risorse di calcolo per il pool SQL di Synapse con Azure PowerShell
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Avvio rapido: Ridimensionare le risorse di calcolo per un pool SQL dedicato (in precedenza SQL Data Warehouse) con Azure PowerShell
 
-È possibile ridimensionare le risorse di calcolo per il pool SQL di Synapse (data warehouse) con Azure PowerShell. [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi.
+È possibile ridimensionare le risorse di calcolo per un pool SQL dedicato (in precedenza SQL Data Warehouse) usando Azure PowerShell. [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Questa guida di avvio rapido presuppone che l'utente abbia già un pool SQL che è possibile ridimensionare. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un pool SQL denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che si abbia già un pool SQL dedicato (in precedenza SQL Data Warehouse) da ridimensionare. Se è necessario crearne uno, vedere [Creare ed eseguire query su un pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics usando il portale di Azure](create-data-warehouse-portal.md) per creare un pool SQL dedicato (in precedenza SQL Data Warehouse) denominato **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -67,7 +67,7 @@ Seguire questa procedura per trovare le informazioni sulla posizione del data wa
 
 ## <a name="scale-compute"></a>Ridimensionare le risorse di calcolo
 
-Nel pool SQL è possibile aumentare o ridurre le risorse di calcolo agendo sulle unità di data warehouse. Nella pagina [Creare e connettere - portale](create-data-warehouse-portal.md)**mySampleDataWarehouse** è stato creato e inizializzato con 400 unità Data Warehouse. La procedura seguente modifica le unità Data Warehouse per **mySampleDataWarehouse**.
+Nel pool SQL dedicato (in precedenza SQL Data Warehouse) è possibile aumentare o ridurre le risorse di calcolo modificando le unità Data Warehouse. Nella pagina [Creare e connettere - portale](create-data-warehouse-portal.md)**mySampleDataWarehouse** è stato creato e inizializzato con 400 unità Data Warehouse. La procedura seguente modifica le unità Data Warehouse per **mySampleDataWarehouse**.
 
 Per modificare le unità Data Warehouse, usare il cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). L'esempio seguente imposta le unità di data warehouse su DW300c per il database **mySampleDataWarehouse** che è ospitato nel gruppo di risorse **resourcegroupname** del server **sqlpoolservername**.
 
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si è appreso come ridimensionare le risorse di calcolo per un pool SQL. Per altre informazioni sul pool SQL, continuare con l'esercitazione sul caricamento dei dati.
+Si è appreso come ridimensionare le risorse di calcolo per un pool SQL dedicato (in precedenza SQL Data Warehouse). Per altre informazioni sul pool SQL dedicato (in precedenza SQL Data Warehouse), continuare con l'esercitazione sul caricamento dei dati.
 
 > [!div class="nextstepaction"]
->[Caricare i dati in un pool SQL](load-data-from-azure-blob-storage-using-polybase.md)
+>[Caricare dati in un pool SQL dedicato](load-data-from-azure-blob-storage-using-copy.md)

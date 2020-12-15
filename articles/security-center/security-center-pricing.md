@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754377"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387471"
 ---
 # <a name="pricing-of-azure-security-center"></a>Prezzi del Centro sicurezza di Azure
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione alle minacce e il rilevamento intelligente che consente di tenere il passo con i rischi informatici in rapida evoluzione.
@@ -68,12 +68,24 @@ Di seguito è riportata la pagina dei prezzi per una sottoscrizione di esempio. 
 
 ## <a name="faq---pricing-and-billing"></a>Domande frequenti - Prezzi e fatturazione 
 
-### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di Azure?
+- [Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di Azure?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Quali sono i piani offerti dal Centro sicurezza?](#what-are-the-plans-offered-by-security-center)
+- [Come abilitare Azure Defender per la sottoscrizione?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [È possibile abilitare Azure Defender per i server in un subset di server nella sottoscrizione?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?
 Le sottoscrizioni di Azure possono avere più amministratori con le autorizzazioni per cambiare le impostazioni dei prezzi. Per individuare l'utente che ha apportato una modifica, usare il log attività di Azure.
 
-Se le informazioni dell'utente non sono riportate nella colonna **Evento avviato da**, esplorare l'evento per trovare i dettagli appropriati.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Log attività di Azure che mostra un evento di modifica dei prezzi":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Log eventi di Azure che mostra un evento di modifica dei prezzi":::
+Se le informazioni dell'utente non sono riportate nella colonna **Evento avviato da**, esplorare il codice JSON dell'evento per trovare i dettagli appropriati.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Finestra di esplorazione del codice JSON dei log attività di Azure":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Quali sono i piani offerti dal Centro sicurezza? 
@@ -115,6 +127,10 @@ Sì. Se l'agente di Log Analytics è stato configurato per l'invio di dati a due
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?
 Sì. Se l'agente di Log Analytics è stato configurato per l'invio di dati a due o più aree di lavoro Log Analytics diverse (multihoming), si riceverà la funzionalità gratuita di inserimento di 500 MB di dati. Il calcolo viene eseguito per nodo, per area di lavoro associata, al giorno e la funzionalità è disponibile per ogni area di lavoro in cui è installata una soluzione 'Sicurezza' o 'Antimalware'. L'inserimento di più 500 MB di dati comporterà un addebito.
 
+### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?
+Si ottiene l'inserimento gratuito di 500 MB di dati al giorno, per ogni computer connesso all'area di lavoro. In particolare, per i tipi di dati sulla sicurezza raccolti direttamente dal Centro sicurezza di Azure.
+
+Questi dati vengono calcolati come media di frequenza giornaliera tra tutti i nodi. Quindi se alcuni computer inviano 100 MB di dati e altri ne inviano 800 MB, se il totale non supera il limite gratuito **[numero di computer] x 500 MB**, non verranno addebitati altri costi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha illustrato le opzioni per i prezzi del Centro sicurezza. Per informazioni correlate, vedere:

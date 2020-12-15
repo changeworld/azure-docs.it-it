@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124782"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780842"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
-L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String** , **RegExp** , **Math** , **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
+L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String**, **RegExp**, **Math**, **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
 
 ## <a name="overview"></a>Panoramica
 
@@ -184,6 +184,35 @@ INTO
     output
 FROM
     input A
+```
+
+### <a name="tolocalestring"></a>toLocaleString()
+Il metodo **toLocaleString** in JavaScript può essere usato per restituire una stringa sensibile al linguaggio che rappresenta i dati di data/ora relativi al momento in cui il metodo viene chiamato.
+Anche se Analisi di flusso di Azure accetta solo date e ore in formato UTC come timestamp di sistema, questo metodo può essere usato per convertire il timestamp di sistema in altre impostazioni locali e fusi orari.
+Questo metodo segue lo stesso comportamento di implementazione di quello disponibile in Internet Explorer.
+
+**Definizione della funzione JavaScript definita dall'utente:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Query di esempio: Passare una data/ora come valore di input**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+L'output di questa query corrisponde alla data/ora immessa in **de-DE** con le opzioni specificate.
+```
+Samstag, 28. Dezember 2019
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

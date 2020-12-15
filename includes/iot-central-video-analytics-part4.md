@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: iot-central
 author: dominicbetts
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426778"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763466"
 ---
 ### <a name="publish-the-device-template"></a>Pubblicare il modello di dispositivo
 
@@ -40,6 +40,12 @@ Per eseguire la migrazione del dispositivo **gateway-001**:
 1. Nell'elenco della finestra di dialogo **Esegui migrazione** selezionare **LVA Edge Gateway v2** e quindi **Esegui migrazione**.
 
 Dopo alcuni secondi, la migrazione viene completata. A questo punto, il dispositivo usa il modello di dispositivo **LVA Edge Gateway v2** con il manifesto di distribuzione personalizzato.
+
+Non sono più disponibili dispositivi che usano il modello di dispositivo **LVA Edge Gateway** originale. Eliminare questo modello di dispositivo:
+
+1. Passare alla pagina **Modelli di dispositivo** e selezionare **LVA Edge Gateway**.
+
+1. Selezionare **Elimina** per eliminare il modello di dispositivo.
 
 ### <a name="get-the-device-credentials"></a>Ottenere le credenziali del dispositivo
 

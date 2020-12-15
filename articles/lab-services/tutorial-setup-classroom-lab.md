@@ -2,13 +2,13 @@
 title: Configurare un lab per le classi con Azure Lab Services | Microsoft Docs
 description: In questa esercitazione si usa Azure Lab Services per configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: 8981a03b53b1cfb67b03d89f8a1468511d9b1b93
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/03/2020
+ms.openlocfilehash: 3abbf5221382b46dbf4e73f9f4dc3b639bc5ecbd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434856"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602503"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -121,19 +121,71 @@ Creare un evento pianificato per il lab in modo che le VM al suo interno vengano
 
 ## <a name="add-users-to-the-lab"></a>Aggiungere utenti al lab
 
-1. Selezionare **Utenti** nel menu a sinistra. Per impostazione predefinita, l'opzione **Limita l'accesso** è abilitata. Quando questa impostazione è attiva, un utente non può registrarsi al lab anche se ha il collegamento di registrazione, a meno che non sia presente nell'elenco degli utenti. Solo gli utenti nell'elenco possono registrarsi al lab utilizzando il collegamento di registrazione inviato. In questa procedura si aggiungono utenti all'elenco. In alternativa, è possibile disattivare **Limita l'accesso**, consentendo agli utenti di registrarsi al lab alla sola condizione di disporre del collegamento di registrazione. 
-2. Selezionare **Aggiungi utenti** sulla barra degli strumenti e quindi **Aggiungi con indirizzo di posta elettronica**. 
+Quando si aggiungono utenti, per impostazione predefinita l'opzione **Limita l'accesso** è attivata e, a meno che non sia aperto l'elenco di utenti, gli studenti non possono registrarsi nel lab neanche se hanno un collegamento per la registrazione. Solo gli utenti presenti nell'elenco possono registrarsi nel lab usando il collegamento per la registrazione inviato. È possibile disattivare **Limita l'accesso**, consentendo agli utenti di registrarsi nel lab purché abbiano l'apposito collegamento. 
 
-    ![Pulsante Aggiungi utenti](./media/how-to-configure-student-usage/add-users-button.png)
-1. Nella pagina **Aggiungi utenti** immettere gli indirizzi di posta elettronica degli utenti in righe separate o in una singola riga, separati da punti e virgola. 
+### <a name="add-users-from-an-azure-ad-group"></a>Aggiungere utenti da un gruppo di Azure AD
 
-    ![Aggiungere gli indirizzi di posta elettronica degli utenti](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selezionare **Salva**. Gli indirizzi di posta elettronica degli utenti e i relativi stati (registrati o no) saranno visualizzati nell'elenco. 
+È possibile sincronizzare un elenco di utenti del lab con un gruppo di Azure Active Directory (Azure AD) esistente in modo da non dover aggiungere o eliminare manualmente gli utenti. 
 
-    ![Elenco utenti](./media/how-to-configure-student-usage/users-list-new.png)
+Un gruppo di Azure AD può essere creato all'interno di Azure Active Directory dell'organizzazione per accedere alle risorse dell'organizzazione e alle app basate sul cloud. Per altre informazioni, vedere [Gruppi di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Se l'organizzazione usa i servizi di Microsoft Office 365 o di Azure, avrà già gli amministratori che gestiscono Azure Active Directory. 
 
-    Nell'elenco verranno visualizzati i nomi degli utenti dopo la registrazione nel lab. 
+> [!IMPORTANT]
+> Assicurarsi che l'elenco di utenti sia vuoto. Se sono già presenti utenti all'interno di un lab, aggiunti manualmente o tramite importazione di un file CSV, l'opzione per sincronizzare il lab con un gruppo esistente non verrà visualizzata. 
+
+1. Nel riquadro a sinistra selezionare **Users** (Utenti). 
+1. Fare clic su **Sincronizza dal gruppo**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Aggiungere utenti tramite sincronizzazione da un gruppo di Azure AD":::
     
+1. Verrà chiesto di selezionare un gruppo di Azure AD esistente con cui sincronizzare il lab. 
+    
+    Se nell'elenco non viene visualizzato un gruppo di Azure AD, il motivo potrebbe essere uno dei seguenti:
+
+    -   Si è un utente guest per Azure Active Directory (in genere se si è esterni all'organizzazione proprietaria di Azure AD) e non è possibile cercare gruppi all'interno di Azure AD. In questo caso, non sarà possibile aggiungere un gruppo di Azure AD al lab. 
+    -   I gruppi di Azure AD creati tramite Teams non vengono visualizzati nell'elenco. È possibile aggiungere l'app Azure Lab Services all'interno di Teams per creare e gestire direttamente i lab da qui. Per altre informazioni, vedere come [gestire un elenco di utenti di un lab all'interno di Teams](how-to-manage-user-lists-within-teams.md). 
+1. Dopo aver selezionare il gruppo di Azure AD con cui sincronizzare il lab, fare clic su **Aggiungi**.
+1. Una volta sincronizzato il lab, tutti gli utenti all'interno del gruppo di Azure AD verranno inseriti nel lab come utenti e l'elenco verrà aggiornato. Solo le persone incluse in questo gruppo di Azure AD avranno accesso al lab. L'elenco di utenti verrà aggiornato ogni 24 ore per includere i membri più recenti del gruppo di Azure AD. È anche possibile fare clic sul pulsante Sincronizza nella scheda Utenti per eseguire manualmente la sincronizzazione con le ultime modifiche apportate nel gruppo di Azure AD.
+1. Invitare gli utenti nel lab facendo clic sul pulsante **Invita tutti**, che invierà un messaggio di posta elettronica a tutti gli utenti con il collegamento per la registrazione nel lab. 
+
+### <a name="add-users-manually-from-emails-or-csv-file"></a>Aggiungere utenti manualmente dagli indirizzi di posta elettronica o da un file CSV
+
+In questa sezione si aggiungono studenti manualmente, tramite l'indirizzo di posta elettronica o caricando un file CSV. 
+
+#### <a name="add-users-by-email-address"></a>Aggiungere utenti tramite l'indirizzo di posta elettronica
+
+1. Nel riquadro a sinistra selezionare **Users** (Utenti). 
+1. Fare clic su **Aggiungi utenti manualmente**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Aggiungere utenti manualmente":::
+1. Selezionare **Aggiungi con indirizzo di posta elettronica** (impostazione predefinita), immettere gli indirizzi di posta elettronica degli studenti in righe distinte oppure in una singola riga separati da punti e virgola. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Aggiungere gli indirizzi di posta elettronica degli utenti":::
+1. Selezionare **Salva**. 
+
+    L'elenco visualizza gli indirizzi di posta elettronica e lo stato degli utenti correnti, ovvero se sono registrati nel lab o meno. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Elenco utenti":::
+
+    > [!NOTE]
+    > Quando gli studenti si registrano nel lab, l'elenco ne visualizza i nomi. Il nome visualizzato nell'elenco è composto dal nome e dal cognome di ogni studente in Azure Active Directory. 
+
+#### <a name="add-users-by-uploading-a-csv-file"></a>Aggiungere gli utenti caricando un file CSV
+
+È anche possibile aggiungere gli utenti caricando un file CSV con i loro indirizzi di posta elettronica. 
+
+Un file di testo CSV si usa per archiviare dati tabulari (numeri e testo) delimitati da virgole. Invece di archiviare le informazioni in campi di colonne, come nei fogli di calcolo, un file CSV le archivia delimitate da virgole. Ogni riga di un file CSV avrà lo stesso numero di campi delimitati da virgole. È possibile usare Excel per creare e modificare facilmente i file CSV.
+
+1. In Microsoft Excel creare un file CSV con l'elenco di indirizzi di posta elettronica degli studenti in una colonna.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Elenco di utenti in un file CSV":::
+1. Nella parte superiore del riquadro **Utenti** selezionare **Aggiungi utenti** e quindi **Carica CSV**.
+1. Selezionare il file CSV che contiene gli indirizzi di posta elettronica degli studenti e quindi selezionare **Apri**.
+
+    La finestra **Aggiungi utenti** visualizza l'elenco di indirizzi di posta elettronica del file CSV. 
+1. Selezionare **Salva**. 
+1. Nel riquadro **Utenti** visualizzare l'elenco di studenti aggiunti. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Elenco di utenti aggiunti nel riquadro Utenti"::: 
 
 ## <a name="send-invitation-emails-to-users"></a>Inviare inviti agli utenti tramite posta elettronica
 
@@ -145,7 +197,7 @@ Creare un evento pianificato per il lab in modo che le VM al suo interno vengano
     ![Inviare un collegamento per la registrazione tramite posta elettronica](./media/tutorial-setup-classroom-lab/send-email.png)
 4. Lo stato dell'**invito** viene visualizzato nell'elenco **Users** (Utenti). Lo stato dovrebbe cambiare in **Sending** (Invio in corso) e quindi in **Sent on &lt;date&gt;** (Inviato in data). 
 
-    Per altre informazioni sull'aggiunta di studenti a una classe e sulla gestione dell'utilizzo del lab, vedere [Come configurare l'utilizzo degli studenti](how-to-configure-student-usage.md).
+Per altre informazioni sull'aggiunta di studenti a una classe e sulla gestione dell'utilizzo del lab, vedere [Come configurare l'utilizzo degli studenti](how-to-configure-student-usage.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato creato un lab per la classe in Azure. Per informazioni su come uno studente può accedere a una VM nel lab usando il collegamento di registrazione, passare alla prossima esercitazione:

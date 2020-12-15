@@ -11,12 +11,12 @@ ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62f2869bfe1110dd5bf8459c9f6f6b21701dc934
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 95f41283b78c39ed2cf3b4abb75275902d8cf7bd
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425837"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509581"
 ---
 # <a name="userinfo-endpoint"></a>Endpoint UserInfo
 
@@ -103,7 +103,7 @@ UserJourney Info utente specifica:
 
 1. La sezione outputClaims all'interno del profilo tecnico UserInfoIssuer specifica gli attributi che si desidera restituire. Il profilo tecnico UserInfoIssuer viene chiamato alla fine del percorso utente. 
 1. Il profilo tecnico UserInfoAuthorization convalida la firma, il nome dell'autorità emittente e il destinatario del token ed estrae l'attestazione dal token in ingresso. Modificare i metadati seguenti per riflettere l'ambiente:
-    1. **Issuer** : questo valore deve essere identico all' `iss` attestazione nell'attestazione del token di accesso. I token emessi da Azure AD B2C usano un'autorità emittente nel formato `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Altre informazioni sulla [personalizzazione dei token](configure-tokens-custom-policy.md).
+    1. **Issuer** : questo valore deve essere identico all' `iss` attestazione nell'attestazione del token di accesso. I token emessi da Azure AD B2C usano un'autorità emittente nel formato `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Altre informazioni sulla [personalizzazione dei token](configure-tokens.md).
     1. **IdTokenAudience** -deve essere identica all' `aud` attestazione nell'attestazione del token di accesso. In Azure AD B2C l' `aud` attestazione è l'ID dell'applicazione relying party. Questo valore è una raccolta e supporta più valori usando un delimitatore di virgola.
 
 Nel token di accesso seguente il `iss` valore dell'attestazione è `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/` . Il `aud` valore dell'attestazione è `22222222-2222-2222-2222-222222222222` .

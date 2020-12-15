@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383972"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509615"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrare gli utenti a Azure AD B2C
 
-La migrazione da un altro provider di identità a Azure Active Directory B2C (Azure AD B2C) potrebbe richiedere anche la migrazione degli account utente esistenti. Di seguito sono descritti due metodi di migrazione, *pre-migrazione* e *migrazione senza*problemi. Con entrambi gli approcci, è necessario scrivere un'applicazione o uno script che usi l' [API Microsoft Graph](manage-user-accounts-graph-api.md) per creare gli account utente nel Azure ad B2C.
+La migrazione da un altro provider di identità a Azure Active Directory B2C (Azure AD B2C) potrebbe richiedere anche la migrazione degli account utente esistenti. Di seguito sono descritti due metodi di migrazione, *pre-migrazione* e *migrazione senza* problemi. Con entrambi gli approcci, è necessario scrivere un'applicazione o uno script che usi l' [API Microsoft Graph](manage-user-accounts-graph-api.md) per creare gli account utente nel Azure ad B2C.
 
 ## <a name="pre-migration"></a>Pre-migrazione
 
@@ -90,7 +90,7 @@ Non è necessario eseguire la migrazione di tutte le informazioni del provider d
 
 Prima di iniziare il processo di migrazione, è possibile eliminare la directory.
 
-- Identificare il set di attributi utente da archiviare in Azure AD B2C e migrare solo gli elementi necessari. Se necessario, è possibile creare [attributi personalizzati](custom-policy-custom-attributes.md) per archiviare più dati relativi a un utente.
+- Identificare il set di attributi utente da archiviare in Azure AD B2C e migrare solo gli elementi necessari. Se necessario, è possibile creare [attributi personalizzati](user-flow-custom-attributes.md) per archiviare più dati relativi a un utente.
 - Se si esegue la migrazione da un ambiente con più origini di autenticazione (ad esempio, ogni applicazione dispone di una propria directory utente), eseguire la migrazione a un account unificato in Azure AD B2C.
 - Se più applicazioni hanno nomi utente diversi, è possibile archiviarli tutti in un account utente Azure AD B2C usando l'insieme di identità. Per quanto riguarda la password, consentire all'utente di sceglierne una e impostarla nella directory. Ad esempio, con la migrazione senza problemi, solo la password scelta deve essere archiviata nell'account Azure AD B2C.
 - Rimuovere gli account utente inutilizzati prima della migrazione oppure non eseguire la migrazione degli account obsoleti.

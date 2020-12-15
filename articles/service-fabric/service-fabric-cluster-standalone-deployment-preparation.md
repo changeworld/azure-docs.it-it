@@ -3,12 +3,12 @@ title: Preparazione della distribuzione di cluster autonomi
 description: Documentazione relativa alla preparazione dell'ambiente e alla creazione della configurazione del cluster, da esaminare prima di distribuire un cluster progettato per gestire un carico di lavoro di produzione.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842955"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509173"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
 
@@ -18,7 +18,7 @@ ms.locfileid: "91842955"
 Prima di creare un cluster di Service Fabric sui propri computer, è possibile stabilire da quali tipi di errore il cluster non deve essere compromesso. Ad esempio, sono necessarie linee di alimentazione o connessioni Internet separate per queste macchine? È necessario inoltre considerare la sicurezza fisica di tali macchine. Dove si trovano le macchine e chi ha bisogno di accedervi? Dopo aver preso queste decisioni, è possibile eseguire il mapping logico delle macchine ai vari domini di errore (vedere il passaggio successivo). La pianificazione dell'infrastruttura per i cluster di produzione è più complicata rispetto ai cluster di test.
 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Identificazione del numero di domini di errore e di aggiornamento
-Un [ *dominio di errore* ](service-fabric-cluster-resource-manager-cluster-description.md) è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore.
+Un [ *dominio di errore*](service-fabric-cluster-resource-manager-cluster-description.md) è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore.
 
 Quando si specificano domini di errore nel file ClusterConfig.json, è possibile scegliere il nome di ogni dominio di errore. Il Service Fabric supporta i domini di errore gerarchici, in modo che possano rispecchiare la topologia infrastrutturale.  Di seguito sono riportati esempi di domini di errore validi:
 
@@ -60,7 +60,7 @@ Di seguito sono riportate le specifiche consigliate per i computer in un cluster
 * [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
 * Il [servizio RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) deve essere in esecuzione in tutti i computer
 * **Service Fabric unità di installazione deve essere un file system NTFS**
-* ** [È necessario abilitare](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))i *registri delle prestazioni* dei servizi Windows & gli avvisi e il *registro eventi di Windows* **.
+* **[È necessario abilitare](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))i *registri delle prestazioni* dei servizi Windows & gli avvisi e il *registro eventi di Windows***.
 
 > [!IMPORTANT]
 > L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
@@ -103,7 +103,7 @@ Quando un amministratore di cluster configura un cluster autonomo di Service Fab
 5. Se i computer del cluster non sono accessibili da Internet, impostare quanto segue nella configurazione del cluster:
    * Disabilitare la telemetria: in *Properties* impostare *"enableTelemetry": false*
    * Disabilitare la versione di Fabric automatica che Scarica & notifiche che la versione corrente del cluster è prossima alla fine del supporto: in *Properties* impostare *"fabricClusterAutoupgradeEnabled": false*
-   * In alternativa, se l'accesso a Internet dalla rete è limitato ai domini consentiti, i domini seguenti sono necessari per l'aggiornamento automatico: go.microsoft.com download.microsoft.com
+   * In alternativa, se l'accesso a Internet di rete è limitato ai domini allowlisted, i domini seguenti sono necessari per l'aggiornamento automatico: go.microsoft.com download.microsoft.com
 
 6. Impostare le esclusioni antivirus di Service Fabric appropriate:
 

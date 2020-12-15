@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489948"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862004"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Esercitazione: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -195,7 +195,9 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 Se si verifica un errore durante l'invio di eventi a Funzioni di Azure, Analisi di flusso ritenta la maggior parte delle operazioni. Tutte le eccezioni HTTP vengono ritentate fino all'esito positivo, ad eccezione dell'errore HTTP 413 (entità troppo grande). Un errore di tipo entità troppo grande viene considerato un errore di dati soggetto al [criterio Riprova o Rimuovi](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> Il timeout per le richieste HTTP da Analisi di flusso a Funzioni di Azure è impostato su 100 secondi. Se l'app Funzioni di Azure impiega più di 100 secondi per elaborare un batch, vengono restituiti errori in Analisi di flusso.
+> Il timeout per le richieste HTTP da Analisi di flusso a Funzioni di Azure è impostato su 100 secondi. Se l'app di Funzioni di Azure impiega più di 100 secondi per elaborare un batch, Analisi di flusso genera un errore ed eseguirà un nuovo tentativo per il batch.
+
+La ripetizione di tentativi per i timeout può generare la scrittura di eventi duplicati nel sink di output. Quando Analisi di flusso riprova a inviare un batch non riuscito, ripete il tentativo per tutti gli eventi del batch. Si consideri ad esempio un batch di 20 eventi inviati a Funzioni di Azure da Analisi di flusso. Si supponga che Funzioni di Azure impieghi 100 secondi per elaborare i primi 10 eventi del batch. Trascorsi i 100 secondi, Analisi di flusso sospende la richiesta, perché non ha ricevuto una risposta positiva da Funzioni di Azure, quindi viene inviata un'altra richiesta per lo stesso batch. I primi 10 eventi del batch vengono elaborati di nuovi da Funzioni di Azure, generando un duplicato. 
 
 ## <a name="known-issues"></a>Problemi noti
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693767"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399198"
 ---
 # <a name="azure-load-balancer-components"></a>Componenti di Azure Load Balancer
 
@@ -36,7 +36,7 @@ L'indirizzo IP di Azure Load Balancer. Rappresenta il punto di contatto per i cl
 
 La natura dell'indirizzo IP determina il **tipo** del servizio di bilanciamento del carico creato. La selezione dell'indirizzo IP privato crea un servizio di bilanciamento del carico interno. La selezione dell'indirizzo IP pubblico crea un servizio di bilanciamento del carico pubblico.
 
-|  | Load Balancer pubblico  | Load Balancer interno |
+|  | Bilanciamento del carico pubblico  | Servizio di bilanciamento del carico interno |
 | ---------- | ---------- | ---------- |
 | **Configurazione dell'indirizzo IP front-end**| Indirizzo IP pubblico | Indirizzo IP privato|
 | **Descrizione** | Un servizio di bilanciamento del carico pubblico esegue il mapping dell'indirizzo IP pubblico e della porta del traffico in ingresso all'indirizzo IP privato e alla porta della macchina virtuale. Il servizio di bilanciamento esegue il mapping in senso inverso del traffico di risposta dalla macchina virtuale. Se si applicano le regole di bilanciamento del carico, è possibile distribuire tipi specifici di traffico in più macchine virtuali o servizi. È ad esempio possibile dividere il carico del traffico delle richieste Web tra più server Web.| Un servizio di bilanciamento del carico interno distribuisce il traffico alle risorse che si trovano all'interno di una rete virtuale. Azure limita l'accesso agli indirizzi IP front-end con carico bilanciato di una rete virtuale. Gli indirizzi IP front-end e le reti virtuali non sono mai esposti direttamente a un endpoint di Internet. Le applicazioni line-of-business interne vengono eseguite in Azure e sono accessibili dall'interno di Azure o da risorse locali. |
@@ -58,7 +58,7 @@ Mentre si valuta come progettare il pool back-end, è consigliabile prevedere il
 
 Un probe di integrità viene usato per determinare lo stato integrità delle istanze nel pool back-end. Durante la creazione del servizio di bilanciamento del carico, configurare un probe di integrità che verrà usato dal servizio  per determinare se un'istanza è integra e può ricevere traffico.
 
-È possibile definire la soglia di non integrità per i probe di integrità. Se un probe non risponde, Load Balancer interrompe l'invio di nuove connessioni alle istanze non integre. Un errore di probe non influisce sulle connessioni esistenti. La connessione continua fino a quando:
+È possibile definire la soglia di non integrità per i probe di integrità. Se un probe non risponde, il servizio di bilanciamento del carico interrompe l'invio di nuove connessioni alle istanze non integre. Un errore di probe non influisce sulle connessioni esistenti. La connessione continua fino a quando:
 
 - L'applicazione termina il flusso
 - Si verifica un timeout di inattività
@@ -70,13 +70,11 @@ Il servizio Load Balancer Basic non supporta i probe HTTPS. Il servizio Load Bal
 
 ## <a name="load-balancing-rules"></a>Regole di bilanciamento del carico
 
-Una regola di Load Balancer viene utilizzata per definire il modo in cui il traffico in ingresso viene distribuito a **tutte** le istanze nel pool back-end. Una regola di bilanciamento del carico esegue il mapping di una configurazione IP front-end e di una porta specifiche a più indirizzi IP e porte back-end.
+Una regola di bilanciamento del carico viene usata per definire come viene distribuito il traffico in ingresso in **tutte** le istanze nel pool back-end. Una regola di bilanciamento del carico esegue il mapping di una configurazione IP front-end e di una porta specifiche a più indirizzi IP e porte back-end.
 
 Ad esempio, usare una regola di bilanciamento del carico per la porta 80 per instradare il traffico dall'IP front-end alla porta 80 delle istanze back-end.
 
-<p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Regole di bilanciamento del carico">
-</p>
+:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Diagramma di riferimento delle regole di bilanciamento del carico" border="false":::
 
 *Figura: Regole di bilanciamento del carico*
 
@@ -108,11 +106,7 @@ Per altre informazioni, vedere [Porte a disponibilità elevata](load-balancer-ha
 
 Una regola NAT in ingresso inoltra il traffico in arrivo inviato alla combinazione di porta e indirizzo IP front-end. Il traffico viene inviato a una **specifica** macchina virtuale o istanza nel pool back-end. Il port forwarding viene eseguito dalla stessa distribuzione basata su hash del bilanciamento del carico.
 
-Ad esempio, se si desidera utilizzare le sessioni Remote Desktop Protocol (RDP) o Secure Shell (SSH) per separare le istanze delle macchine virtuali all'interno di un pool back-end. È possibile eseguire il mapping di più endpoint interni a porte sullo stesso indirizzo IP front-end. È possibile usare gli indirizzi IP front-end per gestire in modalità remota le macchine virtuali senza un sistema jump box.
-
-<p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Regole NAT in ingresso">
-</p>
+:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Diagramma di riferimento delle regole NAT in ingresso" border="false":::
 
 *Figura: Regole NAT in ingresso*
 
@@ -125,6 +119,10 @@ Una regola in uscita configura il processo NAT (Network Address Translation) in 
 Leggere altre informazioni su [connessioni e regole in uscita](load-balancer-outbound-connections.md).
 
 Il servizio Load Balancer Basic non supporta le regole in uscita.
+
+:::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="Diagramma di riferimento delle regole in uscita" border="false":::
+
+*Figura: Regole in uscita*
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -140,8 +138,8 @@ Il servizio Load Balancer Basic non supporta le regole in uscita.
 - Altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
 - Informazioni sull'[indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
 - Informazioni sull'[indirizzo IP privato](../virtual-network/private-ip-addresses.md)
-- Informazioni sull'uso di [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
-- Altre informazioni sulla diagnostica per [Azure Load Balancer Standard](load-balancer-standard-diagnostics.md).
+- Informazioni sull'uso di [Load Balancer Standard e delle zone di disponibilità](load-balancer-standard-availability-zones.md).
+- Altre informazioni sulla [diagnostica per Azure Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - Informazioni su [Reimpostare TCP in caso di inattività](load-balancer-tcp-reset.md).
 - Informazioni su [Load Balancer Standard con regole di bilanciamento del carico di porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
 - Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).

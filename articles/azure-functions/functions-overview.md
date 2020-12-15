@@ -1,24 +1,30 @@
 ---
 title: Panoramica di Funzioni di Azure
-description: Informazioni su come usare Funzioni di Azure per creare app serverless scalabili.
+description: Informazioni su come usare Funzioni di Azure per creare app serverless efficienti.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 269d911c13cbc59a054c5548e106780d630c8e2b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167778"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620870"
 ---
 # <a name="introduction-to-azure-functions"></a>Introduzione alle funzioni di Azure
 
+Funzioni di Azure è una soluzione serverless che consente di scrivere meno codice, gestire un'infrastruttura meno complessa e risparmiare sui costi. Non è più necessario preoccuparsi della distribuzione e della gestione dei server, in quanto l'infrastruttura cloud fornisce tutti i server aggiornati necessari per mantenere le applicazioni in esecuzione.
+
+Ci si può concentrare sulle parti di codice che interessano di più e il resto viene gestito da Funzioni di Azure.<br /><br />
+
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
+
 Spesso vengono sviluppati sistemi per reagire a una serie di eventi critici. Sia che si scelga di creare un'API Web, rispondere alle modifiche di database, elaborare flussi di dati IoT o anche gestire code di messaggi, è necessario che in ogni applicazione sia possibile eseguire parte di codice quando si verificano tali eventi.
 
-Per rispondere a questa esigenza, la soluzione Funzioni di Azure prevede risorse di calcolo su richiesta, in due modi significativi.
+Per rispondere a questa esigenza, Funzioni di Azure prevede risorse di calcolo su richiesta in due modi significativi.
 
 Prima di tutto, Funzioni di Azure consente di implementare logica di sistema personalizzata in blocchi di codice immediatamente disponibili. Questi blocchi di codice si chiamano "funzioni". Le diverse funzioni possono essere eseguite in qualsiasi momento sia necessario rispondere a eventi critici.
 
@@ -43,7 +49,7 @@ Di seguito è riportata una serie comune _ma assolutamente non completa_ di scen
 | **Eseguire attività pianificate** | Eseguire codice in [orari impostati](./functions-bindings-timer.md) |
 | **Creare sistemi affidabili per le code di messaggi** | Elaborare le code di messaggi con [Archiviazione code](./functions-bindings-storage-queue.md), [bus di servizio](./functions-bindings-service-bus.md) o [Hub eventi](./functions-bindings-event-hubs.md) |
 | **Analizzare flussi di dati IoT** | Raccogliere ed elaborare i [dati dei dispositivi IoT](./functions-bindings-event-iot.md) |
-| **Elaborare dati in tempo reale** | Usare [Funzioni e Signal R](./functions-bindings-signalr-service.md) per rispondere ai dati al momento |
+| **Elaborare dati in tempo reale** | Usare [Funzioni e SignalR](./functions-bindings-signalr-service.md) per rispondere ai dati al momento |
 
 Per creare funzioni personalizzate, sono disponibili le opzioni e le risorse seguenti:
 

@@ -7,20 +7,20 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447536"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531981"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Esercitazione: Controllare la fattura del Contratto del cliente Microsoft
 
 È possibile controllare gli addebiti riportati nella fattura analizzando le singole transazioni. Nell'account di fatturazione per un Contratto del cliente Microsoft, ogni mese viene generata una fattura per ogni profilo di fatturazione. La fattura include tutti gli addebiti del mese precedente. È possibile visualizzare le fatture nel portale di Azure e confrontare gli addebiti con il file dei dettagli di utilizzo.
 
-Questa esercitazione si applica solo ai clienti di Azure con un Contratto del cliente Microsoft.
+Questa esercitazione è riservata ai clienti di Azure con un Contratto del cliente Microsoft.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -54,6 +54,8 @@ Se si ha accesso a un solo ambito di fatturazione, selezionare **Proprietà** su
 ![Screenshot che mostra il Contratto del cliente Microsoft nella pagina Proprietà](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Se si ha accesso a più ambiti di fatturazione, controllare il tipo nella colonna dell'account di fatturazione. Si ha accesso a un account di fatturazione per un Contratto del cliente Microsoft se il tipo di account di fatturazione per uno degli ambiti è **Contratto del cliente Microsoft**.
+
+Nella pagina degli ambiti di fatturazione selezionare **Ambiti di fatturazione** e quindi selezionare l'account di fatturazione che verrà usato per il pagamento dell'utilizzo delle sottoscrizioni. L'account di fatturazione dovrebbe essere di tipo **Contratto del cliente Microsoft**.
 
 ![Screenshot che mostra il Contratto del cliente Microsoft nella pagina con l'elenco degli account di fatturazione](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -146,7 +148,7 @@ Usare il file CSV dei dati di utilizzo e addebiti di Azure per analizzare gli ad
 
 ### <a name="download-your-invoice-and-usage-details"></a>Scaricare la fattura e i dettagli di utilizzo
 
-A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione o un profilo di fatturazione in Gestione dei costi e fatturazione. Nel menu a sinistra selezionare **Fatture** in **Fatturazione**. Nella griglia della fattura trovare la riga della fattura da scaricare. Fare clic sul simbolo del download o sui puntini di sospensione (...) alla fine della riga. Nella finestra **Download** scaricare il file dei dettagli di utilizzo e la fattura.
+A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione o un profilo di fatturazione in Gestione dei costi e fatturazione. Nel menu a sinistra selezionare **Fatture** in **Fatturazione**. Nella griglia della fattura trovare la riga della fattura da scaricare. Selezionare il simbolo del download o i puntini di sospensione (...) alla fine della riga. Nella finestra **Download** scaricare il file dei dettagli di utilizzo e la fattura.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Visualizzare l'utilizzo dettagliato in base alla sezione della fattura
 

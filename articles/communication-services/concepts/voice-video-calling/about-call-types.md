@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 97a90284ad8d195751eb5dd90675822d00243ea8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665209"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572712"
 ---
 # <a name="voice-and-video-concepts"></a>Concetti relativi alle chiamate vocali e video
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-È possibile usare Servizi di comunicazione di Azure per effettuare e ricevere chiamate vocali e video, analizzare i metadati delle chiamate, registrare le chiamate e persino creare alberi di chiamate. Le chiamate possono essere effettuate verso altri dispositivi connessi a Internet e verso telefoni tradizionali. È possibile usare le librerie client JavaScript, Android o iOS di Servizi di comunicazione per creare applicazioni che consentano agli utenti di comunicare tra loro in conversazioni private o di gruppo. Servizi di comunicazione di Azure supporta le chiamate da e verso servizi o bot.
+È possibile usare Servizi di comunicazione di Azure per effettuare e ricevere chiamate uno-a-uno, oltre che chiamate vocali e videochiamate di gruppo. Le chiamate possono essere effettuate verso altri dispositivi connessi a Internet e verso telefoni tradizionali. È possibile usare le librerie client JavaScript, Android o iOS di Servizi di comunicazione per creare applicazioni che consentano agli utenti di comunicare tra loro in conversazioni private o di gruppo. Servizi di comunicazione di Azure supporta le chiamate da e verso servizi o bot.
 
 ## <a name="call-types-in-azure-communication-services"></a>Tipi di chiamata in Servizi di comunicazione di Azure
 

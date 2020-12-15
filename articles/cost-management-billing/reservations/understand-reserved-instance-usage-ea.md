@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 070d105785ee3ab9811188406bda56dbe6ceb558
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350892"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545605"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement
 
@@ -139,6 +139,8 @@ Ottenere i dati dei costi ammortizzati e filtrare i dati per un'istanza riservat
 1. Ottenere i costi con pagamento in base al consumo stimati. Moltiplicare il valore _UnitPrice_ per i valori _Quantity_ per ottenere i costi con pagamento in base al consumo stimati, se lo sconto sulla prenotazione non è stato applicato all'utilizzo.
 2. Ottenere i costi di prenotazione. Sommare i valori _Cost_ per ottenere il valore monetario dell'importo pagato per l'istanza riservata. Include i costi per la prenotazione utilizzata e inutilizzata.
 3. Sottrarre i costi di prenotazione dai costi con pagamento in base al consumo stimati per ottenere il risparmio stimato.
+
+Tenere presente che, se si ha una prenotazione sottoutilizzata, la voce _UnusedReservation_ di _ChargeType_ diventa un fattore da considerare. Se una prenotazione viene utilizzata completamente, si ottiene il massimo risparmio possibile. Qualsiasi quantità _UnusedReservation_ riduce il risparmio.
 
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Acquisti di prenotazioni e ammortamento nell'analisi dei costi
 

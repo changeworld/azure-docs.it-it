@@ -12,12 +12,12 @@ ms.date: 12/10/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 698864a4dc1081cb8cad9036ff1cfc737a17473c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53f5346030e3c5a247d1ad2a73b23882e83ed41a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111290"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508119"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Aggiungere attributi utente e personalizzare l'input dell'utente in Azure Active Directory B2C
 
@@ -129,7 +129,7 @@ Per fornire un elenco set di valori per l'attributo City:
 ::: zone pivot="b2c-custom-policy"
 
 > [!NOTE]
-> Questo esempio usa l'attestazione predefinita "City". In alternativa, è possibile scegliere uno degli [attributi predefiniti Azure ad B2C](user-profile-attributes.md) supportati o un attributo personalizzato. Per usare un attributo personalizzato, [abilitare gli attributi personalizzati nei criteri](custom-policy-custom-attributes.md). Per usare un attributo predefinito o personalizzato diverso, sostituire ' City ' con l'attributo desiderato, ad esempio l'attributo predefinito *JobTitle* o un attributo personalizzato come *extension_loyaltyId*.  
+> Questo esempio usa l'attestazione predefinita "City". In alternativa, è possibile scegliere uno degli [attributi predefiniti Azure ad B2C](user-profile-attributes.md) supportati o un attributo personalizzato. Per usare un attributo personalizzato, [abilitare gli attributi personalizzati](user-flow-custom-attributes.md). Per usare un attributo predefinito o personalizzato diverso, sostituire ' City ' con l'attributo desiderato, ad esempio l'attributo predefinito *JobTitle* o un attributo personalizzato come *extension_loyaltyId*.  
 
 È possibile raccogliere i dati iniziali dagli utenti usando il percorso utente di iscrizione o accesso. In un secondo momento è possibile raccogliere attestazioni aggiuntive usando il percorso utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, il Framework dell'esperienza di gestione delle identità usa il [profilo tecnico autocertificato](self-asserted-technical-profile.md). In questo esempio, è possibile:
 
@@ -342,6 +342,6 @@ Il token inviato all'applicazione include l'attestazione `city`.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sull'elemento [ClaimsSchema](claimsschema.md) nella Guida di riferimento a Framework dell'esperienza.
-- Informazioni su come [usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](custom-policy-custom-attributes.md).
+- Informazioni su come [usare gli attributi personalizzati in Azure ad B2C](user-flow-custom-attributes.md).
 
 ::: zone-end

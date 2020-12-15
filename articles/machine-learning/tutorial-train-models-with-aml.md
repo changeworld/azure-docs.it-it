@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione sulla classificazione di immagini: Eseguire il training dei modelli'
 titleSuffix: Azure Machine Learning
-description: Usare Azure Machine Learning per eseguire il training di un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la prima di una serie in due parti.
+description: Usare Azure Machine Learning per eseguire il training di un modello di classificazione delle immagini con scikit-learn in un notebook di Jupyter per Python. Questa esercitazione è la prima di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321292"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862429"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn 
 
 
-In questa esercitazione si eseguirà il training di un modello di Machine Learning su risorse di calcolo remote. Si userà il flusso di lavoro per il training e la distribuzione di Azure Machine Learning in un notebook Jupyter per Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
+In questa esercitazione si eseguirà il training di un modello di Machine Learning su risorse di calcolo remote. Si userà il flusso di lavoro per il training e la distribuzione di Azure Machine Learning in un notebook di Jupyter per Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 
 Questa esercitazione esegue il training di una semplice regressione logistica usando il set di dati [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](https://scikit-learn.org) con Azure Machine Learning. MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra in stile scrittura a mano di 28x28 pixel, che rappresenta un numero compreso tra zero e nove. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine.
 
@@ -54,7 +54,7 @@ Questa esercitazione e il file **utils.py** associato sono disponibili in [GitHu
 > [!Important]
 > Il resto di questo articolo contiene lo stesso contenuto visualizzato nel notebook.  
 >
-> Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice. 
+> Passare ora al notebook di Jupyter per seguire l'esecuzione del codice. 
 > Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Esegui tutto** dalla barra degli strumenti superiore.
 
 ## <a name="set-up-your-development-environment"></a><a name="start"></a>Configurare l'ambiente di sviluppo
@@ -368,15 +368,15 @@ In totale, la prima esecuzione richiede **circa 10 minuti**. Tuttavia, per le es
 
 Cosa accade durante l'attesa:
 
-- **Creazione di immagini** : Viene creata un'immagine Docker che corrisponde all'ambiente di Python specificato dall'ambiente di Azure ML. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono necessari **circa cinque minuti**.
+- **Creazione di immagini**: Viene creata un'immagine Docker che corrisponde all'ambiente di Python specificato dall'ambiente di Azure ML. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono necessari **circa cinque minuti**.
 
   Questa fase viene eseguita una volta per ogni ambiente Python, perché il contenitore viene memorizzato nella cache per le esecuzioni successive. Durante la creazione dell'immagine, i log vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento del processo di creazione dell'immagine usando questi log.
 
-- **Ridimensionamento** : se il cluster remoto richiede più nodi per l'esecuzione rispetto a quelli attualmente disponibili, vengono aggiunti automaticamente altri nodi. Per il ridimensionamento sono in genere necessari **circa cinque minuti**.
+- **Ridimensionamento**: se il cluster remoto richiede più nodi per l'esecuzione rispetto a quelli attualmente disponibili, vengono aggiunti automaticamente altri nodi. Per il ridimensionamento sono in genere necessari **circa cinque minuti**.
 
-- **In esecuzione** : in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo. Gli archivi dati vengono montati o copiati. Viene infine eseguito **entry_script**. Durante l'esecuzione del processo, **stdout** e la directory **./logs** vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento dell'esecuzione usando questi log.
+- **In esecuzione**: in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo. Gli archivi dati vengono montati o copiati. Viene infine eseguito **entry_script**. Durante l'esecuzione del processo, **stdout** e la directory **./logs** vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento dell'esecuzione usando questi log.
 
-- **Post-elaborazione** : la directory **./outputs** dell'esecuzione viene copiata nella cronologia di esecuzione nell'area di lavoro in modo da rendere accessibili questi risultati.
+- **Post-elaborazione**: la directory **./outputs** dell'esecuzione viene copiata nella cronologia di esecuzione nell'area di lavoro in modo da rendere accessibili questi risultati.
 
 È possibile controllare lo stato di avanzamento di un processo in esecuzione in diversi modi. Questa esercitazione usa un widget di Jupyter e un metodo `wait_for_completion`.
 

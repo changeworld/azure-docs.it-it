@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 3fd91bb86b32a958344dc366cfcd142bff369c1f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108145"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509564"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -124,15 +124,16 @@ Questo oggetto OptionalClaims fa sì che il token ID restituito al client includ
 
 È possibile configurare attestazioni facoltative per l'applicazione tramite l'interfaccia utente o il manifesto dell'applicazione.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
-1. Nella sezione **Gestisci** selezionare **Registrazioni app**.
+1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app**.
 1. Selezionare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco.
 
 **Configurazione di attestazioni facoltative tramite l'interfaccia utente:**
 
 [![Configurare attestazioni facoltative nell'interfaccia utente](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. Nella sezione **Gestisci** selezionare **Configurazione del token**.
+1. In **Gestisci** selezionare **configurazione del token**.
 1. Selezionare **Aggiungi un'attestazione facoltativa**.
 1. Selezionare il tipo di token da configurare.
 1. Selezionare le attestazioni facoltative da aggiungere.
@@ -145,7 +146,7 @@ Questo oggetto OptionalClaims fa sì che il token ID restituito al client includ
 
 [![Mostra come configurare le attestazioni facoltative tramite il manifesto dell'app](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Nella sezione **Gestisci** selezionare **Manifesto**. Verrà aperto un editor manifesto basato sul Web che consente di modificare il manifesto. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione. Per altre informazioni sul manifesto dell'applicazione, vedere l'articolo [Informazioni sul manifesto dell'applicazione Azure AD](reference-app-manifest.md).
+1. In **Gestisci** selezionare **manifesto**. Verrà aperto un editor manifesto basato sul Web che consente di modificare il manifesto. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione. Per altre informazioni sul manifesto dell'applicazione, vedere l'articolo [Informazioni sul manifesto dell'applicazione Azure AD](reference-app-manifest.md).
 
     La voce del manifesto dell'applicazione seguente aggiunge le attestazioni facoltative auth_time, ipaddr e upn ai token ID, di accesso e SAML.
 
@@ -186,7 +187,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Type                       | Descrizione                                           |
+| Nome          | Tipo                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -199,7 +200,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
@@ -225,22 +226,19 @@ Nei token SAML queste attestazioni verranno emesse con il formato URI seguente: 
 
 ## <a name="configuring-groups-optional-claims"></a>Configurazione di attestazioni di gruppo facoltative
 
-   > [!NOTE]
-   > La funzionalità di creazione di nomi di gruppo per gli utenti e i gruppi sincronizzati dall'ambiente locale è in anteprima pubblica.
-
 In questa sezione vengono illustrate le opzioni di configurazione delle attestazioni facoltative per la modifica degli attributi di gruppo usati nelle attestazioni di gruppo dal gruppo predefinito objectID agli attributi sincronizzati da Windows Active Directory locale. È possibile configurare attestazioni facoltative dei gruppi per l'applicazione tramite l'interfaccia utente o il manifesto dell'applicazione.
 
 > [!IMPORTANT]
-> Per informazioni dettagliate, ad esempio importanti avvertenze per l'anteprima pubblica delle attestazioni di gruppo dagli attributi locali, vedere [Configurare attestazioni di gruppo per le applicazioni con Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+> Per altri dettagli, tra cui importanti avvertenze per le attestazioni di gruppo da attributi locali, vedere [configurare attestazioni di gruppo per le applicazioni con Azure ad](../hybrid/how-to-connect-fed-group-claims.md).
 
 **Configurazione di attestazioni facoltative dei gruppi tramite l'interfaccia utente:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
-1. Selezionare **Azure Active Directory** dal menu a sinistra.
-1. Nella sezione **Gestisci** selezionare **Registrazioni app**.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app**.
 1. Selezionare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco.
-1. Nella sezione **Gestisci** selezionare **Configurazione del token**.
+1. In **Gestisci** selezionare **configurazione del token**.
 1. Selezionare **Add Groups Claim**.
 1. Selezionare i tipi di gruppo da restituire **(gruppi di sicurezza** o ruoli della **directory**, **tutti i gruppi** e/o i **gruppi assegnati all'applicazione**). I **gruppi assegnati all'** opzione dell'applicazione includono solo i gruppi assegnati all'applicazione. L' **opzione tutti i gruppi** include **SecurityGroup**, **DirectoryRole** e **Distribution**, ma non **i gruppi assegnati all'applicazione**. 
 1. Facoltativo: selezionare le proprietà specifiche del tipo di token per modificare il valore dell'attestazione dei gruppi in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in un ruolo.
@@ -250,9 +248,9 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
-1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. Cercare e selezionare **Azure Active Directory**.
 1. Selezionare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco.
-1. Nella sezione **Gestisci** selezionare **manifesto**.
+1. In **Gestisci** selezionare **manifesto**.
 1. Aggiungere la voce seguente usando l'editor del manifesto:
 
    I valori validi sono:
@@ -382,13 +380,13 @@ Nell'esempio seguente si userà l'interfaccia utente di **Configurazione del tok
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
 
-1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. Cercare e selezionare **Azure Active Directory**.
 
-1. Nella sezione **Gestisci** selezionare **Registrazioni app**.
+1. In **Gestisci** selezionare **Registrazioni app**.
 
 1. Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco e selezionarla.
 
-1. Nella sezione **Gestisci** selezionare **Configurazione del token**.
+1. In **Gestisci** selezionare **configurazione del token**.
 
 1. Selezionare **Aggiungi un'attestazione facoltativa**, selezionare il tipo di token **ID**, selezionare **upn** nell'elenco di attestazioni e infine fare clic su **Aggiungi**.
 
@@ -404,9 +402,9 @@ Nell'esempio seguente si userà l'interfaccia utente di **Configurazione del tok
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
-1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. Cercare e selezionare **Azure Active Directory**.
 1. Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco e selezionarla.
-1. Nella sezione **Gestisci** selezionare **Manifesto** per aprire l'editor manifesto incorporato.
+1. In **Gestisci** selezionare **manifesto** per aprire l'editor manifesto inline.
 1. È possibile modificare direttamente il manifesto usando l'editor. Il manifesto segue lo schema per l'[entità applicazione](./reference-app-manifest.md) e viene automaticamente formattato dopo essere stato salvato. Alla proprietà `OptionalClaims` verranno aggiunti nuovi elementi.
 
     ```json

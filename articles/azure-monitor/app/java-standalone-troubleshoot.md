@@ -4,12 +4,12 @@ description: Informazioni su come risolvere i problemi relativi all'agente Java 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ccfd583b58d129268af2a94e3072200e58308cd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347831"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507643"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guida alla risoluzione dei problemi: monitoraggio di Azure Application Insights per Java
 
@@ -34,6 +34,14 @@ Queste modifiche comprendono:
 -  Il nome del file di configurazione è stato modificato da `ApplicationInsights.json` a `applicationinsights.json` .
 -  Il `instrumentationSettings` nodo non è più presente. Tutto il contenuto in `instrumentationSettings` viene spostato al livello radice. 
 -  I nodi di configurazione come `sampling` , `jmxMetrics` , `instrumentation` e `heartbeat` vengono spostati da `preview` al livello radice.
+
+## <a name="some-logging-is-not-auto-collected"></a>Alcune registrazioni non vengono raccolte automaticamente
+
+La registrazione viene acquisita solo se prima soddisfa la soglia configurata dei framework di registrazione e il secondo soddisfa anche la soglia di Application Insights configurata.
+
+Il modo migliore per determinare se una particolare istruzione di registrazione soddisfa la soglia configurata dei framework di registrazione consiste nel verificare che venga visualizzata nel normale registro applicazioni, ad esempio file o console.
+
+Per altri dettagli, vedere la [configurazione della registrazione raccolta automaticamente](./java-standalone-config.md#auto-collected-logging) .
 
 ## <a name="import-ssl-certificates"></a>Importa certificati SSL
 

@@ -1,20 +1,20 @@
 ---
-title: Automatizzare le attività per l'integrazione aziendale
-description: Informazioni su come automatizzare i flussi di lavoro che integrano app, dati, servizi e sistemi con una quantità minima di codice per l'integrazione aziendale usando App per la logica di Azure.
+title: Panoramica di App per la logica di Azure
+description: App per la logica di Azure è una soluzione cloud per la creazione e l'orchestrazione di flussi di lavoro automatizzati che integrano app, dati, servizi e sistemi limitando al minimo la scrittura di codice per scenari di livello aziendale.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 3496dfd7813818ced8963175d73ec0f8ef6892d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c4e8c8f809452286fee493e20dbef2cc538c8bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86536233"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921538"
 ---
-# <a name="overview---what-is-azure-logic-apps"></a>Panoramica - Informazioni su App per la logica di Azure
+# <a name="what-is-azure-logic-apps"></a>Informazioni su App per la logica di Azure
 
 [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps) è un servizio cloud che consente di pianificare, automatizzare e orchestrare attività, processi aziendali e [flussi di lavoro](#logic-app-concepts) quando è necessario integrare app, dati, sistemi e servizi tra aziende o organizzazioni. App per la logica semplifica la progettazione e la creazione di soluzioni scalabili per l'[integrazione](https://azure.microsoft.com/product-categories/integration/) di app, dati e sistemi, per il servizio Enterprise Application Integration (EAI) e per le comunicazioni business-to-business (B2B) nel cloud, in locale o in entrambi gli ambienti.
 

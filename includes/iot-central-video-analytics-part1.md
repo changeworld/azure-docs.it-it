@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7246375468b3419c3d52ee3d5a51a95aa20050a9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2f3e4bf640b8da31a7fa4d818b94b0372d3026b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876660"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763444"
 ---
 L'applicazione di esempio include due dispositivi simulati e un gateway IoT Edge. Le esercitazioni seguenti mostrano due approcci per sperimentare e comprendere le funzionalità del gateway:
 
@@ -36,6 +36,6 @@ Per completare questa serie di esercitazioni, sono necessari gli elementi seguen
 
 ## <a name="initial-setup"></a>Configurazione iniziale
 
-In queste esercitazioni si aggiornano e si usano diversi file di configurazione. Le versioni iniziali di questi file sono disponibili nel repository GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway). Il repository include anche un file di testo denominato scratchpad che è possibile scaricare e usare per registrare i valori di configurazione dei servizi distribuiti.
+In queste esercitazioni si aggiornano e si usano diversi file di configurazione. Le versioni iniziali di questi file sono disponibili nel repository GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway). Il repository include un file di testo [scratchpad ](https://github.com/Azure/live-video-analytics/blob/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) che è possibile scaricare e usare per registrare i valori di configurazione dei servizi distribuiti. Questo file consente di completare i passaggi successivi delle esercitazioni.
 
 Creare una cartella denominata *lva-configuration* nel computer locale per salvare copie di questi file. Fare quindi clic con il pulsante destro del mouse su ognuno dei collegamenti seguenti e scegliere **Salva con nome** per salvare il file nella cartella *lva-configuration*:

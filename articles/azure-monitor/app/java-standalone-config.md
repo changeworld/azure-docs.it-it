@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: b5c1ab7db818daa91497728299d2247f612fe21b
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387752"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507660"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
 
@@ -184,9 +184,9 @@ Per altre informazioni, vedere la documentazione del [processore di telemetria](
 
 Log4j, Logback e Java. util. Logging sono instrumentati automaticamente e la registrazione eseguita tramite questi framework di registrazione viene raccolta automaticamente.
 
-Per impostazione predefinita, la registrazione viene raccolta solo quando tale registrazione viene eseguita a `INFO` livello o superiore.
+La registrazione viene acquisita solo se prima soddisfa la soglia configurata dei framework di registrazione e il secondo soddisfa anche la soglia di Application Insights configurata.
 
-Se si desidera modificare il livello di raccolta:
+La soglia di Application Insights predefinita è `INFO` . Se si desidera modificare questo livello:
 
 ```json
 {

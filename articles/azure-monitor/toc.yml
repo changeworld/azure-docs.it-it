@@ -1175,6 +1175,8 @@
               href: platform/workbooks-automate.md
             - name: Gruppi
               href: platform/workbooks-groups.md
+            - name: Usare risorse di archiviazione personali
+              href: platform/workbooks-bring-your-own-storage.md
             - name: Trasformare dati JSON con JSONPath
               href: platform/workbooks-jsonpath.md
             - name: Spostare le cartelle di lavoro in un'altra area

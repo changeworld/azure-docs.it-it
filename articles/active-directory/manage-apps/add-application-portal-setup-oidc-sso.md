@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656599"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780179"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su OIDC per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
 Per iniziare a usare account di accesso utente semplificati, configurare l'accesso SSO per un'applicazione aggiunta al tenant di Azure AD. Dopo aver configurato l'accesso SSO, gli utenti potranno accedere a un'applicazione usando le loro credenziali di Azure AD. L'accesso SSO è incluso nell'edizione gratuita di Azure AD.
+
+Per altre informazioni sull'accesso SSO basato su OIDC, vedere [Informazioni sull'accesso SSO basato su OIDC](configure-oidc-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +54,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
    > [!IMPORTANT]
     > Se si ha già una sottoscrizione dell'applicazione, verrà eseguita la convalida dei dettagli dell'utente e delle informazioni relative a tenant/directory. Se l'applicazione non è in grado di verificare l'utente, quest'ultimo verrà reindirizzato alla pagina di iscrizione al servizio dell'applicazione o alla pagina di errore.
 
-3. Al termine dell'autenticazione, viene visualizzata una finestra di dialogo che chiede il consenso dell'amministratore. Selezionare **Acconsenti per conto dell'organizzazione** e quindi **Accetta**. 
+3. Al termine dell'autenticazione, viene visualizzata una finestra di dialogo che chiede il consenso dell'amministratore. Selezionare **Acconsenti per conto dell'organizzazione** e quindi **Accetta**. Per altre informazioni sul consenso utente e amministratore, vedere [Informazioni sul consenso utente e amministratore](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot che mostra la schermata di consenso per un'app." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -62,6 +64,11 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
 > [!TIP]
 > È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](/graph/application-saml-sso-configure-api).
 
+Ecco un video che illustra altri dettagli sull'aggiunta di un'app basata su OIDC in Azure AD.
+
+Aggiunta di un'app basata su OIDC in Azure Active Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

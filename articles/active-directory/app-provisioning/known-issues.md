@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928750"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509547"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemi noti: provisioning delle applicazioni
 Problemi noti da tenere presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
@@ -68,7 +68,8 @@ Le estensioni di directory, appRoleAssignments, userType e accountExpires non so
 
 - Il provisioning delle password non è supportato. 
 - Il provisioning di gruppi annidati non è supportato. 
-- Il provisioning in tenant B2C non è supportato a causa delle dimensioni dei tenant. 
+- Il provisioning in tenant B2C non è supportato a causa delle dimensioni dei tenant.
+- Non tutte le app di provisioning sono disponibili in tutti i cloud. Ad esempio, Atlassian non è ancora disponibile nel cloud per enti pubblici. Stiamo lavorando con gli sviluppatori di app per caricare le app in tutti i cloud.
 
 **Il provisioning automatico non è disponibile nell'applicazione basata su OIDC**
 

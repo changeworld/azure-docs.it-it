@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8644040565bd46800b888a32653b6c8bbf89f096
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347439"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509309"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -158,7 +158,7 @@ Ora che è stata creata la macchina virtuale, è necessario configurare i criter
 - Uso dell'esperienza Azure Cloud Shell
 
 > [!NOTE]
-> L'account di accesso dell'amministratore della macchina virtuale e i ruoli di accesso utente della macchina virtuale utilizzano le azioni dati e pertanto non possono essere assegnati all'ambito del gruppo di gestione. Attualmente questi ruoli possono essere assegnati solo nell'ambito della sottoscrizione.
+> L'account di accesso dell'amministratore della macchina virtuale e i ruoli di accesso utente della macchina virtuale utilizzano le azioni dati e pertanto non possono essere assegnati all'ambito del gruppo di gestione. Attualmente questi ruoli possono essere assegnati solo a livello di sottoscrizione, gruppo di risorse o ambito di risorse.
 
 ### <a name="using-azure-ad-portal-experience"></a>Uso dell'esperienza del portale di Azure AD
 
@@ -227,7 +227,7 @@ A questo punto è stato effettuato l'accesso alla macchina virtuale di Azure di 
 > [!NOTE]
 > È possibile salvare il. File RDP in locale nel computer per avviare connessioni Desktop remoto future alla macchina virtuale anziché dover passare alla pagina Panoramica macchina virtuale nella portale di Azure e usare l'opzione Connetti.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 

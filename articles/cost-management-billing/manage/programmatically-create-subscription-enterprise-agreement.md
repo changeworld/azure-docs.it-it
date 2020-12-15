@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 34fe909c7fca3c91845c58b41abb0d8885e156e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94850941"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780604"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Creare sottoscrizioni con contratto Enterprise di Azure a livello di codice con le API più recenti
 
@@ -89,7 +89,7 @@ La risposta dell'API elenca tutti gli account di registrazione a cui si può acc
 
 ```
 
-Annotare il valore di `id` da uno di `enrollmentAccounts`. Si tratta dell'ambito di fatturazione in cui viene avviata la richiesta di creazione di una sottoscrizione. 
+Il valore di un ambito di fatturazione e `id` sono la stessa cosa. L'`id` dell'account di registrazione è l'ambito di fatturazione in cui è stata iniziata la richiesta di sottoscrizione. È importante conoscere l'ID in quanto è un parametro obbligatorio che verrà usato più avanti nell'articolo per creare una sottoscrizione.
 
 <!-- 
 ### [PowerShell](#tab/azure-powershell-getEnrollments)
@@ -130,6 +130,8 @@ Nel corpo della richiesta fornire come `billingScope` il valore di `id` da uno d
   }
 }
 ```
+
+I valori consentiti per `Workload` sono `Production` e `DevTest`.
 
 #### <a name="response"></a>Risposta
 

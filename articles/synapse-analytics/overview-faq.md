@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511268"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576027"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Domande frequenti su Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Questa guida include le domande frequenti su Azure Synapse Analytics.
 
 ## <a name="general"></a>Generale
 
-### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>D: Quali ruoli Controllo degli accessi in base al ruolo esistono e come si usano per proteggere l'area di lavoro di Synapse?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>D: Come si usano i ruoli Controllo degli accessi in base al ruolo per proteggere le aree di lavoro?
 
 A: In Azure Synapse sono stati introdotti numerosi ruoli e diversi ambiti a cui assegnarli per semplificare la protezione dell'area di lavoro.
 
@@ -36,16 +36,16 @@ Ruoli Controllo degli accessi in base al ruolo di Synapse:
 * Synapse Compute Operator (anteprima)
 * Synapse Credential User (anteprima)
 
-Ambiti del controllo degli accessi in base al ruolo di Synapse:
-* Area di lavoro 
-* Pool Spark
+Per proteggere l'area di lavoro Synapse, assegnare i ruoli Controllo degli accessi in base al ruolo a questi ambiti del controllo degli accessi in base al ruolo:
+* Aree di lavoro
+* Pool di Spark
 * Runtime di integrazione
-* Servizio collegato
-* Credenziale
+* Servizi collegati
+* Credenziali
 
 Inoltre, con i pool SQL dedicati si ottengono le stesse funzionalità di sicurezza già note e apprezzate.
 
-### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>D: Come è possibile controllare i costi delle funzionalità disponibili in un'area di lavoro di Synapse, ad esempio pool SQL dedicati, pool di Spark serverless e pool SQL serverless?
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>D: Come si controllano i costi dei pool SQL dedicati, dei pool SQL serverless e dei pool di Spark serverless?
 
 A: Come punto di partenza, Azure Synapse è compatibile con le funzionalità predefinite di analisi e avvisi per i costi, disponibili a livello di sottoscrizione di Azure.
 
@@ -83,7 +83,7 @@ A: Ogni attività di una pipeline di Synapse viene eseguita usando le credenzial
 
 ### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>D: Come si esegue la migrazione delle pipeline esistenti da Azure Data Factory a un'area di lavoro di Azure Synapse?
 
-A: Attualmente, è necessario ricreare manualmente le pipeline di Azure Data Factory e gli artefatti correlati. 
+A: Attualmente è necessario ricreare manualmente le pipeline di Azure Data Factory e gli artefatti correlati esportando il codice JSON dalla pipeline originale e importandolo nell'area di lavoro Synapse.
 
 ## <a name="apache-spark"></a>Apache Spark
 

@@ -9,30 +9,30 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 12d74e2f21678fdbb02719c29a31c0fcdc4fa132
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f73186612fe79af88e84956bb4d0f0b374f4c986
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030146"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507796"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durata del token configurabile nella piattaforma di identità Microsoft (anteprima)
 
 > [!IMPORTANT]
-> Dopo il 30 gennaio 2021, i tenant non saranno più in grado di configurare la durata del token di sessione e di aggiornamento e Azure Active Directory smetterà di rispettare la configurazione del token di sessione e di aggiornamento nei criteri dopo tale data.
+> Dopo il 2020 maggio, i tenant non saranno più in grado di configurare la durata del token di aggiornamento e di sessione.  Azure Active Directory smetterà di rispettare la configurazione del token di sessione e di aggiornamento esistente nei criteri dopo il 30 gennaio 2021. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione.
 >
-> Se è necessario continuare a definire il periodo di tempo prima che all'utente venga richiesto di eseguire di nuovo l'accesso, configurare la frequenza di accesso nell'accesso condizionale. Per ulteriori informazioni sull'accesso condizionale, visitare la pagina relativa ai [prezzi Azure ad](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+> Se è necessario continuare a definire il periodo di tempo prima che all'utente venga richiesto di eseguire di nuovo l'accesso, configurare la frequenza di accesso nell'accesso condizionale. Per altre informazioni sull'accesso condizionale, vedere [configurare la gestione delle sessioni di autenticazione con l'accesso condizionale](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
 > Per i tenant che non vogliono usare l'accesso condizionale dopo la data di ritiro, possono prevedere che Azure AD soddisferà la configurazione predefinita descritta nella sezione successiva.
 
 ## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Proprietà di durata dei token configurabili dopo il ritiro
 La configurazione del token di sessione e di aggiornamento sono influenzate dalle proprietà seguenti e dai rispettivi valori impostati rispettivamente. Dopo il ritiro della configurazione del token di aggiornamento e di sessione, Azure AD rispetterà solo il valore predefinito descritto di seguito, indipendentemente dal fatto che i criteri dispongano di valori personalizzati configurati con valori personalizzati. È comunque possibile configurare la durata dei token di accesso dopo il ritiro. 
 
-|Proprietà   |Stringa proprietà criteri    |Impatto |Predefinito |
+|Proprietà   |Stringa proprietà criteri    |Impatto |Valore predefinito |
 |----------|-----------|------------|------------|
 |Tempo inattività massimo token di aggiornamento |MaxInactiveTime  |Token di aggiornamento |90 giorni  |
 |Validità massima token di aggiornamento a fattore singolo  |MaxAgeSingleFactor  |Token di aggiornamento (per tutti gli utenti)  |Fino a revoca  |
@@ -127,7 +127,7 @@ I token di sessione non permanenti hanno una durata di 24 ore, I token permanent
 I criteri per la durata dei token rappresentano un tipo di oggetto criteri contenente le regole di durata dei token. Usare le proprietà dei criteri per controllare la durata di token specifici. Se non si impostano criteri, il valore di durata predefinito viene applicato dal sistema.
 
 ### <a name="configurable-token-lifetime-properties"></a>Proprietà configurabili per la durata dei token
-| Proprietà | Stringa proprietà criteri | Impatto | Predefinito | Minima | Massimo |
+| Proprietà | Stringa proprietà criteri | Impatto | Valore predefinito | Minima | Massimo |
 | --- | --- | --- | --- | --- | --- |
 | Durata dei token di accesso |AccessTokenLifetime<sup>2</sup> |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
@@ -140,7 +140,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * <sup>2</sup> Per assicurarsi che il client Web Microsoft teams funzioni, è consigliabile mantenere AccessTokenLifetime a più di 15 minuti per Microsoft teams.
 
 ### <a name="exceptions"></a>Eccezioni
-| Proprietà | Impatto | Predefinito |
+| Proprietà | Impatto | Valore predefinito |
 | --- | --- | --- |
 | Validità massima dei token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |Token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |12 ore |
 | Tempo inattività massimo token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |90 giorni |

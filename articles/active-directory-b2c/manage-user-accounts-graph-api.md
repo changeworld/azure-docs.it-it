@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6abc3316e18fc70a2969bc220fd75e10e10f0e6e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949412"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507779"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente Azure AD B2C con Microsoft Graph
 
@@ -60,7 +60,7 @@ Un utente con un account cliente può accedere con più identità. Ad esempio no
 
 Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity][graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
 
-| Proprietà   | Type |Description|
+| Proprietà   | Type |Descrizione|
 |:---------------|:--------|:----------|
 |signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale:  `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` ,  `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su  `federated` .|
 |autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è  `federated` ), il valore è il nome dell'autorità emittente, ad esempio `facebook.com`|
@@ -115,9 +115,9 @@ Negli scenari di migrazione degli utenti, se gli account di cui si vuole eseguir
 
 ### <a name="extension-properties"></a>Proprietà estensione
 
-Ogni applicazione rivolte ai clienti presenta requisiti specifici per la raccolta delle informazioni. Il tenant di Azure AD B2C dispone di un set predefinito di informazioni archiviate in proprietà, ad esempio nome, cognome, città e codice postale. Con Azure AD B2C è possibile estendere il set di proprietà archiviate in ogni account del cliente. Per altre informazioni sulla definizione di attributi personalizzati, vedere [attributi personalizzati (flussi utente)](user-flow-custom-attributes.md) e [attributi personalizzati (criteri personalizzati)](custom-policy-custom-attributes.md).
+Ogni applicazione rivolte ai clienti presenta requisiti specifici per la raccolta delle informazioni. Il tenant di Azure AD B2C dispone di un set predefinito di informazioni archiviate in proprietà, ad esempio nome, cognome, città e codice postale. Con Azure AD B2C è possibile estendere il set di proprietà archiviate in ogni account del cliente. Per ulteriori informazioni sulla definizione di attributi personalizzati, vedere [attributi personalizzati](user-flow-custom-attributes.md).
 
-L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nel API Graph vengono denominati usando la convenzione `extension_ApplicationClientID_attributename` , dove `ApplicationClientID` è l'ID dell'applicazione **(client)** dell' `b2c-extensions-app` applicazione (presente in **registrazioni app**  >  **tutte le applicazioni** nel portale di Azure). Si noti che l' **ID dell'applicazione (client)** come è rappresentato nel nome dell'attributo di estensione non include trattini. Ad esempio:
+L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nel API Graph vengono denominati usando la convenzione `extension_ApplicationClientID_attributename` , dove `ApplicationClientID` è l'ID dell'applicazione **(client)** dell' `b2c-extensions-app` applicazione (presente in **registrazioni app**  >  **tutte le applicazioni** nel portale di Azure). Si noti che l' **ID dell'applicazione (client)** come è rappresentato nel nome dell'attributo di estensione non include trattini. ad esempio:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

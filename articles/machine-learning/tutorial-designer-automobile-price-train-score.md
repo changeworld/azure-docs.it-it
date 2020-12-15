@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555269"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575976"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione
 
@@ -48,7 +48,10 @@ Per creare una pipeline di Azure Machine Learning, è necessaria un'area di lavo
 
 ### <a name="create-a-new-workspace"></a>Creazione di una nuova area di lavoro
 
-Per usare la finestra di progettazione, occorre innanzitutto un'area di lavoro di Azure Machine Learning. L'area di lavoro è la risorsa di primo livello per Azure Machine Learning e fornisce una posizione centralizzata da cui gestire tutti gli artefatti creati in Azure Machine Learning.
+Per usare la finestra di progettazione, è necessaria un'area di lavoro di Azure Machine Learning. L'area di lavoro è la risorsa di primo livello per Azure Machine Learning e fornisce una posizione centralizzata da cui gestire tutti gli artefatti creati in Azure Machine Learning. Per le istruzioni su come creare un'area di lavoro, vedere [Creare e gestire le aree di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Se l'area di lavoro usa una rete virtuale, è necessario completare altri passaggi di configurazione per usare la finestra di progettazione. Per altre informazioni, vedere [Usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md)
 
 ### <a name="create-the-pipeline"></a>Creare la pipeline
 
@@ -275,13 +278,13 @@ Ora che la pipeline è completamente configurata, è possibile inviare un'esecuz
     
     È possibile visualizzare lo stato di esecuzione e i dettagli nella parte superiore destra dell'area di disegno.
     
-    La prima volta, l'esecuzione della pipeline potrebbe richiedere fino a 20 minuti. Le impostazioni di calcolo predefinite prevedono una dimensione minima del nodo pari a 0, il che significa che la finestra di progettazione deve allocare risorse dopo l'inattività. Le esecuzioni ripetute della pipeline richiederanno meno tempo, perché le risorse di calcolo sono già allocate. Inoltre, la finestra di progettazione usa i risultati memorizzati nella cache per ogni modulo per migliorare ulteriormente l'efficienza.
+    La prima volta, l'esecuzione della pipeline potrebbe impiegare fino a 20 minuti. Le impostazioni di calcolo predefinite prevedono una dimensione minima del nodo pari a 0, il che significa che la finestra di progettazione deve allocare risorse dopo l'inattività. Le esecuzioni ripetute della pipeline richiederanno meno tempo, perché le risorse di calcolo sono già allocate. Inoltre, la finestra di progettazione usa i risultati memorizzati nella cache per ogni modulo per migliorare ulteriormente l'efficienza.
 
 ### <a name="view-scored-labels"></a>Visualizzare le etichette dei punteggi
 
 Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzione della pipeline. Prima di tutto, esaminare le previsioni generate dal modello di regressione.
 
-1. Fare clic con il pulsante destro del mouse sul modulo **Score Model** (Punteggio modello) e scegliere **Visualize** (Visualizza) per visualizzarne l'output.
+1. Fare clic con il pulsante destro del mouse sul modulo **Score Model** (Punteggio modello) e scegliere **Visualizza** per visualizzarne l'output.
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 

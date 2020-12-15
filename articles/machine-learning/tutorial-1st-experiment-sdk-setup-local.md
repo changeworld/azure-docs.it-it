@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1b4ee9f06e8ed8bd47be1075070dea71b42b1cef
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349070"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574157"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Esercitazione: Introduzione ad Azure Machine Learning nel proprio ambiente di sviluppo (parte 1 di 4)
 
@@ -52,7 +52,10 @@ Per configurare un ambiente Python da usare nell'intera esercitazione, è possib
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>Creare una struttura della directory per il codice
+> [!div class="nextstepaction"]
+> [L'SDK è stato installato](?success=install-sdk#dir) [Si è verificato un problema](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Creare una struttura della directory per il codice
 Per questa esercitazione è consigliabile configurare la semplice struttura della directory corrente:
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial`: directory di primo livello del progetto.
 - `.azureml`: sottodirectory nascosta per l'archiviazione dei file di configurazione di Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Creare un'area di lavoro di Machine Learning di Azure
+
+> [!div class="nextstepaction"]
+> [È stata creata una directory](?success=create-dir#workspace) [Si è verificato un problema](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Creare un'area di lavoro di Machine Learning di Azure
 
 Un'area di lavoro è una risorsa di primo livello per Azure Machine Learning e costituisce una posizione centralizzata per:
 
@@ -103,7 +110,7 @@ python ./01-create-workspace.py
 > Se l'esecuzione di questo codice genera un messaggio di errore che indica che non si ha accesso alla sottoscrizione, vedere [Creare un'area di lavoro](how-to-manage-workspace.md?tab=python#create-multi-tenant) per informazioni sulle opzioni di autenticazione.
 
 
-Dopo la corretta esecuzione di *01-create-workspace.py* , la struttura di cartelle sarà simile alla seguente:
+Dopo la corretta esecuzione di *01-create-workspace.py*, la struttura di cartelle sarà simile alla seguente:
 
 ```markdown
 tutorial
@@ -119,7 +126,10 @@ Il file `.azureml/config.json` contiene i metadati necessari per connettersi all
 >
 > L'autenticazione è tuttavia necessaria per interagire con l'area di lavoro Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Creare un cluster di elaborazione di Azure Machine Learning
+> [!div class="nextstepaction"]
+> [È stata creata un'area di lavoro](?success=create-workspace#cluster) [Si è verificato un problema](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Creare un cluster di elaborazione di Azure Machine Learning
 
 Creare uno script di Python denominato `02-create-compute.py` nella directory di primo livello `tutorial`. Popolarlo con il codice seguente per creare un cluster di elaborazione di Azure Machine Learning che verrà automaticamente dimensionato tra zero e quattro nodi:
 
@@ -167,6 +177,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [È stato creato un cluster di elaborazione](?success=create-compute-cluster#next-steps) [Si è verificato un problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,21 +2,21 @@
 title: Panoramica dei Servizi di dominio Azure Active Directory | Documentazione Microsoft
 description: Questa panoramica illustra le funzionalità offerte da Azure Active Directory Domain Services e descrive come usare questa soluzione in un'organizzazione per fornire servizi di gestione delle identità ad applicazioni e servizi nel cloud.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
-ms.author: joflore
+ms.date: 12/03/2020
+ms.author: justinha
 ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 141b59e400154ef40ebced25c69eaf162ac1787a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967988"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619114"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Che cos'è Azure Active Directory Domain Services?
 
@@ -33,7 +33,7 @@ Azure AD DS si integra con il tenant di Azure AD esistente. Grazie a questa inte
 
 Quando si crea un dominio gestito di Azure AD DS, si definisce uno spazio dei nomi univoco. Questo spazio dei nomi è il nome di dominio, ad esempio *aaddscontoso.com*. Due controller di dominio Windows Server vengono quindi distribuiti nell'area di Azure selezionata. Questa distribuzione di controller di dominio è nota come set di repliche.
 
-Non è necessario gestire, configurare o aggiornare questi controller di dominio. La piattaforma Azure gestisce i controller di dominio, inclusi i backup, come parte del dominio gestito.
+Non è necessario gestire, configurare o aggiornare questi controller di dominio. La piattaforma Azure gestisce i controller di dominio come parte del dominio gestito, inclusi i backup e la crittografia dei dati inattivi tramite Crittografia dischi di Azure.
 
 Un dominio gestito è configurato in modo da eseguire una sincronizzazione unidirezionale da Azure AD per consentire l'accesso a un set centrale di utenti, gruppi e credenziali. È possibile creare risorse direttamente nel dominio gestito, ma queste non vengono risincronizzate con Azure AD. Le applicazioni, i servizi e le VM in Azure che si connettono al dominio gestito possono quindi usare funzionalità comuni di Active Directory Domain Services come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM.
 

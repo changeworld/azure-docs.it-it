@@ -1,15 +1,18 @@
 ---
 title: Individuare le macchine virtuali Hyper-V con Valutazione server di Azure Migrate
 description: Informazioni su come individuare macchine virtuali Hyper-V locali con lo strumento Valutazione server di Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1b860c739ab9ed9737f9f946cb13c731fa4722db
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317158"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753060"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Esercitazione: Individuare le macchine virtuali Hyper-V con Valutazione server
 
@@ -95,7 +98,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-hyper-v/new-project.png)
 
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
 
 Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
@@ -149,7 +152,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
     - Per Azure per enti pubblici:
 
-        **Scenario*** | **Scaricare** | **SHA256**
+        **Scenario** _ | _ *Download** | **SHA256**
         --- | --- | ---
         Hyper-V (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
@@ -160,7 +163,7 @@ Importare il file scaricato e creare la VM.
 1. Estrarre il file VHD compresso in una cartella nell'host Hyper-V che ospiterà l'appliance VM. Vengono estratte tre cartelle.
 2. Aprire la console di gestione di Hyper-V. In **Azioni** fare clic su **Importa macchina virtuale**.
 2. Nella procedura guidata Importa macchina virtuale selezionare **Prima di iniziare**, quindi fare clic su **Avanti**.
-3. In **Individua cartella**specificare la cartella contenente il disco rigido virtuale estratto. Quindi fare clic su **Next**.
+3. In **Individua cartella** specificare la cartella contenente il disco rigido virtuale estratto. Quindi fare clic su **Next**.
 1. In **Selezione macchina virtuale** fare clic su **Avanti**.
 2. In **Scegliere il tipo di importazione** fare clic su **Copia macchina virtuale (crea nuovo ID univoco)** . Quindi fare clic su **Next**.
 3. In **Selezione destinazione** lasciare l'impostazione predefinita. Fare clic su **Avanti**.

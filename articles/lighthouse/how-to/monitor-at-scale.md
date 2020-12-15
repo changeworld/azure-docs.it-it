@@ -1,14 +1,14 @@
 ---
 title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 96ca05faf2b3da8f214c14ae57eb186c7b71e1b3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461519"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509275"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
@@ -40,7 +40,25 @@ Una volta determinati i criteri da distribuire, è possibile [distribuirli nelle
 
 ## <a name="analyze-the-gathered-data"></a>Analizzare i dati raccolti
 
-Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro Log Analytics create in ogni tenant del cliente. Per ottenere informazioni approfondite su tutti i clienti gestiti, è possibile usare strumenti come le [cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md) per raccogliere e analizzare le informazioni provenienti da più origini dati. 
+Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro Log Analytics create in ogni tenant del cliente. Per ottenere informazioni approfondite su tutti i clienti gestiti, è possibile usare strumenti come le [cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md) per raccogliere e analizzare le informazioni provenienti da più origini dati.
+
+## <a name="view-alerts-across-customers"></a>Visualizza avvisi tra clienti
+
+È possibile visualizzare gli [avvisi](../../azure-monitor/platform/alerts-overview.md) per le sottoscrizioni delegate nei tenant dei clienti gestiti dall'utente.
+
+PER aggiornare automaticamente gli avvisi tra più clienti, usare una query di [Azure Resource Graph](../../governance/resource-graph/overview.md) per filtrare gli avvisi. È possibile aggiungere la query al dashboard e selezionare tutti i clienti e le sottoscrizioni appropriati.
+
+Nella query di esempio seguente vengono visualizzati gli avvisi di gravità 0 e 1, con aggiornamento ogni 60 minuti.
+
+```kusto
+alertsmanagementresources
+| where type == "microsoft.alertsmanagement/alerts"
+| where properties.essentials.severity =~ "Sev0" or properties.essentials.severity =~ "Sev1"
+| where properties.essentials.monitorCondition == "Fired"
+| where properties.essentials.startDateTime > ago(60m)
+| project StartTime=properties.essentials.startDateTime,name,Description=properties.essentials.description, Severity=properties.essentials.severity, subscriptionId
+| sort by tostring(StartTime)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

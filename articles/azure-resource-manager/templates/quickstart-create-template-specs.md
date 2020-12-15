@@ -2,15 +2,15 @@
 title: Creare e distribuire una specifica di modello
 description: Informazioni su come creare una specifica di modello da un modello di Resource Manager e quindi distribuire la specifica di modello in un gruppo di risorse nella sottoscrizione.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747503"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518958"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Avvio rapido: Creare e distribuire una specifica di modello (anteprima)
 
@@ -21,15 +21,37 @@ Questo argomento di avvio rapido illustra come creare un pacchetto di un modello
 Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla, è necessario installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla con Azure PowerShell, è necessario installare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per usarla con l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Creare la specifica di modello
 
-La specifica di modello è un tipo di risorsa denominato **Microsoft.Resources/templateSpecs**. Per creare la specifica di modello, è possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure o un modello di Resource Manager. In tutte le opzioni è necessario un modello di Resource Manager incluso nel pacchetto della specifica di modello.
+La specifica di modello è un tipo di risorsa denominato **Microsoft.Resources/templateSpecs**. Per creare la specifica di modello, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o un modello di Resource Manager. In tutte le opzioni è necessario un modello di Resource Manager incluso nel pacchetto della specifica di modello.
 
 Con PowerShell e l'interfaccia della riga di comando, il modello di Resource Manager viene passato come parametro al comando. Con il modello di Resource Manager, il modello stesso da includere nel pacchetto della specifica di modello è incorporato nella definizione della specifica di modello.
 
 Queste opzioni sono mostrate di seguito.
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Nella parte superiore della schermata, in **Cerca risorse, servizi e documentazione**, immettere **specifiche di modello** e quindi selezionare **Specifiche di modello**.
+1. Selezionare **Crea specifica di modello**.
+1. Selezionare o immettere i valori seguenti:
+
+    - **Nome**: immettere un nome per la specifica di modello.  Ad esempio: **storageSpec**
+    - **Sottoscrizione**: selezionare una sottoscrizione di Azure usata per creare la specifica di modello.
+    - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere un nome per il nuovo gruppo di risorse.  Ad esempio: **templateSpecRG**.
+    - **Località**: selezionare una località per il gruppo di risorse. Ad esempio: **Stati Uniti occidentali 2**.
+    - **Versione**: immettere la versione della specifica di modello. Ad esempio: **1.0** o **v1.0**.
+
+1. Selezionare **Avanti: Modifica modello**.
+1. Sostituire il contenuto del modello con il codice JSON seguente:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    È il modello che verrà incluso nel pacchetto della specifica di modello.
+1. Selezionare **Rivedi e crea**.
+1. Selezionare **Crea**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -203,7 +225,23 @@ Queste opzioni sono mostrate di seguito.
 
 ## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
 
-È ora possibile distribuire la specifica di modello. La distribuzione della specifica di modello è analoga alla distribuzione del modello che contiene, con la differenza che occorre passare l'ID risorsa della specifica di modello. Usare gli stessi comandi di distribuzione e, se necessario, passare i valori dei parametri della specifica di modello.
+È ora possibile distribuire la specifica di modello. La distribuzione della specifica di modello è analoga alla distribuzione del modello che contiene, con la differenza che occorre passare l'ID risorsa della specifica di modello in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Usare gli stessi comandi di distribuzione e, se necessario, passare i valori dei parametri della specifica di modello.
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+
+1. Nel portale di Azure aprire il gruppo di risorse creato nell'ultima procedura.  Ad esempio, **templateSpecRG**.
+1. Selezionare la specifica di modello creata. Ad esempio, **storageSpec**.
+1. Selezionare **Distribuisci**.
+1. Selezionare o immettere i valori seguenti:
+
+    - **Sottoscrizione**: selezionare una sottoscrizione di Azure in cui creare la risorsa.
+    - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere **storageRG**.
+    - **Tipo di account di archiviazione**: selezionare **Standard_GRS**.
+
+    Viene creato un nuovo gruppo di risorse, in cui viene distribuito il modello all'interno della specifica di modello.
+
+1. Selezionare **Rivedi e crea**.
+1. Selezionare **Crea**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

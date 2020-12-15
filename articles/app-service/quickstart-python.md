@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506193"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780774"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Python nel Servizio app di Azure in Linux
 
@@ -26,7 +26,7 @@ In questa esercitazione dell'avvio rapido si distribuirà una semplice app Web P
 1. Installare <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o versioni successive</a>.
 1. Installare l'<a href="/cli/azure/install-azure-cli" target="_blank">interfaccia della riga di comando di Azure</a> 2.0.80 o versione successiva, con cui si eseguono i comandi in qualsiasi shell per il provisioning e la configurazione delle risorse di Azure.
 
-Aprire una finestra terminale e verificare che la versione di Python sia 3.6 o successiva:
+Aprire una finestra del terminale e verificare che la versione di Python sia 3.6 o successiva:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -74,23 +74,11 @@ Clonare il repository di esempi usando il comando seguente, quindi passare alla 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Quindi passare a tale cartella:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Quindi passare a tale cartella:
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ Problemi? [Segnalarli](https://aka.ms/FlaskCLIQuickstartHelp).
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
 ::: zone pivot="python-framework-flask"
-1. Assicurarsi di trovarsi nella cartella *python-docs-hello-world*. 
+1. Passare alla cartella *python-docs-hello-world*:
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Creare un ambiente virtuale e installare le dipendenze:
 
@@ -115,7 +107,11 @@ Problemi? [Segnalarli](https://aka.ms/FlaskCLIQuickstartHelp).
     flask run
     ```
     
-    Per impostazione predefinita, il server presuppone che il modulo di ingresso dell'app si trovi in *app.py*, come usato nell'esempio. Se si usa un nome di modulo diverso, impostare la variabile di ambiente `FLASK_APP` su tale nome.
+    Per impostazione predefinita, il server presuppone che il modulo di ingresso dell'app si trovi in *app.py*, come usato nell'esempio.
+
+    Se si usa un nome di modulo diverso, impostare la variabile di ambiente `FLASK_APP` su tale nome.
+
+    Se viene visualizzato un messaggio di errore simile a "Non è stato possibile individuare un'applicazione Flask. Non è stata specificata la variabile di ambiente 'FLASK_APP' e non è stato trovato un modulo 'wsgi.py' o 'app.py' nella directory corrente.", assicurarsi di essere nella cartella `python-docs-hello-world` che contiene l'esempio.
 
 1. Aprire un Web browser e passare all'app di esempio all'indirizzo `http://localhost:5000/`. L'app visualizza il messaggio **Hello World!** .
 
@@ -125,7 +121,11 @@ Problemi? [Segnalarli](https://aka.ms/FlaskCLIQuickstartHelp).
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Assicurarsi di trovarsi nella cartella *python-docs-hello-django*. 
+1. Passare alla cartella *python-docs-hello-django*:
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Creare un ambiente virtuale e installare le dipendenze:
 

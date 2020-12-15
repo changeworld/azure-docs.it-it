@@ -96,8 +96,6 @@
           href: ./cicd/continuous-integration-deployment.md
         - name: Sicurezza
           items:
-            - name: Baseline di sicurezza
-              href: security-baseline.md
             - name: Crittografia
               href: ./security/workspaces-encryption.md
             - name: Sicurezza di rete
@@ -566,7 +564,7 @@
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: Gestire le librerie
           href: ./spark/apache-spark-azure-portal-add-libraries.md
-        - name: Usare i notebook
+        - name: Usare notebook e strumenti IDE
           items:
             - name: Gestire i notebook
               href: ./spark/apache-spark-development-using-notebooks.md
