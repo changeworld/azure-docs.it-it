@@ -11,21 +11,64 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483955"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401152"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
+
+## <a name="text-to-speech-2020-december-release"></a>Sintesi vocale 2020-versione di dicembre
+
+**Nuove voci neurali in GA e anteprima**
+
+Sono state rilasciate 51 nuove voci per un totale di 129 voci neurali in 54 lingue/impostazioni locali:
+
+- **46 nuove voci nelle impostazioni locali di GA**: in arabo ( `ar-EG` Egitto), Hamed in `ar-SA` arabo (Arabia Saudita), Borislav in `bg-BG` bulgaro (Bulgaria), Joana in `ca-ES` Catalano (Spagna), Antonin in `cs-CZ` ceco (Repubblica Ceca), Jeppe in `da-DK` danese (Danimarca), Jonas in `de-AT` tedesco (Austria), Jan in `de-CH` tedesco (Svizzera), Nestori in `el-GR` greco (Grecia), Liam in `en-CA` inglese (Canada), Connor in `en-IE` inglese (Irlanda), Martiner in Hindi (India) `en-IN` , Mohan in `en-IN` Telugu (India), in `en-IN` inglese (India), Valluvar in `en-IN` Tamil (India), Enric in `es-ES` Catalano (Spagna), Kert in `et-EE` estone (Estonia), Harrier in `fi-FI` finlandese (Finlandia), Selma in `fi-FI` finlandese (Finlandia), Fabrice in `fr-CH` francese (Svizzera), Colm in `ga-IE` irlandese (Irlanda), avri in `he-IL` Ebraico (Israele), Srecko in `hr-HR` croato (Croazia), Tamas in `hu-HU` ungherese (Ungheria), Garcia in `id-ID` Indonesiano (Indonesia), leoni in `lt-LT` lituano (Lituania), Nils in `lv-LV` lettone (Lettonia), Osman nel `ms-MY` malese (Malaysia), Joseph in `mt-MT` maltese (Malta) , Finn in `nb-NO` norvegese, Bokmål (Norvegia), Pernille in `nb-NO` norvegese, Bokmål (Norvegia), frattinia in `nl-NL` olandese (Paesi Bassi), Maarten in `nl-NL` olandese (Paesi Bassi), Agnieszka in `pl-PL` polacco (Polonia), Marek in `pl-PL` polacco (Polonia), Duarte in `pt-BR` portoghese (Brasile), Raquel in `pt-PT` portoghese (Potugal), Emil in `ro-RO` rumeno (Romania), Dmitry in `ru-RU` russo (Russia), Svetlana in `ru-RU` russo (Russia), Lukas in `sk-SK` slovacco (Slovacchia), Rok in `sl-SI` sloveno (Slovenia), Mattias in `sv-SE` svedese (Svezia), Sofie in `sv-SE` svedese (Svezia), Fabrizio in `th-TH` Thai (Tailandia), Ahmet in `tr-TR` turco (Turkey), NamMinh in `vi-VN` vietnamita (Vietnam), HsiaoChen in `zh-TW` Taiwan mandarino (Taiwan), YunJhe nel `zh-TW` taiwanese taiwanese (Taiwan), HiuMaan in `zh-HK` cinese cantonese (Hong Kong), WanLung in `zh-HK` cinese cantonese (Hong Kong).
+
+- **5 nuove voci nelle impostazioni locali di anteprima**: Kert in `et-EE` estone (Estonia), Colm in `ga-IE` irlandese (Irlanda), Nils in `lv-LV` lettone (Lettonia), leoni in `lt-LT` lituano (Lituania), Joseph in `mt-MT` maltese (Malta).
+
+Con questa versione, è ora supportato un totale di 129 voci neurali in 54 lingue/impostazioni locali. Inoltre, oltre 70 voci standard sono disponibili in 49 lingue/impostazioni locali. Per l'elenco completo, vedere Supporto per le [lingue](language-support.md#text-to-speech) .
+
+**Aggiornamenti per la creazione di contenuti audio**
+- Interfaccia utente di selezione voce migliorata con categorie vocali e descrizioni vocali dettagliate. 
+- Abilitare l'ottimizzazione dell'intonazione per tutte le voci neurali in linguaggi diversi.
+- Automatizzare l'interfaccia utente localizaiton in base al linguaggio del browser.
+- Abilita `StyleDegree` i controlli per tutte le `zh-CN` voci neurali.
+Visitare lo [strumento di creazione di contenuti audio](https://speech.microsoft.com/audiocontentcreation) per estrarre le nuove funzionalità. 
+
+**Aggiornamenti per le voci zh-CN**
+- Aggiornamento di tutte le `zh-CN` voci neurali per supportare la lingua inglese.
+- Abilitazione `zh-CN` di tutte le voci neurali per supportare la regolazione dell'intonazione. È possibile usare SSML o lo strumento di creazione di contenuti audio per modificare l'intonazione migliore.
+- Sono state aggiornate tutte le `zh-CN` voci neurali in più stile per supportare il `StyleDegree` controllo. L'intensità dell'emozione (soft o Strong) può essere regolata.
+- Aggiornamento `zh-CN-YunyeNeural` per supportare più stili che possono eseguire emozioni diverse.
+
+## <a name="text-to-speech-2020-november-release"></a>Sintesi vocale 2020-versione di novembre
+
+**Nuove impostazioni locali e voci in anteprima**
+- Per il portfolio TTS neurale sono state introdotte **cinque nuove voci e lingue** . Sono: Grace in maltese (Malta), Ona in lituano (Lituania), ANU in estone (Estonia), Orla in irlandese (Irlanda) e everita in lettone (Lettonia).
+- **Cinque nuove `zh-CN` voci con più stili e ruoli supportano**: Xiaohan, xiaomo, Xiaorui, Xiaoxuan e Yunxi.
+
+> Queste voci sono disponibili in anteprima pubblica in tre aree di Azure: Eastus, SouthEastAsia e WestEurope.
+
+**GA contenitore TTS neurale**
+- Con il contenitore TTS neurale, gli sviluppatori possono eseguire sintesi vocale con le voci digitali più naturali nel proprio ambiente per requisiti specifici di sicurezza e governance dei dati. Controllare [come installare i contenitori di sintesi vocale](speech-container-howto.md). 
+
+**Nuove funzionalità**
+- **Voce personalizzata**: gli utenti possono copiare un modello vocale da un'area all'altra; sospensione e ripresa dell'endpoint supportati. Passare al [portale](https://speech.microsoft.com/customvoice) qui.
+- Supporto di [SSML Silence Tag](speech-synthesis-markup.md#add-silence) . 
+- Miglioramenti della qualità della voce TTS generale: accuratezza della pronuncia a livello di parola migliorata in nb-NO. Errore di pronuncia del 53% ridotto.
+
+> Per altre informazioni, vedere [questo Blog tecnico](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
 
 ## <a name="text-to-speech-2020-october-release"></a>Sintesi vocale 2020-versione di ottobre
 
 **Nuove funzionalità**
 - Jenny supporta un nuovo `newscast` stile. Vedere [How to use the Speaking Styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
 - **Voci neurali aggiornate a HiFiNet vocoder con maggiore fedeltà audio e velocità di sintesi più rapida**. Si tratta di vantaggi per i clienti il cui scenario si basa sull'audio Hi-Fi o sulle interazioni lunghe, tra cui il doppiaggio video, i libri audio o materiali di formazione online. [Scopri di più sulla storia e ascolta gli esempi di Voice nel Blog della community tecnica](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
-- ** &  [Studio per la creazione di contenuto audio](https://speech.microsoft.com/audiocontentcreation) vocale personalizzato localizzato a 17 impostazioni locali [Custom Voice](https://speech.microsoft.com/customvoice)**. Gli utenti possono passare facilmente l'interfaccia utente a una lingua locale per un'esperienza più intuitiva.   
+- ** &  [Studio per la creazione di contenuto audio](https://speech.microsoft.com/audiocontentcreation) vocale personalizzato localizzato a 17 impostazioni locali [](https://speech.microsoft.com/customvoice)**. Gli utenti possono passare facilmente l'interfaccia utente a una lingua locale per un'esperienza più intuitiva.   
 - **Creazione di contenuto audio**: aggiunto controllo del grado di stile per XiaoxiaoNeural; Perfezionata la funzionalità di interruzione personalizzata per includere interruzioni incrementali di 50 ms. 
 
 **Miglioramenti alla qualità della voce TTS generale**
@@ -155,7 +198,7 @@ Riconoscimento vocale rilasciate 26 nuove impostazioni locali nell'agosto: 2 lin
 
 | Impostazioni locali  | Linguaggio                          |
 |---------|-----------------------------------|
-| `cs-CZ` | Ceco (Repubblica ceca)            | 
+| `cs-CZ` | Ceco (Repubblica Ceca)            | 
 | `en-HK` | Inglese (Hong Kong)               | 
 | `en-IE` | Inglese (Irlanda)                 | 
 | `en-PH` | Inglese (Filippine)             | 

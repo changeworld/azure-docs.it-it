@@ -1,20 +1,20 @@
 ---
 title: Come analizzare un BLOB di archiviazione di Azure
 description: Informazioni su come eseguire l'analisi dell'archiviazione BLOB di Azure nel Catalogo dati di Azure.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 6d2e2316525465c1ef9f58e7b83b8d0e99d46bd4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1bcd8390a298d7fc46f9c04633f610eb4492d33d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555017"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400710"
 ---
-# <a name="register-and-scan-azure-blob-storage"></a>Registrare e analizzare l'archivio BLOB di Azure
+# <a name="register-and-scan-azure-blob-storage"></a>Registrare e analizzare Archiviazione BLOB di Azure
 
 Questo articolo illustra come registrare un account di archiviazione BLOB di Azure in ambito di competenza e configurare un'analisi.
 
@@ -114,7 +114,7 @@ Per registrare un nuovo account BLOB nel Catalogo dati, eseguire le operazioni s
 1. Selezionare le **origini** nel percorso di spostamento a sinistra
 1. Selezionare **Registra**
 1. In **registra origini** selezionare **archiviazione BLOB di Azure**
-1. Selezionare **Continua**
+1. Seleziona **Continua**.
 
 Nella schermata **registra origini (archiviazione BLOB di Azure)** eseguire le operazioni seguenti:
 

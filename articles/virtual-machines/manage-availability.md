@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4dd15df0e745a5c6e3130233e693bbdb22655775
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b2f50ba910e3e47c55a63f58bc9f5e978e80e95a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500445"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401186"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gestire la disponibilità delle macchine virtuali Linux
 
@@ -70,7 +70,7 @@ I domini di errore definiscono il gruppo di macchine virtuali che condividono un
    ![Rappresentazione concettuale della configurazione di domini di aggiornamento e di errore](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Usare Managed Disks per le macchine virtuali nel set di disponibilità
-Se attualmente si usano macchine virtuali con dischi non gestiti, si consiglia vivamente di eseguire il ripristino da dischi non gestiti a Managed disks per [Linux](./linux/convert-unmanaged-to-managed-disks.md) e [Windows](./windows/convert-unmanaged-to-managed-disks.md).
+Se attualmente si usano macchine virtuali con dischi non gestiti, è consigliabile eseguire la conversione da dischi non gestiti a Managed disks per [Linux](./linux/convert-unmanaged-to-managed-disks.md) e [Windows](./windows/convert-unmanaged-to-managed-disks.md).
 
 [Managed Disks](./managed-disks-overview.md) offre una maggiore affidabilità per i set di disponibilità, perché fa in modo che i dischi delle macchine virtuali in un set di disponibilità siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. Ciò avviene inserendo automaticamente i dischi in domini di errore di archiviazione diversi (cluster di archiviazione) e allineandoli al dominio di errore della macchina virtuale. Se un dominio di errore di archiviazione non riesce a causa di un errore hardware o software, risulterà in errore solo l'istanza della macchina virtuale con dischi nel dominio di errore di archiviazione.
 ![Domini di errore di Managed Disks](./media/virtual-machines-common-manage-availability/md-fd-updated.png)

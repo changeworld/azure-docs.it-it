@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4eb32243df219d721d7baae80984c45d0fc4cf25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343020"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400727"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Eseguire il debug di criteri di gestione API di Azure in Visual Studio Code
 
@@ -30,9 +30,11 @@ Questo articolo descrive come eseguire il debug dei criteri di gestione API usan
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare un'istanza di livello Developer di gestione API, seguire prima questa [esercitazione](get-started-create-service-instance.md) .
+* Per creare un'istanza di livello Developer di gestione API, seguire prima questa [Guida introduttiva](get-started-create-service-instance.md) .
 
-Installare [Visual Studio Code](https://code.visualstudio.com/) e la versione più recente dell' [estensione gestione API di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+* Installare [Visual Studio Code](https://code.visualstudio.com/) e la versione più recente dell' [estensione gestione API di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+
+* Importare un'API nell'istanza di gestione API. Per i passaggi di esempio, vedere [esercitazione: usare l'estensione gestione API per Visual Studio Code per importare e gestire le API](visual-studio-code-tutorial.md).
 
 ## <a name="restrictions-and-limitations"></a>Restrizioni e limitazioni
 

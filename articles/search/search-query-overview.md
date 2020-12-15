@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2020
-ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.date: 12/14/2020
+ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387667"
+ms.locfileid: "97400812"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Esecuzione di query in Azure ricerca cognitiva
 
-Azure ricerca cognitiva offre un linguaggio di query avanzato per supportare un'ampia gamma di scenari, dalla ricerca di testo disponibile, ai modelli di query altamente specificati. Questo articolo riepiloga i tipi di query che è possibile creare.
+Azure ricerca cognitiva offre un linguaggio di query avanzato per supportare un'ampia gamma di scenari, dalla ricerca di testo disponibile, ai modelli di query altamente specificati. Questo articolo descrive le richieste di query e i tipi di query che è possibile creare.
 
-In ricerca cognitiva, una query è una specifica completa di un'operazione di round trip **`search`** , con parametri che comunicano l'esecuzione delle query e formano la risposta che viene restituita. I parametri e i parser determinano il tipo di richiesta di query. L'esempio di query seguente usa i [documenti di ricerca (API REST)](/rest/api/searchservice/search-documents), che hanno come destinazione l' [Indice demo degli hotel](search-get-started-portal.md).
+In ricerca cognitiva, una query è una specifica completa di un'operazione di round trip **`search`** , con parametri che comunicano l'esecuzione delle query e formano la risposta che viene restituita. I parametri e i parser determinano il tipo di richiesta di query. L'esempio di query seguente è una query di testo in formato libero con un operatore booleano che usa i [documenti di ricerca (API REST)](/rest/api/searchservice/search-documents), destinando la raccolta di documenti [Hotels-sample-index](search-get-started-portal.md) .
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,7 +34,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-Parametri utilizzati durante l'esecuzione della query:
+I parametri utilizzati durante l'esecuzione della query includono:
 
 + **`queryType`** imposta il parser, che è il [parser di query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per i costrutti di query avanzati, come le espressioni regolari, la ricerca di prossimità, la ricerca fuzzy e il carattere jolly, per citarne alcuni.
 
@@ -66,7 +66,7 @@ Se l'app di ricerca include una casella di ricerca che raccoglie gli input dei t
 
 In ricerca cognitiva, la ricerca full-text è basata sul motore di query di Apache Lucene. Le stringhe di query nella ricerca full-text vengono sottoposte ad analisi lessicali per rendere più efficienti le analisi L'analisi include la combinazione di maiuscole e minuscole per tutti i termini, la rimozione di parole non significative e la riduzione dei termini nei form radice primitivi. L'analizzatore predefinito è Lucene standard.
 
-Quando vengono rilevati termini corrispondenti, il motore di query ricostruisce un documento di ricerca che contiene la corrispondenza, classifica i documenti in ordine di pertinenza e restituisce i primi 50 (per impostazione predefinita) nella risposta.
+Quando vengono rilevati termini corrispondenti, il motore di query ricostruisce un documento di ricerca contenente la corrispondenza usando la chiave o l'ID del documento per assemblare i valori dei campi, classifica i documenti in ordine di pertinenza e restituisce i primi 50 (per impostazione predefinita) nella risposta o un numero diverso se è stato specificato **`top`** .
 
 Se si sta implementando una ricerca full-text, è possibile comprendere il modo in cui il contenuto viene suddiviso in token e consentire il debug di eventuali anomalie Le query su stringhe con trattini o caratteri speciali potrebbero richiedere l'uso di un analizzatore diverso dal Lucene standard predefinito per assicurarsi che l'indice contenga i token corretti. È possibile eseguire l'override dell'impostazione predefinita con gli [analizzatori di linguaggio](index-add-language-analyzers.md#language-analyzer-list) o gli [analizzatori specializzati](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi lessicale. Un esempio è la [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) che tratta l'intero contenuto di un campo come singolo token. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. Per altre informazioni, vedere [ricerca a termini parziali e modelli con caratteri speciali](search-query-partial-matching.md).
 
@@ -78,7 +78,7 @@ Se si prevede un uso intensivo di operatori booleani, che è più probabile negl
 
 ## <a name="filter-search"></a>Filtra ricerca
 
-I filtri sono ampiamente usati nelle app che includono ricerca cognitiva. Nelle pagine dell'applicazione i filtri vengono spesso visualizzati come facet nelle strutture di navigazione dei collegamenti per i filtri indirizzati dall'utente. I filtri vengono usati anche internamente per esporre sezioni di contenuto indicizzato. Ad esempio, è possibile filtrare in una lingua se un indice contiene campi sia in inglese che in francese. 
+I filtri sono ampiamente usati nelle app che includono ricerca cognitiva. Nelle pagine dell'applicazione i filtri vengono spesso visualizzati come facet nelle strutture di navigazione dei collegamenti per i filtri indirizzati dall'utente. I filtri vengono usati anche internamente per esporre sezioni di contenuto indicizzato. È possibile, ad esempio, inizializzare una pagina di ricerca utilizzando un filtro per una categoria di prodotti o una lingua se un indice contiene campi sia in inglese che in francese.
 
 Potrebbero inoltre essere necessari filtri per richiamare un modulo di query specializzato, come descritto nella tabella seguente. È possibile usare un filtro con una ricerca non specificata ( **`search=*`** ) o con una stringa di query che include termini, frasi, operatori e modelli.
 
