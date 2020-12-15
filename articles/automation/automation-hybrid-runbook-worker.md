@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183771"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505529"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -92,7 +92,7 @@ Il ruolo di lavoro ibrido per Runbook di automazione di Azure può essere usato 
 
 * [Macchina virtuale isolata](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). Quando vengono distribuiti, utilizzano l'intero host fisico per il computer che fornisce il livello di isolamento necessario per supportare i carichi di lavoro IL5.
 
-* [Host dedicati di Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), che fornisce server fisici in grado di ospitare una o più macchine virtuali, dedicate a una sottoscrizione di Azure.
+* [Host dedicati di Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), che fornisce server fisici in grado di ospitare una o più macchine virtuali, dedicate a una sottoscrizione di Azure.
 
 >[!NOTE]
 >L'isolamento di calcolo tramite il ruolo di lavoro ibrido per Runbook è disponibile per i cloud commerciali di Azure e per enti pubblici statunitensi. 

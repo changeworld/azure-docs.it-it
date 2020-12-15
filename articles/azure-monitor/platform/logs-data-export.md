@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 4155cda1e1de6f15aefa6d5fc960988eba15068d
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 8fa823620d6d1306260d719cbabaa3d815cc0d09
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371969"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505444"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -131,7 +131,7 @@ N/D
 Usare il comando dell'interfaccia della riga di comando seguente per visualizzare le tabelle nell'area di lavoro. Consente di copiare le tabelle desiderate e includere nella regola di esportazione dei dati.
 
 ```azurecli
-az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
 
 Usare il comando seguente per creare una regola di esportazione dei dati in un account di archiviazione usando l'interfaccia della riga di comando.
@@ -422,7 +422,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | DnsEvents | |
 | : Inventario DNS | |
 | Dynamics365Activity | |
-| Evento | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
+| Event | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

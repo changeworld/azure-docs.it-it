@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318318"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505274"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -81,7 +81,7 @@ Come indicato nella sezione [Strategia per la gestione dei dati personali](#stra
 Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzare l'[API di query di Log Analytics](https://dev.loganalytics.io/) o l'[API di query di Application Insights](https://dev.applicationinsights.io/quickstart). Spetta all'utente implementare la logica per la conversione della forma dei dati in una appropriata da offrire agli utenti. [Funzioni di Azure](https://azure.microsoft.com/services/functions/) è una valida soluzione per ospitare tale logica.
 
 > [!IMPORTANT]
->  Anche se è probabile che la maggior parte delle operazioni di ripulitura venga completata molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata, il **Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni**. Si tratta di un processo automatizzato e non è possibile richiedere che un'operazione venga gestita più velocemente.
+>  Anche se è probabile che la maggior parte delle operazioni di ripulitura venga completata molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata, il **Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni**. Questo contratto di contratto soddisfa i requisiti di GDPR. Si tratta di un processo automatizzato, pertanto non è possibile richiedere che un'operazione venga gestita più velocemente. 
 
 ### <a name="delete"></a>Delete
 
@@ -89,6 +89,9 @@ Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzar
 > Le operazioni di eliminazione in Log Analytics sono distruttive e non reversibili. Prestare la massima attenzione durante l'esecuzione.
 
 Nell'ambito della gestione dei dati privati è stato reso disponibile un percorso dell'API di *ripulitura*. Questo percorso deve essere usato solo in casi limitati a causa dei rischi associati, del potenziale impatto sulle prestazioni e della possibilità di un'asimmetria di tutte le aggregazioni, le misure e altri aspetti dei dati di Log Analytics. Vedere la sezione [Strategia per la gestione dei dati personali](#strategy-for-personal-data-handling) per approcci alternativi per la gestione dei dati privati.
+
+> [!NOTE]
+> Una volta eseguita l'operazione di ripulitura, non è possibile accedere ai dati mentre lo [stato dell'operazione di ripulitura](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) è *in sospeso*. 
 
 La ripulitura è un'operazione con privilegi elevati che nessuna app o nessun utente in Azure (incluso anche il proprietario della risorsa) avrà l'autorizzazione di eseguire senza disporre esplicitamente di un ruolo in Azure Resource Manager. Questo ruolo è _Responsabile ripulitura dati_ e deve essere delegato con attenzione a causa della potenziale perdita di dati. 
 

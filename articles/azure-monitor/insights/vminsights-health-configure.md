@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
-ms.openlocfilehash: f41a43e76993a03554d32fc7f3ce3149848989a9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 12/14/2020
+ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686989"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505597"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configurare il monitoraggio in Monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)
 Monitoraggio di Azure per le macchine virtuali integrità Guest consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito usando il portale di Azure. Vengono inoltre descritti i concetti fondamentali dei monitoraggi necessari per [la configurazione del monitoraggio tramite una regola di raccolta dati](vminsights-health-configure-dcr.md).
@@ -33,6 +33,12 @@ I monitoraggi unità e i monitoraggi aggregati dispongono di un'impostazione di 
 Quando un monitoraggio è disabilitato, i criteri vengono visualizzati come non disponibili, come illustrato nell'esempio seguente.
 
 ![Monitoraggio disabilitato](media/vminsights-health-configure/disabled-monitor.png)
+
+
+> [!NOTE]
+> Se un monitoraggio padre è disabilitato, vengono disabilitati anche tutti i monitoraggi figlio. Se si Abilita in modo esplicito il monitoraggio figlio, anche l'elemento padre verrà abilitato, ma lo stato della configurazione rimarrà invariato. In questo caso, verrà visualizzato il messaggio seguente nel monitoraggio padre.
+>
+> *Si verifica una discrepanza poiché lo stato configurato del monitor è' disabled ', ma lo stato di integrità non lo rispecchia. Ciò è dovuto al fatto che le modifiche configurate vengono propagate o che uno dei monitoraggi figlio è stato abilitato in modo esplicito.*
 
 ## <a name="enable-or-disable-virtual-machine"></a>Abilitare o disabilitare la macchina virtuale
 È possibile disabilitare il monitoraggio di una macchina virtuale per arrestare temporaneamente tutti i monitoraggi. È possibile disabilitare il monitoraggio per una macchina virtuale, ad esempio quando si esegue la manutenzione.

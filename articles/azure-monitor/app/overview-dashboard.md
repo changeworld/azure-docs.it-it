@@ -3,12 +3,12 @@ title: Dashboard panoramica di Azure Application Insights| Microsoft Docs
 description: Monitorare le applicazioni con la funzionalità Dashboard panoramica di Azure Application Insights.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0708fa70d3a3ecb406f1d974bb1f2b47e55b40
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970605"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504101"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -53,7 +53,7 @@ Per tornare all'esperienza panoramica, selezionare:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se si seleziona **Configura le impostazioni del riquadro** e si imposta un intervallo di tempo personalizzato superiore a 31 giorni, il dashboard non visualizzerà oltre 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non esiste alcuna soluzione alternativa per questo comportamento.
+È attualmente previsto un limite di 30 giorni di dati per i dati visualizzati in un dashboard. Se si seleziona un filtro di tempo superiore a 30 giorni o se si seleziona **Configura le impostazioni del riquadro** e si imposta un intervallo di tempo personalizzato superiore a 30 giorni, il dashboard non viene visualizzato oltre i 30 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non esiste alcuna soluzione alternativa per questo comportamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

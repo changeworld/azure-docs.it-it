@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 99c03ae4430d1a4caf575bdb9900200af0217bf1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 51cb1a1a8151748fc9c6cd4c81da967424b52868
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109768"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505155"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Risolvere i problemi di Azure Data Factory sicurezza e controllo di accesso
 
@@ -23,114 +23,113 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi di sicu
 
 ## <a name="common-errors-and-messages"></a>Errori comuni e messaggi
 
-
-### <a name="connectivity-issue-of-copy-activity-in-cloud-data-store"></a>Problema di connettività dell'attività di copia nell'archivio dati cloud
+### <a name="connectivity-issue-in-the-copy-activity-of-the-cloud-datastore"></a>Problema di connettività nell'attività di copia dell'archivio dati cloud
 
 #### <a name="symptoms"></a>Sintomi
 
-È possibile che vengano restituiti vari tipi di messaggi di errore quando si verifica un problema di connettività per l'archivio dati di origine/sink.
+È possibile che vengano restituiti diversi messaggi di errore quando si verificano problemi di connettività nell'archivio dati di origine o sink.
 
 #### <a name="cause"></a>Causa 
 
-Il problema è dovuto principalmente ai fattori seguenti:
+Il problema è in genere causato da uno dei fattori seguenti:
 
-1. Impostazione del proxy nel nodo del runtime di integrazione self-hosted (se si usa il runtime di integrazione self-hosted)
+* Impostazione del proxy nel nodo del runtime di integrazione self-hosted (IR) se si usa un runtime di integrazione self-hosted.
 
-1. Impostazione del firewall nel nodo del runtime di integrazione self-hosted (se si usa il runtime di integrazione self-hosted)
+* Impostazione del firewall nel nodo IR indipendente, se si usa un runtime di integrazione self-hosted.
 
-1. Impostazione del firewall nell'archivio dati cloud
+* Impostazione del firewall nell'archivio dati cloud.
 
 #### <a name="resolution"></a>Soluzione
 
-1. Verificare prima di tutto i punti seguenti per assicurarsi che il problema sia causato da un problema di connettività:
+* Per assicurarsi che si tratta di un problema di connettività, verificare i punti seguenti:
 
-   - L'errore viene generato dai connettori di origine/sink.
+   - L'errore viene generato dai connettori di origine o sink.
+   - L'errore si trova all'inizio dell'attività di copia.
+   - L'errore è coerente per Azure IR o il runtime di integrazione self-hosted con un nodo, perché potrebbe trattarsi di un errore casuale in un runtime di integrazione self-hosted a più nodi se si verificano problemi solo per alcuni nodi.
 
-   - L'attività ha esito negativo all'inizio della copia
+* Se si usa un runtime di integrazione **self-hosted**, controllare il proxy, il firewall e le impostazioni di rete, perché la connessione allo stesso archivio dati potrebbe avere esito positivo se si usa un Azure IR. Per risolvere questo scenario, vedere:
 
-   - Si tratta di un errore coerente per Azure IR o un runtime di integrazione self-hosted con un nodo, perché potrebbe essere un errore casuale per il runtime di integrazione self-hosted a più nodi se si verifica solo una parte dei nodi.
-
-1. Verificare il proxy, il firewall e le impostazioni di rete se si usa il runtime di integrazione **self-hosted** perché l'esecuzione nello stesso archivio dati potrebbe avere esito positivo in Azure IR. Per la risoluzione dei problemi, vedere i collegamenti seguenti:
-
-   [Porte IR e firewall indipendenti](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls) 
-    [Connettore ADLS](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Porte IR e firewall indipendenti](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
+   * [Connettore Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
   
-1. Se si usa **Azure IR**, provare a disabilitare l'impostazione del firewall dell'archivio dati. In questo modo, è possibile risolvere il problema relativo alle due circostanze seguenti:
+* Se si usa una **Azure IR**, provare a disabilitare l'impostazione del firewall dell'archivio dati. Questo approccio consente di risolvere i problemi nelle due situazioni seguenti:
   
-   * [Azure IR gli indirizzi IP](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) non sono inclusi nell'elenco Consenti.
+   * [Azure IR gli indirizzi IP](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) non sono presenti nell'elenco Consenti.
+   * La funzionalità *Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione* è disattivata per [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) e [Azure Data Lake storage generazione 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
+   * L'impostazione *Consenti l'accesso a servizi di Azure* non è abilitata per Azure Data Lake storage Gen1.
 
-   * *Consenti ai servizi Microsoft attendibili di accedere a questa* funzionalità dell'account di archiviazione è disattivato per [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) e [ADLS generazione 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
-
-   * *Consenti l'accesso ai servizi di Azure* non è abilitato per ADLS Gen1.
-
-1. Se i metodi precedenti non funzionano, contattare Microsoft per assistenza.
+Se nessuno dei metodi precedenti funziona, contattare Microsoft per assistenza.
 
 
 ### <a name="invalid-or-empty-authentication-key-issue-after-public-network-access-is-disabled"></a>Problema di chiave di autenticazione non valido o vuoto dopo la disabilitazione dell'accesso alla rete pubblica
 
 #### <a name="symptoms"></a>Sintomi
 
-Dopo avere disabilitato l'accesso alla rete pubblica per Data Factory, perché il runtime di integrazione self-hosted genera l'errore seguente: "la chiave di autenticazione non è valida o è vuota".
+Dopo avere disabilitato l'accesso alla rete pubblica per Data Factory, il runtime di integrazione self-hosted genera l'errore seguente: "la chiave di autenticazione non è valida o è vuota".
 
 #### <a name="cause"></a>Causa
 
-Il problema è probabilmente causato da un problema di risoluzione DNS, perché la disabilitazione della connettività pubblica e la definizione di un endpoint privato non sono utili per la riconnessione.
+Il problema è probabilmente causato da un problema di risoluzione del Domain Name System (DNS), perché la disabilitazione della connettività pubblica e la definizione di un endpoint privato impedisce la riconnessione.
 
-È possibile seguire questa procedura per verificare se Data Factory FQDN viene risolto in un indirizzo IP pubblico:
+Per verificare se l'Data Factory nome di dominio completo (FQDN) viene risolto nell'indirizzo IP pubblico, eseguire le operazioni seguenti:
 
-1. Verificare di aver creato la macchina virtuale di Azure nella stessa VNET Data Factory endpoint privato.
+1. Verificare di aver creato la macchina virtuale (VM) di Azure nella stessa rete virtuale dell'endpoint Data Factory privato.
 
 2. Eseguire PsPing e ping dalla macchina virtuale di Azure al nome di dominio completo Data Factory:
 
+   `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
    `ping <dataFactoryName>.<region>.datafactory.azure.net`
 
-   `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
-
    > [!Note]
-   > È necessario specificare una porta per il comando PsPing, mentre la porta 443 non è un must.
+   > È necessario specificare una porta per il comando PsPing. La porta 443 è visualizzata ma non è obbligatoria.
 
-3. Controllare se entrambi i comandi sono stati risolti in un indirizzo IP pubblico di ADF basato sull'area specificata (formato xxx. xxx. xxx. 0).
+3. Verificare se entrambi i comandi si risolvono in un indirizzo IP pubblico Azure Data Factory basato su un'area specificata. L'indirizzo IP deve essere nel formato seguente: `xxx.xxx.xxx.0`
 
 #### <a name="resolution"></a>Soluzione
 
-- È possibile fare riferimento all'articolo nel [collegamento privato di Azure per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints). L'istruzione è destinata alla configurazione del server o della zona DNS privata per risolvere Data Factory FQDN in un indirizzo IP privato.
+Per risolvere il problema, eseguire le operazioni seguenti.
+- Per Azure Data Factory articolo, fare riferimento al [collegamento privato di Azure](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) . L'istruzione è destinata alla configurazione del server o della zona DNS privata per la risoluzione del nome di dominio completo Data Factory in un indirizzo IP privato.
 
-- Se non si è disposti a configurare attualmente la zona o il server DNS privato, attenersi alla procedura seguente come soluzione temporanea. Tuttavia, il DNS personalizzato è ancora consigliato come soluzione a lungo termine.
+- È consigliabile usare un DNS personalizzato come soluzione a lungo termine. Tuttavia, se non si vuole configurare la zona o il server DNS privato, provare la soluzione temporanea seguente:
 
-  1. Modificare il file host in Windows ed eseguire il mapping dell'indirizzo IP privato (endpoint privato ADF) al nome di dominio completo di ADF.
+  1. Modificare il file host in Windows ed eseguire il mapping dell'indirizzo IP privato (il Azure Data Factory endpoint privato) al nome di dominio completo Azure Data Factory.
   
-     Passare al percorso "C:\Windows\System32\drivers\etc" nella macchina virtuale di Azure e aprire il file **host** con il blocco note. Aggiungere la riga di mapping dell'indirizzo IP privato al nome di dominio completo alla fine del file e salvare la modifica.
+     Nella macchina virtuale di Azure passare a `C:\Windows\System32\drivers\etc` , quindi aprire il file *host* nel blocco note. Aggiungere la riga che esegue il mapping dell'indirizzo IP privato al nome di dominio completo alla fine del file e salvare la modifica.
      
-     ![Aggiungi mapping a host](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
+     ![Screenshot del mapping dell'indirizzo IP privato all'host.](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
 
-  1. Eseguire di nuovo gli stessi comandi descritti in precedenza passaggi di verifica per controllare la risposta, che deve contenere l'indirizzo IP privato.
+  1. Eseguire di nuovo gli stessi comandi dei passaggi di verifica precedenti per controllare la risposta, che deve contenere l'indirizzo IP privato.
 
   1. Ripetere la registrazione del runtime di integrazione self-hosted e risolvere il problema.
- 
 
 ### <a name="unable-to-register-ir-authentication-key-on-self-hosted-vms-due-to-private-link"></a>Non è possibile registrare la chiave di autenticazione IR nelle macchine virtuali indipendenti a causa del collegamento privato
 
 #### <a name="symptoms"></a>Sintomi
 
-Non è possibile registrare la chiave di autenticazione IR nella macchina virtuale indipendente a causa del collegamento privato abilitato.
+Non è possibile registrare la chiave di autenticazione IR nella VM self-hosted perché il collegamento privato è abilitato. Viene visualizzato il messaggio di errore seguente:
 
-Le informazioni sull'errore sono indicate di seguito:
-
-`
-Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 seconds, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection.
-`
+"Impossibile ottenere il token del servizio dal servizio ADF con chiave * * * * * * * * * * * * * * * * * * * e costo orario: 0,1250079 secondi, il codice di errore è: InvalidGatewayKey, activityId è: XXXXXXX e il messaggio di errore dettagliato indica che l'indirizzo IP del client non è un indirizzo IP privato valido perché Data Factory non è riuscito ad accedere alla rete pubblica, quindi non è in grado di raggiungere il cloud per eseguire la connessione".
 
 #### <a name="cause"></a>Causa
 
-Il problema potrebbe essere causato dalla macchina virtuale in cui si sta tentando di installare il runtime di integrazione self-hosted. Per connettersi al cloud, è necessario assicurarsi che sia abilitato l'accesso alla rete pubblica.
+Il problema potrebbe essere causato dalla macchina virtuale in cui si sta provando a installare il runtime di integrazione self-hosted. Per connettersi al cloud, assicurarsi che sia abilitato l'accesso alla rete pubblica.
 
 #### <a name="resolution"></a>Soluzione
 
- **Soluzione 1:** Per risolvere il problema, è possibile attenersi alla procedura seguente:
+**Soluzione 1**
+ 
+Per risolvere il problema, eseguire le operazioni seguenti.
 
 1. Passare alla pagina [Factory-Update](https://docs.microsoft.com/rest/api/datafactory/Factories/Update) .
 
 1. In alto a destra, selezionare il pulsante **prova** .
+1. In **parametri** completare le informazioni necessarie. 
+1. In **corpo** incollare la proprietà seguente:
+
+    ```
+    { "tags": { "publicNetworkAccess":"Enabled" } }
+    ```
+1. Selezionare **Esegui** per eseguire la funzione. 
 
 1. In **parametri** completare le informazioni necessarie. 
 
@@ -140,19 +139,18 @@ Il problema potrebbe essere causato dalla macchina virtuale in cui si sta tentan
     ``` 
 
 1. Selezionare **Esegui** per eseguire la funzione. 
-
 1. Verificare che venga visualizzato il **codice di risposta: 200** . La proprietà incollata dovrebbe essere visualizzata anche nella definizione JSON.
 
 1. Aggiungere di nuovo la chiave di autenticazione IR in Integration Runtime.
 
 
-**Soluzione 2:** È possibile fare riferimento all'articolo seguente per la soluzione:
+**Soluzione 2**
 
-https://docs.microsoft.com/azure/data-factory/data-factory-private-link
+Per risolvere il problema, passare al [collegamento privato di Azure per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
 
 Provare ad abilitare l'accesso alla rete pubblica nell'interfaccia utente, come illustrato nello screenshot seguente:
 
-![Abilitare l'accesso alla rete pubblica](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+![Screenshot del controllo "abilitato" per "Consenti accesso alla rete pubblica" nel riquadro rete.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

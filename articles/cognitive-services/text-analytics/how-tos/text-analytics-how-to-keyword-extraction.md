@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 68da6a134f2410ca81ae16b8e00c40d0a9c8f22c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 39823792a438e533134f38c04e72f2c314c57678
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965018"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505189"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Esempio: come estrarre frasi chiave usando Analisi del testo
 
@@ -88,7 +88,7 @@ Per informazioni sulla definizione della richiesta, vedere [Come chiamare l'API 
 
 ## <a name="step-2-post-the-request"></a>Passaggio 2: Pubblicare la richiesta
 
-Al momento della ricezione della richiesta viene eseguita l'analisi. Per informazioni sulle dimensioni e sul numero delle richieste che è possibile inviare al minuto e al secondo, vedere la sezione [Limiti dei dati](../overview.md#data-limits) nella panoramica.
+Al momento della ricezione della richiesta viene eseguita l'analisi. Per informazioni sulle dimensioni e sul numero di richieste che è possibile inviare al minuto o al secondo, vedere la sezione relativa ai [limiti dei dati](../overview.md#data-limits) nella panoramica.
 
 Tenere presente che il servizio è senza stato. Nessun dato viene archiviato nell'account. I risultati vengono restituiti immediatamente nella risposta.
 
@@ -160,7 +160,7 @@ Di seguito è riportato un esempio dell'output per l'estrazione di frasi chiave 
 ```
 Come indicato, l'analizzatore trova e rimuove le parole non essenziali e mantiene singoli termini o frasi che sembrano essere il soggetto o l'oggetto di una frase.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per l'estrazione di frasi chiave tramite Analisi del testo in Servizi cognitivi. In sintesi:
 
@@ -177,5 +177,5 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per l'estraz
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica di Analisi del testo](../overview.md)
-* [Uso della libreria client di Analisi del testo](../quickstarts/text-analytics-sdk.md)
+* [Uso della libreria client di Analisi del testo](../quickstarts/client-libraries-rest-api.md)
 * [Novità](../whats-new.md)

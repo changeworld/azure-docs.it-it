@@ -2,13 +2,13 @@
 title: What ' s New with Azure Arc Enabled Servers Agent
 description: Questo articolo contiene le note sulla versione per l'agente Azure Arc Enabled Server. Per molti dei problemi riepilogati sono disponibili collegamenti a ulteriori dettagli.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 12/14/2020
+ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445286"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505648"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>What ' s New with Azure Arc Enabled Servers Agent
 
@@ -17,6 +17,16 @@ Azure Arc Enabled Servers Connected computer Agent riceve i miglioramenti su bas
 - Versioni più recenti
 - Problemi noti
 - Correzioni di bug
+
+## <a name="december-2020"></a>Dicembre 2020
+
+### <a name="new-feature"></a>Nuova funzionalità
+
+Aggiunta del supporto per Windows Server 2008 R2
+
+### <a name="fixed"></a>Fisso
+
+Risoluzione del problema che impedisce l'installazione dell'estensione di script personalizzata in Linux.
 
 ## <a name="november-2020"></a>Novembre 2020
 
@@ -71,7 +81,7 @@ Versione: 0,11
 
 ### <a name="known-issues"></a>Problemi noti
 
-Se si usa una versione precedente dell'agente Linux e la si configura per l'uso di un server proxy, è necessario riconfigurare l'impostazione del server proxy dopo l'aggiornamento. A tale scopo, eseguire `sudo azcmagent_proxy add http://proxyserver.local:83`.
+Se si usa una versione precedente dell'agente Linux ed è configurata per l'uso di un server proxy, è necessario riconfigurare l'impostazione del server proxy dopo l'aggiornamento. A tale scopo, eseguire `sudo azcmagent_proxy add http://proxyserver.local:83`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 5b064365a6f0bd8a544f57d67cd6e4beb98bb404
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558981"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505240"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -298,7 +298,7 @@ Esempio di risposta NER generale:
 ---
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 
@@ -309,5 +309,5 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per il colle
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica di Analisi del testo](../overview.md)
-* [Uso della libreria client di Analisi del testo](../quickstarts/text-analytics-sdk.md)
+* [Uso della libreria client di Analisi del testo](../quickstarts/client-libraries-rest-api.md)
 * [Novità](../whats-new.md)

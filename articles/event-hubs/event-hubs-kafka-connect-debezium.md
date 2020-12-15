@@ -5,18 +5,21 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369557"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505410"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrare il supporto di Apache Kafka Connect nell'hub eventi di Azure (anteprima) con Debezium for Change Data Capture
 
 **Change Data Capture (CDC)** è una tecnica utilizzata per tenere traccia delle modifiche a livello di riga nelle tabelle di database in risposta alle operazioni di creazione, aggiornamento ed eliminazione. [Debezium](https://debezium.io/) è una piattaforma distribuita che si basa sulle funzionalità di Change Data Capture disponibili in database diversi, ad esempio la [decodifica logica in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html). Fornisce un set di [connettori Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) che consentono di accedere alle modifiche a livello di riga nelle tabelle di database e di convertirle in flussi di eventi che vengono quindi inviati a [Apache Kafka](https://kafka.apache.org/).
 
 Questa esercitazione illustra come configurare un sistema basato su Change Data Capture in Azure con [Hub eventi di Azure](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (per Kafka), [database di Azure per PostgreSQL](../postgresql/overview.md) e Debezium. Verrà usato il [connettore Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) per trasmettere le modifiche del database da PostgreSQL a Kafka in hub eventi di Azure
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -100,7 +103,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!IMPORTANT]
-> Sostituire `{YOUR.EVENTHUBS.CONNECTION.STRING}` con la stringa di connessione per lo spazio dei nomi di Hub eventi. Per istruzioni su come ottenere la stringa di connessione, vedere [ottenere una stringa di connessione di hub eventi](event-hubs-get-connection-string.md). Ecco una configurazione di esempio: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Sostituire `{YOUR.EVENTHUBS.CONNECTION.STRING}` con la stringa di connessione per lo spazio dei nomi di Hub eventi. Per istruzioni su come ottenere la stringa di connessione, vedere [Ottenere una stringa di connessione ad Hub eventi](event-hubs-get-connection-string.md). Ecco un esempio di configurazione: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 
 ### <a name="run-kafka-connect"></a>Eseguire Kafka Connect

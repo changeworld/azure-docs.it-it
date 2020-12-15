@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fefa16a39545c0c4094db8dbd18b46fb94ef5025
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325305"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504033"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
 
@@ -26,9 +26,12 @@ Eseguire lo script, fornendo i dettagli richiesti seguenti:
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.
 
-Lo script creerà l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera l' **URL dell'app Web**, l' **ID client**e il **segreto client**.
+Lo script creerà l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera l' **URL dell'app Web**, l' **ID client** e il **segreto client**.
 
 Salvare questi valori in quanto serviranno per la creazione di una connessione con Connettore di Gestione dei servizi IT.
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

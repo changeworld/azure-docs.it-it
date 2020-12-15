@@ -8,35 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 12/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483921"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504475"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
-In alternativa all' [SDK vocale](speech-sdk.md), il servizio riconoscimento vocale consente di convertire il riconoscimento vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare. L'API REST è molto limitata ed è consigliabile usarla solo nei casi in cui non è possibile usare l' [SDK di riconoscimento vocale](speech-sdk.md) .
+Il riconoscimento vocale ha due diverse API REST. Ogni API svolge lo scopo speciale e usa diversi set di endpoint.
 
-Prima di usare l'API REST di sintesi vocale, tenere presente quanto segue:
+Le API REST per sintesi vocale sono:
+- L' [API REST di riconoscimento vocale v 3.0](#speech-to-text-rest-api-v30) viene usata per la [trascrizione](batch-transcription.md) e la [riconoscimento vocale personalizzato](custom-speech-overview.md)di batch. v 3.0 è un [successore della versione 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- L' [API REST di sintesi vocale per l'audio breve](#speech-to-text-rest-api-for-short-audio) viene usata per la trascrizione online come alternativa a [Speech SDK](speech-sdk.md). Le richieste che usano questa API possono trasmettere solo fino a 60 secondi di audio per richiesta. 
 
-* Le richieste che usano l'API REST e trasmettono direttamente l'audio possono contenere solo fino a 60 secondi di audio.
-* L'API REST per il riconoscimento vocale restituisce solo i risultati finali. I risultati parziali non sono disponibili.
+## <a name="speech-to-text-rest-api-v30"></a>API REST per sintesi vocale v 3.0
 
-Se l'invio di audio più lungo è un requisito per l'applicazione, prendere in considerazione l'uso dell' [SDK di riconoscimento vocale](speech-sdk.md) o di un'API REST basata su file, come la [trascrizione batch](batch-transcription.md).
+L'API REST di riconoscimento vocale v 3.0 viene usata per la [trascrizione](batch-transcription.md) e la [riconoscimento vocale personalizzato](custom-speech-overview.md)di batch. Se è necessario comunicare con la trascrizione OnLine tramite REST, usare l' [API REST per il riconoscimento vocale per l'audio breve](#speech-to-text-rest-api-for-short-audio).
+
+Usare l'API REST v 3.0 per:
+- Copiare i modelli in altre sottoscrizioni nel caso in cui si desideri che i colleghi abbiano accesso a un modello compilato o nei casi in cui si desidera distribuire un modello in più di un'area
+- Trascrivere i dati da un contenitore (trascrizione bulk) e fornire più URL di file audio
+- Caricare dati da account di archiviazione di Azure tramite l'uso di un URI di firma di accesso condiviso
+- Ottenere i log per ogni endpoint se sono stati richiesti log per l'endpoint
+- Richiedere il manifesto dei modelli creati, allo scopo di configurare i contenitori locali
+
+L'API REST v 3.0 include le funzionalità seguenti:
+- **Notifiche-webhook**: tutti i processi in esecuzione del servizio supportano ora le notifiche webhook. L'API REST v 3.0 fornisce le chiamate per consentire la registrazione dei webhook in cui vengono inviate le notifiche
+- **Aggiornamento di modelli dietro gli endpoint** 
+- **Adattamento dei modelli con più set di dati**: adattare un modello usando più combinazioni di set di dati di dati acustici, di lingua e di pronuncia
+- **Bring your own storage**: usare gli account di archiviazione per log, file di trascrizione e altri dati
+
+Vedere gli esempi sull'uso dell'API REST v 3.0 con la trascrizione batch è [questo articolo](batch-transcription.md).
+
+Se si usa l'API REST di sintesi vocale v 2.0, vedere come è possibile eseguire la migrazione a v 3.0 in [questa guida](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+
+Vedere le informazioni di riferimento complete sull'API REST di sintesi vocale v 3.0 [qui](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+
+## <a name="speech-to-text-rest-api-for-short-audio"></a>API REST per sintesi vocale per audio breve
+
+In alternativa all' [SDK vocale](speech-sdk.md), il servizio riconoscimento vocale consente di convertire il riconoscimento vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare. L'API REST per l'audio breve è molto limitata ed è consigliabile usarla solo nei casi in cui non è possibile usare l' [SDK di riconoscimento vocale](speech-sdk.md) .
+
+Prima di usare l'API REST di sintesi vocale per l'audio breve, tenere presente quanto segue:
+
+* Le richieste che usano l'API REST per l'audio breve e la trasmissione diretta di audio possono contenere solo fino a 60 secondi di audio.
+* L'API REST per sintesi vocale per l'audio breve restituisce solo i risultati finali. I risultati parziali non sono disponibili.
+
+Se l'invio di audio più lungo è un requisito per l'applicazione, prendere in considerazione l'uso dell' [SDK di riconoscimento vocale](speech-sdk.md) o dell' [API REST di sintesi vocale v 3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
 > Vedere la [documentazione](../../azure-government/compare-azure-government-global-azure.md) di Azure per enti pubblici per gli endpoint di Fairfax (Government cloud).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Aree ed endpoint
+### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
-Il formato dell'endpoint per l'API REST è il seguente:
+Il formato dell'endpoint per l'API REST per l'audio breve è il seguente:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -49,7 +80,7 @@ Sostituire `<REGION_IDENTIFIER>` con l'identificatore corrispondente all'area de
 > [!NOTE]
 > Il parametro di lingua deve essere aggiunto all'URL per evitare di ricevere un errore 4xx HTTP. Ad esempio, la lingua impostata su inglese (Stati Uniti) usando l'endpoint per l'area Stati Uniti occidentali è: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
-## <a name="query-parameters"></a>Parametri di query
+### <a name="query-parameters"></a>Parametri di query
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
@@ -60,7 +91,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 | `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` , che sostituisce la volgarità con `removed` gli asterischi,, che rimuove tutte le parolacce dal risultato, o `raw` , che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
 | `cid` | Quando si usa il [portale di riconoscimento vocale personalizzato](./custom-speech-overview.md) per creare modelli personalizzati, è possibile usare modelli personalizzati tramite l' **ID endpoint** trovato nella pagina **distribuzione** . Usare l' **ID endpoint** come argomento per il `cid` parametro della stringa di query. | Facoltativo |
 
-## <a name="request-headers"></a>Intestazioni della richiesta
+### <a name="request-headers"></a>Intestazioni della richiesta
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
@@ -74,7 +105,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
 | `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept` . | Facoltativo, ma consigliato. |
 
-## <a name="audio-formats"></a>Formati audio
+### <a name="audio-formats"></a>Formati audio
 
 L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno dei formati elencati in questa tabella:
 
@@ -84,9 +115,9 @@ L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno 
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
->I formati precedenti sono supportati tramite l'API REST e WebSocket nel servizio di riconoscimento vocale. [Speech SDK](speech-sdk.md) supporta attualmente il formato WAV con codec PCM e [altri formati](how-to-use-codec-compressed-audio-input-streams.md).
+>I formati precedenti sono supportati tramite l'API REST per brevi audio e WebSocket nel servizio di riconoscimento vocale. [Speech SDK](speech-sdk.md) supporta attualmente il formato WAV con codec PCM e [altri formati](how-to-use-codec-compressed-audio-input-streams.md).
 
-## <a name="pronunciation-assessment-parameters"></a>Parametri di valutazione della pronuncia
+### <a name="pronunciation-assessment-parameters"></a>Parametri di valutazione della pronuncia
 
 Questa tabella elenca i parametri obbligatori e facoltativi per la valutazione della pronuncia.
 
@@ -123,7 +154,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 >[!NOTE]
 >La funzionalità di valutazione della pronuncia è attualmente disponibile solo nelle `westus` `eastasia` aree, e `centralindia` . Questa funzionalità è attualmente disponibile solo in `en-US` lingua.
 
-## <a name="sample-request"></a>Richiesta di esempio
+### <a name="sample-request"></a>Richiesta di esempio
 
 L'esempio seguente include il nome host e le intestazioni richieste. È importante notare che il servizio prevede anche i dati audio, che non sono inclusi in questo esempio. Come accennato in precedenza, la suddivisione in blocchi è consigliabile, tuttavia, non è necessaria.
 
@@ -143,7 +174,7 @@ Per abilitare la valutazione della pronuncia, è possibile aggiungere sotto l'in
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## <a name="http-status-codes"></a>Codici di stato HTTP
+### <a name="http-status-codes"></a>Codici di stato HTTP
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
@@ -155,9 +186,9 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 | `401` | Non autorizzata | La chiave di sottoscrizione o il token di autorizzazione non è valido nell'area specificata o l'endpoint non è valido. |
 | `403` | Accesso negato | Manca la chiave di sottoscrizione o il token di autorizzazione. |
 
-## <a name="chunked-transfer"></a>Trasferimento in blocchi
+### <a name="chunked-transfer"></a>Trasferimento in blocchi
 
-Il trasferimento in blocchi ( `Transfer-Encoding: chunked` ) consente di ridurre la latenza di riconoscimento. Consente al servizio di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali.
+Il trasferimento in blocchi ( `Transfer-Encoding: chunked` ) consente di ridurre la latenza di riconoscimento. Consente al servizio di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST per l'audio breve non fornisce risultati parziali o intermedi.
 
 Questo esempio di codice mostra come inviare audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request` è un `HttpWebRequest` oggetto connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
@@ -191,7 +222,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>Parametri di risposta
+### <a name="response-parameters"></a>Parametri di risposta
 
 I risultati vengono forniti in formato JSON. Il formato `simple` include i campi di primo livello seguenti.
 
@@ -233,7 +264,7 @@ L'oggetto nell' `NBest` elenco può includere:
 | `PronScore` | Punteggio complessivo che indica la qualità della pronuncia della voce specificata. Viene aggregato da `AccuracyScore` `FluencyScore` e con il `CompletenessScore` peso. |
 | `ErrorType` | Questo valore indica se una parola viene omessa, inserita o pronunciata male rispetto a `ReferenceText` . I valori possibili sono `None` (ovvero nessun errore in questa parola) `Omission` , `Insertion` e `Mispronunciation` . |
 
-## <a name="sample-responses"></a>Risposte di esempio
+### <a name="sample-responses"></a>Risposte di esempio
 
 Risposta tipica per il `simple` riconoscimento:
 
@@ -309,3 +340,4 @@ Risposta tipica per il riconoscimento con la valutazione della pronuncia:
 - [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalizzare modelli acustici](./how-to-custom-speech-train-model.md)
 - [Personalizzare modelli linguistici](./how-to-custom-speech-train-model.md)
+- [Acquisire familiarità con la trascrizione batch](batch-transcription.md)

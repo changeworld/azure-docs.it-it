@@ -4,13 +4,13 @@ description: Viene descritto come visualizzare le richieste di supporto, inviare
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: 882dfaa802638efd98eaf6f12a33a77a9727adc2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.date: 12/14/2020
+ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359065"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504815"
 ---
 # <a name="manage-an-azure-support-request"></a>Gestire una richiesta di supporto in Azure
 
@@ -119,9 +119,17 @@ Quando si usa l'opzione di caricamento file, seguire queste linee guida:
 | -           | -     | -           | -     | -        | -          | zix    |
 | -           | -     | -           | -     | -        | -          | zzz    |
 
+## <a name="close-a-support-request"></a>Chiudere una richiesta di supporto
+
+Se è necessario chiudere una richiesta di supporto, [inviare un messaggio](#send-a-message) che richiede la chiusura della richiesta.
+
 ## <a name="reopen-a-closed-request"></a>Riaprire una richiesta chiusa
 
 Se è necessario riaprire una richiesta di supporto chiusa, creare un [nuovo messaggio](#send-a-message)che riapra automaticamente la richiesta.
+
+## <a name="cancel-a-support-plan"></a>Annulla un piano di supporto
+
+Se è necessario annullare un piano di supporto, vedere [annullare un piano di supporto](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

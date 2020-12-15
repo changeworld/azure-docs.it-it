@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358931"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504135"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuità aziendale e HADR per la SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ L'archiviazione con ridondanza geografica (GRS) in Azure viene implementata con 
 ## <a name="deployment-architectures"></a>Architetture di distribuzione
 Azure supporta le tecnologie SQL Server per la continuità aziendale:
 
-* [Gruppi di disponibilità AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Gruppi di disponibilità Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 * [Istanze del cluster di failover Always On (failover)](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 * [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
 * [SQL Server backup e ripristino con l'archiviazione BLOB di Azure](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
@@ -85,20 +85,13 @@ Azure supporta le tecnologie SQL Server per la continuità aziendale:
 
 Se si dispone di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), è possibile implementare piani di ripristino di emergenza ibrido con SQL Server senza sostenere costi di licenza aggiuntivi per l'istanza di ripristino di emergenza passiva.
 
-Ad esempio, è possibile avere un database primario attivo in locale e una secondaria passiva gratuita per il ripristino di emergenza in Azure: 
-
-![Passiva secondaria gratuita in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
-
-Nell'immagine precedente, il programma di installazione usa SQL Server in esecuzione in una macchina virtuale di Azure che usa 12 core come replica di ripristino di emergenza per una distribuzione di SQL Server locale che usa 12 core. In passato, è necessario concedere in licenza 12 core di SQL Server per la distribuzione locale e la distribuzione di macchine virtuali di Azure. Il nuovo vantaggio offre vantaggi della replica passiva per l'esecuzione in una macchina virtuale di Azure. A questo punto è necessario concedere in licenza solo 12 core di SQL Server eseguiti in locale, purché siano soddisfatti i criteri di ripristino di emergenza per la replica passiva in macchine virtuali di Azure.
-
-Quando tutte e tre le repliche sono ospitate in Azure, è anche possibile avere due database secondari passivi gratuiti: 
+Ad esempio, è possibile avere due secondari passivi gratuiti quando tutte e tre le repliche sono ospitate in Azure: 
 
 ![Due passivi gratuiti quando tutto in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
 
-In alternativa, è possibile configurare un ambiente di failover ibrido con un database primario con licenza locale, un passivo gratuito per la disponibilità elevata e due passivi gratuiti per il ripristino di emergenza: 
+In alternativa, è possibile configurare un ambiente di failover ibrido con una versione locale primaria con licenza, una passiva gratuita per la disponibilità elevata, una passiva gratuita per il ripristino di emergenza locale e una passiva gratuita per il ripristino di emergenza in Azure:
 
 ![Tre passivi gratuiti quando l'ambiente è ibrido con una replica locale primaria](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
-
 
 Per altre informazioni, vedere le [condizioni di licenza per il prodotto](https://www.microsoft.com/licensing/product-licensing/products). 
 

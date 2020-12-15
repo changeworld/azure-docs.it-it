@@ -1,5 +1,5 @@
 ---
-title: Usare la studio di competenza
+title: Usare Purview Studio
 description: Questo articolo concettuale descrive come usare Azure competenza Studio.
 author: nayenama
 ms.author: nayenama
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 1b2d371153d6612f454e1bf51b78c6b6189a08b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96552621"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503951"
 ---
-# <a name="use-purview-studio"></a>Usare la studio di competenza
+# <a name="use-purview-studio"></a>Usare Purview Studio
 
 Questo articolo fornisce una panoramica di alcune delle principali funzionalità di Azure.
 
@@ -50,15 +50,16 @@ Nell'elenco seguente sono riepilogate le principali funzionalità della **Home p
 
 4. I pulsanti di accesso rapido consentono di accedere alle funzioni di uso frequente dell'applicazione. I pulsanti presentati variano a seconda del ruolo assegnato all'account utente.
 
-    - Per l' *amministratore dell'origine dati*, i pulsanti di accesso rapido sono: **registra origini dati** e **Knowledge Center**.
     - Per *Data Curator*, i pulsanti sono **Knowledge Center**, **Esplora risorse**, **Gestisci Glossario** e **Visualizza informazioni dettagliate**.
     - Per il *lettore dati*, i pulsanti in primo piano sono **Knowledge Center**, **Esplora risorse**, **Visualizza glossario** e **Visualizza informazioni dettagliate**.
+    - Per   +  il *curatore dei dati* amministratore dell'origine dati, i pulsanti in primo piano sono **Knowledge Center**, **registrano le origini dati**, **esplorano gli asset** e **gestiscono il Glossario**.
+    - Per   +  il *lettore dati* di amministrazione dell'origine dati, i pulsanti in primo piano sono **Knowledge Center**, **registrano le origini dati**, **esplorano gli asset** e **visualizzano il Glossario**.
 
 5. La barra di spostamento a sinistra consente di individuare le pagine principali dell'applicazione. I pulsanti presentati variano a seconda del ruolo assegnato all'account utente.
 
-    - Per l' *amministratore dell'origine dati*, i pulsanti sono  **Home**, **origini** e **centro di gestione**.
     - Per il *curatore dei dati*, i pulsanti sono **Home**, **Glossario**, **Insights** e **centro di gestione**.
     - Per *il lettore dati*, i pulsanti sono **Home**, **Glossario**, **Insights** e centro di **gestione**.
+    - Per l' *amministratore*  +  *o il lettore di dati* dell'amministratore dell'origine dati, i pulsanti sono **Home**, **origini**, **Glossario**, **informazioni dettagliate** e **centro di gestione**.
   
 6. La scheda **accesso di recente** Mostra un elenco degli asset di dati a cui si accede di recente. Per informazioni sull'accesso alle risorse, vedere [eseguire ricerche nel Data Catalog](how-to-search-catalog.md) e cercare [in base al tipo di asset](how-to-browse-catalog.md#browse-experience).  La scheda **elementi personali** è un elenco di asset di dati di proprietà dell'utente connesso.
 7. **Collegamenti utili** contiene collegamenti a stato area, documentazione, prezzi, panoramica e stato di competenza
@@ -73,6 +74,9 @@ Nel Knowledge Center è possibile trovare tutti i video e le esercitazioni relat
 Ogni esperienza utente in Azure ambito studio avrà Tours guidati per fornire una panoramica della pagina. Per avviare la presentazione guidata **, fare clic su?** nella barra superiore e selezionare **visite guidate**.
 
 :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Screenshot della presentazione guidata.":::
+
+> [!Important]
+   > Il ruolo di amministratore dell'origine dati di per sé non ha accesso a ambito Studio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545940"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504934"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
 
@@ -60,7 +60,7 @@ Verificare le impostazioni di configurazione del cluster HDInsight correnti prim
 
 Viene visualizzata l'interfaccia utente Web di Apache Ambari con un dashboard delle metriche chiave di utilizzo delle risorse del cluster.  Il dashboard di Ambari Mostra la configurazione di Apache Spark e altri servizi installati. Il dashboard include una scheda **cronologia configurazione** , in cui è possibile visualizzare le informazioni per i servizi installati, incluso Spark.
 
-Per visualizzare i valori di configurazione per Apache Spark, selezionare **Config History** (Cronologia configurazione) e quindi selezionare **Spark2** .  Selezionare la scheda **Configs** (Configurazioni) e quindi fare clic sul collegamento `Spark` (o `Spark2`, a seconda della versione) nell'elenco di servizi.  Verrà visualizzato un elenco di valori di configurazione per il cluster:
+Per visualizzare i valori di configurazione per Apache Spark, selezionare **Config History** (Cronologia configurazione) e quindi selezionare **Spark2**.  Selezionare la scheda **Configs** (Configurazioni) e quindi fare clic sul collegamento `Spark` (o `Spark2`, a seconda della versione) nell'elenco di servizi.  Verrà visualizzato un elenco di valori di configurazione per il cluster:
 
 ![Configurazioni di Spark](./media/apache-spark-settings/spark-configurations.png)
 
@@ -75,7 +75,7 @@ Per visualizzare e modificare i singoli valori di configurazione di Spark, selez
 Se si crea un set di valori di configurazione non predefinito, la cronologia degli aggiornamenti è visibile.  Questa cronologia di configurazione può essere utile per capire quale configurazione non predefinita offre prestazioni ottimali.
 
 > [!NOTE]  
-> Per visualizzare, ma senza modificare, le impostazioni di configurazione del cluster Spark comuni, selezionare la scheda **Environment** (Ambiente) al livello superiore dell' **interfaccia utente del processo Spark** .
+> Per visualizzare, ma senza modificare, le impostazioni di configurazione del cluster Spark comuni, selezionare la scheda **Environment** (Ambiente) al livello superiore dell'**interfaccia utente del processo Spark**.
 
 ## <a name="configuring-spark-executors"></a>Configurazione degli executor Spark
 
@@ -121,7 +121,7 @@ YARN controlla la quantità complessiva massima di memoria usata dai contenitori
 
 ![Gestione della memoria Spark in YARN](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Modificare i parametri per un'applicazione in esecuzione in un notebook Jupyter
+## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Modificare i parametri per un'applicazione in esecuzione in Jupyter Notebook
 
 I cluster Spark in HDInsight includono per impostazione predefinita diversi componenti. Ognuno di questi componenti include valori di configurazione predefiniti, di cui è possibile eseguire l'override se necessario.
 
@@ -133,12 +133,12 @@ I cluster Spark in HDInsight includono per impostazione predefinita diversi comp
 |Notebook di Jupyter e Apache Zeppelin|Interfaccia utente interattiva basata su browser per l'interazione con il cluster Spark.|
 |Driver ODBC|Connette i cluster Spark in HDInsight a strumenti business intelligence (BI), ad esempio Microsoft Power BI e tableau.|
 
-Per le applicazioni in esecuzione nel notebook Jupyter, usare il comando `%%configure` per apportare modifiche alla configurazione dal notebook. Queste modifiche alla configurazione verranno applicate ai processi di Spark eseguiti dall'istanza del notebook. Apportare tali modifiche all'inizio dell'applicazione, prima di eseguire la prima cella di codice. La configurazione modificata viene applicata alla sessione di Livy al momento della creazione.
+Per le applicazioni in esecuzione nel Jupyter Notebook, utilizzare il `%%configure` comando per apportare modifiche di configurazione all'interno del notebook. Queste modifiche alla configurazione verranno applicate ai processi di Spark eseguiti dall'istanza del notebook. Apportare tali modifiche all'inizio dell'applicazione, prima di eseguire la prima cella di codice. La configurazione modificata viene applicata alla sessione di Livy al momento della creazione.
 
 > [!NOTE]  
 > Per modificare la configurazione in una fase successiva nell'applicazione, usare il parametro `-f` (force). Tuttavia, in questo modo tutte le operazioni eseguite nell'applicazione andranno perse.
 
-Il codice riportato di seguito mostra come modificare la configurazione per un'applicazione in esecuzione in un notebook Jupyter.
+Il codice riportato di seguito illustra come modificare la configurazione per un'applicazione in esecuzione in un Jupyter Notebook.
 
 ```
 %%configure

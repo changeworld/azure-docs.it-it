@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 157bef31b375db54f294284ca0a5d97cd7035b17
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: c304c2aad3ba40d7b3a044f0e3222e31bb013648
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558964"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503982"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
 
-## <a name="december-2020"></a>2020 dicembre
+## <a name="december-2020"></a>Dicembre 2020
 
 * Dettagli [prezzi aggiornati](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) per la API analisi del testo
 
@@ -61,7 +61,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
     * v 3.0-Anteprima. 1
     
 > [!div class="nextstepaction"]
-> [Altre informazioni su API Analisi del testo v 3.1-Preview. 2](quickstarts/text-analytics-sdk.md)
+> [Altre informazioni su API Analisi del testo v 3.1-Preview. 2](quickstarts/client-libraries-rest-api.md)
 
 ### <a name="text-analytics-for-health-container-updates"></a>Analisi del testo per gli aggiornamenti del contenitore di integrità
 
@@ -178,13 +178,13 @@ I nomi delle seguenti proprietà nella risposta JSON sono stati modificati, se a
 ### <a name="sdk-support-for-text-analytics-api-v3-public-preview"></a>Supporto SDK per l'anteprima pubblica API Analisi del testo V3
 
 Nell'ambito della [versione unificata di Azure SDK](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290), il API analisi del testo V3 SDK è ora disponibile come anteprima pubblica per i linguaggi di programmazione seguenti:
-   * [C#](./quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp&tabs=version-3)
-   * [Python](./quickstarts/text-analytics-sdk.md?pivots=programming-language-python&tabs=version-3)
-   * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
-   * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
+   * [C#](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp&tabs=version-3)
+   * [Python](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-python&tabs=version-3)
+   * [JavaScript (Node.js)](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript&tabs=version-3)
+   * [Java](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-java&tabs=version-3)
    
 > [!div class="nextstepaction"]
-> [Scopri di più su API Analisi del testo V3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
+> [Scopri di più su API Analisi del testo V3 SDK](./quickstarts/client-libraries-rest-api.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Anteprima pubblica di riconoscimento entità denominata V3
 
@@ -199,10 +199,10 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organization
+    * Organizzazione
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * Email 
+    * E-mail 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP
@@ -219,7 +219,7 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
     * Rilevamento espanso e categorizzazione di entità presenti nel testo. 
     * Riconoscimento dei nuovi tipi di entità seguenti:
         * Numero di telefono
-        * indirizzo IP
+        * Indirizzo IP
 
 Il collegamento di entità supporta inglese e spagnolo. Il supporto del linguaggio NER varia in base al tipo di entità.
 

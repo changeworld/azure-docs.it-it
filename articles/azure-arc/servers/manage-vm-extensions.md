@@ -1,20 +1,20 @@
 ---
 title: Gestione delle estensioni VM con i server abilitati per Azure Arc
 description: I server abilitati per Azure Arc possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
-ms.date: 11/06/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 55e21f9c6bcd2dfe5f995093034773f2a87d9b03
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358032"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504509"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestione delle estensioni delle macchine virtuali con i server abilitati per Azure Arc
 
-Le estensioni delle macchine virtuali sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o l'esecuzione di uno script al suo interno, è possibile usare un'estensione macchina virtuale.
+Le estensioni delle macchine virtuali sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione del software, la protezione antivirus o per eseguire uno script al suo interno, è possibile usare un'estensione della macchina virtuale.
 
-I server abilitati per Azure ARC consentono di distribuire le estensioni di VM di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione del computer ibrido in locale, perimetrale e altri ambienti cloud attraverso il ciclo di vita. Le estensioni di macchina virtuale possono essere gestite usando i metodi seguenti nei computer ibridi o nei server gestiti da server abilitati per Arc:
+I server abilitati per Azure ARC consentono di distribuire le estensioni di VM di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione del computer ibrido durante il ciclo di vita. Le estensioni di macchina virtuale possono essere gestite usando i metodi seguenti nei computer ibridi o nei server gestiti da server abilitati per Arc:
 
 - Il[portale di Azure](manage-vm-extensions-portal.md)
 - L'[interfaccia della riga di comando di Azure](manage-vm-extensions-cli.md)
@@ -27,7 +27,7 @@ Il supporto delle estensioni VM per i server abilitati per Azure Arc offre i van
 
 - Usare la [configurazione dello stato di automazione di Azure](../../automation/automation-dsc-overview.md) per archiviare centralmente le configurazioni e mantenere lo stato desiderato dei computer connessi ibridi abilitati tramite l'estensione VM DSC.
 
-- Raccogliere i dati di log per l'analisi con i [log in monitoraggio di Azure](../../azure-monitor/platform/data-platform-logs.md) abilitati tramite l'estensione della macchina virtuale agente log Analytics. Questa operazione è utile per eseguire analisi complesse tra i dati da diverse origini.
+- Raccogliere i dati di log per l'analisi con i [log in monitoraggio di Azure](../../azure-monitor/platform/data-platform-logs.md) abilitati tramite l'estensione della macchina virtuale agente log Analytics. Questa operazione è utile per eseguire analisi complesse tra i dati provenienti da diversi tipi di origini.
 
 - Con [monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md), analizza le prestazioni delle macchine virtuali Windows e Linux e monitora i processi e le dipendenze da altre risorse e processi esterni. Questa operazione viene eseguita tramite l'abilitazione dell'agente Log Analytics e delle estensioni della macchina virtuale dell'agente di dipendenza.
 
@@ -43,7 +43,7 @@ La funzionalità di estensione della macchina virtuale è disponibile solo nell'
 
 In questa versione sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
 
-|Estensione |Sistema operativo |Publisher |Informazioni aggiuntive |
+|Estensione |Sistema operativo |Editore |Informazioni aggiuntive |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Estensione script personalizzato Windows](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Estensione DSC di Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
@@ -67,9 +67,11 @@ Questa funzionalità dipende dai provider di risorse di Azure seguenti nella sot
 
 Se non sono già registrati, seguire la procedura descritta in [registrare i provider di risorse di Azure](agent-overview.md#register-azure-resource-providers).
 
+Assicurarsi di consultare la documentazione relativa a ogni estensione di macchina virtuale a cui viene fatto riferimento nella tabella precedente per comprendere se sono presenti requisiti di rete o di sistema. Questo può aiutare a evitare di riscontrare problemi di connettività con un servizio o una funzionalità di Azure che si basa su tale estensione della macchina virtuale.
+
 ### <a name="log-analytics-vm-extension"></a>Estensione della macchina virtuale Log Analytics
 
-Per l'estensione della macchina virtuale dell'agente Log Analytics per Linux è necessario che Python 2. x sia installato nel computer di destinazione.
+Per l'estensione della macchina virtuale dell'agente Log Analytics per Linux è necessario che Python 2. x sia installato nel computer di destinazione. 
 
 ### <a name="azure-key-vault-vm-extension-preview"></a>Estensione della macchina virtuale Azure Key Vault (anteprima)
 

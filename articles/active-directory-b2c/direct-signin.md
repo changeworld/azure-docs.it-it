@@ -7,17 +7,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2018
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9e7c537e85039675f27fa3e276b6b964ce1679b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: f3b918fdf753cef75782a47ef157c282ef47e1ed
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388596"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503642"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurare l'accesso diretto tramite Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Quando si configura l'accesso per l'applicazione tramite Azure Active Directory (AD) B2C, è possibile precompilare il nome di accesso o eseguire l'accesso diretto a un provider di identità di social networking specifico, ad esempio Facebook, LinkedIn o un account Microsoft.
 
@@ -29,7 +32,9 @@ Durante una procedura di accesso utente, un'applicazione relying party può aver
 
 L'utente può modificare il valore nella casella di testo di accesso.
 
-Se si usa un criterio personalizzato, eseguire l'override del profilo tecnico `SelfAsserted-LocalAccountSignin-Email`. Nella sezione `<InputClaims>` impostare il valore DefaultValue dell'attestazione signInName su `{OIDC:LoginHint}`. La variabile `{OIDC:LoginHint}` contiene il valore del parametro `login_hint`. Azure AD B2C legge il valore dell'attestazione signInName e precompila la casella di testo signInName.
+::: zone pivot="b2c-custom-policy"
+
+Per supportare il parametro hint di accesso, eseguire l'override del `SelfAsserted-LocalAccountSignin-Email` profilo tecnico. Nella sezione `<InputClaims>` impostare il valore DefaultValue dell'attestazione signInName su `{OIDC:LoginHint}`. La variabile `{OIDC:LoginHint}` contiene il valore del parametro `login_hint`. Azure AD B2C legge il valore dell'attestazione signInName e precompila la casella di testo signInName.
 
 ```xml
 <ClaimsProvider>
@@ -45,13 +50,35 @@ Se si usa un criterio personalizzato, eseguire l'override del profilo tecnico `S
 </ClaimsProvider>
 ```
 
+::: zone-end
+
 ## <a name="redirect-sign-in-to-a-social-provider"></a>Reindirizzare l'accesso a un provider di social networking
 
 Se la procedura di accesso per l'applicazione è stata configurata per includere gli account di social networking, ad esempio Facebook, LinkedIn o Google, è possibile specificare il parametro `domain_hint`. Questo parametro di query fornisce un hint ad Azure AD B2C sul provider di identità di social networking che deve essere usato per l'accesso. Se ad esempio l'applicazione specifica `domain_hint=facebook.com`, l'accesso rimanda direttamente alla pagina di accesso di Facebook.
 
 ![Pagina di accesso all'iscrizione con domain_hint parametro di query evidenziato nell'URL](./media/direct-signin/domain-hint.png)
 
-Se si usa un criterio personalizzato, è possibile configurare il nome di dominio usando l'elemento XML `<Domain>domain name</Domain>` di qualsiasi `<ClaimsProvider>`.
+::: zone pivot="b2c-user-flow"
+
+Il parametro della stringa di query dell'hint di dominio può impostare su uno dei seguenti domini:
+
+- amazon.com
+- facebook.com
+- github.com
+- google.com
+- linkedin.com
+- microsoft.com
+- qq.com
+- twitter.com
+- wechat.com
+- weibo.com 
+- Per il protocollo [OpenID Connect generico](identity-provider-generic-openid-connect.md), vedere [hint di dominio](identity-provider-generic-openid-connect.md#response-mode).
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Per supportare il parametro del dominio Hing, è possibile configurare il nome di dominio usando l' `<Domain>domain name</Domain>` elemento XML di Any `<ClaimsProvider>` .
 
 ```xml
 <ClaimsProvider>
@@ -62,4 +89,5 @@ Se si usa un criterio personalizzato, è possibile configurare il nome di domini
     ...
 ```
 
+::: zone-end
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359714"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504407"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze nel portale di Azure Active Directory
 
@@ -49,11 +49,18 @@ Non tutti i servizi Microsoft sono disponibili in tutte le posizioni. Prima che 
 
 1. Selezionare **Azure Active Directory**, e quindi **Licenze**.
 
-    ![Pagina licenze con numero di servizi acquistati e licenze assegnate](media/license-users-groups/license-details-blade.png)
+    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Pagina licenze con numero di servizi acquistati e licenze assegnate":::
 
-1. Selezionare il collegamento **acquistato** per visualizzare la pagina **prodotti** e visualizzare i numeri **assegnati**, **disponibili**e **scaduti** per i piani di licenza.
+1. Selezionare **tutti i prodotti** per visualizzare la pagina tutti i prodotti e visualizzare i numeri **totali**, **assegnati**, **disponibili** e **scaduti** per i piani di licenza.
 
-    ![pagina dei servizi, con piani di licenza del servizio e informazioni sulle licenze associate](media/license-users-groups/license-products-blade-with-products.png)
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="pagina dei servizi-con i piani di licenza del servizio-informazioni sulle licenze associate":::
+
+    > [!NOTE]
+    > I numeri sono definiti come segue: 
+    > - Totale: numero totale di licenze acquistate
+    > - Assegnato: numero di licenze assegnate agli utenti
+    > - Disponibile: numero di licenze disponibili per l'assegnazione, inclusa la scadenza imminente
+    > - Scadenza imminente: numero di licenze a breve scadenza
 
 1. Selezionare un nome di piano per visualizzare gli utenti e i gruppi con licenza.
 

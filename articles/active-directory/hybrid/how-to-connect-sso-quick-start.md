@@ -16,18 +16,21 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500207"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504390"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Single Sign-on facile: avvio rapido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Distribuire l'accesso Single Sign-On facile
 
 L'accesso Single Sign-On facile di Azure Active Directory (Azure AD) consente l'accesso automatico degli utenti dai desktop collegati alla rete aziendale. Grazie a questa funzionalità, gli utenti possono accedere facilmente alle applicazioni basate sul cloud senza usare altri componenti a livello locale.
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 Per distribuire l'accesso SSO facile, seguire questa procedura.
 
@@ -124,7 +127,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a criteri di **Configurazione utente**  >  **Policies**  >  **modelli amministrativi**  >  pagina **componenti di Windows**  >  **Internet Explorer**  >  sicurezza del pannello di **controllo Internet**  >  **Security Page**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
+3. Passare a criteri di **Configurazione utente**  >    >  **modelli amministrativi**  >  pagina **componenti di Windows**  >  **Internet Explorer**  >  sicurezza del pannello di **controllo Internet**  >  . Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Screenshot che mostra la "pagina sicurezza" con "elenco di assegnazione da sito a zona" selezionato.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
@@ -144,7 +147,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
     ![Screenshot che mostra la finestra "Mostra contenuto" con un'assegnazione di zona selezionata.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Passare a criteri di **Configurazione utente**  >  **Policies**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza **Pannello di controllo Internet**  >  **Security Page**  >  **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
+6. Passare a criteri di **Configurazione utente**  >    >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza **Pannello di controllo Internet**  >    >  **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
     ![Screenshot che mostra la pagina "area Intranet" con "Consenti aggiornamenti alla barra di stato tramite script" selezionato.](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +159,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a **Preferenze configurazione utente**  >  **Preferences**  >  **impostazioni di Windows**  >  **Registro** di sistema  >  **nuovo**  >  **elemento del registro di sistema**.
+3. Passare a **Preferenze configurazione utente**  >    >  **impostazioni di Windows**  >  **Registro** di sistema  >  **nuovo**  >  **elemento del registro di sistema**.
 
     ![Screenshot che mostra "Registro di sistema" selezionato e "elemento del registro di sistema" selezionato.](./media/how-to-connect-sso-quick-start/sso15.png)
 
