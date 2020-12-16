@@ -31,24 +31,8 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Libreria client
-      items:
-        - name: Analizzare il testo con la libreria client
-          href: quickstarts/text-analytics-sdk.md
-    - name: API REST
-      items:
-        - name: Uso di Java
-          href: quickstarts/java.md
-        - name: Uso di Python
-          href: quickstarts/python.md
-        - name: Uso di Node.js
-          href: quickstarts/nodejs.md
-        - name: Uso di PHP
-          href: quickstarts/php.md
-        - name: Uso di Go
-          href: quickstarts/go.md
-        - name: Uso di Ruby
-          href: quickstarts/ruby.md
+    - name: Usare la libreria client e l'API REST
+      href: quickstarts/client-libraries-rest-api.md
 - name: Esercitazioni
   items:
     - name: Integrare Power BI per analizzare il feedback dei clienti

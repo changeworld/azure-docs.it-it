@@ -6,6 +6,8 @@
       href: overview-reports.md
     - name: Informazioni sul monitoraggio di Azure AD
       href: overview-monitoring.md
+    - name: Che cos'è la diagnostica di accesso?
+      href: overview-sign-in-diagnostics.md
 - name: Avvi rapidi
   expanded: true
   items:

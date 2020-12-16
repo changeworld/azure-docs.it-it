@@ -92,8 +92,18 @@
           href: diagnostics-log-analytics.md
     - name: Pubblicare app predefinite
       href: publish-apps.md
-    - name: Configurare la connessione all'app MSIX
-      href: app-attach.md
+    - name: Usare la connessione all'app MSIX
+      items:
+        - name: Configurare la connessione all'app MSIX con il portale di Azure
+          href: app-attach-azure-portal.md
+        - name: Configurare la connessione all'app MSIX con PowerShell
+          href: app-attach-powershell.md
+        - name: Creare script di PowerShell
+          href: app-attach.md
+        - name: Preparare un'immagine MSIX
+          href: app-attach-image-prep.md
+        - name: Configurare una condivisione file
+          href: app-attach-file-share.md
     - name: Usare Microsoft Teams
       href: teams-on-wvd.md
     - name: Configurare Multi-Factor Authentication di Azure AD
@@ -112,6 +122,8 @@
       href: disaster-recovery.md
 - name: Concetti
   items:
+    - name: Ruoli predefiniti
+      href: rbac.md
     - name: Authentication
       href: authentication.md
     - name: Ambiente di Desktop virtuale Windows

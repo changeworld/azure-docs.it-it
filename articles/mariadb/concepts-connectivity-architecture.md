@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: d8af626d2f04ad33899f4757b2ee85aaa122ea26
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e9d0e9d78f58807a05784e1606670e3a97fd600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511927"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97583916"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architettura di connettività nel database di Azure per MariaDB
 Questo articolo illustra l'architettura di connettività del database di Azure per MariaDB e il modo in cui il traffico viene indirizzato al database di Azure per l'istanza di MariaDB dai client all'interno e all'esterno di Azure.
@@ -31,7 +31,7 @@ Il servizio gateway è ospitato su un gruppo di nodi di calcolo senza stato che 
 
 Nell'ambito della manutenzione continuativa dei servizi, l'hardware di calcolo che ospita i gateway verrà aggiornato periodicamente per garantire l'esperienza più sicura ed efficiente. Quando l'hardware del gateway viene aggiornato, viene creato per primo un nuovo anello dei nodi di calcolo. Questo nuovo anello serve il traffico per tutti i server di database di Azure appena creati per MariaDB e avrà un indirizzo IP diverso rispetto agli anelli del gateway meno recenti nella stessa area per distinguere il traffico. Quando il nuovo anello è completamente funzionante, l'hardware del gateway precedente che funge da server esistenti è pianificato per la rimozione delle autorizzazioni. Prima di rimuovere un hardware del gateway, i clienti che eseguono i server e si connettono agli anelli del gateway meno recenti riceveranno una notifica tramite posta elettronica e nell'portale di Azure tre mesi prima della rimozione delle autorizzazioni. La rimozione delle autorizzazioni dei gateway può influisca sulla connettività ai server se 
 
-* È possibile codificare gli indirizzi IP del gateway nella stringa di connessione dell'applicazione. Non è **consigliabile**. 
+* È possibile codificare gli indirizzi IP del gateway nella stringa di connessione dell'applicazione. Non è **consigliabile**. È necessario usare il nome di dominio completo (FQDN) del server nel formato <servername> . MariaDB.database.Azure.com, nella stringa di connessione per l'applicazione. 
 * Non aggiornare gli indirizzi IP del gateway più recenti nel firewall sul lato client per consentire al traffico in uscita di raggiungere i nuovi anelli del gateway.
 
 La tabella seguente elenca gli indirizzi IP del gateway del database di Azure per il gateway MariaDB per tutte le aree dati. Le informazioni più aggiornate degli indirizzi IP del gateway per ogni area sono gestite nella tabella seguente. Nella tabella riportata di seguito le colonne rappresentano le seguenti:

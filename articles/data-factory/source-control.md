@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 75073cd2f0dae9cac12175677427671101813a90
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355223"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584202"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -103,7 +103,7 @@ Il riquadro di configurazione visualizza le impostazioni del repository del codi
 | **Organizzazione Azure Repos** | Il nome dell'organizzazione di Azure Repos. È possibile individuare il nome dell'organizzazione Azure Repos all'indirizzo `https://{organization name}.visualstudio.com`. È possibile [accedere all'organizzazione Azure Repos](https://www.visualstudio.com/team-services/git/) e quindi accedere al proprio profilo di Visual Studio e visualizzare i repository e i progetti. | `<your organization name>` |
 | **Nome progetto** | Il nome del progetto Azure Repos. È possibile trovare il nome del progetto Azure Repos all'indirizzo `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **Nome repository** | Il nome del repository di codice Azure Repos. I progetti Azure Repos contengono repository GIT per gestire il codice sorgente man mano che aumentano le dimensioni del progetto. È possibile creare un nuovo repository o usare un repository già presente nel progetto. | `<your Azure Repos code repository name>` |
-| **Ramo di collaborazione** | Ramo di collaborazione di Azure Repos usato per la pubblicazione. L'impostazione predefinita è `master`. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch name>` |
+| **Ramo di collaborazione** | Ramo di collaborazione di Azure Repos usato per la pubblicazione. Per impostazione predefinita, è `main` . Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch name>` |
 | **Cartella radice** | Cartella radice nel ramo di collaborazione di Azure Repos. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di Data Factory esistenti dall'**area di disegno di creazione** dell'esperienza utente in un repository GIT Azure Repos. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
 | **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente |  |
@@ -153,7 +153,7 @@ Il riquadro di configurazione visualizza le impostazioni seguenti del repository
 | **GitHub Enterprise URL** (URL GitHub Enterprise) | URL radice di GitHub Enterprise (deve essere HTTPS per il server GitHub Enterprise locale). Ad esempio: `https://github.mydomain.com`. Obbligatorio solo se si seleziona **Usa GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
 | **Account GitHub** | Nome dell'account GitHub. Questo nome è indicato nella pagina https:\//github.com/{nome account}/{nome repository}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub. | `<your GitHub account name>` |
 | **Nome repository**  | Nome del repository del codice GitHub. Gli account GitHub contengono repository Git per la gestione del codice sorgente. È possibile creare un nuovo repository o usarne uno esistente già presente nell'account. | `<your repository name>` |
-| **Ramo di collaborazione** | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, si tratta del ramo master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch>` |
+| **Ramo di collaborazione** | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, è Main. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch>` |
 | **Cartella radice** | Cartella radice nel ramo di collaborazione di GitHub. |`<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di Data Factory esistenti dall'area di disegno di creazione dell'esperienza utente in un repository GitHub. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
 | **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente |  |
@@ -207,11 +207,11 @@ I sistemi di controllo della versione (o del _controllo del codice sorgente_) co
 
 ### <a name="creating-feature-branches"></a>Creazione di rami di funzionalità
 
-Ogni repository GIT Azure Repos associato a una data factory ha un ramo di collaborazione. (`main` è il ramo di collaborazione predefinito). Gli utenti possono creare rami di funzionalità facendo clic su **Aggiungi nuovo ramo** nel menu a discesa dei rami. Quando viene visualizzato il riquadro del nuovo ramo, immettere il nome del ramo di funzionalità.
+Ogni repository GIT Azure Repos associato a una data factory ha un ramo di collaborazione. ( `main` ) è il ramo di collaborazione predefinito). Gli utenti possono creare rami di funzionalità facendo clic su **Aggiungi nuovo ramo** nel menu a discesa dei rami. Quando viene visualizzato il riquadro del nuovo ramo, immettere il nome del ramo di funzionalità.
 
 ![Creare un nuovo ramo](media/author-visually/new-branch.png)
 
-Quando si è pronti per unire le modifiche dal ramo di funzionalità al ramo di collaborazione, fare clic sull'elenco a discesa del ramo e selezionare **Crea richiesta pull**. Viene visualizzata la pagina GIT Azure Repos, in cui è possibile generare richieste di pull, eseguire revisioni del codice e unire le modifiche nel ramo di collaborazione. (`master` è l'impostazione predefinita). Dal ramo di collaborazione è possibile solo eseguire la pubblicazione nel servizio Data Factory. 
+Quando si è pronti per unire le modifiche dal ramo di funzionalità al ramo di collaborazione, fare clic sull'elenco a discesa del ramo e selezionare **Crea richiesta pull**. Viene visualizzata la pagina GIT Azure Repos, in cui è possibile generare richieste di pull, eseguire revisioni del codice e unire le modifiche nel ramo di collaborazione. (`main` è l'impostazione predefinita). Dal ramo di collaborazione è possibile solo eseguire la pubblicazione nel servizio Data Factory. 
 
 ![Creare una nuova richiesta pull](media/author-visually/create-pull-request.png)
 
@@ -232,7 +232,7 @@ Azure Data Factory può avere un unico ramo di pubblicazione alla volta. Quando 
 
 ### <a name="publish-code-changes"></a>Pubblicare le modifiche al codice
 
-Dopo aver unito le modifiche nel ramo di collaborazione (`master` è l'impostazione predefinita), fare clic su **Pubblica** per pubblicare manualmente le modifiche al codice nel ramo master del servizio Data Factory.
+Dopo aver unito le modifiche al ramo collaborazione ( `main` impostazione predefinita), fare clic su **pubblica** per pubblicare manualmente le modifiche del codice nel ramo principale nel servizio Data Factory.
 
 ![Pubblicare le modifiche nel servizio Data Factory](media/author-visually/publish-changes.png)
 
@@ -241,7 +241,7 @@ Si apre un riquadro laterale in cui l'utente conferma che il ramo di pubblicazio
 ![Confermare il ramo di pubblicazione corretto](media/author-visually/configure-publish-branch.png)
 
 > [!IMPORTANT]
-> Il ramo principale non è rappresentativo di ciò che viene distribuito nel servizio Data Factory. Il ramo master *deve* essere pubblicato manualmente nel servizio Data Factory.
+> Il ramo principale non è rappresentativo di ciò che viene distribuito nel servizio Data Factory. Il ramo principale *deve* essere pubblicato manualmente nel servizio Data Factory.
 
 ## <a name="best-practices-for-git-integration"></a>Procedure consigliate per l'integrazione con GIT
 
@@ -264,7 +264,7 @@ L'uso di Key Vault o dell'autenticazione MSI rende inoltre più semplice l'integ
 
 ### <a name="stale-publish-branch"></a>Ramo di pubblicazione non aggiornato
 
-Se il ramo di pubblicazione non è sincronizzato con il ramo master e contiene risorse non aggiornate nonostante una pubblicazione recente, provare con i passaggi seguenti:
+Se il ramo di pubblicazione non è sincronizzato con il ramo principale e contiene risorse non aggiornate nonostante una pubblicazione recente, provare a seguire questa procedura:
 
 1. Rimuovere il repository Git corrente
 1. Riconfigurare Git con le stesse impostazioni, ma verificando di aver selezionato **Importa risorse di Data Factory esistenti nel repository** e di scegliere **Nuovo ramo**

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 46a676f90eb9b628551c50f9c3bf664056dd6ca7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e88a721d500ea1c17c768e9f28835248711bd361
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355951"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584443"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -56,84 +56,81 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 6. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e seguire questa procedura:
 
-    a. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
+    1. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
-    b. Sono necessarie autorizzazioni sufficienti per creare i ruoli. Selezionare **Autorizzazioni di modifica** per ottenere le autorizzazioni.
+    1. Sono necessarie autorizzazioni sufficienti per creare i ruoli. Selezionare **Autorizzazioni di modifica** per ottenere le autorizzazioni.
 
-      ![Pulsante Autorizzazioni di modifica](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+        ![Pulsante Autorizzazioni di modifica](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    >[!NOTE]
-    >Il ruolo di amministratore di App cloud e App non funzionerà in questo scenario perché sono necessarie le autorizzazioni di amministratore globale per le directory in lettura e scrittura.
+        > [!NOTE]
+        > Il ruolo di amministratore di App cloud e App non funzionerà in questo scenario perché sono necessarie le autorizzazioni di amministratore globale per le directory in lettura e scrittura.
 
-    c. Selezionare le autorizzazioni seguenti nell'elenco (se non sono già disponibili) e quindi **Autorizzazioni di modifica**.
+    1. Selezionare le autorizzazioni seguenti nell'elenco (se non sono già disponibili) e quindi **Autorizzazioni di modifica**.
 
-      ![Elenco delle autorizzazioni e pulsante Autorizzazioni di modifica](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+        ![Elenco delle autorizzazioni e pulsante Autorizzazioni di modifica](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-    d. Accettare la richiesta di consenso. Si verrà riconnessi al sistema.
+    1. Accettare la richiesta di consenso. Si verrà riconnessi al sistema.
 
-    e. Modificare la versione in **beta** e recuperare l'elenco delle entità servizio dal tenant usando la query seguente:
+    1. Modificare la versione in **beta** e recuperare l'elenco delle entità servizio dal tenant usando la query seguente:
 
-     `https://graph.microsoft.com/beta/servicePrincipals`
+        `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Se si usano più directory, seguire questo modello: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+        Se si usano più directory, seguire questo modello: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-      ![Finestra di dialogo Graph explorer, con la query per recuperare le entità servizio](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+        ![Finestra di dialogo Graph explorer, con la query per recuperare le entità servizio](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      
-    f. Nell'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione tra tutte le entità servizio elencate. Cercare l'ID oggetto copiato dalla pagina **Proprietà** e usare la query seguente per ottenere l'entità servizio:
+    1. Nell'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione tra tutte le entità servizio elencate. Cercare l'ID oggetto copiato dalla pagina **Proprietà** e usare la query seguente per ottenere l'entità servizio:
 
-      `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-      ![Query per ottenere l'entità servizio che è necessario modificare](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+        ![Query per ottenere l'entità servizio che è necessario modificare](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. Estrarre la proprietà **appRoles** dall'oggetto entità servizio.
+    1. Estrarre la proprietà **appRoles** dall'oggetto entità servizio.
 
-      ![Dettagli della proprietà appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+        ![Dettagli della proprietà appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      
-      Se si usa l'app personalizzata e non l'app Azure Marketplace, verranno visualizzati due ruoli predefiniti: user e msiam_access. Per l'app Marketplace, msiam_access è l'unico ruolo predefinito. Non è necessario apportare modifiche ai ruoli predefiniti.
+        Se si usa l'app personalizzata e non l'app Azure Marketplace, verranno visualizzati due ruoli predefiniti: user e msiam_access. Per l'app Marketplace, msiam_access è l'unico ruolo predefinito. Non è necessario apportare modifiche ai ruoli predefiniti.
 
-    h. Generare nuovi ruoli per l'applicazione.
+    1. Generare nuovi ruoli per l'applicazione.
 
-      Il codice JSON seguente è un esempio dell'oggetto **appRoles**. Creare un oggetto simile per aggiungere i ruoli desiderati per l'applicazione.
+        Il codice JSON seguente è un esempio dell'oggetto **appRoles**. Creare un oggetto simile per aggiungere i ruoli desiderati per l'applicazione.
 
-      ```
-      {
-         "appRoles": [
-          {
-              "allowedMemberTypes": [
+        ```json
+        {
+          "appRoles": [
+            {
+               "allowedMemberTypes": [
                   "User"
-              ],
-              "description": "msiam_access",
-              "displayName": "msiam_access",
-              "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
-              "isEnabled": true,
-              "origin": "Application",
-              "value": null
-          },
-          {
-              "allowedMemberTypes": [
-                  "User"
-              ],
-              "description": "Administrators Only",
-              "displayName": "Admin",
-              "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
-              "isEnabled": true,
-              "origin": "ServicePrincipal",
-              "value": "Administrator"
-          }
-      ]
-      }
-      ```
+                ],
+                "description": "msiam_access",
+                "displayName": "msiam_access",
+                "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+                "isEnabled": true,
+                "origin": "Application",
+                "value": null
+            },
+            {
+                "allowedMemberTypes": [
+                    "User"
+                ],
+                "description": "Administrators Only",
+                "displayName": "Admin",
+                "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+                "isEnabled": true,
+                "origin": "ServicePrincipal",
+                "value": "Administrator"
+            }
+         ]
+        }
+        ```
 
-      
-      È possibile aggiungere nuovi ruoli solo dopo msiam_access per l'operazione patch. Inoltre, è possibile aggiungere tutti i ruoli necessari per l'organizzazione. Azure AD invierà il valore di questi ruoli come valore dell'attestazione nella risposta SAML. Per generare i valori GUID per l'ID dei nuovi ruoli, usare strumenti Web come [questo](https://www.guidgenerator.com/)
+        È possibile aggiungere nuovi ruoli solo dopo msiam_access per l'operazione patch. Inoltre, è possibile aggiungere tutti i ruoli necessari per l'organizzazione. Azure AD invierà il valore di questi ruoli come valore dell'attestazione nella risposta SAML. Per generare i valori GUID per l'ID dei nuovi ruoli, usare strumenti Web come [questo](https://www.guidgenerator.com/)
 
-    i. Tornare a Graph explorer e modificare il metodo da **GET** a **PATCH**. Applicare la patch all'oggetto entità servizio in modo da avere i ruoli desiderati aggiornando la proprietà **appRoles** perché sia simile a quella mostrata nell'esempio precedente. Selezionare **Esegui query** per eseguire l'operazione patch. Un messaggio di operazione completata conferma la creazione del ruolo.
+    1. Tornare a Graph explorer e modificare il metodo da **GET** a **PATCH**. Applicare la patch all'oggetto entità servizio in modo da avere i ruoli desiderati aggiornando la proprietà **appRoles** perché sia simile a quella mostrata nell'esempio precedente. Selezionare **Esegui query** per eseguire l'operazione patch. Un messaggio di operazione completata conferma la creazione del ruolo.
 
-      ![Operazione patch con messaggio di operazione completata](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+        ![Operazione patch con messaggio di operazione completata](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Dopo che all'entità servizio è stata applicata la patch con più ruoli, è possibile assegnare gli utenti ai rispettivi ruoli. Per assegnare gli utenti, è possibile accedere al portale e passare all'applicazione. Selezionare la scheda **utenti e gruppi** . Questa scheda elenca tutti gli utenti e i gruppi già assegnati all'app. È possibile aggiungere nuovi utenti nei nuovi ruoli. È anche possibile selezionare un utente esistente e fare clic su **Modifica** per modificare il ruolo.
+1. Dopo che all'entità servizio è stata applicata la patch con più ruoli, è possibile assegnare gli utenti ai rispettivi ruoli. Per assegnare gli utenti, è possibile accedere al portale e passare all'applicazione. Selezionare la scheda **utenti e gruppi** . Questa scheda elenca tutti gli utenti e i gruppi già assegnati all'app. È possibile aggiungere nuovi utenti nei nuovi ruoli. È anche possibile selezionare un utente esistente e fare clic su **Modifica** per modificare il ruolo.
 
     ![Scheda Utenti e gruppi](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -144,34 +141,33 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
     
     È necessario aggiornare la sessione nel portale di Azure per visualizzare i nuovi ruoli.
 
-8. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
+1. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
 
-9. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
+1. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
     | Nome attributo | Valore di attributo |
     | -------------- | ----------------|
     | Nome del ruolo  | user.assignedroles |
 
-    
     Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questa impostazione è predefinita in base alla progettazione.
 
-    a. fare clic sull'icona **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
+    1. Fare clic sull'icona **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
-      ![Screenshot che evidenzia l'icona di modifica utilizzata per aprire la finestra di dialogo attributi utente & attestazioni.](./media/active-directory-enterprise-app-role-management/editattribute.png)
+        ![Screenshot che evidenzia l'icona di modifica utilizzata per aprire la finestra di dialogo attributi utente & attestazioni.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Nella finestra di dialogo **Gestisci attestazioni utente** aggiungere l'attributo token SAML facendo clic su **Aggiungi nuova attestazione**.
+    1. Nella finestra di dialogo **Gestisci attestazioni utente** aggiungere l'attributo token SAML facendo clic su **Aggiungi nuova attestazione**.
 
-      ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
+        ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-      ![Riquadro Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+        ![Riquadro Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    c. Nella casella di testo **Nome** digitare il nome dell'attributo necessario. Questo esempio usa **Nome ruolo** come nome di attestazione.
+    1. Nella casella di testo **Nome** digitare il nome dell'attributo necessario. Questo esempio usa **Nome ruolo** come nome di attestazione.
 
-    d. Lasciare vuota la casella **Spazio dei nomi**.
+    1. Lasciare vuota la casella **Spazio dei nomi**.
 
-    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
+    1. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Selezionare **Save** (Salva).
+    1. Selezionare **Salva**.
 
 10. Per testare l'applicazione in modalità Single Sign-On avviata da un provider di identità, accedere a [Riquadro di accesso ](https://myapps.microsoft.com) e selezionare il riquadro dell'applicazione. Nel token SAML verranno visualizzati tutti i ruoli assegnati per l'utente con il nome di attestazione specificato.
 
@@ -181,9 +177,9 @@ Per aggiornare un ruolo esistente, completare questi passaggi:
 
 1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
+1. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
-3. Modificare la versione in **beta** e recuperare l'elenco delle entità servizio dal tenant usando la query seguente:
+1. Modificare la versione in **beta** e recuperare l'elenco delle entità servizio dal tenant usando la query seguente:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -191,27 +187,27 @@ Per aggiornare un ruolo esistente, completare questi passaggi:
 
     ![Finestra di dialogo Graph explorer, con la query per recuperare le entità servizio](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Nell'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione tra tutte le entità servizio elencate. Cercare l'ID oggetto copiato dalla pagina **Proprietà** e usare la query seguente per ottenere l'entità servizio:
+1. Nell'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione tra tutte le entità servizio elencate. Cercare l'ID oggetto copiato dalla pagina **Proprietà** e usare la query seguente per ottenere l'entità servizio:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
     ![Query per ottenere l'entità servizio che è necessario modificare](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Estrarre la proprietà **appRoles** dall'oggetto entità servizio.
+1. Estrarre la proprietà **appRoles** dall'oggetto entità servizio.
 
     ![Dettagli della proprietà appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-6. Per aggiornare un ruolo esistente, completare i passaggi seguenti.
+1. Per aggiornare un ruolo esistente, completare i passaggi seguenti.
 
     ![Corpo della richiesta per "PATCH," con "description" e "displayname" evidenziati](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-    a. Modificare il metodo da **GET** a **PATCH**.
+    1. Modificare il metodo da **GET** a **PATCH**.
 
-    b. Copiare i ruoli esistenti e incollarli in **Corpo della richiesta**.
+    1. Copiare i ruoli esistenti e incollarli in **Corpo della richiesta**.
 
-    c. Aggiornare il valore di un ruolo aggiornando la descrizione del ruolo, il valore del ruolo o il nome visualizzato del ruolo nel modo necessario.
+    1. Aggiornare il valore di un ruolo aggiornando la descrizione del ruolo, il valore del ruolo o il nome visualizzato del ruolo nel modo necessario.
 
-    d. Dopo avere aggiornato tutti i ruoli necessari, fare clic su **Esegui query**.
+    1. Dopo avere aggiornato tutti i ruoli necessari, fare clic su **Esegui query**.
 
 ## <a name="delete-an-existing-role"></a>Eliminare un ruolo esistente
 
@@ -219,9 +215,9 @@ Per eliminare un ruolo esistente, completare questi passaggi:
 
 1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
 
-2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
+1. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
-3. Modificare la versione in **beta** e recuperare l'elenco delle entità servizio dal tenant usando la query seguente:
+1. Modificare la versione in **beta** e recuperare l'elenco delle entità servizio dal tenant usando la query seguente:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -229,43 +225,40 @@ Per eliminare un ruolo esistente, completare questi passaggi:
 
     ![Finestra di dialogo Graph explorer, con la query per recuperare l'elenco delle entità servizio](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Nell'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione tra tutte le entità servizio elencate. Cercare l'ID oggetto copiato dalla pagina **Proprietà** e usare la query seguente per ottenere l'entità servizio:
+1. Nell'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione tra tutte le entità servizio elencate. Cercare l'ID oggetto copiato dalla pagina **Proprietà** e usare la query seguente per ottenere l'entità servizio:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
     ![Query per ottenere l'entità servizio che è necessario modificare](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Estrarre la proprietà **appRoles** dall'oggetto entità servizio.
+1. Estrarre la proprietà **appRoles** dall'oggetto entità servizio.
 
     ![Dettagli della proprietà appRoles dall'oggetto entità servizio](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-6. Per eliminare il ruolo esistente, completare i passaggi seguenti.
+1. Per eliminare il ruolo esistente, completare i passaggi seguenti.
 
     ![Corpo della richiesta per "PATCH," con IsEnabled impostato su false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    a. Modificare il metodo da **GET** a **PATCH**.
+    1. Modificare il metodo da **GET** a **PATCH**.
 
-    b. Copiare i ruoli esistenti dall'applicazione e incollarli in **Corpo della richiesta**.
+    1. Copiare i ruoli esistenti dall'applicazione e incollarli in **Corpo della richiesta**.
 
-    c. Impostare il valore di **IsEnabled** su **false** per il ruolo che si vuole eliminare.
+    1. Impostare il valore di **IsEnabled** su **false** per il ruolo che si vuole eliminare.
 
-    d. Selezionare **Esegui query**.
+    1. Selezionare **Esegui query**.
 
-    
     Assicurarsi di avere il ruolo msiam_access e che l'ID corrisponda nel ruolo generato.
 
-7. Dopo che il ruolo è stato disabilitato, eliminare il blocco del ruolo dalla sezione **appRoles**. Mantenere il metodo come **PATCH** e selezionare **Esegui query**.
+1. Dopo che il ruolo è stato disabilitato, eliminare il blocco del ruolo dalla sezione **appRoles**. Mantenere il metodo come **PATCH** e selezionare **Esegui query**.
 
-8. Al termine dell'esecuzione della query, il ruolo viene eliminato.
+1. Al termine dell'esecuzione della query, il ruolo viene eliminato.
 
-    
     Il ruolo deve essere disabilitato prima che possa essere rimosso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per i passaggi aggiuntivi, vedere la [documentazione dell'app](../saas-apps/tutorial-list.md).
 
-<!--Image references-->
 <!--Image references-->
 
 [1]: ./media/active-directory-enterprise-app-role-management/tutorial_general_01.png

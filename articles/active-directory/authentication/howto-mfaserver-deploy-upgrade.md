@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755404a06d8586968801aa22f2af532da278802
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fbddd2eb52414827561d8896dfc8bc9ff705f41b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742324"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584392"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Aggiornare il server Azure Multi-Factor Authentication alla versione più recente
 
@@ -33,16 +33,16 @@ Se si esegue l'aggiornamento dalla versione 6.x o precedente alla versione 7.x o
 
 Riepilogo dei passaggi di aggiornamento:
 
-* Aggiornare i server di Azure MFA (server subordinati, quindi server master)
+* Aggiornare i server di autenticazione a più fattori di Azure (subordinati quindi primari)
 * Aggiornare le istanze del portale utenti
 * Aggiornare le istanze delle schede ADFS
 
 ## <a name="upgrade-azure-mfa-server"></a>Aggiornare il server di Azure MFA
 
 1. Usare le istruzioni in [Scaricare il server Azure Multi-Factor Authentication](howto-mfaserver-deploy.md#download-the-mfa-server) per ottenere la versione più recente del programma di installazione del server Azure MFA.
-2. Eseguire il backup del file di dati del Server MFA che si trova in C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (prevedendo il percorso di installazione predefinito) sul server principale di MFA.
+2. Eseguire un backup del file di dati del server di autenticazione a più fattori disponibile in C:\Program Files\multi-Factor Authentication Authentication Server\Data\PhoneFactor.pfdata (presupponendo il percorso di installazione predefinito) nel server di autenticazione a più fattori primario.
 3. Se si eseguono più server per avere una disponibilità elevata, modificare i sistemi client che eseguono l'autenticazione nel server MFA in modo da arrestare l'invio del traffico ai server che si intende aggiornare. Se si usa un bilanciamento del carico, rimuovere un server MFA subordinato dal bilanciamento del carico, eseguire l'aggiornamento e quindi aggiungere nuovamente il server alla farm.
-4. Eseguire il nuovo programma di installazione in ogni server MFA. Aggiornare prima i server subordinati perché leggono il vecchio file di dati che viene replicato dal server principale.
+4. Eseguire il nuovo programma di installazione in ogni server MFA. Aggiornare prima i server subordinati perché possono leggere il vecchio file di dati replicato dal database primario.
 
    > [!NOTE]
    > Quando si esegue l'aggiornamento di un server, è necessario rimuoverlo dal bilanciamento del carico o dalla condivisione del traffico con altri server multi-factor authentication.
@@ -51,7 +51,7 @@ Riepilogo dei passaggi di aggiornamento:
   
 5. Se viene chiesto di installare un pacchetto di aggiornamento di Microsoft Visual C++ 2015 Redistributable, accettare la richiesta. Entrambe le versioni, x86 e x64, del pacchetto vengono installate.
 6. Se si usa l'SDK servizio Web, viene chiesto di installare il nuovo SDK servizio Web. Quando si installa il nuovo SDK servizio Web, assicurarsi che il nome della directory virtuale corrisponda alla directory virtuale installata in precedenza (ad esempio MultiFactorAuthWebServiceSdk).
-7. Ripetere i passaggi in tutti i server subordinati. Alzare il livello di uno dei server subordinati a server principale, quindi aggiornare il vecchio server principale.
+7. Ripetere i passaggi in tutti i server subordinati. Innalzare di livello uno dei subordinati come nuovo primario, quindi aggiornare il server primario precedente.
 
 ## <a name="upgrade-the-user-portal"></a>Aggiornare il Portale utenti
 

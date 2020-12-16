@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 6b2b5f4bcbcc5af07a763ee4dff2d42413750fb7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: cd644ed4a3edb1110f2cef60c2bb9170a81fe8d7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930280"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584069"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizzare il repository GitHub con Configurazione app
 
@@ -41,7 +41,7 @@ La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -68,7 +68,7 @@ Per impostazione predefinita, l'azione GitHub non abilita la modalità Strict. Q
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -98,7 +98,7 @@ Se la configurazione si trova in più file, è possibile usare il criterio segue
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
       - 'appsettings2.json'
@@ -127,7 +127,7 @@ Sincronizzazione per prefisso:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
 
@@ -153,7 +153,7 @@ Sincronizzazione per etichetta:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
 
@@ -183,7 +183,7 @@ La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -219,7 +219,7 @@ L'azione GitHub può quindi essere configurata in modo da eseguire una sincroniz
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'appsettings.json'
       - 'secretreferences.json'
@@ -272,7 +272,7 @@ Se l'oggetto annidato è destinato a essere il valore di cui è stato eseguito i
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  

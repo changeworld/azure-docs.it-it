@@ -306,10 +306,12 @@
       items:
         - name: Scegliere un livello
           href: search-sku-tier.md
-        - name: Limiti del servizio
-          href: search-limits-quotas-capacity.md
+        - name: Stimare capacità e costi
+          href: search-sku-manage-costs.md
         - name: Regolare la capacità
           href: search-capacity-planning.md
+        - name: Limiti del servizio
+          href: search-limits-quotas-capacity.md
         - name: Ridimensionare in base alle prestazioni
           href: search-performance-optimization.md
         - name: Architettura multitenant
@@ -362,12 +364,6 @@
               href: service-configure-firewall.md
             - name: Creare un endpoint privato
               href: service-create-private-endpoint.md
-        - name: Accesso basato sull'identità
-          items:
-            - name: Filtri di sicurezza
-              href: search-security-trimming-for-azure-search.md
-            - name: Filtrare in base alle identità degli utenti
-              href: search-security-trimming-for-azure-search-with-aad.md
         - name: Sicurezza in uscita (indicizzatori)
           items:
             - name: Accesso tramite un intervallo IP
@@ -376,6 +372,12 @@
               href: search-indexer-howto-access-trusted-service-exception.md
             - name: Accesso tramite endpoint privati
               href: search-indexer-howto-access-private.md
+        - name: Accesso basato sull'identità
+          items:
+            - name: Filtri di sicurezza
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrare in base alle identità degli utenti
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Gestione
       items:
         - name: Portale

@@ -423,6 +423,8 @@
       items:
         - name: Macchina virtuale di Azure
           href: backup-azure-vms-troubleshoot.md
+        - name: Ripristino di file di VM di Azure
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: Timeout dell'agente di Backup di Azure o dell'estensione della VM
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Agente di Backup di Azure
