@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025668"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591617"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD per Riconoscimento vocale personalizzato
 
@@ -31,7 +31,7 @@ Sono possibili soluzioni di integrazione continua/recapito continuo personalizza
 
 Lo scopo di questi flussi di lavoro è garantire che ogni modello di Riconoscimento vocale personalizzato abbia un'accuratezza del riconoscimento migliore rispetto alla compilazione precedente. Se gli aggiornamenti ai dati di testing e/o di training migliorano l'accuratezza, questi flussi di lavoro creano un nuovo endpoint Riconoscimento vocale personalizzato.
 
-I server Git come GitHub e Azure DevOps possono eseguire flussi di lavoro automatizzati quando si verificano eventi git specifici, ad esempio unioni o richieste pull. Ad esempio, un flusso di lavoro CI può essere attivato quando viene eseguito il push degli aggiornamenti ai dati di test nel ramo *Master* . Server Git diversi avranno strumenti diversi, ma consentiranno di eseguire lo scripting di comandi dell'interfaccia della riga di comando (CLI) in modo che possano essere eseguiti in un server di compilazione.
+I server Git come GitHub e Azure DevOps possono eseguire flussi di lavoro automatizzati quando si verificano eventi git specifici, ad esempio unioni o richieste pull. Ad esempio, un flusso di lavoro CI può essere attivato quando viene eseguito il push degli aggiornamenti ai dati di test nel ramo *principale* . Server Git diversi avranno strumenti diversi, ma consentiranno di eseguire lo scripting di comandi dell'interfaccia della riga di comando (CLI) in modo che possano essere eseguiti in un server di compilazione.
 
 Lungo il percorso, i flussi di lavoro devono denominare e archiviare dati, test, file di test, modelli ed endpoint in modo che possano essere ritracciati nel commit o nella versione da cui provengono. È anche utile assegnare un nome a questi asset in modo che sia facile vedere quali sono stati creati dopo l'aggiornamento dei dati di test rispetto ai dati di training.
 
@@ -84,7 +84,7 @@ Il [repository del modello DevOps vocale](https://github.com/Azure-Samples/Speec
 
 - Copiare il repository di modelli nell'account GitHub, quindi creare risorse di Azure e un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) per i flussi di lavoro di integrazione continua/distribuzione continua di GitHub.
 - Esaminare il "[ciclo interno di sviluppo](https://mitchdenny.com/the-inner-loop/)". Aggiornare i dati di training e di test da un branch di funzionalità, testare le modifiche con un modello di sviluppo temporaneo e generare una richiesta pull per proporre ed esaminare le modifiche.
-- Quando i dati di training vengono aggiornati in una richiesta pull al *database master*, eseguire il training dei modelli con il flusso di lavoro ci azioni github.
+- Quando i dati di training vengono aggiornati in una richiesta pull al *principale*, eseguire il training dei modelli con il flusso di lavoro ci di azioni github.
 - Eseguire test di accuratezza automatici per stabilire la [frequenza degli errori di Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) del modello. Archiviare i risultati dei test nel BLOB di Azure.
 - Eseguire il flusso di lavoro CD per creare un endpoint quando il WER migliora.
 

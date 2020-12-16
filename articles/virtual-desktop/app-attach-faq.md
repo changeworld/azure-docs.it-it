@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518686"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591196"
 ---
 # <a name="msix-app-attach-faq"></a>Domande frequenti sull'aggiunta di app MSIX
 
@@ -27,7 +27,7 @@ MSIX è un formato di creazione di pacchetti per le app, mentre MSIX app alleghi
 
 La connessione all'app MSIX non usa FSLogix. Tuttavia, MSIX app alleghi e FSLogix sono progettati per collaborare per offrire un'esperienza utente uniforme.
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>È possibile usare la connessione all'app MSIX all'esterno del desktop virtuale di Windows?
+## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>È possibile usare la connessione all'app MSIX all'esterno del desktop virtuale di Windows?
 
 Le API per la connessione dell'app Power MSIX sono disponibili per Windows 10 Enterprise. Queste API possono essere usate all'esterno del desktop virtuale di Windows. Tuttavia, non esiste alcun piano di gestione per la connessione all'app MSIX all'esterno del desktop virtuale di Windows.
 

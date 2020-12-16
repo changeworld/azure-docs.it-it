@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/02/2020
-ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/10/2020
+ms.openlocfilehash: f78cbaedea90a241efddd0eff9cb7503201528c5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027602"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590407"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
 
@@ -27,9 +27,9 @@ I flussi di dati di mapping forniscono un'esperienza visiva completamente senza 
 
 ## <a name="getting-started"></a>Introduzione
 
-I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipeline e set di dati. Per creare un flusso di dati, selezionare il segno più accanto a **risorse Factory** , quindi selezionare **flusso di dati** . 
+I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipeline e set di dati. Per creare un flusso di dati, selezionare il segno più accanto a **risorse Factory**, quindi selezionare **flusso di dati**. 
 
-![Nuovo flusso di dati](media/data-flow/new-data-flow.png "nuovo flusso di dati")
+![Nuovo flusso di dati](media/data-flow/new-data-flow.png)
 
 Questa azione consente di passare all'area di disegno del flusso di dati, in cui è possibile creare la logica di trasformazione. Selezionare **Aggiungi origine** per avviare la configurazione della trasformazione origine. Per ulteriori informazioni, vedere [trasformazione origine](data-flow-source.md).
 
@@ -37,17 +37,17 @@ Questa azione consente di passare all'area di disegno del flusso di dati, in cui
 
 Il mapping di un flusso di dati dispone di un'area di disegno univoca progettata per semplificare la creazione della logica di trasformazione. L'area di disegno del flusso di dati è suddivisa in tre parti: la barra superiore, il grafico e il pannello di configurazione. 
 
-![Screenshot mostra l'area di disegno del flusso di dati con la barra superiore, il grafico e il pannello di configurazione con etichetta.](media/data-flow/canvas1.png "Canvas")
+![Screenshot mostra l'area di disegno del flusso di dati con la barra superiore, il grafico e il pannello di configurazione con etichetta.](media/data-flow/canvas-1.png "Canvas")
 
 ### <a name="graph"></a>Grafico
 
-Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine** . Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente. Altre informazioni su come [gestire il grafico del flusso di dati](concepts-data-flow-manage-graph.md).
+Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine**. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente. Altre informazioni su come [gestire il grafico del flusso di dati](concepts-data-flow-manage-graph.md).
 
-![Screenshot mostra la parte del grafico dell'area di disegno con una casella di testo di ricerca.](media/data-flow/canvas2.png "Canvas")
+![Screenshot mostra la parte del grafico dell'area di disegno con una casella di testo di ricerca.](media/data-flow/canvas-2.png)
 
 ### <a name="configuration-panel"></a>Pannello di configurazione
 
-Il pannello configurazione Mostra le impostazioni specifiche della trasformazione attualmente selezionata. Se non è selezionata alcuna trasformazione, viene visualizzato il flusso di dati. Nella configurazione del flusso di dati complessiva, è possibile modificare il nome e la descrizione nella scheda **generale** oppure aggiungere parametri tramite la scheda **parametri** . Per ulteriori informazioni, vedere [mapping dei parametri del flusso di dati](parameters-data-flow.md).
+Il pannello configurazione Mostra le impostazioni specifiche della trasformazione attualmente selezionata. Se non è selezionata alcuna trasformazione, viene visualizzato il flusso di dati. Nella configurazione del flusso di dati complessiva, è possibile aggiungere parametri tramite la scheda **parametri** . Per ulteriori informazioni, vedere [mapping dei parametri del flusso di dati](parameters-data-flow.md).
 
 Ogni trasformazione contiene almeno quattro schede di configurazione.
 
@@ -99,63 +99,63 @@ Il team Azure Data Factory ha creato una [Guida all'ottimizzazione delle prestaz
 
 ## <a name="available-regions"></a>Aree disponibili
 
-I flussi di dati di mapping sono disponibili nelle aree geografiche seguenti:
+I flussi di dati di mapping sono disponibili nelle aree seguenti in ADF:
 
-| Area di Azure | Flussi di dati in ADF | Flussi di dati in sinapsi Studio |
-| ------------ | ----------------- | ---------------------------- |
-|  Australia centrale | | |  
-| Australia centrale 2 | | |
-| Australia orientale | ✓ |  ✓ |
-| Australia sud-orientale   | ✓ | ✓ |
-| Brasile meridionale  | ✓ |  |
-| Canada centrale | ✓ |  |
-| India centrale | ✓ |   ✓ |
-| Stati Uniti centrali    | ✓ |   ✓ |
-| Cina orientale |      | ✓ |
-| Cina orientale 2  |   |    |
-| Cina non a livello di area | | |
-| Cina settentrionale |     | |
-| Cina settentrionale 2 | |  |
-| Asia orientale | ✓ | |
-| Stati Uniti orientali   | ✓ | ✓ |
-| Stati Uniti orientali 2 | ✓ | ✓ |
-| Francia centrale | ✓ | ✓ |
-| Francia meridionale  | | |
-| Germania centrale (sovrano) | | |
-| Germania (non a livello di area) (sovrano) | | |
-| Germania settentrionale (pubblico) | | |
-| Germania nord-orientale (sovrano) | | |
-| Germania centro-occidentale (pubblico) |  | ✓ |
-| Giappone orientale | ✓ |  |
-| Giappone occidentale |  | |
-| Corea centrale | ✓ |  |
-| Corea meridionale | | |
-| Stati Uniti centro-settentrionali  | ✓ | ✓ |
-| Europa settentrionale  | ✓ |    |
-| Norvegia orientale | | |
-| Norvegia occidentale | | |
-| Sudafrica settentrionale    | ✓ | |
-| Sudafrica occidentale |  |    |
-| Stati Uniti centro-meridionali  | | ✓ |
-| India meridionale | | |
-| Asia sud-orientale    | ✓ | ✓ |
-| Svizzera settentrionale |   |  |
-| Svizzera occidentale | | |
-| Emirati Arabi Uniti centrali | | |
-| Emirati Arabi Uniti settentrionali |  |    |
-| Regno Unito meridionale  | ✓ |   | ✓ |
-| Regno Unito occidentale |     | ✓ |
-| US DoD (area centrale) | |  |
-| US DoD (area orientale) | |  |
-| US Gov Arizona |      |  |
-| US Gov (non a livello di area) | |  |
-| US Gov Texas | |  |
-| US Gov Virginia |     |  |
-| Stati Uniti centro-occidentali |     | ✓ |
-| Europa occidentale   | ✓ |   ✓ |
-| India occidentale | | |
-| Stati Uniti occidentali   | ✓ |   |
-| West US 2 | ✓ |   ✓ | 
+| Area di Azure | Flussi di dati in ADF |
+| ------------ | ----------------- |
+|  Australia centrale | |
+| Australia centrale 2 | |
+| Australia orientale | ✓ |
+| Australia sud-orientale   | ✓ |
+| Brasile meridionale  | ✓ |
+| Canada centrale | ✓ |
+| India centrale | ✓ |
+| Stati Uniti centrali    | ✓ |
+| Cina orientale |      |
+| Cina orientale 2  |   |
+| Cina non a livello di area | |
+| Cina settentrionale |     |
+| Cina settentrionale 2 | |
+| Asia orientale | ✓ |
+| Stati Uniti orientali   | ✓ |
+| Stati Uniti orientali 2 | ✓ |
+| Francia centrale | ✓ |
+| Francia meridionale  | |
+| Germania centrale (sovrano) | |
+| Germania (non a livello di area) (sovrano) | |
+| Germania settentrionale (pubblico) | |
+| Germania nord-orientale (sovrano) | |
+| Germania centro-occidentale (pubblico) |  |
+| Giappone orientale | ✓ |
+| Giappone occidentale |  |
+| Corea centrale | ✓ |
+| Corea meridionale | |
+| Stati Uniti centro-settentrionali  | ✓ |
+| Europa settentrionale  | ✓ |
+| Norvegia orientale | |
+| Norvegia occidentale | |
+| Sudafrica settentrionale    | ✓ |
+| Sudafrica occidentale |  |
+| Stati Uniti centro-meridionali  | |
+| India meridionale | |
+| Asia sud-orientale    | ✓ |
+| Svizzera settentrionale |   |
+| Svizzera occidentale | |
+| Emirati Arabi Uniti centrali | |
+| Emirati Arabi Uniti settentrionali |  |
+| Regno Unito meridionale  | ✓ |
+| Regno Unito occidentale |     |
+| US DoD (area centrale) | |
+| US DoD (area orientale) | |
+| US Gov Arizona |      |
+| US Gov (non a livello di area) | |
+| US Gov Texas | |
+| US Gov Virginia |     |
+| Stati Uniti centro-occidentali |     |
+| Europa occidentale   | ✓ |
+| India occidentale | |
+| Stati Uniti occidentali   | ✓ |
+| West US 2 | ✓ |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

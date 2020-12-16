@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902324"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591899"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -41,9 +41,9 @@ Di seguito è riportata una panoramica di esempio del ciclo di vita CI/CD in una
 
 1.  Uno sviluppatore [crea un ramo di funzionalità](source-control.md#creating-feature-branches) per apportare una modifica. Viene eseguito il debug delle esecuzioni della pipeline con le modifiche più recenti. Per altre informazioni su come eseguire il debug di un'esecuzione di pipeline, vedere [Sviluppo e debug iterativi con Azure Data Factory](iterative-development-debugging.md).
 
-1.  Quando uno sviluppatore è soddisfatto delle modifiche, può creare una richiesta pull dal proprio ramo di funzionalità al ramo principale o al ramo di collaborazione per far esaminare le modifiche ai colleghi.
+1.  Una volta soddisfatte le modifiche, uno sviluppatore crea una richiesta pull dal ramo della funzionalità al ramo principale o di collaborazione per approvare le modifiche apportate dai peer.
 
-1.  Una volta che una richiesta pull è stata approvata e le modifiche sono state unite nel ramo principale, queste vengono pubblicate nella factory di sviluppo.
+1.  Dopo che una richiesta pull è stata approvata e le modifiche sono state unite nel branch principale, le modifiche vengono pubblicate nella Factory di sviluppo.
 
 1.  Quando il team è pronto a distribuire le modifiche a una factory di test o UAT (test di accettazione utente), il team passa alla versione Azure Pipelines e distribuisce la versione desiderata della factory di sviluppo in UAT. Questa distribuzione viene eseguita come parte di un'attività di Azure Pipelines e usa i parametri di modello di Resource Manager per applicare la configurazione appropriata.
 

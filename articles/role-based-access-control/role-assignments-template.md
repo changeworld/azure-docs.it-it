@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9bdd70baa906d9dc03a37eecb0388eee5638f153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e05ecd162ccb333c6ab29b0185f6ffcb04a6213
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184281"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591362"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo di Azure tramite modelli di Azure Resource Manager
 
@@ -109,14 +109,14 @@ Per usare il modello, è necessario:
 }
 ```
 
-Di seguito sono riportati esempi di comandi [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) per comprendere come avviare la distribuzione in un gruppo di risorse denominato ExampleGroup.
+Di seguito sono riportati i comandi di esempio [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Deployment Group create](/cli/azure/deployment/group#az_deployment_group_create) per come avviare la distribuzione in un gruppo di risorse denominato ExampleGroup.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json
 ```
 
 L'esempio seguente illustra un'assegnazione del ruolo Lettore a un utente per un gruppo di risorse dopo la distribuzione del modello.
@@ -187,24 +187,24 @@ Per usare il modello, è necessario specificare gli input seguenti:
 > [!NOTE]
 > Questo modello non è idempotente, a meno che non venga specificato lo stesso valore di `roleNameGuid` come parametro per ogni distribuzione del modello. Se non viene specificato alcun valore di `roleNameGuid`, per impostazione predefinita viene generato un nuovo GUID per ogni distribuzione e le distribuzioni successive avranno esito negativo con la visualizzazione di un errore `Conflict: RoleAssignmentExists`.
 
-L'ambito dell'assegnazione del ruolo è determinato dal livello della distribuzione. Di seguito sono riportati alcuni esempi di comandi [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) per avviare la distribuzione nell'ambito di un gruppo di risorse.
+L'ambito dell'assegnazione del ruolo è determinato dal livello della distribuzione. Di seguito sono riportati i comandi di esempio [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Deployment Group create](/cli/azure/deployment/group#az_deployment_group_create) per la modalità di avvio della distribuzione in un ambito del gruppo di risorse.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-Di seguito sono riportati alcuni esempi di comandi [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) e [az deployment create](/cli/azure/deployment#az-deployment-create) per avviare la distribuzione nell'ambito di una sottoscrizione e specificare la posizione.
+Di seguito sono riportati i comandi di esempio [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) e [AZ Deployment Sub create](/cli/azure/deployment/sub#az_deployment_sub_create) per come avviare la distribuzione in un ambito di sottoscrizione e specificare il percorso.
 
 ```azurepowershell
 New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment sub create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 ### <a name="resource-scope"></a>Ambito risorsa
@@ -290,14 +290,14 @@ Per usare il modello, è necessario specificare gli input seguenti:
 }
 ```
 
-Per distribuire il modello precedente, usare i comandi del gruppo di risorse. Di seguito sono riportati alcuni esempi di comandi [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) per avviare la distribuzione nell'ambito di una risorsa.
+Per distribuire il modello precedente, usare i comandi del gruppo di risorse. Di seguito sono riportati i comandi di esempio [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Deployment Group create](/cli/azure/deployment/group#az_deployment_group_create) per la modalità di avvio della distribuzione in un ambito di risorse.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
 L'esempio seguente illustra un'assegnazione del ruolo Collaboratore a un utente per un account di archiviazione dopo la distribuzione del modello.
@@ -360,14 +360,14 @@ Per usare il modello, è necessario specificare gli input seguenti:
 }
 ```
 
-Di seguito sono riportati alcuni esempi di comandi [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) per avviare la distribuzione nell'ambito di un gruppo di risorse.
+Di seguito sono riportati i comandi di esempio [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Deployment Group create](/cli/azure/deployment/group#az_deployment_group_create) per la modalità di avvio della distribuzione in un ambito del gruppo di risorse.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
 L'esempio seguente illustra un'assegnazione del ruolo Collaboratore a un'entità servizio dell'identità gestita dopo la distribuzione del modello.
@@ -385,7 +385,7 @@ Per rimuovere l'accesso a una risorsa di Azure in Controllo degli accessi in bas
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+- [Avvio rapido: Creare e distribuire modelli di Resource Manager con il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [Comprendere la struttura e la sintassi dei modelli di Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 - [Creare gruppi di risorse e risorse a livello di sottoscrizione](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

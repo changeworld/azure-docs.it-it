@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710e31c18338243f9405a071b8fa544fe44044be
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 734d37af58290201b415f1a4b7c8ff7553187550
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903157"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591260"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -159,6 +159,8 @@ Gli amministratori tenant possono ora usare l'implementazione temporanea per dis
 **Funzionalità del prodotto:** Monitoraggio e creazione report
  
 Con la versione di anteprima iniziale della diagnostica di accesso, gli amministratori possono ora esaminare gli accessi degli utenti. Gli amministratori possono ricevere informazioni contestuali, specifiche e pertinenti e istruzioni su ciò che si è verificato durante l'accesso e su come risolvere i problemi. Il livello di diagnostica è disponibile sia nel pannello di Azure AD sia nella diagnostica e nell'accesso condizionale. Gli scenari di diagnostica descritti in questa versione sono l'accesso condizionale, la Multi-Factor Authentication e l'accesso riuscito.
+
+Per ulteriori informazioni, vedere informazioni sulla [diagnostica di accesso in Azure ad](../reports-monitoring/overview-sign-in-diagnostics.md).
  
 ---
 
@@ -244,7 +246,7 @@ L'attività da parte del [servizio di provisioning](../app-provisioning/user-pro
 Al termine di una data verrà fornito un aggiornamento. Questa deprecazione non è pianificata per l'anno di calendario 2020. 
 
 > [!NOTE]
-> Questa operazione non influisca sugli eventi nei log di controllo al di fuori degli eventi di sincronizzazione generati dal servizio di provisioning. Gli eventi come la creazione di un'applicazione, i criteri di accesso condizionale, un utente nella directory e così via continueranno a essere generati nei log di controllo. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
+> Questa operazione non influisca sugli eventi nei log di controllo al di fuori degli eventi di sincronizzazione generati dal servizio di provisioning. Gli eventi come la creazione di un'applicazione, i criteri di accesso condizionale, un utente nella directory e così via continueranno a essere generati nei log di controllo. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context)
  
 
 ---
@@ -386,7 +388,7 @@ I connettori API sono ora disponibili per l'uso con Azure Active Directory B2C. 
 
  Tutte le organizzazioni connesse avranno ora una proprietà aggiuntiva denominata "state". Lo stato controllerà il modo in cui l'organizzazione connessa verrà usata nei criteri che fanno riferimento a "tutte le organizzazioni connesse configurate". Il valore sarà "configurata" (ovvero l'organizzazione è nell'ambito dei criteri che usano la clausola "All") o "proposed", ovvero l'organizzazione non è nell'ambito.  
 
-Le organizzazioni connesse create manualmente avranno un'impostazione predefinita "configurata". Nel frattempo, gli utenti creati automaticamente (creati tramite criteri che consentono a qualsiasi utente da Internet di richiedere l'accesso) verranno impostati per impostazione predefinita su "proposto".  Tutte le organizzazioni connesse create prima del 9 2020 settembre verranno impostate su "configurate". Gli amministratori possono aggiornare questa proprietà in base alle esigenze. [Altre informazioni](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
+Le organizzazioni connesse create manualmente avranno un'impostazione predefinita "configurata". Nel frattempo, gli utenti creati automaticamente (creati tramite criteri che consentono a qualsiasi utente da Internet di richiedere l'accesso) verranno impostati per impostazione predefinita su "proposto".  Tutte le organizzazioni connesse create prima del 9 2020 settembre verranno impostate su "configurate". Gli amministratori possono aggiornare questa proprietà in base alle esigenze. [Altre informazioni](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically)
  
 
 ---
@@ -443,7 +445,7 @@ Per informazioni su come usare la funzionalità, vedere comprendere il modo in c
 **Categoria di servizio:** Creazione di report  
 **Funzionalità del prodotto:** Monitoraggio e creazione report
  
-È ora possibile consentire ai proprietari delle applicazioni di monitorare l'attività del servizio di provisioning e risolvere i problemi senza fornire loro un ruolo privilegiato o crearne un collo di bottiglia. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md).
+È ora possibile consentire ai proprietari delle applicazioni di monitorare l'attività del servizio di provisioning e risolvere i problemi senza fornire loro un ruolo privilegiato o crearne un collo di bottiglia. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md)
  
 ---
 
@@ -511,7 +513,7 @@ Azure AD Connect aggiornamento dell'anteprima pubblica del provisioning nel clou
 
 - Esperienza di mapping degli attributi tramite portale di Azure
 
-    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Altre informazioni](../cloud-provisioning/how-to-attribute-mapping.md)
+    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Scopri di più](../cloud-provisioning/how-to-attribute-mapping.md)
 
 - Esperienza utente di test o provisioning su richiesta
 
@@ -610,7 +612,7 @@ Per ulteriori informazioni, vedere la pagina relativa ai miglioramenti apportati
 
 Nel settembre 2020 abbiamo aggiunto le seguenti 34 nuove applicazioni nella raccolta di app con supporto federativo:
 
-[VMware Horizon-Unified Access Gateway](), [PULSe Secure PCS](../saas-apps/vmware-horizon-unified-access-gateway-tutorial.md), [Inventory360](../saas-apps/pulse-secure-pcs-tutorial.md), [Frontitude](https://services.enteksystems.de/sso/microsoft/signup), [BookWidgets](https://www.bookwidgets.com/sso/office365), [ZVD_SERVER](https://zaas.zenmutech.com/user/signin), [HashData for business](https://hashdata.app/login.xhtml), [SecureLogin](https://securelogin.securelogin.nu/sso/azure/login), [CyberSolutions MAILBASEΣ/CMSS](../saas-apps/cybersolutions-mailbase-tutorial.md), [CyberSolutions CYBERMAILΣ](../saas-apps/cybersolutions-cybermail-tutorial.md), [LimbleCMMS](https://auth.limblecmms.com/), [luccichi Inc](../saas-apps/glint-inc-tutorial.md), [zeroheight](../saas-apps/zeroheight-tutorial.md), [Gender fitness](https://app.genderfitness.com/), [Coeo Portal](https://my.coeo.com/), [grammatical](../saas-apps/grammarly-tutorial.md), [Fivetran](../saas-apps/fivetran-tutorial.md), [Kumolus](../saas-apps/kumolus-tutorial.md), [RSA Archer Suite](../saas-apps/rsa-archer-suite-tutorial.md), [TeamzSkill](../saas-apps/teamzskill-tutorial.md), [raumfürraum](../saas-apps/raumfurraum-tutorial.md), Saviynt [, BizMerlinHR,](https://marketplace.bizmerlin.net/bmone/signup) [mobile Locker](../saas-apps/mobile-locker-tutorial.md), [ZEngine](../saas-apps/zengine-tutorial.md), [CloudCADI](https://app.cloudcadi.com/login), [Simfoni Analytics](https://simfonianalytics.com/accounts/microsoft/login/), [priva Identity & Access Management](https://my.priva.com/), [Nitro Pro](https://www.gonitro.com/nps/product-details/downloads), [Eventfinity](../saas-apps/eventfinity-tutorial.md), [FEXA](../saas-apps/fexa-tutorial.md), [firma protetta Enterprise Portal](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [firma protetta Enterprise Portal installazione di AAD](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [WISTEC online](https://wisteconline.com/auth/oidc), [Oracle PeopleSoft-protetto da F5 Big-IP APM](../saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md) [Saviynt](../saas-apps/saviynt-tutorial.md)
+[VMware Horizon-Unified Access Gateway](), [PULSe Secure PCS](../saas-apps/vmware-horizon-unified-access-gateway-tutorial.md), [Inventory360](../saas-apps/pulse-secure-pcs-tutorial.md), [Frontitude](https://services.enteksystems.de/sso/microsoft/signup), [BookWidgets](https://www.bookwidgets.com/sso/office365), [ZVD_SERVER](https://zaas.zenmutech.com/user/signin), [HashData for business](https://hashdata.app/login.xhtml), [SecureLogin](https://securelogin.securelogin.nu/sso/azure/login), [CyberSolutions MAILBASEΣ/CMSS](../saas-apps/cybersolutions-mailbase-tutorial.md), [CyberSolutions CYBERMAILΣ](../saas-apps/cybersolutions-cybermail-tutorial.md), [LimbleCMMS](https://auth.limblecmms.com/), [luccichi Inc](../saas-apps/glint-inc-tutorial.md), [zeroheight](../saas-apps/zeroheight-tutorial.md), [Gender fitness](https://app.genderfitness.com/), [Coeo Portal](https://my.coeo.com/), [grammatical](../saas-apps/grammarly-tutorial.md), [Fivetran](../saas-apps/fivetran-tutorial.md), [Kumolus](../saas-apps/kumolus-tutorial.md), [RSA Archer Suite](../saas-apps/rsa-archer-suite-tutorial.md), [TeamzSkill](../saas-apps/teamzskill-tutorial.md), [raumfürraum](../saas-apps/raumfurraum-tutorial.md), Saviynt [, BizMerlinHR,](https://marketplace.bizmerlin.net/bmone/signup) [mobile Locker](../saas-apps/mobile-locker-tutorial.md), [ZEngine](../saas-apps/zengine-tutorial.md), [CloudCADI](https://app.cloudcadi.com/login), [Simfoni Analytics](https://simfonianalytics.com/accounts/microsoft/login/), [priva Identity & Access Management](https://my.priva.com/), [Nitro Pro](https://www.gonitro.com/nps/product-details/downloads), [Eventfinity](../saas-apps/eventfinity-tutorial.md), [FEXA](../saas-apps/fexa-tutorial.md), [firma protetta Enterprise Portal](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [firma protetta Enterprise Portal installazione di AAD](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [WISTEC online](https://wisteconline.com/auth/oidc), [Oracle PeopleSoft-protetto da F5 Big-IP APM](../saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md) [](../saas-apps/saviynt-tutorial.md)
 
 È anche possibile trovare la documentazione di tutte le applicazioni da qui: https://aka.ms/AppsTutorial .
 
@@ -855,7 +857,7 @@ In precedenza, solo l'amministratore globale poteva gestire la [proprietà di es
  
 Con la versione GA della condizione delle app client nell'accesso condizionale, i nuovi criteri vengono ora applicati per impostazione predefinita a tutte le applicazioni client. Sono inclusi i client di autenticazione legacy. I criteri esistenti rimarranno invariati, ma l'interruttore *configura sì/no* verrà rimosso dai criteri esistenti per individuare facilmente le app client a cui vengono applicati i criteri. 
 
-Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](../conditional-access/concept-conditional-access-conditions.md).
+Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](../conditional-access/concept-conditional-access-conditions.md)
  
 ---
 
@@ -865,7 +867,7 @@ Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli accoun
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-Il servizio di provisioning Azure AD sfrutta lo standard SCIM per l'integrazione con le applicazioni. L'implementazione dello standard SCIM è in continua evoluzione e si prevede di apportare modifiche al comportamento in merito alla modalità di esecuzione delle operazioni di PATCH, nonché di impostare la proprietà "Active" su una risorsa. [Altre informazioni](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md).
+Il servizio di provisioning Azure AD sfrutta lo standard SCIM per l'integrazione con le applicazioni. L'implementazione dello standard SCIM è in continua evoluzione e si prevede di apportare modifiche al comportamento in merito alla modalità di esecuzione delle operazioni di PATCH, nonché di impostare la proprietà "Active" su una risorsa. [Altre informazioni](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)
  
 ---
 
@@ -913,7 +915,7 @@ Gli amministratori possono ora verificare se un'autenticazione di Windows ha usa
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-In precedenza, quando un gruppo è stato modificato da "in-scope" a "out-of-scope" e un amministratore ha fatto clic su Restart prima del completamento della modifica, l'oggetto gruppo non è stato eliminato. A questo punto l'oggetto gruppo verrà eliminato dall'applicazione di destinazione quando esce dall'ambito (disabilitato, eliminato, non assegnato o non ha superato il filtro di ambito). [Altre informazioni](../app-provisioning/how-provisioning-works.md#incremental-cycles).
+In precedenza, quando un gruppo è stato modificato da "in-scope" a "out-of-scope" e un amministratore ha fatto clic su Restart prima del completamento della modifica, l'oggetto gruppo non è stato eliminato. A questo punto l'oggetto gruppo verrà eliminato dall'applicazione di destinazione quando esce dall'ambito (disabilitato, eliminato, non assegnato o non ha superato il filtro di ambito). [Altre informazioni](../app-provisioning/how-provisioning-works.md#incremental-cycles)
  
 ---
 

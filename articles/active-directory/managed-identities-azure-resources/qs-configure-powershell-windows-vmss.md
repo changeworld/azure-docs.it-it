@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d193637122cb388ea2c5012638526719d245f524
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd7ec1f6cdfc8ecfe32de04f5d06b42f9492b88c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997376"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590903"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurare identità gestite per le risorse di Azure in set di scalabilità di macchine virtuali tramite PowerShell
 
@@ -29,6 +29,7 @@ ms.locfileid: "95997376"
 Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo illustra come eseguire le operazioni relative alle identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali mediante PowerShell:
+
 - Abilitare e disabilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali
 - Aggiungere e rimuovere un'identità gestita assegnata dall'utente in un set di scalabilità di macchine virtuali
 

@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: c9f344ec6eae40db2c76f3712df6f1f9d8cead37
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bd46e7b2f0713da67842def47dfeadc837027d8f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668871"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027969"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Attività di amministratore account nel portale di Azure
 
@@ -30,7 +30,7 @@ Per eseguire una di queste attività, è necessario avere il ruolo di amministra
 
 1. Accedere al portale di Azure come amministratore account.
 
-1. Cercare **Gestione dei costi e fatturazione** .
+1. Cercare **Gestione dei costi e fatturazione**.
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
@@ -41,7 +41,7 @@ Per eseguire una di queste attività, è necessario avere il ruolo di amministra
    > [!NOTE]
    > Se non vengono visualizzate alcune sottoscrizioni, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
 
-1. Selezionare **Metodi di pagamento** .
+1. Selezionare **Metodi di pagamento**.
 
     ![Screenshot che illustra la pagina Metodi di pagamento in cui è possibile aggiungere un metodo di pagamento.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
@@ -63,7 +63,7 @@ Qui è possibile aggiungere una nuova carta di credito, modificare il metodo di 
 
     ![Screenshot che mostra la casella di controllo per impostare la carta come metodo di pagamento attivo.](./media/account-admin-tasks/subscription-make-active-payment-method-x.png)
 
-1. Selezionare **Avanti** .
+1. Selezionare **Avanti**.
 
 Per modificare il metodo di pagamento attivo impostando una carta di credito già salvata:
 
@@ -81,7 +81,7 @@ Per modificare i dettagli della carta di credito, ad esempio l'indirizzo o la da
 
 ![Screenshot che mostra la carta di credito selezionata](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-Aggiornare i dettagli della carta di credito e fare clic su **Salva** .
+Aggiornare i dettagli della carta di credito e fare clic su **Salva**.
 
 ### <a name="remove-a-credit-card-from-the-account"></a>Rimuovere una carta di credito dall'account
 
@@ -104,7 +104,7 @@ Se si è idonei al pagamento con fattura (tramite assegno o bonifico), è possib
     ![Screenshot che illustra la pagina Metodi di pagamento con l'opzione Pagamento con fattura selezionata.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Immettere l'indirizzo per il metodo di pagamento con fattura.
-1. Fare clic su **Avanti** .
+1. Fare clic su **Avanti**.
 
 Per ricevere l'approvazione di un pagamento con fattura, vedere l'articolo contenente [informazioni sui pagamenti con fattura](pay-by-invoice.md).
 
@@ -119,7 +119,7 @@ Il limite di spesa in Azure impedisce spese superiori all'importo del credito. �
 Il limite di spesa non è disponibile per le sottoscrizioni con piani di impegno e piani che prevedono prezzi con pagamento in base al consumo.
 
 1. Accedere al portale di Azure come amministratore account.
-1. Cercare **Gestione dei costi e fatturazione** .
+1. Cercare **Gestione dei costi e fatturazione**.
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
@@ -140,14 +140,14 @@ Il limite di spesa non è disponibile per le sottoscrizioni con piani di impegno
 
 1. Fare clic su **Selezionare un metodo di pagamento** per scegliere un metodo di pagamento per la sottoscrizione. Questo diventerà il metodo di pagamento attivo per la sottoscrizione.
 
-1. Fare clic su **Fine** .
+1. Fare clic su **Fine**.
 
 ## <a name="add-credits-to-azure-in-open-subscription"></a>Aggiungere crediti alla sottoscrizione di Azure in Open
 
 Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiungere crediti alla sottoscrizione nel portale di Azure riscattando un codice Product Key o acquistando crediti con una carta di credito.
 
 1. Accedere al portale di Azure come amministratore account.
-1. Cercare **Gestione dei costi e fatturazione** .
+1. Cercare **Gestione dei costi e fatturazione**.
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
@@ -158,7 +158,7 @@ Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiu
    > [!NOTE]
    > Se non vengono visualizzate le proprie sottoscrizioni, è possibile che la relativa directory sia stata modificata in un determinato momento. È necessario passare alla directory originale della sottoscrizione (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
 
-1. Selezionare **Cronologia crediti** .
+1. Selezionare **Cronologia crediti**.
 
     ![Screenshot che mostra la cronologia dei crediti](./media/account-admin-tasks/aio-credit-history-blade.png)
 
@@ -172,13 +172,13 @@ Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiu
 
 1. Se si sceglie il codice Product Key:
     - Immettere il codice Product Key.
-    - Fare clic su **Convalida** .
+    - Fare clic su **Convalida**.
 
 1. Se si sceglie la carta di credito:
     - Fare clic su **Selezionare un metodo di pagamento** per aggiungere una carta di credito o selezionarne una esistente.
     - Specificare la quantità di crediti da aggiungere.
 
-1. Fare clic su **Applica** .
+1. Fare clic su **Applica**.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 Non sono supportate le carte virtuali o prepagate. Se si ricevono messaggi di errore durante l'aggiunta o l'aggiornamento di una carta di credito valida, provare ad aprire il browser in modalità privata.

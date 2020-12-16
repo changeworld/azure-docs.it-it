@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e36b2d4576b43544bec89efd326363344b35be9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b5260e883d85899953240f6ee4f83127681c9e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997085"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591302"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare le impostazioni di approvazione e richiedente (anteprima) per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -93,7 +93,7 @@ Usare la procedura seguente per aggiungere responsabili approvazione dopo aver s
 
 1. Se è stata selezionata l'opzione **Scegli responsabili approvazione specifici**, fare clic su **Aggiungi responsabili approvazione** per selezionare uno o più utenti o gruppi nella directory da approvatori.
 
-1. Nella casella in base alle **decisioni è necessario**specificare il numero di giorni per cui un responsabile approvazione deve esaminare una richiesta di questo pacchetto di accesso.
+1. Nella casella in base alle **decisioni è necessario** specificare il numero di giorni per cui un responsabile approvazione deve esaminare una richiesta di questo pacchetto di accesso.
 
     Se una richiesta non viene approvata entro questo periodo di tempo, verrà negata automaticamente. L'utente dovrà inviare un'altra richiesta per il pacchetto di accesso.
 
@@ -115,7 +115,7 @@ Se è stata selezionata un'approvazione a 2 fasi, sarà necessario aggiungere un
 
     ![Accedere al pacchetto-richieste-per gli utenti fuori dalla directory-secondo responsabile approvazione](./media/entitlement-management-access-package-approval-policy/out-directory-second-approver.png) 
 
-1. Specificare il numero di giorni per cui il secondo responsabile approvazione deve approvare la richiesta nella casella in base alla **decisione deve essere effettuata**per il numero di giorni. 
+1. Specificare il numero di giorni per cui il secondo responsabile approvazione deve approvare la richiesta nella casella in base alla **decisione deve essere effettuata** per il numero di giorni. 
 
 1. Impostare l'opzione Richiedi giustificazione del responsabile approvazione su **Sì** o **No**.
 
@@ -132,13 +132,15 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
 
 1. Sotto il primo responsabile approvazione, secondo responsabile approvazione o entrambi, fare clic su **Mostra impostazioni richieste avanzate**.
 
-    ![Accedi ai criteri di pacchetto-Mostra impostazioni avanzate delle richieste](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Accedi ai criteri di pacchetto-Mostra impostazioni avanzate delle richieste":::
 
 1. Impostare **se non viene eseguita alcuna azione, procedere con l'invio a responsabili approvazione alternativi?** impostare su **Sì**.
 
 1. Fare clic su **Aggiungi responsabili approvazione alternativi** e selezionare gli approvatori alternativi dall'elenco.
 
     ![Accedere ai criteri dei pacchetti-aggiungere responsabili approvazione alternativi](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+
+    Se si seleziona responsabile come responsabile approvazione per il primo responsabile approvazione, sarà disponibile un'opzione aggiuntiva, **responsabile di secondo livello come responsabile approvazione alternativo**, disponibile per scegliere nel campo responsabile approvazione alternativo. Se si seleziona questa opzione, è necessario aggiungere un responsabile approvazione del fallback per inviare la richiesta a nel caso in cui il sistema non riesca a trovare il gestore di secondo livello.
 
 1. In **futuro per i responsabili approvazione alternativi dopo** il numero di giorni, inserire il numero di giorni per cui i responsabili approvazione devono approvare o rifiutare una richiesta. Se nessun responsabile approvazione ha approvato o negato la richiesta prima della durata della richiesta, la richiesta scade (timeout) e l'utente dovrà inviare un'altra richiesta per il pacchetto di accesso. 
 
@@ -173,7 +175,7 @@ Per assicurarsi che gli utenti abbiano accesso ai pacchetti di accesso corretti,
 
     ![Accedere ai criteri di pacchetto-configurare il testo localizzato](./media/entitlement-management-access-package-approval-policy/add-localization-question.png)
 
-1. Selezionare il **formato di risposta** a cui si vogliono rispondere i richiedenti. I formati di risposta includono: *testo breve*, *scelta multipla*e *testo lungo*.
+1. Selezionare il **formato di risposta** a cui si vogliono rispondere i richiedenti. I formati di risposta includono: *testo breve*, *scelta multipla* e *testo lungo*.
  
     ![Accedere al pacchetto-criteri-selezionare Visualizza e modifica il formato di risposta a scelta multipla](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  

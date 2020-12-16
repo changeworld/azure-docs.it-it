@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b05e8fbd2f688b4dd5611302c8df1b1deb16ab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b9e036df91eecadc701664a19905a92c142b7585
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099794"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591895"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Node.js SDK e Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -107,7 +107,7 @@ Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le r
 
    ```javascript
    function createTable(next) {
-    var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
         console.log("created table");
    },
@@ -149,7 +149,7 @@ Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le r
             });
         },
     ```  
-    
+
 * Eseguire una query per ottenere un valore di chiave.
 
     ```javascript
@@ -189,7 +189,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     La riga 2 è ora simile alla seguente: 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. Copiare il valore di PASSWORD dal portale e incollarlo su `<FillMEIN>` nella riga 3.
 
     La riga 3 è ora simile alla seguente:
@@ -197,12 +197,12 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. Salvare il file.`config.js`
-    
+
 ## <a name="use-the-x509-certificate"></a>Usare il certificato X509
 
 1. Scaricare il certificato Baltimore CyberTrust Root in locale da [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rinominare il file usando l'estensione file `.cer`.
 
-   Il certificato ha il numero di serie `02:00:00:b9` e l'impronta digitale SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   Il certificato ha il numero di serie `02:00:00:b9` e l'impronta digitale SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Aprire `uprofile.js` e cambiare `path\to\cert` in modo che punti al nuovo certificato.
 

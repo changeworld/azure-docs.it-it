@@ -3,12 +3,12 @@ title: Domande frequenti su Azure DevTest Labs | Documentazione Microsoft
 description: Questo articolo offre risposte ad alcune domande frequenti su Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328386"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590274"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -318,7 +318,7 @@ Nell'ambito della strategia di gestione della configurazione della governance co
 - Associare Azure Repos con lo stesso tenant di Azure Active Directory usato dalla sottoscrizione di Azure per l'autenticazione e l'autorizzazione.
 - In Azure Active Directory creare un gruppo gestito centralmente con nome `All DevTest Labs Developers`. È opportuno inserire in questo gruppo tutti gli sviluppatori che contribuiscono allo sviluppo degli artefatti.
 - Lo stesso gruppo di Azure Active Directory può essere usato per consentire l'accesso al repository di Azure Repos e al lab.
-- In Azure Repos è consigliabile usare la funzionalità di branching o di creazione di una copia tramite fork per separare un repository per ambiente di sviluppo dal repository di produzione primario. Il contenuto viene aggiunto al ramo principale solo con una richiesta pull dopo un adeguato esame del codice. Dopo che il revisore del codice approva la modifica, un responsabile sviluppatori, che è responsabile della manutenzione del ramo principale, unisce il codice aggiornato.
+- In Azure Repos è consigliabile usare la funzionalità di branching o di creazione di una copia tramite fork per separare un repository per ambiente di sviluppo dal repository di produzione primario. Il contenuto viene aggiunto solo al Branch principale con una richiesta pull dopo una revisione corretta del codice. Quando il revisore del codice approva la modifica, uno sviluppatore principale, responsabile della manutenzione del ramo principale, unisce il codice aggiornato.
 
 ## <a name="cicd-integration"></a>Integrazione continua/distribuzione continua (CI/CD)
 

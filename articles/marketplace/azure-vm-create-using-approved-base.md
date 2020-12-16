@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 74cab14cd162ba608a9c5d0168485e9055661f55
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129297"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590792"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Come creare una macchina virtuale usando una base approvata
 
@@ -37,21 +37,25 @@ Azure offre una gamma di distribuzioni Linux approvate. Per un elenco aggiornato
 ## <a name="create-vm-on-the-azure-portal"></a>Creare una macchina virtuale nella portale di Azure
 
 1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
-2. Selezionare **Macchine virtuali** .
+2. Selezionare **Macchine virtuali**.
 3. Selezionare **+ Aggiungi** per aprire la schermata **Crea una macchina virtuale** .
 4. Selezionare l'immagine nell'elenco a discesa oppure selezionare **Sfoglia tutte le immagini pubbliche e private** per cercare o esplorare tutte le immagini di macchine virtuali disponibili.
-5. Per creare una macchina virtuale di **generazione 2** , passare alla scheda **Avanzate** e selezionare l'opzione **gen 2** .
+5. Se si vuole creare una macchina virtuale di **generazione 1** , passare alla scheda **dischi** e impostare l'opzione **Usa disco gestito** su **No** per poter ottenere il disco rigido virtuale della macchina virtuale nell'account di archiviazione specificato
+
+   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="Selezionare disco non gestito.":::
+   
+6. Per creare una macchina virtuale di **generazione 2** , passare alla scheda **Avanzate** e selezionare l'opzione **gen 2** .
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Selezionare generazione 1 o generazione 2.":::
 
-6. Selezionare le dimensioni della macchina virtuale da distribuire.
+7. Selezionare le dimensioni della macchina virtuale da distribuire.
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Selezionare generazione 1 o generazione 2.":::
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Selezionare le dimensioni di macchina virtuale consigliate per l'immagine selezionata.":::
 
 7. Indicare gli altri dettagli necessari per creare la macchina virtuale.
-8. Selezionare **Review + create (Revisione e creazione)** per rivedere le scelte effettuate. Quando viene visualizzato il messaggio **convalida superata** , selezionare  **Crea** .
+8. Selezionare **Review + create (Revisione e creazione)** per rivedere le scelte effettuate. Quando viene visualizzato il messaggio **convalida superata** , selezionare  **Crea**.
 
-Azure avvia il provisioning della macchina virtuale specificata. Tenere traccia dello stato di avanzamento selezionando la scheda **macchine virtuali** nel menu a sinistra. Dopo la creazione, lo stato della macchina virtuale viene modificato in **in esecuzione** .
+Azure avvia il provisioning della macchina virtuale specificata. Tenere traccia dello stato di avanzamento selezionando la scheda **macchine virtuali** nel menu a sinistra. Dopo la creazione, lo stato della macchina virtuale viene modificato in **in esecuzione**.
 
 
 ## <a name="configure-the-vm"></a>Configurare la macchina virtuale
@@ -78,6 +82,6 @@ Per connettersi alla VM [Windows](../virtual-machines/windows/connect-logon.md) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Passaggio successivo consigliato: [testare l'immagine della macchina virtuale](azure-vm-image-test.md) per verificare che soddisfi i requisiti di pubblicazione in Azure Marketplace. Questo valore è facoltativo.
+- Passaggio successivo consigliato: [testare l'immagine della macchina virtuale](azure-vm-image-test.md) per verificare che soddisfi i requisiti di pubblicazione in Azure Marketplace. Questo indirizzo è facoltativo.
 - Se non si testa l'immagine della macchina virtuale, continuare con [generare l'URI](azure-vm-get-sas-uri.md)di firma di accesso condiviso.
 - Se si riscontrano difficoltà nella creazione del nuovo VHD basato su Azure, vedere [domande frequenti sulle VM per Azure Marketplace](azure-vm-create-faq.md).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8d4c1928ae1fac9b840245756c4bf5fe22a83f0f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458009"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590512"
 ---
 # <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Script SQL di sinapsi studio in Azure sinapsi Analytics 
 
@@ -79,7 +79,7 @@ Per esplorare il gesto disponibile, fare clic con il pulsante destro del mouse s
 Dal menu azioni in sviluppare script SQL scegliere "nuova cartella" dal menu "azioni" in sviluppare script SQL. Digitare il nome della nuova cartella nella finestra popup. 
 
 > [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+> ![Screenshot che mostra un esempio di uno script SQL con "nuova cartella" selezionata.](./media/author-sql-script/new-sql-script-create-folder.png)
 
 Per spostare uno script SQL in una cartella, è possibile selezionare lo script SQL e scegliere "sposta a" dal menu azioni. Individuare quindi la cartella di destinazione nella nuova finestra e spostare lo script SQL nella cartella selezionata. È anche possibile trascinare rapidamente lo script SQL e rilasciarlo in una cartella.  
 

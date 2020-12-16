@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997682"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591175"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -57,7 +57,7 @@ Se al tenant è associata una licenza di Azure AD Premium, è anche possibile es
 
 Passare a **Azure Active Directory**  >  **accessi** nell'interfaccia di [amministrazione di Azure Active Directory](https://aad.portal.azure.com/), quindi selezionare l'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
-|Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
+|Codice dell'errore di accesso|Motivo dell'errore di accesso|Soluzione
 | --- | --- | ---
 | 81001 | Il ticket Kerberos dell'utente è troppo grande. | Ridurre l'appartenenza a gruppi dell'utente e riprovare.
 | 81002 | Impossibile convalidare il ticket Kerberos dell'utente. | Vedere l'[elenco di controllo per la risoluzione dei problemi](#troubleshooting-checklist).
@@ -94,11 +94,11 @@ Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenc
 Se si abilita il controllo delle operazioni riuscite nel controller di dominio, ogni volta che un utente esegue l'accesso usando la funzionalità di accesso SSO facile, viene registrata una voce di sicurezza nel log eventi. È possibile trovare questi eventi di sicurezza usando la query seguente. Cercare l'evento **4769** associato all'account computer **AzureADSSOAcc$**.
 
 ```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
+  <QueryList>
+    <Query Id="0" Path="Security">
+      <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
+    </Query>
+  </QueryList>
 ```
 
 ## <a name="manual-reset-of-the-feature"></a>Reimpostazione manuale della funzionalità

@@ -1,21 +1,21 @@
 ---
 title: Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati della coda
 titleSuffix: Azure Storage
-description: PowerShell supporta l'accesso con Azure AD credenziali per eseguire comandi nei dati della coda di archiviazione di Azure. Un token di accesso viene fornito per la sessione e usato per autorizzare la chiamata delle operazioni. Le autorizzazioni dipendono dal ruolo di Azure assegnato alla Azure AD entità di sicurezza.
-services: storage
+description: PowerShell supporta l'accesso con le credenziali Azure AD per eseguire comandi nei dati di archiviazione code di Azure. Un token di accesso viene fornito per la sessione e usato per autorizzare la chiamata delle operazioni. Le autorizzazioni dipendono dal ruolo di Azure assegnato alla Azure AD entità di sicurezza.
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/14/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozgun
+ms.date: 09/14/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637403"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590716"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati della coda
 
@@ -25,7 +25,7 @@ Archiviazione di Azure fornisce estensioni per PowerShell che consentono di acce
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
-Le estensioni di archiviazione di Azure sono supportate per le operazioni sui dati della coda. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'entità di sicurezza Azure AD con cui si accede a PowerShell. Le autorizzazioni per le code di archiviazione di Azure vengono assegnate tramite RBAC di Azure. Se ad esempio è stato assegnato il ruolo **lettore dati coda** , è possibile eseguire i comandi di scripting per leggere i dati da una coda. Se è stato assegnato il ruolo di **collaboratore dei dati della coda** , è possibile eseguire i comandi di scripting per la lettura, la scrittura o l'eliminazione di una coda o dei dati in essi contenuti.
+Le estensioni di archiviazione di Azure sono supportate per le operazioni sui dati della coda. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'entità di sicurezza Azure AD con cui si accede a PowerShell. Le autorizzazioni per le code vengono assegnate tramite RBAC di Azure. Se ad esempio è stato assegnato il ruolo **lettore dati coda** , è possibile eseguire i comandi di scripting per leggere i dati da una coda. Se è stato assegnato il ruolo di **collaboratore dei dati della coda** , è possibile eseguire i comandi di scripting per la lettura, la scrittura o l'eliminazione di una coda o dei dati in essi contenuti.
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di archiviazione di Azure in una coda, vedere [chiamare le operazioni di archiviazione con token OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 

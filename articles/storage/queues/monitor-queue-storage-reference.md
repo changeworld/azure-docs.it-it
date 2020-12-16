@@ -1,20 +1,20 @@
 ---
-title: Riferimento ai dati di monitoraggio dell'archiviazione code di Azure | Microsoft Docs
+title: Riferimento ai dati di monitoraggio dell'archiviazione code di Azure
 description: Informazioni di riferimento su log e metriche per il monitoraggio dei dati dall'archiviazione code di Azure.
 author: normesta
 services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/02/2020
 ms.author: normesta
+ms.date: 10/02/2020
+ms.topic: reference
+ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: a3a07f828bb8ef20da630e909e46f03e8556eb98
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780366"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590648"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione code di Azure
 
@@ -30,19 +30,19 @@ I valori delle metriche di capacità vengono aggiornati quotidianamente (fino a 
 
 Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in Monitoraggio di Azure.
 
-#### <a name="account-level"></a>Livello di account
+#### <a name="account-level-capacity-metrics"></a>Metriche della capacità a livello di account
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
+[!INCLUDE [Account-level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="queue-storage"></a>Archiviazione code
+#### <a name="queue-storage-metrics"></a>Metriche di archiviazione di Accodamento
 
 Questa tabella mostra le [metriche di archiviazione delle code](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
-| QueueCapacity | Quantità di archiviazione code usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| QueueCount   | Numero di code nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| QueueMessageCount | Numero approssimativo di messaggi della coda nel Servizio di accodamento dell'account di archiviazione. <br/><br/>Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| **QueueCapacity** | Quantità di spazio di archiviazione di Accodamento usato dall'account di archiviazione. <br><br> Unità `Bytes` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
+| **QueueCount** | Numero di code nell'account di archiviazione. <br><br> Unità `Count` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
+| **QueueMessageCount** | Numero approssimativo di messaggi della coda nell'account di archiviazione. <br><br> Unità `Count` <br> Tipo di aggregazione: `Average` <br> Esempio di valore: `1024` |
 
 ### <a name="transaction-metrics"></a>Metriche di transazione
 
@@ -77,7 +77,7 @@ La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione 
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-- Per una descrizione del monitoraggio di archiviazione di Azure, vedere [monitoraggio dell'archiviazione code di Azure](monitor-queue-storage.md) .
+- Per una descrizione del monitoraggio dell'archiviazione code di Azure, vedere [monitoraggio dell'archiviazione code di Azure](monitor-queue-storage.md) .
 - Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md).

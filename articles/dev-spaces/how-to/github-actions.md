@@ -7,12 +7,12 @@ description: Esaminare e testare le modifiche da una richiesta pull direttamente
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 447c41055ededfc55e44bebd92de89b3d23de3c7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995566"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591566"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
 
@@ -103,7 +103,7 @@ Passare al repository con fork e fare clic su *Settings (impostazioni*). Fare cl
 > [!NOTE]
 > Tutti questi segreti vengono usati dall'azione GitHub e sono configurati in [. github/workflows/Bikes. yml][github-action-yaml].
 
-Facoltativamente, se si desidera aggiornare lo spazio master dopo l'Unione della richiesta pull, aggiungere il *GATEWAY_HOST* Secret, che assume il formato *<MASTER_SPACE>. gateway. <* HOST_SUFFIX>, che in questo esempio è *dev.gateway.fedcab0987.EUS.azds.io*. Una volta unite le modifiche nel ramo master nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo master. In questo esempio, lo spazio master è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Facoltativamente, se si desidera aggiornare lo spazio master dopo l'Unione della richiesta pull, aggiungere il *GATEWAY_HOST* Secret, che assume il formato *<MASTER_SPACE>. gateway. <* HOST_SUFFIX>, che in questo esempio è *dev.gateway.fedcab0987.EUS.azds.io*. Una volta unite le modifiche nel ramo principale del fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo master. In questo esempio, lo spazio master è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 Inoltre, se si desidera che le modifiche nella richiesta pull vengano eseguite in uno spazio nipoti, aggiornare i segreti di *MASTER_SPACE* e *host* . Ad esempio, se l'applicazione è in esecuzione in *dev* con uno spazio figlio *dev/azureuser1*, per fare in modo che la richiesta pull venga eseguita nello spazio figlio *dev/azureuser1*:
 
@@ -149,7 +149,7 @@ Usare `git push` per eseguire il push del nuovo ramo nel repository con fork:
 git push origin bike-images
 ```
 
-Al termine del push, passare al repository con fork in GitHub per creare una richiesta pull con il ramo *Master* nel repository con fork come Branch di base rispetto al ramo *bike-images* .
+Al termine del push, passare al repository con fork in GitHub per creare una richiesta pull con il ramo *principale* nel repository con fork come Branch di base rispetto al ramo *bike-images* .
 
 Dopo l'apertura della richiesta pull, passare alla scheda *azioni* . Verificare che sia stata avviata una nuova azione che sta creando il servizio *Bikes* .
 
@@ -162,7 +162,7 @@ Al termine dell'azione, viene visualizzato un commento con un URL per il nuovo s
 
 Passare al servizio *bikesharingweb* aprendo l'URL dal commento. Selezionare *Aurelia Briggs (Customer)* come utente, quindi selezionare una bicicletta da affittare. Verificare che l'immagine segnaposto per la bicicletta non sia più visualizzata.
 
-Se si uniscono le modifiche nel ramo *Master* nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo padre. In questo esempio lo spazio padre è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Se si uniscono le modifiche nel ramo *principale* del fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo padre. In questo esempio lo spazio padre è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Pulire le risorse di Azure
 

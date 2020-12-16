@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8f11f104e8d3d0a4f3a004ebe9f149cb4132d910
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501488"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590561"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Creare un'area di lavoro con la protezione Exfiltration dati abilitata
 Questo articolo descrive come creare un'area di lavoro con la protezione Exfiltration dati abilitata e come gestire i tenant Azure AD approvati per questa area di lavoro.
@@ -33,7 +33,7 @@ Seguire i passaggi elencati nella [Guida introduttiva: creare un'area di lavoro 
 1. Selezionare "Sì" per l'opzione "Consenti traffico dati in uscita solo a destinazioni approvate".
 1. Scegliere i tenant Azure AD approvati per l'area di lavoro.
 1. Esaminare la configurazione e creare l'area di lavoro.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Creare un'area di lavoro con protezione Exfiltration dati":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Screenshot che mostra un'area di lavoro di creazione sinapsi con ' Abilita gestione rete virtuale ' selezionata.":::
 
 ## <a name="manage-approved-azure-active-directory-tenants-for-the-workspace"></a>Gestisci tenant Azure Active Directory approvati per l'area di lavoro
 1. Dal portale di Azure dell'area di lavoro passare a "Approved Azure AD Tenants". L'elenco dei tenant Azure AD approvati per l'area di lavoro verrà elencato qui. Il tenant dell'area di lavoro è incluso per impostazione predefinita e non è elencato.

@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792532"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590852"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il database SQL di Azure & SQL Istanza gestita
 
@@ -72,7 +72,7 @@ Per i server creati dopo il 26 ottobre 2020, è possibile usare il certificato a
 ### <a name="how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>Con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?
 Questi certificati usati dal database SQL di Azure & SQL Istanza gestita sono forniti da autorità di certificazione (CA) attendibili. Il supporto di questi certificati nel database SQL di Azure & Istanza gestita SQL è quindi associato al supporto di questi certificati da parte della CA. Tuttavia, come in questo caso, in questi certificati predefiniti possono essere presenti bug non previsti, che devono essere corretti al più presto.
 
-### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server master o su tutte le repliche di lettura?
+### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-primary-server-or-all-the-read-replicas"></a>Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server primario o su tutte le repliche di lettura?
 Poiché questo aggiornamento è una modifica sul lato client, se il client utilizzato per leggere i dati dal server di replica, sarà necessario applicare anche le modifiche per tali client. 
 
 ### <a name="do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>È presente una query sul lato server per verificare se è in uso SSL?

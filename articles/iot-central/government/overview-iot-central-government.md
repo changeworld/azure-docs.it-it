@@ -3,20 +3,18 @@ title: Creazione di soluzioni per enti pubblici con Azure IoT Central
 description: Informazioni su come creare soluzioni Smart City usando i modelli di applicazione di Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126567"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590818"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Creazione di soluzioni per enti pubblici con Azure IoT Central
-
-
 
 Iniziare a creare soluzioni Smart City usando i modelli di applicazione di Azure IoT Central. Iniziare subito con **monitoraggio qualità acqua**, **monitoraggio consumo idrico** e **gestione rifiuti connessa**.
 
@@ -41,7 +39,6 @@ Iniziare con l'[esercitazione sull'applicazione Monitoraggio qualità acqua](./t
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>Che cos'è il modello di applicazione Monitoraggio consumo idrico? 
 
 Il rilevamento dei consumi idrici tradizionale si basa sulla lettura manuale dei contatori di consumo di acqua presso i siti di misurazione da parte degli operatori delle società di servizi idrici. Un numero sempre maggiore di città sta sostituendo i contatori tradizionali con contatori intelligenti avanzati che consentono il monitoraggio remoto dei consumi e la verifica remota delle valvole per controllare il flusso idrico. Il monitoraggio del consumo idrico associato a messaggi di feedback digitali al cittadino può aumentare la consapevolezza e ridurre il consumo di acqua. 
-
 
 L'app Monitoraggio consumo idrico è un modello di app di IoT Central che permette di avviare lo sviluppo di soluzioni IoT per consentire alle società di servizi idrici e alle città di monitorare e controllare in modalità remota il flusso idrico per ridurne il consumo. 
 
