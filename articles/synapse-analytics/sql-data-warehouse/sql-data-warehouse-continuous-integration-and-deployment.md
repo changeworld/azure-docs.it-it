@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f2bbc39b9c9c4770775bf49a7775ab8980a1f3b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462807"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589900"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integrazione e distribuzione continue per il pool SQL dedicato in Azure sinapsi Analytics
 
@@ -42,7 +42,7 @@ Questa semplice esercitazione illustra come integrare il progetto di database di
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-A questo punto, si avrà un ambiente semplice in cui qualsiasi archiviazione nel ramo master del repository del controllo del codice sorgente dovrebbe attivare automaticamente una compilazione di Visual Studio corretta del progetto di database. Verificare se l'automazione funziona end-to-end apportando una modifica nel progetto di database locale e archiviandola nel ramo master.
+A questo punto, si dispone di un ambiente semplice in cui qualsiasi archiviazione del ramo principale del repository del controllo del codice sorgente deve attivare automaticamente una compilazione di Visual Studio corretta del progetto di database. Verificare che l'automazione funzioni end-to-end apportando una modifica nel progetto di database locale e archiviando tale modifica nel ramo principale.
 
 ## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Distribuzione continua con l'attività di distribuzione di analisi delle sinapsi di Azure (o database)
 

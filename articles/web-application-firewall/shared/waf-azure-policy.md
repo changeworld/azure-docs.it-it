@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432969"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589458"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall applicazione Web di Azure e criteri di Azure
 
@@ -47,7 +47,7 @@ Sono disponibili diverse definizioni di criteri di Azure predefinite per gestire
     2.  **Esclusioni**: selezionare le risorse dall'ambito da escludere dall'assegnazione dei criteri.
     3.  **Definizione criteri**: selezionare la definizione dei criteri da applicare all'ambito con esclusioni. Digitare "Web Application Firewall" nella barra di ricerca per scegliere il criterio di Azure per il Web Application Firewall pertinente.
 
-:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Scheda nozioni di base nella pagina Assegna criteri":::
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Screenshot che mostra la scheda &quot;definizioni criteri&quot; nella pagina &quot;definizioni disponibili&quot;.":::
 
 5.  Selezionare la scheda **parametri** e aggiornare i parametri di assegnazione dei criteri. Per chiarire ulteriormente il comportamento del parametro, passare il puntatore del mouse sull'icona delle informazioni accanto al nome del parametro per ulteriori chiarimenti.
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: df409af61556dfa113327302be9c1464e1427a14
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ebefd5ccec321e8c3d580109c3b3c9dc8ba310c3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829036"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532137"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Esaminare e modificare i file di esempio
 
@@ -26,7 +26,7 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 1. Modificare il file *operations.json*:
  
     * Cambiare il collegamento alla topologia del grafo:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * In GraphInstanceSet modificare il nome della topologia del grafo in modo che corrisponda al valore nel collegamento precedente:
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * In GraphTopologyDelete modificare il nome:
@@ -115,12 +115,11 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Impostazioni estensione&quot;:::
-1. Cercare e abilitare &quot;Show Verbose Message" (Visualizza messaggio dettagliato).
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Impostazioni estensione":::
+1. Cercare e abilitare "Show Verbose Message" (Visualizza messaggio dettagliato).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Impostazioni estensione&quot;:::
-1. Cercare e abilitare &quot;Show Verbose Message":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. Fare clic con il pulsante destro del mouse sul dispositivo di Analisi video live e scegliere **Avvia monitoraggio endpoint eventi predefinito**. Questo passaggio è necessario per monitorare gli eventi dell'hub IoT nella finestra **OUTPUT** di Visual Studio Code.
 
    ![Avviare il monitoraggio](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
@@ -134,7 +133,7 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
     -------------------------------Executing operation GraphTopologyList-----------------------  
     Request: GraphTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "2.0"
     }
     ---------------  
     Response: GraphTopologyList - Status: 200  ---------------
@@ -153,7 +152,7 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
     
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27763536b859b7bc3e9aa0a7c490cb510c0fda41
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84945614"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588455"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure
 
@@ -64,7 +64,7 @@ Dopo qualsiasi azione nel flusso di lavoro dell'app per la logica, è possibile 
 
 * **Ritardo**: attendere l'esecuzione dell'azione successiva per il numero di unità di tempo specificato, ad esempio secondi, minuti, ore, giorni, settimane o mesi. Per ulteriori informazioni, vedere [ritardare l'azione successiva nei flussi di lavoro](../connectors/connectors-native-delay.md).
 
-* **Ritardo fino**a: attendere l'esecuzione dell'azione successiva fino alla data e all'ora specificate. Per ulteriori informazioni, vedere [ritardare l'azione successiva nei flussi di lavoro](../connectors/connectors-native-delay.md).
+* **Ritardo fino** a: attendere l'esecuzione dell'azione successiva fino alla data e all'ora specificate. Per ulteriori informazioni, vedere [ritardare l'azione successiva nei flussi di lavoro](../connectors/connectors-native-delay.md).
 
 ## <a name="patterns-for-start-date-and-time"></a>Modelli per data e ora di inizio
 
@@ -95,7 +95,7 @@ Si supponga che la data e l'ora correnti siano 8 settembre 2017 alle 1:00. Speci
 
 | Ora di inizio | Ora corrente | Ricorrenza | Pianifica |
 |------------|--------------|------------|----------|
-| 2017-09-**07**T14:00:00Z <br>(2017-09-**07** alle 2:00 PM) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** alle 1:00 PM) | Ogni due giorni | {none} |
+| 2017-09-**07** T14:00:00Z <br>(2017-09-**07** alle 2:00 PM) | 2017-09-**08** T13:00:00Z <br>(2017-09-**08** alle 1:00 PM) | Ogni due giorni | {none} |
 |||||
 
 Per il trigger di ricorrenza, il motore di app per la logica calcola le esecuzioni in base all'ora di inizio, rimuove le esecuzioni precedenti, usa l'ora di inizio successiva per la prima esecuzione e calcola le esecuzioni future in base all'ultima esecuzione.
@@ -115,7 +115,7 @@ Di seguito è illustrato l'aspetto di questa ricorrenza:
 
 | Ora di inizio | Prima esecuzione | Esecuzioni future |
 |------------|----------------|------------------|
-| 2017-09-**07** alle 14:00 | 2017-09-**07** alle 14:00 | 2017-09-**09** alle 14:00 </br>2017-09-**11** alle 14:00 </br>2017-09-**13** alle 14:00 </br>2017-09-**15** alle 14:00 </br>e così via. |
+| 2017-09-**07** alle 14:00 | 2017-09-**08** alle 1:00 PM (ora corrente) | 2017-09-**09** alle 14:00 </br>2017-09-**11** alle 14:00 </br>2017-09-**13** alle 14:00 </br>2017-09-**15** alle 14:00 </br>e così via. |
 ||||
 
 Quindi, indipendentemente dalla distanza in passato, si specifica l'ora di inizio, ad esempio 2017-09-**05** alle 2:00 pm o 2017-09-**01** alle 2:00 PM, la prima esecuzione usa sempre l'ora di inizio specificata.
@@ -126,28 +126,28 @@ Quindi, indipendentemente dalla distanza in passato, si specifica l'ora di inizi
 
 Di seguito sono riportate diverse ricorrenze di esempio che è possibile configurare per i trigger che supportano le opzioni:
 
-| Trigger | Ricorrenza | Interval | Frequenza | Ora di inizio | In questi giorni | A queste ore | A questi minuti | Nota |
+| Trigger | Ricorrenza | Interval | Frequenza | Ora di inizio | In questi giorni | A queste ore | A questi minuti | Note |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti (senza data e ora di inizio) | 15 | Minuto | {none} | {non disponibile} | {none} | {none} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. |
-| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti (con data e ora di inizio) | 15 | Minuto | *DataInizio*T*OraInizio*Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. |
-| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni ora all'inizio dell'ora (con data e ora di inizio) | 1 | Ora | *DataInizio*Thh:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le ricorrenze future vengono eseguite ogni ora al contrassegno dei minuti "00", calcolato a partire dall'ora di inizio. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. |
+| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti (con data e ora di inizio) | 15 | Minuto | *DataInizio* T *OraInizio* Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. |
+| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni ora all'inizio dell'ora (con data e ora di inizio) | 1 | Ora | *DataInizio* Thh:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le ricorrenze future vengono eseguite ogni ora al contrassegno dei minuti "00", calcolato a partire dall'ora di inizio. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. |
 | Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni ora ogni giorno (senza data e ora di inizio) | 1 | Ora | {none} | {non disponibile} | {none} | {none} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. |
-| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni ora ogni giorno (con data e ora di inizio) | 1 | Ora | *DataInizio*T*OraInizio*Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. |
-| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti dopo l'ora, ogni ora (con data e ora di inizio) | 1 | Ora | *DataInizio*T00:15:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le ricorrenze future vengono eseguite al contrassegno dei minuti "15", calcolato a partire dall'ora di inizio, quindi alle 00:15 AM, 1:15 AM, 2:15 AM e così via. |
+| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni ora ogni giorno (con data e ora di inizio) | 1 | Ora | *DataInizio* T *OraInizio* Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. |
+| Ricorrenza <br>Finestra temporale scorrevole | Eseguire ogni 15 minuti dopo l'ora, ogni ora (con data e ora di inizio) | 1 | Ora | *DataInizio* T00:15:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le ricorrenze future vengono eseguite al contrassegno dei minuti "15", calcolato a partire dall'ora di inizio, quindi alle 00:15 AM, 1:15 AM, 2:15 AM e così via. |
 | Ricorrenza | Eseguire ogni 15 minuti dopo l'ora, ogni ora (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Questa pianificazione viene eseguita alle 00:15, 1:15, 2:15 e così via. Questa pianificazione è equivalente a una frequenza di "Ora" e un'ora di inizio con "15" minuti. |
 | Ricorrenza | Viene eseguito ogni 15 minuti ai contrassegni dei minuti specificati (nessuna data e ora di inizio). | 1 | Giorno | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | La pianificazione non inizia fino al raggiungimento dell'indicatore di 15 minuti successivo. |
 | Ricorrenza | Eseguire ogni giorno alle 8.00 *oltre* ai minuti di contrassegno quando si salva l'app per la logica | 1 | Giorno | {none} | {non disponibile} | 8 | {none} | Senza una data e un'ora di inizio, questa pianificazione viene eseguita in base al momento in cui si salva l'app per la logica (operazione PUT). |
-| Ricorrenza | Esecuzione giornaliera alle ore 8:00 (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le occorrenze future vengono eseguite ogni giorno alle 8:00 AM. | 
+| Ricorrenza | Esecuzione giornaliera alle ore 8:00 (con data e ora di inizio) | 1 | Giorno | *DataInizio* T08:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le occorrenze future vengono eseguite ogni giorno alle 8:00 AM. | 
 | Ricorrenza | Esecuzione giornaliera alle 8:00 AM (nessuna data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 8 | 00 | Questa pianificazione viene eseguita ogni giorno alle 8:00. |
 | Ricorrenza | Esecuzione giornaliera alle 8:00 AM e 4:00 PM | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 0 | |
 | Ricorrenza | Esecuzione giornaliera alle 8:30 AM, 8:45 AM, 4:30 PM e 4:45 PM | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30, 45 | |
 | Ricorrenza | Eseguire ogni sabato alle 5:00 PM (nessuna data e ora di inizio) | 1 | Settimana | {none} | "Sabato" | 17 | 0 | Questa pianificazione viene eseguita ogni sabato alle 17:00. |
-| Ricorrenza | Eseguire ogni sabato alle ore 5:00 (con data e ora di inizio) | 1 | Settimana | *DataInizio*T17:00:00Z | "Sabato" | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, in questo caso il 9 settembre 2017 alle 17:00. Le ricorrenze future verranno eseguite ogni sabato alle 17:00. |
+| Ricorrenza | Eseguire ogni sabato alle ore 5:00 (con data e ora di inizio) | 1 | Settimana | *DataInizio* T17:00:00Z | "Sabato" | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, in questo caso il 9 settembre 2017 alle 17:00. Le ricorrenze future verranno eseguite ogni sabato alle 17:00. |
 | Ricorrenza | Eseguire ogni martedì, giovedì alle 17.00, *oltre* ai minuti di contrassegno quando si salva l'app per la logica| 1 | Settimana | {none} | "Martedì", "Giovedì" | 17 | {none} | |
 | Ricorrenza | Viene eseguito ogni ora durante le ore lavorative. | 1 | Settimana | {none} | Selezionare tutti i giorni, ad eccezione di sabato e domenica. | Selezionare le ore del giorno desiderate. | Selezionare i minuti dell'ora desiderati. | Ad esempio, se le ore lavorative sono 8:00 AM 5:00 PM, selezionare "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" come ore del giorno *più* "0" come minuti dell'ora. |
 | Ricorrenza | Eseguire una volta al giorno nei fine settimana | 1 | Settimana | {none} | "Sabato", "Domenica" | Selezionare le ore del giorno desiderate. | Selezionare i minuti dell'ora desiderati. | Questa pianificazione verrà eseguita ogni sabato e domenica alla pianificazione specificata. |
 | Ricorrenza | Eseguire ogni 15 minuti ogni 2 settimane solo il lunedì | 2 | Settimana | {none} | "Lunedì" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Questa pianificazione verrà eseguita un lunedì a settimane alterne, in corrispondenza dell'indicatore dei 15 minuti. |
-| Ricorrenza | Esegui ogni mese | 1 | Month | *DataInizio*T*OraInizio*Z | {non disponibile} | {non disponibile} | {non disponibile} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate e calcola le ricorrenze future alla data e all'ora di inizio. Se non si specificano una data e un'ora di inizio, questa pianificazione usa la data e l'ora di creazione. |
+| Ricorrenza | Esegui ogni mese | 1 | Month | *DataInizio* T *OraInizio* Z | {non disponibile} | {non disponibile} | {non disponibile} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate e calcola le ricorrenze future alla data e all'ora di inizio. Se non si specificano una data e un'ora di inizio, questa pianificazione usa la data e l'ora di creazione. |
 | Ricorrenza | Eseguire ogni ora per un giorno al mese | 1 | Month | {vedere la nota} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {vedere la nota} | Se non si specificano una data e un'ora di inizio, questa pianificazione usa la data e l'ora di creazione. Per controllare i minuti della pianificazione di ricorrenza, specificare i minuti dell'ora, un'ora di inizio oppure usare l'ora di creazione. Ad esempio, se l'ora di inizio o creazione è 8:25, questa pianificazione verrà eseguita alle 8:25, 9:25, 10:25 e così via. |
 |||||||||
 
@@ -155,7 +155,7 @@ Di seguito sono riportate diverse ricorrenze di esempio che è possibile configu
 
 ## <a name="run-one-time-only"></a>Esegui solo una volta
 
-Se si vuole eseguire l'app per la logica solo in un momento successivo, è possibile usare l' **utilità di pianificazione: Esegui una volta** il modello di processi. Dopo aver creato una nuova app per la logica, ma prima di aprire la finestra di progettazione di app per la logica, nella sezione **modelli** selezionare **pianificazione**nell'elenco **categoria** , quindi selezionare il modello seguente:
+Se si vuole eseguire l'app per la logica solo in un momento successivo, è possibile usare l' **utilità di pianificazione: Esegui una volta** il modello di processi. Dopo aver creato una nuova app per la logica, ma prima di aprire la finestra di progettazione di app per la logica, nella sezione **modelli** selezionare **pianificazione** nell'elenco **categoria** , quindi selezionare il modello seguente:
 
 ![Selezionare il modello "Scheduler: Esegui una volta processi"](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 

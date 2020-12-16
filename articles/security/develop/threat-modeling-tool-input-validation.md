@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b0be672c0768b4facb6518c777d4fe56eb28aa9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c816fbad05831c83c891c70849986b38cb7fdbeb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515677"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589543"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastruttura di sicurezza: Convalida dell'input - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -73,7 +73,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [IE8 Security Part V: Comprehensive Protection](/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) (Sicurezza di IE8 parte V: protezione completa)  |
-| **Passaggi** | <p>Per ogni pagina che potrebbe includere contenuti controllabili dall'utente, è necessario usare l'intestazione HTTP `X-Content-Type-Options:nosniff`. Per rispettare questo requisito, è possibile impostare l'intestazione necessaria pagina per pagina solo per le pagine che potrebbero includere contenuti controllabili dall'utente oppure eseguire l'impostazione a livello globale per tutte le pagine nell'applicazione.</p><p>A ogni tipo di file fornito da un server Web è associato un [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) (denominato anche *content-type* ) che descrive la natura del contenuto (immagine, testo, applicazione e così via).</p><p>L'intestazione X-Content-Type-Options è un'intestazione HTTP che consente agli sviluppatori di specificare che il contenuto non deve essere sottoposto ad analisi MIME. Questa intestazione è progettata per mitigare gli attacchi basati sull'analisi MIME. Il supporto per questa intestazione è stato aggiunto in Internet Explorer 8 (IE8).</p><p>Solo gli utenti di Internet Explorer 8 (IE8) potranno usufruire di X-Content-Type-Options. Le versioni precedenti di Internet Explorer attualmente non rispettano l'intestazione X-Content-Type-Options</p><p>Internet Explorer 8 e le versioni successive sono gli unici browser principali che implementano una funzionalità di rifiuto esplicito dell'analisi MIME. Se e quando gli altri browser principali (Firefox, Safari e Chrome) implementeranno funzionalità simili, questa raccomandazione verrà aggiornata per includere anche la sintassi per tali browser.</p>|
+| **Passaggi** | <p>Per ogni pagina che potrebbe includere contenuti controllabili dall'utente, è necessario usare l'intestazione HTTP `X-Content-Type-Options:nosniff`. Per rispettare questo requisito, è possibile impostare l'intestazione necessaria pagina per pagina solo per le pagine che potrebbero includere contenuti controllabili dall'utente oppure eseguire l'impostazione a livello globale per tutte le pagine nell'applicazione.</p><p>A ogni tipo di file fornito da un server Web è associato un [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) (denominato anche *content-type*) che descrive la natura del contenuto (immagine, testo, applicazione e così via).</p><p>L'intestazione X-Content-Type-Options è un'intestazione HTTP che consente agli sviluppatori di specificare che il contenuto non deve essere sottoposto ad analisi MIME. Questa intestazione è progettata per mitigare gli attacchi basati sull'analisi MIME. Il supporto per questa intestazione è stato aggiunto in Internet Explorer 8 (IE8).</p><p>Solo gli utenti di Internet Explorer 8 (IE8) potranno usufruire di X-Content-Type-Options. Le versioni precedenti di Internet Explorer attualmente non rispettano l'intestazione X-Content-Type-Options</p><p>Internet Explorer 8 e le versioni successive sono gli unici browser principali che implementano una funzionalità di rifiuto esplicito dell'analisi MIME. Se e quando gli altri browser principali (Firefox, Safari e Chrome) implementeranno funzionalità simili, questa raccomandazione verrà aggiornata per includere anche la sintassi per tali browser.</p>|
 
 ### <a name="example"></a>Esempio
 Per abilitare l'intestazione necessaria a livello globale per tutte le pagine nell'applicazione, eseguire una di queste operazioni: 

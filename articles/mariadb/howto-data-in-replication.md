@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535368"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587928"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurare Replica dei dati in ingresso nel database di Azure per MariaDB
 
@@ -52,9 +52,9 @@ Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitat
 
 I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale, in una macchina virtuale o in un servizio di database cloud per Replica dei dati in ingresso. Il server MariaDB è il codice sorgente in Replica dei dati in ingresso.
 
-1. Prima di procedere, esaminare i [requisiti del server master](concepts-data-in-replication.md#requirements) . 
+1. Prima di procedere, esaminare i [requisiti del server primario](concepts-data-in-replication.md#requirements) . 
 
-2. Verificare che il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server di origine disponga di un **indirizzo IP pubblico** , che il DNS sia accessibile pubblicamente o disponga di un nome di dominio completo (FQDN). 
+2. Verificare che il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o disponga di un nome di dominio completo (FQDN). 
    
    Testare la connettività al server di origine provando a connettersi da uno strumento come la riga di comando MySQL ospitata in un altro computer o dalla [Azure cloud Shell](../cloud-shell/overview.md) disponibile nel portale di Azure.
 
@@ -220,7 +220,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
    
-   oppure
+   o
    
    ```sql
    CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
@@ -237,7 +237,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
     
     * È consigliabile passare il parametro master_ssl_ca come variabile. Per altre informazioni, vedere gli esempi seguenti.
 
-   **esempi**
+   **Esempi**
 
    - Replica con SSL
 
@@ -284,7 +284,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
     
     A causa di una limitazione della replica nativa in MariaDB, è necessario impostare  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) le variabili e nella replica senza lo scenario GTID.
 
-    Controllare le variabili e del server slave `sync_master_info` `sync_relay_log_info` per assicurarsi che la replica dei dati sia stabile e impostare le variabili su `1` .
+    Controllare le `sync_master_info` variabili e del server `sync_relay_log_info` di replica per assicurarsi che la replica dei dati sia stabile e impostare le variabili su `1` .
     
 ## <a name="other-stored-procedures"></a>Altre stored procedure
 

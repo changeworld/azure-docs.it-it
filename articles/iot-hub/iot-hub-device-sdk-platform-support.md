@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 5df36cdb3c02fd4c813625c4869c21581f009b02
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152209"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588761"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Supporto della piattaforma SDK per dispositivi Azure
 
@@ -34,7 +34,7 @@ Microsoft pubblica gli SDK open source su GitHub per le lingue seguenti: C, .NET
 
 Per ognuno degli SDK elencati, Microsoft:
 
-* Crea ed esegue continuamente test end-to-end rispetto al ramo master dell'SDK pertinente in GitHub su diverse piattaforme più diffuse.  Per fornire il code coverage dei test in diverse versioni del compilatore, in genere si testa la versione LTS più recente e la versione più diffusa.
+* Crea ed esegue continuamente test end-to-end rispetto al ramo principale dell'SDK pertinente in GitHub su diverse piattaforme più diffuse.  Per fornire il code coverage dei test in diverse versioni del compilatore, in genere si testa la versione LTS più recente e la versione più diffusa.
 
 * Fornisce le linee guida per l'installazione o i pacchetti di installazione, se applicabile.
 
@@ -147,4 +147,4 @@ Se si verificano problemi durante l'uso degli SDK per dispositivi Azure, sono di
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [SDK di servizi e dispositivi](iot-hub-devguide-sdks.md)
-* [Indicazioni sulla portabilità](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [Linee guida per il porting](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

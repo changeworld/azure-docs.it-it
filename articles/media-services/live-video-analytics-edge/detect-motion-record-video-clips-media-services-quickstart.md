@@ -3,12 +3,12 @@ title: Rilevare il movimento, registrare video in Servizi multimediali di Azure
 description: Questo avvio rapido illustra come usare l'analisi di video live in IoT Edge per rilevare il movimento in un flusso video live e registrare clip video in Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 8872c9aefa0ed748cbed93d0f7376586859be9df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776477"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511893"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Avvio rapido: Rilevare il movimento, registrare video in Servizi multimediali
 
@@ -44,10 +44,11 @@ Nel corso della procedura descritta di seguito si userà l'analisi di video live
 1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Registrazione video basata su eventi per asset basati su eventi di movimento" (Visualizza messaggio dettagliato).
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Impostazioni estensione":::
+1. Cercare e abilitare "Show Verbose Message" (Visualizza messaggio dettagliato).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Registrazione video basata su eventi per asset basati su eventi di movimento":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 
 ### <a name="invoke-graphtopologylist"></a>Richiamare GraphTopologyList
 In questo passaggio vengono enumerate tutte le [topologie del grafo](media-graph-concept.md#media-graph-topologies-and-instances) presenti nel modulo.
@@ -58,7 +59,7 @@ In questo passaggio vengono enumerate tutte le [topologie del grafo](media-graph
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -83,7 +84,7 @@ Seguendo la stessa procedura illustrata per richiamare GraphTopologyList, è pos
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -330,7 +331,7 @@ Ora richiamare GraphTopologyGet con il payload seguente
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -473,7 +474,7 @@ Richiamare ora il metodo diretto GraphInstanceSet con il payload seguente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -555,7 +556,7 @@ A questo punto attivare l'istanza del grafo, che avvia il flusso di video live a
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -579,7 +580,7 @@ Richiamare ora il metodo diretto GraphInstanceGet con il payload seguente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -758,7 +759,7 @@ Richiamare il metodo diretto GraphInstanceDeactivate con il payload seguente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -786,7 +787,7 @@ Richiamare il metodo diretto GraphInstanceDelete con il payload seguente
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -810,7 +811,7 @@ Richiamare il metodo diretto GraphTopologyDelete con il payload seguente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087027"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587877"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Risolvere i problemi di latenza di replica in Database di Azure per MySQL
 
@@ -31,11 +31,14 @@ L'intervallo di replica sulle repliche di lettura secondarie dipende da diversi 
 
 Questo articolo illustra come risolvere i problemi relativi alla latenza di replica nel database di Azure per MySQL. Si comprenderanno anche alcune cause più comuni di una maggiore latenza di replica nei server di replica.
 
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine slave, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+
 ## <a name="replication-concepts"></a>Concetti relativi alla replica
 
-Quando un log binario è abilitato, il server di origine scrive le transazioni di cui è stato eseguito il commit nel log binario. Il log binario viene utilizzato per la replica. È attivato per impostazione predefinita per tutti i server di cui è stato effettuato il provisioning fino a 16 TB di spazio di archiviazione. Nei server di replica vengono eseguiti due thread in ogni server di replica. Un thread è il thread di *io* e l'altro è il *thread SQL* :
+Quando un log binario è abilitato, il server di origine scrive le transazioni di cui è stato eseguito il commit nel log binario. Il log binario viene utilizzato per la replica. È attivato per impostazione predefinita per tutti i server di cui è stato effettuato il provisioning fino a 16 TB di spazio di archiviazione. Nei server di replica vengono eseguiti due thread in ogni server di replica. Un thread è il thread di *io* e l'altro è il *thread SQL*:
 
-- Il thread IO si connette al server di origine e richiede log binari aggiornati. Questo thread riceve gli aggiornamenti del log binario. Questi aggiornamenti vengono salvati in un server di replica, in un log locale denominato *relay log* .
+- Il thread IO si connette al server di origine e richiede log binari aggiornati. Questo thread riceve gli aggiornamenti del log binario. Questi aggiornamenti vengono salvati in un server di replica, in un log locale denominato *relay log*.
 - Il thread SQL legge il log di inoltro e quindi applica le modifiche ai dati nei server di replica.
 
 ## <a name="monitoring-replication-latency"></a>Monitoraggio della latenza di replica
@@ -87,14 +90,14 @@ mysql> SHOW SLAVE STATUS;
 Di seguito è riportato un output tipico:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitoraggio della latenza di replica&quot;:::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitoraggio della latenza di replica":::
 
 
 L'output contiene una grande quantità di informazioni. In genere, è necessario concentrarsi solo sulle righe descritte nella tabella seguente.
 
 |Metrica|Descrizione|
 |---|---|
-|Slave_IO_State| Rappresenta lo stato corrente del thread di IO. In genere, lo stato è &quot;in attesa dell'evento master per inviare l'evento&quot; Se il server di origine (Master) esegue la sincronizzazione. Uno stato come &quot;connessione al Master" indica che la replica ha perso la connessione al server di origine. Verificare che il server di origine sia in esecuzione o controllare se un firewall sta bloccando la connessione.|
+|Slave_IO_State| Rappresenta lo stato corrente del thread di IO. In genere, lo stato è "in attesa dell'evento master per inviare l'evento" Se il server di origine (Master) esegue la sincronizzazione. Uno stato come "connessione al Master" indica che la replica ha perso la connessione al server di origine. Verificare che il server di origine sia in esecuzione o controllare se un firewall sta bloccando la connessione.|
 |Master_Log_File| Rappresenta il file di log binario in cui il server di origine sta scrivendo.|
 |Read_Master_Log_Pos| Indica la posizione in cui il server di origine scrive nel file di log binario.|
 |Relay_Master_Log_File| Rappresenta il file di log binario che il server di replica sta leggendo dal server di origine.|

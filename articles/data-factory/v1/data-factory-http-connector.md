@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf8236dbbc9714c705e442bb65eb2ac3d293cc7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80991570"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589577"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
 
@@ -38,13 +38,13 @@ Data Factory supporta attualmente solo lo spostamento di dati da un'origine HTTP
 
 Nel copiare dati da un endpoint HTTP locale, è necessario installare Gateway di gestione dati nell'ambiente locale o in una macchina virtuale di Azure. Per informazioni su Gateway di gestione dati e per istruzioni dettagliate su come configurare il gateway, vedere [Moving data between on-premises locations and the cloud](data-factory-move-data-between-onprem-and-cloud.md) (Spostamento di dati tra posizioni locali e nel cloud).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 È possibile creare una pipeline con l'attività di copia per spostare i dati da un'origine HTTP usando diversi strumenti o API:
 
 - Il modo più semplice per creare una pipeline è usare la procedura guidata di copia. Per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata di copia dei dati, vedere [Tutorial: Create a pipeline by using the Copy wizard](data-factory-copy-data-wizard-tutorial.md) (Esercitazione: Creare una pipeline tramite la procedura guidata di copia).
 
-- È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, un **modello di Azure Resource Manager**, l' **API .NET**o l' **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Per gli esempi JSON per copiare i dati da un'origine HTTP nell'archiviazione BLOB di Azure, vedere [Esempi JSON](#json-examples).
+- È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, un **modello di Azure Resource Manager**, l' **API .NET** o l' **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Per gli esempi JSON per copiare i dati da un'origine HTTP nell'archiviazione BLOB di Azure, vedere [Esempi JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
@@ -93,7 +93,7 @@ Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre a
 
 Per usare l'autenticazione di base, impostare **authenticationType** su **ClientCertificate**. Oltre alle proprietà generiche del connettore HTTP descritte nelle sezioni precedenti, impostare le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | embeddedCertData | Contenuto dei dati binari del file PFX con codifica Base64. | Specificare **embeddedCertData** o **certThumbprint** |
 | certThumbprint | L'identificazione personale del certificato installato nell'archivio certificati del computer gateway. Si applica solo quando si copiano dati da un server HTTP locale. | Specificare **embeddedCertData** o **certThumbprint** |
@@ -120,8 +120,8 @@ Questo servizio collegato collega la data factory a un server Web HTTP locale. U
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "certThumbprint": "thumbprint of certificate",
-            "gatewayName": "gateway name"
+        "certThumbprint": "thumbprint of certificate",
+        "gatewayName": "gateway name"
 
         }
     }
@@ -142,8 +142,8 @@ Questo servizio collegato collega la data factory a un server Web HTTP locale. U
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "embeddedCertData": "Base64-encoded cert data",
-            "password": "password of cert"
+        "embeddedCertData": "Base64-encoded cert data",
+        "password": "password of cert"
         }
     }
 }
@@ -171,14 +171,14 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. La sezion
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-            "relativeUrl": "XXX/test.xml",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+      "relativeUrl": "XXX/test.xml",
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -198,7 +198,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. La sezion
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "/XXX/test.xml",
-           "requestMethod": "Post",
+       "requestMethod": "Post",
             "requestBody": "body for POST HTTP request"
         },
         "external": true,
@@ -220,7 +220,7 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Attualmente, quando l'origine nell'attività di copia è di tipo **HttpSource**, sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. | No<br />(valore predefinito: **00:01:40**) |
 
@@ -283,14 +283,14 @@ Impostando **external** su **true** si indica al servizio Data Factory che il se
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",

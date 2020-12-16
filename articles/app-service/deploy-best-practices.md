@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708153"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589237"
 ---
 # <a name="deployment-best-practices"></a>Procedure consigliate per la distribuzione
 
@@ -45,9 +45,9 @@ Quando possibile, usare gli [slot di distribuzione](deploy-staging-slots.md) qua
 
 Se il progetto ha designato rami per i test, il controllo di qualità e la gestione temporanea, ognuno di questi branch deve essere distribuito continuamente in uno slot di staging. Questa operazione è nota come [progettazione Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Ciò consente alle parti interessate di valutare e testare facilmente il ramo distribuito. 
 
-La distribuzione continua non dovrebbe mai essere abilitata per lo slot di produzione. Al contrario, il ramo di produzione (spesso Master) deve essere distribuito in uno slot non di produzione. Quando si è pronti per rilasciare il ramo di base, scambiarlo nello slot di produzione. Lo scambio in produzione, anziché la distribuzione nell'ambiente di produzione, impedisce tempi di inattività e consente di eseguire il rollback delle modifiche eseguendo di nuovo lo swapping. 
+La distribuzione continua non dovrebbe mai essere abilitata per lo slot di produzione. Al contrario, il ramo di produzione (spesso principale) deve essere distribuito in uno slot non di produzione. Quando si è pronti per rilasciare il ramo di base, scambiarlo nello slot di produzione. Lo scambio in produzione, anziché la distribuzione nell'ambiente di produzione, impedisce tempi di inattività e consente di eseguire il rollback delle modifiche eseguendo di nuovo lo swapping. 
 
-![Diagramma che mostra il flusso tra i rami di sviluppo, di staging e master e gli slot in cui vengono distribuiti.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagramma che mostra il flusso tra i rami di sviluppo, di staging e principali e gli slot in cui vengono distribuiti.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>Distribuire i contenitori in modo continuo
 
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     -name: Authenticate using a Service Principal
       uses: azure/actions/login@v1

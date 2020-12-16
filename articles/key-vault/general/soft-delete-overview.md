@@ -4,20 +4,20 @@ description: L'eliminazione temporanea in Azure Key Vault consente di recuperare
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
-ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
+ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452180"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589985"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
 > [!IMPORTANT]
-> È necessario abilitare immediatamente l'eliminazione temporanea sugli insiemi di credenziali delle chiavi. La possibilità di rifiutare esplicitamente l'eliminazione temporanea sarà deprecata entro la fine dell'anno e la protezione dell'eliminazione temporanea verrà attivata automaticamente per tutti gli insiemi di credenziali delle chiavi.  Vedi i dettagli completi [qui](soft-delete-change.md)
+> È necessario abilitare immediatamente l'eliminazione temporanea sugli insiemi di credenziali delle chiavi. La possibilità di rifiutare esplicitamente l'eliminazione temporanea sarà presto deprecata. Vedi i dettagli completi [qui](soft-delete-change.md)
 
 La funzionalità di eliminazione temporanea di Key Vault consente di recuperare gli insiemi di credenziali eliminati ed eliminare gli oggetti dell'insieme di credenziali delle chiavi (ad esempio, chiavi, segreti e certificati), noti come soft-delete. In particolare, vengono affrontati gli scenari seguenti: questa garanzia offre le seguenti protezioni:
 

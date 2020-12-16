@@ -3,12 +3,12 @@ title: Domande comuni sul ripristino di emergenza di VMware con Azure Site Recov
 description: Per ottenere risposte alle domande comuni sul ripristino di emergenza di macchine virtuali VMware locali in Azure, usare Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379991"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587793"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
@@ -46,7 +46,7 @@ L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie
 
 Sì, i clienti di Microsoft Software Assurance possono usare il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione ad Azure o usare Azure per il ripristino di emergenza.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="what-access-to-vmware-servers-does-site-recovery-need"></a>Quale accesso ai server VMware Site Recovery necessario?
 
@@ -146,6 +146,10 @@ La replica di macchine virtuali VMware in Azure è continua.
 ### <a name="can-i-extend-replication"></a>È possibile estendere la replica?
 
 No, la replica concatenata o estesa non è supportata. Richiedere questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>Come è possibile tenere traccia dello stato di avanzamento della replica o della sincronizzazione iniziale?
+
+Questa funzionalità è stata recentemente Site Recovery servizi. Aggiornare l'infrastruttura di Site Recovery (server di configurazione, server di elaborazione con scalabilità orizzontale) e l'agente di mobilità alle versioni 9,36 o successive per ottenere dettagli accurati. Scopri di più su come tenere traccia dello stato di avanzamento [qui](vmware-azure-enable-replication.md#monitor-initial-replication).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>È possibile eseguire una replica iniziale offline?
 

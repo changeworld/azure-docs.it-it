@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6732fe364ba67bb2c4ea8fb2543c576166f8a110
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 304f62def117d1b1a803b2f604151c5e52dbe7be
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828819"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531980"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Esaminare e modificare i file di esempio
 
@@ -15,18 +15,18 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
     Il modello di distribuzione fa riferimento al manifesto della distribuzione per il dispositivo Edge. Include alcuni valori segnaposto. Il file *.env* include i valori per queste variabili.
 1. Passare alla cartella *src/cloud-to-device-console-app*. Sono inclusi il file *appsettings.json* e alcuni altri file:
 
-    * ***c2d-console-app.csproj***: il file di progetto per Visual Studio Code.
-    * ***operations.json***: un elenco di operazioni che il programma dovrà eseguire.
-    * ***Program.cs***: il codice del programma di esempio. Questo codice:
+    * ***c2d-console-app.csproj** _ - Il file di progetto per Visual Studio Code.
+    _ ***operations.json** _ - Un elenco di operazioni che il programma dovrà eseguire.
+    _ ***Program.cs** _ - Il codice del programma di esempio. Questo codice:
 
-        * Carica le impostazioni dell'app.
+        _ Carica le impostazioni dell'app.
         * Richiama i metodi diretti esposti dal modulo Analisi video live in IoT Edge. È possibile usare il modulo per analizzare i flussi video live richiamando i [metodi diretti](../../../direct-methods.md).
         * Sospende l'esecuzione per consentire di esaminare l'output del programma nella finestra **TERMINAL** e gli eventi generati dal modulo nella finestra **OUTPUT**.
         * Richiama i metodi diretti per pulire le risorse.
 1. Modificare il file *operations.json*:
     * Cambiare il collegamento alla topologia del grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * In `GraphInstanceSet` modificare il nome della topologia del grafo in modo che corrisponda al valore nel collegamento precedente:
 
@@ -76,12 +76,11 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Impostazioni estensione&quot;:::
-1. Cercare e abilitare &quot;Show Verbose Message" (Visualizza messaggio dettagliato).
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Impostazioni estensione":::
+1. Cercare e abilitare "Show Verbose Message" (Visualizza messaggio dettagliato).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Impostazioni estensione&quot;:::
-1. Cercare e abilitare &quot;Show Verbose Message":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. Fare clic con il pulsante destro del mouse sul dispositivo di Analisi video live e scegliere **Avvia monitoraggio endpoint eventi predefinito**. Questo passaggio è necessario per monitorare gli eventi dell'hub IoT nella finestra **OUTPUT** di Visual Studio Code. 
 
    ![Avviare il monitoraggio](../../../media/quickstarts/start-monitoring-iothub-events.png) 
@@ -96,7 +95,7 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -114,7 +113,7 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

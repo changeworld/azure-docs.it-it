@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344284"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560543"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -21,7 +21,7 @@ Le prenotazioni di Azure offrono la flessibilità necessaria a soddisfare le esi
 La funzionalità di scambio e annullamento self-service non è disponibile per i clienti US Government con Contratto Enterprise. Sono supportati altri tipi di sottoscrizione US Government, inclusi con pagamento in base al consumo e CSP (Cloud Solution Provider).
 
 > [!NOTE]
-> - **È necessario avere l'accesso proprietario all'ordine di prenotazione per richiedere lo scambio o il rimborso di una prenotazione esistente.** È possibile [Aggiungere o modificare gli utenti che possono gestire una prenotazione](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+> - **È necessario avere l'accesso proprietario all'ordine di prenotazione per richiedere lo scambio o il rimborso di una prenotazione esistente.** È possibile [Aggiungere o modificare gli utenti che possono gestire una prenotazione](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 > - Microsoft non applica attualmente penali per risoluzione anticipata per i rimborsi delle prenotazioni. Le penali potrebbero essere addebitate per i rimborsi effettuati in futuro. Non è attualmente prevista alcuna data per l'abilitazione delle penali.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Come scambiare o rimborsare una prenotazione esistente
@@ -66,7 +66,7 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 **Criteri di Exchange**
 
 - È possibile restituire più prenotazioni esistenti per acquistarne una nuova dello stesso tipo. Non è possibile scambiare prenotazioni di un tipo per un altro tipo. Ad esempio, non è possibile restituire una prenotazione di VM per acquistare una prenotazione SQL. È possibile modificare qualsiasi proprietà di prenotazione, ad esempio famiglia, serie, versioni, SKU, area, quantità e termine con uno scambio.
-- Solo i proprietari delle prenotazioni possono elaborare uno scambio. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Solo i proprietari delle prenotazioni possono elaborare uno scambio. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - Uno scambio viene elaborato come rimborso e nuovo acquisto: vengono create transazioni diverse per l'annullamento e il nuovo acquisto della prenotazione. L'importo ripartito della prenotazione viene rimborsato per le prenotazioni scambiate. Viene addebitato il costo completo del nuovo acquisto. L'importo ripartito della prenotazione è il valore residuo ripartito giornaliero della prenotazione restituita.
 - È possibile scambiare o rimborsare prenotazioni anche se il contratto Enterprise usato per acquistare la prenotazione è scaduto ed è stato rinnovato come nuovo contratto.
 - L'impegno per la durata della nuova prenotazione deve essere uguale o superiore all'impegno residuo della prenotazione restituita. Esempio: per una prenotazione di tre anni da 100 USD al mese e scambiata dopo il 18° pagamento, l'impegno per la durata della nuova prenotazione deve essere pari almeno a 1.800 USD, con pagamento mensile o anticipato.
@@ -79,7 +79,7 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 - L'impegno totale annullato non può superare i 50.000 USD in una finestra mobile di 12 mesi per un profilo di fatturazione o una singola registrazione. Ad esempio, per una prenotazione di tre anni da 100 USD al mese e rimborsata nel 18° mese, l'impegno annullato sarà pari a 1.800 USD. Dopo il rimborso il nuovo limite disponibile per i rimborsi sarà pari a 48.200 USD. Dopo 365 giorni dal rimborso, il limite di 48.200 USD verrà incrementato di 1.800 USD e il nuovo pool sarà pari a 50.000 USD. Eventuali altri annullamenti di prenotazioni per il profilo di fatturazione o la registrazione EA esauriranno lo stesso pool e verrà applicata la stessa logica di rifornimento.
 - Azure non elaborerà i rimborsi che superano il limite di 50.000 USD in una finestra di 12 mesi per un profilo di fatturazione o una registrazione EA.
 - I rimborsi vengono calcolati in base al prezzo più basso, tra quello di acquisto o quello corrente della prenotazione.
-- Solo i proprietari degli ordini di prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Solo i proprietari degli ordini di prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

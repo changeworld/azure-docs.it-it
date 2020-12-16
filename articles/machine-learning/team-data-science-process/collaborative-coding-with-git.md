@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca24a781f4f3ad5c210813dabbb896de35056ed6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090213"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588710"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
 
@@ -39,7 +39,7 @@ Nella finestra di dialogo **Crea un ramo** specificare il nome del nuovo ramo e 
 git checkout -b <new branch name> <base branch name>
 
 ```
-Se non si specifica un oggetto \<base branch name> , il nuovo ramo si basa su `master` . 
+Se non si specifica un oggetto \<base branch name> , il nuovo ramo si basa su `main` . 
 
 Per passare al ramo di lavoro, eseguire il comando seguente: 
 
@@ -47,7 +47,7 @@ Per passare al ramo di lavoro, eseguire il comando seguente:
 git checkout <working branch name>
 ```
 
-Dopo il passaggio al ramo di lavoro, è possibile iniziare a sviluppare elementi di codice o di documentazione per completare l'elemento di lavoro. `git checkout master`L'esecuzione consente di tornare al `master` ramo.
+Dopo il passaggio al ramo di lavoro, è possibile iniziare a sviluppare elementi di codice o di documentazione per completare l'elemento di lavoro. `git checkout main`L'esecuzione consente di tornare al `main` ramo.
 
 È consigliabile creare un ramo git per ogni elemento di lavoro della storia utente. Quindi, per ogni elemento di lavoro attività, è possibile creare un ramo in base al ramo della storia utente. Organizzare i rami in una gerarchia che corrisponde alla relazione utente Story-Task quando si dispone di più persone che lavorano su storie utente diverse per lo stesso progetto o per attività diverse per la stessa storia utente. È possibile ridurre al minimo i conflitti facendo in modo che ogni membro del team lavori su un ramo diverso oppure su codice o altri artefatti diversi quando si condivide un ramo. 
 
@@ -76,11 +76,11 @@ git push origin script
 
 Dopo uno o più commit e push, quando si è pronti per unire il ramo di lavoro corrente nel ramo di base, è possibile creare e inviare una *richiesta pull* in Azure Repos. 
 
-Dalla pagina principale del progetto Azure DevOps, puntare alle **Repos**  >  **richieste pull** del repository nel percorso di spostamento a sinistra. Selezionare quindi uno dei pulsanti **nuova richiesta pull** oppure il collegamento **Crea una richiesta pull** .
+Dalla pagina principale del progetto Azure DevOps, puntare alle   >  **richieste pull** del repository nel percorso di spostamento a sinistra. Selezionare quindi uno dei pulsanti **nuova richiesta pull** oppure il collegamento **Crea una richiesta pull** .
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-Nella schermata **nuova richiesta pull** , se necessario, passare al repository git e al ramo in cui si vuole eseguire il merge delle modifiche. Aggiungere o modificare le altre informazioni desiderate. In **revisori**aggiungere i nomi dei revisori, quindi selezionare **Crea**. 
+Nella schermata **nuova richiesta pull** , se necessario, passare al repository git e al ramo in cui si vuole eseguire il merge delle modifiche. Aggiungere o modificare le altre informazioni desiderate. In **revisori** aggiungere i nomi dei revisori, quindi selezionare **Crea**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -105,7 +105,7 @@ Quando si torna a **repository** nel percorso di spostamento a sinistra, è poss
 È anche possibile usare i comandi di git bash seguenti per unire il `script` ramo di lavoro al relativo ramo di base ed eliminare il ramo di lavoro dopo l'Unione:
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```
