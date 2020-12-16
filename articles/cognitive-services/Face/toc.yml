@@ -5,6 +5,8 @@
   items:
     - name: Che cos'è il servizio Viso?
       href: Overview.md
+    - name: Novità
+      href: releasenotes.md
 - name: Avvi rapidi
   items:
     - name: Uso della libreria client o dell'API REST
@@ -97,5 +99,3 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Crittografia
       href: face-encryption-of-data-at-rest.md
-    - name: Note sulla versione
-      href: ReleaseNotes.md

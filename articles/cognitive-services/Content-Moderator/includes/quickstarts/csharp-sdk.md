@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 793dc6d210751d0605ab756cd1c72b1dc5dd308f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8a715c23900ac0d5a16ff4a0a8ade5ea9458cfed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918749"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561495"
 ---
 Introduzione alla libreria client di Azure Content Moderator per .NET. Seguire questi passaggi per installare il pacchetto NuGet e provare il codice di esempio per le attività di base. 
 
@@ -24,9 +24,9 @@ Content Moderator è un servizio di intelligenza artificiale che consente di ges
 
 Usare la libreria client di Content Moderator per .NET per:
 
-* [Moderare il testo](#moderate-text)
-* [Moderare le immagini](#moderate-images)
-* [Creare una revisione](#create-a-review)
+* Moderare il testo
+* Moderare le immagini
+* Creare una revisione
 
 [Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Esempi](../../samples-dotnet.md)
 
@@ -48,7 +48,7 @@ Creare un'applicazione .NET Core con Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** , **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.ContentModerator`. Selezionare la versione `2.0.0`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.ContentModerator`. Selezionare la versione `2.0.0`, quindi **Installa**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -152,7 +152,7 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
 
-Definire quindi il metodo di moderazione del testo in un punto qualsiasi della classe **Program** :
+Definire quindi il metodo di moderazione del testo in un punto qualsiasi della classe **Program**:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod)]
 

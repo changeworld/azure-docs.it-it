@@ -43,7 +43,7 @@
   items:
     - name: Concetti fondamentali
       href: basic-concepts.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Nozioni fondamentali sull'autenticazione di Key Vault
           href: authentication-fundamentals.md
@@ -86,7 +86,7 @@
       href: overview-vnet-service-endpoints.md
 - name: Guide pratiche
   items:
-    - name: Authenticate
+    - name: Autenticazione
       items:
         - name: Eseguire l'autenticazione a Key Vault
           href: authentication.md
@@ -114,10 +114,6 @@
           href: developers-guide.md
         - name: Usare Azure Resource Manager per distribuire Key Vault
           href: vault-create-template.md
-        - name: Salvare i segreti delle app Web
-          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-        - name: Autenticazione da servizio a servizio con .NET
-          href: service-to-service-authentication.md
         - name: Usare il servizio connesso Key Vault
           href: vs-key-vault-add-connected-service.md
     - name: Monitoraggio e governance
