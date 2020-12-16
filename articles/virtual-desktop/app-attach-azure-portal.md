@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ffae02a11f2857e72cf7c5d2bbc84d8ab6174e17
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d8ed429003a9da7ae93fb93f4218cd66767dcd7b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425889"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562277"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurare la connessione dell'app MSIX con il portale di Azure
 
@@ -31,6 +31,7 @@ Ecco cosa occorre per configurare la connessione all'app MSIX:
 
 - Una distribuzione di Desktop virtuale Windows funzionante. Per informazioni su come distribuire desktop virtuale di Windows (versione classica), vedere [creare un tenant in un desktop virtuale di Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Per informazioni su come distribuire desktop virtuale di Windows con l'integrazione di Azure Resource Manager, vedere [creare un pool host con l'portale di Azure](./create-host-pools-azure-marketplace.md).
 - Un pool host di desktop virtuali Windows con almeno un host sessione attiva.
+- Questo pool host deve trovarsi nell'ambiente di convalida. 
 - Strumento per la creazione di pacchetti MSIX.
 - Un'applicazione in pacchetto MSIX è stata espansa in un'immagine MSIX che viene caricata in una condivisione file.
 - Una condivisione file nella distribuzione di desktop virtuale di Windows in cui verrà archiviato il pacchetto MSIX.

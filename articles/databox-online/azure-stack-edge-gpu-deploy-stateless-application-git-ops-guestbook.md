@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 8637b33ebc4b697ee6f498acb84ee33718c53f6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448851"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561937"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc abilitata per il cluster Kubernetes sulla GPU Pro Azure Stack Edge
 
@@ -31,6 +31,9 @@ Questa procedura è destinata agli utenti che hanno esaminato i [carichi di lavo
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter distribuire l'applicazione senza stato, verificare di aver completato i prerequisiti seguenti nel dispositivo e il client che si userà per accedere al dispositivo:
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine slave, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 ### <a name="for-device"></a>Per il dispositivo
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/14/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: e239d9da4a083b50460ef746f9c538aa3081a577
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027323"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562124"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -26,9 +26,11 @@ Nell'ambito dell'esperienza di accesso degli account in Azure Active Directory (
 
 I metodi di autenticazione senza password come Windows Hello, le chiavi di sicurezza FIDO2 e l'app Microsoft Authenticator forniscono gli eventi di accesso più sicuri.
 
-Azure AD Multi-Factor Authentication aggiunge una maggiore sicurezza solo tramite una password quando un utente esegue l'accesso. All'utente possono essere richieste altre forme di autenticazione, ad esempio per rispondere a una notifica push, immettere un codice da un token software o hardware oppure rispondere a un SMS o a una telefonata.
+Azure AD Multi-Factor Authentication (multi-factor authentication) aggiunge ulteriore sicurezza al solo uso di una password quando un utente accede. All'utente possono essere richieste altre forme di autenticazione, ad esempio per rispondere a una notifica push, immettere un codice da un token software o hardware oppure rispondere a un SMS o a una telefonata.
 
-Per semplificare l'esperienza di onboarding dell'utente e registrarsi per l'autenticazione a più fattori e SSPR, è consigliabile [abilitare la registrazione delle informazioni di sicurezza combinate](howto-registration-mfa-sspr-combined.md). Per garantire la resilienza, è consigliabile richiedere agli utenti di registrare più metodi di autenticazione. Quando un metodo non è disponibile per un utente durante l'accesso o SSPR, può scegliere di eseguire l'autenticazione con un altro metodo. Per altre informazioni, vedere [creare una strategia di gestione del controllo di accesso resiliente in Azure ad](concept-resilient-controls.md).
+Per semplificare l'esperienza di onboarding dell'utente e registrarsi per l'autenticazione a più fattori e la reimpostazione della password self-service (SSPR), è consigliabile [abilitare la registrazione delle informazioni di sicurezza combinate](howto-registration-mfa-sspr-combined.md). Per garantire la resilienza, è consigliabile richiedere agli utenti di registrare più metodi di autenticazione. Quando un metodo non è disponibile per un utente durante l'accesso o SSPR, può scegliere di eseguire l'autenticazione con un altro metodo. Per altre informazioni, vedere [creare una strategia di gestione del controllo di accesso resiliente in Azure ad](concept-resilient-controls.md).
+
+Ecco un [video](https://www.youtube.com/watch?v=LB2yj4HSptc&feature=youtu.be) che abbiamo creato per aiutarti a scegliere il metodo di autenticazione migliore per garantire la protezione dell'organizzazione.
 
 ## <a name="authentication-method-strength-and-security"></a>Sicurezza e sicurezza del metodo di autenticazione
 
@@ -47,7 +49,10 @@ Nella tabella seguente vengono descritte le considerazioni sulla sicurezza per i
 | Chiamata vocale                          | Livello medio   | Livello medio    | Livello medio       |
 | Password                       | Basso      | Alto      | Alta         |
 
-Per altre informazioni sulla sicurezza, vedere [vulnerabilità di autenticazione e vettori di attacco](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
+Per informazioni aggiornate sulla sicurezza, vedere i post di Blog seguenti:
+
+- [È giunto il momento di appendere i trasporti telefonici per l'autenticazione](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)
+- [Vulnerabilità di autenticazione e vettori di attacco](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)
 
 > [!TIP]
 > Per flessibilità e usabilità, è consigliabile usare l'app Microsoft Authenticator. Questo metodo di autenticazione offre la migliore esperienza utente e più modalità, ad esempio la password, le notifiche push con autenticazione a più fattori e i codici di GIURAmento.
@@ -73,7 +78,7 @@ Tutti questi metodi di autenticazione possono essere configurati nella portale d
 
 Per altre informazioni sul funzionamento di ogni metodo di autenticazione, vedere gli articoli concettuali distinti seguenti:
 
-* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [App Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chiave di sicurezza FIDO2 (anteprima)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Token hardware OATH (anteprima)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)

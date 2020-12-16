@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032185"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563110"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 
@@ -107,19 +107,31 @@ La scheda "Visualizza metriche dettagliate" apre la cartella di lavoro pre-popol
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrazione dalla soluzione Azure gateway Analytics alle cartelle di lavoro di monitoraggio di Azure
 
 > [!NOTE]
-> La soluzione applicazione Azure gateway Analytics è obsoleta e il metodo consigliato per l'uso dell'analisi è tramite cartelle di lavoro esposte tramite Azure monitor network Insights per la risorsa del gateway applicazione.
+> La cartella di lavoro di Azure monitor network Insights è la soluzione consigliata per l'accesso alle metriche e ai log Analytics per le risorse del gateway applicazione.
 
-* Se l'impostazione di diagnostica è già abilitata per archiviare i log in un'area di lavoro Log Analytics, la cartella di lavoro di Azure monitor network Insights può utilizzare i dati dello stesso percorso. Non è richiesta alcuna nuova configurazione.
+1. Verificare che [le impostazioni di diagnostica siano abilitate](#enable-azure-application-gateway-diagnostics-in-the-portal) per archiviare i log in un'area di lavoro log Analytics. Se è già configurato, la cartella di lavoro di Azure monitor network Insights sarà in grado di utilizzare i dati dallo stesso percorso e non saranno necessarie altre modifiche.
 
-* Tutti i dati precedenti sono già disponibili all'interno della cartella di lavoro dal punto in cui sono state abilitate le impostazioni di diagnostica. Non è necessario alcun trasferimento dei dati.
+> [!NOTE]
+> Tutti i dati precedenti sono già disponibili all'interno della cartella di lavoro dal punto in cui sono state originariamente abilitate le impostazioni di diagnostica. Non è necessario alcun trasferimento dei dati.
 
-* Non è necessario alcun interruttore attivo per passare alle cartelle di lavoro. Sia la soluzione Analytics che la cartella di lavoro Insight di rete possono funzionare in parallelo.
+2. Accedere alla [cartella di lavoro di Insights predefinita](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) per la risorsa del gateway applicazione. Tutte le informazioni dettagliate esistenti supportate dalla soluzione di analisi del gateway applicazione saranno già presenti nella cartella di lavoro. Per estendere questo problema, è possibile aggiungere [visualizzazioni](../platform/workbooks-overview.md#visualizations) personalizzate basate sulla metrica & i dati di log.
 
-* Non sono previsti costi aggiuntivi per le cartelle di lavoro di monitoraggio di Azure. L'area di lavoro Log Analytics continuerà a essere fatturata in base all'utilizzo.
-
-* Per pulire la soluzione Azure gateway Analytics dall'area di lavoro, è possibile eliminare la soluzione dalla pagina delle risorse della soluzione.
+3. Dopo aver visualizzato tutte le informazioni dettagliate sulle metriche e i log, per pulire la soluzione Azure gateway Analytics dall'area di lavoro, è possibile eliminare la soluzione dalla pagina delle risorse della soluzione.
 
 [![Screenshot dell'opzione di eliminazione per applicazione Azure soluzione di analisi del gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nuove funzionalità con la cartella di lavoro di Network Insights di monitoraggio di Azure
+
+> [!NOTE]
+> Alla cartella di lavoro di Azure monitor Insights non sono associati costi aggiuntivi. L'area di lavoro Log Analytics continuerà a essere fatturata in base all'utilizzo.
+
+La cartella di lavoro di Network Insights consente di sfruttare le funzionalità più recenti di monitoraggio di Azure e Log Analytics tra cui:
+
+* Console centralizzata per il monitoraggio e la risoluzione dei problemi con i dati di [metrica](../insights/network-insights-overview.md#resource-health-and-metrics) e di log.
+
+* Area di disegno flessibile per supportare la creazione di [visualizzazioni](../platform/workbooks-overview.md#visualizations)personalizzate avanzate.
+
+* Possibilità di utilizzare e [condividere modelli di cartelle di lavoro](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) con community più ampia.
 
 Per ulteriori informazioni sulle funzionalità della nuova soluzione cartella di lavoro [, vedere cartelle di lavoro-Panoramica](../platform/workbooks-overview.md)
 

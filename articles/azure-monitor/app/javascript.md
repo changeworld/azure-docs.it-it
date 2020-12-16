@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921880"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559880"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -178,7 +178,7 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | sessionExpirationMs | 86,4 milioni | Una sessione viene registrata se continua per questo periodo di tempo in millisecondi. Il valore predefinito è 24 ore |
 | maxBatchSizeInBytes | 10000 | Dimensioni massime del batch di telemetria. Se un batch supera questo limite, viene immediatamente inviato e viene avviato un nuovo batch |
 | maxBatchInterval | 15000 | Durata della telemetria batch per prima dell'invio (millisecondi) |
-| disableExceptionTracking | false | Se true, le eccezioni non sono autocollected. L'impostazione predefinita è false. |
+| disableExceptionTracking | false | Se true, le eccezioni non vengono raccolte in autocollecting. L'impostazione predefinita è false. |
 | disableTelemetry | false | Se true, i dati di telemetria non vengono raccolti o inviati. L'impostazione predefinita è false. |
 | enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. L'impostazione predefinita è false. <br>**_Nota:_* se si abilita questa impostazione, i dati di telemetria vengono eliminati ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug, provare `consoleLoggingLevel` a usare o `telemetryLoggingLevel` invece di `enableDebug` . |
 | loggingLevelConsole | 0 | Log _ errori *interni** Application Insights alla console. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |

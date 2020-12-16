@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025977"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561308"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flussi di lavoro di integrazione continua e recapito continuo per DevOps LUIS
 
@@ -22,8 +22,8 @@ I tecnici software che stanno sviluppando un'app Language Understanding (LUIS) p
 
 Nel sistema di gestione del codice sorgente configurare pipeline di compilazione automatizzate per l'esecuzione agli eventi seguenti:
 
-1. **Flusso di lavoro PR** attivato quando viene generata una [richiesta pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR). Questo flusso di lavoro convalida il contenuto della richiesta pull *prima* che gli aggiornamenti vengano Uniti nel ramo master.
-1. **Flusso di lavoro ci/CD** attivato quando viene eseguito il push degli aggiornamenti nel ramo master, ad esempio quando si uniscono le modifiche da una richiesta pull. Questo flusso di lavoro garantisce la qualità di tutti gli aggiornamenti al ramo master.
+1. **Flusso di lavoro PR** attivato quando viene generata una [richiesta pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR). Questo flusso di lavoro convalida il contenuto della richiesta pull *prima* che gli aggiornamenti vengano Uniti nel ramo principale.
+1. **Flusso di lavoro ci/CD** attivato quando viene eseguito il push degli aggiornamenti nel ramo principale, ad esempio quando si uniscono le modifiche da una richiesta pull. Questo flusso di lavoro garantisce la qualità di tutti gli aggiornamenti al Branch principale.
 
 Il **flusso di lavoro ci/CD** combina due processi di sviluppo complementari:
 
@@ -31,7 +31,7 @@ Il **flusso di lavoro ci/CD** combina due processi di sviluppo complementari:
 
 * Il [recapito continuo](/azure/devops/learn/what-is-continuous-delivery) (CD) accetta ulteriormente il concetto di integrazione continua per distribuire automaticamente l'applicazione in un ambiente in cui è possibile eseguire test più approfonditi. CD consente di apprendere tempestivamente gli eventuali problemi imprevisti che derivano dalle modifiche nel minor tempo possibile e anche per ottenere informazioni sui gap nel code coverage dei test.
 
-L'obiettivo dell'integrazione continua e del recapito continuo è quello di garantire che "master sia sempre shippable". Per un'app LUIS, ciò significa che, se necessario, è possibile eseguire qualsiasi versione dall'app LUIS branch master e distribuirla in produzione.
+L'obiettivo dell'integrazione continua e del recapito continuo è garantire che "Main sia sempre shippable". Per un'app LUIS, ciò significa che è possibile, se necessario, eseguire qualsiasi versione dall'app LUIS Branch principale e distribuirla in produzione.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>Strumenti per la creazione di flussi di lavoro di automazione per LUIS
 
@@ -47,7 +47,7 @@ Usare gli strumenti seguenti per la creazione di flussi di lavoro di automazione
 
 ### <a name="the-pr-workflow"></a>Flusso di lavoro PR
 
-Come indicato in precedenza, questo flusso di lavoro viene configurato per l'esecuzione quando uno sviluppatore genera una richiesta pull per proporre le modifiche da unire da un ramo della funzionalità al ramo master. Lo scopo è verificare la qualità delle modifiche nella richiesta pull prima che vengano unite al ramo master.
+Come indicato in precedenza, questo flusso di lavoro viene configurato per l'esecuzione quando uno sviluppatore genera una richiesta pull per proporre le modifiche da unire da un ramo della funzionalità al Branch principale. Lo scopo è verificare la qualità delle modifiche nella richiesta pull prima che vengano unite al Branch principale.
 
 Il flusso di lavoro deve:
 
@@ -59,13 +59,13 @@ Il flusso di lavoro deve:
 
 Se supportata da SCM, configurare le regole di protezione del ramo in modo che il flusso di lavoro venga completato correttamente prima di poter completare la richiesta pull.
 
-### <a name="the-master-branch-cicd-workflow"></a>Flusso di lavoro CI/CD del ramo master
+### <a name="the-main-branch-cicd-workflow"></a>Flusso di lavoro CI/CD principale del ramo
 
-Configurare il flusso di lavoro per l'esecuzione dopo l'Unione degli aggiornamenti nella richiesta pull nel ramo master. Lo scopo è quello di garantire l'alta qualità del ramo master testando gli aggiornamenti. Se gli aggiornamenti soddisfano la barra di qualità, questo flusso di lavoro distribuisce la nuova versione dell'app LUIS in un ambiente in cui è possibile eseguire test più approfonditi.
+Configurare il flusso di lavoro per l'esecuzione dopo l'Unione degli aggiornamenti nella richiesta pull nel ramo principale. Il suo scopo è quello di limitare la qualità del ramo principale testando gli aggiornamenti. Se gli aggiornamenti soddisfano la barra di qualità, questo flusso di lavoro distribuisce la nuova versione dell'app LUIS in un ambiente in cui è possibile eseguire test più approfonditi.
 
 Il flusso di lavoro deve:
 
-* Creare una nuova versione nell'app LUIS principale, ovvero l'app che si gestisce per il ramo master, usando il codice sorgente aggiornato.
+* Creare una nuova versione nell'app LUIS principale, ovvero l'app che si gestisce per il ramo principale, usando il codice sorgente aggiornato.
 
 * Eseguire il training e pubblicare la versione dell'app LUIS.
 

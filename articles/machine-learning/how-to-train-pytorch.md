@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b03395b9c615466a4d64d8760db8ac23a040d832
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360939"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559642"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Esegui il training dei modelli PyTorch su larga scala con Azure Machine Learning
 
 Questo articolo illustra come eseguire gli script di training di [PyTorch](https://pytorch.org/) su scala aziendale usando Azure Machine Learning.
 
-Gli script di esempio in questo articolo vengono usati per classificare le immagini di pollo e tacchino per creare una rete neurale per la formazione approfondita (DNN) basata sull' [esercitazione](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)per il trasferimento di PyTorch. 
+Gli script di esempio in questo articolo vengono usati per classificare le immagini di pollo e tacchino per creare una rete neurale per la formazione approfondita (DNN) basata sull' [esercitazione](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)per il trasferimento di PyTorch. Il trasferimento dell'apprendimento è una tecnica che applica le informazioni ottenute dalla risoluzione di un problema a un problema diverso ma correlato. Questo consente di scorciatoie per il processo di training richiedendo meno dati, tempo e risorse di calcolo rispetto alla formazione da zero.
 
 Sia che si stia eseguendo il training di un modello PyTorch di apprendimento avanzato da zero o si stia portando un modello esistente nel cloud, è possibile usare Azure Machine Learning per scalare i processi di training open source con risorse di calcolo elastiche del cloud. Con Azure Machine Learning è possibile compilare, distribuire, eseguire la versione e monitorare i modelli a livello di produzione. 
 
@@ -213,13 +213,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>Cosa accade durante l'esecuzione dell'esecuzione
 Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
 
-- **Preparazione** : viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece si specifica un ambiente curato, verrà utilizzata l'immagine memorizzata nella cache che supporta l'ambiente curato.
+- **Preparazione**: viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece si specifica un ambiente curato, verrà utilizzata l'immagine memorizzata nella cache che supporta l'ambiente curato.
 
-- **Ridimensionamento** : il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
+- **Ridimensionamento**: il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
 
-- **Running** : tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e `script` viene eseguito. Gli output da stdout e la cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
+- **Running**: tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e `script` viene eseguito. Gli output da stdout e la cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
 
-- **Post-elaborazione** : la cartella **./Outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
+- **Post-elaborazione**: la cartella **./Outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
 
 ## <a name="register-or-download-a-model"></a>Registrare o scaricare un modello
 

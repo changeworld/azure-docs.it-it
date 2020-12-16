@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8340712e10721374bb2f0a35ac2e2e9a6abf181c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: deb05083ca45c24a58cabf9e923b706575ef093b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743038"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562141"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integrare l'infrastruttura server dei criteri di rete (NPS) esistente con Azure AD Multi-Factor Authentication
 
@@ -225,6 +225,10 @@ Per fornire le funzionalità di bilanciamento del carico o per la ridondanza, ri
 
 1. Eseguire lo script di PowerShell creato dal programma di installazione.
 
+   Potrebbe essere necessario abilitare prima TLS 1,2 per consentire a PowerShell di connettersi e scaricare i pacchetti in modo corretto:
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+
    > [!IMPORTANT]
    > Per i clienti che usano i cloud 21Vianet di Azure per enti pubblici o Azure China, modificare prima i `Connect-MsolService` cmdlet nello script *AzureMfaNpsExtnConfigSetup.ps1* per includere i parametri *AzureEnvironment* per il cloud richiesto. Ad esempio, specificare *-AzureEnvironment USGovernment* o *-AzureEnvironment AzureChinaCloud*.
    >
@@ -303,7 +307,7 @@ Configurare i client RADIUS per cui si vuole fare in modo che MFA invii richiest
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Per controllare questo comportamento, usare l'impostazione *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA*. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | Valore | Predefinito |
+| Chiave | valore | Predefinito |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 

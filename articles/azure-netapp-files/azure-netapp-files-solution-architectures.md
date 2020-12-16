@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 12/15/2020
 ms.author: b-juche
-ms.openlocfilehash: ffa24115e8c827729b98656d319589101395d0e5
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 2b567eba43cfec9af05ebea262b3f6bd61b00259
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092517"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562549"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architetture di soluzioni con Azure NetApp Files
 Questo articolo fornisce i riferimenti alle procedure consigliate che consentono di comprendere le architetture della soluzione per l'uso di Azure NetApp Files.  
@@ -38,6 +38,9 @@ Questa sezione fornisce riferimenti per le soluzioni per le applicazioni e i dat
 * [Guida alle procedure consigliate per la distribuzione di Oracle in Azure con Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Immagini di VM Oracle e relative distribuzioni in Microsoft Azure: opzioni di configurazione dell'archiviazione condivisa](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Vantaggi dell'uso di Azure NetApp Files con Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
+
+### <a name="machine-learning"></a>Machine Learning
+*   [Machine Learning Cloudera](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 
 ## <a name="windows-apps-and-sql-server-solutions"></a>App di Windows e soluzioni SQL Server
 
@@ -118,7 +121,7 @@ In questa sezione vengono forniti i riferimenti per le soluzioni HPC (High Perfo
 * [Azure CycleCloud: EDA HPC Lab con Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 * [Azure per il settore dei semiconduttori](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
 * [Azure NetApp Files: un file system condiviso da usare con la griglia SAS in Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Procedure consigliate per l'uso di Microsoft Azure con SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)

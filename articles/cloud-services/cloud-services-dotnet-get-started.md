@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a875c036c79419357f1134c32f62fdb060fec7c6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164364"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562294"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -125,7 +125,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 5. Scegliere l'area geografica in cui si vuole distribuire l'applicazione.
 
     Questo campo specifica in quale data center viene ospitato il servizio cloud. Per un'applicazione di produzione, scegliere l'area più vicina ai clienti. Per questa esercitazione, scegliere l'area geografica più vicina alla propria ubicazione.
-5. Scegliere **Crea**.
+5. Fare clic su **Crea**.
 
     L'immagine seguente illustra la creazione di un servizio cloud il cui URL è CSvccontosoads.cloudapp.net.
 
@@ -154,7 +154,7 @@ Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 9. Fare clic su **Seleziona** per il nuovo server.
 
     ![Nuovo server](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Scegliere **Crea**.
+10. Fare clic su **Crea**.
 
 ### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 Un account di archiviazione di Azure offre risorse per l'archiviazione di dati di code e BLOB nel cloud.
@@ -177,7 +177,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
     Quando il servizio cloud e l'account di archiviazione si trovano in data center diversi (aree diverse), la latenza aumenterà e verrà addebitato il costo relativo alla larghezza di banda esterna al data center. La larghezza di banda nell'ambito di un data center è gratuita.
 
     I gruppi di affinità di Azure offrono un meccanismo per ridurre la distanza tra le risorse in un data center e di conseguenza la latenza. In questa esercitazione non vengono utilizzati gruppi di affinità. Per altre informazioni, vedere [Come creare un gruppo di affinità in Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Scegliere **Crea**.
+7. Fare clic su **Crea**.
 
     ![Nuovo account di archiviazione](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -340,7 +340,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 7. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK**.
 8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione, non su uno dei progetti, quindi scegliere **Aggiungi - Nuovo progetto**.
 9. Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Windows** in **Visual C#** nel riquadro sinistro e quindi fare clic sul modello **Libreria di classi**.  
-10. Assegnare il nome *ContosoAdsCommon*al progetto, quindi fare clic su **OK**.
+10. Assegnare il nome *ContosoAdsCommon* al progetto, quindi fare clic su **OK**.
 
     È necessario che i progetti di ruolo Web e di ruolo di lavoro facciano riferimento al contesto e al modello di dati di Entity Framework. In alternativa, è possibile definire le classi correlate a Entity Framework nel progetto di ruolo Web e fare riferimento a tale progetto dal progetto di ruolo di lavoro. Nell'approccio alternativo, tuttavia, il progetto di ruolo di lavoro includerebbe un riferimento ad assembly Web non necessari.
 
@@ -744,7 +744,7 @@ Questo codice legge il database per ottenere l'URL dell'immagine. converte l'imm
 In caso di problemi durante l'esecuzione delle istruzioni di questa esercitazione, di seguito sono indicati alcuni errori comuni e le relative soluzioni.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
-L'oggetto `RoleEnvironment` è fornito da Azure quando si esegue un'applicazione in Azure o in caso di esecuzione in modalità locale tramite l'emulatore di calcolo di Azure.  Se questo errore è visualizzato durante l'esecuzione locale, assicurarsi di avere impostato il progetto ContosoAdsCloudService come progetto di avvio. In questo modo, il progetto sarà configurato per l'esecuzione con l'emulatore di calcolo di Azure.
+L' `RoleEnvironment` oggetto viene fornito da Azure quando si esegue un'applicazione in Azure o quando si esegue localmente usando l'emulatore di calcolo di Azure.  Se questo errore è visualizzato durante l'esecuzione locale, assicurarsi di avere impostato il progetto ContosoAdsCloudService come progetto di avvio. In questo modo viene configurato il progetto per l'esecuzione tramite l'emulatore di calcolo di Azure.
 
 L'applicazione usa RoleEnvironment di Azure anche per ottenere i valori delle stringhe di connessione archiviati nei file con estensione *cscfg*. È quindi possibile che questa eccezione sia generata da una stringa di connessione mancante. Assicurarsi di avere creato l'impostazione StorageConnectionString per entrambe le configurazioni, cloud e locale, nel progetto ContosoAdsWeb e di avere creato entrambe le stringhe di connessione per entrambe le configurazioni nel progetto ContosoAdsWorker. Se si esegue una ricerca di tipo **Trova tutto** per StorageConnectionString nell'intera soluzione, dovrebbero essere rilevate 9 occorrenze in 6 file.
 
@@ -754,7 +754,7 @@ Provare a cambiare il numero di porta usato dal progetto Web. Fare clic con il p
 Per un'altra soluzione alternativa che potrebbe risolvere il problema, vedere la sezione successiva.
 
 ### <a name="other-errors-when-running-locally"></a>Altri errori durante l'esecuzione locale
-Per impostazione predefinita, i nuovi progetti di servizio cloud usano l'emulatore di calcolo rapido di Azure per simulare l'ambiente di Azure. Si tratta di una versione semplificata dell'emulatore di calcolo e in alcuni casi l'emulatore di calcolo completo funzionerà mentre la versione rapida non funzionerà.  
+Per impostazione predefinita, i nuovi progetti di servizi cloud usano l'emulatore di calcolo di Azure Express per simulare l'ambiente Azure. Si tratta di una versione semplificata dell'emulatore di calcolo e in alcuni casi l'emulatore di calcolo completo funzionerà mentre la versione rapida non funzionerà.  
 
 Per modificare il progetto in modo che usi l'emulatore completo, fare clic con il pulsante destro del mouse sul progetto ContosoAdsCloudService, quindi scegliere **Proprietà**. Nella finestra **Proprietà** fare clic sulla scheda **Web**, quindi selezionare il pulsante di opzione **Usa emulatore completo**.
 
@@ -772,7 +772,7 @@ Per informazioni generali sullo sviluppo per il cloud, vedere l'articolo relativ
 
 Per un video introduttivo relativo alle procedure consigliate e ai modelli per Archiviazione di Azure, vedere il video relativo a [novità, procedure consigliate e modelli per Archiviazione di Microsoft Azure](https://channel9.msdn.com/Events/Build/2014/3-628).
 
-Per altre informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le risorse seguenti:
 
 * [Servizi cloud di Azure - Parte 1: Introduzione](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)

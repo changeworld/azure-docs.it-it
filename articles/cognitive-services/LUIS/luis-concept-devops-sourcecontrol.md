@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535555"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561274"
 ---
 # <a name="devops-practices-for-luis"></a>Procedure della metodologia DevOps per LUIS
 
@@ -98,7 +98,7 @@ Indipendentemente dalla strategia di diramazione adottata, un principio chiave d
 
 Per supportare l'uso indipendente dei rami con un progetto LUIS:
 
-- **Il ramo master ha una propria app LUIS.** Questa app rappresenta lo stato corrente della soluzione per il progetto e la versione attiva corrente deve sempre essere mappata all' `.lu` origine che si trova nel ramo master. Tutti gli aggiornamenti all' `.lu` origine per questa app devono essere esaminati e testati in modo che l'app possa essere distribuita in ambienti di compilazione come la produzione in qualsiasi momento. Quando gli aggiornamenti per `.lu` vengono uniti in un master da un branch di funzionalità, è necessario creare una nuova versione nell'app Luis e [urtare il numero di versione](#versioning).
+- **Il ramo principale ha una propria app LUIS.** Questa app rappresenta lo stato corrente della soluzione per il progetto e la versione attiva corrente deve sempre essere mappata all' `.lu` origine che si trova nel ramo principale. Tutti gli aggiornamenti all' `.lu` origine per questa app devono essere esaminati e testati in modo che l'app possa essere distribuita in ambienti di compilazione come la produzione in qualsiasi momento. Quando gli aggiornamenti per `.lu` vengono uniti in Main da un branch di funzionalità, è necessario creare una nuova versione nell'app Luis e [urtare il numero di versione](#versioning).
 
 - **Ogni ramo della funzionalità deve usare la propria istanza di un'app Luis**. Gli sviluppatori lavorano con questa app in un branch di funzionalità senza rischiare di influire sugli sviluppatori che lavorano in altri rami. Questa app dev Branch è una copia di lavoro che deve essere eliminata quando viene eliminato il ramo della funzionalità.
 
@@ -108,13 +108,13 @@ Per supportare l'uso indipendente dei rami con un progetto LUIS:
 
 Gli sviluppatori possono lavorare sugli aggiornamenti in un'app LUIS indipendentemente da altri rami:
 
-1. Creazione di un branch di funzionalità dal ramo principale (a seconda della strategia di Branch, in genere master o develop).
+1. Creazione di un branch di funzionalità dal ramo principale (a seconda della strategia di Branch, in genere principale o di sviluppo).
 
 1. [Creare una nuova app Luis nel portale Luis](./luis-how-to-start-new-app.md) ("*dev Branch app*") esclusivamente per supportare il lavoro nel ramo Feature.
 
    * Se l' `.lu` origine per la soluzione esiste già nel Branch, perché è stata salvata dopo il lavoro eseguito in un altro ramo precedente nel progetto, creare l'app Luis branch Dev importando il `.lu` file.
 
-   * Se si inizia a lavorare in un nuovo progetto, non è ancora presente l' `.lu` origine per l'app Master Luis nel repository. Il file verrà creato `.lu` esportando l'app dev Branch dal portale dopo aver completato il lavoro del ramo funzionalità e averlo inviato come parte della richiesta pull.
+   * Se si inizia a lavorare in un nuovo progetto, non è ancora presente l' `.lu` origine per l'app Luis principale nel repository. Il file verrà creato `.lu` esportando l'app dev Branch dal portale dopo aver completato il lavoro del ramo funzionalità e averlo inviato come parte della richiesta pull.
 
 1. Lavorare sulla versione attiva dell'app dev Branch per implementare le modifiche necessarie. È consigliabile lavorare solo in una singola versione dell'app dev Branch per tutte le attività di Branch di funzionalità. Se si crea più di una versione nell'app dev Branch, prestare attenzione a tenere traccia della versione che contiene le modifiche da archiviare quando si genera la richiesta pull.
 
@@ -124,7 +124,7 @@ Gli sviluppatori possono lavorare sugli aggiornamenti in un'app LUIS indipendent
 
 1. Archiviare gli aggiornamenti e invitare la revisione peer degli aggiornamenti. Se si usa GitHub, verrà generata una [richiesta pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. Quando le modifiche vengono approvate, unire gli aggiornamenti al ramo master. A questo punto, si creerà una nuova [versione](./luis-how-to-manage-versions.md) dell'app *Master* Luis, usando il aggiornato `.lu` nel master. Per considerazioni sull'impostazione del nome della versione, vedere [controllo delle versioni](#versioning) .
+1. Quando le modifiche vengono approvate, unire gli aggiornamenti nel ramo principale. A questo punto, si creerà una nuova [versione](./luis-how-to-manage-versions.md) dell'app Luis *principale* , usando il aggiornato `.lu` nella principale. Per considerazioni sull'impostazione del nome della versione, vedere [controllo delle versioni](#versioning) .
 
 1. Quando viene eliminato il ramo funzionalità, è consigliabile eliminare l'app LUIS Branch di sviluppo creata per il funzionamento del ramo della funzionalità.
 
@@ -150,7 +150,7 @@ Come indicato in precedenza, per semplicità è possibile usare una singola vers
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Incorporamento delle modifiche da un ramo a un altro con riassegnazione o Unione
 
-Alcuni altri sviluppatori del team che lavorano in un altro ramo possono avere effettuato aggiornamenti all' `.lu` origine e Uniti al ramo master dopo aver creato il ramo della funzionalità. È possibile incorporare le modifiche nella versione di lavoro prima di continuare a apportare le proprie modifiche all'interno del ramo della funzionalità. Questa operazione può essere eseguita riassegnando o eseguendo il [merge al Master](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) nello stesso modo di qualsiasi altro asset di codice. Poiché l'app LUIS in formato LUDown è leggibile, supporta l'Unione usando gli strumenti di merge standard.
+Alcuni altri sviluppatori del team che lavorano in un altro ramo possono avere effettuato aggiornamenti all' `.lu` origine e Uniti al ramo principale dopo la creazione del ramo della funzionalità. È possibile incorporare le modifiche nella versione di lavoro prima di continuare a apportare le proprie modifiche all'interno del ramo della funzionalità. Per eseguire questa operazione, è possibile riassegnare [o eseguire il merge alla Main](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) nello stesso modo di qualsiasi altro asset di codice. Poiché l'app LUIS in formato LUDown è leggibile, supporta l'Unione usando gli strumenti di merge standard.
 
 Se si sta ribasando l'app LUIS in un ramo funzionalità, seguire questi suggerimenti:
 
@@ -162,7 +162,7 @@ Se si sta ribasando l'app LUIS in un ramo funzionalità, seguire questi suggerim
 
 ### <a name="merge-prs"></a>Unisci a pull
 
-Una volta approvata la richiesta pull, è possibile unire le modifiche al ramo master. Nessuna considerazione speciale è valida per l'origine LUDown per un'app LUIS: è leggibile e pertanto supporta l'Unione mediante gli strumenti di merge standard. Eventuali conflitti di merge possono essere risolti nello stesso modo di altri file di origine.
+Una volta approvata la richiesta pull, è possibile unire le modifiche al Branch principale. Nessuna considerazione speciale è valida per l'origine LUDown per un'app LUIS: è leggibile e pertanto supporta l'Unione mediante gli strumenti di merge standard. Eventuali conflitti di merge possono essere risolti nello stesso modo di altri file di origine.
 
 Dopo che la richiesta pull è stata unita, è consigliabile eseguire la pulizia:
 
@@ -173,7 +173,7 @@ Dopo che la richiesta pull è stata unita, è consigliabile eseguire la pulizia:
 Allo stesso modo degli asset del codice dell'applicazione, è necessario scrivere unit test per accompagnare gli aggiornamenti delle app LUIS. Per eseguire il test, è necessario usare flussi di lavoro di integrazione continua:
 
 - Aggiornamenti in una richiesta pull prima del merge della richiesta pull
-- L'app LUIS branch master dopo una richiesta pull è stata approvata e le modifiche sono state unite nel database master.
+- L'app LUIS Branch principale dopo una richiesta pull è stata approvata e le modifiche sono state unite in Main.
 
 Per altre informazioni sui test per LUIS DevOps, vedere [test di DevOps per Luis](luis-concept-devops-testing.md). Per altri dettagli sull'implementazione dei flussi di lavoro, vedere [flussi di lavoro di automazione per Luis DevOps](luis-concept-devops-automation.md).
 
@@ -185,9 +185,9 @@ Un'app LUIS in formato LUDown è leggibile, che supporta la comunicazione delle 
 
 Un'applicazione è costituita da più componenti che possono includere elementi come un bot in esecuzione nel [servizio Azure bot](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [servizio di riconoscimento vocale di Azure](../speech-service/overview.md)e altro ancora. Per raggiungere l'obiettivo delle applicazioni a regime di controllo libero, usare il [controllo della versione](/azure/devops/learn/git/what-is-version-control) in modo che ogni componente di un'applicazione venga sottoporre a controllo delle versioni in modo indipendente, consentendo agli sviluppatori di rilevare modifiche o aggiornamenti di rilievo semplicemente esaminando il numero di versione. È più facile eseguire la versione dell'app LUIS indipendentemente da altri componenti se la si mantiene nel proprio repository.
 
-Per l'app LUIS per il ramo master deve essere applicato uno schema di controllo delle versioni. Quando si uniscono gli aggiornamenti al `.lu` per un'app Luis nel database master, si importerà quindi l'origine aggiornata in una nuova versione nell'app Luis per il ramo master.
+Per l'app LUIS per il ramo principale deve essere applicato uno schema di controllo delle versioni. Quando si uniscono gli aggiornamenti al `.lu` per un'app Luis in Main, si importerà quindi l'origine aggiornata in una nuova versione nell'app Luis per il ramo Main.
 
-Si consiglia di usare uno schema di controllo delle versioni numerico per la versione dell'app Master LUIS, ad esempio:
+Si consiglia di usare uno schema di controllo delle versioni numerico per la versione principale dell'app LUIS, ad esempio:
 
 `major.minor[.build[.revision]]`
 
@@ -199,7 +199,7 @@ La versione principale/secondaria può essere usata per indicare l'ambito delle 
 * Versione secondaria: modifica secondaria compatibile con le versioni precedenti, ad esempio dopo un nuovo training significativo
 * Compilazione: nessuna modifica delle funzionalità, ma solo una compilazione diversa.
 
-Dopo aver determinato il numero di versione per la revisione più recente dell'app Master LUIS, è necessario compilare e testare la nuova versione dell'app e pubblicarla in un endpoint in cui può essere usata in diversi ambienti di compilazione, ad esempio la garanzia di qualità o la produzione. È consigliabile automatizzare tutti questi passaggi in un flusso di lavoro di integrazione continua (CI).
+Dopo aver determinato il numero di versione per la revisione più recente dell'app LUIS principale, è necessario compilare e testare la nuova versione dell'app e pubblicarla in un endpoint in cui può essere usata in diversi ambienti di compilazione, ad esempio la garanzia di qualità o la produzione. È consigliabile automatizzare tutti questi passaggi in un flusso di lavoro di integrazione continua (CI).
 
 Vedere:
 - [Flussi di lavoro di automazione](luis-concept-devops-automation.md) per informazioni dettagliate su come implementare un flusso di lavoro ci per testare e rilasciare un'app Luis.
@@ -207,9 +207,9 @@ Vedere:
 
 ### <a name="versioning-the-feature-branch-luis-app"></a>Controllo delle versioni dell'app LUIS ' feature Branch '
 
-Quando si usa un'app LUIS "dev Branch" creata per supportare il lavoro in un branch di funzionalità, si esporterà l'app al termine dell'operazione e si includerà l'aggiornamento nella richiesta pull `'lu` . Il ramo nel repository e l'app LUIS "dev Branch" devono essere eliminati dopo che la richiesta pull è stata unita nel database master. Poiché questa app esiste esclusivamente per supportare il lavoro nel ramo funzionalità, non è necessario applicare uno schema di controllo delle versioni specifico all'interno dell'app.
+Quando si usa un'app LUIS "dev Branch" creata per supportare il lavoro in un branch di funzionalità, si esporterà l'app al termine dell'operazione e si includerà l'aggiornamento nella richiesta pull `'lu` . Il ramo nel repository e l'app LUIS "dev Branch" devono essere eliminati dopo che la richiesta pull è stata unita in Main. Poiché questa app esiste esclusivamente per supportare il lavoro nel ramo funzionalità, non è necessario applicare uno schema di controllo delle versioni specifico all'interno dell'app.
 
-Quando le modifiche apportate alla richiesta pull vengono unite nel database master, ovvero quando è necessario applicare il controllo delle versioni, in modo che tutti gli aggiornamenti al database master vengano sottoposti a controllo delle versioni in modo indipendente.
+Quando le modifiche apportate alla richiesta pull sono unite in Main, ovvero quando è necessario applicare il controllo delle versioni, in modo che tutti gli aggiornamenti per Main vengano sottoposti a controllo delle versioni in modo indipendente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

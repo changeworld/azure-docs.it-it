@@ -1,7 +1,7 @@
 ---
 title: Novità di Azure Active Directory business-to-Customer (B2C)
 description: Documentazione nuova e aggiornata per la Azure Active Directory business-to-Customer (B2C).
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,29 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 4c204ec33604ff5edd1551f9728c28e3dcab9a61
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571080"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559728"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: novità
 
 Introduzione alle novità di Azure Active Directory B2C documentazione. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio B2C, vedere Novità [di Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Dicembre 2020
+
+### <a name="new-articles"></a>Nuovi articoli
+
+- [Creare un flusso utente in Azure Active Directory B2C](create-user-flow.md)
+- [Configurare l'iscrizione e l'accesso tramite telefono per i flussi utente (anteprima)](phone-authentication-user-flows.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md)
+- [Esempi di codice di Azure Active Directory B2C](code-samples.md)
+- [Versioni del layout di pagina](page-layout.md)
 
 ## <a name="november-2020"></a>Novembre 2020
 

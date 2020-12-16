@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: 0379fd186c499e19d949d9494b0eb5dec4f2bb50
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032542"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562838"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprendimento avanzato e Machine Learning in Azure Machine Learning
 
@@ -57,6 +57,16 @@ Nella tabella seguente vengono confrontate le due tecniche in modo più dettagli
 |  **Tempo di esecuzione** | Richiede tempo relativamente breve per eseguire il training, che varia da pochi secondi ad alcune ore. | Il training richiede in genere molto tempo perché un algoritmo di apprendimento avanzato comporta molti livelli. |
 |  **Output** | L'output è in genere un valore numerico, ad esempio un punteggio o una classificazione. | L'output può avere più formati, ad esempio un testo, un punteggio o un suono. |
 
+## <a name="transfer-learning"></a>Apprendimento del trasferimento
+
+Il training di modelli di apprendimento avanzato spesso richiede grandi quantità di dati di training, risorse di calcolo di fascia alta (GPU, TPU) e tempi di training più lunghi. Negli scenari in cui non è disponibile alcuna di queste informazioni, è possibile eseguire il collegamento del processo di training usando una tecnica nota come apprendimento del trasferimento.
+
+Il trasferimento dell'apprendimento è una tecnica che applica le informazioni ottenute dalla risoluzione di un problema a un problema diverso ma correlato.
+
+A causa della struttura delle reti neurali, il primo set di livelli contiene in genere funzionalità di livello inferiore, mentre il set di livelli finale contiene funzionalità di livello superiore più vicine al dominio in questione. Grazie al riutilizzo dei livelli finali da usare in un nuovo dominio o problema, è possibile ridurre significativamente il tempo, i dati e le risorse di calcolo necessari per eseguire il training del nuovo modello. Se, ad esempio, si dispone già di un modello che riconosce le automobili, è possibile reimpiegare il modello usando Transfer learning per riconoscere anche camion, motocicli e altri tipi di veicoli.
+
+Informazioni su come applicare il trasferimento learning per la classificazione delle immagini usando un framework open source in Azure Machine Learning: [classificare le immagini usando un modello Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## <a name="deep-learning-use-cases"></a>Casi d'uso di Deep Learning
 
 Grazie alla struttura di rete neurale artificiale, l'apprendimento avanzato eccelle nell'identificare i modelli nei dati non strutturati, ad esempio immagini, audio, video e testo. Per questo motivo, l'apprendimento avanzato sta trasformando rapidamente molti settori, tra cui Healthcare, energia, finanza e trasporto. Questi settori ora ripensano i tradizionali processi aziendali. 
@@ -72,8 +82,6 @@ Il riconoscimento delle entità denominate è un metodo di apprendimento avanzat
 L'apprendimento avanzato è stato applicato in molti casi d'uso di rilevamento oggetti. Il rilevamento degli oggetti è costituito da due parti: classificazione delle immagini e quindi localizzazione delle immagini. _Classificazione_ immagini identifica gli oggetti dell'immagine, ad esempio automobili o persone. La _localizzazione_ delle immagini fornisce la posizione specifica di questi oggetti. 
 
 Il rilevamento degli oggetti è già in uso in settori quali giochi, vendite al dettaglio, turismo e auto autoguidate.
-
-Informazioni su come usare un modello di classificazione delle immagini da un framework open source in Azure Machine Learning: [classificare le immagini usando un modello Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generazione didascalia immagine
 
@@ -107,7 +115,7 @@ La rete neurale feedforward è il tipo più semplice di rete neurale artificiale
 
 Le reti neurali ricorrenti sono una rete neurale artificiale ampiamente utilizzata. Queste reti salvano l'output di un livello e lo reinviano al livello di input per consentire la stima del risultato del livello. Le reti neurali ricorrenti hanno ottime capacità di apprendimento. Sono ampiamente usati per attività complesse come la previsione delle serie temporali, la grafia di apprendimento e il riconoscimento del linguaggio.
 
-### <a name="convolutional-neural-networks"></a>Reti neurali di convoluzione
+### <a name="convolutional-neural-network"></a>Rete neurale di convoluzione
 
 Una rete neurale di convoluzione è una rete neurale artificiale particolarmente efficace e presenta un'architettura univoca. I livelli sono organizzati in tre dimensioni: larghezza, altezza e profondità. I neuroni di un livello non si connettono a tutti i neuroni nel livello successivo, ma solo a una piccola area dei neuroni del livello. L'output finale viene ridotto a un singolo vettore di punteggi di probabilità, organizzati lungo la dimensione di profondità. 
 

@@ -10,16 +10,34 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 7b035af85e250d97fb05625bf386bec8dc94a74c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.custom: references_regions
+ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505257"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562566"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
 In questo articolo viene usata l'API REST [analisi del testo e l'](https://www.postman.com/downloads/) utente per illustrare i concetti chiave. L'API fornisce diversi endpoint sincroni e asincroni per l'utilizzo delle funzionalità del servizio. 
+
+## <a name="create-a-text-analytics-resource"></a>Creare una risorsa Analisi del testo
+
+> [!NOTE]
+> * Se si desidera utilizzare gli endpoint o, sarà necessario disporre di una risorsa Analisi del testo utilizzando un piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standard `/analyze` `/health` . L' `/analyze` endpoint è incluso nel piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+Prima di usare la API Analisi del testo, sarà necessario creare una risorsa di Azure con una chiave e un endpoint per le applicazioni. 
+
+1.  Per prima cosa, passare alla [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e creare una nuova risorsa di analisi del testo, se non ne è già presente uno. Scegliere un piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+2.  Selezionare l'area che si vuole usare per l'endpoint.  Si noti `/analyze` che gli `/health` endpoint e sono disponibili solo nelle aree seguenti: Stati Uniti occidentali 2, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale ed Europa occidentale.
+
+3.  Creare la risorsa Analisi del testo e passare al pannello "chiavi ed endpoint" nella parte sinistra della pagina. Copiare la chiave da usare in un secondo momento quando si chiamano le API. Questa operazione verrà aggiunta in un secondo momento come valore per l' `Ocp-Apim-Subscription-Key` intestazione.
+
+## <a name="using-the-api-synchronously"></a>Uso dell'API in modo sincrono
+
+È possibile chiamare in modo sincrono Analisi del testo (per gli scenari a bassa latenza). Quando si usa l'API sincrona, è necessario chiamare separatamente ogni API (funzionalità). Se è necessario chiamare più funzionalità, vedere la sezione seguente su come chiamare Analisi del testo in modo asincrono. 
 
 ## <a name="using-the-api-asynchronously"></a>Uso dell'API in modo asincrono
 
@@ -48,28 +66,20 @@ Vedere la tabella seguente per vedere quali funzionalità possono essere usate i
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
-
-
-> [!NOTE]
-> * Se si desidera utilizzare gli endpoint o, sarà necessario disporre di una risorsa Analisi del testo utilizzando un piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standard `/analyze` `/health` .
-
-1.  Per prima cosa, passare alla [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e creare una nuova risorsa di analisi del testo, se non ne è già presente uno. Scegliere il piano **tariffario standard (S)** se si desidera utilizzare gli `/analyze` `/health` endpoint o. L' `/analyze` endpoint è incluso nel piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-2.  Selezionare l'area che si vuole usare per l'endpoint.  Si noti `/analyze` che gli `/health` endpoint e sono disponibili solo nelle aree seguenti: Stati Uniti occidentali 2, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale ed Europa occidentale.
-
-3.  Creare la risorsa Analisi del testo e passare al pannello "chiavi ed endpoint" nella parte sinistra della pagina. Copiare la chiave da usare in un secondo momento quando si chiamano le API. Questa operazione verrà aggiunta in un secondo momento come valore per l' `Ocp-Apim-Subscription-Key` intestazione.
-
 
 <a name="json-schema"></a>
 
-## <a name="api-request-format"></a>Formato richiesta API
+## <a name="api-request-formats"></a>Formati di richiesta API
+
+È possibile inviare chiamate sincrone e asincrone al API Analisi del testo.
 
 #### <a name="synchronous"></a>[Sincrono](#tab/synchronous)
 
+### <a name="synchronous-requests"></a>Richieste sincrone
+
 Il formato delle richieste API è lo stesso per tutte le operazioni sincrone. I documenti vengono inviati in un oggetto JSON come testo non strutturato non elaborato. XML non è supportato. Lo schema JSON è costituito dagli elementi descritti di seguito.
 
-| Elemento | Valori validi | Necessaria? | Utilizzo |
+| Elemento | Valori validi | Necessaria? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Necessario | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
 |`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Necessario | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../language-support.md). |
@@ -89,7 +99,9 @@ Di seguito è riportato un esempio di una richiesta API per gli endpoint sincron
 }
 ```
 
-#### <a name="analyze"></a>[Analisi](#tab/analyze)
+#### <a name="asynchronous"></a>[Asincrono](#tab/asynchronous)
+
+### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>Richieste asincrone all' `/analyze` endpoint
 
 > [!NOTE]
 > L'ultima versione preliminare della libreria client di Analisi del testo consente di chiamare operazioni di analisi asincrone utilizzando un oggetto client. È possibile trovare esempi su GitHub:
@@ -102,7 +114,7 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
 * estrazione di frasi chiave 
 * Riconoscimento di entità denominate (incluse le informazioni personali e PHI)
 
-| Elemento | Valori validi | Necessaria? | Utilizzo |
+| Elemento | Valori validi | Necessaria? | Uso |
 |---------|--------------|-----------|-------|
 |`displayName` | string | Facoltativo | Utilizzato come nome visualizzato per l'identificatore univoco del processo.|
 |`analysisInput` | Include il `documents` campo seguente | Necessario | Contiene le informazioni per i documenti che si desidera inviare. |
@@ -154,11 +166,11 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
 
 ```
 
-#### <a name="text-analytics-for-health"></a>[Analisi del testo per la sanità](#tab/health)
+### <a name="asynchronous-requests-to-the-health-endpoint"></a>Richieste asincrone all' `/health` endpoint
 
 Il formato delle richieste API per la Analisi del testo per l'API ospitata sull'integrità è identico a quello del relativo contenitore. I documenti vengono inviati in un oggetto JSON come testo non strutturato non elaborato. XML non è supportato. Lo schema JSON è costituito dagli elementi descritti di seguito.  Compilare e inviare il modulo di [richiesta di servizi cognitivi](https://aka.ms/csgate) per richiedere l'accesso alla analisi del testo per l'anteprima pubblica dell'integrità. Non verranno addebitate Analisi del testo per l'utilizzo dell'integrità. 
 
-| Elemento | Valori validi | Necessaria? | Utilizzo |
+| Elemento | Valori validi | Necessaria? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Necessario | Il sistema usa gli ID immessi per strutturare l'output. |
 |`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Necessario | Si noti che attualmente è supportato solo il testo in lingua inglese. |
@@ -194,6 +206,8 @@ In postazione (o un altro strumento di test dell'API Web) aggiungere l'endpoint 
 
 #### <a name="synchronous"></a>[Sincrono](#tab/synchronous)
 
+### <a name="endpoints-for-sending-synchronous-requests"></a>Endpoint per l'invio di richieste sincrone
+
 | Funzionalità | Tipo di richiesta | Endpoint delle risorse |
 |--|--|--|
 | Rilevamento della lingua | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
@@ -204,14 +218,16 @@ In postazione (o un altro strumento di test dell'API Web) aggiungere l'endpoint 
 | Riconoscimento entità denominata-informazioni personali | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | Riconoscimento entità denominata-PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### <a name="analyze"></a>[Analisi](#tab/analyze)
+#### <a name="asynchronous"></a>[Asincrono](#tab/asynchronous)
+
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Endpoint per l'invio di richieste asincrone all' `/analyze` endpoint
 
 | Funzionalità | Tipo di richiesta | Endpoint delle risorse |
 |--|--|--|
 | Invia processo di analisi | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Ottenere lo stato e i risultati dell'analisi | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### <a name="text-analytics-for-health"></a>[Analisi del testo per la sanità](#tab/health)
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Endpoint per l'invio di richieste asincrone all' `/health` endpoint
 
 | Funzionalità | Tipo di richiesta | Endpoint delle risorse |
 |--|--|--|
@@ -267,6 +283,8 @@ Si noti che per le `/analyze` operazioni asincrone o `/health` , i risultati del
  
 # <a name="synchronous"></a>[Sincrono](#tab/synchronous)
 
+### <a name="example-responses-for-synchronous-operation"></a>Risposte di esempio per l'operazione sincrona
+
 Le risposte degli endpoint sincroni variano a seconda dell'endpoint utilizzato. Per le risposte di esempio, vedere gli articoli seguenti.
 
 + [Rilevamento della lingua](text-analytics-how-to-language-detection.md#step-3-view-the-results)
@@ -274,70 +292,15 @@ Le risposte degli endpoint sincroni variano a seconda dell'endpoint utilizzato. 
 + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Riconoscimento delle entità](text-analytics-how-to-entity-linking.md#view-results)
 
-# <a name="analyze"></a>[Analisi](#tab/analyze)
+# <a name="asynchronous"></a>[Asincrono](#tab/asynchronous)
+
+### <a name="example-responses-for-asynchronous-operations"></a>Risposte di esempio per le operazioni asincrone
 
 In caso di esito positivo, la richiesta GET all' `/analyze` endpoint restituirà un oggetto contenente le attività assegnate. Ad esempio `keyPhraseExtractionTasks`. Queste attività contengono l'oggetto Response della funzionalità Analisi del testo appropriata. Vedi gli articoli seguenti per altre informazioni.
 
 + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Riconoscimento delle entità](text-analytics-how-to-entity-linking.md#view-results)
-
-
-```json
-{
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
-# <a name="text-analytics-for-health"></a>[Analisi del testo per la sanità](#tab/health)
-
-Vedere l'articolo seguente per altre informazioni sull'Analisi del testo per la risposta API asincrona di integrità:
-
 + [Analisi del testo per la sanità](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
-
 
 --- 
 

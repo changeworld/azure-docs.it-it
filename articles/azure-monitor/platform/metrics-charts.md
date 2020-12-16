@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168563"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562804"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -46,7 +46,7 @@ Fare clic sul **grafico Aggiungi** e creare un altro grafico con una metrica div
 
 ### <a name="order-or-delete-multiple-charts"></a>Ordinare o eliminare più grafici
 
-Per ordinare o eliminare più grafici, fare clic sul simbolo dei puntini di sospensione ( **..** .) per aprire il menu grafico e scegliere la voce di menu appropriata di **Sposta su**, **Sposta giù**o **Elimina**.
+Per ordinare o eliminare più grafici, fare clic sul simbolo dei puntini di sospensione ( **..** .) per aprire il menu grafico e scegliere la voce di menu appropriata di **Sposta su**, **Sposta giù** o **Elimina**.
 
 ## <a name="changing-aggregation"></a>Modifica dell'aggregazione
 
@@ -59,7 +59,7 @@ Si supponga, ad esempio, che il grafico visualizzi la metrica del **tempo di ris
 - Se la granularità temporale è impostata su 30 minuti, il grafico viene disegnato da 48 punti di collegamento aggregati (ad esempio, il grafico a linee connette 48 punti nell'area del tracciato del grafico). Ovvero 24 ore x 2 punti di riferimento all'ora. Ogni punto di riferimento rappresenta la *media* di tutti i tempi di risposta acquisiti per le richieste del server che si sono verificati durante ciascun periodo di tempo di 30 minuti pertinente.
 - Se si passa la granularità dell'ora a 15 minuti, si ottengono 96 punti di riferimento aggregati.  Ovvero 24 ore x 4 punti di riferimento all'ora.
 
-In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistiche di base: **Sum**, **count**, **min**, **Max**e **Average**. L'aggregazione **Sum** viene a volte definita aggregazione **totale** . Per molte metriche, Esplora metriche nasconderà le aggregazioni che sono totalmente irrilevanti e non possono essere usate.
+In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistiche di base: **Sum**, **count**, **min**, **Max** e **Average**. L'aggregazione **Sum** viene a volte definita aggregazione **totale** . Per molte metriche, Esplora metriche nasconderà le aggregazioni che sono totalmente irrilevanti e non possono essere usate.
 
 - **Sum** : somma di tutti i valori acquisiti nell'intervallo di aggregazione
 - **Count** : numero di misurazioni acquisite sull'intervallo di aggregazione. Si noti che **count** sarà uguale a **Sum** nel caso in cui la metrica venga sempre acquisita con il valore 1. Questo è comune quando la metrica tiene traccia del numero di eventi distinti e ogni misura rappresenta un evento, ovvero il codice genera un record di metrica ogni volta che viene ricevuta una nuova richiesta.
@@ -77,15 +77,15 @@ In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistic
 
 2. Selezionare la dimensione (proprietà) che si desidera filtrare.
 
-   ![Screenshot che mostra le dimensioni (proprietà) che è possibile filtrare.](./media/metrics-charts/00006.png)
+   ![Screenshot che mostra le dimensioni (proprietà) che è possibile filtrare.](./media/metrics-charts/028.png)
 
 3. Selezionare i valori della dimensione che si desidera includere nel tracciamento del grafico. Questo esempio mostra l'applicazione del filtro per le transazioni di archiviazione con esito positivo:
 
-   ![Screenshot che mostra l'applicazione di filtri alle transazioni di archiviazione riuscite.](./media/metrics-charts/00007.png)
+   ![Screenshot che mostra l'applicazione di filtri alle transazioni di archiviazione riuscite.](./media/metrics-charts/029.png)
 
 4. Dopo avere selezionato i valori di filtro, fare clic all'esterno del selettore di filtro per chiuderlo. Il grafico mostra a questo punto il numero di transazioni di archiviazione con esito negativo:
 
-   ![Screenshot che mostra il numero di transazioni di archiviazione non riuscite](./media/metrics-charts/00008.png)
+   ![Screenshot che mostra il numero di transazioni di archiviazione non riuscite](./media/metrics-charts/030.png)
 
 5. È possibile ripetere i passaggi da 1 a 4 per applicare più filtri agli stessi grafici.
 
@@ -104,11 +104,11 @@ In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistic
 
 2. Scegliere una dimensione in cui si desidera segmentare il grafico:
 
-   ![Screenshot che mostra la dimensione selezionata in cui segmentare il grafico.](./media/metrics-charts/00010.png)
+   ![Screenshot che mostra la dimensione selezionata in cui segmentare il grafico.](./media/metrics-charts/031.png)
 
    Il grafico mostra ora più righe, una per ogni segmento della dimensione:
 
-   ![Screenshot che Mostra più righe, una per ogni segmento della dimensione.](./media/metrics-charts/00012.png)
+   ![Screenshot che Mostra più righe, una per ogni segmento della dimensione.](./media/metrics-charts/032.png)
 
 3. Fare clic al di fuori del **selettore di raggruppamento** per chiuderlo.
 
@@ -123,9 +123,13 @@ Ad esempio, quando il volume di richieste riuscite si abbassa dal 99,99% al 99,5
 
 Un altro esempio è una fluttuazione della memoria disponibile, in cui il valore tecnicamente non raggiungerà mai lo zero. Fissare l'intervallo su un valore più alto può rendere la diminuzione della memoria disponibile più facile da rilevare. 
 
-Per controllare l'intervallo dell'asse y, usare "..." nel menu del grafico e selezionare **Modifica grafico** per accedere alle impostazioni avanzate del grafico. Modificare i valori nella sezione Intervallo asse Y oppure usare il pulsante **Auto** per ripristinare le impostazioni predefinite.
+Per controllare l'intervallo dell'asse y, usare "..." menu grafico e selezionare **Impostazioni grafico** per accedere alle impostazioni avanzate del grafico.
 
-![Screenshot che evidenzia l'opzione Modifica grafico.](./media/metrics-charts/00014-manually-set-granularity.png)
+![Screenshot che evidenzia l'opzione relativa alle impostazioni del grafico.](./media/metrics-charts/033.png)
+
+ Modificare i valori nella sezione Intervallo asse Y oppure usare il pulsante **Auto** per ripristinare le impostazioni predefinite.
+ 
+ ![Screenshot che evidenzia la sezione relativa all'intervallo dell'asse Y.](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > Bloccare i limiti dell'asse y dei grafici che tengono traccia dei vari conteggi o somme in un periodo di tempo (e che quindi usano le aggregazioni Count, Sum, Minimum o Maximum) richiede in genere di specificare una granularità temporale fissa anziché di basarsi sulle impostazioni predefinite automatiche. Questa operazione è necessaria perché i valori nei grafici cambiano quando la granularità temporale viene automaticamente modificata dall'utente che ridimensiona la finestra del browser o che passa da una risoluzione dello schermo a un'altra. La modifica risultante nella granularità temporale influenza l'aspetto del grafico, invalidando la selezione corrente dell'intervallo dell'asse y.
@@ -136,9 +140,9 @@ Una volta configurati i grafici, alle linee del grafico viene assegnato automati
 
 Per modificare il colore di una linea del grafico, fare clic sulla barra colorata nella legenda che corrisponde al grafico. Viene visualizzata la finestra di dialogo Selezione colori. Utilizzare la selezione colori per configurare il colore per la riga.
 
-Una volta configurati, i colori del grafico rimarranno in questo modo quando si aggiunge il grafico a un dashboard. Nella sezione seguente viene illustrato come aggiungere un grafico.
+![Screenshot che Mostra come modificare il colore](./media/metrics-charts/035.png)
 
-![Screenshot che illustra come aggiungere un grafico.](./media/metrics-charts/018.png)
+Una volta configurati, i colori del grafico rimarranno in questo modo quando si aggiunge il grafico a un dashboard. Nella sezione seguente viene illustrato come aggiungere un grafico.
 
 ## <a name="pin-charts-to-dashboards"></a>Aggiungere grafici ai dashboard
 
@@ -146,9 +150,9 @@ Dopo avere configurato i grafici, è possibile che si desideri aggiungerli ai da
 
 Per aggiungere un grafico configurato a un dashboard:
 
-Dopo avere configurato il grafico, fare clic sul menu delle **azioni del grafico** nell'angolo in alto a destra del grafico e fare clic su **Aggiungi al dashboard**.
+Dopo aver configurato il grafico, fare clic su **Aggiungi al dashboard** nell'angolo superiore destro del grafico.
 
-![Immagine di metrica](./media/metrics-charts/00013.png)
+![Screenshot che illustra come aggiungere al grafico](./media/metrics-charts/036.png)
 
 ## <a name="create-alert-rules"></a>Creazione di regole di avviso
 
@@ -156,11 +160,11 @@ Dopo avere configurato il grafico, fare clic sul menu delle **azioni del grafico
 
 ### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Per creare una nuova regola di avviso, fare clic su **Nuova regola di avviso**.
 
-![Pulsante Nuova regola di avviso evidenziato in rosso](./media/metrics-charts/015.png)
+![Pulsante Nuova regola di avviso evidenziato in rosso](./media/metrics-charts/042.png)
 
 Si verrà reindirizzati al riquadro di creazione della regola di avviso con le dimensioni di metriche sottostanti del grafico prepopolato per semplificare la generazione di regole di avviso personalizzate.
 
-![Creare una regola di avviso](./media/metrics-charts/016.png)
+![Creare una regola di avviso](./media/metrics-charts/041.png)
 
 Per altre informazioni sulla configurazione di avvisi delle metriche, vedere questo [articolo](alerts-metric.md).
 

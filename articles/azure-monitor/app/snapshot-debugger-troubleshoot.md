@@ -1,19 +1,21 @@
 ---
 title: Risolvere i problemi relativi a applicazione Azure Insights Snapshot Debugger
-description: Questo articolo presenta le informazioni e i passaggi per la risoluzione dei problemi per aiutare gli sviluppatori che non riescono ad abilitare o usare Application Insights Snapshot Debugger.
+description: Questo articolo presenta informazioni e procedure per la risoluzione dei problemi che consentono agli sviluppatori di abilitare e usare Application Insights Snapshot Debugger.
 ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 5dd1f799634fac223670db5c38effbe7fc29cf6f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504969"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560900"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Risolvere i problemi abilitando Application Insights Snapshot Debugger o visualizzando gli snapshot
-Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile utilizzare queste istruzioni per la risoluzione dei problemi. I motivi per cui gli snapshot non vengono generati possono essere diversi. È possibile eseguire il controllo integrità snapshot per identificare alcune delle possibili cause comuni.
+Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile usare queste istruzioni per la risoluzione dei problemi.
+
+Possono esserci diversi motivi per cui gli snapshot non vengono generati. È possibile iniziare eseguendo il controllo integrità snapshot per identificare alcune delle possibili cause comuni.
 
 ## <a name="use-the-snapshot-health-check"></a>Usare il controllo integrità dello snapshot
 Alcuni problemi comuni riguardano la mancata visualizzazione di Apri snapshot di debug. Ad esempio, se si usa un agente di raccolta snapshot obsoleto, se si raggiunge il limite giornaliero di caricamento o se il caricamento dello snapshot richiede molto tempo. Per la risoluzione di problemi comuni, usare il controllo integrità dello snapshot.
@@ -57,12 +59,34 @@ Per controllare l'impostazione, aprire il file di web.config e trovare la sezion
 > Se il targetFramework è 4,7 o superiore, Windows determina i protocolli disponibili. Nel servizio app Azure è disponibile TLS 1,2. Tuttavia, se si usa la propria macchina virtuale, potrebbe essere necessario abilitare TLS 1,2 nel sistema operativo.
 
 ## <a name="preview-versions-of-net-core"></a>Versioni di anteprima di .NET Core
-Se l'applicazione usa una versione di anteprima di .NET Core e Snapshot Debugger è stata abilitata tramite il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) nel portale, snapshot debugger potrebbe non essere avviata. Seguire le istruzioni in [abilitare snapshot debugger per gli altri ambienti](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) per includere prima di tutto il pacchetto NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con l'applicazione *, **oltre** che per abilitare il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Se si usa una versione di anteprima di .NET Core o l'applicazione fa riferimento Application Insights SDK, direttamente o indirettamente tramite un assembly dipendente, seguire le istruzioni per [abilitare snapshot debugger per altri ambienti](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json).
 
+## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Controllare la pagina di stato dell'estensione del sito dei servizi di diagnostica
+Se Snapshot Debugger è stata abilitata tramite il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) nel portale, è stata abilitata dall'estensione del sito dei servizi di diagnostica.
+
+Per controllare la pagina stato di questa estensione, passare all'URL seguente: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
+
+> [!NOTE]
+> Il dominio del collegamento alla pagina di stato può variare a seconda del cloud.
+Questo dominio sarà uguale al sito di gestione Kudu per il servizio app.
+
+In questa pagina di stato viene visualizzato lo stato di installazione del profiler e degli agenti di Snapshot Collector. Se si è verificato un errore imprevisto, questo verrà visualizzato e mostrerà come risolverlo.
+
+È possibile usare il sito di gestione Kudu per il servizio app per ottenere l'URL di base di questa pagina di stato:
+1. Aprire l'applicazione del servizio app nel portale di Azure.
+2. Selezionare **strumenti avanzati** o cercare **Kudu**.
+3. Selezionare **Vai**.
+4. Quando ci si trova nel sito di gestione Kudu, nell'URL **aggiungere quanto segue `/DiagnosticServices` e premere invio**.
+ Si concluderà come segue: `https://<kudu-url>/DiagnosticServices`
+
+Verrà visualizzata una pagina di stato simile alla seguente: ![ pagina stato servizi di diagnostica](./media/diagnostic-services-site-extension/status-page.png)
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Eseguire l'aggiornamento alla versione più recente del pacchetto NuGet
+In base alla modalità di abilitazione di Snapshot Debugger, vedere le opzioni seguenti:
 
-Se Snapshot Debugger è stato abilitato tramite il [riquadro Application Insights nel portale](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), è necessario che l'applicazione esegua già il pacchetto NuGet più recente. Se Snapshot Debugger è stato abilitato includendo il pacchetto NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , usare Gestione pacchetti NuGet di Visual Studio per assicurarsi che si stia usando la versione più recente di Microsoft. ApplicationInsights. SnapshotCollector.
+* Se Snapshot Debugger è stato abilitato tramite il [riquadro Application Insights nel portale](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), è necessario che l'applicazione esegua già il pacchetto NuGet più recente.
+
+* Se Snapshot Debugger è stato abilitato includendo il pacchetto NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , usare Gestione pacchetti NuGet di Visual Studio per assicurarsi che si stia usando la versione più recente di Microsoft. ApplicationInsights. SnapshotCollector.
 
 Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla versione](./snapshot-collector-release-notes.md).
 
@@ -71,12 +95,12 @@ Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla
 Dopo la creazione di uno snapshot, un file di minidump (DMP) viene creato sul disco. Un processo di caricamento separato crea il file di minidump e lo carica, con i file PDB associati, nella risorsa di archiviazione Snapshot Debugger di Application Insights. Il minidump, dopo essere stato correttamente caricato, viene eliminato dal disco. I file di log per il processo di caricamento vengono conservati sul disco. In un ambiente del servizio app questi log si trovano in `D:\Home\LogFiles`. Usare il sito di gestione di Kudu per il servizio app per trovare questi file di log.
 
 1. Aprire l'applicazione del servizio app nel portale di Azure.
-2. Fare clic su _ * strumenti avanzati * * o cercare **Kudu**.
-3. Fare clic su **Vai**.
+2. Selezionare **strumenti avanzati** o cercare **Kudu**.
+3. Selezionare **Vai**.
 4. Nell'elenco a discesa **Console di debug** selezionare **CMD**.
-5. Fare clic su **LogFiles**.
+5. Selezionare **LogFiles**.
 
-Verrà visualizzato almeno un file con il nome che inizia con `Uploader_` o `SnapshotUploader_` e l'estensione `.log`. Fare clic sull'icona appropriata per scaricare i file di log o aprirli in un browser.
+Verrà visualizzato almeno un file con il nome che inizia con `Uploader_` o `SnapshotUploader_` e l'estensione `.log`. Selezionare l'icona appropriata per scaricare i file di log o aprirli in un browser.
 Il nome del file include un suffisso univoco che identifica l'istanza di Servizio app. Se l'istanza del servizio app è ospitata in più di un computer, è presente un file di log separato per ogni computer. Quando l'utilità di caricamento rileva un nuovo file di minidump, quest'ultimo viene registrato nel file di log. Ecco un esempio di snapshot e caricamento corretti:
 
 ```
@@ -108,7 +132,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 > L'esempio precedente è tratto dalla versione 1.2.0 del pacchetto NuGet Microsoft.ApplicationInsights.SnapshotCollector. Nelle versioni precedenti il processo di caricamento è denominato `MinidumpUploader.exe` e il log è meno dettagliato.
 
 Nell'esempio precedente la chiave di strumentazione è `c12a605e73c44346a984e00000000000`. Questo valore deve corrispondere alla chiave di strumentazione dell'applicazione.
-Il minidump è associato a uno snapshot con l'ID `139e411a23934dc0b9ea08a626db16c5`. Sarà possibile usare questo ID in seguito per individuare i dati di telemetria delle eccezioni associati in Application Insights Analytics.
+Il minidump è associato a uno snapshot con l'ID `139e411a23934dc0b9ea08a626db16c5`. Questo ID può essere usato in un secondo momento per individuare il record di eccezione associato in Application Insights Analytics.
 
 L'utilità di caricamento cerca i nuovi file PDB ogni 15 minuti circa. Ecco un esempio:
 
@@ -126,11 +150,14 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 Per le applicazioni _non_ ospitate nel servizio app, i log di caricamento sono nella stessa cartella dei minidump: `%TEMP%\Dumps\<ikey>` (dove `<ikey>` è la chiave di strumentazione).
 
 ## <a name="troubleshooting-cloud-services"></a>Risoluzione dei problemi di servizi cloud
-Per i ruoli nei servizi cloud, la cartella temporanea predefinita potrebbe essere troppo piccola per contenere i file di minidump, con conseguente perdita di snapshot.
+Nei servizi cloud la cartella temporanea predefinita potrebbe essere troppo piccola per contenere i file di minidump, causando la perdita di snapshot.
+
 Lo spazio necessario dipende dal working set totale dell'applicazione e dal numero di snapshot simultanei.
-Il working set di un ruolo Web ASP.NET a 32 bit è in genere compreso tra 200 MB e 500 MB.
-È necessario consentire almeno due snapshot simultanei.
-Se ad esempio l'applicazione usa 1 GB di working set totale, è necessario verificare che siano disponibili almeno 2 GB di spazio su disco per archiviare gli snapshot.
+
+Il working set di un ruolo Web ASP.NET a 32 bit è in genere compreso tra 200 MB e 500 MB. È necessario consentire almeno due snapshot simultanei.
+
+Se, ad esempio, l'applicazione USA 1 GB di working set totali, assicurarsi che siano presenti almeno 2 GB di spazio su disco per l'archiviazione degli snapshot.
+
 Seguire questi passaggi per configurare il ruolo del servizio cloud con una risorsa locale dedicata per gli snapshot.
 
 1. Aggiungere una nuova risorsa locale al servizio cloud modificando il file di definizione del servizio cloud (con estensione csdef). L'esempio seguente definisce una risorsa denominata `SnapshotStore` con una dimensione pari a 5 GB.
@@ -187,7 +214,7 @@ Snapshot Collector controlla alcuni percorsi noti, verificando di disporre delle
 - APPDATA
 - TEMP
 
-Se non viene trovata una cartella appropriata, Snapshot Collector segnala un errore del tipo _"Impossibile trovare una cartella di copia shadow idonea"._
+Se non è possibile trovare una cartella appropriata, Snapshot Collector segnala un errore che indica che _"non è stata trovata una cartella di copia shadow appropriata"._
 
 Se la copia ha esito negativo, Snapshot Collector segnala un errore `ShadowCopyFailed`.
 
@@ -222,24 +249,26 @@ In alternativa, se si usa appsettings.json con un'applicazione .NET Core:
 
 ## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usare la ricerca di Application Insights per trovare le eccezioni con gli snapshot
 
-Quando viene creato uno snapshot, l'eccezione generata viene contrassegnata con un ID snapshot. Tale ID snapshot viene incluso come proprietà personalizzata, quando i dati di telemetria dell'eccezione vengono segnalati ad Application Insights. Usando **Cerca** in Application Insights, è possibile trovare tutti i dati di telemetria con la proprietà personalizzata `ai.snapshot.id`.
+Quando viene creato uno snapshot, l'eccezione generata viene contrassegnata con un ID snapshot. Tale ID snapshot viene incluso come proprietà personalizzata quando l'eccezione viene segnalata Application Insights. Utilizzando **Cerca** in Application Insights, è possibile trovare tutti i record con la `ai.snapshot.id` proprietà personalizzata.
 
 1. Passare alla risorsa di Application Insights nel portale di Azure.
-2. Fare clic su **Cerca**.
+2. Selezionare **Cerca**.
 3. Digitare `ai.snapshot.id` nella casella di testo di ricerca e premere INVIO.
 
 ![Cercare i dati di telemetria con i ID snapshot nel portale](./media/snapshot-debugger/search-snapshot-portal.png)
 
-Se questa ricerca non restituisce risultati, significa che nessuno snapshot è stato segnalato ad Application Insights per l'applicazione nell'intervallo di tempo selezionato.
+Se la ricerca non restituisce alcun risultato, non è stato segnalato alcun snapshot per Application Insights nell'intervallo di tempo selezionato.
 
-Per cercare uno specifico ID snapshot dei log di caricamento, digitare tale ID nella casella di ricerca. Se non è possibile trovare dati di telemetria per uno snapshot che è stato sicuramente caricato, seguire questa procedura:
+Per cercare uno specifico ID snapshot dei log di caricamento, digitare tale ID nella casella di ricerca. Se non è possibile trovare i record per uno snapshot che si conosce è stato caricato, attenersi alla procedura seguente:
 
 1. Controllare di esaminare la risorsa di Application Insights corretta verificando la chiave di strumentazione.
 
 2. Usando il timestamp del log di caricamento, modificare il filtro Intervallo di tempo della ricerca per coprire tale intervallo di tempo.
 
-Se ancora non vengono visualizzate eccezioni con tale ID snapshot, significa che i dati di telemetria dell'eccezione non sono stati segnalati ad Application Insights. Questa situazione si può verificare se l'applicazione ha subito un arresto anomalo del sistema dopo avere acquisito lo snapshot, ma prima di segnalare i dati di telemetria dell'eccezione. In questo caso, controllare i log del servizio app in `Diagnose and solve problems` per accertare se si sono verificati riavvi non previsti o eccezioni non gestite.
+Se non viene ancora visualizzata un'eccezione con l'ID dello snapshot, il record di eccezione non è stato segnalato per Application Insights. Questa situazione può verificarsi se l'applicazione si è arrestata in modo anomalo dopo che ha eseguito lo snapshot, ma prima di aver segnalato il record di eccezione. In questo caso, controllare i log del servizio app in `Diagnose and solve problems` per accertare se si sono verificati riavvi non previsti o eccezioni non gestite.
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Modificare le regole proxy o firewall di rete
 
-Se l'applicazione si connette a Internet tramite un proxy o un firewall, può essere necessario modificare le regole per consentire all'applicazione di comunicare con il servizio Snapshot Debugger. Gli IP usati da Snapshot Debugger sono inclusi nel tag del servizio di monitoraggio di Azure.
+Se l'applicazione si connette a Internet tramite un proxy o un firewall, potrebbe essere necessario aggiornare le regole per comunicare con il servizio Snapshot Debugger.
+
+Gli indirizzi IP usati da Application Insights Snapshot Debugger sono inclusi nel tag del servizio di monitoraggio di Azure. Per ulteriori informazioni, vedere la [documentazione dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 03f2109a32cd8a8c2643f3c2aa74900f4edd1cee
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 3f71cef19d25a7f987af4147ae0a889280e49bd1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852847"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563161"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -23,6 +23,8 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 ## <a name="november-2020"></a>Novembre 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
+
+**È ora disponibile l'anteprima pubblica di form Recognizer v 2.1.** V 2.1-Preview. 2 è stato rilasciato, incluse le funzionalità seguenti: 
 
 - **Nuovo modello di fatturazione predefinito** : il nuovo modello di fatturazione predefinito consente ai clienti di ottenere fatture in diversi formati e restituire dati strutturati per automatizzare l'elaborazione della fattura. Combina le potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con la comprensione dei modelli di apprendimento avanzato per estrarre le informazioni chiave dalle fatture in inglese. Estrae il testo, le tabelle e le informazioni, ad esempio cliente, fornitore, ID fattura, data di scadenza della fattura, totale, importo dovuto, importo imposta, spedizione, fatturazione e altro ancora.
 
@@ -37,7 +39,7 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
  
   > [Altre informazioni sull'estrazione del layout](concept-layout.md)
 
-- **Aggiornamento della libreria client** : la versione più recente delle [librerie client](quickstarts/client-library.md) per .NET, Python, Java e JavaScript supportano l'API Recognizer 2,1 del modulo.
+- **Aggiornamento della libreria client** : le versioni più recenti delle [librerie client](quickstarts/client-library.md) per .NET, Python, Java e JavaScript supportano l'API Recognizer 2,1 del modulo.
 - **Nuovo linguaggio supportato: giapponese** : sono ora supportate le nuove lingue seguenti: per `AnalyzeLayout` e `AnalyzeCustomForm` : Japanese ( `ja` ). [Lingue supportate](language-support.md)
 - **Indicazione dello stile della linea di testo (manoscritta/altro) (solo lingue latine)** : il riconoscitore di form ora restituisce un `appearance` oggetto che classifica se ogni riga di testo è di tipo manoscritto o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine.
 - **Miglioramenti della qualità** : miglioramenti dell'estrazione, inclusi i miglioramenti dell'estrazione a una sola cifra.

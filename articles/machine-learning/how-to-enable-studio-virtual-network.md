@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 8dc8446ecbc203622ce7c2163136c1c26aac1cc7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032729"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559540"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -67,7 +67,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita dall'area di lavoro
 
@@ -89,7 +89,9 @@ Questi passaggi aggiungono l'identità gestita dell'area di lavoro come __lettor
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Abilitare l'autenticazione dell'identità gestita per gli account di archiviazione predefiniti
 
-Ogni area di lavoro Azure Machine Learning viene fornita con due account di archiviazione predefiniti, che vengono definiti quando si crea l'area di lavoro. Lo studio usa gli account di archiviazione predefiniti per archiviare gli artefatti dell'esperimento e del modello, che sono fondamentali per determinate funzionalità in studio.
+Ogni area di lavoro Azure Machine Learning dispone di due account di archiviazione predefiniti, un account di archiviazione BLOB predefinito e un account di archiviazione file predefinito, che vengono definiti quando si crea l'area di lavoro. È anche possibile impostare nuove impostazioni predefinite nella pagina di gestione dell' **archivio dati** .
+
+![Screenshot che mostra la posizione in cui è possibile trovare gli archivi dati predefiniti](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 La tabella seguente descrive il motivo per cui è necessario abilitare l'autenticazione dell'identità gestita per gli account di archiviazione predefiniti dell'area di lavoro.
 
@@ -98,8 +100,12 @@ La tabella seguente descrive il motivo per cui è necessario abilitare l'autenti
 |Archivio BLOB predefinito dell'area di lavoro| Archivia gli asset del modello dalla finestra di progettazione. Per distribuire i modelli nella finestra di progettazione, è necessario abilitare l'autenticazione dell'identità gestita in questo account di archiviazione. <br> <br> È possibile visualizzare ed eseguire una pipeline di progettazione se utilizza un archivio dati non predefinito configurato per l'utilizzo dell'identità gestita. Tuttavia, se si tenta di distribuire un modello sottoposto a training senza l'identità gestita abilitata nell'archivio dati predefinito, la distribuzione avrà esito negativo indipendentemente da qualsiasi altro archivio dati in uso.|
 |Archivio file predefinito dell'area di lavoro| Archivia le risorse dell'esperimento AutoML. Per inviare esperimenti AutoML, è necessario abilitare l'autenticazione dell'identità gestita in questo account di archiviazione. |
 
-
-![Screenshot che mostra la posizione in cui è possibile trovare gli archivi dati predefiniti](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+> [!WARNING]
+> Esiste un problema noto in cui l'archivio file predefinito non crea automaticamente la `azureml-filestore` cartella, necessaria per inviare esperimenti AutoML. Questo errore si verifica quando gli utenti portano un archivio file esistente da impostare come file di archivio predefinito durante la creazione dell'area di lavoro.
+> 
+> Per evitare questo problema, sono disponibili due opzioni: 1) utilizzare il file archivio predefinito creato automaticamente per la creazione dell'area di lavoro. 2) per portare il proprio archivio file, assicurarsi che l'archivio dei file si trovi al di fuori di VNet durante la creazione dell'area di lavoro. Dopo aver creato l'area di lavoro, aggiungere l'account di archiviazione alla rete virtuale.
+>
+> Per risolvere questo problema, rimuovere l'account FileStore dalla rete virtuale, quindi aggiungerlo di nuovo alla rete virtuale.
 
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concessione dell'accesso al __lettore__ di identità gestito dell'area di lavoro al collegamento privato di archiviazione

@@ -1,26 +1,26 @@
 ---
 title: 'Azure ExpressRoute: reimpostare il peering del circuito'
-description: Informazioni su come disabilitare e abilitare i peering di un circuito ExpressRoute di Azure usando Azure PowerShell. Quando si configurano i peering, sono abilitati per impostazione predefinita.
+description: Informazioni su come abilitare e disabilitare i peering per un circuito ExpressRoute di Azure usando Azure PowerShell.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/13/2018
+ms.date: 12/15/2020
 ms.author: duau
-ms.openlocfilehash: f3b34966aa46ca8d663f83ab2aceafa4b0dda2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bde96ae5f4a9aff6f4a16a4f1544d9b39e5cb66
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395741"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559574"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Reimpostare i peering del circuito ExpressRoute
 
-Questo articolo descrive come abilitare e disabilitare i peering di un circuito ExpressRoute tramite PowerShell. Quando si disabilita un peering, la sessione BGP viene arrestata sia nella connessione primaria sia nella connessione secondaria del circuito ExpressRoute. Si perde la connettività con questo peering a Microsoft. Quando si abilita un peering, la sessione BGP viene attivata sia nella connessione primaria sia nella connessione secondaria del circuito ExpressRoute. Si riottiene la connettività con questo peering a Microsoft. È possibile abilitare e disabilitare in modo indipendente il peering Microsoft e il peering privato di Azure in un circuito ExpressRoute. Quando si configurano i peering nel circuito ExpressRoute per la prima volta, i peering sono abilitati per impostazione predefinita.
+Questo articolo descrive come abilitare e disabilitare i peering di un circuito ExpressRoute usando PowerShell. I peering sono abilitati per impostazione predefinita quando vengono creati. Quando si disabilita un peering, la sessione BGP nella connessione primaria e secondaria del circuito ExpressRoute verrà arrestata. Si perderà la connettività per questo peering a Microsoft. Quando si Abilita un peering, verrà stabilita la sessione BGP nella connessione primaria e secondaria del circuito ExpressRoute. Per questo peering verrà ripristinata la connettività a Microsoft. È possibile abilitare e disabilitare il peering per il peering Microsoft e il peering privato di Azure indipendentemente dal circuito ExpressRoute.
 
-La reimpostazione dei peering ExpressRoute può essere utile in un paio di scenari.
-* Esecuzione di test della progettazione e dell'implementazione del ripristino di emergenza. Ad esempio, sono presenti due circuiti ExpressRoute. È possibile disabilitare i peering di un circuito e forzare il failover del traffico di rete nell'altro circuito.
-* Abilitare il rilevamento di inoltri bidirezionali (BFD) nel peering privato di Azure o nel peering Microsoft del circuito ExpressRoute. BFD è abilitato per impostazione predefinita nel peering privato di Azure se il circuito ExpressRoute viene creato dopo il 1 2018 agosto e nel peering Microsoft se il circuito ExpressRoute è stato creato dopo il gennaio 10 2020. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. 
+Esistono due scenari in cui può risultare utile reimpostare i peering di ExpressRoute.
+* Se si vuole testare la progettazione e l'implementazione del ripristino di emergenza. Ad esempio, sono presenti due circuiti ExpressRoute. È possibile disabilitare i peering in un circuito e forzare il failover del traffico di rete sull'altro circuito.
+* Abilitare il rilevamento di inoltri bidirezionali (BFD) nel peering privato di Azure o nel peering Microsoft del circuito ExpressRoute. BFD viene abilitato per impostazione predefinita nel peering privato di Azure se il circuito ExpressRoute è stato creato dopo il 1 ° agosto 2018 e per il peering Microsoft dopo il 10 gennaio 2020. Se il circuito è stato creato prima della data elencata, sarà necessario reimpostare il peering per abilitare BFD. 
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 
@@ -142,6 +142,6 @@ La reimpostazione dei peering ExpressRoute può essere utile in un paio di scena
    Lo stato del peering deve essere quello impostato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se sono necessarie informazioni per la risoluzione di un problema relativo a ExpressRoute, vedere gli articoli seguenti:
+Per informazioni sulla risoluzione di un problema ExpressRoute, vedere gli articoli seguenti:
 * [Verifica della connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Risoluzione dei problemi di prestazioni di rete](expressroute-troubleshooting-network-performance.md)

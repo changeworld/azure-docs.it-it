@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025943"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561223"
 ---
 # <a name="testing-for-luis-devops"></a>Test per DevOps LUIS
 
@@ -18,7 +18,7 @@ I tecnici software che stanno sviluppando un'app Language Understanding (LUIS) p
 
 Nelle metodologie Agile Software Development il test svolge un ruolo integrale nella creazione di software di qualità. Ogni modifica significativa a un'app LUIS deve essere accompagnata da test progettati per testare le nuove funzionalità che lo sviluppatore sta creando nell'app. Questi test vengono archiviati nel repository del codice sorgente insieme all' `.lu` origine dell'app Luis. L'implementazione della modifica è terminata quando l'app soddisfa i test.
 
-I test sono una parte essenziale dei [flussi di lavoro ci/CD](luis-concept-devops-automation.md). Quando le modifiche apportate a un'app LUIS vengono proposte in una richiesta pull (PR) o dopo l'Unione delle modifiche nel ramo master, i flussi di lavoro CI devono eseguire i test per verificare che gli aggiornamenti non abbiano causato alcuna regressione.
+I test sono una parte essenziale dei [flussi di lavoro ci/CD](luis-concept-devops-automation.md). Quando le modifiche apportate a un'app LUIS vengono proposte in una richiesta pull (PR) o dopo che le modifiche sono state unite nel ramo principale, i flussi di lavoro CI devono eseguire i test per verificare che gli aggiornamenti non abbiano causato regressioni.
 
 ## <a name="how-to-do-unit-testing-and-batch-testing"></a>Come eseguire unit test e test batch
 
@@ -123,7 +123,7 @@ Le funzionalità di test disponibili nel portale LUIS non richiedono un endpoint
 È anche possibile usare NLU. Pacchetto DevOps per l'esecuzione di test batch dalla riga di comando.
 
 * Usare NLU. [Comando di test](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) di DevOps per inviare i test da un file di test a un endpoint e acquisire i risultati di stima effettivi in un file, come con gli unit test.
-* Usare NLU. [Comando DevOps compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) in [modalità di test delle prestazioni](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) per misurare le prestazioni dell'app. è anche possibile confrontare le prestazioni dell'app con un benchmark delle prestazioni di base, ad esempio i risultati dell'ultimo commit al master o la versione corrente. In modalità di test delle prestazioni, il `compare` comando genera l'output del test NUnit e [i risultati del test batch](./luis-glossary.md#batch-test) in formato JSON.
+* Usare NLU. [Comando DevOps compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) in [modalità di test delle prestazioni](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) per misurare le prestazioni dell'app. è anche possibile confrontare le prestazioni dell'app con un benchmark delle prestazioni di base, ad esempio i risultati del commit più recente alla versione principale o corrente. In modalità di test delle prestazioni, il `compare` comando genera l'output del test NUnit e [i risultati del test batch](./luis-glossary.md#batch-test) in formato JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>Formazione non deterministica LUIS e effetto sui test
 

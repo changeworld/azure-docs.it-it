@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903004"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561903"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Domande frequenti sui modelli ARM
 
@@ -154,7 +154,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Quando si usa simulazione, vengono visualizzate le modifiche apportate alle proprietà che non sono presenti nel modello. Si tratta di un "rumore" previsto?**
 
-  Cosa-se è in anteprima. Stiamo lavorando per ridurre il rumore. Per contribuire a migliorare inviando i problemi nel repository GitHub, vedere: https://aka.ms/WhatIfIssues
+  Stiamo lavorando per ridurre il rumore. Per contribuire a migliorare inviando i problemi nel repository GitHub, vedere: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Visualizzatore modelli
 

@@ -1,19 +1,19 @@
 ---
 title: 'Azure ExpressRoute: tabelle ARP-risoluzione dei problemi'
-description: Questa pagina fornisce istruzioni su come ottenere tabelle ARP tabelle per un circuito ExpressRoute
+description: Questa pagina fornisce istruzioni per ottenere le tabelle ARP (Address Resolution Protocol) per un circuito ExpressRoute
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 01/30/2017
+ms.date: 12/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9272bb8bac2054d7a02a7eac8c214395a86ceebf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8ae2c58979c66ebbbab366d172179bdeee4253
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394857"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561580"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Questo articolo illustra i passaggi per apprendere le tabelle ARP per il circuit
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP (Address Resolution Protocol) e tabelle ARP
 ARP (Address Resolution Protocol) è un protocollo di livello 2 definito in [RFC 826](https://tools.ietf.org/html/rfc826). Il protocollo ARP viene usato per mappare l'indirizzo Ethernet (indirizzo MAC) con un indirizzo IP.
 
-La tabella ARP fornisce un mapping dell'indirizzo ipv4 e dell'indirizzo MAC per un particolare peering. La tabella ARP del peering di un circuito ExpressRoute fornisce le informazioni seguenti per ogni interfaccia (primaria e secondaria):
+La tabella ARP fornisce le informazioni seguenti per le interfacce primarie e secondarie per ogni tipo di peering:
 
 1. Mapping dell'indirizzo IP dell'interfaccia del router locale all'indirizzo MAC
 2. Mapping dell'indirizzo IP dell'interfaccia del router di ExpressRoute all'indirizzo MAC
@@ -55,10 +55,10 @@ Age InterfaceProperty IpAddress  MacAddress
 La sezione seguente fornisce informazioni su come visualizzare le tabelle ARP visualizzate tramite i router perimetrali di ExpressRoute. 
 
 ## <a name="prerequisites-for-learning-arp-tables"></a>Prerequisiti per l'apprendimento delle tabelle ARP
-Prima di procedere, verificare che siano presenti gli elementi seguenti:
+Prima di procedere, verificare che le informazioni seguenti siano vere:
 
-* Un circuito ExpressRoute valido configurato con almeno un peer. Il circuito deve essere completamente configurato dal provider di connettività. L'utente o il provider di connettività deve aver configurato almeno un peer (privato di Azure, pubblico di Azure e Microsoft) su questo circuito.
-* Gli intervalli degli indirizzi IP usati per la configurazione del peer (privato di Azure, pubblico di Azure e Microsoft). Consultare gli esempi di assegnazione dell'indirizzo IP in [Requisiti per il routing di ExpressRoute](expressroute-routing.md) per ottenere informazioni sul mapping degli indirizzi IP verso le interfacce sul lato utente e sul lato ExpressRoute. È possibile ottenere informazioni sulla configurazione del peering consultando la [pagina sulla configurazione del peering di ExpressRoute](expressroute-howto-routing-arm.md).
+* Un circuito ExpressRoute valido configurato con almeno un peering. Il circuito deve essere completamente configurato dal provider di connettività. È necessario che l'utente o il provider di connettività abbia configurato almeno il peering privato di Azure, pubblico di Azure o Microsoft su questo circuito.
+* Intervalli di indirizzi IP usati per configurare i peering. Esaminare gli esempi di assegnazione di indirizzi IP nella [pagina requisiti](expressroute-routing.md) per il routing di ExpressRoute per capire come viene eseguito il mapping degli indirizzi IP alle interfacce. È possibile ottenere informazioni sulla configurazione del peering consultando la [pagina sulla configurazione del peering di ExpressRoute](expressroute-howto-routing-arm.md).
 * Informazioni dal team di rete/provider di connettività sugli indirizzi MAC delle interfacce usate con questi indirizzi IP.
 * È necessario disporre del modulo PowerShell più recente per Azure (versione 1.50 o successiva).
 
@@ -151,10 +151,10 @@ Age InterfaceProperty IpAddress  MacAddress
 La tabella ARP di un peer può essere usata per determinare la connettività e la configurazione di livello 2 valide. Questa sezione offre una panoramica dell'aspetto delle tabelle ARP in scenari diversi.
 
 ### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Tabella ARP quando un circuito è in stato operativo (stato previsto)
-* La tabella ARP conterrà una voce per il lato locale con un indirizzo IP e un indirizzo MAC valido e una voce simile per il lato Microsoft. 
+* La tabella ARP avrà una voce per il lato locale con un indirizzo IP e un indirizzo MAC validi. Lo stesso può essere visualizzato per il lato Microsoft. 
 * L'ultimo ottetto dell'indirizzo IP locale sarà sempre un numero dispari.
 * L'ultimo ottetto dell'indirizzo IP Microsoft sarà sempre un numero pari.
-* Lo stesso indirizzo MAC verrà visualizzato sul lato Microsoft per tutti i 3 peer (principale/secondario). 
+* Lo stesso indirizzo MAC verrà visualizzato sul lato Microsoft per tutti e tre i peering (primario/secondario). 
 
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
@@ -164,23 +164,21 @@ Age InterfaceProperty IpAddress  MacAddress
 ```
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabella ARP quando il lato locale/provider di connettività presenta problemi
-Se si verificano problemi con il provider locale o di connettività, è possibile che venga visualizzata una sola voce nella tabella ARP o che l'indirizzo MAC locale visualizzi incompleto. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
+Se si verifica un problema con il provider locale o di connettività, nella tabella ARP viene visualizzato uno dei due elementi seguenti. Si noterà che l'indirizzo MAC locale è incompleto o è possibile visualizzare solo la voce Microsoft nella tabella ARP.
   
-```output
-Age InterfaceProperty IpAddress  MacAddress    
---- ----------------- ---------  ----------    
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
-```
-
-oppure
-       
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------   
   0 On-Prem           65.0.0.1   Incomplete
   0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 ```
-
+oppure
+   
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```  
 
 > [!NOTE]
 > Aprire una richiesta di supporto al provider di connettività per il debug di questi problemi. Se la tabella ARP non dispone di indirizzi IP delle interfacce associate agli indirizzi MAC, esaminare le informazioni seguenti:
@@ -190,13 +188,13 @@ Age InterfaceProperty IpAddress  MacAddress
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Tabella ARP quando il lato Microsoft presenta problemi
-* Se sono presenti problemi sul lato Microsoft, non verrà visualizzata la tabella ARP illustrata per il peering. 
+* Se si verificano problemi sul lato Microsoft, non verrà visualizzata una tabella ARP per un peering. 
 * Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specificare che si è riscontrato un problema di connettività di livello 2. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Convalidare le configurazioni di livello 3 per il circuito ExpressRoute
-  * Ottenere un riepilogo del routing per determinare lo stato delle sessioni BGP 
-  * Ottenere la tabella del routing per stabilire i prefissi pubblicati in ExpressRoute
-* Convalidare il trasferimento dei dati controllando i byte in ingresso/uscita
-* Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se continuano a verificarsi problemi.
+* Convalidare le configurazioni di livello 3 per il circuito ExpressRoute.
+  * Ottenere il riepilogo della route per determinare lo stato delle sessioni BGP.
+  * Ottenere la tabella di route per determinare quali prefissi sono annunciati tra ExpressRoute.
+* Convalidare il trasferimento dei dati riesaminando i byte in/out.
+* Se si verificano ancora problemi, aprire un ticket di supporto con il [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 

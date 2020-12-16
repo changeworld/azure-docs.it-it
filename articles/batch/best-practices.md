@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1eaa34e02a4c505691662e9fc29334cb823a3185
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f19fceca0212bd0a05d7caa311403b173c19de5
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511213"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563178"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -143,7 +143,7 @@ Come per le altre attività, l'[attività di avvio](jobs-and-tasks.md#start-task
 
 ### <a name="isolated-nodes"></a>Nodi isolati
 
-Valutare la possibilità di usare dimensioni di VM isolate per carichi di lavoro con requisiti di conformità o normativi. Le dimensioni isolate supportate in modalità di configurazione macchina virtuale includono `Standard_E64i_v3` ,, `Standard_E80ids_v4` `Standard_F72s_v2` , `Standard_G5` , `Standard_GS5` e `Standard_M128ms` . Per altre informazioni sulle dimensioni delle VM isolate, vedere [isolamento delle macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Si consiglia di usare dimensioni di VM isolate per i carichi di lavoro con requisiti di conformità o normativi. Le dimensioni isolate supportate in modalità di configurazione macchina virtuale includono `Standard_E80ids_v4` ,, `Standard_M128ms` `Standard_F72s_v2` , `Standard_G5` , `Standard_GS5` e `Standard_E64i_v3` . Per altre informazioni sulle dimensioni delle VM isolate, vedere [isolamento delle macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gestire i servizi a esecuzione prolungata tramite l'interfaccia dei servizi del sistema operativo
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 12/15/2020
 ms.author: aahi
-ms.openlocfilehash: 39823792a438e533134f38c04e72f2c314c57678
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e5d25e71e4700f3f327319e4f444d2060c7ab5f6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505189"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561886"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Esempio: come estrarre frasi chiave usando Analisi del testo
 
@@ -37,7 +37,12 @@ L'estrazione di frasi chiave risulta più efficiente quando si elaborano grandi 
 
 È necessario disporre di documenti JSON nel formato seguente: ID, testo, lingua
 
-Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento e ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare per l'estrazione di espressioni chiave.
+Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento e ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare per l'estrazione di espressioni chiave. 
+
+Per ulteriori informazioni sugli oggetti di richiesta e risposta, vedere [come chiamare il API analisi del testo](text-analytics-how-to-call-api.md) .  
+
+### <a name="example-synchronous-request-object"></a>Esempio di oggetto di richiesta sincrona
+
 
 ```json
     {
@@ -71,13 +76,43 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
     }
 ```
 
+### <a name="example-asynchronous-request-object"></a>Esempio di oggetto Request asincrono
+
+A partire da `v3.1-preview.3` , è possibile inviare richieste ner in modo asincrono usando l' `/analyze` endpoint.
+
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "keyPhraseExtractionTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }],
+    }
+}
+```
+
 ## <a name="step-1-structure-the-request"></a>Passaggio 1: Strutturare la richiesta
 
 Per informazioni sulla definizione della richiesta, vedere [Come chiamare l'API Analisi del testo](text-analytics-how-to-call-api.md). Per comodità si ridefiniscono i punti seguenti:
 
 + Creare una richiesta **post** . Vedere la documentazione dell'API per questa richiesta: [API frasi chiave](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Impostare l'endpoint HTTP per l'estrazione delle frasi chiave usando una risorsa di Analisi del testo in Azure oppure un'istanza di un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). È necessario includere `/text/analytics/v3.0/keyPhrases` nell'URL. Ad esempio: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Impostare l'endpoint HTTP per l'estrazione delle frasi chiave usando una risorsa di Analisi del testo in Azure oppure un'istanza di un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). Se si usa l'API in modo sincrono, è necessario includere `/text/analytics/v3.0/keyPhrases` nell'URL. Ad esempio: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Impostare un'intestazione della richiesta in modo da includere la [chiave di accesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) per le operazioni di Analisi del testo.
 
@@ -99,6 +134,8 @@ Tutte le richieste POST restituiscono una risposta JSON formattata con gli ID e 
 L'output viene restituito immediatamente. Si possono trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale e quindi importarlo in un'applicazione che consente di ordinare, cercare e modificare i dati.
 
 Di seguito è riportato un esempio dell'output per l'estrazione di frasi chiave dall'endpoint v 3.1-Preview. 2:
+
+### <a name="synchronous-result"></a>Risultato sincrono
 
 ```json
     {
@@ -160,13 +197,68 @@ Di seguito è riportato un esempio dell'output per l'estrazione di frasi chiave 
 ```
 Come indicato, l'analizzatore trova e rimuove le parole non essenziali e mantiene singoli termini o frasi che sembrano essere il soggetto o l'oggetto di una frase.
 
+### <a name="asynchronous-result"></a>Risultato asincrono
+
+Se si usa l' `/analyze` endpoint per l'operazione asincrona, si otterrà una risposta contenente le attività inviate all'API.
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
+
 ## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per l'estrazione di frasi chiave tramite Analisi del testo in Servizi cognitivi. In sintesi:
 
 + L'[API Estrazione frasi chiave](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) è disponibile per le lingue selezionate.
 + I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
-+ La richiesta POST è a un endpoint `/keyphrases`, usando [una chiave di accesso e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizzati validi per la sottoscrizione.
++ La richiesta POST è a `/keyphrases` un `/analyze` endpoint o, usando una [chiave di accesso personalizzata e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) valido per la sottoscrizione.
 + L'output di risposta, costituito da parole o frasi chiave per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Microsoft Office Excel e Power BI, solo per citarne alcune.
 
 ## <a name="see-also"></a>Vedere anche

@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 277e6616ce1bf90ada83516cb71f9cb55de1b7b0
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516808"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563025"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -80,9 +80,9 @@ Per garantire la sicurezza dei dati in transito verso Azure, è consigliabile co
 
 ### <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
 
-L'agente Connected Machine per Linux e Windows comunica in modo sicuro in uscita con Azure Arc sulla porta TCP 443. Se la macchina virtuale si connette tramite un firewall o un server proxy per comunicare in Internet, vedere i requisiti seguenti per comprendere quale configurazione di rete è necessaria.
+L'agente Connected Machine per Linux e Windows comunica in modo sicuro in uscita con Azure Arc sulla porta TCP 443. Se il computer si connette tramite un firewall o un server proxy per la comunicazione tramite Internet, esaminare quanto segue per conoscere i requisiti di configurazione di rete.
 
-Se la connettività in uscita è limitata dal firewall o dal server proxy, verificare che gli URL elencati di seguito non siano bloccati. Se si accettano solo gli intervalli IP o i nomi di dominio necessari per la comunicazione dell'agente con il servizio, è necessario anche consentire l'accesso agli URL e ai tag del servizio seguenti.
+Se la connettività in uscita è limitata dal firewall o dal server proxy, verificare che gli URL elencati di seguito non siano bloccati. Quando si concedono solo gli intervalli IP o i nomi di dominio necessari per la comunicazione dell'agente con il servizio, è necessario consentire l'accesso ai seguenti tag e URL del servizio.
 
 Tag del servizio:
 
@@ -181,8 +181,9 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
     |Nome servizio |Nome visualizzato |Nome del processo |Descrizione |
     |-------------|-------------|-------------|------------|
-    |himds |Servizio metadati dell'istanza di Azure Hybrid |himds.exe |Questo servizio implementa il servizio metadati dell'istanza di Azure (IMDS) per gestire la connessione ad Azure e l'identità di Azure del computer connesso.|
-    |DscService |Servizio di configurazione guest |dsc_service.exe |La codebase DSC (Desired state Configuration) usata all'interno di Azure per implementare i criteri di In-Guest.|
+    |himds |Servizio metadati dell'istanza di Azure Hybrid |himds |Questo servizio implementa il servizio metadati dell'istanza di Azure (IMDS) per gestire la connessione ad Azure e l'identità di Azure del computer connesso.|
+    |GCArcService |Servizio Arc di configurazione Guest |gc_service |Monitora la configurazione dello stato desiderato del computer.|
+    |ExtensionService |Servizio estensione configurazione Guest | gc_service |Installa le estensioni necessarie destinate al computer.|
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti.
 
@@ -232,8 +233,9 @@ Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate 
 
     |Nome servizio |Nome visualizzato |Nome del processo |Descrizione |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Servizio metadati dell'istanza di Azure Hybrid |/opt/azcmagent/bin/himds |Questo servizio implementa il servizio metadati dell'istanza di Azure (IMDS) per gestire la connessione ad Azure e l'identità di Azure del computer connesso.|
-    |dscd.service |Servizio di configurazione guest |/opt/DSC/dsc_linux_service |Si tratta della codebase Desired State Configuration (DSC v2) usata in Azure per implementare i criteri nel guest.|
+    |himdsd.service |Servizio Agente computer connesso di Azure |himds |Questo servizio implementa il servizio metadati dell'istanza di Azure (IMDS) per gestire la connessione ad Azure e l'identità di Azure del computer connesso.|
+    |GCAD. servce |Servizio GC Arc |gc_linux_service |Monitora la configurazione dello stato desiderato del computer. |
+    |extd. Service |Servizio di estensione |gc_linux_service | Installa le estensioni necessarie destinate al computer.|
 
 * Sono disponibili diversi file di log per la risoluzione dei problemi. descritti nella tabella seguente.
 

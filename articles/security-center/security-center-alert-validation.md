@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 999888b12f10c07f7d42f14289e88030f9542a36
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340819"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560102"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Convalida degli avvisi nel centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
@@ -27,7 +27,42 @@ Questo documento illustra come verificare che il sistema sia configurato corrett
 Gli avvisi sono le notifiche generate dal Centro sicurezza quando rileva minacce per le risorse. Assegna priorità ed elenca gli avvisi insieme alle informazioni necessarie per analizzare rapidamente il problema. Il Centro sicurezza offre anche raccomandazioni per la risoluzione di un attacco.
 Per altre informazioni, vedere [avvisi di sicurezza nel centro sicurezza](security-center-alerts-overview.md) e [gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
 
-## <a name="validate-alerts-on-windows-vms"></a>Convalidare gli avvisi per le macchine virtuali Windows <a name="validate-windows"></a>
+
+## <a name="generate-sample-azure-defender-alerts"></a>Genera gli avvisi di Azure Defender di esempio
+
+Se si usa la nuova esperienza di anteprima degli avvisi come descritto in [gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md), è possibile creare avvisi di esempio in pochi clic dalla pagina degli avvisi di sicurezza nella portale di Azure.
+
+Usare gli avvisi di esempio per:
+
+- valutare il valore e le funzionalità di Azure Defender
+- convalidare le configurazioni effettuate per gli avvisi di sicurezza, ad esempio le integrazioni SIEM, l'automazione del flusso di lavoro e le notifiche tramite posta elettronica.
+
+> [!NOTE]
+> Questa procedura richiede la nuova esperienza di avvisi (anteprima) disponibile dal banner nella parte superiore della pagina degli **avvisi di sicurezza** .
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner con collegamento alla nuova esperienza avvisi di anteprima":::
+
+Per creare avvisi di esempio:
+
+1. Nella barra degli strumenti della pagina avvisi selezionare **Crea avvisi di esempio**. 
+1. Selezionare la sottoscrizione.
+1. Selezionare il piano/i pertinente di Azure Defender per il quale si desidera visualizzare gli avvisi. 
+1. Selezionare **Crea avvisi di esempio**.
+
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Procedura per creare avvisi di esempio nel centro sicurezza di Azure":::
+    
+    Viene visualizzata una notifica che informa che è in corso la creazione degli avvisi di esempio:
+
+    :::image type="content" source="media/security-center-alert-validation/notification-sample-alerts-creation.png" alt-text="Notifica che vengono generati gli avvisi di esempio.":::
+
+    Dopo alcuni minuti, gli avvisi vengono visualizzati nella pagina avvisi di sicurezza. Verranno visualizzati anche in qualsiasi altra posizione configurata per ricevere gli avvisi di sicurezza del Centro sicurezza di Azure (connessione SIEMs, notifiche tramite posta elettronica e così via).
+
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Avvisi di esempio nell'elenco degli avvisi di sicurezza":::
+
+    > [!TIP]
+    > Gli avvisi sono per le risorse simulate.
+
+## <a name="simulate-alerts-on-your-azure-vms-windows"></a>Simulare gli avvisi nelle VM di Azure (Windows) <a name="validate-windows"></a>
 
 Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla seguente procedura dal computer in cui si vuole essere la risorsa attaccata dell'avviso:
 
@@ -40,7 +75,7 @@ Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla 
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## <a name="validate-alerts-on-linux-vms"></a>Convalidare gli avvisi nelle VM Linux <a name="validate-linux"></a>
+## <a name="simulate-alerts-on-your-azure-vms-linux"></a>Simulare gli avvisi nelle VM di Azure (Linux) <a name="validate-linux"></a>
 
 Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla seguente procedura dal computer in cui si vuole essere la risorsa attaccata dell'avviso:
 1. Copiare un eseguibile in un percorso appropriato e rinominarlo in **./asc_alerttest_662jfi039n**, ad esempio:
@@ -54,7 +89,7 @@ Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla 
 1. Attendere da 5 a 10 minuti e aprire gli avvisi del Centro sicurezza. Verrà visualizzato un avviso.
 
 
-## <a name="validate-alerts-on-kubernetes"></a>Convalidare gli avvisi in Kubernetes <a name="validate-kubernetes"></a>
+## <a name="simulate-alerts-on-kubernetes"></a>Simulare gli avvisi in Kubernetes <a name="validate-kubernetes"></a>
 
 Se il servizio Azure Kubernetes è stato integrato con il Centro sicurezza, è possibile verificare che gli avvisi funzionino con il comando kubectl seguente:
 

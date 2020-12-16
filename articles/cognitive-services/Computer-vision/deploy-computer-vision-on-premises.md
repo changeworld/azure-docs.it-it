@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: dce8893cac156ce2941652e32409357cb8ec3b1a
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d79c52c05d09eedab2dd964acb544c9cdb405380
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96015316"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562600"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usare Visione artificiale contenitore con Kubernetes e Helm
 
@@ -27,7 +27,7 @@ I prerequisiti seguenti prima di usare Visione artificiale contenitori in locale
 
 | Necessario | Scopo |
 |----------|---------|
-| Account Azure | Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito][free-azure-account]. |
+| Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
 | INTERFACCIA della riga di comando Kubernetes | L' [interfaccia][kubernetes-cli] della riga di comando di Kubernetes è necessaria per gestire le credenziali condivise dal registro contenitori. Kubernetes è necessario anche prima di Helm, ovvero Kubernetes Package Manager. |
 | Interfaccia della riga di comando di Helm | Installare l' [interfaccia][helm-install]della riga di comando di Helm, che viene usata per installare un grafico Helm (definizione del pacchetto del contenitore). |
 | Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
@@ -166,6 +166,9 @@ spec:
 ```
 
 Nella stessa cartella *templates* copiare e incollare le funzioni helper seguenti in `helpers.tpl` . `helpers.tpl` definisce funzioni utili per la generazione del modello Helm.
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine slave, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}

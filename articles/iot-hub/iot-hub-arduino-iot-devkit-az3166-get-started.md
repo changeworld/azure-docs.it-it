@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - devx-track-azurecli
-ms.openlocfilehash: 6d5169c2424e89dd2fb77335dd2807e73e9b3a55
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3e5ab1667ee0cda459785efa624bd7f4fc6818b8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572066"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562957"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -98,7 +98,7 @@ L'avvio rapido usa il firmware DevKit precompilato per inviare i dati di telemet
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
 
     Annotare la stringa di connessione del dispositivo, che avrà questo aspetto:

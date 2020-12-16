@@ -1,7 +1,7 @@
 ---
 title: Novità di Azure Active Directory identità esterne
 description: Documentazione nuova e aggiornata per le identità esterne Azure Active Directory.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,32 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 35fa6909160ca707035ee9fc599e4035c2ae7981
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e614507fbcfce5fc006983e0be7963223bb0b7ed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573902"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562379"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory identità esterne: novità
 
 Introduzione alle novità di Azure Active Directory documentazione di identità esterne. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio identità esterne, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Dicembre 2020
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Domande frequenti su Collaborazione B2B di Azure Active Directory](faq.md)
+- [Aggiungere Google come provider di identità per utenti guest B2B](google-federation.md)
+- [Provider di identità per le identità esterne](identity-providers.md)
+- [Riscatto dell'invito di Collaborazione B2B di Azure Active Directory](redemption-experience.md)
+- [Aggiungere un connettore API a un flusso utente](self-service-sign-up-add-api-connector.md)
+- [Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service](self-service-sign-up-add-approvals.md)
+- [Risoluzione dei problemi di Azure Active Directory collaborazione B2B](troubleshoot.md)
+- [Che cos'è l'accesso utente guest in Azure Active Directory B2B?](what-is-b2b.md)
+- [Procedure consigliate per Azure Active Directory B2B](b2b-fundamentals.md)
+- [Abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](delegate-invitations.md)
+- [Autenticazione del codice di accesso monouso tramite posta elettronica](one-time-passcode.md)
 
 ## <a name="november-2020"></a>Novembre 2020
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511536"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562617"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -101,7 +101,7 @@ Gli host di sessione sono macchine virtuali che vengono eseguite all'interno di 
 
 ### <a name="enable-screen-capture-protection-preview"></a>Abilita protezione acquisizione schermo (anteprima)
 
-La funzionalità di protezione acquisizione schermo impedisce l'acquisizione di informazioni riservate sugli endpoint client. Quando si abilita questa funzionalità, il contenuto remoto verrà automaticamente bloccato o nascosto nelle schermate e nelle condivisioni dello schermo. Verrà inoltre nascosta da software dannoso che potrebbe essere in grado di acquisire continuamente il contenuto della schermata.
+La funzionalità di protezione acquisizione schermo impedisce l'acquisizione di informazioni riservate sugli endpoint client. Quando si abilita questa funzionalità, il contenuto remoto verrà automaticamente bloccato o nascosto nelle schermate e nelle condivisioni dello schermo. Verrà inoltre nascosta da software dannoso che potrebbe essere in grado di acquisire continuamente il contenuto della schermata. Si consiglia di disabilitare il reindirizzamento degli Appunti per evitare la copia di contenuto remoto negli endpoint durante l'utilizzo di questa funzionalità.
 
 Questo criterio viene applicato a livello di host configurando una chiave del registro di sistema. Per abilitare questo criterio, aprire PowerShell e impostare la chiave del registro di sistema **fEnableScreenCaptureProtection** eseguendo questo cmdlet:
 

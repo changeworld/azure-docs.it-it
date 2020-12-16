@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424714"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563008"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per il cloud privato accesso vCenter da workstation locali
 
@@ -23,9 +23,9 @@ Per accedere al server vCenter in un cloud privato CloudSimple dalle workstation
 
 1. Accedere al portale di [CloudSimple](access-cloudsimple-portal.md).
 
-2. Passare a **risorse**Cloud  >  **privati** e selezionare il cloud privato a cui si vuole connettersi.
+2. Passare a **risorse** Cloud  >  **privati** e selezionare il cloud privato a cui si vuole connettersi.
 
-3. Nella pagina **Riepilogo** del cloud privato in informazioni di **base**copiare l'indirizzo IP del server DNS del cloud privato.
+3. Nella pagina **Riepilogo** del cloud privato in informazioni di **base** copiare l'indirizzo IP del server DNS del cloud privato.
 
     ![Server DNS del cloud privato](media/private-cloud-dns-server.png)
 
@@ -44,6 +44,9 @@ Usare una di queste opzioni per la configurazione DNS.
 Il file e i parametri specifici da configurare possono variare in base alla configurazione del singolo DNS.
 
 Per la configurazione predefinita del server di binding, ad esempio, modificare il file/etc/named.conf nel server DNS e aggiungere le seguenti informazioni sulla zona.
+
+> [!NOTE]
+>Questo articolo contiene riferimenti al termine slave, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 ```
 zone "az.cloudsimple.io"

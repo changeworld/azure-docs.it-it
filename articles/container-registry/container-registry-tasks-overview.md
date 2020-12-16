@@ -3,12 +3,12 @@ title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027667"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562855"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -70,7 +70,7 @@ Per informazioni su come attivare compilazioni in caso di commit del codice sorg
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizzare l'applicazione di patch al sistema operativo e al framework
 
-La potenza delle attività ACR per migliorare realmente il flusso di lavoro di compilazione del contenitore deriva dalla capacità di rilevare un aggiornamento a un' *immagine di base* . Una funzionalità della maggior parte delle immagini del contenitore, un'immagine di base è un'immagine padre su cui si basano una o più immagini dell'applicazione. Le immagini di base contengono in genere il sistema operativo e, talvolta, i Framework applicazione. 
+La potenza delle attività ACR per migliorare realmente il flusso di lavoro di compilazione del contenitore deriva dalla capacità di rilevare un aggiornamento a un' *immagine di base*. Una funzionalità della maggior parte delle immagini del contenitore, un'immagine di base è un'immagine padre su cui si basano una o più immagini dell'applicazione. Le immagini di base contengono in genere il sistema operativo e, talvolta, i Framework applicazione. 
 
 È possibile configurare un'attività ACR per tenere traccia di una dipendenza da un'immagine di base durante la compilazione di un'immagine dell'applicazione. Quando viene effettuato il push dell'immagine di base aggiornata nel registro di sistema o un'immagine di base viene aggiornata in un repository pubblico, ad esempio in Docker Hub, le attività di ACR possono compilare automaticamente eventuali immagini dell'applicazione basate su di esso.
 Grazie al rilevamento e alla ricompilazione automatici, ACR Tasks consente di risparmiare il tempo e il lavoro normalmente necessari per monitorare e aggiornare manualmente ogni immagine di applicazione che fa riferimento all'immagine di base aggiornata.
@@ -105,7 +105,7 @@ La tabella seguente illustra alcuni esempi di percorsi di contesto supportati pe
 | Posizione contesto | Descrizione | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
-| Ramo master GitHub | File nel ramo master (o un altro valore predefinito) di un repository GitHub pubblico o privato.  | `https://github.com/gituser/myapp-repo.git` |
+| Ramo principale GitHub | File all'interno del ramo principale (o un altro valore predefinito) di un repository GitHub pubblico o privato.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramo GitHub | Ramo specifico di un repository GitHub pubblico o privato.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub pubblico o privato. Esempio mostra la combinazione di una specifica di Branch e sottocartella. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Commit di GitHub | Commit specifico in un repository GitHub pubblico o privato. Esempio mostra la combinazione di una specifica di commit hash (SHA) e della sottocartella. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
@@ -120,7 +120,7 @@ La tabella seguente illustra alcuni esempi di percorsi di contesto supportati pe
 
 Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il `--platform` tag per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura (ad esempio, `--platform Linux/arm` ). Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante (ad esempio, `--platform Linux/arm64/v8` ):
 
-| OS | Architettura|
+| OS | Architecture|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

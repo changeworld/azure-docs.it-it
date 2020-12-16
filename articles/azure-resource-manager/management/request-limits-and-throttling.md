@@ -2,14 +2,14 @@
 title: Limiti delle richieste e limitazioni
 description: Viene descritto come usare la limitazione con le richieste di Azure Resource Manager quando sono stati raggiunti i limiti di sottoscrizioni.
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239369"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563127"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
@@ -25,7 +25,7 @@ Ogni operazione a livello di sottoscrizione e di tenant è soggetta a limiti di 
 
 La tabella seguente illustra i limiti di limitazione predefiniti per ora.
 
-| Scope | Operazioni | Limite |
+| Ambito | Gestione operativa | Limite |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -65,6 +65,13 @@ Per controllare le istanze di macchine virtuali in un set di scalabilità di mac
 ### <a name="azure-resource-graph-throttling"></a>Limitazione del grafico delle risorse di Azure
 
 Il [grafico delle risorse di Azure](../../governance/resource-graph/overview.md) limita il numero di richieste alle relative operazioni. La procedura descritta in questo articolo per determinare le richieste rimanenti e la modalità di risposta quando viene raggiunto il limite si applica anche al grafico delle risorse. Tuttavia, il grafico risorse imposta il proprio limite e la velocità di reimpostazione. Per ulteriori informazioni, vedere [intestazioni di limitazione delle richieste del grafico delle risorse](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
+
+### <a name="other-resource-providers"></a>Altri provider di risorse
+
+Per informazioni sulla limitazione degli altri provider di risorse, vedere:
+
+* [Guida alla limitazione delle richieste per Azure Key Vault](../../key-vault/general/overview-throttling.md)
+* [Risoluzione dei problemi di servizio Azure Kubernetes](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
 
 ## <a name="error-code"></a>Codice di errore
 
