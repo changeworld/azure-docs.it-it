@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: b73d065b43aff5f9793e642a102ff8bb2a7be036
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e6993cd8dc77ccb9b43a3d5aef7b25fd9d7250
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81001140"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347116"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Architettura del modello di applicazione del centro di distribuzione digitale per IoT Central
 
@@ -26,7 +26,7 @@ Partner e clienti possono usare il modello di app e seguire le indicazioni ripor
 1. Set di sensori IoT che inviano dati di telemetria a un dispositivo gateway
 2. Dispositivi gateway che inviano dati di telemetria e dati analitici aggregati a IoT Central
 3. I dati vengono indirizzati al servizio di Azure desiderato per la manipolazione
-4. I servizi di Azure, ad esempio Analisi di flusso di Azure o Funzioni di Azure, possono essere usati per riformattare i flussi dei dati e inviarli ad account di archiviazione specifici 
+4. I servizi di Azure, ad esempio Analisi di flusso di Azure o Funzioni di Azure, possono essere usati per riformattare i flussi dei dati e inviarli ad account di archiviazione specifici
 5. I dati elaborati vengono archiviati in livelli di archiviazione ad accesso frequente per azioni quasi in tempo reale o nell'archiviazione offline sicura per apportare altri miglioramenti ai dati analitici in base ad analisi ML o batch. 
 6. App per la logica può essere usato per supportare vari flussi di lavoro aziendali nelle applicazioni aziendali dell'utente finale
 

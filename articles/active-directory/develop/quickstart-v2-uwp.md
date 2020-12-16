@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: ab8942b473ad980da22d451116bea6a759aeb461
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 0398056c3182ec50a1ec170f64ff079633f70c68
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995115"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030553"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -47,13 +47,12 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 > Per registrare l'applicazione e aggiungere le informazioni di registrazione dell'app alla soluzione, seguire questa procedura:
-> 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-> 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-> 1. Passare alla pagina [Registrazioni app](https://aka.ms/MobileAppReg) di Microsoft Identity Platform per sviluppatori.
-> 1. Selezionare **Nuova registrazione**.
-> 1. In **Registra un'applicazione** immettere le informazioni di registrazione dell'applicazione:
->      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `UWP-App-calling-MsGraph`.
->      - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
+> 1. Accedere al [portale di Azure](https://portal.azure.com).
+> 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+> 1. Cercare e selezionare **Azure Active Directory**.
+> 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+> 1. Immettere un **Nome** per l'applicazione, ad esempio `UWP-App-calling-MsGraph`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+> 1. Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
 > 1. Selezionare **Registra** per creare l'applicazione e quindi registrare il valore di **ID applicazione (client)** , che verrà usato in un passaggio successivo.
 > 1. In **Gestisci** selezionare **Autenticazione**.
 > 1. Selezionare **Aggiungi una piattaforma** > **Applicazioni per dispositivi mobili e desktop**.

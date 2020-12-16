@@ -9,15 +9,14 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: f1f83fdd73816e6e30c5cac7d193719591bb8dc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3486b636325393f9c8e96669ba3d21e7d489efee
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80999012"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347983"
 ---
 # <a name="in-store-analytics-architecture"></a>Architettura di analisi punti vendita
-
 
 
 Le soluzioni per l'analisi dei punti vendita consentono di monitorare varie condizioni all'interno di un ambiente di vendita al dettaglio. Queste soluzioni possono essere create usando uno dei modelli di applicazione disponibili in IoT Central e l'architettura riportata di seguito come linee guida.

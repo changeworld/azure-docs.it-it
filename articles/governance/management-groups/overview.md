@@ -3,13 +3,13 @@ title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
 ms.date: 11/17/2020
 ms.topic: overview
-ms.custom: contperfq1
-ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699594"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030672"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -95,7 +95,7 @@ Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gr
 |Proprietario                       | X      | X      | X        | X      | X             | X             | X     |
 |Collaboratore                 | X      | X      | X        | X      |               |               | X     |
 |Collaboratore gruppo di gestione\*            | X      | X      | X        | X      |               |               | X     |
-|Reader                      |        |        |          |        |               |               | X     |
+|Lettore                      |        |        |          |        |               |               | X     |
 |Lettore gruppo di gestione\*                 |        |        |          |        |               |               | X     |
 |Collaboratore per i criteri delle risorse |        |        |          |        |               | X             |       |
 |Amministratore accessi utente   |        |        |          |        | X             | X             |       |

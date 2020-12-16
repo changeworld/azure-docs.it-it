@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 3b5f96e60e088f94561bf3398469ec913a71bba6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322450"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109726"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Windows
 
@@ -37,13 +37,13 @@ Per creare un'istanza di DSVM:
 
 1. Compilare la scheda **Nozioni di base**.
       * **Sottoscrizione** Se si hanno più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-      * **Gruppo di risorse** : creare un nuovo gruppo di risorse o selezionarne uno esistente.
-      * **Nome macchina virtuale** : immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
-      * **Località** : selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Immagine** : Lasciare il valore predefinito.
-      * **Size** : questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/sizes.md).
-      * **Nome utente** : immettere il nome utente dell'amministratore. È il nome utente che verrà usato per accedere alla macchina virtuale e non deve necessariamente essere uguale al nome utente Azure.
-      * **Password** : immettere la password che si userà per accedere alla macchina virtuale.    
+      * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.
+      * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
+      * **Località**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+      * **Immagine**: Lasciare il valore predefinito.
+      * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/sizes.md).
+      * **Nome utente**: immettere il nome utente dell'amministratore. È il nome utente che verrà usato per accedere alla macchina virtuale e non deve necessariamente essere uguale al nome utente Azure.
+      * **Password**: immettere la password che si userà per accedere alla macchina virtuale.    
 1. Selezionare **Rivedi e crea**.
 1. **Rivedi e crea**
    * Verificare che tutte le informazioni immesse siano corrette. 
@@ -59,8 +59,6 @@ Per creare un'istanza di DSVM:
 Dopo la creazione e il provisioning della VM, seguire la procedura illustrata per [connettersi alla macchina virtuale basata su Azure](../../marketplace/azure-vm-create-using-approved-base.md). Usare le credenziali dell'account amministratore configurate nel passaggio **Informazioni di base** per la creazione di una macchina virtuale. 
 
 Si è pronti per iniziare a usare gli strumenti installati e configurati nella VM. Molti strumenti sono accessibili tramite i riquadri del menu **Start** e le icone del desktop.
-
-È anche possibile collegare una DSVM ad Azure Notebooks per eseguire notebook Jupyter nella VM e ignorare le limitazioni del livello di servizio gratuito. Per altre informazioni, vedere [Gestire e configurare i progetti di Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects).
 
 <a name="tools"></a>
 

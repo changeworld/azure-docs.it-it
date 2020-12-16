@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961483"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007094"
 ---
 # <a name="app-service-overview"></a>Panoramica del Servizio app di Azure
 
@@ -44,7 +44,7 @@ Il servizio app può anche ospitare le app Web in modo nativo in Linux per gli s
 
 ### <a name="built-in-languages-and-frameworks"></a>Linguaggi e framework predefiniti
 
-Il servizio app in Linux supporta numerose immagini predefinite specifiche del linguaggio. È sufficiente distribuire il codice. Le lingue supportate comprendono: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) per visualizzare i linguaggi più recenti e le versioni supportate. Se il runtime richiesto dall'applicazione non è supportato nelle immagini predefinite, è possibile distribuirlo con un contenitore personalizzato.
+Il servizio app in Linux supporta numerose immagini predefinite specifiche del linguaggio. È sufficiente distribuire il codice. Le lingue supportate comprendono: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) per visualizzare i linguaggi più recenti e le versioni supportate. Se il runtime richiesto dall'applicazione non è supportato nelle immagini predefinite, è possibile distribuirlo con un contenitore personalizzato.
 
 ### <a name="limitations"></a>Limitazioni
 

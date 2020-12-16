@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980699"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346215"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione di logistica connessa
 
@@ -41,9 +41,9 @@ Creare l'applicazione seguendo questa procedura:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Modello di logistica connessa":::
 
-2. Selezionare **Crea app** in **Logistica connessa**.
+1. Selezionare **Crea app** in **Logistica connessa**.
 
-3. Dopo la selezione di **Crea app** viene aperto il modulo **Nuova applicazione**. Immettere i dettagli seguenti:
+1. Dopo la selezione di **Crea app** viene aperto il modulo **Nuova applicazione**. Immettere i dettagli seguenti:
 
 
     * **Nome applicazione**: è possibile usare il nome suggerito predefinito o immettere il nome descrittivo dell'applicazione.
@@ -51,9 +51,9 @@ Creare l'applicazione seguendo questa procedura:
     * **Info di fatturazione**: Per effettuare il provisioning delle risorse sono necessari i dettagli relativi alla directory, alla sottoscrizione di Azure e all'area.
     * **Creazione**: Selezionare Crea nella parte inferiore della pagina per distribuire l'applicazione.
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Modello di logistica connessa":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Modello di app di logistica connessa":::
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Modello di logistica connessa":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Informazioni sulla fatturazione della logistica connessa":::
 
 ## <a name="walk-through-the-application"></a>Esaminare l'applicazione
 
@@ -81,13 +81,13 @@ Il dashboard rende disponibili due operazioni diverse per la gestione dei dispos
 * Visualizzare i percorsi di logistica per le spedizioni tramite camion e i dettagli sulle posizioni delle spedizioni via mare.
 * Visualizzare lo stato del gateway e le informazioni pertinenti.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Modello di logistica connessa":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Dashboard di logistica connessa":::
 
 * È possibile tenere traccia del numero totale di gateway, dei tag attivi e di quelli sconosciuti.
 * È possibile eseguire operazioni di gestione dei dispositivi, ad esempio aggiornare il firmware, disabilitare e abilitare i sensori, nonché aggiornare una soglia dei sensori, gli intervalli di telemetria e i contratti di servizio dei dispositivi.
 * Visualizzare il consumo della batteria dei dispositivi.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Modello di logistica connessa":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Stato del dashboard di logistica connessa":::
 
 #### <a name="device-template"></a>Modello di dispositivo
 
@@ -95,11 +95,11 @@ Selezionare **Modelli di dispositivo** per visualizzare il modello di funzionali
 
 **Gateway Telemetry & Property**: questa interfaccia definisce tutti i dati di telemetria relativi a sensori, posizione e informazioni sui dispositivi. Definisce anche le funzionalità delle proprietà dei dispositivi gemelli, ad esempio le soglie dei sensori e gli intervalli di aggiornamento.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Modello di logistica connessa":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Interfaccia dei dati di telemetria e proprietà":::
 
 **Gateway Commands**: questa interfaccia organizza tutte le funzionalità dei comandi del gateway:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Modello di logistica connessa":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Interfaccia di comandi del gateway":::
 
 ### <a name="rules"></a>Regole
 
@@ -109,13 +109,13 @@ Selezionare la scheda **Rules** (Regole) che contiene le regole per questo model
 
 **Unresponsive Gateway** (Nessuna risposta del gateway): questa regola verrà attivata se il gateway non comunica con il cloud per un periodo di tempo prolungato. Il gateway potrebbe non rispondere a causa della batteria scarica, della perdita di connettività o di danni al dispositivo.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Modello di logistica connessa":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Definizioni delle regole":::
 
 ### <a name="jobs"></a>Processi
 
 Selezionare la scheda **Jobs** (Processi) per visualizzare i processi nell'applicazione:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Modello di logistica connessa":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Processi da eseguire":::
 
 È possibile usare i processi per eseguire operazioni a livello di applicazione. I processi in questa applicazione usano i comandi dei dispositivi e le funzionalità dei dispositivi gemelli per eseguire attività come la disabilitazione di specifici sensori in tutti i gateway o la modifica della soglia dei sensori in base alla modalità di spedizione e al percorso:
 
@@ -127,7 +127,7 @@ Selezionare la scheda **Jobs** (Processi) per visualizzare i processi nell'appli
 
 Se non si intende continuare a usare questa applicazione, eliminare il modello di applicazione scegliendo **Amministrazione** > **Impostazioni applicazione** e quindi **Elimina**.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Modello di logistica connessa":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Pulizia del modello":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni su: 

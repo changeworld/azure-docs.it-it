@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a69a9fa712aaa9d4c02243d28dcae8b72c3db73
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 03545aafa1cbf6efa82ae063e7e966443b1d5e8b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348280"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106122"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js
 
@@ -86,14 +86,13 @@ Seguire questa guida di avvio rapido per informazioni su come effettuare chiamat
         //...
         let req = https.request(request_params, response_handler);
         req.end();
-        ```
+    ```
 
-## Create a search handler
+## <a name="create-a-search-handler"></a>Creare un gestore di ricerche
 
-1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
-Do the following steps within this function:
+1. Definire una funzione denominata `response_handler` che accetta una chiamata HTTP, `response`, come parametro. In questa funzione eseguire i passaggi seguenti:
     
-    1. Define a variable to contain the body of the JSON response.  
+    1. Definire una variabile in cui sarà contenuto il corpo della risposta JSON.  
 
         ```javascript
         let response_handler = function (response) {
@@ -101,7 +100,7 @@ Do the following steps within this function:
         };
         ```
 
-    2. Store the body of the response when the `data` flag is called
+    2. Archiviare il corpo della risposta quando viene chiamato il flag `data`
         
         ```javascript
         response.on ('data', function (d) {
@@ -109,7 +108,7 @@ Do the following steps within this function:
         });
         ```
 
-    3. When an `end` flag is signaled, use `JSON.parse()` and `JSON.stringify()` to print the response.
+    3. Quando viene segnalato un flag `end`, usare `JSON.parse()` e `JSON.stringify()` per stampare la risposta.
     
         ```javascript
         response.on ('end', function () {
@@ -122,11 +121,11 @@ Do the following steps within this function:
         });
         ```
 
-2. Call `get_suggestions()` to send the request to the Bing Autosuggest API.
+2. Chiamare `get_suggestions()` per inviare la richiesta all'API Suggerimenti automatici Bing.
 
-## Example JSON response
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
-A successful response is returned in JSON, as shown in the following example: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {

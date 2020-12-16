@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81001110"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347473"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Architettura del centro di micro-adempimenti
 
@@ -22,11 +22,11 @@ Le soluzioni per centri di micro-adempimenti consentono di connettere, monitorar
 
 ![Analisi punti vendita di Azure IoT Central](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- Set di sensori IoT che inviano dati di telemetria a un dispositivo gateway
-- Dispositivi gateway che inviano dati di telemetria e dati analitici aggregati a IoT Central
-- Esportazione continua dei dati al servizio di Azure desiderato per la manipolazione
-- I dati possono essere strutturati nel formato desiderato e inviati a un servizio di archiviazione
-- Le applicazioni aziendali possono eseguire query sui dati e generare dati analitici a supporto delle operazioni di vendita al dettaglio
+1. Set di sensori IoT che inviano dati di telemetria a un dispositivo gateway
+2. Dispositivi gateway che inviano dati di telemetria e dati analitici aggregati a IoT Central
+3. Esportazione continua dei dati al servizio di Azure desiderato per la manipolazione
+4. I dati possono essere strutturati nel formato desiderato e inviati a un servizio di archiviazione
+5. Le applicazioni aziendali possono eseguire query sui dati e generare dati analitici a supporto delle operazioni di vendita al dettaglio
  
 Verranno ora esaminati i componenti chiave che in genere fanno parte di una soluzione per centro di micro-adempimenti.
 

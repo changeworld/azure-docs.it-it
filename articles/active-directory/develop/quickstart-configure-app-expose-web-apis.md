@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442147"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030961"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Avvio rapido: Configurare un'applicazione per esporre un'API Web
 
@@ -72,7 +72,7 @@ Seguire innanzitutto questa procedura per creare un ambito di esempio denominato
 1. (Facoltativo) Per rimuovere la richiesta del consenso degli utenti dell'app per gli ambiti definiti, è possibile *pre-autorizzare* l'accesso dell'applicazione client all'API Web. Pre-autorizzare *solo* le applicazioni client attendibili, perché gli utenti non hanno la possibilità di rifiutare il consenso.
     1. In **Applicazioni client autorizzate** selezionare **Aggiungi applicazione client**
     1. Immettere il valore di **ID applicazione (client)** dell'applicazione client da pre-autorizzare, ad esempio quello di un'applicazione Web già registrata.
-    1. In **Ambiti autorizzati**selezionare gli ambiti per cui rimuovere la richiesta di consenso, quindi selezionare **Aggiungi applicazione**.
+    1. In **Ambiti autorizzati** selezionare gli ambiti per cui rimuovere la richiesta di consenso, quindi selezionare **Aggiungi applicazione**.
 
     Se è stato eseguito questo passaggio facoltativo, l'app client è ora un'app client pre-autorizzata e agli utenti non verrà richiesto il consenso per accedervi.
 
@@ -95,7 +95,7 @@ Per aggiungere l'ambito di esempio `Employees.Write.All`, seguire la procedura d
 
 Se sono stati aggiunti entrambi, gli ambiti di esempio descritti nelle sezioni precedenti verranno visualizzati nel riquadro **Esporre un'API** della registrazione dell'app dell'API Web, come illustrato nell'immagine seguente:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Riquadro Esporre un'API di una registrazione dell'app nel portale di Azure":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot del riquadro Esporre un'API che mostra due ambiti esposti.":::
 
 Come illustrato nell'immagine, la stringa completa di un ambito è costituita dalla concatenazione del valore **URI ID applicazione** dell'API Web e del valore di **Nome ambito** dell'ambito.
 

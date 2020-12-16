@@ -6,18 +6,19 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 335a63faa440e057c282f992b67b301289a7a4bb
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145855"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356957"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Avvio rapido: Creare un'istanza di SQL Server 2017 in una macchina virtuale Windows nel portale di Azure
 
@@ -61,20 +62,20 @@ Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 
    ![Subscription](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
 
-1. In **Dettagli istanza** :
+1. In **Dettagli istanza**:
     1. Digitare _SQLVM_ come **nome della macchina virtuale**. 
-    1. Scegliere una posizione per l' **area**. 
+    1. Scegliere una posizione per l'**area**. 
     1. Ai fini di questa guida di avvio rapido lasciare **Opzioni di disponibilità** impostato su _La ridondanza dell'infrastruttura non è richiesta_. Per altre informazioni sulle opzioni di disponibilità, vedere [Disponibilità](../../../virtual-machines/availability.md). 
     1. Nell'elenco **Immagine** selezionare _Free SQL Server License: SQL Server 2017 Developer in Windows Server 2016_. 
     1. Scegliere **Modifica dimensioni** per modificare le **dimensioni** della macchina virtuale e selezionare l'offerta **A2 Basic**. Assicurarsi di cancellare le risorse quando non sono più necessarie per evitare eventuali addebiti imprevisti. 
 
    ![Dettagli dell'istanza](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. In **Account amministratore** specificare un nome utente, ad esempio _azureuser_ , e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. In **Account amministratore** specificare un nome utente, ad esempio _azureuser_, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Account amministratore](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 
-1. In **Regole porta in ingresso** scegliere **Consenti porte selezionate** , quindi selezionare **RDP (3389)** dall'elenco a discesa. 
+1. In **Regole porta in ingresso** scegliere **Consenti porte selezionate**, quindi selezionare **RDP (3389)** dall'elenco a discesa. 
 
    ![Regole porta in ingresso](./media/sql-vm-create-portal-quickstart/basics-inbound-port-rules.png)
 
@@ -82,7 +83,7 @@ Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 
 Nella scheda **Impostazioni di SQL Server** configurare le opzioni seguenti:
 
-1. In **Sicurezza e rete** selezionare _Pubblico (Internet_ ) per **Connettività SQL** e cambiare la porta in `1401` per evitare di usare un numero di porta noto nello scenario pubblico. 
+1. In **Sicurezza e rete** selezionare _Pubblico (Internet_) per **Connettività SQL** e cambiare la porta in `1401` per evitare di usare un numero di porta noto nello scenario pubblico. 
 1. In **Autenticazione SQL** selezionare **Abilita**. Le credenziali di accesso di SQL sono impostate sugli stessi nome utente e password configurati per la macchina virtuale. Usare le impostazioni predefinite per [**Integrazione di Azure Key Vault**](azure-key-vault-integration-configure.md). **Configurazione dell'archiviazione** non è disponibile per l'immagine di VM di SQL Server di base, ma è possibile trovare altre informazioni sulle opzioni disponibili per altre immagini in [Configurazione dell'archiviazione](storage-configuration.md#new-vms).  
 
    ![Impostazioni di sicurezza di SQL Server](./media/sql-vm-create-portal-quickstart/sql-server-settings.png)
@@ -101,12 +102,12 @@ Nella scheda **Rivedi e crea** esaminare il riepilogo e fare clic su **Crea** pe
 
 ## <a name="connect-to-sql-server"></a>Connessione a SQL Server
 
-1. Nel portale trovare l' **indirizzo IP pubblico** della macchina virtuale SQL Server nella sezione **Panoramica** delle proprietà della macchina virtuale.
+1. Nel portale trovare l'**indirizzo IP pubblico** della macchina virtuale SQL Server nella sezione **Panoramica** delle proprietà della macchina virtuale.
 
 1. In un altro computer connesso a Internet aprire [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP pubblico della macchina virtuale. Aggiungere quindi una virgola e la porta personalizzata, **1401** , specificata durante la configurazione della nuova macchina virtuale. Ad esempio: `11.22.33.444,1401`.
+1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP pubblico della macchina virtuale. Aggiungere quindi una virgola e la porta personalizzata, **1401**, specificata durante la configurazione della nuova macchina virtuale. Ad esempio: `11.22.33.444,1401`.
 
 1. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 

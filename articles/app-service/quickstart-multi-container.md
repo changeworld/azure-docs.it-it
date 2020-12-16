@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 2920aad07ac54a19962f552debb8cfa809e17294
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 2ba42e5e800ae607631e00aee50954bf2638ae43
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558352"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007144"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creare un'app multi-contenitore (anteprima) con una configurazione di Docker Compose
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti centro-meridionali*. Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Standard**, eseguire il comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti centro-meridionali*. Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Standard**, eseguire il comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -67,7 +67,7 @@ Al termine del comando, un output JSON visualizza le proprietà del gruppo di ri
 
 ## <a name="create-an-azure-app-service-plan"></a>Creare un piano di servizio app di Azure
 
-In Cloud Shell creare un piano di servizio app nel gruppo di risorse con il comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+In Cloud Shell creare un piano di servizio app nel gruppo di risorse con il comando [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create).
 
 L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Standard** (`--sku S1`) e in un contenitore Linux (`--is-linux`).
 
@@ -100,7 +100,7 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 > [!NOTE]
 > Al momento per Docker Compose in Servizi app di Azure è previsto un limite di 4.000 caratteri.
 
-Nel terminale Cloud Shell creare un'[app Web](overview.md#app-service-on-linux) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app (i caratteri validi sono `a-z`, `0-9` e `-`).
+Nel terminale Cloud Shell creare un'[app Web](overview.md#app-service-on-linux) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app (i caratteri validi sono `a-z`, `0-9` e `-`).
 
 ```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
