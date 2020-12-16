@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 081b9288d091e26d0e6d30aa849ced18a3c2ffb6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84466880"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938461"
 ---
 Creare l'app Pizza.
 
@@ -59,7 +59,7 @@ L'app Pizza è ora pronta per essere usata.
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>Prendere nota dei valori di accesso per l'app Pizza
 
-Per usare la nuova app Pizza, sono necessari l'ID app, la chiave di creazione e l'endpoint di creazione dell'app Pizza.
+Per usare la nuova app Pizza, sono necessari l'ID app, la chiave di creazione e l'endpoint di creazione dell'app Pizza. Per ottenere stime, l'endpoint di stima e la chiave di stima dovranno essere separati.
 
 Per trovare questi valori:
 
@@ -67,5 +67,5 @@ Per trovare questi valori:
 1. Nella pagina **Impostazioni applicazione**, registrare l’**ID app**.
 1. Selezionare **Risorse di Azure**.
 1. Selezionare **Risorsa Creazione**.
-1. Nella scheda **Risorsa Creazione** prendere nota del valore di **Chiave primaria**. Questo valore corrisponde alla chiave di creazione.
+1. Nelle schede **Risorsa di creazione** e **Risorse di stima**, annotare la **Chiave primaria**. Questo valore corrisponde alla chiave di creazione.
 1. Registrare l’**URL dell'endpoint**. Questo valore corrisponde all'endpoint di creazione.
