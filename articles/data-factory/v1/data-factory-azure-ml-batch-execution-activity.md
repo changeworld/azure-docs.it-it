@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: c65ef2eb25f330f645048cdc73371d98d8c2ce91
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: c04c94ef2a73085b982fde3efefecea351b083af
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508473"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608069"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Creare pipeline predittive usando Azure Machine Learning Studio (classico) e Azure Data Factory
 
@@ -183,7 +183,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
    }
    ```
 
-   Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. ad esempio:
+   Il file con estensione csv di input deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Ad esempio:
 
    ```json
    sink:
@@ -269,7 +269,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
         "properties": {
           "description": "use AzureML model",
           "activities": [
-              {
+            {
               "name": "MLActivity",
               "type": "AzureMLBatchExecution",
               "description": "prediction analysis on batch input",
@@ -301,7 +301,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
           ],
           "start": "2016-02-13T00:00:00Z",
           "end": "2016-02-14T00:00:00Z"
-          }
+        }
       }
       ```
 
@@ -631,7 +631,7 @@ Per specificare i valori dei parametri del servizio Web, aggiungere una sezione 
 >
 >
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Post di blog di Azure: Guida introduttiva a Data Factory di Azure e ad Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md

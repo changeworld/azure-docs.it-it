@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new, devx-track-js
-ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b157200b03bdc89e00bfa5c8264d78baf24875c1
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676023"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609123"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteggere il back-end SPA con OAuth 2,0, Azure Active Directory B2C e gestione API di Azure
 
@@ -180,7 +180,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
    > A questo punto, l'API della funzione non deve essere chiamata da qualsiasi luogo oltre che tramite gestione API o l'indirizzo.
    
 ## <a name="import-the-function-app-definition"></a>Importare la definizione dell'app per le funzioni
-1. Aprire il pannello *gestione API* , quindi aprire l' *istanza* .
+1. Aprire il pannello *gestione API*, quindi aprire l' *istanza*.
 1. Selezionare il pannello API nella sezione gestione API dell'istanza.
 1. Dal riquadro ' Aggiungi nuova API ' scegliere ' app per le funzioni ', quindi selezionare ' completa ' nella parte superiore del popup.
 1. Fare clic su Sfoglia, scegliere l'app per le funzioni in cui è ospitata l'API e fare clic su Seleziona.
@@ -396,7 +396,8 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
                     // Make the api call here
                 $.ajax({
                     type: "get",
-                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},                   url: applicationConfig.webApi
+                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},
+                    url: applicationConfig.webApi
                 }
                 ).done(function (body) {
                     document.getElementById("message").innerHTML = "The API Said " + body;

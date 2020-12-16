@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413225"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608783"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creare il controller di dati di Azure Arc
 
@@ -36,7 +36,7 @@ Attualmente, l'elenco supportato dei servizi e delle distribuzioni di Kubernetes
 - Kubernetes upstream e open source in genere distribuito tramite kubeadm
 
 > [!IMPORTANT]
-> * La versione minima supportata di Kubernetes è la v 1.17.
+> * La versione minima supportata di Kubernetes è la v 1.17. Per ulteriori informazioni, vedere [problemi noti](./release-notes.md#known-issues) . 
 > * La versione minima supportata di OCP è 4,3.
 > * Vedere i [requisiti di connettività](connectivity.md) per comprendere la connettività necessaria tra l'ambiente e Azure.
 > * Per informazioni dettagliate su come configurare l'archiviazione permanente, vedere la [Guida alla configurazione dell'archiviazione](storage-configuration.md) .
@@ -46,7 +46,7 @@ Attualmente, l'elenco supportato dei servizi e delle distribuzioni di Kubernetes
 > [!NOTE]
 > Se si usa Red Hat OpenShift container Platform in Azure, è consigliabile usare la versione più recente disponibile.
 
-A seconda dell'opzione scelta, alcuni strumenti saranno _necessari_ , ma è consigliabile [installare tutti gli strumenti client](./install-client-tools.md) prima di iniziare a creare il controller dati di Azure Arc.
+A seconda dell'opzione scelta, alcuni strumenti saranno _necessari_, ma è consigliabile [installare tutti gli strumenti client](./install-client-tools.md) prima di iniziare a creare il controller dati di Azure Arc.
 
 Indipendentemente dall'opzione scelta, durante il processo di creazione sarà necessario fornire le seguenti informazioni:
 
@@ -64,10 +64,10 @@ Indipendentemente dall'opzione scelta, durante il processo di creazione sarà ne
 Sono disponibili più opzioni per la creazione del controller di dati di Azure Arc:
 
 > **Si desidera fare semplicemente una prova?**  
-> Inizia rapidamente a usare [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) in Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
+> Inizia rapidamente a usare [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) in Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
 > 
 - [Creare un controller di dati con [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Creare un controller dati con Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Creare un controller dati dal portale di Azure tramite un notebook di Jupyter in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Creare un controller di dati con strumenti Kubernetes, ad esempio kubectl o OC](create-data-controller-using-kubernetes-native-tools.md)
-- [Creare un controller dati con Azure Arc Jumpstart per un'esperienza accelerata di una distribuzione di prova](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
+- [Creare un controller dati con Azure Arc Jumpstart per un'esperienza accelerata di una distribuzione di prova](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)
