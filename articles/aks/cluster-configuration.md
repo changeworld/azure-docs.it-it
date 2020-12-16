@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 439714f8fe4a6373f2ffce80e744802dd19b67f0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928784"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606913"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -173,7 +173,7 @@ Se si desidera creare pool di nodi con il runtime Moby (Docker), è possibile om
 * Non è più possibile accedere al motore Docker, `/var/run/docker.sock` o usare Docker-in-Docker (DinD).
   * Se al momento si estraggono i registri applicazioni o i dati di monitoraggio dal motore Docker, usare invece un elemento come [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-enable-new-cluster.md) . Inoltre, AKS non supporta l'esecuzione di comandi fuori banda sui nodi dell'agente che potrebbero causare instabilità.
   * Anche quando si usa Moby/Docker, la creazione di immagini e la possibilità di sfruttare direttamente il motore Docker con i metodi precedenti sono fortemente sconsigliate. Kubernetes non è in grado di riconoscere le risorse [usate e questi](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)approcci presentano molti problemi descritti [qui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) , ad esempio.
-* Creazione di immagini: l'approccio consigliato per la creazione di immagini consiste nell'usare le [attività ACR](../container-registry/container-registry-quickstart-task-cli.md). Un approccio alternativo consiste nell'usare opzioni in cluster più sicure, ad esempio [Docker buildx](https://github.com/docker/buildx).
+* Compilazione di immagini: è possibile continuare a usare il flusso di lavoro di compilazione Docker corrente come di consueto, a meno che non si stiano compilando imagages all'interno del cluster AKS. In questo caso, si consiglia di passare all'approccio consigliato per la creazione di immagini con [attività ACR](../container-registry/container-registry-quickstart-task-cli.md)o un'opzione in cluster più sicura, ad esempio [Docker buildx](https://github.com/docker/buildx).
 
 ## <a name="generation-2-virtual-machines-preview"></a>Macchine virtuali di seconda generazione (anteprima)
 

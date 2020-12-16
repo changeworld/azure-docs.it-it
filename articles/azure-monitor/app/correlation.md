@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 7a206d61124b2524feae0cf155083c1939696e18
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 20e9ed7e83ff3359651acebc11a939a998f2889d
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853323"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607916"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -79,7 +79,6 @@ I modelli di dati del [contesto di traccia W3C](https://w3c.github.io/trace-cont
 | `Operation_Id`                         | [Trace-ID](https://w3c.github.io/trace-context/#trace-id)                                           |
 | `Operation_ParentId`                   | [ID padre](https://w3c.github.io/trace-context/#parent-id) dell'intervallo padre di questo intervallo. Se si tratta di un intervallo radice, questo campo deve essere vuoto.     |
 
-
 Per altre informazioni, vedere [Application Insights modello di dati di telemetria](../../azure-monitor/app/data-model.md).
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Abilitare il supporto per la traccia distribuita W3C per le app .NET
@@ -103,7 +102,7 @@ Per impostazione predefinita, la funzionalità di analisi distribuita basata su 
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
-    
+
   - Per le app Spring boot, aggiungere queste proprietà:
 
     - `azure.application-insights.web.enable-W3C=true`
@@ -139,7 +138,7 @@ Aggiungere la configurazione seguente:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
-  
+
 - **[Configurazione basata su frammenti](./javascript.md#snippet-based-setup)**
 
 Aggiungere la configurazione seguente:

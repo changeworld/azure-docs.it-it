@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 9884b109db3f3a34ceb323bef9fba1d5bfc23147
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ce8c32b1afdf4178e3ffdc09e9c9176436fa771b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150255"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605077"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
 
@@ -29,7 +29,7 @@ L'endpoint FTP/S per l'app è già attivo. Non è necessaria alcuna configurazio
 
     ![Selezionare l'app.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Selezionare Dashboard del **centro di distribuzione**  >  **FTP**  >  **Dashboard**.
+3. Selezionare Dashboard del **centro di distribuzione**  >  **FTP**  >  .
 
     ![Aprire un dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -42,7 +42,7 @@ Nel dashboard FTP selezionare **copia** per copiare l'endpoint FTPS e le credenz
 È consigliabile usare **Credenziali dell'app** per distribuire l'app perché si tratta di informazioni univoche per ogni app. Tuttavia, se si fa clic su **Credenziali utente**, è possibile impostare le credenziali a livello di utente da usare per l'accesso FTP/S a tutte le app del servizio app della sottoscrizione.
 
 > [!NOTE]
-> L'autenticazione a un endpoint FTP/FTPS con le credenziali a livello di utente richiede un nome utente nel formato seguente:  
+> Per eseguire l'autenticazione a un endpoint FTP/FTPS utilizzando credenziali a livello di utente, è necessario specificare un nome utente nel formato seguente: 
 >
 >`<app-name>\<user-name>`
 >
@@ -85,9 +85,18 @@ Per la distribuzione FTP tramite [Azure PowerShell](/cli/azure), vedere [Caricar
 
 ## <a name="troubleshoot-ftp-deployment"></a>Risolvere i problemi di distribuzione FTP
 
-- [Come è possibile risolvere i problemi di distribuzione FTP?](#how-can-i-troubleshoot-ftp-deployment)
-- [Non è possibile eseguire l'FTP e pubblicare il codice. Come è possibile risolvere il problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
-- [Come è possibile connettersi a FTP nel Servizio app di Azure tramite la modalità passiva?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+- [Distribuire l'app nel servizio app di Azure usando FTP/S](#deploy-your-app-to-azure-app-service-using-ftps)
+  - [Aprire un dashboard FTP](#open-ftp-dashboard)
+  - [Ottenere informazioni di connessione a FTP](#get-ftp-connection-information)
+  - [Distribuire file in Azure](#deploy-files-to-azure)
+  - [Applicare FTPS](#enforce-ftps)
+  - [Automatizzazione con gli script](#automate-with-scripts)
+  - [Risolvere i problemi di distribuzione FTP](#troubleshoot-ftp-deployment)
+    - [Come è possibile risolvere i problemi di distribuzione FTP?](#how-can-i-troubleshoot-ftp-deployment)
+    - [Non è possibile eseguire l'FTP e pubblicare il codice. Come è possibile risolvere il problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+    - [Come è possibile connettersi a FTP nel Servizio app di Azure tramite la modalità passiva?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+  - [Passaggi successivi](#next-steps)
+  - [Altre risorse](#more-resources)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Come è possibile risolvere i problemi di distribuzione FTP?
 

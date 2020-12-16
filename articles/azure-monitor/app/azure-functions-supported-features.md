@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168580"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607950"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights per le funzionalità supportate di Funzioni di Azure
 
@@ -23,37 +23,35 @@ Per ulteriori informazioni sulle versioni compatibili di Application Insights, v
 
 ## <a name="supported-features"></a>Caratteristiche supportate
 
-| Funzioni di Azure                       | V1                | V2 & V3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Funzioni di Azure                   | V1            | V2 & V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **Raccolta automatica di**        |                 |                   |               
-| &bull; Richieste                     | Sì             | Sì               | 
-| &bull; Eccezioni                   | Sì             | Sì               | 
-| &bull; Contatori delle prestazioni         | Sì             | Sì               |
-| &bull; Dipendenze                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sì               | 
+| **Raccolta automatica di**        |               |                  |
+| &bull; Richieste                     | Sì           | Sì              |
+| &bull; Eccezioni                   | Sì           | Sì              |
+| &bull; Contatori delle prestazioni         | Sì           | Sì              |
+| &bull; Dipendenze                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Sì              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | Sì              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | Sì              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Sì              |
 | | | | 
-| **Funzionalità supportate**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | Sì             | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | Sì               | 
-| &bull; Campionamento                     | Sì             | Sì               | 
-| &bull; Heartbeat                   |                 | Sì               | 
+| **Funzionalità supportate**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | Sì           | Sì              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro |               | Sì | 
+| &bull; Campionamento                     | Sì           | Sì              | 
+| &bull; Heartbeat                   | | Sì              | 
+| | | |
+| **correlazione**                    |               |                  |
+| &bull; ServiceBus                  |               | Sì              |
+| &bull; EventHub                    |               | Sì              |
 | | | | 
-| **Correlazione**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Sì               | 
-| &bull; EventHub                       |                   | Sì               | 
-| | | | 
-| **Configurabile**                      |                   |                   |           
-| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) .               |                   | Sì                   | 
-
+| **Configurabile**                  |               |                  |           
+| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) .           |               | Sì                 | 
 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 
 La raccolta automatica dei contatori delle prestazioni funziona solo sui computer Windows.
-
 
 ## <a name="live-metrics--secure-control-channel"></a>Metriche attive e canale di controllo sicuro
 
@@ -65,7 +63,7 @@ Per impostazione predefinita, Funzioni di Azure abilita il campionamento durante
 
 Se il progetto prende una dipendenza da Application Insights SDK per eseguire il rilevamento manuale della telemetria, potrebbe verificarsi un comportamento strano se la configurazione del campionamento è diversa dalla configurazione del campionamento delle funzioni. 
 
-È consigliabile usare la stessa configurazione delle funzioni. Con **funzioni V2**è possibile ottenere la stessa configurazione usando l'inserimento di dipendenze nel costruttore:
+È consigliabile usare la stessa configurazione delle funzioni. Con **funzioni V2** è possibile ottenere la stessa configurazione usando l'inserimento di dipendenze nel costruttore:
 
 ```csharp
 using Microsoft.ApplicationInsights;

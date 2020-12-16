@@ -3,12 +3,12 @@ title: Sviluppo collaborativo distribuito di risorse Azure DevTest Labs
 description: Fornisce le procedure consigliate per la configurazione di un ambiente di sviluppo distribuito e collaborativo per lo sviluppo di risorse DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c18bbbfd3ad727811cc28c424381e5caf32b1cfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef6d7aa7d3cfd4fcc64eaa45259684dfcb9ccee
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483806"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592365"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Procedure consigliate per lo sviluppo di risorse Azure DevTest Labs distribuite e collaborative
 Lo sviluppo collaborativo distribuito consente a diversi team o persone di sviluppare e gestire una codebase. Per avere esito positivo, il processo di sviluppo dipende dalla possibilità di creare, condividere e integrare le informazioni. Questo principio di sviluppo chiave può essere utilizzato in Azure DevTest Labs. Sono disponibili diversi tipi di risorse all'interno di un Lab, comunemente distribuiti tra diversi Lab all'interno di un'azienda. I diversi tipi di risorse sono incentrati su due aree:
@@ -39,13 +39,13 @@ La configurazione più comune per il controllo del codice sorgente (SCC) consist
 - Risorse business unit/Division
 - Risorse specifiche del team.
 
-Ognuno di questi livelli è collegato a un repository diverso in cui il ramo master deve essere della qualità di produzione. I [rami](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) in ogni repository sono per lo sviluppo di tali risorse specifiche (elementi o modelli). Questa struttura è perfettamente allineata a DevTest Labs, in quanto è possibile connettere facilmente più repository e più rami contemporaneamente ai Lab dell'organizzazione. Il nome del repository è incluso nell'interfaccia utente (UI) per evitare confusione quando sono presenti nomi, descrizioni e server di pubblicazione identici.
+Ognuno di questi livelli è collegato a un repository diverso in cui il ramo principale deve essere della qualità di produzione. I [rami](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) in ogni repository sono per lo sviluppo di tali risorse specifiche (elementi o modelli). Questa struttura è perfettamente allineata a DevTest Labs, in quanto è possibile connettere facilmente più repository e più rami contemporaneamente ai Lab dell'organizzazione. Il nome del repository è incluso nell'interfaccia utente (UI) per evitare confusione quando sono presenti nomi, descrizioni e server di pubblicazione identici.
      
 Il diagramma seguente mostra due repository: un repository aziendale gestito dalla divisione IT e un repository di divisione gestito dalla divisione R&D.
 
 ![Un ambiente di sviluppo distribuibile e collaborativo di esempio](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
    
-Questa struttura a più livelli consente lo sviluppo, mantenendo al contempo un livello di qualità superiore nel ramo master, mentre la presenza di più repository connessi a un Lab consente una maggiore flessibilità.
+Questa struttura a più livelli consente lo sviluppo mantenendo un livello di qualità superiore nel ramo principale, mentre la presenza di più repository connessi a un Lab consente una maggiore flessibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi    
 Vedere gli articoli seguenti:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 00e264cea34c7c3e7223b47217ecf5a59b76ba41
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186083"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592467"
 ---
 # <a name="azure-activity-log"></a>Log attività di Azure
 Il log attività è un [log della piattaforma](platform-logs-overview.md) presente in Azure che fornisce informazioni sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Per altre funzionalità, è necessario creare un'impostazione di diagnostica per inviare il log attività ai [log di monitoraggio di Azure](data-platform-logs.md), a hub eventi di Azure in modo che inoltri al di fuori di Azure o ad archiviazione di Azure per l'archiviazione. Questo articolo fornisce informazioni dettagliate sulla visualizzazione del log attività e sull'invio a destinazioni diverse.
@@ -56,7 +56,8 @@ Se sono presenti modifiche associate all'evento, viene visualizzato un elenco di
 - Usare le query di log per eseguire analisi complesse e ottenere informazioni approfondite sulle voci del log attività.
 - Usare gli avvisi del log con le voci di attività che consentono una logica più complessa per gli avvisi.
 - Archivia le voci del log attività per più di 90 giorni.
-- Nessun inserimento di dati o di conservazione dei dati per i dati del log attività archiviati in un'area di lavoro Log Analytics.
+- Nessun addebito per l'inserimento dei dati per i dati del log attività archiviati in un'area di lavoro Log Analytics.
+- Nessun costo di conservazione dei dati fino a 90 giorni per i dati del log attività archiviati in un'area di lavoro Log Analytics.
 
 [Creare un'impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics. È possibile inviare il log attività da una singola sottoscrizione a un massimo di cinque aree di lavoro. La raccolta dei log tra i tenant richiede il servizio [Azure Lighthouse](../../lighthouse/index.yml).
 
@@ -201,7 +202,7 @@ Se esiste già un profilo di log, prima di tutto è necessario rimuovere il prof
 
     | Proprietà | Obbligatoria | Descrizione |
     | --- | --- | --- |
-    | Nome |Sì |Nome del profilo di log. |
+    | Name |Sì |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'account di archiviazione in cui deve essere salvato il log attività. |
     | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Posizione |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
@@ -248,7 +249,7 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | storage-account-id |Sì |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
     | locations |Sì |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
     | days |Sì |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro Enabled deve essere impostato su false. |
-    |Enabled | Sì |Vero o falso.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
+    |Enabled | Sì |Vero o Falso.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
     | Categorie |Sì |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 

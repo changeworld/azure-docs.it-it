@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 12/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: adaea28d105b72152e1af28cc9d79da19c548c2c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 2fb1ae2bbda55a04f4e76505a55b28372af00f33
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561410"
+ms.locfileid: "97606675"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
@@ -1171,8 +1171,8 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 dicembre 2018 |
 | N/D | [4468323] | Aggiornamento del fuso orario    | 2.81, 3.68, 4.61 | 13 dicembre 2018 |
 | N/D | [4467107] | Rollup del mese di novembre non correlato alla sicurezza   | 2.81 | 13 novembre 2018 |
-| N/D | [4467701] | Rollup del mese di novembre non correlato alla sicurezza     | 3.68 | 13 novembre 2018 |
-| N/D | [4467697] | Rollup del mese di novembre non correlato alla sicurezza     | 4.61 | 13 novembre 2018 |
+| N/D | [4467701] | Rollup del mese di novembre non correlato alla sicurezza | 3.68 | 13 novembre 2018 |
+| N/D | [4467697] | Rollup del mese di novembre non correlato alla sicurezza | 4.61 | 13 novembre 2018 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328

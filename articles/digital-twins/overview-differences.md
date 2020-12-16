@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: af8d768ceeaacdf1c8a0f6cdc8be0041e4ae4ed1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb0d3e3c57a26f7ca14b74edc42cb657ba6074c3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099080"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604999"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Che cosa è la nuova versione di Gemelli digitali di Azure? In cosa si differenzia dalla versione precedente (2018)?
 
 La prima versione di anteprima pubblica di Gemelli digitali di Azure è stata rilasciata a ottobre 2018. Sebbene i concetti di base di questa prima versione siano stati introdotti nel nuovo servizio, molti dei dettagli di implementazione e interfacce sono stati modificati in modo da rendere il servizio più flessibile e accessibile. Queste modifiche sono state motivate dal feedback dei clienti.
 
 > [!IMPORTANT]
-> Alla luce dell'ampliamento delle funzionalità del nuovo servizio, la versione precedente del servizio Gemelli digitali di Azure verrà ritirata entro la fine dell'anno 2020.
+> Con la luce delle funzionalità espanse del nuovo servizio, il servizio di Azure Digital Twins precedente verrà ritirato, con le relative API e i dati associati non saranno più disponibili a partire dal 18 gennaio 2021.
 
 Se è stata usata la prima versione di Azure Digital Twins durante la prima anteprima pubblica, usare le informazioni e le procedure consigliate in questo articolo per informazioni su come lavorare con il nuovo servizio e sfruttare i vantaggi delle funzionalità.
 
@@ -38,7 +38,7 @@ La tabella seguente fornisce una visualizzazione affiancata dei concetti che son
 
 ## <a name="service-limits"></a>Limiti del servizio
 
-Per un elenco dei limiti dei dispositivi gemelli digitali di Azure, vedere informazioni di [*riferimento: limiti del servizio*](reference-service-limits.md).
+Per un elenco dei limiti di Gemelli digitali di Azure, vedere [*Informazioni di riferimento: Limiti del servizio*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

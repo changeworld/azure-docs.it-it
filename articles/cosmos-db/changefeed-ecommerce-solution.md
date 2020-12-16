@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: d0eef49ea82afe50c5e178de9ad5e82bcb0db0eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e7b75c71d64054e38630677ecd38f8e3e2483c12
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342165"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606335"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,14 +35,14 @@ Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nel
  
 1. **Generazione di dati:** il simulatore di dati viene usato per generare i dati delle vendite al dettaglio che rappresentano gli eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello e acquista un elemento. È possibile generare grandi set di dati di esempio tramite il generatore di dati. I dati di esempio generati contengono i documenti nel formato seguente:
    
-   ```json
-   {      
-     "CartID": 2486,
-     "Action": "Viewed",
-     "Item": "Women's Denim Jacket",
-     "Price": 31.99
-   }
-   ```
+    ```json
+    {
+      "CartID": 2486,
+      "Action": "Viewed",
+      "Item": "Women's Denim Jacket",
+      "Price": 31.99
+    }
+    ```
 
 2. **Cosmos DB:** I dati generati vengono archiviati in un contenitore di Azure Cosmos.  
 
@@ -85,12 +85,12 @@ Creare le risorse di Azure richieste dalla soluzione: Azure Cosmos DB, Account d
 
 3. Specificare i valori per i parametri cosmosdbaccount_name, eventhubnamespace_name e storageaccount_name come indicato nel file **parameters.json**. È necessario usare nomi che consentono di accedere alle risorse in un secondo momento.  
 
-4. Da **Windows PowerShell** , passare alla cartella **Azure Resource Manager** ed eseguire il comando seguente:
+4. Da **Windows PowerShell**, passare alla cartella **Azure Resource Manager** ed eseguire il comando seguente:
 
    ```powershell
    .\deploy.ps1
    ```
-5. Quando richiesto, immettere l' **ID sottoscrizione** , **changefeedlab** per il nome del gruppo di risorse e **run1** per il nome della distribuzione. Una volta che le risorse di iniziano la distribuzione, potrebbero occorrere fino a 10 minuti per il completamento.
+5. Quando richiesto, immettere l'**ID sottoscrizione**, **changefeedlab** per il nome del gruppo di risorse e **run1** per il nome della distribuzione. Una volta che le risorse di iniziano la distribuzione, potrebbero occorrere fino a 10 minuti per il completamento.
 
 ## <a name="create-a-database-and-the-collection"></a>Creare un database e una raccolta
 
@@ -98,21 +98,21 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
 
 1. Passare a [portale di Azure](https://portal.azure.com/) e individuare l' **account Azure Cosmos DB** creato dalla distribuzione del modello.  
 
-2. Dal riquadro **Esplora dati** , selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:  
+2. Dal riquadro **Esplora dati**, selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:  
 
-   * Per il campo **id database** , selezionare **Crea nuovo** , quindi inserire **changefeedlabdatabase**. Lasciare deselezionata la casella **Provisioning della velocità effettiva del database**.  
-   * Per il campo id della **Raccolta** , inserire **changefeedlabcollection**.  
+   * Per il campo **id database**, selezionare **Crea nuovo**, quindi inserire **changefeedlabdatabase**. Lasciare deselezionata la casella **Provisioning della velocità effettiva del database**.  
+   * Per il campo id della **Raccolta**, inserire **changefeedlabcollection**.  
    * Per la **chiave di partizione** inserire **/elemento**. Si tratta di un campo con distinzione tra maiuscole/minuscole, pertanto assicurarsi di compilarlo correttamente.  
    * Per **Velocità effettiva** inserire **10000**.  
    * Selezionare il pulsante **OK** .  
 
 3. Creare quindi un'altra raccolta denominata **lease** per l'elaborazione del feed di modifiche. La raccolta di lease coordina l'elaborazione del feed di modifiche in più processi di lavoro. Una raccolta separata viene usata per archiviare i lease con un lease per partizione.  
 
-4. Ritornare al riquadro **Esplora dati** , selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:
+4. Ritornare al riquadro **Esplora dati**, selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:
 
-   * Per il campo **id database** , selezionare **Usa esistente** , quindi inserire **changefeedlabdatabase**.  
-   * Per il campo **id raccolta** , inserire **lease**.  
-   * Per **Capacità di archiviazione** , selezionare **Fissa**.  
+   * Per il campo **id database**, selezionare **Usa esistente**, quindi inserire **changefeedlabdatabase**.  
+   * Per il campo **id raccolta**, inserire **lease**.  
+   * Per **Capacità di archiviazione**, selezionare **Fissa**.  
    * Lasciare il campo della **velocità effettiva** impostato sul valore predefinito.  
    * Selezionare il pulsante **OK** .
 
@@ -122,7 +122,7 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
 
 1. Passare a [portale di Azure](https://portal.azure.com/) e individuare l' **account Azure Cosmos DB** creato dalla distribuzione del modello.  
 
-2. Passare al riquadro delle **Chiavi** , copiare la STRINGA DI CONNESSIONE PRIMARIA e copiarla in un blocco note o un altro documento di cui si disporrà durante l'intera esercitazione. È consigliabile chiamarla **Stringa di connessione di Cosmos DB**. È necessario copiare la stringa nel codice in un secondo momento, quindi prenderne nota e ricordare dove è archiviata.
+2. Passare al riquadro delle **Chiavi**, copiare la STRINGA DI CONNESSIONE PRIMARIA e copiarla in un blocco note o un altro documento di cui si disporrà durante l'intera esercitazione. È consigliabile chiamarla **Stringa di connessione di Cosmos DB**. È necessario copiare la stringa nel codice in un secondo momento, quindi prenderne nota e ricordare dove è archiviata.
 
 ### <a name="get-the-storage-account-key-and-connection-string"></a>Ottenere la chiave della stringa di connessione e la stringa di connessione
 
@@ -154,7 +154,7 @@ Quando viene creato un nuovo documento o un documento corrente viene modificato 
 
 3. Passare a **local.settings.json** in Visual Studio. Usare quindi i valori annotati in precedenza per compilare i campi vuoti.  
 
-4. Passare a **ChangeFeedProcessor.cs**. Nei parametri per la funzione di **esecuzione** , eseguire le azioni seguenti:  
+4. Passare a **ChangeFeedProcessor.cs**. Nei parametri per la funzione di **esecuzione**, eseguire le azioni seguenti:  
 
    * Sostituire il testo **NOME RACCOLTA QUI** con il nome della raccolta. Se si sono seguite le istruzioni precedenti, il nome della raccolta sarà changefeedlabcollection.  
    * Sostituire il testo **NOME RACCOLTA LEASE QUI** con il nome del lease. Se si sono seguite le istruzioni precedenti, il nome della raccolta lease sarà **lease**.  
@@ -180,7 +180,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
  
 6. Attendere l'esecuzione del programma. Le stelle indicano che i dati sono in arrivo! Mantenere il programma in esecuzione, è importante che vengono raccolti molti dati.  
 
-7. Se si passa a [portale di Azure](https://portal.azure.com/) , quindi all'account Cosmos DB all'interno del gruppo di risorse e quindi a **Esplora dati** , si vedranno i dati casuali importati nella **changefeedlabcollection** .
+7. Se si passa a [portale di Azure](https://portal.azure.com/) , quindi all'account Cosmos DB all'interno del gruppo di risorse e quindi a **Esplora dati**, si vedranno i dati casuali importati nella **changefeedlabcollection** .
  
    :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Dati generati nel portale":::
 
@@ -198,7 +198,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
 
 4. Compilare il nuovo modulo di input con i dettagli seguenti:
 
-   * Nel campo alias **Input** , inserire **Input**.  
+   * Nel campo alias **Input**, inserire **Input**.  
    * Selezionare l'opzione per **Selezionare l'Hub eventi dalle sottoscrizioni correnti**.  
    * Impostare il campo **Sottoscrizione** nella sottoscrizione.  
    * Nello **spazio dei nomi di Hub eventi** immettere il nome nello spazio dei nomi di Hub eventi creati durante l'introduzione all'esercitazione.  
@@ -243,7 +243,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
 
 Power BI è una suite di strumenti di analisi business che consente di analizzare i dati e condividere informazioni dettagliate. È un ottimo esempio di come è possibile visualizzare in modo strategico i dati analizzati.
 
-1. Accedere a Power BI e passare all' **Area di lavoro personale** aprendo il menu sul lato sinistro della pagina.  
+1. Accedere a Power BI e passare all'**Area di lavoro personale** aprendo il menu sul lato sinistro della pagina.  
 
 2. Selezionare **+ Crea** nell'angolo superiore destro e quindi selezionare **Dashboard** per creare una dashboard.  
 
@@ -253,7 +253,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
  
 5. Selezionare **averagePrice** da **SET DI DATI** e quindi selezionare **Avanti**.  
 
-6. Nel campo **Tipo di visualizzazione** , scegliere **Grafico a barre raggruppate** dal menu a discesa. In **Asse** , aggiungere un'azione. Lasciare in sospeso **Legenda** senza aggiungere alcun dato. Quindi, nella sezione successiva denominata **value** , aggiungere **AVG**. Selezionare **Avanti** , quindi denominare il grafico e selezionare **applica**. Dovrebbe essere possibile visualizzare un nuovo grafico nella dashboard!  
+6. Nel campo **Tipo di visualizzazione**, scegliere **Grafico a barre raggruppate** dal menu a discesa. In **Asse**, aggiungere un'azione. Lasciare in sospeso **Legenda** senza aggiungere alcun dato. Quindi, nella sezione successiva denominata **value**, aggiungere **AVG**. Selezionare **Avanti**, quindi denominare il grafico e selezionare **applica**. Dovrebbe essere possibile visualizzare un nuovo grafico nella dashboard!  
 
 7. A questo punto, se si desidera visualizzare altre metriche, è possibile tornare alla schermata **streamjob1** e creare altri tre output con i campi seguenti.
 
@@ -323,9 +323,9 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
 A questo punto, sarà possibile osservare come è possibile usare il nuovo strumento di analisi dei dati per la connessione con un vero sito di e-commerce. Per creare il sito di e-commerce, usare un database di Azure Cosmos per archiviare l'elenco delle categorie di prodotti (donne, uomini, unisex), il catalogo dei prodotti e un elenco degli elementi più diffusi.
 
-1. Tornare alla [portale di Azure](https://portal.azure.com/), quindi all' **account di Cosmos DB** , quindi **Esplora dati**.  
+1. Tornare alla [portale di Azure](https://portal.azure.com/), quindi all' **account di Cosmos DB**, quindi **Esplora dati**.  
 
-   Aggiungere due raccolte in **changefeedlabdatabase**  -  **prodotti** e **categorie** changefeedlabdatabase con capacità di archiviazione fissa.
+   Aggiungere due raccolte in   -  **prodotti** e **categorie** changefeedlabdatabase con capacità di archiviazione fissa.
 
    Aggiungere un'altra raccolta in **changefeedlabdatabase** chiamata **topItems** e **/Item** come chiave di partizione.
 
@@ -341,14 +341,14 @@ A questo punto, sarà possibile osservare come è possibile usare il nuovo strum
  
 5. Se si aggiungono le query TOP 5 facoltativa nella parte precedente dell'esercitazione, passare alla parte 5a. In caso contrario, andare alla parte 5b.
 
-   5a. In **streamjob1** , selezionare **Modifica query** e incollare la query seguente nell'editor delle query di Analisi di flusso di Azure sotto alla query TOP 5, ma sopra rispetto alle altre query.
+   5a. In **streamjob1**, selezionare **Modifica query** e incollare la query seguente nell'editor delle query di Analisi di flusso di Azure sotto alla query TOP 5, ma sopra rispetto alle altre query.
 
    ```sql
    SELECT arrayvalue.value.item AS Item, arrayvalue.value.price, arrayvalue.value.countEvents
    INTO topItems
    FROM arrayselect
    ```
-   5b. In **streamjob1** , selezionare **Modifica query** e incollare la query seguente nell'editor delle query di Analisi di flusso di Azure sopra rispetto alle altre query.
+   5b. In **streamjob1**, selezionare **Modifica query** e incollare la query seguente nell'editor delle query di Analisi di flusso di Azure sopra rispetto alle altre query.
 
    ```sql
    /*TOP 5*/
@@ -379,13 +379,13 @@ A questo punto, sarà possibile osservare come è possibile usare il nuovo strum
 
 6. Aprire **EcommerceWebApp.sln** e passare al file **Web.config** in **Esplora soluzioni**.  
 
-7. All'interno del blocco `<appSettings>`, aggiungere l' **URI** e la **CHIAVE PRIMARIA** salvati in precedenza in corrispondenza del testo **URI qui** e **chiave primaria qui**. Quindi aggiungere il **nome del database** e il **nome della raccolta** come indicato. (Questi nomi devono essere **changefeedlabdatabase** e **changefeedlabcollection** a meno che non si scelga di assegnare un nome diverso.)
+7. All'interno del blocco `<appSettings>`, aggiungere l'**URI** e la **CHIAVE PRIMARIA** salvati in precedenza in corrispondenza del testo **URI qui** e **chiave primaria qui**. Quindi aggiungere il **nome del database** e il **nome della raccolta** come indicato. (Questi nomi devono essere **changefeedlabdatabase** e **changefeedlabcollection** a meno che non si scelga di assegnare un nome diverso.)
 
-   Compilare il **nome della raccolta di prodotti** , il **nome della raccolta di categorie** e il **nome della raccolta di elementi principali** come indicato. (Questi nomi devono essere **prodotti, categorie e topItems** a meno che non si abbia scelto di assegnare i propri in modo differente.)  
+   Compilare il **nome della raccolta di prodotti**, il **nome della raccolta di categorie** e il **nome della raccolta di elementi principali** come indicato. (Questi nomi devono essere **prodotti, categorie e topItems** a meno che non si abbia scelto di assegnare i propri in modo differente.)  
 
 8. Individuare e aprire la **Cartella di estrazione** all'interno di **EcommerceWebApp.sln.** Quindi aprire il file **Web.config** all'interno della cartella.  
 
-9. All'interno del blocco `<appSettings>`, aggiungere l' **URI** e la **CHIAVE PRIMARIA** che sono stati salvati in precedenza dove indicato. Quindi aggiungere il **nome del database** e il **nome della raccolta** come indicato. (Questi nomi devono essere **changefeedlabdatabase** e **changefeedlabcollection** a meno che non si scelga di assegnare un nome diverso.)  
+9. All'interno del blocco `<appSettings>`, aggiungere l'**URI** e la **CHIAVE PRIMARIA** che sono stati salvati in precedenza dove indicato. Quindi aggiungere il **nome del database** e il **nome della raccolta** come indicato. (Questi nomi devono essere **changefeedlabdatabase** e **changefeedlabcollection** a meno che non si scelga di assegnare un nome diverso.)  
 
 10. Selezionare **Avvia** nella parte superiore della pagina per eseguire il programma.  
 

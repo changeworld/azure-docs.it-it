@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specifiche, hardware, DK, funzionalità, profondità, colori, RGB, IMU, array, profondità, più sincronizzazioni
-ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361161"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592280"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizzare più dispositivi Azure Kinect DK
 
@@ -83,11 +83,14 @@ Per ogni acquisizione della fotocamera con profondità, il laser viene attivato 
 
 Inoltre, le differenze tra il clock della fotocamera e l'orologio del firmware del dispositivo aumentano l'offset minimo a 160 &mu; s. Per calcolare un offset più preciso per la configurazione, annotare la modalità di profondità utilizzata e fare riferimento alla [tabella di temporizzazione non elaborata del sensore di profondità](hardware-specification.md#depth-sensor-raw-timing). Utilizzando i dati di questa tabella, è possibile calcolare l'offset minimo (il tempo di esposizione di ogni fotocamera) utilizzando l'equazione seguente:
 
-> *Tempo di esposizione* =*IR Pulses* ( &times; *larghezza impulso*IR) + (tempo di inattività*periodi* di inattività &times; *Idle Time*)
+> *Tempo di esposizione* = ( &times; *larghezza impulso* IR) + (tempo di inattività *periodi* di inattività &times; )
 
 Quando si usa un offset di 160 &mu; s, è possibile configurare fino a nove fotocamere di profondità aggiuntive in modo che ogni laser si accenda mentre gli altri laser sono inattivi.
 
 Nel software usare ```depth_delay_off_color_usec``` o per assicurarsi ```subordinate_delay_off_master_usec``` che ciascun laser IR venga attivato nella propria &mu; finestra di 160 s o abbia un campo di visualizzazione diverso.
+
+> [!NOTE]  
+> La larghezza effettiva del Pulse è 125US, ma il 160US è stato fornito per un certo margine di manovra. Se NFOV viene ripreso come esempio, ogni impulso 125US è seguito da 1450us Idle. Totale di queste (9 x 125) + (8 x 1450)-restituisce il tempo di esposizione di 12,8 ms. L'armadio è possibile Interleave. l'esposizione di due dispositivi è il primo impulso della seconda camera a rientrare nel primo periodo di inattività della prima fotocamera. Il ritardo tra la prima e la seconda fotocamera potrebbe essere minimo di 125US (la larghezza di un impulso), tuttavia è consigliabile un certo margine di manovra, di conseguenza 160US. Dato 160US è possibile interleave i periodi di esposizione di un massimo di 10 fotocamere.
 
 ## <a name="prepare-your-devices-and-other-hardware"></a>Preparare i dispositivi e altri componenti hardware
 
@@ -160,18 +163,18 @@ Per verificare che i dispositivi siano connessi correttamente, usare il [Visuali
 > Per questa procedura è necessario conosce il numero di serie di ogni DK di Azure Kinect.
 
 1. Aprire due istanze del Visualizzatore Kinect di Azure.
-1. In **Apri dispositivo**selezionare il numero di serie del dispositivo subordinato che si desidera testare.  
+1. In **Apri dispositivo** selezionare il numero di serie del dispositivo subordinato che si desidera testare.  
    ![Apri dispositivo](./media/open-devices.png)
    > [!IMPORTANT]  
    > Per ottenere un allineamento di acquisizione delle immagini preciso tra tutti i dispositivi, è necessario avviare il dispositivo master per ultimo.  
-1. In **sincronizzazione esterna**selezionare **Sub**.  
+1. In **sincronizzazione esterna** selezionare **Sub**.  
    ![Avvio della fotocamera subordinata](./media/sub-device-start.png)
-1.  Selezionare **Start**.  
+1.  Selezionare **Inizio**.  
     > [!NOTE]  
     > Poiché si tratta di un dispositivo subordinato, il Visualizzatore Kinect di Azure non visualizza un'immagine dopo l'avvio del dispositivo. Non viene visualizzata alcuna immagine finché il dispositivo subordinato non riceve un segnale di sincronizzazione dal dispositivo master.
 1. Dopo l'avvio del dispositivo subordinato, usare l'altra istanza del Visualizzatore Kinect di Azure per aprire il dispositivo master.
-1. In **sincronizzazione esterna**selezionare **Master**.
-1. Selezionare **Start**.
+1. In **sincronizzazione esterna** selezionare **Master**.
+1. Selezionare **Inizio**.
 
 Quando il dispositivo Kinect di Azure master viene avviato, entrambe le istanze del Visualizzatore Kinect di Azure devono visualizzare le immagini.
 

@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 20f25e0add5d05bb2dcf7f3ebdc86ccd5ae889d0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bee41bb8e5beb4df3086ab50499cb185a83e4efe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510788"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592330"
 ---
 # <a name="peering-policy"></a>Criteri di peering
 Microsoft mantiene un criterio di peering selettivo progettato per garantire la migliore esperienza possibile per i clienti supportata dagli standard e dalle procedure consigliate del settore, scalabilità per la domanda futura e posizionamento strategico del peering. Di conseguenza, Microsoft si riserva il diritto di rendere le eccezioni ai criteri ritenute necessarie. I requisiti generali di Microsoft della rete sono illustrati nelle sezioni riportate di seguito. Applicabili sia al peering diretto che alle richieste di peering di Exchange. 

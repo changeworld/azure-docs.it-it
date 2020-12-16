@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b3391727b19e9e8e88646f72667545f1df7fe5a7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012868"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606947"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Usare attività personalizzate in una pipeline Azure Data Factory versione 1
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -98,8 +98,10 @@ Il metodo accetta quattro parametri:
 Il metodo restituisce un dizionario che può essere usato per concatenare le attività personalizzate in un secondo momento. Questa funzionalità non è ancora implementata, quindi il metodo restituisce un dizionario vuoto.
 
 ### <a name="procedure"></a>Procedura
+
 1. Creare un progetto **Libreria di classi .NET** .
-   <ol type="a">
+   
+    <ol type="a">
      <li>Avviare Visual Studio.</li>
      <li>Fare clic su <b>File</b>, scegliere <b>Nuovo</b> e quindi fare clic su <b>Progetto</b>.</li>
      <li>Espandere <b>Modelli</b> e quindi selezionare <b>Visual C#</b> . In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.</li>
@@ -116,6 +118,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
+
 4. Importare nel progetto il pacchetto NuGet **Azure Storage** .
 
     ```powershell
@@ -149,16 +152,19 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
+
 6. Modificare il nome dello **spazio dei nomi** in **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
+
 7. Modificare il nome della classe in **MyDotNetActivity** e derivarlo dall'interfaccia **IDotNetActivity** come illustrato nel frammento di codice seguente:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
+
 8. Implementare (aggiungere) il metodo **Execute** dell'interfaccia **IDotNetActivity** nella classe **MyDotNetActivity** e copiare il seguente codice di esempio nel metodo.
 
     Nell’esempio seguente si conta il numero di occorrenze del termine di ricerca (“Microsoft”) in ogni BLOB associato con una sezione dei dati.
@@ -279,6 +285,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
         return new Dictionary<string, string>();
     }
     ```
+
 9. Aggiungere i seguenti metodi helper:
 
     ```csharp
@@ -367,25 +374,30 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
     ```
 
     Il metodo Calculate calcola il numero di istanze della parola chiave "Microsoft" nei file di input (BLOB nella cartella). Il termine di ricerca ("Microsoft") è hardcoded nel codice.
+
 10. Compilare il progetto. Fare clic su **Compila** dal menu e scegliere **Compila soluzione**.
 
     > [!IMPORTANT]
     > Impostare la versione 4.5.2 di .NET Framework come framework di destinazione per il progetto: fare clic con il pulsante destre sul progetto e quindi su **Proprietà** per impostare il framework di destinazione. Data factory non supporta le attività personalizzate compilate in versioni di .NET Framework successive alla 4.5.2.
 
 11. Avviare **Esplora risorse** e passare alla cartella **bin\Debug** o **bin\release** a seconda del tipo di compilazione.
+
 12. Creare un file zip **MyDotNetActivity.zip** che contenga tutti i file binari nella \<project folder\> cartella \bin\debug. Includere il file **MyDotNetActivity.pdb** per ottenere altri dettagli, ad esempio il numero della riga nel codice sorgente che ha causato il problema in caso di errore.
 
     > [!IMPORTANT]
     > Tutti i file contenuti nel file con estensione zip dell'attività personalizzata devono trovarsi nel **livello principale** senza sottocartelle.
 
     ![File di output binari](./media/data-factory-use-custom-activities/Binaries.png)
-14. Se non è già presente, creare un contenitore BLOB denominato **customactivitycontainer**.
-15. Caricare MyDotNetActivity.zip come BLOB in customactivitycontainer in un'Archiviazione BLOB di Azure **di uso generico**, non ad accesso frequente/sporadico, a cui si fa riferimento da AzureStorageLinkedService.
+
+13. Se non è già presente, creare un contenitore BLOB denominato **customactivitycontainer**.
+
+14. Caricare MyDotNetActivity.zip come BLOB in customactivitycontainer in un'Archiviazione BLOB di Azure **di uso generico**, non ad accesso frequente/sporadico, a cui si fa riferimento da AzureStorageLinkedService.
 
 > [!IMPORTANT]
 > Se si aggiunge questo progetto di attività .NET a una soluzione in Visual Studio che contiene un progetto Data Factory e si aggiunge un riferimento al progetto dell'attività .NET dal progetto dell'applicazione Data Factory, non è necessario eseguire gli ultimi due passaggi, ovvero creare manualmente il file ZIP e caricarlo nell'Archiviazione BLOB di Azure di uso generico. Quando si pubblicano entità Data Factory utilizzando Visual Studio, questi passaggi vengono eseguiti automaticamente dal processo di pubblicazione. Per altre informazioni, vedere la sezione [Data Factory project in Visual Studio](#data-factory-project-in-visual-studio) (Progetto Data Factory in Visual Studio).
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Creare una pipeline con attività personalizzate
+
 È stata creata un'attività personalizzata ed è stato caricato il file zip con file binari in un contenitore BLOB in un account di Archiviazione di Azure **di uso generico**. Questa sezione illustra come creare una data factory di Azure con una pipeline che usa l'attività personalizzata.
 
 Il set di dati di input per l'attività personalizzata rappresenta i BLOB (file) nella cartella customactivityinput del contenitore adftutorial nell'archiviazione BLOB. Il set di dati di output per l'attività rappresenta i BLOB di output nella cartella customactivityoutput del contenitore adftutorial nell'archiviazione BLOB.

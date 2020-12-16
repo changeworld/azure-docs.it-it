@@ -3,12 +3,12 @@ title: Esercitazione - Distribuire un gruppo multi-contenitore- YAML
 description: In questa esercitazione si apprenderà come distribuire un gruppo di contenitori con più contenitori in istanze di Azure Container usando un file YAML con l'interfaccia della riga di comando di Azure.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6f9dda7735587dfee1dde86c85375efcf057daa7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091294"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605162"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando un file YAML
 
@@ -37,7 +37,7 @@ In questa esercitazione si esegue la procedura per l'esecuzione di una semplice 
 
 Per distribuire un gruppo multi-contenitore con il comando [az container create][az-container-create] nell'interfaccia della riga di comando di Azure, è necessario specificare la configurazione del gruppo di contenitori in un file YAML. Quindi passare il file YAML come parametro per il comando.
 
-Per iniziare, copiare il file YAML seguente in un nuovo file denominato **deploy-aci.yaml** . In Azure Cloud Shell è possibile usare Visual Studio Code per creare il file nella directory di lavoro:
+Per iniziare, copiare il file YAML seguente in un nuovo file denominato **deploy-aci.yaml**. In Azure Cloud Shell è possibile usare Visual Studio Code per creare il file nella directory di lavoro:
 
 ```
 code deploy-aci.yaml
@@ -178,7 +178,6 @@ In questa esercitazione è stato usato un file YAML per distribuire un gruppo mu
 È anche possibile distribuire un gruppo multi-contenitore usando un [modello di Resource Manager](container-instances-multi-container-group.md). Un modello di Resource Manager può essere facilmente adattato agli scenari in cui è necessario distribuire risorse aggiuntive di servizi di Azure con il gruppo di contenitori.
 
 <!-- LINKS - External -->
-
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

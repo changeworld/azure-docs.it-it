@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 55ad9c90129a5d732f377ac1b6c905c14de319dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185658"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607424"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guida alla risoluzione dei problemi comuni relativi al servizio Azure SignalR
 
@@ -36,7 +36,7 @@ Con l'SDK versione **1.0.6** o successiva, `/negotiate` genererà un'eccezione `
 
 ### <a name="solution"></a>Soluzione:
 
-Per impostazione predefinita, le attestazioni da `context.User.Claims` sono incluse durante la generazione del token **A** di accesso JWT in **ASRS**(Zure **s** ignal **R** **s** ervizio), in modo che le attestazioni vengano mantenute e possano essere passate da **ASRS** a `Hub` quando il client si connette a `Hub` .
+Per impostazione predefinita, le attestazioni da `context.User.Claims` sono incluse durante la generazione del tokendi accesso JWT in **ASRS**(Zure **s** ignal **R** **s** ervizio), in modo che le attestazioni vengano mantenute e possano essere passate da **ASRS** a `Hub` quando il client si connette a `Hub` .
 
 In alcuni casi, `context.User.Claims` vengono utilizzate per archiviare numerose informazioni per il server applicazioni, la maggior parte delle quali non vengono utilizzate da `Hub` s ma da altri componenti.
 
@@ -144,11 +144,17 @@ Per ASP.NET SignalR, quando la [connessione client](#client_connection_drop)vien
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>429 (numero eccessivo di richieste) restituito per le richieste client
 
-429 restituisce se il numero di connessioni **simultanee** supera il limite.
+I casi possibili sono due:
+
+### <a name="concurrent-connection-count-exceeds-limit"></a>Il numero di connessioni **simultanee** supera il limite.
 
 Per le istanze **gratuite** , il limite del numero di connessioni **simultanee** è 20 per le istanze **standard** , il limite del numero di connessioni **simultanee** per **unità** è 1 K, che significa che Unit100 consente le connessioni simultanee 100-k.
 
 Le connessioni includono connessioni client e server. fare clic [qui](./signalr-concept-messages-and-connections.md#how-connections-are-counted) per verificare la modalità di conteggio delle connessioni.
+
+### <a name="too-many-negotiate-requests-at-the-same-time"></a>Troppe richieste Negotiate contemporaneamente.
+
+Si consiglia di avere un ritardo casuale prima della riconnessione. per ulteriori esempi, vedere [qui](#restart_connection) .
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 errore durante la negoziazione: il servizio Azure SignalR non è ancora connesso. riprovare più tardi.
 

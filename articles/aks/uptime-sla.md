@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033018"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607340"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -25,9 +25,8 @@ I clienti possono comunque creare cluster gratuiti senza limiti con un obiettivo
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Il contratto di servizio per il tempo di esecuzione è disponibile nelle aree pubbliche e nelle aree di Azure per enti pubblici in cui [è supportato](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
-
-## <a name="limitations"></a>Limitazioni
+* Il contratto di servizio per il tempo di esecuzione è disponibile nelle aree pubbliche e nelle aree di Azure per enti pubblici in cui [è supportato](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
+* Il contratto di servizio per il tempo di esecuzione è disponibile per i [cluster AKS privati][private-clusters] in tutte le aree in cui è supportato AKS.
 
 ## <a name="sla-terms-and-conditions"></a>Termini e condizioni del contratto di servizio
 
@@ -138,3 +137,4 @@ Configurare il cluster per [limitare il traffico in uscita](limit-egress-traffic
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

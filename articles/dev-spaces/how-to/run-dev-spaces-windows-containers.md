@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
-ms.openlocfilehash: e6c4279717ef0a7bed0a66a9b0dba1d78e418835
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a9aa24ae70afe062246e1b295cdc7e0724639596
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900154"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606760"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Azure Dev Spaces
 
@@ -71,7 +71,7 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-Il comando precedente USA Helm per eseguire il servizio Windows nello spazio dei nomi *dev* . Se non si dispone di uno spazio dei nomi denominato *dev* , verrà creato.
+Il comando precedente USA Helm per eseguire il servizio Windows nello spazio dei nomi *dev* . Se non si dispone di uno spazio dei nomi denominato *dev*, verrà creato.
 
 Usare il `kubectl get pods` comando per verificare che il servizio Windows sia in esecuzione nel cluster. 
 
@@ -118,11 +118,11 @@ Usare `helm list` per elencare la distribuzione per il servizio Windows:
 
 ```cmd
 $ helm list --namespace dev
-NAME              REVISION  UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
-windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
+NAME             REVISION   UPDATED                    STATUS    CHART            APP VERSION    NAMESPACE
+windows-service    1        Wed Jul 24 15:45:59 2019   DEPLOYED  mywebapi-0.1.0   1.0            dev
 ```
 
-Nell'esempio precedente, il nome della distribuzione è *Windows-Service* . Aggiornare il servizio Windows con la nuova configurazione usando `helm upgrade` :
+Nell'esempio precedente, il nome della distribuzione è *Windows-Service*. Aggiornare il servizio Windows con la nuova configurazione usando `helm upgrade` :
 
 ```cmd
 helm upgrade windows-service . --namespace dev

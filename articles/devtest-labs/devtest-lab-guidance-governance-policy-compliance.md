@@ -4,12 +4,12 @@ description: Questo articolo include indicazioni sulla governance dei criteri e 
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fe380c3a8e0e0a82cc806bf19f9a3454041d94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480933"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592348"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Governance dell'infrastruttura di Azure DevTest Labs: criteri e conformità aziendali
 Questo articolo include indicazioni sulla governance dei criteri e della conformità aziendali dell'infrastruttura di Azure DevTest Labs. 
@@ -37,7 +37,7 @@ Nell'ambito della strategia di gestione della configurazione della governance co
 - Associare Azure Repos con lo stesso tenant di Azure Active Directory usato dalla sottoscrizione di Azure per l'autenticazione e l'autorizzazione.
 - In Azure Active Directory creare un gruppo denominato **Tutti gli sviluppatori di DevTest Labs** che viene gestito centralmente. È opportuno inserire in questo gruppo tutti gli sviluppatori che contribuiscono allo sviluppo degli artefatti.
 - Lo stesso gruppo di Azure Active Directory può essere usato per consentire l'accesso al repository di Azure Repos e al lab.
-- In Azure Repos è consigliabile usare la funzionalità di branching o di creazione di una copia tramite fork per separare un repository per ambiente di sviluppo dal repository di produzione primario. Il contenuto viene aggiunto al ramo principale solo con una richiesta pull dopo un adeguato esame del codice. Dopo che il revisore del codice approva la modifica, un responsabile sviluppatori, che è responsabile della manutenzione del ramo principale, unisce il codice aggiornato. 
+- In Azure Repos è consigliabile usare la funzionalità di branching o di creazione di una copia tramite fork per separare un repository per ambiente di sviluppo dal repository di produzione primario. Il contenuto viene aggiunto solo al Branch principale con una richiesta pull dopo una revisione corretta del codice. Quando il revisore del codice approva la modifica, uno sviluppatore principale, responsabile della manutenzione del ramo principale, unisce il codice aggiornato. 
 
 ## <a name="corporate-security-policies"></a>Criteri di sicurezza aziendali
 

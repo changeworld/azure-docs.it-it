@@ -7,18 +7,86 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 10/29/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 935ba888352d2454a609a40866ef10ccf13a2dac
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359817"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605463"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="december-2020"></a>Dicembre 2020
+
+### <a name="new-capabilities--features"></a>Nuove funzionalità & funzionalità
+
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.2.5. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) .
+
+Visualizzare gli endpoint per l'iperscalabilità di SQL Istanza gestita e PostgreSQL usando l'interfaccia della riga di comando di Azure ( `azdata` ) con i `azdata arc sql endpoint list` `azdata arc postgres endpoint list` comandi e.
+
+Modificare le richieste e i limiti delle risorse di SQL Istanza gestita (core CPU e memoria) usando Azure Data Studio.
+     
+L'iperscalabilità di PostgreSQL abilitata per Azure Arc supporta ora il ripristino temporizzato oltre al ripristino del backup completo per entrambe le versioni 11 e 12 di PostgreSQL. La funzionalità di ripristino temporizzato consente di indicare una data e un'ora specifiche per il ripristino.
+
+La convenzione di denominazione dei pod per Azure Arc abilitata per l'iperscalabilità di PostgreSQL è cambiata. È ora nel formato: ServergroupName {r, s}-_n_. Ad esempio, un gruppo di server con tre nodi, un nodo coordinatore e due nodi di lavoro sono rappresentati come:
+- `postgres02r-0` (nodo coordinatore)
+- `postgres02s-0` (nodo del ruolo di lavoro)
+- `postgres02s-1` (nodo del ruolo di lavoro)
+
+### <a name="breaking-change"></a>Modifica
+
+#### <a name="new-resource-provider"></a>Nuovo provider di risorse
+
+Questa versione introduce un [provider di risorse](../../azure-resource-manager/management/azure-services-resource-providers.md) aggiornato denominato `Microsoft.AzureArcData` . Prima di poter usare questa funzionalità, è necessario registrare il provider di risorse. 
+
+Per registrare il provider di risorse: 
+
+1. Nella portale di Azure selezionare **sottoscrizioni** 
+2. Scegliere la sottoscrizione
+3. In **Impostazioni** selezionare **provider di risorse** 
+4. Cercare `Microsoft.AzureArcData` e selezionare **Register (registra** ) 
+
+È possibile esaminare i passaggi dettagliati in [tipi e provider di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Questa modifica rimuove anche tutte le risorse di Azure esistenti caricate nel portale di Azure. Per usare il provider di risorse, è necessario aggiornare il controller dati e usare l'interfaccia della riga di comando più recente `azdata` .  
+
+### <a name="platform-release-notes"></a>Note sulla versione della piattaforma
+
+#### <a name="direct-connectivity-mode"></a>Modalità di connettività diretta
+
+Questa versione introduce la modalità di connettività diretta. La modalità di connettività diretta consente al controller dati di caricare automaticamente le informazioni sull'utilizzo in Azure. Come parte del caricamento dell'utilizzo, la risorsa del controller di dati Arc viene creata automaticamente nel portale, se non è già stata creata tramite il `azdata` caricamento.  
+
+Quando si crea il controller di dati, è possibile specificare la connettività diretta. Nell'esempio seguente viene creato un controller dati `azdata arc dc create` denominato `arc` utilizzando la modalità di connettività diretta ( `connectivity-mode direct` ). Prima di eseguire l'esempio, sostituire `<subscription id>` con l'ID sottoscrizione.
+
+```console
+azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
+```
+
+### <a name="known-issues"></a>Problemi noti
+
+- In Azure Kubernetes Service (AKS) Kubernetes versione 1.19. x non è supportata.
+- In Kubernetes 1,19 `containerd` non è supportato.
+- La risorsa del controller dei dati in Azure è attualmente una risorsa di Azure. Eventuali aggiornamenti come Delete non vengono propagati al cluster kubernetes.
+- I nomi delle istanze non possono contenere più di 13 caratteri
+- Nessun aggiornamento sul posto per il controller dati di Azure Arc o le istanze di database.
+- Le immagini del contenitore di servizi dati abilitati per Arc non sono firmate.  Potrebbe essere necessario configurare i nodi di Kubernetes per consentire il pull delle immagini del contenitore senza firma.  Se ad esempio si usa Docker come runtime del contenitore, è possibile impostare la variabile di ambiente DOCKER_CONTENT_TRUST = 0 e riavviare.  Altri runtime del contenitore hanno opzioni simili, ad esempio in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
+- Non è possibile creare istanze gestite di SQL Azure Arc abilitate o gruppi di server con iperscalabilità PostgreSQL dalla portale di Azure.
+- Per il momento, se si usa NFS, è necessario impostare `allowRunAsRoot` su `true` nel file del profilo di distribuzione prima di creare il controller dati di Azure Arc.
+- Solo autenticazione dell'account di accesso di SQL e PostgreSQL.  Nessun supporto per Azure Active Directory o Active Directory.
+- Per la creazione di un controller di dati in OpenShift sono necessari vincoli di sicurezza rilassati.  Per informazioni dettagliate, vedere la documentazione.
+- Se si usa il motore di Azure Kubernetes Service (AKS) nell'hub Azure Stack con il controller di dati di Azure Arc e le istanze di database, l'aggiornamento a una versione di Kubernetes più recente non è supportato. Disinstallare Azure Arc data controller e tutte le istanze di database prima di aggiornare il cluster Kubernetes.
+- I cluster AKS che si estendono su [più zone di disponibilità](../../aks/availability-zones.md) non sono attualmente supportati per i servizi dati abilitati per Azure Arc. Per evitare questo problema, quando si crea il cluster AKS in portale di Azure, se si seleziona un'area in cui sono disponibili le zone, deselezionare tutte le zone dal controllo di selezione. Vedere l'immagine seguente:
+
+   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Deselezionare le caselle di controllo per ogni zona per specificare nessuna.":::
+
+#### <a name="postgresql"></a>PostgreSQL
+
+- L'iperscalabilità di PostgreSQL abilitata per Azure Arc restituisce un messaggio di errore non accurato quando non è possibile eseguire il ripristino fino al punto nel tempo relativo indicato. Se, ad esempio, è stato specificato un punto nel tempo per il ripristino precedente rispetto a quello dei backup, il ripristino avrà esito negativo con un messaggio di errore simile a: errore: (404). Motivo: non trovato. Corpo della risposta HTTP: {"code": 404, "internalStatus": "NOT_FOUND", "Reason": "non è stato possibile ripristinare il backup per il server...}
+Quando si verifica questo problema, riavviare il comando dopo aver indicato un punto nel tempo compreso nell'intervallo di date per cui si dispone di backup. Questo intervallo verrà determinato elencando i backup e esaminando le date in cui sono state eseguite.
+- Il ripristino temporizzato è supportato solo tra gruppi di server. Il server di destinazione di un'operazione di ripristino temporizzato non può essere il server da cui è stato richiesto il backup. Deve essere un gruppo di server diverso. Tuttavia, il ripristino completo è supportato per lo stesso gruppo di server.
+- Quando si esegue un ripristino completo, è necessario un ID di backup. Per impostazione predefinita, se non si indica un ID di backup verrà usato il backup più recente. Questa operazione non funziona in questa versione.
 
 ## <a name="october-2020"></a>Ottobre 2020 
 
@@ -36,30 +104,17 @@ Questa versione introduce le modifiche di rilievo seguenti:
 
 * È stato aggiunto un nuovo parametro facoltativo a `azdata arc postgres server create` chiamato `--volume-claim mounts` . Il valore è un elenco delimitato da virgole di montaggi di attestazioni del volume. Un montaggio di attestazioni volume è una coppia di tipo di volume e il nome del PVC. L'unico tipo di volume attualmente supportato è `backup` .  In PostgreSQL, quando il tipo di volume è `backup` , il PVC viene montato in `/mnt/db-backups` .  Ciò consente di condividere i backup tra le istanze di PostgreSQL in modo che sia possibile ripristinare il backup di un'istanza di PostgreSQL in un'altra istanza.
 
-* Nuovi nomi brevi per le definizioni di risorse personalizzate PostgreSQL: 
-
+* Nuovi nomi brevi per le definizioni di risorse personalizzate di PostgreSQL: 
   * `pg11` 
-
   * `pg12`
-
-* Il caricamento dei dati di telemetria da fornisce all'utente un:
-
-   * Numero di punti caricati in Azure
-
-     oppure 
-
+* Il caricamento dei dati di telemetria fornisce agli utenti:
+   * Numero di punti caricati in Azure o 
    * Se non sono stati caricati dati in Azure, verrà richiesto di riprovare.
-
 * `azdata arc dc debug copy-logs` ora legge anche da `/var/opt/controller/log` cartella e raccoglie i log del motore PostgreSQL in Linux.
-
 *   Visualizzare un indicatore funzionante durante la creazione e il ripristino del backup con l'iperscalabilità PostgreSQL.
-
 * `azdata arc postrgres backup list` include ora le informazioni sulle dimensioni del backup.
-
 * La proprietà nome amministratore di SQL Istanza gestita è stata aggiunta alla colonna destra del pannello panoramica nel portale di Azure.
-
 * Azure Data Studio supporta la configurazione del numero di nodi del ruolo di lavoro, vCore e le impostazioni di memoria per la scalabilità di PostgreSQL. 
-
 * L'anteprima supporta il backup/ripristino per Postgres versione 11 e 12.
 
 ## <a name="september-2020"></a>Settembre 2020
@@ -71,40 +126,13 @@ Azure Arc Enabled Data Services è stato rilasciato per l'anteprima pubblica. I 
 
 Per istruzioni, vedere [quali sono i servizi dati abilitati per Azure Arc?](overview.md)
 
-## <a name="known-limitations-and-issues"></a>Limitazioni e problemi noti
-
-- I nomi di istanza non possono contenere più di 13 caratteri
-- Nessun aggiornamento sul posto per il controller dati di Azure Arc o le istanze di database.
-- Le immagini del contenitore di servizi dati abilitati per Arc non sono firmate.  Potrebbe essere necessario configurare i nodi di Kubernetes per consentire il pull delle immagini del contenitore senza firma.  Se ad esempio si usa Docker come runtime del contenitore, è possibile impostare la variabile di ambiente DOCKER_CONTENT_TRUST = 0 e riavviare.  Altri runtime del contenitore hanno opzioni simili, ad esempio in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
-- Non è possibile creare istanze gestite di SQL Azure Arc abilitate o gruppi di server con iperscalabilità PostgreSQL dalla portale di Azure.
-- Per il momento, se si usa NFS, è necessario impostare `allowRunAsRoot` su `true` nel file del profilo di distribuzione prima di creare il controller dati di Azure Arc.
-- Solo autenticazione dell'account di accesso di SQL e PostgreSQL.  Nessun supporto per Azure Active Directory o Active Directory.
-- Per la creazione di un controller di dati in OpenShift sono necessari vincoli di sicurezza rilassati.  Per informazioni dettagliate, vedere la documentazione.
-- Se si usa il motore del servizio Kubernetes di Azure (motore AKS) nell'hub Azure Stack con il controller di dati di Azure Arc e le istanze di database, l'aggiornamento a una versione di Kubernetes più recente non è supportato. Disinstallare Azure Arc data controller e tutte le istanze di database prima di aggiornare il cluster Kubernetes.
-- Azure Kubernetes Service (AKS), i cluster che si estendono su [più zone di disponibilità](../../aks/availability-zones.md) non sono attualmente supportati per Azure Arc Enabled Data Services. Per evitare questo problema, quando si crea il cluster AKS in portale di Azure, se si seleziona un'area in cui sono disponibili le zone, deselezionare tutte le zone dal controllo di selezione. Vedere l'immagine seguente:
-
-   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Deselezionare le caselle di controllo per ogni zona per specificare nessuna.":::
-
-
-### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Problemi noti per l'iperscalabilità di PostgreSQL abilitata per Azure Arc   
-
-- L'anteprima non supporta il backup/ripristino per il motore PostgreSQL versione 11. Supporta solo backup/ripristino per PostgreSQL versione 12.
-- `azdata arc dc debug copy-logs` nei nodi non raccoglie i log del motore PostgreSQL in Windows.
-- La ricreazione di un gruppo di server con il nome di un gruppo di server che è stato appena eliminato potrebbe non riuscire o smettere di rispondere. 
-   - **Soluzione alternativa** Non riutilizzare lo stesso nome quando si ricrea un gruppo di server o si attende il servizio di bilanciamento del carico/servizio esterno del gruppo di server eliminato in precedenza. Supponendo che il nome del gruppo di server eliminato sia stato `postgres01` ospitato in uno spazio dei nomi `arc` , prima di ricreare un gruppo di server con lo stesso nome, attendere finché `postgres01-external-svc` non viene visualizzato nell'output del comando kubectl `kubectl get svc -n arc` .
- - Il caricamento della pagina di panoramica e della pagina di configurazione di calcolo e archiviazione in Azure Data Studio è lento. 
-
-
-
 ## <a name="next-steps"></a>Passaggi successivi
   
 > **Si desidera fare semplicemente una prova?**  
-> È possibile iniziare rapidamente a usare [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) nel servizio Azure Kubernetes, in AWS Elastic Kubernetes Service (EKS), in Google Cloud Kubernetes Engine (GKE) o in una macchina virtuale di Azure.
+> Inizia rapidamente a usare [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) su AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
 
-[Installare gli strumenti client](install-client-tools.md)
-
-[Creare il controller dati di Azure Arc](create-data-controller.md) (è prima necessario installare gli strumenti client)
-
-[Creare un'istanza gestita di SQL di Azure in Azure Arc](create-sql-managed-instance.md) (è prima necessario creare un controller dati di Azure Arc)
-
-[Creare un gruppo di server di Database di Azure per PostgreSQL Hyperscale in Azure Arc](create-postgresql-hyperscale-server-group.md) (è prima necessario creare un controller dati di Azure Arc)
+- [Installare gli strumenti client](install-client-tools.md)
+- [Creare il controller dati di Azure Arc](create-data-controller.md) (è prima necessario installare gli strumenti client)
+- [Creare un'istanza gestita di SQL di Azure in Azure Arc](create-sql-managed-instance.md) (è prima necessario creare un controller dati di Azure Arc)
+- [Creare un gruppo di server di Database di Azure per PostgreSQL Hyperscale in Azure Arc](create-postgresql-hyperscale-server-group.md) (è prima necessario creare un controller dati di Azure Arc)
+- [Provider di risorse per i servizi di Azure](../../azure-resource-manager/management/azure-services-resource-providers.md)

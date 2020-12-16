@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 203af02841e6d17546d254ed83868c859ba3ac0d
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 94de0ca0a5393c891e567e558cbbadd0ca1f453b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938937"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608001"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Esercitazione: Configurare Oracle Cloud Infrastructure Console per il provisioning utenti automatico
 
@@ -120,40 +120,40 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a Oracle Cloud Infrastructure Console nella sezione **Mapping degli attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Oracle Cloud Infrastructure Console per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Oracle Cloud Infrastructure Console supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-      |Attributo|Type|
-      |---|---|
-      |displayName|string|
-      |userName|string|
-      |active|Boolean|
-      |title|string|
-      |emails[type eq "work"].value|string|
-      |preferredLanguage|string|
-      |name.givenName|string|
-      |name.familyName|string|
-      |addresses[type eq "work"].formatted|string|
-      |addresses[type eq "work"].locality|string|
-      |addresses[type eq "work"].region|string|
-      |addresses[type eq "work"].postalCode|string|
-      |addresses[type eq "work"].country|string|
-      |addresses[type eq "work"].streetAddress|string|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolean|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
+    |Attributo|Type|
+    |---|---|
+    |displayName|string|
+    |userName|string|
+    |active|Boolean|
+    |title|string|
+    |emails[type eq "work"].value|string|
+    |preferredLanguage|string|
+    |name.givenName|string|
+    |name.familyName|string|
+    |addresses[type eq "work"].formatted|string|
+    |addresses[type eq "work"].locality|string|
+    |addresses[type eq "work"].region|string|
+    |addresses[type eq "work"].postalCode|string|
+    |addresses[type eq "work"].country|string|
+    |addresses[type eq "work"].streetAddress|string|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
+    |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolean|
+    |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
 
 10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Oracle Cloud Infrastructure Console** (Sincronizza gruppi di Azure Active Directory con Oracle Cloud Infrastructure Console).
 
 11. Esaminare gli attributi gruppo sincronizzati da Azure AD a Oracle Cloud Infrastructure Console nella sezione **Mapping degli attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Oracle Cloud Infrastructure Console per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-      |Attributo|Type|
-      |---|---|
-      |displayName|string|
-      |externalId|string|
-      |Membri di|Informazioni di riferimento|
+    | Attributo | Type |
+    |--|--|
+    | displayName | string |
+    | externalId | string |
+    | Membri di | Informazioni di riferimento |
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

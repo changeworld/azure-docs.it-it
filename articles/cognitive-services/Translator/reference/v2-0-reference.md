@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 25dda63c6450040e396de9ee0d3fb0a459416343
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369512"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606828"
 ---
 # <a name="translator-v20"></a>Traduttore v 2.0
 
@@ -49,11 +49,11 @@ In genere, il servizio di conversione manterrà la volgarità presente nell'orig
 Se si desidera impedire la volgarità nella traduzione anche quando si trova nel testo di origine, è possibile utilizzare l'opzione di filtro volgare per i metodi che lo supportano. L'opzione consente di scegliere se si desidera visualizzare la profanità eliminata o contrassegnata con i tag appropriati o se si desidera consentire la volgarità nella destinazione. I valori accettati di `ProfanityAction` sono `NoAction` (impostazione predefinita), `Marked` e `Deleted` .
 
 
-|ProfanityAction    |Action |Esempio di origine (giapponese)  |Esempio di traduzione (Inglese)  |
+|ProfanityAction    |Azione |Esempio di origine (giapponese)  |Esempio di traduzione (Inglese)  |
 |:--|:--|:--|:--|
-|NoAction   |Valore predefinito. Equivale a non impostare l'opzione. Il contenuto volgare passerà dall'origine alla destinazione.        |彼はジャッカスです。     |È un cretino.   |
-|Marked     |Le parole volgari verranno racchiuse tra i tag XML \<profanity> e \</profanity>.       |彼はジャッカスです。 |È un \<profanity>cretino\</profanity>.  |
-|Eliminata    |Le parole volgari verranno rimosse dall'output senza sostituzione.     |彼はジャッカスです。 |È un.   |
+|NoAction   |Valore predefinito. Equivale a non impostare l'opzione. Il contenuto volgare passerà dall'origine alla destinazione. |彼はジャッカスです。 |È un cretino.  |
+|Marked |Le parole volgari verranno racchiuse tra i tag XML \<profanity> e \</profanity>. |彼はジャッカスです。   |È un \<profanity>cretino\</profanity>.  |
+|Eliminata    |Le parole volgari verranno rimosse dall'output senza sostituzione. |彼はジャッカスです。 |È un.   |
 
     
 ## <a name="excluding-content-from-translation"></a>Esclusione di contenuto dalla traduzione
@@ -83,14 +83,14 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione    |Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione    |Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid  |(vuoto)    |Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|text|(vuoto)   |Obbligatorio. Stringa che rappresenta il testo da tradurre. Il testo non può contenere più di 10.000 caratteri.|query|string|
-|da|(vuoto)   |facoltativo. Stringa che rappresenta il codice della lingua del testo da tradurre. ad esempio en per "Inglese".|query|string|
+|testo|(vuoto)   |Obbligatorio. Stringa che rappresenta il testo da tradurre. Il testo non può contenere più di 10.000 caratteri.|query|string|
+|da|(vuoto)   |Facoltativo. Stringa che rappresenta il codice della lingua del testo da tradurre. ad esempio en per "Inglese".|query|string|
 |to|(vuoto) |Obbligatorio. Stringa che rappresenta il codice del linguaggio in cui tradurre il testo.|query|string|
-|contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono `text/plain` (impostazione predefinita) e  `text/html` . È necessario che gli elementi HTML siano in formato corretto e completi.|query|string|
-|category|(vuoto)   |facoltativo. Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.|query|string|
+|contentType|(vuoto)    |Facoltativo. Formato del testo da tradurre. I formati supportati sono `text/plain` (impostazione predefinita) e  `text/html` . È necessario che gli elementi HTML siano in formato corretto e completi.|query|string|
+|category|(vuoto)   |Facoltativo. Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.|query|string|
 |Autorizzazione|(vuoto)  |Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
@@ -188,7 +188,7 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |Autorizzazione|(vuoto)  |Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
@@ -209,7 +209,7 @@ Recupera i nomi descrittivi per le lingue passate come parametro `languageCodes`
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-Il corpo della richiesta include una matrice di stringhe che rappresenta i codici della lingua ISO 639-1 per i quali recuperare i nomi descrittivi. Ad esempio:
+Il corpo della richiesta include una matrice di stringhe che rappresenta i codici della lingua ISO 639-1 per i quali recuperare i nomi descrittivi. Ecco un esempio:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -229,7 +229,7 @@ Tipo di contenuto della risposta: Application/XML
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |locale|(vuoto) |Obbligatorio. Stringa che rappresenta uno dei seguenti elementi utilizzati per localizzare i nomi di lingua: <ul><li>La combinazione di un codice di impostazioni cultura minuscole ISO 639 2-lettera associato a una lingua e a un codice di sottocultura in lettere maiuscole ISO 3166 2. <li>Codice delle impostazioni cultura minuscole ISO 639.|query|string|
@@ -263,7 +263,7 @@ Tipo di contenuto della risposta: Application/XML
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |Autorizzazione|(vuoto)  |Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
@@ -296,7 +296,7 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
@@ -328,13 +328,13 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|text|(vuoto)   |Obbligatorio. Stringa che contiene una o più frasi da pronunciare per il flusso, nella lingua specificata. Il testo non deve superare i 2.000 caratteri.|query|string|
+|testo|(vuoto)   |Obbligatorio. Stringa che contiene una o più frasi da pronunciare per il flusso, nella lingua specificata. Il testo non deve superare i 2.000 caratteri.|query|string|
 |Linguaggio|(vuoto)   |Obbligatorio. Stringa che rappresenta il codice di lingua supportato della lingua in cui pronunciare il testo. Il codice deve essere uno dei codici restituiti dal metodo `GetLanguagesForSpeak` .|query|string|
-|format|(vuoto)|facoltativo. Stringa che specifica l'ID del tipo di contenuto. Attualmente, sono disponibili `audio/wav` e `audio/mp3`. Il valore predefinito è `audio/wav`.|query|string|
-|opzioni|(vuoto)    |facoltativo. Stringa che specifica le proprietà della voce sintetizzata:<ul><li>`MaxQuality` e `MinSize` specificano la qualità del segnale audio. `MaxQuality` fornisce la qualità più elevata. `MinSize` fornisce le dimensioni più piccole del file. Il valore predefinito è  `MinSize` .</li><li>`female` e `male` specificano il sesso desiderato della voce. Il valore predefinito è `female`. Utilizzare la barra verticale ( <code>\|</code> ) per includere più opzioni. Ad esempio, `MaxQuality|Male`.</li></li></ul>  |query|string|
+|format|(vuoto)|Facoltativo. Stringa che specifica l'ID del tipo di contenuto. Attualmente, sono disponibili `audio/wav` e `audio/mp3`. Il valore predefinito è `audio/wav`.|query|string|
+|opzioni|(vuoto)    |Facoltativo. Stringa che specifica le proprietà della voce sintetizzata:<ul><li>`MaxQuality` e `MinSize` specificano la qualità del segnale audio. `MaxQuality` fornisce la qualità più elevata. `MinSize` fornisce le dimensioni più piccole del file. Il valore predefinito è  `MinSize` .</li><li>`female` e `male` specificano il sesso desiderato della voce. Il valore predefinito è `female`. Utilizzare la barra verticale ( <code>\|</code> ) per includere più opzioni. Ad esempio, `MaxQuality|Male`.</li></li></ul>  |query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
@@ -364,10 +364,10 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)  |Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|text|(vuoto)|Obbligatorio. Stringa che contiene il testo di cui è necessario identificare la lingua. Il testo non deve superare i 10.000 caratteri.|query|  string|
+|testo|(vuoto)|Obbligatorio. Stringa che contiene il testo di cui è necessario identificare la lingua. Il testo non deve superare i 10.000 caratteri.|query|  string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key  |(vuoto)    |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
@@ -420,7 +420,7 @@ Tipo di contenuto della risposta: Application/XML
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti.  Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
@@ -454,18 +454,18 @@ Tipo di contenuto della risposta: applicazione: XML
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati   |
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati   |
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |originalText|(vuoto)|Obbligatorio. Stringa che contiene il testo da tradurre. La lunghezza massima della stringa è 1.000 caratteri.|query|string|
 |translatedText|(vuoto) |Obbligatorio. Stringa che contiene il testo tradotto nella lingua di destinazione. La lunghezza massima della stringa è 2.000 caratteri.|query|string|
 |da|(vuoto)   |Obbligatorio. Stringa che rappresenta il codice della lingua originale del testo. Ad esempio, en per la lingua inglese e de per il tedesco.|query|string|
 |to|(vuoto)|Obbligatorio. Stringa che rappresenta il codice lingua della lingua in cui tradurre il testo.|query|string|
-|rating|(vuoto) |facoltativo. Intero che rappresenta la classificazione di qualità per la stringa. Il valore è compreso tra-10 e 10. Il valore predefinito è 1.|query|integer|
-|contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono `text/plain` e `text/html` . È necessario che gli elementi HTML siano in formato corretto e completi.    |query|string|
-|category|(vuoto)|facoltativo. Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.|query|string|
+|rating|(vuoto) |Facoltativo. Intero che rappresenta la classificazione di qualità per la stringa. Il valore è compreso tra-10 e 10. Il valore predefinito è 1.|query|integer|
+|contentType|(vuoto)    |Facoltativo. Formato del testo da tradurre. I formati supportati sono `text/plain` e `text/html` . È necessario che gli elementi HTML siano in formato corretto e completi.    |query|string|
+|category|(vuoto)|Facoltativo. Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.|query|string|
 |utente|(vuoto)|Obbligatorio. Stringa utilizzata per tenere traccia del creatore dell'invio.|query|string|
-|Uri|(vuoto)|facoltativo. Stringa che contiene il percorso del contenuto della traduzione.|query|string|
+|Uri|(vuoto)|Facoltativo. Stringa che contiene il percorso del contenuto della traduzione.|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti.  Token di autorizzazione: `"Bearer" + " " + "access_token"`.  |header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
@@ -533,7 +533,7 @@ Tipo di contenuto della risposta: Application/XML
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti.  Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
@@ -566,10 +566,10 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)  |Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query| string|
-|text|(vuoto)   |Obbligatorio. Stringa che rappresenta il testo da suddividere in frasi. La dimensione massima del testo è di 10.000 caratteri.|query|string|
+|testo|(vuoto)   |Obbligatorio. Stringa che rappresenta il testo da suddividere in frasi. La dimensione massima del testo è di 10.000 caratteri.|query|string|
 |Linguaggio   |(vuoto)    |Obbligatorio. Stringa che rappresenta il codice della lingua del testo di input.|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.   |header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
@@ -607,11 +607,11 @@ L' `TranslateOptions` oggetto contiene i valori nell'elenco seguente. Sono tutti
 
 * `Category`: Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.
 * `ContentType`: L'unica opzione supportata e l'impostazione predefinita è `text/plain` .
-* `IncludeMultipleMTAlternatives`: Flag booleano per specificare se deve essere restituita più di un'alternativa dal motore MT. I valori validi sono e (maiuscole/ `true` `false` minuscole). Il valore predefinito è `false` , che restituisce solo un'alternativa. Impostando il flag su è `true` possibile creare alternative artificiali, completamente integrate con il Framework CTF (Collaborative Translation Framework). La funzionalità consente di restituire alternative per le frasi senza traduzione in CTF aggiungendo alternative artificiali dall'elenco *n* -Best del decodificatore.
+* `IncludeMultipleMTAlternatives`: Flag booleano per specificare se deve essere restituita più di un'alternativa dal motore MT. I valori validi sono e (maiuscole/ `true` `false` minuscole). Il valore predefinito è `false` , che restituisce solo un'alternativa. Impostando il flag su è `true` possibile creare alternative artificiali, completamente integrate con il Framework CTF (Collaborative Translation Framework). La funzionalità consente di restituire alternative per le frasi senza traduzione in CTF aggiungendo alternative artificiali dall'elenco *n*-Best del decodificatore.
     - Classificazioni. Le classificazioni vengono applicate come segue: 
          - la miglior traduzione automatica ha una classificazione pari a 5.
        - Le alternative di CTF riflettono l'autorità del revisore. L'intervallo è compreso tra-10 e + 10.
-       - Le alternative di traduzione generate automaticamente ( *n* -Best) hanno una classificazione pari a 0 e un grado di corrispondenza di 100.
+       - Le alternative di traduzione generate automaticamente (*n*-Best) hanno una classificazione pari a 0 e un grado di corrispondenza di 100.
     - Numero di alternative. Il numero di alternative restituite può essere il più elevato del valore specificato in `maxTranslations` , ma può essere inferiore.
     - Coppie di lingue. Questa funzionalità non è disponibile per le traduzioni tra cinese semplificato e cinese tradizionale, in entrambe le direzioni. È disponibile per tutte le altre coppie di lingue supportate da Microsoft Translator.
 * `State`: Stato utente che consente di correlare la richiesta e la risposta. Lo stesso contenuto verrà restituito nella risposta.
@@ -663,10 +663,10 @@ Tipo di contenuto della risposta: Application/XML
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|text|(vuoto)|Obbligatorio. Stringa che rappresenta il testo da tradurre. La dimensione massima del testo è di 10.000 caratteri.|query|string|
+|testo|(vuoto)|Obbligatorio. Stringa che rappresenta il testo da tradurre. La dimensione massima del testo è di 10.000 caratteri.|query|string|
 |da|(vuoto)|Obbligatorio. Stringa che rappresenta il codice della lingua del testo da tradurre.|query|string|
 |to |(vuoto)    |Obbligatorio. Stringa che rappresenta il codice lingua della lingua in cui tradurre il testo.|query|string|
 |maxTranslations|(vuoto)|Obbligatorio. Intero che rappresenta il numero massimo di conversioni da restituire.|query|integer|
@@ -719,11 +719,11 @@ Ecco il formato del corpo della richiesta:
 * `Options`: Facoltativo. `Options`Oggetto che contiene i valori seguenti. Sono tutti facoltativi e predefiniti per le impostazioni più comuni. Gli elementi specificati devono essere elencati in ordine alfabetico.
     - `Category`: Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.
     - `ContentType`: L'unica opzione supportata e l'impostazione predefinita è `text/plain` .
-    - `IncludeMultipleMTAlternatives`: Flag booleano per specificare se deve essere restituita più di un'alternativa dal motore MT. I valori validi sono e (maiuscole/ `true` `false` minuscole). Il valore predefinito è `false` , che restituisce solo un'alternativa. L'impostazione del flag su `true` consente la generazione di alternative artificiali nella traduzione, completamente integrata con collaborative translations Framework (CTF). La funzionalità consente di restituire alternative per le frasi che non hanno alternative in CTF aggiungendo alternative artificiali dall'elenco *n* -Best del decodificatore.
+    - `IncludeMultipleMTAlternatives`: Flag booleano per specificare se deve essere restituita più di un'alternativa dal motore MT. I valori validi sono e (maiuscole/ `true` `false` minuscole). Il valore predefinito è `false` , che restituisce solo un'alternativa. L'impostazione del flag su `true` consente la generazione di alternative artificiali nella traduzione, completamente integrata con collaborative translations Framework (CTF). La funzionalità consente di restituire alternative per le frasi che non hanno alternative in CTF aggiungendo alternative artificiali dall'elenco *n*-Best del decodificatore.
         - Classificazioni a cui vengono applicate le classificazioni seguenti:
           - la miglior traduzione automatica ha una classificazione pari a 5.
           - Le alternative di CTF riflettono l'autorità del revisore. L'intervallo è compreso tra-10 e + 10.
-          - Le alternative di traduzione generate automaticamente ( *n* -Best) hanno una classificazione pari a 0 e un grado di corrispondenza di 100.
+          - Le alternative di traduzione generate automaticamente (*n*-Best) hanno una classificazione pari a 0 e un grado di corrispondenza di 100.
         - Numero di alternative. Il numero di alternative restituite può essere il più elevato del valore specificato in `maxTranslations` , ma può essere inferiore.
         - Coppie di lingue. Questa funzionalità non è disponibile per le traduzioni tra cinese semplificato e cinese tradizionale, in entrambe le direzioni. È disponibile per tutte le altre coppie di lingue supportate da Microsoft Translator.
 * `State`: Stato utente che consente di correlare la richiesta e la risposta. Lo stesso contenuto verrà restituito nella risposta.
@@ -786,7 +786,7 @@ Tipo di contenuto della risposta: Application/XML
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |Autorizzazione  |(vuoto)    |Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti.  Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|

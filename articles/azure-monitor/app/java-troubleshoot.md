@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601017"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607899"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Risoluzione dei problemi e domande e risposte per Application Insights SDK per Java
 
@@ -63,7 +63,6 @@ L'app è stata correttamente configurata per inviare dati di telemetria dal serv
 In alternativa, se il client è un'app in un [telefono o altro dispositivo][platforms], è possibile inviare i dati di telemetria da tali dispositivi.
 
 Usare la chiave di strumentazione per impostare la telemetria sia sul client che sul server. I dati verranno visualizzati nella stessa risorsa di Application Insights e sarà possibile correlare eventi dal client e dal server.
-
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
 **In che modo è possibile disabilitare la raccolta di dati di telemetria?**
@@ -183,7 +182,6 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 
 >[!NOTE]
 >Se si abilita la registrazione a livello di DEBUG per tutti gli spazi dei nomi nell'app, verrà rispettata da tutti i moduli in esecuzione incluso `org.apache.http` rinominato come `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights non sarà in grado di applicare il filtro per queste chiamate perché la chiamata del registro è stata effettuata dalla libreria di Apache. La registrazione a livello di DEBUG produce una considerevole quantità di dati del registro e non è consigliata per le istanze di produzione in tempo reale.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 **Application Insights è stato correttamente impostato per l'app server Java. Cos'altro è possibile fare?**

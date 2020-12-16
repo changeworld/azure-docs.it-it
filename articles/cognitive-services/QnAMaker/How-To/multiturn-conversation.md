@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: b04a5535ada9532d62d395f7070d9bcd8aa4380c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591779"
+ms.locfileid: "97605145"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -38,7 +38,6 @@ Con la multifunzione, un bot di chat gestisce una conversazione con un utente pe
 Nell'immagine precedente, un utente ha avviato una conversazione immettendo **il mio account**. La Knowledge base include tre coppie di domande e risposte collegate. Per perfezionare la risposta, l'utente seleziona una delle tre scelte disponibili nella Knowledge base. La domanda (#1) include tre richieste di completamento, che vengono presentate in chat bot come tre opzioni (#2).
 
 Quando l'utente seleziona un'opzione (#3), viene visualizzato l'elenco successivo di opzioni di perfezionamento (#4). Questa sequenza continua (#5) fino a quando l'utente non determina la risposta finale corretta (#6).
-
 
 ### <a name="use-multi-turn-in-a-bot"></a>Usare la funzionalità multiturne in un bot
 
@@ -79,7 +78,6 @@ Quando si aggiunge un documento gerarchico, QnA Maker determina le richieste di 
 > [!Caution]
 > Il supporto per l'utilizzo di un file di Knowledge base a più Turn TSV o XLS esportato come origine dati per una Knowledge Base nuova o vuota non è supportato. È necessario **importare** il tipo di file, dalla pagina **Impostazioni** del portale di QnA Maker, per aggiungere richieste a più turni esportate a una Knowledge base.
 
-
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creare una Knowledge base con prompt a più turni con l'API di creazione
 
 È possibile creare un Knowledge case con i prompt a più turni usando il [QnA Maker creare un'API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). I prompt vengono aggiunti nella matrice della `context` proprietà `prompts` .
@@ -110,12 +108,11 @@ Aggiungere una richiesta di completamento a una coppia di domande e risposte esi
 1. Nella riga per la **disconnessione** selezionare **Aggiungi richiesta di completamento** nella colonna **risposta** .
 1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|valore|
     |--|--|
     |Testo visualizzato|Immettere **Disattiva il dispositivo**. Si tratta di un testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto| Selezionare questa casella di controllo. Viene restituita una risposta solo se la domanda specifica il contesto.|
     |Collegamento a risposta|Immettere **usare la schermata di accesso** per trovare la coppia di domande e risposte esistente.|
-
 
 1.  Viene restituita una corrispondenza. Selezionare questa risposta come completamento, quindi selezionare **Salva**.
 
@@ -137,7 +134,6 @@ Quando viene creata una richiesta di completamento e viene immessa una coppia di
 1. Al termine della modifica del testo visualizzato, selezionare **Salva**.
 1. Nella barra di spostamento superiore, **salvare e** eseguire il training.
 
-
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Aggiungere una nuova coppia di domande e risposte come richiesta di completamento
 
 Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, ogni coppia deve essere collegata a una domanda esistente come richiesta di completamento.
@@ -147,7 +143,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**.
 1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|valore|
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|
@@ -155,7 +151,6 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
     |||
 
     ![Crea una nuova domanda e una risposta di richiesta](../media/conversational-context/create-child-prompt-from-parent.png)
-
 
 1. Selezionare **Crea nuovo** e quindi fare clic su **Salva**.
 
@@ -353,7 +348,6 @@ La risposta JSON QnA Maker _GenerateAnswer_ include le richieste di completament
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Eseguire una query sulla Knowledge base con l'ID QnA Maker
 
 Se si compila un'applicazione personalizzata usando la funzionalità a più turni. Nella risposta della domanda iniziale vengono restituiti tutti i prompt di completamento e il relativo oggetto associato `qnaId` . Ora che si dispone dell'ID, è possibile passarlo nel corpo della richiesta di completamento della richiesta. Se il corpo della richiesta contiene `qnaId` e l'oggetto Context (che contiene le proprietà QnA Maker precedenti), GenerateAnswer restituirà la domanda esatta in base all'ID, anziché usare l'algoritmo di classificazione per trovare la risposta in base al testo della domanda.
-
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L'ordine di visualizzazione è supportato nell'API di aggiornamento
 

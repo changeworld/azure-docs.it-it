@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 544b22e3395cacf0cc2e7a21e4b86325a8f4d236
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543103"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605259"
 ---
-# <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurare un flusso di lavoro di azioni GitHub per distribuire il sito Web statico in archiviazione di Azure
+# <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurare un flusso di lavoro di GitHub Actions per distribuire il sito Web statico in Archiviazione di Azure
 
-Iniziare a usare le [azioni di GitHub](https://docs.github.com/en/actions) usando un flusso di lavoro per distribuire un sito statico in un account di archiviazione di Azure. Dopo aver configurato un flusso di lavoro di azioni di GitHub, sarà possibile distribuire automaticamente il sito in Azure da GitHub quando si apportano modifiche al codice del sito.
+Iniziare a usare le [azioni di GitHub](https://docs.github.com/en/free-pro-team@latest/actions) usando un flusso di lavoro per distribuire un sito statico in un account di archiviazione di Azure. Dopo aver configurato un flusso di lavoro di azioni di GitHub, sarà possibile distribuire automaticamente il sito in Azure da GitHub quando si apportano modifiche al codice del sito.
 
 > [!NOTE]
 > Se si usano [app Web statiche di Azure](../../static-web-apps/index.yml), non è necessario configurare manualmente un flusso di lavoro di azioni di GitHub.
@@ -45,7 +45,7 @@ Sostituire il segnaposto `myStaticSite` con il nome del sito ospitato in archivi
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nome del gruppo di risorse. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'account di archiviazione simile a quello riportato di seguito. Copiare questo oggetto JSON per un momento successivo.
+Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione e il nome del gruppo di risorse. L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'account di archiviazione simile a quello riportato di seguito. Copiare l'oggetto JSON per un uso successivo.
 
 ```output 
   {

@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3c2f90403afbc581f80312be2271d802f4d719a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584239"
+ms.locfileid: "97604924"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando GitHub Actions
 
-Inizia a usare le [azioni di GitHub](https://help.github.com/en/articles/about-github-actions) per automatizzare il flusso di lavoro e distribuirlo in [app Azure servizio](overview.md) da GitHub. 
+Inizia a usare le [azioni di GitHub](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) per automatizzare il flusso di lavoro e distribuirlo in [app Azure servizio](overview.md) da GitHub. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -63,7 +63,7 @@ Verrà eseguito il commit del file del flusso di lavoro nel repository. Il fluss
 
 Il metodo consigliato per l'autenticazione con app Azure Services per le azioni di GitHub è con un profilo di pubblicazione. È anche possibile eseguire l'autenticazione con un'entità servizio, ma il processo richiede più passaggi. 
 
-Salvare la credenziale del profilo di pubblicazione o l'entità servizio come [segreto GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) per l'autenticazione con Azure. Si accederà al segreto all'interno del flusso di lavoro. 
+Salvare la credenziale del profilo di pubblicazione o l'entità servizio come [segreto GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) per l'autenticazione con Azure. Si accederà al segreto all'interno del flusso di lavoro. 
 
 # <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/applevel)
 
@@ -746,7 +746,7 @@ Il set di azioni raggruppate in repository diversi è disponibile in GitHub. Ogn
 
 - [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Eventi che attivano i flussi di lavoro](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventi che attivano i flussi di lavoro](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [Distribuzione Kubernetes](https://github.com/Azure/k8s-deploy)
 

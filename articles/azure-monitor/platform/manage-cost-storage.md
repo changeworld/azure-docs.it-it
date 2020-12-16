@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a6b92d1b7f36b73d91b8e0e8e519981b936d8735
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185913"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592433"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -150,11 +150,11 @@ Il periodo di conservazione può essere anche [impostato tramite Azure Resource 
 
 Le aree di lavoro con conservazione di 30 giorni possono effettivamente conservare i dati per 31 giorni. Se è fondamentale che i dati vengano conservati solo per 30 giorni, utilizzare il Azure Resource Manager per impostare la conservazione su 30 giorni e con il `immediatePurgeDataOn30Days` parametro.  
 
-Due tipi di dati, `Usage` e `AzureActivity`, vengono conservati per un minimo di 90 giorni per impostazione predefinita e non è previsto alcun addebito per il periodo di conservazione di 90 giorni. Se la conservazione dell'area di lavoro viene aumentata oltre 90 giorni, viene anche aumentata la conservazione di questi tipi di dati.  Anche per questi tipi di dati non sono previsti addebiti per l'inserimento di dati. 
+Per `Usage` `AzureActivity` impostazione predefinita, i due tipi di dati sono conservati per un minimo di 90 giorni e non è previsto alcun addebito per questo periodo di conservazione di 90 giorni. Se la conservazione dell'area di lavoro viene aumentata oltre 90 giorni, viene anche aumentata la conservazione di questi tipi di dati.  Anche per questi tipi di dati non sono previsti addebiti per l'inserimento di dati. 
 
 Anche i tipi di dati delle risorse Application Insights basate sull'area di lavoro (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` e `AppTraces`) vengono conservati per 90 giorni per impostazione predefinita e non è previsto alcun addebito per un periodo di conservazione di 90 giorni. La conservazione può essere regolata usando la funzionalità di conservazione per tipo di dati. 
 
-Si noti che l' [API di ripulitura](/rest/api/loganalytics/workspacepurge/purge) log Analytics non influisce sulla fatturazione di conservazione ed è destinata a essere usata per casi molto limitati. Per ridurre la fattura di conservazione, è necessario ridurre il periodo di conservazione per l'area di lavoro o per tipi di dati specifici. 
+Notare che l'[API di rimozione](/rest/api/loganalytics/workspacepurge/purge) di Log Analytics non influisce sulla fatturazione della conservazione e deve essere usata per casi molto limitati. Per ridurre la fattura di conservazione, è necessario ridurre il periodo di conservazione per l'area di lavoro o per tipi di dati specifici. 
 
 ### <a name="retention-by-data-type"></a>Conservazione per tipo di dati
 

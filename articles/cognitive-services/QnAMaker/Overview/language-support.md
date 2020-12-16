@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: 5035a81838ace0678f0cbb68ad2b9325de498003
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1edd5ffc2578a27a53c7e9a46a4a5f1cf61331ff
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353120"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605060"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Supporto delle lingue per una risorsa QnA Maker e Knowledge base
 
@@ -83,61 +83,61 @@ Se è necessario supportare un sistema Knowledge base, che include diverse lingu
 
 L'elenco seguente contiene le lingue supportate per una risorsa QnA Maker. 
 
-|Linguaggio|
+| Linguaggio |
 |--|
-|Arabo|
-|Armeno|
-|Bengalese|
-|Basco|
-|Bulgaro|
-|Catalano|
-|Cinese semplificato|
-|Cinese tradizionale|
-|Croato|
-|Ceco|
-|Danese|
-|Olandese|
-|Inglese|
-|Estone|
-|Finlandese|
-|Francese|
-|Galiziano|
-|Tedesco|
-|Greco|
-|Gujarati|
-|Ebraico|
-|Hindi|
-|Ungherese|
-|Islandese|
-|Indonesiano|
-|Irlandese|
-|Italiano|
-|Giapponese|
-|Kannada|
-|Coreano|
-|Lettone|
-|Lituano|
-|Malayalam|
-|Malese|
-|Norvegese|
-|Polacco|
-|Portoghese|
-|Punjabi|
-|Romeno|
-|Russo|
-|Serbo (alfabeto cirillico)|
-|Serbo (alfabeto latino)|
-|Slovacco|
-|Sloveno|
-|Spagnolo|
-|Svedese|
-|Tamil|
-|Telugu|
-|Thai|
-|Turco|
-|Ucraino|
-|Urdu|
-|Vietnamita|
+| Arabo |
+| Armeno |
+| Bengalese |
+| Basco |
+| Bulgaro |
+| Catalano |
+| Cinese semplificato |
+| Cinese tradizionale |
+| Croato |
+| Ceco |
+| Danese |
+| Olandese |
+| Inglese |
+| Estone |
+| Finlandese |
+| Francese |
+| Galiziano |
+| Tedesco |
+| Greco |
+| Gujarati |
+| Ebraico |
+| Hindi |
+| Ungherese |
+| Islandese |
+| Indonesiano |
+| Irlandese |
+| Italiano |
+| Giapponese |
+| Kannada |
+| Coreano |
+| Lettone |
+| Lituano |
+| Malayalam |
+| Malese |
+| Norvegese |
+| Polacco |
+| Portoghese |
+| Punjabi |
+| Romeno |
+| Russo |
+| Serbo (alfabeto cirillico) |
+| Serbo (alfabeto latino) |
+| Slovacco |
+| Sloveno |
+| Spagnolo |
+| Svedese |
+| Tamil |
+| Telugu |
+| Thai |
+| Turco |
+| Ucraino |
+| Urdu |
+| Vietnamita |
 
 ## <a name="query-matching-and-relevance"></a>Query corrispondente e pertinenza
 QnA Maker dipende dagli [analizzatori del linguaggio ricerca cognitiva di Azure](/rest/api/searchservice/language-support) per fornire i risultati.

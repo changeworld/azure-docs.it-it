@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346996"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606284"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Registro Azure Container
 
@@ -111,6 +111,7 @@ La propagazione delle modifiche alle regole del firewall richiede tempo; dopo av
 - [Come si concede l'accesso per eseguire il pull o il push delle immagini senza autorizzazione per la gestione della risorsa del registro?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Come si abilita la quarantena automatica delle immagini per un registro?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [Come si abilita l'accesso pull anonimo?](#how-do-i-enable-anonymous-pull-access)
+- [Ricerca per categorie effettuare il push di livelli non distribuibile a un registro?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Come si accede all'API HTTP V2 del registro Docker?
 
@@ -264,6 +265,33 @@ La configurazione di un registro contenitori di Azure per l'accesso pull anonimo
 > [!NOTE]
 > * È possibile accedere in modo anonimo solo alle API richieste per eseguire il pull di un'immagine nota. Nessun'altra API per operazioni come l'elenco di tag o l'elenco di repository è accessibile in modo anonimo.
 > * Prima di provare un'operazione pull anonima, eseguire `docker logout` per assicurarsi di cancellare eventuali credenziali Docker esistenti.
+
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Ricerca per categorie effettuare il push di livelli non distribuibile a un registro?
+
+Un livello non distribuibile in un manifesto contiene un parametro URL da cui è possibile recuperare il contenuto. Alcuni casi d'uso possibili per l'abilitazione di push di livello non distribuibile sono i registri con restrizioni di rete, i registri gapped con accesso limitato o per i registri senza connettività Internet.
+
+Ad esempio, se sono state configurate regole NSG in modo che una macchina virtuale possa effettuare il pull di immagini solo dal registro contenitori di Azure, Docker effettuerà il pull degli errori per i livelli esterni/non distribuibili. Ad esempio, un'immagine di Windows Server Core conterrebbe i riferimenti a livello esterno al registro contenitori di Azure nel relativo manifesto e non riuscirà a eseguire il pull in questo scenario.
+
+Per abilitare il push di livelli non distribuibile:
+
+1. Modificare il `daemon.json` file, che si trova in negli `/etc/docker/` host Linux e in `C:\ProgramData\docker\config\daemon.json` Windows Server. Supponendo che il file sia stato precedentemente vuoto, aggiungere il contenuto seguente:
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > Il valore è una matrice di indirizzi del registro di sistema, separati da virgole.
+
+2. Salvare e chiudere il file.
+
+3. Riavviare docker.
+
+Quando si esegue il push delle immagini nei registri dell'elenco, i relativi livelli non distribuibile vengono inseriti nel registro di sistema.
+
+> [!WARNING]
+> In genere, gli artefatti non distribuibili presentano restrizioni su come e dove possono essere distribuiti e condivisi. Usare questa funzionalità solo per inserire gli artefatti nei registri privati. Assicurarsi di essere conformi a qualsiasi condizione che copra la ridistribuzione di elementi non distribuibili.
 
 ## <a name="diagnostics-and-health-checks"></a>Controlli di diagnostica e integrità
 

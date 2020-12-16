@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014595"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606267"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -99,7 +99,7 @@ L'analisi spaziale USA le funzionalità di calcolo di Azure Stack Edge per esegu
   1. Abilitare la funzionalità di calcolo sul dispositivo Azure Stack Edge. Per abilitare il calcolo, passare alla pagina **calcolo** nell'interfaccia Web del dispositivo. 
   2. Selezionare un'interfaccia di rete che si vuole abilitare per il calcolo, quindi fare clic su **Abilita**. Verrà creato un commutire virtuale sul dispositivo su tale interfaccia di rete.
   3. Lasciare vuoti gli indirizzi IP del nodo di test Kubernetes e gli indirizzi IP dei servizi esterni di Kubernetes.
-  4. Fare clic su **Applica**. Questa operazione può richiedere circa due minuti. 
+  4. Fare clic su **Apply**. Questa operazione può richiedere circa due minuti. 
 
 ![Configurare il calcolo](media/spatial-analysis/configure-compute.png)
 
@@ -111,9 +111,9 @@ Nella [portale di Azure](https://portal.azure.com/)passare alla risorsa di Azure
 
 Nella pagina **Configura calcolo Edge**   scegliere un hub Internet esistente oppure scegliere di crearne uno nuovo. Per impostazione predefinita, viene usato un piano tariffario standard (S1) per creare una risorsa dell'hub Internet. Per usare una risorsa dell'hub per le cose di livello gratuito, crearne una e selezionarla. La risorsa dell'hub Internet usa la stessa sottoscrizione e il gruppo di risorse usato dalla risorsa Azure Stack Edge 
 
-Fare clic su **Crea**. La creazione di risorse dell'hub Internet può richiedere un paio di minuti. Dopo la creazione della risorsa hub Internet, il riquadro **Configura calcolo Edge** verrà aggiornato per mostrare la nuova configurazione. Per verificare che il ruolo di calcolo perimetrale sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**   .
+Scegliere **Crea**. La creazione di risorse dell'hub Internet può richiedere un paio di minuti. Dopo la creazione della risorsa hub Internet, il riquadro **Configura calcolo Edge** verrà aggiornato per mostrare la nuova configurazione. Per verificare che il ruolo di calcolo perimetrale sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**   .
 
-Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Il runtime di Azure IoT Edge sarà già in esecuzione nel dispositivo IoT Edge.            
+Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Il runtime di Azure IoT Edge sarà già in esecuzione nel dispositivo IoT Edge.
 
 > [!NOTE]
 > * Attualmente è supportata solo la piattaforma Linux per i dispositivi IoT Edge. Per informazioni sulla risoluzione dei problemi relativi al dispositivo Azure Stack Edge, vedere l'articolo [registrazione e risoluzione dei problemi](spatial-analysis-logging.md) .
@@ -318,7 +318,7 @@ Per semplificare la distribuzione di contenitori in più computer host, è possi
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | Valore | Descrizione|
+| Nome dell'impostazione | valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|
@@ -418,7 +418,7 @@ Il contenitore di analisi spaziale Invia le informazioni di fatturazione ad Azur
 I contenitori di servizi cognitivi di Azure non sono concessi in licenza per l'esecuzione senza essere connessi all'endpoint di misurazione/fatturazione. È necessario consentire ai contenitori di comunicare sempre le informazioni di fatturazione all'endpoint di fatturazione. I contenitori di servizi cognitivi non inviano dati del cliente, ad esempio il video o l'immagine da analizzare, a Microsoft.
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione del contenitore di analisi spaziale. In sintesi:
 

@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: a454c1297b0f25c64b11217811999d4331148205
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96022463"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606216"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 
@@ -32,7 +32,7 @@ La seguente tabella presenta un elenco degli ambienti di calcolo supportati da D
 | [Azure Machine Learning Studio (versione classica)](#azure-machine-learning-studio-classic-linked-service) | [Attività Machine Learning Studio (classiche): esecuzione batch e risorsa di aggiornamento](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Esecuzione delle pipeline di Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics.](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored procedure](transform-data-using-stored-procedure.md) |
+| [SQL di Azure](#azure-sql-database-linked-service), [analisi delle sinapsi di Azure](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Funzione di Azure](#azure-function-linked-service)         | [Attività Funzioni di Azure](control-flow-azure-function-activity.md)
 >  
@@ -253,7 +253,7 @@ Per creare nodi head e nodi del ruolo di lavoro di dimensioni D4, è necessario 
 "dataNodeSize": "Standard_D4",
 ```
 
-Se si specifica un valore errato per queste proprietà, potrebbe essere visualizzato il seguente **errore:** Non è stato possibile creare il cluster. Eccezione: Impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Il cluster ha restituito lo stato: "Errore". Messaggio: "PreClusterCreationValidationFailure". Quando si riceve questo errore, assicurarsi di usare il nome di **CMDLET e API** della tabella dell'articolo relativo alle [dimensioni delle macchine virtuali](../virtual-machines/sizes.md).          
+Se si specifica un valore errato per queste proprietà, potrebbe essere visualizzato il seguente **errore:** Non è stato possibile creare il cluster. Eccezione: Impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Il cluster ha restituito lo stato: "Errore". Messaggio: "PreClusterCreationValidationFailure". Quando si riceve questo errore, assicurarsi di usare il nome di **CMDLET e API** della tabella dell'articolo relativo alle [dimensioni delle macchine virtuali](../virtual-machines/sizes.md).
 
 ### <a name="bring-your-own-compute-environment"></a>Ambiente di calcolo “bring your own”
 In questo tipo di configurazione, gli utenti possono registrare un ambiente informatico già esistente come servizio collegato in Data Factory. L'ambiente di elaborazione viene gestito dall'utente e il servizio Data Factory viene utilizzato per eseguire le attività.
@@ -393,7 +393,7 @@ Si crea un servizio collegato Azure Machine Learning Studio (classico) per regis
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà               | Descrizione                              | Obbligatoria                                 |
+| Proprietà               | Descrizione                              | Obbligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | La proprietà type deve essere impostata su: **AzureML**. | Sì                                      |
 | mlEndpoint             | L’URL del batch punteggio.                   | Sì                                      |
@@ -437,7 +437,7 @@ Si crea un servizio collegato di Azure Machine Learning per collegare un'area di
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà               | Descrizione                              | Obbligatoria                                 |
+| Proprietà               | Descrizione                              | Obbligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | La proprietà type deve essere impostata su: **AzureMLService**. | Sì                                      |
 | subscriptionId         | ID sottoscrizione di Azure              | Sì                                      |
@@ -564,7 +564,7 @@ Si crea un servizio collegato di Azure SQL e lo si utilizza con l’ [Attività 
 
 ## <a name="azure-synapse-analytics-linked-service"></a>Servizio collegato di Azure sinapsi Analytics
 
-Si crea un servizio collegato di Azure sinapsi Analytics (in precedenza SQL Data Warehouse) e lo si usa con l' [attività stored procedure](transform-data-using-stored-procedure.md) per richiamare una stored procedure da una pipeline di data factory. Per informazioni dettagliate su questo servizio collegato, vedere l'articolo sul [connettore Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](connector-azure-sql-data-warehouse.md#linked-service-properties) .
+Si crea un servizio collegato di Azure sinapsi Analytics e lo si usa con l' [attività stored procedure](transform-data-using-stored-procedure.md) per richiamare un stored procedure da una pipeline di data factory. Per informazioni dettagliate su questo servizio collegato, vedere l'articolo [connettore Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md#linked-service-properties) .
 
 ## <a name="sql-server-linked-service"></a>Servizio collegato di SQL Server
 
