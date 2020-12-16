@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: d3ce6e888c937676027f2b71578c38b56f3bd6af
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97388021"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516624"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Distribuire un cluster di Azure Service Fabric con tipi di nodo solo senza stato (anteprima)
 I tipi di nodo Service Fabric hanno presupposto intrinseco che in un determinato momento i servizi con stato possono essere inseriti nei nodi. I tipi di nodo senza stato rilassano questa ipotesi per un tipo di nodo, consentendo così al tipo di nodo di usare altre funzionalità, ad esempio le operazioni di scalabilità orizzontale più veloci, il supporto per aggiornamenti automatici del sistema operativo sulla durabilità Bronze e la scalabilità orizzontale a più di 100 nodi in un singolo set di scalabilità
@@ -24,6 +24,8 @@ Sono disponibili modelli di esempio: [Service Fabric modello di tipi di nodo](ht
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Abilitazione di tipi di nodo senza stato nel cluster Service Fabric
 Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluster, impostare la proprietà IsSynchronized su "true". Quando si distribuisce un cluster Service Fabric con tipi di nodo senza stato, ricordarsi di avere almeno un tipo di nodo primario nella risorsa cluster.
+
+* La risorsa cluster Service Fabric apiVersion deve essere "2020-12-01-Preview" o una versione successiva.
 
 ```json
 {
@@ -238,6 +240,8 @@ Load Balancer Standard e l'IP pubblico standard introducono nuove funzionalità 
 
 
 ### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Eseguire la migrazione a usando i tipi di nodo senza stato da un cluster usando uno SKU di base Load Balancer e un IP dello SKU Basic
+Per tutti gli scenari di migrazione è necessario aggiungere un nuovo tipo di nodo solo senza stato. Non è possibile eseguire la migrazione del tipo di nodo esistente in modo che sia senza stato.
+
 Per eseguire la migrazione di un cluster che stava usando un Load Balancer e un IP con uno SKU di base, è necessario creare prima di tutto una nuova Load Balancer e una risorsa IP usando lo SKU standard. Non è possibile aggiornare queste risorse sul posto.
 
 È necessario fare riferimento ai nuovi LB e IP nei nuovi tipi di nodo senza stato che si vuole usare. Nell'esempio precedente, vengono aggiunte nuove risorse del set di scalabilità di macchine virtuali da usare per i tipi di nodo senza stato. Questi set di scalabilità di macchine virtuali fanno riferimento a LB e IP appena creati e sono contrassegnati come tipi di nodo senza stato nella risorsa del cluster Service Fabric.
@@ -247,28 +251,8 @@ Per iniziare, sarà necessario aggiungere le nuove risorse al modello di Gestion
 * Una risorsa Load Balancer usando lo SKU standard.
 * Un NSG a cui fa riferimento la subnet in cui vengono distribuiti i set di scalabilità di macchine virtuali.
 
-
-Un esempio di queste risorse è disponibile nel modello di [esempio](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure).
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
-
 Una volta terminata la distribuzione delle risorse, è possibile iniziare a disabilitare i nodi del tipo di nodo che si vuole rimuovere dal cluster originale.
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-```
 
 ## <a name="next-steps"></a>Passaggi successivi 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

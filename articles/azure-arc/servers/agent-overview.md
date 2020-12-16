@@ -3,12 +3,12 @@ title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 277e6616ce1bf90ada83516cb71f9cb55de1b7b0
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452959"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516808"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -55,6 +55,9 @@ Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente su
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+
+> [!WARNING]
+> Il nome host Linux o il nome computer Windows non può usare una delle parole riservate o i marchi nel nome, altrimenti il tentativo di registrare il computer connesso con Azure avrà esito negativo. Vedere [risolvere gli errori relativi ai nomi di risorse riservati](../../azure-resource-manager/templates/error-reserved-resource-name.md) per un elenco delle parole riservate.
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 

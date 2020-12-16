@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: dab34b26d8237d743e22149ed0da2dd9471d7431
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: deb52c8716f97874beae4accbf6f34f72e20ca04
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096103"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516468"
 ---
 # <a name="use-your-own-certificates-with-data-box-and-data-box-heavy-devices"></a>Usare i propri certificati con Data Box e dispositivi Data Box Heavy
 
@@ -44,7 +44,7 @@ I certificati devono soddisfare i requisiti seguenti:
 - I certificati devono essere modificati se il nome del dispositivo o il nome di dominio DNS cambiano.
 - Usare la tabella seguente per la creazione di certificati endpoint:
 
-  |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+  |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
   |---------|---------|---------|---------|
   |Interfaccia utente locale| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
   |Archiviazione BLOB|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -95,11 +95,12 @@ Per aggiungere il proprio certificato al dispositivo, attenersi alla procedura s
 
    ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png) TEST. RESTORE IF ERROR IS REPRODUCED.-->
 
-6. Installare il nuovo certificato nel computer client che si sta usando per accedere all'interfaccia utente Web locale. Per istruzioni, vedere [importare certificati nel client](#import-certificates-to-client), di seguito.
-
-7. Se è stato modificato il certificato per l'interfaccia utente Web locale, è necessario riavviare il browser e quindi l'interfaccia utente Web locale. Questo passaggio è necessario per evitare eventuali problemi relativi alla cache SSL.
+6. Se è stato modificato il certificato per l'interfaccia utente Web locale, è necessario riavviare il browser e quindi l'interfaccia utente Web locale. Questo passaggio è necessario per evitare eventuali problemi relativi alla cache SSL.
 
   <!-- TESTING THIS - The communication error should be gone from the **Certificates** screen.-->
+
+7. Installare il nuovo certificato nel computer client che si sta usando per accedere all'interfaccia utente Web locale. Per istruzioni, vedere [importare certificati nel client](#import-certificates-to-client), di seguito.
+
 
 ## <a name="import-certificates-to-client"></a>Importa certificati nel client
 

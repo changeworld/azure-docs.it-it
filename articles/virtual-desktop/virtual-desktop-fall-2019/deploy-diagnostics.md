@@ -3,25 +3,20 @@ title: Distribuire lo strumento di diagnostica per desktop virtuale Windows (cla
 description: Come distribuire lo strumento di diagnostica UX per desktop virtuale di Windows (versione classica).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023072"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515644"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuire lo strumento di diagnostica desktop virtuale di Windows (classico)
 
 >[!IMPORTANT]
 >Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
-
->[!IMPORTANT]
->A partire dal 16 marzo 2020, sono state disabilitate temporaneamente le query di diagnostica che hanno interessato l'esperienza utente a causa di un aumento della domanda sul servizio. In questo modo lo strumento smette di funzionare perché si basa su tali query per funzionare. Questo articolo verrà aggiornato quando le query di diagnostica sono nuovamente disponibili.
->
->Fino ad allora, è consigliabile [usare log Analytics](diagnostics-log-analytics-2019.md) per il monitoraggio continuo.
 
 Ecco cosa può fare lo strumento di diagnostica per desktop virtuale di Windows:
 
@@ -43,8 +38,8 @@ Ecco cosa può fare lo strumento di diagnostica per desktop virtuale di Windows:
 
 Prima di iniziare, è necessario installare anche questi due moduli di PowerShell:
 
-- [Modulo di Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Modulo Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Modulo di Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Modulo Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 Assicurarsi che l'ID sottoscrizione sia pronto per l'accesso.
 
@@ -113,7 +108,7 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
 1. Aprire il browser Internet e accedere al [portale di Azure](https://portal.azure.com/) con l'account amministrativo.
 2. Passare quindi a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 3. Nella sezione **Impostazioni** selezionare  **Impostazioni avanzate**.
-4. Passare quindi ai **Data**  >  **contatori delle prestazioni di Windows** data e aggiungere i contatori seguenti:
+4. Passare quindi ai   >  **contatori delle prestazioni di Windows** data e aggiungere i contatori seguenti:
 
     -   Disco logico ( \* ) \\ % di spazio disponibile
     -   Disco logico (C:) \\ lunghezza media coda del disco
@@ -145,7 +140,7 @@ Per assicurarsi che l'area di lavoro di Log Analytics disponga dei contatori del
 
 1. Nella [portale di Azure](https://portal.azure.com/)passare a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 2. In **Impostazioni** selezionare **Impostazioni avanzate**.
-3. Passare quindi ai **Data**  >  **contatori delle prestazioni di Windows** data.
+3. Passare quindi ai   >  **contatori delle prestazioni di Windows** data.
 4. Verificare che i contatori seguenti siano preconfigurati:
 
    - Disco logico ( \* ) \\ % di spazio disponibile: Visualizza la quantità di spazio disponibile totale del disco utilizzabile sul disco come percentuale.

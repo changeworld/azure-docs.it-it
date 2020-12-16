@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 118ee6ffb189b7a5558477912bd6b27ea739afde
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011796"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516169"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
@@ -40,7 +40,7 @@ In Azure ricerca cognitiva la crittografia inizia con connessioni e trasmissioni
 
 Per i dati gestiti internamente dal servizio di ricerca, nella tabella seguente vengono descritti i [modelli di crittografia dei dati](../security/fundamentals/encryption-models.md). Alcune funzionalità, ad esempio archivio informazioni, arricchimento incrementale e indicizzazione basata su indicizzatore, lettura o scrittura in strutture di dati di altri servizi di Azure. Questi servizi hanno i propri livelli di supporto della crittografia separati da Azure ricerca cognitiva.
 
-| Modellare | Chiavi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisiti&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrizioni | Si applica a |
+| Modello | Chiavi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisiti&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrizioni | Si applica a |
 |------------------|-------|-------------|--------------|------------|
 | crittografia lato server | chiavi gestite da Microsoft | Nessuno (predefinito) | Nessuno, disponibile in tutti i livelli, in tutte le aree, per il contenuto creato dopo il 24 2018 gennaio. | Contenuto (mappe indici e sinonimi) e definizioni (indicizzatori, origini dati, skillsets) |
 | crittografia lato server | chiavi gestite dal cliente | Insieme di credenziali chiave di Azure | Disponibile nei livelli fatturabili, in tutte le aree, per il contenuto creato dopo il 2019 gennaio. | Contenuto (mappe indici e sinonimi) sui dischi dati |
@@ -76,7 +76,7 @@ Le funzionalità di sicurezza in ingresso proteggono l'endpoint del servizio di 
 
 ### <a name="public-access-using-api-keys"></a>Accesso pubblico tramite chiavi API
 
-Per impostazione predefinita, è possibile accedere a un servizio di ricerca tramite il cloud pubblico, usando l'autenticazione basata su chiavi per l'amministratore o l'accesso a query all'endpoint del servizio di ricerca. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile.
+Per impostazione predefinita, è possibile accedere a un servizio di ricerca tramite il cloud pubblico, usando l'autenticazione basata su chiavi per l'amministratore o l'accesso a query all'endpoint del servizio di ricerca. Una [chiave API](search-security-rbac.md) è una stringa costituita da numeri e lettere generati in modo casuale. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile.
 
 Sono disponibili due livelli di accesso al servizio di ricerca, abilitati dalle chiavi API seguenti:
 
@@ -114,15 +114,15 @@ Anche se questa soluzione è la più sicura, l'uso di servizi aggiuntivi è un c
 
 In ricerca cognitiva di Azure, un singolo indice non è un oggetto a protezione diretta. L'accesso a un indice viene invece determinato a livello di servizio (accesso in lettura o in scrittura al servizio), insieme al contesto di un'operazione.
 
-Per l'accesso utente finale, è possibile strutturare le richieste di query per la connessione tramite una chiave di query, che imposta qualsiasi richiesta come di sola lettura, e includere l'indice specifico usato dall'app. In una richiesta di query non è previsto il join degli indici o l'accesso a più indici simultaneamente, quindi tutte le richiesta specificano come destinazione un solo indice per definizione. Di conseguenza, la costruzione della richiesta della query (una chiave più un singolo indice di destinazione) definisce di per sé il limite di sicurezza.
+Per l'accesso degli utenti finali, è possibile strutturare le richieste di query per la connessione usando una [chiave di query](search-security-rbac.md), che rende di sola lettura qualsiasi richiesta e includa l'indice specifico usato dall'app. In una richiesta di query non è previsto il join degli indici o l'accesso a più indici simultaneamente, quindi tutte le richiesta specificano come destinazione un solo indice per definizione. Di conseguenza, la costruzione della richiesta della query (una chiave più un singolo indice di destinazione) definisce di per sé il limite di sicurezza.
 
-L'accesso amministratore e sviluppatore agli indici è indifferenziato: entrambi richiedono l'accesso in scrittura per creare, eliminare e aggiornare gli oggetti gestiti dal servizio. Chiunque abbia una chiave amministratore per il servizio può leggere, modificare o eliminare qualsiasi indice nello stesso servizio. Per proteggersi dall'eliminazione accidentale o intenzionale degli indici, il controllo del codice sorgente interno per gli asset del codice è la risoluzione che consente di invertire l'eliminazione o la modifica indesiderata di un indice. Azure ricerca cognitiva dispone di failover all'interno del cluster per garantire la disponibilità, ma non archivia o esegue il codice proprietario usato per creare o caricare gli indici.
+L'accesso amministratore e sviluppatore agli indici è indifferenziato: entrambi richiedono l'accesso in scrittura per creare, eliminare e aggiornare gli oggetti gestiti dal servizio. Chiunque disponga di una [chiave amministratore](search-security-rbac.md) per il servizio può leggere, modificare o eliminare qualsiasi indice nello stesso servizio. Per proteggersi dall'eliminazione accidentale o intenzionale degli indici, il controllo del codice sorgente interno per gli asset del codice è la risoluzione che consente di invertire l'eliminazione o la modifica indesiderata di un indice. Azure ricerca cognitiva dispone di failover all'interno del cluster per garantire la disponibilità, ma non archivia o esegue il codice proprietario usato per creare o caricare gli indici.
 
 Le soluzioni multi-tenancy che richiedono limiti di sicurezza a livello di indice includono in genere un livello intermedio, che i clienti usano per gestire l'isolamento degli indici. Per altre informazioni sul caso d'uso multi-tenant, vedere [modelli di progettazione per applicazioni SaaS multi-tenant e ricerca cognitiva di Azure](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="user-access"></a>Accesso utente
 
-Il modo in cui un utente accede a un indice e altri oggetti è determinato dal tipo di chiave API nella richiesta. La maggior parte degli sviluppatori crea e assegna [*chiavi di query*](search-security-api-keys.md) per le richieste di ricerca lato client. Una chiave di query concede l'accesso in sola lettura al contenuto ricercabile all'interno dell'indice.
+Il modo in cui un utente accede a un indice e altri oggetti è determinato dal tipo di chiave API nella richiesta. La maggior parte degli sviluppatori crea e assegna [chiavi di query](search-security-api-keys.md) per le richieste di ricerca lato client. Una chiave di query concede l'accesso in sola lettura al contenuto ricercabile all'interno dell'indice.
 
 Se è necessario un controllo granulare per utente sui risultati della ricerca, è possibile creare filtri di sicurezza nelle query, restituendo i documenti associati a una determinata identità di sicurezza. Anziché i ruoli predefiniti e le assegnazioni di ruolo, il controllo degli accessi in base all'identità viene implementato come un *filtro* che elimina i risultati della ricerca di documenti e contenuti in base alle identità. La tabella seguente descrive due approcci per limitare i risultati della ricerca di contenuto non autorizzato.
 
@@ -150,7 +150,7 @@ Criteri di Azure è una funzionalità incorporata in Azure che consente di gesti
 
 Per ricerca cognitiva di Azure, esiste attualmente una definizione predefinita. Per la registrazione diagnostica. Con questa funzionalità incorporata, è possibile assegnare un criterio che identifichi qualsiasi servizio di ricerca privo di registrazione diagnostica e quindi lo attiva. Per altre informazioni, vedere [controlli di conformità normativi di criteri di Azure per ricerca cognitiva di Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Concetti fondamentali della sicurezza di Azure](../security/fundamentals/index.yml)
 + [Sicurezza di Azure](https://azure.microsoft.com/overview/security)

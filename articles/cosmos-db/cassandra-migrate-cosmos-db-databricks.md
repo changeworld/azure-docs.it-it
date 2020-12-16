@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349181"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516544"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrare i dati da Cassandra a Azure Cosmos DB account API Cassandra usando Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -42,7 +42,7 @@ Esistono diversi modi per eseguire la migrazione dei carichi di lavoro del datab
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Effettuare il provisioning di un cluster di Azure Databricks
 
-È possibile seguire le istruzioni per eseguire il [provisioning di un cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Si noti tuttavia che Apache Spark 3. x non è attualmente supportata per il connettore Apache Cassandra. Sarà necessario eseguire il provisioning di un runtime di databricks con una versione V2. x supportata di Apache Spark. Si consiglia la versione 6,6 del runtime di databricks:
+È possibile seguire le istruzioni per eseguire il [provisioning di un cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Si noti tuttavia che Apache Spark 3. x non è attualmente supportata per il connettore Apache Cassandra. Sarà necessario eseguire il provisioning di un runtime di databricks con una versione V2. x supportata di Apache Spark. Si consiglia di selezionare una versione di databricks Runtime che supporta la versione più recente di Spark 2. x, con una versione successiva a scala 2,11:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Runtime di databricks":::
 

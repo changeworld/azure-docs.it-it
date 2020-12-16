@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 17b0564b4b73f5a5032343dcb78669cbf4cabd5a
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701185"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516142"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usare Azure Machine Learning con il pacchetto open source Fairlearn per valutare l'equità dei modelli di Machine Learning (anteprima)
 
@@ -38,80 +38,99 @@ Usare i comandi seguenti per installare i `azureml-contrib-fairness` `fairlearn`
 pip install azureml-contrib-fairness
 pip install fairlearn==0.4.6
 ```
+Le versioni successive di Fairlearn dovrebbero funzionare anche nel codice di esempio seguente.
 
 
 
 ## <a name="upload-fairness-insights-for-a-single-model"></a>Caricare informazioni sull'equità per un singolo modello
 
-L'esempio seguente illustra come usare il pacchetto di correttezza per caricare informazioni dettagliate sull'equità del modello in Azure Machine Learning e vedere il dashboard di valutazione dell'equità in Azure Machine Learning Studio.
+Nell'esempio seguente viene illustrato come utilizzare il pacchetto di correttezza. Le informazioni dettagliate sull'equità del modello vengono caricate in Azure Machine Learning e viene visualizzato il dashboard di valutazione dell'equità in Azure Machine Learning Studio.
 
 1. Eseguire il training di un modello di esempio in un notebook di Jupyter. 
 
-    Per il set di dati viene usato il noto set di dati del censimento per adulti, che viene caricato usando `shap` (per praticità). Ai fini di questo esempio, questo set di dati viene trattato come un problema di decisione di prestito e si Finge che l'etichetta indichi se ogni singolo utente ha ripagato un prestito nel passato. I dati vengono usati per eseguire il training di un predittore per stimare se gli utenti non rilevati in precedenza ripagheranno un prestito. Il presupposto è che le stime del modello vengano utilizzate per decidere se a un utente deve essere offerto un prestito.
+    Per il set di dati viene usato il noto set di dati del censimento per adulti, che viene recuperato da OpenML. Si Finge di avere un problema di decisione di prestito con l'etichetta che indica se un utente ha ripagato un prestito precedente. Si eseguirà il training di un modello per prevedere se gli utenti precedentemente non visti ripagheranno un prestito. Un modello di questo tipo può essere usato per prendere decisioni di prestito.
 
     ```python
-    from sklearn.model_selection import train_test_split
-    from fairlearn.widget import FairlearnDashboard
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.preprocessing import LabelEncoder, StandardScaler
+    import copy
+    import numpy as np
     import pandas as pd
-    import shap
+
+    from sklearn.compose import ColumnTransformer
+    from sklearn.datasets import fetch_openml
+    from sklearn.impute import SimpleImputer
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import train_test_split
+    from sklearn.preprocessing import StandardScaler, OneHotEncoder
+    from sklearn.compose import make_column_selector as selector
+    from sklearn.pipeline import Pipeline
+    
+    from fairlearn.widget import FairlearnDashboard
 
     # Load the census dataset
-    X_raw, Y = shap.datasets.adult()
-    X_raw["Race"].value_counts().to_dict()
+    data = fetch_openml(data_id=1590, as_frame=True)
+    X_raw = data.data
+    y = (data.target == ">50K") * 1
     
-
     # (Optional) Separate the "sex" and "race" sensitive features out and drop them from the main data prior to training your model
-    A = X_raw[['Sex','Race']]
-    X = X_raw.drop(labels=['Sex', 'Race'],axis = 1)
-    X = pd.get_dummies(X)
+    X_raw = data.data
+    y = (data.target == ">50K") * 1
+    A = X_raw[["race", "sex"]]
+    X = X_raw.drop(labels=['sex', 'race'],axis = 1)
     
-    sc = StandardScaler()
-    X_scaled = sc.fit_transform(X)
-    X_scaled = pd.DataFrame(X_scaled, columns=X.columns)
+    # Split the data in "train" and "test" sets
+    (X_train, X_test, y_train, y_test, A_train, A_test) = train_test_split(
+        X_raw, y, A, test_size=0.3, random_state=12345, stratify=y
+    )
 
-    # Perform some standard data preprocessing steps to convert the data into a format suitable for the ML algorithms
-    le = LabelEncoder()
-    Y = le.fit_transform(Y)
-
-    # Split data into train and test
-    from sklearn.model_selection import train_test_split
-    from sklearn.model_selection import train_test_split
-    X_train, X_test, Y_train, Y_test, A_train, A_test = train_test_split(X_scaled, 
-                                                        Y, 
-                                                        A,
-                                                        test_size = 0.2,
-                                                        random_state=0,
-                                                        stratify=Y)
-
-    # Work around indexing issue
+    # Ensure indices are aligned between X, y and A,
+    # after all the slicing and splitting of DataFrames
+    # and Series
     X_train = X_train.reset_index(drop=True)
-    A_train = A_train.reset_index(drop=True)
     X_test = X_test.reset_index(drop=True)
+    y_train = y_train.reset_index(drop=True)
+    y_test = y_test.reset_index(drop=True)
+    A_train = A_train.reset_index(drop=True)
     A_test = A_test.reset_index(drop=True)
 
-    # Improve labels
-    A_test.Sex.loc[(A_test['Sex'] == 0)] = 'female'
-    A_test.Sex.loc[(A_test['Sex'] == 1)] = 'male'
+    # Define a processing pipeline. This happens after the split to avoid data leakage
+    numeric_transformer = Pipeline(
+        steps=[
+            ("impute", SimpleImputer()),
+            ("scaler", StandardScaler()),
+        ]
+    )
+    categorical_transformer = Pipeline(
+        [
+            ("impute", SimpleImputer(strategy="most_frequent")),
+            ("ohe", OneHotEncoder(handle_unknown="ignore")),
+        ]
+    )
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("num", numeric_transformer, selector(dtype_exclude="category")),
+            ("cat", categorical_transformer, selector(dtype_include="category")),
+        ]
+    )
 
+    # Put an estimator onto the end of the pipeline
+    lr_predictor = Pipeline(
+        steps=[
+            ("preprocessor", copy.deepcopy(preprocessor)),
+            (
+                "classifier",
+                LogisticRegression(solver="liblinear", fit_intercept=True),
+            ),
+        ]
+    )
 
-    A_test.Race.loc[(A_test['Race'] == 0)] = 'Amer-Indian-Eskimo'
-    A_test.Race.loc[(A_test['Race'] == 1)] = 'Asian-Pac-Islander'
-    A_test.Race.loc[(A_test['Race'] == 2)] = 'Black'
-    A_test.Race.loc[(A_test['Race'] == 3)] = 'Other'
-    A_test.Race.loc[(A_test['Race'] == 4)] = 'White'
-
-
-    # Train a classification model
-    lr_predictor = LogisticRegression(solver='liblinear', fit_intercept=True)
-    lr_predictor.fit(X_train, Y_train)
+    # Train the model on the test data
+    lr_predictor.fit(X_train, y_train)
 
     # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
     from fairlearn.widget import FairlearnDashboard
     FairlearnDashboard(sensitive_features=A_test, 
-                       sensitive_feature_names=['Sex', 'Race'],
-                       y_true=Y_test,
+                       sensitive_feature_names=['Race', 'Sex'],
+                       y_true=y_test,
                        y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
 
@@ -149,11 +168,11 @@ L'esempio seguente illustra come usare il pacchetto di correttezza per caricare 
 
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
-    sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
+    sf = { 'Race': A_test.race, 'Sex': A_test.sex}
     ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
-    dash_dict = _create_group_metric_set(y_true=Y_test,
+    dash_dict = _create_group_metric_set(y_true=y_test,
                                         predictions=ys_pred,
                                         sensitive_features=sf,
                                         prediction_type='binary_classification')
@@ -207,28 +226,33 @@ L'esempio seguente illustra come usare il pacchetto di correttezza per caricare 
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Caricare informazioni sull'equità per più modelli
 
-Se si è interessati a confrontare più modelli e a capire in che modo le loro valutazioni sull'equità sono diverse, è possibile passare più di un modello al dashboard di visualizzazione ed esplorare i compromessi relativi alle prestazioni.
+Per confrontare più modelli e vedere in che modo le loro valutazioni sull'equità sono diverse, è possibile passare più di un modello al dashboard di visualizzazione e confrontare i compromessi per l'equità delle prestazioni.
 
 1. Eseguire il training dei modelli:
     
-    Oltre al modello di regressione logistica precedente, viene ora creato un secondo classificatore, basato su uno strumento di stima del vettore di supporto e viene caricato un dizionario di dashboard equità usando il pacchetto di Fairlearn `metrics` . Si noti che in questo caso verranno ignorati i passaggi per caricare e pre-elaborare i dati e passare direttamente alla fase di training del modello.
+    Viene ora creato un secondo classificatore, basato su uno strumento di stima del vettore di supporto e viene caricato un dizionario di dashboard equità usando il pacchetto di Fairlearn `metrics` . Si presuppone che il modello sottoposto a training precedente sia ancora disponibile.
 
 
     ```python
-    # Train your first classification model
-    from sklearn.linear_model import LogisticRegression
-    lr_predictor = LogisticRegression(solver='liblinear', fit_intercept=True)
-    lr_predictor.fit(X_train, Y_train)
+    # Put an SVM predictor onto the preprocessing pipeline
+    from sklearn import svm
+    svm_predictor = Pipeline(
+        steps=[
+            ("preprocessor", copy.deepcopy(preprocessor)),
+            (
+                "classifier",
+                svm.SVC(),
+            ),
+        ]
+    )
 
     # Train your second classification model
-    from sklearn import svm
-    svm_predictor = svm.SVC()
-    svm_predictor.fit(X_train, Y_train)
+    svm_predictor.fit(X_train, y_train)
     ```
 
 2. Registrare i modelli
 
-    Registrare quindi entrambi i modelli all'interno Azure Machine Learning. Per praticità nelle chiamate al metodo successive, archiviare i risultati in un dizionario, che esegue il mapping dell'oggetto `id` del modello registrato (una stringa nel `name:version` formato) al predittore stesso:
+    Registrare quindi entrambi i modelli all'interno Azure Machine Learning. Per praticità, archiviare i risultati in un dizionario, che esegue il mapping dell'oggetto `id` del modello registrato (una stringa nel `name:version` formato) al predittore stesso:
 
     ```python
     model_dict = {}
@@ -255,8 +279,8 @@ Se si è interessati a confrontare più modelli e a capire in che modo le loro v
     from fairlearn.widget import FairlearnDashboard
 
     FairlearnDashboard(sensitive_features=A_test, 
-                    sensitive_feature_names=['Sex', 'Race'],
-                    y_true=Y_test.tolist(),
+                    sensitive_feature_names=['Race', 'Sex'],
+                    y_true=y_test.tolist(),
                     y_pred=ys_pred)
     ```
 
@@ -265,7 +289,7 @@ Se si è interessati a confrontare più modelli e a capire in che modo le loro v
     Creare un dizionario del dashboard usando il `metrics` pacchetto di Fairlearn.
 
     ```python
-    sf = { 'Race': A_test.Race, 'Sex': A_test.Sex }
+    sf = { 'Race': A_test.race, 'Sex': A_test.sex }
 
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
@@ -311,9 +335,9 @@ Se si è interessati a confrontare più modelli e a capire in che modo le loro v
 
 È possibile usare gli [algoritmi di mitigazione](https://fairlearn.github.io/master/user_guide/mitigation.html)di Fairlearn, confrontare i modelli di mitigazione generati con il modello originale non mitigato ed esplorare i compromessi di prestazioni/equità tra i modelli confrontati.
 
-Per un esempio in cui viene illustrato l'uso dell'algoritmo di mitigazione della [ricerca nella griglia](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (che consente di creare una raccolta di modelli mitigati con diversi compromessi in materia di equità e prestazioni), vedere questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+Per un esempio in cui viene illustrato l'uso dell'algoritmo di mitigazione della [ricerca Grid](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (che crea una raccolta di modelli mitigati con diversi compromessi in materia di equità e prestazioni), vedere questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
-Il caricamento delle informazioni sull'equità di più modelli in un'unica esecuzione consentirebbe il confronto dei modelli rispetto all'equità e alle prestazioni. È possibile fare clic su uno dei modelli visualizzati nel grafico di confronto del modello per visualizzare informazioni dettagliate sull'equità del modello specifico.
+Il caricamento delle informazioni sull'equità di più modelli in un'unica esecuzione consente il confronto dei modelli rispetto all'equità e alle prestazioni. È possibile fare clic su uno dei modelli visualizzati nel grafico di confronto del modello per visualizzare informazioni dettagliate sull'equità del modello specifico.
 
 
 [![Dashboard di confronto del modello Fairlearn](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)

@@ -1,18 +1,18 @@
 ---
 title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.topic: how-to
-ms.openlocfilehash: b353a8194b9f5dd48b315340435669531359e8d5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608470"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516136"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
-Questo articolo illustra come un provider di servizi può caricare un cliente nel Faro di Azure. Quando si esegue questa operazione, è possibile accedere e gestire le risorse delegate del cliente (sottoscrizioni e/o gruppi di risorse) tramite il tenant di Azure Active Directory (Azure AD) usando la [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md).
+Questo articolo illustra come un provider di servizi può caricare un cliente nel Faro di Azure. Quando si esegue questa operazione, le risorse delegate (sottoscrizioni e/o gruppi di risorse) nel tenant di Azure Active Directory (Azure AD) del cliente possono essere gestite tramite il tenant usando la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!TIP]
 > Anche se si fa riferimento a provider di servizi e clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per configurare il faro di Azure e consolidare la loro esperienza di gestione.
@@ -22,7 +22,7 @@ Questo articolo illustra come un provider di servizi può caricare un cliente ne
 Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. È necessario eseguire questa associazione nel tenant del provider di servizi. È consigliabile creare un account dell'entità servizio nel tenant associato all'ID MPN, quindi includere tale entità servizio ogni volta che si carica un cliente. Per altre informazioni, vedere [collegare l'ID partner per abilitare il credito guadagnato dal partner per le risorse delegate](partner-earned-credit.md).
 
 > [!NOTE]
-> I clienti possono anche essere caricati in Azure Lighthouse quando acquistano un'offerta di servizio gestita (pubblica o privata) [pubblicata in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare la procedura di onboarding descritta qui insieme alle offerte pubblicate in Azure Marketplace.
+> I clienti possono essere caricati in alternativa in Azure Lighthouse quando acquistano un'offerta di servizio gestita (pubblica o privata) [pubblicata in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare la procedura di onboarding descritta qui insieme alle offerte pubblicate in Azure Marketplace.
 
 Il processo di onboarding richiede l'esecuzione di azioni sia dal tenant del provider di servizi che dal tenant del cliente. Tutti questi passaggi sono descritti in questo articolo.
 
@@ -303,7 +303,19 @@ az account list
 
 Se è necessario apportare modifiche dopo l'onboarding del cliente, è possibile [aggiornare la delega](update-delegation.md). È anche possibile [rimuovere completamente l'accesso alla delega](remove-delegation.md) .
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se non si è in grado di caricare correttamente il cliente o se gli utenti hanno difficoltà ad accedere alle risorse Delegate, verificare i suggerimenti e i requisiti seguenti e riprovare.
+
+- Il `managedbyTenantId` valore non deve corrispondere all'ID tenant per la sottoscrizione da caricare.
+- Non è possibile avere più assegnazioni nello stesso ambito con lo stesso ambito `mspOfferName` . 
+- Il provider di risorse **Microsoft. ManagedServices** deve essere registrato per la sottoscrizione delegata. Questa operazione dovrebbe essere eseguita automaticamente durante la distribuzione, ma in caso contrario è possibile [registrarla manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- Le autorizzazioni non devono includere utenti con il ruolo predefinito [proprietario](../../role-based-access-control/built-in-roles.md#owner) o i ruoli predefiniti con le [azioni dataactions](../../role-based-access-control/role-definitions.md#dataactions).
+- I gruppi devono essere creati con il [**tipo di gruppo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) impostato su **sicurezza** e non **Microsoft 365**.
+- Gli utenti che hanno la necessità di visualizzare le risorse nel portale di Azure necessario avere il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).
 - [Visualizzare e gestire i clienti](view-manage-customers.md) passando a **Clienti personali** nel portale di Azure.
+- Informazioni su come [aggiornare](update-delegation.md) o [rimuovere](remove-delegation.md) una delega.

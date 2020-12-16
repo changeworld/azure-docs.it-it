@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68526fd542d8bc891358a36d031af3314edab4c2
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507983"
+ms.locfileid: "97516103"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori relative ai criteri personalizzati in Azure Active Directory B2C
 
@@ -116,7 +116,7 @@ Le funzionalità dei criteri personalizzati o di Identity Experience Framework s
 | Parametro della stringa di query `login_hint` |  |  | X | Disponibile come attestazione, può essere passato all'IDP. |
 | Inserisci JSON nel percorso utente tramite `client_assertion` | X |  |  | Verrà deprecato. |
 | Inserisci JSON nel percorso utente come `id_token_hint` |  | X |  | Approccio di avanzamento per passare JSON. |
-| [Passare il token del provider di identità all'applicazione](idp-pass-through-custom.md) |  | X |  | Ad esempio, da Facebook all'app. |
+| [Passare il token del provider di identità all'applicazione](idp-pass-through-user-flow.md) |  | X |  | Ad esempio, da Facebook all'app. |
 
 
 ### <a name="session-management"></a>Gestione delle sessioni

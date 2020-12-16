@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750510"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516376"
 ---
 # <a name="secure-your-restful-services"></a>Proteggere i servizi RESTful 
 
@@ -230,7 +230,7 @@ Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzio
 
 ### <a name="acquiring-an-access-token"></a>Acquisizione di un token di accesso 
 
-È possibile ottenere un token di accesso in diversi modi: ottenendolo da un [provider di identità federato](idp-pass-through-custom.md), chiamando un'API REST che restituisce un token di accesso, usando un [flusso ROPC](../active-directory/develop/v2-oauth-ropc.md) o usando il [flusso di credenziali client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+È possibile ottenere un token di accesso in diversi modi: ottenendolo da un [provider di identità federato](idp-pass-through-user-flow.md), chiamando un'API REST che restituisce un token di accesso, usando un [flusso ROPC](../active-directory/develop/v2-oauth-ropc.md) o usando il [flusso di credenziali client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
 L'esempio seguente usa un profilo tecnico dell'API REST per effettuare una richiesta all'endpoint del token Azure AD usando le credenziali client passate come autenticazione HTTP di base. Per informazioni su come eseguire la configurazione in Azure AD, vedere [Microsoft Identity Platform e il flusso di credenziali client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Potrebbe essere necessario apportare alcune modifiche per consentire l'interazione con il provider di identità. 
 

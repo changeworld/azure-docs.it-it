@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 693cabac616dca8e108a2029c173a5e1b71c2695
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900362"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516744"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
 
@@ -27,14 +27,14 @@ Questo articolo sulle procedure consigliate è incentrato su come eseguire il cl
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definire le richieste di risorse e i limiti del pod
 
-**Indicazioni sulle procedure consigliate** . Impostare le richieste e i limiti del pod per tutti i pod nei manifesti YAML. Se il cluster servizio Azure Kubernetes usa *quote di risorse* , la distribuzione può essere rifiutata se non si definiscono questi valori.
+**Indicazioni sulle procedure consigliate**. Impostare le richieste e i limiti del pod per tutti i pod nei manifesti YAML. Se il cluster servizio Azure Kubernetes usa *quote di risorse*, la distribuzione può essere rifiutata se non si definiscono questi valori.
 
 Uno dei modi principali per gestire le risorse di calcolo all'interno di un cluster servizio Azure Kubernetes consiste nell'usare le richieste e i limiti del pod. Le richieste e i limiti comunicano all'utilità di pianificazione di Kubernetes le risorse di calcolo da assegnare a un pod.
 
 * **Le richieste CPU/memoria Pod** definiscono una quantità di CPU e memoria che il Pod necessita a intervalli regolari.
     * Quando l'utilità di pianificazione Kubernetes tenta di inserire un pod in un nodo, le richieste Pod vengono usate per determinare quale nodo dispone di risorse sufficienti per la pianificazione.
     * Per impostazione predefinita, la richiesta Pod verrà impostata sul limite definito.
-    * È molto importante monitorare le prestazioni dell'applicazione per modificare tali richieste. Se vengono effettuate richieste insufficienti, è possibile che l'applicazione riceva una riduzione delle prestazioni a causa della pianificazione di un nodo. Se le richieste vengono sovrastimate, è possibile che l'applicazione abbia una maggiore difficoltà a essere pianificata.
+    * È molto importante monitorare le prestazioni dell'applicazione per modificare tali richieste. Se vengono effettuate richieste di risorse Pod insufficienti, è possibile che l'applicazione riceva una riduzione delle prestazioni a causa della pianificazione di un nodo. Se le richieste vengono sovrastimate, è possibile che l'applicazione abbia una maggiore difficoltà a essere pianificata.
 * I **limiti di CPU/memoria Pod** sono la quantità massima di CPU e memoria che può essere usata da un pod. I limiti di memoria consentono di definire quali Pod devono essere terminati in caso di instabilità del nodo a causa di risorse insufficienti. Senza i limiti appropriati, i pod impostati verranno terminati fino a quando non si solleva la pressione delle risorse. Un pod potrebbe o non essere in grado di superare il limite di CPU per un periodo di tempo, ma il Pod non verrà terminato per superare il limite della CPU. 
     * I limiti Pod consentono di definire quando un pod ha perso il controllo dell'utilizzo delle risorse. Quando viene superato un limite, al Pod viene assegnata la priorità per la gestione dell'integrità dei nodi e per ridurre al minimo l'effetto sui pod che condividono il nodo.
     * Se non si imposta un limite Pod, il valore predefinito è il valore massimo disponibile in un determinato nodo.
@@ -84,7 +84,7 @@ Bridge to Kubernetes è progettato per l'uso con applicazioni eseguite su Pod e 
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Usare l'estensione di Visual Studio Code per Kubernetes
 
-**Indicazioni sulle procedure consigliate** . Installare e usare l'estensione di VS Code per Kubernetes quando si scrivono manifesti YAML. È anche possibile usare l'estensione per una soluzione di distribuzione integrata, particolarmente utile per i proprietari delle applicazioni che raramente interagiscono con il cluster servizio Azure Kubernetes.
+**Indicazioni sulle procedure consigliate**. Installare e usare l'estensione di VS Code per Kubernetes quando si scrivono manifesti YAML. È anche possibile usare l'estensione per una soluzione di distribuzione integrata, particolarmente utile per i proprietari delle applicazioni che raramente interagiscono con il cluster servizio Azure Kubernetes.
 
 L'[estensione di Visual Studio Code per Kubernetes][vscode-kubernetes] consente di sviluppare e distribuire applicazioni in servizio Azure Kubernetes. L'estensione fornisce IntelliSense per le risorse di Kubernetes e grafici e modelli Helm. È anche possibile esplorare, distribuire e modificare le risorse di Kubernetes da VS Code. L'estensione offre inoltre un controllo IntelliSense per le richieste di risorse o i limiti impostati nelle specifiche dei pod:
 
