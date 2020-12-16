@@ -1,7 +1,7 @@
 ---
 title: Novità della gestione delle applicazioni Azure Active Directory
 description: Documentazione nuova e aggiornata per la gestione delle applicazioni Azure Active Directory.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,30 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571012"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563399"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
 Ecco le novità della documentazione sulla gestione delle applicazioni Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio di gestione delle applicazioni, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Dicembre 2020
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su OIDC per un'applicazione nel tenant di Azure Active Directory (Azure AD)](add-application-portal-setup-oidc-sso.md)
+- [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Informazioni Single Sign-On basate su OIDC](configure-oidc-single-sign-on.md)
+- [Trasferimento dell'autenticazione dell'applicazione da Azure Active Directory Federation Services ad Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Gestione applicazioni Azure Active Directory: novità](whats-new-docs.md)
+- [Usare il report delle attività dell'applicazione AD FS (anteprima) per eseguire la migrazione delle applicazioni ai Azure AD](migrate-adfs-application-activity.md)
+- [Pubblicare Desktop remoto con proxy dell'applicazione di Azure AD](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## <a name="november-2020"></a>Novembre 2020
 
@@ -53,7 +67,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 ### <a name="new-articles"></a>Nuovi articoli
 - [Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su OIDC per un'applicazione nel tenant di Azure Active Directory (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Avvio rapido: Assegnare utenti a un'app che usa Azure AD come provider di identità](add-application-portal-assign-users.md)
-- [Novità della documentazione](whats-new-docs.md)
+- [Quali sono le novità di docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Articoli aggiornati

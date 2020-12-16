@@ -11,52 +11,61 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 75ca0438336825bf8d4bbdc6e08eca109f430fde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f319c35631f8c85cab4613df0f1c14f98356caa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785919"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563348"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure
 
-In questo argomento viene illustrato come visualizzare ed elaborare gli avvisi ricevuti per proteggere le risorse. 
+> [!TIP]
+> Le informazioni contenute in questa pagina fanno riferimento alla nuova esperienza di avvisi (anteprima) disponibile nel banner nella parte superiore della pagina degli avvisi di sicurezza. 
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner con collegamento alla nuova esperienza avvisi di anteprima":::
 
-* Per informazioni sui diversi tipi di avvisi, vedere [tipi di avviso di sicurezza](alerts-reference.md).
-* Per una panoramica del modo in cui il Centro sicurezza genera avvisi, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md).
+In questo argomento viene illustrato come visualizzare ed elaborare gli avvisi del Centro sicurezza e proteggere le risorse.
 
-> [!NOTE]
-> Per abilitare i rilevamenti avanzati, abilitare Azure Defender. È disponibile una versione di valutazione gratuita. Per eseguire l'aggiornamento, selezionare piano tariffario nei [criteri di sicurezza](tutorial-security-policy.md). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+I rilevamenti avanzati che attivano gli avvisi di sicurezza sono disponibili solo con Azure Defender. È disponibile una versione di valutazione gratuita. Per eseguire l'aggiornamento, vedere [abilitare Azure Defender](security-center-pricing.md#enable-azure-defender).
 
 ## <a name="what-are-security-alerts"></a>Informazioni sugli avvisi di sicurezza
 Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, come soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza in ordine di priorità, nonché le informazioni necessarie per analizzare rapidamente il problema e indicazioni per risolvere un attacco.
 
-> [!NOTE]
-> Per altre informazioni sul funzionamento delle funzionalità di rilevamento del Centro sicurezza, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md#detect-threats).
+Per informazioni sui diversi tipi di avvisi, vedere [avvisi di sicurezza-Guida di riferimento](alerts-reference.md).
+
+Per una panoramica del modo in cui il Centro sicurezza genera avvisi, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md).
+
 
 ## <a name="manage-your-security-alerts"></a>Gestire gli avvisi di sicurezza
 
-1. Dal dashboard del Centro sicurezza, vedere il riquadro  **protezione dalle minacce** per visualizzare e ottenere una panoramica degli avvisi.
+1. Dalla pagina Panoramica del Centro sicurezza, selezionare il riquadro **avvisi di sicurezza** nella parte superiore della pagina o il collegamento dalla barra laterale.
 
-    ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Visualizzazione della pagina degli avvisi di sicurezza dalla pagina Panoramica del Centro sicurezza di Azure":::
 
-1. Per visualizzare altri dettagli sugli avvisi, fare clic sul riquadro.
+    Verrà visualizzata la pagina avvisi di sicurezza.
 
-   ![Avvisi di sicurezza nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Elenco degli avvisi di sicurezza del Centro sicurezza di Azure":::
 
-1. Per filtrare gli avvisi visualizzati, fare clic su **filtro** e dal pannello **filtro** visualizzato selezionare le opzioni di filtro che si desidera applicare. L'elenco viene aggiornato in base al filtro selezionato. Il filtro può essere molto utile. Ad esempio, potrebbe essere necessario gestire gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore, perché si sta esaminando una potenziale violazione del sistema.
+1. Per filtrare l'elenco degli avvisi, selezionare uno dei filtri pertinenti. Facoltativamente, è possibile aggiungere altri filtri con l'opzione **Aggiungi filtro** .
 
-    ![Filtro degli avvisi nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Aggiunta di filtri alla visualizzazione avvisi" lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
+
+    L'elenco viene aggiornato in base alle opzioni di filtro selezionate. Il filtro può essere molto utile. Ad esempio, potrebbe essere necessario gestire gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore, perché si sta esaminando una potenziale violazione del sistema.
+
 
 ## <a name="respond-to-security-alerts"></a>Rispondere agli avvisi di sicurezza
 
-1. Dall'elenco **avvisi di sicurezza** , fare clic su un avviso di sicurezza. Vengono visualizzate le risorse necessarie e i passaggi da eseguire per correggere un attacco.
+1. Selezionare un avviso dall'elenco **avvisi di sicurezza** . Viene visualizzato un riquadro laterale con una descrizione dell'avviso e di tutte le risorse interessate. 
 
-    ![Rispondere agli avvisi di sicurezza](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Visualizzazione dettagli mini di un avviso di sicurezza":::
 
-1. Dopo aver esaminato le informazioni, fare clic su una risorsa che è stata attaccata.
+    > [!TIP]
+    > Con questo riquadro laterale aperto, è possibile esaminare rapidamente l'elenco degli avvisi con le frecce su e giù sulla tastiera.
+
+1. Per ulteriori informazioni, selezionare **Visualizza dettagli completi**.
 
     Il riquadro sinistro della pagina avviso di sicurezza Mostra informazioni di alto livello relative all'avviso di sicurezza: titolo, gravità, stato, tempo attività, descrizione dell'attività sospetta e la risorsa interessata. Insieme alla risorsa interessata sono i tag di Azure rilevanti per la risorsa. Usare questi per dedurre il contesto aziendale della risorsa quando si esamina l'avviso.
 
@@ -81,3 +90,4 @@ In questo documento si è appreso come visualizzare gli avvisi di sicurezza. Ved
 
 - [Configurare le regole di eliminazione degli avvisi](alerts-suppression-rules.md)
 - [Automatizzare le risposte ai trigger del Centro sicurezza](workflow-automation.md)
+- [Guida di riferimento per gli avvisi di sicurezza](alerts-reference.md)
