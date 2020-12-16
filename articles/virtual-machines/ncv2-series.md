@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 19ed565cbc68cc49da9daa5460e4dca41ce01cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fa5148d7de7cac67a69c8d9c21721cb57951d3
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653486"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585386"
 ---
 # <a name="ncv2-series"></a>Serie NCv2
 
@@ -25,6 +25,7 @@ La configurazione NC24rs v2 offre un'interfaccia di rete ad alta velocità effet
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+Interconnessione NVIDIA NVLink: non supportata
 
 > [!IMPORTANT]
 > Per questa serie di macchine virtuali, la quota di vCPU (Core) nella sottoscrizione viene inizialmente impostata su 0 in ogni area. [Richiedere un aumento della quota di vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) per questa serie in un' [area disponibile](https://azure.microsoft.com/regions/services/).

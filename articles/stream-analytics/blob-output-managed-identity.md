@@ -5,15 +5,15 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/11/2020
-ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/15/2020
+ms.openlocfilehash: 62651e9ea4e1b02b276e7870163453bfa55c3909
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573664"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587571"
 ---
-# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usare l'identità gestita (anteprima) per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Usare l'identità gestita (anteprima) per autenticare il processo di analisi di flusso di Azure nell'archivio BLOB di Azure
 
 [Autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (anteprima) per l'output nell'archiviazione BLOB di Azure consente ai processi di analisi di flusso di accedere direttamente a un account di archiviazione invece di usare una stringa di connessione. Oltre a una maggiore sicurezza, questa funzionalità consente anche di scrivere i dati in un account di archiviazione in una rete virtuale (VNET) in Azure.
 

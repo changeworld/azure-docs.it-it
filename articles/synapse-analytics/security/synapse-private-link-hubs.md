@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2613a4fd931ad49a4f40a4221ea20e8c25f185fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501586"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586976"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Connettersi ad Azure sinapsi Studio tramite hub di collegamento privato di Azure 
 
@@ -35,9 +35,9 @@ Ci sono due passaggi per connettersi a sinapsi studio usando i collegamenti priv
 ## <a name="azure-private-links-hubs-and-azure-virtual-network"></a>Hub collegamenti privati di Azure e rete virtuale di Azure
 È necessario connettere la rete virtuale di Azure alla risorsa dell'hub di collegamento privato sinapsi per proteggere la connessione end-to-end a sinapsi Studio. A tale proposito, è necessario creare un endpoint privato dalla rete virtuale all'hub di collegamento privato creato. È possibile usare la portale di Azure per l'hub di collegamento privato e passare alla sezione endpoint privato. Selezionare "+ endpoint privato" per creare un nuovo endpoint privato che si connette all'hub di collegamento privato.
 
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Creare un endpoint privato per l'hub di collegamento privato":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Screenshot che mostra la pagina connessioni endpoint privato.":::
 
-Assicurarsi di scegliere il tipo di risorsa "Microsoft. sinapsi/privateLinkHubs" nella scheda "risorsa". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="creare un endpoint privato per l'hub di collegamento privato":::
+Assicurarsi di scegliere il tipo di risorsa "Microsoft. sinapsi/privateLinkHubs" nella scheda "risorsa". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="screenshot che mostra la pagina ' Crea endpoint privato ' con ' tipo di risorsa ' evidenziato.":::
 
 Nella scheda "configurazione" selezionare "privatelink.azuresynapse.net" per le zone DNS privato durante l'integrazione con la rete virtuale e la zona DNS privata.
 

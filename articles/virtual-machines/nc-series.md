@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 38365cc144bbffbedfa1416112c5f8eca2b5fc13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97b5d6bc6f19e07ea7c980b98c1e7986c59dc546
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653520"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585412"
 ---
 # <a name="nc-series"></a>Serie NC
 
@@ -23,6 +23,7 @@ Le macchine virtuali della serie NC sono basate sulla scheda [NVIDIA Tesla K80](
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+Interconnessione NVIDIA NVLink: non supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |

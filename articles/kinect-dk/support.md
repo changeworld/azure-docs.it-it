@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, Kinect, RGB, IR, registrazione, sensore, SDK, accesso, profondità, video, fotocamera, IMU, Motion, Sensor, audio, microfono, Matroska, Sensor SDK, download, body, tracking, supporto
-ms.openlocfilehash: 2fbfe9c52a46cbf7058e6d5ca91008f1f289bfd2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9bb6e0ad8ebbb763389f13e317036eacc5c7d074
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357046"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587095"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Opzioni e risorse per il supporto Kinect di Azure
 
@@ -56,6 +56,8 @@ Prima di contattare il supporto hardware, assicurarsi di aver configurato e aggi
 [Ottenere assistenza](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) con funzionalità di dispositivo o sensore, aggiornamenti del firmware o opzioni di acquisto.
 
 Per ulteriori informazioni sulle offerte di supporto, vedere il [supporto tecnico Microsoft per le aziende](https://support.microsoft.com/help/4341255/support-for-business).
+
+Le dichiarazioni UE di conformità per i prodotti hardware Microsoft sono disponibili [qui](https://www.microsoft.com/en-us/eu-declarations-compliance?activetab=pivot1:primaryr3)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

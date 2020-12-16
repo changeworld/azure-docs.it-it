@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d756567e471fe4b29590f8a3efbaf49b56edd4f4
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 2af4f5467cb0f604f16d1faf841618a14d292806
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853051"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585735"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -69,7 +69,7 @@ Per ottenere l'elenco delle operazioni SMB e REST registrate, vedere [operazioni
 
 Per istruzioni generali, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-### <a name="azure-portal"></a>[Portale di Azure](#tab/azure-portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 1. Accedere al portale di Azure.
 
@@ -149,7 +149,7 @@ Se si sceglie di archiviare i log in un account di archiviazione, si pagherà pe
 Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) insieme al `StorageAccountId` parametro.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Sostituire il `<storage-service-resource--id>` segnaposto in questo frammento con l'ID risorsa del servizio file di Azure. L'ID della risorsa si trova nel portale di Azure, nella **pagina delle proprietà** del proprio account di archiviazione.
@@ -169,7 +169,7 @@ Se si sceglie di trasmettere i log a un hub eventi, si pagherà per il volume di
 Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) con il `EventHubAuthorizationRuleId` parametro.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Ecco un esempio:
@@ -183,7 +183,7 @@ Per una descrizione di ogni parametro, vedere [trasmettere i dati a hub eventi t
 Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) con il `WorkspaceId` parametro.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Ecco un esempio:

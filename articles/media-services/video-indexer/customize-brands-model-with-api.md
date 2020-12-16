@@ -10,18 +10,19 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020467"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586058"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizzare un modello Marchi con l'API di Video Indexer
 
-Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Se, ad esempio, Microsoft è citata in contenuti video o audio o se viene visualizzata in un testo visivo in un video, Video Indexer lo rileva come marchio nel contenuto. Un modello Marchi personalizzato consente di escludere determinati marchi dal rilevamento e includere i marchi che devono far parte del modello che potrebbe non essere presente nel database di marchi di Bing.
+Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Se, ad esempio, Microsoft è citata in contenuti video o audio o se viene visualizzata in un testo visivo in un video, Video Indexer lo rileva come marchio nel contenuto. Un modello Marchi personalizzato consente di escludere determinati marchi dal rilevamento e includere i marchi che devono far parte del modello che potrebbe non essere presente nel database di marchi di Bing. Per altre informazioni, vedere la [panoramica](customize-brands-model-overview.md).
 
-Per una panoramica dettagliata, vedere [Panoramica](customize-brands-model-overview.md).
+> [!NOTE]
+> Se il video è stato indicizzato prima dell'aggiunta di un marchio, è necessario reindicizzarlo.
 
 È possibile usare le API di Video Indexer per creare, usare e modificare modelli Marchi personalizzati rilevati in un video, come descritto in questo argomento. È anche possibile usare il sito Web di Video Indexer, come descritto in [Personalizzare il modello Marchi usando il sito Web di Video Indexer](customize-brands-model-with-api.md).
 

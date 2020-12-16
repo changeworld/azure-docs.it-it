@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: c1545efc43d034dba5b8ffe8d19b9bbee95dff68
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5f9733866e85d79bdb85b8a24d1878e1169c2479
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455474"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586041"
 ---
-# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Usare sinapsi Studio per monitorare le applicazioni di Apache Spark
+# <a name="how-to-use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Come usare sinapsi Studio per monitorare le applicazioni di Apache Spark
 
 Con l'analisi delle sinapsi di Azure, è possibile usare Spark per eseguire notebook, processi e altri tipi di applicazioni nei pool Spark nell'area di lavoro.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560034"
+ms.locfileid: "97586024"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)
 > [!NOTE]
@@ -70,6 +70,9 @@ Verrà creato il flusso utente per l'iscrizione self-service e lo si aggiungerà
 7. In **Attributi utente** scegliere gli attributi da raccogliere dall'utente. Per visualizzare attributi aggiuntivi, selezionare **Mostra più**. Ad esempio, selezionare **Mostra più** e quindi scegliere gli attributi e le attestazioni per **Paese/Area geografica**, **Nome visualizzato** e **Codice postale**. Selezionare **OK**.
 
    ![Pagina di creazione di un nuovo flusso utente](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> È possibile raccogliere gli attributi solo quando un utente si iscrive per la prima volta. Quando un utente si iscrive, non verrà più richiesto di raccogliere informazioni sugli attributi, anche se si modifica il flusso utente.
 
 8. Selezionare **Create** (Crea).
 9. Il nuovo flusso utente verrà visualizzato nell'elenco **Flussi utente (anteprima)** . Se necessario, aggiornare la pagina.

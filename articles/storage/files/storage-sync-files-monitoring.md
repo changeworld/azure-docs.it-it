@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008300"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586551"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -161,7 +161,7 @@ Integrità di suddivisione in livelli cloud
   - L'ID evento 9003 fornisce inoltre la distribuzione di un errore per un endpoint server. Ad esempio: numero totale di errori e ErrorCode. Un evento viene registrato per codice di errore.
   - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio: percentuale di spazio disponibile, numero di file fantasma nella sessione e numero di file non riusciti a fantasma.
   - L'ID evento 9029 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio: numero di file tentati nella sessione, numero di file a livelli nella sessione e numero di file già a livelli.
-  
+
 - Per monitorare l'attività di richiamo in un server, usare l'ID evento 9005, 9006, 9009, 9059 e 9071 nel registro eventi di telemetria, disponibile in Visualizzatore eventi in *Applications and Services\Microsoft\FileSync\Agent*.
 
   - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio: totale file univoci a cui si accede e totale file univoci con accesso non riuscito.
@@ -192,7 +192,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
 
   > [!Note]  
   > Se si crea un avviso ed è troppo rumoroso, modificare il valore di soglia e la logica di avviso.
-  
+
 ### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Come creare un avviso se l'integrità dell'endpoint server Visualizza un errore nel portale
 
 1. Nella **portale di Azure** passare al rispettivo **servizio di sincronizzazione archiviazione**. 
@@ -201,16 +201,16 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
 4. Configurare la condizione facendo clic su **Seleziona condizione**.
 5. Nel pannello **Configura logica di segnalazione** fare clic su **risultato sessione di sincronizzazione** in nome segnale.  
 6. Selezionare la configurazione della dimensione seguente: 
-    - Nome Dimensione: **nome endpoint server**  
-    - Operatore **=** 
-    - Valori Dimensione: **tutti i valori correnti e futuri**  
+     - Nome Dimensione: **nome endpoint server**  
+     - Operatore **=** 
+     - Valori Dimensione: **tutti i valori correnti e futuri**  
 7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
-    - Soglia impostata su **statica** 
-    - Operatore: **minore di** 
-    - Tipo di aggregazione: **massimo**  
-    - Valore soglia: **1** 
-    - Valutato in base a: granularità di aggregazione = **24 ore** | Frequenza di valutazione = **ogni ora** 
-    - Fare clic su **fine.** 
+     - Soglia impostata su **statica** 
+     - Operatore: **minore di** 
+     - Tipo di aggregazione: **massimo**  
+     - Valore soglia: **1** 
+     - Valutato in base a: granularità di aggregazione = **24 ore** | Frequenza di valutazione = **ogni ora** 
+     - Fare clic su **fine.** 
 8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 10. Fare clic su **Crea regola di avviso**. 
@@ -254,7 +254,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
      - Tipo di aggregazione: **massimo**  
      - Valore soglia (in byte): **1** 
      - Valutato in base a: granularità di aggregazione = **1 ora** | Frequenza di valutazione = **ogni 30 minuti** 
-        - Si noti che le metriche vengono inviate a monitoraggio di Azure ogni 15-20 minuti. Non impostare la **frequenza di valutazione** su un valore inferiore a 30 minuti (genererà avvisi falsi).
+         - Si noti che le metriche vengono inviate a monitoraggio di Azure ogni 15-20 minuti. Non impostare la **frequenza di valutazione** su un valore inferiore a 30 minuti (genererà avvisi falsi).
      - Fare clic su **fine.** 
 8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
@@ -277,7 +277,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
      - Tipo di aggregazione: **totale**  
      - Valore soglia (in byte): **67108864000** 
      - Valutato in base a: granularità di aggregazione = **24 ore** | Frequenza di valutazione = **ogni ora** 
-    - Fare clic su **fine.** 
+     - Fare clic su **fine.** 
 8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 10. Fare clic su **Crea regola di avviso**. 

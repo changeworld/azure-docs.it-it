@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229855"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586194"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Log attività di Azure AD in Monitoraggio di Azure
 
@@ -60,7 +60,7 @@ Per usare questa funzionalità, sono necessari:
 
 A seconda del punto in cui si desidera instradare i dati dei log di controllo, è necessario uno dei due elementi seguenti:
 
-* Un account di archiviazione di Azure, con autorizzazioni *ListKeys*. È consigliabile usare un account di archiviazione generale invece di un account di archiviazione BLOB. Per informazioni sui prezzi di archiviazione, vedere il [calcolatore dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* Un account di archiviazione di Azure per cui si dispone di autorizzazioni di *ListKeys* . È consigliabile usare un account di archiviazione generale invece di un account di archiviazione BLOB. Per informazioni sui prezzi di archiviazione, vedere il [calcolatore dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Uno spazio dei nomi di Hub eventi di Azure, per l'integrazione con soluzioni di terze parti.
 * Un'area di lavoro Azure Log Analytics per inviare log a log di Monitoraggio di Azure.
 
@@ -111,11 +111,11 @@ La tabella seguente contiene i costi stimati al mese per un hub eventi di base n
 
 
 
-| Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo al mese in USD (est) |
-| :--                | ---             | ---            | ---                        | --:                          |
-| Controllo e accessi | 100,000         | 16,5 milioni     | 495 milioni                |  $1093,00                       |
-| Audit              | 100,000         | 1,5 milioni      | 45.000.000                 |  $246,66                     |
-| Accessi           | 100,000         | 15.000.000     | 450.000.000                |  $847,28                     |
+| Categoria di log | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo al mese in USD (est) |
+|:-|--|--|--|-:|
+| Controllo e accessi | 100,000 | 16,5 milioni | 495 milioni | $1093,00 |
+| Audit | 100,000 | 1,5 milioni | 45.000.000 | $246,66 |
+| Accessi | 100,000 | 15.000.000 | 450.000.000 | $847,28 |
 
 
 

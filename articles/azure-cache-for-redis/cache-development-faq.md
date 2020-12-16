@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544512"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585769"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Domande frequenti sullo sviluppo per cache di Azure per Redis
 
 Questo articolo fornisce le risposte alle domande comuni su come sviluppare per la cache di Azure per Redis.
 
-## <a name="common-questions-and-answers"></a>Domande frequenti e risposte
+## <a name="common-questions-and-answers"></a>Domande e risposte comuni
 In questa sezione vengono illustrate le domande frequenti seguenti:
 
 * [Come si procede per iniziare a usare Cache Redis di Azure?](#how-can-i-get-started-with-azure-cache-for-redis)
@@ -55,7 +55,7 @@ Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. �
 
 * **Tentativi**
   * Per ConnectRetry e ConnectTimeout è in genere consigliabile fallire e rispondere immediatamente agli errori e riprovare, in base al carico di lavoro specifico e al tempo mediamente necessario per il rilascio di un comando Redis da parte del client e la ricezione di una risposta.
-  * Permettere la connessione automatica di StackExchange.Redis invece di controllare lo stato di connessione ed eseguire manualmente la riconnessione. **Evitare di usare la proprietà ConnectionMultiplexer.IsConnected** .
+  * Permettere la connessione automatica di StackExchange.Redis invece di controllare lo stato di connessione ed eseguire manualmente la riconnessione. **Evitare di usare la proprietà ConnectionMultiplexer.IsConnected**.
   * In alcuni casi è possibile che si verifichi un problema che genera nuovi tentativi a catena, senza recupero. In questo caso è consigliabile prendere in considerazione l'uso di un algoritmo di nuovi tentativi con backoff esponenziale, come illustrato in [Indicazioni generali per la ripetizione di tentativi](/azure/architecture/best-practices/transient-faults) pubblicato dal gruppo Microsoft Patterns & Practices.
   
 * **Valori di timeout**
@@ -64,12 +64,12 @@ Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. �
   * Usare una singola istanza ConnectionMultiplexer per l'applicazione. È possibile usare un valore LazyConnection per creare una singola istanza restituita da una proprietà Connection, come illustrato in [Connettersi alla cache mediante la classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Impostare la proprietà `ConnectionMultiplexer.ClientName` su un nome univoco dell'istanza dell'app per finalità di diagnostica.
   * Usare più istanze di `ConnectionMultiplexer` per carichi di lavoro personalizzati.
-      * È possibile seguire questo modello se l'applicazione include carichi variabili. Ad esempio:
-      * È possibile avere un multiplexer per la gestione di chiavi di grandi dimensioni.
-      * È possibile avere un multiplexer per la gestione di chiavi di piccole dimensioni.
-      * È possibile impostare valori diversi per i timeout di connessione e la logica di ripetizione dei tentativi per ogni ConnectionMultiplexer usato.
-      * Impostare la proprietà `ClientName` in ogni multiplexer per semplificare la diagnostica.
-      * Si otterrà probabilmente una latenza semplificata per ogni `ConnectionMultiplexer`.
+    * È possibile seguire questo modello se l'applicazione include carichi variabili. Ad esempio:
+    * È possibile avere un multiplexer per la gestione di chiavi di grandi dimensioni.
+    * È possibile avere un multiplexer per la gestione di chiavi di piccole dimensioni.
+    * È possibile impostare valori diversi per i timeout di connessione e la logica di ripetizione dei tentativi per ogni ConnectionMultiplexer usato.
+    * Impostare la proprietà `ClientName` in ogni multiplexer per semplificare la diagnostica.
+    * Si otterrà probabilmente una latenza semplificata per ogni `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Quali client di Cache Redis di Azure è possibile usare?
 Uno dei principali vantaggi di Redis è la presenza di numerosi client che supportano linguaggi di sviluppo diversi. Per un elenco aggiornato dei client, vedere l'articolo relativo ai [client Redis](https://redis.io/clients). Per esercitazioni relative a diversi linguaggi e client, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e articoli di pari livello nel sommario.

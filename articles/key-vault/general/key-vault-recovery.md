@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
-ms.date: 09/30/2020
-ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 12/15/2020
+ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324959"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587112"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Come abilitare la protezione eliminazione temporanea e ripulitura
 
@@ -23,7 +23,7 @@ Questo articolo illustra due funzionalità di ripristino di Azure Key Vault, l'e
 
 La protezione per l'eliminazione e la ripulitura temporanea sono due diverse funzionalità di ripristino di Key Vault.
 > [!IMPORTANT]
-> È necessario abilitare la protezione dell'eliminazione temporanea in tutti gli insiemi di credenziali delle chiavi. La possibilità di disabilitare la protezione con eliminazione temporanea sarà deprecata entro il 2020 dicembre. Per i dettagli completi [, vedere **qui**.](soft-delete-change.md)
+> L'attivazione dell'eliminazione temporanea è fondamentale per garantire che gli insiemi di credenziali delle chiavi e le credenziali siano protetti da eliminazioni accidentali. Tuttavia, l'attivazione dell'eliminazione temporanea è considerata una modifica sostanziale perché potrebbe essere necessario modificare la logica dell'applicazione o fornire autorizzazioni aggiuntive per le entità servizio. Prima di attivare l'eliminazione temporanea usando le istruzioni riportate di seguito, assicurarsi che l'applicazione sia compatibile con la modifica usando questo documento [ **qui**.](soft-delete-change.md)
 
 L' **eliminazione** temporanea è progettata per impedire l'eliminazione accidentale di Key Vault e chiavi, segreti e certificati archiviati all'interno di Key Vault. Si pensi all'eliminazione temporanea come un cestino. Quando si elimina un insieme di credenziali delle chiavi o un oggetto dell'insieme di credenziali delle chiavi, questo resterà reversibile per un periodo di conservazione configurabile dall'utente o per un valore predefinito di 90 giorni. Gli insiemi di credenziali delle chiavi nello stato di eliminazione temporanea possono anche essere eliminati, il che **significa che vengono** eliminati definitivamente. In questo modo è possibile ricreare gli insiemi di credenziali delle chiavi e gli oggetti dell'insieme di credenziali delle chiavi con lo stesso nome. Il recupero e l'eliminazione di insiemi di credenziali delle chiavi e di oggetti richiedono autorizzazioni per i criteri di accesso elevati. **Una volta abilitata l'eliminazione temporanea, non è possibile disabilitarla.**
 
@@ -34,7 +34,7 @@ L' **eliminazione della protezione** è progettata per impedire l'eliminazione d
 > [!NOTE]
 > L'eliminazione della protezione è progettata in modo che nessun ruolo o autorizzazione di amministratore possa ignorare, disabilitare o aggirare l'eliminazione della protezione. **Una volta abilitata l'eliminazione, la protezione non può essere disabilitata o sostituita da chiunque includa Microsoft.** Ciò significa che è necessario ripristinare un insieme di credenziali delle chiavi eliminato oppure attendere che il periodo di conservazione venga trascorso prima di riusare il nome dell'insieme di credenziali delle chiavi.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 ## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>Verificare se l'eliminazione temporanea è abilitata in un insieme di credenziali delle chiavi e abilitare l'eliminazione temporanea
 

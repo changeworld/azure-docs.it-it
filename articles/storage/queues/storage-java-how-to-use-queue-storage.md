@@ -2,27 +2,27 @@
 title: Come usare l'archiviazione di Accodamento da Java-archiviazione di Azure
 description: Informazioni su come usare l'archiviazione di Accodamento per creare ed eliminare code. Informazioni su come inserire, visualizzare, ottenere ed eliminare messaggi con la libreria client di archiviazione di Azure per Java.
 author: mhopkins-msft
-ms.custom: devx-track-java
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
-ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.custom: devx-track-java
+ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346010"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585718"
 ---
-# <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di accodamento da Java
+# <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di Accodamento da Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## <a name="overview"></a>Panoramica
 
-Questa guida illustra come scrivere codice per scenari comuni usando il servizio di archiviazione di Accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari includono **inserimento** , **visualizzazione** , **recupero** ed **eliminazione** dei messaggi in coda. Viene inoltre analizzato il codice per la **creazione** e l' **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
+Questa guida illustra come scrivere codice per scenari comuni usando il servizio di archiviazione di Accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage). Gli scenari includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda. Viene inoltre analizzato il codice per la **creazione** e l' **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -32,11 +32,11 @@ Questa guida illustra come scrivere codice per scenari comuni usando il servizio
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Prima di tutto, verificare che il sistema di sviluppo soddisfi i prerequisiti elencati nella [libreria client di archiviazione code di Azure per Java V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
+Prima di tutto, verificare che il sistema di sviluppo soddisfi i prerequisiti elencati nella [libreria client di archiviazione code di Azure V12 per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Per creare un'applicazione Java denominata *Queues-How-to-V12* :
+Per creare un'applicazione Java denominata `queues-how-to-v12` :
 
-1. In una finestra della console (ad esempio, cmd, PowerShell o bash) usare Maven per creare una nuova app console con il nome *Queues-How-to-V12*. Digitare il comando **mvn** seguente per creare un progetto Java "Hello world!" .
+1. In una finestra della console (ad esempio, cmd, PowerShell o bash) usare Maven per creare una nuova app console con il nome `queues-how-to-v12` . Digitare il `mvn` comando seguente per creare un progetto Java "Hello World".
 
    ```bash
     mvn archetype:generate \
@@ -93,7 +93,7 @@ Per creare un'applicazione Java denominata *Queues-How-to-V12* :
     [INFO] ------------------------------------------------------------------------
         ```
 
-1. Switch to the newly created *queues-howto-v12* directory.
+1. Switch to the newly created `queues-howto-v12` directory.
 
    ```console
    cd queues-howto-v12
@@ -101,7 +101,7 @@ Per creare un'applicazione Java denominata *Queues-How-to-V12* :
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Aprire il file *pom.xml* nell'editor di testo. Aggiungere l'elemento di dipendenza seguente al gruppo di dipendenze.
+Aprire il `pom.xml` file nell'editor di testo. Aggiungere l'elemento di dipendenza seguente al gruppo di dipendenze.
 
 ```xml
 <dependency>
@@ -117,9 +117,9 @@ Prima di tutto, verificare che il sistema di sviluppo soddisfi i prerequisiti el
 
 ---
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Configurazione dell'applicazione per l'accesso all'archiviazione di accodamento
+## <a name="configure-your-application-to-access-queue-storage"></a>Configurazione dell'applicazione per l’accesso ad Archiviazione di accodamento
 
-Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure per accedere alle code:
+Aggiungere le istruzioni Import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure per accedere alle code:
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
@@ -135,9 +135,9 @@ import com.microsoft.azure.storage.queue.*;
 
 ---
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Impostare una stringa di connessione di archiviazione di Azure
+## <a name="set-up-an-azure-storage-connection-string"></a>Configurare una stringa di connessione di archiviazione di Azure
 
-Un client di archiviazione di Azure usa una stringa di connessione di archiviazione per accedere ai servizi di gestione dati. Ottenere il nome e la chiave di accesso primaria per l'account di archiviazione elencato nell' [portale di Azure](https://portal.azure.com). Utilizzarli come valori *AccountName* e *AccountKey* nella stringa di connessione. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
+Un client di archiviazione di Azure usa una stringa di connessione di archiviazione per accedere ai servizi di gestione dati. Ottenere il nome e la chiave di accesso primaria per l'account di archiviazione elencato nell' [portale di Azure](https://portal.azure.com). Utilizzarli come `AccountName` valori e `AccountKey` nella stringa di connessione. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
@@ -153,7 +153,7 @@ final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-Questa stringa può essere archiviata nel file di configurazione del servizio denominato *ServiceConfiguration. cscfg*. Per un'app in esecuzione all'interno di un ruolo Microsoft Azure, accedere alla stringa di connessione chiamando **RoleEnvironment. getConfigurationSettings**. Di seguito è riportato un esempio di recupero della stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* :
+Questa stringa può essere archiviata nel file di configurazione del servizio denominato `ServiceConfiguration.cscfg` . Per un'app in esecuzione all'interno di un ruolo Microsoft Azure, accedere alla stringa di connessione chiamando `RoleEnvironment.getConfigurationSettings` . Di seguito è riportato un esempio di recupero della stringa di connessione da un `Setting` elemento denominato `StorageConnectionString` :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -163,21 +163,22 @@ String storageConnectionString =
 
 ---
 
-Gli esempi seguenti presuppongono che sia presente un oggetto **stringa** contenente la stringa di connessione di archiviazione.
+Gli esempi seguenti presuppongono che si disponga di un `String` oggetto contenente la stringa di connessione di archiviazione.
 
 ## <a name="how-to-create-a-queue"></a>Procedura: creare una coda
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Un oggetto **QueueClient** contiene le operazioni per l'interazione con una coda. Il codice seguente crea un oggetto **QueueClient** . Utilizzare l'oggetto **QueueClient** per creare la coda che si desidera utilizzare.
+Un `QueueClient` oggetto contiene le operazioni per l'interazione con una coda. Il codice seguente crea un `QueueClient` oggetto. Utilizzare l' `QueueClient` oggetto per creare la coda che si desidera utilizzare.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_CreateQueue":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Un oggetto **CloudQueueClient** consente di ottenere oggetti di riferimento per le code. Il codice seguente consente di creare un oggetto **CloudQueueClient**. (Nota: esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di archiviazione di Azure]).
+Un `CloudQueueClient` oggetto consente di ottenere oggetti di riferimento per le code. Il codice seguente crea un `CloudQueueClient` oggetto che fornisce un riferimento alla coda che si vuole usare. È possibile creare la coda se non esiste già.
 
-Usare l'oggetto **CloudQueueClient** t per ottenere un riferimento alla coda da usare. È possibile creare la coda se non esiste già.
+> [!NOTE]
+> Esistono altri modi per creare `CloudStorageAccount` oggetti. Per ulteriori informazioni, vedere `CloudStorageAccount` la Guida di [riferimento all'SDK del client di archiviazione di Azure](https://azure.github.io/azure-sdk-for-java/storage.html).
 
 ```java
 try
@@ -208,13 +209,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Per inserire un messaggio in una coda esistente, chiamare il metodo **SendMessage** . Un messaggio può essere una stringa (in formato UTF-8) o una matrice di byte. Ecco il codice che invia un messaggio stringa alla coda.
+Per inserire un messaggio in una coda esistente, chiamare il `sendMessage` metodo. Un messaggio può essere una stringa (in formato UTF-8) o una matrice di byte. Ecco il codice che invia un messaggio stringa alla coda.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_AddMessage":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **CloudQueueMessage**. Chiamare quindi il metodo **AddMessage** . È possibile creare un **CloudQueueMessage** da una stringa (in formato UTF-8) o da una matrice di byte. Ecco il codice che crea una coda (se non esiste) e inserisce il messaggio "Hello, World".
+Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto `CloudQueueMessage` . Chiamare quindi il `addMessage` metodo. `CloudQueueMessage`È possibile creare un oggetto da una stringa (in formato UTF-8) o da una matrice di byte. Ecco il codice che crea una coda (se non esiste) e inserisce il messaggio `Hello, World` .
 
 ```java
 try
@@ -247,7 +248,7 @@ catch (Exception e)
 
 ## <a name="how-to-peek-at-the-next-message"></a>Procedura: visualizzare il messaggio successivo
 
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peekMessage**.
+È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando `peekMessage` .
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
@@ -298,7 +299,7 @@ Nell'esempio di codice seguente viene eseguita la ricerca nella coda dei messagg
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Nell'esempio di codice seguente viene eseguita la ricerca nella coda dei messaggi, viene individuato il primo contenuto del messaggio corrispondente a "Hello, World", viene modificato il contenuto del messaggio e viene chiuso.
+Nell'esempio di codice seguente viene eseguita la ricerca nella coda dei messaggi, viene individuato il primo contenuto del messaggio corrispondente `Hello, world` , viene modificato il contenuto del messaggio e viene chiuso.
 
 ```java
 try
@@ -394,13 +395,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Il metodo **GetProperties** richiede l'servizio di Accodamento per diversi valori correnti. Uno dei valori è un conteggio del numero di messaggi presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **GetProperties** , senza chiamare il servizio di Accodamento.
+Il `getProperties` metodo restituisce diversi valori, incluso il numero di messaggi attualmente presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il `getApproximateMessageCount` metodo restituisce l'ultimo valore recuperato dalla chiamata a `getProperties` , senza chiamare l'archivio code.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Il metodo **downloadAttributes** richiede l'servizio di Accodamento per diversi valori correnti. Uno dei valori è un conteggio del numero di messaggi presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **downloadAttributes** , senza chiamare il servizio di accodamento.
+Il `downloadAttributes` metodo recupera diversi valori, incluso il numero di messaggi attualmente presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il `getApproximateMessageCount` metodo restituisce l'ultimo valore recuperato dalla chiamata a `downloadAttributes` , senza chiamare l'archivio code.
 
 ```java
 try
@@ -437,13 +438,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama **receiveMessage** , si ottiene il messaggio successivo in una coda. Un messaggio restituito da **receiveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi da questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama **deleteMessage** subito dopo l'elaborazione del messaggio.
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama `receiveMessage` , si ottiene il messaggio successivo in una coda. Un messaggio restituito da `receiveMessage` diventa invisibile a qualsiasi altro elemento di codice che legge i messaggi di questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche `deleteMessage` . Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama `deleteMessage` subito dopo l'elaborazione del messaggio.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando il metodo **retrieveMessage** , si ottiene il messaggio successivo in una coda. Un messaggio restituito da **retrieveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama **deleteMessage** subito dopo l'elaborazione del messaggio.
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama `retrieveMessage` , si ottiene il messaggio successivo in una coda. Un messaggio restituito da `retrieveMessage` diventa invisibile a qualsiasi altro elemento di codice che legge i messaggi di questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche `deleteMessage` . Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama `deleteMessage` subito dopo l'elaborazione del messaggio.
 
 ```java
 try
@@ -482,13 +483,13 @@ Esistono due modi per personalizzare il recupero di messaggi da una coda. Per pr
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Nell'esempio di codice seguente viene usato il metodo **receiveMessages** per ottenere 20 messaggi in una sola chiamata. Elabora quindi ogni messaggio usando un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a **receiveMessages** , i messaggi non eliminati diventeranno nuovamente visibili.
+Nell'esempio di codice seguente viene usato il metodo `receiveMessages` per recuperare 20 messaggi con una sola chiamata. Ogni messaggio viene poi elaborato con un ciclo `for`. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a `receiveMessages` , i messaggi non eliminati diventeranno nuovamente visibili.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Nell'esempio di codice seguente viene usato il metodo **retrieveMessages** per recuperare 20 messaggi con una sola chiamata. Elabora quindi ogni messaggio usando un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a **retrieveMessages** , i messaggi non eliminati diventeranno nuovamente visibili.
+Nell'esempio di codice seguente viene usato il metodo `retrieveMessages` per recuperare 20 messaggi con una sola chiamata. Ogni messaggio viene poi elaborato con un ciclo `for`. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a `retrieveMessages` , i messaggi non eliminati diventeranno nuovamente visibili.
 
 ```java
 try
@@ -523,13 +524,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Per ottenere un elenco delle code correnti, chiamare il metodo **QueueServiceClient. listQueues ()** , che restituirà una raccolta di oggetti **coda** .
+Per ottenere un elenco delle code correnti, chiamare il `QueueServiceClient.listQueues()` metodo, che restituirà una raccolta di `QueueItem` oggetti.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ListQueues":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Per ottenere un elenco delle code correnti, chiamare il metodo **CloudQueueClient.listQueues()** che restituisce una raccolta di oggetti **CloudQueue**.
+Per ottenere un elenco delle code correnti, chiamare il `CloudQueueClient.listQueues()` metodo, che restituirà una raccolta di `CloudQueue` oggetti.
 
 ```java
 try
@@ -562,13 +563,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Delete** nell'oggetto **QueueClient** .
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il `delete` metodo sull' `QueueClient` oggetto.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DeleteMessageQueue":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Per eliminare una coda e tutti i messaggi in essa contenuti, chiamare il metodo **deleteIfExists** sull'oggetto **CloudQueue**.
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il `deleteIfExists` metodo sull' `CloudQueue` oggetto.
 
 ```java
 try
@@ -599,15 +600,9 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
+Ora che sono state apprese le nozioni di base dell'archiviazione code, seguire i collegamenti seguenti per informazioni sulle attività di archiviazione più complesse.
 
-- [Azure Storage SDK per Java][Azure Storage SDK for Java]
-- [Riferimento all'SDK del client di archiviazione di Azure][Azure Storage Client SDK Reference]
-- [API REST dei servizi di archiviazione di Azure][Azure Storage Services REST API]
-- [Blog del team di Archiviazione di Azure][Azure Storage Team Blog]
-
-[Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
-[Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
-[Riferimento all'SDK del client di archiviazione di Azure]: https://azure.github.io/azure-sdk-for-java/storage.html
-[Azure Storage Services REST API]: /rest/api/storageservices/
-[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
+- [Azure Storage SDK per Java](https://github.com/Azure/Azure-SDK-for-Java)
+- [Informazioni di riferimento su Azure Storage client SDK](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage)
+- [API REST dei servizi di archiviazione di Azure](/rest/api/storageservices/)
+- [Blog del team di archiviazione di Azure](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog)

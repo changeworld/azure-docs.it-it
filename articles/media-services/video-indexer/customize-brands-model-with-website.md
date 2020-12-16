@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2de9dbb479f43d6b646cd9f6cf604d6a08c8b6a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361235"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586109"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizzare un modello di Marchi con il sito Web di Video Indexer
 
@@ -31,20 +31,23 @@ Per una panoramica dettagliata, vedere questa [Panoramica](customize-brands-mode
 
 È possibile usare il sito Web di Video Indexer per creare, usare e modificare modelli di Marchi personalizzati rilevati in un video, come descritto in questo argomento. È anche possibile usare l'API, come descritto in [Personalizzare il modello di Marchi usando le API](customize-brands-model-with-api.md).
 
+> [!NOTE]
+> Se il video è stato indicizzato prima dell'aggiunta di un marchio, è necessario reindicizzarlo. Nel menu a discesa associato al video sarà presente l'elemento **REINDEX** . Selezionare **Opzioni avanzate**  ->  **categorie del marchio** e selezionare **tutti i marchi**.
+
 ## <a name="edit-brands-model-settings"></a>Modificare le impostazioni del modello di marchi
 
-È possibile scegliere se rilevare o meno i marchi dal database dei marchi di Bing. Per impostare questa opzione, è necessario modificare le impostazioni del modello di marchi. Seguire questa procedura:
+È possibile scegliere se rilevare o meno i marchi dal database dei marchi di Bing. Per impostare questa opzione, è necessario modificare le impostazioni del modello di marchi. A tale scopo, seguire questa procedura:
 
 1. Accedere al sito Web di [video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
-2. Per personalizzare un modello nell'account, selezionare il pulsante **personalizzazione modello di contenuto** nell'angolo superiore destro della pagina.
+1. Per personalizzare un modello nell'account, selezionare il pulsante **personalizzazione modello di contenuto** a sinistra della pagina.
 
-   ![Personalizzare il modello di contenuto in Video Indexer](./media/content-model-customization/content-model-customization.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Personalizzare il modello di contenuto in Video Indexer":::
+1. Per modificare i marchi, selezionare la scheda **Marchi**.
 
-3. Per modificare i marchi, selezionare la scheda **Marchi**.
-
-    ![Screenshot mostra la scheda marchi della finestra di dialogo personalizzazione modello di contenuto.](./media/customize-brand-model/customize-brand-model.png)
-
-4. Selezionare l'opzione **Mostra marchi suggeriti da Bing** se si vuole che video Indexer rilevi i marchi suggeriti da Bing. se non è possibile, lasciare l'opzione deselezionata.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-brand-model/customize-brand-model.png" alt-text="Screenshot mostra la scheda marchi della finestra di dialogo personalizzazione modello di contenuto":::
+1. Selezionare l'opzione **Mostra marchi suggeriti da Bing** se si vuole che video Indexer rilevi i marchi suggeriti da Bing. se non è possibile, lasciare l'opzione deselezionata.
 
 ## <a name="include-brands-in-the-model"></a>Includere i marchi nel modello
 
@@ -52,16 +55,14 @@ La sezione **Includi marchi** rappresenta le marche personalizzate che si deside
 
 ### <a name="add-a-brand-to-include-list"></a>Aggiungere un marchio da includere nell'elenco
 
-1. Selezionare **+ Aggiungi marchio**.
-
-    ![Screenshot mostra la finestra di dialogo Includi marchi in cui è possibile aggiungere i marchi.](./media/customize-brand-model/add-brand.png)
+1. Selezionare **+ Crea nuovo marchio**.
 
     Specificare un nome (obbligatorio), una categoria (facoltativa), una descrizione (facoltativa) e un URL di riferimento (facoltativo).
     Il campo categoria è pensato per facilitare l'aggiunta di tag ai marchi. Questo campo viene visualizzato come *tag* del marchio quando si usano le API di Video Indexer. Ad esempio, il marchio "Azure" può essere contrassegnato o classificato come "Cloud".
 
     Il campo URL di riferimento può essere qualsiasi sito Web di riferimento per il marchio (ad esempio un collegamento alla pagina di Wikipedia).
 
-2. Selezionare **Aggiungi marchio** . si noterà che il marchio è stato aggiunto all'elenco **Includi marchi** .
+2. Selezionare **Save (Salva** ). si noterà che il marchio è stato aggiunto all'elenco **Includi marchi** .
 
 ### <a name="edit-a-brand-on-the-include-list"></a>Modificare un marchio nell'elenco di inclusione
 
@@ -82,11 +83,11 @@ La sezione **Escludi marchi** rappresenta le marche che non si desidera rilevare
 
 ### <a name="add-a-brand-to-exclude-list"></a>Aggiungere un elenco di marchi da escludere
 
-1. Selezionare **+ Aggiungi marchio.**
+1. Selezionare **+ Crea nuovo marchio.**
 
     Specificare un nome (obbligatorio) e una categoria (facoltativa).
 
-2. Selezionare **Aggiungi marchio** . si noterà che il marchio è stato aggiunto all'elenco *Escludi marchi* .
+2. Selezionare **Save (Salva** ). si noterà che il marchio è stato aggiunto all'elenco *Escludi marchi* .
 
 ### <a name="edit-a-brand-on-the-exclude-list"></a>Modificare un marchio nell'elenco di esclusione
 

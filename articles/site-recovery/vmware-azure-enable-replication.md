@@ -3,15 +3,15 @@ title: Abilitare le macchine virtuali VMware per il ripristino di emergenza usan
 description: Questo articolo descrive come abilitare la replica di macchine virtuali VMware per il ripristino di emergenza usando il servizio Azure Site Recovery
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 04/01/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f4759bc40c4074f0dd618be8ac66ad088e848c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004212"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587757"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -57,7 +57,7 @@ Prima di eseguire i passaggi descritti in questa sezione, esaminare le seguenti 
 
 Per abilitare la replica, attenersi alla seguente procedura:
 
-1. Andare al **passaggio 2: replicare l'origine dell'applicazione**  >  **Source**. Dopo aver abilitato la replica per la prima volta, selezionare **+ replica** nell'insieme di credenziali per abilitare la replica per altre macchine virtuali.
+1. Andare al **passaggio 2: replicare l'origine dell'applicazione**  >  . Dopo aver abilitato la replica per la prima volta, selezionare **+ replica** nell'insieme di credenziali per abilitare la replica per altre macchine virtuali.
 1. Nella pagina **Origine** > **Origine** selezionare il server di configurazione.
 1. Per **tipo di computer** selezionare **macchine virtuali** o computer **fisici**.
 1. In **vCenter/vSphere Hypervisor** selezionare il server vCenter che gestisce l'host di vSphere oppure selezionare l'host. Questa impostazione non è pertinente se si sta eseguendo la replica di computer fisici.
@@ -75,12 +75,12 @@ Per abilitare la replica, attenersi alla seguente procedura:
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Abilita finestra destinazione replica":::
 
-1. Per le **macchine virtuali**  >  **selezionare macchine virtuali**, selezionare ogni macchina virtuale da replicare. È possibile selezionare solo le macchine virtuali per cui è possibile abilitare la replica. Selezionare **OK**. Se non è possibile visualizzare o selezionare una macchina virtuale specifica, vedere il [computer di origine non è elencato nella portale di Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) per risolvere il problema.
+1. Per le **macchine virtuali**  >  **selezionare macchine virtuali**, selezionare ogni macchina virtuale da replicare. È possibile selezionare solo le macchine virtuali per cui è possibile abilitare la replica. Quindi scegliere **OK**. Se non è possibile visualizzare o selezionare una macchina virtuale specifica, vedere il [computer di origine non è elencato nella portale di Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) per risolvere il problema.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Abilitare la replica selezionare le macchine virtuali finestra":::
 
 1. Per **Proprietà**  >  **Configura proprietà** selezionare l'account usato dal server di elaborazione per installare automaticamente il servizio Mobility Site Recovery nella macchina virtuale. Scegliere anche il tipo di disco gestito di destinazione da usare per la replica in base ai modelli di varianza dei dati.
-1. Per impostazione predefinita, vengono replicati tutti i dischi di una macchina virtuale di origine. Per escludere i dischi dalla replica, deselezionare la casella di controllo **Includi** per eventuali dischi che non si vuole replicare. Selezionare **OK**. È possibile impostare proprietà aggiuntive in un secondo momento. [Altre informazioni](vmware-azure-exclude-disk.md) sull'esclusione di dischi.
+1. Per impostazione predefinita, vengono replicati tutti i dischi di una macchina virtuale di origine. Per escludere i dischi dalla replica, deselezionare la casella di controllo **Includi** per eventuali dischi che non si vuole replicare. Quindi scegliere **OK**. È possibile impostare proprietà aggiuntive in un secondo momento. [Altre informazioni](vmware-azure-exclude-disk.md) sull'esclusione di dischi.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Abilita la finestra di dialogo Configura proprietà della replica":::
 
@@ -94,6 +94,41 @@ Per abilitare la replica, attenersi alla seguente procedura:
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Abilita finestra di replica":::
 
 1. Selezionare **Abilita replica**. È possibile tenere traccia dello stato di avanzamento del processo di **Abilitazione della protezione** in **Impostazioni**  >  **processi**  >  **Site Recovery processi**. Dopo l'esecuzione del processo **finalizza protezione** , la macchina virtuale è pronta per il failover.
+
+## <a name="monitor-initial-replication"></a>Monitorare la replica iniziale
+
+Al termine della "Abilitazione della replica" dell'elemento protetto, Azure Site Recovery avvia la replica (sinonimo della sincronizzazione) dei dati dal computer di origine all'area di destinazione. Durante questo periodo, viene creata la replica dei dischi di origine. Solo dopo il completamento della copia dei dischi originali, le modifiche delta vengono copiate nell'area di destinazione. Il tempo impiegato per copiare i dischi originali dipende da più parametri, ad esempio:
+
+- dimensioni dei dischi del computer di origine
+- larghezza di banda disponibile per trasferire i dati in Azure (è possibile sfruttare Deployment Planner per identificare la larghezza di banda ottimale necessaria)
+- risorse del server di elaborazione, ad esempio memoria, spazio libero su disco, CPU disponibile per la memorizzazione nella cache & elaborare i dati ricevuti dagli elementi protetti (assicurarsi che il server di elaborazione sia [integro](vmware-physical-azure-monitor-process-server.md#monitor-proactively))
+
+Per tenere traccia dello stato di avanzamento della replica iniziale, passare all'insieme di credenziali dei servizi di ripristino in portale di Azure-> elementi replicati-> monitorare il valore della colonna "stato" dell'elemento replicato. Lo stato Mostra la percentuale di completamento della replica iniziale. Al passaggio del mouse sullo stato, sarà disponibile il "totale dei dati trasferiti". Quando si fa clic sullo stato, viene visualizzata una pagina contestuale con i parametri seguenti:
+
+- Ultimo aggiornamento: indica l'ora più recente in cui il servizio ha aggiornato le informazioni di replica dell'intero computer.
+- Percentuale completa: indica la percentuale di replica iniziale completata per la macchina virtuale
+- Totale dati trasferiti-quantità di dati trasferiti dalla macchina virtuale in Azure
+
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="stato della replica" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+
+- Stato sincronizzazione (per tenere traccia dei dettagli a livello di disco)
+    - Stato della replica
+      - Se la replica è ancora avviata, lo stato viene aggiornato come "in coda". Durante la replica iniziale, vengono replicati solo 3 dischi alla volta. Questo meccanismo viene seguito per evitare la limitazione del server di elaborazione.
+      - Dopo l'avvio della replica, lo stato viene aggiornato come "in corso".
+      - Al termine della replica iniziale, lo stato è contrassegnato come "completo".        
+   - Site Recovery legge il disco originale, trasferisce i dati in Azure e acquisisce lo stato di avanzamento a livello di disco. Si noti che Site Recovery ignora la replica delle dimensioni non occupate del disco e la aggiunge ai dati completati. Quindi, la somma dei dati trasferiti su tutti i dischi potrebbe non essere sommata al "totale dei dati trasferiti" a livello di macchina virtuale.
+   - Quando si fa clic sul fumetto di informazioni su un disco, è possibile ottenere informazioni dettagliate su quando è stata attivata la replica (sinonimo di sincronizzazione) per il disco, i dati trasferiti in Azure negli ultimi 15 minuti seguiti dall'ultimo timestamp aggiornato. Questo timestamp indica l'ora più recente in cui le informazioni sono state ricevute dal servizio di Azure dalla macchina di origine :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="Initial-Replication-info-Balloon-Details" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+   - Viene visualizzato lo stato di integrità di ogni disco
+      - Se la replica è più lenta del previsto, lo stato del disco diventa Warning
+      - Se la replica non avanza, lo stato del disco diventa critico
+
+Se lo stato di integrità è critico/avviso, assicurarsi che lo stato di integrità della replica del computer e del [server di elaborazione](vmware-physical-azure-monitor-process-server.md) sia integro. 
+
+Non appena viene completato il processo di abilitazione della replica, lo stato di avanzamento della replica sarà 0% e i dati totali trasferiti saranno NA. Quando si fa clic, i dati su ciascun disco identificato sarebbero "NA". Ciò indica che la replica è ancora in avvio e Azure Site Recovery è ancora in grado di ricevere le statistiche più recenti. Lo stato di avanzamento viene aggiornato a un intervallo di 30 minuti.
+
+> [!NOTE]
+> Assicurarsi di aggiornare i server di configurazione, i server di elaborazione con scalabilità orizzontale e gli agenti di mobilità alle versioni 9,36 o successive per garantire che lo stato di avanzamento accurato venga acquisito e inviato ai servizi Site Recovery.
+
 
 ## <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
 

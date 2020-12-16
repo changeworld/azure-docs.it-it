@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: risoluzione dei problemi, aggiornamento, bug, Kinect, feedback, ripristino, registrazione, suggerimenti
-ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356383"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587282"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemi noti e risoluzione dei problemi relativi a Kinect di Azure
 
@@ -144,7 +144,7 @@ La chiamata a ```k4a_device_set_color_control``` può indurre temporaneamente le
 
 Se il dispositivo non viene enumerato in gestione dispositivi, è possibile che sia collegato a un controller USB3 non supportato. 
 
-Per Azure Kinect DK in **Windows, Intel** , **Texas Instruments (ti)** e **Renesas** sono gli *unici controller host supportati*. Azure Kinect SDK sulle piattaforme Windows si basa su un ID contenitore unificato e deve estendersi ai dispositivi USB 2,0 e 3,0 in modo che l'SDK possa trovare i dispositivi di profondità, colore e audio che si trovano fisicamente nello stesso dispositivo. In Linux è possibile che siano supportati più controller host perché questa piattaforma si basa su un numero minore di ID del contenitore e su numeri di serie del dispositivo. 
+Per Azure Kinect DK in **Windows, Intel**, **Texas Instruments (ti)** e **Renesas** sono gli *unici controller host supportati*. Azure Kinect SDK sulle piattaforme Windows si basa su un ID contenitore unificato e deve estendersi ai dispositivi USB 2,0 e 3,0 in modo che l'SDK possa trovare i dispositivi di profondità, colore e audio che si trovano fisicamente nello stesso dispositivo. In Linux è possibile che siano supportati più controller host perché questa piattaforma si basa su un numero minore di ID del contenitore e su numeri di serie del dispositivo. 
 
 L'argomento dei controller host USB diventa ancora più complicato quando in un PC è installato più di un controller host. Quando i controller host sono combinati, è possibile che si verifichino problemi nel caso in cui alcune porte funzionino correttamente e altre non funzionino affatto. A seconda del modo in cui le porte vengono cablate, è possibile che vengano visualizzate tutte le porte anteriori con il Kinect di Azure
 
@@ -165,6 +165,21 @@ Il laser usato dalla fotocamera di profondità per calcolare i dati di profondit
 ## <a name="using-body-tracking-sdk-with-unreal"></a>Uso di body tracking SDK con Unreal
 
 Per usare Body Tracking SDK con Unreal, verificare di aver aggiunto `<SDK Installation Path>\tools` alla variabile di ambiente `PATH` e copiato `dnn_model_2_0.onnx` e `cudnn64_7.dll` a `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64` .
+
+## <a name="using-azure-kinect-on-headless-linux-system"></a>Uso di Kinect di Azure in un sistema Linux non Head
+
+Il motore di profondità Kinect di Azure in Linux usa OpenGL. OpenGL richiede un'istanza di finestra che richiede la connessione di un monitoraggio al sistema. Una soluzione alternativa per questo problema è:
+
+1. Abilitare l'accesso automatico per l'account utente che si prevede di usare. Per istruzioni sull'abilitazione dell'accesso automatico, vedere [questo](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) articolo.
+2. Spegnere il sistema, disconnettere il monitor e accendere il sistema. L'accesso automatico impone la creazione di una sessione x-server.
+2. Connettersi tramite SSH e impostare la variabile di visualizzazione ENV `export DISPLAY=:0`
+3. Avviare l'applicazione Kinect di Azure.
+
+## <a name="missing-c-documentation"></a>Documentazione di C# mancante
+
+La documentazione relativa a Sensor SDK per C# è disponibile [qui](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
+
+La documentazione C# relativa a Body Tracking SDK è disponibile [qui](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

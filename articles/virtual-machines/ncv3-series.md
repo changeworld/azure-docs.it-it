@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 854c988346bce9be06811d386b3798d2d0427dd7
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 0e3aa70a1a40e3878aea7b4f42f5aa167e4204c5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095926"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585387"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 
@@ -23,6 +23,7 @@ Le macchine virtuali serie NCv3 sono basate sulle GPU NVIDIA Tesla V100. Queste 
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+Interconnessione NVIDIA NVLink: non supportata<br>
 
 > [!IMPORTANT]
 > Per questa serie di macchine virtuali, la quota di vCPU (Core) nella sottoscrizione viene inizialmente impostata su 0 in ogni area. [Richiedere un aumento della quota di vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) per questa serie in un' [area disponibile](https://azure.microsoft.com/regions/services/). Questi SKU non sono disponibili per le sottoscrizioni di valutazione o sottoscrittore di Visual Studio. Il livello di abbonamento potrebbe non supportare la selezione o la distribuzione di questi SKU. 

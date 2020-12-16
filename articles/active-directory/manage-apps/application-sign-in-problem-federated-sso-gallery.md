@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028275"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586347"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemi di accesso ad app configurate per Single Sign-On basato su SAML
 Per risolvere i problemi di accesso indicati di seguito, è consigliabile eseguire una diagnosi migliore e automatizzare i passaggi di risoluzione:
@@ -33,7 +33,9 @@ Per aprire la pagina di configurazione Single Sign-on basato su SAML:
 1.  Digitare **"Azure Active Directory"** nella casella di ricerca del filtro e selezionare l'elemento di **Azure Active Directory** .
 1.  Fare clic su **Applicazioni aziendali** nel menu di spostamento a sinistra di Azure Active Directory.
 1.  Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+
     Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+
 1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 1. Dopo il caricamento dell'applicazione, selezionare **Single Sign-on** nel menu di navigazione a sinistra dell'applicazione.
 1. Selezionare SAML-based SSO (Single Sign-On basato su SAML).
@@ -63,7 +65,7 @@ Il `AssertionConsumerServiceURL` valore nella richiesta SAML non corrisponde al 
 Verificare che il `AssertionConsumerServiceURL` valore nella richiesta SAML corrisponda al valore dell'URL di risposta configurato in Azure ad. 
 
 Verificare o aggiornare il valore nella casella di testo URL di risposta in modo che corrisponda al `AssertionConsumerServiceURL` valore nella richiesta SAML.   
-    
+
 Dopo aver aggiornato il valore dell'URL di risposta in Azure AD e aver individuato il valore inviato dall'applicazione nella richiesta SAML, dovrebbe essere possibile accedere all'applicazione.
 
 ## <a name="user-not-assigned-a-role"></a>All'utente non è stato assegnato un ruolo
