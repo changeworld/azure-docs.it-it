@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dedbcf58e76b8c969f8607db6922e87a85f08e5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187337"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591874"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Usare l'integrazione del controllo del codice sorgente in Automazione di Azure - Legacy
 
@@ -43,7 +43,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
    | Scegliere l'origine |Selezione l'origine. Attualmente è supportato solo **GitHub** . |
    | Autorizzazione |Fare clic sul pulsante **Autorizza** per concedere ad Automazione di Azure l'accesso al repository GitHub. Se si è già connessi con l'account GitHub in una finestra diversa, verranno usate le credenziali di quell'account. Dopo aver ottenuto l'autorizzazione, nella pagina verrà visualizzato il nome utente di GitHub in **Authorization Property** (Proprietà autorizzazione). |
    | Scegliere un archivio |Selezionare un repository GitHub dall'elenco dei repository disponibili. |
-   | Scegliere il ramo |Selezionare un ramo dall'elenco di rami disponibili. Se non sono stati creati rami, sarà visualizzato solo il ramo **master** . |
+   | Scegliere il ramo |Selezionare un ramo dall'elenco di rami disponibili. Se non sono stati creati rami, viene visualizzato solo il Branch **principale** . |
    | Percorso della cartella runbook |Il percorso della cartella runbook specifica il percorso del repository GitHub nel quale si vuole effettuare il push o il pull del codice. Deve essere immesso nel formato **/nomecartella/nomesottocartella**. Solo i runbook nel percorso della cartella runbook saranno sincronizzati con l'account di Automazione. I runbook nelle sottocartelle del percorso della cartella runbook **NON** saranno sincronizzati. Usare **/** per sincronizzare tutti i runbook disponibili nel repository. |
 3. Ad esempio, se è disponibile un repository denominato **PowerShellScripts** che contiene una cartella denominata **RootFolder**, che a sua volta contiene una cartella denominata **SubFolder**. Per la sincronizzazione di ogni livello di cartella, è possibile utilizzare le stringhe seguenti:
 
@@ -66,7 +66,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
      | `Type`  |string |
      | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath": \<*Runbook folder path*> , "ProviderType": \<*has a value 1 for GitHub*> , "repository": \<*Name of your repository*> , "username": \<*Your GitHub user name*> } |
 
-   * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene il valore sicuro crittografato di OAuthToken.  
+   * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken** contiene il valore sicuro crittografato di OAuthToken.  
 
      |**Parametro**            |**Valore** |
      |:---|:---|
