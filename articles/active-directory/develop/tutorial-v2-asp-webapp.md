@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996186"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507762"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Esercitazione: Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
@@ -374,14 +374,15 @@ Per registrare l'applicazione e aggiungere manualmente le informazioni di regist
    1. Impostare il valore di SSL abilitato su `True`.
    1. Fare clic con il pulsante destro del mouse sul progetto in Visual Studio, selezionare **Proprietà** e quindi la scheda **Web**. Nella sezione **Server** modificare il valore dell'impostazione **URL progetto** specificando quello dell'**URL SSL**.
    1. Copiare l'URL SSL. Aggiungerlo all'elenco di URL di reindirizzamento nell'elenco corrispondente del portale di registrazione nel passaggio successivo.<br/><br/>![Proprietà progetto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
-1. Selezionare **Nuova registrazione**.
-1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
-   1. Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio **ASPNET-Tutorial**.
-   1. Aggiungere l'URL SSL copiato da Visual Studio nel passaggio 1 (ad esempio `https://localhost:44368/`) in **URL di risposta** e selezionare **Registra**.
-1. Selezionare il menu **Autenticazione**, quindi **Token ID** in **Concessione implicita** e infine **Salva**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+1. Immettere un **Nome** per l'applicazione, ad esempio `ASPNET-Tutorial`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+1. Aggiungere l'URL SSL copiato da Visual Studio nel passaggio 1 (ad esempio `https://localhost:44368/`) in **URL di reindirizzamento**.
+1. Selezionare **Registra**.
+1. In **Gestisci** selezionare **Autenticazione**.
+1. Nella sezione **Concessione implicita** selezionare **Token ID**, quindi **Salva**.
 1. Aggiungere il codice seguente nella sezione `configuration\appSettings` del file web.config, disponibile nella cartella radice:
 
     ```xml
@@ -425,7 +426,7 @@ Per visualizzare le attestazioni dell'utente, selezionare il collegamento per pa
 
 Dopo il passaggio alla visualizzazione dei controller, dovrebbe essere visualizzata una tabella contenente le proprietà di base per l'utente:
 
-|Proprietà |valore |Descrizione |
+|Proprietà |Valore |Descrizione |
 |---|---|---|
 |**Nome** |Nome e cognome dell'utente | Nome e cognome dell'utente
 |**Nome utente** |utente<span>@domain.com</span> | Nome utente usato per identificare l'utente|

@@ -7,18 +7,19 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9b2855f82927b6f1707fd748f097dd357818ac4b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341975"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516517"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introduzione ad Azure Defender per Archiviazione
 
-**Azure Defender per Archiviazione** rileva le attività potenzialmente dannose negli account di archiviazione di Azure. I dati possono essere protetti indipendentemente dal fatto che siano archiviati come contenitori BLOB, condivisioni file o data lake.
 
-Questo livello di protezione consente di affrontare le minacce *senza* dover essere esperti di sicurezza e semplifica la gestione dei sistemi di monitoraggio della sicurezza.
+**Azure Defender per Archiviazione** offre un livello di intelligence di sicurezza nativo di Azure che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Sfrutta le funzionalità avanzate di intelligenza artificiale e di [intelligence sulle minacce Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684) per fornire avvisi e raccomandazioni contestuali sulla sicurezza.
+
+Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. Questi avvisi sono integrati con il Centro sicurezza di Azure e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sull'attività sospetta e le raccomandazioni su come analizzare e correggere le minacce.
 
 
 ## <a name="availability"></a>Disponibilità
@@ -36,14 +37,14 @@ Questo livello di protezione consente di affrontare le minacce *senza* dover ess
 
 Gli avvisi di sicurezza vengono attivati in caso di:
 
-- **Attività sospette**: ad esempio, è stato eseguito l'accesso all'account di archiviazione da un indirizzo IP noto come nodo di uscita attivo di Tor
-- **Comportamento anomalo**: ad esempio, modifiche nel modello di accesso a un account di archiviazione
-- **Caricamento di potenziale malware**: l'analisi della reputazione hash indica che un file caricato contiene malware
+- **Modelli di accesso sospetti**, ad esempio l'accesso riuscito da un nodo di uscita Tor o da un indirizzo IP considerato sospetto dall'intelligence sulle minacce Microsoft
+- **Attività sospette**, ad esempio l'estrazione anomala di dati o una modifica insolita delle autorizzazioni di accesso
+- **Upload di contenuto dannoso**, ad esempio potenziali file di malware (in base all'analisi della reputazione hash) o hosting di contenuto di phishing
 
-Gli avvisi includono i dettagli dell'evento imprevisto che li ha attivati e raccomandazioni su come analizzare e risolvere le minacce.
+Gli avvisi includono i dettagli dell'evento imprevisto che li ha attivati e raccomandazioni su come analizzare e risolvere le minacce. Gli avvisi possono essere esportati in Azure Sentinel o in qualsiasi altro sistema SIEM di terze parti o strumento esterno.
 
 > [!TIP]
-> È possibile simulare gli avvisi relativi all'archiviazione seguendo le istruzioni riportate in [questo post di blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> Come procedura consigliata, [configurare Azure Defender per Archiviazione](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) a livello di sottoscrizione, sebbene sia possibile [configurarlo anche nei singoli account di archiviazione](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>Cos'è l'analisi della reputazione hash per il malware?

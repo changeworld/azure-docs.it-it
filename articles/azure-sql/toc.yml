@@ -69,6 +69,8 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: Regole di valutazione della vulnerabilità
                   href: database/sql-database-vulnerability-assessment-rules.md
+                - name: Log delle modifiche delle regole di valutazione della vulnerabilità
+                  href: database/sql-database-vulnerability-assessment-rules-changelog.md
                 - name: Archiviare le analisi delle vulnerabilità nell'archiviazione
                   href: database/sql-database-vulnerability-assessment-storage.md
             - name: 'Account di accesso, account utente, ruoli e autorizzazioni'

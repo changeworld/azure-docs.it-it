@@ -108,7 +108,7 @@
   items:
     - name: Panoramica delle procedure consigliate per Service Fabric
       href: service-fabric-best-practices-overview.md
-    - name: Sicurezza
+    - name: Security
       href: service-fabric-best-practices-security.md
     - name: Rete
       href: service-fabric-best-practices-networking.md
@@ -663,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
                   href: service-fabric-cross-availability-zones.md
+                - name: Distribuire un cluster di Azure Service Fabric con tipi di nodo senza stato
+                  href: service-fabric-stateless-node-types.md
                 - name: Configurare l'autenticazione di Azure Active Directory
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Creare un modello di cluster personalizzato
