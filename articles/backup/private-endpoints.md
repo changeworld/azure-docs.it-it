@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184749"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629715"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -26,6 +26,7 @@ Questo articolo aiuta a comprendere il processo di creazione di endpoint privati
 - Azure Active Directory attualmente non supporta endpoint privati. Gli indirizzi IP e i nomi di dominio completi necessari per il funzionamento di Azure Active Directory in un'area dovranno quindi consentire l'accesso in uscita dalla rete protetta durante l'esecuzione del backup dei database in macchine virtuali di Azure e di backup con l'agente MARS. È anche possibile usare i tag NSG e i tag del firewall di Azure per consentire l'accesso ai Azure AD, come applicabile.
 - Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario disabilitare i criteri di rete.
 - È necessario registrare di nuovo il provider di risorse di servizi di ripristino con la sottoscrizione, se è stato registrato prima del 1 2020 maggio. Per registrare di nuovo il provider, passare alla sottoscrizione nel portale di Azure, passare a provider di **risorse** nella barra di spostamento a sinistra, quindi selezionare **Microsoft. RecoveryServices** e selezionare **Re-Register**.
+- Il [ripristino tra aree](backup-create-rs-vault.md#set-cross-region-restore) per SQL e i backup di database SAP Hana non sono supportati se l'insieme di credenziali ha endpoint privati abilitati.
 
 ## <a name="recommended-and-supported-scenarios"></a>Scenari consigliati e supportati
 
@@ -305,7 +306,7 @@ PrivateEndpointSubnetContributorRoleDef.js
 
 1. Passare alla cartella Home (ad esempio: `cd /home/user` )
 
-1. Eseguire lo script seguente:
+1. Eseguire lo script riportato di seguito:
 
     ```azurepowershell
     ./VaultMsiPrereqScript.ps1 -subscription <subscription-Id> -vaultPEResourceGroup <vaultPERG> -vaultPESubnetResourceGroup <subnetRG> -vaultMsiName <msiName>

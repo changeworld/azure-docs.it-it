@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509309"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629800"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -227,7 +227,7 @@ A questo punto è stato effettuato l'accesso alla macchina virtuale di Azure di 
 > [!NOTE]
 > È possibile salvare il. File RDP in locale nel computer per avviare connessioni Desktop remoto future alla macchina virtuale anziché dover passare alla pagina Panoramica macchina virtuale nella portale di Azure e usare l'opzione Connetti.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 
@@ -333,6 +333,9 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 ![L'account è configurato in modo da impedire l'uso di questo dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
 Verificare di aver [configurato i criteri](../../virtual-machines/linux/login-using-aad.md) di controllo degli accessi in base al ruolo di Azure per la macchina virtuale che concede all'utente il ruolo di accesso dell'amministratore della macchina virtuale o dell'utente della macchina virtuale
+
+> [!NOTE]
+> Se si verificano problemi con le assegnazioni di ruolo di Azure, vedere risolvere i problemi [relativi a RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Client non autorizzato
 

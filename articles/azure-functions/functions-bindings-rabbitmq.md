@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 72c31d0eebc19a926805976ed637168a00fa9495
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ebf094ddfec19dac98238adf7d55af785b3df122
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617188"
+ms.locfileid: "97629630"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Cenni preliminari sulle associazioni RabbitMQ per funzioni di Azure
 
 > [!NOTE]
-> Le associazioni RabbitMQ sono completamente supportate solo nei piani **Premium di Windows** . Il consumo e Linux non sono attualmente supportati.
+> Le associazioni RabbitMQ sono completamente supportate solo nei piani **Windows Premium e dedicati** . Il consumo e Linux non sono attualmente supportati.
 
 Funzioni di Azure si integra con [RabbitMQ](https://www.rabbitmq.com/) tramite [trigger e associazioni](./functions-triggers-bindings.md). Le estensioni di binding RabbitMQ di funzioni di Azure consentono di inviare e ricevere messaggi usando l'API RabbitMQ con le funzioni.
 

@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: cf8b6670817132c8c0c0a09194b9aca4bbc8073c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923412"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632061"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con stato e senza stato in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)
 
 > [!IMPORTANT]
 > Questa funzionalità è in anteprima pubblica, viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con l'anteprima di app per la [logica di Azure](logic-apps-overview-preview.md)puoi creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica che includono flussi di lavoro con [ *stato* e senza *stateless* stato](logic-apps-overview-preview.md#stateful-stateless) in Visual Studio Code usando l'estensione app per la logica di Azure (anteprima). Usando questo nuovo tipo di app per la logica, è possibile creare più flussi di lavoro basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, non solo Azure, ma anche contenitori docker. Per altre informazioni sul nuovo tipo di app per la logica, vedere [Panoramica dell'anteprima di app per la logica di Azure](logic-apps-overview-preview.md).
+Con l'anteprima di app per la [logica di Azure](logic-apps-overview-preview.md)puoi creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica che includono flussi di lavoro con [ *stato* e senza  stato](logic-apps-overview-preview.md#stateful-stateless) in Visual Studio Code usando l'estensione app per la logica di Azure (anteprima). Usando questo nuovo tipo di app per la logica, è possibile creare più flussi di lavoro basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, non solo Azure, ma anche contenitori docker. Per altre informazioni sul nuovo tipo di app per la logica, vedere [Panoramica dell'anteprima di app per la logica di Azure](logic-apps-overview-preview.md).
 
 ![Screenshot che mostra Visual Studio Code, il progetto di app per la logica e il flusso di lavoro.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
@@ -114,7 +114,7 @@ Quando in seguito si tenta di aprire la finestra di progettazione per un flusso 
 
     1. In Visual Studio Code, sulla barra degli strumenti a sinistra, selezionare **estensioni**.
 
-    1. Nella casella di ricerca estensioni immettere `azure logic apps preview` . Dall'elenco dei risultati selezionare app per la **logica di Azure (anteprima)** **>** **Install**.
+    1. Nella casella di ricerca estensioni immettere `azure logic apps preview` . Dall'elenco dei risultati selezionare app per la **logica di Azure (anteprima)** **>** .
 
        Al termine dell'installazione, l'estensione anteprima viene visualizzata nell'elenco **estensioni: installato** .
 
@@ -606,7 +606,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    | **Running** | L'esecuzione è stata attivata ed è in corso, ma questo stato può anche essere visualizzato per un'esecuzione limitata a causa di [limiti di azione](logic-apps-limits-and-config.md) o del [piano tariffario corrente](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Suggerimento**: se si configura la [registrazione diagnostica](monitor-logic-apps-log-analytics.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
    | **Completato** | Esecuzione completata. Se un'azione ha esito negativo, un'azione successiva nel flusso di lavoro ha gestito l'errore. |
    | **Timeout** | Si è verificato il timeout dell'esecuzione perché la durata corrente supera il limite di durata dell'esecuzione, che è controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits). La durata di un'esecuzione viene calcolata usando l'ora di inizio e il limite di durata dell'esecuzione all'ora di inizio. <p><p>**Nota**: se la durata dell'esecuzione supera anche il *limite di conservazione della cronologia di esecuzione* corrente, che è anche controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits), l'esecuzione viene cancellata dalla cronologia esecuzioni da un processo di pulizia giornaliero. Se l'esecuzione scade o viene completata, il periodo di memorizzazione viene sempre calcolato usando l'ora di inizio e il limite di conservazione *corrente* dell'esecuzione. Quindi, se si riduce il limite di durata per un'esecuzione in corso, si verifica il timeout dell'esecuzione. Tuttavia, l'esecuzione rimane o viene cancellata dalla cronologia delle esecuzioni a seconda che la durata dell'esecuzione superi il limite di conservazione. |
-   | **Waiting** | L'esecuzione non è stata avviata o è stata sospesa, ad esempio, a causa di un'istanza del flusso di lavoro precedente ancora in esecuzione. |
+   | **Attesa** | L'esecuzione non è stata avviata o è stata sospesa, ad esempio, a causa di un'istanza del flusso di lavoro precedente ancora in esecuzione. |
    |||
 
 1. Per esaminare gli Stati per ogni passaggio in un'esecuzione specifica e gli input e gli output del passaggio, selezionare il pulsante con i puntini di sospensione (**..**.) per l'esecuzione e selezionare **Mostra esecuzione**.
@@ -632,7 +632,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    | Completato | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
    | Operazione completata con nuovi tentativi | ![Icona per lo stato dell'azione "riuscito con ripetizione dei tentativi"][succeeded-with-retries-icon] | L'azione è stata completata ma solo dopo uno o più tentativi. Per esaminare la cronologia dei tentativi, nella visualizzazione dei dettagli della cronologia di esecuzione selezionare l'azione in modo che sia possibile visualizzare gli input e gli output. |
    | Timeout | ![Icona per lo stato dell'azione "timeout"][timed-out-icon] | L'azione è stata interrotta a causa del limite di timeout specificato dalle impostazioni di tale azione. |
-   | Waiting | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
+   | Attesa | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
@@ -769,7 +769,7 @@ Da Visual Studio Code è possibile pubblicare direttamente il progetto in Azure,
 
       1. Selezionare una risorsa Application Insights esistente o **crearne una nuova Application Insights**.
 
-      1. Nella [portale di Azure](htpps://portal.azure.com)passare alla risorsa Application Insights.
+      1. Nella [portale di Azure](https://portal.azure.com)passare alla risorsa Application Insights.
 
       1. Scegliere **Panoramica** dal menu risorsa. Trovare e copiare il valore della **chiave di strumentazione** .
 
@@ -978,7 +978,7 @@ Tramite il portale di Azure è possibile aggiungere flussi di lavoro vuoti a una
 
    ![Screenshot che mostra il riquadro "flussi di lavoro" dell'app per la logica selezionato e la barra degli strumenti con il comando "Aggiungi" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. Nel riquadro **nuovo flusso di lavoro** specificare il nome del flusso di lavoro. Selezionare Crea con stato o **senza** **stato** **>** **Create**.
+1. Nel riquadro **nuovo flusso di lavoro** specificare il nome del flusso di lavoro. Selezionare Crea con stato o **senza** **stato** **>** .
 
    Quando Azure distribuisce il nuovo flusso di lavoro, che viene visualizzato nel riquadro **flussi di lavoro** , selezionare il flusso di lavoro in modo da poter gestire ed eseguire altre attività, ad esempio aprendo la finestra di progettazione o la visualizzazione codice.
 

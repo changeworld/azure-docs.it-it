@@ -1,5 +1,5 @@
 ---
-title: L'eliminazione temporanea verrà abilitata in tutte le istanze di Azure Key Vault | Microsoft Docs
+title: Abilitare l'eliminazione temporanea in tutte le istanze di Azure Key Vault | Microsoft Docs
 description: Usare questo documento per adottare l'eliminazione temporanea per tutti gli insiemi di credenziali delle chiavi.
 services: key-vault
 author: ShaneBala-keyvault
@@ -7,19 +7,19 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e512cccdbfdc56500fa7c69372ca38f59d3195c2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825246"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590087"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>L'eliminazione temporanea verrà abilitata in tutti gli insiemi di credenziali delle chiavi
 
 > [!WARNING]
-> **Modifica di rilievo**: la possibilità di rifiutare esplicitamente l'eliminazione temporanea verrà deprecata entro la fine dell'anno e la protezione dell'eliminazione temporanea verrà attivata automaticamente per tutti gli insiemi di credenziali delle chiavi.  Utenti e amministratori di Azure Key Vault dovranno abilitare immediatamente l'eliminazione temporanea sugli insiemi di credenziali delle chiavi.
+> **Modifica di rilievo**: la possibilità di rifiutare esplicitamente l'eliminazione temporanea verrà presto deprecata. Utenti e amministratori di Azure Key Vault dovranno abilitare immediatamente l'eliminazione temporanea sugli insiemi di credenziali delle chiavi.
 >
 > Per il modulo di protezione hardware gestito, l'eliminazione temporanea è abilitata per impostazione predefinita e non può essere disabilitata.
 
@@ -29,9 +29,18 @@ Senza protezione dell'eliminazione temporanea, un segreto eliminato da un insiem
 
 Per informazioni dettagliate sulla funzionalità di eliminazione temporanea, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](soft-delete-overview.md).
 
-## <a name="how-do-i-respond-to-breaking-changes"></a>Come rispondere alle modifiche di rilievo
+## <a name="can-my-application-work-with-soft-delete-enabled"></a>L'applicazione può funzionare con l'eliminazione temporanea abilitata?
 
-Non è possibile creare un oggetto dell'insieme di credenziali delle chiavi con lo stesso nome di un oggetto dell'insieme di credenziali delle chiavi nello stato di eliminazione temporanea.  Se ad esempio si elimina una chiave denominata `test key` nell'insieme di credenziali delle chiavi A, non sarà possibile creare una nuova chiave denominata `test key` nell'insieme di credenziali delle chiavi A finché l'oggetto `test key` eliminato temporaneamente non viene rimosso.
+> [!Important] 
+> **Esaminare con attenzione le informazioni seguenti prima di attivare l'eliminazione temporanea per gli insiemi di credenziali delle chiavi**
+
+I nomi degli insiemi di credenziali delle chiavi sono univoci a livello globale. Anche i nomi dei segreti archiviati in un insieme di credenziali delle chiavi sono univoci. Non sarò possibile riutilizzare il nome di un insieme di credenziali delle chiavi o di un oggetto al suo interno se è nello stato di eliminazione temporanea. 
+
+**Esempio 1**  L'applicazione crea a livello di codice un insieme di credenziali delle chiavi denominato 'Insieme di credenziali delle chiavi A' e in seguito lo elimina. L'insieme di credenziali delle chiavi passerà nello stato di eliminazione temporanea. L'applicazione non potrà ricreare un altro insieme di credenziali delle chiavi denominato 'Insieme di credenziali delle chiavi A' finché quello eliminato temporaneamente non verrà rimosso definitivamente. 
+
+**Esempio 2** L'applicazione crea un insieme di credenziali delle chiavi denominato `test key` nell'insieme di credenziali delle chiavi A e in seguito elimina la chiave da quest'ultimo. L'applicazione non potrà creare una nuova chiave denominata `test key` nell'insieme di credenziali delle chiavi A finché l'oggetto `test key` eliminato temporaneamente non verrà rimosso definitivamente. 
+
+Di conseguenza, si possono verificare errori di conflitto se si prova a eliminare un oggetto dell'insieme di credenziali delle chiavi e a ricrearlo con lo stesso nome senza prima rimuoverlo definitivamente dallo stato di eliminazione temporanea. In questo caso si possono verificare errori per le applicazioni o l'automazione. Prima di apportare le modifiche richieste seguenti dell'applicazione e dell'amministrazione, consultare il team di sviluppo. 
 
 ### <a name="application-changes"></a>Modifiche dell'applicazione
 
@@ -59,13 +68,14 @@ Se l'organizzazione è soggetta a requisiti di conformità legali e non può con
 2. Cercare "Criteri di Azure".
 3. Selezionare "Definizioni".
 4. In Categoria selezionare "Key Vault" nel filtro.
-5. Selezionare il criterio "Gli oggetti Key Vault devono essere recuperabili".
+5. Selezionare il criterio "Nell'insieme di credenziali delle chiavi deve essere abilitata la funzionalità di eliminazione temporanea".
 6. Fare clic su "Assegna".
 7. Impostare l'ambito della sottoscrizione.
-8. Selezionare "Rivedi e crea".
-9. Possono essere necessarie fino a 24 ore prima che venga completata un'analisi completa dell'ambiente.
-10. Nel pannello Criteri di Azure fare clic su "Conformità".
-11. Selezionare il criterio applicato.
+8. Assicurarsi che l'effetto del criterio sia impostato su "Controlla".
+9. Selezionare "Rivedi e crea".
+10. Possono essere necessarie fino a 24 ore prima che venga completata un'analisi completa dell'ambiente.
+11. Nel pannello Criteri di Azure fare clic su "Conformità".
+12. Selezionare il criterio applicato.
 
 A questo punto dovrebbe essere possibile filtrare e verificare per quali insiemi di credenziali delle chiavi è abilitata l'eliminazione temporanea (risorse conformi) e per quali non è abilitata (risorse non conformi).
 
@@ -106,15 +116,11 @@ Seguire i passaggi precedenti nella sezione "Procedura per controllare gli insie
 
 ### <a name="what-action-do-i-need-to-take"></a>Quali azioni è necessario intraprendere?
 
-Assicurarsi che non sia necessario apportare modifiche alla logica dell'applicazione. Una volta ottenuta questa conferma, attivare l'eliminazione temporanea in tutti gli insiemi di credenziali delle chiavi. In questo modo ci si assicura che le modifiche di rilievo non avranno effetto quando alla fine dell'anno l'eliminazione temporanea verrà attivata per tutti gli insiemi di credenziali delle chiavi.
+Assicurarsi che non sia necessario apportare modifiche alla logica dell'applicazione. Una volta ottenuta questa conferma, attivare l'eliminazione temporanea in tutti gli insiemi di credenziali delle chiavi.
 
 ### <a name="by-when-do-i-need-to-take-action"></a>Entro quando è necessario intervenire?
 
-L'eliminazione temporanea verrà attivata per tutti gli insiemi di credenziali delle chiavi entro la fine dell'anno. Per assicurarsi che le applicazioni non siano interessate, attivare l'eliminazione temporanea negli insiemi di credenziali delle chiavi il prima possibile.
-
-## <a name="what-will-happen-if-i-dont-take-any-action"></a>Che cosa succede se non si interviene?
-
-Se non si interviene, l'eliminazione temporanea verrà attivata automaticamente per tutti gli insiemi di credenziali delle chiavi alla fine dell'anno. Di conseguenza, si possono verificare errori di conflitto se si prova a eliminare un oggetto dell'insieme di credenziali delle chiavi e a ricrearlo con lo stesso nome senza prima rimuoverlo definitivamente dallo stato di eliminazione temporanea. In questo caso si possono verificare errori per le applicazioni o l'automazione.
+Per assicurarsi che le applicazioni non siano interessate, attivare l'eliminazione temporanea negli insiemi di credenziali delle chiavi il prima possibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

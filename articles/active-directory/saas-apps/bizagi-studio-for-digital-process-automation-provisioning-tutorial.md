@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 141dd37dff8403825df713de8f7176d4dd9d20f8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008045"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632035"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Esercitazione: configurare BizAgi Studio per l'automazione dei processi digitali per il provisioning utenti automatico
 
@@ -132,7 +132,14 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |name.familyName|string|
    |name.formatted|string|
    |phoneNumbers[type eq "mobile"].value|string|
+
+   Gli attributi di estensione personalizzati possono essere aggiunti passando a **Mostra opzioni avanzate > modifica elenco attributi per BizAgi**. Gli attributi dell'estensione personalizzata devono essere preceduti da **urn: IETF: params: SCIM: schemas: Extension: BizAgi: 2.0: UserProperties:**. Se, ad esempio, l'attributo di estensione personalizzato è **IdentificationNumber**, è necessario aggiungere l'attributo come **urn: IETF: params: SCIM: schemas: Extension: BizAgi: 2.0: UserProperties: IdentificationNumber**. Selezionare **Salva** per eseguire il commit delle modifiche.
    
+    ![Modifica elenco attributi.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
+
+   Altre informazioni su come aggiungere attributi personalizzati sono disponibili in [personalizzare gli attributi dell'applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+
+
 10. Per configurare i filtri di ambito, vedere l'esercitazione relativa al [filtro di ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Per abilitare il servizio di provisioning Azure AD per BizAgi Studio per l'automazione dei processi digitali, nella sezione **Impostazioni** impostare **stato del provisioning** **su** attivato.

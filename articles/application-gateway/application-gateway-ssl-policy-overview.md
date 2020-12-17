@@ -5,14 +5,14 @@ services: application gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2019
+ms.date: 12/17/2020
 ms.author: amsriva
-ms.openlocfilehash: 16c6dd28d47573c2ad5b0d5a331b0dc48e7aacef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77239cd8586b8fb07abf6862be436979541bdb99
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85253631"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631691"
 ---
 # <a name="application-gateway-tls-policy-overview"></a>Panoramica dei criteri TLS del gateway applicazione
 
@@ -24,13 +24,25 @@ I criteri TLS includono il controllo della versione del protocollo TLS, nonché 
 
 Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile configurare il gateway con uno qualsiasi di questi criteri per ottenere il livello di sicurezza appropriato. I nomi dei criteri sono contrassegnati con l'anno e il mese in cui sono stati configurati. Ogni criterio offre diverse versioni del protocollo TLS e pacchetti di crittografia. Si consiglia di usare i criteri TLS più recenti per garantire la migliore sicurezza TLS.
 
+## <a name="known-issue"></a>Problema noto
+Il gateway applicazione V2 non supporta le crittografie DHE seguenti e queste non verranno usate per le connessioni TLS con i client anche se sono indicate nei criteri predefiniti. Anziché le crittografie DHE, sono consigliate le crittografie ECDHE sicure e più veloci.
+
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
 |Proprietà  |Valore  |
 |---|---|
 |Nome     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
-|Predefinito| True (se non vengono specificati criteri predefiniti) |
+|Valore predefinito| True (se non vengono specificati criteri predefiniti) |
 |CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
@@ -39,7 +51,7 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
 |   ---      |  ---       |
 |Nome     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
-|Predefinito| False |
+|Valore predefinito| Falso |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
@@ -48,12 +60,16 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
 |---|---|
 |Nome     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
-|Predefinito| False |
+|Valore predefinito| Falso |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
 ## <a name="custom-tls-policy"></a>Criteri TLS personalizzati
 
 Se è necessario configurare un criterio TLS predefinito per i propri requisiti, è necessario definire un criterio TLS personalizzato. Con un criterio TLS personalizzato, si ha il controllo completo sulla versione minima del protocollo TLS da supportare, nonché sui pacchetti di crittografia supportati e sul relativo ordine di priorità.
+
+> [!IMPORTANT]
+> Se si usa un criterio SSL personalizzato nello SKU del gateway applicazione V1 (standard o WAF), assicurarsi di aggiungere la crittografia obbligatoria "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" all'elenco. Questa crittografia è necessaria per abilitare le metriche e la registrazione nello SKU del gateway applicazione V1.
+> Questa operazione non è obbligatoria per lo SKU del gateway applicazione V2 (Standard_v2 o WAF_v2).
  
 ### <a name="tlsssl-protocol-versions"></a>Versioni del protocollo TLS/SSL
 
@@ -97,17 +113,6 @@ Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i qua
 
 > [!NOTE]
 > I pacchetti di crittografia TLS usati per la connessione sono basati anche sul tipo di certificato usato. Nelle connessioni da client a gateway applicazione, i pacchetti di crittografia usati sono basati sul tipo di certificati del server nel listener del gateway applicazione. Nel gateway applicazione per le connessioni al pool back-end, i pacchetti di crittografia usati sono basati sul tipo di certificati del server nei server del pool back-end.
-
-## <a name="known-issue"></a>Problema noto
-Il gateway applicazione V2 non supporta attualmente le crittografie seguenti:
-- DHE-RSA-AES128-GCM-SHA256
-- DHE-RSA-AES128-SHA
-- DHE-RSA-AES256-GCM-SHA384
-- DHE-RSA-AES256-SHA
-- DHE-DSS-AES128-SHA256
-- DHE-DSS-AES128-SHA
-- DHE-DSS-AES256-SHA256
-- DHE-DSS-AES256-SHA
 
 ## <a name="next-steps"></a>Passaggi successivi
 

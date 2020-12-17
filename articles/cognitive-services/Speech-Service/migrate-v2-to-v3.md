@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5bc00ecf5e4c8ae440ce6610e9be8c8f77ed666
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862208"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630616"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Eseguire la migrazione del codice dalla versione 2.0 alla versione 3.0 dell'API REST
 
@@ -33,12 +33,16 @@ L'elenco delle modifiche di rilievo è stato ordinato in base alla grandezza del
 ### <a name="host-name-changes"></a>Modifiche al nome host
 
 I nomi host dell'endpoint sono stati modificati da `{region}.cris.ai` a `{region}.api.cognitive.microsoft.com` . I percorsi dei nuovi endpoint non contengono più `api/` perché fa parte del nome host. Il [documento spavalderia](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) elenca le aree e i percorsi validi.
+>[!IMPORTANT]
+>Modificare il nome host da `{region}.cris.ai` a `{region}.api.cognitive.microsoft.com` dove Region è l'area della sottoscrizione vocale. Rimuovere anche `api/` da qualsiasi percorso nel codice client.
 
 ### <a name="identity-of-an-entity"></a>Identità di un'entità
 
 La proprietà `id` è ora `self` . Nella versione V2, un utente dell'API doveva capire come vengono creati i percorsi nell'API. Questa operazione non era estensibile e richiedeva un lavoro non necessario da parte dell'utente. La proprietà `id` (UUID) viene sostituita da `self` (String), che corrisponde alla posizione dell'entità (URL). Il valore è ancora univoco tra tutte le entità. Se `id` viene archiviato come stringa nel codice, una ridenominazione è sufficiente per supportare il nuovo schema. È ora possibile usare il `self` contenuto come URL per le `GET` `PATCH` chiamate REST, e `DELETE` per l'entità.
 
 Se l'entità dispone di funzionalità aggiuntive disponibili tramite altri percorsi, sono elencate in `links` . L'esempio seguente per la trascrizione Mostra un metodo separato per `GET` il contenuto della trascrizione:
+>[!IMPORTANT]
+>Rinominare la proprietà `id` `self` in nel codice client. Modificare il tipo da `uuid` a `string` se necessario. 
 
 **trascrizione V2:**
 
@@ -91,6 +95,9 @@ La `values` proprietà contiene un subset delle entità della raccolta disponibi
 
 Questa modifica richiede la chiamata `GET` di per la raccolta in un ciclo fino a quando non vengono restituiti tutti gli elementi.
 
+>[!IMPORTANT]
+>Quando la risposta di un oggetto GET a `speechtotext/v3.0/{collection}` contiene un valore in, continuare l'esecuzione di fino a quando `$.@nextLink` `GETs` `$.@nextLink` `$.@nextLink` non è impostato per recuperare tutti gli elementi della raccolta.
+
 ### <a name="creating-transcriptions"></a>Creazione di trascrizioni
 
 Una descrizione dettagliata di come creare batch di trascrizioni si trova in [procedura per la trascrizione batch](./batch-transcription.md).
@@ -134,6 +141,8 @@ La nuova proprietà `timeToLive` in `properties` può semplificare l'eliminazion
   }
 }
 ```
+>[!IMPORTANT]
+>Rinominare la proprietà `recordingsUrl` in `contentUrls` e passare una matrice di URL anziché un singolo URL. Passare le impostazioni per `diarizationEnabled` o `wordLevelTimestampsEnabled` come `bool` anziché `string` .
 
 ### <a name="format-of-v3-transcription-results"></a>Formato dei risultati della trascrizione V3
 
@@ -201,6 +210,9 @@ Esempio di risultato della trascrizione V3. Le differenze sono descritte nei com
   ]
 }
 ```
+>[!IMPORTANT]
+>Deserializzare il risultato della trascrizione nel nuovo tipo, come illustrato in precedenza. Anziché un singolo file per canale audio, distinguere i canali controllando il valore della proprietà di `channel` per ogni elemento in `recognizedPhrases` . È ora disponibile un unico file di risultati per ogni file di input.
+
 
 ### <a name="getting-the-content-of-entities-and-the-results"></a>Ottenere il contenuto delle entità e i risultati
 
@@ -269,6 +281,9 @@ In V3 `links` includere una sottoproprietà denominata `files` nel caso in cui l
 
 La `kind` proprietà indica il formato del contenuto del file. Per le trascrizioni, i file di tipo `TranscriptionReport` sono il riepilogo del processo e i file del tipo `Transcription` sono il risultato del processo stesso.
 
+>[!IMPORTANT]
+>Per ottenere i risultati delle operazioni, usare un `GET` in `/speechtotext/v3.0/{collection}/{id}/files` , non sono più contenuti nelle risposte di `GET` in `/speechtotext/v3.0/{collection}/{id}` o `/speechtotext/v3.0/{collection}` .
+
 ### <a name="customizing-models"></a>Personalizzazione di modelli
 
 Prima di V3 era presente una distinzione tra un modello _acustico_ e un _modello di linguaggio_ durante il training di un modello. Questa distinzione ha comportato la necessità di specificare più modelli durante la creazione di endpoint o trascrizioni. Per semplificare questo processo per un chiamante, sono state rimosse le differenze e tutti gli elementi dipendono dal contenuto dei set di dati utilizzati per il training del modello. Con questa modifica, la creazione del modello supporta ora set di dati misti (dati del linguaggio e dati acustici). Gli endpoint e le trascrizioni richiedono ora un solo modello.
@@ -277,11 +292,17 @@ Con questa modifica, la necessità di un oggetto `kind` nell' `POST` operazione 
 
 Per migliorare i risultati di un modello sottoposto a training, i dati acustici vengono automaticamente usati internamente durante il training della lingua. In generale, i modelli creati tramite l'API V3 forniscono risultati più accurati rispetto ai modelli creati con l'API v2.
 
+>[!IMPORTANT]
+>Per personalizzare la parte del modello acustico e della lingua, passare tutti i set di impostazioni di lingua e acustici richiesti in `datasets[]` del post a `/speechtotext/v3.0/models` . Verrà creato un singolo modello con entrambe le parti personalizzate.
+
 ### <a name="retrieving-base-and-custom-models"></a>Recupero di modelli di base e personalizzati
 
 Per semplificare il recupero dei modelli disponibili, V3 ha separato le raccolte di "modelli di base" dai "modelli personalizzati" di proprietà del cliente. Le due route sono ora `GET /speechtotext/v3.0/models/base` e `GET /speechtotext/v3.0/models/` .
 
 Nella versione V2 tutti i modelli sono stati restituiti insieme in un'unica risposta.
+
+>[!IMPORTANT]
+>Per ottenere un elenco dei modelli di base forniti per la personalizzazione, usare `GET` on `/speechtotext/v3.0/models/base` . È possibile trovare modelli personalizzati con un `GET` `/speechtotext/v3.0/models` .
 
 ### <a name="name-of-an-entity"></a>Nome di un'entità
 
@@ -302,6 +323,9 @@ La `name` proprietà è ora `displayName` . Questo è coerente con altre API di 
     "displayName": "Transcription using locale en-US"
 }
 ```
+
+>[!IMPORTANT]
+>Rinominare la proprietà `name` `displayName` in nel codice client.
 
 ### <a name="accessing-referenced-entities"></a>Accesso alle entità a cui si fa riferimento
 
@@ -351,6 +375,10 @@ Nella versione V2, le entità a cui si fa riferimento sono sempre inline, ad ese
 
 Se è necessario utilizzare i dettagli di un modello a cui si fa riferimento, come illustrato nell'esempio precedente, è sufficiente emettere un GET on `$.model.self` .
 
+>[!IMPORTANT]
+>Per recuperare i metadati delle entità a cui si fa riferimento, eseguire un'operazione GET on `$.{referencedEntity}.self` , ad esempio per recuperare il modello di una trascrizione `GET` `$.model.self` .
+
+
 ### <a name="retrieving-endpoint-logs"></a>Recupero dei log degli endpoint
 
 Versione V2 del servizio che supporta i risultati dell'endpoint di registrazione. Per recuperare i risultati di un endpoint con V2, è necessario creare una "esportazione dei dati", che rappresenta uno snapshot dei risultati definiti da un intervallo di tempo. Il processo di esportazione di batch di dati non era flessibile. L'API v3 consente l'accesso a ogni singolo file e consente l'iterazione attraverso di essi.
@@ -392,6 +420,9 @@ La paginazione dei log degli endpoint funziona in modo simile a tutte le altre r
 
 In V3, ogni log dell'endpoint può essere eliminato singolarmente eseguendo un' `DELETE` operazione su `self` di un file o utilizzando `DELETE` on `$.links.logs` . Per specificare una data di fine, `endDate` è possibile aggiungere il parametro di query alla richiesta.
 
+>[!IMPORTANT]
+>Anziché creare esportazioni di log da `/api/speechtotext/v2.0/endpoints/{id}/data` utilizzare `/v3.0/endpoints/{id}/files/logs/` per accedere singolarmente ai file di log. 
+
 ### <a name="using-custom-properties"></a>Utilizzo di proprietà personalizzate
 
 Per separare le proprietà personalizzate dalle proprietà di configurazione facoltative, tutte le proprietà denominate in modo esplicito si trovano nella `properties` proprietà e tutte le proprietà definite dai chiamanti si trovano ora nella `customProperties` Proprietà.
@@ -424,15 +455,26 @@ Per separare le proprietà personalizzate dalle proprietà di configurazione fac
 
 Questa modifica consente inoltre di utilizzare i tipi corretti su tutte le proprietà denominate in modo esplicito in `properties` (ad esempio, booleano anziché String).
 
+>[!IMPORTANT]
+>Passare tutte le proprietà personalizzate come `customProperties` anziché `properties` nelle `POST` richieste.
+
 ### <a name="response-headers"></a>Intestazioni di risposta
 
 V3 non restituisce più l' `Operation-Location` intestazione in aggiunta all' `Location` intestazione sulle `POST` richieste. Il valore di entrambe le intestazioni nella versione V2 era lo stesso. Viene ora `Location` restituito solo.
 
 Poiché la nuova versione dell'API è ora gestita da gestione API di Azure (gestione API), le intestazioni correlate alla limitazione `X-RateLimit-Limit` , `X-RateLimit-Remaining` e `X-RateLimit-Reset` non sono contenute nelle intestazioni della risposta.
 
+>[!IMPORTANT]
+>Leggere il percorso dall'intestazione della risposta `Location` anziché da `Operation-Location` . Nel caso di un codice di risposta 429, leggere il `Retry-After` valore dell'intestazione anziché `X-RateLimit-Limit` , `X-RateLimit-Remaining` o `X-RateLimit-Reset` .
+
+
 ### <a name="accuracy-tests"></a>Test di accuratezza
 
 I test di accuratezza sono stati rinominati in valutazioni perché il nuovo nome descrive meglio gli elementi che rappresentano. I nuovi percorsi sono: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations` .
+
+>[!IMPORTANT]
+>Rinominare il segmento `accuracytests` di percorso `evaluations` in nel codice client.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007172"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629035"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -229,9 +229,12 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | Azure Resource Manager |12076:5070 |
 | Altri servizi online di Office 365 * * | 12076:5100 |
 
-\* I servizi globali di Azure includono al momento solo Azure DevOps. \
-\*\* Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
-\*\*\* Questa community pubblica anche le route necessarie per i servizi Microsoft teams. \
+\* I servizi globali di Azure includono al momento solo Azure DevOps.
+
+\*\* Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)
+
+\*\*\* Questa community pubblica anche le route necessarie per i servizi Microsoft teams.
+
 \*\*\*\* CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
 
 > [!NOTE]

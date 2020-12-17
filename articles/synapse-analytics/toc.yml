@@ -86,8 +86,8 @@
                 - name: Script SQL
                   href: ./sql/author-sql-script.md
                   displayname: author
-                - name: Flusso di dati per mapping
-                  href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Flusso di dati
+                  href: concepts-data-flow-overview.md
         - name: Pianificazione della manutenzione
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Controllo del codice sorgente
@@ -660,8 +660,8 @@
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Flussi di dati
           items:
-            - name: Panoramica del flusso di dati di mapping
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Panoramica dei flussi di dati
+              href: concepts-data-flow-overview.md
             - name: Modalità di debug
               href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Deviazione schema

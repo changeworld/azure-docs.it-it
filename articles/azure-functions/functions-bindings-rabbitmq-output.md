@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8ea4b0c7c8df1ff7fe0e3ecb253b23d188681e80
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616661"
+ms.locfileid: "97629681"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Panoramica dell'associazione di output RabbitMQ per funzioni di Azure
 
 > [!NOTE]
-> Le associazioni RabbitMQ sono completamente supportate solo nei piani **Premium di Windows** . Il consumo e Linux non sono attualmente supportati.
+> Le associazioni RabbitMQ sono completamente supportate solo nei piani **Windows Premium e dedicati** . Il consumo e Linux non sono attualmente supportati.
 
 Usare l'associazione di output RabbitMQ per inviare messaggi a una coda di RabbitMQ.
 

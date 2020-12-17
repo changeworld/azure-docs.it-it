@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 470dc146d1658b97a707be8cb7ad868d943a8e60
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170898"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629392"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Esercitazione per configurare Nevis con Azure Active Directory B2C per l'autenticazione senza password
 
@@ -134,9 +134,9 @@ Si riceveranno due messaggi di posta elettronica:
 
 4. **Salvare** le modifiche apportate al file.
 
-5. Seguire le [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#2-create-an-azure-blob-storage-account) e caricare il file **nevis.html** nell'archivio BLOB di Azure.
+5. Seguire le [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) e caricare il file **nevis.html** nell'archivio BLOB di Azure.
 
-6. Seguire le [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors) e abilitare la condivisione di risorse tra le origini (CORS) per questo file.
+6. Seguire le [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) e abilitare la condivisione di risorse tra le origini (CORS) per questo file.
 
 7. Una volta completato il caricamento e CORS è abilitato, selezionare il file **nevis.html** nell'elenco.
 
@@ -228,7 +228,7 @@ Si riceveranno due messaggi di posta elettronica:
 
 8. Copiare il codice di verifica dal messaggio di posta elettronica.
 
-9. Selezionare **Verifica**.
+9. Selezionare **Verify** (Verifica).
 
 10. Compilare il modulo con la nuova password e il nome visualizzato.
 

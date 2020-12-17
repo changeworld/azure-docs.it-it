@@ -9,7 +9,7 @@
       href: technical-overview.md
     - name: Novità della documentazione
       href: whats-new-docs.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -95,8 +95,6 @@
       href: user-overview.md
     - name: Attributi del profilo utente
       href: user-profile-attributes.md
-    - name: Sessioni SSO
-      href: session-overview.md
     - name: Identity Protection e Accesso condizionale
       href: conditional-access-identity-protection-overview.md
 - name: Guide pratiche
@@ -155,6 +153,8 @@
           href: identity-provider-wechat.md
         - name: Weibo
           href: identity-provider-weibo.md
+        - name: Passare il token del provider di identità
+          href: idp-pass-through-user-flow.md
     - name: Personalizzazione dell'esperienza utente
       items:
         - name: Configurare l'input utente
@@ -174,6 +174,24 @@
         - name: Abilitare MFA
           href: multi-factor-authentication.md
           displayName: multi-factor auth
+        - name: Configurare l'accesso diretto
+          href: direct-signin.md
+    - name: Token e gestione delle sessioni
+      items:
+        - name: Configurare il comportamento della sessione
+          href: session-behavior.md
+        - name: Configurare i token
+          href: configure-tokens.md
+    - name: Definire attributi personalizzati
+      href: user-flow-custom-attributes.md
+    - name: Identity Protection e Accesso condizionale
+      items:
+        - name: Configurare Identity Protection e Accesso condizionale
+          href: conditional-access-identity-protection-setup.md
+        - name: Aggiungere Accesso condizionale
+          href: conditional-access-user-flow.md
+    - name: Configurare il controllo dell'accesso in base all'età
+      href: basic-age-gating.md
     - name: Flusso utente
       items:
         - name: Creare un flusso
@@ -184,40 +202,23 @@
               href: configure-ropc.md
             - name: Configurare la reimpostazione self-service delle password
               href: user-flow-self-service-password-reset.md
-        - name: Aggiungere Accesso condizionale
-          href: conditional-access-user-flow.md
-        - name: Token e gestione delle sessioni
-          items:
-            - name: Configurare i token
-              href: configure-tokens.md
-            - name: Configurare il comportamento della sessione
-              href: session-behavior.md
-        - name: Configurare il controllo dell'accesso in base all'età
-          href: basic-age-gating.md
-        - name: Definire attributi personalizzati
-          href: user-flow-custom-attributes.md
         - name: Connettori API (anteprima)
           items:
             - name: Panoramica
               href: api-connectors-overview.md
             - name: Aggiungere un connettore API
               href: add-api-connector.md
-        - name: Pass-through di un token IdP esterno
-          href: idp-pass-through-user-flow.md
-    - name: Identity Protection e Accesso condizionale
-      href: conditional-access-identity-protection-setup.md
     - name: Criteri personalizzati
       items:
+        - name: Panoramica dei criteri personalizzati
+          href: custom-policy-trust-frameworks.md
+        - name: Introduzione ai criteri personalizzati
+          href: custom-policy-get-started.md
         - name: Creare criteri
           items:
-            - name: Introduzione ai criteri personalizzati
-              href: custom-policy-get-started.md
             - name: Credenziali password del proprietario della risorsa
               href: ropc-custom.md
               displayName: ropc
-            - name: Abilitare Mantieni l'accesso
-              href: custom-policy-keep-me-signed-in.md
-              displayName: kmsi
             - name: Modifica della password
               href: custom-policy-password-change.md
             - name: Iscrizione e accesso tramite telefono
@@ -230,18 +231,6 @@
             - name: SendGrid
               href: custom-email-sendgrid.md
           displayName: verification
-        - name: Token e gestione delle sessioni
-          items:
-            - name: Personalizzare i token
-              href: configure-tokens-custom-policy.md
-            - name: Configurare il comportamento della sessione
-              href: session-behavior-custom-policy.md
-        - name: Pass-through di un token IdP esterno
-          href: idp-pass-through-custom.md
-        - name: Esperienza adattiva
-          items:
-            - name: Configurare l'accesso diretto
-              href: direct-signin.md
         - name: Aggiungere la propria logica di business
           items:
             - name: Integrare l'API REST
@@ -254,8 +243,6 @@
               displayName: rest claims exchange
             - name: Proteggere l'API REST
               href: secure-rest-api.md
-        - name: Definire attributi personalizzati
-          href: custom-policy-custom-attributes.md
         - name: Risoluzione dei problemi
           items:
             - name: Raccogliere i log tramite Application Insights
@@ -268,8 +255,6 @@
           href: analytics-with-application-insights.md
         - name: Informazioni di riferimento
           items:
-            - name: Definizione di framework attendibilità
-              href: custom-policy-trust-frameworks.md
             - name: TrustFrameworkPolicy
               href: trustframeworkpolicy.md
             - name: BuildingBlocks
@@ -315,11 +300,9 @@
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
-                - name: TechnicalProfiles
+                - name: Profili tecnici
                   href: technicalprofiles.md
                   items:
-                    - name: Informazioni sui profili tecnici
-                      href: technical-profiles-overview.md
                     - name: Informazioni sui profili tecnici di convalida
                       href: validation-technical-profile.md
                     - name: Application Insights
@@ -370,6 +353,8 @@
               href: relyingparty.md
             - name: Resolver di attestazioni
               href: claim-resolver-overview.md
+    - name: Endpoint UserInfo
+      href: userinfo-endpoint.md
     - name: Integrazione dei partner
       items:
         - name: Raccolta di partner Azure AD B2C

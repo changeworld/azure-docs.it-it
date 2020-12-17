@@ -1,30 +1,29 @@
 ---
 title: Ridimensionare automaticamente i cluster Azure HDInsight
-description: Usare la funzionalità di scalabilità automatica di Azure HDInsight per ridimensionare automaticamente i cluster Apache Hadoop.
+description: Usare la funzionalità di scalabilità automatica per ridimensionare automaticamente i cluster HDInsight di Azure in base a una pianificazione o a metriche delle prestazioni.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-ms.date: 09/14/2020
-ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
+ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033137"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629256"
 ---
-# <a name="autoscale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
-La funzionalità di scalabilità automatica gratuita di Azure HDInsight può aumentare o ridurre automaticamente il numero di nodi del ruolo di lavoro nel cluster in base ai criteri impostati in precedenza. Si imposta un numero minimo e massimo di nodi durante la creazione del cluster, si stabiliscono i criteri di scalabilità usando una pianificazione giornaliera o metriche delle prestazioni specifiche e la piattaforma HDInsight esegue il resto.
+La funzionalità di scalabilità automatica gratuita di Azure HDInsight può aumentare o ridurre automaticamente il numero di nodi del ruolo di lavoro nel cluster in base ai criteri impostati in precedenza. La funzionalità di scalabilità automatica funziona scalando il numero di nodi entro i limiti predefiniti in base alle metriche delle prestazioni o a una pianificazione delle operazioni di scalabilità verticale e verticale.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
-La funzionalità di scalabilità automatica usa due tipi di condizioni per attivare gli eventi di scalabilità: le soglie per diverse metriche delle prestazioni del cluster (denominate *scalabilità basata sul carico*) e i trigger basati sul tempo, denominati *scalabilità basata su pianificazione*. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione. La scalabilità basata sulla pianificazione modifica il numero di nodi nel cluster in base alle operazioni che si associano a date e ore specifiche.
+La funzionalità di scalabilità automatica usa due tipi di condizioni per attivare gli eventi di scalabilità: le soglie per diverse metriche delle prestazioni del cluster (denominate *scalabilità basata sul carico*) e i trigger basati sul tempo, denominati *scalabilità basata su pianificazione*. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione. La scalabilità basata sulla pianificazione modifica il numero di nodi nel cluster in base a una pianificazione delle operazioni di scalabilità verticale e verticale.
 
 Il video seguente offre una panoramica dei problemi che la scalabilità automatica risolve e come può aiutarti a controllare i costi con HDInsight.
-
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
@@ -72,7 +71,7 @@ Per il ridimensionamento automatico, la scalabilità automatica invia una richie
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Version | Spark | Hive | Interactive Query | hbase | Kafka | Storm | ML |
+| Versione | Spark | Hive | Interactive Query | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
 | HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
@@ -81,7 +80,7 @@ La tabella seguente descrive i tipi di cluster e le versioni compatibili con la 
 
 \* I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
@@ -133,7 +132,7 @@ Per altre informazioni sulla creazione del cluster HDInsight tramite il portale 
 
 #### <a name="load-based-autoscaling"></a>Ridimensionamento automatico basato sul carico
 
-È possibile creare un cluster HDInsight con scalabilità automatica basata sul carico un modello di Azure Resource Manager, aggiungendo un `autoscale` nodo alla `computeProfile`  >  `workernode` sezione con le proprietà `minInstanceCount` e `maxInstanceCount` come illustrato nel frammento di codice JSON seguente. Per un modello di Resource Manager completo [, vedere modello di avvio rapido: distribuire un cluster Spark con la scalabilità automatica Loadbased abilitata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
+È possibile creare un cluster HDInsight con scalabilità automatica basata sul carico un modello di Azure Resource Manager, aggiungendo un `autoscale` nodo alla `computeProfile`  >  `workernode` sezione con le proprietà `minInstanceCount` e `maxInstanceCount` come illustrato nel frammento di codice JSON seguente. Per un modello di Gestione risorse completo, vedere [modello di avvio rapido: distribuire un cluster Spark con la scalabilità automatica basata sul carico abilitata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -161,7 +160,7 @@ Per altre informazioni sulla creazione del cluster HDInsight tramite il portale 
 
 #### <a name="schedule-based-autoscaling"></a>Scalabilità automatica basata sulla pianificazione
 
-È possibile creare un cluster HDInsight con la scalabilità automatica basata sulla pianificazione di un modello di Azure Resource Manager, aggiungendo un `autoscale` nodo alla `computeProfile`  >  `workernode` sezione. Il `autoscale` nodo contiene un oggetto `recurrence` che ha un oggetto `timezone` e `schedule` che descrive quando verrà eseguita la modifica. Per un modello di Resource Manager completo, vedere [distribuire un cluster Spark con scalabilità automatica basata sulla pianificazione abilitata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
+È possibile creare un cluster HDInsight con la scalabilità automatica basata sulla pianificazione di un modello di Azure Resource Manager, aggiungendo un `autoscale` nodo alla `computeProfile`  >  `workernode` sezione. Il `autoscale` nodo contiene un oggetto `recurrence` che ha un oggetto `timezone` e `schedule` che descrive quando verrà eseguita la modifica. Per un modello di Gestione risorse completo, vedere [distribuire un cluster Spark con scalabilità automatica basata sulla pianificazione abilitata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {

@@ -124,6 +124,10 @@
           href: how-to-view-managed-identity-service-principal-cli.md
         - name: PowerShell
           href: how-to-view-managed-identity-service-principal-powershell.md
+    - name: Assegnare un'identità gestita a un ruolo dell'app
+      items:
+        - name: PowerShell
+          href: how-to-assign-app-role-managed-identity-powershell.md
 - name: Informazioni di riferimento
   items:
     - name: .NET

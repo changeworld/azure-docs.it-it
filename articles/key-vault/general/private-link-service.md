@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 75f06ae11d308028431202c22338ff4a589acf28
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460052"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592297"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrare Key Vault con Collegamento privato di Azure
 
@@ -53,7 +53,7 @@ Dopo aver configurato le informazioni di base dell'insieme di credenziali delle 
 1. Selezionare il pulsante di opzione Endpoint privato nella scheda Rete.
 1. Fare clic sul pulsante "+ Aggiungi" per aggiungere un endpoint privato.
 
-    ![Immagine](../media/private-link-service-1.png)
+    ![Screenshot che mostra la scheda 'Rete' nella pagina 'Crea insieme di credenziali delle chiavi'.](../media/private-link-service-1.png)
  
 1. Nel campo "Posizione" del pannello Crea endpoint privato selezionare l'area in cui si trova la rete virtuale. 
 1. Nel campo "Nome" creare un nome descrittivo che consentirà di identificare questo endpoint privato. 
@@ -61,7 +61,7 @@ Dopo aver configurato le informazioni di base dell'insieme di credenziali delle 
 1. Lasciare invariata l'opzione "Integra con la zona DNS privato".  
 1. Selezionare "Ok".
 
-    ![Immagine](../media/private-link-service-8.png)
+    ![Screenshot che mostra la pagina 'Crea endpoint privato' con le impostazioni selezionate.](../media/private-link-service-8.png)
  
 Sarà ora possibile visualizzare l'endpoint privato configurato. È ora possibile eliminare e modificare questo endpoint privato. Selezionare il pulsante "Rivedi e crea" e creare l'insieme di credenziali delle chiavi. Il completamento della distribuzione richiederà 5-10 minuti. 
 
@@ -76,12 +76,13 @@ Se si dispone già di un insieme di credenziali delle chiavi, è possibile crear
 1. Selezionare la scheda Connessioni endpoint privato nella parte superiore della pagina.
 1. Selezionare il pulsante "+ Endpoint privato" nella parte superiore della pagina.
 
-    ![Immagine](../media/private-link-service-3.png) ![Immagine](../media/private-link-service-4.png)
+    ![Screenshot che mostra il pulsante '+ Endpoint privato' nella pagina 'Rete'.](../media/private-link-service-3.png)
+    ![Screenshot che mostra la scheda 'Informazioni di base' nella pagina 'Crea un endpoint privato (anteprima)'.](../media/private-link-service-4.png)
 
 È possibile scegliere di creare un endpoint privato per qualsiasi risorsa di Azure usando questo pannello. È possibile usare i menu a discesa per selezionare un tipo di risorsa e selezionare una risorsa nella directory oppure è possibile connettersi a qualsiasi risorsa di Azure usando un ID risorsa. Lasciare invariata l'opzione "Integra con la zona DNS privato".  
 
-![Immagine](../media/private-link-service-3.png)
-![Immagine](../media/private-link-service-4.png)
+![Screenshot che mostra l'aggiunta di un endpoint privato usando il pannello corrente.](../media/private-link-service-3.png)
+![Screenshot che mostra un esempio di pagina 'Crea un endpoint privato (anteprima)'.](../media/private-link-service-4.png)
 
 Quando si crea un endpoint privato, la connessione deve essere approvata. Se la risorsa per cui si sta creando un endpoint privato si trova nella directory, sarà possibile approvare la richiesta di connessione purché si disponga di autorizzazioni sufficienti. Se ci si connette a una risorsa di Azure in un'altra directory, è necessario attendere che il proprietario della risorsa approvi la richiesta di connessione.
 

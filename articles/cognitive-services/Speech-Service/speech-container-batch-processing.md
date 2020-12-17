@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356706"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631993"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit di elaborazione batch per contenitori di sintesi vocale
 
@@ -86,13 +86,13 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Per eseguire il client batch:  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 Per eseguire il client e il contenitore batch in un singolo comando:
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 
@@ -156,7 +156,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 > [!NOTE]
 > Il client batch può sovrascrivere periodicamente il file *Run. log* se è troppo grande.
 
-Il client crea un file *Run. log* nella directory specificata dall' `-log_folder` argomento nel comando Docker `run` . Per impostazione predefinita, i log vengono acquisiti a livello di DEBUG. Gli stessi log vengono inviati a `stdout/stderr` e filtrati a seconda dell' `-log_level` argomento. Questo log è necessario solo per il debug o se è necessario inviare una traccia per il supporto. La cartella di registrazione contiene anche i log dell'SDK vocale per ogni file audio.
+Il client crea un file *Run. log* nella directory specificata dall' `-log_folder` argomento nel comando Docker `run` . Per impostazione predefinita, i log vengono acquisiti a livello di DEBUG. Gli stessi log vengono inviati a `stdout/stderr` e filtrati a seconda degli `-file_log_level` `console_log_level` argomenti o. Questo log è necessario solo per il debug o se è necessario inviare una traccia per il supporto. La cartella di registrazione contiene anche i log dell'SDK vocale per ogni file audio.
 
 La directory di output specificata da conterrà `-output_folder` un *run_summary.jssu*   file, che viene periodicamente riscritto ogni 30 secondi o ogni volta che vengono completate nuove trascrizioni. È possibile usare questo file per controllare lo stato di avanzamento del batch. Conterrà anche le statistiche di esecuzione finale e lo stato finale di ogni file al termine del batch. Il batch viene completato quando il processo ha un'uscita pulita. 
 

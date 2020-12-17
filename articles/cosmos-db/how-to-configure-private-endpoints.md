@@ -4,15 +4,15 @@ description: Informazioni su come configurare il collegamento privato di Azure p
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 12/16/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081893"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629647"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
 
 1. Dal riquadro **Tutte le risorse** scegliere un account Azure Cosmos.
 
-1. Selezionare **Connessioni a endpoint privato** dall'elenco delle impostazioni e quindi selezionare **Endpoint privato** :
+1. Selezionare **Connessioni a endpoint privato** dall'elenco delle impostazioni e quindi selezionare **Endpoint privato**:
 
    :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::
 
@@ -49,19 +49,19 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
     | Nome | Immettere un nome per l'endpoint privato. Se il nome è già usato, creare un nome univoco. |
     |Region| Selezionare l'area in cui si vuole distribuire il collegamento privato. Creare l'endpoint privato nella stessa posizione in cui si trova la rete virtuale.|
     |||
-1. Selezionare **Avanti: Risorsa** .
+1. Selezionare **Avanti: Risorsa**.
 1. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
-    |Metodo di connessione  | Selezionare **Connettersi a una risorsa di Azure nella directory** . <br/><br/> È quindi possibile scegliere una delle risorse per configurare il collegamento privato. Oppure connettersi alla risorsa di un altro utente usando un ID risorsa o un alias condiviso.|
+    |Metodo di connessione  | Selezionare **Connettersi a una risorsa di Azure nella directory**. <br/><br/> È quindi possibile scegliere una delle risorse per configurare il collegamento privato. Oppure connettersi alla risorsa di un altro utente usando un ID risorsa o un alias condiviso.|
     | Subscription| Selezionare la propria sottoscrizione. |
-    | Tipo di risorsa | Selezionare **Microsoft.AzureCosmosDB/databaseAccounts** . |
+    | Tipo di risorsa | Selezionare **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Risorsa |Selezionare l'account Azure Cosmos. |
     |Sottorisorsa di destinazione |Selezionare il tipo di API di Azure Cosmos DB di cui si vuole eseguire il mapping. Per impostazione predefinita viene selezionata un'unica opzione per le API SQL, MongoDB e Cassandra. Per le API Gremlin e Tabella, è anche possibile scegliere **SQL** poiché queste API sono interoperative con l'API SQL. |
     |||
 
-1. Selezionare **Avanti: Configurazione** .
+1. Selezionare **Avanti: Configurazione**.
 1. In **Crea un endpoint privato - Configurazione** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
@@ -70,12 +70,12 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
     | Rete virtuale| Selezionare la rete virtuale. |
     | Subnet | Selezionare la subnet. |
     |**Integrazione DNS privato**||
-    |Integra con la zona DNS privato |Selezionare **Sì** . <br><br/> Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali. |
-    |Zona DNS privato |Selezionare **privatelink.documents.azure.com** . <br><br/> La zona DNS privata viene determinata automaticamente. Non è possibile modificarla usando il portale di Azure.|
+    |Integra con la zona DNS privato |Selezionare **Sì**. <br><br/> Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali. |
+    |Zona DNS privato |Selezionare **privatelink.documents.azure.com**. <br><br/> La zona DNS privata viene determinata automaticamente. Non è possibile modificarla usando il portale di Azure.|
     |||
 
-1. Selezionare **Rivedi e crea** . Nella pagina **Rivedi e crea** Azure convalida la configurazione.
-1. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea** .
+1. Selezionare **Rivedi e crea**. Nella pagina **Rivedi e crea** Azure convalida la configurazione.
+1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
 Quando è stato approvato il collegamento privato per un account Azure Cosmos, nel portale di Azure l'opzione **Tutte le reti** nel riquadro **Firewall e reti virtuali** non è disponibile.
 
@@ -95,11 +95,11 @@ La tabella seguente illustra il mapping tra i diversi tipi di API dell'account A
 
 Dopo aver eseguito il provisioning dell'endpoint privato, è possibile eseguire una query sugli indirizzi IP. Per visualizzare gli indirizzi IP dal portale di Azure:
 
-1. Selezionare **Tutte le risorse** .
-1. Cercare l'endpoint privato creato in precedenza. In questo caso, si tratta di **cdbPrivateEndpoint3** .
+1. Selezionare **Tutte le risorse**.
+1. Cercare l'endpoint privato creato in precedenza. In questo caso, si tratta di **cdbPrivateEndpoint3**.
 1. Selezionare la scheda **Panoramica** per visualizzare le impostazioni DNS e gli indirizzi IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Indirizzi IP privati nel portale di Azure":::
 
 Per ogni endpoint privato vengono creati più indirizzi IP:
 
@@ -412,7 +412,7 @@ Per questi account, è necessario creare un endpoint privato per ogni tipo di AP
 
 Al termine della distribuzione del modello, è possibile visualizzare un output simile a quello illustrato nell'immagine seguente. Il valore `provisioningState` è `Succeeded` se gli endpoint privati sono configurati correttamente.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Output della distribuzione per il modello di Resource Manager":::
 
 Dopo aver distribuito il modello, gli indirizzi IP privati vengono riservati all'interno della subnet. La regola del firewall dell'account Azure Cosmos è configurata per accettare solo connessioni dall'endpoint privato.
 
@@ -616,6 +616,9 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 È consigliabile usare una zona DNS privata all'interno della subnet in cui è stato creato l'endpoint privato. Configurare gli endpoint in modo che ogni indirizzo IP privato venga mappato a una voce DNS. (Vedere la proprietà `fqdns` nella risposta illustrata in precedenza).
 
 Quando si crea l'endpoint privato, è possibile integrarlo con una zona DNS privata in Azure. Se si sceglie di usare invece una zona DNS personalizzata, è necessario configurarla per aggiungere i record DNS per tutti gli indirizzi IP privati riservati per l'endpoint privato.
+
+> [!IMPORTANT]
+> Si tratta della risoluzione DNS delle richieste che determina se queste richieste passano sugli endpoint privati o accettano la route pubblica standard. Verificare che il DNS locale faccia riferimento correttamente all'indirizzo IP privato di cui è stato eseguito il mapping dall'endpoint privato.
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Collegamento privato combinato con le regole del firewall
 

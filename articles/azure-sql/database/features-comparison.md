@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 11/10/2020
-ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c30cecf0b480a1765f04ee48a0fd66f4ddd52708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368461"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630327"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -64,6 +64,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [Transazioni distribuite - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No. Vedere [Transazioni elastiche](elastic-transactions-overview.md) |  No. vedere [differenze tra server collegati](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Provare a consolidare i database da diverse istanze di SQL Server distribuite in un'unica Istanza gestita SQL durante la migrazione. |
 | [Trigger DML](/sql/relational-databases/triggers/create-dml-triggers) | Supportate per la maggior parte. Vedere le singole istruzioni |  Sì |
 | [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Supportate nella maggior parte dei casi, vedere singole viste a gestione dinamica |  Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Query elastica](elastic-query-overview.md) (in anteprima pubblica) | Sì, con il tipo RDBMS obbligatorio. | Sì, con il tipo RDBMS obbligatorio. |
 | [Notifiche degli eventi](/sql/relational-databases/service-broker/event-notifications) | No. Vedere [Avvisi](alerts-insights-configure-portal.md) | No |
 | [Espressioni](/sql/t-sql/language-elements/expressions-transact-sql) |Sì | Sì |
 | [Eventi estesi (XEvent)](/sql/relational-databases/extended-events/extended-events) | Supportati in alcuni casi. Vedere [Eventi estesi nel database SQL](xevent-db-diff-from-svr.md) | Sì - vedere le [differenze relative agli eventi estesi](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 9c22e7cbc71c2b29c4b3e50319c6b6d256856bb3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 7d43c128f0f587a32cc4b8673727579043f268eb
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855679"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629596"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Configurare la registrazione per monitorare le app per la logica nel centro sicurezza di Azure
 
@@ -24,7 +24,7 @@ Quando si esegue il monitoraggio delle risorse di app per la logica in [Microsof
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, [creare un account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * App per la logica esistenti con [registrazione diagnostica abilitata](#enable-diagnostic-logging).
-* Un'area di lavoro Log Analytics, che è necessaria per abilitare la registrazione per l'app per la logica. Se non si dispone di un'area di lavoro, [creare prima l'area di lavoro](/learn/quick-create-workspace.md).
+* Un'area di lavoro Log Analytics, che è necessaria per abilitare la registrazione per l'app per la logica. Se non si dispone di un'area di lavoro, [creare prima l'area di lavoro](/azure/azure-monitor/learn/quick-create-workspace).
 
 ## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
 

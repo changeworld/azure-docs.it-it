@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 057599cc92e27e423d25d528d5d84b978ff4a911
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919535"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630293"
 ---
 # <a name="resilient-end-user-experience"></a>Esperienza utente finale resiliente
 
@@ -58,7 +58,7 @@ Nell'ambito del processo di registrazione del provider di identità esterno, inc
 
  2. Configurare un criterio del profilo per consentire agli utenti di [collegare l'altra identità al proprio account dopo l'](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) accesso.
 
- 3. Notificare e consentire agli utenti di [passare a un provider di identità alternativo](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#configure-dynamic-custom-page-content-uri) durante un'interruzione del servizio.
+ 3. Notificare e consentire agli utenti di [passare a un provider di identità alternativo](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) durante un'interruzione del servizio.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilità di autenticazione a più fattori
 

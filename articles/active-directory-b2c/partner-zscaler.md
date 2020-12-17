@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: ff51c2a71dfcaec580733a92e265628ac816e229
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 223f8acd6aad7aaf4c37e0b2eae2df882ed2ad1d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096060"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629375"
 ---
 # <a name="tutorial-to-configure-zscaler-private-access-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Esercitazione per configurare l'accesso privato a zScaler con Azure Active Directory B2C per l'accesso ibrido sicuro
 
@@ -125,7 +125,7 @@ Dal passaggio precedente è necessario ottenere un URL di metadati SAML nel form
 
 dove `<tenant-name>` è il nome del tenant di Azure ad B2C e `<policy-name>` è il nome del criterio SAML personalizzato creato nell'ultimo passaggio.
 
-Ad esempio, usare https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata
+Ad esempio, " https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata "
 
 Aprire un Web browser e passare all'URL dei metadati SAML. Al caricamento della pagina, fare clic con il pulsante destro del mouse in un punto qualsiasi della pagina. Selezionare **Salva pagina con nome** e salvare il file nel computer. Questa operazione verrà usata nella parte successiva.
 

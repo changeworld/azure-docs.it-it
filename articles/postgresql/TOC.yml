@@ -553,6 +553,12 @@
               displayName: 'portal, create hyperscale'
     - name: Esercitazioni
       items:
+        - name: Crea un gruppo di server
+          href: tutorial-hyperscale-server-group.md
+        - name: Modellare e caricare i dati
+          items:
+            - name: Partizionare i dati nei nodi di lavoro
+              href: tutorial-hyperscale-shard.md
         - name: Progettare un database multitenant
           href: tutorial-design-database-hyperscale-multi-tenant.md
           displayName: 'hyperscale, tutorial, multi-tenant'

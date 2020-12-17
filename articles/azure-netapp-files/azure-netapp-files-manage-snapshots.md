@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253559"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629664"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -269,3 +269,4 @@ La funzionalità di ripristino dello snapshot consente di ripristinare rapidamen
 * [Risolvere i problemi relativi ai criteri dello snapshot](troubleshoot-snapshot-policies.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Video snapshot di Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [Che cos'è applicazione Azure strumento di snapshot coerente](azacsnap-introduction.md)
