@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579148"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617239"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Risolvere i problemi comuni in Condivisione dati di Azure 
 
@@ -67,6 +67,10 @@ Lo snapshot potrebbe non riuscire a causa di diversi motivi. È possibile trovar
 * La connessione della condivisione dati all'archivio dati di origine o di destinazione è bloccata dal firewall.
 * Il set di dati condiviso o l'archivio dati di origine o di destinazione viene eliminato.
 
+Per l'account di archiviazione, di seguito sono riportate altre cause degli errori di snapshot.
+
+* Il file è in fase di aggiornamento nell'origine mentre è in corso lo snapshot. Questo può comportare un file di 0 byte nella destinazione. Il successivo snapshot dopo il completamento dell'aggiornamento nell'origine dovrebbe avere esito positivo.
+
 Per le origini SQL, di seguito sono riportate altre cause degli errori di snapshot. 
 
 * Non è possibile eseguire lo script SQL di origine o di destinazione per concedere l'autorizzazione per la condivisione di dati. Oppure, per il database SQL di Azure o Azure sinapsi Analytics (in precedenza Azure SQL DW), viene eseguito usando l'autenticazione SQL anziché l'autenticazione Azure Active Directory.  
@@ -75,6 +79,9 @@ Per le origini SQL, di seguito sono riportate altre cause degli errori di snapsh
 * L'archivio dati SQL di origine o di destinazione è bloccato da altri processi. La condivisione di dati di Azure non applica blocchi all'archivio dati SQL di origine e di destinazione. Tuttavia, i blocchi esistenti nell'archivio dati SQL di origine e di destinazione provocheranno un errore di snapshot.
 * Un vincolo FOREIGN KEY fa riferimento alla tabella SQL di destinazione. Durante lo snapshot, se esiste una tabella di destinazione con lo stesso nome, la condivisione di dati di Azure Elimina la tabella e crea una nuova tabella. Se un vincolo FOREIGN KEY fa riferimento alla tabella SQL di destinazione, la tabella non può essere eliminata.
 * Viene generato un file CSV di destinazione, ma non è possibile leggere i dati in Excel. Questo problema può verificarsi quando la tabella SQL di origine contiene dati con caratteri non inglesi. In Excel selezionare la scheda "Get data" e scegliere il file CSV, selezionare origine file come 65001: Unicode (UTF-8) e caricare i dati.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>Problema di snapshot dopo l'aggiornamento della pianificazione dello snapshot
+Dopo che il provider di dati ha aggiornato la pianificazione dello snapshot per la condivisione inviata, il consumer di dati deve disabilitare la pianificazione dello snapshot precedente e riabilitare la pianificazione dello snapshot aggiornata per la condivisione ricevuta. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

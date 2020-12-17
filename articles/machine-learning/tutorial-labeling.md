@@ -10,12 +10,13 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 36c5f0103908ea150cbe6eb373e25f7d741127f5
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: data4ml
+ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913263"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347507"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura per la classificazione delle immagini multi-classe 
 
@@ -67,7 +68,7 @@ Gli archivi dati di Azure Machine Learning vengono usati per archiviare le infor
     Campo|Descrizione 
     ---|---
     Nome dell'archivio dati | Assegnare un nome all'archivio dati.  Qui si userà **labeling_tutorial**.
-    Tipi di archivio dati | Selezionare il tipo di archivio.  Qui si userà **Archivio BLOB di Azure** , la risorsa di archiviazione preferita per le immagini.
+    Tipi di archivio dati | Selezionare il tipo di archivio.  Qui si userà **Archivio BLOB di Azure**, la risorsa di archiviazione preferita per le immagini.
     Metodo di selezione dell'account | Selezionare **Immetti manualmente**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Tipo di autenticazione | Selezionare **Token di firma di accesso condiviso**.
@@ -118,7 +119,7 @@ Selezionare **Avanti** per continuare.
 
 ### <a name="label-classes"></a>Classi di etichette
 
-1. Nel modulo **Classi di etichette** digitare un nome di etichetta e quindi selezionare **+ Aggiungi etichetta** per digitare l'etichetta successiva.  Per questo progetto, le etichette sono **Cat** , **Dog** e **Uncertain**.
+1. Nel modulo **Classi di etichette** digitare un nome di etichetta e quindi selezionare **+ Aggiungi etichetta** per digitare l'etichetta successiva.  Per questo progetto, le etichette sono **Cat**, **Dog** e **Uncertain**.
 
 1. Dopo aver aggiunto tutte le etichette, selezionare **Avanti**.
 

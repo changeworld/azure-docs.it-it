@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 156a2f41ec18ef5ce6689118c517ed182fe0bcc6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ecaf0c68f2234643d2036c67ae61d53f8763f204
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896651"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler ZSCloud
 
@@ -63,7 +63,7 @@ Per configurare l'integrazione di Zscaler ZSCloud in Azure AD, è necessario agg
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Zscaler ZSCloud** , selezionare **Zscaler ZSCloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Zscaler ZSCloud**, selezionare **Zscaler ZSCloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Zscaler ZSCloud nell'elenco risultati](common/search-new-app.png)
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
     
     | Nome | Attributo di origine |
     | ---------| ------------ |
-    | memberOf     | user.assignedroles |
+    | memberOf | user.assignedroles |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
@@ -137,7 +137,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
     > [!NOTE]
     > Fare clic [qui](../develop/active-directory-enterprise-app-role-management.md) per sapere come configurare un Ruolo in Azure AD
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 ### <a name="configure-zscaler-zscloud-single-sign-on"></a>Configurare l'accesso Single Sign-On di Zscaler ZSCloud
 
-1. Per automatizzare la configurazione all'interno di Zscaler ZSCloud, è necessario installare l' **estensione del browser per l'accesso sicuro MyApps** facendo clic su **Install the extension** (Installa l'estensione).
+1. Per automatizzare la configurazione all'interno di Zscaler ZSCloud, è necessario installare l'**estensione del browser per l'accesso sicuro MyApps** facendo clic su **Install the extension** (Installa l'estensione).
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -234,7 +234,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -258,7 +258,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler ZSCloud.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Zscaler ZSCloud**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zscaler ZSCloud**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

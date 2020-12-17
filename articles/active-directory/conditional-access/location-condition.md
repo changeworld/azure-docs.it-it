@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b647b5ee9dbd7a0447bbb69a47db76685daa1102
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030196"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615712"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso della condizione location in un criterio di accesso condizionale 
 
@@ -195,6 +195,9 @@ Quando è presente un proxy cloud, è possibile usare un criterio usato per rich
 ### <a name="api-support-and-powershell"></a>Supporto dell'API e PowerShell
 
 È disponibile una versione di anteprima del API Graph per le località denominate. per altre informazioni, vedere l' [API namedLocation](/graph/api/resources/namedlocation?view=graph-rest-beta).
+
+> [!NOTE]
+> Le località denominate create tramite PowerShell vengono visualizzate solo in località denominate (anteprima). Non è possibile visualizzare le località denominate nella visualizzazione precedente.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

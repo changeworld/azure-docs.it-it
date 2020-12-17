@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 20397339c1675686f2a670dc60899bfd4bd4c3ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0a0b44b3de088539a070f1182248c4e6db7303f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050249"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510278"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 
@@ -28,7 +28,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
    Di seguito è riportato l'output di esempio:
 
-   ```json
+   ```console
     Name              : <Integration Runtime name>
     Type              : SelfHosted
     ResourceGroupName : <ResourceGroupName>
@@ -45,7 +45,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
    Di seguito è riportato l'output di esempio:
 
-   ```json  
+   ```console  
    State                     : NeedRegistration
    Version                   : 
    CreateTime                : 9/24/2019 6:00:00 AM

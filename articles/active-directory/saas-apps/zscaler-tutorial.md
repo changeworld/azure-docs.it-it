@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
-ms.openlocfilehash: a9d16f8cbb3da98a96f97a85d65672cc7ef70f65
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 438537efc9922e681c6dd253c2f41a44c5f2fb92
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893638"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608902"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zscaler
 
@@ -91,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     | Nome | Attributo di origine |
     | ---------| ------------ |
-    | memberOf     | user.assignedroles |
+    | memberOf | user.assignedroles |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
@@ -120,7 +120,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -132,7 +132,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Zscaler**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zscaler**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -162,7 +162,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ## <a name="configure-zscaler-sso"></a>Configurare l'accesso Single Sign-On di Zscaler
 
-1. Per automatizzare la configurazione all'interno di Zscaler, è necessario installare l' **estensione del browser per l'accesso sicuro MyApps** facendo clic su **Install the extension** (Installa l'estensione).
+1. Per automatizzare la configurazione all'interno di Zscaler, è necessario installare l'**estensione del browser per l'accesso sicuro MyApps** facendo clic su **Install the extension** (Installa l'estensione).
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -183,7 +183,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 1. Nella finestra **Modifica SAML** eseguire i passaggi seguenti: e fare clic su Salva.  
 
     ![Gestire utenti e autenticazione](./media/zscaler-tutorial/ic800208.png "Manage Users & Authentication")
-    
+
     a. Nella casella di testo **URL portale SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     b. Nella casella di testo **Attributo del nome di accesso** immettere **NameID**.
@@ -219,7 +219,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
     ![Opzioni Internet](./media/zscaler-tutorial/ic769492.png "Opzioni Internet")
 
 1. Fare clic sulla scheda **Connessioni** .
-  
+
     ![Connessioni](./media/zscaler-tutorial/ic769493.png "Connessioni")
 
 1. Fare clic su **Impostazioni LAN** per aprire la finestra di dialogo **Impostazioni LAN**.

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0cd9f0d6cf9529439f7b5ce46b1a5807d0a68a7c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 11a45adfda306b2ab843725b6aaa28a5e6c026a6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111241"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614252"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -218,7 +218,7 @@ Salvare il file dei criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C](custom-policy-password-change.md).
+- Informazioni su come [configurare la modifica della password in Azure Active Directory B2C](add-password-change-policy.md).
 - Altre informazioni sui [predicati](predicates.md) e sugli elementi [PREDICATEVALIDATIONS](predicates.md#predicatevalidations) nel riferimento Framework dell'esperienza.
 
 

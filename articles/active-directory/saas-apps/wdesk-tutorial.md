@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 7eac2ed58608ac5814e1f907b863a2977df830d4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 11539e7d6e685703810537cf69e0e7ed3ec0be4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636715"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Wdesk
 
@@ -85,7 +85,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wdesk, seguire questa p
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wdesk, seguire questa p
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wdesk, seguire questa p
 
 Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -144,7 +144,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wdesk.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Wdesk**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Wdesk**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -170,11 +170,11 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 1. In un'altra finestra del Web browser accedere a Wdesk come amministratore della sicurezza.
 
-2. In basso a sinistra fare clic su **Amministratore** e scegliere **Amministratore dell'account** :
+1. In basso a sinistra fare clic su **Amministratore** e scegliere **Amministratore dell'account**:
  
-     ![Screenshot che mostra l'opzione Account Admin selezionata nel menu Admin.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+    ![Screenshot che mostra l'opzione Account Admin selezionata nel menu Admin.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. In Wdesk Admin passare a **Security** (Sicurezza) e quindi a **SAML** > **SAML Settings** (Impostazioni SAML):
+1. In Wdesk Admin passare a **Security** (Sicurezza) e quindi a **SAML** > **SAML Settings** (Impostazioni SAML):
 
     ![Screenshot che mostra l'opzione SAMLS Settings selezionata nella scheda SAML.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
@@ -190,19 +190,19 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Screenshot che mostra la sezione Service Provider Details in cui è possibile immettere i valori indicati.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. Copiare l' **URL di accesso** e incollarlo nella casella di testo **URL di accesso** nel portale di Azure.
-   
-      b. Copiare l' **URL dei metadati** e incollarlo nella casella di testo **Identificatore** nel portale di Azure.
-       
-      c. Copiare l' **URL del servizio consumer** e incollarlo nella casella di testo **URL di risposta** nel portale di Azure.
-   
-      d. Fare clic su **Salva** nel portale di Azure per salvare le modifiche.      
+    1. Copiare l'**URL di accesso** e incollarlo nella casella di testo **URL di accesso** nel portale di Azure.
 
-6. Fare clic su **Configure IdP Settings** (Configura impostazioni IdP) per aprire la finestra di dialogo **Edit IdP Settings** (Modifica impostazioni IdP). Fare clic su **Choose File** (Scegli file) per trovare il file **Metadata.xml** salvato dal portale di Azure, quindi caricarlo.
+    1. Copiare l'**URL dei metadati** e incollarlo nella casella di testo **Identificatore** nel portale di Azure.
+
+    1. Copiare l'**URL del servizio consumer** e incollarlo nella casella di testo **URL di risposta** nel portale di Azure.
+
+    1. Fare clic su **Salva** nel portale di Azure per salvare le modifiche.      
+
+1. Fare clic su **Configure IdP Settings** (Configura impostazioni IdP) per aprire la finestra di dialogo **Edit IdP Settings** (Modifica impostazioni IdP). Fare clic su **Choose File** (Scegli file) per trovare il file **Metadata.xml** salvato dal portale di Azure, quindi caricarlo.
     
     ![Screenshot che mostra la sezione Edit IdP Settings in cui è possibile caricare i metadati.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-7. Fare clic su **Salva modifiche**.
+1. Fare clic su **Salva modifiche**.
 
     ![Screenshot che mostra il pulsante Save changes.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 

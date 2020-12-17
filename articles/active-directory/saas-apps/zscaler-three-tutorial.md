@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 12bc1de62217a598a478d8d7e4d71a4b60e000b9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ad88f2a469fb89145c39990fe55e92abf0f2a4c1
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896634"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608885"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zscaler Three
 
@@ -89,10 +89,10 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     ![Screenshot che mostra il riquadro Attributi utente con l'icona di modifica selezionata.](common/edit-attribute.png)
 
 6. Oltre quelli elencati in precedenza, l'applicazione Zscaler Three prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
-    
+
     | Nome | Attributo di origine |
     | ---------| ------------ |
-    | memberOf     | user.assignedroles |
+    | memberOf | user.assignedroles |
 
     > [!NOTE]
     > Fare clic [qui](../develop/active-directory-enterprise-app-role-management.md) per sapere come configurare un Ruolo in Azure AD
@@ -109,7 +109,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -137,7 +137,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-zscaler-three-sso"></a>Configurare l'accesso Single Sign-On di Zscaler Three
 
-1. Per automatizzare la configurazione all'interno di Zscaler Three, è necessario installare l' **estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installare l'estensione**.
+1. Per automatizzare la configurazione all'interno di Zscaler Three, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installare l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -148,7 +148,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 3. Se si vuole configurare manualmente Zscaler Three, aprire una nuova finestra del Web browser, accedere al sito aziendale di Zscaler Three come amministratore e completare i passaggi seguenti:
 
 4. Passare a **Amministrazione > Autenticazione > Impostazioni di autenticazione** ed eseguire i passaggi seguenti:
-   
+
     ![Screenshot che mostra il sito Zscaler One con i passaggi descritti.](./media/zscaler-three-tutorial/ic800206.png "Amministrazione")
 
     a. In Tipo di autenticazione scegliere **SAML**.
@@ -156,9 +156,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     b. Fare clic su **Configure SAML**.
 
 5. Nella finestra **Modifica SAML** eseguire i passaggi seguenti: e fare clic su Salva.  
-            
+
     ![Gestire utenti e autenticazione](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
-    
+
     a. Nella casella di testo **URL portale SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     b. Nella casella di testo **Attributo del nome di accesso** immettere **NameID**.
@@ -189,17 +189,17 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Avviare **Internet Explorer**.
 
 2. Selezionare **Opzioni Internet** dal menu **Strumenti** per aprire la finestra di dialogo **Opzioni Internet**.   
-    
+
      ![Opzioni Internet](./media/zscaler-three-tutorial/ic769492.png "Opzioni Internet")
 
 3. Fare clic sulla scheda **Connessioni** .   
-  
+
      ![Connessioni](./media/zscaler-three-tutorial/ic769493.png "Connessioni")
 
 4. Fare clic su **Impostazioni LAN** per aprire la finestra di dialogo **Impostazioni LAN**.
 
 5. Nella sezione del server proxy seguire questa procedura:   
-   
+
     ![Server proxy](./media/zscaler-three-tutorial/ic769494.png "Server proxy")
 
     a. Selezionare **Usa un server proxy per la LAN**.
