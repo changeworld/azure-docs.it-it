@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369124"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617324"
 ---
 # <a name="azure-custom-roles"></a>Ruoli personalizzati di Azure
 
@@ -208,6 +208,7 @@ Nell'elenco seguente vengono descritti i limiti per i ruoli personalizzati.
 - Ogni directory può avere un massimo di **5000** ruoli personalizzati.
 - Azure Germania e Azure Cina 21Vianet possono avere fino a 2000 ruoli personalizzati per ogni directory.
 - Non è possibile impostare `AssignableScopes` sull'ambito radice ( `"/"` ).
+- Non è possibile usare caratteri jolly ( `*` ) in `AssignableScopes` . Questa restrizione con caratteri jolly contribuisce a garantire che un utente non possa ottenere potenzialmente l'accesso a un ambito aggiornando la definizione del ruolo.
 - È possibile definire un solo gruppo di gestione in `AssignableScopes` di un ruolo personalizzato. L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima.
 - I ruoli personalizzati con `DataActions` non possono essere assegnati all'ambito del gruppo di gestione.
 - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione di ruolo.

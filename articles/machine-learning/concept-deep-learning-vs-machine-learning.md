@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562838"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617120"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprendimento avanzato e Machine Learning in Azure Machine Learning
 
@@ -57,9 +57,9 @@ Nella tabella seguente vengono confrontate le due tecniche in modo più dettagli
 |  **Tempo di esecuzione** | Richiede tempo relativamente breve per eseguire il training, che varia da pochi secondi ad alcune ore. | Il training richiede in genere molto tempo perché un algoritmo di apprendimento avanzato comporta molti livelli. |
 |  **Output** | L'output è in genere un valore numerico, ad esempio un punteggio o una classificazione. | L'output può avere più formati, ad esempio un testo, un punteggio o un suono. |
 
-## <a name="transfer-learning"></a>Apprendimento del trasferimento
+## <a name="transfer-learning"></a>Transfer Learning
 
-Il training di modelli di apprendimento avanzato spesso richiede grandi quantità di dati di training, risorse di calcolo di fascia alta (GPU, TPU) e tempi di training più lunghi. Negli scenari in cui non è disponibile alcuna di queste informazioni, è possibile eseguire il collegamento del processo di training usando una tecnica nota come apprendimento del trasferimento.
+Il training di modelli di apprendimento avanzato spesso richiede grandi quantità di dati di training, risorse di calcolo di fascia alta (GPU, TPU) e tempi di training più lunghi. Negli scenari in cui non è disponibile alcuna di queste informazioni, è possibile eseguire il collegamento del processo di training usando una tecnica nota come *apprendimento del trasferimento.*
 
 Il trasferimento dell'apprendimento è una tecnica che applica le informazioni ottenute dalla risoluzione di un problema a un problema diverso ma correlato.
 

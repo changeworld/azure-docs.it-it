@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f536e163e3d19d91c150506ab44fdd9cbc02c693
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907510"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617290"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>Copiare i BLOB tra gli account di archiviazione di Azure usando AzCopy V10
 
@@ -25,9 +25,11 @@ AzCopy usa le [API](/rest/api/storageservices/put-page-from-url) [da server a se
 
 Per scaricare AzCopy e ottenere informazioni sulle modalità in cui è possibile fornire le credenziali di autorizzazione al servizio di archiviazione, vedere [Introduzione a AzCopy](storage-use-azcopy-v10.md). 
 
-## <a name="guidelines"></a>Indicazioni
+## <a name="guidelines"></a>Linee guida
 
 Applicare le linee guida seguenti ai comandi di AzCopy. 
+
+- Il client deve avere accesso alla rete sia per gli account di archiviazione di origine che per quelli di destinazione. Per informazioni su come configurare le impostazioni di rete per ogni account di archiviazione, vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 - Aggiungere un token di firma di accesso condiviso a ogni URL di origine. 
 
@@ -120,7 +122,7 @@ Negli esempi seguenti viene illustrato come utilizzare l' `--blob-tags` opzione.
 
 |    |     |
 |--------|-----------|
-| **BLOB** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Blob** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
 | **Directory** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
 | **Contenitore** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
 | **Account** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
@@ -134,7 +136,7 @@ L'operazione di copia è sincrona, quindi se il comando restituisce il risultato
 
 È possibile modificare l'operazione di copia usando i flag facoltativi. Ecco alcuni esempi.
 
-|Scenario|Flag|
+|Scenario|Contrassegno|
 |---|---|
 |Copiare i BLOB come blocchi, pagine o BLOB di Accodamento.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
 |Copiare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
@@ -146,10 +148,10 @@ Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
 Per altri esempi, vedere questi articoli:
 
-- [Esempi: caricamento](storage-use-azcopy-blobs-upload.md)
-- [Esempi: download](storage-use-azcopy-blobs-download.md)
-- [Esempi: Synchronize](storage-use-azcopy-blobs-synchronize.md)
-- [Esempi: bucket di Amazon S3](storage-use-azcopy-s3.md)
+- [Esempi: Caricamento](storage-use-azcopy-blobs-upload.md)
+- [Esempi: Download](storage-use-azcopy-blobs-download.md)
+- [Esempi: Sincronizza](storage-use-azcopy-blobs-synchronize.md)
+- [Esempi: Bucket di Amazon S3](storage-use-azcopy-s3.md)
 - [Esempi: File di Azure](storage-use-azcopy-files.md)
 - [Eseguire la migrazione di dati locali in una risorsa di archiviazione cloud tramite AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)

@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491673"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617426"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
@@ -25,7 +25,13 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX), BIGINT, FLOAT o BIT (livello di compatibilità 1,2 o superiore). Per altre informazioni, vedere [tipi di dati di analisi di flusso di Azure](/stream-analytics-query/data-types-azure-stream-analytics).
+La chiave di partizione o il nome della colonna utilizzati per partizionare i dati di input può contenere qualsiasi carattere accettato per [i nomi di BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). Non è possibile usare i campi annidati come chiave di partizione, a meno che non vengano usati insieme agli alias, ma è possibile usare determinati caratteri per creare una gerarchia di file. Ad esempio, è possibile usare la query seguente per creare una colonna che combina i dati di altre due colonne per creare una chiave di partizione univoca.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+La chiave di partizione deve essere di tipo NVARCHAR (MAX), BIGINT, FLOAT o BIT (livello di compatibilità 1,2 o superiore). I tipi DateTime, array e record non sono supportati, ma possono essere usati come chiavi di partizione se vengono convertiti in stringhe. Per altre informazioni, vedere [tipi di dati di analisi di flusso di Azure](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Esempio
 

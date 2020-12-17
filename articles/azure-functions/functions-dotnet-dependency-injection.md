@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f87ed9b7455bed870cf25a6920cc6295811d94c8
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167696"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617069"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 
@@ -118,8 +118,8 @@ Questo esempio usa il pacchetto [Microsoft.Extensions.Http](https://www.nuget.or
 
 Le app di Funzioni di Azure offrono la stessa durata del servizio dell'[inserimento di dipendenze ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Per un'app per le funzioni, le diverse durate del servizio si comportano nel modo seguente:
 
-- **Temporanea**: I servizi temporanei vengono creati a ogni richiesta del servizio.
-- **Con ambito**: La durata del servizio con ambito corrisponde a una durata di esecuzione della funzione. I servizi con ambito vengono creati una volta per ogni esecuzione. Le richieste successive per un dato servizio durante l'esecuzione riutilizzeranno l'istanza del servizio esistente.
+- **Temporaneo**: i servizi temporanei vengono creati su ogni risoluzione del servizio.
+- **Con ambito**: La durata del servizio con ambito corrisponde a una durata di esecuzione della funzione. I servizi con ambito vengono creati una volta per ogni esecuzione della funzione. Le richieste successive per un dato servizio durante l'esecuzione riutilizzeranno l'istanza del servizio esistente.
 - **Singleton**: La durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di una funzione su tale istanza. I servizi con durata singleton sono consigliati per connessioni e client, ad esempio per le istanze `DocumentClient` o `HttpClient`.
 
 Visualizzare o scaricare un [esempio di diverse durate dei servizi](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) su GitHub.
@@ -181,6 +181,8 @@ Nel file di esempio seguente `host.json` viene aggiunto il filtro del log.
     }
 }
 ```
+
+Per altre informazioni sui livelli di registrazione, vedere [configurare i livelli di registrazione](configure-monitoring.md#configure-log-levels).
 
 ## <a name="function-app-provided-services"></a>Servizi forniti dall'app per le funzioni
 

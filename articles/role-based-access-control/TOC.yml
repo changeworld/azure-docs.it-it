@@ -82,7 +82,7 @@
           href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
-    - name: Creare o aggiornare i ruoli personalizzati
+    - name: Creare ruoli personalizzati
       items:
         - name: Panoramica
           href: custom-roles.md

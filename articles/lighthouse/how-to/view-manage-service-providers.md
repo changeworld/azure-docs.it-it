@@ -1,18 +1,18 @@
 ---
 title: Visualizzare e gestire i provider di servizi
 description: I clienti possono usare la pagina Provider di servizi nel portale di Azure per visualizzare informazioni sui provider di servizi, sulle offerte di provider di servizi e sulle risorse delegate.
-ms.date: 10/12/2020
+ms.date: 12/16/2020
 ms.topic: how-to
-ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5ee897503c997ab10fdb489f7921c9d2d001e472
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371104"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617205"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
-I clienti possono usare la pagina dei **provider di servizi** nella [portale di Azure](https://portal.azure.com) per visualizzare i dettagli relativi a provider di servizi e offerte di provider di servizi, delegare risorse specifiche al [Faro di Azure](../overview.md)e acquistare nuove offerte di provider di servizi.
+La pagina **provider di servizi** nella [portale di Azure](https://portal.azure.com) offre ai clienti il controllo e la visibilità per i provider di servizi che usano [Azure Lighthouse](../overview.md). I clienti possono visualizzare i dettagli sui provider di servizi, delegare risorse specifiche, acquistare nuove offerte di provider di servizi, rimuovere l'accesso ai provider di servizi e altro ancora.
 
 > [!TIP]
 > Sebbene si faccia riferimento ai provider di servizi e ai clienti, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per consolidare l'esperienza di gestione.
@@ -41,7 +41,7 @@ Nella colonna **Deleghe** il cliente visualizza quante sottoscrizioni e/o gruppi
 
 Un cliente può aggiungere una nuova offerta del provider di servizi dalla pagina delle **offerte del provider di servizi** selezionando **Aggiungi offerta**. Il provider di servizi deve avere pubblicato un'offerta per questo cliente. Il cliente può quindi selezionare tale offerta dalla schermata **Offerte private** e infine selezionare **Crea**.
 
-Se il cliente vuole rimuovere un'offerta di provider di servizi, può selezionare l'icona del cestino nella riga relativa all'offerta. Dopo la conferma dell'eliminazione, il provider di servizi non avrà più accesso alle risorse del cliente precedentemente delegate per l'offerta.
+Se il cliente vuole rimuovere un'offerta del provider di servizi, può farlo in qualsiasi momento selezionando l'icona del cestino nella riga relativa all'offerta. Dopo la conferma dell'eliminazione, il provider di servizi non avrà più accesso alle risorse del cliente precedentemente delegate per l'offerta.
 
 ## <a name="delegate-resources"></a>Delegare le risorse
 
@@ -85,4 +85,5 @@ Per altre informazioni su come assegnare un criterio e visualizzare i risultati 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su [Azure Lighthouse](../overview.md).
+- Informazioni su come [controllare l'attività del provider di servizi](view-service-provider-activity.md).
 - Informazioni su come i provider di servizi possono [visualizzare e gestire i clienti](view-manage-customers.md) nella pagina **clienti** del portale di Azure.

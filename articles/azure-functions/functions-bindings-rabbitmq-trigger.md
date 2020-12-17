@@ -4,15 +4,15 @@ description: Informazioni su come eseguire una funzione di Azure quando viene cr
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: e7095c08c385457bddf6d70d345c4f47073b4adb
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 26dee5200a60f4900ed20c2fd49a874552272776
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505728"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617222"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Panoramica del trigger RabbitMQ per funzioni di Azure
 
@@ -133,14 +133,12 @@ Un binding RabbitMQ viene definito in *function.jssu* dove *Type* è impostato s
             "name": "myQueueItem",
             "type": "rabbitMQTrigger",
             "direction": "in",
-            "queueName": "",
-            "connectionStringSetting": ""
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnection"
         }
     ]
 }
 ```
-
-Il codice in *_\_ init_ \_ . py* dichiara un parametro come `func.RabbitMQMessage` , che consente di leggere il messaggio nella funzione.
 
 ```python
 import logging
@@ -214,11 +212,11 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Il valore deve essere impostato su "in".|
 |**nome** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. |
 |**queueName**|**QueueName**| Nome della coda da cui ricevere i messaggi. |
-|**Nome host**|**HostName**|(facoltativo se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(facoltativo se si usa ConnectionStringSetting) <br>Nome per accedere alla coda |
-|**passwordSetting**|**PasswordSetting**|(facoltativo se si usa ConnectionStringSetting) <br>Password per accedere alla coda|
+|**Nome host**|**HostName**|(ignorato se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
+|**userNameSetting**|**UserNameSetting**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene il nome utente per accedere alla coda. Esempio: UserNameSetting: "% < UserNameFromSettings >%"|
+|**passwordSetting**|**PasswordSetting**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene la password per accedere alla coda. Esempio: PasswordSetting: "% < PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nome dell'impostazione dell'app che contiene la stringa di connessione della coda di messaggi RabbitMQ. Si noti che se si specifica la stringa di connessione direttamente e non tramite un'impostazione dell'app in local.settings.json, il trigger non funzionerà. (Ad esempio, in *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**Porta**|Ottiene o imposta la porta utilizzata. Il valore predefinito è 0.|
+|**port**|**Porta**|(ignorato se si usa ConnectionStringSetting) Ottiene o imposta la porta utilizzata. Il valore predefinito è 0.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -226,31 +224,29 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Per il messaggio sono disponibili i tipi di parametro seguenti:
+Il tipo di messaggio predefinito è l' [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e la `Body` proprietà dell'evento RabbitMQ può essere letta come i tipi elencati di seguito:
 
-* [Evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) : il formato predefinito per i messaggi RabbitMQ.
-  * `byte[]`-Tramite la proprietà' body ' dell'evento RabbitMQ.
-* `string` -Il messaggio è di testo.
 * `An object serializable as JSON` -Il messaggio viene recapitato come stringa JSON valida.
+* `string`
+* `byte[]`
 * `POCO` -Il messaggio viene formattato come oggetto C#. Per un esempio completo, vedere [esempio](#example)in C#.
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Per il messaggio sono disponibili i tipi di parametro seguenti:
+Il tipo di messaggio predefinito è l' [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e la `Body` proprietà dell'evento RabbitMQ può essere letta come i tipi elencati di seguito:
 
-* [Evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) : il formato predefinito per i messaggi RabbitMQ.
-  * `byte[]`-Tramite la proprietà' body ' dell'evento RabbitMQ.
-* `string` -Il messaggio è di testo.
 * `An object serializable as JSON` -Il messaggio viene recapitato come stringa JSON valida.
-* `POCO` -Il messaggio viene formattato come oggetto C#.
+* `string`
+* `byte[]`
+* `POCO` -Il messaggio viene formattato come oggetto C#. Per un esempio completo, vedere [esempio](#example)di script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Il messaggio RabbitMQ viene passato alla funzione come stringa o oggetto JSON.
+Il messaggio della coda è disponibile tramite Context. Bindings.<NAME> dove <NAME> corrisponde al nome definito in function.json. Se il payload è JSON, il valore viene deserializzato in un oggetto.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Il messaggio RabbitMQ viene passato alla funzione come stringa o oggetto JSON.
+Vedere l' [esempio](#example)di Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -284,14 +280,14 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 |prefetchCount|30|Ottiene o imposta il numero di messaggi che il ricevitore del messaggio può richiedere simultaneamente e viene memorizzato nella cache.|
 |queueName|n/d| Nome della coda da cui ricevere i messaggi. |
 |connectionString|n/d|Nome dell'impostazione dell'app che contiene la stringa di connessione della coda di messaggi RabbitMQ. Si noti che se si specifica la stringa di connessione direttamente e non tramite un'impostazione dell'app in local.settings.json, il trigger non funzionerà.|
-|port|0|Numero massimo di sessioni che possono essere gestite simultaneamente per istanza ridimensionata.|
+|port|0|(ignorato se si usa connectionString) Numero massimo di sessioni che possono essere gestite simultaneamente per istanza ridimensionata.|
 
 ## <a name="local-testing"></a>Test locale
 
 > [!NOTE]
 > ConnectionString ha la precedenza su "hostName", "userName" e "password". Se tutte le impostazioni sono impostate, connectionString sostituirà gli altri due.
 
-Se si esegue il test in locale senza una stringa di connessione, è necessario impostare l'impostazione "hostName" e "username" e "password", se applicabile nella sezione "rabbitMQ" di *host.jsin*:
+Se si esegue il test in locale senza una stringa di connessione, è necessario impostare l'impostazione "hostName" e "userName" e "password", se applicabile nella sezione "rabbitMQ" di *host.jsin*:
 
 ```json
 {
@@ -300,8 +296,8 @@ Se si esegue il test in locale senza una stringa di connessione, è necessario i
         "rabbitMQ": {
             ...
             "hostName": "localhost",
-            "username": "<your username>",
-            "password": "<your password>"
+            "username": "userNameSetting",
+            "password": "passwordSetting"
         }
     }
 }
@@ -309,9 +305,9 @@ Se si esegue il test in locale senza una stringa di connessione, è necessario i
 
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
-|hostName|n/d|(facoltativo se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
-|userName|n/d|(facoltativo se si usa ConnectionStringSetting) <br>Nome per accedere alla coda |
-|password|n/d|(facoltativo se si usa ConnectionStringSetting) <br>Password per accedere alla coda|
+|hostName|n/d|(ignorato se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
+|userName|n/d|(ignorato se si usa ConnectionStringSetting) <br>Nome per accedere alla coda |
+|password|n/d|(ignorato se si usa ConnectionStringSetting) <br>Password per accedere alla coda|
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>Monitoraggio dell'endpoint RabbitMQ
 Per monitorare le code e gli scambi per un determinato endpoint RabbitMQ:

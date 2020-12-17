@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 13bdf4b10ec586bf83a70434f003cc1573aca469
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 70b0f8178a94735a6ef37a225044984508cc2233
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950262"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617137"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup di SAP HANA di Azure a livello di file
 
@@ -28,7 +28,7 @@ Questo articolo è un articolo correlato alla [Guida al backup per SAP Hana in m
 
 Diversi tipi di VM in Azure consentono un numero diverso di dischi rigidi virtuali associati. I dettagli esatti sono documentati in [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md). Per i test a cui si fa riferimento in questa documentazione è stata usata una VM GS5 di Azure, che consente 64 dischi dati collegati. Per sistemi SAP HANA di grandi dimensioni, un numero significativo di dischi potrebbe essere già usato per i file di log e di dati, possibilmente in combinazione con striping di software per la velocità effettiva IO ottimale dei dischi. Per informazioni dettagliate sulle configurazioni del disco suggerite per SAP HANA le distribuzioni in macchine virtuali di Azure, vedere l'articolo [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md). Gli elementi consigliati includono le raccomandazioni di spazio su disco per i backup locali.
 
-Il metodo standard per gestire il backup e il ripristino a livello di file è attraverso un backup basato su file, usando SAP HANA Studio o le istruzioni SQL SAP HANA. Per ulteriori informazioni, leggere l'articolo [SAP Hana riferimento alle viste di sistema e SQL](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
+Il metodo standard per gestire il backup e il ripristino a livello di file è attraverso un backup basato su file, usando SAP HANA Studio o le istruzioni SQL SAP HANA. Per ulteriori informazioni, leggere l'articolo [SAP Hana riferimento alle viste di sistema e SQL](https://help.sap.com/viewer/4fe29514fd584807ac9f2a04f6754767/2.0.05/en-US/3859e48180bb4cf8a207e15cf25a7e57.html).
 
 ![Nella figura viene mostrata la finestra di dialogo della voce di menu del backup in SAP HANA Studio](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 

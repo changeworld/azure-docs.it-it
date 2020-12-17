@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 0c8e13449a66c5eba055c64e072db3140b0cdc1c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606879"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617052"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -144,8 +144,8 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 | Arabo (Egitto) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>Nuovo</sup> | Generale |
 | Arabo (Arabia Saudita) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | Generale |
 | Arabo (Arabia Saudita) | `ar-SA` | Male | `ar-SA-HamedNeural` <sup>Nuovo</sup> | Generale |
-| Bulgaro (Bulgaro) | `bg-BG` | Female | `bg-BG-KalinaNeural` | Generale |
-| Bulgaro (Bulgaro) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>Nuovo</sup> | Generale |
+| Bulgaro (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` | Generale |
+| Bulgaro (Bulgaria) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>Nuovo</sup> | Generale |
 | Catalano (Spagna) | `ca-ES` | Female | `ca-ES-AlbaNeural` | Generale |
 | Catalano (Spagna) | `ca-ES` | Female | `ca-ES-JoanaNeural` <sup>Nuovo</sup> | Generale |
 | Catalano (Spagna) | `ca-ES` | Male | `ca-ES-EnricNeural` <sup>Nuovo</sup> | Generale |

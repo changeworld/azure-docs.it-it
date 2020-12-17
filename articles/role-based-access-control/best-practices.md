@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595500"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617375"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedure consigliate per RBAC di Azure
 
@@ -24,7 +24,7 @@ Questo articolo descrive alcune procedure consigliate per l'uso del controllo de
 
 Usando il controllo degli accessi in base al ruolo di Azure, è possibile separare le mansioni all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il loro lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni in un particolare ambito.
 
-Quando si pianifica la strategia di controllo degli accessi, è consigliabile concedere agli utenti almeno il privilegio per completare la propria sessione di lavoro. Evitare di assegnare ruoli più ampi in ambiti più ampi anche se inizialmente sembra più pratico. Limitando i ruoli e gli ambiti, si limitano le risorse a rischio se l'entità di sicurezza non viene mai compromessa.
+Quando si pianifica la strategia di controllo degli accessi, è consigliabile concedere agli utenti almeno il privilegio per completare la propria sessione di lavoro. Evitare di assegnare ruoli più ampi in ambiti più ampi anche se inizialmente sembra più pratico. Quando si creano ruoli personalizzati, includere solo le autorizzazioni necessarie agli utenti. Limitando i ruoli e gli ambiti, si limitano le risorse a rischio se l'entità di sicurezza non viene mai compromessa.
 
 Il diagramma seguente illustra un modello consigliato per l'uso di RBAC di Azure.
 

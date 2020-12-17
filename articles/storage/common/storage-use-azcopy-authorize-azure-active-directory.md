@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360289"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617409"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizzare l'accesso ai BLOB con AzCopy e Azure Active Directory (Azure AD)
 
@@ -183,9 +183,9 @@ Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o
 > [!NOTE]
 > Prendere in considerazione l'uso di un prompt, come illustrato in questo esempio. In questo modo, la password non verrà visualizzata nella cronologia dei comandi della console. 
 
-## <a name="authorize-without-a-keyring-linux"></a>Autorizza senza un portachiavi (Linux)
+## <a name="authorize-without-a-secret-store"></a>Autorizza senza un archivio segreto
 
-Se il sistema operativo non dispone di un archivio segreto, ad esempio un *portachiavi*, il `azcopy login` comando non funzionerà. In alternativa, è possibile impostare le variabili di ambiente in memoria prima di eseguire ciascuna operazione. Questi valori scompaiono dalla memoria al termine dell'operazione, quindi è necessario impostare queste variabili ogni volta che si esegue un comando azcopy.
+Se il sistema operativo non dispone di un archivio segreto, ad esempio un *portachiavi* di Linux, il `azcopy login` comando non funzionerà. In alternativa, è possibile impostare le variabili di ambiente in memoria prima di eseguire ciascuna operazione. 
 
 ### <a name="authorize-a-user-identity"></a>Autorizzare un'identità utente
 

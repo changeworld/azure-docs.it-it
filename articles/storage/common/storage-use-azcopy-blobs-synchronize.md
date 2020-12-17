@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6d1e9e8eeddaaa2ce8c891888935faad12d40295
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907513"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617273"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Sincronizzare con archiviazione BLOB di Azure tramite AzCopy V10
 
@@ -35,7 +35,7 @@ Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scarica
 >
 > Se si preferisce usare un token di firma di accesso condiviso per autorizzare l'accesso ai dati BLOB, è possibile aggiungere tale token all'URL della risorsa in ogni comando AzCopy. Ad esempio: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'` . ken>''.
 
-## <a name="guidelines"></a>Indicazioni
+## <a name="guidelines"></a>Linee guida
 
 - Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di file e i timestamp dell'Ultima modifica. Impostare il `--delete-destination` flag facoltativo sul valore `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non sono più presenti nella directory di origine.
 
@@ -79,7 +79,7 @@ Il primo contenitore visualizzato in questo comando è l'origine. Il secondo è 
 | **Sintassi** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Esempio** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-## <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Aggiornare una directory con le modifiche apportate a una directory in un'altra condivisione file
+## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Aggiornare una directory con le modifiche apportate a una directory in un altro contenitore
 
 La prima directory visualizzata in questo comando è l'origine. Il secondo è la destinazione.
 
@@ -95,7 +95,7 @@ La prima directory visualizzata in questo comando è l'origine. Il secondo è la
 
 È possibile modificare l'operazione di sincronizzazione usando i flag facoltativi. Ecco alcuni esempi.
 
-|Scenario|Flag|
+|Scenario|Contrassegno|
 |---|---|
 |Consente di specificare il modo in cui devono essere convalidati gli hash MD5 durante il download.|**--Check-MD5** = \[ NOCHECK \| loginly \| FailIfDifferent \| FailIfDifferentOrMissing\]|
 |Escludere i file in base a un modello.|**--Exclude-Path**|
@@ -107,10 +107,10 @@ Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-sync.md#options).
 
 Per altri esempi, vedere questi articoli:
 
-- [Esempi: caricamento](storage-use-azcopy-blobs-upload.md)
-- [Esempi: download](storage-use-azcopy-blobs-download.md)
-- [Esempi: copia tra account](storage-use-azcopy-blobs-copy.md)
-- [Esempi: bucket di Amazon S3](storage-use-azcopy-s3.md)
+- [Esempi: Caricamento](storage-use-azcopy-blobs-upload.md)
+- [Esempi: Download](storage-use-azcopy-blobs-download.md)
+- [Esempi: Copiare tra account](storage-use-azcopy-blobs-copy.md)
+- [Esempi: Bucket di Amazon S3](storage-use-azcopy-s3.md)
 - [Esempi: File di Azure](storage-use-azcopy-files.md)
 - [Eseguire la migrazione di dati locali in una risorsa di archiviazione cloud tramite AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)

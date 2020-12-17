@@ -4,15 +4,15 @@ description: Informazioni su come inviare trigger e associazioni di Azure Rabbit
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: cd6c8de0d9290aab273e25403bb1cb2d8fe07e27
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 72c31d0eebc19a926805976ed637168a00fa9495
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505727"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617188"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Cenni preliminari sulle associazioni RabbitMQ per funzioni di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "97505727"
 
 Funzioni di Azure si integra con [RabbitMQ](https://www.rabbitmq.com/) tramite [trigger e associazioni](./functions-triggers-bindings.md). Le estensioni di binding RabbitMQ di funzioni di Azure consentono di inviare e ricevere messaggi usando l'API RabbitMQ con le funzioni.
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Esegui una funzione quando un messaggio RabbitMQ passa attraverso la coda | [Trigger](./functions-bindings-rabbitmq-trigger.md) |
 | Invia messaggi RabbitMQ |[Binding di output](./functions-bindings-rabbitmq-output.md) |
@@ -30,11 +30,11 @@ Funzioni di Azure si integra con [RabbitMQ](https://www.rabbitmq.com/) tramite [
 
 Per iniziare a sviluppare con questa estensione, assicurarsi di [configurare prima un endpoint RabbitMQ](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). Per altre informazioni su RabbitMQ, vedere la [pagina](https://www.rabbitmq.com/getstarted.html)introduttiva.
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
+### <a name="functions-3x-and-higher"></a>Funzioni 3. x e versioni successive
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Commenti 
+| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 4. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure] è consigliata per l'uso con Visual Studio Code. |
@@ -46,9 +46,9 @@ Per utilizzare il trigger e le associazioni è necessario fare riferimento al pa
 [Aggiornare le estensioni]: ./functions-bindings-register.md
 [Estensione degli strumenti di Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
-### <a name="functions-1x"></a>Funzioni 1.x
+### <a name="functions-1x-and-2x"></a>Funzioni 1. x e 2. x
 
-Le estensioni di binding RabbitMQ non sono supportate per le funzioni 1. x. Usare le funzioni 2. x e versioni successive.
+Le estensioni di binding RabbitMQ non sono supportate per le funzioni 1. x e 2. x. Usare le funzioni 3. x e versioni successive.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

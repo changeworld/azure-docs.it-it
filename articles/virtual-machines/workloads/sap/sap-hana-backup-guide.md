@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950024"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617103"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
 
@@ -103,7 +103,7 @@ Informazioni sulla verifica della coerenza della tabella sono reperibili anche n
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Vantaggi e svantaggi dei backup di HANA rispetto agli snapshot di archiviazione
 
-SAP non esprime preferenze tra l'esecuzione del backup di HANA e lo snapshot di archiviazione. SAP elenca vantaggi e svantaggi, in modo che l'utente possa determinare quale usare a seconda della situazione e della tecnologia di archiviazione disponibile. Vedere [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) (Pianificazione del backup e strategia di ripristino).
+SAP non esprime preferenze tra l'esecuzione del backup di HANA e lo snapshot di archiviazione. SAP elenca vantaggi e svantaggi, in modo che l'utente possa determinare quale usare a seconda della situazione e della tecnologia di archiviazione disponibile. Vedere [Planning Your Backup and Recovery Strategy](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html) (Pianificazione del backup e strategia di ripristino).
 
 In Azure, tenere presente che la&#39;funzionalità di snapshot dei BLOB di Azure non fornisce file system coerenza tra più dischi (vedere [uso di snapshot BLOB con PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 
