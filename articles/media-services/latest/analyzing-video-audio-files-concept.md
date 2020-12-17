@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: f4784cc2e1b0276caf8326df8fad93b12f0d551d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 61f5a470046ba3ddca157e83737a29ed936a0c3a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490075"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656326"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -88,7 +88,7 @@ L'output include un file JSON (insights.json) con tutte le informazioni dettagli
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
-|text|Testo della trascrizione.|
+|testo|Testo della trascrizione.|
 |Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
@@ -126,7 +126,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|text|Testo risultante dal riconoscimento ottico dei caratteri.|
+|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
@@ -257,7 +257,7 @@ Esempio:
       ],
       "instances": [
         {
-      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "thumbnailId": "00000000-0000-0000-0000-000000000000",
           "start": "00: 00: 05.2670000",
           "end": "00: 00: 10.3000000"
         }
@@ -377,7 +377,7 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 |Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|text|Testo della parola chiave.|
+|testo|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
 |Linguaggio|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007002"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656615"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurare gli avvisi per gli eventi del log delle risorse dal gateway VPN
 
@@ -21,7 +21,7 @@ Questo articolo consente di configurare gli avvisi in base agli eventi del log d
 In Azure sono disponibili i log delle risorse seguenti:
 
 |***Nome** _ | _*_Descrizione_*_ |
-|---        | ---               |
+|--- | --- |
 |GatewayDiagnosticLog | Contiene i log delle risorse per eventi di configurazione del gateway, modifiche primarie ed eventi di manutenzione |
 |TunnelDiagnosticLog | Contiene gli eventi di modifica dello stato del tunnel. Gli eventi di connessione/disconnessione del tunnel hanno un motivo riepilogativo per la modifica dello stato, se applicabile |
 |RouteDiagnosticLog | Registra le modifiche alle route statiche e agli eventi BGP che si verificano nel gateway |

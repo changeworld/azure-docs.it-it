@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ee5b6784885476c93a93f05c9225dfd11c53a9a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: db99fbdea38dd30401a8aeedb7ebc23c71c5236c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584579"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655187"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico del provider di identità SAML in un Azure Active Directory B2C criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider di identità SAML 2,0. Questo articolo descrive le specifiche di un profilo tecnico per l'interazione con un provider di attestazioni che supporta questo protocollo standardizzato. Con un profilo tecnico SAML è possibile attuare la federazione con un provider di identità basato su SAML, ad esempio [AD FS](identity-provider-adfs2016-custom.md) e [Salesforce](identity-provider-salesforce.md). Questa federazione consente agli utenti di accedere con le proprie identità aziendali o di social network.
+Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider di identità SAML 2,0. Questo articolo descrive le specifiche di un profilo tecnico per l'interazione con un provider di attestazioni che supporta questo protocollo standardizzato. Con un profilo tecnico SAML è possibile attuare la federazione con un provider di identità basato su SAML, ad esempio [AD FS](identity-provider-adfs2016-custom.md) e [Salesforce](identity-provider-salesforce-saml.md). Questa federazione consente agli utenti di accedere con le proprie identità aziendali o di social network.
 
 ## <a name="metadata-exchange"></a>Scambio di metadati
 
@@ -217,4 +217,4 @@ Esempio:
 Per esempi relativi all'uso dei provider di identità SAML in Azure AD B2C, vedere gli articoli seguenti:
 
 - [Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati](identity-provider-adfs.md)
-- [Eseguire l'accesso con account Salesforce tramite SAML](identity-provider-salesforce.md)
+- [Eseguire l'accesso con account Salesforce tramite SAML](identity-provider-salesforce-saml.md)

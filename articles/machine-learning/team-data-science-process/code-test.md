@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020603"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656836"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test di codice di data science su Azure con il processo di data science per i team e Azure DevOps Services
 Questo articolo include le linee guida preliminari per il test del codice in un flusso di lavoro di data science. Il test offre ai data scientist un metodo sistematico ed efficiente per il controllo della qualità e del risultato previsto del codice. Viene usato un [progetto TDSP (Team Data Science Process) che usa il set di dati sul reddito degli adulti UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) pubblicato in precedenza per illustrare la modalità di esecuzione del test del codice. 

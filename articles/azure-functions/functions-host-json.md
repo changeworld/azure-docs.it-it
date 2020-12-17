@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746081"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654813"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -129,7 +129,8 @@ Nell'esempio seguente *host.jssu* file per la versione 2. x + sono state specifi
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -444,6 +445,16 @@ Un set di [directory codice condivise](functions-reference-csharp.md#watched-dir
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="watchfiles"></a>watchFiles
+
+Matrice di uno o più nomi di file monitorati per le modifiche che richiedono il riavvio dell'app.  Ciò garantisce che, quando viene modificato il codice in questi file, gli aggiornamenti vengono prelevati dalle funzioni.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

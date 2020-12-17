@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 68d2ed0d6702a42f44e502f2f7d3a91c0221ff6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 795b6f13913590041b463115c0be65a6201fedab
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440944"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654065"
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
 
@@ -61,9 +61,9 @@ A livello generale, è necessario eseguire i passaggi seguenti per configurare l
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticazione con server di dominio Active Directory (AD)
 
 L'autenticazione con un dominio di AD consente agli utenti di connettersi ad Azure usando le credenziali di dominio dell'organizzazione. Richiede un server RADIUS che si integra con il server AD. Le organizzazioni possono anche sfruttare la distribuzione RADIUS esistente.
-  
-Il server RADIUS può essere distribuito in locale o nella VNet di Azure. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS si trova in locale, per la raggiungibilità è necessaria una connessione VPN da sito a sito da Azure al sito locale.  
-  
+  
+Il server RADIUS può essere distribuito in locale o nella VNet di Azure. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS si trova in locale, per la raggiungibilità è necessaria una connessione VPN da sito a sito da Azure al sito locale.  
+  
 È anche possibile integrare il server RADIUS con Servizi certificati AD. Ciò consente di usare il server RADIUS e la distribuzione di certificati dell'organizzazione per l'autenticazione del certificato da punto a sito in alternativa all'autenticazione del certificato di Azure. Il vantaggio è che non è necessario caricare i certificati radice e i certificati revocati in Azure.
 
 Un server RADIUS può anche integrarsi con altri sistemi di identità esterni, offrendo così molte opzioni di autenticazione per le VPN da punto a sito, incluse le opzioni a più fattori.
@@ -102,41 +102,41 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 
 **IKEv2**
 
-|**Crittografia** | **Integrità** | **PRF** | **Gruppo DH** |
-|---        | ---           | ---       | ---   |
-|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
-|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
-|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP384 |
-|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP256 |
-|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_24 |
-|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_14 |
-|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP384 |
-|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP256 |
-|AES256     |   SHA384      | SHA384    | GROUP_24 |
-|AES256     |   SHA384      | SHA384    | GROUP_14 |
-|AES256     |   SHA384      | SHA384    | GROUP_ECP384 |
-|AES256     |   SHA384      | SHA384    | GROUP_ECP256 |
-|AES256     |   SHA256      | SHA256    | GROUP_24 |
-|AES256     |   SHA256      | SHA256    | GROUP_14 |
-|AES256     |   SHA256      | SHA256    | GROUP_ECP384 |
-|AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
-|AES256     |   SHA256      | SHA256    | GROUP_2 |
+| **Crittografia** | **Integrità** | **PRF** | **Gruppo DH** |
+|--|--|--|--|
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA384 | GROUP_ECP256 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA384 | SHA384 | GROUP_24 |
+| AES256 | SHA384 | SHA384 | GROUP_14 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP384 |
+| AES256 | SHA384 | SHA384 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA256 | SHA256 | GROUP_2 |
 
 **IPsec**
 
-|**Crittografia** | **Integrità** | **Gruppo PFS** |
-|---        | ---           | ---       |
-|GCM_AES256 | GCM_AES256 | GROUP_NONE |
-|GCM_AES256 | GCM_AES256 | GROUP_24 |
-|GCM_AES256 | GCM_AES256 | GROUP_14 |
-|GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
-|GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
-| AES256    | SHA256 | GROUP_NONE |
-| AES256    | SHA256 | GROUP_24 |
-| AES256    | SHA256 | GROUP_14 |
-| AES256    | SHA256 | GROUP_ECP384 |
-| AES256    | SHA256 | GROUP_ECP256 |
-| AES256    | SHA1 | GROUP_NONE |
+| **Crittografia** | **Integrità** | **Gruppo PFS** |
+|--|--|--|
+| GCM_AES256 | GCM_AES256 | GROUP_NONE |
+| GCM_AES256 | GCM_AES256 | GROUP_24 |
+| GCM_AES256 | GCM_AES256 | GROUP_14 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+| GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256 | SHA256 | GROUP_NONE |
+| AES256 | SHA256 | GROUP_24 |
+| AES256 | SHA256 | GROUP_14 |
+| AES256 | SHA256 | GROUP_ECP384 |
+| AES256 | SHA256 | GROUP_ECP256 |
+| AES256 | SHA1 | GROUP_NONE |
 
 ## <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>Quali criteri TLS sono configurati nei gateway VPN per P2S?
 **TLS**

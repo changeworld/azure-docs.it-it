@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 24ffce1528aa5c82fec9666fa0cb7b8717107f54
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368010"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652263"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -20,7 +20,7 @@ Per il funzionamento della replica di Site Recovery, è necessaria la connettivi
 
 | **Nome**                  | **Commerciale**                               | **Enti pubblici**                                 | **Descrizione** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net` . |
+| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net` . |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery. |
 | Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare l' _IP Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
 | Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. È possibile usare l' _indirizzo IP di monitoraggio Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
@@ -41,7 +41,7 @@ Per verificare se la macchina virtuale usa un'impostazione DNS personalizzata:
 
 1. Aprire **macchine virtuali** e selezionare la macchina virtuale.
 1. Passare alle **Impostazioni** della macchina virtuale e selezionare **rete**.
-1. In **rete virtuale/subnet**selezionare il collegamento per aprire la pagina delle risorse della rete virtuale.
+1. In **rete virtuale/subnet** selezionare il collegamento per aprire la pagina delle risorse della rete virtuale.
 1. Passare a **Impostazioni** e selezionare **server DNS**.
 
 Provare ad accedere al server DNS dalla macchina virtuale. Se il server DNS non è accessibile, renderlo accessibile eseguendo il failover del server DNS o creando la riga di sito tra la rete di ripristino di emergenza e il DNS.
@@ -74,11 +74,14 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 1. Creare una regola di sicurezza HTTPS in uscita per NSG, come illustrato nello screenshot seguente. Questo esempio usa il **tag del servizio di destinazione**: _storage. eastus_ e gli **intervalli di porte di destinazione**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Errore COM":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Screenshot mostra un riquadro Aggiungi regola di sicurezza in uscita per una regola di sicurezza per l'archiviazione punto est U S.":::
 
 1. Creare una regola di sicurezza HTTPS in uscita per NSG, come illustrato nello screenshot seguente. Questo esempio usa il **tag del servizio di destinazione**: _AzureActiveDirectory_ e gli intervalli di **porte di destinazione**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Errore COM" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Screenshot mostra un riquadro Aggiungi regola di sicurezza in uscita per una regola di sicurezza per Azure Active Directory.":::
+
+1. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponda al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
+1. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
 
 #### <a name="nsg-rules---central-us"></a>Regole NSG - Stati Uniti centrali
 
@@ -105,7 +108,7 @@ Non è possibile stabilire una connessione per Azure Site Recovery endpoint di s
 
 #### <a name="resolution"></a>Soluzione
 
-Se si usa un proxy del firewall/regola del gruppo di sicurezza di rete (NSG) di Azure per controllare la connettività di rete in uscita nel computer, è necessario consentire diversi tag di servizio. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
+Se si usa un proxy del firewall/regola del gruppo di sicurezza di rete (NSG) di Azure per controllare la connettività di rete in uscita nel computer, è necessario consentire diversi tag di servizio. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: la replica da Azure ad Azure non è riuscita quando il traffico di rete passa attraverso il server proxy locale (151072)
 

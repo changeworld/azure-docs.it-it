@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518244"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653283"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -140,8 +140,8 @@ Per assicurarsi che le dimensioni dei token non superino i limiti delle dimensio
        }
      }
   ...
- }
- ```
+}
+```
 
 È possibile usare `BulkCreateGroups.ps1` disponibile nella cartella di [script di creazione di app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) per testare gli scenari di eccedenza.
 
@@ -186,7 +186,7 @@ Non tutte le app devono convalidare i token. Solo in scenari specifici le app de
 
 Se nessuno degli scenari precedenti si applica, l'applicazione non trarrà vantaggio dalla convalida del token e può presentare un rischio di sicurezza e affidabilità se le decisioni vengono prese in base alla validità del token.  I client pubblici come app native o Spa non traggono vantaggio dalla convalida dei token. l'app comunica direttamente con l'IDP, quindi la protezione SSL garantisce che i token siano validi.
 
- Le API e le app Web devono convalidare solo i token che dispongono di un' `aud` attestazione corrispondente all'applicazione; altre risorse possono avere regole di convalida dei token personalizzate. Ad esempio, i token per Microsoft Graph non verranno convalidati in base a queste regole a causa del formato proprietario. La convalida e l'accettazione di token destinati a un'altra risorsa è un esempio del problema del [Vice confuso](https://cwe.mitre.org/data/definitions/441.html) .
+Le API e le app Web devono convalidare solo i token che dispongono di un' `aud` attestazione corrispondente all'applicazione; altre risorse possono avere regole di convalida dei token personalizzate. Ad esempio, i token per Microsoft Graph non verranno convalidati in base a queste regole a causa del formato proprietario. La convalida e l'accettazione di token destinati a un'altra risorsa è un esempio del problema del [Vice confuso](https://cwe.mitre.org/data/definitions/441.html) .
 
 Se l'applicazione deve convalidare un id_token o un access_token in base a quanto indicato in precedenza, l'app deve prima convalidare la firma del token e l'autorità emittente rispetto ai valori nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova all'indirizzo [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
@@ -288,7 +288,7 @@ Un account di accesso *non basato su password* è quello in cui l'utente non ha 
 
 - Uso del viso con Windows Hello
 - Chiave di FIDO2
-- sms
+- SMS
 - Chiamata vocale
 - PIN
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3f28c50be73b2b87ed8b25429cfa2dee9a663f1b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e1f8a099256040e14db1cdab288551a228512cd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452177"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655374"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -186,8 +186,8 @@ Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli
 | --- | --- | --- | --- |
 | Team responsabile della sicurezza | [Collaboratore di Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificati: tutte le operazioni <br> Chiavi: tutte le operazioni <br> Segreti: tutte le operazioni | [Amministratore Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
 | Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno | nessuno |
-| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Lettore Key Vault (anteprima)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Account di archiviazione di Azure | Nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | [Crittografia del servizio di crittografia Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
+| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Lettore di Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
+| Account di archiviazione di Azure | nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | [Utente crittografia servizio Key Vault Crypto](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
 | Applicazione | nessuno | Segreti: Get, List <br> Certificati: Get, List | [Lettore di Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [utente segreto Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità app Web del servizio app Azure), gli sviluppatori e gli operatori necessitano dell'accesso deploy. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.

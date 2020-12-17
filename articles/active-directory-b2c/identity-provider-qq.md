@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d4d4ae72594532056c0e09a78898abb68ebc1dcf
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: b497176deff896e785387f4b64a8e66ff4d6d58e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584766"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654320"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account QQ tramite Azure Active Directory B2C
 
@@ -25,11 +25,9 @@ ms.locfileid: "97584766"
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-::: zone pivot="b2c-custom-policy"
+## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-a-qq-application"></a>Creare un'applicazione QQ
 
@@ -66,7 +64,7 @@ Per usare un account QQ come provider di identità in Azure Active Directory B2C
 1. Immettere un **Nome**. Ad esempio, *QQ*.
 1. Per **ID client** immettere l'ID app dell'applicazione QQ creata in precedenza.
 1. Per il **segreto client**, immettere la chiave dell'app registrata.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 ::: zone-end
 
@@ -193,7 +191,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
 1. Fare clic sul flusso utente che si vuole usare per il provider di identità QQ.
 1. In provider di identità basati su **Social Network** selezionare **QQ**.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**

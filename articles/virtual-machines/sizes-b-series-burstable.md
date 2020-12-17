@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5ba5c6799db6a32bce64a730f4888f59080300dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928818"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657176"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -112,7 +112,7 @@ Per altre informazioni su come accedere ai dati delle metriche per Azure, vedere
 
 **Esempio**: Si distribuisce una VM usando le dimensioni B1ms per una piccola applicazione di database relativa a orari e presenze. Queste dimensioni consentono all'applicazione di usare fino al 20% di una vCPU come baseline, che corrisponde a 0,2 crediti al minuto che si possono usare o accumulare.
 
-L'applicazione è occupata all'inizio o alla fine della giornata lavorativa dei dipendenti, tra le 7:00-9:00 e le 16:00-18:00. Durante le altre 20 ore della giornata l'applicazione è solitamente inattiva e usa solo il 10% della vCPU. Per gli orari non di picco, si accumulano 0,2 crediti al minuto ma si usano solo 0,0 l crediti al minuto, pertanto la VM accumulerà 0,1 x 60 = 6 crediti all'ora.  Per le 20 ore non di picco, si accumuleranno 120 crediti.  
+L'applicazione è occupata all'inizio o alla fine della giornata lavorativa dei dipendenti, tra le 7:00-9:00 e le 16:00-18:00. Durante le altre 20 ore della giornata l'applicazione è solitamente inattiva e usa solo il 10% della vCPU. Per le ore non di punta, si ottengono 0,2 crediti al minuto, ma si utilizzano solo 0,1 crediti al minuto, quindi la macchina virtuale sarà in banca 0,1 x 60 = 6 crediti all'ora.  Per le 20 ore non di picco, si accumuleranno 120 crediti.  
 
 Durante le ore di picco l'applicazione utilizza in media il 60% della vCPU, pertanto si accumulano comunque 0,2 crediti al minuto ma si usano 0,6 crediti al minuto, per un costo netto di 0,4 crediti un minuto o 0,4 x 60 = 24 crediti all'ora. Ogni giorno presenta 4 ore di picco di utilizzo, quindi il costo del picco di utilizzo è pari a 4 x 24 = 96 crediti.
 

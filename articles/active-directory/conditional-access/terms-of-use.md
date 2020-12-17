@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509989"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653725"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -238,8 +238,8 @@ Gli utenti possono esaminare e visualizzare le condizioni per l'utilizzo accetta
 2.  Selezionare le condizioni per l'utilizzo che si desidera modificare.
 3.  Fare clic su **Modifica le condizioni**.
 4.  Per la lingua che si desidera aggiornare una nuova versione, fare clic su **Aggiorna** nella colonna azione
- 
-     ![Modificare il riquadro Condizioni per l'utilizzo mostrando le opzioni nome ed Espandi](./media/terms-of-use/edit-terms-use.png)
+
+    ![Modificare il riquadro Condizioni per l'utilizzo mostrando le opzioni nome ed Espandi](./media/terms-of-use/edit-terms-use.png)
 
 5.  Nel riquadro a destra caricare il file PDF per la nuova versione
 6.  Qui è disponibile anche un'opzione di attivazione/disconnessione **, se si desidera richiedere agli** utenti di accettare la nuova versione al successivo accesso. Se è necessario che gli utenti riaccettino, la volta successiva che tentano di accedere alla risorsa definita nei criteri di accesso condizionale verrà richiesto di accettare la nuova versione. Se non è necessario che gli utenti riaccettino, il consenso precedente resterà aggiornato e solo i nuovi utenti che non hanno acconsentito prima o il cui consenso scade vedranno la nuova versione.

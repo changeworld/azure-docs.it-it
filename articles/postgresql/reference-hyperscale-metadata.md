@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74403365fe48584fa5d1db0e349c9dfc3772d874
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320456"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652854"
 ---
 # <a name="system-tables-and-views"></a>Tabelle e viste di sistema
 
@@ -33,12 +33,12 @@ In questa sezione vengono descritte tutte le tabelle di metadati e il relativo s
 
 La \_ tabella di partizione PG dist archivia i \_ metadati relativi alle tabelle del database distribuite. Per ogni tabella distribuita vengono inoltre archiviate informazioni sul metodo di distribuzione e informazioni dettagliate sulla colonna di distribuzione.
 
-| Nome         | Type     | Descrizione                                                                                                                                                                                                                                           |
+| Nome         | Tipo     | Descrizione                                                                                                                                                                                                                                           |
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid | regclass | Tabella distribuita a cui corrisponde questa riga. Questo valore fa riferimento alla colonna relfilenode nella tabella pg_class catalogo di sistema.                                                                                                                   |
 | partmethod   | char     | Metodo utilizzato per il partizionamento/distribuzione. I valori di questa colonna corrispondenti a metodi di distribuzione diversi sono Append:' a', hash:' h ', tabella di riferimento:' n'                                                                          |
-| partkey      | text     | Informazioni dettagliate sulla colonna di distribuzione, inclusi il numero di colonna, il tipo e altre informazioni rilevanti.                                                                                                                                      |
-| colocationid | numero intero  | Gruppo di condivisione percorso a cui appartiene la tabella. Le tabelle nello stesso gruppo consentono i join con condivisione percorso e i rollup distribuiti tra le altre ottimizzazioni. Questo valore fa riferimento alla colonna colocationid nella tabella pg_dist_colocation.                      |
+| partkey      | testo     | Informazioni dettagliate sulla colonna di distribuzione, inclusi il numero di colonna, il tipo e altre informazioni rilevanti.                                                                                                                                      |
+| colocationid | integer  | Gruppo di condivisione percorso a cui appartiene la tabella. Le tabelle nello stesso gruppo consentono i join con condivisione percorso e i rollup distribuiti tra le altre ottimizzazioni. Questo valore fa riferimento alla colonna colocationid nella tabella pg_dist_colocation.                      |
 | repmodel     | char     | Metodo utilizzato per la replica dei dati. I valori di questa colonna corrispondenti a metodi di replica diversi sono: replica basata su istruzioni CITUS:' c', replica di streaming PostgreSQL:' s', commit a due fasi (per le tabelle di riferimento):' t' |
 
 ```
@@ -54,13 +54,13 @@ SELECT * from pg_dist_partition;
 La \_ \_ tabella di partizione PG dist archivia i metadati relativi alle singole partizioni di una tabella. Pg_dist_shard contiene informazioni sulle partizioni della tabella distribuita che appartengono a e statistiche sulla colonna di distribuzione per le partizioni.
 Per le tabelle di Accodamento distribuite, queste statistiche corrispondono ai valori min/max della colonna di distribuzione. Per le tabelle con distribuzione hash, si tratta di intervalli di token hash assegnati a tale partizione. Queste statistiche vengono usate per eliminare le partizioni non correlate durante le query SELECT.
 
-| Nome          | Type     | Descrizione                                                                                                                                                                                  |
+| Nome          | Tipo     | Descrizione                                                                                                                                                                                  |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid  | regclass | Tabella distribuita a cui corrisponde questa riga. Questo valore fa riferimento alla colonna relfilenode nella tabella pg_class catalogo di sistema.                                                          |
 | shardid       | bigint   | Identificatore univoco globale assegnato a questa partizione.                                                                                                                                           |
 | shardstorage  | char     | Tipo di archiviazione usato per questa partizione. Nella tabella seguente sono illustrati diversi tipi di archiviazione.                                                                                               |
-| shardminvalue | text     | Per accodare tabelle distribuite, valore minimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, valore del token hash minimo assegnato a tale partizione (inclusivo). |
-| shardmaxvalue | text     | Per accodare tabelle distribuite, valore massimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, il valore massimo del token hash assegnato a tale partizione (inclusi). |
+| shardminvalue | testo     | Per accodare tabelle distribuite, valore minimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, valore del token hash minimo assegnato a tale partizione (inclusivo). |
+| shardmaxvalue | testo     | Per accodare tabelle distribuite, valore massimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, il valore massimo del token hash assegnato a tale partizione (inclusi). |
 
 ```
 SELECT * from pg_dist_shard;
@@ -87,7 +87,7 @@ La colonna shardstorage nella \_ partizione PG dist \_ indica il tipo di archivi
 
 La \_ \_ tabella di selezione host PG rileva il percorso delle repliche di partizione nei nodi di lavoro. Ogni replica di una partizione assegnata a un nodo specifico è detta posizionamento della partizione. In questa tabella vengono archiviate informazioni sull'integrità e sulla posizione di ogni posizione di partizionamento.
 
-| Nome        | Type   | Descrizione                                                                                                                               |
+| Nome        | Tipo   | Descrizione                                                                                                                               |
 |-------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | shardid     | bigint | Identificatore di partizione associato a questo posizionamento. Questo valore fa riferimento alla colonna shardid nella tabella pg_dist_shard catalogo.             |
 | shardstate  | INT    | Descrive lo stato di questo posizionamento. Nella sezione seguente sono descritti diversi Stati di partizionamento.                                         |
@@ -122,17 +122,17 @@ Iperscale (CITUS) gestisce l'integrità delle partizioni in base alla selezione 
 
 La \_ tabella del nodo Dist di PG \_ contiene informazioni sui nodi di lavoro nel cluster.
 
-| Nome             | Type    | Descrizione                                                                                                                                                                                |
+| Nome             | Tipo    | Descrizione                                                                                                                                                                                |
 |------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NodeId           | INT     | Identificatore generato automaticamente per un singolo nodo.                                                                                                                                          |
 | groupid          | INT     | Identificatore utilizzato per indicare un gruppo di un server primario e zero o più server secondari, quando viene utilizzato il modello di replica di flusso. Per impostazione predefinita, è uguale a NodeId.         |
-| nodeName         | text    | Nome host o indirizzo IP del nodo del ruolo di lavoro PostgreSQL.                                                                                                                                     |
+| nodeName         | testo    | Nome host o indirizzo IP del nodo del ruolo di lavoro PostgreSQL.                                                                                                                                     |
 | Deport         | INT     | Numero di porta su cui è in ascolto il nodo del ruolo di lavoro PostgreSQL.                                                                                                                              |
-| noderack         | text    | Opzionale Informazioni sulla posizione del rack per il nodo di lavoro.                                                                                                                                 |
+| noderack         | testo    | Opzionale Informazioni sulla posizione del rack per il nodo di lavoro.                                                                                                                                 |
 | HasMetadata      | boolean | Riservato per utilizzo interno.                                                                                                                                                                 |
 | IsActive         | boolean | Indica se il nodo è attivo accettando posizionamenti di partizionamento.                                                                                                                                     |
-| noderole         | text    | Indica se il nodo è primario o secondario                                                                                                                                                 |
-| nodecluster      | text    | Nome del cluster che contiene questo nodo                                                                                                                                               |
+| noderole         | testo    | Indica se il nodo è primario o secondario                                                                                                                                                 |
+| nodecluster      | testo    | Nome del cluster che contiene questo nodo                                                                                                                                               |
 | shouldhaveshards | boolean | Se false, le partizioni verranno spostate al di fuori del nodo (svuotato) durante il ribilanciamento, né verranno posizionate partizioni dalle nuove tabelle distribuite nel nodo, a meno che non siano condivise con le partizioni già presenti |
 
 ```
@@ -149,16 +149,16 @@ SELECT * from pg_dist_node;
 
 La \_ \_ tabella di oggetti dist CITUS.PG contiene un elenco di oggetti, ad esempio tipi e funzioni che sono stati creati nel nodo coordinatore e propagati ai nodi di lavoro. Quando un amministratore aggiunge nuovi nodi del ruolo di lavoro al cluster, iperscale (CITUS) crea automaticamente copie degli oggetti distribuiti nei nuovi nodi, nell'ordine corretto per soddisfare le dipendenze degli oggetti.
 
-| Nome                        | Type    | Descrizione                                          |
+| Nome                        | Tipo    | Descrizione                                          |
 |-----------------------------|---------|------------------------------------------------------|
 | ClassID                     | oid     | Classe dell'oggetto distribuito                      |
 | objid                       | oid     | ID oggetto dell'oggetto distribuito                  |
-| objsubid                    | numero intero | ID secondario dell'oggetto distribuito, ad esempio attnum |
-| type                        | text    | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
+| objsubid                    | integer | ID secondario dell'oggetto distribuito, ad esempio attnum |
+| type                        | testo    | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
 | object_names                | testo []  | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
 | object_args                 | testo []  | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
-| distribution_argument_index | numero intero | Valido solo per funzioni/procedure distribuite      |
-| colocationid                | numero intero | Valido solo per funzioni/procedure distribuite      |
+| distribution_argument_index | integer | Valido solo per funzioni/procedure distribuite      |
+| colocationid                | integer | Valido solo per funzioni/procedure distribuite      |
 
 \"Gli indirizzi stabili \" identificano in modo univoco gli oggetti indipendentemente da un server specifico. Iperscale (CITUS) tiene traccia degli oggetti durante un aggiornamento di PostgreSQL usando indirizzi stabili creati con la funzione [PG \_ identifica \_ oggetto \_ As \_ Address ()](https://www.postgresql.org/docs/current/functions-info.html#FUNCTIONS-INFO-OBJECT-TABLE) .
 
@@ -208,11 +208,11 @@ colocationid                |
 
 ### <a name="colocation-group-table"></a>Tabella del gruppo di condivisione percorso
 
-La \_ tabella PG dist \_ Colocation contiene informazioni sulle tabelle che \' devono essere inserite insieme o condivise. [colocated](concepts-hyperscale-colocation.md)
+La \_ tabella PG dist \_ Colocation contiene informazioni sulle tabelle che \' devono essere inserite insieme o condivise. [](concepts-hyperscale-colocation.md)
 Quando due tabelle si trovano nello stesso gruppo di condivisione percorso, l'iperscalabilità (CITUS) garantisce che le partizioni con gli stessi valori di partizione vengano inserite negli stessi nodi di lavoro.
 La condivisione percorso consente le ottimizzazioni del join, alcuni rollup distribuiti e il supporto della chiave esterna. La condivisione del percorso di partizionamento viene dedotta quando i conteggi delle partizioni, i fattori di replica e i tipi di colonna di partizione corrispondono tutti tra due tabelle. è tuttavia possibile specificare un gruppo di condivisione percorso personalizzato quando si crea una tabella distribuita, se necessario.
 
-| Nome                   | Type | Descrizione                                                                   |
+| Nome                   | Tipo | Descrizione                                                                   |
 |------------------------|------|-------------------------------------------------------------------------------|
 | colocationid           | INT  | Identificatore univoco per il gruppo di condivisione percorso a cui corrisponde la riga.          |
 | shardcount             | INT  | Numero di partizioni per tutte le tabelle in questo gruppo di condivisione percorso                          |
@@ -231,7 +231,7 @@ SELECT * from pg_dist_colocation;
 
 Questa tabella definisce strategie che [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards) possibile usare per determinare la posizione in cui spostare le partizioni.
 
-| Nome                           | Type    | Descrizione                                                                                                                                       |
+| Nome                           | Tipo    | Descrizione                                                                                                                                       |
 |--------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | default_strategy               | boolean | Indica se rebalance_table_shards deve scegliere questa strategia per impostazione predefinita. Usare citus_set_default_rebalance_strategy per aggiornare la colonna             |
 | shard_cost_function            | regproc | Identificatore di una funzione di costo, che deve assumere un shardid come bigint e restituire la relativa nozione di un costo, come tipo Real                                |
@@ -329,14 +329,14 @@ Iperscale (CITUS) fornisce `citus_stat_statements` statistiche sulle modalità d
 
 Questa vista consente di tenere traccia delle query ai tenant di origine in un'applicazione multi-tenant, che consente di decidere quando eseguire l'isolamento dei tenant.
 
-| Nome          | Type   | Descrizione                                                                      |
+| Nome          | Tipo   | Descrizione                                                                      |
 |---------------|--------|----------------------------------------------------------------------------------|
 | QueryId       | bigint | identificatore (valido per i join pg_stat_statements)                                   |
 | userid        | oid    | utente che ha eseguito la query                                                           |
 | dbid          | oid    | istanza di database di coordinatore                                                 |
-| query         | text   | stringa di query resi anonimi                                                          |
-| Executor      | text   | CITUS Executor usato: Adaptive, Real-Time, Task-Tracker, router o INSERT-SELECT |
-| partition_key | text   | valore della colonna di distribuzione nelle query eseguite dal router; else NULL               |
+| query         | testo   | stringa di query resi anonimi                                                          |
+| Executor      | testo   | CITUS Executor usato: Adaptive, Real-Time, Task-Tracker, router o INSERT-SELECT |
+| partition_key | testo   | valore della colonna di distribuzione nelle query eseguite dal router; else NULL               |
 | calls         | bigint | numero di volte in cui è stata eseguita la query                                                |
 
 ```sql
@@ -394,9 +394,9 @@ Avvertenze:
 
 Iperscale (CITUS) fornisce visualizzazioni speciali per controllare le query e i blocchi in tutto il cluster, incluse le query specifiche della partizione utilizzate internamente per compilare i risultati per le query distribuite.
 
--   ** \_ \_ \_ attività CITUS dist stat**: Mostra le query distribuite in esecuzione su tutti i nodi. Superset di `pg_stat_activity` , utilizzabile laddove il secondo è.
+-   **\_ \_ \_ attività CITUS dist stat**: Mostra le query distribuite in esecuzione su tutti i nodi. Superset di `pg_stat_activity` , utilizzabile laddove il secondo è.
 -   **CITUS \_ Worker \_ Stat \_ Activity**: Mostra le query sui thread di lavoro, incluse le query di frammenti sulle singole partizioni.
--   ** \_ \_ attese di blocco CITUS**: query bloccate in tutto il cluster.
+-   **\_ \_ attese di blocco CITUS**: query bloccate in tutto il cluster.
 
 Nelle prime due visualizzazioni sono incluse tutte le colonne dell' [ \_ \_ attività PG stat](https://www.postgresql.org/docs/current/static/monitoring-stats.html#PG-STAT-ACTIVITY-VIEW) più l'host/porta host del ruolo di lavoro che ha avviato la query e l'host o la porta del nodo coordinatore del cluster.
 

@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924695"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654865"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Competenze cognitive per la traduzione del testo
 
@@ -38,7 +38,7 @@ Le dimensioni massime di un record devono essere di 50.000 caratteri in base all
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Input                | Descrizione |
+| Input | Descrizione |
 |---------------------|-------------|
 | defaultToLanguageCode | Necessaria Codice della lingua in cui tradurre i documenti per i documenti che non specificano in modo esplicito la lingua a. <br/> Vedere l'[elenco completo delle lingue supportate](../cognitive-services/translator/language-support.md). |
 | defaultFromLanguageCode | Opzionale Codice della lingua da cui tradurre i documenti per i documenti che non specificano in modo esplicito il linguaggio from.  Se defaultFromLanguageCode non è specificato, verrà utilizzato il rilevamento automatico della lingua fornito dal API Traduzione testuale per determinare la lingua da. <br/> Vedere l'[elenco completo delle lingue supportate](../cognitive-services/translator/language-support.md). |

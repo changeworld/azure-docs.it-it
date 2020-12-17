@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e1161a8a4625c855198ea04f336d54c80271a3ef
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7779730b98630d08af046e7cb402caca1d0c2fe6
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584681"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653657"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Twitter tramite Azure Active Directory B2C
 
@@ -31,19 +31,7 @@ ms.locfileid: "97584681"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-::: zone pivot="b2c-user-flow"
-
-* [Creare un flusso utente](tutorial-create-user-flows.md) per consentire agli utenti di iscriversi e accedere all'applicazione.
-* Se non è già stato fatto, [aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
-* Se non è già stato fatto, [aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
@@ -69,7 +57,7 @@ Per usare Twitter come provider di identità in Azure AD B2C, è necessario crea
 1. Immettere un **Nome**. Ad esempio *Twitter*.
 1. Per **ID client**, immettere la chiave API del consumer dell'applicazione Twitter creata in precedenza.
 1. Per il **segreto client**, immettere la chiave privata dell'API utente registrata.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 ::: zone-end
 
@@ -195,7 +183,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
 1. Fare clic sul flusso utente che si vuole usare come provider di identità Twitter.
 1. In provider di identità basati su **Social Network** selezionare **Twitter**.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**

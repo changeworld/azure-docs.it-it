@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: 376d9d76633060f504454f85841b9c15bafc6685
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503039"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655170"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine gestita di una macchina virtuale o di un disco rigido virtuale
 
@@ -60,8 +60,8 @@ Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchin
    
     ```azurecli
     az vm deallocate \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
     
     Attendere che la macchina virtuale venga completamente deallocata prima di procedere. Questa operazione richiederà qualche minuto.  La macchina virtuale si arresta durante la deallocazione.
@@ -70,8 +70,8 @@ Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchin
    
     ```azurecli
     az vm generalize \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 
     Non è più possibile riavviare una macchina virtuale che è stata generalizzata.
@@ -80,8 +80,8 @@ Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchin
    
     ```azurecli
     az image create \
-      --resource-group myResourceGroup \
-      --name myImage --source myVM
+        --resource-group myResourceGroup \
+        --name myImage --source myVM
     ```
    
    > [!NOTE]

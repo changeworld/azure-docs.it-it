@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ed36948faf6fe12467128a57af634e52ee457180
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 71e3bf429c7b8d3f4f8fe205c05b0701732fdef9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584989"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653810"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso per Azure Active Directory multi-tenant usando criteri personalizzati in Azure Active Directory B2C
 
@@ -32,19 +32,7 @@ ms.locfileid: "97584989"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-::: zone pivot="b2c-user-flow"
-
-* [Creare un flusso utente](tutorial-create-user-flows.md) per consentire agli utenti di iscriversi e accedere all'applicazione.
-* Se non è già stato fatto, [aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
-* Se non è già stato fatto, [aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 Questo articolo illustra come abilitare l'accesso per gli utenti che usano l'endpoint multi-tenant per Azure Active Directory (Azure AD). Questo consente agli utenti di più tenant Azure AD di accedere usando Azure AD B2C, senza dover configurare un provider di identità per ogni tenant. Tuttavia, i membri guest di questi tenant **non** saranno in grado di accedere. A tale scopo, è necessario [configurare singolarmente ogni tenant](identity-provider-azure-ad-single-tenant.md).
 
@@ -113,7 +101,7 @@ Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD
     - **Cognome**: *family_name*
     - **Posta elettronica**: *preferred_username*
 
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 ::: zone-end
 
@@ -265,7 +253,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
 1. Fare clic sul flusso utente che si desidera Azure AD provider di identità.
 1. In provider di identità basati su **Social Network** selezionare **Contoso Azure ad**.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**

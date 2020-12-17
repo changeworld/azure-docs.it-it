@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0f7047638aa2e2b4a9ac6ffade82fdc117b56cfb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744178"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655969"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurare un'app ASP.NET Core per il servizio app Azure
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e in *appsettings.js* , ad esempio, il valore del servizio app ha la precedenza sul valore di *appsettings.js* . Il valore locale *appsettings.json* consente di eseguire il debug dell'app in locale, ma il valore del servizio app consente di eseguire l'app in un prodotto con impostazioni di produzione. Le stringhe di connessione funzionano allo stesso modo. In questo modo, è possibile proteggere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
+Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e in *appsettings.js*, ad esempio, il valore del servizio app ha la precedenza sul valore di *appsettings.js* . Il valore locale *appsettings.json* consente di eseguire il debug dell'app in locale, ma il valore del servizio app consente di eseguire l'app in un prodotto con impostazioni di produzione. Le stringhe di connessione funzionano allo stesso modo. In questo modo, è possibile proteggere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
 
 > [!NOTE]
 > Si noti che è possibile accedere ai [dati di configurazione gerarchici](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in *appsettings.json* usando il `:` delimitatore standard di .NET Core. Per eseguire l'override di un'impostazione di configurazione gerarchica specifica nel servizio app, impostare il nome dell'impostazione dell'app con lo stesso formato delimitato nella chiave. nell' [cloud Shell](https://shell.azure.com)è possibile eseguire l'esempio seguente:
@@ -167,7 +167,7 @@ Per altre informazioni sulla risoluzione dei problemi relativi alle app ASP.NET 
 
 ## <a name="get-detailed-exceptions-page"></a>Pagina get detailed Exceptions
 
-Quando l'app ASP.NET Core genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di eccezione dettagliata, ma nel servizio app la pagina viene sostituita da un errore **HTTP 500** generico o **si è verificato un errore durante l'elaborazione della richiesta.** il messaggio "Hello World!". Per visualizzare la pagina di eccezione dettagliata nel servizio app, aggiungere l' `ASPNETCORE_ENVIRONMENT` impostazione dell'app all'app eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
+Quando l'app ASP.NET Core genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di eccezione dettagliata, ma nel servizio app la pagina viene sostituita da un errore **HTTP 500** generico o **si è verificato un errore durante l'elaborazione della richiesta.** . Per visualizzare la pagina di eccezione dettagliata nel servizio app, aggiungere l' `ASPNETCORE_ENVIRONMENT` impostazione dell'app all'app eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Rilevare una sessione HTTPS
 
-Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve essere in grado di verificare se le richieste utente sono crittografate o meno, configurare il middleware delle intestazioni in *Startup.cs* :
+Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve essere in grado di verificare se le richieste utente sono crittografate o meno, configurare il middleware delle intestazioni in *Startup.cs*:
 
 - Configurare il middleware con [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) per l'inoltro delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` in `Startup.ConfigureServices`.
 - Aggiungere gli intervalli di indirizzi IP privati alle reti note, in modo che il middleware possa considerare attendibile il servizio di bilanciamento del carico del servizio app.
@@ -192,6 +192,7 @@ public void ConfigureServices(IServiceCollection services)
     {
         options.ForwardedHeaders =
             ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        // These three subnets encapsulate the applicable Azure subnets. At the moment, it's not possible to narrow it down further.
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:10.0.0.0"), 104));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:192.168.0.0"), 112));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:172.16.0.0"), 108));

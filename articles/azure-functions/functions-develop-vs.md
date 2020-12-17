@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare e testare funzioni di Azure usando 
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: c5164d0757de5011c112a9506979da19d9585790
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167798"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655816"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -42,7 +42,7 @@ Se non specificato diversamente, le procedure e gli esempi indicati sono per Vis
 
 ### <a name="check-your-tools-version-in-visual-studio-2017"></a><a name="check-your-tools-version"></a>Controllare la versione degli strumenti in Visual Studio 2017
 
-1. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**. Espandere **Installed**  >  **strumenti**installati, quindi scegliere **funzioni di Azure e strumenti per processi Web**.
+1. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**. Espandere   >  **strumenti** installati, quindi scegliere **funzioni di Azure e strumenti per processi Web**.
 
     ![Verificare la versione degli strumenti di Funzioni](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -56,7 +56,7 @@ Se non specificato diversamente, le procedure e gli esempi indicati sono per Vis
 
     ![Aggiornare la versione degli strumenti di Funzioni](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-1. Dopo aver scaricato l'aggiornamento degli strumenti, selezionare **Chiudi**e quindi chiudere Visual Studio per attivare il programma di installazione degli strumenti di aggiornamento con VSIX.
+1. Dopo aver scaricato l'aggiornamento degli strumenti, selezionare **Chiudi** e quindi chiudere Visual Studio per attivare il programma di installazione degli strumenti di aggiornamento con VSIX.
 
 1. Nel programma di installazione VSIX scegliere **modifica** per aggiornare gli strumenti. 
 
@@ -86,6 +86,18 @@ Visual Studio non carica automaticamente le impostazioni in local.settings.jsqua
 
 Il codice può anche leggere i valori delle impostazioni dell'app per le funzioni come variabili di ambiente. Per altre informazioni, vedere [variabili di ambiente](functions-dotnet-class-library.md#environment-variables).
 
+## <a name="configure-your-build-output-settings"></a>Configurare le impostazioni dell'output di compilazione
+
+Quando si compila un progetto di funzioni di Azure, gli strumenti di compilazione ottimizzano l'output in modo che venga mantenuta solo una copia di tutti gli assembly condivisi con il runtime di funzioni. Il risultato è una compilazione ottimizzata che consente di risparmiare il maggior spazio possibile. Tuttavia, quando si passa a una versione più recente di uno degli assembly del progetto, gli strumenti di compilazione potrebbero non essere a conoscenza che questi assembly devono essere conservati. Per assicurarsi che questi assembly vengano conservati durante il processo di ottimizzazione, è possibile specificarli usando `FunctionsPreservedDependencies` gli elementi nel file di progetto (con estensione csproj):
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
 ## <a name="configure-the-project-for-local-development"></a>Configurare il progetto per lo sviluppo locale
 
 Il runtime di Funzioni usa un account di archiviazione di Azure internamente. Per tutti i tipi di trigger diversi da HTTP e webhook, impostare la `Values.AzureWebJobsStorage` chiave su una stringa di connessione dell'account di archiviazione di Azure valida. L'app per le funzioni può usare anche l' [emulatore di archiviazione di Azure](../storage/common/storage-use-emulator.md) per l' `AzureWebJobsStorage` impostazione di connessione richiesta dal progetto. Per usare l'emulatore, impostare il valore di `AzureWebJobsStorage` su `UseDevelopmentStorage=true` . Modificare questa impostazione in una stringa di connessione dell'account di archiviazione effettiva prima della distribuzione.
@@ -94,7 +106,7 @@ Per impostare la stringa di connessione dell'account di archiviazione:
 
 1. In Visual Studio selezionare **Visualizza**  >  **Cloud Explorer**.
 
-2. In **Cloud Explorer**, espandere **account di archiviazione**e quindi selezionare l'account di archiviazione. Nella scheda **Proprietà** copiare il valore della **stringa di connessione primaria** .
+2. In **Cloud Explorer**, espandere **account di archiviazione** e quindi selezionare l'account di archiviazione. Nella scheda **Proprietà** copiare il valore della **stringa di connessione primaria** .
 
 2. Nel progetto aprire il local.settings.jsnel file e impostare il valore della `AzureWebJobsStorage` chiave sulla stringa di connessione copiata.
 
@@ -104,7 +116,7 @@ Per impostare la stringa di connessione dell'account di archiviazione:
 
 Nelle funzioni della libreria di classi C#, le associazioni usate dalla funzione sono definite applicando attributi nel codice. Quando si creano trigger di funzione dai modelli forniti, vengono applicati gli attributi del trigger. 
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **Aggiungi**  >  **nuovo elemento**. 
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **Aggiungi**  >  **nuovo elemento**. 
 
 2. Selezionare **funzione di Azure**, immettere un **nome** per la classe e quindi selezionare **Aggiungi**.
 

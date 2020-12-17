@@ -1,7 +1,7 @@
 ---
 title: Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows | Microsoft Docs
 description: Presenta l'estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
 manager: dcscontentpm
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9edba575b35613abb8bc3081964a37b838bb358b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963262"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656596"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -54,16 +54,16 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameter('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
@@ -74,23 +74,23 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-|   **Nome**   |**Valore/Esempio**|       **Descrizione**      |
-|--------------|-------------------|----------------------------|
-|apiVersion|2015-06-15|Versione dell'API.
-|publisher|Microsoft.Azure.Performance.Diagnostics|Spazio dei nomi del server di pubblicazione per l'estensione.
-|tipo|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
-|typeHandlerVersion|1.0|Versione del gestore dell'estensione.
-|performanceScenario|basic|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
-|traceDurationInSeconds|300|Durata delle tracce se è selezionata una delle opzioni di traccia.
-|perfCounterTrace|p|Opzione che abilita la traccia del contatore delle prestazioni. I valori validi sono **p** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
-|networkTrace|n|Opzione che abilita la traccia di rete. I valori validi sono **n** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
-|xperfTrace|x|Opzione che abilita la traccia XPerf. I valori validi sono **x** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
-|storPortTrace|s|Opzione che abilita la traccia StorPort. I valori validi sono **s** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
-|srNumber|123452016365929|Numero del ticket di supporto, se disponibile. Se non è disponibile, lasciare vuoto il valore.
-|requestTimeUtc|2017-09-28T22:08:53.736Z|Data e ora correnti in formato UTC. Se l'estensione viene installata tramite il portale, non è necessario specificare questo valore.
-|resourceId|/subscriptions/{IDSottoscrizione}/resourceGroups/{NomeGruppoDiRisorse}/providers/{SpaziDeiNomiDelProviderDiRisorse}/{TipoRisorsa}/{NomeRisorsa}|Identificatore univoco di una macchina virtuale.
-|storageAccountName|mystorageaccount|Nome dell'account di archiviazione con cui archiviare i log di diagnostica e i risultati.
-|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Chiave per l'account di archiviazione.
+| Nome | Valore/Esempio | Descrizione |
+|--|--|--|
+| apiVersion | 2015-06-15 | Versione dell'API. |
+| publisher | Microsoft.Azure.Performance.Diagnostics | Spazio dei nomi del server di pubblicazione per l'estensione. |
+| type | AzurePerformanceDiagnostics | Tipo dell'estensione per macchine virtuali. |
+| typeHandlerVersion | 1.0 | Versione del gestore dell'estensione. |
+| performanceScenario | basic | Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**. |
+| traceDurationInSeconds | 300 | Durata delle tracce se è selezionata una delle opzioni di traccia. |
+| perfCounterTrace | p | Opzione che abilita la traccia del contatore delle prestazioni. I valori validi sono **p** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore. |
+| networkTrace | n | Opzione che abilita la traccia di rete. I valori validi sono **n** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore. |
+| xperfTrace | x | Opzione che abilita la traccia XPerf. I valori validi sono **x** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore. |
+| storPortTrace | s | Opzione che abilita la traccia StorPort. I valori validi sono **s** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore. |
+| srNumber | 123452016365929 | Numero del ticket di supporto, se disponibile. Se non è disponibile, lasciare vuoto il valore. |
+| requestTimeUtc | 2017-09-28T22:08:53.736Z | Data e ora correnti in formato UTC. Se l'estensione viene installata tramite il portale, non è necessario specificare questo valore. |
+| resourceId | /subscriptions/{IDSottoscrizione}/resourceGroups/{NomeGruppoDiRisorse}/providers/{SpaziDeiNomiDelProviderDiRisorse}/{TipoRisorsa}/{NomeRisorsa} | Identificatore univoco di una macchina virtuale. |
+| storageAccountName | mystorageaccount | Nome dell'account di archiviazione con cui archiviare i log di diagnostica e i risultati. |
+| storageAccountKey | lDuVvxuZB28NNP…hAiRF3voADxLBTcc== | Chiave per l'account di archiviazione. |
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 
@@ -117,6 +117,7 @@ Per installare l'estensione in macchine virtuali Windows, seguire queste istruzi
     > L'estensione viene eseguita solo se il provisioning ha avuto esito positivo. Per il completamento dello scenario di base sono necessari al massimo due minuti. Per altri scenari, l'esecuzione ha la durata specificata durante l'installazione.
 
 ## <a name="remove-the-extension"></a>Rimuovere l'estensione
+
 Per rimuovere l'estensione da una macchina virtuale, eseguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com), selezionare la macchina virtuale da cui si vuole rimuovere l'estensione e quindi selezionare il pannello **Estensioni**. 
@@ -128,9 +129,10 @@ Per rimuovere l'estensione da una macchina virtuale, eseguire questa procedura:
     > È anche possibile selezionare la voce dell'estensione e scegliere l'opzione **Disinstalla**.
 
 ## <a name="template-deployment"></a>Distribuzione del modello
+
 Le estensioni per macchine virtuali di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON dettagliato illustrato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione per macchine virtuali Azure Performance Diagnostics durante la distribuzione di un modello di Azure Resource Manager. Di seguito è riportato un modello di esempio:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -144,11 +146,11 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
       "defaultValue": "southcentralus"
     },
     "storageAccountName": {
-      "type": "securestring"
+      "type": "securestring",
       "defaultValue": "yourStorageAccount"
     },
     "storageAccountKey": {
-      "type": "securestring"
+      "type": "securestring",
       "defaultValue": "yourStorageAccountKey"
     },
     "performanceScenario": {
@@ -159,10 +161,10 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
       "type": "string",
       "defaultValue": ""
     },
-    "traceDurationInSeconds": {
-      "type": "int",
+  "traceDurationInSeconds": {
+    "type": "int",
     "defaultValue": 300
-    },
+  },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -196,16 +198,16 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"
@@ -217,6 +219,7 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
 ```
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
+
 Il comando `Set-AzVMExtension` consente di distribuire l'estensione per macchine virtuali Azure Performance Diagnostics in una macchina virtuale esistente.
 
 PowerShell
@@ -241,7 +244,7 @@ Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnosti
 
 ## <a name="view-and-share-the-results"></a>Visualizzare e condividere i risultati
 
-L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-sas-overview.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento di firma di accesso condiviso al file zip di output è disponibile all'interno di un file di testo denominato *zipfilename*_saslink.txt nella cartella **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
+L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-sas-overview.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento di firma di accesso condiviso al file zip di output è disponibile all'interno di un file di testo denominato *zipfilename* _saslink.txt nella cartella **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version>**. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
 
 Per facilitare il lavoro del tecnico del supporto responsabile del ticket, Microsoft può usare il collegamento SAS per scaricare i dati di diagnostica.
 

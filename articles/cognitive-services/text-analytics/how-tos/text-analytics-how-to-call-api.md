@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562566"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654830"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -64,9 +64,6 @@ Vedere la tabella seguente per vedere quali funzionalità possono essere usate i
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
-
 <a name="json-schema"></a>
 
 ## <a name="api-request-formats"></a>Formati di richiesta API
@@ -81,8 +78,8 @@ Il formato delle richieste API è lo stesso per tutte le operazioni sincrone. I 
 
 | Elemento | Valori validi | Necessaria? | Uso |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Necessario | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Necessario | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../language-support.md). |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatorio | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../language-support.md). |
 |`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../language-support.md) | Varia | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Di seguito è riportato un esempio di una richiesta API per gli endpoint sincroni del Analisi del testo. 
@@ -117,14 +114,14 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
 | Elemento | Valori validi | Necessaria? | Uso |
 |---------|--------------|-----------|-------|
 |`displayName` | string | Facoltativo | Utilizzato come nome visualizzato per l'identificatore univoco del processo.|
-|`analysisInput` | Include il `documents` campo seguente | Necessario | Contiene le informazioni per i documenti che si desidera inviare. |
-|`documents` | Include i `id` `text` campi e seguenti | Necessario | Contiene informazioni per ogni documento inviato e il testo non elaborato del documento. |
-|`id` | string | Necessario | Gli ID forniti vengono usati per strutturare l'output. |
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 125.000 caratteri. | Necessario | Deve essere nella lingua inglese, che è l'unica lingua attualmente supportata. |
-|`tasks` | Include le funzionalità di Analisi del testo seguenti `entityRecognitionTasks` : `keyPhraseExtractionTasks` o `entityRecognitionPiiTasks` . | Necessario | Una o più delle funzionalità di Analisi del testo che si desidera utilizzare. Si noti che `entityRecognitionPiiTasks` dispone `domain` di un parametro facoltativo che può essere impostato su `pii` o `phi` . Se non è specificato, l'impostazione predefinita del sistema è `pii` . |
-|`parameters` | Include i `model-version` `stringIndexType` campi e seguenti | Necessario | Questo campo è incluso nelle attività della funzionalità indicate in precedenza. Contengono informazioni sulla versione del modello che si desidera utilizzare e il tipo di indice. |
-|`model-version` | string | Necessario | Consente di specificare la versione del modello chiamata che si desidera utilizzare.  |
-|`stringIndexType` | string | Necessario | Specificare il decodificatore di testo corrispondente all'ambiente di programmazione.  I tipi supportati sono `textElement_v8` (impostazione predefinita), `unicodeCodePoint` , `utf16CodeUnit` . Per ulteriori informazioni, vedere l' [articolo offset del testo](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
+|`analysisInput` | Include il `documents` campo seguente | Obbligatorio | Contiene le informazioni per i documenti che si desidera inviare. |
+|`documents` | Include i `id` `text` campi e seguenti | Obbligatorio | Contiene informazioni per ogni documento inviato e il testo non elaborato del documento. |
+|`id` | string | Obbligatorio | Gli ID forniti vengono usati per strutturare l'output. |
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 125.000 caratteri. | Obbligatorio | Deve essere nella lingua inglese, che è l'unica lingua attualmente supportata. |
+|`tasks` | Include le funzionalità di Analisi del testo seguenti `entityRecognitionTasks` : `keyPhraseExtractionTasks` o `entityRecognitionPiiTasks` . | Obbligatorio | Una o più delle funzionalità di Analisi del testo che si desidera utilizzare. Si noti che `entityRecognitionPiiTasks` dispone `domain` di un parametro facoltativo che può essere impostato su `pii` o `phi` . Se non è specificato, l'impostazione predefinita del sistema è `pii` . |
+|`parameters` | Include i `model-version` `stringIndexType` campi e seguenti | Obbligatorio | Questo campo è incluso nelle attività della funzionalità indicate in precedenza. Contengono informazioni sulla versione del modello che si desidera utilizzare e il tipo di indice. |
+|`model-version` | string | Obbligatorio | Consente di specificare la versione del modello chiamata che si desidera utilizzare.  |
+|`stringIndexType` | string | Obbligatorio | Specificare il decodificatore di testo corrispondente all'ambiente di programmazione.  I tipi supportati sono `textElement_v8` (impostazione predefinita), `unicodeCodePoint` , `utf16CodeUnit` . Per ulteriori informazioni, vedere l' [articolo offset del testo](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
 |`domain` | string | Facoltativo | Si applica solo come parametro all' `entityRecognitionPiiTasks` attività e può essere impostato su `pii` o `phi` . Il valore predefinito è `pii` se non è specificato.  |
 
 ```json
@@ -172,9 +169,9 @@ Il formato delle richieste API per la Analisi del testo per l'API ospitata sull'
 
 | Elemento | Valori validi | Necessaria? | Uso |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Necessario | Il sistema usa gli ID immessi per strutturare l'output. |
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Necessario | Si noti che attualmente è supportato solo il testo in lingua inglese. |
-|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../language-support.md) | Necessario | `en`Attualmente è supportato solo. |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. |
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatorio | Si noti che attualmente è supportato solo il testo in lingua inglese. |
+|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../language-support.md) | Obbligatorio | `en`Attualmente è supportato solo. |
 
 Di seguito è riportato un esempio di una richiesta API per la Analisi del testo per gli endpoint di integrità. 
 

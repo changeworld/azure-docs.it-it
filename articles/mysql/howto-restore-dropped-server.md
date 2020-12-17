@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546722"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657091"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Ripristinare un database di Azure per il server MySQL eliminato
 
@@ -45,15 +45,15 @@ Per ripristinare un database di Azure per il server MySQL, è necessario quanto 
  6. Scorrere sotto la sezione corpo della richiesta e incollare il codice seguente sostituendo il "percorso del server eliminato", "submissionTimestamp" e "resourceId". Per "restorePointInTime", specificare il valore "submissionTimestamp" meno **15 minuti** per verificare che il comando non venga eliminato.
  
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
+    {
+        "location": "Dropped Server Location",  
+        "properties": 
+            {
+                "restorePointInTime": "submissionTimestamp - 15 minutes",
+                "createMode": "PointInTimeRestore",
+                "sourceServerId": "resourceId"
             }
-        }
+    }
     ```
 
 7. Se viene visualizzato il codice di risposta 201 o 202, la richiesta di ripristino viene inviata correttamente. 

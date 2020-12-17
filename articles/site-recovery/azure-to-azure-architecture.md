@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370424"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652246"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -90,7 +90,7 @@ Site Recovery acquisisce snapshot nel modo seguente:
 1. Site Recovery acquisisce snapshot dei dati coerenti con l'arresto anomalo del sistema per impostazione predefinita, oltre a snapshot coerenti con l'app se si specifica una frequenza.
 2. Dagli snapshot vengono creati punti di ripristino che vengono archiviati in base alle impostazioni di conservazione dei criteri di replica.
 
-### <a name="consistency"></a>Coerenza
+### <a name="consistency"></a>Consistenza
 
 La tabella seguente illustra i vari tipi di coerenza.
 
@@ -130,7 +130,7 @@ Se l'accesso in uscita per le macchine virtuali è controllato tramite URL, cons
 
 | **Nome**                  | **Commerciale**                               | **Enti pubblici**                                 | **Descrizione** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
+| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. |
 | Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Consente alla macchina virtuale di comunicare con il servizio Site Recovery. |
 | Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Consente alla macchina virtuale di scrivere i dati di diagnostica e monitoraggio di Site Recovery. |

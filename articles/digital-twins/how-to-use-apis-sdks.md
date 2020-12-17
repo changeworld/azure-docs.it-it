@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1627db2f1f19c393d4f40892ca65141f26424ac9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187239"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656938"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -26,7 +26,7 @@ Questo articolo fornisce una panoramica delle API disponibili e i metodi per int
 
 Le API del piano di controllo sono API [ARM](../azure-resource-manager/management/overview.md) usate per gestire l'istanza di dispositivi gemelli digitali di Azure nel suo complesso, in modo da coprire operazioni come la creazione o l'eliminazione dell'intera istanza. Questi vengono usati anche per creare ed eliminare gli endpoint.
 
-La versione più recente dell'API del piano di controllo è _**2020-10-31**_.
+La versione più recente dell'API del piano di controllo è _**2020-12-01**_.
 
 Per usare le API del piano di controllo:
 * È possibile chiamare direttamente le API facendo riferimento all'oggetto spavalderia più recente nella [cartella spavalderia del piano di controllo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Questo repository include anche una cartella di esempi che illustrano l'utilizzo.

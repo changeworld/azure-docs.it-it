@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 18a1fc7f42884dcc194256e1f51ddecb62d2708c
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516388"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655476"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -97,11 +97,11 @@ Questi lead time sono *stime*. Il tempo per ogni fase di elaborazione degli ordi
 **Tempo di esecuzione stimato per un ordine di Data Box:**
 
 1. Ordine Data Box: pochi minuti dal portale
-2. Allocazione e preparazione dei dispositivi: 1-2 giorni lavorativi
+2. Allocazione e preparazione dei dispositivi: 1-2 giorni lavorativi, soggetto alla disponibilità dell'inventario e ad altri ordini in attesa di evasione
 3. Spedizione: 2-3 giorni lavorativi
 4. Copia dei dati nel sito del cliente: dipende dalla natura dei dati, dalle dimensioni e dal numero di file
 5. Effettuare il reso della spedizione: 2-3 giorni lavorativi
-6. Elaborazione del dispositivo nel Data Center: 1-2 giorni lavorativi
+6. Elaborazione del dispositivo nel Data Center: 1-2 giorni lavorativi, soggetto ad altri ordini in attesa di elaborazione
 7. Caricare i dati in Azure: inizia non appena è stata completata l'elaborazione e il dispositivo è connesso. Il tempo di caricamento dipende dalla natura dei dati, dalle dimensioni e dal numero di file.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>Q. Ho ordinato un paio di dispositivi Data Box. Non è possibile creare altri ordini. Perché?

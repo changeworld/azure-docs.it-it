@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8e9cf9a7c2556a1f0710b2bf646d83ffbf84ea97
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 767f60cae2f74f7e2a928253d45011bb6ceb5d0e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585055"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653844"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere AD FS come provider di identità SAML usando criteri personalizzati in Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Questo articolo illustra come abilitare l'accesso per un account utente AD FS us
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
-- Verificare di avere accesso al file con estensione pfx del certificato con la chiave privata. È possibile generare il proprio certificato autofirmato e caricarlo in Azure AD B2C. Azure AD B2C usa questo certificato per firmare la richiesta SAML inviata al provider di identità SAML. Per ulteriori informazioni su come generare un certificato, vedere [generare un certificato di firma](identity-provider-salesforce.md#generate-a-signing-certificate).
+- Verificare di avere accesso al file con estensione pfx del certificato con la chiave privata. È possibile generare il proprio certificato autofirmato e caricarlo in Azure AD B2C. Azure AD B2C usa questo certificato per firmare la richiesta SAML inviata al provider di identità SAML. Per ulteriori informazioni su come generare un certificato, vedere [generare un certificato di firma](identity-provider-salesforce-saml.md#generate-a-signing-certificate).
 - Per consentire ad Azure di accettare la password del file con estensione pfx, la password deve essere crittografata con l'opzione TripleDES-SHA1 nell'utilità di esportazione dell'archivio certificati di Windows invece che in AES256-SHA256.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri

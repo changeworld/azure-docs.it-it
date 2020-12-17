@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 178d3896fe8d063855a734f3f0fe6c489b0ec1fc
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074669"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97651974"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guida alla migrazione da ADAL a MSAL per Android
 
@@ -89,7 +89,7 @@ Se attualmente si usa ADAL e non è necessario usare il consenso incrementale, i
 > [!CAUTION]
 > Non è possibile impostare entrambi gli ambiti e un ID di risorsa. Se si tenta di impostare entrambi, verrà generato un oggetto `IllegalArgumentException` .
 
- Questo comporterà lo stesso comportamento V1 usato. Tutte le autorizzazioni richieste nella registrazione dell'app vengono richieste dall'utente durante la prima interazione.
+Questo comporterà lo stesso comportamento V1 usato. Tutte le autorizzazioni richieste nella registrazione dell'app vengono richieste dall'utente durante la prima interazione.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Eseguire l'autenticazione e richiedere le autorizzazioni solo se necessario
 
@@ -131,13 +131,13 @@ Se si tenta di usare un'autorità che non è nota a Microsoft e non è inclusa n
 ### <a name="logging"></a>Registrazione
 È ora possibile configurare la registrazione in modo dichiarativo come parte della configurazione, come indicato di seguito:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>Eseguire la migrazione da UserInfo a account
 

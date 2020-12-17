@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2011fa8e85f10f12ae914b02710bbd65f5700403
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 834672274ade1f8551e86e7c636c4625368d997c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913046"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652195"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Ottimizza Azure Data Lake Storage Gen2 per le prestazioni
 
@@ -43,7 +43,7 @@ La connettività di rete tra i dati di origine e Data Lake Storage Gen2 può tal
 
 Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dalla connettività di rete, si è pronti per configurare gli strumenti di inserimento. La tabella seguente presenta un riepilogo delle impostazioni delle chiavi per diversi strumenti di inserimento comuni e include collegamenti ad articoli di approfondimento sull'ottimizzazione delle prestazioni.  Per altre informazioni sullo strumento da usare per uno scenario specifico, vedere questo [articolo](data-lake-storage-data-scenarios.md).
 
-| Strumento               | Impostazioni     | Altre informazioni                                                                 |
+| Strumento               | Impostazioni | Altre informazioni                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Collegamento](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Collegamento](../../data-factory/copy-activity-performance.md)                          |
@@ -138,5 +138,5 @@ Oltre alle linee guida generali sopra illustrate, ogni applicazione dispone di d
 | [MapReduce in HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm in HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Numero di processi del ruolo di lavoro</li><li>Numero di istanze di spout executor</li><li>Numero di istanze di bolt executor </li><li>Numero di attività spout</li><li>Numero di attività bolt</li></ul>|
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
