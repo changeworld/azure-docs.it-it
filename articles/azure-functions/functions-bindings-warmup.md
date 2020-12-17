@@ -10,16 +10,19 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 6a909b246e7cb3695533a75294c523d7c9aeaeda
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832943"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655859"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
-Questo articolo illustra come usare il trigger di riscaldamento in funzioni di Azure. Il trigger riscaldamento è supportato solo per le app per le funzioni in esecuzione in un [piano Premium](functions-premium-plan.md). Quando viene aggiunta un'istanza per ridimensionare un'app per le funzioni in esecuzione, viene richiamato un trigger di riscaldamento. È possibile usare un trigger di riscaldamento per precaricare le dipendenze personalizzate durante il [processo di pre-riscaldamento](./functions-premium-plan.md#pre-warmed-instances) , in modo che le funzioni siano pronte per l'avvio immediato dell'elaborazione delle richieste. 
+Questo articolo illustra come usare il trigger di riscaldamento in funzioni di Azure. Quando viene aggiunta un'istanza per ridimensionare un'app per le funzioni in esecuzione, viene richiamato un trigger di riscaldamento. È possibile usare un trigger di riscaldamento per precaricare le dipendenze personalizzate durante il [processo di pre-riscaldamento](./functions-premium-plan.md#pre-warmed-instances) , in modo che le funzioni siano pronte per l'avvio immediato dell'elaborazione delle richieste. 
+
+> [!NOTE]
+> Il trigger di riscaldamento non è supportato per le app per le funzioni in esecuzione in un piano a consumo.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

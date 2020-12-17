@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710533"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657023"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -149,25 +149,25 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Questa vista restituisce i dati del testo delle query in Query Store. Contiene una riga per ogni specifico query_text.
 
-|**Nome**|  **Tipo**|   **Descrizione**|
-|---|---|---|
-|query_text_id  |bigint     |ID della tabella query_texts|
-|query_sql_text |Varchar(10000)     |Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
+| **Nome** | **Tipo** | **Descrizione** |
+|--|--|--|
+| query_text_id | bigint | ID della tabella query_texts |
+| query_sql_text | Varchar(10000) | Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo. |
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene una riga per ogni specifico ID database, ID utente, ID query ed evento.
 
-|**Nome**|  **Tipo**|   **Riferimenti**| **Descrizione**|
-|---|---|---|---|
-|user_id    |oid    |pg_authid.oid  |OID dell'utente che ha eseguito l'istruzione|
-|db_id  |oid    |pg_database.oid    |OID del database in cui l'istruzione è stata eseguita|
-|query_id   |bigint     ||Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
-|event_type |text       ||Tipo di evento atteso dal back-end|
-|event  |text       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
-|calls  |Integer        ||Numero dello stesso evento acquisito|
-
+| **Nome** | **Tipo** | **Riferimenti** | **Descrizione** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | OID dell'utente che ha eseguito l'istruzione |
+| db_id | oid | pg_database.oid | OID del database in cui l'istruzione è stata eseguita |
+| query_id | bigint |  | Codice hash interno, calcolato dall'albero di analisi dell'istruzione |
+| event_type | testo |  | Tipo di evento atteso dal back-end |
+| evento | testo |  | Nome dell'evento di attesa, se il back-end è attualmente in attesa |
+| calls | Integer |  | Numero dello stesso evento acquisito |
 
 ### <a name="functions"></a>Funzioni
+
 Query_store.qs_reset() restituisce void
 
 `qs_reset` rimuove tutte le statistiche finora raccolte da Query Store. Questa funzione può essere eseguita solo dal ruolo di amministratore del server.

@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 56464268b95181af0379a1895d392cc3cc26624c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980899"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656955"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Eseguire la migrazione alla versione 3. x del API Analisi del testo
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 Se si usa la versione 2,1 della API Analisi del testo, questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 3. x. La versione 3,0 è disponibile a livello generale e introduce nuove funzionalità, ad esempio il [riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) espanse e il [controllo delle versioni del modello](concepts/model-versioning.md). È disponibile anche una versione di anteprima di v 3.1 (v 3.1-Preview. x), che aggiunge funzionalità come [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). I modelli usati nella versione V2 non riceveranno gli aggiornamenti futuri. 
 

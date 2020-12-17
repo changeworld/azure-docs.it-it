@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 09693a09e35503a2a221f8de1903b4218b8766f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 318095e6cf68ec100dc9ea5221ecd93cba8f7c1e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082444"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656819"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Gestione delle notifiche di manutenzione pianificata tramite il portale
 
@@ -32,15 +32,14 @@ Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifi
 
    **Stato manutenzione**: Mostra lo stato di manutenzione della macchina virtuale. Ecco di seguito i valori possibili:
       
-      | valore | Descrizione |
-      |-------|-------------|
-      | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della macchina virtuale. | 
-      | Pianificate | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per poter avviare manutenzione. Per informazioni relative alla finestra di manutenzione, è possibile selezionare la finestra di manutenzione pianificata in questa visualizzazione oppure fare clic sulla macchina virtuale. | 
-      | Già aggiornato | La macchina virtuale è già aggiornata e in questo momento non è richiesta alcuna azione ulteriore. | 
-      | Riprova più tardi | La manutenzione è stata avviata, ma senza successo. Sarà possibile usare l'usare di manutenzione self-service in un secondo momento. | 
-      | Riprova adesso | È possibile riprovare a eseguire una manutenzione avviata automaticamente non riuscita in precedenza. | 
-      | - | La macchina virtuale non fa parte di un'ondata di manutenzione pianificata. |
-      
+    | valore | Descrizione |
+    |-------|-------------|
+    | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service che consente di avviare manualmente la manutenzione. Vedere di seguito per informazioni su come avviare la manutenzione nella macchina virtuale. | 
+    | Scheduled | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per avviare la manutenzione. È possibile apprendere la finestra di manutenzione selezionando la finestra manutenzione pianificata in questa visualizzazione o facendo clic sulla macchina virtuale. | 
+    | Già aggiornato | La macchina virtuale è già aggiornata e al momento non sono necessarie altre azioni. | 
+    | Riprova più tardi | La manutenzione è stata avviata, ma senza successo. Sarà possibile utilizzare l'opzione di manutenzione Self-Service in un secondo momento. | 
+    | Riprova adesso | È possibile ritentare una manutenzione avviata in precedenza non riuscita. | 
+    | - | La macchina virtuale non fa parte di un'ondata di manutenzione pianificata. |
 
    **Finestra Manutenzione - Self-service** - Mostra la finestra temporale in cui è possibile avviare autonomamente la manutenzione delle macchine virtuali.
    
@@ -52,7 +51,7 @@ Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifi
 
 Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere altri destinatari e canali a questa comunicazione creando avvisi del log attività di Azure. Per maggiori informazioni, vedere [Creare gli avvisi del log attività per le notifiche del servizio](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-Assicurarsi di impostare il **tipo di evento** come **manutenzione pianificata**e i **Servizi** come **set di scalabilità di macchine virtuali** e/o **macchine virtuali**.
+Assicurarsi di impostare il **tipo di evento** come **manutenzione pianificata** e i **Servizi** come **set di scalabilità di macchine virtuali** e/o **macchine virtuali**.
 
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Avviare la manutenzione della macchina virtuale dal portale
 

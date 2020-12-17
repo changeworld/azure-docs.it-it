@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 9b097b561ef6b91ae648a950247d1a88b99e7e64
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 86fd136cdf03c9bdd6bd1f610cccc339512f8fbc
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614813"
+ms.locfileid: "97657108"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -25,7 +25,7 @@ Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per vi
 
 > [!NOTE]
 > 
-> Microsoft propone ai clienti Cherwell e Provance di usare l' [azione webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) per Cherwell e l'endpoint di Provance come altra soluzione per l'integrazione.
+> Microsoft propone ai clienti Cherwell e Provance di usare l' [azione webhook](./action-groups.md#webhook) per Cherwell e l'endpoint di Provance come altra soluzione per l'integrazione.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Connettere System Center Service Manager a Connettore di Gestione dei servizi IT in Azure
 
@@ -35,7 +35,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](./itsmc-definition.md).
 - L'applicazione Web (app Web) Service Manager è stata distribuita e configurata. Per informazioni sull'app Web, vedere[qui](#create-and-deploy-service-manager-web-app-service).
 - Connessione ibrida è stata creata e configurata. Altre informazioni: [Configurazione della connessione ibrida](#configure-the-hybrid-connection).
 - Versioni supportate di Service Manager:  2012 R2 o 2016.
@@ -45,7 +45,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 > [!NOTE]
 > 
 > - Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
-> - Per usare i [modelli](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview) personalizzati come parte delle azioni, è necessario eseguire il mapping del parametro "ProjectionType" nel modello SCSM a "IncidentManagement! System. WorkItem. Incident. ProjectionType "
+> - Per usare i [modelli](./itsmc-definition.md#template-definitions) personalizzati come parte delle azioni, è necessario eseguire il mapping del parametro "ProjectionType" nel modello SCSM a "IncidentManagement! System. WorkItem. Incident. ProjectionType "
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 
@@ -85,7 +85,7 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Service Manager.
 
 
-Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Creare e distribuire il servizio app Web di Service Manager
 
@@ -184,7 +184,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 ### <a name="prerequisites"></a>Prerequisiti
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](./itsmc-definition.md#add-it-service-management-connector).
 - Versioni supportate di ServiceNow: Orlando, New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki, Ginevra.
 - Attualmente gli avvisi inviati da monitoraggio di Azure possono creare in ServiceNow uno dei seguenti elementi: eventi, eventi imprevisti o avvisi.
 > [!NOTE]
@@ -257,7 +257,7 @@ Seguire questa procedura per creare una connessione ServiceNow:
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di ServiceNow.
 
-Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 
 > [!NOTE]
@@ -309,14 +309,14 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 > [!NOTE]
 > 
-> Microsoft propone ai clienti Provance di usare l' [azione webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) per Cherwell e Provance endpoint come un'altra soluzione per l'integrazione.
+> Microsoft propone ai clienti Provance di usare l' [azione webhook](./action-groups.md#webhook) per Cherwell e Provance endpoint come un'altra soluzione per l'integrazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](./itsmc-definition.md#add-it-service-management-connector).
 - L'app Provance deve essere registrata in Azure AD e l'ID client deve essere stato reso disponibile. Per informazioni dettagliate, vedere [Come configurare l'autenticazione di Active Directory](../../app-service/configure-authentication-provider-aad.md).
 
 - Ruolo utente:  Amministratore.
@@ -358,7 +358,7 @@ Seguire questa procedura per creare una connessione Provance:
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Provance.
 
-Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Connettere Cherwell a Connettore di Gestione dei servizi IT in Azure
 
@@ -366,13 +366,13 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 > [!NOTE]
 > 
-> Microsoft propone ai clienti di Cherwell di usare l' [azione webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) per l'endpoint Cherwell e Provance come altra soluzione per l'integrazione.
+> Microsoft propone ai clienti di Cherwell di usare l' [azione webhook](./action-groups.md#webhook) per l'endpoint Cherwell e Provance come altra soluzione per l'integrazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](./itsmc-definition.md#add-it-service-management-connector).
 - L'ID client è stato generato. Altre informazioni: [Generare l'ID client per Cherwell](#generate-client-id-for-cherwell).
 - Ruolo utente:  Amministratore.
 
@@ -414,7 +414,7 @@ Seguire questa procedura per creare una connessione Cherwell:
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Cherwell.
 
-Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts).
+Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generare l'ID client per Cherwell
 
@@ -426,6 +426,7 @@ Per generare l'ID client o la chiave per Cherwell, seguire questa procedura:
 
     ![ID utente di Cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)
 
-
 ## <a name="next-steps"></a>Passaggi successivi
- - [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)
+
+[Panoramica di ITSM Connector](itsmc-overview.md) [creare elementi di lavoro ITSM da avvisi di Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) 
+ [risoluzione dei problemi nel connettore ITSM](./itsmc-resync-servicenow.md)

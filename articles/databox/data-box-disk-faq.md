@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: acaa0fdb1fa0e9a338f4e249622cad0115c6b58e
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516445"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654626"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
 
@@ -100,13 +100,11 @@ Questi lead time sono *stime*. Il tempo per ogni fase di elaborazione degli ordi
 **Tempo di esecuzione stimato per un ordine di Data Box Disk:**
 
 1. Ordine Data Box Disk: pochi minuti dal portale
-2. Allocazione e preparazione dischi: 1-2 giorni lavorativi
+2. Allocazione e preparazione del disco: fino a 5 giorni lavorativi, a seconda della disponibilità dell'inventario e del numero di ordini in sospeso da elaborare
 3. Spedizione: 2-3 giorni lavorativi
-4. Copia dei dati nel sito del cliente: dipende dalla natura dei dati, dalle dimensioni e dal numero di file
+4. Copia dei dati nel sito del cliente: dipende dalla natura dei dati, dalle dimensioni e dal numero di file.
 5. Effettuare il reso della spedizione: 2-3 giorni lavorativi
-6. Elaborazione del disco nel datacenter: 1-2 giorni lavorativi
-7. Caricare i dati in Azure: inizia non appena è stata completata l'elaborazione e il disco è connesso. Il tempo di caricamento dipende dalla natura dei dati, dalle dimensioni e dal numero di file.
-
+6. Elaborazione nel datacenter e caricamento in Azure: il caricamento dei dati inizia dal Data Center non appena viene completata l'elaborazione operativa e il disco è connesso. Il tempo di caricamento dipende dalla natura dei dati, dalle dimensioni e dal numero di file.
 
 ## <a name="configure-and-connect"></a>Configurazione e connessione
  

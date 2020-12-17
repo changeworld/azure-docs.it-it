@@ -1,7 +1,7 @@
 ---
 title: Diagnostica delle prestazioni per le macchine virtuali di Azure | Microsoft Docs
 description: Introduzione alla diagnostica delle prestazioni di Azure per Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: cshepard
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: fb0928c75b8fee567e9d0f03489794bd9f65e91e
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 70d1a52ff3326fcd3a628cc7f0f9d91edc9274e7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109437"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655391"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostica delle prestazioni per le macchine virtuali di Azure
 
@@ -191,7 +191,7 @@ Esistono diversi modi per condividere il report di diagnostica con Microsoft.
 Quando si apre un ticket di supporto con Microsoft, è importante condividere il report di diagnostica delle prestazioni. Se si sceglie di condividere queste informazioni con Microsoft mentre si esegue la diagnostica (selezionando la casella di controllo "**Accetto di condividere le informazioni di diagnostica con Microsoft**"), Microsoft sarà in grado di accedere al report nell’account di archiviazione usando un collegamento SAS al file ZIP di output fino a 30 giorni dalla data di esecuzione. Il tecnico del supporto avrà accesso solo al report più recente.
 
 **Opzione 2:** generare una firma di accesso condiviso per il file ZIP contenente i dati di diagnostica  
-È possibile condividere un collegamento al file ZIP del report usando una firma di accesso condiviso. A questo scopo, seguire questa procedura:
+È possibile condividere un collegamento al file ZIP del report usando una firma di accesso condiviso. A tale scopo, effettuare le operazioni seguenti:
 
 1. Nel portale di Azure, passare all'account di archiviazione in cui i dati di diagnostica vengono archiviati.
 1. Selezionare **BLOB** nella sezione **Servizio BLOB**.

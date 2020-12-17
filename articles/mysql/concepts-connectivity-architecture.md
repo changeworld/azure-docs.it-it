@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 03b7f7cd0ebff61047175c8667130a31866b7cbe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2a557bb436b3bc10cf83beb450761465b43f621f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586007"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655357"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
 Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
@@ -48,7 +48,7 @@ La tabella seguente elenca gli indirizzi IP del gateway del database di Azure pe
 | Brasile meridionale |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Canada centrale |40.85.224.249  | | |
 | Canada orientale | 40.86.226.166    | | |
-| Stati Uniti centrali | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     | | |
+| Stati Uniti centrali | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | Cina orientale | 139.219.130.35    | | |
 | Cina orientale 2 | 40.73.82.1  | | |
 | Cina settentrionale | 139.219.15.17    | | |

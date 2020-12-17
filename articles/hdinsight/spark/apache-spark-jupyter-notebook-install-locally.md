@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: de11e6f9fd9acc81f7be6d23bb1019f88f9e1322
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518924"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657210"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installare Jupyter Notebook nel computer e connettersi a Apache Spark su HDInsight
 
@@ -42,12 +42,7 @@ Scaricare il [programma di installazione di Anaconda](https://www.anaconda.com/d
 
 ## <a name="install-spark-magic"></a>Installare Spark Magic
 
-1. Immettere uno dei comandi seguenti per installare Spark Magic. Vedere anche la [documentazione di sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation).
-
-    |Versione del cluster | Comando di installazione |
-    |---|---|
-    |v 3.6 e v 3.5 |`pip install sparkmagic==0.13.1`|
-    |v 3.4|`pip install sparkmagic==0.2.3`|
+1. Immettere il comando `pip install sparkmagic==0.13.1` per installare Spark Magic per i cluster HDInsight versione 3,6 e 4,0. Vedere anche la [documentazione di sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation).
 
 1. Assicurarsi `ipywidgets` che sia installato correttamente eseguendo il comando seguente:
 
@@ -74,7 +69,7 @@ Scaricare il [programma di installazione di Anaconda](https://www.anaconda.com/d
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. facoltativo. Immettere il comando seguente per abilitare l'estensione del server:
+1. Facoltativo. Immettere il comando seguente per abilitare l'estensione del server:
 
     ```cmd
     jupyter serverextension enable --py sparkmagic

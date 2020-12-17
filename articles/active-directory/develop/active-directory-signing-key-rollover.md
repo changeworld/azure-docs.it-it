@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 981ac775e7153cfd03dc1760bbbc4e50fd9ecc57
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c9fbf6990f789bdb0edb1cf45885003569d4f6a8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169546"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653232"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Rollover della chiave di firma nella piattaforma di identità Microsoft
 Questo articolo descrive le informazioni che è necessario conoscere sulle chiavi pubbliche usate dalla piattaforma di identità Microsoft per firmare i token di sicurezza. È importante sottolineare che queste chiavi si riattivano periodicamente e, in caso di emergenza, possono essere immediatamente sottoposte a rollback. Tutte le applicazioni che usano la piattaforma di identità Microsoft devono essere in grado di gestire il processo di rollover della chiave a livello di codice. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
@@ -85,7 +85,7 @@ app.UseWsFederationAuthentication(
      });
 ```
 ```
- app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+app.UseWindowsAzureActiveDirectoryBearerAuthentication(
      new WindowsAzureActiveDirectoryBearerAuthenticationOptions
      {
      // ...

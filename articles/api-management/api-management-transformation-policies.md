@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 212a6b0786b371bfb92f2e193e67d9accd432bf8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078494"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657244"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
@@ -69,19 +69,19 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatorio|Valore predefinito|
 |----------|-----------------|--------------|-------------|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - applica sempre la conversione.<br />-   content-type-json - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di JSON.|Sì|N/D|
 |consider-accept-header|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   true - applica la conversione se XML è richiesto nell'intestazione Accept della richiesta.<br />-   false - applica sempre la conversione.|No|true|
 |parse-date|Se impostato su `false`, i valori data vengono semplicemente copiati durante la trasformazione|No|true|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, on-error
@@ -113,19 +113,19 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |xml-to-json|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatorio|Valore predefinito|
 |----------|-----------------|--------------|-------------|
 |kind|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   javascript-friendly - il JSON convertito ha un formato intuitivo per gli sviluppatori JavaScript.<br />-   direct - il JSON convertito riflette la struttura del documento XML originario.|Sì|N/D|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - esegue sempre la conversione.<br />-   content-type-xml - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di XML.|Sì|N/D|
 |consider-accept-header|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   true - applica la conversione se JSON è richiesto nell'intestazione Accept della richiesta.<br />-   false - applica sempre la conversione.|No|true|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, on-error
@@ -149,18 +149,18 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |find-and-replace|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatorio|Valore predefinito|
 |----------|-----------------|--------------|-------------|
 |da|Stringa da cercare.|Sì|N/D|
 |to|Stringa di sostituzione. Specificare una stringa di sostituzione con lunghezza zero per rimuovere la stringa di ricerca.|Sì|N/D|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
@@ -187,11 +187,11 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |redirect-content-urls|Elemento radice.|Sì|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound
@@ -260,13 +260,13 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |set-backend-service|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatorio|Valore predefinito|
 |----------|-----------------|--------------|-------------|
 |base-url|Nuovo URL di base del servizio back-end.|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
 |backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
@@ -276,7 +276,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 |sf-service-instance-name|Applicabile solo quando il back-end è un servizio di Service Fabric. Consente di modificare le istanze del servizio durante il runtime. |No|N/D|
 |sf-listener-name|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Reliable Services di Service Fabric consente di creare più listener in un servizio. Questo attributo viene usato per selezionare un listener specifico quando un'istanza di Reliable Services back-end ha più di un listener. Se questo attributo non viene specificato, il servizio Gestione API tenterà di usare un listener senza nome. Un listener senza nome è tipico di un'istanza di Reliable Services con un solo listener. |No|N/D|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, backend
@@ -316,12 +316,12 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -329,14 +329,14 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Esempio di accesso al corpo come JObject. Si noti che il corpo della richiesta originale non viene mantenuto e l'accesso a tale corpo più avanti nella pipeline genererà un'eccezione.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -396,13 +396,13 @@ Il criterio `set-body` può essere configurato per l'uso del linguaggio di model
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |set-body|Elemento radice. Contiene il testo del corpo o un'espressione che restituisce un corpo.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatorio|Valore predefinito|
 |----------|-----------------|--------------|-------------|
 |template|Consente di modificare la modalità di modello in cui verrà eseguito il criterio del corpo impostato. Al momento, l'unico valore supportato è:<br /><br />-liquid - i criteri del corpo impostati useranno il motore del modello liquidi |No||
 
@@ -446,7 +446,7 @@ OriginalUrl.
 
 
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, back-end
@@ -510,19 +510,19 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |set-header|Elemento radice.|Sì|
 |Valore|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatorio|Valore predefinito|
 |----------|-----------------|--------------|-------------|
 |exists-action|Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore dell'intestazione esistente.<br />-   skip - non sostituisce il valore dell'intestazione esistente.<br />-   append - aggiunge il valore dell'intestazione esistente.<br />-   delete - elimina l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No|override|
 |name|Specifica il nome dell'intestazione da impostare.|Sì|N/D|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
@@ -565,19 +565,19 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento radice.|Sì|
 |Valore|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatorio|Valore predefinito|
 |----------|-----------------|--------------|-------------|
 |exists-action|Specifica l'azione da eseguire quando il parametro di query è già specificato. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore del parametro esistente.<br />-   skip - non sostituisce il valore del parametro di query esistente.<br />-   append - aggiunge il valore del parametro di query esistente.<br />-   delete - elimina il parametro di query dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione del parametro di query in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No|override|
 |name|Specifica il nome del parametro di query da impostare.|Sì|N/D|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, backend
@@ -644,18 +644,18 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Attributo|Descrizione|Obbligatoria|Predefinito|
+|Attributo|Descrizione|Obbligatorio|Valore predefinito|
 |---------------|-----------------|--------------|-------------|
 |template|URL effettivo del servizio Web con eventuali parametri delle stringhe di query. Quando si usano le espressioni, l'intero valore deve essere un'espressione.|Sì|N/D|
 |copy-unmatched-params|Specifica se i parametri di query nella richiesta in ingresso non presenti nel modello di URL originale vengono aggiunti all'URL definito dal modello di riscrittura|No|true|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound
@@ -697,7 +697,7 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
             <!-- Copy all nodes directly-->
             <xsl:template match="node()| @*|*">
@@ -705,7 +705,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />
                 </xsl:copy>
             </xsl:template>
-        </xsl:stylesheet>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>
@@ -713,13 +713,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatorio|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento radice.|Sì|
-|parameter|Consente di definire le variabili usate nella trasformazione|No|
+|parametro|Consente di definire le variabili usate nella trasformazione|No|
 |xsl:stylesheet|Elemento del foglio di stile principale. Tutti gli elementi e gli attributi definiti rispettano le [specifiche XSLT](https://www.w3.org/TR/xslt) standard|Sì|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound
@@ -728,7 +728,7 @@ OriginalUrl.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere gli argomenti seguenti:
+Per altre informazioni, vedere i seguenti argomenti:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni

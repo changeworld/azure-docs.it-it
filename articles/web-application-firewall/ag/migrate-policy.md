@@ -7,16 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b60075eb861fe598a05ba014a7def96bc815d06
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86143859"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653011"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Eseguire la migrazione dei criteri del Web Application Firewall usando Azure PowerShell
 
-Questo script semplifica la transizione da una configurazione di WAF o un criterio personalizzato WAF solo a un criterio WAF completo. È possibile che venga visualizzato un avviso nel portale in cui viene indicato *di eseguire la migrazione ai criteri di WAF*oppure è possibile che si desiderino le nuove funzionalità di WAF, ad esempio le regole personalizzate di geocorrispondenza (anteprima), i criteri WAF per sito e i criteri di WAF per URI (anteprima) o il set di regole di mitigazione bot (anteprima). Per usare una di queste funzionalità, è necessario un criterio WAF completo associato al gateway applicazione. 
+Questo script semplifica la transizione da una configurazione di WAF o un criterio personalizzato WAF solo a un criterio WAF completo. È possibile che venga visualizzato un avviso nel portale in cui viene indicato *di eseguire la migrazione ai criteri di WAF* oppure è possibile che si desiderino le nuove funzionalità di WAF, ad esempio le regole personalizzate di geocorrispondenza (anteprima), i criteri WAF per sito e i criteri di WAF per URI (anteprima) o il set di regole di mitigazione bot (anteprima). Per usare una di queste funzionalità, è necessario un criterio WAF completo associato al gateway applicazione. 
 
 Per altre informazioni sulla creazione di un nuovo criterio WAF, vedere [creare criteri di Web Application Firewall per il gateway applicazione](create-waf-policy-ag.md). Per informazioni sulla migrazione, vedere la pagina relativa [alla migrazione a criteri WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 
@@ -146,7 +146,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
                 if ($disabled.Rules.Count -gt 0) {
                     foreach ($rule in $disabled.Rules) {
                         $ruleOverride = New-AzApplicationGatewayFirewallPolicyManagedRuleOverride -RuleId $rule
-                        $_ = $rules.Add($ruleOverride)              
+                        $_ = $rules.Add($ruleOverride)
                     }
                 }
                 
@@ -157,7 +157,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
 
         $managedRuleSet = New-AzApplicationGatewayFirewallPolicyManagedRuleSet -RuleSetType $appgw.WebApplicationFirewallConfiguration.RuleSetType -RuleSetVersion $appgw.WebApplicationFirewallConfiguration.RuleSetVersion 
         if ($ruleGroupOverrides.Count -ne 0) {
-            $managedRuleSet = New-AzApplicationGatewayFirewallPolicyManagedRuleSet -RuleSetType $appgw.WebApplicationFirewallConfiguration.RuleSetType -RuleSetVersion $appgw.WebApplicationFirewallConfiguration.RuleSetVersion -RuleGroupOverride $ruleGroupOverrides 
+            $managedRuleSet = New-AzApplicationGatewayFirewallPolicyManagedRuleSet -RuleSetType $appgw.WebApplicationFirewallConfiguration.RuleSetType -RuleSetVersion $appgw.WebApplicationFirewallConfiguration.RuleSetVersion -RuleGroupOverride $ruleGroupOverrides
         }
     
         $exclusions = [System.Collections.ArrayList]@()  
@@ -165,7 +165,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
             foreach ($excl in $appgw.WebApplicationFirewallConfiguration.Exclusions) {
                 if ($excl.MatchVariable -and $excl.SelectorMatchOperator -and $excl.Selector) {
                     $exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion -MatchVariable  $excl.MatchVariable -SelectorMatchOperator $excl.SelectorMatchOperator -Selector $excl.Selector
-                    $_ = $exclusions.Add($exclusionEntry)               
+                    $_ = $exclusions.Add($exclusionEntry)
                 }
             }
         }

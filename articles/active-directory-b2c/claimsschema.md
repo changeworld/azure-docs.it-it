@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781720"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654031"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano le attestazioni. Un'attestazione può essere un nome, un cognome, un nome visualizzato, un numero di telefono e altro ancora. L'elemento ClaimsSchema contiene l'elenco degli elementi **ClaimType** . Un elemento **ClaimType** contiene l'attributo **Id** , che è il nome dell'attestazione.
+L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano le attestazioni. Un'attestazione può essere un nome, un cognome, un nome visualizzato, un numero di telefono e altro ancora. L'elemento ClaimsSchema contiene l'elenco degli elementi **ClaimType**. Un elemento **ClaimType** contiene l'attributo **Id**, che è il nome dell'attestazione.
 
 ```xml
 <BuildingBlocks>
@@ -42,9 +42,9 @@ L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile 
 
 L'elemento **ClaimType** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
+| Id | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
 
 L'elemento **ClaimType** contiene gli elementi seguenti:
 
@@ -52,13 +52,13 @@ L'elemento **ClaimType** contiene gli elementi seguenti:
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | Titolo che viene visualizzato agli utenti nelle varie schermate. Il valore può essere [localizzato](localization.md). |
 | DataType | 1:1 | Tipo di attestazione. |
-| DefaultPartnerClaimTypes | 0:1 | Tipi di attestazione predefiniti di partner da usare per un protocollo specificato. Il valore può essere sovrascritto nell'elemento **PartnerClaimType** specificato nell'elemento **InputClaim** o **OutputClaim** . Usare questo elemento per specificare il nome predefinito per un protocollo.  |
+| DefaultPartnerClaimTypes | 0:1 | Tipi di attestazione predefiniti di partner da usare per un protocollo specificato. Il valore può essere sovrascritto nell'elemento **PartnerClaimType** specificato nell'elemento **InputClaim** o **OutputClaim**. Usare questo elemento per specificare il nome predefinito per un protocollo.  |
 | Mask | 0:1 | Stringa di caratteri di mascheramento facoltativa che può essere applicata durante la visualizzazione dell'attestazione. Il numero di telefono 324-232-4343 ad esempio può essere mascherato come XXX-XXX-4343. |
 | UserHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile agli utenti per comprenderne lo scopo. Il valore può essere [localizzato](localization.md). |
 | UserInputType | 0:1 | Tipo di controllo di input che deve essere disponibile all'utente per l'immissione manuale dei dati di attestazione per il tipo di attestazione. Vedere i tipi di input utente definiti più avanti in questa pagina. |
 | AdminHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile per gli amministratori per comprenderne lo scopo. |
 | Restrizione | 0:1 | Restrizioni ai valori per questa attestazione, ad esempio un'espressione regolare (Regex) o un elenco di valori accettabili. Il valore può essere [localizzato](localization.md). |
-PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidationsInput** . Gli elementi **PredicateValidationReference** consentono di eseguire un processo di convalida per garantire l'inserimento solo di dati formattati adeguatamente. Per altre informazioni, vedere [Predicates](predicates.md). |
+PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidationsInput**. Gli elementi **PredicateValidationReference** consentono di eseguire un processo di convalida per garantire l'inserimento solo di dati formattati adeguatamente. Per altre informazioni, vedere [Predicates](predicates.md). |
 
 
 
@@ -66,7 +66,7 @@ PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidat
 
 L'elemento **DataType** supporta i valori seguenti:
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 | ------- | ----------- |
 |boolean|Rappresenta un valore booleano (`true` o `false`).|
 |Data| Rappresenta un istante di tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
@@ -90,7 +90,7 @@ L'elemento **DefaultPartnerClaimTypes** può contenere l'elemento seguente:
 
 L'elemento **Protocollo** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sì | Nome del tipo di attestazione da usare. |
@@ -125,7 +125,7 @@ Il token JWT emesso da Azure AD B2C crea quindi `family_name` invece del nome di
 
 L'elemento **Mask** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
 | `Regex` | No | Se **`Type`** è impostato su `Regex` , specificare l'espressione regolare da usare.
@@ -165,7 +165,7 @@ Il framework dell'esperienza di gestione delle identità esegue il rendering sol
 
 L'elemento **Restriction** può contenere l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | MergeBehavior | No | Metodo usato per unire i valori di enumerazione con un elemento ClaimType nei criteri padre avente lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` è una raccolta di dati che è consigliabile accodare alla fine della raccolta specificata nei criteri padre. Il valore `Prepend` è una raccolta di dati che è consigliabile aggiungere all'inizio della raccolta specificata nei criteri padre. Il `ReplaceAll` valore è una raccolta di dati specificati nei criteri padre che è consigliabile ignorare. |
 
@@ -182,7 +182,7 @@ L'elemento **Enumeration** definisce le opzioni disponibili che l'utente deve se
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | Testo | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
 |valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
@@ -211,7 +211,7 @@ Elenco a discesa delle città con valore predefinito impostato su New York:
 
 L'elemento **Pattern** può contenere gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | RegularExpression | Sì | Espressione regolare a cui le attestazioni di questo tipo devono corrispondere per poter essere valide. |
 | HelpText | No | Messaggio di errore per gli utenti se il controllo dell'espressione regolare ha esito negativo. |
@@ -223,14 +223,14 @@ L'esempio seguente configura un'attestazione **messaggio e-mail** con la convali
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
   <DefaultPartnerClaimTypes>
-    <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
+  <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
   </DefaultPartnerClaimTypes>
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
     <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
-    </Restriction>
- </ClaimType>
+  </Restriction>
+</ClaimType>
 ```
 
 Il framework dell'esperienza di gestione delle identità esegue il rendering dell'attestazione indirizzo e-mail con la convalida di input del formato dell'indirizzo di posta elettronica:
@@ -394,7 +394,7 @@ Il tipo di input utente **Readonly** viene usato per visualizzare un campo di so
 
 #### <a name="paragraph"></a>Paragraph
 
-Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un **Paragraph** tipo di input utente `OutputClaim` di paragrafo del profilo tecnico autocertificato, deve impostare l' `Required` attributo `false` (impostazione predefinita).
+Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un  tipo di input utente `OutputClaim` di paragrafo del profilo tecnico autocertificato, deve impostare l' `Required` attributo `false` (impostazione predefinita).
 
 ![Utilizzo del tipo di attestazione con paragrafo (paragraph)](./media/claimsschema/paragraph.png)
 

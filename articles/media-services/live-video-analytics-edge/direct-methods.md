@@ -3,12 +3,12 @@ title: Usare i metodi diretti in analisi video in tempo reale su IoT Edge-Azure
 description: Analisi video in tempo reale su IoT Edge espone diversi metodi diretti. I metodi diretti sono basati sulle convenzioni descritte in questo argomento.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091828"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656241"
 ---
 # <a name="direct-methods"></a>Metodi diretti
 
@@ -140,12 +140,12 @@ Questo metodo diretto recupera una singola topologia Graph.
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Entità trovata|  200 |N/D
-|Errori utente generici    |Intervallo 400  ||
-|Entità non trovata   |404        ||
-|Errori server generici| Intervallo 500       ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Entità trovata | 200 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Entità non trovata | 404 |  |
+| Errori server generici | Intervallo 500 |  |
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -227,13 +227,13 @@ Elimina una singola topologia Graph.
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Entità eliminata|    200|    N/D|
-|Entità non trovata|  204|    N/D|
-|Errori utente generici|   Intervallo 400   ||
-|Una o più istanze di Graph fanno riferimento alla topologia del grafo| 409 |GraphTopologyInUse|
-|Errori server generici| Intervallo 500   ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Entità eliminata | 200 | N/D |
+| Entità non trovata | 204 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Una o più istanze di Graph fanno riferimento alla topologia del grafo | 409 | GraphTopologyInUse |
+| Errori server generici | Intervallo 500 |  |
 
 ### <a name="graphtopologylist"></a>GraphTopologyList
 
@@ -278,18 +278,18 @@ Recupera un elenco di tutte le topologie del grafico che corrispondono ai criter
 
 #### <a name="filter-support"></a>Supporto del filtro
 
-|Operazione      |Campo/i   |Operatori|
+|Operazione |Campo/i    |Operatori|
 |---|---|---|
 |$orderby|name  |ASC|
 
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Operazione completata|   200 |N/D|
-|Errori utente generici|   Intervallo 400   ||
-|Errori server generici| Intervallo 500   ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Operazione completata | 200 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Errori server generici | Intervallo 500 |  |
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -323,12 +323,12 @@ Recupera una singola istanza di Graph:
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Entità trovata   |200|   N/D|
-|Errori utente generici|   Intervallo 400   ||
-|Entità non trovata|  404 ||
-|Errori server generici| Intervallo 500   ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Entità trovata | 200 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Entità non trovata | 404 |  |
+| Errori server generici | Intervallo 500 |  |
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -373,15 +373,15 @@ Aspetti principali:
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Entità esistente aggiornata    |200    |N/D|
-|Nuova entità creata|    201 |N/D|
-|Errori utente generici|   Intervallo 400   ||
-|Errori di convalida del grafo    |400|   GraphValidationError|
-|Errori di convalida del modulo|  400 |ModuleValidationError|
-|Errori di convalida delle risorse |409    |ResourceValidationError|
-|Errori server generici  |Intervallo 500||    
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Entità esistente aggiornata | 200 | N/D |
+| Nuova entità creata | 201 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Errori di convalida del grafo | 400 | GraphValidationError |
+| Errori di convalida del modulo | 400 | ModuleValidationError |
+| Errori di convalida delle risorse | 409 | ResourceValidationError |
+| Errori server generici | Intervallo 500 |  |  |
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -414,13 +414,13 @@ Aspetti principali:
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Il grafico è stato eliminato|    200|    N/D|
-|Il grafico non è stato trovato|   204|    N/D|
-|Errori utente generici    |Intervallo 400  ||
-|Il grafico non è nello stato "arrestato"    |409    |OperationNotAllowedInState|
-|Errori server generici| Intervallo 500   ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Il grafico è stato eliminato | 200 | N/D |
+| Il grafico non è stato trovato | 204 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Il grafico non è nello stato "arrestato" | 409 | OperationNotAllowedInState |
+| Errori server generici | Intervallo 500 |  |
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -472,11 +472,11 @@ Recupera un elenco di tutte le istanze dei grafici che corrispondono ai criteri 
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Operazione completata    |200    |N/D|
-|Errori utente generici|   Intervallo 400   ||
-|Errori server generici| Intervallo 500   ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Operazione completata | 200 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Errori server generici | Intervallo 500 |  |
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -516,15 +516,15 @@ Aspetti principali
 
 #### <a name="status-codes"></a>Codici di stato
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Il grafico è stato attivato   |200    |N/D|
-|Nuova entità creata |201|   N/D|
-|Errori utente generici    |Intervallo 400  ||
-|Errori di convalida del modulo   |400|   ModuleValidationError|
-|Errori di convalida delle risorse|    409|    ResourceValidationError|
-|Il grafico è in stato di disattivazione |409    |OperationNotAllowedInState|
-|Errori server generici| Intervallo 500   ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Il grafico è stato attivato | 200 | N/D |
+| Nuova entità creata | 201 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Errori di convalida del modulo | 400 | ModuleValidationError |
+| Errori di convalida delle risorse | 409 | ResourceValidationError |
+| Il grafico è in stato di disattivazione | 409 | OperationNotAllowedInState |
+| Errori server generici | Intervallo 500 |  |
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivate
 
@@ -565,13 +565,13 @@ Aspetti principali:
 }
 ```
 
-|Condizione  |Codice di stato    |Codice di errore dettagliato|
-|---|---|---|
-|Il grafico è stato attivato   |200|   N/D|
-|Nuova entità creata |201|   N/D|
-|Errori utente generici    |Intervallo 400  ||
-|Il grafico è nello stato di attivazione   |409|   OperationNotAllowedInState|
-|Errori server generici  |Intervallo 500  ||
+| Condizione | Codice di stato | Codice di errore dettagliato |
+|--|--|--|
+| Il grafico è stato attivato | 200 | N/D |
+| Nuova entità creata | 201 | N/D |
+| Errori utente generici | Intervallo 400 |  |
+| Il grafico è nello stato di attivazione | 409 | OperationNotAllowedInState |
+| Errori server generici | Intervallo 500 |  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

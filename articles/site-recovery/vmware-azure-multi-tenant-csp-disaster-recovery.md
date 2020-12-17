@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2a8a7bb14758ab21eb2183a119f456b53c8562
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400639"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654950"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurare il ripristino di emergenza di VMware in un ambiente multi-tenancy con il programma Cloud Solution Provider (CSP)
 
@@ -65,22 +65,22 @@ A questo punto è possibile eseguire tutte le operazioni di Site Recovery per il
 ## <a name="assign-tenant-access-to-the-subscription"></a>Assegnare l'accesso tenant alla sottoscrizione
 
 1. Verificare che sia configurata l'infrastruttura del ripristino di emergenza. I partner accedere alle sottoscrizioni del tenant tramite il portale CSP, a prescindere che il ripristino di emergenza sia gestito o self-service. Configurare l'insieme di credenziali e registrare l'infrastruttura nelle sottoscrizioni del tenant.
-2. Fornire al tenant l' [account creato](#create-a-tenant-account).
-3. È possibile aggiungere un nuovo utente alla sottoscrizione tenant tramite il portale CSP come indicato di seguito:
+1. Fornire al tenant l' [account creato](#create-a-tenant-account).
+1. È possibile aggiungere un nuovo utente alla sottoscrizione tenant tramite il portale CSP come indicato di seguito:
 
-    a) Accedere alla pagina delle sottoscrizioni CSP del tenant e quindi selezionare l'opzione **Users and licenses** (Utenti e licenze).
+    1. Accedere alla pagina delle sottoscrizioni CSP del tenant e selezionare l'opzione **Users and licenses** (Utenti e licenze).
 
-      ![Pagina delle sottoscrizioni CSP del tenant](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![Pagina delle sottoscrizioni CSP del tenant](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) Creare ora un nuovo utente immettendo i relativi dettagli e selezionando le autorizzazioni oppure caricando l'elenco di utenti in un file CSV.
-    
-    c) Dopo aver creato un nuovo utente, tornare al portale di Azure. Nella pagina **Sottoscrizione** selezionare la sottoscrizione da usare.
+    1. A questo punto, creare un nuovo utente immettendo i relativi dettagli e selezionando le autorizzazioni oppure caricando l'elenco di utenti in un file CSV.
 
-    d) Selezionare **Controllo di accesso (IAM)** e quindi **Assegnazioni di ruolo**.
+    1. Dopo aver creato un nuovo utente, tornare alla portale di Azure. Nella pagina **Sottoscrizione** selezionare la sottoscrizione da usare.
 
-    e) Fare clic su **Aggiungi assegnazione di ruolo** per aggiungere un utente con il livello di accesso pertinente. Gli utenti creati tramite il portale CSP vengono visualizzati nella scheda Assegnazioni di ruolo.
+    1. Selezionare **controllo di accesso (IAM)**, quindi fare clic su **assegnazioni di ruolo**.
 
-      ![Aggiungere un utente](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. Fare clic su **Aggiungi assegnazione ruolo** per aggiungere un utente con il livello di accesso pertinente. Gli utenti creati tramite il portale CSP vengono visualizzati nella scheda Assegnazioni di ruolo.
+
+        ![Aggiungere un utente](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - Per la maggior parte delle operazioni di gestione, il ruolo *collaboratore* è sufficiente. Gli utenti con questo livello di accesso possono eseguire qualsiasi operazione su una sottoscrizione, tranne modificare i livelli di accesso. Per questa operazione è infatti richiesto il livello di accesso *Proprietario*.
 - Site Recovery ha anche tre [ruoli utente predefiniti](site-recovery-role-based-linked-access-control.md) che possono essere usati per limitare ulteriormente i livelli di accesso in base alle esigenze.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
-ms.openlocfilehash: f65194cde25deac8c03d6ddc3a7c0b928aaca171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327311"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652297"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aggiornare un'applicazione Java di Service Fabric precedente per recuperare le librerie Java da Maven
 Service Fabric i file binari Java sono stati spostati da Service Fabric SDK Java all'hosting di Maven. È possibile usare **mavencentral** per recuperare le dipendenze Service Fabric Java più recenti. Questa guida consentirà di aggiornare le applicazioni Java esistenti create per il Service Fabric Java SDK usando il modello di attende o Eclipse per essere compatibile con la compilazione basata su Maven.
@@ -385,7 +385,7 @@ Le modifiche sono simili a quelle illustrate nella sezione precedente per il pro
 ```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
-      compile project(':MyactorInterface')
+    compile project(':MyactorInterface')
 }
 .
 .
@@ -398,7 +398,7 @@ jar
         "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
     }
     baseName "myactor-test"
-  destinationDir = file('out/lib')
+    destinationDir = file('out/lib')
 }
 .
 .

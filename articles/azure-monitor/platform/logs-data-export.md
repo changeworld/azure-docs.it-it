@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 8fa823620d6d1306260d719cbabaa3d815cc0d09
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3b29245aed1b2c7767c340cbe8cd35dfa38610b9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505444"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656683"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -58,7 +58,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="data-completeness"></a>Completezza dei dati
 L'esportazione dei dati continuerà a ritentare l'invio dei dati per un massimo di 30 minuti nel caso in cui la destinazione non sia disponibile. Se non è ancora disponibile dopo 30 minuti, i dati verranno rimossi finché la destinazione non sarà disponibile.
 
-## <a name="cost"></a>Costo
+## <a name="cost"></a>Cost
 Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esportazione dei dati. I prezzi per l'esportazione dei dati verranno annunciati in futuro e un avviso fornito prima dell'avvio della fatturazione. Se si sceglie di continuare a usare l'esportazione dei dati dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="export-destinations"></a>Esporta destinazioni
@@ -118,7 +118,7 @@ Se l'account di archiviazione è stato configurato per consentire l'accesso da r
 Una regola di esportazione dei dati consente di definire i dati da esportare per un set di tabelle in una singola destinazione. È possibile creare una regola per ogni destinazione.
 
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -220,7 +220,7 @@ Di seguito è riportato un corpo di esempio per la richiesta REST per un hub eve
 
 ## <a name="view-data-export-rule-configuration"></a>Visualizzazione della configurazione delle regole di esportazione dei dati
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -247,7 +247,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="disable-an-export-rule"></a>Disabilitare una regola di esportazione
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -289,7 +289,7 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Eliminare una regola di esportazione
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -316,7 +316,7 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Visualizzare tutte le regole di esportazione dei dati in un'area di lavoro
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -509,7 +509,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | Aggiornamento | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
 | UpdateRunProgress | |
 | UpdateSummary | |
-| Utilizzo | |
+| Uso | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
 | Watchlist | |

@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ad7fe062d30f6858296ad4a2638b62c190862365
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 80e6dbdc02b68c279452127933532106b0f78ab8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936438"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654660"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -39,7 +39,7 @@ Riepilogo dei due scenari di base non esclusivi con SAML:
 | Scenario | Ruolo di Azure AD B2C | Procedure |
 | -------- | ----------------- | ------- |
 | L'applicazione prevede che un'asserzione SAML completi un'autenticazione. | **Azure AD B2C funge da provider di identità (IdP)**<br />Azure AD B2C funge da IdP SAML per le applicazioni. | Questo articolo. |
-| Gli utenti hanno bisogno dell'accesso Single Sign-On con un provider di identità conforme a SAML, ad esempio ADFS, Salesforce o Shibboleth.  | **Azure AD B2C funge da provider di servizi (SP)**<br />Azure AD B2C funge da provider di servizi per la connessione al provider di identità SAML. Si tratta di un proxy federativo tra l'applicazione e il provider di identità SAML.  | <ul><li>[Configurare l'accesso con ADFS come IdP SAML usando criteri personalizzati](identity-provider-adfs.md)</li><li>[Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati](identity-provider-salesforce.md)</li></ul> |
+| Gli utenti hanno bisogno dell'accesso Single Sign-On con un provider di identità conforme a SAML, ad esempio ADFS, Salesforce o Shibboleth.  | **Azure AD B2C funge da provider di servizi (SP)**<br />Azure AD B2C funge da provider di servizi per la connessione al provider di identità SAML. Si tratta di un proxy federativo tra l'applicazione e il provider di identità SAML.  | <ul><li>[Configurare l'accesso con ADFS come IdP SAML usando criteri personalizzati](identity-provider-adfs.md)</li><li>[Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati](identity-provider-salesforce-saml.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -393,7 +393,7 @@ Per consentire Azure AD B2C di inviare asserzioni crittografate, impostare l'ele
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Abilita flusso avviato dal provider di identità (facoltativo)
 
-Nel flusso avviato dal provider di identità, il processo di accesso viene avviato dal provider di identità (Azure AD B2C), che invia una risposta SAML non richiesta al provider di servizi (l'applicazione relying party). Attualmente non sono supportati scenari in cui il provider di identità di avvio è un provider di identità esterno, ad esempio [ad FS](identity-provider-adfs.md)o [Salesforce](identity-provider-salesforce.md).
+Nel flusso avviato dal provider di identità, il processo di accesso viene avviato dal provider di identità (Azure AD B2C), che invia una risposta SAML non richiesta al provider di servizi (l'applicazione relying party). Attualmente non sono supportati scenari in cui il provider di identità di avvio è un provider di identità esterno, ad esempio [ad FS](identity-provider-adfs.md)o [Salesforce](identity-provider-salesforce-saml.md).
 
 Per abilitare il flusso avviato dal provider di identità (Azure AD B2C), impostare l'elemento dei metadati **IdpInitiatedProfileEnabled** su `true` nel [profilo tecnico relying party](relyingparty.md#technicalprofile).
 
@@ -449,7 +449,7 @@ Un token SAML è un token di sicurezza emesso da Azure AD B2C dopo un accesso ri
 |`<Response>`| `InResponseTo` | ID della richiesta SAML a cui questo messaggio è in risposta. | 
 |`<Response>` | `IssueInstant` | Istante temporale del problema della risposta. Il valore di ora è codificato in formato UTC.  Per modificare le impostazioni per la durata dei token, impostare i `TokenNotBeforeSkewInSeconds` [metadati](saml-issuer-technical-profile.md#metadata) del profilo tecnico dell'emittente del token SAML. | 
 |`<Response>` | `Destination`| Riferimento URI che indica l'indirizzo a cui è stata inviata la risposta. Il valore è identico a quello della richiesta SAML `AssertionConsumerServiceURL` . | 
-|`<Response>` `<Issuer>` | |Identifica l'emittente del token. Si tratta di un URI arbitrario definito dai metadati del problema del token SAML `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|`<Response>` `<Issuer>` | |Identifica l'emittente del token. Si tratta di un URI arbitrario definito dai metadati del problema del token SAML `IssuerUri` [](saml-issuer-technical-profile.md#metadata)     |
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Entità su cui il token asserisce informazioni, ad esempio l'ID dell'oggetto utente. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Riferimento URI che rappresenta la classificazione delle informazioni sugli identificatori basati su stringa. Per impostazione predefinita, questa proprietà viene omessa. È possibile impostare l'relying party [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) per specificare il `NameID` formato, ad esempio `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Istante temporale in cui il token diventa valido. Il valore di ora è codificato in formato UTC. L'applicazione deve usare questa attestazione per verificare la validità della durata del token. Per modificare le impostazioni per la durata dei token, impostare i `TokenNotBeforeSkewInSeconds` [metadati](saml-issuer-technical-profile.md#metadata) del profilo tecnico relativo al problema del token SAML. |

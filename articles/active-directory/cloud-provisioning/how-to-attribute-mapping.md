@@ -11,12 +11,12 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7fabad618233e8866c545e1c5ccbcc8cb7508ebf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348804"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652098"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Azure AD Connect mapping degli attributi di provisioning cloud
 
@@ -52,45 +52,51 @@ Oltre a questa proprietà i mapping degli attributi supportano i seguenti attrib
 > In questo documento viene descritto come utilizzare il portale di Azure per eseguire il mapping degli attributi.  Per informazioni sull'utilizzo di Graph, vedere [trasformazioni](how-to-transformation.md)
 
 ## <a name="using-attribute-mapping"></a>Uso del mapping degli attributi
+
 Per usare la nuova funzionalità, attenersi alla procedura riportata di seguito.
-
- 1.  Nel portale di Azure selezionare **Azure Active Directory**.
- 2.  Selezionare **Azure AD Connect**.
- 3.  Selezionare **Gestisci provisioning**.
-
-   ![Gestire il provisioning](media/how-to-configure/manage1.png)
- 
- 4. In **configurazione** selezionare la configurazione.
- 5. Selezionare **fare clic per modificare i mapping**.  Verrà visualizzata la schermata mapping attributi.
-
- ![Aggiunta di attributi](media/how-to-attribute-mapping/mapping6.png)
- 6.  Fare clic su **Aggiungi attributo**.
-
- ![Tipo di mapping](media/how-to-attribute-mapping/mapping1.png)
- 
- 7. Selezionare il **tipo di mapping**.  In questo esempio viene usata l'espressione.
- 8.  Immettere l'espressione nella casella.  Per questo esempio viene usato: `Replace([mail], "@contoso.com", , ,"", ,).`
- 9.  Immettere l'attributo di destinazione.  In questo esempio viene usato ExtensionAttribute15.
- 10. Selezionare quando applicare questa operazione e quindi fare clic su **applica** .
-   
-   ![Modifica mapping](media/how-to-attribute-mapping/mapping2a.png)
- 11. Tornare alla schermata mapping attributi. verrà visualizzato il nuovo mapping degli attributi.  
- 12. Fare clic su **Salva schema**.
-
- ![Salva schema](media/how-to-attribute-mapping/mapping3.png)
-
-## <a name="test-your-attribute-mapping"></a>Testare il mapping degli attributi
-Per testare il mapping degli attributi, è possibile usare [il provisioning su richiesta](how-to-on-demand-provision.md).  Dall' 
 
 1.  Nel portale di Azure selezionare **Azure Active Directory**.
 2.  Selezionare **Azure AD Connect**.
 3.  Selezionare **Gestisci provisioning**.
+
+    ![Gestire il provisioning](media/how-to-configure/manage1.png)
+
+4. In **configurazione** selezionare la configurazione.
+5. Selezionare **fare clic per modificare i mapping**.  Verrà visualizzata la schermata mapping attributi.
+
+    ![Aggiunta di attributi](media/how-to-attribute-mapping/mapping6.png)
+
+6.  Fare clic su **Aggiungi attributo**.
+
+    ![Tipo di mapping](media/how-to-attribute-mapping/mapping1.png)
+
+7. Selezionare il **tipo di mapping**.  In questo esempio viene usata l'espressione.
+8.  Immettere l'espressione nella casella.  Per questo esempio viene usato: `Replace([mail], "@contoso.com", , ,"", ,).`
+9.  Immettere l'attributo di destinazione.  In questo esempio viene usato ExtensionAttribute15.
+10. Selezionare quando applicare questa operazione e quindi fare clic su **applica** .
+
+    ![Modifica mapping](media/how-to-attribute-mapping/mapping2a.png)
+
+11. Tornare alla schermata mapping attributi. verrà visualizzato il nuovo mapping degli attributi.  
+12. Fare clic su **Salva schema**.
+
+    ![Salva schema](media/how-to-attribute-mapping/mapping3.png)
+
+## <a name="test-your-attribute-mapping"></a>Testare il mapping degli attributi
+
+Per testare il mapping degli attributi, è possibile usare [il provisioning su richiesta](how-to-on-demand-provision.md).  Dall' 
+
+1. Nel portale di Azure selezionare **Azure Active Directory**.
+2. Selezionare **Azure AD Connect**.
+3. Selezionare **Gestisci provisioning**.
 4. In **configurazione** selezionare la configurazione.
 5. In **convalida** fare clic sul pulsante Esegui il **provisioning di un utente** . 
 6. Nella schermata di provisioning su richiesta.  Immettere il **nome distinto** di un utente o di un gruppo e fare clic sul pulsante **provisioning** .  
 7. Al termine, verrà visualizzata una schermata operazione completata e 4 caselle di controllo verde che indicano che è stato eseguito correttamente il provisioning.  
-  ![Operazione riuscita per il provisioning](media/how-to-attribute-mapping/mapping4.png)
-1. In **Esegui azione** fare clic su **Visualizza dettagli**.  A destra dovrebbe essere visualizzato il nuovo attributo syncrhonized e l'espressione applicata.
+
+    ![Operazione riuscita per il provisioning](media/how-to-attribute-mapping/mapping4.png)
+
+8. In **Esegui azione** fare clic su **Visualizza dettagli**.  A destra dovrebbe essere visualizzato il nuovo attributo syncrhonized e l'espressione applicata.
 
   ![Azione da eseguire](media/how-to-attribute-mapping/mapping5.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 20403b8c45120a53ea38fbbed60c8f96fd9d55e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9db2bcc0b44dfb6146517de8a139f34cd8584af
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812846"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654456"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 
@@ -154,5 +154,5 @@ Per altre informazioni su Linux Integration Services versione 4.2 per Hyper-V, v
 ## <a name="next-steps"></a>Passaggi successivi
 * Distribuire le macchine virtuali tra loro per una bassa latenza con [gruppo di posizionamento](../virtual-machines/windows/co-location.md) vicino
 * Verificare i risultati dell'ottimizzazione dello scenario in [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) (Test della larghezza di banda/velocità effettiva della macchina virtuale di Azure).
-* Sono disponibili informazioni sull'[allocazione di larghezza di banda alle macchine virtuali](virtual-machine-network-throughput.md)
+* Informazioni sulle modalità di [allocazione della larghezza di banda alle macchine virtuali](virtual-machine-network-throughput.md)
 * Altre informazioni sono disponibili nell'articolo [Domande frequenti sulla rete virtuale di Azure](virtual-networks-faq.md).

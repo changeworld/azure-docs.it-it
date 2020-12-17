@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 251f9a2b075189f19b9e943ff660baaba93ec33b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176189"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652042"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -44,7 +44,7 @@ Verificare che la funzionalità di autenticazione pass-through sia ancora **abil
 
 Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è possibile che venga visualizzato uno dei seguenti errori nella schermata di accesso di Azure AD: 
 
-|Errore|Descrizione|Risoluzione
+|Errore|Descrizione|Soluzione
 | --- | --- | ---
 |AADSTS80001|Impossibile connettersi ad Active Directory|Verificare che i server degli agenti siano membri della stessa foresta AD degli utenti le cui password devono essere convalidate e siano in grado di connettersi ad Active Directory.  
 |AADSTS8002|Si è verificato un timeout di connessione ad Active Directory|Verificare che Active Directory sia disponibile e risponda alle richieste degli agenti.
@@ -61,7 +61,7 @@ Per confermare che questo è il problema, verificare innanzitutto che l'agente d
 
 1. Creare un account di test.  
 2. Importare il modulo PowerShell nel computer agente:
- 
+
  ```powershell
  Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
  ```
@@ -85,14 +85,14 @@ Se al tenant è associata una licenza di Azure AD Premium, è anche possibile es
 
 Passare a **Azure Active Directory**  ->  **accessi** nell'interfaccia di [amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
-|Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
+|Codice dell'errore di accesso|Motivo dell'errore di accesso|Soluzione
 | --- | --- | ---
 | 50144 | La password di Active Directory dell'utente è scaduta. | Reimpostare la password dell'utente nella sessione locale di Active Directory.
 | 80001 | Non sono disponibili agenti di autenticazione. | Installare e registrare un agente di autenticazione.
 | 80002 | Timeout della richiesta di convalida della password dell'agente di autenticazione. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80003 | Risposta non valida ricevuta dall'agente di autenticazione. | Se il problema è riproducibile in modo coerente tra più utenti, controllare la configurazione di Active Directory.
 | 80004 | È stato usato un nome dell'entità utente (UPN) non corretto nella richiesta di accesso. | Chiedere all'utente di accedere con il nome utente corretto.
-| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare in seguito.
+| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare più tardi.
 | 80007 | L'agente di autenticazione non è in grado di connettersi ad Active Directory. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80010 | L'agente di autenticazione non è in grado di decrittografare la password. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente. 
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.

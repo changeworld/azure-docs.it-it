@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256532"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657261"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming del failover con servizi multimediali V2
 
@@ -66,7 +66,7 @@ In questa sezione si crea e si configura un progetto di applicazione console in 
 
 1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere **HandleRedundancyForOnDemandStreaming** come nome e quindi fare clic su **OK**.
 2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. In questo esempio viene usato il file di **ignite.mp4** . 
-3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a servizi multimediali. Nel **menu principale di Visual Studio**selezionare **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
+3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a servizi multimediali. Nel **menu principale di Visual Studio** selezionare **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
 4. Aggiungere altri riferimenti necessari per il progetto: System. Runtime. Serialization e System. Web.
 5. Sostituire le istruzioni **using** aggiunte per impostazione predefinita al file **Programs.cs** con le seguenti:
 

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f0cb2896d417ec09fdaa1f977b8507eb2ff81789
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 24e267b66d11cb3c5ca2b70ed09b7acb3653da99
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584613"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653606"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Weibo tramite Azure Active Directory B2C
 
@@ -26,11 +26,9 @@ ms.locfileid: "97584613"
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-::: zone pivot="b2c-custom-policy"
+## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-a-weibo-application"></a>Creare un'applicazione Weibo
 
@@ -267,7 +265,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
 1. Fare clic sul flusso utente che si vuole usare come provider di identità Weibo.
 1. In provider di identità basati su **Social Network** selezionare **Weibo**.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**

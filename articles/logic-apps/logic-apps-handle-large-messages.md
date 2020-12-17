@@ -7,12 +7,12 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b23c92ec70b80a6cd08fc42a05ffec1e5b43b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83117564"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656768"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 

@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4956d11ea2a4b011a792827357c3f4627058ead9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355859"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97651991"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prerequisiti del provisioning cloud di Azure AD Connect
 Questo articolo fornisce indicazioni su come scegliere e usare il provisioning cloud di Azure Active Directory (Azure AD) Connect come soluzione di identità.
@@ -51,33 +51,33 @@ Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
- 1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e il runtime di .NET 4.7.1 o versione successiva.
+1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e il runtime di .NET 4.7.1 o versione successiva.
 
- >[!NOTE]
- > Tenere presente che la definizione di un filtro di ambito comporta un costo di memoria per il server host.  Se non viene utilizzato alcun filtro di ambito, non è previsto alcun costo aggiuntivo per la memoria. Il valore minimo di 4 GB supporterà la sincronizzazione per un massimo di 12 unità organizzative definite nel filtro di ambito. Se è necessario sincronizzare altre unità organizzative, sarà necessario aumentare la quantità minima di memoria. Usare la tabella seguente come guida:
- >
- >  
- >  | Numero di unità organizzative nel filtro di ambito| memoria minima richiesta|
- >  | --- | --- |
- >  | 12| 4 GB|
- >  | 18|5,5 GB|
- >  | 28|PIÙ DI 10 GB|
- >
- > 
+    >[!NOTE]
+    > Tenere presente che la definizione di un filtro di ambito comporta un costo di memoria per il server host.  Se non viene utilizzato alcun filtro di ambito, non è previsto alcun costo aggiuntivo per la memoria. Il valore minimo di 4 GB supporterà la sincronizzazione per un massimo di 12 unità organizzative definite nel filtro di ambito. Se è necessario sincronizzare altre unità organizzative, sarà necessario aumentare la quantità minima di memoria. Usare la tabella seguente come guida:
+    >
+    >
+    > | Numero di unità organizzative nel filtro di ambito| memoria minima richiesta|
+    > | --- | --- |
+    > | 12 | 4 GB |
+    > | 18 | 5,5 GB|
+    > | 28 | PIÙ DI 10 GB|
+    >
+    > 
 
- 2. I criteri di esecuzione di PowerShell nel server locale devono essere impostati su Undefined o RemoteSigned.
+2. I criteri di esecuzione di PowerShell nel server locale devono essere impostati su Undefined o RemoteSigned.
 
- 3. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
+3. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
+
    - Assicurarsi che gli agenti possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
 
-        | Numero della porta | Uso |
-        | --- | --- |
-        | **80** | Scarica gli elenchi di revoche di certificati (CRL) durante la convalida del certificato TLS/SSL.  |
-        | **443** | Gestisce tutte le comunicazioni in uscita con il servizio. |
-        |**8082**|Obbligatorio per l'installazione e se si desidera configurare l'API di amministrazione.  Questa porta può essere rimossa dopo l'installazione dell'agente e se non si prevede di usare l'API.   |
-        | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. |
-   
-     
+      | Numero della porta | Uso |
+      | --- | --- |
+      | **80** | Scarica gli elenchi di revoche di certificati (CRL) durante la convalida del certificato TLS/SSL.  |
+      | **443** | Gestisce tutte le comunicazioni in uscita con il servizio. |
+      |**8082**|Obbligatorio per l'installazione e se si desidera configurare l'API di amministrazione.  Questa porta può essere rimossa dopo l'installazione dell'agente e se non si prevede di usare l'API.   |
+      | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. |
+
    - Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
    - Se il firewall o il proxy consente di specificare suffissi sicuri, aggiungere connessioni a \*.msappproxy.net e \*.servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
    - Gli agenti devono poter accedere a login.windows.net e login.microsoftonline.net per la registrazione iniziale. Aprire il firewall anche per questi URL.
@@ -86,10 +86,8 @@ Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes
 >[!NOTE]
 > L'installazione dell'agente di provisioning cloud in Windows Server Core non è supportata.
 
-
-
-
 ### <a name="additional-requirements"></a>Requisiti aggiuntivi
+
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
 
 #### <a name="tls-requirements"></a>Requisiti TLS
@@ -102,7 +100,7 @@ Nel server Windows che ospita l'agente di provisioning di Azure AD Connect Cloud
 Per abilitare il protocollo TLS 1.2, seguire questa procedura.
 
 1. Impostare le chiavi del Registro di sistema seguenti:
-    
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001

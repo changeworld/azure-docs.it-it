@@ -4,12 +4,12 @@ description: La soluzione Funzioni di Azure supporta più versioni del runtime. 
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 3997c5e79192f4386ee5280350620a748dd1489b
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 935291c461e275902cb6905c4440fe4d289f0c16
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309708"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653351"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
@@ -20,7 +20,7 @@ Funzioni di Azure supporta attualmente tre versioni dell'host di runtime: 1. x, 
 
 Questo articolo descrive in dettaglio alcune delle differenze tra le diverse versioni, come è possibile creare ogni versione e come modificare le versioni.
 
-## <a name="languages"></a>Linguaggi
+## <a name="languages"></a>Languages
 
 A partire dalla versione 2. x, il runtime usa un modello di estendibilità del linguaggio e tutte le funzioni in un'app per le funzioni devono condividere la stessa lingua. Il linguaggio delle funzioni in un'app per le funzioni viene scelto quando si crea l'app e viene mantenuto nell'impostazione del [ \_ \_ runtime di Worker Functions](functions-app-settings.md#functions_worker_runtime) . 
 
@@ -96,7 +96,7 @@ Di seguito sono riportate le modifiche da tenere presenti prima di aggiornare un
 
 La versione del runtime di funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell' [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) applicazione. Sono supportati i valori di versione di runtime principali seguenti:
 
-| Valore | Destinazione Runtime |
+| valore | Destinazione Runtime |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |
@@ -116,7 +116,7 @@ In Visual Studio è possibile selezionare la versione del runtime quando si crea
 ##### <a name="version-1x"></a>Versione 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 

@@ -3,42 +3,115 @@ title: Informazioni sui gemelli digitali Plug and Play IoT
 description: Informazioni sul modo in cui l'Plug and Play usa i gemelli digitali
 author: prashmo
 ms.author: prashmo
-ms.date: 07/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f13230c7bd88a9c3cf043fc1881a34f6b7ce6fe7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 99c957e5bf6ffe69c94e109796590f5ab975c3cf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495322"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656887"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Informazioni sui gemelli digitali Plug and Play IoT
 
-Un dispositivo Plug and Play implementa un modello descritto dallo schema [DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) . Un modello descrive il set di componenti, proprietà, comandi e messaggi di telemetria che possono essere presenti in un determinato dispositivo. Un dispositivo gemello e un dispositivo gemello digitale vengono inizializzati la prima volta che un Plug and Play dispositivo si connette a un hub.
+Un dispositivo Plug and Play implementa un modello descritto dallo schema [DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) . Un modello descrive il set di componenti, proprietà, comandi e messaggi di telemetria che possono essere presenti in un determinato dispositivo.
 
 Il Plug and Play di Internet delle cose USA DTDL versione 2. Per altre informazioni su questa versione, vedere la specifica [DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) in GitHub.
 
-DTDL non è esclusivo per gli Internet delle cose Plug and Play. Altri servizi Internet, ad esempio i dispositivi [gemelli digitali di Azure](../digital-twins/overview.md), lo usano per rappresentare interi ambienti, ad esempio edifici e reti energetiche. Per altre informazioni, vedere [comprendere i modelli gemelli nei dispositivi gemelli digitali di Azure](../digital-twins/concepts-models.md).
+> [!NOTE]
+> DTDL non è esclusivo per gli Internet delle cose Plug and Play. Altri servizi Internet, ad esempio i dispositivi [gemelli digitali di Azure](../digital-twins/overview.md), lo usano per rappresentare interi ambienti, ad esempio edifici e reti energetiche.
 
-Questo articolo descrive come i componenti e le proprietà sono rappresentati nelle sezioni *desiderate* e *segnalate* di un dispositivo gemello. Viene inoltre descritto il mapping di questi concetti al gemello digitale corrispondente.
+Gli SDK del servizio Azure per le cose includono API che consentono a un servizio di interagire con un dispositivo gemello digitale del dispositivo. Ad esempio, un servizio può leggere le proprietà dei dispositivi dal dispositivo gemello digitale o usare il dispositivo gemello digitale per chiamare un comando in un dispositivo. Per altre informazioni, vedere gli esempi di dispositivi [gemelli per hub](concepts-developer-guide-service.md#iot-hub-digital-twin-examples)Internet.
 
-Il dispositivo Plug and Play per gli elementi di questo articolo che implementa il [modello di controller di temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) con componente [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
+Il dispositivo Internet degli esempi Plug and Play in questo articolo implementa un [modello di controller di temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) con componenti del [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
 
 ## <a name="device-twins-and-digital-twins"></a>Dispositivi gemelli e dispositivi gemelli digitali
 
-I dispositivi gemelli sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. Per altre informazioni, vedere [comprendere e usare dispositivi gemelli nell'hub](../iot-hub/iot-hub-devguide-device-twins.md). I compilatori di dispositivi e soluzioni possono continuare a usare lo stesso set di API e SDK per dispositivi gemelli per implementare dispositivi e soluzioni usando le convenzioni Plug and Play.
+Oltre a un dispositivo gemello digitale, l'hub Internet Azure gestisce anche un *dispositivo gemello* per ogni dispositivo connesso. Un dispositivo gemello è simile a un dispositivo gemello digitale perché è una rappresentazione delle proprietà di un dispositivo. Gli SDK del servizio Azure per le cose includono le API per l'interazione con i dispositivi gemelli.
 
-Le API gemelle digitali operano su costrutti di alto livello nel linguaggio DTDL (Digital Gemini Definition Language), ad esempio componenti, proprietà e comandi. Le API dei dispositivi gemelli digitali semplificano la creazione di soluzioni Plug and Play per i generatori di soluzioni.
+Un hub Internet delle cose Inizializza un dispositivo gemello digitale e un dispositivo gemello la prima volta che si connette Plug and Play dispositivo.
 
-In un dispositivo gemello, lo stato di una proprietà scrivibile viene suddiviso nelle sezioni desiderate e segnalate. Tutte le proprietà di sola lettura sono disponibili all'interno della sezione segnalata.
+I dispositivi gemelli sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. Per altre informazioni, vedere [esempi di client del servizio Hub](concepts-developer-guide-service.md#iot-hub-service-client-examples)Internet. I compilatori di dispositivi e soluzioni possono continuare a usare lo stesso set di API e SDK per dispositivi gemelli per implementare dispositivi e soluzioni usando le convenzioni Plug and Play.
+
+Le API gemelle digitali operano su costrutti DTDL di alto livello, ad esempio componenti, proprietà e comandi. Le API dei dispositivi gemelli digitali semplificano la creazione di soluzioni Plug and Play per i generatori di soluzioni.
+
+In un dispositivo gemello, lo stato di una proprietà scrivibile viene suddiviso nelle sezioni *proprietà desiderate* e *proprietà segnalate* . Tutte le proprietà di sola lettura sono disponibili nella sezione proprietà segnalate.
 
 In un dispositivo gemello digitale è presente una visualizzazione unificata dello stato corrente e desiderato della proprietà. Lo stato di sincronizzazione per una determinata proprietà viene archiviato nella sezione componente predefinito corrispondente `$metadata` .
 
-### <a name="digital-twin-json-format"></a>Formato JSON digitale gemello
+### <a name="device-twin-json-example"></a>Esempio JSON del dispositivo gemello
 
-Quando viene rappresentato come oggetto JSON, un dispositivo gemello digitale include i campi seguenti:
+Il frammento di codice seguente mostra un Plug and Play del dispositivo gemello formattato come oggetto JSON:
+
+```json
+{
+  "deviceId": "sample-device",
+  "modelId": "dtmi:com:example:TemperatureController;1",
+  "version": 15,
+  "properties": {
+    "desired": {
+      "thermostat1": {
+        "__t": "c",
+        "targetTemperature": 21.8
+      },
+      "$metadata": {...},
+      "$version": 4
+    },
+    "reported": {
+      "serialNumber": "alwinexlepaho8329",
+      "thermostat1": {
+        "maxTempSinceLastReboot": 25.3,
+        "__t": "c",
+        "targetTemperature": {
+          "value": 21.8,
+          "ac": 200,
+          "ad": "Successfully executed patch",
+        }
+      },
+      "$metadata": {...},
+      "$version": 11
+    }
+  }
+}
+```
+
+### <a name="digital-twin-example"></a>Esempio di gemello digitale
+
+Il frammento di codice seguente mostra il gemello digitale formattato come oggetto JSON:
+
+```json
+{
+  "$dtId": "sample-device",
+  "serialNumber": "alwinexlepaho8329",
+  "thermostat1": {
+    "maxTempSinceLastReboot": 25.3,
+    "targetTemperature": 21.8,
+    "$metadata": {
+      "targetTemperature": {
+        "desiredValue": 21.8,
+        "desiredVersion": 4,
+        "ackVersion": 4,
+        "ackCode": 200,
+        "ackDescription": "Successfully executed patch",
+        "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+      },
+      "maxTempSinceLastReboot": {
+         "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+      }
+    }
+  },
+  "$metadata": {
+    "$model": "dtmi:com:example:TemperatureController;1",
+    "serialNumber": {
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+    }
+  }
+}
+```
+
+La tabella seguente descrive i campi nell'oggetto JSON digitale gemello:
 
 | Nome campo | Descrizione |
 | --- | --- |
@@ -55,83 +128,13 @@ Quando viene rappresentato come oggetto JSON, un dispositivo gemello digitale in
 | `{componentName}.{propertyName}` | Valore della proprietà del componente in JSON |
 | `{componentName}.$metadata` | Informazioni sui metadati per il componente. |
 
-#### <a name="device-twin-sample"></a>Esempio di dispositivo gemello
-
-Il frammento di codice seguente mostra un Plug and Play del dispositivo gemello formattato come oggetto JSON:
-
-```json
-{
-    "deviceId": "sample-device",
-    "modelId": "dtmi:com:example:TemperatureController;1",
-    "version": 15,
-    "properties": {
-        "desired": {
-            "thermostat1": {
-                "__t": "c",
-                "targetTemperature": 21.8
-            },
-            "$metadata": {...},
-            "$version": 4
-        },
-        "reported": {
-            "serialNumber": "alwinexlepaho8329",
-            "thermostat1": {
-                "maxTempSinceLastReboot": 25.3,
-                "__t": "c",
-                "targetTemperature": {
-                    "value": 21.8,
-                    "ac": 200,
-                    "ad": "Successfully executed patch",
-                }
-            },
-            "$metadata": {...},
-            "$version": 11
-        }
-    }
-}
-```
-
-#### <a name="digital-twin-sample"></a>Esempio di dispositivo gemello digitale
-
-Il frammento di codice seguente mostra il gemello digitale formattato come oggetto JSON:
-
-```json
-{
-    "$dtId": "sample-device",
-    "serialNumber": "alwinexlepaho8329",
-    "thermostat1": {
-        "maxTempSinceLastReboot": 25.3,
-        "targetTemperature": 21.8,
-        "$metadata": {
-            "targetTemperature": {
-                "desiredValue": 21.8,
-                "desiredVersion": 4,
-                "ackVersion": 4,
-                "ackCode": 200,
-                "ackDescription": "Successfully executed patch",
-                "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-            },
-            "maxTempSinceLastReboot": {
-                "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-            }
-        }
-    },
-    "$metadata": {
-        "$model": "dtmi:com:example:TemperatureController;1",
-        "serialNumber": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
-    }
-}
-```
-
 ### <a name="properties"></a>Proprietà
 
 Le proprietà sono campi dati che rappresentano lo stato di un'entità (ad esempio le proprietà in molti linguaggi di programmazione orientati a oggetti).
 
 #### <a name="read-only-property"></a>Proprietà di sola lettura
 
-Schema:
+Schema DTDL:
 
 ```json
 {
@@ -152,9 +155,9 @@ I frammenti di codice seguenti mostrano la rappresentazione JSON side-by-side de
 
 ```json
 "properties": {
-    "reported": {
-        "serialNumber": "alwinexlepaho8329"
-    }
+  "reported": {
+    "serialNumber": "alwinexlepaho8329"
+  }
 }
 ```
 
@@ -171,15 +174,17 @@ I frammenti di codice seguenti mostrano la rappresentazione JSON side-by-side de
 
 #### <a name="writable-property"></a>Proprietà scrivibile
 
-Si immagini che il dispositivo abbia anche la seguente proprietà scrivibile nel componente predefinito:
+Negli esempi seguenti viene illustrata una proprietà scrivibile nel componente predefinito.
+
+DTDL:
 
 ```json
 {
-    "@type": "Property",
-    "name": "fanSpeed",
-    "displayName": "Fan Speed",
-    "writable": true,
-    "schema": "double"
+  "@type": "Property",
+  "name": "fanSpeed",
+  "displayName": "Fan Speed",
+  "writable": true,
+  "schema": "double"
 }
 ```
 
@@ -189,19 +194,19 @@ Si immagini che il dispositivo abbia anche la seguente proprietà scrivibile nel
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "fanSpeed": 2.0,
-        },
-        "reported": {
-            "fanSpeed": {
-                "value": 3.0,
-                "ac": 200,
-                "av": 1,
-                "ad": "Successfully executed patch version 1"
-            }
-        }
+  "properties": {
+    "desired": {
+      "fanSpeed": 2.0,
     },
+    "reported": {
+      "fanSpeed": {
+        "value": 3.0,
+        "ac": 200,
+        "av": 1,
+        "ad": "Successfully executed patch version 1"
+      }
+    }
+  },
 }
 ```
 
@@ -211,17 +216,17 @@ Si immagini che il dispositivo abbia anche la seguente proprietà scrivibile nel
 
 ```json
 {
-    "fanSpeed": 3.0,
-    "$metadata": {
-        "fanSpeed": {
-            "desiredValue": 2.0,
-            "desiredVersion": 2,
-            "ackVersion": 1,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch version 1",
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "fanSpeed": 3.0,
+  "$metadata": {
+    "fanSpeed": {
+      "desiredValue": 2.0,
+      "desiredVersion": 2,
+      "ackVersion": 1,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch version 1",
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -233,8 +238,7 @@ In questo esempio, `3.0` è il valore corrente della `fanSpeed` proprietà indic
 ### <a name="components"></a>Componenti
 
 I componenti consentono di compilare l'interfaccia del modello come assembly di altre interfacce.
-Prendere in considerazione l'interfaccia del [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) , definita come modello.
-Questa interfaccia ora può essere incorporata come componente thermostat1 (e un altro componente thermostat2) quando si definisce il [modello di controller di temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+Ad esempio, l'interfaccia del [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) può essere incorporata come componenti `thermostat1` e  `thermostat2` nel modello del [modello del controller di temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) .
 
 In un dispositivo gemello, un componente viene identificato dal `{ "__t": "c"}` marcatore. In un dispositivo gemello digitale, la presenza di `$metadata` contrassegna un componente.
 
@@ -251,30 +255,30 @@ I frammenti di codice seguenti mostrano la rappresentazione in formato JSON affi
 
 ```json
 "properties": {
-    "desired": {
-        "thermostat1": {
-            "__t": "c",
-            "targetTemperature": 21.8
-        },
-        "$metadata": {
-        },
-        "$version": 4
+  "desired": {
+    "thermostat1": {
+      "__t": "c",
+      "targetTemperature": 21.8
     },
-    "reported": {
-        "thermostat1": {
-            "maxTempSinceLastReboot": 25.3,
-            "__t": "c",
-            "targetTemperature": {
-                "value": 21.8,
-                "ac": 200,
-                "ad": "Successfully executed patch",
-                "av": 4
-            }
-        },
-        "$metadata": {
-        },
-        "$version": 11
-    }
+    "$metadata": {
+    },
+    "$version": 4
+  },
+  "reported": {
+    "thermostat1": {
+      "maxTempSinceLastReboot": 25.3,
+      "__t": "c",
+      "targetTemperature": {
+        "value": 21.8,
+        "ac": 200,
+        "ad": "Successfully executed patch",
+        "av": 4
+      }
+    },
+    "$metadata": {
+    },
+    "$version": 11
+  }
 }
 ```
 
@@ -284,21 +288,21 @@ I frammenti di codice seguenti mostrano la rappresentazione in formato JSON affi
 
 ```json
 "thermostat1": {
-    "maxTempSinceLastReboot": 25.3,
-    "targetTemperature": 21.8,
-    "$metadata": {
-        "targetTemperature": {
-            "desiredValue": 21.8,
-            "desiredVersion": 4,
-            "ackVersion": 4,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch",
-            "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-        },
-        "maxTempSinceLastReboot": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "maxTempSinceLastReboot": 25.3,
+  "targetTemperature": 21.8,
+  "$metadata": {
+    "targetTemperature": {
+      "desiredValue": 21.8,
+      "desiredVersion": 4,
+      "ackVersion": 4,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch",
+      "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+    },
+    "maxTempSinceLastReboot": {
+       "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -307,7 +311,7 @@ I frammenti di codice seguenti mostrano la rappresentazione in formato JSON affi
 
 ## <a name="digital-twin-apis"></a>API gemelle digitali
 
-I dispositivi gemelli digitali di Azure sono forniti con **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** e **Invoke Command** per la gestione dei dispositivi gemelli digitali. È possibile usare le [API REST](/rest/api/iothub/service/digitaltwin) direttamente o tramite un [SDK del servizio](../iot-pnp/libraries-sdks.md).
+Le API dei dispositivi gemelli digitali includono **Get Digital Twin**, **Update Digital gemelle**, **Invoke Component Command** e **Invoke Command** operation more Managing a Digital gemelle. È possibile usare le [API REST](/rest/api/iothub/service/digitaltwin) direttamente o tramite un [SDK del servizio](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Eventi di modifica del gemello digitale
 

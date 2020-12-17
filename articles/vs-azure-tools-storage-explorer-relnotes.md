@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 56654f09d3a92eec5b86d8c8e4cd76fec0639394
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499663"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653045"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -46,7 +46,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
       * Copia & incolla
       * Elimina, inclusa la cartella Delete
    * Managed Disks
-      * Caricamento
+      * Carica
       * Scarica
       * Copia & incolla
 
@@ -168,7 +168,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
   * Aggiornamento automatico #1526
   * Abilita AzCopy
   * AzCopy SAS Duration se sono presenti altre impostazioni che si desidera aggiungere, [aprire un problema in GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) che descrive l'impostazione che si desidera visualizzare.
-* Storage Explorer supporta ora Managed Disks. È possibile scegliere:
+* Storage Explorer supporta ora Managed Disks. È possibile:
   * Caricare un disco rigido virtuale locale in un nuovo disco
   * Scaricare un disco
   * Copiare e incollare dischi tra gruppi di risorse e aree
@@ -242,7 +242,7 @@ Il caricamento, il download e la copia tra aree di dischi sono basati su AzCopy 
     * Durata SAS AzCopy
 
     Se sono presenti altre impostazioni che si desidera aggiungere, [aprire un problema in GitHub che descrive l'impostazione che si desidera visualizzare](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Storage Explorer supporta ora Managed Disks. È possibile scegliere:
+* Storage Explorer supporta ora Managed Disks. È possibile:
     * Caricare un disco rigido virtuale locale in un nuovo disco
     * Scaricare un disco
     * Copiare e incollare dischi tra gruppi di risorse e aree
@@ -567,7 +567,7 @@ Il caricamento, il download e la copia tra aree di dischi sono basati su AzCopy 
   * Creare nuove cartelle
   * Caricare, scaricare, rinominare ed eliminare file e cartelle
   * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
-    
+
     Altre funzionalità tipiche dei BLOB, come l'eliminazione temporanea e gli snapshot, non sono attualmente disponibili. La gestione delle autorizzazioni è disponibile solo se si è connessi. Se si usa un account di archiviazione di Azure Data Lake Storage Gen2, inoltre, Storage Explorer si avvarrà di AzCopy per tutti i caricamenti e i download e, per impostazione predefinita, userà le credenziali di nome e chiave per tutte le operazioni (se disponibili).
 * In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, è nuovamente possibile usare l'opzione di interruzione dei lease per interrompere i lease su più BLOB contemporaneamente.
 
@@ -810,7 +810,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -866,7 +866,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -921,7 +921,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -981,7 +981,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile scegliere:
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.

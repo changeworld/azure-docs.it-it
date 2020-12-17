@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088666"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657125"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Risolvere l'errore di Windows Boot Manager: 0xC0000225 "Stato non trovato"
  
@@ -126,7 +126,7 @@ Il danneggiamento dell'hive del Registro di sistema potrebbe essere dovuto a uno
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       Questo comando elenca tutte le versioni del file presenti nel computer, fornendo la cronologia dei percorsi di tale componente.
-      
+
       Ad esempio, **dir cng.sys** verrà rinominato **dir cng.sys /s**
 
    1. Scegliere la versione più recente del file nell'elenco (o quella che si preferisce) e copiare il file nella cartella **windows\system32** usando il percorso precedente e il comando seguente:

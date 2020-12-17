@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: ef8a07f0360338aeb659942967169b0605b08e51
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: fc54d2ba3ca4e7a150a1602c671b99f58197bc44
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507218"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657295"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
@@ -72,7 +72,7 @@ Per inviare un avviso sulle metriche del sistema operativo guest delle macchine 
 - [Per macchine virtuali Linux](./collect-custom-metrics-linux-telegraf.md)
 
 Per ulteriori informazioni sulla raccolta di dati dal sistema operativo guest di una macchina virtuale, vedere [qui](../insights/monitor-vm-azure.md#guest-operating-system).
-    
+
 > [!NOTE] 
 > Se sono state configurate le metriche Guest da inviare a un'area di lavoro Log Analytics, le metriche vengono visualizzate sotto la risorsa Log Analytics area di lavoro e inizieranno a visualizzare i dati **solo** dopo la creazione di una regola di avviso che li monitora. A tal proposito, seguire la procedura per [configurare un avviso delle metriche per i log](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
@@ -252,7 +252,7 @@ Quando si usano le dimensioni in una regola di avviso che contiene più condizio
 - È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
 - Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
 - Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
-ad esempio:
+Ad esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
         * Media **SuccessE2ELatency** > 250 ms

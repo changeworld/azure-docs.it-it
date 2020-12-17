@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 935ba888352d2454a609a40866ef10ccf13a2dac
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605463"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653572"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
@@ -29,7 +29,7 @@ Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ):
 Visualizzare gli endpoint per l'iperscalabilità di SQL Istanza gestita e PostgreSQL usando l'interfaccia della riga di comando di Azure ( `azdata` ) con i `azdata arc sql endpoint list` `azdata arc postgres endpoint list` comandi e.
 
 Modificare le richieste e i limiti delle risorse di SQL Istanza gestita (core CPU e memoria) usando Azure Data Studio.
-     
+
 L'iperscalabilità di PostgreSQL abilitata per Azure Arc supporta ora il ripristino temporizzato oltre al ripristino del backup completo per entrambe le versioni 11 e 12 di PostgreSQL. La funzionalità di ripristino temporizzato consente di indicare una data e un'ora specifiche per il ripristino.
 
 La convenzione di denominazione dei pod per Azure Arc abilitata per l'iperscalabilità di PostgreSQL è cambiata. È ora nel formato: ServergroupName {r, s}-_n_. Ad esempio, un gruppo di server con tre nodi, un nodo coordinatore e due nodi di lavoro sono rappresentati come:
@@ -92,7 +92,7 @@ Quando si verifica questo problema, riavviare il comando dopo aver indicato un p
 
 Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.2.3. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) .
 
-### <a name="breaking-changes"></a>Modifiche di rilievo
+### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 Questa versione introduce le modifiche di rilievo seguenti: 
 
@@ -127,7 +127,7 @@ Azure Arc Enabled Data Services è stato rilasciato per l'anteprima pubblica. I 
 Per istruzioni, vedere [quali sono i servizi dati abilitati per Azure Arc?](overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-  
+
 > **Si desidera fare semplicemente una prova?**  
 > Inizia rapidamente a usare [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) su AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
 

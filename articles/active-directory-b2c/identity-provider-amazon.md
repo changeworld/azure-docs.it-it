@@ -13,12 +13,12 @@ ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0181313a404127f4c542423cdcfe90ca64a03fe6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 48887df0ce6228fa436cb91bfb0a3ee7aa0f6c08
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585072"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654507"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Amazon tramite Azure Active Directory B2C
 
@@ -32,19 +32,7 @@ ms.locfileid: "97585072"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-::: zone pivot="b2c-user-flow"
-
-* [Creare un flusso utente](tutorial-create-user-flows.md) per consentire agli utenti di iscriversi e accedere all'applicazione.
-* Se non è già stato fatto, [aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
-* Se non è già stato fatto, [aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Creare un'app in Amazon Developer Console
 
@@ -68,7 +56,7 @@ Per usare un account Amazon come provider di identità federato in Azure Active 
 1. Immettere un **Nome**. Ad esempio, *Amazon*.
 1. Per **ID client**, immettere l'ID client dell'applicazione Amazon creata in precedenza.
 1. Per il **segreto client**, immettere il segreto client registrato.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 ::: zone-end
 
@@ -195,7 +183,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
 1. Fare clic sul flusso utente che si vuole usare come provider di identità Amazon.
 1. In provider di identità basati su **Social Network** selezionare **Amazon**.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**
