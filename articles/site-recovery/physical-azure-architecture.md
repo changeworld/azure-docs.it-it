@@ -3,12 +3,12 @@ title: Architettura del ripristino di emergenza del server fisico in Azure Site 
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante il ripristino di emergenza di server fisici locali in Azure con il servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: f2184654a8169cb353fb40fa76f0a7fe9b3df6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966636e269043d81912b552711635f34b412f22f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87422658"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654728"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da server fisici ad Azure
 
@@ -42,7 +42,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 | **Nome**                  | **Commerciale**                               | **Enti pubblici**                                 | **Descrizione** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
+| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. |
 | Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Consente alla macchina virtuale di comunicare con il servizio Site Recovery. |
 | Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Consente alla macchina virtuale di scrivere i dati di diagnostica e monitoraggio di Site Recovery. |

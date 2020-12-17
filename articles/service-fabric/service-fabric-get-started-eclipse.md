@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
-ms.openlocfilehash: c94f43b74edf5da18acd7e67417f3b7e10a07d5d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590869"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656921"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse
 Eclipse è uno degli ambienti di sviluppo integrato (IDE) più diffusi per sviluppatori Java. Questo articolo illustra come configurare l'ambiente di sviluppo Eclipse per l'uso con Azure Service Fabric. Spiega come installare il plug-in Service Fabric, creare un'applicazione di Service Fabric e distribuire l'applicazione nel cluster di Service Fabric locale o remoto in Eclipse. 
@@ -53,7 +53,6 @@ Se il plug-in Service Fabric è già installato, installare la versione più rec
 
 > [!NOTE]
 >Se Eclipse non funziona come previsto nel Mac o deve essere eseguito come utente con privilegi avanzati, passare alla cartella **ECLIPSE_INSTALLATION_PATH** e alla sottocartella **Eclipse.app/Contents/MacOS**. Avviare Eclipse eseguendo `./eclipse`.
-
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Creare un'applicazione di Service Fabric in Eclipse
 
@@ -156,7 +155,6 @@ Per pubblicare l'applicazione nel cloud, seguire questa procedura:
 
 4. È possibile seguire l'avanzamento dell'operazione di pubblicazione nella finestra della console.
 5. Per verificare che l'applicazione sia in esecuzione, aprire Service Fabric Explorer nel cluster di Azure in una finestra del browser. Per l'esempio precedente, l'indirizzo sarebbe: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Espandere il nodo **Applications** (Applicazioni) e verificare che l'applicazione sia in esecuzione. 
-
 
 Nei cluster Linux sicuri, se l'applicazione contiene servizi Reliable Services, è anche necessario configurare un certificato che i servizi possono usare per chiamare le API di runtime di Service Fabric. Per altre informazioni, vedere [Configurare un'app di Reliable Services da eseguire su cluster Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 

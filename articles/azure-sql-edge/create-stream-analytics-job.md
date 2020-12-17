@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395173"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656343"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creare un processo di streaming dei dati in Azure SQL Edge 
 
@@ -38,7 +38,7 @@ SQL Edge di Azure attualmente supporta solo le origini dati seguenti come output
 
 | Tipo di origine dati | Input | Output | Descrizione |
 |------------------|-------|--------|------------------|
-| Hub Azure IoT Edge | S | S | Origine dati per la lettura e la scrittura dei dati di streaming in un hub Azure IoT Edge. Per altre informazioni, vedere [Hub IOT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
+| Hub Azure IoT Edge | Y | Y | Origine dati per la lettura e la scrittura dei dati di streaming in un hub Azure IoT Edge. Per altre informazioni, vedere [Hub IOT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | Database SQL | N | S | Connessione all'origine dati per scrivere i dati di streaming nel database SQL. Il database può essere un database locale in Azure SQL Edge o un database remoto in SQL Server o nel database SQL di Azure.|
 | Kafka | S | N | Origine dati per la lettura dei dati in streaming da un argomento Kafka. Questa scheda è attualmente disponibile solo per le versioni Intel o AMD di Azure SQL Edge. Non è disponibile per la versione ARM64 di Azure SQL Edge.|
 
@@ -117,7 +117,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
     go
     ```
 
-4. Creare l'oggetto flusso esterno. Nell'esempio seguente viene creato un oggetto flusso esterno che punta a una tabella *dbo. TemperatureMeasurements* , nel database *MySQLDatabase*.
+4. Creare l'oggetto flusso esterno. Nell'esempio seguente viene creato un oggetto flusso esterno che punta a una tabella *dbo. TemperatureMeasurements*, nel database *MySQLDatabase*.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -154,7 +154,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
     )
    ```
-    
+
 3. Creare l'oggetto flusso esterno. Nell'esempio seguente viene creato un oggetto flusso esterno che punta a un argomento Kafka `*TemperatureMeasurement*` .
 
     ```sql
@@ -163,7 +163,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
     (  
         DATA_SOURCE = KafkaInput, 
         FILE_FORMAT = JsonGzipped,
-        LOCATION = 'TemperatureMeasurement',     
+        LOCATION = 'TemperatureMeasurement',
         INPUT_OPTIONS = 'PARTITIONS: 10' 
     ); 
     ```

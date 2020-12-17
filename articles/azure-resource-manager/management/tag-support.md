@@ -3,12 +3,12 @@ title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005725"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656972"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](tag-resources.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi. È possibile visualizzare i costi in base ai tag nell' [analisi dei costi di gestione costi](../../cost-management-billing/costs/group-filter.md) e la [fattura e i dati di utilizzo giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -921,7 +921,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Departments | No | No |
 > | Dimensioni | No | No |
 > | EnrollmentAccounts | No | No |
-> | Esporta | No | No |
+> | Esportazioni | No | No |
 > | ExternalBillingAccounts | No | No |
 > | ExternalBillingAccounts/avvisi | No | No |
 > | ExternalBillingAccounts/dimensioni | No | No |
@@ -1395,7 +1395,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | dispositivi | Sì | Sì |
+> | devices | Sì | Sì |
 > | networkFunctions | Sì | Sì |
 > | networkFunctionVendors | No | No |
 > | registeredSubscriptions | No | No |
@@ -2253,7 +2253,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Sì | Sì |
-> | managedInstances/database | Sì (vedere la [Nota sotto](#sqlnote)) | Sì |
+> | managedInstances/database | No | No |
 > | managedInstances/databases/backupShortTermRetentionPolicies | No | No |
 > | managedInstances/database/schemi/tabelle/colonne/sensitivityLabels | No | No |
 > | managedInstances/databases/vulnerabilityAssessments | No | No |
@@ -2457,7 +2457,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | dispositivi | Sì | Sì |
+> | devices | Sì | Sì |
 > | registeredSubscriptions | No | No |
 > | fornitori | No | No |
 > | fornitori/SKU | No | No |
