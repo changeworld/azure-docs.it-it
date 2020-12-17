@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e357667e650e9feeb8dceeffe71c287cde9fe8a0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401560"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631602"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureActiveDirectory** | Azure Active Directory. | In uscita | No | Sì |
 | **AzureActiveDirectoryDomainServices** | Traffico di gestione per le distribuzioni dedicate in Azure Active Directory Domain Services. | Entrambe | No | Sì |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | In uscita | No | No |
+| **AzureArcInfrastructure** | Server abilitati per Azure Arc, Azure Arc abilitato Kubernetes e traffico di configurazione Guest.<br/><br/>*Nota:* Questo tag presenta una dipendenza dai tag **AzureActiveDirectory**,**AzureTrafficManager** e **AzureResourceManager** . *Questo tag non è attualmente configurabile tramite il portale di Azure*.| In uscita | No | Sì |
 | **AzureBackup** |Backup di Azure.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **Storage** e **AzureActiveDirectory**. | In uscita | No | Sì |
 | **AzureBotService** | Servizio Azure Bot. | In uscita | No | No |
 | **AzureCloud** | Tutti gli [indirizzi IP pubblici dei data center](https://www.microsoft.com/download/details.aspx?id=56519). | In uscita | Sì | Sì |

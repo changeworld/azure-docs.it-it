@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546906"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507575"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Nozioni di base sull'interfaccia della riga di comando per Voce
 
@@ -87,7 +87,7 @@ In questo comando è possibile specificare sia la lingua di origine (lingua **da
 
 ### <a name="configuration-files-in-the-datastore"></a>File di configurazione nell'archivio dati
 
-Il comportamento dell'interfaccia della riga di comando di Voce può essere basato sulle impostazioni dei file di configurazione, a cui è possibile fare riferimento all'interno delle chiamate all'interfaccia della riga di comando di Voce tramite un simbolo @.
+Il comportamento dell'interfaccia della riga di comando di Voce può essere basato sulle impostazioni dei file di configurazione, a cui è possibile fare riferimento all'interno delle chiamate all'interfaccia della riga di comando di Voce tramite un simbolo \@.
 L'interfaccia della riga di comando di Voce salva una nuova impostazione in una nuova sottodirectory `./spx/data` creata nella directory di lavoro corrente.
 Per la ricerca di un valore di configurazione, l'interfaccia della riga di comando di Voce cerca nella directory di lavoro corrente, quindi nell'archivio dati nella sottodirectory `./spx/data` e infine in altri archivi dati, tra cui un archivio dati finale di sola lettura disponibile nel binario `spx`.
 In precedenza, si usava l'archivio dati per salvare i valori `@key` e `@region`, quindi non era necessario specificarli con ogni chiamata della riga di comando.

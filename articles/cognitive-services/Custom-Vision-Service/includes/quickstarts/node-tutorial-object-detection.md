@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0c6c80849f48cb4f859bcbaaeb4f072eb575ba74
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 21f05363ed3d3aa3e9c1f1156425a6026eb21b71
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021301"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582509"
 ---
 Questa guida fornisce istruzioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata per Node.js per creare un modello di rilevamento oggetti. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'app di riconoscimento immagini personalizzata.
 
@@ -75,7 +75,7 @@ Creare le variabili per l'endpoint e le chiavi di Azure della risorsa.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se la risorsa [Nome prodotto] creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
+> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. Le chiavi e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. Sarà necessario ottenere le chiavi di training e di previsione, oltre all'endpoint delle risorse di training.
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](../../../../cognitive-services/cognitive-services-security.md) di Servizi cognitivi.
 
@@ -118,14 +118,6 @@ Aggiungere la funzione seguente per eseguire più chiamate asincrone. Verrà usa
 ## <a name="create-a-new-custom-vision-project"></a>Creare un nuovo progetto Visione personalizzata
 
 Avviare una nuova funzione in cui contenere tutte le chiamate di funzione di Visione personalizzata. Aggiungere il codice seguente per creare un nuovo progetto del servizio Visione personalizzata.
-
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
-
-## <a name="create-a-new-custom-vision-project"></a>Creare un nuovo progetto Visione personalizzata
-
-Avviare una nuova funzione in cui contenere tutte le chiamate di funzione di Visione personalizzata. Aggiungere il codice seguente per creare un nuovo progetto del servizio Visione personalizzata.
-
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
 
@@ -179,6 +171,7 @@ node index.js
 
 L'output dell'applicazione dovrebbe essere visualizzato nella console. È quindi possibile verificare che l'immagine di test (disponibile in **<sampleDataRoot>/Test/** ) sia contrassegnata in modo appropriato e che l'area di rilevamento sia corretta. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

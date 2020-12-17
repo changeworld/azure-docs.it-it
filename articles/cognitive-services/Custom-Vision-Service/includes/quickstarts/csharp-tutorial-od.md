@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: bb090c0e40a8376aafb7b7eca479d16d73ce131d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a682f2aaaa63f0fcc76c07230792a26cdbef3db
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021342"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582457"
 ---
 Introduzione alla libreria client di Visione personalizzata per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per creare un modello di rilevamento oggetti. Si creerà un progetto, si aggiungeranno i tag, si eseguirà il training del progetto con le immagini di esempio e si userà l'URL dell'endpoint di previsione del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'app di riconoscimento immagini personalizzata.
 
@@ -93,7 +93,7 @@ Nel metodo **Main** dell'applicazione creare le variabili per l'endpoint e la ch
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. Le chiavi e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. Sarà necessario recuperare sia la chiave di training che la chiave di previsione.
+> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. Le chiavi e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. Sarà necessario ottenere le chiavi di training e di previsione, oltre all'endpoint delle risorse di training.
 >
 > Al termine, ricordarsi di rimuovere le chiavi dal codice e di non renderle mai pubbliche. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](../../../cognitive-services-security.md) di Servizi cognitivi.
 
@@ -209,6 +209,8 @@ Making a prediction:
 ```
 
 È quindi possibile verificare che l'immagine di test (disponibile in **Images/Test/**) sia contrassegnata in modo appropriato e che l'area di rilevamento sia corretta. A questo punto si può premere un tasto qualsiasi per uscire dall'applicazione.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

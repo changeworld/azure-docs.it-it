@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 6874794dcf33d77d0b03f2a5713bdf42a40d6891
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: fe82b03c4a8c71f84de02245b075ff30da31b45b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560911"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031098"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Avvio rapido: Chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform
 
@@ -54,26 +54,24 @@ Per registrare le app manualmente, scegliere il tenant di Azure Active Directory
 
 ### <a name="register-the-todolistservice-app"></a>Registrare l'app TodoListService
 
-1. Passare al portale [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
-1. Selezionare **Nuova registrazione**.
-1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
-
-    1. Nella sezione **Nome** immettere un nome significativo che verrà visualizzato agli utenti dell'app. Immettere ad esempio **AppModelv2-NativeClient-DotNet-TodoListService**.
-    1. Per **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione**.
-    1. Selezionare **Registra** per creare l'applicazione.
-
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+1. Immettere un **Nome** per l'applicazione, ad esempio `AppModelv2-NativeClient-DotNet-TodoListService`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+1. Per **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione**.
+1. Selezionare **Registra** per creare l'applicazione.
 1. Nella pagina **Panoramica**  dell'app cercare il valore del campo **ID applicazione (client)** e prenderne nota per un uso futuro. Questo valore sarà necessario per il file di configurazione di Visual Studio per questo progetto, ovvero `ClientId` nel file *TodoListService\Web.config*.
+1. In **Gestisci** selezionare **Esporre un'API** > **Aggiungi un ambito**. Accettare l'URI dell'ID applicazione proposto (`api://{clientId}`) selezionando **Salva e continua**, quindi immettere le informazioni seguenti:
 
-1. Nella sezione **Esporre un'API** selezionare **Aggiungi un ambito**, accettare l'URI dell'ID applicazione proposto (`api://{clientId}`) selezionando **Salva e continua**, quindi immettere le informazioni seguenti:
-
-    1. Per **Nome ambito** immettere **access_as_user**.
+    1. Per **Nome ambito** immettere `access_as_user`.
     1. Per **Utenti che possono fornire il consenso** assicurarsi che sia selezionata l'opzione **Amministratori e utenti**.
-    1. Nella casella **Nome visualizzato per il consenso amministratore** immettere **Accedi a TodoListService come utente**.
-    1. Nella casella **Descrizione del consenso dell'amministratore** immettere **Accede all'API Web TodoListService Web API come utente**.
-    1. Nella casella **Nome visualizzato per il consenso amministratore** immettere **Accedi a TodoListService come utente**.
-    1. Nella casella **Descrizione del consenso dell'utente** immettere **Accede all'API Web TodoListService come utente**.
+    1. Nella casella **Nome visualizzato per il consenso amministratore** immettere `Access TodoListService as a user`.
+    1. Nella casella **Descrizione del consenso dell'amministratore** immettere `Accesses the TodoListService web API as a user`.
+    1. Nella casella **Nome visualizzato per il consenso amministratore** immettere `Access TodoListService as a user`.
+    1. Nella casella **Descrizione del consenso dell'utente** immettere `Accesses the TodoListService web API as a user`.
     1. Per **Stato** mantenere **Abilitato**.
-    1. Selezionare **Aggiungi ambito**.
+1. Selezionare **Aggiungi ambito**.
 
 ### <a name="configure-the-service-project"></a>Configurare il progetto di servizio
 

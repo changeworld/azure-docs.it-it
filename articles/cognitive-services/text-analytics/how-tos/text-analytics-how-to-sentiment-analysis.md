@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558760"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505223"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedura: Analisi del sentiment e opinion mining
 
@@ -51,7 +51,7 @@ I punteggi di attendibilità sono compresi tra 1 e 0. I punteggi più prossimi a
 
 ## <a name="opinion-mining"></a>Opinion mining
 
-Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1-Preview.1. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi. 
+Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
 
 Se ad esempio un cliente lascia il feedback su un hotel, come "la stanza è fantastica, ma il personale è scortese", la funzionalità di opinion mining individuerà gli aspetti nel testo oltre alle opinioni e ai sentiment associati. Analisi del sentiment potrebbe segnalare solo un sentiment negativo.
 
@@ -74,7 +74,7 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 Creare una richiesta POST. È possibile [usare Postman](text-analytics-how-to-call-api.md) o la **console di test dell'API** nei collegamenti di riferimento seguenti per strutturarne e inviarne rapidamente una. 
 
-#### <a name="version-31-preview2"></a>[Versione 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Versione 3.1-preview.3](#tab/version-3-1)
 
 [Informazioni di riferimento su Analisi del sentiment v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -91,17 +91,17 @@ Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Anal
 > [!NOTE]
 > È possibile trovare la chiave e l'endpoint per la risorsa Analisi del testo nel portale di Azure. Si trovano in **Gestione risorse** nella pagina **Avvio rapido** della risorsa. 
 
-#### <a name="version-31-preview2"></a>[Versione 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Versione 3.1-preview.3](#tab/version-3-1)
 
 **Analisi del sentiment**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
 
 **Opinion mining**
 
 Per ottenere i risultati di opinion mining, è necessario includere il parametro `opinionMining=true`. Ad esempio:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
 
 Questo parametro è impostato su `false` per impostazione predefinita. 
 
@@ -144,7 +144,7 @@ L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account
 
 L'output viene restituito immediatamente. È possibile trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale. Importare quindi l'output in un'applicazione che consente di ordinare, cercare e modificare i dati. A causa del supporto multilingue e emoji, la risposta può contenere offset di testo. Per altre informazioni, vedere [come elaborare gli offset](../concepts/text-offsets.md).
 
-#### <a name="version-31-preview2"></a>[Versione 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Versione 3.1-preview.3](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Esempio di risposta di Analisi del sentiment e opinion mining
 
@@ -302,5 +302,5 @@ In questo articolo sono stati appresi i concetti e il flusso di lavoro per l'ana
 ## <a name="see-also"></a>Vedere anche
 
 * [Panoramica di Analisi del testo](../overview.md)
-* [Uso della libreria client di Analisi del testo](../quickstarts/text-analytics-sdk.md)
+* [Uso della libreria client di Analisi del testo](../quickstarts/client-libraries-rest-api.md)
 * [Novità](../whats-new.md)

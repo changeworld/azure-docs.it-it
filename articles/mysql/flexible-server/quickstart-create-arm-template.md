@@ -242,7 +242,7 @@ echo "Press [ENTER] to continue ..."
 Per un'esercitazione dettagliata che illustra il processo di creazione di un modello di Resource Manager, vedere:
 
 > [!div class="nextstepaction"]
-> Creare e distribuire il primo modello di Resource Manager[
+> [Creare e distribuire il primo modello di Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Per un'esercitazione dettagliata sulla creazione di un'app con il servizio app usando MySQL, vedere:
 

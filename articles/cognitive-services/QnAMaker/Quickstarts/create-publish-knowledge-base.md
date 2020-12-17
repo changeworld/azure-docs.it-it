@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346139"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387786"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Avvio rapido: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
@@ -48,7 +48,7 @@ ms.locfileid: "96346139"
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Abilita estrazione a più turni da URL e file PDF o DOCX)|Selezionato|
     |**Multi-turn default text** (Testo predefinito per più turni)| Selezionare un'opzione|
-    |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add URL** (+ Aggiungi URL)|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Chit-chat**|Selezionare **Professional**|
 
 7. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
@@ -83,7 +83,7 @@ ms.locfileid: "96346139"
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Abilita estrazione a più turni da URL e file PDF o DOCX)|Selezionato|
     |**Multi-turn default text** (Testo predefinito per più turni)| Selezionare un'opzione|
-    |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add File** (+ Aggiungi file)| Scaricare il manuale del laptop Surface da: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf ' 
     |**Chit-chat**|Selezionare **Professional**|
 
 8. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
@@ -122,9 +122,9 @@ In alto a destra selezionare **Save and train** (Salva ed esegui il training) pe
 1. In alto a destra del portale QnA Maker, selezionare **Esegui test** per verificare che le modifiche apportate abbiano avuto effetto.
 2. Immettere una query utente di esempio nella casella di testo.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Immettere una query utente di esempio nella casella di testo.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="Immettere una query utente di esempio nella casella di testo.":::
 
 3. Selezionare **Ispeziona** per esaminare la risposta in modo più dettagliato. La finestra di test viene usata per testare le modifiche alla knowledge base prima della pubblicazione.
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4da0fccf10d387e7496a8b0ecc7623a22df58c93
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: a42cb97d123d0943dab02bf1f70fcf306d6bcd96
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618809"
+ms.locfileid: "97629128"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C
 
@@ -33,7 +33,12 @@ ms.locfileid: "97618809"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti che hanno eseguito l'accesso con un account locale per modificare la password senza dover dimostrare l'autenticità tramite la verifica tramite posta elettronica. Se la sessione scade nel momento in cui l'utente arriva al flusso di modifica della password, viene richiesto di accedere nuovamente. Questo articolo illustra come configurare la modifica delle password usando [criteri personalizzati](custom-policy-overview.md). È anche possibile configurare la [reimpostazione delle password self-service](user-flow-self-service-password-reset.md) usando i flussi utente.
+In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti che hanno eseguito l'accesso con un account locale per modificare la password senza dover dimostrare l'autenticità tramite la verifica tramite posta elettronica. Il flusso di modifica della password prevede i passaggi seguenti:
+
+1. Accedere con un account locale. Se la sessione è ancora attiva, Azure AD B2C autorizza l'utente e passa al passaggio successivo.
+1. Gli utenti devono verificare la **vecchia password**, creare e confermare la **nuova password**.
+
+![Flusso di modifica della password](./media/add-password-change-policy/password-change-flow.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,41 +71,10 @@ In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti 
         <TechnicalProfiles>
           <TechnicalProfile Id="login-NonInteractive-PasswordChange">
             <DisplayName>Local Account SignIn</DisplayName>
-            <Protocol Name="OpenIdConnect" />
-            <Metadata>
-              <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account</Item>
-              <Item Key="UserMessageIfInvalidPassword">Your password is incorrect</Item>
-              <Item Key="UserMessageIfOldPasswordUsed">Looks like you used an old password</Item>
-              <Item Key="ProviderName">https://sts.windows.net/</Item>
-              <Item Key="METADATA">https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration</Item>
-              <Item Key="authorization_endpoint">https://login.microsoftonline.com/{tenant}/oauth2/token</Item>
-              <Item Key="response_types">id_token</Item>
-              <Item Key="response_mode">query</Item>
-              <Item Key="scope">email openid</Item>
-              <Item Key="grant_type">password</Item>
-              <Item Key="UsePolicyInRedirectUri">false</Item>
-              <Item Key="HttpBinding">POST</Item>
-              <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-              <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-            </Metadata>
             <InputClaims>
-              <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="username" Required="true" />
               <InputClaim ClaimTypeReferenceId="oldPassword" PartnerClaimType="password" Required="true" />
-              <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="password" />
-              <InputClaim ClaimTypeReferenceId="scope" DefaultValue="openid" />
-              <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
-              <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-              <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-            </InputClaims>
-            <OutputClaims>
-              <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid" />
-              <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" />
-              <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-              <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-              <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-              <OutputClaim ClaimTypeReferenceId="userPrincipalName" PartnerClaimType="upn" />
-              <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-            </OutputClaims>
+              </InputClaims>
+            <IncludeTechnicalProfile ReferenceId="login-NonInteractive" />
           </TechnicalProfile>
         </TechnicalProfiles>
       </ClaimsProvider>
@@ -113,9 +87,6 @@ In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti 
             <Metadata>
               <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
             </Metadata>
-            <CryptographicKeys>
-              <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-            </CryptographicKeys>
             <InputClaims>
               <InputClaim ClaimTypeReferenceId="objectId" />
             </InputClaims>
@@ -134,15 +105,13 @@ In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti 
     </ClaimsProviders>
     ```
 
-    Sostituire `IdentityExperienceFrameworkAppId` con l'ID dell'applicazione IdentityExperienceFramework creata nell'esercitazione indicata tra i prerequisiti. Sostituire `ProxyIdentityExperienceFrameworkAppId` con l'ID dell'applicazione ProxyIdentityExperienceFramework creata in precedenza.
-
 3. L'elemento [UserJourney](userjourneys.md) definisce il percorso dell'utente durante l'interazione con l'applicazione. Aggiungere l'elemento **UserJourneys**, se non esiste, con **UserJourney** identificato come `PasswordChange`:
 
     ```xml
     <UserJourneys>
       <UserJourney Id="PasswordChange">
         <OrchestrationSteps>
-          <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
+          <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.signuporsignin">
             <ClaimsProviderSelections>
               <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
             </ClaimsProviderSelections>
@@ -157,7 +126,12 @@ In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti 
               <ClaimsExchange Id="NewCredentials" TechnicalProfileReferenceId="LocalAccountWritePasswordChangeUsingObjectId" />
             </ClaimsExchanges>
           </OrchestrationStep>
-          <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+          <OrchestrationStep Order="4" Type="ClaimsExchange">
+            <ClaimsExchanges>
+              <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="5" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
         </OrchestrationSteps>
         <ClientDefinition ReferenceId="DefaultWeb" />
       </UserJourney>
@@ -170,13 +144,7 @@ In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti 
 7. Modificare l'attributo **ReferenceId** in `<DefaultUserJourney>`, in modo che corrisponda all'ID del nuovo percorso utente creato. Ad esempio, *PasswordChange*.
 8. Salvare le modifiche.
 
-È possibile trovare i criteri di esempio [qui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
-
-## <a name="test-your-policy"></a>Verificare i criteri
-
-Durante il test delle applicazioni in Azure AD B2C, può essere utile avere restituito il token di Azure AD B2C a `https://jwt.ms` per riuscire a esaminare le attestazioni in essa.
-
-### <a name="upload-the-files"></a>Caricare i file
+## <a name="upload-and-test-the-policy"></a>Caricare e testare i criteri
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
@@ -195,6 +163,8 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Trovare i criteri di esempio in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 - Informazioni su come configurare la [complessità delle password in Azure ad B2C](password-complexity.md).
+- Configurare un [flusso di reimpostazione della password](add-password-reset-policy.md).
 
 ::: zone-end
