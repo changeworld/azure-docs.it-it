@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318815"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589913"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Esercitazione: Integrare Amazon Business con Azure Active Directory
 
@@ -109,19 +109,19 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Amazon Business prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attributi utente e attestazioni** della finestra di dialogo **Attestazioni dei gruppi** seguire questa procedura:
 
-    a. Fare clic sulla **penna** accanto a **Gruppi restituiti nell'attestazione**.
+    1. Fare clic sulla **penna** accanto a **Gruppi restituiti nell'attestazione**.
 
-    ![Screenshot che mostra la schermata Attributi utente e attestazioni con l'icona per Gruppi restituiti nell'attestazione selezionata.](./media/amazon-business-tutorial/config04.png)
+        ![Screenshot che mostra la schermata Attributi utente e attestazioni con l'icona per Gruppi restituiti nell'attestazione selezionata.](./media/amazon-business-tutorial/config04.png)
 
-    ![Screenshot che mostra la schermata Attestazioni di gruppo con i valori immessi come descritto in questa procedura.](./media/amazon-business-tutorial/config05.png)
+        ![Screenshot che mostra la schermata Attestazioni di gruppo con i valori immessi come descritto in questa procedura.](./media/amazon-business-tutorial/config05.png)
 
-    b. Selezionare **Tutti i gruppi** dall'elenco dei pulsanti di opzione.
+    1. Selezionare **Tutti i gruppi** dall'elenco dei pulsanti di opzione.
 
-    c. Selezionare **ID gruppo** come **Attributo di origine**.
+    1. Selezionare **ID gruppo** come **Attributo di origine**.
 
-    d. Selezionare la casella di controllo **Personalizza il nome dell'attestazione basata su gruppo** e immettere il nome del gruppo in base alle esigenze dell'organizzazione.
+    1. Selezionare la casella di controllo **Personalizza il nome dell'attestazione basata su gruppo** e immettere il nome del gruppo in base alle esigenze dell'organizzazione.
 
-    e. Fare clic su **Salva**.
+    1. Fare clic su **Salva**.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML dei metadati** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 

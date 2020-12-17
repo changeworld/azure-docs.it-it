@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 2d9169e836b5819756e716c64ed9d41094f08c5e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512367"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093520"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Concetti di rete per Azure Red Hat OpenShift (ARO)
 
@@ -76,7 +76,7 @@ Le funzionalità di rete seguenti sono specifiche di Azure Red Hat OpenShift:
 * Il CIDR pod deve avere dimensioni minime di /18 (la rete pod ha indirizzi IP non instradabili e viene usata solo all'interno di OpenShift SDN).
 * A ogni nodo è allocata una subnet di dimensioni /23 (512 IP) per i pod. Questo valore non può essere modificato.
 * Non è possibile collegare un pod a più reti.
-* Non è possibile configurare un indirizzo IP statico in uscita (questa è una funzionalità OpenShift. Per altre informazioni, vedere [Configurazione di indirizzi IP in uscita](https://docs.openshift.com/aro/4/networking/openshift_sdn/assigning-egress-ips.html)).
+* Non è possibile configurare un indirizzo IP statico in uscita (questa è una funzionalità OpenShift. Per altre informazioni, vedere [Configurazione di indirizzi IP in uscita](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)).
 
 ## <a name="network-settings"></a>Impostazioni di rete
 

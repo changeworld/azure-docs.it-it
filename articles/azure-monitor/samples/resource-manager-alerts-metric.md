@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893982"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510567"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di avviso delle metriche in Monitoraggio di Azure
 
@@ -343,7 +343,7 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.json ai fini di qu
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.json ai fini di qu
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -502,7 +502,7 @@ I vincoli seguenti si applicano quando si usano le dimensioni in una regola di a
 - È possibile selezionare un solo valore per dimensione all'interno di ogni criterio.
 - Non è possibile usare "\*" come valore di dimensione.
 - Quando le metriche configurate in criteri diversi supportano la stessa dimensione, è necessario impostare esplicitamente un valore di dimensione, allo stesso modo per tutte le metriche nei criteri pertinenti.
-    - Nelle esempio seguente, poiché sia le metriche **Transactions** che **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName** , anche *criterion2* deve impostare un valore *"GetBlob"* per la dimensione **ApiName**.
+    - Nelle esempio seguente, poiché sia le metriche **Transactions** che **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName**, anche *criterion2* deve impostare un valore *"GetBlob"* per la dimensione **ApiName**.
 
 ### <a name="template-file"></a>File modello
 
@@ -707,15 +707,15 @@ I vincoli seguenti si applicano quando si usano le dimensioni in una regola di a
 ## <a name="multiple-dimensions-static-threshold"></a>Più dimensioni, soglia statica
 Una singola regola di avviso può monitorare più serie temporali di metriche alla volta, riducendo così il numero di regole di avviso da gestire. L'esempio seguente crea una regola di avviso statica per metriche dimensionali.
 
-In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions** :
-1. **ResponsType** : l'uso del carattere jolly "\*" significa che per ogni valore della dimensione **ResponseType** , inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
-2. **ApiName** : viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
+In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions**:
+1. **ResponsType**: l'uso del carattere jolly "\*" significa che per ogni valore della dimensione **ResponseType**, inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
+2. **ApiName**: viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
 
 Ad esempio, alcune possibili serie temporali monitorate da questa regola di avviso sono:
-- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 ### <a name="template-file"></a>File modello
 
@@ -875,7 +875,7 @@ Ad esempio, alcune possibili serie temporali monitorate da questa regola di avvi
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -898,15 +898,15 @@ Ad esempio, alcune possibili serie temporali monitorate da questa regola di avvi
 Una regola di avviso con soglie dinamiche può creare soglie personalizzate per centinaia di serie temporali di metriche (anche di tipi diversi) alla volta, riducendo così il numero di regole di avviso da gestire. L'esempio seguente crea una regola di avviso con soglie dinamiche per metriche dimensionali.
 
 
-In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions** :
-1. **ResponsType** : per ogni valore della dimensione **ResponseType** , inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
-2. **ApiName** : viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
+In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions**:
+1. **ResponsType**: per ogni valore della dimensione **ResponseType**, inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
+2. **ApiName**: viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
 
 Ad esempio, alcune possibili serie temporali monitorate da questa regola di avviso sono:
-- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 >[!NOTE]
 > Attualmente per le regole di avviso delle metriche che usano soglie dinamiche non sono supportati più criteri.

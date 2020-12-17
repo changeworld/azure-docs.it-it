@@ -3,21 +3,19 @@ title: "Esercitazione: Creare un'app Analisi contatori intelligente con IoT Cent
 description: "Esercitazione: Informazioni su come creare un'app di monitoraggio contatori intelligente usando i modelli di applicazione di Azure IoT Central."
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a95f1befcdc9b59293eb97330ba7ceae3034a74b
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127132"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516772"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Esercitazione: Creare ed esaminare il modello di app per il monitoraggio dei contatori intelligenti 
-
-
 
 Questa esercitazione assiste l'utente durante il processo di creazione dell'applicazione di monitoraggio dei contatori intelligenti, che include un modello di dispositivo di esempio con dati simulati. In questa esercitazione si apprenderà come:
 
@@ -38,14 +36,13 @@ Se non si ha una sottoscrizione, [creare un account di valutazione gratuito](htt
 È possibile creare questa applicazione in tre semplici passaggi:
 
 1. Aprire la [home page di Azure IoT Central](https://apps.azureiotcentral.com) e fare clic su **Compila** per creare una nuova applicazione. 
-
-2. Selezionare la scheda **Energia** e fare clic su **Crea app** nel riquadro dell'applicazione **Monitoraggio contatori intelligenti**.
+1. Selezionare la scheda **Energia** e fare clic su **Crea app** nel riquadro dell'applicazione **Monitoraggio contatori intelligenti**.
 
     > [!div class="mx-imgBorder"]
     > ![Compila app](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
-3. Dopo la selezione di **Crea app** verrà aperto il modulo **Nuova applicazione**. Specificare i dettagli richiesti, come illustrato nella figura seguente:
+1. Dopo la selezione di **Crea app** verrà aperto il modulo **Nuova applicazione**. Specificare i dettagli richiesti, come illustrato nella figura seguente:
     * **Nome applicazione**: Scegliere un nome per l'applicazione IoT Central. 
     * **URL**: Selezionare un URL di IoT Central. La piattaforma verificherà se è univoco o meno.
     * **Versione di valutazione gratuita valida 7 giorni**: Se si dispone già di una sottoscrizione di Azure, è consigliabile usare l'impostazione predefinita. Se non si ha una sottoscrizione di Azure, iniziare con una versione di valutazione gratuita.
@@ -55,7 +52,6 @@ Se non si ha una sottoscrizione, [creare un account di valutazione gratuito](htt
         ![Modulo Nuova applicazione](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
         ![Modulo Nuova applicazione - Info di fatturazione](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
-
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verificare l'applicazione e i dati simulati
 
@@ -99,7 +95,7 @@ Fare clic sulla scheda **Modelli di dispositivo** per visualizzare il modello di
 Se si decide di non continuare a usare questa applicazione, seguire questa procedura per eliminare l'applicazione:
 
 1. Aprire la scheda Amministrazione nel riquadro sinistro
-2. Selezionare Impostazioni applicazione e fare clic sul pulsante Elimina nella parte inferiore della pagina. 
+1. Selezionare Impostazioni applicazione e fare clic sul pulsante Elimina nella parte inferiore della pagina. 
 
     > [!div class="mx-imgBorder"]
     > ![Eliminare l'applicazione](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)

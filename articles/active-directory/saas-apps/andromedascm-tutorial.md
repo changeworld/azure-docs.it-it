@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d342f672f4e8a5fdf33afe0feb7c5051956e29f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318766"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Esercitazione: Integrazione di Azure Active Directory con Andromeda
 
@@ -126,30 +126,30 @@ Per configurare l'accesso Single Sign-On di Azure AD con Andromeda, eseguire i s
 
     | Nome | Attributo di origine|
     | ------ | -----------|
-    | ruolo        | Ruolo specifico dell'app |
-    | type        | Tipo di app |
-    | company       | CompanyName |
+    | ruolo | Ruolo specifico dell'app |
+    | type | Tipo di app |
+    | company | CompanyName |
 
     > [!NOTE]
     > Non sono valori reali. Questi valori sono solo a scopo dimostrativo. Usare i ruoli dell'organizzazione.
 
-    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    1. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![Screenshot che mostra la finestra Attestazioni utente con le opzioni Aggiungi nuova attestazione e Salva.](common/new-save-attribute.png)
+        ![Screenshot che mostra la finestra Attestazioni utente con le opzioni Aggiungi nuova attestazione e Salva.](common/new-save-attribute.png)
 
-    ![Screenshot che mostra la finestra di dialogo Gestisci attestazioni utente in cui è possibile immettere i valori descritti in questo passaggio.](common/new-attribute-details.png)
+        ![Screenshot che mostra la finestra di dialogo Gestisci attestazioni utente in cui è possibile immettere i valori descritti in questo passaggio.](common/new-attribute-details.png)
 
-    b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
+    1. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Lasciare vuota la casella **Spazio dei nomi**.
+    1. Lasciare vuota la casella **Spazio dei nomi**.
 
-    d. Per Origine selezionare **Attributo**.
+    1. Per Origine selezionare **Attributo**.
 
-    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
+    1. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **OK**.
+    1. Fare clic su **OK**.
 
-    g. Fare clic su **Salva**.
+    1. Fare clic su **Salva**.
 
 8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -159,11 +159,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Andromeda, eseguire i s
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
+    1. URL di accesso
 
-    b. Identificatore di Azure AD
+    1. Identificatore di Azure AD
 
-    c. URL di chiusura sessione
+    1. URL di chiusura sessione
 
 ### <a name="configure-andromeda-single-sign-on"></a>Configurare Single Sign-On per Andromeda
 
@@ -181,25 +181,25 @@ Per configurare l'accesso Single Sign-On di Azure AD con Andromeda, eseguire i s
 
     ![Configurazione di Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Selezionare **Enable SSO with SAML** (Abilita SSO con SAML).
+    1. Selezionare **Enable SSO with SAML** (Abilita SSO con SAML).
 
-    b. Nella sezione **Andromeda Information** (Informazioni su Andromeda) copiare il valore del campo **SP Identity** (Identità SP) e incollarlo nella casella di testo **Identificatore** della sezione **Configurazione SAML di base**.
+    1. Nella sezione **Andromeda Information** (Informazioni su Andromeda) copiare il valore del campo **SP Identity** (Identità SP) e incollarlo nella casella di testo **Identificatore** della sezione **Configurazione SAML di base**.
 
-    c. Copiare il valore del campo **Consumer URL** (URL consumer) nella casella di testo **URL di risposta** della sezione **Configurazione SAML di base**.
+    1. Copiare il valore del campo **Consumer URL** (URL consumer) nella casella di testo **URL di risposta** della sezione **Configurazione SAML di base**.
 
-    d. Copiare il valore del campo **URL di accesso** nella casella di testo **URL di accesso** della sezione **Configurazione SAML di base**.
+    1. Copiare il valore del campo **URL di accesso** nella casella di testo **URL di accesso** della sezione **Configurazione SAML di base**.
 
-    e. Nella sezione **Provider di identità SAML** digitare il nome del provider di identità.
+    1. Nella sezione **Provider di identità SAML** digitare il nome del provider di identità.
 
-    f. Nella casella di testo **Single Sign On End Point** (Endpoint Single Sign-On) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+    1. Nella casella di testo **Single Sign On End Point** (Endpoint Single Sign-On) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    g. Aprire il **certificato con codifica Base64** scaricato dal portale di Azure nel Blocco note e incollarlo nella casella di testo **Certificato X.509**.
-    
-    h. Eseguire il mapping degli attributi seguenti con il rispettivo valore per implementare l'accesso SSO da Azure AD. L'attributo **ID utente** è richiesto per l'accesso. Ai fini del provisioning, gli attributi relativi a **posta elettronica**, **società**, **tipo di utente** e **ruolo** sono obbligatori. In questa sezione viene definito il mapping degli attributi (nome e valori) associati agli attributi definiti nel portale di Azure
+    1. Aprire il **certificato con codifica Base64** scaricato dal portale di Azure nel Blocco note e incollarlo nella casella di testo **Certificato X.509**.
 
-    ![Mapping degli attributi di Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Eseguire il mapping degli attributi seguenti con il rispettivo valore per implementare l'accesso SSO da Azure AD. L'attributo **ID utente** è richiesto per l'accesso. Ai fini del provisioning, gli attributi relativi a **posta elettronica**, **società**, **tipo di utente** e **ruolo** sono obbligatori. In questa sezione viene definito il mapping degli attributi (nome e valori) associati agli attributi definiti nel portale di Azure
 
-    i. Fare clic su **Salva**.
+        ![Mapping degli attributi di Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -218,7 +218,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

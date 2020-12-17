@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 17bf7b3f457ff6046d92012ffd679ed4b9315530
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a2f76df05878151405d56b1bff5e588f426d9d92
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574123"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093554"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning (parte 3 di 4)
 
@@ -133,7 +133,7 @@ Creare un nuovo file di Python denominato `04-run-pytorch.py`nella directory `tu
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [Lo script di controllo è stato creato](?success=control-script#submit) [Si è verificato un problema](https://www.research.net/r/7CTJQQ?issue=control-script)
+> [Lo script di controllo è stato creato](?success=control-script#submit) [Si è verificato un problema](https://www.research.net/r/7CTJQQN?issue=control-script)
 
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Inviare l'esecuzione ad Azure Machine Learning
@@ -186,7 +186,7 @@ Azure Machine Learning gestisce anche una raccolta di ambienti curati. Questi am
 L'uso di ambienti registrati consente quindi di risparmiare tempo. Per altre informazioni, vedere [Come usare gli ambienti](./how-to-use-environments.md).
 
 > [!div class="nextstepaction"]
-> [L'esecuzione è stata inviata](?success=test-w-environment#log) [Si è verificato un problema](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+> [L'esecuzione è stata inviata](?success=test-w-environment#log) [Si è verificato un problema](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log-training-metrics"></a><a name="log"></a> Registrare le metriche di training
 
@@ -221,7 +221,7 @@ Le metriche in Azure Machine Learning sono:
 - Progettate per la scalabilità, per continuare a sfruttare questi vantaggi anche quando si eseguono centinaia di esperimenti.
 
 > [!div class="nextstepaction"]
-> [Lo script train.py è stato modificato](?success=modify-train#log) [Si è verificato un problema](https://www.research.net/r/7CTJQQ?issue=modify-train)
+> [Lo script train.py è stato modificato](?success=modify-train#log) [Si è verificato un problema](https://www.research.net/r/7CTJQQN?issue=modify-train)
 
 ### <a name="update-the-conda-environment-file"></a>Aggiornare il file dell'ambiente Conda
 
@@ -230,7 +230,7 @@ Lo script `train.py` ha appena acquisito una nuova dipendenza da `azureml.core`.
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [Il file di ambiente è stato aggiornato](?success=update-environment#submit-again) [Si è verificato un problema](https://www.research.net/r/7CTJQQ?issue=update-environment)
+> [Il file di ambiente è stato aggiornato](?success=update-environment#submit-again) [Si è verificato un problema](https://www.research.net/r/7CTJQQN?issue=update-environment)
 
 ### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Inviare l'esecuzione ad Azure Machine Learning
 Inviare ancora una volta questo script:
@@ -244,7 +244,7 @@ Questa volta, quando si visita Studio, passare alla scheda **Metriche**, dove è
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Grafico della perdita di training nella scheda Metriche":::.
 
 > [!div class="nextstepaction"]
-> [L'esecuzione è stata reinviata](?success=resubmit-with-logging#next-steps) [Si è verificato un problema](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
+> [L'esecuzione è stata reinviata](?success=resubmit-with-logging#next-steps) [Si è verificato un problema](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,20 +3,18 @@ title: Architettura di riferimento per una soluzione di monitoraggio del consumo
 description: Informazioni sui concetti relativi a una soluzione di monitoraggio del consumo idrico creata con Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: df402064f2aa26e29ef72c0f73f8f5aa761506e2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a291a32c8fd635c9124a7e1f997b6c676c8c0bd4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873560"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586789"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Architettura di riferimento per il monitoraggio consumo idrico 
-
-
 
 È possibile creare soluzioni di monitoraggio del consumo idrico usando il **modello di app di Azure IoT Central** come applicazione IoT di base. Questo articolo offre indicazioni generali sull'architettura di riferimento per la creazione di una soluzione end-to-end. 
 
@@ -26,8 +24,8 @@ Concetti:
 
 1. Dispositivi e connettività  
 1. IoT Central 
-2. Estendibilità e integrazioni
-3. Applicazioni aziendali
+1. Estendibilità e integrazioni
+1. Applicazioni aziendali
 
 Verranno ora esaminati i componenti chiave che in genere fanno parte di una soluzione di monitoraggio del consumo idrico.
 

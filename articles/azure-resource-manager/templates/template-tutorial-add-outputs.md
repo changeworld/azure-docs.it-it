@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931742"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107125"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Esercitazione: Aggiungere output al modello di Azure Resource Manager
 
@@ -41,17 +41,17 @@ L'esempio seguente evidenzia la modifica apportata al modello per aggiungere un 
 
 Ecco alcune importanti aspetti da considerare sul valore di output aggiunto.
 
-Il tipo di valore restituito è impostato su **object**, per indicare che restituisce un oggetto JSON.
+Il tipo di valore restituito è impostato su `object`, per indicare che restituisce un oggetto JSON.
 
 Usa la funzione [reference](template-functions-resource.md#reference) per ottenere lo stato di runtime dell'account di archiviazione. Per ottenere lo stato di runtime di una risorsa, si deve passare il nome o l'ID di una risorsa. In questo caso si usa la stessa variabile usata per creare il nome dell'account di archiviazione.
 
-Infine, restituisce la proprietà **primaryEndpoints** dell'account di archiviazione.
+Infine, restituisce la proprietà `primaryEndpoints` dell'account di archiviazione.
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
 È ora possibile distribuire il modello ed esaminare il valore restituito.
 
-Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
+Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile `templateFile` sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ Nell'output del comando di distribuzione verrà visualizzato un oggetto simile a
 ```
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 ## <a name="review-your-work"></a>Esaminare il lavoro
 

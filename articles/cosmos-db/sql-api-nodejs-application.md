@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49cf54bda985f7d97b2db6a3ada7859aee829cff
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097278"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359541"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Esercitazione: Compilare un'app Web Node.js con l’SDK JavaScript per gestire un account API SQL in Azure Cosmos DB 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -108,7 +108,7 @@ Dopo aver completato l'installazione e la configurazione iniziali, è necessario
 
 2. Nella directory **models** (modelli) creare un nuovo file denominato **taskDao.js**. Questo file contiene il codice necessario per creare il contenitore e il database. Definisce inoltre i metodi per leggere, aggiornare, creare e trovare le attività in Azure Cosmos DB. 
 
-3. Copiare il codice seguente nel file **taskDao.js** :
+3. Copiare il codice seguente nel file **taskDao.js**:
 
    ```javascript
     // @ts-check
@@ -191,7 +191,7 @@ Dopo aver completato l'installazione e la configurazione iniziali, è necessario
 
 1. Nella directory **routes** (route) del progetto creare un nuovo file denominato **tasklist.js**.  
 
-2. Aggiungere il seguente codice al file **tasklist.js**. Questo codice carica i moduli CosmosClient e async, usati da **tasklist.js**. Definisce inoltre la classe **TaskList** , che viene passata come istanza dell'oggetto **TaskDao** definito in precedenza:
+2. Aggiungere il seguente codice al file **tasklist.js**. Questo codice carica i moduli CosmosClient e async, usati da **tasklist.js**. Definisce inoltre la classe **TaskList**, che viene passata come istanza dell'oggetto **TaskDao** definito in precedenza:
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -384,7 +384,7 @@ Ora si procederà alla creazione dell'interfaccia utente per consentire agli ute
 
     Il codice comunica al motore **Jade** di eseguire il rendering di una parte del codice HTML per l'applicazione e crea un **blocco** denominato **content** tramite cui è possibile fornire il layout per le pagine di contenuto. Salvare e chiudere il file **layout.jade**.
 
-3. Aprire il file **index.jade** , la visualizzazione che sarà usata dall'applicazione, quindi sostituire il contenuto del file con il codice seguente:
+3. Aprire il file **index.jade**, la visualizzazione che sarà usata dall'applicazione, quindi sostituire il contenuto del file con il codice seguente:
 
    ```html
    extends layout
@@ -470,14 +470,14 @@ Dopo che l'applicazione ha avuto esito positivo in locale, è possibile distribu
 3. Distribuire l'applicazione eseguendone il push in remoto.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. In pochi secondi, l'applicazione Web viene pubblicata e avviata in un browser.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando tali risorse non servono più, è possibile eliminare il gruppo di risorse, l'account Azure Cosmos DB e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse usato per l'account Azure Cosmos DB, selezionare **Elimina** , quindi confermare il nome del gruppo di risorse da eliminare.
+Quando tali risorse non servono più, è possibile eliminare il gruppo di risorse, l'account Azure Cosmos DB e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse usato per l'account Azure Cosmos DB, selezionare **Elimina**, quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a><a name="_Toc395637775"></a>Passaggi successivi
 

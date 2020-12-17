@@ -11,15 +11,14 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187273"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346368"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Esercitazione: Esportare i dati da Azure IoT Central e visualizzare le informazioni dettagliate in Power BI
-
 
 
 Nelle due esercitazioni precedenti è stata creata e personalizzata un'applicazione IoT Central usando il modello di applicazione **Analisi punti vendita - Pagamento**. In questa esercitazione si configurerà l'applicazione IoT Central per esportare i dati di telemetria raccolti dai dispositivi. Quindi con Power BI si creerà un dashboard personalizzato per la gestione del negozio per visualizzare le informazioni dettagliate derivate dai dati di telemetria.
