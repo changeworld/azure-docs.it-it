@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443093"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614898"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
 
@@ -62,7 +62,7 @@ Il portale di registrazione delle app offre un'esperienza di anteprima per il ca
 
    ![Scegliere un'applicazione per dispositivi mobili](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Immettere l'ID bundle, quindi selezionare **Register (registra** ).
+4. Immettere l'ID bundle, quindi selezionare **Register (registra**).
 
    ![Immettere l'ID bundle](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
@@ -72,16 +72,21 @@ Quando si completano i passaggi, l'URI di reindirizzamento viene calcolato per l
 
 Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Ecco il formato consigliato per il manifesto:
 
-- **iOS** : `msauth.<BUNDLE_ID>://auth`
+- **iOS**: `msauth.<BUNDLE_ID>://auth`
   - Immettere ad esempio `msauth.com.yourcompany.appName://auth`
-- **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - È possibile generare l'hash della firma Android usando la chiave di rilascio o la chiave di debug tramite il comando di chiave.
 
 ### <a name="username-password-authentication"></a>Nome utente-autenticazione con password
 
 Se l'app usa solo l'autenticazione con nome utente e password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue una round trip all'endpoint della versione 2,0 di Microsoft Identity Platform. L'applicazione non verrà richiamata su un URI specifico.
 
-Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, iniziare nella sezione **autenticazione** dell'applicazione. Nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , per l'applicazione question **treat come client pubblico** , selezionare **Sì**.
+Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, procedere nel seguente modo:
+
+1. Sempre nella [portale di Azure](https://portal.azure.com)selezionare l'app in **registrazioni app** e quindi selezionare **autenticazione**.
+1. In **Impostazioni avanzate**  >  **Consenti flussi client pubblici**  >  **Abilita i flussi di dispositivi mobili e desktop seguenti:** selezionare **Sì**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Abilitare l'impostazione client pubblica nel riquadro autenticazione in portale di Azure":::
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 

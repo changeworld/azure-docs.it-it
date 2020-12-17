@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510652"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616576"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -77,6 +77,11 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 [Gestione dei costi di Azure e fatturazione](../../cost-management-billing/index.yml):
 
 - Dal tenant di gestione, i partner CSP possono visualizzare, gestire e analizzare i costi di consumo pre-imposte (non inclusi gli acquisti) per i clienti che si trovano nel piano di Azure. Il costo sarà basato sulle tariffe al dettaglio e sull'accesso in base al ruolo di Azure (controllo degli accessi in base al ruolo di Azure) che il partner ha per la sottoscrizione del cliente.
+
+[Azure Key Vault](../../key-vault/general/index.yml):
+
+- Creare insiemi di credenziali delle chiavi nei tenant dei clienti
+- Usare un'identità gestita per creare insiemi di credenziali delle chiavi nei tenant dei clienti
 
 [Servizio Azure Kubernetes](../../aks/index.yml):
 

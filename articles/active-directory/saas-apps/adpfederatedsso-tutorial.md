@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.openlocfilehash: cf6973242e81cef53625a3b1eda4f2d92e1d5ffd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d78f2c8da338a92ef88734371647a48ddb190c3
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998635"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591209"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ADP
 
@@ -155,11 +155,11 @@ Al momento della ricezione della conferma dal rappresentante ADP, configurare i 
 
     ![Proprietà collegate per l'accesso Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
-    a.  Impostare il valore del campo **Abilitata per l'accesso degli utenti** su **Sì**.
+    1. Impostare il valore del campo **Abilitata per l'accesso degli utenti** su **Sì**.
 
-    b.  Impostare il valore del campo **Assegnazione di utenti obbligatoria** su **Sì**.
+    1. Impostare il valore del campo **Assegnazione di utenti obbligatoria** su **Sì**.
 
-    c.  Impostare il valore del campo **Visibile agli utenti** su **Sì**.
+    1. Impostare il valore del campo **Visibile agli utenti** su **Sì**.
 
 1. Nella pagina di integrazione dell'applicazione **ADP** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 
@@ -171,39 +171,39 @@ Al momento della ricezione della conferma dal rappresentante ADP, configurare i 
 
     ![Proprietà Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
 
-    a. Incollare l'**URL di accesso utente** copiato in precedenza dalla scheda **Proprietà** (dall'app ADP principale).
-                                                             
-    b. Le 5 app seguenti supportano **URL di stato dell'inoltro** diversi. È necessario aggiungere manualmente il valore appropriato dell'**URL di stato dell'inoltro** per una particolare applicazione all'**URL di accesso utente**.
-    
-    * **ADP Workforce Now**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+    1. Incollare l'**URL di accesso utente** copiato in precedenza dalla scheda **Proprietà** (dall'app ADP principale).
 
-    * **ADP Workforce Now Enhanced Time**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
-    
-    * **ADP Vantage HCM**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+    1. Le 5 app seguenti supportano **URL di stato dell'inoltro** diversi. È necessario aggiungere manualmente il valore appropriato dell'**URL di stato dell'inoltro** per una particolare applicazione all'**URL di accesso utente**.
 
-    * **ADP Enterprise HR**
+        * **ADP Workforce Now**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-    * **MyADP**
+        * **ADP Workforce Now Enhanced Time**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 
-9. **Salvare** le modifiche.
+        * **ADP Vantage HCM**
 
-10. Dopo aver ricevuto conferma dal rappresentante ADP, iniziare i test con uno o due utenti.
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-    a. Assegnare alcuni utenti all'app del servizio ADP per testare l'accesso federato.
+        * **ADP Enterprise HR**
 
-    b. Il test ha esito positivo quando gli utenti accedono all'app del servizio ADP nella raccolta e possono accedere al rispettivo servizio ADP.
- 
-11. Alla conferma dell'esito positivo del test, assegnare il servizio federato ADP a singoli utenti o gruppi di utenti, come illustrato più avanti nell'esercitazione, e distribuirlo ai dipendenti.
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+
+        * **MyADP**
+
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+
+1. **Salvare** le modifiche.
+
+1. Dopo aver ricevuto conferma dal rappresentante ADP, iniziare i test con uno o due utenti.
+
+    1. Assegnare alcuni utenti all'app del servizio ADP per testare l'accesso federato.
+
+    1. Il test ha esito positivo quando gli utenti accedono all'app del servizio ADP nella raccolta e possono accedere al rispettivo servizio ADP.
+
+1. Alla conferma dell'esito positivo del test, assegnare il servizio federato ADP a singoli utenti o gruppi di utenti, come illustrato più avanti nell'esercitazione, e distribuirlo ai dipendenti.
 
 ### <a name="create-adp-test-user"></a>Creare l'utente di test di ADP
 
@@ -222,5 +222,3 @@ Quando si fa clic sul riquadro di ADP nel pannello di accesso, si dovrebbe acced
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Provare ADP con Azure AD](https://aad.portal.azure.com)

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387582"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615849"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -50,6 +50,7 @@ Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'
 ## <a name="associate-the-security-group-with-the-tenant"></a>Associare il gruppo di sicurezza al tenant
 
 1. Accedere al [portale di amministrazione Power bi](https://app.powerbi.com/admin-portal/tenantSettings).
+1. Selezionare la pagina **Impostazioni tenant** .
 
     > [!Important]
     > Per visualizzare la pagina delle impostazioni del tenant, è necessario essere un amministratore Power BI.

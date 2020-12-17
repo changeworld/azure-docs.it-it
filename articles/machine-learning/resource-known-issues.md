@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 010d37baff76a046bef2da877262f6427cb3d5c9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0a14d57db932ef6cfb17df84b3204d3dec9e4d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094438"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617001"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione per Azure Machine Learning
 
@@ -428,6 +428,16 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   1. Avviare una shell dei comandi, attivare l'ambiente conda in cui sono installati i pacchetti di Machine Learning automatici.
   2. Immettere `pip freeze` e cercare `tensorflow` , se presente, la versione elencata deve essere < 1,13
   3. Se la versione elencata non è supportata, `pip uninstall tensorflow` nella shell dei comandi e immettere y per la conferma.
+
+## <a name="model-explanations"></a>Spiegazioni del modello
+
+* **Dati di tipo sparse non supportati**: il dashboard di spiegazione del modello si interrompe in modo sostanziale con un numero elevato di funzionalità, pertanto attualmente non è supportato il formato dati sparse. Inoltre, i problemi generali di memoria si verificano con set di impostazioni di grandi dimensioni e un numero elevato di funzionalità. 
+
+* **Modelli di previsione non supportati con le spiegazioni del modello**: interpretabilità, migliore spiegazione del modello, non è disponibile per gli esperimenti di previsione AutoML che consigliano gli algoritmi seguenti come modello migliore: TCNForecaster, autoarima, ExponentialSmoothing, media, Naive, media stagionale e Naive stagionale. La previsione di AutoML include modelli di regressione che supportano le spiegazioni. Tuttavia, nella spiegazione dashbord, la scheda "singola funzionalità importanza" non è supportata per la previsione a causa della complessità delle pipeline di dati.
+
+* **Spiegazione locale per l'indice dati**: il dashboard spiegazione non supporta i valori di importanza locale per un identificatore di riga dal set di dati di convalida originale se il set di dati è maggiore di 5000 punti dati perché il dashboard downsampling delle in modo casuale i dati. Tuttavia, il dashboard Mostra i valori delle funzionalità del set di dati non elaborati per ogni punto dati passato nel dashboard nella scheda relativa all'importanza delle singole funzionalità. Gli utenti possono mappare le priorità locali al set di dati originale tramite la corrispondenza dei valori delle funzionalità del set di dati non elaborati. Se la dimensione del set di dati di convalida è inferiore a 5000 esempi, la `index` funzionalità in AzureML Studio corrisponderà all'indice nel set di dati di convalida.
+
+* **Tracciati di simulazione e di ghiaccio non supportati in AML Studio**: What-If e i tracciati di singoli condizionali (Ice) non sono supportati in AzureML studio nella scheda spiegazioni perché la spiegazione caricata richiede un calcolo attivo per ricalcolare le stime e le probabilità di funzionalità perturbate. È attualmente supportato nei notebook di Jupyter quando viene eseguito come widget usando l'SDK.
 
 ## <a name="deploy--serve-models"></a>Distribuire e gestire modelli
 

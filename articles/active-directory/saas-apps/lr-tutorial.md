@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1376dcb76c22bcd70937f533d337ee9679e9dc59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 832c08123904b9fb889231faa86c1308704a2581
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455824"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Esercitazione: Integrazione di Azure Active Directory con LoginRadius
 
@@ -151,7 +151,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nella con
        - Comando per ottenere la chiave del certificato per il provider di servizi: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
 
        - Comando per ottenere il certificato per il provider di servizi: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
-     
+
        > [!NOTE]
        > Assicurarsi di immettere i valori del certificato e della chiave del certificato con intestazione e piè di pagina:
        > - Formato del valore del certificato di esempio: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`

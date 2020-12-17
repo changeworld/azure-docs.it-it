@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96c52c46a75d6d5810dfddf91439c275d14e85f1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616138"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614932"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procedura: aggiungere i ruoli dell'app all'applicazione e riceverli nel token
 
@@ -30,7 +30,10 @@ Un altro approccio consiste nell'usare gruppi di Azure AD e attestazioni di grup
 
 ## <a name="declare-roles-for-an-application"></a>Dichiarare i ruoli per un'applicazione
 
-Per definire i ruoli dell'app, è possibile usare la [portale di Azure](https://portal.azure.com). Quando un utente accede all'applicazione, Azure AD emette un' `roles` attestazione per ogni ruolo che l'utente ha concesso singolarmente all'utente e dall'appartenenza al gruppo.
+Per definire i ruoli dell'app, è possibile usare la [portale di Azure](https://portal.azure.com). I ruoli dell'app sono in genere definiti in una registrazione dell'applicazione che rappresenta un servizio, un'app o un'API. Quando un utente accede all'applicazione, Azure AD emette un' `roles` attestazione per ogni ruolo che l'utente o l'entità servizio ha concesso singolarmente all'utente e dall'appartenenza al gruppo. Questa operazione può essere utilizzata per implementare l'autorizzazione basata sulle attestazioni. I ruoli dell'app possono essere assegnati [a un utente o a un gruppo di utenti](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app). I ruoli dell'app possono anche essere assegnati all'entità servizio per un'altra applicazione o [all'entità servizio per un'identità gestita](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+
+> [!IMPORTANT]
+> Attualmente, se si aggiunge un'entità servizio a un gruppo e quindi si assegna un ruolo app a tale gruppo, Azure AD non aggiunge l' `roles` attestazione ai token che rilascia.
 
 Esistono due modi per dichiarare i ruoli dell'app usando il portale di Azure:
 
@@ -169,7 +172,7 @@ I nuovi ruoli aggiunti verranno visualizzati nel riquadro **autorizzazioni API**
 
 #### <a name="grant-admin-consent"></a>Concedi il consenso dell'amministratore
 
-Poiché si tratta di autorizzazioni per le *applicazioni* , non di autorizzazioni delegate, un amministratore deve concedere il consenso per l'uso dei ruoli dell'app assegnati all'applicazione.
+Poiché si tratta di autorizzazioni per le *applicazioni*, non di autorizzazioni delegate, un amministratore deve concedere il consenso per l'uso dei ruoli dell'app assegnati all'applicazione.
 
 1. Nel riquadro **autorizzazioni API** registrazione app selezionare **concedi il consenso \<tenant name\> dell'amministratore per**.
 1. Selezionare **Sì** quando viene richiesto di concedere il consenso per le autorizzazioni richieste.

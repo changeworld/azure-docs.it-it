@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 946388fa60e0f6147db2986192392740fa3949f4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 84b0a761b52baca4ae1ab81b3c67f18f6b14db92
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671834"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608834"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Esercitazione: Integrare SAP Analytics Cloud con Azure Active Directory
 
@@ -46,16 +46,16 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di SAP Analytics Cloud in Azure AD, è necessario aggiungere SAP Analytics Cloud dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **SAP Analytics Cloud** nella casella di ricerca.
 1. Selezionare **SAP Analytics Cloud** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso Single Sign-On di Azure AD con SAP Analytics Cloud usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAP Analytics Cloud.
+Configurare e testare l'accesso Single Sign-On di Azure AD con SAP Analytics Cloud usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAP Analytics Cloud.
 
 Per configurare e testare l'accesso SSO di Azure AD con SAP Analytics Cloud, completare le procedure di base seguenti:
 
@@ -70,8 +70,8 @@ Per configurare e testare l'accesso SSO di Azure AD con SAP Analytics Cloud, com
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **SAP Analytics Cloud** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina di integrazione dell'applicazione **SAP Analytics Cloud** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -103,11 +103,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di SAP Analytics Cloud come amministratore.
 
-2. Selezionare **Menu** > **Sistema** > **Amministrazione** .
+2. Selezionare **Menu** > **Sistema** > **Amministrazione**.
     
     ![Selezionare Menu, quindi Sistema e infine Amministrazione](./media/sapboc-tutorial/config1.png)
 
-3. Selezionare l'icona **Modifica** (penna) nella scheda **Sicurezza** .
+3. Selezionare l'icona **Modifica** (penna) nella scheda **Sicurezza**.
     
     ![Selezionare l'icona Modifica nella scheda Sicurezza](./media/sapboc-tutorial/config2.png)  
 
@@ -115,11 +115,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Selezionare SAML Single Sign-On per il metodo di autenticazione](./media/sapboc-tutorial/config3.png)  
 
-5. Per scaricare i metadati del provider di servizi (passaggio 1), selezionare **Download** . Nel file di metadati trovare e copiare il valore **entityID** . Nella finestra di dialogo **Configurazione SAML di base** del portale di Azure incollare il valore nella casella **Identificatore** .
+5. Per scaricare i metadati del provider di servizi (passaggio 1), selezionare **Download**. Nel file di metadati trovare e copiare il valore **entityID**. Nella finestra di dialogo **Configurazione SAML di base** del portale di Azure incollare il valore nella casella **Identificatore**.
 
     ![Copiare e incollare il valore di entityID](./media/sapboc-tutorial/config4.png)  
 
-6. Per caricare i metadati del provider di servizi (passaggio 2) nel file scaricato nel portale di Azure, in **Upload Identity Provider metadata** (Caricare i metadati del provider di identità) selezionare **Carica** .  
+6. Per caricare i metadati del provider di servizi (passaggio 2) nel file scaricato nel portale di Azure, in **Upload Identity Provider metadata** (Caricare i metadati del provider di identità) selezionare **Carica**.  
 
     ![In Upload Identity Provider metadata (Caricare i metadati del provider di identità) selezionare Carica](./media/sapboc-tutorial/config5.png)
 
@@ -127,11 +127,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Selezionare Attributo utente](./media/sapboc-tutorial/config6.png)
 
-8. Per verificare l'account con il provider di identità (passaggio 4), nella casella **Login Credential (Email)** (Credenziale di accesso - Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente. Selezionare quindi **Verifica account** . Il sistema aggiunge le credenziali di accesso all'account utente.
+8. Per verificare l'account con il provider di identità (passaggio 4), nella casella **Login Credential (Email)** (Credenziale di accesso - Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente. Selezionare quindi **Verifica account**. Il sistema aggiunge le credenziali di accesso all'account utente.
 
     ![Immettere l'indirizzo di posta elettronica e selezionare Verifica account](./media/sapboc-tutorial/config7.png)
 
-9. Selezionare l'icona **Salva** .
+9. Selezionare l'icona **Salva**.
 
     ![Icona Salva](./media/sapboc-tutorial/save.png)
 
@@ -139,31 +139,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SAP Analytics Cloud.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **SAP Analytics Cloud** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **SAP Analytics Cloud**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-sap-analytics-cloud-test-user"></a>Creare l'utente di test di SAP Analytics Cloud
 
@@ -183,21 +183,21 @@ Per effettuare il provisioning di un account utente:
 
     Completare quindi i passaggi seguenti:
 
-    a. Nella casella **USER ID** (ID UTENTE) immettere l'ID dell'utente, ad esempio **B** .
+    1. Nella casella **USER ID** (ID UTENTE) immettere l'ID dell'utente, ad esempio **B**.
 
-    b. Nella casella **NAME** (NOME) immettere il nome dell'utente, ad esempio **B** .
+    1. Nella casella **NAME** (NOME) immettere il nome dell'utente, ad esempio **B**.
 
-    c. Nella casella **LAST NAME** (COGNOME) immettere il cognome dell'utente, ad esempio **Simon** .
+    1. Nella casella **LAST NAME** (COGNOME) immettere il cognome dell'utente, ad esempio **Simon**.
 
-    d. Nella casella **DISPLAY NAME** (NOME VISUALIZZATO) immettere nome e cognome dell'utente, ad esempio **B.Simon** .
+    1. Nella casella **DISPLAY NAME** (NOME VISUALIZZATO) immettere nome e cognome dell'utente, ad esempio **B.Simon**.
 
-    e. Nella casella **E-MAIL** (POSTA ELETTRONICA) immettere l'indirizzo di posta elettronica dell'utente, ad esempio `b.simon@contoso.com`.
+    1. Nella casella **E-MAIL** (POSTA ELETTRONICA) immettere l'indirizzo di posta elettronica dell'utente, ad esempio `b.simon@contoso.com`.
 
-    f. Nella pagina **Select Roles** (Selezione ruoli) selezionare il ruolo appropriato per l'utente e quindi fare clic su **OK** .
+    1. Nella pagina **Select Roles** (Selezione ruoli) selezionare il ruolo appropriato per l'utente e quindi fare clic su **OK**.
 
-      ![Selezionare il ruolo](./media/sapboc-tutorial/user3.png)
+        ![Seleziona il ruolo](./media/sapboc-tutorial/user3.png)
 
-    g. Selezionare l'icona **Salva** .
+    1. Selezionare l'icona **Salva**.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO 
 

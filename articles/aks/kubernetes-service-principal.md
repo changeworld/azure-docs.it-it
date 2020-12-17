@@ -4,12 +4,12 @@ description: Creare e gestire un'entità servizio di Azure Active Directory per 
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607824"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614796"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
@@ -100,18 +100,7 @@ Se si usa Azure Container Registry (ACR) come archivio immagini del contenitore,
 
 ### <a name="networking"></a>Rete
 
-È possibile usare le funzionalità di rete avanzate in cui la rete virtuale e la subnet o gli indirizzi IP pubblici sono in un altro gruppo di risorse. Assegnare uno dei seguenti set di autorizzazioni del ruolo:
-
-- Creare un [ruolo personalizzato][rbac-custom-role] e definire le autorizzazioni del ruolo seguenti:
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - Se si usano [tabelle di route personalizzate nei cluster Kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) , aggiungere le autorizzazioni aggiuntive seguenti:
-    - *Microsoft.Network/routeTables/write*
-    - *Microsoft. Network/routeTables/Read*
-- In alternativa, assegnare il ruolo predefinito [Collaboratore rete][rbac-network-contributor] nella subnet all'interno della rete virtuale
+È possibile usare le funzionalità di rete avanzate in cui la rete virtuale e la subnet o gli indirizzi IP pubblici sono in un altro gruppo di risorse. Assegnare il ruolo predefinito [collaboratore rete][rbac-network-contributor] nella subnet all'interno della rete virtuale. In alternativa, è possibile creare un [ruolo personalizzato][rbac-custom-role] con le autorizzazioni per accedere alle risorse di rete nel gruppo di risorse. Per ulteriori informazioni, vedere [autorizzazioni del servizio AKS][aks-permissions] .
 
 ### <a name="storage"></a>Archiviazione
 
@@ -188,3 +177,4 @@ Per informazioni su come aggiornare le credenziali, vedere [aggiornare o ruotare
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

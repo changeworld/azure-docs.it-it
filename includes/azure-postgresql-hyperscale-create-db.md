@@ -5,23 +5,24 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 09/12/2019
+ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54cc31cdb0ddc7694568d60b1446f1cf99663e95
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74973416"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616627"
 ---
+## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Creare un Database di Azure per PostgreSQL - Hyperscale (Citus)
+
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
+### <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Creare un Database di Azure per PostgreSQL - Hyperscale (Citus)
 
 Seguire questa procedura per creare un database di Azure per il server PostgreSQL:
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
@@ -53,7 +54,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
 10. La pagina verrà reindirizzata per monitorare la distribuzione. Quando lo stato attivo passa da **La distribuzione è in corso** a **La distribuzione è stata completata**, fare clic sulla voce di menu **Output** nella parte sinistra della pagina.
 11. La pagina degli output conterrà un nome host di coordinatore con accanto un pulsante per copiare il valore negli Appunti. Prendere nota di queste informazioni per un uso successivo.
 
-## <a name="connect-to-the-database-using-psql"></a>Connettersi al database usando psql
+### <a name="connect-to-the-database-using-psql"></a>Connettersi al database usando psql
 
 Quando si crea il server di Database di Azure per PostgreSQL, viene creato un database predefinito denominato **citus**. Per connettersi al server di database, è necessaria una stringa di connessione e la password amministratore.
 

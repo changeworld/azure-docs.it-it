@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860967"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614915"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -134,7 +134,7 @@ Con il nome utente e la password in un flusso ROPC si sacrificano diversi elemen
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configurare il flusso ROPC in Azure AD B2C
 
-Nel tenant di Azure AD B2C creare un nuovo flusso utente e selezionare **Accedi con ROPC** per abilitare ROPC per il flusso utente. Per altre informazioni, vedere [configurare il flusso di credenziali password del proprietario della risorsa](../../active-directory-b2c/configure-ropc.md).
+Nel tenant di Azure AD B2C creare un nuovo flusso utente e selezionare **Accedi con ROPC** per abilitare ROPC per il flusso utente. Per altre informazioni, vedere [configurare il flusso di credenziali password del proprietario della risorsa](../../active-directory-b2c/add-ropc-policy.md).
 
 `IPublicClientApplication` contiene il `AcquireTokenByUsernamePassword` Metodo:
 
@@ -194,6 +194,6 @@ Per altre informazioni su come specificare quali attestazioni vengono restituite
 
 Nell'esempio seguente vengono fornite ulteriori informazioni sull'acquisizione di token in modo interattivo con MSAL.NET per Azure AD B2C applicazioni.
 
-| Esempio | Piattaforma | Description|
+| Esempio | Piattaforma | Descrizione|
 |------ | -------- | -----------|
 |[Active-Directory-B2C-Novell-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Novell iOS, Novell Android, UWP | Un'app Novell Forms che usa MSAL.NET per autenticare gli utenti tramite Azure AD B2C e quindi accedere a un'API Web con i token restituiti.|

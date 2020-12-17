@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 724809dbce3ca1b5a36f4da0ba5c03d0f78897f5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577698"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614643"
 ---
 # <a name="viewing-multiple-resources-in-metrics-explorer"></a>Visualizzazione di più risorse in Esplora metriche
 
@@ -71,7 +71,7 @@ Ad esempio, di seguito è riportato un grafico della percentuale di CPU tra 9VMs
 
 ![Screenshot che illustra come è possibile usare la suddivisione per visualizzare la percentuale di CPU per macchina virtuale](./media/metrics-charts/026.png)
 
-Oltre alla suddivisione, è possibile usare la funzionalità di filtro per visualizzare solo i gruppi di risorse che si desidera visualizzare.  Se ad esempio si vuole visualizzare la percentuale di CPU per le macchine virtuali per un determinato gruppo di risorse, è possibile usare lo strumento "Aggiungi filtro" per filtrare in base al gruppo di risorse. In questo esempio viene filtrato in base a TailspinToys, che rimuove le metriche associate alle risorse in TailspinToysDemo. 
+Oltre alla suddivisione, è possibile usare la funzionalità di filtro per visualizzare solo i gruppi di risorse che si desidera visualizzare.  Se ad esempio si vuole visualizzare la percentuale di CPU per le macchine virtuali per un determinato gruppo di risorse, è possibile usare lo strumento "Aggiungi filtro" per filtrare in base al gruppo di risorse. In questo esempio viene filtrato in base a TailspinToysDemo, che rimuove le metriche associate alle risorse in TailspinToys. 
 
 ![Screenshot che Mostra come filtrare in base al gruppo di risorse](./media/metrics-charts/027.png)
 
@@ -80,7 +80,7 @@ Oltre alla suddivisione, è possibile usare la funzionalità di filtro per visua
 > [!WARNING] 
 > Per visualizzare le metriche tra più risorse, gruppi di risorse o una sottoscrizione, è necessario disporre dell'autorizzazione di lettura monitoraggio a livello di sottoscrizione. A tale scopo, seguire le istruzioni riportate in [questo documento](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
-Per aggiungere il grafico a più risorse, seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#create-alert-rules). 
+Per aggiungere il grafico a più risorse, seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

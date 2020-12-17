@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590184"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614594"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
 
@@ -29,15 +29,14 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una sottoscrizione o una vista di monitoraggio di Azure, aprire la scheda **metriche** e seguire questa procedura:
 
-1. Usando il selettore di risorse, selezionare la risorsa per cui si vogliono visualizzare le metriche. La risorsa è preselezionata se si aprono le **metriche** nel contesto di una risorsa specifica.
-
-    > ![Selezionare una risorsa](./media/metrics-getting-started/resource-picker.png)
+1. Fare clic sul pulsante "selezionare un ambito" per aprire la selezione dell'ambito delle risorse. In questo modo sarà possibile selezionare le risorse per cui si vogliono visualizzare le metriche. La risorsa deve essere già popolata se si apre Esplora metriche dal menu della risorsa. Per informazioni su come visualizzare le metriche in più risorse, [vedere questo articolo](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+    > ![Selezionare una risorsa](./media/metrics-getting-started/scope-picker.png)
 
 2. Per alcune risorse, è necessario selezionare uno spazio dei nomi. Lo spazio dei nomi è semplicemente un modo per organizzare le metriche e individuarle più facilmente. Ad esempio, gli account di archiviazione hanno spazi dei nomi distinti per l'archiviazione delle metriche di file, tabelle, BLOB e code. Molti tipi di risorse hanno solo uno spazio dei nomi.
 
 3. Selezionare una metrica da un elenco di metriche disponibili.
 
-    > ![Selezionare una metrica](./media/metrics-getting-started/metric-picker.png)
+    > ![Selezionare una metrica](./media/metrics-getting-started/metrics-dropdown.png)
 
 4. Facoltativamente, è possibile [modificare l'aggregazione delle metriche](metrics-charts.md#changing-aggregation). È ad esempio possibile fare in modo che il grafico mostri i valori minimo, massimo o medio della metrica.
 
@@ -51,7 +50,7 @@ Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una 
 
 Per impostazione predefinita, il grafico mostra le ultime 24 ore di dati della metrica. Usare il pannello **selezione ora** per modificare l'intervallo di tempo, ingrandire o ridurre il grafico. 
 
-![Pannello per la modifica dell'intervallo di tempo](./media/metrics-getting-started/time-picker.png)
+![Pannello per la modifica dell'intervallo di tempo](./media/metrics-getting-started/time.png)
 
 > [!TIP]
 > Usare il **pennello ora** per esaminare un'area interessante del grafico (picco o DIP). Posizionare il puntatore del mouse all'inizio dell'area, fare clic e tenendo premuto il pulsante sinistro del mouse, trascinare l'altro lato dell'area, quindi rilasciare il pulsante. Il grafico ingrandirà tale intervallo di tempo. 
@@ -73,6 +72,7 @@ Vedere gli [esempi dei grafici](metric-chart-samples.md) a cui sono applicati il
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sulle funzionalità avanzate di Esplora metriche](metrics-charts.md)
+* [Visualizzazione di più risorse in Esplora metriche](metrics-dynamic-scope.md)
 * [Risoluzione dei problemi di Esplora metriche](metrics-troubleshoot.md)
 * [Elenco di metriche disponibili per i servizi di Azure](metrics-supported.md)
 * [Esempi di grafici configurati](metric-chart-samples.md)

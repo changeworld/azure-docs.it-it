@@ -4,15 +4,15 @@ description: Informazioni su come inviare messaggi RabbitMQ da funzioni di Azure
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 212bfcee09cd63b6ff09faaba4d99e4b4c583fe8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505735"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616661"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Panoramica dell'associazione di output RabbitMQ per funzioni di Azure
 
@@ -193,8 +193,6 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
-In *_\_ init_ \_ . py* è possibile scrivere un messaggio nella coda passando un valore al `set` metodo.
-
 ```python
 import azure.functions as func
 
@@ -271,11 +269,13 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Deve essere impostato su "out". |
 |**nome** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. |
 |**queueName**|**QueueName**| Nome della coda a cui inviare i messaggi. |
-|**Nome host**|**HostName**|(facoltativo se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(facoltativo se si usa ConnectionStringSetting) <br>Nome per accedere alla coda |
-|**passwordSetting**|**PasswordSetting**|(facoltativo se si usa ConnectionStringSetting) <br>Password per accedere alla coda|
+|**Nome host**|**HostName**|(ignorato se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
+|**userName**|**UserName**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene il nome utente per accedere alla coda. Esempio: UserNameSetting: "< UserNameFromSettings >"|
+|**password**|**Password**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene la password per accedere alla coda. Esempio: UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nome dell'impostazione dell'app che contiene la stringa di connessione della coda di messaggi RabbitMQ. Si noti che se si specifica la stringa di connessione direttamente e non tramite un'impostazione dell'app in local.settings.json, il trigger non funzionerà. (Ad esempio, in *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**Porta**|Ottiene o imposta la porta utilizzata. Il valore predefinito è 0.|
+|**port**|**Porta**|(ignorato se si usa ConnectionStringSetting) Ottiene o imposta la porta utilizzata. Il valore predefinito è 0.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
@@ -297,7 +297,7 @@ Usare i tipi di parametro seguenti per l'associazione di output:
 
 * `byte[]`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
 * `string`: se il valore del parametro è null quando la funzione termina, Funzioni di Azure non crea un messaggio.
-* `POCO` -Se il valore del parametro non è formattato come oggetto C#, verrà ricevuto un errore.
+* `POCO` -Se il valore del parametro non è formattato come oggetto C#, verrà ricevuto un errore. Per un esempio completo, vedere [esempio](#example)di script C#.
 
 Quando si lavora con le funzioni script C#:
 
@@ -305,11 +305,11 @@ Quando si lavora con le funzioni script C#:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Il messaggio RabbitMQ viene inviato tramite una stringa.
+Il messaggio della coda è disponibile tramite Context. Bindings.<NAME> dove <NAME> corrisponde al nome definito in function.json. Se il payload è JSON, il valore viene deserializzato in un oggetto.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Il messaggio RabbitMQ viene inviato tramite una stringa.
+Vedere l' [esempio](#example)di Python.
 
 # <a name="java"></a>[Java](#tab/java)
 

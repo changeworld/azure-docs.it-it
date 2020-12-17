@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: a1f4759bc40c4074f0dd618be8ac66ad088e848c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7e4f18b5d4f074d6596b375cbc11f40c2ab69d68
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587757"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616610"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -109,7 +109,7 @@ Per tenere traccia dello stato di avanzamento della replica iniziale, passare al
 - Percentuale completa: indica la percentuale di replica iniziale completata per la macchina virtuale
 - Totale dati trasferiti-quantità di dati trasferiti dalla macchina virtuale in Azure
 
-:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="stato della replica" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+    :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="stato della replica" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
 
 - Stato sincronizzazione (per tenere traccia dei dettagli a livello di disco)
     - Stato della replica
