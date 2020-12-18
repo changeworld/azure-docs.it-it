@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336423"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678647"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Usare il portale di Azure per amministrare i Azure Data Box e Azure Data Box Heavy
 
@@ -21,14 +21,11 @@ Questo articolo si applica sia a Azure Data Box sia a Azure Data Box Heavy. Ques
 
 Questo articolo è incentrato sulle attività che è possibile eseguire con il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire Data Box dispositivo e tenere traccia dello stato dell'ordine mentre procede fino al completamento.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
-
 ## <a name="cancel-an-order"></a>Annullare un ordine
 
-Per vari motivi potrebbe essere necessario annullare un ordine effettuato. 
+Potrebbe essere necessario annullare un ordine per diversi motivi dopo averla posizionata.
 
-Per gli ordini di importazione ed esportazione è possibile annullare l'ordine solo prima dell'elaborazione dell'ordine. Dopo che l'ordine è stato elaborato e Data Box dispositivo è stato preparato, non è possibile annullare l'ordine.
+Per gli ordini di importazione ed esportazione è possibile annullare l'ordine solo prima che venga elaborato. Quando l'ordine viene elaborato e il dispositivo Data Box viene preparato, non è possibile annullare l'ordine.
 
 Seguire questa procedura per annullare un ordine.
 
@@ -44,10 +41,7 @@ Seguire questa procedura per annullare un ordine.
 
 ## <a name="clone-an-order"></a>Clonare un ordine
 
-La clonazione è utile in determinate situazioni. Ad esempio, un utente ha usato Data Box per trasferire alcuni dati. Quando vengono generati più dati, è necessario un altro dispositivo Data Box per trasferire i dati in Azure. In questo caso è possibile semplicemente clonare lo stesso ordine.
-
-> [!IMPORTANT]
-> La clonazione non è disponibile per gli ordini di esportazione. È possibile clonare solo gli ordini di importazione.
+La clonazione è utile in determinate situazioni. Ad esempio, si è usato Data Box per trasferire alcuni dati. Quando vengono generati più dati, è necessario usare un altro dispositivo Data Box per trasferire i dati in Azure. In questo caso, è possibile clonare solo lo stesso ordine.
 
 Per clonare un ordine di importazione, seguire questa procedura.
 
@@ -76,7 +70,7 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
 ## <a name="download-shipping-label"></a>Scaricare l'etichetta di spedizione
 
-Potrebbe essere necessario scaricare l'etichetta indirizzo se la visualizzazione elettronica dell'etichetta del Data Box non funziona e non viene visualizzata l'etichetta indirizzo di restituzione. Non è presente alcuna visualizzazione E-Ink sul Data Box Heavy e pertanto il flusso di lavoro non si applica ai Data Box Heavy.
+Potrebbe essere necessario scaricare l'etichetta di spedizione se la visualizzazione E-input penna del Data Box non funziona e non Visualizza l'etichetta per la spedizione di ritorno. In Data Box Heavy non è presente alcun E-Ink, quindi il flusso di lavoro non si applica ai Data Box Heavy.
 
 Eseguire la procedura seguente per scaricare un'etichetta di spedizione.
 
@@ -104,7 +98,7 @@ Eseguire la procedura seguente per modificare l'ordine.
 
 ## <a name="edit-notification-details"></a>Modificare i dettagli della notifica
 
-Potrebbe essere necessario cambiare gli utenti che riceveranno i messaggi di posta elettronica sullo stato dell'ordine. Ad esempio, un utente deve essere informato quando il dispositivo viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completata, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
+Potrebbe essere necessario modificare gli utenti che ricevono i messaggi di posta elettronica di stato dell'ordine. Ad esempio, un utente deve essere informato quando il dispositivo viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completata, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
 
 Eseguire la procedura seguente per modificare i dettagli di notifica.
 
@@ -127,10 +121,10 @@ Eseguire i passaggi seguenti per scaricare la cronologia ordini.
 
     ![Scaricare la cronologia ordini](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. Fare clic su **Scarica cronologia ordini**. Nella cronologia scaricata sono registrati i documenti di accompagnamento del corriere. Sono presenti due set di log corrispondenti ai due nodi in una Data Box Heavy. Se si scorre fino alla fine di questo log, sono visualizzati i collegamenti a:
+2. Fare clic su **Scarica cronologia ordini**. La cronologia scaricata include un record dei log di rilevamento del vettore. Ci saranno due set di log corrispondenti ai due nodi in un dispositivo Data Box Heavy. Se si scorre fino alla fine di questo log, sono visualizzati i collegamenti a:
     
-   - **Copiare i log** : l'elenco dei file che hanno avuto errore durante la copia dei dati da data box all'account di archiviazione di Azure (ordine di importazione) o viceversa (ordine *di* esportazione).
-   - **Log di controllo** : contengono informazioni su come accendere e accedere alle condivisioni nel data box quando si trova all'esterno del Data Center di Azure.
+   - **Copia log** : consente di visualizzare l'elenco dei file che hanno avuto errori durante la copia dei dati dall'data box all'account di archiviazione di Azure (ordine di importazione) o dall'account di archiviazione al data box (ordine di esportazione).
+   - **Log di controllo** : contengono informazioni su come accendere il data box e accedere alle condivisioni quando il data box è all'esterno del Data Center di Azure.
    - **File DBA nell'ordine di importazione** : l'elenco dei file (noto anche come manifesto del file) che è possibile scaricare durante **prepara per la spedizione** e i nomi di file, le dimensioni dei file e i checksum del file.
    - **Log dettagliati nell'ordine di esportazione** : l'elenco dei file con i nomi file, le dimensioni dei file e il calcolo del checksum quando i dati sono stati copiati dagli account di archiviazione di Azure al data box.
 
@@ -206,7 +200,7 @@ Eseguire i passaggi seguenti per scaricare la cronologia ordini.
 
 ## <a name="view-order-status"></a>Visualizzare lo stato dell'ordine
 
-Quando viene modificato lo stato del dispositivo nel portale, si riceve una notifica tramite un messaggio di posta elettronica.
+Quando lo stato del dispositivo cambia nel portale, viene inviata una notifica tramite posta elettronica.
 
 ### <a name="statuses-for-import-order"></a>Stati per l'ordine di importazione
 
@@ -214,7 +208,7 @@ Ecco gli Stati per un ordine di importazione.
 
 |Stato dell'ordine |Descrizione |
 |---------|---------|
-|Ordinato     | L'ordine è stato effettuato. <br>Se il dispositivo è disponibile, Microsoft identifica un dispositivo per la spedizione e ne prepara l'imballaggio. <br> Se il dispositivo non è immediatamente disponibile, l'ordine verrà elaborato quando il dispositivo risulterà nuovamente disponibile. L'ordine potrebbe richiedere da diversi giorni a due mesi per l'elaborazione. Se l'ordine non può essere soddisfatto entro 90 giorni, viene annullato e l'utente riceve una notifica.         |
+|Ordinato     | L'ordine è stato effettuato. <br>Se il dispositivo è disponibile, Microsoft identifica un dispositivo per la spedizione e ne prepara l'imballaggio. <br> Se il dispositivo non è immediatamente disponibile, l'ordine verrà elaborato quando il dispositivo diventerà disponibile. L'ordine potrebbe richiedere da diversi giorni a due mesi per l'elaborazione. Se l'ordine non può essere soddisfatto entro 90 giorni, l'ordine viene annullato e viene inviata una notifica.         |
 |Elaborato     | L'elaborazione dell'ordine è stata completata. In base all'ordine, il dispositivo viene preparato per la spedizione nel data center.         |
 |Spedito     | L'ordine è stato spedito. Usare l'ID di traccia visualizzato nell'ordine nel portale per tenere traccia della spedizione.        |
 |Recapitato     | La spedizione è stata recapitata all'indirizzo specificato.        |
@@ -224,7 +218,7 @@ Ecco gli Stati per un ordine di importazione.
 |Completato       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
 |Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Vedere [esempi di log di copia quando il caricamento è stato completato con errori](./data-box-logs.md#upload-completed-with-errors).   |
 |Completato con avvisi| La copia dei dati è stata completata, ma i dati sono stati modificati. I dati contengono errori di BLOB o di file non critici corretti cambiando il nome del file o del BLOB. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota delle modifiche apportate ai dati. Vedere [esempi di log di copia quando il caricamento è stato completato con avvisi](./data-box-logs.md#upload-completed-with-warnings).   |
-|Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine. Se l'ordine non può essere soddisfatto entro 90 giorni, viene anche annullato e l'utente riceve una notifica.     |
+|Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato oppure il servizio ha annullato l'ordine dopo che si è verificato un errore. Se l'ordine non può essere adempiuto entro 90 giorni, viene annullato anche l'ordine e viene inviata una notifica.     |
 |Eseguire la pulizia | I dati nei dischi del dispositivo vengono cancellati. La pulizia del dispositivo viene considerata completa quando la cronologia ordini è disponibile per il download nel portale di Azure.|
 
 ### <a name="statuses-for-export-order"></a>Stati per l'ordine di esportazione
@@ -237,10 +231,10 @@ Ecco gli Stati per un ordine di esportazione.
 |Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato (è possibile annullare solo prima dell'elaborazione dell'ordine) oppure si è verificato un errore e il servizio ha annullato l'ordine. Se l'ordine non può essere soddisfatto entro 90 giorni, viene anche annullato e l'utente riceve una notifica.     |
 |Elaborato     | L'elaborazione dell'ordine è stata completata. In base all'ordine, il dispositivo viene preparato per la copia dei dati nel Data Center. Vengono create le condivisioni del dispositivo.         |
 |La copia dei dati è in corso     | La copia dei dati dagli account di archiviazione di Azure specificati al dispositivo è in corso. Tenere traccia dello stato della copia dell'ordine nel portale di Azure. <br> Attendere il completamento della copia dei dati. |
-|Copia completata     | La copia dei dati dagli account di archiviazione di Azure specificati al dispositivo è stata completata. Un file di log dettagliato (se l'opzione è stata abilitata nell'ordine) e viene creato un log di copia nell'account di archiviazione. Il log dettagliato contiene le informazioni su tutti i file (nome, percorso, checksum di calcolo) che vengono copiati nel dispositivo. Il log di copia contiene il riepilogo del processo di copia, incluso un elenco di file che non è stato possibile copiare a causa di eventuali errori.<br> I dati dell'account di archiviazione rimangono invariati. |
+|Copia completata     | La copia dei dati dagli account di archiviazione di Azure specificati al dispositivo è stata completata. Un file di log dettagliato (se l'opzione è stata abilitata nell'ordine) e viene creato un log di copia nell'account di archiviazione. Il log dettagliato contiene le informazioni su tutti i file (nome, percorso, checksum di calcolo) che vengono copiati nel dispositivo. Il log di copia contiene il riepilogo del processo di copia, incluso un elenco di file che non è stato possibile copiare a causa di eventuali errori. <br> I dati dell'account di archiviazione rimangono invariati. |
 |Copia completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia nell'account di archiviazione di Azure usando il percorso fornito nella portale di Azure. Vedere [esempi di log di copia quando il download è stato completato con errori](./data-box-logs.md#upload-completed-with-errors).   |
 |Copia completata con avvisi| La copia dei dati dall'account di archiviazione di Azure è stata completata, ma i dati contengono errori non critici. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota degli errori non critici. Vedere [esempi di log di copia quando il download è stato completato con avvisi](./data-box-logs.md#upload-completed-with-warnings).   |
-|Copia non riuscita con errori| La copia dei dati dall'account di archiviazione di Azure non è riuscita e l'ordine è terminato. Un dispositivo non verrà spedito.<br> Esaminare i log di copia nell'account di archiviazione di Azure usando il percorso fornito nella portale di Azure. Vedere [esempi di log di copia quando il download non è riuscito con errori](./data-box-logs.md#upload-completed-with-errors).   |
+|Copia non riuscita con errori| La copia dei dati dall'account di archiviazione di Azure non è riuscita e l'ordine è terminato. Un dispositivo non verrà spedito. <br> Esaminare i log di copia nell'account di archiviazione di Azure usando il percorso fornito nella portale di Azure. Vedere [esempi di log di copia quando il download non è riuscito con errori](./data-box-logs.md#upload-completed-with-errors).   |
 |Spedito     |L'ordine è stato spedito. Usare l'ID di traccia visualizzato nell'ordine nel portale per tenere traccia della spedizione.        |
 |Recapitato     |La spedizione è stata recapitata all'indirizzo specificato.        |
 |Ritirato     |La spedizione di restituzione è stata prelevata e scansionata dal trasportatore.         |
@@ -252,14 +246,14 @@ Ecco gli Stati per un ordine di esportazione.
 > Se il processo di copia per esportare i dati da account di archiviazione di Azure a Data Box viene completato con errori o avvisi, il dispositivo viene ancora fornito. Solo in caso di errore di copia, l'ordine viene terminato e il dispositivo non viene spedito.
 
 
-Se si usa il trasporto gestito autonomamente, dopo aver completato la copia e prima di ricevere il dispositivo, vengono visualizzati gli Stati seguenti, anziché quelli indicati nella tabella precedente:
+Se si usa il trasporto gestito autonomamente, al termine della copia e prima di ricevere il dispositivo, verranno visualizzati gli Stati seguenti, anziché quelli indicati nella tabella precedente:
 
 |Stato dell'ordine |Descrizione |
 |---------|---------|
 |Pronto per il ritiro nel Data Center di Azure      |Il dispositivo è pronto per essere selezionato nel Data Center di Azure.        |
 |Ritirato    |Il dispositivo è stato selezionato.         |
 |Pronto per la ricezione nel Data Center di Azure     |Il dispositivo è pronto per la ricezione nel Data Center di Azure.        |
-|Ricevuto     |Il dispositivo viene ricevuto nel Data Center di Azure.      |
+|Ricevuto     |Il dispositivo è stato ricevuto nel Data Center di Azure.      |
 
 
 

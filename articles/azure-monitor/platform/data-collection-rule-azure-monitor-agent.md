@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: d04fa25b9c953d151fc16d11f304c48b7046ab76
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315703"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680392"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)
 
@@ -35,6 +35,9 @@ Si consideri, ad esempio, un ambiente con un set di macchine virtuali che eseguo
 
 È possibile utilizzare il portale di Azure per creare una regola di raccolta dati e associare le macchine virtuali nella sottoscrizione a tale regola. L'agente di monitoraggio di Azure verrà installato automaticamente e verrà creata un'identità gestita per le macchine virtuali in cui non è già installato.
 
+> [!IMPORTANT]
+> Attualmente esiste un problema noto in cui se la regola di raccolta dati crea un'identità gestita in una macchina virtuale che ha già un'identità gestita assegnata dall'utente, l'identità assegnata dall'utente è disabilitata.
+
 Nel menu **monitoraggio di Azure** della portale di Azure selezionare regole di **raccolta dati** nella sezione **Impostazioni** . Fare clic su **Aggiungi** per aggiungere una nuova regola di raccolta dati e assegnazione.
 
 [![Regole di raccolta dati](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -52,7 +55,7 @@ Nella scheda **Raccogli e Distribuisci** fare clic su **Aggiungi origine dati** 
 [![Base origine dati](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Per specificare altri log e contatori delle prestazioni, selezionare **personalizzato**. È quindi possibile specificare un [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) per tutti i valori specifici da raccogliere. Per esempi, vedere l' [esempio DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
+Per specificare altri log e contatori delle prestazioni dalle [origini dati attualmente supportate](azure-monitor-agent-overview.md#data-sources-and-destinations) o filtrare gli eventi tramite query XPath, selezionare **personalizzato**. È quindi possibile specificare un [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) per tutti i valori specifici da raccogliere. Per esempi, vedere l' [esempio DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
 
 [![Personalizzata origine dati](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 

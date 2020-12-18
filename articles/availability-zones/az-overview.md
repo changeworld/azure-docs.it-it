@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 32cd6c23e1fe465a801e56fad5dd3461df860503
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 485042c795fd94ef7daa8e00b9869190e9df61c8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182734"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678542"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -78,7 +78,7 @@ Se un'offerta di servizio non è disponibile in un'area specifica, è possibile 
 
 | Tipo di area | Non a livello di area | Fondamentale | Mainstream | Specializzata | Zone di disponibilità | Residenza dei dati |
 | --- | --- | --- | --- | --- | --- | --- |
-| Implementazione consigliata | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
+| Consigliato | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | Basata su richiesta | N/D | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Servizi per categoria
@@ -94,7 +94,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Archiviazione account | Gestione API | API di Azure per FHIR |
 > | Gateway applicazione | Configurazione app | Azure Analysis Services |
 > | Backup di Azure | Servizio app | Servizio Azure Blockchain |
-> | Azure Cosmos DB | Automazione | Azure Blueprints |
+> | Azure Cosmos DB | Automazione | Azure Blueprint |
 > | Azure Data Lake Storage Gen2 | Servizi di dominio Azure Active Directory | Database di Azure per MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Modulo di protezione hardware dedicato di Azure |
 > | Database SQL di Azure | Cache Redis di Azure | Azure Dev Spaces |
@@ -181,6 +181,7 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Introduzione cache di Azure per Redis zone di disponibilità](https://aka.ms/redis/az/getstarted)
 - [Creare un'istanza di Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Creare un cluster Azure Kubernetes Service (AKS) che usa zone di disponibilità](../aks/availability-zones.md)
+- [Abilitare la ridondanza della zona in Azure Container Registry](../container-registry/zone-redundancy.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

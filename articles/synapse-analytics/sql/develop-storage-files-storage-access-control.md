@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446624"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400676"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
 Una query del pool SQL serverless legge i file direttamente da Archiviazione di Azure. Le autorizzazioni per accedere ai file in Archiviazione di Azure sono controllate a due livelli:
 - **Livello di archiviazione**: l'utente deve disporre dell'autorizzazione per accedere ai file di archiviazione sottostanti. L'amministratore di archiviazione deve consentire all'entità di Azure AD di leggere/scrivere file o generare una chiave di firma di accesso condiviso che verrà usata per accedere all'archiviazione.
-- **Livello di servizio SQL**: l'utente deve disporre dell'autorizzazione `SELECT` per leggere i dati da una [tabella esterna](develop-tables-external-tables.md) o dell'autorizzazione `ADMINISTER BULK ADMIN` per eseguire `OPENROWSET` oltre all'autorizzazione per l'uso delle credenziali per accedere all'archiviazione.
+- **Livello di servizio SQL**: l'utente deve avere l'autorizzazione per leggere i dati con una [tabella esterna](develop-tables-external-tables.md) o per eseguire la funzione `OPENROWSET`. Vedere altre informazioni sulle [autorizzazioni necessarie in questa sezione](develop-storage-files-overview.md#permissions).
 
 Questo articolo descrive i tipi di credenziali che è possibile usare e il modo in cui viene eseguita la ricerca di credenziali per gli utenti di SQL e Azure AD.
 
@@ -84,7 +84,7 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 | Tipo di autorizzazione  | Archiviazione BLOB   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [Firma di accesso condiviso](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supportato\*      | Non supportato   | Supportato\*     |
-| [Identità gestita](?tabs=managed-identity#supported-storage-authorization-types) | Supportato      | Supportato        | Funzionalità supportata     |
+| [Identità gestita](?tabs=managed-identity#supported-storage-authorization-types) | Supportato      | Funzionalità supportata        | Funzionalità supportata     |
 | [Identità utente](?tabs=user-identity#supported-storage-authorization-types)    | Funzionalità supportata\*      | Funzionalità supportata\*        | Funzionalità supportata\*     |
 
 \* È possibile usare un token di firma di accesso condiviso e l'identità di Azure AD per accedere a spazio di archiviazione non protetto con firewall.

@@ -119,6 +119,22 @@
           href: signin-appauth-ios.md
         - name: Android con AppAuth
           href: signin-appauth-android.md
+    - name: Creare un flusso
+      items:
+        - name: Criteri di iscrizione o di accesso
+          href: add-sign-up-and-sign-in-policy.md
+        - name: Criteri di reimpostazione delle password
+          href: add-password-reset-policy.md
+        - name: Criteri di modifica delle password
+          href: add-password-change-policy.md
+        - name: Criteri di modifica del profilo
+          href: add-profile-editing-policy.md
+        - name: Criteri delle credenziali password del proprietario della risorsa
+          href: add-ropc-policy.md
+        - name: Configurare i criteri di reimpostazione self-service delle password (deprecato)
+          href: user-flow-self-service-password-reset.md
+        - name: Iscrizione e accesso tramite telefono
+          href: phone-authentication-user-flows.md
     - name: Provider di identità
       items:
         - name: Aggiunta di un provider di identità
@@ -192,38 +208,18 @@
           href: conditional-access-user-flow.md
     - name: Configurare il controllo dell'accesso in base all'età
       href: basic-age-gating.md
-    - name: Flusso utente
+    - name: Connettori API (anteprima)
       items:
-        - name: Creare un flusso
-          items:
-            - name: Registrazione o accesso
-              href: tutorial-create-user-flows.md
-            - name: Credenziali password del proprietario della risorsa
-              href: configure-ropc.md
-            - name: Configurare la reimpostazione self-service delle password
-              href: user-flow-self-service-password-reset.md
-        - name: Connettori API (anteprima)
-          items:
-            - name: Panoramica
-              href: api-connectors-overview.md
-            - name: Aggiungere un connettore API
-              href: add-api-connector.md
+        - name: Panoramica
+          href: api-connectors-overview.md
+        - name: Aggiungere un connettore API
+          href: add-api-connector.md
     - name: Criteri personalizzati
       items:
         - name: Panoramica dei criteri personalizzati
           href: custom-policy-trust-frameworks.md
         - name: Introduzione ai criteri personalizzati
           href: custom-policy-get-started.md
-        - name: Creare criteri
-          items:
-            - name: Credenziali password del proprietario della risorsa
-              href: ropc-custom.md
-              displayName: ropc
-            - name: Modifica della password
-              href: custom-policy-password-change.md
-            - name: Iscrizione e accesso tramite telefono
-              href: phone-authentication.md
-              displayName: 'otp, passwordless, phone number'
         - name: Verifica personalizzata tramite posta elettronica
           items:
             - name: Mailjet

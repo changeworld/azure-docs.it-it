@@ -10,13 +10,13 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591899"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680295"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -28,7 +28,7 @@ L'integrazione continua è la procedura che consente di testare ogni modifica ap
 
 In Azure Data Factory per integrazione e recapito continui (CI/CD) si intende lo spostamento delle pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro. Azure Data Factory usa [modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md) per archiviare la configurazione di varie entità ADF (pipeline, set di dati, flussi di dati e così via). Per alzare di livello una data factory a un altro ambiente, esistono due metodi consigliati:
 
--    Distribuzione automatizzata tramite l'integrazione di Data Factory con [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Distribuzione automatizzata tramite l'integrazione di Data Factory con [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 -    Caricamento manuale di un modello di Resource Manager usando l'integrazione di Data Factory UX con Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -115,7 +115,7 @@ Di seguito è riportata una guida per la configurazione di una versione di Azure
 
 1.  Salvare la pipeline di versione.
 
-1. Per attivare una versione, selezionare **Crea versione**. Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Per attivare una versione, selezionare **Crea versione**. Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selezionare Crea versione](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -207,6 +207,12 @@ Se la factory di sviluppo dispone di un repository Git associato, è possibile e
 
 * Si usano CI/CD automatizzati e si desidera modificare alcune proprietà durante la distribuzione di Resource Manager, ma le proprietà non sono parametrizzate per impostazione predefinita.
 * La factory è talmente grande che il modello di Resource Manager predefinito non è valido perché contiene più del numero massimo di parametri consentito (256).
+
+    Per gestire il limite del parametro personalizzato 256, sono disponibili tre opzioni:    
+  
+    * Usare il file di parametri personalizzato e rimuovere le proprietà che non necessitano di parametrizzazione, ovvero le proprietà che possono contenere un valore predefinito e quindi ridurre il numero di parametri.
+    * Eseguire il refactoring della logica nel flusso di elementi per ridurre i parametri, ad esempio i parametri della pipeline hanno lo stesso valore, ma è possibile usare solo parametri globali.
+    * Suddividere un data factory in più flussi di dati.
 
 Per sostituire il modello di parametrizzazione predefinito, passare all'hub di gestione e selezionare **modello di parametrizzazione** nella sezione controllo del codice sorgente. Selezionare **modifica modello** per aprire l'editor del codice del modello di parametrizzazione. 
 
@@ -639,7 +645,7 @@ Vedere il video sotto un'esercitazione dettagliata su come correggere gli ambien
 
 ## <a name="exposure-control-and-feature-flags"></a>Controllo dell'esposizione e flag funzionalità
 
-Quando si lavora in un team, sono presenti istanze in cui è possibile eseguire il merge delle modifiche, ma non si vuole che vengano eseguiti in ambienti con privilegi elevati, ad esempio PROD e QA. Per gestire questo scenario, il team di ADF consiglia [il concetto DevOps di utilizzo dei flag funzionalità](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). In ADF è possibile combinare [parametri globali](author-global-parameters.md) e l' [attività di condizione If](control-flow-if-condition-activity.md) per nascondere i set di logica basati su questi flag di ambiente.
+Quando si lavora in un team, sono presenti istanze in cui è possibile eseguire il merge delle modifiche, ma non si vuole che vengano eseguiti in ambienti con privilegi elevati, ad esempio PROD e QA. Per gestire questo scenario, il team di ADF consiglia [il concetto DevOps di utilizzo dei flag funzionalità](/azure/devops/migrate/phase-features-with-feature-flags). In ADF è possibile combinare [parametri globali](author-global-parameters.md) e l' [attività di condizione If](control-flow-if-condition-activity.md) per nascondere i set di logica basati su questi flag di ambiente.
 
 Per informazioni su come configurare un flag di funzionalità, vedere l'esercitazione seguente sul video:
 

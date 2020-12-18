@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: af77f18771d8e18ee86b79360ac03307d3330cb0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131429"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679148"
 ---
 # <a name="power-bi-app-creation-overview"></a>Panoramica della creazione di app Power BI
 
@@ -33,7 +33,7 @@ Vantaggi della pubblicazione nel marketplace commerciale:
 
 Di seguito sono riportati i passaggi principali della pubblicazione:
 
-1. Creare l'applicazione in Power BI. Si riceverà un collegamento per l'installazione del pacchetto, ovvero l'asset tecnico principale per l'offerta. Inviare il pacchetto di test alla pre-produzione prima di creare l'offerta nel centro per i partner. Per informazioni dettagliate, vedere [che cosa sono le app Power bi?](/power-bi/service-template-apps-overview).
+1. Creare l'applicazione in Power BI. Si riceverà un collegamento per l'installazione del pacchetto, ovvero l'asset tecnico principale per l'offerta. Inviare il pacchetto di test alla pre-produzione prima di creare l'offerta nel centro per i partner. Per informazioni dettagliate, vedere [che cosa sono le app Power bi?](/power-bi/service-template-apps-overview)
 2. Aggiungere i materiali di marketing, ad esempio nome ufficiale, descrizione e logo.
 3. Includere i documenti legali e di supporto dell'offerta, ad esempio le condizioni per l'utilizzo, l'informativa sulla privacy, i criteri di supporto e la guida dell'utente.
 4. Creare l'offerta: usare il centro per i partner per modificare i dettagli, incluse la descrizione dell'offerta, i materiali di marketing, le informazioni legali, le informazioni di supporto e le specifiche degli asset.

@@ -7,14 +7,14 @@ ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895971"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680067"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -24,9 +24,9 @@ Gli stili basati sui dati consentono di ridurre la quantità di codice necessari
 
 Questo video offre una panoramica dello stile basato sui dati in Azure Maps Web SDK.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 Le espressioni sono rappresentate come matrici JSON. Il primo elemento di un'espressione nella matrice è una stringa che specifica il nome dell'operatore di espressione. Ad esempio, "+" o "case". Gli elementi successivi (se presenti) sono gli argomenti dell'espressione. Ogni argomento è un valore letterale (stringa, numero, valore booleano o `null` ) o un'altra matrice di espressioni. Lo pseudocodice seguente definisce la struttura di base di un'espressione. 
 
@@ -41,7 +41,7 @@ Le espressioni sono rappresentate come matrici JSON. Il primo elemento di un'esp
 
 Azure Maps Web SDK supporta molti tipi di espressioni. Le espressioni possono essere utilizzate autonomamente o in combinazione con altre espressioni.
 
-| Tipo di espressioni | Description |
+| Tipo di espressioni | Descrizione |
 |---------------------|-------------|
 | [Espressione di aggregazione](#aggregate-expression) | Espressione che definisce un calcolo elaborato su un set di dati e che può essere utilizzato con l' `clusterProperties` opzione di un oggetto `DataSource` . |
 | [Espressioni booleane](#boolean-expressions) | Le espressioni booleane forniscono un set di espressioni di operatori booleani per la valutazione di confronti booleani. |
@@ -58,7 +58,7 @@ Azure Maps Web SDK supporta molti tipi di espressioni. Le espressioni possono es
 
 Tutti gli esempi in questo documento utilizzano la seguente funzionalità per illustrare i diversi modi in cui è possibile utilizzare i diversi tipi di espressioni. 
 
-```javascript
+```json
 {
     "type": "Feature",
     "geometry": {
@@ -70,13 +70,13 @@ Tutti gli esempi in questo documento utilizzano la seguente funzionalità per il
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
-        "temperature": 72,
+        "temperature": 64,
         "title": "Cafeteria", 
-        "zoneColor": "red",
-        "abcArray": ['a', 'b', 'c'],
-        "array2d": [['a', 'b'], ['x', 'y']],
+        "zoneColor": "purple",
+        "abcArray": ["a", "b", "c"],
+        "array2d": [["a", "b"], ["x", "y"]],
         "_style": {
-            "fillColor": 'red'
+            "fillColor": "red"
         }
     }
 }
@@ -88,22 +88,22 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
-| `['at', number, array]` | object | Recupera un elemento da una matrice. |
+| `['at', number, array]` | Valore | Recupera un elemento da una matrice. |
 | `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | Valore | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
 | `['get', string, object]` | Valore | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
 | `['id']` | Valore | Ottiene l'ID della funzionalità se ne è presente uno. |
-| `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se una sottostringa esiste in una stringa |
 | `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | d'acquisto | Restituisce la prima posizione in cui è possibile trovare un elemento in una matrice o una sottostringa in una stringa o `-1` se l'input non viene trovato. Accetta un indice facoltativo da cui iniziare la ricerca. |
-| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|matrice | Restituisce un elemento da una matrice o da una sottostringa da una stringa da un indice iniziale specificato o tra un indice iniziale e un indice finale se impostato. Il valore restituito è incluso nell'indice iniziale ma non nell'indice finale. |
+| `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | matrice di stringhe \| | Restituisce un elemento da una matrice o da una sottostringa da una stringa da un indice iniziale specificato o tra un indice iniziale e un indice finale se impostato. Il valore restituito è incluso nell'indice iniziale ma non nell'indice finale. |
 
-**esempi**
+**Esempi**
 
-È possibile accedere alle proprietà di una funzionalità direttamente in un'espressione tramite un' `get` espressione. Questo esempio usa il valore "zoneColor" della funzionalità per specificare la proprietà Color di un livello Bubble. 
+È possibile accedere alle proprietà di una funzionalità direttamente in un'espressione tramite un' `get` espressione. In questo esempio viene utilizzato il `zoneColor` valore della funzionalità per specificare la proprietà Color di un livello Bubble. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -111,7 +111,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-L'esempio precedente funzionerà correttamente, se tutte le funzionalità punto hanno la `zoneColor` Proprietà. In caso contrario, il colore ridurrà probabilmente il fallback a "Black". Per modificare il colore di fallback, utilizzare un' `case` espressione in combinazione con l' `has` espressione per verificare se la proprietà esiste. Se la proprietà non esiste, restituisce un colore di fallback.
+L'esempio precedente funzionerà correttamente, se tutte le funzionalità punto hanno la `zoneColor` Proprietà. In caso contrario, il colore sarà probabilmente il "nero". Per modificare il colore di fallback, utilizzare un' `case` espressione in combinazione con l' `has` espressione per verificare se la proprietà esiste. Se la proprietà non esiste, restituisce un colore di fallback.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -203,7 +203,7 @@ Le espressioni matematiche forniscono operatori matematici per eseguire calcoli 
 | `['max', number, number, …]` | d'acquisto | Calcola il numero massimo nel set di numeri specificato. |
 | `['min', number, number, …]` | d'acquisto | Calcola il numero minimo nel set di numeri specificato. |
 | `['pi']` | d'acquisto | Restituisce la costante matematica `PI` . |
-| `['round', number]` | d'acquisto | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
+| `['round', number]` | d'acquisto | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce `-2` . |
 | `['sin', number]` | d'acquisto | Calcola il seno del numero specificato. |
 | `['sqrt', number]` | d'acquisto | Calcola la radice quadrata del numero specificato. |
 | `['tan', number]` | d'acquisto | Calcola la tangente del numero specificato. |
@@ -224,9 +224,19 @@ Un'espressione di aggregazione accetta tre valori: un valore di operatore e un v
 - initialValue: valore iniziale in cui viene aggregato il primo valore calcolato.
 - mapExpression: espressione applicata a ogni punto del set di dati.
 
-**esempi**
+**Esempi**
 
 Se tutte le funzionalità di un set di dati dispongono di una `revenue` proprietà, che è un numero. Quindi, è possibile calcolare i ricavi totali di tutti i punti di un cluster creati dal set di dati. Questo calcolo viene eseguito utilizzando l'espressione di aggregazione seguente: `['+', 0, ['get', 'revenue']]`
+
+### <a name="accumulated-expression"></a>Espressione accumulata
+
+L' `accumulated` espressione ottiene il valore di una proprietà cluster accumulata finora. Può essere utilizzato solo nell' `clusterProperties` opzione di un' `DataSource` origine cluster.
+
+**Utilizzo**
+
+```javascript
+["accumulated"]
+```
 
 ## <a name="boolean-expressions"></a>Espressioni booleane
 
@@ -245,6 +255,7 @@ Quando si confrontano i valori, il confronto è fortemente tipizzato. I valori d
 | `['>=' value, value]` | boolean | Restituisce `true` se il primo input è maggiore o uguale al secondo; `false` in caso contrario,. È necessario che gli argomenti siano entrambi stringhe o entrambi numeri. |
 | `['all', boolean, boolean, …]` | boolean | Restituisce `true` se tutti gli input sono `true` ; `false` in caso contrario,. |
 | `['any', boolean, boolean, …]` | boolean | Restituisce `true` se uno degli input è `true` ; `false` in caso contrario,. |
+| `['within', Polygon | MultiPolygon | Feature<Polygon | MultiPolygon>]` | boolean | Restituisce `true` se la funzionalità valutata è completamente contenuta all'interno di un limite della geometria di input; in caso contrario, false. Il valore di input può essere un oggetto GeoJSON valido di tipo `Polygon` , `MultiPolygon` , `Feature` o `FeatureCollection` . Funzionalità supportate per la valutazione:<br/><br/>-Point: restituisce `false` se un punto si trova sul limite o non è compreso nel limite.<br/>-LineString: restituisce `false` se una parte di una riga non rientra nel limite, la riga interseca il limite oppure l'endpoint di una riga si trova sul limite. |
 
 ## <a name="conditional-expressions"></a>Espressioni condizionali
 
@@ -312,7 +323,7 @@ Lo pseudocodice seguente definisce la struttura dell' `match` espressione.
 ]
 ```
 
-**esempi**
+**Esempi**
 
 Nell'esempio seguente viene analizzata la `entityType` proprietà di una funzionalità punto in un livello a bolle per cercare una corrispondenza. Se viene trovata una corrispondenza, viene restituito il valore specificato o viene restituito il valore di fallback.
 
@@ -355,28 +366,6 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Nell'esempio seguente viene usata un'espressione di corrispondenza per eseguire un filtro di tipo "in Array" o "array contains". In questo caso, l'espressione filtra i dati che hanno un valore ID che si trova in un elenco di ID consentiti. Quando si utilizzano espressioni con filtri, il risultato deve essere un valore booleano.
-
-```javascript
-var layer = new atlas.layer.BubbleLayer(datasource, null, {
-    filter: [
-        'match',  
-
-        //Get the property to match.
-        ['get', 'id'],  
-
-         //List of values to match.
-        [24, 53, 98], 
-
-        //If there is a match, return true.
-        true,
-    
-        //Otherwise return false.
-        false
-    ]
-});
-```
-
 ### <a name="coalesce-expression"></a>Espressione COALESCE
 
 Un' `coalesce` espressione scorre un set di espressioni fino a quando non viene ottenuto il primo valore non null e restituisce tale valore. 
@@ -394,7 +383,7 @@ Lo pseudocodice seguente definisce la struttura dell' `coalesce` espressione.
 
 **Esempio**
 
-Nell'esempio seguente viene utilizzata un' `coalesce` espressione per impostare l' `textField` opzione di un livello di simbolo. Se la `title` proprietà non è presente nella funzionalità o è impostata su `null` , l'espressione tenterà di cercare la `subtitle` proprietà, se manca o, eseguirà il `null` fallback a una stringa vuota. 
+Nell'esempio seguente viene utilizzata un' `coalesce` espressione per impostare l' `textField` opzione di un livello di simbolo. Se la `title` proprietà non è presente nella funzionalità o è impostata su `null` , l'espressione tenterà di cercare la `subTitle` proprietà, se manca o, eseguirà il `null` fallback a una stringa vuota. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -405,8 +394,8 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
             //Try getting the title property.
             ['get', 'title'],
 
-            //If there is no title, try getting the subtitle. 
-            ['get', 'subtitle'],
+            //If there is no title, try getting the subTitle. 
+            ['get', 'subTitle'],
 
             //Default to an empty string.
             ''
@@ -439,8 +428,14 @@ Le espressioni di tipo forniscono strumenti per il test e la conversione di tipi
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
+| `['array', value]` \| `['array', type: "string" | "number" | "boolean", value]` | Oggetto [] | Dichiara che l'input è una matrice. |
+| `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | boolean | Asserisce che il valore di input è un valore booleano. Se vengono specificati più valori, ognuno viene valutato in ordine fino a quando non viene ottenuto un valore booleano. Se nessuno degli input è un valore booleano, l'espressione è un errore. |
+| `['collator', { 'case-sensitive': boolean, 'diacritic-sensitive': boolean, 'locale': string }]` | Collator | Restituisce un oggetto COLLATE da utilizzare nelle operazioni di confronto dipendenti dalle impostazioni locali. Per impostazione predefinita, le opzioni distinzione maiuscole/minuscole e con distinzione diacritici sono false. Nell'argomento locale viene specificato il tag di lingua IETF delle impostazioni locali da utilizzare. Se non viene specificato alcun valore, vengono utilizzate le impostazioni locali predefinite. Se le impostazioni locali richieste non sono disponibili, l'utilità di confronto utilizzerà impostazioni locali di fallback definite dal sistema. Utilizzare risolto-impostazioni locali per verificare i risultati del comportamento di fallback delle impostazioni locali. |
 | `['literal', array]`<br/><br/>`['literal', object]` | \|oggetto Array | Restituisce una matrice di valori letterali o un valore dell'oggetto. Utilizzare questa espressione per impedire la valutazione di una matrice o di un oggetto come espressione. Questa operazione è necessaria quando un'espressione deve restituire una matrice o un oggetto. |
 | `['image', string]` | string | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
+| `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | d'acquisto | Asserisce che il valore di input è un numero. Se vengono specificati più valori, ognuno viene valutato in ordine fino a quando non viene ottenuto un numero. Se nessuno degli input è costituito da numeri, l'espressione è un errore. |
+| `['object', value]`  \| `["object", value, fallback: value, fallback: value, ...]` | Oggetto | Asserisce che il valore di input è un oggetto.  Se vengono specificati più valori, ognuno viene valutato in ordine fino a quando non viene ottenuto un oggetto. Se nessuno degli input è un oggetto, l'espressione è un errore. |
+| `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | string | Asserisce che il valore di input è una stringa. Se vengono specificati più valori, ognuno viene valutato in ordine fino a quando non viene ottenuta una stringa. Se nessuno degli input è costituito da stringhe, l'espressione è un errore. |
 | `['to-boolean', value]` | boolean | Converte il valore di input in un valore booleano. Il risultato è `false` quando l'input è una stringa vuota,,, `0` `false` `null` o `NaN` ; in caso contrario, `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte il valore di input in un colore. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | d'acquisto | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false` , il risultato è 0. Se l'input è `true` , il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
@@ -475,13 +470,13 @@ Le espressioni colore semplificano la creazione e la modifica dei valori dei col
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Crea un valore di colore dai componenti *rosso* , *verde* e *blu* che devono essere compresi tra `0` e e `255` un componente alfa di `1` . Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
-| `['rgba', number, number, number, number]` | color | Crea un valore di colore dai componenti *rosso* , *verde* , *blu* che devono essere compresi tra `0` e e `255` un componente alfa in un intervallo `0` di `1` e. Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
-| `['to-rgba']` | \[numero, numero, numero, numero\] | Restituisce una matrice a quattro elementi contenente i componenti *rosso* , *verde* , *blu* e *alfa* del colore di input, in questo ordine. |
+| `['rgb', number, number, number]` | color | Crea un valore di colore dai componenti *rosso*, *verde* e *blu* che devono essere compresi tra `0` e e `255` un componente alfa di `1` . Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
+| `['rgba', number, number, number, number]` | color | Crea un valore di colore dai componenti *rosso*, *verde*, *blu* che devono essere compresi tra `0` e e `255` un componente alfa in un intervallo `0` di `1` e. Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
+| `['to-rgba']` | \[numero, numero, numero, numero\] | Restituisce una matrice a quattro elementi contenente i componenti *rosso*, *verde*, *blu* e *alfa* del colore di input, in questo ordine. |
 
 **Esempio**
 
-Nell'esempio seguente viene creato un valore di colore RGB con un valore *rosso* di `255` e i valori *verde* e *blu* calcolati moltiplicando `2.5` per il valore della `temperature` Proprietà. Con la variazione della temperatura, il colore cambierà in tonalità diverse di *rosso* .
+Nell'esempio seguente viene creato un valore di colore RGB con un valore *rosso* di `255` e i valori *verde* e *blu* calcolati moltiplicando `2.5` per il valore della `temperature` Proprietà. Con la variazione della temperatura, il colore cambierà in tonalità diverse di *rosso*.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -505,6 +500,8 @@ Le espressioni dell'operatore String eseguono operazioni di conversione su strin
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatena più stringhe insieme. Ogni valore deve essere una stringa. `to-string`Se necessario, utilizzare l'espressione di tipo per convertire altri tipi valore in stringa. |
 | `['downcase', string]` | string | Converte la stringa specificata in minuscolo. |
+| `['is-supported-script', string]` \| `['is-supported-script', Expression]`| boolean | Determina se la stringa di input utilizza un set di caratteri supportato dallo stack del tipo di carattere corrente. ad esempio `['is-supported-script', 'ಗೌರವಾರ್ಥವಾಗಿ']` |
+| `['resolved-locale', string]` | string | Restituisce il tag di lingua IETF delle impostazioni locali utilizzate dalle regole di confronto fornite. Può essere utilizzato per determinare le impostazioni locali predefinite del sistema o per determinare se le impostazioni locali richieste sono state caricate correttamente. |
 | `['upcase', string]` | string | Converte la stringa specificata in maiuscolo. |
 
 **Esempio**
@@ -575,14 +572,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'interpolate',
         ['linear'],
         ['get', 'temperature'],
-        50,        
-        'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        50, 'blue',
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -624,12 +617,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'step',
         ['get', 'temperature'],
         'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -724,7 +714,6 @@ L'espressione del formato del campo di testo può essere usata con l' `textField
 
  * `'font-scale'` : Specifica il fattore di scala per le dimensioni del carattere. Se specificato, questo valore eseguirà l'override della `size` proprietà di `textOptions` per la singola stringa.
  * `'text-font'` : Specifica una o più famiglie di caratteri da usare per la stringa. Se specificato, questo valore eseguirà l'override della `font` proprietà di `textOptions` per la singola stringa.
- * `'text-color'` : Specifica un colore da applicare a un testo durante il rendering. 
 
 Lo pseudocodice seguente definisce la struttura dell'espressione del formato del campo di testo. 
 
@@ -734,14 +723,12 @@ Lo pseudocodice seguente definisce la struttura dell'espressione del formato del
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[],
-        'text-color': color
+        'text-font': string[]
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] ,
-        'text-color': color
+        'text-font': string[]
     },
     …
 ]
@@ -749,7 +736,7 @@ Lo pseudocodice seguente definisce la struttura dell'espressione del formato del
 
 **Esempio**
 
-Nell'esempio seguente viene formattato il campo di testo aggiungendo un tipo di carattere in grassetto e scalando verticalmente le dimensioni del carattere della `title` proprietà della funzionalità. In questo esempio viene aggiunta anche la `subtitle` proprietà della funzionalità in una nuova riga, con una dimensione del carattere ridimensionata e un rosso colorato.
+Nell'esempio seguente viene formattato il campo di testo aggiungendo un tipo di carattere in grassetto e scalando verticalmente le dimensioni del carattere della `title` proprietà della funzionalità. Questo esempio aggiunge anche la `subTitle` proprietà della funzionalità in una nuova riga, con una dimensione del carattere ridimensionata.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -766,11 +753,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             '\n', {},   //Add a new line without any formatting.
 
-            //Scale the font size down of the subtitle property. 
-            ['get', 'subtitle'],
+            //Scale the font size down of the subTitle property. 
+            ['get', 'subTitle'],
             { 
-                'font-scale': 0.75, 
-                'text-color': 'red' 
+                'font-scale': 0.75
             }
         ]
     }
@@ -817,7 +803,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
         textField: [
             'number-format', 
             ['get', 'revenue'], 
-            { ‘currency': 'USD' }
+            { 'currency': 'USD' }
         ],
 
         offset: [0, 0.75]
@@ -885,7 +871,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         ['zoom'],
         
         //For zoom level 1 set the radius to 2 pixels.
-        10, 2,
+        1, 2,
 
         //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
         19, 2 * Math.pow(2, 19 - 1)

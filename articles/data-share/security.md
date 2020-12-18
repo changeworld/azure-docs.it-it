@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/30/2020
-ms.openlocfilehash: 1fdf026e9271ef6eb30c2b4ca96a04880b65be75
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/17/2020
+ms.openlocfilehash: 4e62645dd5a7a8336df4fccf12daebc730a91168
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578094"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678431"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Panoramica della sicurezza per Condivisione dati di Azure
 
@@ -23,7 +23,11 @@ Condivisione dati di Azure sfrutta le funzionalità di sicurezza sottostanti off
 
 La condivisione di dati di Azure sfrutta l'identità gestita (precedentemente nota come MSI) per accedere agli archivi dati usati per la condivisione dei dati. Non viene effettuato alcuno scambio di credenziali tra un provider di dati e un consumer. Per altre informazioni sull'identità gestita, vedere [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). Per ulteriori informazioni sui ruoli e sulle autorizzazioni necessarie per condividere i dati, fare riferimento a [ruoli e requisiti](concepts-roles-permissions.md).
 
-I controlli di accesso alla condivisione dati di Azure possono essere impostati sul livello di risorsa della condivisione dati per assicurarsi che siano accessibili da quelli autorizzati. 
+## <a name="access-control"></a>Controllo di accesso
+
+I controlli di accesso alla condivisione dati di Azure possono essere impostati sul livello di risorsa della condivisione dati per assicurarsi che siano accessibili da quelli autorizzati. Il proprietario e il collaboratore di una risorsa di condivisione dati possono condividere dati, ricevere condivisioni e modificare le condivisioni esistenti. Il lettore di una risorsa di condivisione dati può visualizzare le condivisioni, ma non apportare modifiche. 
+
+Una volta creata o ricevuta una condivisione, gli utenti con l'autorizzazione appropriata per la risorsa di condivisione dati possono apportare modifiche. Quando un utente che crea o riceve una condivisione lascia l'organizzazione, non termina la condivisione o interrompe il flusso di dati. Altri utenti con le autorizzazioni appropriate per la risorsa di condivisione dati possono continuare a gestire la condivisione.
 
 ## <a name="share-data-from-or-to-data-stores-with-firewall-enabled"></a>Condividere dati da o in archivi dati con il firewall abilitato
 Per condividere dati da o in account di archiviazione con il firewall attivato, è necessario abilitare **Consenti servizi Microsoft attendibili** nell'account di archiviazione. Per informazioni dettagliate, vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](

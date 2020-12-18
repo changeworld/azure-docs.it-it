@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6271b83749c078b64c168a27f887ed7055e37d96
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638007"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678901"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Pianificare e gestire i costi per Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory è un servizio di integrazione dei dati serverless ed elastico creato per la scalabilità al cloud.  Questo significa che, invece di pianificare risorse di calcolo di dimensioni fisse per i picchi di carico, è sufficiente specificare quante risorse allocare su richiesta per operazione, cosa che consente di progettare i processi ETL in un modo molto più scalabile. Inoltre, Azure Data Factory viene fatturato in base a un piano a consumo, con il quale si paga solo per le risorse usate.
 
@@ -62,9 +62,9 @@ Ora è possibile inserire 30 esecuzioni attività e 380 ore DIU nel calcolatore 
 
 Quando si inizia a usare Azure Data Factory, è possibile visualizzare i costi sostenuti nel riquadro [Analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md) nel portale di Azure.
 
-1. Per visualizzare il riquadro [Analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md), aprire la finestra **Gestione dei costi e fatturazione** , scegliere **Gestione costi** dal menu e quindi selezionare **Apri l'analisi dei costi** .
+1. Per visualizzare il riquadro [Analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md), aprire la finestra **Gestione dei costi e fatturazione**, scegliere **Gestione costi** dal menu e quindi selezionare **Apri l'analisi dei costi**.
 2. La visualizzazione predefinita mostra i costi accumulati per il mese corrente.  È possibile passare a un intervallo di tempo diverso e a un livello di granularità diverso, ad esempio giornaliero o mensile.
-3. Per restringere i costi a un solo servizio come Azure Data Factory, selezionare **Aggiungi filtro** e quindi **Nome servizio** .  Selezionare quindi **Azure Data Factory v2** dall'elenco.
+3. Per restringere i costi a un solo servizio come Azure Data Factory, selezionare **Aggiungi filtro** e quindi **Nome servizio**.  Selezionare quindi **Azure Data Factory v2** dall'elenco.
 4. È possibile aggiungere altri filtri per analizzare i costi per un'istanza di factory specifica e uno specifico livello di granularità del contatore di Azure Data Factory.
 
    ![Analisi dei costi](media/plan-manage-costs/cost-analysis.png)

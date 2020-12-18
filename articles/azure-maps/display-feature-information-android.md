@@ -1,5 +1,5 @@
 ---
-title: Visualizzare le informazioni sulle funzionalità nell'Android SDK mappe di Azure | Mappe Microsoft Azure
+title: Visualizzare le informazioni sulle funzionalità nelle mappe Android | Mappe Microsoft Azure
 description: Informazioni su come visualizzare le informazioni quando gli utenti interagiscono con le funzionalità della mappa. Usare il Android SDK mappe di Azure per visualizzare i messaggi di tipo avviso popup e altri tipi di messaggi.
 author: rbrundritt
 ms.author: richbrun
@@ -7,45 +7,49 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: fabb4cd1e555a7a67a53bf2f5a99d93c87df436c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 37b5ab1c144ed81d995da40b87edeaccdcad7253
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532806"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680012"
 ---
 # <a name="display-feature-information"></a>Visualizzare informazioni sulle funzionalità
 
-I dati spaziali vengono spesso rappresentati tramite punti, linee e poligoni. A questi dati sono spesso associate informazioni sui metadati. Un punto, ad esempio, può rappresentare la posizione di un negozio e i metadati relativi a tale ristorante possono essere il nome, l'indirizzo e il tipo di cibo che serve. Questi metadati possono essere aggiunti come proprietà di queste funzionalità usando un `JsonObject` . Il codice seguente crea una funzionalità di punto semplice con una `title` proprietà con valore "Hello World!"
+I dati spaziali vengono spesso rappresentati tramite punti, linee e poligoni. A questi dati sono spesso associate informazioni sui metadati. Ad esempio, un punto può rappresentare la posizione di un ristorante e i metadati relativi a tale ristorante possono essere il nome, l'indirizzo e il tipo di cibo che serve. Questi metadati possono essere aggiunti come proprietà di un GeoJSON `Feature` . Il codice seguente crea una funzionalità di punto semplice con una `title` proprietà con valore "Hello World!"
 
 ```java
 //Create a data source and add it to the map.
-DataSource dataSource = new DataSource();
-map.sources.add(dataSource);
+DataSource source = new DataSource();
+map.sources.add(source);
 
-//Create a point feature with some properties and add it to the data source.
-JsonObject properties = new JsonObject();
-properties.addProperty("title", "Hello World!");
+//Create a point feature.
+Feature feature = Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64));
+
+//Add a property to the feature.
+feature.addStringProperty("title", "Hello World!");
 
 //Create a point feature, pass in the metadata properties, and add it to the data source.
-dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64), properties));
+source.add(feature);
 ```
+
+Vedere la documentazione [creare un'origine dati](create-data-source-android-sdk.md) per i modi in cui creare e aggiungere dati alla mappa.
 
 Quando un utente interagisce con una funzionalità sulla mappa, gli eventi possono essere usati per rispondere a tali azioni. Uno scenario comune consiste nel visualizzare un messaggio composto dalle proprietà dei metadati di una funzionalità con cui l'utente ha eseguito l'interazione. L' `OnFeatureClick` evento è l'evento principale utilizzato per rilevare quando l'utente ha toccato una funzionalità sulla mappa. Esiste anche un `OnLongFeatureClick` evento. Quando si aggiunge l' `OnFeatureClick` evento alla mappa, può essere limitato a un singolo livello passando l'ID di un livello per limitarlo a. Se non viene passato alcun ID livello, toccando qualsiasi funzionalità sulla mappa, indipendentemente dal livello in cui si trova, questo evento verrà generato. Il codice seguente crea un livello di simboli per il rendering dei dati del punto sulla mappa, quindi aggiunge un `OnFeatureClick` evento e lo limita a questo livello di simbolo.
 
 ```java
 //Create a symbol and add it to the map.
-SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-map.layers.add(symbolLayer);
+SymbolLayer layer = new SymbolLayer(source);
+map.layers.add(layer);
 
 //Add a feature click event to the map.
 map.events.add((OnFeatureClick) (features) -> {
     //Retrieve the title property of the feature as a string.
-    String msg = features.get(0).properties().get("title").getAsString();
+    String msg = features.get(0).getStringProperty("title");
 
     //Do something with the message.
-}, symbolLayer.getId());    //Limit this event to the symbol layer.
+}, layer.getId());    //Limit this event to the symbol layer.
 ```
 
 ## <a name="display-a-toast-message"></a>Visualizza un messaggio di avviso popup
@@ -60,14 +64,14 @@ map.events.add((OnFeatureClick) (features) -> {
 
     //Display a toast message with the title information.
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-}, symbolLayer.getId());    //Limit this event to the symbol layer.
+}, layer.getId());    //Limit this event to the symbol layer.
 ```
 
 ![Animazione di una funzionalità toccata e visualizzazione di un messaggio popup](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)
 
 Oltre ai messaggi di avviso popup, esistono molti altri modi per presentare le proprietà dei metadati di una funzionalità, ad esempio:
 
-- [Widget Snakbar](https://developer.android.com/training/snackbar/showing.html) -snackbars fornisce feedback leggero su un'operazione. Visualizzano un breve messaggio nella parte inferiore della schermata in dispositivi mobili e in basso a sinistra nei dispositivi più grandi. Snackbars vengono visualizzati sopra tutti gli altri elementi sullo schermo e ne può essere visualizzato solo uno alla volta.
+- [Widget snackbar](https://developer.android.com/training/snackbar/showing.html)  -  `Snackbars` fornire feedback leggero su un'operazione. Visualizzano un breve messaggio nella parte inferiore della schermata in dispositivi mobili e in basso a sinistra nei dispositivi più grandi. `Snackbars` vengono visualizzati sopra tutti gli altri elementi sullo schermo e ne può essere visualizzato solo uno alla volta.
 - Finestre di [dialogo](https://developer.android.com/guide/topics/ui/dialogs) : una finestra di dialogo è una piccola finestra in cui viene richiesto all'utente di prendere una decisione o immettere informazioni aggiuntive. Una finestra di dialogo non riempie lo schermo e viene in genere usata per gli eventi modali che richiedono agli utenti di eseguire un'azione prima di poter continuare.
 - Aggiungere un [frammento](https://developer.android.com/guide/components/fragments) all'attività corrente.
 - Passare a un'altra attività o a una vista.
@@ -77,7 +81,19 @@ Oltre ai messaggi di avviso popup, esistono molti altri modi per presentare le p
 Per aggiungere altri dati alla mappa:
 
 > [!div class="nextstepaction"]
+> [Reagire per eseguire il mapping degli eventi](android-map-events.md)
+
+> [!div class="nextstepaction"]
+> [Creare un'origine dati](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
 > [Aggiungere un livello per i simboli](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere forme a una mappa Android](how-to-add-shapes-to-android-map.md)
+> [Aggiungere un livello per le bolle](map-add-bubble-layer-android.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello per le linee](android-map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello per i poligoni](how-to-add-shapes-to-android-map.md)

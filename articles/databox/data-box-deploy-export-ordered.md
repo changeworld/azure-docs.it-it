@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96003177"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680798"
 ---
-# <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
+# <a name="tutorial-create-export-order-for-azure-data-box"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box
 
 Azure Data Box è una soluzione ibrida che consente di spostare i dati da Azure nella propria posizione. In questa esercitazione viene descritto come creare un ordine di esportazione per Azure Data Box. Il motivo principale per cui si crea un ordine di esportazione è per il ripristino di emergenza, nel caso in cui l'archiviazione locale venga compromessa ed è necessario ripristinare un backup.
 
@@ -27,8 +27,6 @@ Questa esercitazione descrive quanto segue:
 > * Ordinare un Data Box per l'esportazione
 > * Tenere traccia dell'ordine di esportazione
 > * Annulla l'ordine di esportazione
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -82,7 +80,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
@@ -125,73 +123,73 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     ![Schermata sicurezza in Importazione guidata ordine di Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
 
-10. Se si vuole usare la propria chiave gestita dal cliente per proteggere la passkey di sblocco per la nuova risorsa, espandere **tipo di crittografia**.
+10. Se si vuole usare la propria chiave gestita dal cliente per proteggere la passkey di sblocco per la nuova risorsa, espandere **Tipo di crittografia**.
 
-    La configurazione di una chiave gestita dal cliente per la Azure Data Box è facoltativa. Per impostazione predefinita, Data Box usa una chiave gestita da Microsoft per proteggere la passkey di sblocco.
+    La configurazione di una chiave gestita dal cliente per Azure Data Box è facoltativa. Per impostazione predefinita, Data Box usa una chiave gestita da Microsoft per proteggere la passkey di sblocco.
 
-    Una chiave gestita dal cliente non influisce sulla modalità di crittografia dei dati nel dispositivo. La chiave viene usata solo per crittografare la passkey di sblocco del dispositivo.
+    Una chiave gestita dal cliente non influisce sul modo in cui il dispositivo viene crittografato. Viene usata solo per crittografare la passkey di sblocco del dispositivo.
 
     Se non si vuole usare una chiave gestita dal cliente, andare al passaggio 16.
 
-    ![Schermata sicurezza che mostra le impostazioni del tipo di crittografia](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+    ![Schermata Sicurezza che mostra le impostazioni di Tipo di crittografia](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
 
-11. Selezionare **chiave gestita dal cliente** come tipo di chiave. Selezionare quindi **selezionare un insieme di credenziali delle chiavi e una chiave**.
+11. Selezionare **Chiave gestita dal cliente** come tipo di chiave. Quindi selezionare **Seleziona un insieme di credenziali delle chiavi e la chiave**.
    
-    ![Schermata sicurezza, impostazioni per una chiave gestita dal cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+    ![Schermata Sicurezza, impostazioni per la chiave gestita dal cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
 
 12. Nella schermata **Seleziona chiave da Azure Key Vault** la sottoscrizione viene popolata automaticamente.
 
-    - Per **Key Vault** è possibile selezionare un insieme di credenziali delle chiavi esistente dall'elenco a discesa.
+    - Per **Insieme di credenziali delle chiavi** è possibile selezionare un insieme di credenziali delle chiavi esistente nell'elenco a discesa.
 
-      ![Selezionare la chiave dalla schermata Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+      ![Schermata Selezionare chiave da Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
 
-    - È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nella schermata **Crea** insieme di credenziali delle chiavi immettere il gruppo di risorse e un nome dell'insieme di credenziali delle chiavi. Assicurarsi che la protezione **eliminazione** temporanea e **ripulitura** sia abilitata. Accettare tutte le altre impostazioni predefinite e selezionare **Verifica + crea**.
+    - È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nella schermata **Crea insieme di credenziali delle chiavi** immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Assicurarsi che le opzioni **Eliminazione temporanea** e **Protezione dall'eliminazione** siano abilitate. Accettare tutte le altre impostazioni predefinite e selezionare **Rivedi e crea**.
 
-      ![Crea nuove impostazioni di Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+      ![Impostazioni per la creazione di un nuovo insieme di credenziali delle chiavi di Azure](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
 
-      Esaminare le informazioni per l'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
+      Esaminare le informazioni per l'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti mentre viene completata la creazione dell'insieme di credenziali delle chiavi.
 
-      ![Schermata nuova revisione Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+      ![Schermata di revisione del nuovo insieme di credenziali delle chiavi di Azure](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
 
 13. Nella schermata **Seleziona chiave da Azure Key Vault** è possibile selezionare una chiave esistente nell'insieme di credenziali delle chiavi.
 
-    ![Selezionare la chiave esistente da Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+    ![Selezionare una chiave esistente da Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
 
-    Se si vuole creare una nuova chiave, selezionare **Crea nuovo**. È necessario utilizzare una chiave RSA. La dimensione può essere 2048 o successiva. Immettere un nome per la nuova chiave, accettare le altre impostazioni predefinite e selezionare **Crea**.
+    Se si vuole creare una nuova chiave, selezionare **Crea nuovo**. È necessario usare una chiave RSA. Le dimensioni possono essere maggiori o uguali a 2048. Immettere un nome per la nuova chiave, accettare le altre impostazioni predefinite e selezionare **Crea**.
 
-      ![Crea nuova opzione chiave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+      ![Opzione per creare una nuova chiave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
 
-      Si riceverà una notifica quando la chiave è stata creata nell'insieme di credenziali delle chiavi.
+      Dopo che la chiave viene creata nell'insieme di credenziali delle chiavi si riceve una notifica.
 
-14. Selezionare la **versione** della chiave da usare e quindi scegliere **Seleziona**.
+14. Selezionare un valore di **Versione** da usare per la chiave, quindi scegliere **Seleziona**.
 
       ![Nuova chiave creata nell'insieme di credenziali delle chiavi](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
 
     Se si vuole creare una nuova versione della chiave, selezionare **Crea nuovo**.
 
-    ![Aprire una finestra di dialogo per la creazione di una nuova versione della chiave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+    ![Aprire una finestra di dialogo per creare una nuova versione della chiave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
 
     Nella schermata **Crea nuova chiave** scegliere impostazioni per la nuova versione della chiave e selezionare **Crea**.
 
     ![Creare una nuova versione della chiave](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
 
-    Le impostazioni del **tipo di crittografia** nella schermata **sicurezza** mostrano l'insieme di credenziali delle chiavi e la chiave.
+    Le impostazioni di **Tipo di crittografia** nella schermata **Sicurezza** mostrano l'insieme di credenziali delle chiavi e la chiave.
 
-    ![Chiave e Key Vault per una chiave gestita dal cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+    ![Chiave e insieme di credenziali delle chiavi per una chiave gestita dal cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
 
-15. Selezionare un'identità utente da usare per gestire l'accesso a questa risorsa. Scegliere **selezionare un'identità utente**. Nel pannello a destra selezionare la sottoscrizione e l'identità gestita da usare. Scegliere quindi **Seleziona**.
+15. Selezionare un'identità utente da usare per gestire l'accesso a questa risorsa. Scegliere **Select a user identity** (Selezionare un'identità utente). Nel pannello a destra selezionare la sottoscrizione e l'identità gestita da usare. Quindi scegliere **Seleziona**.
 
-    Un'identità gestita assegnata dall'utente è una risorsa di Azure autonoma che può essere usata per gestire più risorse. Per altre informazioni, vedere [tipi di identità gestiti](/azure/active-directory/managed-identities-azure-resources/overview).  
+    Un'identità gestita assegnata dall'utente è una risorsa di Azure autonoma che è possibile usare per gestire più risorse. Per altre informazioni, vedere [Tipi di identità gestita](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Se è necessario creare una nuova identità gestita, seguire le istruzioni riportate in [creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente usando il portale di Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    Se è necessario creare una nuova identità gestita, seguire le istruzioni riportate in [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Selezionare un'identità utente](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
-    L'identità utente viene visualizzata nelle impostazioni del **tipo di crittografia** .
+    L'identità utente viene visualizzata nelle impostazioni di **Tipo di crittografia**.
 
     È possibile comprimere ora le impostazioni del **tipo di crittografia** .
 
-    ![Identità utente selezionata visualizzata nelle impostazioni del tipo di crittografia](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+    ![Un'identità utente selezionata mostrata nelle impostazioni di Tipo di crittografia](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
 
 16. Se si vuole abilitare la crittografia doppia basata su software, espandere **crittografia doppia (per ambienti con sicurezza elevata)** e selezionare **Abilita crittografia doppia per l'ordine**. 
 

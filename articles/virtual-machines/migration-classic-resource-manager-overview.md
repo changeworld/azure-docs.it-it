@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 219fe2d9d8ac46ba3dbeebe6aaae9dddc0883aa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500411"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680219"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica a Azure Resource Manager in Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "96500411"
 
 
 
-L'articolo descrive come eseguire la migrazione di risorse di infrastruttura distribuita come servizio (IaaS) dai modelli di distribuzione classica ad Azure Resource Manager e illustra in modo dettagliato come collegare le risorse da due modelli di distribuzione che coesistono nella sottoscrizione con gateway da sito a sito di rete virtuale. Altre informazioni sulle [funzionalità e sui vantaggi Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+In questo articolo viene fornita una panoramica sullo strumento di migrazione supportato dalla piattaforma, su come eseguire la migrazione delle risorse dai modelli di distribuzione di Azure Service Manager (ASM) noti come Gestione risorse (ARM) e viene illustrato come connettere le risorse dei due modelli di distribuzione coesistenti nella sottoscrizione tramite gateway da sito a sito di rete virtuale. Altre informazioni sulle [funzionalità e sui vantaggi Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Obiettivo della migrazione
 Resource Manager consente di distribuire applicazioni complesse mediante modelli, configura le macchine virtuali tramite le estensioni di macchina virtuale e incorpora la gestione degli accessi e l'uso dei tag. Azure Resource Manager include anche una distribuzione parallela e scalabile per le macchine virtuali nei set di disponibilità. Il nuovo modello di distribuzione offre inoltre la gestione del ciclo di vita delle risorse di calcolo, rete e archiviazione, in modo indipendente. Infine, ci si concentra anche sull'abilitazione della sicurezza predefinita tramite l'imposizione di macchine virtuali in una rete virtuale.
@@ -37,7 +37,7 @@ In Azure Resource Manager sono supportate quasi tutte le funzionalità del model
 * Account di archiviazione
 * Reti virtuali
 * Gateway VPN
-* Gateway ExpressRoute _(solo nella stessa sottoscrizione della rete virtuale)_
+* [Express Route gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(solo nella stessa sottoscrizione della rete virtuale)_
 * Gruppi di sicurezza di rete
 * Tabelle di route
 * IP riservati
@@ -45,7 +45,7 @@ In Azure Resource Manager sono supportate quasi tutte le funzionalità del model
 ## <a name="supported-configurations-for-migration"></a>Configurazioni supportate per la migrazione
 Durante la migrazione sono supportate queste risorse IaaS classiche
 
-| Servizio | Configurazione |
+| Service | Configurazione |
 | --- | --- |
 | Servizi di dominio Azure Active Directory | [Reti virtuali che contengono i servizi di dominio Azure AD](../active-directory-domain-services/migrate-from-classic-vnet.md) |
 
@@ -114,7 +114,7 @@ Alcune funzioni e configurazioni non sono attualmente supportate; nella sezione 
 ### <a name="unsupported-features"></a>Funzionalità non supportate
 Le seguenti funzionalità non sono attualmente supportate. È possibile rimuovere facoltativamente queste impostazioni, eseguire la migrazione delle macchine virtuali e quindi riabilitare le impostazioni nel modello di distribuzione di Resource Manager.
 
-| Provider di risorse | Feature | Recommendation |
+| Provider di risorse | Funzionalità | Recommendation |
 | --- | --- | --- |
 | Calcolo | Dischi di macchine virtuali non associati. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
 | Calcolo | Immagini di macchine virtuali. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
@@ -125,7 +125,7 @@ Le seguenti funzionalità non sono attualmente supportate. È possibile rimuover
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
 Le seguenti configurazioni non sono attualmente supportate.
 
-| Servizio | Configurazione | Recommendation |
+| Service | Configurazione | Recommendation |
 | --- | --- | --- |
 | Gestione risorse |Controllo degli accessi Role-Based (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
 | Calcolo |Più subnet associate a una macchina virtuale |Aggiornare la configurazione delle subnet in modo che faccia riferimento solo a una subnet. Ciò potrebbe richiedere la rimozione di una scheda di interfaccia di rete secondaria (che fa riferimento a un'altra subnet) dalla macchina virtuale e quindi il suo ricollegamento al termine della migrazione. |
@@ -141,7 +141,7 @@ Le seguenti configurazioni non sono attualmente supportate.
 | Rete |Reti virtuali contenenti macchine virtuali e ruoli Web/di lavoro |Non supportato attualmente. Spostare i ruoli Web/di lavoro nella rispettiva rete virtuale prima della migrazione. Dopo la migrazione della rete virtuale classica, è possibile eseguire il peering della rete virtuale di Azure Resource Manager di cui è stata eseguita la migrazione con la rete virtuale classica per ottenere una configurazione simile a prima.|
 | Rete | Circuiti ExpressRoute classici |Non supportato attualmente. È necessario eseguire la migrazione di questi circuiti in Azure Resource Manager prima di iniziare la migrazione IaaS. Per altre informazioni, vedere [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](../expressroute/expressroute-move.md).|
 | Servizio app di Azure |Rete virtuale contenente ambienti del servizio app |Non supportato attualmente. |
-| HDInsight di Azure |Rete virtuale contenente servizi HDInsight |Non supportato attualmente. |
+| Azure HDInsight |Rete virtuale contenente servizi HDInsight |Non supportato attualmente. |
 | Servizi del ciclo di vita Microsoft Dynamics |Rete virtuale contenente macchine virtuali gestite da Dynamics Lifecycle Services |Non supportato attualmente. |
 | Gestione API di Azure |Reti virtuali che contengono distribuzioni di Gestione API |Non supportato attualmente. Per eseguire la migrazione di VNET IaaS, modificare la rete virtuale della distribuzione di Gestione API che è un'operazione senza tempi di inattività. |
 

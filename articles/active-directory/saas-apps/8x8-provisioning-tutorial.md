@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532707"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558862"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Esercitazione: Configurare 8x8 per il provisioning utenti automatico
 
-Questa esercitazione descrive le procedure da eseguire sia in Configuration Manager per 8x8 che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Una volta configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi per [8x8](https://www.8x8.com) usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Questa esercitazione descrive le procedure da eseguire sia in 8x8 Admin Console che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Una volta configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi per [8x8](https://www.8x8.com) usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
 * Sottoscrizione della serie 8x8 X di qualsiasi livello.
-* Un account utente 8x8 con autorizzazioni dell'amministratore in [Configuration Manager](https://vo-cm.8x8.com).
+* Un account utente 8x8 con autorizzazioni dell'amministratore in [Admin Console](https://vo-cm.8x8.com).
 * [Single Sign-on con Azure AD](./8x8virtualoffice-tutorial.md) è già stato configurato.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 Questa sezione illustra i passaggi per configurare 8x8 per supportare il provisioning con Azure AD.
 
-### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Per configurare un token di accesso per il provisioning utenti in 8x8 Configuration Manager:
+### <a name="to-configure-a-user-provisioning-access-token-in-8x8-admin-console"></a>Per configurare un token di accesso per il provisioning utenti in 8x8 Admin Console:
 
 1. Accedere a [Admin Console](https://admin.8x8.com) (Console di amministrazione). Selezionare **Identity Management**.
 
@@ -60,7 +60,7 @@ Questa sezione illustra i passaggi per configurare 8x8 per supportare il provisi
 
 3. Copiare i valori di **URL 8x8**  e **token API 8x8**. Questi valori verranno immessi nei campi **URL tenant** e **Token segreto** rispettivamente, nella scheda Provisioning dell'applicazione 8x8 nel portale di Azure.
 
-   ![token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere 8x8 dalla raccolta di applicazioni di Azure AD
 
@@ -100,9 +100,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatica evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali di amministratore** copiare l'**URL 8x8** da Configuration Manager in **URL tenant**. Copiare il **token API 8x8 Virtual** da Configuration Manager in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a 8x8. Se la connessione non riesce, verificare che l'account 8x8 abbia autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali di amministratore** copiare l'**URL 8x8** da Admin Console in **URL tenant**. Copiare il **token API 8x8 Virtual** da Admin Console in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a 8x8. Se la connessione non riesce, verificare che l'account 8x8 abbia autorizzazioni di amministratore e riprovare.
 
     ![Screenshot che mostra la finestra di dialogo Credenziali amministratore, in cui è possibile immettere l'URL del tenant e il token segreto.](./media/8x8-provisioning-tutorial/provisioning.png)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: f2d7c9e39cb3eb14a2c2c6a7b13e37f3a526184b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 556e265cc0d1aae33823185ec98d23f191ed1694
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889800"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680026"
 ---
 # <a name="change-the-style-of-the-map"></a>Cambiare lo stile della mappa
 
@@ -29,9 +29,9 @@ Il controllo mappa supporta diverse opzioni di [stile](/javascript/api/azure-map
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
     showBuildingModels: false,
-    showLogo = true,
-    showFeedbackLink = true,
-    style='road'
+    showLogo: true,
+    showFeedbackLink: true,
+    style: 'road'
 
     //Additional map options.
 };
@@ -40,8 +40,8 @@ var map = new atlas.Map('map', {
 map.setStyle({
     renderWorldCopies: true,
     showBuildingModels: true,
-    showLogo = false,
-    showFeedbackLink = false
+    showLogo: false,
+    showFeedbackLink: false
 });
 ```
 
@@ -101,7 +101,7 @@ L'immagine seguente mostra il controllo selezione stile visualizzato nel `icon` 
 
 L'immagine seguente mostra il controllo selezione stile visualizzato nel `list` layout.
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout dell'icona di selezione stile":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout elenco selezione stile":::
 
 > [!IMPORTANT]
 > Per impostazione predefinita, il controllo selezione stile elenca tutti gli stili disponibili nel piano tariffario s0 di mappe di Azure. Se si desidera ridurre il numero di stili in questo elenco, passare una matrice degli stili che si desidera visualizzare nell'elenco nell' `mapStyle` opzione della selezione dello stile. Se si utilizza S1 e si desidera visualizzare tutti gli stili disponibili, impostare l' `mapStyles` opzione dello stile selezione su `"all"` .
@@ -129,10 +129,13 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 > [!div class="nextstepaction"]
 > [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
-Aggiungere i controlli alle mappe:
+Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
 > [Aggiungere controlli mappa](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un segnaposto](map-add-pin.md)
+> [Aggiungere un livello per i simboli](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello per le bolle](map-add-bubble-layer.md)

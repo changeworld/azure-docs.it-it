@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 6a7d29d8487c6be6915ae4171b3759f0980f5448
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 21bdbecdbba31eae112053bf81411781245cc170
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874357"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678684"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Abilitare il ripristino di emergenza delle VM di Azure tra le zone di disponibilità
 
@@ -20,7 +20,7 @@ Questo articolo descrive come eseguire la replica, il failover e il failback di 
 
 >[!NOTE]
 >
->- Il supporto per il ripristino di emergenza da zona a zona è attualmente limitato a due aree: Asia sudorientale e Regno Unito meridionale.  
+>- Il supporto per il ripristino di emergenza da zona a zona è attualmente limitato a cinque aree: Asia sudorientale, Regno Unito meridionale, Giappone orientale, Australia orientale ed Europa occidentale.  
 >- Site Recovery non sposta o archivia i dati dei clienti all'interno dell'area in cui viene distribuito quando il cliente usa il ripristino di emergenza da zona a zona. I clienti possono selezionare un insieme di credenziali dei servizi di ripristino da un'area diversa se lo scelgono. L'insieme di credenziali di servizi di ripristino contiene metadati ma non dati effettivi del cliente.
 
 Site Recovery servizio contribuisce alla strategia di continuità aziendale e ripristino di emergenza, mantenendo le app aziendali in esecuzione, durante le interruzioni pianificate e non pianificate. Si tratta dell'opzione di ripristino di emergenza consigliata per rendere operativo le applicazioni in caso di interruzioni a livello di area.
@@ -70,13 +70,13 @@ Prima di distribuire il ripristino di emergenza da zona a zona per le macchine v
 |Funzionalità  | Informativa sul supporto  |
 |---------|---------|
 |Macchine virtuali classiche   |     Non supportate    |
-|VM ARM    |    Funzionalità supportata    |
-|Crittografia dischi di Azure V1 (doppio passaggio, con Azure Active Directory (Azure AD))     |     Funzionalità supportata   |
-|Crittografia dischi di Azure V2 (Single Pass, senza Azure AD)    |    Funzionalità supportata    |
+|VM ARM    |    Supportato    |
+|Crittografia dischi di Azure V1 (doppio passaggio, con Azure Active Directory (Azure AD))     |     Supportato   |
+|Crittografia dischi di Azure V2 (Single Pass, senza Azure AD)    |    Supportato    |
 |Dischi non gestiti    |    Non supportate    |
-|Dischi gestiti    |    Funzionalità supportata    |
-|Chiavi gestite dal cliente    |    Funzionalità supportata    |
-|Gruppi di selezione host di prossimità    |    Funzionalità supportata    |
+|Dischi gestiti    |    Supportato    |
+|Chiavi gestite dal cliente    |    Supportato    |
+|Gruppi di selezione host di prossimità    |    Supportato    |
 |Interoperabilità di backup    |    Il backup e il ripristino a livello di file sono supportati. Backup e ripristino a livello di disco e VM e non supportati.    |
 |Aggiunta/rimozione a caldo    |    È possibile aggiungere dischi dopo aver abilitato la replica da zona a zona. La rimozione dei dischi dopo l'abilitazione della replica da zona a zona non è supportata.    | 
 

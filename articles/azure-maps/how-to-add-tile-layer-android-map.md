@@ -1,21 +1,21 @@
 ---
-title: Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
-description: Informazioni su come aggiungere un livello sezione a una mappa. Vedere un esempio che usa il Microsoft Azure Maps Android SDK per aggiungere una sovrapposizione di radar meteorologici a una mappa.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2019
-ms.topic: how-to
+title: Aggiungere un livello sezione a Maps Android | Mappe Microsoft Azure
+description: Informazioni su come aggiungere un livello sezione a una mappa. Vedere un esempio che usa le mappe di Azure Android SDK per aggiungere una sovrapposizione di radar meteorologici a una mappa.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/08/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 22618a28f1a87e68c19467aedf639e96ec2fb91e
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532677"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679292"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
+# <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Aggiungere un livello sezione a una mappa (Android SDK)
 
 Questo articolo illustra come eseguire il rendering di un livello sezione su una mappa usando le mappe di Azure Android SDK. I livelli riquadro consentono di sovrapporre immagini sopra i riquadri mappa di base in Mappe di Azure. Altre informazioni sul sistema di riquadri di Mappe di Azure sono reperibili nella documentazione [Livelli di Zoom e griglia riquadri](zoom-levels-and-tile-grid.md).
 
@@ -23,10 +23,10 @@ Un livello sezione viene caricato in riquadri da un server. Queste immagini poss
 
 * Notazione zoom di X, Y: in base al livello di zoom, x è la posizione nella colonna e y è la posizione nella riga del riquadro nella griglia dei riquadri.
 * Notazione Quadkey: combinazione delle informazioni x, y e zoom in un singolo valore stringa che sia un identificatore univoco per un riquadro.
-* Rettangolo di selezione: le coordinate del rettangolo di selezione possono essere utilizzate per specificare un'immagine nel formato `{west},{south},{east},{north}` comunemente utilizzata dai [ servizi Web di Mapping (WMS)](https://www.opengeospatial.org/standards/wms).
+* È possibile utilizzare le coordinate del riquadro delimitatore per specificare un'immagine nel formato `{west},{south},{east},{north}` , che viene comunemente utilizzata da [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> TileLayer è un ottimo modo per visualizzare grandi set di dati sulla mappa. Non solo è possibile generare un livello riquadro da un'immagine, ma anche i dati vettoriali possono essere sottoposti a rendering come livello riquadro. Sottoponendo a rendering i dati vettoriali come livello riquadro, il controllo della mappa deve solo caricare i riquadri che possono essere molto più piccoli in termini di dimensione del file rispetto ai dati vettoriali che rappresentano. Molti utenti usano questa tecnica per eseguire il rendering di milioni di righe di dati sulla mappa.
+> TileLayer è un ottimo modo per visualizzare grandi set di dati sulla mappa. Non solo è possibile generare un livello riquadro da un'immagine, ma anche i dati vettoriali possono essere sottoposti a rendering come livello riquadro. Eseguendo il rendering dei dati vettoriali come livello sezione, il controllo mappa deve caricare solo i riquadri, che possono essere molto più piccoli in dimensioni file rispetto ai dati vettoriali che rappresentano. Molti utenti usano questa tecnica per eseguire il rendering di milioni di righe di dati sulla mappa.
 
 L'URL di riquadro passato in un livello riquadro deve essere un URL http/https indirizzato a una risorsa TileJSON o un modello di URL di riquadro che usa i parametri seguenti: 
 
@@ -39,144 +39,34 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) per caricare una mappa.
-
+Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](how-to-use-android-map-control-library.md) per caricare una mappa.
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Aggiungere un livello sezione alla mappa
 
- In questo esempio viene illustrato come creare un livello sezione che punta a un set di riquadri. Questi riquadri usano il sistema di affiancamento "x, y, zoom". L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+In questo esempio viene illustrato come creare un livello sezione che punta a un set di riquadri. In questo esempio viene utilizzato il sistema di affiancamento "x, y, zoom". L'origine di questo livello sezione è il [progetto OpenSeaMap](https://openseamap.org/index.php), che contiene i grafici nautici originati dalla folla. Spesso quando si visualizzano i livelli dei riquadri è opportuno poter visualizzare chiaramente le etichette delle città sulla mappa. Questo comportamento può essere eseguito inserendo il livello sezione sotto i livelli dell'etichetta della mappa.
 
-È possibile aggiungere un livello sezione alla mappa seguendo questa procedura.
+```java
+TileLayer layer = new TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+);
 
-1. Modificare il **layout res > > activity_main.xml** in modo che sia simile a quello riportato di seguito:
+map.layers.add(layer, "labels");
+```
 
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapcontrol_centerLat="40.75"
-            app:mapcontrol_centerLng="-99.47"
-            app:mapcontrol_zoom="3"
-            />
-    
-    </FrameLayout>
-    ```
+Lo screenshot seguente mostra il codice precedente che mostra un livello sezione di informazioni nautiche su una mappa con uno stile di scala di grigi scuro.
 
-2. Copiare il seguente frammento di codice nel metodo **OnCreate ()** della `MainActivity.java` classe.
-
-    ```Java
-    mapControl.onReady(map -> {
-        //Add a tile layer to the map, below the map labels.
-        map.layers.add(new TileLayer(
-            tileUrl("https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png"),
-            opacity(0.8f),
-            tileSize(256)
-        ), "labels");
-    });
-    ```
-    
-    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Crea quindi un `TileLayer` oggetto e passa un URL del riquadro **XYZ** formattato nell' `tileUrl` opzione. L'opacità del livello è impostata su `0.8` e, poiché i riquadri del servizio affiancato sono riquadri di 256 pixel, queste informazioni vengono passate nell' `tileSize` opzione. Il livello sezione viene quindi passato a Maps Layer Manager.
-
-    Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
-    
-    ```Java
-    package com.example.myapplication;
-
-    import android.app.Activity;
-    import android.os.Bundle;
-    import android.support.v7.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.layer.TileLayer;
-    import java.util.Arrays;
-    import java.util.List;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import static com.microsoft.azure.maps.mapcontrol.options.TileLayerOptions.tileSize;
-    import static com.microsoft.azure.maps.mapcontrol.options.TileLayerOptions.tileUrl;
-        
-    public class MainActivity extends AppCompatActivity {
-    
-        static{
-            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
-        }
-    
-        MapControl mapControl;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-    
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-    
-            mapControl = findViewById(R.id.mapcontrol);
-    
-            mapControl.onCreate(savedInstanceState);
-    
-            mapControl.onReady(map -> {
-
-                //Add a tile layer to the map, below the map labels.
-                map.layers.add(new TileLayer(
-                    tileUrl("https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png"),
-                    opacity(0.8f),
-                    tileSize(256)
-                ), "labels");
-            });    
-        }
-    
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-    
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-    
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-    
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-    
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-    
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }    
-    }
-    ```
-
-Se si esegue ora l'applicazione, viene visualizzata una riga sulla mappa come illustrato di seguito:
-
-<center>
-
-![Linea mappa Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Mappa Android visualizzazione del livello sezione](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere l'articolo seguente per altre informazioni sui modi per impostare gli stili della mappa
 
 > [!div class="nextstepaction"]
-> [Cambiare gli stili della mappa nelle mappe Android](./set-android-map-styles.md)
+> [Modificare lo stile della mappa](set-android-map-styles.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere una mappa termica](map-add-heat-map-layer-android.md)

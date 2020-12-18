@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 12/02/2020
-ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511917"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679185"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -90,7 +90,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return dataframe1,
 ```
 
-## <a name="upload-files"></a>Caricare file
+## <a name="upload-files"></a>Caricare i file
 Il modulo Execute Python script supporta il caricamento di file tramite il [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 L'esempio seguente illustra come caricare un file di immagine nel modulo Execute Python script:
@@ -156,7 +156,7 @@ Il modulo Execute Python script contiene codice Python di esempio che è possibi
     1. Aggregare lo script e altre risorse personalizzate in un file zip.
     1. Caricare il file zip come **set di dati di file** in studio. 
     1. Trascinare il modulo set di dati dall'elenco *set* di dati nel riquadro modulo sinistro della pagina Creazione e modifica della finestra di progettazione. 
-    1. Connettere il modulo DataSet alla porta del **bundle di script** del modulo **Execute R script** .
+    1. Connettere il modulo DataSet alla porta del **bundle di script** del modulo **Execute Python script** .
     
     Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta.
  

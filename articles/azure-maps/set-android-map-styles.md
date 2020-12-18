@@ -1,77 +1,129 @@
 ---
-title: Impostare uno stile mappa usando mappe di Azure Android SDK
-description: Vengono illustrati due modi per impostare lo stile di una mappa. Per modificare lo stile, vedere How to use the Microsoft Azure Maps Android SDK nel file di layout o nella classe Activity.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 11/18/2020
-ms.topic: how-to
+title: Impostare uno stile mappa in Android Maps | Mappe Microsoft Azure
+description: Vengono illustrati due modi per impostare lo stile di una mappa. Per modificare lo stile, vedere come usare le mappe di Azure Android SDK nel file di layout o nella classe Activity.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 04/26/2019
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 8c7689fb87575ac6e150f793b43f35e8bf6adc83
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 1cce355c8ffbcd4704bd32b0e4d1739c77c2b623
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532482"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678459"
 ---
-# <a name="set-map-style-using-azure-maps-android-sdk"></a>Impostare lo stile della mappa usando le mappe di Azure Android SDK
+# <a name="set-map-style-android-sdk"></a>Impostare lo stile della mappa (Android SDK)
 
-Questo articolo illustra come impostare gli stili della mappa usando le mappe di Azure Android SDK. Mappe di Azure include sei stili di mappe diversi tra cui scegliere. Per altre informazioni sugli stili di mappa supportati, vedere [stili di mappa supportati in mappe di Azure](./supported-map-styles.md).
+Questo articolo illustra due modi per impostare gli stili della mappa usando le mappe di Azure Android SDK. Mappe di Azure include sei stili di mappe diversi tra cui scegliere. Per altre informazioni sugli stili di mappa supportati, vedere [stili di mappa supportati in mappe di Azure](supported-map-styles.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
-3. Scaricare e installare il [Android SDK mappe di Azure](./how-to-use-android-map-control-library.md).
-
+Assicurarsi di completare la procedura descritta nella [Guida introduttiva: creare un documento dell'app Android](quick-android-map.md) .
 
 ## <a name="set-map-style-in-the-layout"></a>Impostare lo stile della mappa nel layout
 
-È possibile impostare uno stile mappa nel file di layout per la classe Activity. Modificare `res > layout > activity_main.xml` , quindi ha un aspetto simile al seguente:
+È possibile impostare uno stile mappa nel file di layout per la classe Activity quando si aggiunge il controllo map. Il codice seguente consente di impostare la posizione centrale, il livello di zoom e lo stile della mappa.
 
 ```XML
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.microsoft.azure.maps.mapcontrol.MapControl
+    android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-
-    <com.microsoft.azure.maps.mapcontrol.MapControl
-        android:id="@+id/mapcontrol"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:mapcontrol_centerLat="47.602806"
-        app:mapcontrol_centerLng="-122.329330"
-        app:mapcontrol_zoom="12"
-        app:mapcontrol_style="grayscale_dark"
-        />
-
-</FrameLayout>
+    app:mapcontrol_centerLat="47.602806"
+    app:mapcontrol_centerLng="-122.329330"
+    app:mapcontrol_zoom="12"
+    app:mapcontrol_style="grayscale_dark"
+    />
 ```
 
-L' `mapcontrol_style` attributo precedente imposta lo stile della mappa su **grayscale_dark**.
+La schermata seguente mostra il codice precedente che visualizza una mappa stradale con lo stile scuro in grigio.
 
-:::image type="content" source="./media/set-android-map-styles/grayscale-dark.png" border="true" alt-text="Mappe di Azure, immagine mappa che mostra lo stile grayscale_dark":::
+![Mappa con stile della mappa stradale scura in scala di grigi](media/set-android-map-styles/android-grayscale-dark.png)
 
-## <a name="set-map-style-in-the-mainactivity-class"></a>Impostare lo stile della mappa nella classe MainActivity
+## <a name="set-map-style-in-code"></a>Impostare lo stile della mappa nel codice
 
-Lo stile della mappa può essere impostato anche nella classe MainActivity. Aprire il `java > com.example.myapplication > MainActivity.java` file e copiare il frammento di codice seguente nel metodo **OnCreate ()** . Questo codice imposta lo stile della mappa su **satellite_road_labels**.
+Lo stile della mappa può essere impostato a livello di codice nel codice usando il `setStyle` metodo della mappa. Il codice seguente imposta la posizione centrale e il livello di zoom usando il `setCamera` Metodo Maps e lo stile della mappa su `SATELLITE_ROAD_LABELS` .
 
->[!WARNING]
->È possibile che Android Studio non abbia importato le classi obbligatorie.  Di conseguenza, il codice avrà alcuni riferimenti a irrisolvibile. Per importare le classi obbligatorie, è sufficiente passare il puntatore del mouse su ogni riferimento non risolto e premere `Alt + Enter` (opzione + Restituisci su un Mac).
-
-```Java
+```java
 mapControl.onReady(map -> {
 
     //Set the camera of the map.
-    map.setCamera(center(47.64, -122.33), zoom(14));
+    map.setCamera(center(Point.fromLngLat(-122.33, 47.64)), zoom(14));
 
     //Set the style of the map.
-    map.setStyle((style(SATELLITE_ROAD_LABELS)));
-       
+    map.setStyle(style(MapStyle.SATELLITE_ROAD_LABELS));
 });
 ```
 
-:::image type="content" source="./media/set-android-map-styles/satellite-road-labels.png" border="true" alt-text="Mappe di Azure, immagine mappa che mostra lo stile satellite_road_labels":::
+Lo screenshot seguente mostra il codice precedente che visualizza una mappa con lo stile delle etichette strada satellite.
+
+![Mappa con stile delle etichette strada satellite](media/set-android-map-styles/android-satellite-road-labels.png)
+
+## <a name="setting-the-map-camera"></a>Impostazione della fotocamera della mappa
+
+La fotocamera mappa controlla la parte della mappa visualizzata nella mappa. La fotocamera può trovarsi nel layout a livello di codice. Quando viene impostato nel codice, sono disponibili due metodi principali per impostare la posizione della mappa; usare Center e zoom oppure passare un rettangolo di delimitazione. Nel codice seguente viene illustrato come impostare tutte le opzioni opzionali della fotocamera quando si utilizzano `center` e `zoom` .
+
+```java
+//Set the camera of the map using center and zoom.
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.64)), 
+
+    //The zoom level. Typically a value between 0 and 22.
+    zoom(14),
+
+    //The amount of tilt in degrees the map where 0 is looking straight down.
+    pitch(45),
+
+    //Direction the top of the map is pointing in degrees. 0 = North, 90 = East, 180 = South, 270 = West
+    bearing(90),
+
+    //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
+    minZoom(10),
+    
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+);
+```
+
+Spesso è consigliabile concentrare la mappa su un set di dati. Un rettangolo di delimitazione può essere calcolato dalle funzionalità usando il `MapMath.fromData` metodo e può essere passato nell' `bounds` opzione della fotocamera della mappa. Quando si imposta una visualizzazione mappa basata su un rettangolo di selezione, spesso è utile specificare un `padding` valore per tenere conto della dimensione in pixel dei punti di cui viene eseguito il rendering come bolle o simboli. Il codice seguente illustra come impostare tutte le opzioni opzionali della fotocamera quando si usa un rettangolo di delimitazione per impostare la posizione della fotocamera.
+
+```java
+//Set the camera of the map using a bounding box.
+map.setCamera(
+    //The area to focus the map on.
+    bounds(BoundingBox.fromLngLats(
+        //West
+        -122.4594,
+
+        //South
+        47.4333,
+        
+        //East
+        -122.21866,
+        
+        //North
+        47.75758
+    )),
+
+    //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
+    padding(20),
+
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+);
+```
+
+Si noti che le proporzioni di un rettangolo di delimitazione potrebbero non essere uguali a quelle della mappa, in quanto tale mappa mostrerà spesso l'area del riquadro delimitatore, ma sarà spesso solo verticalmente o orizzontalmente.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello per i simboli](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello per le bolle](map-add-bubble-layer-android.md)
