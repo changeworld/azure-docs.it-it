@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656292"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683368"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -52,7 +52,7 @@ Il riconoscimento delle entità denominato v 3.1-Preview. 3 include le funzional
 * Parametro facoltativo `domain=phi` per rilevare le informazioni riservate sull'integrità ( `PHI` ).
 * [Operazione asincrona](text-analytics-how-to-call-api.md) che usa l' `/analyze` endpoint.
 
-Per altre informazioni, vedere l'articolo relativo alle [categorie di entità](../named-entity-types.md) e la sezione relativa agli [endpoint di richiesta](#request-endpoints) di seguito. 
+Per altre informazioni, vedere l'articolo relativo alle [categorie di entità](../named-entity-types.md) e la sezione relativa agli [endpoint di richiesta](#request-endpoints) di seguito. Per ulteriori informazioni sui punteggi di confidenza, vedere la [Nota sulla trasparenza analisi del testo](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="sending-a-rest-api-request"></a>Invio di una richiesta all'API REST
 
@@ -473,7 +473,7 @@ Esempio di risposta NER generale:
 ---
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 

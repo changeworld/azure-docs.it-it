@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d2fb2ac40dfbe6e48fef5c98e21896575b298a94
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127570"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683469"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -31,7 +31,7 @@ Analisi di flusso supporta la compressione tra tutte le origini di input del flu
 
 ## <a name="create-edit-or-test-inputs"></a>Creare, modificare o testare gli input
 
-È possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) e [Visual Studio Code](quick-create-visual-studio-code.md) per aggiungere e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [le query di test](stream-analytics-manage-job.md#test-your-query) da dati di esempio dal portale di Azure, [Visual Studio](stream-analytics-vs-tools-local-run.md) e [Visual Studio Code](visual-studio-code-local-run.md). Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
+È possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) e [Visual Studio Code](quick-create-visual-studio-code.md) per aggiungere e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e le query di test da dati di esempio dal portale di Azure, [Visual Studio](stream-analytics-vs-tools-local-run.md) e [Visual Studio Code](visual-studio-code-local-run.md). Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Trasmettere dati da Hub eventi

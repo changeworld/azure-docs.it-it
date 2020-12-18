@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 68d9a64e388d24f2067f47282945b9561d807535
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545928"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683112"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,6 +53,13 @@ Vedere la [sezione relativa ai problemi di GitHub](https://github.com/Azure/azur
 
 ### <a name="check-the-portal-metrics"></a>Controllare le metriche del portale
 Il controllo delle [metriche del portale](./monitor-cosmos-db.md) consente di determinare se si tratta di un problema sul lato client o se si verifica un problema con il servizio. Se, ad esempio, le metriche contengono una frequenza elevata di richieste con limitazioni di frequenza (codice di stato HTTP 429) che indica che la richiesta è soggetta a limitazioni, controllare la sezione frequenza delle richieste [troppo grande](troubleshoot-request-rate-too-large.md) . 
+
+## <a name="retry-logic"></a>Logica di ripetizione dei tentativi <a id="retry-logics"></a>
+Cosmos DB SDK in qualsiasi errore di i/o tenterà di ritentare l'operazione non riuscita se è possibile riprovare nell'SDK. Il tentativo di eseguire un nuovo tentativo in caso di errore è una procedura consigliata, ma la gestione/ripetizione degli errori di scrittura è una necessità. È consigliabile usare l'SDK più recente, perché la logica di ripetizione dei tentativi è continuamente migliorata.
+
+1. Gli errori di i/o di lettura e query vengono ritentati dall'SDK senza esporli all'utente finale.
+2. Scritture (create, Upsert, Replace, Delete) sono "not" idempotente e, di conseguenza, SDK non è sempre in grado di ripetere le operazioni di scrittura non riuscite. È necessaria la logica dell'applicazione dell'utente per gestire l'errore e riprovare.
+3. [Trouble Shooting SDK Availability](troubleshoot-sdk-availability.md) spiega i tentativi per gli account di Cosmos DB in più aree.
 
 ## <a name="common-error-status-codes"></a>Codici di stato di errore comuni <a id="error-codes"></a>
 

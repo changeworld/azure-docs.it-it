@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559015"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683524"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedura: usare Analisi del testo per l'integrità (anteprima)
 
@@ -50,7 +50,7 @@ L'estrazione di relazioni identifica connessioni significative tra i concetti in
 > ![Integrità RE](../media/ta-for-health/health-relation-extraction.png)
 
 
-### <a name="entity-linking"></a>[Collegamento di entità](#tab/entity-linking)
+### <a name="entity-linking"></a>[Collegamento delle entità](#tab/entity-linking)
 
 Il collegamento di entità ambiguità entità distinte associando entità denominate indicate in testo ai concetti trovati in un database di concetti predefiniti. Ad esempio, Unified Medical Language System (UMLS).
 
@@ -68,7 +68,7 @@ Il significato del contenuto medico è molto influenzato dai modificatori, ad es
 
 ---
 
-Vedere le [categorie di entità](../named-entity-types.md?tabs=health) restituite da analisi del testo per l'integrità per un elenco completo delle entità supportate.
+Vedere le [categorie di entità](../named-entity-types.md?tabs=health) restituite da analisi del testo per l'integrità per un elenco completo delle entità supportate. Per informazioni sui punteggi di confidenza, vedere la [Nota sulla trasparenza analisi del testo](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ### <a name="supported-languages-and-regions"></a>Lingue e aree supportate
 
@@ -252,7 +252,7 @@ Di seguito è riportato un esempio della risposta di una richiesta GET.  Si noti
 
 ### <a name="structure-the-api-request-for-the-container"></a>Strutturare la richiesta API per il contenitore
 
-Per inviare [use Postman](text-analytics-how-to-call-api.md) una query al contenitore distribuito, sostituendo la `serverURL` variabile con il valore appropriato, è possibile usare il metodo post o la richiesta curl di esempio riportata di seguito.  Si noti che la versione dell'API nell'URL per il contenitore è diversa da quella dell'API ospitata.
+Per inviare [](text-analytics-how-to-call-api.md) una query al contenitore distribuito, sostituendo la `serverURL` variabile con il valore appropriato, è possibile usare il metodo post o la richiesta curl di esempio riportata di seguito.  Si noti che la versione dell'API nell'URL per il contenitore è diversa da quella dell'API ospitata.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json

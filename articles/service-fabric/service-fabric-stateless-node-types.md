@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 6259de345b534bfb51ef6ba1a9c3895800546caf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605497"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683187"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Distribuire un cluster di Azure Service Fabric con tipi di nodo solo senza stato (anteprima)
 I tipi di nodo Service Fabric hanno presupposto intrinseco che in un determinato momento i servizi con stato possono essere inseriti nei nodi. I tipi di nodo senza stato rilassano questa ipotesi per un tipo di nodo, consentendo così al tipo di nodo di usare altre funzionalità, ad esempio le operazioni di scalabilità orizzontale più veloci, il supporto per aggiornamenti automatici del sistema operativo sulla durabilità Bronze e la scalabilità orizzontale a più di 100 nodi in un singolo set di scalabilità
@@ -44,7 +44,7 @@ Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluste
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -71,9 +71,9 @@ Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluste
 ## <a name="configuring-virtual-machine-scale-set-for-stateless-node-types"></a>Configurazione del set di scalabilità di macchine virtuali per i tipi di nodo senza stato
 Per abilitare i tipi di nodo senza stato, è necessario configurare la risorsa del set di scalabilità di macchine virtuali sottostante nel modo seguente:
 
-* Proprietà del valore  **singlePlacementGroup** , che deve essere impostata su true/false a seconda del requisito per la scalabilità a più di 100 VM.
-* **UpgradeMode** del set di scalabilità che deve essere impostato su in sequenza.
-* Per la modalità di aggiornamento in sequenza è richiesta l'estensione integrità dell'applicazione o i probe di integrità. Configurare il probe di integrità con la configurazione predefinita per i tipi di nodo senza stato come suggerito di seguito. Una volta distribuite le applicazioni nel nodo NodeType, è possibile modificare le porte dell'estensione Probe/integrità per monitorare l'integrità dell'applicazione.
+* Proprietà del valore  **singlePlacementGroup** , che deve essere impostata su **false** se è necessario applicare la scalabilità a più di 100 macchine virtuali.
+* **UpgradePolicy** del set di scalabilità in cui deve essere impostata la **modalità** in **sequenza**.
+* Per la modalità di aggiornamento in sequenza è richiesta l'estensione integrità dell'applicazione o i probe di integrità. Configurare il probe di integrità con la configurazione predefinita per i tipi di nodo senza stato come suggerito di seguito. Una volta distribuite le applicazioni nel tipo di nodo, è possibile modificare le porte di estensione del probe di integrità/integrità per monitorare l'integrità dell'applicazione.
 
 ```json
 {
