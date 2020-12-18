@@ -19,7 +19,7 @@ ms.locfileid: "92746937"
 
 Prima di creare il registro contenitori, è necessario un *gruppo di risorse* in cui eseguirne la distribuzione. Un gruppo di risorse è una raccolta logica in cui vengono distribuite e gestite tutte le risorse di Azure.
 
-Creare un gruppo di risorse con il comando [az group create][az-group-create]. Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* :
+Creare un gruppo di risorse con il comando [az group create][az-group-create]. Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ Dopo aver creato il gruppo di risorse, creare un'istanza di Registro Azure Conta
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Ecco l'output parziale per una nuova istanza di Registro Azure Container denominata *mycontainerregistry082* :
+Ecco l'output parziale per una nuova istanza di Registro Azure Container denominata *mycontainerregistry082*:
 
 ```output
 {

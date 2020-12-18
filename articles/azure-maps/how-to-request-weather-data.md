@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a5ae262d2882bd76e31666f058fa9a7a703a9e1e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: fe1b337fe3e1dcf499f9a7428f66543108d0c050
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906013"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680420"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Richiedi dati meteorologici in tempo reale e previsione usando i servizi meteo di Azure Maps (anteprima) 
 
 > [!IMPORTANT]
-> I servizi meteo di Azure Maps sono attualmente in anteprima pubblica.
+> I servizi Meteo di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 I [servizi meteorologici](/rest/api/maps/weather) di Azure Maps sono un set di API RESTful che consente agli sviluppatori di integrare dati meteorologici e visualizzazioni cronologici, in tempo reale e previsioni estremamente dinamici nelle loro soluzioni. Questo articolo illustra come richiedere dati meteorologici in tempo reale e previsione.
@@ -34,9 +34,9 @@ In questo articolo si apprenderà come:
 
 Questo video fornisce esempi per eseguire chiamate REST ad Azure Maps Weather Services.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Servizi Meteo di Azure Maps per sviluppatori-video Microsoft Channel 9"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player?format=ny]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
