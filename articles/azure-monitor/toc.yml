@@ -546,10 +546,10 @@
           items:
             - name: IT Service Management Connector
               href: platform/itsmc-overview.md
-            - name: Definizione di Connettore di Gestione dei servizi IT
-              href: platform/itsmc-definition.md
             - name: Connessioni di Gestione dei servizi IT
               href: platform/itsmc-connections.md
+            - name: Definizione di Connettore di Gestione dei servizi IT
+              href: platform/itsmc-definition.md
             - name: Creare un'app Web di Service Manager
               href: platform/itsmc-service-manager-script.md
             - name: Risolvere i problemi di Connettore di Gestione dei servizi IT

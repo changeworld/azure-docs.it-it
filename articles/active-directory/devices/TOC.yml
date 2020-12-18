@@ -30,8 +30,6 @@
       href: azuread-join-sso.md
     - name: Token di aggiornamento primari
       href: concept-primary-refresh-token.md
-    - name: Workstation gestite di Azure
-      href: concept-azure-managed-workstation.md
 - name: Guide pratiche
   expanded: false
   items:
@@ -55,8 +53,6 @@
       href: howto-vm-sign-in-azure-ad-windows.md
     - name: Virtual Desktop Infrastructure
       href: howto-device-identity-virtual-desktop-infrastructure.md
-    - name: Distribuire workstation gestite di Azure
-      href: howto-azure-managed-workstation.md
     - name: Risolvere i problemi delle identità dei dispositivi
       items:
         - name: Risolvere i problemi dei dispositivi Windows correnti aggiunti ad Azure AD ibrido
