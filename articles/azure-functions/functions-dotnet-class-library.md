@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare Funzioni di Azure in C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: dc08e378d68743ed7906f4dec7c8f31202959880
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 9e11d013b6e7473f290ba1ccb54857034491d116
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608283"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672666"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -21,7 +21,7 @@ Gli sviluppatori C# possono anche essere interessati a uno degli articoli seguen
 
 | Introduzione | Concetti| Apprendimento guidato/esempi |
 | -- | -- | -- | 
-| <ul><li>[Con Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Utilizzo di Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Uso degli strumenti da riga di comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li><li>[Sviluppo di Visual Studio](functions-develop-vs.md)</li><li>[Inserimento di dipendenze](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Esempi per C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Con Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Uso di Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Uso degli strumenti da riga di comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li><li>[Sviluppo di Visual Studio](functions-develop-vs.md)</li><li>[Inserimento delle dipendenze](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Esempi per C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per materiale sussidiario sull'[uso di C# nel portale di Azure](functions-create-function-app-portal.md), vedere [Guida di riferimento a per sviluppatori di script C# (.csx)](functions-reference-csharp.md).
 
@@ -515,14 +515,14 @@ namespace functionapp0915
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
-                {
-                    Name = "GET api/planets/1/",
-                    Target = "swapi.co",
-                    Data = "https://swapi.co/api/planets/1/",
-                    Timestamp = start,
-                    Duration = DateTime.UtcNow - start,
-                    Success = true
-                };
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
         }
@@ -560,7 +560,7 @@ public static class EnvironmentVariablesExample
         log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
-    public static string GetEnvironmentVariable(string name)
+    private static string GetEnvironmentVariable(string name)
     {
         return name + ": " +
             System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);

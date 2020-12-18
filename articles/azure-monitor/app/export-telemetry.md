@@ -3,12 +3,12 @@ title: Esportazione continua dei dati di telemetria da Application Insights | Mi
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324336"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674138"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
@@ -37,6 +37,9 @@ L'esportazione continua **non supporta** le funzionalità/configurazioni di arch
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Creare un'esportazione continua
+
+> [!NOTE]
+> Un'applicazione non può esportare più di 3TB di dati al giorno. Se viene esportato più di 3TB al giorno, l'esportazione verrà disabilitata. Per eseguire l'esportazione senza un limite, usare l' [esportazione basata sulle impostazioni di diagnostica](#diagnostic-settings-based-export).
 
 1. Nella risorsa di Application Insights per l'app, sotto Configura a sinistra aprire Esportazione continua e scegliere **Aggiungi**:
 
@@ -120,7 +123,7 @@ Where
 ## <a name="data-format"></a><a name="format"></a> Formato dati
 * Ogni BLOB è un file di testo che contiene più righe separate da '\n'. Contiene i dati di telemetria elaborati in un periodo di tempo di circa mezzo minuto.
 * Ogni riga rappresenta un punto dati di telemetria, ad esempio una richiesta o una visualizzazione di pagina.
-* Ogni riga è un documento JSON non formattato. Se si desidera visualizzare le righe, aprire il BLOB in Visual Studio e scegliere **modifica**  >  **Advanced**  >  **file di formato**avanzato:
+* Ogni riga è un documento JSON non formattato. Se si desidera visualizzare le righe, aprire il BLOB in Visual Studio e scegliere **modifica**  >    >  **file di formato** avanzato:
 
    ![Visualizzare i dati di telemetria con uno strumento adatto](./media/export-telemetry/06-json.png)
 
@@ -207,6 +210,19 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 * [Esempio di analisi di flusso](export-stream-analytics.md)
 * [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>Esportazione basata sulle impostazioni di diagnostica
+
+L'esportazione basata sulle impostazioni di diagnostica usa uno schema diverso rispetto all'esportazione continua. Supporta inoltre le funzionalità che l'esportazione continua non è simile a:
+
+* Account di archiviazione di Azure con VNET, firewall e collegamenti privati.
+* Esporta in hub eventi.
+
+Per eseguire la migrazione a impostazioni di diagnostica basate sull'esportazione:
+
+1. Disabilitare l'esportazione continua corrente.
+2. [Eseguire la migrazione dell'applicazione a basata sull'area di lavoro](convert-classic-resource.md).
+3. [Abilitare l'esportazione delle impostazioni di diagnostica](create-workspace-resource.md#export-telemetry). Selezionare **impostazioni di diagnostica > Aggiungi impostazione di diagnostica** dall'interno della risorsa Application Insights.
 
 <!--Link references-->
 

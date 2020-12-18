@@ -2,13 +2,13 @@
 title: Distribuzione condizionale con modelli
 description: Viene descritto come distribuire in modo condizionale una risorsa in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905996"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672849"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Distribuzione condizionale nei modelli ARM
 
@@ -90,5 +90,6 @@ Se si distribuisce un modello con la [modalità completa](deployment-modes.md) e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per un modulo Microsoft Learn che copre la distribuzione condizionale, vedere [gestire le distribuzioni cloud complesse usando le funzionalità avanzate del modello ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Per consigli sulla creazione di modelli, vedere procedure consigliate per il [modello ARM](template-best-practices.md).
 * Per creare più istanze di una risorsa, vedere [iterazione delle risorse nei modelli ARM](copy-resources.md).

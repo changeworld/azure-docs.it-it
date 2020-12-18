@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 92dd45b5aa6ca720e73baae8287e5d70e03bbe4c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a5e8914b170f972304098bf9b4d0022164d30777
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653946"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669092"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Aggiungere un provider di identità al tenant di Azure Active Directory B2C
 
@@ -40,8 +40,8 @@ In genere si usa un solo provider di identità nelle applicazioni, ma è possibi
 * [Facebook](identity-provider-facebook.md)
 * [Provider di identità generico](identity-provider-generic-openid-connect.md)
 * [GitHub](identity-provider-github.md)
-* [ID.me](identity-provider-github.md)
-* [Google](identity-provider-id-me.md)
+* [ID.me](identity-provider-id-me.md)
+* [Google](identity-provider-google.md)
 * [LinkedIn](identity-provider-linkedin.md)
 * [Account Microsoft](identity-provider-microsoft-account.md)
 * [QQ](identity-provider-qq.md)

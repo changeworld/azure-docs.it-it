@@ -4,12 +4,12 @@ description: Informazioni su come gestire gli errori nell'estensione Funzioni pe
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 6650322834d491d78470e2d8dbd24e2c6750ae39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023f9dfcc421935c3f7515e847108925d5e5521e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081696"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673648"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestione degli errori in Funzioni permanenti (Funzioni di Azure)
 
@@ -196,7 +196,11 @@ La chiamata della funzione Activity nell'esempio precedente accetta un parametro
 * **Backoff coefficient** (Coefficiente di backoff): il coefficiente usato per determinare la frequenza di aumento del backoff. Assume il valore predefinito 1.
 * **Max retry interval** (Intervallo massimo tra tentativi): il tempo di attesa massimo tra i tentativi di ripetizione.
 * **Retry timeout** (Timeout tentativi): il tempo massimo a disposizione per i tentativi. Il comportamento predefinito è la ripetizione per un periodo illimitato.
-* **Handle**: è possibile specificare un callback definito dall'utente per determinare se una funzione deve essere ritentata.
+* **Handle**: è possibile specificare un callback definito dall'utente per determinare se una funzione deve essere ritentata. 
+
+> [!NOTE]
+> I callback definiti dall'utente non sono attualmente supportati da Durable Functions in JavaScript ( `context.df.RetryOptions` ).
+
 
 ## <a name="function-timeouts"></a>Timeout delle funzioni
 

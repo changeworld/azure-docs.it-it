@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/5/2020
+ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0b85bbbbd69338f54f9e698d9d47058f78c32057
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630074"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674498"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,7 +25,7 @@ Sono supportate le seguenti versioni di Sincronizzazione file di Azure Agent:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
-| Versione 11.1- [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Supporto per il volo |
+| Versione 11.1- [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Supportato |
 | Versione 10.1- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 giugno 2020 | Supportato |
 | Aggiornamento cumulativo di maggio 2020 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 maggio 2020 | Supportato |
 | Versione 10 - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 aprile 2020 | Supportato |

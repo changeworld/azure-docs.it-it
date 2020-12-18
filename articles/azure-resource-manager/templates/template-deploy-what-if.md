@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563093"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673971"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operazione di simulazione della distribuzione del modello di Resource Manager
 
@@ -396,6 +396,7 @@ Vengono visualizzate le modifiche previste e è possibile confermare che si desi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Se si notano risultati non corretti dall'operazione di simulazione, segnalare i problemi all'indirizzo [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
+- Per un modulo di Microsoft Learn che illustra l'uso di What If, vedere visualizzare [in anteprima le modifiche e convalidare le risorse di Azure con simulazione e il Toolkit di test del modello ARM](/learn/modules/arm-template-test/).
 - Per distribuire i modelli con Azure PowerShell, vedere [distribuire le risorse con i modelli e i Azure PowerShell ARM](deploy-powershell.md).
 - Per distribuire modelli con l'interfaccia della riga di comando di Azure, vedere [distribuire risorse con modelli ARM e l'interfaccia](deploy-cli.md)della riga di comando
 - Per distribuire i modelli con REST, vedere [distribuire le risorse con i modelli ARM e gestione risorse API REST](deploy-rest.md).
