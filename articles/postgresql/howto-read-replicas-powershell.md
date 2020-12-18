@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bacb7a434cfa04dbdfdaf39d9fd3a0baab5f11a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b0a5547928bd7d19343c50e40ab9fcb2c335e893
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489813"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674532"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Come creare e gestire le repliche di lettura nel database di Azure per PostgreSQL con PowerShell
 
@@ -60,7 +60,7 @@ Per creare una replica di lettura tra aree, usare il parametro **location** . Ne
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMariaDServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzPostgreSQLServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md).
@@ -75,15 +75,23 @@ Per impostazione predefinita, le repliche di lettura vengono create con la stess
 Per visualizzare tutte le repliche per un determinato server primario, eseguire il comando seguente:
 
 ```azurepowershell-interactive
-Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
+Get-AzPostgreSQLReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 ```
 
-Il comando `Get-AzMariaDReplica` richiede i parametri seguenti:
+Il comando `Get-AzPostgreSQLReplica` richiede i parametri seguenti:
 
 | Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | ServerName | mydemoserver | Nome o ID del server primario. |
+
+### <a name="stop-a-replica-server"></a>Arrestare un server di replica
+
+L'arresto di un server di replica di lettura promuove la replica di lettura come server indipendente. Questa operazione può essere eseguita eseguendo il `Update-AzPostgreSqlServer` cmdlet e impostando il valore ReplicationRole su `None` .
+
+```azurepowershell-interactive
+Update-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -ReplicationRole None
+```
 
 ### <a name="delete-a-replica-server"></a>Eliminare un server di replica
 

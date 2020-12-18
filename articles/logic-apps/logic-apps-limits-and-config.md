@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: ee314708f0d564bf1af639a3d864ea19472425cf
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 16002d7acf97832f743410a203e2f76e99646c0c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937628"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673359"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -305,12 +305,12 @@ Ogni sottoscrizione di Azure prevede i limiti per l'account di integrazione segu
 
 * 1\.000 account di integrazione in totale, inclusi gli account di integrazione in qualsiasi [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per gli [SKU Developer e Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Ogni ISE, sia [sviluppatore che Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), è limitato a un numero totale di account di integrazione, ma [è possibile aumentare questo limite per un costo aggiuntivo](logic-apps-pricing.md#fixed-pricing):
+* Ogni ISE, sia [sviluppatore che Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), può usare un unico account di integrazione senza costi aggiuntivi, anche se il tipo di account incluso varia in base allo SKU di ISE. È possibile creare altri account di integrazione per ISE fino al limite totale per un [costo aggiuntivo](logic-apps-pricing.md#fixed-pricing):
 
   | SKU ISE | Limiti dell'account di integrazione |
   |---------|----------------------------|
-  | **Premium** | 20 account [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) totali, incluso un account standard gratuito. È possibile avere [più account di integrazione per un costo aggiuntivo](logic-apps-pricing.md#fixed-pricing). Gli account gratuiti o Basic non sono consentiti. |
-  | **Developer** | 20 totale- [gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitato a 1 account) e [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinato o tutti gli account standard. È possibile avere [più account di integrazione per un costo aggiuntivo](logic-apps-pricing.md#fixed-pricing). Gli account Basic non sono consentiti. Usare lo [SKU Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per la sperimentazione, lo sviluppo e il test, ma non per la produzione o il test delle prestazioni. |
+  | **Premium** | 20 account totali, incluso un account standard senza costi aggiuntivi. Con questo SKU, è possibile avere solo account [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) . Gli account gratuiti o Basic non sono consentiti. |
+  | **Developer** | 20 account totali, incluso un account [gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitato a 1). Con questo SKU è possibile avere una combinazione di combinazioni: <p>-Un account gratuito e fino a 19 account [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) . <br>-Nessun account gratuito e un massimo di 20 account standard. <p>Non sono consentiti account di base o aggiuntivi gratuiti. <p><p>**Importante**: usare lo [SKU Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per la sperimentazione, lo sviluppo e il testing, ma non per la produzione o il test delle prestazioni. |
   |||
 
 Per informazioni sul funzionamento dei prezzi e della fatturazione per gli ISE, vedere il [modello di determinazione prezzi di App per la logica](../logic-apps/logic-apps-pricing.md#fixed-pricing). Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -319,8 +319,7 @@ Per informazioni sul funzionamento dei prezzi e della fatturazione per gli ISE, 
 
 ### <a name="artifact-limits-per-integration-account"></a>Limite di elementi per account di integrazione
 
-Ecco i limiti relativi al numero di elementi per ogni livello dell'account di integrazione.
-Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). Per informazioni sul funzionamento dei prezzi e della fatturazione per gli account di integrazione, vedere il [modello di determinazione prezzi di App per la logica](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Ecco i limiti relativi al numero di elementi per ogni livello dell'account di integrazione. Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). Per informazioni sul funzionamento dei prezzi e della fatturazione per gli account di integrazione, vedere il [modello di determinazione prezzi di App per la logica](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
 > Usare il livello gratuito solo per scenari esplorativi, non per scenari di produzione. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).

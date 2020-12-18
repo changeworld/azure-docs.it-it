@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 12/17/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8633ae0d23650eb12ee2e1fdcd355864dfd8b6c3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bfff8d450a6506cb37730838e4f70609080ca7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743633"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670792"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Metodi di autenticazione utilizzo & Insights (anteprima)
 
@@ -31,7 +31,7 @@ I ruoli seguenti possono accedere all'utilizzo e alle informazioni dettagliate:
 - Amministratore della protezione
 - Lettore di report
 
-Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle informazioni dettagliate. Azure AD Multi-Factor Authentication e le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) sono disponibili nel [Azure Active Directory sito dei prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
+ Per accedere all'utilizzo e alle informazioni dettagliate, è necessaria una licenza Azure AD Premium P1 o P2. Azure AD Multi-Factor Authentication e le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) sono disponibili nel [Azure Active Directory sito dei prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Funzionamento
 

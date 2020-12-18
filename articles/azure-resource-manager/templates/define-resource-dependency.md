@@ -2,13 +2,13 @@
 title: Imposta ordine di distribuzione per le risorse
 description: Descrive come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione per garantire che le risorse vengano distribuite nell'ordine corretto.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 933764f1930bd6c9e21d4ccffbde1bb93bbc9613
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255212"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672815"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definire l'ordine per la distribuzione delle risorse nei modelli ARM
 
@@ -150,6 +150,7 @@ Per informazioni sulla valutazione dell'ordine di distribuzione e la risoluzione
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per eseguire un'esercitazione, vedere [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](template-tutorial-create-templates-with-dependent-resources.md).
+* Per un modulo Microsoft Learn che copre le dipendenze delle risorse, vedere [gestire le distribuzioni cloud complesse usando le funzionalità avanzate del modello ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Per suggerimenti sull'impostazione di dipendenze, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
 * Per informazioni sulla risoluzione dei problemi relativi alle dipendenze durante la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
 * Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md).

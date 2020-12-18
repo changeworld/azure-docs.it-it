@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4956d11ea2a4b011a792827357c3f4627058ead9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1f0c94ba6fb9ee5ab019458043095271123e325e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97651991"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671013"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prerequisiti del provisioning cloud di Azure AD Connect
 Questo articolo fornisce indicazioni su come scegliere e usare il provisioning cloud di Azure Active Directory (Azure AD) Connect come soluzione di identità.
@@ -62,14 +62,11 @@ Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes
     > | 12 | 4 GB |
     > | 18 | 5,5 GB|
     > | 28 | PIÙ DI 10 GB|
-    >
-    > 
 
 2. I criteri di esecuzione di PowerShell nel server locale devono essere impostati su Undefined o RemoteSigned.
 
 3. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
-
-   - Assicurarsi che gli agenti possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
+    - Assicurarsi che gli agenti possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
 
       | Numero della porta | Uso |
       | --- | --- |
@@ -78,13 +75,13 @@ Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes
       |**8082**|Obbligatorio per l'installazione e se si desidera configurare l'API di amministrazione.  Questa porta può essere rimossa dopo l'installazione dell'agente e se non si prevede di usare l'API.   |
       | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. |
 
-   - Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
-   - Se il firewall o il proxy consente di specificare suffissi sicuri, aggiungere connessioni a \*.msappproxy.net e \*.servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
-   - Gli agenti devono poter accedere a login.windows.net e login.microsoftonline.net per la registrazione iniziale. Aprire il firewall anche per questi URL.
-   - Per la convalida del certificato, sbloccare questi URL: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www\.microsoft.com:80. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
+    - Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
+    - Se il firewall o il proxy consente di specificare suffissi sicuri, aggiungere connessioni a \*.msappproxy.net e \*.servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
+    - Gli agenti devono poter accedere a login.windows.net e login.microsoftonline.net per la registrazione iniziale. Aprire il firewall anche per questi URL.
+    - Per la convalida del certificato, sbloccare questi URL: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www\.microsoft.com:80. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
->[!NOTE]
-> L'installazione dell'agente di provisioning cloud in Windows Server Core non è supportata.
+    >[!NOTE]
+    > L'installazione dell'agente di provisioning cloud in Windows Server Core non è supportata.
 
 ### <a name="additional-requirements"></a>Requisiti aggiuntivi
 
@@ -92,8 +89,8 @@ Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes
 
 #### <a name="tls-requirements"></a>Requisiti TLS
 
->[!NOTE]
->Transport Layer Security (TLS) è un protocollo che garantisce comunicazioni sicure. Eventuali modifiche alle impostazioni TLS influiscono sull'intera foresta. Per altre informazioni, vedere [Aggiornare per abilitare TLS 1.1 e TLS 1.2 come protocolli di protezione predefiniti in WinHTTP in Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
+> [!NOTE]
+> Transport Layer Security (TLS) è un protocollo che garantisce comunicazioni sicure. Eventuali modifiche alle impostazioni TLS influiscono sull'intera foresta. Per altre informazioni, vedere [Aggiornare per abilitare TLS 1.1 e TLS 1.2 come protocolli di protezione predefiniti in WinHTTP in Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
 
 Nel server Windows che ospita l'agente di provisioning di Azure AD Connect Cloud deve essere abilitato il protocollo TLS 1.2 per poter eseguire l'installazione.
 
@@ -111,6 +108,7 @@ Per abilitare il protocollo TLS 1.2, seguire questa procedura.
 1. Riavviare il server.
 
 ## <a name="known-limitations"></a>Limitazioni note
+
 Di seguito sono riportate le limitazioni note:
 
 ### <a name="delta-synchronization"></a>Sincronizzazione differenziale

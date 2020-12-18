@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951656"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669160"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per l'hint ID token in un Azure Active Directory B2C criteri personalizzati
 
@@ -36,10 +36,10 @@ Il id_token_hint deve essere un token JWT valido. Nella tabella seguente sono el
 
 | Nome | Attestazione | Valore di esempio | Descrizione |
 | ---- | ----- | ------------- | ----------- |
-| Destinatari | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica il destinatario del token. Si tratta di una stringa arbitraria definita dall'emittente del token. Azure AD B2C convalida questo valore e rifiuta il token se non corrisponde.  |
-| Issuer | `iss` |`https://localhost` | Identifica il servizio token di sicurezza (emittente del token). Si tratta di un URI arbitrario definito dall'emittente del token. Azure AD B2C convalida questo valore e rifiuta il token se non corrisponde.  |
-| Scadenza | `exp` | `1600087315` | Ora in cui il token non è più valido, rappresentata dal valore epoch time. Azure AD B2C non convalida questa attestazione. |
-| Non prima | `nbf` | `1599482515` | L’ora in cui il token diventa valido, rappresentata dal valore epoch time. Equivale in genere all'ora di rilascio del token. Azure AD B2C non convalida questa attestazione. |
+| Destinatari | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica il destinatario del token. Il gruppo di destinatari è una stringa arbitraria definita dall'emittente del token. Azure AD B2C convalida questo valore e rifiuta il token se non corrisponde.  |
+| Issuer | `iss` |`https://localhost` | Identifica il servizio token di sicurezza (emittente del token). L'emittente è un URI arbitrario definito dall'emittente del token. Azure AD B2C convalida questo valore e rifiuta il token se non corrisponde.  |
+| Scadenza | `exp` | `1600087315` | Ora in cui il token non è più valido, rappresentata dal valore epoch time. Azure AD B2C convalida questo valore e rifiuta il token se il token è scaduto.|
+| Non prima | `nbf` | `1599482515` | L’ora in cui il token diventa valido, rappresentata dal valore epoch time. Equivale in genere all'ora di rilascio del token. Azure AD B2C convalida questo valore e rifiuta il token se la durata del token non è valida. |
 
  Il token seguente è un esempio di token ID valido:
 
@@ -82,24 +82,24 @@ L'elemento **OutputClaims** contiene un elenco di attestazioni da estrarre dal t
 
 Quando si utilizza una chiave simmetrica, i metadati seguenti sono rilevanti. 
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | autorità di certificazione | Sì | Identifica il servizio token di sicurezza (emittente del token). Questo valore deve essere identico all' `iss` attestazione nell'attestazione del token JWT. | 
-| IdTokenAudience | Sì | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione con l'attestazione del token JWT. | 
+| IdTokenAudience | Sì | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione nell'attestazione del token JWT. | 
 
 Quando si utilizza una chiave asimmetrica, i metadati seguenti sono rilevanti. 
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | METADATI| Sì | URL che punta a un documento di configurazione dell'emittente del token, noto anche come endpoint di configurazione OpenID noto.   |
 | autorità di certificazione | No | Identifica il servizio token di sicurezza (emittente del token). Questo valore può essere usato per sovrascrivere il valore configurato nei metadati e deve essere identico all' `iss` attestazione nell'attestazione del token JWT. |  
-| IdTokenAudience | No | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione con l'attestazione del token JWT. |  
+| IdTokenAudience | No | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione nell'attestazione del token JWT. |  
 
 ## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
 Quando si usa una chiave simmetrica, l'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | client_secret | Sì | Chiave crittografica utilizzata per convalidare la firma del token JWT.|
 
@@ -272,7 +272,7 @@ Per gli approcci simmetrici e asimmetrici, il `id_token_hint` profilo tecnico vi
     </RelyingParty>
     ```
 
-A seconda dei requisiti aziendali, potrebbe essere necessario aggiungere convalide di token, ad esempio per controllare la scadenza del token, il formato dell'indirizzo di posta elettronica e altro ancora. A tale scopo, aggiungere i passaggi dell'orchestrazione che richiamano un [profilo tecnico della trasformazione delle attestazioni](claims-transformation-technical-profile.md). Aggiungere inoltre un [profilo tecnico autocertificato](self-asserted-technical-profile.md) per presentare un messaggio di errore. 
+A seconda dei requisiti aziendali, potrebbe essere necessario aggiungere convalide di token, ad esempio verificare il formato dell'indirizzo di posta elettronica. A tale scopo, aggiungere i passaggi dell'orchestrazione che richiamano un [profilo tecnico della trasformazione delle attestazioni](claims-transformation-technical-profile.md). Aggiungere inoltre un [profilo tecnico autocertificato](self-asserted-technical-profile.md) per presentare un messaggio di errore. 
 
 ### <a name="create-and-sign-a-token"></a>Creare e firmare un token
 

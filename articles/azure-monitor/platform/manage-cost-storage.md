@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/22/2020
+ms.date: 12/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 99375abbf8e9749712b878ea35c9bc034bedbc5e
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: a3a4c7a51f0d75b67465a83a2fbbf3ae8a141c4c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616145"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671166"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -78,7 +78,7 @@ I costi di Log Analytics vengono addebitati nella fattura di Azure. È possibile
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Visualizzazione dell'utilizzo di Log Analytics nella fattura di Azure 
 
-Azure fornisce una grande quantità di funzionalità utili nell'hub [Gestione dei costi e fatturazione](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Ad esempio, la funzionalità di analisi dei costi consente di visualizzare le spese per le risorse di Azure. In primo luogo, aggiungere un filtro in base a "tipo di risorsa" (a microsoft.operationalinsights/workspace per Log Analytics e microsoft.operationalinsights/workspace per i cluster Log Analytics) che consentirà di tenere traccia della spesa di Log Analytics. Quindi, per "Raggruppa per", selezionare "Categoria del contatore" o "Contatore".  Si noti che anche altri servizi, ad esempio Centro sicurezza di Azure e Azure Sentinel, fatturano l'utilizzo a fronte di risorse dell'area di lavoro Log Analytics. Per visualizzare il mapping al nome del servizio, è possibile selezionare la visualizzazione Tabella anziché un grafico. 
+Azure fornisce una grande quantità di funzionalità utili nell'hub [Gestione dei costi e fatturazione](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Ad esempio, la funzionalità di analisi dei costi consente di visualizzare le spese per le risorse di Azure. In primo luogo, aggiungere un filtro in base a "tipo di risorsa" (a Microsoft. operationalinsights/Workspace per Log Analytics e Microsoft. operationalinsights/cluster per i cluster Log Analytics) consente di tenere traccia del Log Analytics spesa. Quindi, per "Raggruppa per", selezionare "Categoria del contatore" o "Contatore".  Si noti che anche altri servizi, ad esempio Centro sicurezza di Azure e Azure Sentinel, fatturano l'utilizzo a fronte di risorse dell'area di lavoro Log Analytics. Per visualizzare il mapping al nome del servizio, è possibile selezionare la visualizzazione Tabella anziché un grafico. 
 
 Una maggiore comprensione dell'utilizzo può essere ottenuta [scaricando l'utilizzo dal portale di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Nel foglio di calcolo scaricato è possibile visualizzare l'utilizzo per ogni risorsa di Azure (ad esempio area di lavoro Log Analytics) al giorno. In questo foglio di calcolo di Excel, l'utilizzo delle aree di lavoro Log Analytics è disponibile filtrando prima la colonna "Categoria del contatore" per visualizzare "Log Analytics", "Informazioni dettagliate e analisi" (usati da alcuni piani tariffari legacy) e "Monitoraggio di Azure" (usato dai piani tariffari per la prenotazione della capacità), quindi aggiungendo un filtro sulla colonna "ID istanza" del tipo "contiene area di lavoro" o "contiene cluster" (il secondo per includere l’utilizzo del cluster di Log Analytics). L'utilizzo viene visualizzato nella colonna "Quantità utilizzata" e l'unità per ogni voce viene visualizzata nella colonna "Unità di misura".  Maggiori dettagli sono disponibili in [Comprendere la fattura di Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
@@ -150,7 +150,7 @@ Il periodo di conservazione può essere anche [impostato tramite Azure Resource 
 
 Le aree di lavoro con conservazione di 30 giorni possono effettivamente conservare i dati per 31 giorni. Se è fondamentale che i dati vengano conservati solo per 30 giorni, utilizzare il Azure Resource Manager per impostare la conservazione su 30 giorni e con il `immediatePurgeDataOn30Days` parametro.  
 
-Per `Usage` `AzureActivity` impostazione predefinita, i due tipi di dati sono conservati per un minimo di 90 giorni e non è previsto alcun addebito per questo periodo di conservazione di 90 giorni. Se la conservazione dell'area di lavoro viene aumentata oltre 90 giorni, viene anche aumentata la conservazione di questi tipi di dati.  Anche per questi tipi di dati non sono previsti addebiti per l'inserimento di dati. 
+Due tipi di dati, `Usage` e `AzureActivity`, vengono conservati per un minimo di 90 giorni per impostazione predefinita e non è previsto alcun addebito per il periodo di conservazione di 90 giorni. Se la conservazione dell'area di lavoro viene aumentata oltre 90 giorni, viene anche aumentata la conservazione di questi tipi di dati.  Anche per questi tipi di dati non sono previsti addebiti per l'inserimento di dati. 
 
 Anche i tipi di dati delle risorse Application Insights basate sull'area di lavoro (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` e `AppTraces`) vengono conservati per 90 giorni per impostazione predefinita e non è previsto alcun addebito per un periodo di conservazione di 90 giorni. La conservazione può essere regolata usando la funzionalità di conservazione per tipo di dati. 
 
@@ -216,7 +216,7 @@ Non appena viene raggiunto il limite giornaliero, la raccolta di tipi di dati fa
 > Il limite giornaliero non può arrestare la raccolta dati esattamente come il livello di estremità specificato e sono previsti alcuni dati in eccesso, in particolare se l'area di lavoro riceve volumi elevati di dati. Vedere di [seguito](#view-the-effect-of-the-daily-cap) per una query utile per studiare il comportamento del limite giornaliero. 
 
 > [!WARNING]
-> Il limite giornaliero non interrompe la raccolta di dati da Azure segnale o dal centro sicurezza di Azure, tranne per le aree di lavoro in cui il Centro sicurezza di Azure è stato installato prima del 19 giugno 2017. 
+> Il limite giornaliero non interrompe la raccolta dei tipi di dati inclusi nel [Centro sicurezza di Azure per ogni singolo nodo](#log-analytics-and-security-center) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update e UpdateSummary), fatta eccezione per le aree di lavoro in cui il Centro sicurezza di Azure è stato installato prima del 19 giugno 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire
 
@@ -266,7 +266,7 @@ Per iniziare, di seguito sono riportate le impostazioni consigliate per l'avviso
 - Nome regola di avviso: Soglia dei dati giornaliera raggiunta
 - Gravità: Avviso (Gravità 1)
 
-Una volta definito l'avviso e raggiunto il limite, viene attivato un avviso e viene eseguita la risposta definita nel gruppo di azioni. È possibile informare il team tramite posta elettronica e SMS oppure automatizzare le operazioni usando webhook o runbook di Automazione oppure tramite l'[integrazione con una soluzione di Gestione dei servizi IT esterna](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts). 
+Una volta definito l'avviso e raggiunto il limite, viene attivato un avviso e viene eseguita la risposta definita nel gruppo di azioni. È possibile informare il team tramite posta elettronica e SMS oppure automatizzare le operazioni usando webhook o runbook di Automazione oppure tramite l'[integrazione con una soluzione di Gestione dei servizi IT esterna](itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Risoluzione dei problemi che determinano un utilizzo superiore al previsto
 

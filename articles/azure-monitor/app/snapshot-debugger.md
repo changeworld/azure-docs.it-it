@@ -4,13 +4,15 @@ description: Gli snapshot di debug vengono raccolti automaticamente quando vengo
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
+author: cweining
+ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5913f5fa8d45e6bf92d6132468e0e3bf7a121c65
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530234"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673519"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Il Snapshot Debugger in [applicazione Azure Insights](./app-insights-overview.md) monitora i dati di telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](./asp-net-exceptions.md) nel portale di Application Insights.
@@ -47,7 +49,7 @@ L'accesso agli snapshot è protetto dal controllo degli accessi in base al ruolo
 I proprietari di sottoscrizione devono assegnare il ruolo `Application Insights Snapshot Debugger` agli utenti che ispezioneranno gli snapshot. Questo ruolo può essere assegnato a singoli utenti o gruppi dai proprietari della sottoscrizione per la risorsa di Application Insights di destinazione oppure per il gruppo di risorse o la sottoscrizione di tale risorsa.
 
 1. Passare alla risorsa di Application Insights nel portale di Azure.
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 1. Fare clic sul pulsante **+Aggiungi un'assegnazione di ruolo**.
 1. Selezionare **Snapshot Debugger di Azure Application Insights** nell'elenco a discesa **Ruoli**.
 1. Cercare e immettere un nome per l'utente da aggiungere.

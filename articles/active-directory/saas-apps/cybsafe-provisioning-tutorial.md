@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 92329a3fa04d3cc685ba5068e9e5ae9932d1eb4d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178943"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673377"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Esercitazione: configurare CybSafe per il provisioning utenti automatico
 
@@ -135,15 +135,15 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 13. Per abilitare il servizio di provisioning Azure AD per CybSafe, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
-    ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
+      ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
 14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in CybSafe selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
-    ![Ambito di provisioning](common/provisioning-scope.png)
+      ![Ambito di provisioning](common/provisioning-scope.png)
 
 15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
-    ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
+      ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
 L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni**. Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
 

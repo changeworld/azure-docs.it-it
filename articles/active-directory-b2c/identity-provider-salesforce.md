@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0d8b90e18865afeb5cb0c171d21c89d7c6e932f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 69c2bd96c7aa3bb3328784bb3b5027ade4902c43
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654286"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669228"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Salesforce usando Azure Active Directory B2C
 
@@ -39,7 +39,9 @@ ms.locfileid: "97654286"
 
 Per usare un account Salesforce in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in Salesforce **App Manager**. Per altre informazioni, vedere [configurare le impostazioni dell'app connessa di base](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)e [abilitare le impostazioni OAuth per l'integrazione delle API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
-1. Dal **programma** di installazione **immettere app** nella casella **ricerca veloce** e selezionare **App Manager**.
+1. [Eseguire l'accesso a Salesforce](https://login.salesforce.com/).
+1. Dal menu selezionare **installazione**.
+1.  Espandere **app**, quindi selezionare **App Manager**.
 1. Selezionare **nuova app connessa**.
 1. In **informazioni di base** immettere:
     1. **Nome dell'app connessa** : il nome dell'app connessa viene visualizzato in App Manager e nel riquadro di avvio dell'app. Il nome deve essere univoco all'interno dell'organizzazione. 

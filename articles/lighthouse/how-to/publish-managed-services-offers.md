@@ -1,14 +1,14 @@
 ---
 title: Pubblicare un'offerta di servizio gestito in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che carica i clienti nel Faro di Azure.
-ms.date: 08/18/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a003e671631e9f23654eb524c7c2d937339a9588
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023926"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673155"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure Marketplace
 
@@ -18,7 +18,7 @@ In questo articolo si apprenderà come pubblicare un'offerta di servizio gestito
 
 Per creare e pubblicare le offerte, è necessario disporre di un [account valido nel centro](../../marketplace/partner-center-portal/create-account.md) per i partner. Se non si dispone già di un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) consentirà di creare un account nel centro per i partner e di iscriversi al programma Commercial Marketplace.
 
-In base ai [requisiti di certificazione dell'offerta del servizio gestito](/legal/marketplace/certification-policies#7004-business-requirements), è necessario disporre di un livello di competenza della [piattaforma Cloud Silver o Gold](/partner-center/learn-about-competencies) oppure essere un [msp esperto di Azure](https://partner.microsoft.com/membership/azure-expert-msp) per pubblicare un'offerta di servizio gestito.
+In base ai [requisiti di certificazione dell'offerta del servizio gestito](/legal/marketplace/certification-policies#7004-business-requirements), è necessario disporre di un livello di competenza della [piattaforma Cloud Silver o Gold](/partner-center/learn-about-competencies) oppure essere un [msp esperto di Azure](https://partner.microsoft.com/membership/azure-expert-msp) per pubblicare un'offerta di servizio gestito. È anche necessario [immettere una destinazione lead che creerà un record nel sistema CRM](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) ogni volta che un cliente distribuisce l'offerta.
 
 L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](../../cost-management-billing/manage/link-partner-id.md) alle offerte pubblicate per tenere traccia dell'impatto sugli engagement dei clienti.
 

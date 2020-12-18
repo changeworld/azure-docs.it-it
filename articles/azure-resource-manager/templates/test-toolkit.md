@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928189"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674013"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Usare ARM template test Toolkit
 
@@ -22,7 +22,7 @@ Questo articolo descrive come eseguire il Toolkit di test e come aggiungere o ri
 
 Il Toolkit è un set di script di PowerShell che può essere eseguito da un comando in PowerShell o CLI.
 
-## <a name="install-on-windows"></a>Installare in Windows
+## <a name="install-on-windows"></a>Eseguire l'installazione in Windows
 
 1. Se non si dispone già di PowerShell, [installare PowerShell in Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
@@ -282,4 +282,5 @@ Nell'esempio seguente viene illustrato come eseguire i test.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sui test predefiniti, vedere [test case predefiniti per ARM template test Toolkit](test-cases.md).
+- Per informazioni sui test predefiniti, vedere [test case predefiniti per ARM template test Toolkit](test-cases.md).
+- Per un modulo Microsoft Learn che illustra l'uso del Toolkit di test, vedere visualizzare [in anteprima le modifiche e convalidare le risorse di Azure usando simulazione di simulazione e il Toolkit di test del modello ARM](/learn/modules/arm-template-test/).

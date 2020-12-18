@@ -3,12 +3,12 @@ title: Risorse senza limite di 800 conteggi
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: c2d5797a7ec354f41d510ec6e884968bf9dbdbcd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913501"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672365"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
 
@@ -81,7 +81,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-* Labs/virtualMachines: per impostazione predefinita, limitato a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
+* Labs/virtualMachines: per impostazione predefinita, limitato a 800 istanze. 
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph

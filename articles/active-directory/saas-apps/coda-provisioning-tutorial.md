@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: ea2f25d6b03f002448079b16bd261729807d8a03
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8df1588a78829252d55f82349d6889c754c989e6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179701"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673227"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Esercitazione: Configurare Coda per il provisioning utenti automatico
 
@@ -93,7 +93,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **Credenziali amministratore** immettere l'URL tenant e il token segreto di Coda recuperati in precedenza al passaggio 2. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Coda. Se la connessione non riesce, verificare che l'account Coda abbia autorizzazioni di amministratore e riprovare.
 
-    ![Screenshot che mostra la finestra di dialogo Credenziali amministratore, in cui è possibile immettere l'URL del tenant e il token segreto.](./media/coda-provisioning-tutorial/provisioning.png)
+     ![Screenshot che mostra la finestra di dialogo Credenziali amministratore, in cui è possibile immettere l'URL del tenant e il token segreto.](./media/coda-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 

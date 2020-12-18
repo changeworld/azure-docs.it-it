@@ -2,13 +2,13 @@
 title: Distribuire più istanze di risorse
 description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager (modello ARM) per distribuire il tipo di risorsa molte volte.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 7a894ee6a31a43dd8da3d84d88276824c6bbc9f7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905911"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672832"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
 
@@ -281,7 +281,7 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più istanze di una risorsa o proprietà.
 
-|Modello  |Description  |
+|Modello  |Descrizione  |
 |---------|---------|
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |
@@ -292,10 +292,9 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più ista
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
+* Per un modulo Microsoft Learn che copre la copia delle risorse, vedere [gestire le distribuzioni cloud complesse usando le funzionalità avanzate del modello ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Per altri usi dell'elemento Copy, vedere:
   * [Iterazione delle proprietà nei modelli ARM](copy-properties.md)
   * [Iterazione delle variabili nei modelli ARM](copy-variables.md)
   * [Iterazione di output nei modelli ARM](copy-outputs.md)
 * Per informazioni sull'uso di Copy con i modelli annidati, vedere [uso di Copy](linked-templates.md#using-copy).
-* Per informazioni sulle sezioni di un modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
-* Per informazioni su come distribuire il modello, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](deploy-powershell.md).

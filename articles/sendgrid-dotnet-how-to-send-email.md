@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 66bec9635af696d0ce1cf9d7dcad8c26a1ef23ad
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e605e162e4639a876cc5b6d763e81fdd7ff93aa8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652365"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674549"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Come inviare messaggi di posta elettronica usando SendGrid con Azure
 ## <a name="overview"></a>Panoramica
@@ -258,10 +258,10 @@ Negli esempi seguenti vengono illustrati i filtri per abilitare il piè di pagin
 ### <a name="footer-settings"></a>Impostazioni del piè di pagina
 
 ```csharp
-msg.SetFooterSetting(
-                     true,
-                     "Some Footer HTML",
-                     "<strong>Some Footer Text</strong>");
+    msg.SetFooterSetting(
+        true,
+        "Some Footer HTML",
+        "<strong>Some Footer Text</strong>");
 ```
 
 ### <a name="click-tracking"></a>Monitoraggio dei clic

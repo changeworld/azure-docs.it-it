@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b9a79ee32d7a81fee64e40b85272877b7d87589
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450103"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674199"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -32,26 +32,26 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 
 ### <a name="windows-agents"></a>Agenti di Windows
 
-| | Agente di monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (WAD) | Log Analytics<br>agente | Dipendenza<br>agente |
+| | Agente di Monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (WAD) | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|
 | **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Azure Arc)  | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
-| **Requisiti dell'agente**  | Nessuno | Nessuno | Nessuno | Richiede Log Analytics Agent |
+| **Requisiti dell'agente**  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | Log eventi<br>Prestazioni | Log eventi<br>eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Metriche di Monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
 | **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
 
 ### <a name="linux-agents"></a>Agenti Linux
 
-| | Agente di monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dipendenza<br>agente |
+| | Agente di Monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|:---|
 | **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Arc Arc) | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
-| **Requisiti dell'agente**  | Nessuno | Nessuno | Nessuno | Nessuno | Richiede Log Analytics Agent |
+| **Requisiti dell'agente**  | nessuno | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | syslog<br>Prestazioni | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Hub eventi | Metriche di Monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
 | **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
 
 
-## <a name="azure-monitor-agent-preview"></a>Agente di monitoraggio di Azure (anteprima)
+## <a name="azure-monitor-agent-preview"></a>Agente di Monitoraggio di Azure (anteprima)
 L' [agente di monitoraggio di Azure](azure-monitor-agent-overview.md) è attualmente in versione di anteprima e sostituirà l'agente di log Analytics e l'agente di Telegraf per le macchine virtuali Windows e Linux. Può inviare dati ai log di monitoraggio di Azure e alle metriche di monitoraggio di Azure e USA [le regole di raccolta dati (DCR)](data-collection-rule-overview.md) che forniscono un metodo più scalabile per la configurazione della raccolta dati e delle destinazioni per ogni agente.
 
 Usare l'agente di monitoraggio di Azure se è necessario:
@@ -169,6 +169,7 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
+| Oracle Linux 8                                           |   | X |   |   |
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           |   | X |   |   |
 | Oracle Linux 6.4+                                        |   | X |   | X |

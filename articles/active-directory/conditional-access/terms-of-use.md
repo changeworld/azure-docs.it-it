@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 399cbef4de91623ada1c38de7c6148d22fde94c7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653725"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672401"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -74,11 +74,11 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 1. Accedere ad Azure come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
 1. Passare a **Condizioni per l'utilizzo** all'indirizzo [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Accesso condizionale-pannello Condizioni per l'utilizzo](./media/terms-of-use/tou-blade.png)
+    ![Accesso condizionale-pannello Condizioni per l'utilizzo](./media/terms-of-use/tou-blade.png)
 
 1. Fare clic su **Nuove condizioni**.
 
-   ![Nuovo termine del riquadro utilizzo per specificare le impostazioni delle condizioni per l'utilizzo](./media/terms-of-use/new-tou.png)
+    ![Nuovo termine del riquadro utilizzo per specificare le impostazioni delle condizioni per l'utilizzo](./media/terms-of-use/new-tou.png)
 
 1. Nella casella **nome** immettere un nome per le condizioni per l'utilizzo che verranno utilizzate nel portale di Azure.
 1. Nella casella **Nome visualizzato** immettere un titolo visualizzato dagli utenti quando eseguono l'accesso.
@@ -88,7 +88,7 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 1. Per richiedere agli utenti finali di accettare le condizioni per l'utilizzo in ogni dispositivo da cui accedono, impostare **Richiedi agli utenti di fornire il consenso su ogni dispositivo** **.** Se questa opzione è abilitata, agli utenti potrebbe essere richiesto di installare applicazioni aggiuntive. Per altre informazioni, vedere [condizioni per l'utilizzo per ogni dispositivo](#per-device-terms-of-use).
 1. Se si desidera impostare come scaduti le condizioni per l'utilizzo in base a una pianificazione, impostare la **scadenza consentita** su **on**. Se si imposta su On, vengono visualizzate due impostazioni aggiuntive di pianificazione.
 
-   ![Impostazioni di scadenza consentite per impostare la data di inizio, la frequenza e la durata](./media/terms-of-use/expire-consents.png)
+    ![Impostazioni di scadenza consentite per impostare la data di inizio, la frequenza e la durata](./media/terms-of-use/expire-consents.png)
 
 1. Utilizzare le impostazioni **scadenza inizio** e **frequenza** per specificare la pianificazione per le condizioni per l'utilizzo delle scadenze. La tabella seguente illustra il risultato di un paio di impostazioni di esempio:
 
@@ -115,7 +115,7 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
 1. In **accesso condizionale** usare l'elenco **applica con i modelli di criteri di accesso condizionale** per selezionare il modello per applicare le condizioni per l'utilizzo.
 
-   ![Elenco a discesa accesso condizionale per selezionare un modello di criteri](./media/terms-of-use/conditional-access-templates.png)
+    ![Elenco a discesa accesso condizionale per selezionare un modello di criteri](./media/terms-of-use/conditional-access-templates.png)
 
    | Modello | Descrizione |
    | --- | --- |
@@ -131,7 +131,7 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
 1. Fare clic su **Crea**.
 
-   Se è stato selezionato un modello di accesso condizionale personalizzato, viene visualizzata una nuova schermata che consente di creare i criteri di accesso condizionale personalizzato.
+    Se è stato selezionato un modello di accesso condizionale personalizzato, viene visualizzata una nuova schermata che consente di creare i criteri di accesso condizionale personalizzato.
 
    ![Nuovo riquadro accesso condizionale se è stato scelto il modello di criteri di accesso condizionale personalizzato](./media/terms-of-use/custom-policy.png)
 
@@ -145,15 +145,15 @@ Nel pannello delle condizioni per l'utilizzo è visualizzato il numero di utenti
 
 1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Pannello Condizioni per l'utilizzo che elenca il numero di show utente accettati e rifiutati](./media/terms-of-use/view-tou.png)
+    ![Pannello Condizioni per l'utilizzo che elenca il numero di show utente accettati e rifiutati](./media/terms-of-use/view-tou.png)
 
 1. Per le condizioni per l'utilizzo, fare clic sui numeri in **accettato** o **rifiutato** per visualizzare lo stato corrente degli utenti.
 
-   ![Condizioni per l'utilizzo riquadro consentiti in cui sono elencati gli utenti che hanno accettato](./media/terms-of-use/accepted-tou.png)
+    ![Condizioni per l'utilizzo riquadro consentiti in cui sono elencati gli utenti che hanno accettato](./media/terms-of-use/accepted-tou.png)
 
 1. Per visualizzare la cronologia per un singolo utente, fare clic sui puntini di sospensione (**...**) e quindi **Visualizza cronologia**.
 
-   ![Menu di scelta rapida Visualizza cronologia per un utente](./media/terms-of-use/view-history-menu.png)
+    ![Menu di scelta rapida Visualizza cronologia per un utente](./media/terms-of-use/view-history-menu.png)
 
    Nel riquadro di visualizzazione della cronologia, si visualizza una cronologia di tutte le accettazioni, i rifiuti e le scadenze.
 
@@ -169,11 +169,11 @@ Per iniziare a usare i log di controllo di Azure AD, seguire questa procedura:
 1. Selezionare le condizioni per l'utilizzo.
 1. Fare clic su **Visualizza log di controllo**.
 
-   ![Pannello Condizioni per l'utilizzo con l'opzione Visualizza log di controllo evidenziata](./media/terms-of-use/audit-tou.png)
+    ![Pannello Condizioni per l'utilizzo con l'opzione Visualizza log di controllo evidenziata](./media/terms-of-use/audit-tou.png)
 
 1. Nella schermata dei log di controllo di Azure AD è possibile filtrare le informazioni usando i menu a discesa per visualizzare informazioni specifiche dei log di controllo.
 
-   È inoltre possibile fare clic su **Download** per scaricare le informazioni in un file con estensione CSV per l'uso in locale.
+    È inoltre possibile fare clic su **Download** per scaricare le informazioni in un file con estensione CSV per l'uso in locale.
 
    ![Schermata dei log di controllo Azure AD elenco di date, criteri di destinazione, avviati da e attività](./media/terms-of-use/audit-logs-tou.png)
 
@@ -204,11 +204,11 @@ Gli utenti possono esaminare e visualizzare le condizioni per l'utilizzo accetta
 1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Nell'angolo superiore destro fare clic sul proprio nome e selezionare **Profilo**.
 
-   ![Sito app con il riquadro dell'utente aperto](./media/terms-of-use/tou14.png)
+    ![Sito app con il riquadro dell'utente aperto](./media/terms-of-use/tou14.png)
 
 1. Nella pagina Profilo fare clic su **Verificare le condizioni d'uso**.
 
-   ![Pagina del profilo per un utente che Visualizza il collegamento controlla le condizioni per l'utilizzo](./media/terms-of-use/tou13a.png)
+    ![Pagina del profilo per un utente che Visualizza il collegamento controlla le condizioni per l'utilizzo](./media/terms-of-use/tou13a.png)
 
 1. Sarà quindi possibile verificare le condizioni per l'utilizzo accettate.
 
@@ -220,11 +220,11 @@ Gli utenti possono esaminare e visualizzare le condizioni per l'utilizzo accetta
 1. Selezionare le condizioni per l'utilizzo che si desidera modificare.
 1. Fare clic su **Modifica le condizioni**.
 1. Nel riquadro Modifica condizioni per l'utilizzo è possibile modificare gli elementi seguenti:
-     - **Nome** : nome interno delle condizioni non condivise con gli utenti finali
-     - **Nome visualizzato** : questo è il nome che gli utenti finali possono visualizzare quando si visualizzano le condizioni
-     - **Richiedi agli utenti di espandere le condizioni** per l'utilizzo. Se si imposta questa opzione **su on** , l'utilizzo finale verrà forzato per espandere il documento relativo alle condizioni per l'utilizzo prima di accettarlo.
-     - Anteprima È possibile **aggiornare un documento sulle condizioni per l'utilizzo esistente**
-     - È possibile aggiungere una lingua a una ToU esistente
+    - **Nome** : nome interno delle condizioni non condivise con gli utenti finali
+    - **Nome visualizzato** : questo è il nome che gli utenti finali possono visualizzare quando si visualizzano le condizioni
+    - **Richiedi agli utenti di espandere le condizioni** per l'utilizzo. Se si imposta questa opzione **su on** , l'utilizzo finale verrà forzato per espandere il documento relativo alle condizioni per l'utilizzo prima di accettarlo.
+    - Anteprima È possibile **aggiornare un documento sulle condizioni per l'utilizzo esistente**
+    - È possibile aggiungere una lingua a una ToU esistente
 
    Se sono presenti altre impostazioni che si desidera modificare, ad esempio il documento PDF, richiedere agli utenti di fornire il consenso su ogni dispositivo, scadenza dei consensi, durata prima della riaccettazione o criteri di accesso condizionale, è necessario creare nuove condizioni per l'utilizzo.
 
@@ -279,7 +279,7 @@ Nella procedura riportata di seguito viene descritto come aggiungere un linguagg
 1. Fare clic su **Aggiungi lingua** nella parte inferiore della pagina.
 1. Nel riquadro Aggiungi la lingua delle condizioni per l'utilizzo caricare il PDF localizzato e selezionare la lingua.
 
-   ![Condizioni per l'utilizzo selezionata e visualizzata la scheda lingue nel riquadro dei dettagli](./media/terms-of-use/select-language.png)
+    ![Condizioni per l'utilizzo selezionata e visualizzata la scheda lingue nel riquadro dei dettagli](./media/terms-of-use/select-language.png)
 
 1. Fare clic su **Aggiungi lingua**.
 1. Fare clic su **Save** (Salva).
@@ -340,7 +340,7 @@ Per eliminare le condizioni per l'utilizzo precedenti, è possibile utilizzare l
 1. Fare clic su **Elimina le condizioni**.
 1. Nel messaggio visualizzato in cui viene chiesto se si vuole continuare fare clic su **Sì**.
 
-   ![Messaggio in cui viene chiesto di confermare l'eliminazione delle condizioni per l'utilizzo](./media/terms-of-use/delete-tou.png)
+    ![Messaggio in cui viene chiesto di confermare l'eliminazione delle condizioni per l'utilizzo](./media/terms-of-use/delete-tou.png)
 
    Non è più possibile visualizzare le condizioni per l'utilizzo.
 

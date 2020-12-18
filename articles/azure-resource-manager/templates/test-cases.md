@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600905"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674043"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Test case predefiniti per ARM template test Toolkit
 
@@ -693,4 +693,5 @@ L'esempio seguente ha **esito negativo** perché usa una funzione [List *](templ
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sull'esecuzione del Toolkit di test, vedere [use ARM template test Toolkit](test-toolkit.md).
+- Per informazioni sull'esecuzione del Toolkit di test, vedere [use ARM template test Toolkit](test-toolkit.md).
+- Per un modulo Microsoft Learn che illustra l'uso del Toolkit di test, vedere visualizzare [in anteprima le modifiche e convalidare le risorse di Azure usando simulazione di simulazione e il Toolkit di test del modello ARM](/learn/modules/arm-template-test/).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632035"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673440"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Esercitazione: configurare BizAgi Studio per l'automazione dei processi digitali per il provisioning utenti automatico
 
@@ -117,7 +117,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Screenshot delle opzioni di posta elettronica di notifica.](common/provisioning-notification-email.png)
 
-7. Selezionare **Salva**.
+7. Selezionare **Save** (Salva).
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a BizAgi Studio per l'automazione dei processi digitali**.
 
@@ -139,6 +139,8 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    Altre informazioni su come aggiungere attributi personalizzati sono disponibili in [personalizzare gli attributi dell'applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
+> [!NOTE]
+> Sono supportate solo le proprietà di base del tipo, ad esempio String, Integer, Boolean, DateTime e così via. Le proprietà collegate a tabelle parametriche o a più tipi non sono ancora supportate.
 
 10. Per configurare i filtri di ambito, vedere l'esercitazione relativa al [filtro di ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

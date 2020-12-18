@@ -5,15 +5,15 @@ description: Per informazioni, vedere come eseguire una query sul grafico gemell
 author: baanders
 ms.author: baanders
 ms.date: 11/19/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 966b87dfb3111d7a112ea99f37dee730495d491f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: df7462cf047dd113c34669d9a5f68f2589cc50f4
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032831"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672994"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
