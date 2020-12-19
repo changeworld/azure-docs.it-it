@@ -54,7 +54,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Sì | L'attestazione da usare come attestazione dell'identità dell'utente all'interno dei codici di autorizzazione OAuth2 e dei token di aggiornamento. Per impostazione predefinita, è necessario impostare su `objectId`, a meno che non si specifichi un tipo di attestazione SubjectNamingInfo diverso. |
 | SendTokenResponseBodyWithJsonNumbers | No | Sempre impostato su `true`. Per il formato legacy in cui i valori numerici vengono forniti sotto forma di stringhe anziché di numeri JSON, impostare su `false`. Questo attributo è necessario per i client che hanno acquisito una dipendenza su un'implementazione precedente che ha restituito tali proprietà sotto forma di stringhe. |
@@ -71,7 +71,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 
 L'elemento CryptographicKeys contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | issuer_secret | Sì | Il certificato X509 (set di chiavi RSA) da usare per firmare il token JWT. Questa è la `B2C_1A_TokenSigningKeyContainer` chiave configurata in [Introduzione ai criteri personalizzati](custom-policy-get-started.md). |
 | issuer_refresh_token_key | Sì | Il certificato X509 (set di chiavi RSA) da usare per crittografare il token di aggiornamento. È stata configurata la chiave `B2C_1A_TokenEncryptionKeyContainer` in [Introduzione ai criteri personalizzati](custom-policy-get-started.md) |
