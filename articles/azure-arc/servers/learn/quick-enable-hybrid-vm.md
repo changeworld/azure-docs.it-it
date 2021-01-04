@@ -2,13 +2,13 @@
 title: Connettere un computer ibrido con server abilitati per Azure Arc
 description: Informazioni su come connettere e registrare un computer ibrido con server abilitati per Azure Arc.
 ms.topic: quickstart
-ms.date: 11/12/2020
-ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/15/2020
+ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576841"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516781"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Avvio rapido: Connettere un computer ibrido con server abilitati per Azure Arc
 
@@ -29,6 +29,9 @@ I [server abilitati per Azure Arc](../overview.md) consentono di gestire e regol
     * Se la macchina si connette tramite un firewall o un server proxy per comunicare su Internet, verificare che gli URL [elencati](../agent-overview.md#networking-configuration) non siano bloccati.
 
     * I server abilitati per Azure Arc supportano solo le aree specificate [qui](../overview.md#supported-regions).
+
+> [!WARNING]
+> Il nome host Linux o il nome computer Windows non può contenere una delle parole riservate o dei marchi registrati, altrimenti la registrazione del computer connesso con Azure non riuscirà. Per un elenco delle parole riservate, vedere [Risolvere gli errori relativi ai nomi riservati delle risorse](../../../azure-resource-manager/templates/error-reserved-resource-name.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 

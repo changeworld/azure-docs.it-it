@@ -1,14 +1,14 @@
 ---
 title: Informazioni su Azure Lighthouse
 description: Azure Lighthouse consente ai provider di servizi di offrire servizi gestiti ai clienti con maggiore automazione ed efficienza su larga scala.
-ms.date: 11/12/2020
+ms.date: 12/10/2020
 ms.topic: overview
-ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bef6107878f36e02a896b3c38b8913ebb50169a7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528823"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356362"
 ---
 # <a name="what-is-azure-lighthouse"></a>Informazioni su Azure Lighthouse
 
@@ -45,3 +45,4 @@ Azure Lighthouse include più modi per semplificare l'engagement e la gestione:
 - Informazioni sulla [gestione risorse delegate di Azure](concepts/azure-delegated-resource-management.md).
 - Esplorare le [esperienze di gestione tra tenant](concepts/cross-tenant-management-experience.md).
 - Vedere come [usare Azure Lighthouse all'interno di un'azienda](concepts/enterprise.md).
+- Visualizzare i dettagli sulla [disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) e l'[ambito di controllo FedRAMP e DoD CC SRG](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) per Azure Lighthouse.

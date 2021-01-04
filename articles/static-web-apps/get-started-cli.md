@@ -1,20 +1,20 @@
 ---
-title: "Avvio rapido: Creazione della prima app Web statica con App Web statiche di Azure usando l'interfaccia della riga di comando di Azure"
-description: Informazioni su come creare un'istanza di App Web statiche di Azure con l'interfaccia della riga di comando per App Web statiche di Azure.
+title: "Avvio rapido: Creazione del primo sito statico con App Web statiche di Azure usando l'interfaccia della riga di comando"
+description: Informazioni su come distribuire un sito statico in App Web statiche di Azure con l'interfaccia della riga di comando di Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ca05194c0d8e63290a9cab8d9f7903daa192069b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320335"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030349"
 ---
-# <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Avvio rapido: Creazione della prima app Web statica con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Avvio rapido: Creazione del primo sito statico con l'interfaccia della riga di comando di Azure
 
 App Web statiche di Azure consente di pubblicare un sito Web in un ambiente di produzione creando app da un repository GitHub. In questa guida di avvio rapido si distribuisce un'applicazione Web in App Web statiche di Azure usando l'interfaccia della riga di comando di Azure.
 

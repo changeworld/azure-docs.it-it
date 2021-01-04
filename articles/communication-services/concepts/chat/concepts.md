@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 077500e0188d1cc20864d436a2e2fd711b180702
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886023"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560237"
 ---
 # <a name="chat-concepts"></a>Concetti sulle chat
 
@@ -46,7 +46,8 @@ L'architettura della chat è costituita da due parti principali: 1) servizio att
 
 La chat di Servizi di comunicazione condivide i messaggi generati dall'utente e quelli generati dal sistema, detti **attività del thread**. Le attività del thread vengono generate quando un thread di chat viene aggiornato. Quando si chiama `List Messages` o `Get Messages` su un thread di chat, il risultato conterrà sia i messaggi di testo generati dall'utente che i messaggi di sistema, in ordine cronologico. In questo modo è più facile identificare il momento in cui un membro è stato aggiunto o rimosso o in cui l'argomento del thread di chat è stato aggiornato. I tipi di messaggi supportati sono:  
 
- - `Text`: messaggio effettivo composto e inviato da un utente nell'ambito di una conversazione di chat. 
+ - `Text`: messaggio di testo normale composto e inviato da un utente nell'ambito di una conversazione di chat. 
+ - `RichText/HTML`: messaggio di testo formattato. Tenere presente che attualmente gli utenti di Servizi di comunicazione non possono inviare messaggi in formato RTF. Questo tipo di messaggio è supportato per i messaggi inviati da utenti di Teams a utenti di Servizi di comunicazione in scenari di interoperabilità di Teams.
  - `ThreadActivity/AddMember`: messaggio di sistema che indica che uno o più membri sono stati aggiunti al thread di chat. Ad esempio:
 
 ```xml
@@ -92,6 +93,30 @@ La chat di Servizi di comunicazione condivide i messaggi generati dall'utente e 
 
 ```
 
+- `ThreadActivity/MemberJoined`: messaggio di sistema generato quando un utente guest viene aggiunto alla chat della riunione di Teams. Gli utenti di Servizi di comunicazione possono partecipare come utenti guest alle chat delle riunioni di Teams. Ad esempio:  
+```xml
+{ 
+  "id": "1606351443605", 
+  "type": "ThreadActivity/MemberJoined", 
+  "version": "1606347753409", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
+  "createdOn": "2020-11-29T00:44:03.6950000Z" 
+} 
+```
+- `ThreadActivity/MemberLeft`: messaggio di sistema generato quando un utente guest esce dalla chat della riunione. Gli utenti di Servizi di comunicazione possono partecipare come utenti guest alle chat delle riunioni di Teams. Ad esempio: 
+```xml
+{ 
+  "id": "1606347703429", 
+  "type": "ThreadActivity/MemberLeft", 
+  "version": "1606340753429", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
+  "createdOn": "2020-11-29T23:42:33.4290000Z" 
+} 
+```
 - `ThreadActivity/TopicUpdate`: messaggio di sistema che indica che l'argomento è stato aggiornato. Ad esempio:
 
 ```xml

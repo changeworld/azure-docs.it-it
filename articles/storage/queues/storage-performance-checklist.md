@@ -1,58 +1,60 @@
 ---
-title: Elenco di controllo di prestazioni e scalabilità di archiviazione code - Archiviazione di Azure
-description: Un elenco di controllo delle procedure consolidate per l'uso con l'archiviazione code nello sviluppo di applicazioni ad elevate prestazioni.
-services: storage
+title: Elenco di controllo per le prestazioni e la scalabilità di Archiviazione code - Archiviazione di Azure
+description: Elenco di controllo delle procedure consolidate per l'uso con Archiviazione code nello sviluppo di applicazioni ad elevate prestazioni.
 author: tamram
-ms.service: storage
-ms.topic: overview
-ms.date: 10/10/2019
+services: storage
 ms.author: tamram
+ms.date: 10/10/2019
+ms.topic: overview
+ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4040a81d5b509ddbdd355953e28721a7c9fccfb8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345755"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585667"
 ---
-# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Elenco di controllo di prestazioni e scalabilità di archiviazione code
+<!-- docutune:casing "Timeout and Server Busy errors" -->
 
-Un elenco di controllo delle procedure consolidate per l'uso con archiviazione code nello sviluppo di applicazioni ad elevate prestazioni. Questo elenco di controllo identifica le procedure chiave che gli sviluppatori possono seguire per ottimizzare le prestazioni. Tenere presenti queste procedure durante la progettazione dell'applicazione e dell'intero processo.
+# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Elenco di controllo per le prestazioni e la scalabilità di Archiviazione code
 
-Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la frequenza di transazioni e la larghezza di banda. Per altre informazioni sugli obiettivi di scalabilità di Archiviazione di Azure, vedere [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) e [Obiettivi di scalabilità e prestazioni per l'archiviazione code](scalability-targets.md).
+Microsoft ha creato una serie di procedure consolidate per lo sviluppo di applicazioni ad elevate prestazioni con Archiviazione code. Questo elenco di controllo identifica le procedure chiave che gli sviluppatori possono seguire per ottimizzare le prestazioni. Tenere presenti queste procedure durante la progettazione dell'applicazione e dell'intero processo.
+
+Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la frequenza di transazioni e la larghezza di banda. Per altre informazioni sugli obiettivi di scalabilità di Archiviazione di Azure, vedere [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) e [Obiettivi di scalabilità e prestazioni per Archiviazione code](scalability-targets.md).
 
 ## <a name="checklist"></a>Elenco di controllo
 
-Questo articolo organizza procedure consolidate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo dell'applicazione di archiviazione code.
+Questo articolo organizza le procedure consolidate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo di un'applicazione di archiviazione code.
 
 | Operazione completata | Category | Considerazioni sulla progettazione |
-| --- | --- | --- |
-| &nbsp; |Obiettivi di scalabilità |[È possibile progettare l'applicazione in modo da non eccedere il numero massimo di account di archiviazione?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Obiettivi di scalabilità |[Si sta evitando il raggiungimento dei limiti di capacità e transazioni?](#capacity-and-transaction-targets) |
-| &nbsp; |Rete |[I dispositivi sul lato client hanno una larghezza di banda sufficientemente alta e una latenza sufficientemente bassa per raggiungere le prestazioni richieste?](#throughput) |
-| &nbsp; |Rete |[I dispositivi sul lato client hanno un collegamento di qualità elevata?](#link-quality) |
-| &nbsp; |Rete |[L'applicazione client si trova nella stessa area dell'account di archiviazione?](#location) |
-| &nbsp; |Accesso client diretto |[Si usano le firme di accesso condiviso e la condivisione di risorse tra le origini per abilitare l'accesso diretto ad Archiviazione di Azure?](#sas-and-cors) |
-| &nbsp; |Configurazione .NET |[Si usa .NET Core 2.1 o versione successiva per ottenere prestazioni ottimali?](#use-net-core) |
-| &nbsp; |Configurazione .NET |[Il client è stato configurato per usare un numero sufficiente di connessioni simultanee?](#increase-default-connection-limit) |
-| &nbsp; |Configurazione .NET |[Per le applicazioni .NET, è stato configurato l'uso di un numero sufficiente di thread?](#increase-minimum-number-of-threads) |
-| &nbsp; |Parallelismo |[È stata verificata la corretta associazione del parallelismo in modo da non sovraccaricare le capacità del client o raggiungere gli obiettivi di scalabilità?](#unbounded-parallelism) |
-| &nbsp; |Strumenti |[Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#client-libraries-and-tools) |
-| &nbsp; |Tentativi |[Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#timeout-and-server-busy-errors) |
-| &nbsp; |Tentativi |[L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#non-retryable-errors) |
-| &nbsp; |Configurazione |[L'algoritmo Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#disable-nagle) |
-| &nbsp; |Dimensioni dei messaggi |[I messaggi vengono compattati per migliorare le prestazioni della coda?](#message-size) |
-| &nbsp; |Recupero bulk |[Si stanno recuperando più messaggi con un'unica operazione GET?](#batch-retrieval) |
-| &nbsp; |Frequenza di polling |[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#queue-polling-interval) |
-| &nbsp; |Aggiornamento del messaggio |[Si sta usando l'operazione Aggiornamento del messaggio per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#use-update-message) |
-| &nbsp; |Architecture |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#application-architecture) |
+|--|--|--|
+| &nbsp; | Obiettivi di scalabilità | [È possibile progettare l'applicazione in modo da non eccedere il numero massimo di account di archiviazione?](#maximum-number-of-storage-accounts) |
+| &nbsp; | Obiettivi di scalabilità | [Si sta evitando il raggiungimento dei limiti di capacità e transazioni?](#capacity-and-transaction-targets) |
+| &nbsp; | Rete | [I dispositivi sul lato client hanno una larghezza di banda sufficientemente alta e una latenza sufficientemente bassa per raggiungere le prestazioni richieste?](#throughput) |
+| &nbsp; | Rete | [I dispositivi sul lato client hanno un collegamento di qualità elevata?](#link-quality) |
+| &nbsp; | Rete | [L'applicazione client si trova nella stessa area dell'account di archiviazione?](#location) |
+| &nbsp; | Accesso client diretto | [Si usano le firme di accesso condiviso e la condivisione di risorse tra le origini per abilitare l'accesso diretto ad Archiviazione di Azure?](#sas-and-cors) |
+| &nbsp; | Configurazione .NET | [Si usa .NET Core 2.1 o versione successiva per ottenere prestazioni ottimali?](#use-net-core) |
+| &nbsp; | Configurazione .NET | [Il client è stato configurato per usare un numero sufficiente di connessioni simultanee?](#increase-default-connection-limit) |
+| &nbsp; | Configurazione .NET | [Per le applicazioni .NET, è stato configurato l'uso di un numero sufficiente di thread?](#increase-the-minimum-number-of-threads) |
+| &nbsp; | Parallelismo | [È stata verificata la corretta associazione del parallelismo in modo da non sovraccaricare le capacità del client o raggiungere gli obiettivi di scalabilità?](#unbounded-parallelism) |
+| &nbsp; | Strumenti | [Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#client-libraries-and-tools) |
+| &nbsp; | Tentativi | [Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#timeout-and-server-busy-errors) |
+| &nbsp; | Tentativi | [L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#non-retryable-errors) |
+| &nbsp; | Configurazione | [L'algoritmo di Nagle è stato disattivato per migliorare le prestazioni delle richieste di piccole dimensioni?](#disable-nagles-algorithm) |
+| &nbsp; | Dimensioni dei messaggi | [I messaggi vengono compattati per migliorare le prestazioni della coda?](#message-size) |
+| &nbsp; | Recupero bulk | [Si stanno recuperando più messaggi con un'unica operazione GET?](#batch-retrieval) |
+| &nbsp; | Frequenza di polling | [Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#queue-polling-interval) |
+| &nbsp; | Messaggio di aggiornamento | [Si sta eseguendo un'operazione di aggiornamento del messaggio per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#perform-an-update-message-operation) |
+| &nbsp; | Architecture | [Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#application-architecture) |
 
 ## <a name="scalability-targets"></a>Obiettivi di scalabilità
 
-Se l'applicazione raggiunge o supera uno o più obiettivi di scalabilità, può verificarsi un aumento delle latenze o delle limitazioni della transazione. Quando Archiviazione di Azure limita l'applicazione, il servizio inizia a restituire i codici di errore "503 Server occupato" o "500 Timeout operazione". Evitare questi errori rispettando i limiti degli obiettivi di scalabilità è una parte importante del miglioramento delle prestazioni dell'applicazione.
+Se l'applicazione raggiunge o supera uno o più obiettivi di scalabilità, può verificarsi un aumento delle latenze o delle limitazioni della transazione. Quando Archiviazione di Azure limita l'applicazione, il servizio inizia a restituire i codici di errore 503 (`Server Busy`) o 500 (`Operation Timeout`). Evitare questi errori rispettando i limiti degli obiettivi di scalabilità è una parte importante del miglioramento delle prestazioni dell'applicazione.
 
-Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accodamento, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](./scalability-targets.md#scale-targets-for-queue-storage).
+Per altre informazioni sugli obiettivi di scalabilità per Archiviazione code, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Numero massimo di account di archiviazione
 
@@ -66,7 +68,7 @@ Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo 
 - Esaminare di nuovo il carico di lavoro che causa il raggiungimento o il superamento dell'obiettivo di scalabilità da parte dell'applicazione. È possibile progettarlo in modo diverso in modo che usi una quantità minore di larghezza di banda o capacità o un minor numero di transazioni?
 - Se l'applicazione deve superare uno degli obiettivi di scalabilità, creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Gli stessi account di archiviazione non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
 - Se l'applicazione sta raggiungendo gli obiettivi di larghezza di banda, valutare la compressione dei dati sul lato client per ridurre la larghezza di banda necessaria a inviare i dati ad Archiviazione di Azure. La compressione dei dati, pur consentendo di risparmiare larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi sulle prestazioni. Valutare gli effetti sulle prestazioni dei requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati sul lato client. Tenere presente che l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati usando gli strumenti standard.
-- Se l'applicazione sta raggiungendo gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi. È consigliabile provare a evitare di raggiungere gli obiettivi di scalabilità implementando i consigli descritti in questo articolo. Tuttavia, l'uso di un backoff esponenziale per i tentativi impedisce all'applicazione di ritentare rapidamente, il che potrebbe peggiorare la limitazione delle richieste. Per altre informazioni, vedere la sezione intitolata [Errori di timeout e server occupato](#timeout-and-server-busy-errors).
+- Se l'applicazione sta raggiungendo gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi. È consigliabile provare a evitare di raggiungere gli obiettivi di scalabilità implementando i consigli descritti in questo articolo. Tuttavia, l'uso di un backoff esponenziale per i tentativi impedisce all'applicazione di ritentare rapidamente, il che potrebbe peggiorare la limitazione delle richieste. Per altre informazioni, vedere la sezione [Errori di timeout e server occupato](#timeout-and-server-busy-errors).
 
 ## <a name="networking"></a>Rete
 
@@ -78,17 +80,17 @@ La larghezza di banda e la qualità del collegamento di rete svolgono ruoli impo
 
 #### <a name="throughput"></a>Velocità effettiva
 
-Per la larghezza di banda il problema dipende spesso dalle capacità del client. Le istanze di Azure più grandi possono avere schede di interfaccia di rete con capacità più elevate ed è quindi opportuno prendere in considerazione l'uso di un'istanza più grande o di più macchine virtuali se è necessario che un singolo computer abbia limiti di rete più elevati. Se si accede ad Archiviazione di Azure da un'applicazione locale, si applica la stessa regola: comprendere le capacità di rete del dispositivo client e la connettività di rete della posizione di archiviazione di Azure, quindi aumentarle in base alle esigenze o progettare l'applicazione in modo che funzioni con i limiti di capacità disponibili.
+Per la larghezza di banda il problema dipende spesso dalle capacità del client. Le istanze di Azure più grandi possono avere schede di interfaccia di rete con capacità più elevate ed è quindi opportuno prendere in considerazione l'uso di un'istanza più grande o di più macchine virtuali se è necessario che un singolo computer abbia limiti di rete più elevati. La stessa regola vale se si accede ad Archiviazione di Azure da un'applicazione locale: comprendere le capacità di rete del dispositivo client e la connettività di rete alla posizione di Archiviazione di Azure, quindi aumentarle in base alle esigenze o progettare l'applicazione in modo che funzioni con i limiti di capacità disponibili.
 
 #### <a name="link-quality"></a>Qualità del collegamento
 
-Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva. L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.
+Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva. L'uso di WireShark o Network Monitor può aiutare a diagnosticare il problema.
 
 ### <a name="location"></a>Location
 
-In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un'app Web di Azure che usa Archiviazione di Azure, posizionare entrambi in un'unica area, ad esempio Stati Uniti occidentali o Asia sudorientale. Il posizionamento delle risorse nella stessa area riduce latenza e costi, in quanto l'utilizzo della larghezza di banda in un'unica area è gratuito.
+In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un'app Web di Azure che usa Archiviazione di Azure, posizionare entrambi in un'unica area, ad esempio Stati Uniti occidentali o Asia sud-orientale. Il posizionamento delle risorse nella stessa area riduce latenza e costi, in quanto l'utilizzo della larghezza di banda in un'unica area è gratuito.
 
-Anche se le applicazioni client hanno accesso ad Archiviazione di Azure ma non sono ospitate in Azure, ad esempio app di dispositivi mobili o servizi aziendali locali, la latenza viene ridotta se si posiziona l'account di archiviazione in un'area vicina a tali client. Se i client sono distribuiti in un'area ampia (ad esempio, alcuni in America del Nord e altri in Europa), è opportuno usare un account di archiviazione per ogni area. Questo approccio è più semplice da implementare se i dati archiviati dall'applicazione sono specifici di singoli utenti e non richiedono la replica tra gli account di archiviazione.
+Se le applicazioni client hanno accesso ad Archiviazione di Azure ma non sono ospitate in Azure, come nel caso di app per dispositivi mobili o servizi aziendali locali, il posizionamento dell'account di archiviazione in un'area vicina a tali client può ridurre la latenza. Se i client sono distribuiti in un'area ampia (ad esempio, alcuni in America del Nord e altri in Europa), è opportuno usare un account di archiviazione per ogni area. Questo approccio è più semplice da implementare se i dati archiviati dall'applicazione sono specifici di singoli utenti e non richiedono la replica tra gli account di archiviazione.
 
 ## <a name="sas-and-cors"></a>SAS e CORS
 
@@ -104,7 +106,7 @@ Entrambe le tecnologie SAS e CORS possono aiutare a evitare carichi non necessar
 
 ## <a name="net-configuration"></a>Configurazione .NET
 
-Se si usa .NET Framework, in questa sezione vengono elencate diverse impostazioni di configurazione rapide che è possibile usare per migliorare significativamente le prestazioni. Se si usano altri linguaggi, controllare se esistono procedure simili per il linguaggio prescelto.
+Se si usa .NET Framework, in questa sezione vengono elencate diverse impostazioni di configurazione rapide che è possibile usare per migliorare significativamente le prestazioni. Se si usano altri linguaggi, verificare se esistono procedure simili per il linguaggio scelto.
 
 ### <a name="use-net-core"></a>Usare .NET Core
 
@@ -127,9 +129,9 @@ Impostare il limite di connessione prima di aprire le connessioni.
 
 Per gli altri linguaggi di programmazione, vedere la documentazione specifica per determinare come impostare il limite di connessione.
 
-Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](/archive/blogs/darrenj/web-services-concurrent-connections).
+Per altre informazioni, vedere il post di blog [Servizi Web: connessioni simultanee](/archive/blogs/darrenj/web-services-concurrent-connections).
 
-### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
+### <a name="increase-the-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 
 Se si usano chiamate sincrone insieme ad attività asincrone, può essere opportuno aumentare il numero di thread nel pool di thread:
 
@@ -137,7 +139,7 @@ Se si usano chiamate sincrone insieme ad attività asincrone, può essere opport
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Per altre informazioni, vedere il metodo [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).
+Per altre informazioni, vedere il metodo [`ThreadPool.SetMinThreads`](/dotnet/api/system.threading.threadpool.setminthreads).
 
 ## <a name="unbounded-parallelism"></a>Parallelismo non associato
 
@@ -153,19 +155,19 @@ Archiviazione di Azure restituisce un errore quando il servizio non riesce a ela
 
 ### <a name="timeout-and-server-busy-errors"></a>Errori di timeout e server occupato
 
-Archiviazione di Azure può limitare l'applicazione se raggiunge i limiti di scalabilità. In alcuni casi, Archiviazione di Azure potrebbe non riuscire a gestire una richiesta a causa di una condizione temporanea. In entrambi i casi, il servizio può restituire un errore 503 (Server occupato) o 500 (Timeout). Questi errori possono verificarsi anche se il servizio esegue il ribilanciamento delle partizioni di dati per consentire una maggiore velocità effettiva. L'applicazione client in genere deve ripetere l'operazione che ha causato uno di questi errori. Tuttavia, se Archiviazione di Azure sta limitando l'applicazione perché supera gli obiettivi di scalabilità o non riesce a completare la richiesta per altri motivi, la ripetizione dei tentativi non farebbe che peggiorare il problema. È consigliabile l'uso di criteri di ripetizione del backoff esponenziale, ovvero il comportamento predefinito nelle librerie client. Ad esempio, l'applicazione può riprovare l'operazione dopo 2 secondi, 4 secondi, 10 secondi, 30 secondi, dopo di che non effettua altri tentativi. Piuttosto che peggiorare il problema, in questo modo si riduce notevolmente il carico dell'applicazione sul servizio che potrebbe condurre alla limitazione della larghezza di banda della rete.
+Archiviazione di Azure può limitare l'applicazione se raggiunge i limiti di scalabilità. In alcuni casi, Archiviazione di Azure potrebbe non riuscire a gestire una richiesta a causa di una condizione temporanea. In entrambi i casi il servizio può restituire un errore 503 (`Server Busy`) o 500 (`Timeout`). Questi errori possono verificarsi anche se il servizio esegue il ribilanciamento delle partizioni di dati per consentire una maggiore velocità effettiva. L'applicazione client in genere deve ripetere l'operazione che ha causato uno di questi errori. Tuttavia, se Archiviazione di Azure sta limitando l'applicazione perché supera gli obiettivi di scalabilità o non riesce a completare la richiesta per altri motivi, la ripetizione dei tentativi non farebbe che peggiorare il problema. È consigliabile l'uso di criteri di ripetizione del backoff esponenziale, ovvero il comportamento predefinito nelle librerie client. Ad esempio, l'applicazione può riprovare l'operazione dopo 2 secondi, 4 secondi, 10 secondi, 30 secondi, dopo di che non effettua altri tentativi. Piuttosto che peggiorare il problema, in questo modo si riduce notevolmente il carico dell'applicazione sul servizio che potrebbe condurre alla limitazione della larghezza di banda della rete.
 
 I nuovi tentativi relativi a errori di connettività possono essere eseguiti immediatamente perché non dipendono dalle limitazioni e sono considerati temporanei.
 
 ### <a name="non-retryable-errors"></a>Errori irreversibili
 
-Le librerie client gestiscono i tentativi con la consapevolezza degli errori che possono essere ritentati e quelli che non possono. Tuttavia, se si chiama direttamente l'API REST di Archiviazione di Azure, ci sono alcuni errori che non è consigliabile riprovare. Ad esempio, un errore 400 (Richiesta non valida) indica che l'applicazione client ha inviato una richiesta che non è stata elaborata perché non è nel formato previsto. Un nuovo invio di questa richiesta genera sempre la stessa risposta, quindi è inutile riprovare. Tuttavia, se si chiama direttamente l'API REST di Archiviazione di Azure, ci sono alcuni errori che non è consigliabile riprovare.
+Le librerie client gestiscono i tentativi con la consapevolezza degli errori che possono essere ritentati e quelli che non possono. Tuttavia, se si chiama direttamente l'API REST di Archiviazione di Azure, ci sono alcuni errori che non è consigliabile riprovare. Ad esempio, un errore 400 (`Bad Request`) indica che l'applicazione client ha inviato una richiesta che non è stata elaborata perché non è nel formato previsto. Un nuovo invio di questa richiesta genera sempre la stessa risposta, quindi è inutile riprovare. Tuttavia, se si chiama direttamente l'API REST di Archiviazione di Azure, ci sono alcuni errori che non è consigliabile riprovare.
 
 Per altre informazioni sui codici di errore di Archiviazione di Azure, vedere [Stato e codici errore](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="disable-nagle"></a>Disabilitare Nagle
+## <a name="disable-nagles-algorithm"></a>Disabilitare l'algoritmo di Nagle
 
-L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). L'algoritmo Nagle ha un impatto negativo sulle prestazioni delle richieste al servizio tabelle di Azure e, se possibile, dovrebbe essere disabilitato.
+L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). L'algoritmo di Nagle ha un impatto negativo sulle prestazioni delle richieste ad Archiviazione tabelle di Azure e, se possibile, dovrebbe essere disabilitato.
 
 ## <a name="message-size"></a>Dimensioni dei messaggi
 
@@ -173,7 +175,7 @@ Le prestazioni e la scalabilità della coda diminuiscono con l'aumentare delle d
 
 ## <a name="batch-retrieval"></a>Recupero in batch
 
-È possibile recuperare fino a 32 messaggi da una coda in una singola operazione. Il recupero in batch può ridurre il numero di round trip dall'applicazione client, particolarmente utile per gli ambienti con latenza elevata, come i dispositivi mobili.
+È possibile recuperare fino a 32 messaggi da una coda in una singola operazione. Il recupero in batch può ridurre il numero di round trip dall'applicazione client, cosa particolarmente utile per gli ambienti con latenza elevata, come i dispositivi mobili.
 
 ## <a name="queue-polling-interval"></a>Intervallo di polling della coda
 
@@ -181,9 +183,9 @@ La maggior parte delle applicazioni esegue il polling dei messaggi da una coda, 
 
 Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="use-update-message"></a>Usare Aggiornamento del messaggio
+## <a name="perform-an-update-message-operation"></a>Eseguire un'operazione di aggiornamento del messaggio
 
-È possibile usare l'operazione **Aggiornamento del messaggio** per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. L'uso di **Aggiornamento del messaggio** può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. L'applicazione può salvare lo stato del processo nel messaggio e continuare il lavoro invece di riaccodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio. Occorre ricordare che ogni operazione **Aggiornamento del messaggio** viene presa in considerazione per il calcolo dell'obiettivo di scalabilità.
+È possibile eseguire un'operazione di aggiornamento del messaggio per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. Questo approccio può essere più efficiente rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. L'applicazione può salvare lo stato del processo nel messaggio e continuare il lavoro invece di riaccodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio. Tenere presente che ogni operazione di aggiornamento del messaggio viene presa in considerazione per il calcolo della soglia di scalabilità.
 
 ## <a name="application-architecture"></a>Architettura dell'applicazione
 

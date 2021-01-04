@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 99be6dc42a9b644166054d61e88a1e0ac329d2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854724"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589159"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Creare una pipeline CI/CD per .NET con Azure DevOps Starter
 
@@ -66,9 +66,9 @@ DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una 
 
 DevOps Starter ha creato un repository Git in Azure Repos o in GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
 
-1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo **master**. Questo collegamento apre una visualizzazione del repository Git appena creato.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo **principale**. Questo collegamento apre una visualizzazione del repository Git appena creato.
 
-2. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo **master**. È anche possibile clonare il repository Git nel proprio ambiente IDE preferito selezionando **Clona** nella parte superiore destra della pagina del repository. 
+2. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo **principale**. È anche possibile clonare il repository Git nel proprio ambiente IDE preferito selezionando **Clona** nella parte superiore destra della pagina del repository. 
 
 3. A sinistra, passare nella struttura dei file dell'applicazione a **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 

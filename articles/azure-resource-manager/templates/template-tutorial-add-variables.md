@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 46ed1fc55a108bf80089d249abc58bc5d1a6479a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930729"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106955"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Esercitazione: Aggiungere variabili al modello di Azure Resource Manager
 
@@ -37,17 +37,17 @@ Nell'esempio seguente sono evidenziate le modifiche per aggiungere al modello un
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-Si noti che include una variabile denominata **uniqueStorageName**. Questa variabile usa quattro funzioni per costruire un valore stringa.
+Si noti che include una variabile denominata `uniqueStorageName`. Questa variabile usa quattro funzioni per costruire un valore stringa.
 
 La funzione [parameters](template-functions-deployment.md#parameters) è già nota, quindi non verrà esaminata.
 
-Anche la funzione [resourceGroup](template-functions-resource.md#resourcegroup) è già nota. In questo caso, si ottiene la proprietà **id** invece della proprietà **location**, come illustrato nell'esercitazione precedente. La proprietà **id** restituisce l'identificatore completo del gruppo di risorse, inclusi l'ID sottoscrizione e il nome del gruppo di risorse.
+Anche la funzione [resourceGroup](template-functions-resource.md#resourcegroup) è già nota. In questo caso, si ottiene la proprietà `id` invece della proprietà `location`, come illustrato nell'esercitazione precedente. La proprietà `id` restituisce l'identificatore completo del gruppo di risorse, inclusi l'ID sottoscrizione e il nome del gruppo di risorse.
 
 La funzione [uniqueString](template-functions-string.md#uniquestring) crea un valore hash di 13 caratteri. Il valore restituito dipende dai parametri passati. Per questa esercitazione come input per il valore hash si userà l'ID del gruppo di risorse. Questo significa che è possibile distribuire questo modello in più gruppi di risorse e ottenere un valore stringa univoco diverso. Si ottiene però lo stesso valore se si esegue la distribuzione nello stesso gruppo di risorse.
 
-La funzione [concat](template-functions-string.md#concat) accetta i valori e li combina. Per questa variabile accetta la stringa dal parametro e la stringa dalla funzione uniqueString e le combina in un'unica stringa.
+La funzione [concat](template-functions-string.md#concat) accetta i valori e li combina. Per questa variabile accetta la stringa dal parametro e la stringa dalla funzione `uniqueString` e le combina in un'unica stringa.
 
-Il parametro **storagePrefix** consente di passare un prefisso per facilitare l'identificazione degli account di archiviazione. È possibile creare una convenzione di denominazione personalizzata per agevolare l'identificazione degli account di archiviazione dopo la distribuzione da un lungo elenco di risorse.
+Il parametro `storagePrefix` consente di passare un prefisso per facilitare l'identificazione degli account di archiviazione. È possibile creare una convenzione di denominazione personalizzata per agevolare l'identificazione degli account di archiviazione dopo la distribuzione da un lungo elenco di risorse.
 
 Si noti infine che il nome dell'account di archiviazione è ora impostato sulla variabile e non su un parametro.
 
@@ -55,7 +55,7 @@ Si noti infine che il nome dell'account di archiviazione è ora impostato sulla 
 
 A questo punto è possibile distribuire il modello. La distribuzione di questo modello è più semplice rispetto ai modelli precedenti perché viene specificato solo il prefisso del nome dell'account di archiviazione.
 
-Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
+Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile `templateFile` sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -83,7 +83,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

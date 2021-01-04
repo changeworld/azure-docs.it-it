@@ -3,25 +3,29 @@ title: Protocollo di estensione gRPC - Azure
 description: Questo articolo illustra come usare il protocollo di estensione gRPC per inviare messaggi tra il modulo Analisi video live e un'estensione personalizzata di intelligenza artificiale o visione artificiale.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 288dcd1a11c7c42d8796d3b17f2bfd56f562aaf1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7f21ff358b8dd5ac540de8c39c37c52e98977e59
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89448071"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401628"
 ---
 # <a name="grpc-extension-protocol"></a>Protocollo di estensione gRPC
 
+Analisi video live in IoT Edge consente di estendere le funzionalità di elaborazione del grafo multimediale tramite un [nodo di estensione del grafo](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Se si usa il processore di estensione gRPC come nodo di estensione, la comunicazione tra il modulo di Analisi video live e il modulo di intelligenza artificiale o visione artificiale avviene tramite il protocollo strutturato a elevate prestazioni basato su gRPC.
+
 Questo articolo illustra come usare il protocollo di estensione gRPC per inviare messaggi tra il modulo Analisi video live e un'estensione personalizzata di intelligenza artificiale o visione artificiale.
 
-gRPC è un framework RPC moderno, open source e a prestazioni elevate, eseguibile in qualsiasi ambiente. Il servizio di trasporto gRPC usa lo streaming bidirezionale HTTP/2 tra:
+gRPC è un framework RPC moderno, open source e a prestazioni elevate che può essere eseguito in qualsiasi ambiente e supporta la comunicazione tra più piattaforme e tra più linguaggi. Il servizio di trasporto gRPC usa lo streaming bidirezionale HTTP/2 tra:
 
 * Client gRPC (Analisi video live nel modulo di IoT Edge) e 
 * Server gRPC (estensione personalizzata)
 
 Una sessione gRPC è una singola connessione dal client gRPC al server gRPC sulla porta TCP/TLS. 
 
-In una singola sessione: il client invia un descrittore di flusso multimediale seguito da fotogrammi video al server come messaggio [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) nella sessione di streaming gRPC. Il server convalida il descrittore di flussi, analizza il fotogramma video e restituisce i risultati delle inferenze come messaggio protobuf.
+In una singola sessione: il client invia un descrittore di flusso multimediale seguito da fotogrammi video al server come messaggio [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) nella sessione di streaming gRPC. Il server convalida il descrittore di flussi, analizza il fotogramma video e restituisce i risultati delle inferenze come messaggio protobuf. 
+
+Per la restituzione delle risposte è vivamente consigliato l'uso di documenti JSON validi conformi allo schema prestabilito definito in base al [modello a oggetti dello schema dei metadati di inferenza](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). In questo modo si garantisce una migliore interoperabilità con altri componenti e con possibili funzionalità future aggiunte al modulo Analisi video live.
 
 ![Contratto dell'estensione gRPC](./media/grpc-extension-protocol/grpc.png)
 
@@ -32,9 +36,10 @@ In una singola sessione: il client invia un descrittore di flusso multimediale s
 L'estensione personalizzata deve implementare il servizio gRPC seguente:
 
 ```
-service MediaGraphExtension {
-  rpc ProcessMediaStream(stream MediaStreamMessage) returns (stream MediaStreamMessage);
-}
+service MediaGraphExtension
+    {
+        rpc ProcessMediaStream(stream MediaStreamMessage) returns (stream MediaStreamMessage);
+    }
 ```
 
 Dopo la chiamata, verrà aperto un flusso bidirezionale per la trasmissione dei messaggi tra l'estensione gRPC e il grafico di Analisi video live. Il primo messaggio inviato in questo flusso da ogni parte conterrà un valore MediaStreamDescriptor, che definisce le informazioni che verranno inviate nei MediaSamples seguenti.
@@ -45,18 +50,23 @@ Dopo la chiamata, verrà aperto un flusso bidirezionale per la trasmissione dei 
  {
     "sequence_number": 1,
     "ack_sequence_number": 0,
-    "media_stream_descriptor": {
-        "graph_identifier": {
+    "media_stream_descriptor": 
+    {
+        "graph_identifier": 
+        {
             "media_services_arm_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/microsoft.media/mediaservices/mediaAccountName",
             "graph_instance_name": "mediaGraphName",
             "graph_node_name": "grpcExtension"
         },
-        "media_descriptor": {
+        "media_descriptor": 
+        {
             "timescale": 90000,
-            "video_frame_sample_format": {
+            "video_frame_sample_format": 
+            {
                 "encoding": "RAW",
                 "pixel_format": "RGB24",
-                "dimensions": {
+                "dimensions": 
+                {
                     "width": 416,
                     "height": 416
                 },
@@ -73,13 +83,17 @@ L'estensione personalizzata invierà quindi come risposta il messaggio seguente,
 {
     "sequence_number": 1,
     "ack_sequence_number": 1,
-    "media_stream_descriptor": {
-        "extension_identifier": "customExtensionName"    }
+    "media_stream_descriptor": 
+    {
+        "extension_identifier": "customExtensionName"    
+    }
 }
 ```
 
 Dopo che entrambe le parti hanno scambiato descrittori multimediali, Analisi video live inizierà la trasmissione di fotogrammi all'estensione.
 
+> [!NOTE]
+> L'implementazione lato server di gRPC può essere eseguita nel linguaggio di programmazione preferito.
 ### <a name="sequence-numbers"></a>Numeri di sequenza
 
 Il nodo dell'estensione gRPC e l'estensione personalizzata mantengono un set separato di numeri di sequenza, che vengono assegnati ai rispettivi messaggi. Questi numeri di sequenza devono aumentare in maniera monotona a partire da 1. È possibile ignorare`ack_sequence_number` se non viene confermato alcun messaggio, come accade ad esempio quando viene inviato il primo messaggio.
@@ -106,7 +120,8 @@ Il ricevitore apre quindi il file `/dev/shm/inference_client_share_memory_214698
 ```
 {
     "timestamp": 143598615750000,
-    "content_reference": {
+    "content_reference": 
+    {
         "address_offset": 519168,
         "length_bytes": 173056
     }
@@ -123,25 +138,27 @@ Per consentire al contenitore di Analisi video live di comunicare sulla memoria 
 Di seguito è riportato l'aspetto di questo approccio in un dispositivo gemello con la prima opzione indicata.
 
 ```
-"liveVideoAnalytics": {
+"liveVideoAnalytics": 
+{
   "version": "1.0",
   "type": "docker",
   "status": "running",
   "restartPolicy": "always",
-  "settings": {
+  "settings": 
+  {
     "image": "mcr.microsoft.com/media/live-video-analytics:1",
     "createOptions": 
-      "HostConfig": {
+      "HostConfig": 
+      {
         "IpcMode": "host"
       }
-    }
   }
 }
 ```
 
 Per altre informazioni sulle modalità IPC, vedere https://docs.docker.com/engine/reference/run/#ipc-settings---ipc.
 
-## <a name="media-graph-grpc-extension-contract-definitions"></a>Definizioni del contratto dell'estensione gRPC per grafico multimediale
+## <a name="mediagraph-grpc-extension-contract-definitions"></a>Definizioni del contratto dell'estensione gRPC per grafo multimediale
 
 Questa sezione definisce il contratto gRPC che definisce il flusso di dati.
 
@@ -159,10 +176,12 @@ Gli implementatori delle estensioni personalizzate possono convalidare l'autenti
 {
   "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
   "name": "{moduleIdentifier}",
-  "endpoint": {
+  "endpoint": 
+  {
     "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
     "url": "tcp://customExtension:8081",
-    "credentials": {
+    "credentials": 
+    {
       "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
       "username": "username",
       "password": "password"
@@ -175,6 +194,35 @@ Gli implementatori delle estensioni personalizzate possono convalidare l'autenti
 Quando la richiesta gRPC viene inviata, l'intestazione seguente verrà inclusa nei metadati della richiesta, simulando l'autenticazione HTTP di base.
 
 `x-ms-authentication: Basic (Base64 Encoded username:password)`
+
+
+## <a name="configuring-inference-server-for-each-mediagraph-over-grpc-extension"></a>Configurazione del server di inferenza per ogni grafo multimediale tramite l'estensione gRPC
+Quando si configura il server di inferenza, non è necessario esporre un nodo per ogni modello di intelligenza artificiale incluso nel pacchetto insieme al server di inferenza. Con un'istanza del grafo si può invece usare la proprietà `extensionConfiguration` del nodo `MediaGraphGrpcExtension` e definire la modalità di selezione del modello di intelligenza artificiale. Durante l'esecuzione, Analisi video live passa questa stringa al server di inferenza, che può usarla per richiamare il modello di intelligenza artificiale desiderato. Questa proprietà `extensionConfiguration` è facoltativa ed è specifica del server. La proprietà può essere usata come illustrato di seguito:
+```
+{
+  "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+  "name": "{moduleIdentifier}",
+  "endpoint": 
+  {
+    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+    "url": "${grpcExtensionAddress}",
+    "credentials": 
+    {
+      "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+      "username": "${grpcExtensionUserName}",
+      "password": "${grpcExtensionPassword}"
+    }
+  },
+    // Optional server configuration string. This is server specific 
+  "extensionConfiguration": "{Optional extension specific string}",
+  "dataTransfer": 
+  {
+    "mode": "sharedMemory",
+    "SharedMemorySizeMiB": "5"
+  }
+    //Other fields omitted
+}
+```
 
 ## <a name="using-grpc-over-tls"></a>Uso di gRPC su TLS
 

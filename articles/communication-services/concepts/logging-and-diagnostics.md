@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888692"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033120"
 ---
 # <a name="communication-services-logs"></a>Log di Servizi di comunicazione
 
@@ -39,6 +39,7 @@ Servizi di comunicazione offre tre tipi di log che è possibile abilitare:
 * **Log di utilizzo**: forniscono i dati di utilizzo associati a ogni offerta di servizio fatturata
 * **Log operativi delle chat**: forniscono informazioni di base relative al servizio chat
 * **Log operativi degli SMS**: forniscono informazioni di base relative al servizio SMS
+* **Log operativi di autenticazione**: forniscono informazioni di base relative al servizio di autenticazione
 
 ### <a name="usage-logs-schema"></a>Schema dei log di utilizzo
 
@@ -100,3 +101,23 @@ Servizi di comunicazione offre tre tipi di log che è possibile abilitare:
 | SdkType | Il tipo di SDK usato nella richiesta. |
 | PlatformType | Il tipo di piattaforma usato nella richiesta. |
 | Metodo | Il metodo usato nella richiesta. |
+
+### <a name="authentication-operational-logs"></a>Log operativi di autenticazione
+
+| Proprietà | Descrizione |
+| -------- | ---------------|
+| TimeGenerated | Il timestamp (UTC) relativo alla data e all'ora in cui è stato generato il log. |
+| OperationName | L'operazione associata al record del log. |
+| CorrelationID | L'ID degli eventi correlati. Può essere usato per identificare eventi correlati tra più tabelle. |
+| OperationVersion | L'`api-version` associato all'operazione se `operationName` è stato eseguito tramite un'API. Se non esiste un'API corrispondente a questa operazione, la versione rappresenta la versione di tale operazione nel caso in cui le proprietà associate all'operazione cambino in futuro. |
+| Category | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. |
+| ResultType | Stato dell'operazione. |
+| ResultSignature | Lo stato secondario dell'operazione. Se questa operazione corrisponde a una chiamata API REST, questo campo contiene il codice di stato HTTP della chiamata REST corrispondente. |
+| DurationMs | La durata dell'operazione in millisecondi. |
+| CallerIpAddress | L'indirizzo IP del chiamante, se l'operazione corrisponde a una chiamata API proveniente da un'entità con un indirizzo IP accessibile pubblicamente. |
+| Level | Il livello di gravità dell'evento. |
+| URI | URI della richiesta. |
+| SdkType | Il tipo di SDK usato nella richiesta. |
+| PlatformType | Il tipo di piattaforma usato nella richiesta. |
+| Identità | L'identità di Servizi di comunicazione correlata all'operazione. |
+| Ambiti | Gli ambiti di Servizi di comunicazione presenti nel token di accesso. |

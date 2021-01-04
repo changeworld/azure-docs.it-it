@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ae2361d12dfe18cadd80dd3b84405b2b17751e59
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929317"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584086"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager
 
@@ -43,6 +43,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
     ```console
     openssl rand -base64 32
     ```
+
     Verificare che la password generata soddisfi i requisiti delle password per le macchine virtuali. Ogni servizio di Azure presenta requisiti specifici in termini di password. Per informazioni sui requisiti delle password per le macchine virtuali, vedere [Quali requisiti devono avere le password quando si crea una macchina virtuale?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## <a name="prepare-a-key-vault"></a>Preparare un insieme di credenziali delle chiavi
@@ -53,7 +54,7 @@ In questa sezione si crea un insieme di credenziali delle chiavi e vi si aggiung
 * Aggiungere un segreto all'insieme di credenziali delle chiavi. Il segreto contiene la password dell'amministratore della macchina virtuale.
 
 > [!NOTE]
-> Se l'utente che distribuisce il modello di macchina virtuale non è il proprietario o un collaboratore dell'insieme di credenziali delle chiavi, è necessario che il proprietario o un collaboratore conceda all'utente l'accesso all'autorizzazione *Microsoft.KeyVault/vaults/deploy/action* per l'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
+> Se l'utente che distribuisce il modello di macchina virtuale non è il proprietario o un collaboratore dell'insieme di credenziali delle chiavi, è necessario che il proprietario o un collaboratore conceda all'utente l'accesso all'autorizzazione `Microsoft.KeyVault/vaults/deploy/action` per l'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
 
 Per eseguire lo script di Azure PowerShell seguente, selezionare **Prova** per aprire Azure Cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse sul riquadro della shell e quindi scegliere **Incolla**.
 
@@ -79,7 +80,7 @@ Write-Host "Press [ENTER] to continue ..."
 > * Il nome predefinito del segreto è **vmAdminPassword**. Tale nome è hardcoded nel modello.
 > * Affinché il modello possa recuperare il segreto, è necessario abilitare un criterio di accesso denominato **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli** per l'insieme di credenziali delle chiavi. Questo criterio viene abilitato nel modello. Per altre informazioni sui criteri di accesso, vedere [Distribuire insiemi di credenziali delle chiavi e segreti](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-Il modello ha un valore di output denominato *keyVaultId*. Questo ID verrà usato insieme al nome del segreto per recuperare il valore del segreto più avanti nell'esercitazione. Il formato dell'ID della risorsa è il seguente:
+Il modello ha un valore di output denominato `keyVaultId`. Questo ID verrà usato insieme al nome del segreto per recuperare il valore del segreto più avanti nell'esercitazione. Il formato dell'ID della risorsa è il seguente:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -87,7 +88,7 @@ Il modello ha un valore di output denominato *keyVaultId*. Questo ID verrà usat
 
 Quando si copia e si incolla l'ID, questo potrebbe venire suddiviso in più righe. Unire le righe e tagliare gli spazi aggiuntivi.
 
-Per convalidare la distribuzione, eseguire il comando di PowerShell seguente nello stesso riquadro della shell per recuperare il segreto come testo non crittografato. Il comando funziona solo nella stessa sessione della shell, perché usa la variabile *$keyVaultName* definita nello script di PowerShell precedente.
+Per convalidare la distribuzione, eseguire il comando di PowerShell seguente nello stesso riquadro della shell per recuperare il segreto come testo non crittografato. Il comando funziona solo nella stessa sessione della shell, perché usa la variabile `$keyVaultName` definita nello script di PowerShell precedente.
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
@@ -146,14 +147,14 @@ Con l'approccio basato sull'ID statico non è necessario apportare modifiche al 
     ```
 
     > [!IMPORTANT]
-    > Sostituire il valore di **id** con l'ID della risorsa dell'insieme di credenziali delle chiavi creato nella procedura precedente. Il valore hardcoded di secretName è **vmAdminPassword**.  Vedere [Preparare un insieme di credenziali delle chiavi](#prepare-a-key-vault).
+    > Sostituire il valore di `id` con l'ID della risorsa dell'insieme di credenziali delle chiavi creato nella procedura precedente. Il valore hardcoded di `secretName` è **vmAdminPassword**.  Vedere [Preparare un insieme di credenziali delle chiavi](#prepare-a-key-vault).
 
     ![Integrare Key Vault e i modelli di Resource Manager - File dei parametri per la distribuzione di macchine virtuali](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
 1. Aggiornare i valori seguenti:
 
-    * **adminUsername**: nome dell'account amministratore della macchina virtuale.
-    * **dnsLabelPrefix**: nome per il valore dnsLabelPrefix.
+    * `adminUsername`: nome dell'account amministratore della macchina virtuale.
+    * `dnsLabelPrefix`: nome del valore `dnsLabelPrefix`.
 
     Per esempi di nomi, vedere l'immagine precedente.
 
@@ -167,7 +168,7 @@ Con l'approccio basato sull'ID statico non è necessario apportare modifiche al 
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selezionare **Carica/Scarica file** e quindi **Carica**. Caricare entrambi i file *azuredeploy.json* e *azuredeploy.parameters.json* in Cloud Shell. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Caricare entrambi i file *azuredeploy.json* e *azuredeploy.parameters.json* in Cloud Shell. Dopo aver caricato il file, è possibile usare i comandi `ls` e `cat` per verificare che il file sia stato caricato.
 
 1. quindi eseguire lo script di PowerShell seguente per distribuire il modello.
 
@@ -193,7 +194,7 @@ Dopo aver distribuito la macchina virtuale, testare le credenziali di accesso us
 1. Aprire il [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **Gruppi di risorse** >  **\<*YourResourceGroupName*>**  > **simpleWinVM**.
-1. Selezionare **connetti** nella parte superiore.
+1. Selezionare **Connetti** nella parte superiore.
 1. Selezionare **Scarica file RDP** e quindi seguire le istruzioni per accedere alla macchina virtuale usando la password archiviata nell'insieme di credenziali delle chiavi.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

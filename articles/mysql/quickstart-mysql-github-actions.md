@@ -7,16 +7,19 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1fb5396fae4676d85f67e98bb333cd58324d5a4e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337014"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357570"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Avvio rapido: Usare GitHub Actions per connettersi ad Azure MySQL
 
-Usare un flusso di lavoro [GitHub Actions](https://docs.github.com/en/actions) per distribuire aggiornamenti di database a [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql/). 
+**SI APPLICA A**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Database di Azure per PostgreSQL - Server singolo:::image type="icon" source="./media/applies-to/yes.png" border="false"::: Database di Azure per PostgreSQL - Server flessibile
+
+Usare un flusso di lavoro [GitHub Actions](https://docs.github.com/en/actions) per distribuire aggiornamenti di database a [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql/).
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -67,6 +70,11 @@ L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forn
 ## <a name="copy-the-mysql-connection-string"></a>Copiare la stringa di connessione MySQL 
 
 Nel portale di Azure passare a Database di Azure per MySQL e aprire **Impostazioni** > **Stringhe di connessione**. Copiare la stringa di connessione per **ADO.NET**. Sostituire i valori segnaposto `your_database` e `your_password`. La stringa di connessione avrà un aspetto simile a questo. 
+
+> [!IMPORTANT]
+> - Per Server singolo usare **Uid=adminusername@servername** . Si noti che **@servername** è obbligatorio.
+> - Per Server flessibile usare **Uid= adminusername** senza @servername. Attualmente Server flessibile MySQL è disponibile in anteprima. 
+
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;

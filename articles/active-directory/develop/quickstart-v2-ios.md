@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 3ea3c3990a9319a81c841de8a7109850fcab5179
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d1a3965fef6966f70a829cd66d6ce10a01d7af98
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993908"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030893"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
@@ -55,16 +55,17 @@ Questa guida di avvio rapido si applica sia alle app iOS che alle app macOS. Alc
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 > Per registrare l'applicazione e aggiungere manualmente le informazioni di registrazione dell'app alla soluzione, seguire questa procedura:
 >
-> 1. Passare alla pagina [Registrazioni app](https://aka.ms/MobileAppReg) di Microsoft Identity Platform per sviluppatori.
-> 1. Selezionare **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
->      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app quando eseguono l'accesso o forniscono il proprio consenso all'app.
->      - Ignorare le altre configurazioni in questa pagina.
->      - Selezionare `Register`.
-> 1. Nella sezione **Gestione** selezionare `Authentication` > `Add Platform` > `iOS`.
->      - Immettere il valore di **_Identificatore del bundle_* _ per l'applicazione. L'identificatore del bundle è semplicemente una stringa univoca che identifica in modo univoco l'applicazione, ad esempio `com.<yourname>.identitysample.MSALMacOS`. Prendere nota del valore usato.
->      - Si noti che la configurazione di iOS è applicabile anche alle applicazioni macOS.
-> 1. Selezionare `Configure` e salvare i dettagli di _*_Configurazione MSAL_*_ per usarli inseguito in questa guida di avvio rapido.
+> 1. Accedere al [portale di Azure](https://portal.azure.com).
+> 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+> 1. Cercare e selezionare **Azure Active Directory**.    
+> 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+> 1. Immettere un **nome** per l'applicazione. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+> 1. Selezionare **Registra**.
+> 1. In **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma** > **iOS**.
+> 1. Immettere il valore di **Identificatore del bundle** per l'applicazione. L'identificatore del bundle è una stringa univoca che identifica in modo univoco l'applicazione, ad esempio `com.<yourname>.identitysample.MSALMacOS`. Prendere nota del valore usato. Si noti che la configurazione di iOS è applicabile anche alle applicazioni macOS.
+> 1. Selezionare **Configura** e salvare i dettagli di **Configurazione MSAL** per usarli in seguito in questa guida di avvio rapido.
+> 1. Selezionare **Fine**.
+
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Passaggio 1: Configurare l'applicazione
@@ -101,7 +102,7 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 >#### <a name="step-4-configure-your-project"></a>Passaggio 4: Configurare il progetto
 > Se in precedenza è stata selezionata l'opzione 1, è possibile ignorare questi passaggi.
 > 1. Estrarre il file con estensione zip e aprire il progetto in XCode.
-> 1. Modificare _ *ViewController.swift** e sostituire la riga che inizia con 'let kClientID' con il frammento di codice seguente. Aggiornare il valore per `kClientID` con l'ID client salvato al momento della registrazione dell'app nel portale in un passaggio precedente di questo avvio rapido:
+> 1. Modificare **ViewController.swift** e sostituire la riga che inizia con 'let kClientID' con il frammento di codice seguente. Aggiornare il valore per `kClientID` con l'ID client salvato al momento della registrazione dell'app nel portale in un passaggio precedente di questo avvio rapido:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```

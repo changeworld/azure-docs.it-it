@@ -5,17 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfac3b80e772e7b359b1e926d5fb84e447a8fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: d6d5ab13c8997dffee42a053ba498376ccbcb6d8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270734"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585259"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Aggiungere l'accesso condizionale ai flussi utente in Azure Active Directory B2C
 
@@ -35,6 +37,22 @@ L'accesso condizionale è supportato nelle versioni più recenti dei flussi uten
 
 Altre informazioni su [Identity Protection e sull'accesso condizionale](conditional-access-identity-protection-overview.md) in Azure AD B2C o su [come configurarlo](conditional-access-identity-protection-setup.md).
 
+## <a name="prerequisites"></a>Prerequisiti
+
+- Per creare criteri di accesso a rischio, è richiesto Azure AD B2C Premium 2. I tenant del livello Premium P1 consentono di creare criteri di percorso, app o gruppo.
+- A scopo di test, è possibile [registrare l'applicazione Web di test](tutorial-register-applications.md) `https://jwt.ms`, ovvero un'applicazione Web di proprietà di Microsoft che visualizza il contenuto decodificato di un token (il contenuto del token non lascia mai il browser). 
+- Per simulare un accesso a rischio, scaricare Tor Browser e provare ad accedere all'endpoint del flusso utente.
+- Usare le impostazioni seguenti per [creare un criterio di accesso condizionale](conditional-access-identity-protection-setup.md):
+   
+  - Per **Utenti e gruppi** selezionare l'utente di test. Non selezionare **Tutti gli utenti** altrimenti potrebbe essere bloccato anche il proprio account utente.
+  - Per **Applicazioni cloud o azioni** scegliere **Selezionare le app** e quindi scegliere l'applicazione relying party.
+  - Per Condizioni selezionare **Rischio di accesso** e i livelli di rischio **Elevato**, **Medio** e **Basso**.
+  - Per **Concedi** scegliere **Blocca l'accesso**.
+
+      ![Rilevamenti dei rischi](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+
+::: zone pivot="b2c-user-flow"
+
 ## <a name="add-conditional-access-to-a-new-user-flow"></a>Aggiungere l'accesso condizionale a un nuovo flusso utente
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -42,7 +60,7 @@ Altre informazioni su [Identity Protection e sull'accesso condizionale](conditio
 1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 1. In **Criteri** selezionare **Flussi utente** e quindi **Nuovo flusso utente**.
 1. Nella pagina **Crea un flusso utente** selezionare il tipo di flusso utente.
-1. In **Selezionare una versione**selezionare **Consigliata**, quindi selezionare **Crea**. Per altre informazioni sulle versioni dei flussi utente, vedere [qui](user-flow-versions.md).
+1. In **Selezionare una versione** selezionare **Consigliata**, quindi selezionare **Crea**. Per altre informazioni sulle versioni dei flussi utente, vedere [qui](user-flow-versions.md).
 
     ![Pagina Crea un flusso utente nel portale di Azure con proprietà evidenziate](./media/tutorial-create-user-flows/select-version.png)
 
@@ -89,19 +107,6 @@ Altre informazioni su [Identity Protection e sull'accesso condizionale](conditio
 
 Per testare l'accesso condizionale nel flusso utente, [creare un criterio di accesso condizionale](conditional-access-identity-protection-setup.md) e abilitare l'accesso condizionale nel flusso utente come descritto in precedenza. 
 
-### <a name="prerequisites"></a>Prerequisiti
-
-- Per creare criteri di accesso a rischio, è richiesto Azure AD B2C Premium 2. I tenant del livello Premium P1 consentono di creare criteri di percorso, app o gruppo.
-- A scopo di test, è possibile [registrare l'applicazione Web di test](tutorial-register-applications.md) `https://jwt.ms`, ovvero un'applicazione Web di proprietà di Microsoft che visualizza il contenuto decodificato di un token (il contenuto del token non lascia mai il browser). 
-- Per simulare un accesso a rischio, scaricare Tor Browser e provare ad accedere all'endpoint del flusso utente.
-- Usare le impostazioni seguenti per [creare un criterio di accesso condizionale](conditional-access-identity-protection-setup.md):
-   
-   - Per **Utenti e gruppi** selezionare l'utente di test. Non selezionare **Tutti gli utenti** altrimenti potrebbe essere bloccato anche il proprio account utente.
-   - Per **Applicazioni cloud o azioni** scegliere **Selezionare le app** e quindi scegliere l'applicazione relying party.
-   - Per Condizioni selezionare **Rischio di accesso** e i livelli di rischio **Elevato**, **Medio** e **Basso**.
-   - Per **Concedi** scegliere **Blocca l'accesso**.
-
-      ![Rilevamenti dei rischi](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 ### <a name="run-the-user-flow"></a>Eseguire il flusso utente
 
@@ -117,6 +122,16 @@ Per testare l'accesso condizionale nel flusso utente, [creare un criterio di acc
 
    ![Testare un accesso bloccato](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="add-conditional-access-to-your-policy"></a>Aggiungere l'accesso condizionale ai criteri
+
+È possibile trovare un esempio di criteri di accesso condizionale in [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+::: zone-end
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Personalizzare l'interfaccia utente in un flusso utente di Azure AD B2C](customize-ui-overview.md)
+[Personalizzare l'interfaccia utente in un flusso utente di Azure AD B2C](customize-ui-with-html.md)

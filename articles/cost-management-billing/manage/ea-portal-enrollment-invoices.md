@@ -3,18 +3,18 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
-ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410969"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030723"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
@@ -39,18 +39,14 @@ Per visualizzare informazioni dettagliate sull'utilizzo per account specifici, s
 Per visualizzare grafici e report di riepilogo sull'utilizzo:
 
 1. Accedere ad Azure Enterprise Portal.
-
 1. Selezionare un pagamento anticipato.
-
-   Per modificare l'intervallo di date per **Riepilogo utilizzo** è possibile spostare l'interruttore da **M** (Mensile) a **C** (Custom, Personalizzato) nell'angolo superiore destro della pagina, quindi immettere date di inizio e fine personalizzate.
-
-   ![Creare e visualizzare il riepilogo dell'utilizzo e scaricare i report in una visualizzazione personalizzata](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+   Per modificare l'intervallo di date per **Riepilogo utilizzo** è possibile spostare l'interruttore da **M** (Mensile) a **C** (Custom, Personalizzato) nell'angolo superiore destro della pagina, quindi immettere date di inizio e fine personalizzate.  
+   ![Creare e visualizzare il riepilogo sull'utilizzo e scaricare i report in una visualizzazione personalizzata](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. Per visualizzare altri dettagli, selezionare un periodo o un mese sul grafico.
-
    - Il grafico visualizza l'utilizzo mese per mese, con una suddivisione tra utilizzo effettivo, costi aggiuntivi del servizio, addebiti fatturati separatamente e addebiti di Azure Marketplace.
    - Per il mese selezionato è possibile usare i campi sotto il grafico per applicare filtri in base a reparti, account e sottoscrizioni.
    - È possibile alternare tra **Charge by Services** (Addebito per servizi ) e **Charge by Hierarchy** (Addebito per gerarchia).
-   - Per visualizzare i dettagli di **Servizio di Azure** , **Addebiti fatturati separatamente** e **Azure Marketplace** espandere le sezioni corrispondenti.
+   - Per visualizzare i dettagli di **Servizio di Azure**, **Addebiti fatturati separatamente** e **Azure Marketplace** espandere le sezioni corrispondenti.
 
 Per informazioni su come visualizzare l'utilizzo, guardare questo video:
 
@@ -72,7 +68,7 @@ Per scaricare i report:
 3. Selezionare **Download** accanto al report del mese.
 
    > [!NOTE]
-   > Potrebbero verificarsi fino a cinque giorni di latenza tra la data di utilizzo e la data in cui viene visualizzato nei report.
+   > Potrebbero verificarsi fino a 72 ore di latenza tra la data dell'utilizzo e la data in cui l'utilizzo viene visualizzato nei report.
    >
    > Gli utenti che scaricano i file CSV con Safari in Excel potrebbero riscontrare errori di formattazione. Per evitare errori, aprire il file in un editor di testo.
 
@@ -142,20 +138,20 @@ L'intervallo di fatturazione dipende dalla modalità scelta per effettuare gli a
 
 La data di ricezione della fattura per eccedenza dipende dalla data di inizio e di impostazione della registrazione:
 
-- **Registrazioni dirette con data di inizio precedente al 1° maggio 2018** :
+- **Registrazioni dirette con data di inizio precedente al 1° maggio 2018**:
   - Se si ha un Contratto Enterprise (EA) diretto, il periodo di fatturazione per i servizi di Azure è annuale e sono esclusi i servizi di Azure Marketplace. Il periodo di fatturazione è basato sulla data di ricorrenza annuale, ovvero la data in cui il contratto è diventato effettivo.
   - Se si supera il 150% della soglia del pagamento anticipato di Azure del contratto Enterprise, si passerà automaticamente a un periodo di fatturazione trimestrale basato sulla data di ricorrenza. Si riceverà anche una fattura per eccedenza dei servizi Azure.
   - Se non si supera il 150% della soglia del pagamento anticipato di Azure, la registrazione manterrà un periodo di fatturazione annuale. La fattura per eccedenza verrà ricevuta alla fine dell'anno di pagamento anticipato.
 
-- **Registrazioni dirette con data di inizio successiva al 1° maggio 2018** :
+- **Registrazioni dirette con data di inizio successiva al 1° maggio 2018**:
   - Le fatture relative all'utilizzo di Azure e agli addebiti fatturati separatamente hanno un periodo di fatturazione mensile.
   - Eventuali addebiti non coperti dal pagamento anticipato di Azure sono dovuti come pagamenti per eccedenze.  
 
-- **Registrazioni indirette con data di inizio precedente al 1° maggio 2018** :
+- **Registrazioni indirette con data di inizio precedente al 1° maggio 2018**:
 
   Se si è un cliente con Contratto Enterprise (EA) indiretto con data di inizio precedente al 1° maggio 2018, verrà impostato un periodo di fatturazione trimestrale. Il partner di canale (CP) emette direttamente la fattura.  
 
-- **Registrazioni indirette con data di inizio successiva al 1° maggio 2018** :
+- **Registrazioni indirette con data di inizio successiva al 1° maggio 2018**:
 
   Il periodo di fatturazione è mensile.  
 
@@ -169,15 +165,15 @@ In caso di eccedenza, vengono fatturati l'utilizzo o le prenotazioni che hanno s
 
 Per ogni voce in fattura verrà visualizzato quanto segue:
 
-- **Importo totale** : gli addebiti totali
-- **Utilizzo del pagamento anticipato** : l'importo del pagamento anticipato usato per coprire gli addebiti
-- **Importo netto** : gli addebiti che superano il pagamento anticipato
+- **Importo totale**: gli addebiti totali
+- **Utilizzo del pagamento anticipato**: l'importo del pagamento anticipato usato per coprire gli addebiti
+- **Importo netto**: gli addebiti che superano il pagamento anticipato
 
 Le imposte applicabili vengono calcolate solo sull'importo netto in eccedenza rispetto al pagamento anticipato.
 
 La fatturazione dell'eccedenza è automatizzata. La tempistica delle notifiche e delle fatture dipende dalla data di fine del periodo di fatturazione.
 
-- La notifica dell'eccedenza viene in genere inviata sette giorni dopo la data di fine della fatturazione.
+- La notifica dell'eccedenza viene normalmente inviata sette giorni dopo la data di fine della fatturazione.
 - Le fatture per eccedenze vengono inviate da sette a nove giorni dopo la notifica.
 - È possibile esaminare gli addebiti e aggiornare i numeri di ordine d'acquisto generati dal sistema durante i sette giorni che intercorrono tra la notifica dell'eccedenza e la fatturazione.
 
@@ -191,7 +187,7 @@ Durante la transizione alla fattura unica, si riceverà una fattura parziale per
 
 La frequenza di fatturazione di un cliente è annuale, trimestrale o mensile. Il ciclo di fatturazione viene determinato quando il cliente firma il contratto. La fatturazione mensile è l'intervallo di fatturazione più breve.
 
-- Per modificare un periodo di fatturazione da annuale a trimestrale per le registrazioni dirette, è necessaria l' **approvazione** di un amministratore aziendale. Per le registrazioni indirette è necessaria l'approvazione di un amministratore partner. La modifica diventa effettiva alla fine del trimestre di fatturazione corrente.
+- Per modificare un periodo di fatturazione da annuale a trimestrale per le registrazioni dirette, è necessaria l'**approvazione** di un amministratore aziendale. Per le registrazioni indirette è necessaria l'approvazione di un amministratore partner. La modifica diventa effettiva alla fine del trimestre di fatturazione corrente.
 - Per cambiare un periodo di fatturazione da annuale o trimestrale a mensile, è necessaria una **modifica** del contratto.  Qualsiasi modifica al periodo di fatturazione della registrazione esistente richiede l'approvazione di un amministratore aziendale o della persona identificata come "contatto fatturazione".
 - **Inviare** l'approvazione al [supporto di Azure Enterprise Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Selezionare la categoria di problema: **Fatturazione**.
 
@@ -246,7 +242,7 @@ Le unità di misura per i contratti Enterprise sono spesso diverse da quelle di 
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversione tra il report relativo ai dettagli dell'utilizzo e la pagina di riepilogo dell'utilizzo
 
-Il report dei dati di utilizzo scaricati include l'utilizzo delle risorse non elaborato fino a sei posizioni decimali. Tuttavia, i dati di utilizzo visualizzati in Azure Enterprise Portal sono arrotondati a quattro posizioni decimali per le unità del pagamento anticipato e sono troncati a zero decimali per le unità di eccedenza. I dati di utilizzo non elaborati vengono arrotondati a quattro cifre prima della conversione nelle unità usate in Azure Enterprise Portal. Le unità Enterprise convertite vengono quindi arrotondate di nuovo a quattro cifre. Le ore effettive utilizzate prima della conversione sono visibili solo nel report sull'utilizzo scaricato e non in Azure Enterprise Portal.
+Il report dei dati di utilizzo scaricati include l'utilizzo delle risorse non elaborato fino a sei posizioni decimali. Tuttavia, i dati di utilizzo visualizzati in Azure Enterprise Portal sono arrotondati a quattro posizioni decimali per le unità del pagamento anticipato e sono troncati a zero decimali per le unità di eccedenza. I dati di utilizzo non elaborati vengono arrotondati a quattro cifre prima di essere convertiti nelle unità usate in Azure Enterprise Portal. Le unità Enterprise convertite vengono quindi arrotondate di nuovo a quattro cifre. Le ore effettive utilizzate prima della conversione sono visibili solo nel report sull'utilizzo scaricato e non in Azure Enterprise Portal.
 
 Ad esempio: Si supponga che il report relativo ai dettagli dell'utilizzo indichi 694,533404 ore di SQL Server effettive. Queste unità vengono convertite in 6,94533404 di 100 ore di calcolo e quindi arrotondate a 6,9453 e visualizzate in Azure Enterprise Portal.
 
@@ -264,7 +260,7 @@ Tutto l'utilizzo viene fatturato in base ai minuti convertiti in ore parziali e 
 
 ### <a name="average-daily-consumption"></a>Utilizzo giornaliero medio
 
-Per alcuni servizi i prezzi sono su base mensile, mentre l'utilizzo è indicato su base giornaliera. In questi casi, l'utilizzo viene calcolato una volta al giorno, suddiviso per 31 e sommato per il numero di giorni incluso nel mese di fatturazione. Di conseguenza, le tariffe non sono mai più alte di quanto previsto per un mese e sono leggermente inferiori per i mesi con meno di 31 giorni.
+Per alcuni servizi i prezzi sono su base mensile, mentre l'utilizzo è indicato su base giornaliera. In questi casi, l'utilizzo viene calcolato una volta al giorno, suddiviso per 31 e sommato per il numero di giorni incluso nel mese di fatturazione. Pertanto, le tariffe non sono mai più alte di quanto previsto per un mese e sono leggermente inferiori per i mesi con meno di 31 giorni.
 
 ### <a name="compute-hours-conversion"></a>Conversione delle ore di calcolo
 

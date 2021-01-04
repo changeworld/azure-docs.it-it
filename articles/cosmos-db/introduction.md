@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: 012df825f38d292d0b0549701ad90334e3e30bb0
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 2dd60d1962734f7a4264587fd1b5b0d2a03c9ff0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637014"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359745"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Le applicazioni moderne devono garantire velocità di risposta elevate ed essere sempre online. Per ottenere bassa latenza e disponibilità elevata, è necessario che le istanze di queste applicazioni siano distribuite in data center vicini agli utenti. Le applicazioni devono rispondere in tempo reale alle importanti modifiche nell'utilizzo negli orari di punta, archiviare volumi sempre maggiori di dati e renderli disponibili agli utenti in millisecondi.
 
-Azure Cosmos DB è un database NoSQL completamente gestito per lo sviluppo di app moderne. I tempi di risposta di pochi millisecondi e la scalabilità automatica e istantanea garantiscono la velocità ottimale anche su larga scala. La continuità aziendale è garantita dalla disponibilità [supportata dal contratto di servizio](https://azure.microsoft.com/support/legal/sla/cosmos-db) e dalla sicurezza di livello aziendale. Lo sviluppo di app è più veloce e più produttivo grazie alla distribuzione chiavi in mano dei dati multimaster in tutto il mondo, alle API open source e agli SDK per i linguaggi di programmazione più diffusi. In qualità di servizio completamente gestito, Azure Cosmos DB solleva gli utenti dalle attività di amministrazione dei database occupandosi automaticamente della gestione, degli aggiornamenti e dell'applicazione di patch, nonché della gestione della capacità con opzioni di scalabilità automatica e serverless convenienti che rispondono alle esigenze dell'applicazione in termini di capacità per soddisfare la richiesta.
+Azure Cosmos DB è un database NoSQL completamente gestito per lo sviluppo di app moderne. I tempi di risposta di pochi millisecondi e la scalabilità automatica e istantanea garantiscono la velocità ottimale anche su larga scala. La continuità aziendale è garantita dalla disponibilità [supportata dal contratto di servizio](https://azure.microsoft.com/support/legal/sla/cosmos-db) e dalla sicurezza di livello aziendale. Lo sviluppo di app è più veloce e più produttivo grazie alla distribuzione chiavi in mano dei dati di più aree in tutto il mondo, alle API open source e agli SDK per i linguaggi di programmazione più diffusi. In qualità di servizio completamente gestito, Azure Cosmos DB solleva gli utenti dalle attività di amministrazione dei database occupandosi automaticamente della gestione, degli aggiornamenti e dell'applicazione di patch, nonché della gestione della capacità con opzioni di scalabilità automatica e serverless convenienti che rispondono alle esigenze dell'applicazione in termini di capacità per soddisfare la richiesta.
 
 È possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, a titolo gratuito e senza impegno, oppure usare il [livello gratuito di Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier) per ottenere un account che include gratuitamente le prime 400 UR/s e 5 GB di spazio di archiviazione.
 

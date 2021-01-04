@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Libreria di Archiviazione code di Azure v12 - .NET'
-description: In questo argomento di avvio rapido si apprenderà come usare la libreria di Archiviazione code di Azure v12 per .NET per creare una coda e aggiungervi messaggi, come leggere ed eliminare i messaggi dalla coda e come eliminare una coda.
+title: 'Avvio rapido: Libreria client di Archiviazione code di Azure v12 - .NET'
+description: Informazioni su come usare la libreria client di Archiviazione code di Azure v12 per .NET per creare una coda e aggiungervi messaggi, oltre che su come leggere ed eliminare i messaggi dalla coda e come eliminare una coda.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8900db8ed43b8c255915bf5429e1211f04e7338
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 22038e4145acabc067083177fcf297464972ad58
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491962"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589526"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per .NET
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Avvio rapido: Libreria client di Archiviazione code di Azure v12 per .NET
 
-Iniziare a usare la libreria client di Archiviazione code di Azure versione 12 per .NET. Archiviazione code di Azure è un servizio che consente di archiviare un numero elevato di messaggi per recuperali ed elaborarli successivamente. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
+Questa guida di avvio rapido illustra come iniziare a usare la libreria client di Archiviazione code di Azure versione 12 per .NET. Archiviazione code di Azure è un servizio che consente di archiviare un numero elevato di messaggi per recuperali ed elaborarli successivamente. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
 Usare la libreria client di Archiviazione code di Azure v12 per .NET per:
 
@@ -44,19 +44,19 @@ Risorse aggiuntive:
 
 ## <a name="setting-up"></a>Configurazione
 
-Questa sezione illustra come preparare un progetto da usare con la libreria client di Archiviazione code di Azure v12 per .NET.
+Questa sezione illustra la procedura per preparare un progetto da usare con la libreria client di Archiviazione code di Azure v12 per .NET.
 
 ### <a name="create-the-project"></a>Creare il progetto
 
-Creare un'applicazione .NET Core con il nome *QueuesQuickstartV12*.
+Creare un'applicazione .NET Core con il nome `QueuesQuickstartV12`.
 
-1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare il comando `dotnet new` per creare una nuova app console con il nome *QueuesQuickstartV12*. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *Program.cs*.
+1. In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `QueuesQuickstartV12`. Questo comando crea un semplice progetto C# "hello world" con un singolo file di origine denominato `Program.cs`.
 
    ```console
    dotnet new console -n QueuesQuickstartV12
    ```
 
-1. Passare alla directory *QueuesQuickstartV12* appena creata.
+1. Passare alla directory `QueuesQuickstartV12` appena creata.
 
    ```console
    cd QueuesQuickstartV12
@@ -64,7 +64,7 @@ Creare un'applicazione .NET Core con il nome *QueuesQuickstartV12*.
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Sempre nella directory dell'applicazione, installare la libreria client di Archiviazione code di Azure per il pacchetto .NET usando il comando `dotnet add package`.
+Sempre nella directory dell'applicazione, installare il pacchetto della libreria client di Archiviazione code di Azure per .NET usando il comando `dotnet add package`.
 
 ```console
 dotnet add package Azure.Storage.Queues
@@ -74,8 +74,8 @@ dotnet add package Azure.Storage.Queues
 
 Dalla directory del progetto:
 
-1. Aprire il file *Program.cs* in un editor di testo
-1. Rimuovere l'istruzione `Console.WriteLine("Hello World!");`
+1. Aprire il file `Program.cs` nell'editor
+1. Rimuovere l'istruzione `Console.WriteLine("Hello, World");`
 1. Aggiungere le direttive `using`
 1. Aggiornare la dichiarazione del metodo `Main` per [supportare codice asincrono](/dotnet/csharp/whats-new/csharp-7#async-main)
 
@@ -115,13 +115,13 @@ Il diagramma seguente mostra la relazione tra queste risorse.
 
 Per interagire con queste risorse, usare le classi .NET seguenti:
 
-- [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
-- [QueueClient](/dotnet/api/azure.storage.queues.queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
-- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): la classe `QueueMessage` rappresenta i singoli oggetti restituiti quando si chiama [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) su una coda.
+- [`QueueServiceClient`](/dotnet/api/azure.storage.queues.queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
+- [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
+- [`QueueMessage`](/dotnet/api/azure.storage.queues.models.queuemessage): la classe `QueueMessage` rappresenta i singoli oggetti restituiti quando si chiama [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) su una coda.
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice di esempio illustrano come eseguire le azioni seguenti con la libreria client di Archiviazione code di Azure per .NET:
+Questi frammenti di codice di esempio mostrano come eseguire le azioni seguenti con la libreria client di Archiviazione code di Azure per .NET:
 
 - [Ottenere la stringa di connessione](#get-the-connection-string)
 - [Creare una coda](#create-a-queue)
@@ -134,12 +134,12 @@ Questi frammenti di codice di esempio illustrano come eseguire le azioni seguent
 
 ### <a name="get-the-connection-string"></a>Ottenere la stringa di connessione
 
-Il codice seguente recupera la stringa di connessione per l'account di archiviazione. La stringa di connessione è archiviata nella variabile di ambiente creata nella sezione [Configurare la stringa di connessione di archiviazione](#configure-your-storage-connection-string).
+Il codice seguente recupera la stringa di connessione dell'account di archiviazione. La stringa di connessione è archiviata nella variabile di ambiente creata nella sezione [Configurare la stringa di connessione di archiviazione](#configure-your-storage-connection-string).
 
 Aggiungere questo codice all'interno del metodo `Main`:
 
 ```csharp
-Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Queue Storage client library v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable called
@@ -152,12 +152,12 @@ string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONN
 
 ### <a name="create-a-queue"></a>Creare una coda
 
-Decidere un nome per la nuova coda. Il codice seguente aggiunge un valore GUID al nome della coda per garantirne l'univocità.
+Decidere un nome per la nuova coda. Il codice seguente aggiunge un valore GUID in fondo al nome della coda per garantirne l'univocità.
 
 > [!IMPORTANT]
-> I nomi di coda possono contenere solo lettere minuscole, numeri e segni meno e devono iniziare con una lettera o un numero. Ogni trattino deve essere preceduto e seguito da un carattere diverso da un trattino. Il nome deve inoltre avere una lunghezza compresa fra 3 e 63 caratteri. Per altre informazioni sull'assegnazione di nomi alle code, vedere [Denominazione di code e metadati](/rest/api/storageservices/naming-queues-and-metadata).
+> I nomi di coda possono contenere solo lettere minuscole, numeri e segni meno e devono iniziare con una lettera o un numero. Ogni trattino deve essere preceduto e seguito da un carattere diverso da un trattino. Il nome deve inoltre avere una lunghezza compresa fra 3 e 63 caratteri. Per altre informazioni, vedere [Denominazione di code e metadati](/rest/api/storageservices/naming-queues-and-metadata).
 
-Creare un'istanza della classe [QueueClient](/dotnet/api/azure.storage.queues.queueclient). Chiamare quindi il metodo [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync) per creare la coda nell'account di archiviazione.
+Creare un'istanza della classe [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient). Chiamare quindi il metodo [`CreateAsync`](/dotnet/api/azure.storage.queues.queueclient.createasync) per creare la coda nell'account di archiviazione.
 
 Aggiungere questo codice alla fine del metodo `Main`:
 
@@ -177,7 +177,7 @@ await queueClient.CreateAsync();
 
 ### <a name="add-messages-to-a-queue"></a>Aggiungere messaggi a una coda
 
-Il frammento di codice seguente aggiunge messaggi alla coda in modo asincrono chiamando il metodo [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync). Salva anche un [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) restituito da una chiamata a `SendMessageAsync`. L'elemento restituito viene usato per aggiornare il messaggio in un secondo momento nel programma.
+Il frammento di codice seguente aggiunge messaggi alla coda in modo asincrono chiamando il metodo [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync). Salva anche un [`SendReceipt`](/dotnet/api/azure.storage.queues.models.sendreceipt) restituito da una chiamata a `SendMessageAsync`. L'elemento restituito viene usato per aggiornare il messaggio in un secondo momento nel programma.
 
 Aggiungere questo codice alla fine del metodo `Main`:
 
@@ -194,7 +194,7 @@ SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Visualizzare in anteprima i messaggi in una coda
 
-Per visualizzare in anteprima i messaggi nella coda, chiamare il metodo [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync). Il metodo `PeekMessagesAsync` recupera uno o più messaggi dall'inizio della coda, senza modificare la visibilità del messaggio.
+Per visualizzare in anteprima i messaggi nella coda, chiamare il metodo [`PeekMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync). Questo metodo recupera uno o più messaggi dall'inizio della coda, senza modificare la visibilità del messaggio.
 
 Aggiungere questo codice alla fine del metodo `Main`:
 
@@ -213,7 +213,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages)
 
 ### <a name="update-a-message-in-a-queue"></a>Aggiornare un messaggio in una coda
 
-Per aggiornare il contenuto di un messaggio, chiamare il metodo [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync). Il metodo `UpdateMessageAsync` può modificare il timeout di visibilità e il contenuto di un messaggio. Il contenuto del messaggio deve essere una stringa con codifica UTF-8 di dimensioni non superiori a 64 KB. Insieme al nuovo contenuto del messaggio, passare i valori del `SendReceipt` salvati in precedenza nel codice. I valori del `SendReceipt` identificano il messaggio da aggiornare.
+Per aggiornare il contenuto di un messaggio, chiamare il metodo [`UpdateMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync). Questo metodo può modificare il timeout di visibilità e il contenuto di un messaggio. Il contenuto del messaggio deve essere una stringa con codifica UTF-8 di dimensioni non superiori a 64 KB. Insieme al nuovo contenuto del messaggio, passare i valori del `SendReceipt` salvati in precedenza nel codice. I valori del `SendReceipt` identificano il messaggio da aggiornare.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
@@ -224,7 +224,7 @@ await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Thi
 
 ### <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
 
-Scaricare i messaggi aggiunti precedentemente chiamando il metodo [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync).
+Scaricare i messaggi aggiunti precedentemente chiamando il metodo [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync).
 
 Aggiungere questo codice alla fine del metodo `Main`:
 
@@ -261,7 +261,7 @@ foreach (QueueMessage message in messages)
 
 ### <a name="delete-a-queue"></a>Eliminare una coda
 
-Il codice seguente pulisce le risorse create dall'app eliminando la coda tramite il metodo [DeleteAsync](/dotnet/api/azure.storage.queues.queueclient.deleteasync).
+Il codice seguente pulisce le risorse create dall'app eliminando la coda tramite il metodo [`DeleteAsync`](/dotnet/api/azure.storage.queues.queueclient.deleteasync).
 
 Aggiungere questo codice alla fine del metodo `Main`:
 
@@ -293,7 +293,7 @@ dotnet run
 L'output dell'app è simile all'esempio seguente:
 
 ```output
-Azure Queue storage v12 - .NET quickstart sample
+Azure Queue Storage client library v12 - .NET quickstart sample
 
 Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
 
@@ -322,7 +322,7 @@ Done
 
 Quando l'app viene sospesa prima della ricezione dei messaggi, controllare l'account di archiviazione nel [portale di Azure](https://portal.azure.com). Verificare che i messaggi siano nella coda.
 
-Premere **INVIO** per ricevere ed eliminare i messaggi. Quando richiesto, premere di nuovo **INVIO** per eliminare la coda e terminare la demo.
+Premere `Enter` per ricevere ed eliminare i messaggi. Quando richiesto, premere di nuovo `Enter` per eliminare la coda e terminare la demo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -334,5 +334,5 @@ Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere:
 > [Azure per sviluppatori .NET e .NET Core](/dotnet/azure/)
 
 - Per altre informazioni, vedere le [librerie di Archiviazione di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
-- Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client di Archiviazione code di Azure v12 per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+- Per altre app di esempio di Archiviazione code di Azure, vedere gli [esempi della libreria client di Archiviazione code di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
 - Per altre informazioni su .NET Core, vedere [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introduzione a .NET in 10 minuti).

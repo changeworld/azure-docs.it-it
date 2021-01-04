@@ -1,22 +1,25 @@
 ---
 title: Novità di Azure Migrate
 description: Informazioni sulle novità e gli aggiornamenti recenti del servizio Azure Migrate.
-author: bsiva
-ms.author: bsiva
-ms.manager: abhemraj
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: e39b8f7ee7b76a1955e02a7140524f812be086b5
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 7ff9d9c6624016d4b1ea94072d52de1c42d73913
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752448"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400472"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) consente di individuare, valutare ed eseguire la migrazione di server locali, app e dati nel cloud Microsoft Azure. Questo articolo riepiloga le nuove versioni e funzionalità di Azure Migrate.
+## <a name="update-december-2020"></a>Aggiornamento (dicembre 2020)
+- Azure Migrate installa ora automaticamente l'agente di macchine virtuali di Azure nelle VM VMware mentre ne esegue la migrazione in Azure usando il metodo senza agente della migrazione di VMware.
+- Tramite il portale di Azure è ora possibile eseguire la migrazione di VM VMware a macchine virtuali di Azure con dischi crittografati mediante crittografia del servizio di archiviazione con chiavi gestite dal cliente, usando Azure Migrate: Migrazione server (replica senza agente).
 
 ## <a name="update-september-2020"></a>Aggiornamento (settembre 2020)
 - È ora supportata la migrazione dei server in zone di disponibilità.
@@ -25,7 +28,7 @@ ms.locfileid: "96752448"
 - L'analisi delle dipendenze (senza agente) può ora essere eseguita contemporaneamente su 1.000 VM.
 - L'analisi delle dipendenze (senza agente) può ora essere abilitata o disabilitata su larga scala tramite script di PowerShell. [Altre informazioni.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - È possibile visualizzare le connessioni di rete in Power BI usando i dati raccolti con l'analisi delle dipendenze (senza agente) [Altre informazioni.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
-- La migrazione di macchine virtuali VMware con dimensioni del disco dati fino a 32 TB è ora supportata con il metodo di migrazione VMware senza agente Azure Migrate: Migrazione server. 
+- La migrazione di macchine virtuali VMware con dimensioni del disco dati fino a 32 TB è ora supportata con il metodo di migrazione VMware senza agente Azure Migrate: Migrazione server.
 
 ## <a name="update-august-2020"></a>Aggiornamento (agosto 2020)
 

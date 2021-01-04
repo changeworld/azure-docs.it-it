@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: e93c0c6bb689980cab1b41e529c491cdf3920260
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e188c00840a4d043e94f94f9db565e2d4e06aaba
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591717"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031063"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java
 
@@ -47,25 +47,22 @@ Ecco i prerequisiti per eseguire questo esempio:
 >
 > Per registrare l'applicazione e aggiungere manualmente le informazioni di registrazione dell'app all'applicazione, seguire questa procedura:
 >
-> 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-> 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
->
-> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
-> 1. Selezionare **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
->    - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `java-webapp`.
->    - Selezionare **Registra**.
-> 1. Nella pagina **Informazioni generali** individuare i valori di **ID applicazione (client)** e **ID della directory (tenant)** dell'applicazione. Copiare questi valori per un utilizzo successivo.
-> 1. Selezionare **Autenticazione** dal menu e quindi aggiungere le informazioni seguenti:
->    - Aggiungere la configurazione della piattaforma **Web**.  Aggiungere `https://localhost:8443/msal4jsample/secure/aad` e `https://localhost:8443/msal4jsample/graph/me` come **URI di reindirizzamento**.
->    - Selezionare **Salva**.
-> 1. Nel menu a sinistra scegliere **Certificati e segreti** e nella sezione **Segreti client** fare clic su **Nuovo segreto client**:
->
->    - Digitare una descrizione della chiave (ad esempio, segreto dell'app).
->    - Selezionare **Tra 1 anno** per la durata della chiave.
->    - Il valore della chiave viene visualizzato quando si seleziona **Aggiungi**.
->    - Copiare il valore della chiave per un utilizzo successivo. Il valore della chiave non viene visualizzato di nuovo, né può essere recuperato in altro modo, di conseguenza è opportuno prenderne nota non appena viene visualizzato nel portale di Azure.
->
+> 1. Accedere al [portale di Azure](https://portal.azure.com).
+> 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+> 1. Cercare e selezionare **Azure Active Directory**.
+> 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+> 1. Immettere un **Nome** per l'applicazione, ad esempio `java-webapp`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+> 1. Selezionare **Registra**.
+> 1. Nella pagina **Panoramica** prendere nota dei valori di **ID applicazione (client)** e **ID della directory (tenant)** per usarli successivamente.
+> 1. In **Gestisci** selezionare **Autenticazione**.
+> 1. Selezionare **Aggiungi una piattaforma** > **Web**.
+> 1. Nella sezione **URI di reindirizzamento** aggiungere `https://localhost:8443/msal4jsample/secure/aad`.
+> 1. Selezionare **Configura**.
+> 1. Nella sezione **Web** aggiungere `https://localhost:8443/msal4jsample/graph/me` come secondo **URI di reindirizzamento**.
+> 1. In **Gestisci** selezionare **Certificati e segreti**. Nella sezione **Segreti client** selezionare **Nuovo segreto client**.
+> 1. Digitare una descrizione della chiave (ad esempio segreto app), lasciare la scadenza predefinita e selezionare **Aggiungi**.
+> 1. Prendere nota del **valore** di **Segreto client** per usarlo successivamente.
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
 >
@@ -150,7 +147,7 @@ Eseguirlo direttamente dall'ambiente IDE usando il server Spring Boot incorporat
 
 ##### <a name="running-from-ide"></a>Esecuzione dall'ambiente IDE
 
-Se si esegue l'applicazione Web da un ambiente IDE, fare clic su Esegui, quindi passare alla home page del progetto. Per questo esempio, l'URL dell'home page standard è https://localhost:8443
+Se si esegue l'applicazione Web da un ambiente IDE, selezionare Esegui, quindi passare alla home page del progetto. Per questo esempio, l'URL dell'home page standard è https://localhost:8443.
 
 1. Nella pagina iniziale selezionare il pulsante **Login** (Accedi) per essere reindirizzati ad Azure Active Directory e richiedere le credenziali all'utente.
 

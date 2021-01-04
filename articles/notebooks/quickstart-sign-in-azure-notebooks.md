@@ -3,12 +3,12 @@ title: Accedere ad Azure Notebooks (anteprima)
 description: Accedere rapidamente ad Azure Notebooks (anteprima) e impostare un ID utente per poter accedere ai progetti salvati e condividere notebook con altri utenti.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 168da5d4d36cd4cfadb4ef120ddfabbd261cafaf
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830418"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109454"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Guida introduttiva: Accedere e impostare un ID utente per Azure Notebooks (anteprima)
 
@@ -59,4 +59,4 @@ Per disconnettersi, selezionare il nome utente nell'angolo in alto a destra dell
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Creare e condividere un notebook](quickstart-create-share-jupyter-notebook.md)
+> [Avvio rapido: Esportare un progetto Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

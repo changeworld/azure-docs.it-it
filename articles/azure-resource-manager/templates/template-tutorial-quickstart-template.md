@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 445e7ce2d6e609d75bff38bb3d049a87f184be12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613595"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106904"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Esercitazione: Usare i modelli di avvio rapido di Azure
 
@@ -34,10 +34,10 @@ Questo modello è adatto per la distribuzione di account di archiviazione e pian
 ## <a name="find-template"></a>Trovare il modello
 
 1. Aprire i [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/)
-1. In **Cerca** immettere **distribuisci app Web Linux**.
-1. Selezionare il modello **Deploy a basic Linux web app**. Se non si riesce a trovarlo, ecco il [collegamento diretto](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. In **Cerca** immettere _distribuisci app Web Linux_.
+1. Selezionare il riquadro con il titolo **Deploy a basic Linux web app** (Distribuire un'app Web Linux di base). Se non si riesce a trovarlo, ecco il [collegamento diretto](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Selezionare **Sfoglia su GitHub**.
-1. Selezionare **azuredeploy.json**.
+1. Selezionare _azuredeploy.json_.
 1. Esaminare il modello. In particolare, cercare la risorsa `Microsoft.Web/sites`.
 
     ![Avvio rapido per i modelli di Resource Manager: sito Web](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -48,15 +48,15 @@ Unire il modello di avvio rapido con quello esistente:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-Il nome dell'app Web deve essere univoco in Azure. Per evitare nomi duplicati, la variabile **webAppPortalName** è stata aggiornata da **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** a **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** .
+Il nome dell'app Web deve essere univoco in Azure. Per evitare nomi duplicati, la variabile `webAppPortalName` è stata aggiornata da `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` a `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"` .
 
 Aggiungere una virgola alla fine della definizione di `Microsoft.Web/serverfarms` per separare la definizione della risorsa dalla definizione di `Microsoft.Web/sites`.
 
 In questa nuova risorsa sono presenti due importanti funzionalità da considerare.
 
-Si noterà che include un elemento denominato **dependsOn** impostato sul piano di servizio app. Questa impostazione è obbligatoria perché il piano di servizio app deve esistere prima che venga creata l'app Web. L'elemento **dependsOn** indica a Resource Manager come ordinare le risorse per la distribuzione.
+Si noterà che include un elemento denominato `dependsOn` impostato sul piano di servizio app. Questa impostazione è obbligatoria perché il piano di servizio app deve esistere prima che venga creata l'app Web. L'elemento `dependsOn` indica a Resource Manager come ordinare le risorse per la distribuzione.
 
-La proprietà **serverFarmId** usa la funzione [resourceId](template-functions-resource.md#resourceid). Questa funzione consente di ottenere l'identificatore univoco per una risorsa. In questo caso, ottiene l'identificatore univoco per il piano di servizio app. L'app Web è associata a un piano di servizio app specifico.
+La proprietà `serverFarmId` usa la funzione [resourceId](template-functions-resource.md#resourceid). Questa funzione consente di ottenere l'identificatore univoco per una risorsa. In questo caso, ottiene l'identificatore univoco per il piano di servizio app. L'app Web è associata a un piano di servizio app specifico.
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
@@ -91,7 +91,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

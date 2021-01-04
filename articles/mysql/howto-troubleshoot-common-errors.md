@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: f64d4d2b9acbe0e6585ca546c915b82d2d1dbbc4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737193"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510963"
 ---
 # <a name="common-errors"></a>Errori comuni
 
@@ -36,13 +36,13 @@ BEGIN
 END;
 ```
 
-**Soluzione** :  Per risolvere l'errore, impostare log_bin_trust_function_creators su 1 dal pannello [Parametri del server](howto-server-parameters.md) nel portale, eseguire le istruzioni DDL o importare lo schema per creare gli oggetti specifici e ripristinare il valore precedente del parametro log_bin_trust_function_creators dopo la creazione.
+**Soluzione**:  Per risolvere l'errore, impostare log_bin_trust_function_creators su 1 dal pannello [Parametri del server](howto-server-parameters.md) nel portale, eseguire le istruzioni DDL o importare lo schema per creare gli oggetti specifici e ripristinare il valore precedente del parametro log_bin_trust_function_creators dopo la creazione.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>ERRORE 1227 (42000) alla riga 101: Access denied; you need (at least one of) the SUPER privilege(s) for this operation. Operation failed with exitcode 1 (Accesso negato. L'operazione richiede almeno uno dei privilegi SUPER. L'operazione non è riuscita con codice 1)
 
 È possibile che l'errore precedente si verifichi durante l'importazione di un file di dump o durante la creazione di una procedura che contiene [definer](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html). 
 
-**Soluzione** :  per risolvere questo errore, l'utente amministratore può concedere privilegi per la creazione o l'esecuzione di procedure mediante l'esecuzione del comando GRANT, come indicato negli esempi seguenti:
+**Soluzione**:  per risolvere questo errore, l'utente amministratore può concedere privilegi per la creazione o l'esecuzione di procedure mediante l'esecuzione del comando GRANT, come indicato negli esempi seguenti:
 
 ```sql
 GRANT CREATE ROUTINE ON mydb.* TO 'someuser'@'somehost';
@@ -61,9 +61,40 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+#### <a name="error-1227-42000-at-line-295-access-denied-you-need-at-least-one-of-the-super-or-set_user_id-privileges-for-this-operation"></a>ERRORE 1227 (42000) alla riga 295: Access denied; you need (at least one of) the SUPER or SET_USER_ID privilege(s) for this operation (Accesso negato. L'operazione richiede almeno uno dei privilegi SUPER o SET_USER_ID)
+
+Questo errore può verificarsi durante l'esecuzione di script CREATE VIEW con istruzioni DEFINER come parte dell'importazione di un file dump o dell'esecuzione di uno script. Database di Azure per MySQL non concede ad alcun utente i privilegi SUPER o SET_USER_ID. 
+
+**Risoluzione**: 
+* Usare il definer utente per eseguire l'istruzione CREATE VIEW, se possibile. Probabilmente esistono numerose viste con definer diversi che hanno autorizzazioni diverse, quindi questa soluzione potrebbe non essere applicabile.  OR
+* Modificare il file dump o lo script CREATE VIEW e rimuovere l'istruzione DEFINER= dal file dump OPPURE 
+* Modificare il file dump o lo script CREATE VIEW e sostituire i valori dell'istruzione definer con l'utente con autorizzazioni di amministratore che sta eseguendo l'importazione o il file di script.
+
+> [!Tip] 
+> Usare sed o perl per modificare un file dump o uno script SQL per sostituire l'istruzione DEFINER=
+
+## <a name="common-connection-errors-for-server-admin-login"></a>Errori di connessione comuni per l'accesso amministratore server
+
+Durante la creazione di un server di Database di Azure per MySQL, l'utente finale fornisce un accesso amministratore server. Questo tipo di accesso consente di creare nuovi database, aggiungere nuovi utenti e concedere autorizzazioni. Se l'accesso amministratore server viene eliminato o se le relative autorizzazioni vengono revocate o la password viene cambiata, potrebbero iniziare a verificarsi errori di connessione nell'applicazione. Di seguito sono elencati alcuni degli errori comuni:
+
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERRORE 1045 (28000): Access denied for user 'username'@'IP address' (using password: YES) (Accesso negato per l'utente 'nomeutente'@'indirizzo IP' (uso di una password: SÌ))
+
+Questo errore si verifica se:
+
+* Il nome utente non esiste
+* Il nome utente dell'utente è stato eliminato
+* La password è stata cambiata o reimpostata.
+
+**Risoluzione**: 
+* Verificare se il nome utente esiste come utente valido nel server o se è stato eliminato accidentalmente. È possibile eseguire la query seguente accedendo all'account dell'utente di Database di Azure per MySQL:
+  ```sql
+  select user from mysql.user;
+  ```
+* Se non è possibile accedere a MySQL per eseguire la query, è consigliabile [reimpostare la password di amministratore usando il portale di Azure](howto-create-manage-server-portal.md). L'opzione di reimpostazione della password dal portale di Azure consentirà di ricreare l'utente, reimpostare la password e ripristinare le autorizzazioni di amministratore, in modo da eseguire l'accesso con le credenziali di amministratore del server ed eseguire ulteriori operazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se la risposta cercata non è disponibile, prendere in considerazione quanto segue:
+Se la risposta cercata non è stata trovata, prendere in considerazione quanto segue:
+
 - Pubblicare la domanda nella [pagina di domande di Microsoft Q&A](/answers/topics/azure-database-mysql.html) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Inviare un messaggio di posta elettronica al team di Database di Azure per MySQL [@Ask Database di Azure per MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Questo indirizzo di posta elettronica non è un alias del supporto tecnico.
 - Contattare il supporto di Azure, [creando un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Per risolvere un problema relativo all'account, inviare una [richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) nel portale di Azure.

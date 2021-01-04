@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: ad62b59587f5ef7823e601cd8b6b526b75b8fd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f968bfd0c3d2884c123b82ccf132d77b117ac9a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854614"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589033"
 ---
 # <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Creare una pipeline CI/CD per Go con Azure DevOps Starter
 
@@ -60,9 +60,9 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
 DevOps Starter crea un repository Git in Azure Repos o in GitHub. Per visualizzare il repository e apportare modifiche al codice nell'app, seguire questa procedura:
 
-1. Sul lato sinistro della finestra di DevOps Starter selezionare il collegamento per il ramo master. Il collegamento apre una visualizzazione del repository Git appena creato.
+1. Sul lato sinistro della finestra di DevOps Starter selezionare il collegamento per il ramo principale. Il collegamento apre una visualizzazione del repository Git appena creato.
 
-1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo master.
+1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo principale.
 
 1. A sinistra, passare al file *views/index.html*, quindi selezionare **Modifica**.
 

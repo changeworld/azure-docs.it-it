@@ -3,15 +3,15 @@ title: Aggiornamenti del pool di host di Desktop virtuale Windows - Azure
 description: Come creare un pool di host di convalida per monitorare gli aggiornamenti del servizio prima di implementare gli aggiornamenti in produzione.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead4c0aa7d8d71642fd8a4635edbabcafee5b6c2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526511"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563246"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
 
@@ -66,6 +66,20 @@ I risultati del comando cmdlet dovrebbero essere simili a questo output:
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Abilitare l'ambiente di convalida con il portale di Azure
+
+È anche possibile usare il portale di Azure per abilitare l'ambiente di convalida.
+
+Per usare il portale di Azure per configurare il pool di host di convalida:
+
+1. Accedere al portale di Azure all'indirizzo <https://portal.azure.com>.
+2. Cercare e selezionare **Desktop virtuale Windows**.
+3. Nella pagina di Desktop virtuale Windows selezionare **Pool di host**.
+4. Selezionare il nome del pool di host da modificare.
+5. Selezionare **Proprietà**.
+6. Nel campo Ambiente di convalida selezionare **Sì** per abilitare l'ambiente di convalida.
+7. Selezionare **Salva**. Verranno applicate le nuove impostazioni.
 
 ## <a name="update-schedule"></a>Aggiornare la pianificazione
 

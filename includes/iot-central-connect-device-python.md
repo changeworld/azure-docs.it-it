@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: cd7d4d3653dc775a949da229e4005d297f7810aa
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 2eff30333362d461f196972fbaedbeac8f2ae7c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126100"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033860"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,7 +27,7 @@ Quando si esegue l'esempio per connettersi a IoT Central, il dispositivo viene r
 
 La funzione `main`:
 
-* Usa il servizio Device Provisioning per effettuare il provisioning del dispositivo. Le informazioni sul provisioning includono l'ID modello.
+* Usa il servizio Device Provisioning per effettuare il provisioning del dispositivo. Le informazioni sul provisioning includono l'ID modello. IoT Central usa l'ID modello per identificare o generare il modello di dispositivo per questo dispositivo. Per altre informazioni, vedere [Associare un dispositivo a un modello di dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Crea un oggetto `Device_client` e imposta l'ID modello di `dtmi:com:example:Thermostat;1` prima di aprire la connessione.
 * Invia la proprietà `maxTempSinceLastReboot` a IoT Central.
 * Crea un listener per il comando `getMaxMinReport`.
@@ -113,7 +113,7 @@ async def main():
     # ...
 ```
 
-La funzione `provision_device` usa il servizio Device Provisioning per effettuare il provisioning del dispositivo e registrarlo con IoT Central. La funzione include l'ID modello del dispositivo nel payload di provisioning:
+La funzione `provision_device` usa il servizio Device Provisioning per effettuare il provisioning del dispositivo e registrarlo con IoT Central. La funzione include l'ID modello di dispositivo, usato da IoT Central per [associare un dispositivo a un modello di dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template), nel payload di provisioning:
 
 ```python
 async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):

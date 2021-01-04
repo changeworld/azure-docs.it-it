@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.author: banders
-ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348986"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938478"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure da altri account
 
@@ -22,6 +22,14 @@ Può capitare che si debba assumere la proprietà delle sottoscrizioni di Azure 
 Questo articolo di applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-for-access).
 
 Per richiedere la proprietà della fatturazione, è necessario essere un **proprietario della sezione della fattura** o un **collaboratore per la sezione della fattura**. Per altre informazioni, vedere la sezione sulle [attività dei ruoli per le sezioni della fattura](understand-mca-roles.md#invoice-section-roles-and-tasks).
+
+La persona da cui si sta richiedendo la proprietà di fatturazione deve avere uno dei ruoli seguenti:
+
+- Ruolo di proprietario della fatturazione per un contratto del cliente Microsoft.
+- Ruolo di proprietario dell'account per un contratto Enterprise.
+- Ruolo di amministratore account per un account di fatturazione del programma Microsoft Online Services.
+
+Per altre informazioni, vedere [Visualizzare gli account di fatturazione nel portale di Azure](view-all-accounts.md).
 
 ## <a name="request-billing-ownership"></a>Richiedere la proprietà della fatturazione
 
@@ -42,7 +50,7 @@ Per richiedere la proprietà della fatturazione, è necessario essere un **propr
 1. Selezionare una sezione della fattura nell'elenco. Dopo aver assunto la proprietà delle sottoscrizioni, il loro utilizzo verrà assegnato a questa sezione della fattura del profilo di fatturazione.
 1. Selezionare **Richieste di trasferimento** sul lato sinistro e quindi **Aggiungi una nuova richiesta**.  
     [![Screenshot che mostra la selezione delle richieste di trasferimento](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Immettere l'indirizzo di posta elettronica dell'utente da cui viene richiesta la proprietà della fatturazione. L'utente deve essere un amministratore dell'account per un account di fatturazione del Programma di Microsoft Online Services o un proprietario di un account in un contratto Enterprise Agreement. Per altre informazioni, vedere [Visualizzare gli account di fatturazione nel portale di Azure](view-all-accounts.md). Selezionare **Invia la richiesta di trasferimento**.  
+1. Immettere l'indirizzo di posta elettronica dell'utente da cui viene richiesta la proprietà della fatturazione. Selezionare **Invia la richiesta di trasferimento**.  
     [![Screenshot che mostra l'invio di una richiesta di trasferimento](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. L'utente riceve un messaggio di posta elettronica con le istruzioni per esaminare la richiesta di trasferimento.  
     ![Screenshot che mostra il messaggio di posta elettronica per l'esame della richiesta di trasferimento](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -68,6 +76,7 @@ Per richiedere la proprietà della fatturazione, è necessario essere un **propr
 1. Selezionare nell'elenco la sezione della fattura per cui è stata inviata la richiesta di trasferimento.
 1. Selezionare **Richieste di trasferimento** sul lato sinistro. Nella pagina Richieste di trasferimento vengono visualizzate le informazioni seguenti:  
     [![Screenshot che mostra l'elenco delle richieste di trasferimento](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |Colonna|Definizione|
    |---------|---------|
    |Data richiesta|Data di invio della richiesta di trasferimento|

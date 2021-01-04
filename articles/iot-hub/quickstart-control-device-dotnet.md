@@ -1,6 +1,6 @@
 ---
 title: Controllare un dispositivo dalla guida introduttiva di Hub IoT di Azure (.NET) | Microsoft Docs
-description: In questa guida introduttiva vengono eseguite due applicazioni C# di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
+description: In questa guida introduttiva vengono eseguite due applicazioni C# di esempio. Una è un'applicazione di servizio che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: aac03cad9dc6b83e7831b35ac2873ddaae6eda75
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 39cfa64b756ef6bf20f8cbf3d6e8f8a25e81c674
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843112"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092874"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
 
@@ -29,15 +29,15 @@ Hub IoT è un servizio di Azure che consente di gestire i dispositivi IoT dal cl
 
 La guida introduttiva usa due applicazioni .NET già scritte.
 
-* Un'applicazione del dispositivo simulato che risponde ai metodi diretti chiamati da un'applicazione back-end. Per ricevere le chiamate dei metodi diretti, l'applicazione si connette a un endpoint specifico del dispositivo nell'hub IoT.
+* Un'applicazione del dispositivo simulato che risponde ai metodi diretti chiamati da un'applicazione di servizio. Per ricevere le chiamate dei metodi diretti, l'applicazione si connette a un endpoint specifico del dispositivo nell'hub IoT.
 
-* Un'applicazione back-end che chiama i metodi diretti sul dispositivo simulato. Per chiamare un metodo diretto su un dispositivo l'applicazione si connette a un endpoint sul lato servizio dell'hub IoT.
+* Un'applicazione di servizio che chiama i metodi diretti sul dispositivo simulato. Per chiamare un metodo diretto su un dispositivo l'applicazione si connette a un endpoint sul lato servizio dell'hub IoT.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
+* Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 3.1 o versione successiva nel computer di sviluppo.
 
     È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://www.microsoft.com/net/download/all).
 
@@ -96,7 +96,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 ## <a name="retrieve-the-service-connection-string"></a>Recuperare la stringa di connessione del servizio
 
-È necessaria anche una _stringa di connessione del servizio_ per l'hub IoT per consentire all'applicazione back-end di connettersi all'hub e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
+È necessaria anche una _stringa di connessione del servizio_ per l'hub IoT per consentire all'applicazione di servizio di connettersi all'hub e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -112,22 +112,18 @@ Il valore verrà usato più avanti in questa guida introduttiva. Questa stringa 
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT, invia dati di telemetria simulati e ascolta le chiamate dei metodi diretti dall'hub. In questa guida introduttiva la chiamata dei metodi diretti dall'hub indica al dispositivo di modificare l'intervallo di invio dei dati di telemetria. Il dispositivo simulato invia un acknowledgement all'hub dopo l'esecuzione del metodo diretto.
 
-1. In una finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device-2**.
+1. In una finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\SimulatedDeviceWithCommand**.
 
-2. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
-
-    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
-
-3. Nella finestra del terminale locale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
+2. Nella finestra del terminale locale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. Nella finestra del terminale eseguire il comando seguente per compilare ed eseguire l'applicazione del dispositivo simulato:
+3. Nella finestra del terminale locale eseguire il comando seguente per compilare ed eseguire l'applicazione del dispositivo simulato, sostituendo `{DeviceConnectionString}` con la stringa di connessione del dispositivo annotata in precedenza:
 
     ```cmd/sh
-    dotnet run
+    dotnet run -- {DeviceConnectionString}
     ```
 
     La schermata seguente mostra l'output mentre l'applicazione del dispositivo simulato invia i dati di telemetria all'hub IoT:
@@ -136,31 +132,27 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 ## <a name="call-the-direct-method"></a>Chiamare il metodo diretto
 
-L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub dell'utente. L'applicazione effettua chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e rimane in ascolto degli acknowledgement. Un'applicazione back-end dell'hub IoT in genere viene eseguita nel cloud.
+L'applicazione di servizio si connette a un endpoint sul lato servizio nell'hub IoT dell'utente. L'applicazione effettua chiamate dei metodi diretti a un dispositivo tramite l'hub IoT e rimane in ascolto degli acknowledgement. Un'applicazione di servizio dell'hub IoT in genere viene eseguita nel cloud.
 
-1. In un'altra finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application**.
+1. In un'altra finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\InvokeDeviceMethod**.
 
-2. Aprire il file **BackEndApplication.cs** in un editor di testo di propria scelta.
-
-    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.cs**.
-
-3. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione back-end:
+2. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione di servizio:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. Nella finestra del terminale locale eseguire i comandi seguenti per compilare ed eseguire l'applicazione back-end:
+3. Nella finestra del terminale locale eseguire i comandi seguenti per compilare ed eseguire l'applicazione di servizio, sostituendo `{ServiceConnectionString}` con la stringa di connessione del servizio annotata in precedenza:
 
     ```cmd/sh
-    dotnet run
+    dotnet run -- {ServiceConnectionString}
     ```
 
     La schermata seguente mostra l'output visualizzato quando l'applicazione effettua una chiamata del metodo diretto al dispositivo e riceve un acknowledgement:
 
-    ![Eseguire l'applicazione back-end](./media/quickstart-control-device-dotnet/BackEndApplication.png)
+    ![Eseguire l'applicazione di servizio](./media/quickstart-control-device-dotnet/BackEndApplication.png)
 
-    Dopo l'esecuzione dell'applicazione back-end, viene visualizzato un messaggio nella finestra della console che esegue il dispositivo simulato e cambia la frequenza di invio dei messaggi:
+    Dopo l'esecuzione dell'applicazione di servizio, viene visualizzato un messaggio nella finestra della console in cui è in esecuzione il dispositivo simulato e la frequenza di invio dei messaggi cambia:
 
     ![Modifica nel client simulato](./media/quickstart-control-device-dotnet/SimulatedDevice-2.png)
 
@@ -170,7 +162,7 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato chiamato un metodo diretto su un dispositivo da un'applicazione back-end ed è stata inviata una risposta alla chiamata del metodo diretto in un'applicazione del dispositivo simulato.
+In questa guida di avvio rapido è stato chiamato un metodo diretto su un dispositivo da un'applicazione di servizio ed è stata inviata una risposta alla chiamata del metodo diretto in un'applicazione del dispositivo simulato.
 
 Per informazioni su come indirizzare messaggi da dispositivo a cloud a diverse destinazioni nel cloud, continuare con l'esercitazione successiva.
 

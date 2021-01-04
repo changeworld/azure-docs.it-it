@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 5ad69fb6743676189de409df16c046d5361a5a91
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: ad305202daf09258bbd439e824fc07f1eed1c5af
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126087"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033844"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,8 +28,8 @@ Quando si esegue l'esempio per connettersi a IoT Central, il servizio Device Pro
 
 Il metodo `main`:
 
-* Chiama `initializeAndProvisionDevice` per impostare l'ID del modello `dtmi:com:example:Thermostat;1`, usare DPS per eseguire il provisioning e registrare il dispositivo, creare un'istanza **DeviceClient** e connettersi all'applicazione IoT Central.
-* Crea un gestore per il comando `getMaxMinReport`.
+* Chiama `initializeAndProvisionDevice` per impostare l'ID del modello `dtmi:com:example:Thermostat;1`, usare DPS per eseguire il provisioning e registrare il dispositivo, creare un'istanza **DeviceClient** e connettersi all'applicazione IoT Central. IoT Central usa l'ID modello per identificare o generare il modello di dispositivo per questo dispositivo. Per altre informazioni, vedere [Associare un dispositivo a un modello di dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Creare un gestore per il comando `getMaxMinReport`.
 * Crea un gestore di aggiornamento per la proprietà `targetTemperature` scrivibile.
 * Avvia un thread per inviare i dati di telemetria della temperatura e aggiorna la proprietà `maxTempSinceLastReboot` ogni cinque secondi.
 
@@ -90,7 +90,7 @@ public static void main(String[] args) throws URISyntaxException, IOException, P
 }
 ```
 
-Il metodo `initializeAndProvisionDevice` mostra in che modo il dispositivo usa DPS per registrarsi e connettersi a IoT Central. Il payload include l'ID modello:
+Il metodo `initializeAndProvisionDevice` mostra in che modo il dispositivo usa DPS per registrarsi e connettersi a IoT Central. Il payload include l'ID modello usato da IoT Central per [associare il dispositivo a un modello di dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
 
 ```java
 private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException {

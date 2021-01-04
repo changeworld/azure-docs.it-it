@@ -4,25 +4,23 @@ description: Informazioni su come usare gli script di distribuzione nei modelli 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/25/2020
+ms.date: 12/14/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931436"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589101"
 ---
-# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato (anteprima)
+# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato
 
-Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager (modelli di ARM). Gli script di distribuzione possono essere usati per eseguire passaggi personalizzati che non possono essere eseguiti dai modelli di Azure Resource Manager. Ad esempio, la creazione di un certificato autofirmato.  In questa esercitazione viene creato un modello per distribuire un insieme di credenziali delle chiavi di Azure e quindi viene usata una risorsa `Microsoft.Resources/deploymentScripts` nello stesso modello per creare un certificato e infine viene aggiunto il certificato all'insieme di credenziali delle chiavi. Per altre informazioni sullo script di distribuzione, vedere [Usare gli script di distribuzione nei modelli di Azure Resource Manager](./deployment-script-template.md).
+Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager (modelli di ARM). Gli script di distribuzione possono essere usati per eseguire passaggi personalizzati che non possono essere eseguiti dai modelli di Azure Resource Manager. Ad esempio, la creazione di un certificato autofirmato. In questa esercitazione viene creato un modello per distribuire un insieme di credenziali delle chiavi di Azure e quindi viene usata una risorsa `Microsoft.Resources/deploymentScripts` nello stesso modello per creare un certificato e infine viene aggiunto il certificato all'insieme di credenziali delle chiavi. Per altre informazioni sullo script di distribuzione, vedere [Usare gli script di distribuzione nei modelli di Azure Resource Manager](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio di script quando l'esecuzione dello script raggiunge uno stato finale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -62,7 +60,7 @@ Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapi
 
 Il modello usato in questo avvio rapido è denominato [Creare un insieme di credenziali delle chiavi e un segreto di Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Il modello crea un'insieme di credenziali delle chiavi e quindi aggiunge un segreto all'insieme di credenziali delle chiavi.
 
-1. In Visual Studio Code selezionare **File**>**Apri file**.
+1. In Visual Studio Code selezionare **File** > **Apri file**.
 2. In **Nome file** incollare l'URL seguente:
 
     ```url
@@ -70,7 +68,7 @@ Il modello usato in questo avvio rapido è denominato [Creare un insieme di cred
     ```
 
 3. Selezionare **Apri** per aprire il file.
-4. Selezionare **File**>**Salva con nome** per salvare il file con il nome **azuredeploy.json** nel computer locale.
+4. Selezionare **File** > **Salva con nome** per salvare il file con il nome _azuredeploy.json_ nel computer locale.
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
@@ -78,14 +76,14 @@ Apportare le modifiche seguenti al modello:
 
 ### <a name="clean-up-the-template-optional"></a>Pulire il modello (facoltativo)
 
-Il modello originale aggiunge un segreto all'insieme di credenziali delle chiavi.  Per semplificare l'esercitazione, rimuovere la risorsa seguente:
+Il modello originale aggiunge un segreto all'insieme di credenziali delle chiavi. Per semplificare l'esercitazione, rimuovere la risorsa seguente:
 
-* **Microsoft.KeyVault/vaults/secrets**
+* `Microsoft.KeyVault/vaults/secrets`
 
 Rimuovere le due definizioni di parametro seguenti:
 
-* **secretName**
-* **secretValue**
+* `secretName`
+* `secretValue`
 
 Se si sceglie di non rimuovere queste definizioni, è necessario specificare i valori dei parametri durante la distribuzione.
 
@@ -105,9 +103,9 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
     ```
 
     > [!NOTE]
-    > L'estensione del modello di Resource Manager di Visual Studio Code non è ancora in grado di formattare gli script di distribuzione. Non usare [MAIUSC] + [ALT] + F per formattare le risorse deploymentScripts, come quella riportata di seguito.
+    > L'estensione del modello di Resource Manager di Visual Studio Code non è ancora in grado di formattare gli script di distribuzione. Non usare MAIUSC+ALT+F per formattare le risorse `deploymentScripts`, come quella seguente.
 
-1. Aggiungere un parametro per la configurazione dei criteri di accesso dell'insieme di credenziali delle chiavi in modo che l'identità gestita possa aggiungere certificati all'insieme di credenziali delle chiavi.
+1. Aggiungere un parametro per la configurazione dei criteri di accesso dell'insieme di credenziali delle chiavi in modo che l'identità gestita possa aggiungere certificati all'insieme di credenziali delle chiavi:
 
     ```json
     "certificatesPermissions": {
@@ -149,11 +147,11 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
     ],
     ```
 
-    Sono definiti due criteri, uno per l'utente connesso e l'altro per l'identità gestita.  Per verificare la distribuzione, l'utente connesso necessita solo dell'autorizzazione *list*.  Per semplificare l'esercitazione, lo stesso certificato viene assegnato sia all'identità gestita che agli utenti connessi.
+    Sono definiti due criteri, uno per l'utente connesso e l'altro per l'identità gestita. Per verificare la distribuzione, l'utente connesso necessita solo dell'autorizzazione *list*. Per semplificare l'esercitazione, lo stesso certificato viene assegnato sia all'identità gestita che agli utenti connessi.
 
 ### <a name="add-the-deployment-script"></a>Aggiungere lo script di distribuzione
 
-1. Aggiungere tre parametri usati dallo script di distribuzione.
+1. Aggiungere tre parametri usati dallo script di distribuzione:
 
     ```json
     "certificateName": {
@@ -170,15 +168,15 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
     }
     ```
 
-1. Aggiungere una risorsa deploymentScripts:
+1. Aggiungere una risorsa `deploymentScripts`:
 
     > [!NOTE]
-    > Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere racchiuse tra virgolette singole. Il carattere di escape per PowerShell è **&#92;** .
+    > Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere racchiuse tra virgolette singole. Il [carattere di escape per PowerShell](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#single-and-double-quoted-strings) è l'apice inverso (`` ` ``).
 
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2019-10-01-preview",
+      "apiVersion": "2020-10-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -253,22 +251,22 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
     }
     ```
 
-    La risorsa `deploymentScripts` dipende dalla risorsa dell'insieme di credenziali delle chiavi e dalla risorsa di assegnazione di ruolo.  Ha queste proprietà:
+    La risorsa `deploymentScripts` dipende dalla risorsa dell'insieme di credenziali delle chiavi e dalla risorsa di assegnazione di ruolo. Ha queste proprietà:
 
-    * **identity**: lo script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script.
-    * **kind**: specificare il tipo di script. Attualmente, solo lo script di PowerShell è supportato.
-    * **forceUpdateTag**: determinare se lo script di distribuzione deve essere eseguito anche se l'origine dello script non è stata modificata. Può essere il timestamp corrente o un GUID. Per altre informazioni, vedere [Eseguire lo script più di una volta](./deployment-script-template.md#run-script-more-than-once).
-    * **azPowerShellVersion**: specifica la versione del modulo di Azure PowerShell da usare. Attualmente, lo script di distribuzione supporta la versione 2.7.0, 2.8.0 e 3.0.0.
-    * **timeout**: specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
-    * **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
-    * **scriptContent**: specificare il contenuto dello script. Per eseguire uno script esterno, usare **primaryScriptURI**. Per altre informazioni, vedere [Usare uno script esterno](./deployment-script-template.md#use-external-scripts).
-        La dichiarazione di **$DeploymentScriptOutputs** è necessaria solo quando si esegue il test dello script in un computer locale. La dichiarazione della variabile consente di eseguire lo script in un computer locale e in una risorsa deploymentScript senza dover apportare modifiche. Il valore assegnato a $DeploymentScriptOutputs è disponibile come output nelle distribuzioni. Per altre informazioni, vedere [Usare gli output degli script di distribuzione di PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Usare gli output degli script di distribuzione dell'interfaccia della riga di comando](./deployment-script-template.md#work-with-outputs-from-cli-script).
-    * **cleanupPreference**: specificare la preferenza che determina quando eliminare le risorse dello script di distribuzione.  Il valore predefinito è **Always**, che significa che le risorse dello script di distribuzione vengono eliminate nonostante lo stato finale (Succeeded, Failed, Canceled). In questa esercitazione viene usato **OnSuccess** in modo da potere visualizzare i risultati dell'esecuzione dello script.
-    * **retentionInterval**: specificare l'intervallo per cui il servizio mantiene le risorse dello script dopo il raggiungimento di uno stato finale. Le risorse verranno eliminate alla scadenza di tale durata. La durata è basata sul modello ISO 8601. Questa esercitazione usa P1D, che significa un giorno.  Questa proprietà viene usata quando l'opzione **cleanupPreference** è impostata su **OnExpiration**. Tale proprietà non è attualmente abilitata.
+    * `identity`: lo script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script.
+    * `kind`: specificare il tipo di script. Attualmente sono supportati solo gli script di PowerShell.
+    * `forceUpdateTag`: determinare se lo script di distribuzione deve essere eseguito anche se l'origine dello script non è stata modificata. Può essere il timestamp corrente o un GUID. Per altre informazioni, vedere [Eseguire lo script più di una volta](./deployment-script-template.md#run-script-more-than-once).
+    * `azPowerShellVersion`: specifica la versione del modulo di Azure PowerShell da usare. Attualmente, lo script di distribuzione supporta la versione 2.7.0, 2.8.0 e 3.0.0.
+    * `timeout`: specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
+    * `arguments`: Specificare i valori del parametro. I valori sono separati da uno spazio.
+    * `scriptContent`: specificare il contenuto dello script. Per eseguire uno script esterno, usare `primaryScriptURI`. Per altre informazioni, vedere [Usare uno script esterno](./deployment-script-template.md#use-external-scripts).
+        La dichiarazione di `$DeploymentScriptOutputs` è necessaria solo quando si esegue il test dello script in un computer locale. La dichiarazione della variabile consente di eseguire lo script in un computer locale e in una risorsa `deploymentScript` senza dover apportare modifiche. Il valore assegnato a `$DeploymentScriptOutputs` è disponibile come output nelle distribuzioni. Per altre informazioni, vedere [Usare gli output degli script di distribuzione di PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Usare gli output degli script di distribuzione dell'interfaccia della riga di comando](./deployment-script-template.md#work-with-outputs-from-cli-script).
+    * `cleanupPreference`: specificare la preferenza che determina quando eliminare le risorse dello script di distribuzione. Il valore predefinito è **Always**, che significa che le risorse dello script di distribuzione vengono eliminate nonostante lo stato finale (Succeeded, Failed, Canceled). In questa esercitazione viene usato **OnSuccess** in modo da potere visualizzare i risultati dell'esecuzione dello script.
+    * `retentionInterval`: specificare l'intervallo per cui il servizio mantiene le risorse dello script dopo il raggiungimento di uno stato finale. Le risorse verranno eliminate alla scadenza di tale durata. La durata è basata sul modello ISO 8601. Questa esercitazione usa **P1D**, che indica un giorno. Questa proprietà viene usata quando l'opzione `cleanupPreference` è impostata su **OnExpiration**. Questa proprietà non è attualmente abilitata.
 
-    Lo script di distribuzione accetta tre parametri: il nome dell'insieme di credenziali delle chiavi, il nome del certificato e il nome del soggetto.  Crea un certificato e quindi aggiunge il certificato all'insieme di credenziali delle chiavi.
+    Lo script di distribuzione accetta tre parametri: `keyVaultName`, `certificateName` e `subjectName`. Crea un certificato e quindi aggiunge il certificato all'insieme di credenziali delle chiavi.
 
-    **$DeploymentScriptOutputs** viene usato per archiviare il valore di output.  Per altre informazioni, vedere [Usare gli output degli script di distribuzione di PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Usare gli output degli script di distribuzione dell'interfaccia della riga di comando](./deployment-script-template.md#work-with-outputs-from-cli-script).
+    `$DeploymentScriptOutputs` viene usato per archiviare il valore di output. Per altre informazioni, vedere [Usare gli output degli script di distribuzione di PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Usare gli output degli script di distribuzione dell'interfaccia della riga di comando](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
     Il modello completato è disponibile [qui](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 
@@ -278,19 +276,19 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
     Write-Output1 $keyVaultName
     ```
 
-    Il comando corretto è **Write-Output** invece di **Write-Output1**.
+    Il comando corretto è `Write-Output` invece di `Write-Output1`.
 
-1. Selezionare **File**>**Salva** per salvare il file.
+1. Selezionare **File** > **Salva** per salvare il file.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
-1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra.  Quando si cambia interfaccia, è necessario riavviare la shell.
+1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra. Quando si cambia interfaccia, è necessario riavviare la shell.
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata.  Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata.  Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi `ls` e `cat` per verificare che il file sia stato caricato.
 
 1. quindi eseguire lo script di PowerShell seguente per distribuire il modello.
 
@@ -313,11 +311,11 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
 
     Il servizio dello script di distribuzione deve creare altre risorse dello script di distribuzione per l'esecuzione dello script. Il completamento della preparazione e del processo di pulizia può richiedere fino a un minuto oltre al tempo di esecuzione effettivo dello script.
 
-    La distribuzione non è riuscita perché nello script è stato usato il comando **Write-Output1** non valido. Si riceverà un errore simile al seguente:
+    La distribuzione non è riuscita perché nello script è stato usato il comando `Write-Output1` che non è valido. Verrà visualizzato un errore simile al seguente:
 
     ```error
     The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
     ```
 
     Il risultato dell'esecuzione dello script di distribuzione viene archiviato nelle risorse dello script di distribuzione per la risoluzione dei problemi.
@@ -331,15 +329,15 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
 
     Entrambi i file hanno il suffisso **azscripts**. Uno è un account di archiviazione e l'altro è un'istanza di contenitore.
 
-    Selezionare **Mostra tipi nascosti** per elencare la risorsa deploymentScripts.
+    Selezionare **Mostra tipi nascosti** per elencare la risorsa `deploymentScripts`.
 
 1. Selezionare l'account di archiviazione con il suffisso **azscripts**.
-1. Selezionare il riquadro **Condivisioni file**. Verrà visualizzata una cartella **azscripts**.  La cartella contiene i file di esecuzione dello script di distribuzione.
-1. Selezionare **azscripts**. Verranno visualizzate due cartelle **azscriptinput** e **azscriptoutput**.  La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. La cartella di output contiene un file **executionresult.json** e il file di output dello script. È possibile visualizzare il messaggio di errore in **executionresult.json**. Il file di output non è presente perché l'esecuzione non è riuscita.
+1. Selezionare il riquadro **Condivisioni file**. Verrà visualizzata una cartella **azscripts**. La cartella contiene i file di esecuzione dello script di distribuzione.
+1. Selezionare **azscripts**. Verranno visualizzate due cartelle, **azscriptinput** e **azscriptoutput**. La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. La cartella di output contiene un file _executionresult.json_ e il file di output dello script. È possibile visualizzare il messaggio di errore in _executionresult.json_. Il file di output non è presente perché l'esecuzione non è riuscita.
 
-Rimuovere la riga **Write-Output1** e ridistribuire il modello.
+Rimuovere la riga `Write-Output1` e ridistribuire il modello.
 
-Dopo l'esecuzione corretta della seconda distribuzione, le risorse dello script di distribuzione verranno rimosse dal servizio di script, perché la proprietà **cleanupPreference** è impostata su **OnSuccess**.
+Dopo l'esecuzione corretta della seconda distribuzione, le risorse dello script di distribuzione verranno rimosse dal servizio di script, perché la proprietà `cleanupPreference` è impostata su **OnSuccess**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -347,12 +345,12 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
 2. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**.
-3. Selezionare il nome del gruppo di risorse.  Nel gruppo di risorse verranno visualizzate in totale sei risorse.
+3. Selezionare il nome del gruppo di risorse.  Nel gruppo di risorse verrà visualizzato un totale di sei risorse.
 4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come usare lo script di distribuzione nei modelli di Azure Resource Manager. Per informazioni su come distribuire risorse di Azure in base a condizioni, vedere:
+Questa esercitazione ha illustrato come usare uno script di distribuzione nei modelli di Azure Resource Manager. Per informazioni su come distribuire risorse di Azure in base a condizioni, vedere:
 
 > [!div class="nextstepaction"]
 > [Usare le condizioni](./template-tutorial-use-conditions.md)

@@ -1,15 +1,15 @@
 ---
 title: 'Avvio rapido di Azure: Eseguire il primo processo batch nel portale di Azure'
-description: Informazioni su come usare il portale di Azure per creare un account Batch, un pool di nodi di calcolo e un processo che esegue attività di base nel pool.
+description: Questa guida di avvio rapido illustra come usare il portale di Azure per creare un account Batch, un pool di nodi di calcolo e un processo che esegue attività di base nel pool.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88511372"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106477"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo Batch nel portale di Azure
 
@@ -97,7 +97,7 @@ Per creare una seconda attività, ripetere i passaggi precedenti. Immettere un a
 
 Le attività di esempio create verranno completate in un paio di minuti. Per visualizzare l'output di un'attività completata, selezionarla, quindi selezionare **File nel nodo**. Selezionare il file `stdout.txt` per visualizzare l'output standard dell'attività. Il contenuto è simile al seguente:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot del servizio Batch in Azure Marketplace.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot dell'output di un'attività completata.":::
 
 Il contenuto visualizza le variabili di ambiente di Azure Batch impostate nel nodo. Quando si creano processi e attività Batch, è possibile fare riferimento a queste variabili di ambiente nelle righe di comando delle attività e nelle app e negli script eseguiti dalle righe di comando.
 

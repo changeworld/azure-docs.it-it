@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Aggiungere una risorsa al modello'
-description: Descrive i passaggi per creare il primo modello di Azure Resource Manager. Viene illustrata la sintassi dei file modello e viene spiegato su come distribuire un account di archiviazione.
+description: Descrive i passaggi per creare il primo modello di Azure Resource Manager (modello di ARM). Viene illustrata la sintassi dei file modello e viene spiegato su come distribuire un account di archiviazione.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 58a6423944abca703a42b68044e58d86187457bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49cee5c98c4099e214a732371269e935db353152
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614377"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106972"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Esercitazione: Aggiungere una risorsa al modello di Azure Resource Manager
 
-Nell'[esercitazione precedente](template-tutorial-create-first-template.md) è stato illustrato come creare un modello vuoto e distribuirlo. A questo punto, è possibile distribuire una risorsa effettiva. In questa esercitazione viene aggiunto un account di archiviazione. Per completare l'esercitazione, sono necessari circa **9 minuti**.
+Nell'[esercitazione precedente](template-tutorial-create-first-template.md) è stato illustrato come creare un modello di Resource Manager (modello di ARM) e distribuirlo. A questo punto, è possibile distribuire una risorsa effettiva. In questa esercitazione viene aggiunto un account di archiviazione. Per completare l'esercitazione, sono necessari circa **9 minuti**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,7 +27,7 @@ Nell'[esercitazione precedente](template-tutorial-create-first-template.md) è s
 
 Per aggiungere una definizione di account di archiviazione al modello esistente, esaminare il codice JSON evidenziato nell'esempio seguente. Invece di provare a copiare sezioni del modello, copiare l'intero file e sostituire il modello con il relativo contenuto.
 
-Sostituire **{provide-unique-name}** (incluse le parentesi graffe) con un nome di account di archiviazione univoco.
+Sostituire `{provide-unique-name}` e le parentesi graffe `{}` con un nome di account di archiviazione univoco.
 
 > [!IMPORTANT]
 > Il nome dell'account di archiviazione deve essere univoco in Azure. Il nome deve essere composto solo da lettere minuscole e numeri e non deve superare i 24 caratteri. Come criterio di denominazione è possibile provare a usare il prefisso **store1** e aggiungere le proprie iniziali e la data odierna. Il nome usato può, ad esempio, essere simile a **store1abc09092019**.
@@ -42,15 +42,15 @@ Per trovare le proprietà da usare per ogni tipo di risorsa, è possibile usare 
 
 A ogni risorsa distribuita sono assegnate almeno le tre proprietà seguenti:
 
-- **type**: Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio Microsoft.Storage/storageAccounts.
-- **apiVersion**: Versione dell'API REST da utilizzare per la creazione della risorsa. Ogni provider di risorse ha pubblicato le proprie versioni API, di conseguenza questo valore è specifico del tipo.
-- **name**: Nome della risorsa.
+- `type`: Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio `Microsoft.Storage/storageAccounts`.
+- `apiVersion`: Versione dell'API REST da utilizzare per la creazione della risorsa. Ogni provider di risorse pubblica le proprie versioni API, di conseguenza questo valore è specifico del tipo.
+- `name`: Nome della risorsa.
 
-Alla maggior parte delle risorse è assegnata anche una proprietà **location**, che consente di impostare l'area in cui viene distribuita la risorsa.
+Alla maggior parte delle risorse è assegnata anche una proprietà `location`, che consente di impostare l'area in cui viene distribuita la risorsa.
 
 Le altre proprietà variano in base al tipo di risorsa e alla versione dell'API. Dal momento che è importante comprendere la connessione tra la versione dell'API e le proprietà disponibili, verranno approfonditi questi aspetti.
 
-In questa esercitazione è stato aggiunto un account di archiviazione al modello. La versione dell'API è disponibile in [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Si noti che non tutte le proprietà sono state aggiunte al modello. Molte proprietà sono infatti facoltative. Il provider di risorse Microsoft.Storage potrebbe rilasciare una nuova versione dell'API, ma non è necessario modificare la versione distribuita. È possibile continuare a usare tale versione ed essere certi che i risultati della distribuzione saranno comunque coerenti.
+In questa esercitazione è stato aggiunto un account di archiviazione al modello. La versione dell'API è disponibile in [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Si noti che non tutte le proprietà sono state aggiunte al modello. Molte proprietà sono infatti facoltative. Il provider di risorse `Microsoft.Storage` potrebbe rilasciare una nuova versione dell'API, ma non è necessario modificare la versione distribuita. È possibile continuare a usare tale versione ed essere certi che i risultati della distribuzione saranno comunque coerenti.
 
 Se si visualizza una versione precedente dell'API, ad esempio [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), si noterà che è disponibile un set di proprietà di dimensioni inferiori.
 
@@ -60,7 +60,7 @@ Se si decide di modificare la versione dell'API per una risorsa, assicurarsi di 
 
 È possibile distribuire il modello per creare l'account di archiviazione. Assegnare alla distribuzione un nome diverso in modo da poterla trovare facilmente nella cronologia.
 
-Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
+Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile `templateFile` sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -85,15 +85,15 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 Potrebbero verificarsi due errori di distribuzione:
 
-- Errore: Code=AccountNameInvalid; Message={provide-unique-name} non è un nome valido per l'account di archiviazione. I nomi degli account di archiviazione devono essere compresi tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.
+- `Error: Code=AccountNameInvalid; Message={provide-unique-name}` non è un nome di account di archiviazione valido. I nomi degli account di archiviazione devono essere compresi tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.
 
-    Nel modello sostituire **{provide-unique-name}** con un nome di account di archiviazione univoco.  Vedere [Aggiungere una risorsa](#add-resource).
+    Nel modello sostituire `{provide-unique-name}` con un nome di account di archiviazione univoco. Vedere [Aggiungere una risorsa](#add-resource).
 
-- Errore: Code=StorageAccountAlreadyTaken; Message=L'account di archiviazione denominato store1abc09092019 è già assegnato.
+- `Error: Code=StorageAccountAlreadyTaken; Message=The storage account named store1abc09092019` è già in uso.
 
     Nel modello provare con un nome di account di archiviazione diverso.
 
@@ -122,7 +122,7 @@ Se invece ci si ferma, è opportuno eliminare il gruppo di risorse per rimuovere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato creato un modello semplice per distribuire un account di archiviazione di Azure.  Nelle esercitazioni successive verrà illustrato come aggiungere parametri, variabili, risorse e output a un modello. Queste funzionalità costituiscono i blocchi predefiniti di modelli molto più complessi.
+È stato creato un modello semplice per distribuire un account di archiviazione di Azure. Nelle esercitazioni successive verrà illustrato come aggiungere parametri, variabili, risorse e output a un modello. Queste funzionalità costituiscono i blocchi predefiniti di modelli molto più complessi.
 
 > [!div class="nextstepaction"]
 > [Aggiungere i parametri](template-tutorial-add-parameters.md)

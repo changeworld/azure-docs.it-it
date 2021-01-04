@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86ef610af605c657868824eefe2e6e706f6963ac
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484662"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360186"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Avvio rapido: Caricamento bulk con Synapse SQL
 
@@ -39,26 +39,25 @@ Il caricamento dei dati diventa facile con la procedura guidata Caricamento bulk
 
 ### <a name="steps"></a>Passaggi
 
-1. Selezionare l'account di archiviazione e il file o la cartella da cui eseguire il caricamento nel pannello della posizione di archiviazione di origine. La procedura guidata tenterà automaticamente di rilevare i file Parquet. Se non è possibile confermare il tipo di file Parquet, per impostazione predefinita verrà usato il tipo di file CSV.
+1. Selezionare l'account di archiviazione e il file o la cartella da cui eseguire il caricamento nel pannello della posizione di archiviazione di origine. La procedura guidata tenterà automaticamente di rilevare i file Parquet e i file di testo delimitato (CSV) e di eseguire il mapping dei campi di origine dal file ai tipi di dati SQL di destinazione appropriati. 
 
    ![Selezione della posizione di origine](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Selezionare le impostazioni del formato di file, incluso l'account di archiviazione in cui scrivere le righe rifiutate (file di errori). Attualmente sono supportati solo i file CSV e Parquet.
+2. Selezionare le impostazioni del formato di file, incluse le impostazioni di errore in caso di righe rifiutate durante il processo di caricamento bulk. Per configurare le impostazioni del formato di file, è anche possibile selezionare "Anteprima dati" per vedere come verrà analizzato il file dall'istruzione COPY. Selezionare "Anteprima dati" ogni volta che si cambia un'impostazione del formato di file per vedere come verrà analizzato il file dall'istruzione COPY con l'impostazione aggiornata:
 
-    ![Selezione delle impostazioni del formato di file](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. Per configurare le impostazioni del formato di file, è possibile selezionare "Anteprima dati" per vedere come verrà analizzato il file dall'istruzione COPY. Selezionare "Anteprima dati" ogni volta che si cambia un'impostazione del formato di file per vedere come verrà analizzato il file dall'istruzione COPY con l'impostazione aggiornata: ![Anteprima dei dati](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![Anteprima dei dati](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
 > - La visualizzazione in anteprima dei dati con caratteri di terminazione del campo multipli non è supportata nella procedura guidata Caricamento bulk. Se vengono specificati caratteri di terminazione del campo multipli, la procedura guidata visualizza l'anteprima dei dati in una sola colonna. 
-> - La specifica di caratteri di terminazione del campo multipli è supportata nell'istruzione COPY, ma non nella procedura guidata Caricamento bulk, in cui viene generato un errore.
+> - Quando si seleziona "Deduci nomi di colonna", la procedura guidata per il caricamento bulk analizza i nomi di colonna a partire dalla prima riga specificata nel campo "Prima riga". La procedura guidata per il caricamento bulk incrementa automaticamente di 1 il valore FIRSTROW nell'istruzione COPY per ignorare questa riga di intestazione. 
+> - La specifica di caratteri di terminazione della riga composti da più caratteri è supportata nell'istruzione COPY, ma non nella procedura guidata per il caricamento bulk, in cui viene generato un errore.
 
-4. Selezionare il pool SQL dedicato che si usa per il caricamento, specificando anche se il caricamento verrà eseguito per una cartella esistente o per una nuova: ![Selezione della posizione di destinazione](./sql/media/bulk-load/bulk-load-target-location.png)
+3. Selezionare il pool SQL dedicato che si usa per il caricamento, specificando anche se il caricamento verrà eseguito per una cartella esistente o per una nuova: ![Selezione della posizione di destinazione](./sql/media/bulk-load/bulk-load-target-location.png)
+4. Selezionare "Configure column mapping" (Configura mapping di colonne) per assicurarsi di avere il mapping di colonne appropriato. Se l'opzione "Infer column names" (Deduci nomi colonne) è abilitata, i nomi delle colonne vengono rilevati automaticamente. Per le nuove tabelle, la configurazione del mapping di colonne è fondamentale per l'aggiornamento dei tipi di dati delle colonne di destinazione:
 
-5. Selezionare "Configure column mapping" (Configura mapping di colonne) per assicurarsi di avere il mapping di colonne appropriato. Se l'opzione "Infer column names" (Deduci nomi colonne) è abilitata, i nomi delle colonne vengono rilevati automaticamente. Per le nuove tabelle, la configurazione del mapping di colonne è fondamentale per l'aggiornamento dei tipi di dati delle colonne di destinazione: ![Configurazione del mapping di colonne](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. Selezionare "Apri script" per generare uno script T-SQL con l'istruzione COPY da caricare dal data lake: ![Apertura dello script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
+   ![Configurazione del mapping di colonne](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Selezionare "Apri script" per generare uno script T-SQL con l'istruzione COPY da caricare dal data lake: ![Apertura dello script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

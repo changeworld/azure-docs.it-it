@@ -40,7 +40,7 @@ Per prima cosa, ottenere il nome completo del server di accesso dell'istanza di 
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Se il nome del registro è *mycontainerregistry082* , ad esempio:
+Se il nome del registro è *mycontainerregistry082*, ad esempio:
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -58,7 +58,7 @@ Visualizzare quindi l'elenco delle immagini locali con il comando [docker images
 docker images
 ```
 
-Insieme a tutte le altre immagini presenti nel computer, verrà visualizzata l'immagine *aci-tutorial-app* creata nell' [esercitazione precedente](container-instances-tutorial-prepare-app.md):
+Insieme a tutte le altre immagini presenti nel computer, verrà visualizzata l'immagine *aci-tutorial-app* creata nell'[esercitazione precedente](container-instances-tutorial-prepare-app.md):
 
 ```console
 $ docker images
@@ -111,7 +111,7 @@ Per verificare che l'immagine di cui è appena stato eseguito il push si trovi e
 az acr repository list --name <acrName> --output table
 ```
 
-Esempio:
+Ad esempio:
 
 ```azurecli
 az acr repository list --name mycontainerregistry082 --output table

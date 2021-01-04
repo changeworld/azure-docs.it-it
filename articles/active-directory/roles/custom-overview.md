@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f694a46fddbc84968b3267842aa19108d051590
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0876478d638963e7157f7a16a263000eec634db0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499238"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005120"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Panoramica del controllo degli accessi in base al ruolo di Azure Active Directory
 
@@ -30,10 +30,13 @@ Questo articolo descrive il controllo degli accessi in base al ruolo di Azure Ac
 Entrambi i sistemi contengono definizioni e assegnazioni di ruoli usate in modo simile. Tuttavia, le autorizzazioni dei ruoli di Azure AD non possono essere usate nei ruoli personalizzati di Azure e viceversa.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Informazioni sul controllo degli accessi in base al ruolo di Azure AD
+Azure AD supporta due tipi di definizioni di ruoli: 
+* [Ruoli predefiniti](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
+* [Ruoli personalizzati](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
 
-La concessione di autorizzazioni tramite ruoli di Azure AD personalizzati è un processo in due passaggi che prevede la creazione di una definizione del ruolo personalizzata e la successiva assegnazione tramite un'assegnazione di ruolo. Una definizione del ruolo personalizzata è una raccolta di autorizzazioni aggiunte da un elenco preimpostato. Queste autorizzazioni corrispondono a quelle usate nei ruoli predefiniti.  
+I ruoli predefiniti sono ruoli pronti per l'uso con un set fisso di autorizzazioni. Queste definizioni dei ruoli non possono essere modificate. Azure AD supporta attualmente numerosi [ruoli predefiniti](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference) e l'elenco è in continuo aumento. Per soddisfare requisiti più avanzati, Azure AD supporta anche [ruoli personalizzati](https://docs.microsoft.com/azure/active-directory/roles/custom-create). La concessione di autorizzazioni tramite ruoli di Azure AD personalizzati è un processo in due passaggi che prevede la creazione di una definizione del ruolo personalizzata e la successiva assegnazione tramite un'assegnazione di ruolo. Una definizione del ruolo personalizzata è una raccolta di autorizzazioni aggiunte da un elenco preimpostato. Queste autorizzazioni corrispondono a quelle usate nei ruoli predefiniti.  
 
-Una volta creata la definizione del ruolo, è possibile assegnarla a un utente creando un'assegnazione di ruolo. Un'assegnazione di ruolo concede all'utente le autorizzazioni in una definizione del ruolo in un ambito specificato. Questo processo in due passaggi consente di creare una singola definizione del ruolo e di assegnarla più volte in ambiti diversi. Un ambito definisce il set di risorse di Azure AD a cui il membro del ruolo può accedere. L'ambito più comune è l'ambito a livello di organizzazione. Un ruolo personalizzato può essere assegnato a livello di organizzazione, per concedere così al membro del ruolo le autorizzazioni del ruolo per tutte le risorse nell'organizzazione. È anche possibile assegnare un ruolo personalizzato a un ambito degli oggetti. Un ambito degli oggetti è ad esempio una singola applicazione. Lo stesso ruolo può essere assegnato a un utente per tutte le applicazioni dell'organizzazione e quindi a un altro utente con un ambito limitato all'app Contoso Expense Reports.  
+Dopo aver creato la definizione del ruolo personalizzato (o usando un ruolo predefinito), è possibile assegnarla a un utente creando un'assegnazione di ruolo. Un'assegnazione di ruolo concede all'utente le autorizzazioni in una definizione del ruolo in un ambito specificato. Questo processo in due passaggi consente di creare una singola definizione del ruolo e di assegnarla più volte in ambiti diversi. Un ambito definisce il set di risorse di Azure AD a cui il membro del ruolo può accedere. L'ambito più comune è l'ambito a livello di organizzazione. Un ruolo personalizzato può essere assegnato a livello di organizzazione, per concedere così al membro del ruolo le autorizzazioni del ruolo per tutte le risorse nell'organizzazione. È anche possibile assegnare un ruolo personalizzato a un ambito degli oggetti. Un ambito degli oggetti è ad esempio una singola applicazione. Lo stesso ruolo può essere assegnato a un utente per tutte le applicazioni dell'organizzazione e quindi a un altro utente con un ambito limitato all'app Contoso Expense Reports.  
 
 I ruoli predefiniti e personalizzati di Azure AD operano in base a concetti simili al [Controllo degli accessi in base al ruolo di Azure](../../active-directory-b2c/overview.md). La [differenza tra questi due sistemi di controllo degli accessi in base al ruolo](../../role-based-access-control/rbac-and-directory-admin-roles.md) sta nel fatto che il controllo degli accessi in base al ruolo di Azure controlla l'accesso alle risorse di Azure, ad esempio le macchine virtuali o lo spazio di archiviazione, tramite Gestione delle risorse di Azure e i ruoli personalizzati di Azure AD controllano l'accesso alle risorse di Azure AD tramite l'API Graph. Entrambi i sistemi sfruttano il concetto di definizioni del ruolo e assegnazioni di ruolo. Le autorizzazioni del controllo degli accessi in base al ruolo di Azure AD non possono essere incluse nei ruoli di Azure e viceversa.
 
@@ -80,7 +83,7 @@ Un ambito è la restrizione delle azioni consentite a una risorsa di Azure AD sp
 
 ## <a name="required-license-plan"></a>Piano di licenza necessario
 
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
+L'uso dei ruoli predefiniti in Azure AD è gratuito, mentre per usare i ruoli personalizzati è necessaria una licenza di Azure AD Premium P1. Per trovare la licenza corretta per le proprie esigenze, vedere [Caratteristiche e funzionalità di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,15 +1,15 @@
 ---
 title: "Avvio rapido: Eseguire il primo processo Batch con l'interfaccia della riga di comando di Azure"
-description: Informazioni su come creare un account Batch ed eseguire un processo Batch con l'interfaccia della riga di comando di Azure.
+description: Questa guida di avvio rapido illustra come creare un account Batch ed eseguire un processo batch con l'interfaccia della riga di comando di Azure.
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: eb5bb4a627ff26250519651f5e6d47ddd6f5a776
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 297af47b6280381646e654eaededfe8b71a5d874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562288"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106683"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Avvio rapido: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 

@@ -11,16 +11,18 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 486add54a6d41493c54bd7b0b0339804f6c31847
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174731"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399996"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Informazioni sul provisioning utenti automatizzato per app SaaS in Azure AD
 
 In Azure Active Directory (Azure AD) il termine **provisioning di app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) e altre ancora.
+
+Per altre informazioni su SCIM e per partecipare alla conversazione con la Tech Community, vedere [Provisioning con SCIM](https://aka.ms/scimoverview) sul sito della Tech Community.
 
 ![Diagramma che illustra una panoramica del provisioning](./media/user-provisioning/provisioning-overview.png)
 

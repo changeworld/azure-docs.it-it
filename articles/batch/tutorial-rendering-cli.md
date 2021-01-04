@@ -1,15 +1,15 @@
 ---
-title: Eseguire il rendering di una scena nel cloud
+title: 'Esercitazione: Eseguire il rendering di una scena nel cloud'
 description: Esercitazione - Come eseguire il rendering di una scena Autodesk 3ds Max con Arnold usando il servizio Rendering di Batch e l'interfaccia della riga di comando di Azure
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542389"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106343"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
 
@@ -346,7 +346,7 @@ In questa esercitazione si è appreso a:
 > * Ridimensionare il pool ed eseguire il rendering di una scena a più frame
 > * Scaricare l'output sottoposto a rendering
 
-Per altre informazioni sul rendering su scala cloud, vedere le opzioni per il servizio Rendering di Batch. 
+Per altre informazioni sul rendering su scala cloud, vedere la documentazione sul rendering di Batch.
 
 > [!div class="nextstepaction"]
 > [Servizio di rendering di Batch](batch-rendering-service.md)

@@ -1,16 +1,16 @@
 ---
-title: Simulazione in parallelo in R con Azure Batch
+title: 'Esercitazione: Eseguire una simulazione in parallelo in R con Azure Batch'
 description: Esercitazione - Istruzioni dettagliate per eseguire una simulazione finanziaria Monte Carlo in Azure Batch usando il pacchetto R doAzureParallel
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 3ce4cff94bb565ce3dd9bc4e9307a2b21c4c0ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f157a3596992fc9d40179653cc1f9a070c6ef803
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851136"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106362"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Esercitazione: Eseguire una simulazione in parallelo in R con Azure Batch
 
@@ -251,7 +251,7 @@ stopCluster(cluster)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso a:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > Installare doAzureParallel e configurarlo per accedere agli account Batch e di archiviazione
@@ -263,7 +263,3 @@ Per altre informazioni su doAzureParallel, vedere la documentazione e gli esempi
 
 > [!div class="nextstepaction"]
 > [Pacchetto doAzureParallel](https://github.com/Azure/doAzureParallel/)
-
-
-
-

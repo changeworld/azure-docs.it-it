@@ -1,20 +1,20 @@
 ---
-title: 'Avvio rapido: Creazione della prima app Web statica con App Web statiche di Azure'
-description: Informazioni su come creare un sito Web App Web statiche di Azure.
+title: 'Avvio rapido: Creazione del primo sito statico con App Web statiche di Azure'
+description: Informazioni su come distribuire un sito statico in App Web statiche di Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369563"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562515"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Avvio rapido: Creazione della prima app Web statica
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Avvio rapido: Creazione del primo sito statico con App Web statiche di Azure
 
 App Web statiche di Azure consente di pubblicare un sito Web in un ambiente di produzione creando app da un repository GitHub. In questa guida di avvio rapido si distribuisce un'applicazione Web in App Web statiche di Azure usando l'estensione per Visual Studio Code.
 
@@ -52,7 +52,7 @@ Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Creare l'app Web statica":::
 
-1. Selezionare il ramo **master** e premere **INVIO**.
+1. Selezionare il ramo **principale** e premere **INVIO**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nome del ramo":::
 

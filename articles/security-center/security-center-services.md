@@ -1,6 +1,6 @@
 ---
-title: Funzionalità supportate disponibili nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo documento contiene un elenco di servizi supportati dal Centro sicurezza di Azure.
+title: Funzionalità del Centro sicurezza di Azure in base a sistema operativo, tipo di computer e cloud
+description: Informazioni sulle funzionalità del Centro sicurezza di Azure disponibili in base al sistema operativo, al tipo e alla distribuzione cloud.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2020
+ms.date: 12/17/2020
 ms.author: memildin
-ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b3671a57b8371c47b1690b4bf6be008d695d1ca0
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445252"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654745"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per le macchine virtuali
 
@@ -99,10 +99,45 @@ Per informazioni sui casi in cui vengono generate raccomandazioni per ognuna di 
 | McAfee v10+ | Famiglia di server Linux  | No | Sì * *\** _ |
 | Sophos V9+| Famiglia di server Linux  | No | Sì _*\**_  |
 
- _ *\** * I dati sullo stato di copertura e di supporto sono attualmente disponibili solo nell'area di lavoro Log Analytics associata alle sottoscrizioni protette. Non sono riportati nel portale del Centro sicurezza di Azure.
+ _*\**_ I dati sullo stato di copertura e di supporto sono attualmente disponibili solo nell'area di lavoro Log Analytics associata alle sottoscrizioni protette. Non sono riportati nel portale del Centro sicurezza di Azure.
 
 > [!NOTE]
 > Per poter rilevare System Center Endpoint Protection (SCEP) in una macchina virtuale Windows Server 2008 R2, SCEP deve essere installato dopo PowerShell (versione 3.0 o successiva).
+
+
+
+## <a name="feature-support-in-government-clouds"></a>Supporto delle funzionalità nei cloud per enti pubblici
+
+| Servizio/Funzionalità | US Gov | Governo cinese |
+|------|:----:|:----:|
+|[Accesso JIT alla macchina virtuale](security-center-just-in-time.md) (1)|✔|✔|
+|[Monitoraggio dell'integrità dei file](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[Controlli applicazioni adattivi](security-center-adaptive-application.md) (1)|✔|✔|
+|[Protezione avanzata adattiva per la rete](security-center-adaptive-network-hardening.md) (1)|-|-|
+|[Protezione avanzata dell'host Docker](harden-docker-hosts.md) (1)|✔|✔|
+|[Valutazione della vulnerabilità integrata per le macchine virtuali](deploy-vulnerability-assessment-vm.md) (1)|-|-|
+|[Microsoft Defender per endpoint](harden-docker-hosts.md) (1)|✔|-|
+|[Connessione account AWS](quickstart-onboard-aws.md) (1)|-|-|
+|[Connessione account GCP](quickstart-onboard-gcp.md) (1)|-|-|
+|[Esportazione continua](continuous-export.md)|✔|✔|
+|[Automazione del flusso di lavoro](workflow-automation.md)|✔|✔|
+|[Regole di esenzione delle raccomandazioni](exempt-resource.md)|-|-|
+|[Regole di eliminazione avvisi](alerts-suppression-rules.md)|✔|✔|
+|[Notifiche tramite posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md)|✔|✔|
+|[Inventario degli asset](asset-inventory.md)|-|-|
+|[Azure Defender per il servizio app](defender-for-app-service-introduction.md)|-|-|
+|[Azure Defender per Archiviazione](defender-for-storage-introduction.md)|✔|-|
+|[Azure Defender per SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
+|[Azure Defender per Key Vault](defender-for-key-vault-introduction.md)|-|-|
+|[Azure Defender per Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
+|[Azure Defender per DNS](defender-for-dns-introduction.md)|-|-|
+|[Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender per registri contenitori](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|||
+
+(1) È necessario _ *Azure Defender per server**
+
+(2) Parziale
 
 
 ## <a name="next-steps"></a>Passaggi successivi

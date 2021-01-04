@@ -6,18 +6,18 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a44852fb2f491dd949b58217eca3e4f3e392cf17
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931419"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584137"
 ---
 # <a name="tutorial-utilize-the-arm-template-reference"></a>Esercitazione: Utilizzare il riferimento del modello di Azure Resource Manager
 
 Questo articolo illustra come trovare le informazioni sullo schema dei modelli e usarle per creare modelli di Azure Resource Manager (modelli di ARM).
 
-In questa esercitazione si usa un modello di base di Modelli di avvio rapido di Azure. Usando la documentazione di riferimento del modello, si personalizza il modello.
+In questa esercitazione si usa un modello di base incluso in Modelli di avvio rapido di Azure. Usando la documentazione di riferimento del modello, si personalizza il modello.
 
 ![Riferimento del modello di Resource Manager - Account di archiviazione per la distribuzione](./media/template-tutorial-use-template-reference/resource-manager-template-tutorial-deploy-storage-account.png)
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) è un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa guida introduttiva è denominato [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Creare un account di archiviazione Standard). Il modello definisce una risorsa account di archiviazione di Azure.
 
-1. In Visual Studio Code selezionare **File**>**Apri file**.
+1. In Visual Studio Code selezionare **File** > **Apri file**.
 1. In **Nome file** incollare l'URL seguente:
 
     ```url
@@ -50,7 +50,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
     ```
 
 1. Selezionare **Apri** per aprire il file.
-1. Selezionare **File**>**Salva con nome** per salvare il file con il nome **azuredeploy.json** nel computer locale.
+1. Selezionare **File** > **Salva con nome** per salvare il file con il nome _azuredeploy.json_ nel computer locale.
 
 ## <a name="understand-the-schema"></a>Informazioni sullo schema
 
@@ -58,18 +58,18 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
     ![Struttura più semplice del modello di Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-simplest-structure.png)
 
-    * **$schema**: specificare il percorso del file di schema JSON che descrive la versione del linguaggio del modello.
-    * **contentVersion**: specificare qualsiasi valore per questo elemento per documentare le modifiche significative nel modello.
-    * **parameters**: specificare i valori forniti durante la distribuzione per personalizzare la distribuzione di risorse.
-    * **variables**: specificare i valori usati come frammenti JSON nel modello per semplificare le espressioni di linguaggio del modello.
-    * **resources**: specificare i tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse.
-    * **outputs**: specificare i valori restituiti dopo la distribuzione.
+    * `$schema`: specificare il percorso del file di schema JSON che descrive la versione del linguaggio del modello.
+    * `contentVersion`: specificare qualsiasi valore per questo elemento per documentare le modifiche significative nel modello.
+    * `parameters`: specificare i valori forniti durante la distribuzione per personalizzare la distribuzione di risorse.
+    * `variables`: specificare i valori usati come frammenti JSON nel modello per semplificare le espressioni di linguaggio del modello.
+    * `resources`: specificare i tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse.
+    * `outputs`: specificare i valori restituiti dopo la distribuzione.
 
-1. Espandere **resources**, in cui è definita una risorsa `Microsoft.Storage/storageAccounts`. Il nome dello SKU usa un valore di parametro.  Il parametro è denominato **storageAccountType**.
+1. Espandere `resources`, in cui è definita una risorsa `Microsoft.Storage/storageAccounts`. Il nome dello SKU usa un valore di parametro. Il parametro è denominato `storageAccountType`.
 
     ![Definizione di un account di archiviazione nel modello di Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
-1. Espandere **parametri** per visualizzare la definizione di **storageAccountType**. Il parametro prevede quattro valori consentiti. È possibile trovare gli altri valori consentiti, quindi rivedere la definizione del parametro.
+1. Espandere `parameters` per visualizzare la definizione di `storageAccountType`. Il parametro prevede quattro valori consentiti. È possibile trovare gli altri valori consentiti, quindi rivedere la definizione del parametro.
 
     ![SKU delle risorse account di archiviazione del modello di Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
@@ -88,9 +88,9 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
     ![Riferimento del modello di Resource Manager - Versioni dei tipi di account di archiviazione](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Selezionare la versione più recente del tipo di risorsa **storageAccount**. Alla data della pubblicazione di questo articolo, la versione più recente è la versione **2019-06-01**. Verificare che la versione corrisponda a quella usata per la risorsa account di archiviazione nel modello. Se si aggiorna la versione dell'API, verificare che la definizione della risorsa corrisponda alle informazioni di riferimento sul modello.
+1. Selezionare la versione più recente del tipo di risorsa `storageAccount`. Alla data della pubblicazione di questo articolo, la versione più recente è la versione **2019-06-01**. Verificare che la versione corrisponda a quella usata per la risorsa account di archiviazione nel modello. Se si aggiorna la versione dell'API, verificare che la definizione della risorsa corrisponda alle informazioni di riferimento sul modello.
 
-1. Questa pagina elenca i dettagli del tipo di risorsa storageAccount.  Elenca ad esempio i valori consentiti per l'oggetto **SKU**. Sono presenti più SKU rispetto a quelli elencati nel modello di avvio rapido aperto in precedenza. È possibile personalizzare il modello di avvio rapido per includere tutti i tipi di archiviazione disponibili.
+1. Questa pagina elenca i dettagli del tipo di risorsa storageAccount. Elenca ad esempio i valori consentiti per l'**oggetto SKU**. Sono presenti più SKU rispetto a quelli elencati nel modello di avvio rapido aperto in precedenza. È possibile personalizzare il modello di avvio rapido per includere tutti i tipi di archiviazione disponibili.
 
     ![Riferimento del modello di Resource Manager - SKU dell'account di archiviazione](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-skus.png)
 
@@ -108,9 +108,11 @@ Da Visual Studio Code aggiungere i tipi di account di archiviazione aggiuntivi, 
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi `ls` e `cat` per verificare che il file sia stato caricato.
 
 1. In Cloud Shell eseguire i comandi riportati sotto. Selezionare la scheda per visualizzare il codice di PowerShell o il codice dell'interfaccia della riga di comando.
+
+   Quando si distribuisce il modello, specificare il parametro `storageAccountType` con un valore appena aggiunto, ad esempio **Standard_RAGRS**. La distribuzione non riesce se si è usato il modello di avvio rapido originale perché in quel caso **Standard_RAGRS** non è un valore consentito.
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -137,16 +139,14 @@ Da Visual Studio Code aggiungere i tipi di account di archiviazione aggiuntivi, 
 
     ---
 
- Quando si distribuisce il modello, specificare il parametro **storageAccountType** con un valore appena aggiunto, ad esempio **Standard_RAGRS**. La distribuzione non riesce se si usa il modello di avvio rapido originale perché in quel caso **Standard_RAGRS** non è un valore consentito.
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse.
 
 1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
-2. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**.
-3. Selezionare il nome del gruppo di risorse.  Nel gruppo di risorse verranno visualizzate in totale sei risorse.
-4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
+1. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**.
+1. Selezionare il nome del gruppo di risorse.  Nel gruppo di risorse verranno visualizzate in totale sei risorse.
+1. Selezionare **Elimina gruppo di risorse** nel menu in alto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

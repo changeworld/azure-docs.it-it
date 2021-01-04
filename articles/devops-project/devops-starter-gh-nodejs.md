@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 08/24/2020
 ms.author: ninallam
-ms.openlocfilehash: 92fa445cee75b2311cbadf96e24c31a1dbd579b8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e3c72ce6a15f90f0dbe08bbff10db0ca5f6b5c8f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332701"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588812"
 ---
 # <a name="set-up-cicd-for-a-nodejs-app-with-devops-starter-using-github-actions"></a>Configurare CI/CD per un'app Node.js con DevOps Starter tramite GitHub Actions
 
@@ -43,29 +43,29 @@ DevOps Starter crea un flusso di lavoro CI/CD tramite GitHub Actions. DevOps Sta
 
     ![landing_page](_img/azure-devops-project-nodejs/landing-page.png)
 
-1. Verificare che il provider CI/CD selezionato sia **GitHub Actions** .
+1. Verificare che il provider CI/CD selezionato sia **GitHub Actions**.
 
     ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
-1. Selezionare l'applicazione di esempio **Node.js** . Gli esempi di Node.js includono diversi framework applicazione.
+1. Selezionare l'applicazione di esempio **Node.js**. Gli esempi di Node.js includono diversi framework applicazione.
 
-1. Il framework di esempio predefinito è **Express.js** . Lasciare l'impostazione predefinita e quindi selezionare **Avanti** .   
+1. Il framework di esempio predefinito è **Express.js**. Lasciare l'impostazione predefinita e quindi selezionare **Avanti**.   
 
-2. La destinazione predefinita della distribuzione è App Web Windows. Il framework applicazione, scelto in precedenza, determina il tipo di destinazione della distribuzione del servizio di Azure disponibile. Lasciare il servizio predefinito e quindi selezionare **Avanti** .
+2. La destinazione predefinita della distribuzione è App Web Windows. Il framework applicazione, scelto in precedenza, determina il tipo di destinazione della distribuzione del servizio di Azure disponibile. Lasciare il servizio predefinito e quindi selezionare **Avanti**.
  
 ## <a name="configure-github-account-and-an-azure-subscription"></a>Configurare un account GitHub e una sottoscrizione di Azure 
 
 1. Eseguire l'autenticazione con GitHub.
 
-   1. Fare clic sul pulsante **Autorizza** . 
+   1. Fare clic sul pulsante **Autorizza**. 
    
    1. Accedere a GitHub. Se non si ha un account GitHub, è anche possibile iscriversi qui.
 
-2. Scegliere un' **organizzazione di GitHub** esistente. 
+2. Scegliere un'**organizzazione di GitHub** esistente. 
    
    1. Scegliere un nome per il repository GitHub. 
    
-   1. Selezionare la sottoscrizione di Azure e la posizione, scegliere un nome per l'applicazione, quindi selezionare **Fine** .
+   1. Selezionare la sottoscrizione di Azure e la posizione, scegliere un nome per l'applicazione, quindi selezionare **Fine**.
     
        ![Enter_GH_details](_img/azure-devops-project-nodejs/gh-details.png)
 
@@ -74,7 +74,7 @@ DevOps Starter crea un flusso di lavoro CI/CD tramite GitHub Actions. DevOps Sta
    
 3. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
     
-    Il dashboard contiene informazioni dettagliate sul flusso di lavoro GitHub e sulle risorse di Azure. Per visualizzare i dettagli del flusso di lavoro GitHub, come l'ultima esecuzione, i commit e lo stato dei processi, è necessario **autorizzare l'accesso a GitHub** .
+    Il dashboard contiene informazioni dettagliate sul flusso di lavoro GitHub e sulle risorse di Azure. Per visualizzare i dettagli del flusso di lavoro GitHub, come l'ultima esecuzione, i commit e lo stato dei processi, è necessario **autorizzare l'accesso a GitHub**.
    
    ![Authorize_dashboard](_img/azure-devops-project-nodejs/authenticate-dashboard.png)
 
@@ -86,11 +86,11 @@ DevOps Starter ha configurato automaticamente un flusso di lavoro GitHub con i p
 
 DevOps Starter crea un repository in GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
 
-1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo master. Questo collegamento apre una visualizzazione del repository GitHub appena creato.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo principale. Questo collegamento apre una visualizzazione del repository GitHub appena creato.
 
-1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra nel browser. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo master.
+1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra nel browser. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo principale.
 
-1. Sul lato sinistro del browser passare al file **/Application/views/index.pug** .
+1. Sul lato sinistro del browser passare al file **/Application/views/index.pug**.
 
 1. Selezionare **Modifica** e quindi apportare una modifica al testo.
     Cambiare, ad esempio, una parte del testo di uno dei tag.
@@ -104,17 +104,17 @@ A questo punto si dovrebbe vedere un processo di compilazione del flusso di lavo
 
 Nel passaggio precedente DevOps Starter ha configurato automaticamente un flusso di lavoro GitHub completo. Esplorare e personalizzare il flusso di lavoro in base alle esigenze. Eseguire questa procedura per acquisire familiarità con il flusso di lavoro.
 
-1. Sul lato sinistro del dashboard di DevOps Starter selezionare **Flusso di lavoro GitHub** . Questo collegamento apre una scheda del browser e il flusso di lavoro GitHub per il nuovo progetto.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare **Flusso di lavoro GitHub**. Questo collegamento apre una scheda del browser e il flusso di lavoro GitHub per il nuovo progetto.
     > [!NOTE]
     > Non rinominare il file del flusso di lavoro. Il nome del file deve essere **devops-starter-workflow.yml** affinché le modifiche vengano visualizzate nel dashboard
 
 1. Il file YAML del flusso di lavoro contiene tutte istanze di GitHub Actions necessarie per compilare e distribuire l'applicazione. Fare clic sull'opzione **Modifica file** per personalizzare il file del flusso di lavoro.
 
-1. Nella scheda **Codice** del repository fare clic su **Commit** . Questa visualizzazione mostra i commit di codice associati alla distribuzione specifica.
+1. Nella scheda **Codice** del repository fare clic su **Commit**. Questa visualizzazione mostra i commit di codice associati alla distribuzione specifica.
 
 1. Nella scheda **Azioni** del repository è possibile visualizzare la cronologia di tutte le esecuzioni del flusso di lavoro del repository.
 
-1. Selezionare l' **ultima esecuzione** per visualizzare tutti i processi eseguiti nel flusso di lavoro.
+1. Selezionare l'**ultima esecuzione** per visualizzare tutti i processi eseguiti nel flusso di lavoro.
 
 1. Fare clic su **Processi** per visualizzare i log dettagliati dell'esecuzione del flusso di lavoro. I log contengono informazioni utili sul processo di distribuzione. Possono essere visualizzati durante e dopo le distribuzioni.
 

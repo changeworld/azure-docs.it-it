@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 88ad060c1ba28285051a91bd928a2a7116dff1ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886788"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937543"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Risoluzione dei problemi in Servizi di comunicazione di Azure
 
@@ -165,6 +165,25 @@ In Android Studio passare a Device File Explorer selezionando View > Tool Window
    
 
 ---
+
+
+## <a name="calling-client-library-error-codes"></a>Codici errore della libreria client per le chiamate
+
+La libreria client per le chiamate di Servizi di comunicazione di Azure usa i codici errore seguenti per facilitare la risoluzione dei problemi relativi alle chiamate. Questi codici di errore vengono esposti tramite la proprietà `call.callEndReason` al termine di una chiamata.
+
+| Codice di errore | Descrizione | Azione da eseguire |
+| -------- | ---------------| ---------------|
+| 403 | Accesso negato/Errore di autenticazione. | Verificare che il token di Servizi di comunicazione sia valido e non scaduto. |
+| 404 | Chiamata non trovata. | Verificare che il numero che si sta chiamando (o la chiamata a cui ci si sta aggiungendo) esista. |
+| 408 | Timeout del controller di chiamata. | Si è verificato il timeout del controller di chiamata durante l'attesa dei messaggi di protocollo dagli endpoint utente. Verificare che i client siano connessi e disponibili. |
+| 410 | Errore dello stack multimediale locale o dell'infrastruttura multimediale. | Assicurarsi di usare la libreria client più recente in un ambiente supportato. |
+| 430 | Non è possibile recapitare messaggi all'applicazione client. | Verificare che l'applicazione client sia in esecuzione e disponibile. |
+| 480 | Endpoint client remoto non registrato. | Assicurarsi che l'endpoint remoto sia disponibile. |
+| 481 | Non è stato possibile gestire la chiamata in ingresso. | Inviare una richiesta di supporto tramite il portale di Azure. |
+| 487 | Chiamata annullata, rifiutata a livello locale, terminata a causa di un problema di corrispondenza dell'endpoint oppure generazione dell'offerta multimediale non riuscita. | Comportamento previsto. |
+| 490, 491, 496, 487, 498 | Problemi di rete dell'endpoint locale. | Controllare la rete. |
+| 500, 503, 504 | Errore dell'infrastruttura di Servizi di comunicazione. | Inviare una richiesta di supporto tramite il portale di Azure. |
+| 603 | Chiamata rifiutata a livello globale dal partecipante di Servizi di comunicazione remota | Comportamento previsto. |
 
 
 ## <a name="related-information"></a>Informazioni correlate

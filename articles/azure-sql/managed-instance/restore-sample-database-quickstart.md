@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790747"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928801"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Avvio rapido: Ripristinare un database in Istanza gestita di SQL di Azure con SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,6 +51,9 @@ In SQL Server Management Studio (SSMS) seguire questa procedura per ripristinare
 1. Aprire SSMS e connettersi all'istanza gestita.
 2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sull'istanza gestita di SQL e scegliere **Nuova query** per aprire una nuova finestra di query.
 3. Eseguire lo script SQL seguente, che usa un account di archiviazione preconfigurato e una chiave di firma di accesso condiviso per [creare le credenziali](/sql/t-sql/statements/create-credential-transact-sql) nell'istanza gestita.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` deve corrispondere al percorso del contenitore, deve iniziare con `https` e non può contenere una barra finale. Il parametro `IDENTITY` deve essere impostato su `SHARED ACCESS SIGNATURE`. `SECRET` deve essere il token di firma di accesso condiviso e non può contenere un `?` iniziale.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]

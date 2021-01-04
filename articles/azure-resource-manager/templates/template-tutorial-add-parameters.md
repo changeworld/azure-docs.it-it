@@ -6,12 +6,12 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d0743d316b9d879017f3b0fbe08ee4dc2b3e1c2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e983f8499cbeaf400a8da6f48d7f6c8b75c4795a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931062"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107063"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Esercitazione: Aggiungere parametri a un modello di Azure Resource Manager
 
@@ -33,7 +33,7 @@ Si sarà probabilmente notato che si è verificato un problema con questo modell
 
 ## <a name="make-template-reusable"></a>Rendere riutilizzabile il modello
 
-Per rendere riutilizzabile il modello, si aggiungerà un parametro che è possibile usare per passare un nome dell'account di archiviazione. Il codice JSON evidenziato nell'esempio seguente illustra le modifiche apportate nel modello. Il parametro **storageName** viene identificato come stringa. La lunghezza massima è impostata su 24 caratteri per impedire nomi troppo lunghi.
+Per rendere riutilizzabile il modello, si aggiungerà un parametro che è possibile usare per passare un nome dell'account di archiviazione. Il codice JSON evidenziato nell'esempio seguente illustra le modifiche apportate nel modello. Il parametro `storageName` viene identificato come stringa. La lunghezza massima è impostata su 24 caratteri per impedire nomi troppo lunghi.
 
 Copiare l'intero file e sostituire il modello con il contenuto del file.
 
@@ -43,7 +43,7 @@ Copiare l'intero file e sostituire il modello con il contenuto del file.
 
 A questo punto è possibile distribuire il modello. L'esempio seguente illustra come distribuire il modello con l'interfaccia della riga di comando di Azure o con PowerShell. Si noti che il nome dell'account di archiviazione viene specificato come uno dei valori nel comando di distribuzione. Per il nome dell'account di archiviazione specificare lo stesso nome usato nell'esercitazione precedente.
 
-Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
+Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile `templateFile` sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -81,11 +81,11 @@ Questa modalità di gestione degli aggiornamenti indica che il modello può incl
 
 I parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente. È, ad esempio, possibile passare valori diversi a seconda che si stia eseguendo la distribuzione in un ambiente di sviluppo, test o produzione.
 
-Con il modello precedente veniva sempre distribuito un account di archiviazione di tipo Archiviazione con ridondanza locale Standard (Standard_LRS). Si potrebbe però voler distribuire SKU diversi a seconda dell'ambiente. Nell'esempio seguente sono illustrate le modifiche da apportare per aggiungere un parametro per lo SKU. Copiare l'intero file e incollarlo nel modello sovrascrivendolo.
+Con il modello precedente veniva sempre distribuito un account di archiviazione di tipo Archiviazione con ridondanza locale Standard (**Standard_LRS**). Si potrebbe però voler distribuire SKU diversi a seconda dell'ambiente. Nell'esempio seguente sono illustrate le modifiche da apportare per aggiungere un parametro per lo SKU. Copiare l'intero file e incollarlo nel modello sovrascrivendolo.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-Al parametro **storageSKU** è assegnato un valore predefinito. Questo valore viene usato quando non si specifica un valore durante la distribuzione. Include anche un elenco di valori consentiti. Questi valori corrispondono a quelli necessari per creare un account di archiviazione. Non si vuole che gli utenti del modello passino SKU che non funzionano.
+Al parametro `storageSKU` è assegnato un valore predefinito. Questo valore viene usato quando non si specifica un valore durante la distribuzione. Include anche un elenco di valori consentiti. Questi valori corrispondono a quelli necessari per creare un account di archiviazione. Non si vuole che gli utenti del modello passino SKU che non funzionano.
 
 ## <a name="redeploy-template"></a>Ridistribuire il modello
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 A questo punto il modello verrà ridistribuito per verificarne la flessibilità. Questa volta impostare il parametro SKU su **Standard_GRS**. È possibile passare un nuovo nome per creare un account di archiviazione diverso oppure usare lo stesso nome per aggiornare l'account di archiviazione esistente. Entrambe le opzioni sono ugualmente valide.
 

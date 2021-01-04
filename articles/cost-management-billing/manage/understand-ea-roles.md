@@ -1,24 +1,24 @@
 ---
-title: Informazioni sui ruoli di amministratore dell'organizzazione in Azure
+title: Informazioni sui ruoli di amministratore per i contratti Enterprise in Azure
 description: Informazioni sui ruoli di amministratore per Enterprise in Azure. È possibile assegnare cinque ruoli amministrativi distinti.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409201"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560526"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Gestione dei ruoli Enterprise di Azure
+# <a name="managing-azure-enterprise-agreement-roles"></a>Gestione dei ruoli del contratto Enterprise di Azure
 
-Per gestire l'utilizzo e la spesa per la propria organizzazione, i clienti di Azure con un Contratto Enterprise possono assegnare cinque distinti ruoli amministrativi:
+Per gestire l'utilizzo e la spesa per la propria organizzazione, i clienti di Azure con un Contratto Enterprise possono assegnare cinque ruoli amministrativi distinti:
 
 - Amministratore dell'organizzazione
 - Amministratore dell'organizzazione (sola lettura)<sup>1</sup>
@@ -40,17 +40,17 @@ Questi ruoli sono specifici per la gestione del Contratto Enterprise di Azure e 
 
 La gerarchia di Azure Enterprise Portal è costituita da:
 
-- **Azure Enterprise Portal** : portale di gestione online che consente di gestire i costi dei servizi del Contratto Enterprise di Azure. È possibile:
+- **Azure Enterprise Portal**: portale di gestione online che consente di gestire i costi dei servizi del Contratto Enterprise di Azure. È possibile:
 
   - Creare una gerarchia del Contratto Enterprise di Azure con reparti, account e sottoscrizioni.
   - Riconciliare i costi dei servizi utilizzati, scaricare report di utilizzo e visualizzare i listini prezzi.
   - Creare chiavi API per la registrazione.
 
-- **Reparti** : facilita la segmentazione dei costi in raggruppamenti logici. Tramite i reparti è possibile impostare un budget o una quota a livello di reparto.
+- **Reparti**: facilita la segmentazione dei costi in raggruppamenti logici. Tramite i reparti è possibile impostare un budget o una quota a livello di reparto.
 
-- **Account** : sono le unità organizzative in Azure Enterprise Portal. È possibile usare gli account per gestire le sottoscrizioni e accedere ai report.
+- **Account**: sono le unità organizzative in Azure Enterprise Portal. È possibile usare gli account per gestire le sottoscrizioni e accedere ai report.
 
-- **Sottoscrizioni** : sono le unità più piccole in Azure Enterprise Portal. Si tratta di contenitori per i servizi di Azure gestiti dall'amministratore del servizio.
+- **Sottoscrizioni**: sono le unità più piccole in Azure Enterprise Portal. Si tratta di contenitori per i servizi di Azure gestiti dall'amministratore del servizio.
 
 Il diagramma seguente illustra le semplici gerarchie di Azure EA.
 
@@ -82,6 +82,8 @@ Gli utenti con questo ruolo hanno il livello di accesso più elevato. Possono es
 - Gestire i contatti per le notifiche.
 - Visualizzare l'utilizzo in tutti gli account.
 - Visualizzare gli addebiti non fatturati in tutti gli account.
+- Visualizzare e gestire tutti gli ordini di prenotazioni e le prenotazioni applicabili al Contratto Enterprise.
+  - Il ruolo Amministratore dell'organizzazione (sola lettura) può visualizzare gli ordini di prenotazioni e le prenotazioni. Non può gestirli.
 
 In una registrazione Enterprise è possibile designare più amministratori dell'organizzazione. Agli amministratori dell'organizzazione è possibile concedere l'accesso in sola lettura. Ereditano tutti il ruolo di amministratore del reparto.
 

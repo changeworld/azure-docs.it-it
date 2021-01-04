@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: b783366958380f391dc76583c42988badc9915c8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 12/12/2020
+ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056481"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368631"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 
-La procedura guidata **Importa dati** è uno strumento del portale di Azure che consente di creare un indice di ricerca in modo da scrivere query interessanti in pochi minuti. 
+Creare il primo indice usando la procedura guidata **Importa dati** e un'origine dati di esempio incorporata costituita da dati di hotel fittizi. La procedura guidata consente di creare un indice di ricerca (hotels-sample-index) in modo da scrivere query interessanti in pochi minuti. 
 
-La procedura guidata include anche pagine per l'arricchimento tramite intelligenza artificiale, per estrarre testo e struttura da file di immagine e testo non strutturato. L'elaborazione del contenuto con intelligenza artificiale include il riconoscimento ottico dei caratteri (OCR), l'estrazione di frasi chiave ed entità e l'analisi delle immagini.
+Anche se in questa guida di avvio rapido non verranno usate, la procedura guidata include una pagina di opzioni per l'arricchimento tramite intelligenza artificiale, che consentono di estrarre testo e struttura da file di immagine e testo non strutturato. Per una procedura dettagliata simile che include l'arricchimento tramite intelligenza artificiale, vedere [Avvio rapido: Creare un set di competenze cognitive](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,9 +49,11 @@ Ai fini di questa esercitazione, viene usato un set di dati di esempio predefini
 
 1. [Trovare il servizio di ricerca](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/), quindi nella pagina Panoramica fare clic su **Importa dati** sulla barra dei comandi per creare e popolare un indice di ricerca.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Elenchi di indici, indicizzatori e origini dati" che può essere riutilizzata in altre operazioni di importazione.
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Comando Importa dati":::
 
-   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+1. Nella procedura guidata fare clic su **Definisci la connessione ai dati** > **Esempi** > **hotels-sample**. Questa origine dati è predefinita. Se si crea un'origine dati personalizzata, è necessario specificare un nome, un tipo e le informazioni di connessione. Dopo la creazione, diventa una "origine dati esistente" che può essere riutilizzata in altre operazioni di importazione.
+
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Selezionare il set di dati di esempio":::
 
 1. Passare alla pagina successiva.
 
@@ -61,7 +63,7 @@ La procedura guidata supporta la creazione di una [pipeline di arricchimento tra
 
 Questo passaggio per il momento verrà ignorato e si passerà direttamente a **Personalizza indice di destinazione**.
 
-   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Ignorare il passaggio delle competenze cognitive":::
 
 > [!TIP]
 > È possibile esaminare un esempio di indicizzazione basata su intelligenza artificiale in una [guida di avvio rapido](cognitive-search-quickstart-blob.md) o in un'[esercitazione](cognitive-search-tutorial-blob.md).
@@ -81,11 +83,11 @@ I requisiti di archiviazione non cambiano a seconda della selezione. Se ad esemp
 
 Per impostazione predefinita, la procedura guidata analizza l'origine dati alla ricerca di identificatori univoci come base per il campo chiave. Le *stringhe* possono essere **recuperabili** e **ricercabili**. I *numeri interi* possono essere **recuperabili**, **filtrabili**, **ordinabili** e **con facet**.
 
-1. Accettare i valori predefiniti. 
+1. Accettare i valori predefiniti.
 
    Se si esegue la procedura guidata una seconda volta usando un'origine dati hotels esistente, l'indice non verrà configurato con attributi predefiniti. Sarà necessario selezionare manualmente gli attributi sulle importazioni future. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Indice di hotels generato":::
 
 2. Passare alla pagina successiva.
 
@@ -98,7 +100,7 @@ Questo oggetto definisce un processo eseguibile. È possibile inserirlo nella pi
 
 Fare clic su **Invia** per creare e contemporaneamente eseguire l'indicizzatore.
 
-  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Indicizzatore di hotels":::
 
 ## <a name="monitor-progress"></a>Monitorare lo stato
 
@@ -106,7 +108,7 @@ La procedura guidata dovrebbe consentire di visualizzare l'elenco Indicizzatori 
 
 L'aggiornamento della pagina nel portale può richiedere alcuni minuti, ma l'indicizzatore appena creato verrà visualizzato nell'elenco con lo stato "in corso" oppure "operazione riuscita", insieme al numero di documenti indicizzati.
 
-   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Messaggio di stato dell'indicizzatore":::
 
 ## <a name="view-the-index"></a>Visualizzare l'indice
 
@@ -114,13 +116,13 @@ La pagina principale del servizio include i collegamenti alle risorse create nel
 
 Attendere l'aggiornamento della pagina del portale. Dopo alcuni minuti, l'indice viene visualizzato con il numero di documenti e le dimensioni di archiviazione.
 
-   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Elenco di indici nella dashboard del servizio":::
 
 In questo elenco è possibile fare clic sull'indice *hotels-sample* appena creato, visualizzare il relativo schema e facoltativamente aggiungere nuovi campi. 
 
 La scheda **Campi** visualizza lo schema dell'indice. Scorrere alla fine dell'elenco per immettere un nuovo campo. Nella maggior parte dei casi, non è possibile cambiare i campi esistenti. I campi esistenti hanno una rappresentazione fisica in Ricerca cognitiva di Azure e pertanto non sono modificabili, nemmeno nel codice. Per modificare in modo sostanziale un campo esistente, creare un nuovo indice, eliminando l'originale.
 
-   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="definizione di indice di esempio":::
 
 Altri costrutti, ad esempio i profili di punteggio e le opzioni CORS, possono essere aggiunti in qualsiasi momento.
 
@@ -138,15 +140,15 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
 
 1. Fare clic su **Esplora ricerche** nella barra dei comandi.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Comando di Esplora ricerche":::
 
 2. Nell'elenco a discesa **Indice** selezionare *hotels-sample-index*. Fare clic sull'elenco a discesa **Versione API** per visualizzare le API REST disponibili. Per le query seguenti, usare la versione disponibile a livello generale (2020-06-30).
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Comandi dell'indice e dell'API":::
 
 3. Nella barra di ricerca incollare le stringhe di query seguenti e fare clic su **Cerca**.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Stringa di query e pulsante Cerca":::
 
 ## <a name="example-queries"></a>Query di esempio
 
@@ -186,8 +188,8 @@ Nelle richieste di ricerca vengono inclusi filtri facet. È possibile usare il p
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Esempio (con facet e riduzione dell'ambito): `search=*&facet=Category&$top=2`
 
-* **search=** * è una ricerca vuota. Le ricerche vuote permettono di eseguire la ricerca su tutti gli elementi. Una query vuota permette di filtrare o esplorare in base a facet il set completo di documenti, ad esempio per ottenere una struttura di esplorazione con facet composta da tutti gli alberghi inclusi nell'indice.
-* **facet** restituisce una struttura di esplorazione che è possibile passare a un controllo dell'interfaccia utente. Restituisce un conteggio e categorie. In questo caso le categorie sono basate su un campo denominato *Category* per comodità. Ricerca cognitiva di Azure non prevede alcuna aggregazione, ma è possibile ottenere qualcosa di simile all'aggregazione usando `facet`, che restituisce un conteggio dei documenti in ogni categoria.
+* **search=** _ è una ricerca vuota. Le ricerche vuote permettono di eseguire la ricerca su tutti gli elementi. Una query vuota permette di filtrare o esplorare in base a facet il set completo di documenti, ad esempio per ottenere una struttura di esplorazione con facet composta da tutti gli alberghi inclusi nell'indice.
+_ **facet** restituisce una struttura di esplorazione che è possibile passare a un controllo dell'interfaccia utente. Restituisce un conteggio e categorie. In questo caso le categorie sono basate su un campo denominato *Category* per comodità. Ricerca cognitiva di Azure non prevede alcuna aggregazione, ma è possibile ottenere qualcosa di simile all'aggregazione usando `facet`, che restituisce un conteggio dei documenti in ogni categoria.
 
 * **$top=2** restituisce due documenti, dimostrando che è possibile usare `top` sia per ridurre che per aumentare il numero di risultati.
 
@@ -254,7 +256,7 @@ Usando **Esplora ricerche** nel portale di Azure, è stata acquisita la sintassi
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. Le risorse che rimangono in esecuzione hanno un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
 Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
 

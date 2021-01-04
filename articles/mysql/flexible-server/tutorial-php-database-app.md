@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93e605cb20d593750100ec8e340a7ad74c4dd385
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844438"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587894"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Esercitazione: Creare un'app PHP (Laravel) e un'app del server flessibile MySQL (anteprima) nel servizio app di Azure
 
@@ -219,7 +219,7 @@ Salvare le modifiche.
 
 ### <a name="configure-tlsssl-certificate"></a>Configurare il certificato TLS/SSL
 
-Per impostazione predefinita, il server flessibile MySQL impone connessioni TLS dai client. Per la connessione al database MySQL in Azure, è necessario usare il [certificato con estensione _pem_ fornito dal server flessibile di Database di Azure per MySQL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Scaricare [questo certificato](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) e inserirlo nella cartella **ssl** nella copia locale del repository dell'app di esempio.
+Per impostazione predefinita, il server flessibile MySQL impone connessioni TLS dai client. Per la connessione al database MySQL in Azure, è necessario usare il [certificato con estensione _pem_ fornito dal server flessibile di Database di Azure per MySQL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Scaricare [questo certificato](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) e inserirlo nella cartella **SSL** nella copia locale del repository delle app di esempio.
 
 Aprire _config/database.php_ e aggiungere i parametri `sslmode` e `options` a `connections.mysql`, come illustrato nel codice seguente.
 
@@ -390,7 +390,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando Git Credential Manager richiede le credenziali, assicurarsi di immettere quelle create in **Configurare un utente della distribuzione**, non quelle usate per accedere al portale di Azure.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 L'esecuzione del comando può richiedere alcuni minuti. Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
@@ -401,7 +401,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -551,7 +551,7 @@ Eseguire il commit di tutte le modifiche in Git e quindi effettuare il push dell
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Dopo aver completato `git push`, passare all'app Azure e testare la nuova funzionalità.

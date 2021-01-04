@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 25d084b8af148707685b2cbb4368394a12d99db2
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780094"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005308"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Esercitazione: Effettuare il provisioning di più dispositivi X.509 usando i gruppi di registrazioni
 
@@ -195,7 +195,7 @@ Per creare la catena di certificati:
 3. Eseguire il comando seguente per creare un file PEM della catena di certificati completa che include il nuovo certificato del dispositivo.
 
     ```Bash
-    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem
+    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem && cd ..
     ```
 
     Usare un editor di testo per aprire il file della catena di certificati, *./certs/new-device-full-chain.cert.pem*. Il testo della catena di certificati contiene la catena completa di tutti e tre i certificati. Questo testo verrà usato come catena di certificati con il codice del modulo di protezione hardware personalizzato più avanti in questa esercitazione.
@@ -241,48 +241,85 @@ Per aggiornare il codice stub del modulo di protezione hardware personalizzato p
     static const char* const COMMON_NAME = "custom-hsm-device-01";
     ```
 
-4. Nello stesso file aggiornare il valore stringa della stringa costante `CERTIFICATE` usando il testo della catena di certificati salvato in *./certs/new-device-full-chain.cert.pem* dopo la generazione dei certificati.
+4. Nello stesso file è necessario aggiornare il valore stringa della stringa costante `CERTIFICATE` usando il testo della catena di certificati salvato in *./certs/new-device-full-chain.cert.pem* dopo la generazione dei certificati.
 
-    > [!IMPORTANT]
-    > Quando si copia il testo in Visual Studio, si potrebbe notare che il testo è stato analizzato e aggiornato con la spaziatura del codice e altri elementi. In tal caso è necessario rimuovere la spaziatura e l'analisi premendo **CTRL+Z** una volta.
-
-    Aggiornare il testo del certificato in modo che segua il modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio:
+    La sintassi del testo del certificato deve essere conforme al modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio.
 
     ```c
     // <Device/leaf cert>
     // <intermediates>
     // <root>
     static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----\n"
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy"
+    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
         ...
-    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh"
-    "\n-----END CERTIFICATE-----\n"
+    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----";        
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----";        
     ```
 
-5. Nello stesso file aggiornare il valore stringa della stringa costante `PRIVATE_KEY` usando la chiave privata del certificato del dispositivo.
+    L'aggiornamento corretto di questo valore stringa in questo passaggio può essere molto complicato e soggetto a errori. Per generare la sintassi corretta nel prompt di Git Bash, copiare e incollare i comandi della shell bash seguenti nel prompt dei comandi di Git Bash e premere **INVIO**. Questi comandi consentiranno di generare la sintassi per il valore della costante della stringa `CERTIFICATE`.
 
-    > [!IMPORTANT]
-    > Quando si copia il testo in Visual Studio, si potrebbe notare che il testo è stato analizzato e aggiornato con la spaziatura del codice e altri elementi. In tal caso è necessario rimuovere la spaziatura e l'analisi premendo **CTRL+Z** una volta.
+    ```Bash
+    input="./certs/new-device-full-chain.cert.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
 
-    Aggiornare il testo della chiave privata in modo che segua il modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio:
+    Copiare e incollare il testo del certificato di output per il nuovo valore della costante. 
+
+
+5. Nello stesso file è necessario aggiornare il valore stringa della costante `PRIVATE_KEY` con la chiave privata del certificato del dispositivo.
+
+    La sintassi del testo della chiave privata deve essere conforme al modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio.
 
     ```c
     static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
-    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U"
+    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
         ...
-    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij"
-    "\n-----END RSA PRIVATE KEY-----";
+    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
+    "-----END RSA PRIVATE KEY-----";
     ```
+
+    Anche l'aggiornamento corretto di questo valore stringa in questo passaggio può essere molto complicato e soggetto a errori. Per generare la sintassi corretta nel prompt di Git Bash, copiare e incollare i comandi della shell bash seguenti e premere **INVIO**. Questi comandi consentiranno di generare la sintassi per il valore della costante della stringa `PRIVATE_KEY`.
+
+    ```Bash
+    input="./private/new-device.key.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
+
+    Copiare e incollare il testo della chiave privata di output per il nuovo valore della costante. 
 
 6. Salvare *custom_hsm_example.c*.
 

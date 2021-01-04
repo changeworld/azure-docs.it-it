@@ -6,20 +6,20 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/08/2020
 ms.author: banders
-ms.openlocfilehash: 050984d58137ec03996572d2de41115073e4ab2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338164"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562974"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
 Dopo aver acquistato una prenotazione di Azure, può essere necessario applicarla a una sottoscrizione diversa, sostituire la persona che la gestisce oppure cambiarne l'ambito. È inoltre possibile dividere una prenotazione in due prenotazioni per applicare alcune delle istanze acquistate a un'altra sottoscrizione.
 
-Se si acquistano le istanze di macchine virtuali riservate di Azure, è possibile cambiare l'impostazione di ottimizzazione per la prenotazione. Lo sconto della prenotazione può essere applicato alle macchine virtuali nella stessa serie oppure è possibile riservare capacità del data center per una dimensione di macchina virtuale specifica. È quindi consigliabile provare a ottimizzare le prenotazioni in modo che vengano pienamente utilizzate.
+Se si acquistano le istanze di macchina virtuale riservate di Azure, è possibile modificare l'impostazione di ottimizzazione per la prenotazione. Lo sconto della prenotazione può essere applicato alle macchine virtuali nella stessa serie oppure è possibile riservare capacità del data center per una dimensione di macchina virtuale specifica. È consigliabile provare a ottimizzare le prenotazioni in modo che vengano usate completamente.
 
 *L'autorizzazione necessaria per gestire una prenotazione è separata dall'autorizzazione per la sottoscrizione.*
 
@@ -31,7 +31,7 @@ Quando si acquista una prenotazione, vengono creati due oggetti: **ordine di pre
 
 Al momento dell'acquisto, un ordine di prenotazione include un'unica prenotazione. Operazioni come la suddivisione, l'unione, il rimborso parziale o lo scambio creano nuove prenotazioni nell'**ordine di prenotazione**.
 
-Per visualizzare un ordine di prenotazione, passare a **Prenotazioni**, selezionare la prenotazione, quindi fare clic su **ID ordine di prenotazione**.
+Per visualizzare un ordine di prenotazione, passare a **Prenotazioni**, selezionare la prenotazione e quindi selezionare **ID ordine prenotazione**.
 
 ![Esempio di dettagli dell'ordine di prenotazione che mostra l'ID ordine di prenotazione ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
@@ -49,31 +49,44 @@ Per aggiornare l'ambito di una prenotazione:
 4. Selezionare **Impostazioni** > **Configurazione**.
 5. Modificare l'ambito.
 
-Se si passa da un ambito condiviso a un ambito singolo, è possibile selezionare solo le sottoscrizioni di cui si è proprietari. È possibile selezionare solo le sottoscrizioni all'interno dello stesso contesto di fatturazione della prenotazione.
+Se si passa da un ambito condiviso a un ambito singolo, è possibile selezionare solo le sottoscrizioni di cui si è proprietari. È possibile selezionare solo le sottoscrizioni nello stesso contesto di fatturazione della prenotazione.
 
 L'ambito si applica solo a singole sottoscrizioni con pagamento in base al consumo (offerte MS-AZR-0003P o MS-AZR-0023P), all'offerta Enterprise MS-AZR-0017P o MS-AZR-0148P oppure ai tipi di sottoscrizione CSP.
 
-## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Aggiungere o modificare gli utenti che possono gestire una prenotazione
+## <a name="who-can-manage-a-reservation-by-default"></a>Chi può gestire una prenotazione per impostazione predefinita
 
-È possibile delegare la gestione di una prenotazione mediante l'aggiunta di utenti all'ordine o alla prenotazione. Per impostazione predefinita, la persona che ha acquistato la prenotazione e l'amministratore dell'account dispongono del ruolo di proprietario per l'ordine e per la prenotazione.
+Per impostazione predefinita, le prenotazioni possono essere visualizzate e gestite dagli utenti seguenti:
 
-È possibile gestire l'accesso agli ordini di prenotazione e alle prenotazioni *in modo indipendente rispetto alle sottoscrizioni* che ricevono lo sconto associato. L'assegnazione delle autorizzazioni per la gestione di un ordine di prenotazione o di una prenotazione non implica l'autorizzazione per la gestione della sottoscrizione. Analogamente, l'assegnazione delle autorizzazioni per la gestione di una sottoscrizione nell'ambito della prenotazione non implica i diritti per la gestione dell'ordine di prenotazione o della prenotazione.
+- L'utente che acquista una prenotazione e l'amministratore account della sottoscrizione di fatturazione usata per acquistare la prenotazione vengono aggiunti all'ordine di prenotazione.
+- Amministratori fatturazione con Contratto Enterprise e Contratto del cliente Microsoft.
 
-Per eseguire uno scambio o richiedere un rimborso, l'utente deve avere accesso all'ordine di prenotazione. Quando si concedono le autorizzazioni a qualcuno, è preferibile assegnarle per l'ordine di prenotazione, non per la prenotazione.
+Per consentire ad altre persone di gestire le prenotazioni sono disponibili due opzioni:
 
-Per delegare la gestione dell'accesso per una prenotazione:
+- Delegare la gestione degli accessi per un singolo ordine di prenotazione:
+    1. Accedere al [portale di Azure](https://portal.azure.com).
+    1. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
+    1. Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
+    1. In Dettagli prenotazione selezionare l'ordine di prenotazione.
+    1. Selezionare **Controllo di accesso (IAM)** .
+    1. Selezionare **Aggiungi assegnazione di ruolo** > **Ruolo** > **Proprietario**. Se si vuole concedere un accesso limitato, selezionare un ruolo diverso.
+    1. Digitare l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario.
+    1. Selezionare l'utente e quindi selezionare **Salva**.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
-3. Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
-4. Selezionare **Controllo di accesso (IAM)** .
-5. Selezionare **Aggiungi assegnazione di ruolo** > **Ruolo** > **Proprietario**. Oppure selezionare un ruolo diverso se si intende concedere un ruolo limitato.
-6. Digitare l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario.
-7. Selezionare l'utente e quindi selezionare **Salva**.
+- Aggiungere un utente come amministratore della fatturazione a un Contratto Enterprise o a un Contratto del cliente Microsoft:
+    - Per un Contratto Enterprise, aggiungere gli utenti con il ruolo di _Amministratore dell'organizzazione_ per visualizzare e gestire tutti gli ordini di prenotazione applicabili al Contratto Enterprise. Gli utenti con il ruolo _Amministratore dell'organizzazione (sola lettura)_ possono solo visualizzare la prenotazione. Gli amministratori del reparto e i proprietari dell'account non possono visualizzare le prenotazioni _a meno che_ non vengano aggiunti ad esse in modo esplicito tramite Controllo di accesso (IAM). Per altre informazioni, vedere [Gestione dei ruoli Enterprise di Azure](../manage/understand-ea-roles.md).
+
+        _Gli amministratori dell'organizzazione possono assumere la proprietà di un ordine di prenotazione e aggiungere altri utenti a una prenotazione tramite Controllo di accesso (IAM)._
+    - Per un Contratto del cliente Microsoft, gli utenti con il ruolo di proprietario del profilo di fatturazione o di collaboratore per il profilo di fatturazione possono gestire tutti gli acquisti di prenotazioni effettuati usando il profilo di fatturazione. Gli utenti con il ruolo di lettore profilo di fatturazione e responsabile fatturazione possono visualizzare tutte le prenotazioni pagate con il profilo di fatturazione. Non possono però apportare modifiche alle prenotazioni.
+    Per altre informazioni, vedere [Ruoli e attività del profilo di fatturazione](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+### <a name="how-billing-administrators-view-or-manage-reservations"></a>Visualizzazione o gestione delle prenotazioni da parte degli amministratori della fatturazione
+
+1. Passare a **Gestione dei costi e fatturazione** e quindi sul lato sinistro della pagina selezionare **Transazioni di prenotazione**.
+2. Se si hanno le autorizzazioni necessarie per la fatturazione, è possibile visualizzare e gestire le prenotazioni. Se non è visualizzata alcuna prenotazione, verificare di aver eseguito l'accesso con il tenant di Azure AD in cui sono state create le prenotazioni.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividere una prenotazione singola in due prenotazioni
 
- Dopo aver acquistato più di un'istanza di risorsa all'interno di una prenotazione, è possibile assegnare le istanze all'interno di tale prenotazione a sottoscrizioni diverse. Per impostazione predefinita, tutte le istanze sono associate a un ambito (sottoscrizione singola, gruppo di risorse o ambito condiviso). Si supponga ad esempio di aver acquistato una prenotazione per 10 istanze di VM e di aver specificato la sottoscrizione A come ambito. Si vuole in seguito impostare l'ambito di sette istanze di VM sulla sottoscrizione A e quello delle restanti tre sulla sottoscrizione B. La divisione di una prenotazione consente di eseguire questa operazione. Dopo aver diviso una prenotazione, l'ID prenotazione originale viene annullato e vengono create due nuove prenotazioni. La divisione non ha effetti sull'ordine di prenotazione: non si crea una nuova transazione commerciale e le prenotazioni avranno la stessa data di fine di quella divisa.
+ Dopo aver acquistato più di un'istanza di risorsa all'interno di una prenotazione, è possibile assegnare le istanze all'interno di tale prenotazione a sottoscrizioni diverse. Per impostazione predefinita, tutte le istanze sono associate a un ambito (sottoscrizione singola, gruppo di risorse o ambito condiviso). Si supponga ad esempio di aver acquistato una prenotazione per 10 istanze di VM e di aver specificato la sottoscrizione A come ambito. Si vuole in seguito impostare l'ambito di sette istanze di VM sulla sottoscrizione A e quello delle restanti tre sulla sottoscrizione B. La divisione di una prenotazione consente di ottenere questo risultato. Dopo aver diviso una prenotazione, l'ID prenotazione originale viene annullato e vengono create due nuove prenotazioni. La divisione non ha effetti sull'ordine di prenotazione: non si crea una nuova transazione commerciale e le prenotazioni hanno la stessa data di fine di quella divisa.
 
  È possibile dividere una prenotazione in due prenotazioni tramite PowerShell, l'interfaccia della riga di comando oppure l'API.
 
@@ -110,7 +123,7 @@ Per delegare la gestione dell'accesso per una prenotazione:
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifica l'impostazione di ottimizzazione per le istanze di macchina virtuale riservate
 
- Quando si acquista un'istanza di macchina virtuale riservata, si sceglie la flessibilità delle dimensioni istanza o la priorità di capacità. La flessibilità delle dimensioni istanza applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](../../virtual-machines/reserved-vm-instance-size-flexibility.md). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Questa opzione aumenta la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono.
+ Quando si acquista un'istanza di macchina virtuale riservata, si sceglie la flessibilità delle dimensioni istanza o la priorità di capacità. La flessibilità delle dimensioni istanza applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](../../virtual-machines/reserved-vm-instance-size-flexibility.md). La priorità di capacità designa la capacità del data center più importante per le distribuzioni. Questa opzione aumenta la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono.
 
 Per impostazione predefinita, quando l'ambito della prenotazione è condiviso, la flessibilità delle dimensioni istanza è attiva. La capacità del data center non viene classificata per le distribuzioni di macchine virtuali.
 
@@ -121,9 +134,9 @@ Per aggiornare l'impostazione di ottimizzazione per la prenotazione:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare la prenotazione.
-4. Selezionare **Impostazioni** > **Configurazione**.  
+4. Selezionare **Impostazioni** > **Configurazione**.
   ![Esempio che mostra l'elemento di configurazione](./media/manage-reserved-vm-instance/add-product03.png)
-5. Modificare l'impostazione **Ottimizza per**.  
+5. Modificare l'impostazione **Ottimizza per**.
   ![Esempio che mostra l'impostazione Ottimizza per](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## <a name="optimize-reservation-use"></a>Ottimizzare l'uso delle prenotazioni
@@ -138,8 +151,8 @@ Il portale di Azure è uno dei modi disponibili per visualizzare l'utilizzo dell
 2. Selezionare **Tutti i servizi** > [**Prenotazioni**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e notare il valore di **Utilizzo (%)** associato a una prenotazione.  
   ![Immagine che mostra l'elenco delle prenotazioni](./media/manage-reserved-vm-instance/reservation-list.png)
 3. Selezionare una prenotazione.
-4. Esaminare la tendenza dell'uso della prenotazione nel corso del tempo.  
-  ![Immagine che mostra l'uso della prenotazione ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
+4. Esaminare la tendenza dell'uso della prenotazione nel corso del tempo.
+  ![Immagine che mostra l'uso delle prenotazioni ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
 
 ### <a name="view-reservation-use-with-api"></a>Visualizzare l'uso delle prenotazioni con l'API
 

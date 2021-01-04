@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e85e433e1b1b31470fc8d7dee24353fd719b64e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562016"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031182"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Avvio rapido: Proteggere un'API Web ASP.NET Core con Microsoft Identity Platform
 
@@ -38,12 +38,10 @@ In questa guida di avvio rapido si scarica un esempio di codice di un'API Web AS
 > 1. Accedere al [portale di Azure](https://portal.azure.com).
 > 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 > 1. Cercare e selezionare **Azure Active Directory**.
-> 1. In **Gestisci** selezionare **Registrazioni app** e quindi **Nuova registrazione**.
+> 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
 > 1. Immettere un **Nome** per l'applicazione, ad esempio `AspNetCoreWebApi-Quickstart`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
 > 1. Selezionare **Registra**.
-> 1. In **Gestisci** selezionare **Esponi un'API**.
-> 1. Selezionare **Aggiungi un ambito** e quindi selezionare **Salva e continua** per accettare l'**URI dell'ID applicazione** predefinito.
-> 1. Nel riquadro **Aggiungi un ambito** immettere i valori seguenti:
+> 1. In **Gestisci** selezionare **Esporre un'API** > **Aggiungi un ambito**. Accettare il valore predefinito di **URI ID applicazione** selezionando **Salva e continua** e quindi immettere i dettagli seguenti:
 >    - **Nome ambito**: `access_as_user`
 >    - **Utenti che possono fornire il consenso**: **Amministratori e utenti**
 >    - **Nome visualizzato per il consenso amministratore**: `Access AspNetCoreWebApi-Quickstart`

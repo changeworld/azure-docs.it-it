@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444459"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503795"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annullare la sottoscrizione di Azure
 
@@ -30,6 +30,17 @@ Sebbene non sia obbligatorio, Microsoft *consiglia* di eseguire le azioni seguen
 
 Se si annulla un piano di supporto di Azure a pagamento, verrà emessa una fattura per il resto del periodo di validità della sottoscrizione. Per altre informazioni, vedere [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/).
 
+## <a name="who-can-cancel-a-subscription"></a>Chi può annullare una sottoscrizione?
+
+La tabella seguente indica l'autorizzazione necessaria per annullare una sottoscrizione.
+
+|Tipo di sottoscrizione     |Chi può annullare  |
+|---------|---------|
+|Sottoscrizioni create quando ci si iscrive ad Azure tramite il sito Web di Azure, ad esempio, quando ci si iscrive per ricevere un [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/), un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o un account di [sottoscrittore di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Amministratore account e proprietari della sottoscrizione  |
+|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Proprietario dell'account e proprietari della sottoscrizione       |
+|[Piano di Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) e [Piano di Azure per DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Proprietari della sottoscrizione      |
+
+
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Annullare la sottoscrizione nel portale di Azure
 
 1. Selezionare la sottoscrizione nella [pagina Sottoscrizioni del portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
@@ -41,15 +52,13 @@ Se si annulla un piano di supporto di Azure a pagamento, verrà emessa una fattu
 > [!NOTE]
 > I partner possono sospendere o annullare una sottoscrizione se richiesto da un cliente oppure nei casi di mancato pagamento o frode. Per altre informazioni, vedere [Sospendere o annullare una sottoscrizione](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
 
-## <a name="who-can-cancel-a-subscription"></a>Chi può annullare una sottoscrizione?
+## <a name="cancel-a-support-plan"></a>Annullare un piano di supporto
 
-La tabella seguente indica l'autorizzazione necessaria per annullare una sottoscrizione.
+Se si è acquistato il piano di supporto tramite il sito Web di Azure o il portale di Azure o se se ne ha uno nell'ambito di un Contratto del cliente Microsoft, è possibile annullare un piano di supporto. Se il piano di supporto è stato acquistato tramite un rappresentante o partner Microsoft, contattarlo per ottenere assistenza. 
 
-|Tipo di sottoscrizione     |Chi può annullare  |
-|---------|---------|
-|Sottoscrizioni create quando ci si iscrive ad Azure tramite il sito Web di Azure, ad esempio, quando ci si iscrive per ricevere un [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/), un [account con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o un account di [sottoscrittore di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Amministratore account e proprietari della sottoscrizione  |
-|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Proprietario dell'account e proprietari della sottoscrizione       |
-|[Piano di Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) e [Piano di Azure per DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Proprietari della sottoscrizione      |
+1. Nel portale di Azure passare a **Gestione dei costi e fatturazione**.
+1. In **Fatturazione** selezionare **Addebiti ricorrenti**.
+1. A destra della riga del piano di supporto selezionare i puntini di sospensione ( **...** ) e quindi selezionare **Disattiva il rinnovo automatico**.
 
 ## <a name="what-happens-after-subscription-cancellation"></a>Che cosa succede dopo l'annullamento di una sottoscrizione?
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: duau
-ms.openlocfilehash: 961214b3a815eb8ae9b0fcb283599b3474d4706e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bac1df020bf2a683fc04a4d05ae73311e149f70c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89399362"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511774"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modello di distribuzione Azure Resource Manager per Frontdoor
 
@@ -31,7 +31,7 @@ La tabella seguente contiene collegamenti ai modelli di distribuzione Azure Reso
 | [Creare una frontdoor con configurazione back-end attiva e in standby](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| Consente di creare una frontdoor che verifica il routing basato su priorità per la topologia dell'applicazione attiva/standby: ciò significa che invia per impostazione predefinita tutto il traffico al back-end primario (con maggiore priorità) fino a quando non diventa disponibile. |
 | [Creare una frontdoor con la memorizzazione nella cache abilitata per determinati route](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching)| Crea una frontdoor con memorizzazione nella cache abilitata per la configurazione del routing, memorizzando quindi nella cache qualsiasi risorsa statica per il carico di lavoro. |
 | [Configurare l'affinità di sessione per i nomi host di Frontdoor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-session-affinity) | Aggiorna una frontdoor per abilitare l'affinità di sessione per l'host di front-end; in tal modo, il traffico successivo proveniente dalla stessa sessione utente verrà inviato nello stesso back-end. |
-| [Configurare Frontdoor per l'inserimento in whitelist o blacklist di IP client](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip)| Configura una frontdoor per limitare il traffico a determinati client IP, usando un controllo di accesso personalizzato tramite IP client. |
+| [Configurare Frontdoor per l'aggiunta all'elenco elementi consentiti o all'elenco elementi bloccati di IP client](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip)| Configura una frontdoor per limitare il traffico a determinati client IP, usando un controllo di accesso personalizzato tramite IP client. |
 | [Configurare Frontdoor per eseguire un'azione con parametri HTTP specifici ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-http-params)| Configura una frontdoor per consentire o bloccare il traffico in base a parametri http nella richiesta in ingresso tramite regole personalizzate per il controllo dell'accesso con parametri http. |
 | [Configurare la limitazione della frequenza di Frontdoor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-rate-limiting)| Consente di configurare una frontdoor per limitare la frequenza del traffico in ingresso per un host di front-end specifico. |
 | | |

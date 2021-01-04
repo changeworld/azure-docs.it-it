@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: fc1401959adb97f8c4caf6d413a212d9f3b62801
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930799"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588115"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Esercitazione: Creare più istanze di risorse con modelli di Azure Resource Manager
 
@@ -38,15 +38,16 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) è un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa guida introduttiva è denominato [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Creare un account di archiviazione Standard). Il modello definisce una risorsa account di archiviazione di Azure.
 
-1. In Visual Studio Code selezionare **File**>**Apri file**.
-2. In **Nome file** incollare l'URL seguente:
+1. In Visual Studio Code selezionare **File** > **Apri file**.
+1. In **Nome file** incollare l'URL seguente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. Selezionare **Apri** per aprire il file.
-4. Nel modello è definita una risorsa "Microsoft.Storage/storageAccounts". Confrontare il modello con le [informazioni di riferimento sui modelli](/azure/templates/Microsoft.Storage/storageAccounts). Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
-5. Selezionare **File**>**Salva con nome** per salvare il file con il nome **azuredeploy.json** nel computer locale.
+
+1. Selezionare **Apri** per aprire il file.
+1. Nel modello è definita una risorsa `Microsoft.Storage/storageAccounts`. Confrontare il modello con le [informazioni di riferimento sui modelli](/azure/templates/Microsoft.Storage/storageAccounts). Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
+1. Selezionare **File** > **Salva con nome** per salvare il file con il nome _azuredeploy.json_ nel computer locale.
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
@@ -56,10 +57,10 @@ Da Visual Studio Code, apportare le quattro modifiche seguenti:
 
 ![Creazione di più istanze con Azure Resource Manager](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. Aggiungere un elemento `copy` alla definizione di risorsa dell'account di archiviazione. Nell'elemento copy si specifica il numero di iterazioni e una variabile per il ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800.
-2. La funzione `copyIndex()` restituisce l'iterazione attuale nel ciclo. L'indice viene usato come prefisso del nome. `copyIndex()` è in base zero. Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Ad esempio, *copyIndex(1)* .
-3. Eliminare l'elemento **variabili**, in quanto non è più usato.
-4. Eliminare l'elemento **output**. Non è più necessario.
+1. Aggiungere un elemento `copy` alla definizione di risorsa dell'account di archiviazione. Nell'elemento `copy` si specifica il numero di iterazioni e una variabile per il ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800.
+2. La funzione `copyIndex()` restituisce l'iterazione attuale nel ciclo. L'indice viene usato come prefisso del nome. `copyIndex()` è in base zero. Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione `copyIndex()`. Ad esempio: `copyIndex(1)`.
+3. Eliminare l'elemento `variables`, in quanto non è più usato.
+4. Eliminare l'elemento `outputs`. Non è più necessario.
 
 Il modello completato è simile a:
 
@@ -109,17 +110,17 @@ Il modello completato è simile a:
 }
 ```
 
-Per altre informazioni sulla creazione di più istanze, vedere [Distribuire più istanze di una risorsa o proprietà nei modelli di Azure Resource Manager](./copy-resources.md).
+Per altre informazioni sulla creazione di più istanze, vedere [Iterazione delle risorse nei modelli di Azure Resource Manager](./copy-resources.md)
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
-1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra.  Quando si cambia interfaccia, è necessario riavviare la shell.
+1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra. Quando si cambia interfaccia, è necessario riavviare la shell.
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi `ls` e `cat` per verificare che il file sia stato caricato.
 
 1. In Cloud Shell eseguire i comandi riportati sotto. Selezionare la scheda per visualizzare il codice di PowerShell o il codice dell'interfaccia della riga di comando.
 
@@ -148,9 +149,9 @@ Per altre informazioni sulla creazione di più istanze, vedere [Distribuire più
 
     ---
 
-Per elencare tutti e tre gli account di archiviazione, omettere il --parametro nome:
+Dopo aver completato la distribuzione di un modello, è possibile visualizzare i tre account di archiviazione creati nel gruppo di risorse specificato. Confrontare i nomi degli account di archiviazione con la definizione del nome nel modello.
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
 echo "Enter a project name that is used to generate resource group name:" &&
@@ -172,8 +173,6 @@ Write-Host "Press [ENTER] to continue ..."
 
 ---
 
-Confrontare i nomi degli account di archiviazione con la definizione del nome nel modello.
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse.
@@ -185,7 +184,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come creare più istanze dell'account di archiviazione.  Nell'esercitazione successiva verrà sviluppato un modello con più risorse e più tipi di risorse. alcune con risorse dipendenti.
+In questa esercitazione è stato descritto come creare più istanze dell'account di archiviazione. Nell'esercitazione successiva verrà sviluppato un modello con più risorse e più tipi di risorse. alcune con risorse dipendenti.
 
 > [!div class="nextstepaction"]
 > [Creare le risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md)

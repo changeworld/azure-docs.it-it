@@ -3,17 +3,17 @@ title: 'Guida introduttiva: Creare le code di Archiviazione di Azure nel portale
 description: Usare il portale di Azure per creare una coda. Quindi, usare il portale di Azure per aggiungere un messaggio, visualizzarne le proprietà e rimuoverlo dalla coda.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/13/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
-ms.openlocfilehash: 0ee3d9c26d6972da9e528660d034432ce696aa45
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 24b1d16ab5f13a9aef1faa5bc7a3579ad1a5aa5e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347200"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585548"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Guida introduttiva: Creare una coda e aggiungere un messaggio con il portale di Azure
 
@@ -28,7 +28,7 @@ Questa guida introduttiva illustra come usare il [portale di Azure](https://port
 Per creare una coda nel portale di Azure, seguire questa procedura:
 
 1. Passare al nuovo account di archiviazione nel portale di Azure.
-2. Nel menu a sinistra per l'account di archiviazione scorrere fino alla sezione **Servizio di accodamento** e quindi selezionare **Code**.
+2. Nel menu a sinistra per l'account di archiviazione scorrere fino alla sezione **Archiviazione code** e quindi selezionare **Code**.
 3. Selezionare il pulsante **+ Coda**.
 4. Digitare un nome per la nuova coda. Il nome della coda deve essere composto da caratteri in minuscolo, deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e trattino (-).
 6. Selezionare **OK** per creare la coda.
@@ -66,4 +66,4 @@ La rimozione dalla coda rimuove sempre il messaggio meno recente presente nella 
 In questa guida introduttiva è stato illustrato come creare una coda, aggiungere un messaggio, visualizzare le proprietà del messaggio e rimuoverlo dalla coda nel portale di Azure.
 
 > [!div class="nextstepaction"]
-> [Informazioni sulle code di Azure](storage-queues-introduction.md)
+> [Che cos'è Archiviazione code di Azure?](storage-queues-introduction.md)

@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352984"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560492"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -58,13 +58,14 @@ Per altre informazioni, vedere  [Acquistare una prenotazione](prepare-buy-rese
 
 La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Il costo della prenotazione viene sottratto dal saldo dell'impegno monetario, se disponibile. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se si ha una sottoscrizione di un singolo piano con pagamento in base al consumo, sulla carta di credito associata all'account verranno immediatamente addebitati gli acquisti anticipati. I pagamenti mensili vengono visualizzati nella fattura e addebitati mensilmente sulla carta di credito. Se l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>Assegnare autorizzazioni per la visualizzazione e la gestione delle prenotazioni 
+## <a name="who-can-manage-a-reservation-by-default"></a>Chi può gestire una prenotazione per impostazione predefinita
 
-L'utente che acquista una prenotazione e l'amministratore dell'account della sottoscrizione usata per la fatturazione della prenotazione ottengono il ruolo di proprietario per l'ordine della prenotazione e per la prenotazione.
+Per impostazione predefinita, le prenotazioni possono essere visualizzate e gestite dagli utenti seguenti:
 
-È possibile delegare la gestione di una prenotazione mediante l'aggiunta di utenti all'ordine o alla prenotazione. I ruoli vengono assegnati nel portale di Azure o tramite le API e PowerShell. 
+- L'utente che acquista una prenotazione e l'amministratore account della sottoscrizione di fatturazione usata per acquistare la prenotazione vengono aggiunti all'ordine di prenotazione.
+- Amministratori fatturazione con Contratto Enterprise e Contratto del cliente Microsoft.
 
-Per altre informazioni vedere  [Aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+Per consentire ad altre persone di gestire le prenotazioni, vedere [Gestire le prenotazioni per le risorse di Azure](manage-reserved-vm-instance.md).
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>Ottenere i dettagli e l'utilizzo della prenotazione dopo l'acquisto
 

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36c4ce34d6b0c4df119d5531cda725605cfd0bc1
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 256fec97819cde0f6f62d59b34416c92e1edfd20
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523718"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109607"
 ---
 # <a name="synapse-access-control"></a>Controllo di accesso a Synapse 
 
@@ -34,14 +34,14 @@ Il controllo di accesso può essere semplificato usando gruppi di sicurezza alli
 
 ## <a name="access-control-elements"></a>Elementi del controllo di accesso
 
-### <a name="creating-and-managing-synapse-resources"></a>Creazione e gestione delle risorse di Synapse
+### <a name="creating-and-managing-synapse-compute-resources"></a>Creazione e gestione di risorse di calcolo di Synapse
 
 I ruoli di Azure vengono usati per controllare la gestione di: 
 - Pool SQL dedicati 
 - Pool di Apache Spark 
 - Runtime di integrazione 
 
-Per creare queste risorse, è necessario avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse.  Per gestirle, occorre avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse o sulle singole risorse. 
+Per *creare* queste risorse, è necessario avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse.  Per *gestirle* dopo la creazione, occorre avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse o sulle singole risorse. 
 
 ### <a name="developing-and-executing-code-in-synapse"></a>Sviluppo ed esecuzione di codice in Synapse 
 
@@ -82,7 +82,7 @@ Per esempi di script SQL per la concessione di autorizzazioni SQL in pool SQL, v
 
  ### <a name="accessing-system-managed-data-in-storage"></a>Accesso a dati gestiti dal sistema nell'archiviazione
 
-I pool SQL serverless e le tabelle Apache Spark archiviano i dati in un contenitore di ADLS Gen2 associato all'area di lavoro.  Agli utenti e all'identità del servizio gestita dell'area di lavoro deve essere assegnato il ruolo di Collaboratore ai dati dei BLOB di archiviazione per poter accedere a questo contenitore di archiviazione di ADLS Gen2.  
+I pool SQL serverless e le tabelle di Apache Spark archiviano i dati in un contenitore di ADLS Gen2 associato all'area di lavoro. Anche le librerie Apache Spark installate dall'utente vengono gestite nello stesso account di archiviazione.  Per abilitare questi casi d'uso, agli utenti e all'identità del servizio gestita dell'area di lavoro deve essere assegnato il ruolo di **Collaboratore ai dati dei BLOB di archiviazione** per poter accedere a questo contenitore di archiviazione di ADLS Gen2.  
 
 ## <a name="using-security-groups-as-a-best-practice"></a>Uso dei gruppi di sicurezza come procedura consigliata
 

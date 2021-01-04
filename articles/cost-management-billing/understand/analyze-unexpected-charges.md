@@ -8,13 +8,13 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151222"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028719"
 ---
 # <a name="analyze-unexpected-charges"></a>Analizzare gli addebiti imprevisti
 
@@ -80,7 +80,7 @@ Se si è autorizzati a visualizzare una risorsa, dovrebbe essere possibile acced
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analizzare le autorizzazioni utente per l'ambito padre della risorsa
 
-Gli utenti con accesso in scrittura a una sottoscrizione o a un gruppo di risorse hanno in genere informazioni sulle risorse create. Dovrebbero quindi essere in grado di spiegare lo scopo di una risorsa o di indicare la persona in possesso di tali informazioni. Per identificare gli utenti con autorizzazioni per un ambito della sottoscrizione, vedere [Visualizzare le assegnazioni di ruolo](../../role-based-access-control/check-access.md#view-role-assignments). È possibile usare un processo simile per i gruppi di risorse.
+Gli utenti con accesso in scrittura a una sottoscrizione o a un gruppo di risorse hanno in genere informazioni sulle risorse create. Dovrebbero quindi essere in grado di spiegare lo scopo di una risorsa o di indicare la persona in possesso di tali informazioni. Per identificare gli utenti con autorizzazioni per un ambito della sottoscrizione, vedere [Controllare l'accesso di un utente alle risorse di Azure](../../role-based-access-control/check-access.md). È possibile usare un processo simile per i gruppi di risorse.
 
 ## <a name="get-help-to-identify-charges"></a>Richiedere assistenza per identificare gli addebiti
 

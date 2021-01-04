@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Sospendere e riprendere le risorse di calcolo nel pool SQL dedicato (in precedenza SQL Data Warehouse) tramite il portale di Azure'
-description: Usare il portale di Azure per sospendere il calcolo per un pool SQL per risparmiare sui costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
+title: "Avvio rapido: Sospendere e riprendere l'esecuzione delle risorse di calcolo in un pool SQL dedicato con il portale di Azure"
+description: Usare il portale di Azure per sospendere l'esecuzione delle risorse di calcolo per un pool SQL dedicato per risparmiare sui costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 88f6782a0f81b94977b37bd8f87bf26a0d4c8a72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457675"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109698"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-via-the-azure-portal"></a>Avvio rapido: Sospendere e riprendere le risorse di calcolo nel pool SQL dedicato (in precedenza SQL Data Warehouse) tramite il portale di Azure
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Avvio rapido: Sospendere e riprendere l'esecuzione delle risorse di calcolo in un pool SQL dedicato con il portale di Azure
 
-È possibile usare il portale di Azure per sospendere e riprendere le risorse di calcolo del pool SQL dedicato (in precedenza SQL Data Warehouse). Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+È possibile usare il portale di Azure per sospendere e riprendere l'esecuzione delle risorse di calcolo del pool SQL dedicato. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -40,9 +40,8 @@ Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo 
 Seguire questa procedura per sospendere un pool SQL dedicato:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Dedicated SQL pool (formerly SQL DW)** (Pool SQL dedicato (in precedenza SQL Data Warehouse)) nella pagina di spostamento sinistra del portale di Azure.
-2. Selezionare **mySampleDataWarehouse** nella pagina **Dedicated SQL pool (formerly SQL DW)** per aprire il pool SQL. 
-3. Nella pagina **mySampleDataWarehouse** verificare che **Stato** sia **Online**.
+2. Passare alla pagina **Pool SQL dedicato** per aprire il pool SQL. 
+3. Si noti che **Stato** è impostato su **Online**.
 
     ![Calcolo delle risorse online](././media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -62,8 +61,7 @@ Seguire questa procedura per sospendere un pool SQL dedicato:
 
 Seguire questa procedura per riprendere un pool SQL dedicato.
 
-1. Fare clic su **Dedicated SQL pool (formerly SQL DW)** (Pool SQL dedicato (in precedenza SQL Data Warehouse)) nella pagina sinistra del portale di Azure.
-2. Selezionare **mySampleDataWarehouse** nella pagina **Dedicated SQL pool (formerly SQL DW)** per aprire la pagina del pool SQL. 
+1. Passare alla pagina **Pool SQL dedicato** per aprire il pool SQL.
 3. Nella pagina **mySampleDataWarehouse** verificare che **Stato** sia **Sospeso**.
 
     ![Calcolo delle risorse offline](././media/pause-and-resume-compute-portal/compute-offline.png)

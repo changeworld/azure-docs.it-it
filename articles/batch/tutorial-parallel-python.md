@@ -1,16 +1,16 @@
 ---
-title: Eseguire un carico di lavoro parallelo con l'API Python
+title: "Esercitazione: Eseguire un carico di lavoro parallelo con l'API Python"
 description: Esercitazione - Elaborare file multimediali in parallelo con ffmpeg in Azure Batch usando la libreria client Python di Batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 34cea5e0b60c0a7ee8c3d31dd02a6f7e975de738
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87853331"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106513"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API Python
 
@@ -268,7 +268,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, l'account Batch 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso a:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eseguire l'autenticazione con gli account di archiviazione e Batch

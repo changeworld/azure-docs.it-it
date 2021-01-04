@@ -3,25 +3,27 @@ title: Informazioni sull'estensione Grafico multimediale - Azure
 description: Analisi video live su IoT Edge consente di estendere le funzionalità di elaborazione del grafico multimediale tramite un nodo di estensione del grafico.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6735148bf453cfe0afb58d51451dea65f06705d6
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89569331"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401118"
 ---
 # <a name="media-graph-extension"></a>Estensione Grafico multimediale
 
-Analisi video live su IoT Edge consente di estendere le funzionalità di elaborazione del grafico multimediale tramite un nodo di estensione del grafico. Il plug-in di estensione di analisi può usare le tecniche di elaborazione di immagini tradizionali o i modelli di intelligenza artificiale per visione artificiale. Le estensioni del grafico vengono abilitate includendo un nodo del processore di estensione in un grafico multimediale. Il nodo del processore di estensione inoltra i fotogrammi video all'endpoint configurato e funge da interfaccia per l'estensione. La connessione può essere effettuata a un endpoint locale o remoto e può essere protetta tramite l'autenticazione e la crittografia TLS, se necessario. Il nodo del processore di estensione del grafico consente inoltre la scalabilità e la codifica facoltative dei fotogrammi video prima che vengano inviati all'estensione personalizzata.
+Analisi video live su IoT Edge consente di estendere le funzionalità di elaborazione del grafico multimediale tramite un nodo di estensione del grafico. Il plug-in di estensione di analisi può usare le tecniche di elaborazione di immagini tradizionali o i modelli di intelligenza artificiale per visione artificiale. Le estensioni del grafico vengono abilitate includendo un nodo del processore di estensione in un grafico multimediale. Il nodo del processore di estensione inoltra i fotogrammi video all'endpoint configurato e funge da interfaccia per l'estensione. La connessione può essere effettuata a un endpoint locale o remoto e può essere protetta tramite l'autenticazione e la crittografia TLS, se necessario. Il nodo del processore di estensione del grafico consente inoltre la scalabilità e la codifica facoltative dei fotogrammi video prima che vengano inviati all'estensione personalizzata. 
 
 Analisi video live supporta due tipi di processori di estensione del grafico multimediale:
 
 * [Processore di estensione HTTP](media-graph-concept.md#http-extension-processor)
 * [Processore di estensione gRPC](media-graph-concept.md#grpc-extension-processor)
 
+Il nodo di estensione del grafo prevede che il plug-in dell'estensione di analisi restituisca i risultati in formato JSON. Idealmente i risultati dovrebbero seguire il [modello a oggetti dello schema dei metadati di inferenza](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update).
+
 ## <a name="http-extension-processor"></a>Processore di estensione HTTP
 
-Il processore di estensione HTTP consente scenari di estendibilità con il protocollo HTTP, in cui le prestazioni e/o l'utilizzo ottimale delle risorse non sono prioritari. È possibile esporre l'intelligenza artificiale a un grafico multimediale tramite un endpoint REST HTTP. 
+Il processore di estensione HTTP consente scenari di estendibilità con il [protocollo HTTP](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/http-extension-protocol?branch=release-lva-dec-update), in cui le prestazioni e/o l'utilizzo ottimale delle risorse non sono prioritari. È possibile esporre l'intelligenza artificiale a un grafico multimediale tramite un endpoint REST HTTP. 
 
 Usare il nodo del processore di estensione HTTP quando:
 
@@ -31,7 +33,7 @@ Usare il nodo del processore di estensione HTTP quando:
 
 ## <a name="grpc-extension-processor"></a>Processore di estensione gRPC
 
-Il processore di estensione gRPC consente scenari di estendibilità con un protocollo strutturato a prestazioni elevate basato su gRPC. È ideale per scenari in cui le prestazioni e/o l'utilizzo ottimale delle risorse sono una priorità. Il processore di estensione gRPC consente di ottenere tutti i vantaggi delle definizioni dei dati strutturati. gRPC offre prestazioni di trasferimento di contenuto elevate usando:
+Il processore di estensione gRPC consente scenari di estendibilità con un [protocollo strutturato](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/grpc-extension-protocol?branch=release-lva-dec-update) basato su gRPC a prestazioni elevate. È ideale per scenari in cui le prestazioni e/o l'utilizzo ottimale delle risorse sono una priorità. Il processore di estensione gRPC consente di ottenere tutti i vantaggi delle definizioni dei dati strutturati. gRPC offre prestazioni di trasferimento di contenuto elevate usando:
 
 * [Memoria condivisa predefinita](https://en.wikipedia.org/wiki/Shared_memory) o 
 * Incorporamento diretto del contenuto nel corpo dei messaggi gRPC 
@@ -46,7 +48,7 @@ Usare quindi un nodo del processore di estensione gRPC quando:
 
 ## <a name="use-your-inferencing-model-with-live-video-analytics"></a>Usare il modello di inferenza con Analisi video live
 
-Le estensioni del grafico multimediale consentono di eseguire modelli di inferenza scelti in qualsiasi runtime di inferenza disponibile, ad esempio ONNX, TensorFlow, PyTorch o altri, nel proprio contenitore Docker. Per ottenere prestazioni ottimali, è necessario distribuire l'estensione personalizzata di inferenza insieme al modulo Edge di Analisi video live e quindi richiamarlo tramite il processore di estensione HTTP o il processore di estensione gRPC incluso nella topologia del grafico. La frequenza delle chiamate nell'estensione personalizzata può essere inoltre limitata aggiungendo facoltativamente un [processore di rilevamento dei movimenti](media-graph-concept.md#motion-detection-processor) e un [processore di filtro della frequenza dei fotogrammi](media-graph-concept.md#frame-rate-filter-processor) upstream al processore dell'estensione multimediale.
+Le estensioni del grafico multimediale consentono di eseguire modelli di inferenza scelti in qualsiasi runtime di inferenza disponibile, ad esempio ONNX, TensorFlow, PyTorch o altri, nel proprio contenitore Docker. Per ottenere prestazioni ottimali, è necessario distribuire l'estensione personalizzata di inferenza insieme al modulo Edge di Analisi video live e quindi richiamarlo tramite il processore di estensione HTTP o il processore di estensione gRPC incluso nella topologia del grafico. La frequenza delle chiamate nell'estensione personalizzata può essere inoltre limitata aggiungendo facoltativamente un [processore di rilevamento dei movimenti](media-graph-concept.md#motion-detection-processor) upstream al processore dell'estensione multimediale.
 
 Il diagramma seguente illustra il flusso di dati generale:
 
@@ -55,7 +57,9 @@ Il diagramma seguente illustra il flusso di dati generale:
 
 ## <a name="samples"></a>Esempi
 
-Vedere alcuni esempi di [notebook Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) per Analisi video live. Questi notebook forniranno istruzioni dettagliate per le **estensioni del grafo multimediale** in:
+È possibile iniziare con una delle guide di avvio rapido che illustrano l'analisi video live con un servizio di estensione predefinito a frequenze dei fotogrammi ridotte con il [processore di estensione HTTP](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp) o a frequenze dei fotogrammi elevate con il [processore di estensione gRPC](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp)
+
+Per gli utenti avanzati sono disponibili alcuni esempi di [notebook Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) per Analisi video live. Questi notebook forniranno istruzioni dettagliate per le **estensioni del grafo multimediale** in:
 
 * Come creare un'immagine del contenitore Docker di un servizio di estensione
 * Come distribuire il servizio di estensione come contenitore insieme al contenitore di Analisi video live

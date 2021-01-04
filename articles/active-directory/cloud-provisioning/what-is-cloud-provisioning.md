@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0acef468aa53e456cd6fb416fe45558aee064699
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856807"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355818"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Che cos'è il provisioning cloud di Azure AD Connect?
 Il provisioning cloud di Azure AD Connect è un nuovo agente Microsoft progettato per soddisfare e raggiungere gli obiettivi di identità ibrida per la sincronizzazione di utenti, gruppi e contatti con Azure AD.  Può essere usato insieme al servizio di sincronizzazione di Azure AD Connect e offre i vantaggi seguenti:
@@ -32,7 +32,7 @@ Il provisioning cloud di Azure AD Connect è un nuovo agente Microsoft progettat
 Con il provisioning cloud di Azure AD Connect, il provisioning tra AD e Azure AD è orchestrato in Microsoft Online Services. Le organizzazioni devono solo distribuire, nel proprio ambiente locale e in quello ospitato da IaaS, un agente leggero che funge da bridge tra Azure AD e AD. La configurazione del provisioning viene archiviata in Azure AD e gestita come parte del servizio.
 
 ## <a name="azure-ad-connect-cloud-provisioning-video"></a>Video sul provisioning cloud di Azure AD Connect
-Il breve video seguente offre una panoramica eccellente del provisioning cloud di Azure AD Connect:
+Il breve video seguente offre un'eccellente panoramica del provisioning cloud di Azure AD Connect:
 
 > [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
@@ -72,6 +72,7 @@ La tabella seguente fornisce un confronto tra Azure AD Connect e il provisioning
 | Supporto per Azure AD Domain Services|● | |
 | [Writeback della distribuzione ibrida Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Supporto per più di 50.000 oggetti per dominio di AD |● | |
+| Riferimenti tra domini|● | |
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

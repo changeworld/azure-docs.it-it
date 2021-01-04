@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917631"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106275"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Esercitazione: Eseguire script Python tramite Azure Data Factory usando Azure Batch
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eseguire l'autenticazione con gli account di archiviazione e Batch
@@ -148,12 +148,23 @@ Nel caso in cui avvisi o errori vengano generati dall'esecuzione dello script, �
 1. Fare clic sull'attività che ha restituito un codice di uscita di errore.
 1. Visualizzare `stdout.txt` e `stderr.txt` per analizzare e diagnosticare il problema.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Anche se non vengono addebitati costi per i processi e per le attività, vengono invece addebiti costi per i nodi di calcolo. È quindi consigliabile allocare solo i pool necessari. Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato. I file di input e output rimangono tuttavia nell'account di archiviazione. Quando non sono più necessari, è anche possibile eliminare l'account Batch e l'account di archiviazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato analizzato un esempio che illustra come eseguire gli script Python come parte di una pipeline tramite Azure Data Factory usando Azure Batch.
+In questa esercitazione sono state illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Eseguire l'autenticazione con gli account di archiviazione e Batch
+> * Sviluppare ed eseguire uno script in Python
+> * Creare un pool di nodi di calcolo per eseguire un'applicazione
+> * Pianificare i carichi di lavoro Python
+> * Monitorare una pipeline di analisi
+> * Accedere ai file di log
 
 Per altre informazioni su Azure Data Factory, vedere:
 
 > [!div class="nextstepaction"]
 > [Panoramica di Azure Data Factory](../data-factory/introduction.md)
-

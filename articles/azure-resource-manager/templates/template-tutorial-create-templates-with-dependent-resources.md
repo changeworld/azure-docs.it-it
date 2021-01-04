@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931589"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588037"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
@@ -46,7 +46,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. In Visual Studio Code selezionare **File**>**Apri file**.
+1. In Visual Studio Code selezionare **File** > **Apri file**.
 2. In **Nome file** incollare l'URL seguente:
 
     ```url
@@ -54,18 +54,18 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
     ```
 
 3. Selezionare **Apri** per aprire il file.
-4. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
+4. Selezionare **File** > **Salva con nome** per salvare una copia del file con il nome _azuredeploy.json_ nel computer locale.
 
 ## <a name="explore-the-template"></a>Esplorare il modello
 
 Quando si esplora il modello in questa sezione, provare a rispondere alle domande seguenti:
 
 * Quante risorse di Azure sono definite in questo modello?
-* Una delle risorse è un account di archiviazione di Azure.  La definizione è simile a quella usata nell'ultima esercitazione?
+* Una delle risorse è un account di archiviazione di Azure. La definizione è simile a quella usata nell'ultima esercitazione?
 * È possibile trovare i riferimenti del modello per le risorse definite in questo modello?
 * È possibile trovare le dipendenze delle risorse?
 
-1. Da Visual Studio Code, comprimere gli elementi finché non vengono visualizzati solo gli elementi di primo livello e gli elementi di secondo livello all'interno di **resources**:
+1. Da Visual Studio Code, comprimere gli elementi finché non vengono visualizzati solo gli elementi di primo livello e gli elementi di secondo livello all'interno di `resources`:
 
     ![Modelli di ARM in Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -96,7 +96,7 @@ Quando si esplora il modello in questa sezione, provare a rispondere alle domand
 
     ![Modelli di ARM in Visual Studio Code - elemento dependsOn per la rete virtuale](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    L'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Questa risorsa dipende da un'altra risorsa:
+    L'elemento `dependsOn` consente di definire una risorsa come dipendente da una o più risorse. Questa risorsa dipende da un'altra risorsa:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -124,7 +124,7 @@ Specificando le dipendenze, Resource Manager distribuisce in modo efficiente la 
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato in precedenza. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato in precedenza. Dopo aver caricato il file, è possibile usare i comandi `ls` e `cat` per verificare che il file sia stato caricato e
 
 1. quindi eseguire lo script di PowerShell seguente per distribuire il modello.
 

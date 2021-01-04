@@ -1,18 +1,18 @@
 ---
 title: 'Avvio rapido: Creare un account Azure Purview nel portale di Azure (anteprima)'
 description: Questo argomento di avvio rapido illustra come creare un account Azure Purview e configurare le autorizzazioni per iniziare a usarlo.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3119152e4a7d0dc799dfe273722101c95c11c0c9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602375"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400387"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Avvio rapido: Creare un account Azure Purview nel portale di Azure
 
@@ -30,6 +30,10 @@ In questo argomento di avvio rapido si crea un account Azure Purview.
 * L'account deve avere l'autorizzazione per creare risorse nella sottoscrizione
 
 * Se sono impostati **Criteri di Azure** che impediscono a tutte le applicazioni di creare un **account di archiviazione** e uno **spazio dei nomi EventHub**, è necessario creare un'eccezione dei criteri usando un tag, che può essere immesso durante il processo di creazione di un account Purview. Il motivo principale è che per ogni account Purview creato occorre creare un gruppo di risorse gestito e, all'interno di tale gruppo, un account di archiviazione e uno spazio dei nomi EventHub.
+
+    > [!important]
+    > Non è necessario seguire questo passaggio se il servizio Criteri di Azure non è installato o se non è presente un criterio di Azure che impedisce la creazione dell'**account di archiviazione** e dello **spazio dei nomi EventHub**.
+
     1. Passare al portale di Azure e cercare **Criteri**.
     1. Seguire la procedura in [Creare una definizione di criteri personalizzata](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) o modificare i criteri esistenti aggiungendo due eccezioni con l'operatore `not` e il tag `resourceBypass`:
 
@@ -151,7 +155,7 @@ Se dopo avere fatto clic su Aggiungi vengono visualizzate due opzioni entrambe d
 
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 
-1. Come tipo di ruolo selezionare **Curatore dei dati di Purview** o **Amministratore delle origini dati di Purview** in base all'entità servizio per cui verrà usato (per altre informazioni, vedere [Autorizzazioni per il catalogo](catalog-permissions.md)).
+1. Come tipo di ruolo selezionare **Curatore dei dati di Purview** o **Amministratore delle origini dati di Purview** in base all'entità di sicurezza per cui verrà usato (per altre informazioni, vedere [Autorizzazioni per il catalogo](catalog-permissions.md) e [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)).
 
 1. In **Assegna accesso a** lasciare l'impostazione predefinita **Utente, gruppo o entità servizio**.
 

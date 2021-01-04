@@ -7,12 +7,12 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057350"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400404"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Avvio rapido: Creare una nuova istanza del servizio Gestione API di Azure usando Visual Studio Code
 
@@ -55,7 +55,7 @@ Verrà così creata una nuova istanza di Gestione API (insieme a un gruppo di ri
 >
 > Se per il provisioning dello SKU *Consumo* è necessario meno di un minuto, la creazione di altri SKU in genere richiede 30-40 minuti.
 
-A questo punto, si è pronti per importare e pubblicare la prima API. È possibile eseguire questa operazione e altre operazioni comuni di Gestione API all'interno dell'estensione per Visual Studio Code. Per altre informazioni, vedere la documentazione sull'[estensione di Gestione API per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview).
+A questo punto, si è pronti per importare e pubblicare la prima API. È possibile eseguire questa operazione e altre operazioni comuni di Gestione API all'interno dell'estensione per Visual Studio Code. Per altre informazioni, vedere l'[esercitazione](visual-studio-code-tutorial.md).
 
 ![Istanza di Gestione API appena creata nel riquadro dell'estensione di Gestione API per VS Code](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
@@ -70,4 +70,4 @@ In alternativa, è possibile selezionare **Elimina Gestione API** per eliminare 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Importare e pubblicare la prima API](import-and-publish.md)
+> [Importare e gestire API con l'estensione di Gestione API](visual-studio-code-tutorial.md)

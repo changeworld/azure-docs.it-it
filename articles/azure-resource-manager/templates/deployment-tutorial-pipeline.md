@@ -4,12 +4,12 @@ description: Informazioni su come creare, testare e distribuire modelli di Azure
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906353"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588132"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di ARM con Azure Pipelines
 
@@ -19,7 +19,7 @@ Azure DevOps offre servizi per sviluppatori per aiutare i team di supporto a pia
 
 > [!NOTE]
 > Scegliere un nome per il progetto. Procedendo nell'esercitazione, sostituire tutte le occorrenze di **AzureRmPipeline** con il nome di progetto scelto.
-> Questo nome del progetto viene usato per generare i nomi delle risorse.  Una delle risorse è un account di archiviazione. I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. Il nome deve essere univoco. Nel modello il nome dell'account di archiviazione è il nome del progetto con l'aggiunta di "store" e il nome del progetto deve avere una lunghezza compresa tra 3 e 11 caratteri. Quindi il nome del progetto deve soddisfare i requisiti del nome dell'account di archiviazione e deve avere meno di 11 caratteri.
+> Questo nome del progetto viene usato per generare i nomi delle risorse.  Una delle risorse è un account di archiviazione. I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. Il nome deve essere univoco. Nel modello il nome dell'account di archiviazione è il nome del progetto con l'aggiunta di **store** e il nome del progetto deve avere una lunghezza compresa tra 3 e 11 caratteri. Quindi il nome del progetto deve soddisfare i requisiti del nome dell'account di archiviazione e deve avere meno di 11 caratteri.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 * **Un account GitHub** da usare per creare un repository per i modelli. Se non si ha tale account, è possibile [crearne uno gratuitamente](https://github.com). Per altre informazioni sull'uso dei repository GitHub, vedere [Creare repository GitHub](/azure/devops/pipelines/repos/github).
-* **Installare Git**. In questa esercitazione viene usato *Git Bash* o *Git Shell*. Per le istruzioni, vedere [Install Git]( https://www.atlassian.com/git/tutorials/install-git) (Installare Git).
+* **Installare Git**. In questa esercitazione viene usato *Git Bash* o *Git Shell*. Per le istruzioni, vedere [Install Git](https://www.atlassian.com/git/tutorials/install-git) (Installare Git).
 * **Un'organizzazione Azure DevOps**. Se non si dispone di una tale organizzazione, è possibile crearne una gratuitamente. Vedere [Creare un'organizzazione o una raccolta di progetti](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
 * (facoltativo) **Visual Studio Code con l'estensione Strumenti di Resource Manager**. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
@@ -57,13 +57,13 @@ Se non si dispone di un account GitHub, vedere [Prerequisiti](#prerequisites).
 
 1. Fare clic su **New** (Nuovo), un pulsante di colore verde.
 1. In **Repository name** (Nome repository) immettere un nome per il repository.  Ad esempio, **AzureRmPipeline-repo**. Ricordarsi di sostituire tutte le occorrenze di **AzureRmPipeline** con il nome del proprio progetto. È possibile selezionare **Public** (Pubblico) o **Private** (Privato) per procedere in questa esercitazione e quindi fare clic su **Create repository** (Crea repository).
-1. Prendere nota dell'URL. Il formato dell'URL del repository è il seguente: **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
+1. Prendere nota dell'URL. Il formato dell'URL del repository è il seguente: `https://github.com/[YourAccountName]/[YourRepositoryName]` .
 
-Questo repository viene indicato come *repository remoto*. Ogni sviluppatore dello stesso progetto può clonare il rispettivo *repository locale* e unire le modifiche al repository remoto.
+Questo repository viene indicato come *repository remoto*. Ogni sviluppatore dello stesso progetto può clonare il rispettivo *repository locale* e unire le modifiche nel repository remoto.
 
 ### <a name="clone-the-remote-repository"></a>Clonare il repository remoto
 
-1. Aprire Git Shell o Git Bash.  Vedere [Prerequisiti](#prerequisites).
+1. Aprire Git Shell o Git Bash. Vedere [Prerequisiti](#prerequisites).
 1. Verificare che la cartella corrente sia **GitHub**.
 1. Eseguire il comando seguente:
 
@@ -75,45 +75,46 @@ Questo repository viene indicato come *repository remoto*. Ogni sviluppatore del
     pwd
     ```
 
-    Sostituire **[YourAccountName]** con il nome del proprio account GitHub e sostituire **[YourGitHubRepositoryName]** con il nome del proprio repository creato nella procedura precedente.
+    Sostituire `[YourAccountName]` con il nome del proprio account GitHub e sostituire `[YourGitHubRepositoryName]` con il nome del proprio repository creato nella procedura precedente.
 
-La cartella **CreateWebApp** è la cartella in cui viene archiviato il modello. Il comando **pwd** mostra il percorso della cartella. Il percorso è la posizione in cui verrà salvato il modello nella procedura seguente.
+La cartella _CreateWebApp_ è la cartella in cui viene archiviato il modello. Il comando `pwd` mostra il percorso della cartella. Il percorso è la posizione in cui verrà salvato il modello nella procedura seguente.
 
 ### <a name="download-a-quickstart-template"></a>Scaricare un modello di avvio rapido
 
-Anziché creare i modelli, è possibile scaricare i modelli e salvarli nella cartella **CreateWebApp**.
+Anziché creare i modelli, è possibile scaricare i modelli e salvarli nella cartella _CreateWebApp_.
 
 * Modello principale: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
 * Modello collegato: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
-Sia il nome della cartella sia i nomi file vengono usati così come sono nella pipeline.  Se si modificano questi nomi, sarà necessario aggiornare i nomi usati nella pipeline.
+Sia il nome della cartella sia i nomi file vengono usati così come sono nella pipeline. Se si modificano questi nomi, sarà necessario aggiornare i nomi usati nella pipeline.
 
 ### <a name="push-the-template-to-the-remote-repository"></a>Eseguire il push del modello nel repository remoto
 
-Il file azuredeploy.json è stato aggiunto al repository locale. È quindi necessario caricare il modello nel repository remoto.
+Il file _azuredeploy.json_ è stato aggiunto al repository locale. È quindi necessario caricare il modello nel repository remoto.
 
 1. Aprire *Git Shell* o *Git Bash*, se non è aperto.
-1. Passare alla cartella CreateWebApp nel repository locale.
-1. Verificare che il file **azuredeploy.json** si trovi in tale cartella.
+1. Passare alla cartella _CreateWebApp_ nel repository locale.
+1. Verificare che il file _azuredeploy.json_ si trovi in tale cartella.
 1. Eseguire il comando seguente:
 
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin master
+    git push origin main
     ```
 
-    È possibile che venga visualizzato un avviso relativo all'avanzamento riga. Tale avviso può essere ignorato. **master** è il ramo master.  In genere si crea un ramo per ogni aggiornamento. Per semplificare l'esercitazione, viene usato direttamente il ramo master.
-1. Accedere al repository GitHub da un browser.  L'URL è **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** . Verranno visualizzati la cartella **CreateWebApp** e i tre file all'interno della cartella.
-1. Selezionare **linkedStorageAccount.json** per aprire il modello.
-1. Selezionare il pulsante **Non elaborato**. L'URL viene avviato con **raw.githubusercontent.com**.
-1. Copiare l'URL.  È necessario fornire questo valore quando si configura la pipeline più avanti nell'esercitazione.
+    È possibile che venga visualizzato un avviso relativo all'avanzamento riga. Tale avviso può essere ignorato. **main** è il ramo principale.  In genere si crea un ramo per ogni aggiornamento. Per semplificare l'esercitazione, viene usato direttamente il ramo principale.
+
+1. Accedere al repository GitHub da un browser. L'URL è `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Verranno visualizzati la cartella _CreateWebApp_ e i tre file all'interno della cartella.
+1. Selezionare _linkedStorageAccount.json_ per aprire il modello.
+1. Selezionare il pulsante **Non elaborato**. L'URL inizia con `https://raw.githubusercontent.com`.
+1. Copiare l'URL. È necessario fornire questo valore quando si configura la pipeline più avanti nell'esercitazione.
 
 Fino a questo punto è stato creato un repository GitHub e sono stati caricati i modelli nel repository.
 
 ## <a name="create-a-devops-project"></a>Creare un progetto DevOps
 
-Prima di poter passare alla procedura che segue, è necessario avere un'organizzazione DevOps.  Se non si dispone di una tale organizzazione, vedere [Prerequisiti](#prerequisites).
+Prima di poter passare alla procedura che segue, è necessario avere un'organizzazione DevOps. Se non si dispone di una tale organizzazione, vedere [Prerequisiti](#prerequisites).
 
 1. Accedere ad [Azure DevOps](https://dev.azure.com).
 1. Selezionare un'organizzazione DevOps a sinistra.
@@ -148,7 +149,7 @@ Creare una connessione al servizio da usare per distribuire i progetti ad Azure.
 
 Fino a questo punto sono state completate le attività riportate di seguito.  Se si saltano le sezioni precedenti perché si ha già familiarità con GitHub e DevOps, è necessario completare tali attività prima di proseguire.
 
-* Creare un repository GitHub e salvare i modelli nella cartella **CreateWebApp** del repository.
+* Creare un repository GitHub e salvare i modelli nella cartella _CreateWebApp_ del repository.
 * Creare un progetto DevOps e creare una connessione al servizio Azure Resource Manager.
 
 Per creare una pipeline con un passaggio per distribuire un modello:
@@ -159,9 +160,9 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines Solo repository selezionati](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 
-1. Nella scheda **Select** (Select) selezionare il repository.  Il nome predefinito è **[NomeAccount]/[NomeRepositoryGitHub]** .
-1. Nella scheda **Configure** (Configura) selezionare **Starter pipeline** (Pipeline di base). Viene visualizzato il file della pipeline **azure-pipelines.yml** con due passaggi script.
-1. Eliminare i due passaggi dello script dal file yml.
+1. Nella scheda **Select** (Select) selezionare il repository. Il nome predefinito è `[YourAccountName]/[YourGitHubRepositoryName]`.
+1. Nella scheda **Configure** (Configura) selezionare **Starter pipeline** (Pipeline di base). Viene visualizzato il file della pipeline _azure-pipelines.yml_ con due passaggi script.
+1. Eliminare i due passaggi dello script dal file con estensione _yml_.
 1. Spostare il cursore sulla riga dopo **passaggi:** .
 1. Selezionare **Mostra l'assistente** a destra della schermata per aprire il riquadro **Attività**.
 1. Selezionare **Distribuzione modello ARM**.
@@ -174,9 +175,9 @@ Per creare una pipeline con un passaggio per distribuire un modello:
     * **Gruppo di risorse**: Immettere un nuovo nome del gruppo di risorse. Ad esempio, **AzureRmPipeline-rg**.
     * **Località**: Selezionare una posizione per il gruppo di risorse, ad esempio **Stati Uniti centrali**.
     * **Posizione del modello**: selezionare **Linked artifact**, che indica che l'attività cerca il file del modello direttamente dal repository connesso.
-    * **Modello**: immettere **CreateWebApp/azuredeploy.json**. Se è stato modificato il nome della cartella e il nome del file, è necessario modificare questo valore.
+    * **Modello**: immettere _CreateWebApp/azuredeploy.json_. Se è stato modificato il nome della cartella e il nome del file, è necessario modificare questo valore.
     * **Parametri del modello**: lasciare vuoto questo campo. I valori dei parametri verranno specificati in **Esegui override dei parametri del modello**.
-    * **Esegui override dei parametri del modello**: immettere **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** . Sostituire il nome del progetto e l'URL del modello collegato. L'URL del modello collegato è quello annotato al termine del passaggio [Creare un repository GitHub](#create-a-github-repository). Inizia con **https://raw.githubusercontent.com** .
+    * **Esegui override dei parametri del modello**: immettere `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Sostituire il nome del progetto e l'URL del modello collegato. L'URL del modello collegato è quello annotato al termine del passaggio [Creare un repository GitHub](#create-a-github-repository). Inizia con `https://raw.githubusercontent.com` .
     * **Modalità di distribuzione**: selezionare **Incrementale**.
     * **Nome distribuzione**: immettere **DeployPipelineTemplate**. Selezionare **Avanzate** per poter visualizzare **Nome distribuzione**.
 
@@ -186,7 +187,7 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 
     Per altre informazioni su questa attività, vedere [Attività di distribuzione dei gruppi di risorse di Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) e [Attività di distribuzione dei modelli di Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md).
 
-    Il file yml sarà simile al seguente:
+    Il file con estensione _yml_ sarà simile al seguente:
 
     ![Screenshot che mostra la pagina Revisione con la nuova pipeline denominata Esamina il codice YAML della pipeline.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
@@ -199,7 +200,7 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Aprire il gruppo di risorse. Il nome è quello specificato nel file YAML della pipeline.  Si vedrà che è stato creato un account di archiviazione.  Il nome di tale account inizia con **store**.
+1. Aprire il gruppo di risorse. Il nome è quello specificato nel file YAML della pipeline. Si vedrà che è stato creato un account di archiviazione. Il nome di tale account inizia con **store**.
 1. Selezionare il nome per aprire l'account di archiviazione.
 1. Selezionare **Proprietà**. Osservare che l'opzione **Replica** è impostata su **Archiviazione con ridondanza locale**.
 
@@ -207,7 +208,7 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 
 Quando si aggiorna il modulo e si esegue il push delle modifiche nel repository remoto, la pipeline aggiorna automaticamente le risorse, l'account di archiviazione in questo caso.
 
-1. Aprire **linkedStorageAccount.json** dal repository locale in Visual Studio Code o in qualsiasi editor di testo.
+1. Aprire _linkedStorageAccount.json_ dal repository locale in Visual Studio Code o in qualsiasi editor di testo.
 1. Aggiornare la voce **defaultValue** di **storageAccountType** impostandola su **Standard_GRS**. Vedere lo screenshot seguente:
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines aggiornare YAML](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png)
@@ -216,17 +217,17 @@ Quando si aggiorna il modulo e si esegue il push delle modifiche nel repository 
 1. Eseguire il push delle modifiche nel repository remoto eseguendo i comandi seguenti da Git Bash/Shell.
 
     ```bash
-    git pull origin master
+    git pull origin main
     git add .
     git commit -m "Update the storage account type."
-    git push origin master
+    git push origin main
     ```
 
-    Il primo comando (pull) sincronizza il repository locale con il repository remoto. Il file YAML della pipeline è stato aggiunto solo al repository remoto. L'esecuzione del comando pull scarica una copia del file YAML nel ramo locale.
+    Il primo comando (`pull`) sincronizza il repository locale con il repository remoto. Il file YAML della pipeline è stato aggiunto solo al repository remoto. In seguito all'esecuzione del comando `pull` viene scaricata una copia del file YAML nel ramo locale.
 
-    Il quarto comando (push) carica il file linkedStorageAccount.json modificato nel repository remoto. Con il ramo master del repository remoto aggiornato, la pipeline viene attivata di nuovo.
+    Il quarto comando (`push`) carica il file _linkedStorageAccount.json_ modificato nel repository remoto. Con il ramo principale del repository remoto aggiornato, la pipeline viene attivata di nuovo.
 
-Per verificare le modifiche, è possibile controllare la proprietà Replica dell'account di archiviazione.  Vedere [Verificare la distribuzione](#verify-the-deployment).
+Per verificare le modifiche, è possibile controllare la proprietà Replica dell'account di archiviazione. Vedere [Verificare la distribuzione](#verify-the-deployment).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

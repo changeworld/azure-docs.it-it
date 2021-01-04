@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516517"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606726"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introduzione ad Azure Defender per Archiviazione
 
@@ -20,7 +20,6 @@ ms.locfileid: "97516517"
 **Azure Defender per Archiviazione** offre un livello di intelligence di sicurezza nativo di Azure che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Sfrutta le funzionalità avanzate di intelligenza artificiale e di [intelligence sulle minacce Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684) per fornire avvisi e raccomandazioni contestuali sulla sicurezza.
 
 Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. Questi avvisi sono integrati con il Centro sicurezza di Azure e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sull'attività sospetta e le raccomandazioni su come analizzare e correggere le minacce.
-
 
 ## <a name="availability"></a>Disponibilità
 
@@ -31,6 +30,17 @@ Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'att
 |Tipi di archiviazione protetti:|[Archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/)<br>[File di Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
 |||
+
+
+## <a name="what-are-the-benefits-of-azure-defender-for-storage"></a>Quali sono i vantaggi di Azure Defender per Archiviazione?
+
+Azure Defender per Archiviazione offre:
+
+- **Sicurezza nativa di Azure**: Defender per Archiviazione consente di abilitare con un solo clic la protezione dei dati archiviati in BLOB di Azure, File di Azure e data lake. In quanto servizio nativo di Azure, Defender per Archiviazione garantisce una sicurezza centralizzata per tutti gli asset di dati gestiti da Azure ed è integrato con altri servizi di sicurezza di Azure come Azure Sentinel.
+- **Soluzioni di rilevamento avanzate**: basati sulla tecnologia di intelligence sulle minacce Microsoft, i rilevamenti in Defender per Archiviazione interessano le principali minacce per l'archiviazione, come l'accesso anonimo, la compromissione delle credenziali, il social engineering, l'abuso dei privilegi e i contenuti dannosi.
+- **Risposta su larga scala**: grazie agli strumenti di automazione del Centro sicurezza, è più facile prevenire e rispondere alle minacce identificate. Per altre informazioni, vedere [Automatizzare le risposte ai trigger del Centro sicurezza](workflow-automation.md).
+
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Panoramica generale delle funzionalità di Azure Defender per Archiviazione":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>Quali tipi di avvisi vengono forniti da Azure Defender per Archiviazione?

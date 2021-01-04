@@ -1,22 +1,22 @@
 ---
 title: 'Esercitazione: Distribuire un modello di Azure Resource Manager locale'
-description: Informazioni su come distribuire un modello di Azure Resource Manager da un computer locale
+description: Informazioni su come distribuire un modello di Azure Resource Manager (modello di ARM) dal computer locale
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: fe13376ced428713703f2bd5cf33941129dec1d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640d314711e34119dac5e1c5bf9fa245685b6f38
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611623"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368137"
 ---
-# <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Esercitazione: Distribuire un modello di Azure Resource Manager locale
+# <a name="tutorial-deploy-a-local-arm-template"></a>Esercitazione: Distribuire un modello di ARM locale
 
-Informazioni su come distribuire un modello di Azure Resource Manager da un computer locale. Per completare l'esercitazione, sono necessari circa **8 minuti**.
+Informazioni su come distribuire un modello di Azure Resource Manager (modello di ARM) dal computer locale. Per completare l'esercitazione, sono necessari circa **8 minuti**.
 
-Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modularizzerà il modello creando un modello collegato, si archivierà il modello collegato in un account di archiviazione e si proteggerà il modello collegato usando un token di firma di accesso condiviso nonché si apprenderà come creare una pipeline DevOp per distribuire i modelli. Questa serie riguarda la distribuzione dei modelli.  Per informazioni sullo sviluppo dei modelli, vedere le [esercitazioni per principianti](./template-tutorial-create-first-template.md).
+Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modularizzerà il modello creando un modello collegato, si archivierà il modello collegato in un account di archiviazione e si proteggerà il modello collegato usando un token di firma di accesso condiviso nonché si apprenderà come creare una pipeline DevOps per distribuire i modelli. Questa serie riguarda la distribuzione dei modelli. Per informazioni sullo sviluppo dei modelli, vedere le [esercitazioni per principianti](./template-tutorial-create-first-template.md).
 
 ## <a name="get-tools"></a>Ottenere gli strumenti
 
@@ -29,12 +29,13 @@ Per distribuire il modello, è necessario usare l'interfaccia della riga di coma
 - [Installare Azure PowerShell](/powershell/azure/install-az-ps)
 - [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows)
 - [Installare l'interfaccia della riga di comando di Azure in Linux](/cli/azure/install-azure-cli-linux)
+- [Installare l'interfaccia della riga di comando di Azure in macOS](/cli/azure/install-azure-cli-macos)
 
 Dopo aver installato Azure PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di accedere per la prima volta. Per informazioni, vedere [Accesso - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Accesso - Interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### <a name="editor-optional"></a>Editor (facoltativo)
 
-I modelli sono file JSON. Per controllare/modificare i modelli, è necessario un editor JSON valido. È consigliabile usare Visual Studio Code con l'estensione Strumenti di Resource Manager. Se è necessario installare questi strumenti, vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+I modelli sono file JSON. Per controllare/modificare i modelli, è necessario un editor JSON valido. È consigliabile usare Visual Studio Code con l'estensione Strumenti di Resource Manager. Se è necessario installare questi strumenti, vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Rivedere il modello
 
@@ -43,9 +44,9 @@ Con il modello vengono distribuiti un account di archiviazione, un piano di serv
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. Il nome deve essere univoco. Nel modello il nome dell'account di archiviazione è il nome del progetto con l'aggiunta di "store" e il nome del progetto deve avere una lunghezza compresa tra 3 e 11 caratteri. Quindi il nome del progetto deve soddisfare i requisiti del nome dell'account di archiviazione e deve avere meno di 11 caratteri.
+> I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. Il nome deve essere univoco. Nel modello il nome dell'account di archiviazione è il nome del progetto con l'aggiunta di **store** e il nome del progetto deve avere una lunghezza compresa tra 3 e 11 caratteri. Quindi il nome del progetto deve soddisfare i requisiti del nome dell'account di archiviazione e deve avere meno di 11 caratteri.
 
-Salvare una copia del modello nel computer locale con l'estensione JSON, ad esempio azuredeploy.json. Questo modello verrà distribuito più avanti nell'esercitazione.
+Salvare una copia del modello nel computer locale con l'estensione _JSON_, ad esempio _azuredeploy.json_. Questo modello verrà distribuito più avanti nell'esercitazione.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -65,7 +66,7 @@ az login
 
 ---
 
-Se si dispone di più sottoscrizioni di Azure, selezionare quella da usare:
+Se si hanno più sottoscrizioni di Azure, selezionare quella da usare. Sostituire `[SubscriptionID/SubscriptionName]` e le parentesi quadre `[]` con le informazioni sulla sottoscrizione:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

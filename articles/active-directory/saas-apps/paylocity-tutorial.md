@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fcaaea387cab24772b9e6f31f4e7d93ff643b983
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 59c01d5d8589b61ff0aaacb81d12fed8fba4f842
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515594"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505512"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Paylocity
 
@@ -79,7 +79,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://access.paylocity.com/`
 
@@ -120,7 +120,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -148,7 +148,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-paylocity-sso"></a>Configurare l'accesso Single Sign-On per Paylocity
 
-Per configurare l'accesso Single Sign-On sul lato **Paylocity** , è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL copiati appropriati dal portale di Azure al [team di supporto di Paylocity](mailto:service@paylocity.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Paylocity**:
+
+1. Scaricare il file **XML dei metadati di federazione**.
+1. In Paylocity passare a **HR & Payroll** > **User Access** > **SSO Configuration** (Risorse umane e retribuzioni > Accesso utente > Configurazione SSO).
+1. Selezionare **Add SSO Integration** (Aggiungi integrazione SSO) in **SSO Integrations** (Integrazioni SSO). Viene aperto un nuovo cassetto.
+1. Selezionare **Microsoft Azure** come provider di accesso SSO nell'elenco a discesa.
+1. Selezionare **Status** (Stato) nell'elenco a discesa.
+1. Trascinare e rilasciare il file di metadati nell'area di rilascio. Paylocity prova ad analizzare gli URL di autorità di certificazione, reindirizzamento post e binding, nonché i certificati di sicurezza.
+1. Selezionare **Save** (Salva) per confermare le modifiche. L'integrazione dovrebbe essere visualizzata in **SSO Integrations** (Integrazioni SSO).
 
 ### <a name="create-paylocity-test-user"></a>Creare l'utente di test di Paylocity
 

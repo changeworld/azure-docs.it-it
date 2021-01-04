@@ -8,19 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/04/2020
+ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928468"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587554"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
 Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
+
+I connettori sono una parte essenziale di Application Proxy. Per altre informazioni sui connettori, vedere [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md).
 
 Questa esercitazione:
 
@@ -74,7 +77,7 @@ Per la disponibilità elevata nell'ambiente di produzione è consigliabile avere
 Per abilitare TLS 1.2:
 
 1. Impostare le chiavi del Registro di sistema seguenti:
-    
+
    ```
    Windows Registry Editor Version 5.00
 
@@ -191,7 +194,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 1. Accedere come amministratore al [portale di Azure](https://portal.azure.com/).
 2. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
 3. Selezionare **Applicazioni aziendali** e quindi selezionare **Nuova applicazione**.
-4. Nella sezione **Crea un'applicazione personalizzata** selezionare **Configurare il proxy applicazione per l'accesso remoto sicuro a un'applicazione locale**.
+4. Selezionare il pulsante **Aggiungi un'applicazione locale** visualizzato nella parte inferiore della pagina nella sezione **Applicazioni locali**. In alternativa, è possibile selezionare **Crea un'applicazione personalizzata** nella parte superiore della pagina e quindi selezionare **Configurare il proxy applicazione per l'accesso remoto sicuro a un'applicazione locale**.
 5. Nella sezione **Aggiungi applicazione locale personalizzata** fornire le informazioni seguenti sull'applicazione:
 
     | Campo | Descrizione |

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928529"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589118"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni di modelli di Azure Resource Manager
 
@@ -43,7 +43,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 Aprire un modello denominato [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Creare un account di archiviazione Standard) da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) e configurare due problemi nel modello.
 
-1. In Visual Studio Code selezionare **File**>**Apri file**.
+1. In Visual Studio Code selezionare **File** > **Apri file**.
 2. In **Nome file** incollare l'URL seguente:
 
     ```url
@@ -51,16 +51,16 @@ Aprire un modello denominato [Create a standard storage account](https://azure.m
     ```
 
 3. Selezionare **Apri** per aprire il file.
-4. Sostituire la riga **apiVersion** con la riga seguente:
+4. Sostituire la riga `apiVersion` con la riga seguente:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** non è un nome di elemento valido. È un errore di convalida.
-    - La versione dell'API deve essere "2018-07-01".  È un errore di distribuzione.
+    - `apiVersion1` è un nome di elemento non valido. È un errore di convalida.
+    - La versione dell'API deve essere `"2018-07-01"`.  È un errore di distribuzione.
 
-5. Selezionare **File**>**Salva con nome** per salvare il file con il nome **azuredeploy.json** nel computer locale.
+5. Selezionare **File** > **Salva con nome** per salvare il file con il nome _azuredeploy.json_ nel computer locale.
 
 ## <a name="troubleshoot-the-validation-error"></a>Risolvere l'errore di convalida
 
@@ -68,13 +68,13 @@ Per distribuire il modello, vedere la sezione [Distribuire il modello](template-
 
 La shell restituirà un errore simile al seguente:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-Il messaggio di errore indica che il problema riguarda **apiVersion1**.
+Il messaggio di errore indica che il problema riguarda `apiVersion1`.
 
-Usare Visual Studio Code per risolvere il problema sostituendo **apiVersion1** con **apiVersion** e quindi salvare il modello.
+Usare Visual Studio Code per risolvere il problema sostituendo `apiVersion1` con `apiVersion` e quindi salvare il modello.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Risolvere l'errore di distribuzione
 
@@ -82,7 +82,7 @@ Per distribuire il modello, vedere la sezione [Distribuire il modello](template-
 
 La shell restituirà un errore simile al seguente:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",

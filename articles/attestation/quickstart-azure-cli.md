@@ -7,20 +7,30 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dee9e7596c0a30301d9e0453ef22a6dfe9541522
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96020943"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937220"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Avvio rapido: Configurare Attestazione di Azure con l'interfaccia della riga di comando di Azure
 
 Usare l'interfaccia della riga di comando di Azure per configurare Attestazione di Azure.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
 ## <a name="get-started"></a>Introduzione
+
+1. Installare questa estensione usando il comando dell'interfaccia della riga di comando seguente
+
+   ```azurecli
+   az extension add --name attestation
+   ```
+   
+1. Controllare la versione
+
+   ```azurecli
+   az extension show --name attestation --query version
+   ```
 
 1. Usare il comando seguente per accedere ad Azure:
 
@@ -55,19 +65,16 @@ Usare l'interfaccia della riga di comando di Azure per configurare Attestazione 
 
 Ecco i comandi che è possibile usare per creare e gestire il provider di attestazioni:
 
-1. Eseguire il comando [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) per creare un provider di attestazioni:
+1. Eseguire il comando [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) per creare un provider di attestazioni:
 
    ```azurecli
-   az attestation create --resource-group attestationrg --name attestationProvider --location uksouth \
-      --attestation-policy SgxDisableDebugMode --certs-input-path C:\test\policySignersCertificates.pem
+   az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
-
-   Il parametro **--certs-input-path** specifica un set di chiavi di firma attendibili. Se si specifica un nome file per questo parametro, è necessario configurare il provider di attestazioni solo con criteri in formato JWT firmato. In caso contrario, il criterio può essere configurato in formato testo o JWT non firmato. Per informazioni sul formato JWT, vedere [Concetti di base](basic-concepts.md). Per alcuni esempi del certificato, vedere [Esempi di un certificato del firmatario di criteri di attestazione](policy-signer-examples.md).
-
-1. Eseguire il comando [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) per recuperare le proprietà del provider di attestazioni, ad esempio lo stato e AttestURI:
+   
+1. Eseguire il comando [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) per recuperare le proprietà del provider di attestazioni, ad esempio lo stato e AttestURI:
 
    ```azurecli
-   az attestation show --resource-group attestationrg --name attestationProvider
+   az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
    ```
 
    Questo comando visualizza valori simili all'output seguente:
@@ -84,34 +91,20 @@ Ecco i comandi che è possibile usare per creare e gestire il provider di attest
    TagsTable:
    ```
 
-È possibile eliminare un provider di attestazioni usando il comando [az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete):
+È possibile eliminare un provider di attestazioni usando il comando [az attestation delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete):
 
 ```azurecli
-az attestation delete --resource-group attestationrg --name attestationProvider
+az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
 ```
 
 ## <a name="policy-management"></a>Gestione dei criteri
 
-Per gestire i criteri, gli utenti di Azure AD devono avere le autorizzazioni seguenti per `Actions`:
+Usare i comandi descritti qui per fornire la gestione dei criteri per un provider di attestazioni, un tipo di attestazione alla volta.
 
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-- `Microsoft.Attestation/attestationProviders/attestation/write`
-- `Microsoft.Attestation/attestationProviders/attestation/delete`
-
-Queste autorizzazioni possono essere assegnate a un utente di AD tramite un ruolo come `Owner` (autorizzazioni con caratteri jolly), `Contributor` (autorizzazioni con caratteri jolly) o `Attestation Contributor` (autorizzazioni specifiche solo per Attestazione di Azure).  
-
-Per leggere i criteri, gli utenti di Azure AD devono avere l'autorizzazione seguente per `Actions`:
-
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-
-Questa autorizzazione può essere assegnata a un utente di AD tramite un ruolo come `Reader` (autorizzazioni con caratteri jolly) o `Attestation Reader` (autorizzazioni specifiche solo per Attestazione di Azure).
-
-Usare i comandi descritti qui per fornire la gestione dei criteri per un provider di attestazioni, un ambiente TEE alla volta.
-
-Il comando [az attestation policy show](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) restituisce il criterio corrente per l'ambiente TEE specificato:
+Il comando [az attestation policy show](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) restituisce il criterio corrente per l'ambiente TEE specificato:
 
 ```azurecli
-az attestation policy show --resource-group attestationrg --name attestationProvider --tee SgxEnclave
+az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
 ```
 
 > [!NOTE]
@@ -119,48 +112,24 @@ az attestation policy show --resource-group attestationrg --name attestationProv
 
 Di seguito sono elencati i tipi di TEE supportati:
 
-- `CyResComponent`
-- `OpenEnclave`
-- `SgxEnclave`
-- `VSMEnclave`
+- `SGX-IntelSDK`
+- `SGX-OpenEnclaveSDK`
+- `TPM`
 
-Usare il comando [az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) per impostare un nuovo criterio per l'ambiente TEE specificato.
+Usare il comando [az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) per impostare un nuovo criterio per il tipo di attestazione specificato.
 
-```azurecli
-az attestation policy set --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --new-attestation-policy newAttestationPolicyname
-```
-
-I criteri di attestazione in formato JWT devono contenere un'attestazione denominata `AttestationPolicy`. I criteri firmati devono essere firmati con una chiave che corrisponde a uno dei certificati del firmatario di criteri esistenti.
-
-Per alcuni esempi del criterio, vedere [Esempi di un criterio di attestazione](policy-examples.md).
-
-Il comando [az attestation policy reset](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_reset) imposta un nuovo criterio per l'ambiente TEE specificato.
+Per impostare i criteri in formato testo per un tipo di attestazione specificato usando il percorso del file:
 
 ```azurecli
-az attestation policy reset --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --policy-jws "eyJhbGciOiJub25lIn0.."
+az attestation policy set --name testatt1 --resource-group testrg --attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}"
 ```
 
-## <a name="policy-signer-certificates-management"></a>Gestione dei certificati del firmatario di criteri
-
-Usare i comandi seguenti per gestire i certificati del firmatario di criteri per un provider di attestazioni:
+Per impostare i criteri in formato JWT per un tipo di attestazione specificato usando il percorso del file:
 
 ```azurecli
-az attestation signer list --resource-group attestationrg --name attestationProvider
-
-az attestation signer add --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
-
-az attestation signer remove --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
+az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
+--attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
 ```
-
-Il certificato del firmatario di criteri è un token JWT firmato con un'attestazione denominata `maa-policyCertificate`. Il valore dell'attestazione è un token JWK che contiene la chiave di firma attendibile da aggiungere. Il token JWT deve essere firmato con una chiave privata che corrisponde a uno dei certificati del firmatario di criteri esistenti. Per informazioni su JWK e JWK, vedere [Concetti di base](basic-concepts.md).
-
-Tutte le modifiche semantiche del certificato del firmatario di criteri devono essere eseguite all'esterno dell'interfaccia della riga di comando di Azure. Per quanto riguarda l'interfaccia della riga di comando di Azure, si tratta di una semplice stringa.
-
-Per alcuni esempi del certificato, vedere [Esempi di un certificato del firmatario di criteri di attestazione](policy-signer-examples.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

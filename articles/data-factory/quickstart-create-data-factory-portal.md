@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 76a490ed28f940620db7835c4cec145740f48503
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96013395"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509020"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Avvio rapido: Creare una data factory usando l'interfaccia utente di Azure Data Factory 
 
@@ -45,42 +45,42 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
 1. Selezionare **Integrazione** e quindi **Data factory**. 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** per **Nome**. 
+1. Nella scheda **Informazioni di base** della pagina **Crea data factory** selezionare la **sottoscrizione** di Azure in cui si vuole creare la data factory.
+1. In **Gruppo di risorse** eseguire una di queste operazioni:
+
+    a. selezionare un gruppo di risorse esistente nell'elenco a discesa.
+
+    b. Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse.
+    
+    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
+
+1. In **Area** selezionare la località per la data factory.
+
+   L'elenco mostra solo le località supportate da Data Factory e in cui verranno archiviati i metadati di Azure Data Factory. Gli archivi dati associati (come Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (come Azure HDInsight) usati da Data Factory possono essere eseguiti in altre aree.
  
+1. In **Nome** immettere **ADFTutorialDataFactory**.
    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, **&lt;nomeutente&gt;ADFTutorialDataFactory**, e provare di nuovo a crearla. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
    ![Errore quando un nome non è disponibile](./media/doc-common-process/name-not-available-error.png)
-1. Per **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
-1. In **Gruppo di risorse** eseguire una di queste operazioni:
-     
-   - Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco. 
-   - Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.   
-         
-   Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
+
 1. Per **Versione** selezionare **V2**.
-1. Per **Località** selezionare la località per la data factory.
 
-   L'elenco mostra solo le località supportate da Data Factory e in cui verranno archiviati i metadati di Azure Data Factory. Gli archivi dati associati (come Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (come Azure HDInsight) usati da Data Factory possono essere eseguiti in altre aree.
+1. Selezionare **Avanti: Configurazione GIT** e quindi selezionare la casella di controllo **Configure Git later** (Configura GIT in un secondo momento).
 
-1. Selezionare **Avanti: Git configuration** (Configurazione di GIT) e quindi selezionare **Configure Git later** (Configura GIT in un secondo momento).
+1. Selezionare **Rivedi e crea** e quindi, una volta superata la convalida, selezionare **Crea**. Al termine della creazione, selezionare **Vai alla risorsa** per passare alla pagina **Data Factory**. 
 
-1. Selezionare **Crea**. Al termine della creazione, selezionare **Vai alla risorsa** per passare alla pagina **Data factory**. 
-
-1. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda separata.
+1. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda del browser distinta.
    
    ![Home page della data factory, con il riquadro "Crea e monitora"](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
    > Se il Web browser risulta bloccato su "Concessione autorizzazioni in corso", deselezionare la casella di controllo **Block third-party cookies and site data** (Blocca cookie e dati del sito di terze parti). In alternativa, mantenere selezionata la casella di controllo, creare un'eccezione per **login.microsoftonline.com** e quindi provare di nuovo ad aprire l'app.
    
-1. Nella pagina **Attività iniziali** passare alla scheda **Autore** nel pannello sinistro. 
-
-    ![Pagina "Attività iniziali"](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-a-linked-service"></a>Creare un servizio collegato
 In questa procedura viene creato un servizio collegato per collegare l'account di archiviazione di Azure alla data factory. Il servizio collegato ha le informazioni di connessione usate dal servizio Data Factory in fase di esecuzione per la connessione.
 
-1. Aprire la scheda [Gestisci](./author-management-hub.md) nel riquadro sinistro.
+1. Nella pagina dell'interfaccia utente di Azure Data Factory aprire la scheda [**Gestisci**](./author-management-hub.md) dal riquadro sinistro.
 
 1. Nella pagina Servizi collegati selezionare **+Nuovo** per creare un nuovo servizio collegato.
 
@@ -109,10 +109,13 @@ Il set di dati di input rappresenta i dati di origini nella cartella di input. N
 Il set di dati di output rappresenta i dati copiati nella destinazione. Nella definizione del set di dati di output specificare il contenitore BLOB (**adftutorial**), la cartella (**output**) e il file in cui vengono copiati i dati. A ogni esecuzione di una pipeline è associato un ID univoco. È possibile accedere a questo ID usando la variabile di sistema **RunId**. Il nome del file di output viene valutato dinamicamente in base all'ID dell'esecuzione della pipeline.   
 
 Nelle impostazioni del servizio collegato è stato specificato l'account di archiviazione di Azure che contiene i dati di origine. Nelle impostazioni del set di dati di origine specificare la posizione esatta in cui si trovano i dati, ovvero contenitore BLOB, cartella e file. Nelle impostazioni del set di dati di sink specificare la posizione in cui vengono copiati i dati, ovvero contenitore BLOB, cartella e file. 
- 
+
+1. Selezionare la scheda **Crea** dal riquadro sinistro.
+
 1. Selezionare il pulsante **+** (segno più) e quindi selezionare **Set di dati**.
 
    ![Menu per la creazione di un set di dati](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+
 1. Nella pagina **Nuovo set di dati** selezionare **Archiviazione BLOB di Azure** e quindi selezionare **Continua**. 
 
 1. Nella pagina **Select Format** (Seleziona formato) scegliere il tipo di formato dei dati e quindi fare clic su **Continua**. In questo caso selezionare **Binario** quando si copiano i file senza analizzare il contenuto.
@@ -163,7 +166,7 @@ In questa procedura viene creata e convalidata una pipeline con un'attività di 
 
 1. Passare alla scheda **Sink** nelle impostazioni dell'attività Copia e selezionare **OutputDataset** per **Sink Dataset** (Set di dati sink).
 
-1. Fare clic su **Convalida** sulla barra degli strumenti della pipeline sopra l'area di disegno per convalidare le impostazioni della pipeline. Assicurarsi che la pipeline sia stata convalidata correttamente. Per chiudere l'output della convalida, selezionare il pulsante **>>** (freccia destra). 
+1. Fare clic su **Convalida** sulla barra degli strumenti della pipeline sopra l'area di disegno per convalidare le impostazioni della pipeline. Assicurarsi che la pipeline sia stata convalidata correttamente. Per chiudere l'output di convalida, selezionare il pulsante Convalida nell'angolo in alto a destra. 
 
    ![Convalidare una pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
@@ -185,7 +188,7 @@ In questa procedura vengono distribuite entità (servizi collegati, set di dati,
 
     ![Pubblica tutti](./media/quickstart-create-data-factory-portal/publish-all.png)
 
-1. Per attivare manualmente la pipeline, selezionare **Aggiungi trigger** sulla barra degli strumenti della pipeline e quindi selezionare **Trigger Now** (Attiva adesso). Nella pagina **Esecuzione della pipeline** selezionare **Fine**.
+1. Per attivare manualmente la pipeline, selezionare **Aggiungi trigger** sulla barra degli strumenti della pipeline e quindi selezionare **Trigger Now** (Attiva adesso). Nella pagina **Esecuzione della pipeline** scegliere **OK**.
 
 ## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576469"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505546"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -69,7 +69,7 @@ La tabella seguente rappresenta il set di versioni e browser supportati attualme
 
 *Si noti che la versione più recente di Chrome è supportata in aggiunta alle due versioni precedenti.<br/>
 
-**Si noti che sono supportate le versioni di Safari 13.1 e successive. Il video in uscita per Safari macOS non è ancora supportato, ma è supportato in iOS. La condivisione dello schermo in uscita è supportata solo in iOS per desktop.
+**Si noti che sono supportate le versioni di Safari 13.1 e successive. Il video in uscita per Safari macOS non è ancora supportato, ma è supportato in iOS. La condivisione dello schermo in uscita è supportata solo in iOS per desktop. Le chiamate tra due persone e di gruppo non sono attualmente disponibili in Safari.
 
 ## <a name="calling-client---browser-security-model"></a>Client chiamante - modello di sicurezza del browser
 
@@ -90,6 +90,15 @@ Ad esempio, questo iframe consente l'accesso sia alla fotocamera che al microfon
 ```html
 <iframe allow="camera *; microphone *">
 ```
+
+## <a name="calling-client-library-streaming-support"></a>Supporto streaming per la libreria client per le chiamate
+La libreria client per le chiamate di Servizi di comunicazione supporta le configurazioni di streaming seguenti:
+
+|           |Web | Android/iOS|
+|-----------|----|------------|
+|Numero di flussi in uscita che possono essere inviati contemporaneamente |1 video + 1 condivisione dello schermo | 1 video + 1 condivisione dello schermo|
+|Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente |1 video + 1 condivisione dello schermo| 6 video + 1 condivisione dello schermo |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

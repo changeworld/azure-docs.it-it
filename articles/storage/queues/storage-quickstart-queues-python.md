@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Libreria di Archiviazione code di Azure v12 - Python'
-description: In questo argomento di avvio rapido si apprenderà come usare la libreria di Archiviazione code di Azure v12 per Python per creare una coda e aggiungervi messaggi, come leggere ed eliminare i messaggi dalla coda e come eliminare una coda.
+title: 'Avvio rapido: Libreria client di Archiviazione code di Azure v12 - Python'
+description: Informazioni su come usare la libreria client di Archiviazione code di Azure v12 per Python per creare una coda e aggiungervi messaggi, oltre che su come leggere ed eliminare i messaggi dalla coda. e come eliminare una coda.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/10/2019
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a19b7bc448e9a03afd122dab749352dfa21eaa5b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0eeb1333952533cdf392b93a926f256097557151
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491894"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585497"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per Python
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Avvio rapido: Libreria client di archiviazione code di Azure v12 per Python
 
-Iniziare a usare la libreria client di Archiviazione code di Azure versione 12 per Python. Archiviazione code di Azure è un servizio che consente di archiviare un numero elevato di messaggi per recuperali ed elaborarli successivamente. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
+Questa guida di avvio rapido illustra come iniziare a usare la libreria client di Archiviazione code di Azure v12 per Python. Archiviazione code di Azure è un servizio che consente di archiviare un numero elevato di messaggi per recuperali ed elaborarli successivamente. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
 Usare la libreria client di Archiviazione code di Azure v12 per Python per:
 
@@ -44,11 +44,11 @@ Risorse aggiuntive:
 
 ## <a name="setting-up"></a>Configurazione
 
-Questa sezione illustra come preparare un progetto da usare con la libreria client di Archiviazione code di Azure v12 per Python.
+Questa sezione illustra la procedura per preparare un progetto da usare con la libreria client di Archiviazione code di Azure v12 per Python.
 
 ### <a name="create-the-project"></a>Creare il progetto
 
-Creare un'applicazione Python con il nome *queues-quickstart-v12*.
+Creare un'applicazione Python con il nome `queues-quickstart-v12`.
 
 1. In una finestra della console, ad esempio cmd, PowerShell o Bash, creare una nuova directory per il progetto.
 
@@ -56,7 +56,7 @@ Creare un'applicazione Python con il nome *queues-quickstart-v12*.
     mkdir queues-quickstart-v12
     ```
 
-1. Passare alla directory *queues-quickstart-v12* appena creata.
+1. Passare alla directory `queues-quickstart-v12` appena creata.
 
     ```console
     cd queues-quickstart-v12
@@ -64,13 +64,13 @@ Creare un'applicazione Python con il nome *queues-quickstart-v12*.
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Installare la libreria client di Archiviazione code di Azure per il pacchetto Python usando il comando `pip install`.
+Installare il pacchetto della libreria client di Archiviazione code di Azure per Python usando il comando `pip install`.
 
 ```console
 pip install azure-storage-queue
 ```
 
-Questo comando installa il pacchetto della libreria client di Archiviazione code di Azure per Python e tutte le librerie da cui dipende. In questo caso, si tratta solo della libreria principale di Azure per Python.
+Questo comando installa il pacchetto della libreria client di Archiviazione code di Azure per Python e tutte le librerie da cui dipende. In questo caso si tratta solo della libreria principale di Azure per Python.
 
 ### <a name="set-up-the-app-framework"></a>Configurare il framework dell'app
 
@@ -93,7 +93,7 @@ Questo comando installa il pacchetto della libreria client di Archiviazione code
 
     ```
 
-1. Salvare il nuovo file con il nome *queues-quickstart-v12.py* nella directory *queues-quickstart-v12*.
+1. Salvare il nuovo file come `queues-quickstart-v12.py` nella directory `queues-quickstart-v12`.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -111,9 +111,9 @@ Il diagramma seguente mostra la relazione tra queste risorse.
 
 Per interagire con queste risorse, usare le classi Python seguenti:
 
-- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
-- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
-- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): la classe `QueueMessage` rappresenta i singoli oggetti restituiti quando si chiama [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) su una coda.
+- [`QueueServiceClient`](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
+- [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
+- [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): la classe `QueueMessage` rappresenta i singoli oggetti restituiti quando si chiama [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) su una coda.
 
 ## <a name="code-examples"></a>Esempi di codice
 
@@ -130,7 +130,7 @@ Questi frammenti di codice di esempio illustrano come eseguire le azioni seguent
 
 ### <a name="get-the-connection-string"></a>Ottenere la stringa di connessione
 
-Il codice seguente recupera la stringa di connessione per l'account di archiviazione. La stringa di connessione è archiviata nella variabile di ambiente creata nella sezione [Configurare la stringa di connessione di archiviazione](#configure-your-storage-connection-string).
+Il codice seguente recupera la stringa di connessione dell'account di archiviazione. La stringa di connessione è archiviata nella variabile di ambiente creata nella sezione [Configurare la stringa di connessione di archiviazione](#configure-your-storage-connection-string).
 
 Aggiungere questo codice all'interno del blocco `try`:
 
@@ -146,12 +146,12 @@ Aggiungere questo codice all'interno del blocco `try`:
 
 ### <a name="create-a-queue"></a>Creare una coda
 
-Decidere un nome per la nuova coda. Il codice seguente aggiunge un valore UUID al nome della coda per garantirne l'univocità.
+Decidere un nome per la nuova coda. Il codice seguente aggiunge un valore UUID in fondo al nome della coda per garantirne l'univocità.
 
 > [!IMPORTANT]
-> I nomi di coda possono contenere solo lettere minuscole, numeri e segni meno e devono iniziare con una lettera o un numero. Ogni trattino deve essere preceduto e seguito da un carattere diverso da un trattino. Il nome deve inoltre avere una lunghezza compresa fra 3 e 63 caratteri. Per altre informazioni sull'assegnazione di nomi alle code, vedere [Denominazione di code e metadati](/rest/api/storageservices/naming-queues-and-metadata).
+> I nomi di coda possono contenere solo lettere minuscole, numeri e segni meno e devono iniziare con una lettera o un numero. Ogni trattino deve essere preceduto e seguito da un carattere diverso da un trattino. Il nome deve inoltre avere una lunghezza compresa fra 3 e 63 caratteri. Per altre informazioni, vedere [Denominazione di code e metadati](/rest/api/storageservices/naming-queues-and-metadata).
 
-Creare un'istanza della classe [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient). Chiamare quindi il metodo [create_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) per creare la coda nell'account di archiviazione.
+Creare un'istanza della classe [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient). Chiamare quindi il metodo [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) per creare la coda nell'account di archiviazione.
 
 Aggiungere questo codice alla fine del blocco `try`:
 
@@ -171,7 +171,7 @@ Aggiungere questo codice alla fine del blocco `try`:
 
 ### <a name="add-messages-to-a-queue"></a>Aggiungere messaggi a una coda
 
-Il frammento di codice seguente aggiunge messaggi alla coda chiamando il metodo [send_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-). Salva anche il [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) restituito dalla terza chiamata a `send_message`. Il `saved_message` viene usato per aggiornare il contenuto del messaggio in un secondo momento nel programma.
+Il frammento di codice seguente aggiunge messaggi alla coda chiamando il metodo [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-). Salva anche il [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) restituito dalla terza chiamata a `send_message`. Il `saved_message` viene usato per aggiornare il contenuto del messaggio in un secondo momento nel programma.
 
 Aggiungere questo codice alla fine del blocco `try`:
 
@@ -186,7 +186,7 @@ Aggiungere questo codice alla fine del blocco `try`:
 
 ### <a name="peek-at-messages-in-a-queue"></a>Visualizzare in anteprima i messaggi in una coda
 
-Per visualizzare in anteprima i messaggi nella coda, chiamare il metodo [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-). Il metodo `peek_messages` recupera uno o più messaggi dall'inizio della coda, senza modificare la visibilità del messaggio.
+Per visualizzare in anteprima i messaggi nella coda, chiamare il metodo [`peek_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-). Questo metodo recupera uno o più messaggi dall'inizio della coda, senza modificare la visibilità del messaggio.
 
 Aggiungere questo codice alla fine del blocco `try`:
 
@@ -203,7 +203,7 @@ Aggiungere questo codice alla fine del blocco `try`:
 
 ### <a name="update-a-message-in-a-queue"></a>Aggiornare un messaggio in una coda
 
-Per aggiornare il contenuto di un messaggio, chiamare il metodo [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-). Il metodo `update_message` può modificare il timeout di visibilità e il contenuto di un messaggio. Il contenuto del messaggio deve essere una stringa con codifica UTF-8 di dimensioni non superiori a 64 KB. Insieme al nuovo contenuto, passare i valori del messaggio salvati in precedenza nel codice. I valori del `saved_message` identificano il messaggio da aggiornare.
+Per aggiornare il contenuto di un messaggio, chiamare il metodo [`update_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-). Questo metodo può modificare il timeout di visibilità e il contenuto di un messaggio. Il contenuto del messaggio deve essere una stringa con codifica UTF-8 di dimensioni non superiori a 64 KB. Insieme al nuovo contenuto, passare i valori del messaggio salvati in precedenza nel codice. I valori del `saved_message` identificano il messaggio da aggiornare.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -215,7 +215,7 @@ Per aggiornare il contenuto di un messaggio, chiamare il metodo [update_message]
 
 ### <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
 
-Scaricare i messaggi aggiunti precedentemente chiamando il metodo [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-).
+Scaricare i messaggi aggiunti precedentemente chiamando il metodo [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-).
 
 Aggiungere questo codice alla fine del blocco `try`:
 
@@ -249,7 +249,7 @@ Aggiungere questo codice alla fine del blocco `try`:
 
 ### <a name="delete-a-queue"></a>Eliminare una coda
 
-Il codice seguente pulisce le risorse create dall'app eliminando la coda tramite il metodo [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-).
+Il codice seguente pulisce le risorse create dall'app eliminando la coda tramite il metodo [`delete_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-).
 
 Aggiungere questo codice alla fine del blocco `try` e salvare il file:
 
@@ -268,7 +268,7 @@ Aggiungere questo codice alla fine del blocco `try` e salvare il file:
 
 Questa app crea e aggiunge tre messaggi a una coda di Azure. Il codice elenca i messaggi nella coda, quindi li recupera e li elimina, prima di eliminare definitivamente la coda.
 
-Nella finestra della console passare alla directory contenente il file *queues-quickstart-v12.py*, quindi usare il comando `python` seguente per eseguire l'app.
+Nella finestra della console passare alla directory contenente il file `queues-quickstart-v12.py`, quindi usare il comando `python` seguente per eseguire l'app.
 
 ```console
 python queues-quickstart-v12.py
@@ -277,7 +277,7 @@ python queues-quickstart-v12.py
 L'output dell'app è simile all'esempio seguente:
 
 ```output
-Azure Queue storage v12 - Python quickstart sample
+Azure Queue Storage client library v12 - Python quickstart sample
 Creating queue: quickstartqueues-cac365be-7ce6-4065-bd65-3756ea052cb8
 
 Adding messages to the queue...
@@ -305,7 +305,7 @@ Done
 
 Quando l'app viene sospesa prima della ricezione dei messaggi, controllare l'account di archiviazione nel [portale di Azure](https://portal.azure.com). Verificare che i messaggi siano nella coda.
 
-Premere **INVIO** per ricevere ed eliminare i messaggi. Quando richiesto, premere di nuovo **INVIO** per eliminare la coda e terminare la demo.
+Premere `Enter` per ricevere ed eliminare i messaggi. Quando richiesto, premere di nuovo `Enter` per eliminare la coda e terminare la demo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -314,7 +314,7 @@ In questo argomento di avvio rapido si è appreso come creare una coda e aggiung
 Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere:
 
 > [!div class="nextstepaction"]
-> [Azure per sviluppatori Python](/azure/python/)
+> [Azure for Python developers](/azure/python/) (Azure per sviluppatori Python)
 
 - Per altre informazioni, vedere le [librerie di Archiviazione di Azure per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-- Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client di Archiviazione code di Azure v12 per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Per altre app di esempio di Archiviazione code di Azure, vedere gli [esempi della libreria client di Archiviazione code di Azure v12 per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
