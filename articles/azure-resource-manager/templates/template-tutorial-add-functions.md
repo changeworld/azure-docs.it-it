@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931045"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107108"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Esercitazione: Aggiungere funzioni del modello al modello di Azure Resource Manager
 
@@ -33,11 +33,11 @@ La località dell'account di archiviazione è impostata come hardcoded su **Stat
 
 ## <a name="use-function"></a>Usare la funzione
 
-Se è stata completata l'esercitazione precedente di questa serie, è già stata usata una funzione. Quando si è aggiunto `"[parameters('storageName')]"` , si è usata la funzione [parameters](template-functions-deployment.md#parameters). Le parentesi quadre indicano che la sintassi racchiusa tra parentesi è un'[espressione del modello](template-expressions.md). Resource Manager risolve la sintassi invece di considerarla come valore letterale.
+Se è stata completata l'esercitazione precedente di questa serie, è già stata usata una funzione. Quando si è aggiunto `"[parameters('storageName')]"`, si è usata la funzione [parameters](template-functions-deployment.md#parameters). Le parentesi quadre indicano che la sintassi racchiusa tra parentesi è un'[espressione del modello](template-expressions.md). Resource Manager risolve la sintassi invece di considerarla come valore letterale.
 
 Le funzioni aggiungono flessibilità al modello perché consentono di ottenere i valori in modo dinamico durante la distribuzione. In questa esercitazione si userà una funzione per ottenere la località del gruppo di risorse usato per la distribuzione.
 
-Nell'esempio seguente sono evidenziate le modifiche da apportare per aggiungere un parametro denominato **location**.  Il valore predefinito del parametro chiama la funzione [resourceGroup](template-functions-resource.md#resourcegroup). Questa funzione restituisce un oggetto contenente informazioni sul gruppo di risorse usato per la distribuzione. Una delle proprietà dell'oggetto è una proprietà location. Quando si usa il valore predefinito, la località dell'account di archiviazione è uguale a quella del gruppo di risorse. Le risorse all'interno di un gruppo di risorse non devono condividere la stessa località. Quando necessario, è anche possibile specificare una località diversa.
+Nell'esempio seguente sono evidenziate le modifiche da apportare per aggiungere un parametro denominato `location`. Il valore predefinito del parametro chiama la funzione [resourceGroup](template-functions-resource.md#resourcegroup). Questa funzione restituisce un oggetto contenente informazioni sul gruppo di risorse usato per la distribuzione. Una delle proprietà dell'oggetto è una proprietà location. Quando si usa il valore predefinito, la località dell'account di archiviazione è uguale a quella del gruppo di risorse. Le risorse all'interno di un gruppo di risorse non devono condividere la stessa località. Quando necessario, è anche possibile specificare una località diversa.
 
 Copiare l'intero file e sostituire il modello con il contenuto del file.
 
@@ -47,7 +47,7 @@ Copiare l'intero file e sostituire il modello con il contenuto del file.
 
 Nelle esercitazioni precedenti è stato creato un account di archiviazione nell'area Stati Uniti orientali, ma il gruppo di risorse è stato creato nell'area Stati Uniti centrali. Per questa esercitazione l'account di archiviazione viene creato nella stessa area del gruppo di risorse. Usare il valore predefinito per location, in modo che non sia necessario specificare il valore di tale parametro. È necessario specificare un nuovo nome per l'account di archiviazione perché si sta creando un account di archiviazione in una località diversa. Usare, ad esempio, il prefisso **store2** invece di **store1**.
 
-Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
+Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile `templateFile` sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -74,7 +74,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

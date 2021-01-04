@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/11/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005130"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508715"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da Archiviazione BLOB di Azure a un database nel database SQL di Azure con Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "96005130"
 In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati da Archiviazione BLOB di Azure al database del database SQL di Azure. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
-> - Se non si ha familiarità con Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
+> Se non si ha familiarità con Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
 In questa esercitazione si segue questa procedura:
 
@@ -82,24 +82,26 @@ In questo passaggio si crea una data factory e si avvia l'interfaccia utente di 
 
 1. Aprire **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 2. Nel menu sinistro selezionare **Crea una risorsa** > **Integrazione** > **Data factory**.
-3. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**.
+3. Nella scheda **Informazioni di base** della pagina **Crea data factory** selezionare la **sottoscrizione** di Azure in cui si vuole creare la data factory.
+4. In **Gruppo di risorse** eseguire una di queste operazioni:
+
+    a. selezionare un gruppo di risorse esistente nell'elenco a discesa.
+
+    b. Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse.
+    
+    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
+5. In **Area** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre aree.
+6. In **Nome** immettere **ADFTutorialDataFactory**.
 
    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, nomeutenteADFTutorialDataFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
 
      ![Nuova data factory](./media/doc-common-process/name-not-available-error.png)
-4. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
-5. In **Gruppo di risorse** eseguire una di queste operazioni:
 
-    a. Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
-
-    b. Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse. 
-         
-    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
-6. In **Versione** selezionare **V2**.
-7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre aree.
-8. Selezionare **Crea**.
-9. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina della data factory.
-10. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
+7. In **Versione** selezionare **V2**.
+8. Selezionare la scheda **Configurazione GIT** nella parte superiore e quindi la casella di controllo **Configure Git later** (Configura GIT in un secondo momento).
+9. Selezionare **Rivedi e crea** e quindi, una volta superata la convalida, selezionare **Crea**.
+10. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina della data factory.
+11. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Azure Data Factory in una scheda separata.
 
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
@@ -115,7 +117,7 @@ In questa esercitazione si crea inizialmente la pipeline, quindi si creano i ser
 
    ![Creare una pipeline](./media/doc-common-process/get-started-page.png)
 
-1. 1. Nel pannello Generale in **Proprietà** specificare **CopyPipeline** per **Nome**. Comprimere quindi il pannello facendo clic sull'icona Proprietà nell'angolo in alto a destra.
+1. Nel pannello Generale in **Proprietà** specificare **CopyPipeline** per **Nome**. Comprimere quindi il pannello facendo clic sull'icona Proprietà nell'angolo in alto a destra.
 
 1. Nella casella degli strumenti **Attività** espandere la categoria **Move & Transform** (Sposta e trasforma) e trascinare l'attività **Copia dati** dalla casella degli strumenti all'area di progettazione della pipeline. Specificare **CopyFromBlobToSql** per **Nome**.
 

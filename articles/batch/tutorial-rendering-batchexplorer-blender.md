@@ -1,16 +1,16 @@
 ---
-title: Eseguire il rendering di una scena di Blender con Azure Batch e Batch Explorer
+title: 'Esercitazione: Eseguire il rendering di una scena di Blender con Azure Batch e Batch Explorer'
 description: Esercitazione - Come eseguire il rendering di più fotogrammi da una scena di Blender con Azure Batch e l'applicazione client Batch Explorer
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c015e4e83b0505a45690e92c1d732f74b6f6b0e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964805"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106462"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Esercitazione: Eseguire il rendering di una scena di Blender con Batch Explorer
 
@@ -93,6 +93,7 @@ Lo stato del pool e delle VM può essere monitorato nella visualizzazione "Pools
 ## <a name="create-a-rendering-job"></a>Creare un processo di rendering
 
 Creare un processo per eseguire il rendering di alcuni fotogrammi usando il pool che è stato creato:
+
 * Selezionare la voce di menu "Gallery" (Raccolta) nel menu principale sul lato sinistro.
 * Selezionare l'elemento "Blender" nell'elenco degli elementi applicazione.
 * Selezionare gli elementi per il rendering di fotogrammi in Windows Server.
@@ -137,6 +138,18 @@ Al termine di tutte le attività, il processo verrà contrassegnato come complet
 * Fare clic con il pulsante destro del mouse e scegliere "Delete" (Elimina) oppure selezionare l'icona del cestino sopra il pool.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Nella sezione "Gallery" (Raccolta) esplorare le applicazioni di rendering disponibili tramite Batch Explorer.
-* Per ogni applicazione sono disponibili diversi modelli, che verranno estesi nel tempo.  Per Blender, ad esempio, esistono modelli che suddividono una singola immagine in riquadri e consentono così di eseguire il rendering in parallelo delle parti di un'immagine.
-* Per una descrizione completa delle funzionalità di rendering, vedere il set di articoli disponibile [qui](./batch-rendering-service.md).
+
+In questa esercitazione sono state illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Caricare una scena di Blender nell'archivio di Azure
+> * Creare un pool Batch con più nodi per eseguire il rendering
+> * Eseguire il rendering di più fotogrammi
+> * Visualizzare e scaricare i file dei fotogrammi sottoposti a rendering
+
+Per continuare, esplorare le applicazioni di rendering disponibili tramite Batch Explorer nella sezione **Raccolta**. Per ogni applicazione sono disponibili diversi modelli, che verranno estesi nel tempo. Per Blender, ad esempio, esistono modelli che suddividono una singola immagine in riquadri e consentono così di eseguire il rendering in parallelo delle parti di un'immagine.
+
+Per altre informazioni sul rendering su scala cloud, vedere le opzioni per il servizio Rendering di Batch.
+
+> [!div class="nextstepaction"]
+> [Servizio di rendering di Batch](batch-rendering-service.md)

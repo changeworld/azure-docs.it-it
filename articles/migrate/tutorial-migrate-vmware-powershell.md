@@ -6,12 +6,12 @@ ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
-ms.openlocfilehash: 187e17bcf385ba6b3c17566fc00e5ee77cf009fe
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: ce712736c25c0757f5b654e4442a4f08acdf15e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752482"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029788"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente) - PowerShell
 
@@ -464,7 +464,7 @@ while (($StopReplicationJob.State -eq "InProgress") -or ($StopReplicationJob.Sta
 Write-Output $StopReplicationJob.State
 ```
 
-2. Installare l'agente [Windows](../virtual-machines/extensions/agent-windows.md) o [Linux](../virtual-machines/extensions/agent-linux.md) per le VM di Azure sulle macchine virtuali di cui è stata eseguita la migrazione.
+2. Se nel computer è presente il sistema operativo Linux, installare l'agente [Linux](../virtual-machines/extensions/agent-linux.md) nelle macchine virtuali di cui è stata eseguita la migrazione. Per le macchine virtuali Windows l'agente di macchine virtuali viene installato automaticamente durante la migrazione.
 3. Apportare nell'app le eventuali modifiche post-migrazione necessarie, come l'aggiornamento delle stringhe di connessione del database e delle configurazioni dei server Web.
 4. Eseguire i test di accettazione della migrazione e dell'applicazione finale sull'applicazione migrata ora in esecuzione in Azure.
 5. Trasferire il traffico all'istanza della VM di Azure di cui è stata eseguita la migrazione.

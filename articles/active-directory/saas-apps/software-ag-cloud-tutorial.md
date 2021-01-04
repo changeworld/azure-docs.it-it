@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f6f56958fb63e73e254a45e7cf8ad457be8269ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602020"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607644"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Software AG Cloud
 
@@ -77,12 +77,16 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    1. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: 
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Software AG Cloud](mailto:support@softwareag.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    1. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
+
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+
+        > [!NOTE]
+        > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Software AG Cloud](mailto:support@softwareag.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -145,15 +149,12 @@ In questa sezione viene creato un utente di nome Britta Simon in Software AG Clo
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con l'opzione seguente. 
 
-* Presupponendo che Microsoft Azure sia configurato come provider in Software AG Cloud, passare a `www.softwareag.cloud`, fare clic sul pulsante Login (Accedi) e quindi immettere il nome dell'ambiente. Nella schermata successiva fare clic sul collegamento "Log in with <IDP NAME>" (Accedi con NOME_IDP) e immettere le credenziali. Dopo l'autenticazione verrà eseguito l'accesso e verrà visualizzata la home page di Software AG Cloud.
-
-* Passare direttamente all'URL di accesso di Software AG Cloud e avviare il flusso di accesso da questa posizione.
-
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Software AG Cloud in App personali, si verrà reindirizzati all'URL di accesso di Software AG Cloud. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
-
+Presupponendo che Microsoft Azure sia configurato come provider in Software AG Cloud, passare a `www.softwareag.cloud`, fare clic sul pulsante Login (Accedi) e quindi immettere il nome dell'ambiente. Nella schermata successiva fare clic sul collegamento "Log in with <IDP NAME>" (Accedi con NOME_IDP) e immettere le credenziali. Dopo l'autenticazione verrà eseguito l'accesso e verrà visualizzata la home page di Software AG Cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Software AG Cloud, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato Software AG Cloud, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

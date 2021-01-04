@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione di video basata su eventi nel cloud e ripro
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per eseguire una registrazione di video basata su eventi nel cloud e riprodurla dal cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498303"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401671"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione di video basata su eventi nel cloud e riproduzione dal cloud
 
@@ -68,13 +68,13 @@ In alternativa, è possibile attivare la registrazione solo quando un servizio d
 Il diagramma precedente è una rappresentazione grafica di un [grafo multimediale](media-graph-concept.md) e dei moduli aggiuntivi che eseguono lo scenario previsto. Vengono usati quattro moduli IoT Edge:
 
 * Il modulo Analisi video live in IoT Edge.
-* Un modulo Edge che esegue un modello di intelligenza artificiale dietro un endpoint HTTP. Questo modulo di intelligenza artificiale usa il modello [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) in grado di rilevare diversi tipi di oggetti.
+* Un modulo Edge che esegue un modello di intelligenza artificiale dietro un endpoint HTTP. Questo modulo di intelligenza artificiale usa il modello [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) in grado di rilevare diversi tipi di oggetti.
 * Un modulo personalizzato per contare e filtrare gli oggetti, a cui viene fatto riferimento come contatore di oggetti nel diagramma. In questa esercitazione verrà creato e distribuito un contatore di oggetti.
 * Un [modulo di simulatore RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) per simulare una videocamera RTSP.
     
 Come illustrato nel diagramma, verrà usato un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) nel grafo multimediale per acquisire il video live simulato del traffico in un'autostrada e inviarlo a due percorsi:
 
-* Il primo è il percorso del nodo di un [processore di filtro della frequenza dei fotogrammi](media-graph-concept.md#frame-rate-filter-processor) che genera fotogrammi video con la frequenza specificata (ridotta). Questi fotogrammi video vengono inviati a un nodo di estensioni HTTP. Il nodo inoltra quindi i fotogrammi, come immagini, al modulo di intelligenza artificiale YOLO v3, che è un rilevatore di oggetti. Il nodo riceve i risultati, ovvero gli oggetti (veicoli nel traffico) rilevati dal modello. Il nodo di estensioni HTTP pubblica quindi i risultati tramite il nodo sink di messaggi dell'hub IoT nell'hub di IoT Edge.
+* Il primo percorso si riferisce a un nodo di estensioni HTTP. Il nodo campiona i fotogrammi video in base a un valore impostato dall'utente usando il campo `samplingOptions` e quindi inoltra i fotogrammi, come immagini, al modulo di intelligenza artificiale YOLOv3, che è un rilevatore di oggetti. Il nodo riceve i risultati, ovvero gli oggetti (veicoli nel traffico) rilevati dal modello. Il nodo di estensioni HTTP pubblica quindi i risultati tramite il nodo sink di messaggi dell'hub IoT nell'hub di IoT Edge.
 * Il modulo ObjectCounter è configurato per ricevere i messaggi dall'hub di IoT Edge, che includono i risultati di rilevamento degli oggetti (veicoli nel traffico). Il modulo controlla questi messaggi e cerca oggetti di un determinato tipo, configurati tramite un'impostazione. Quando questo tipo di oggetto viene individuato, il modulo invia un messaggio all'hub di IoT Edge. I messaggi di "oggetto trovato" vengono quindi instradati al nodo di origine dell'hub IoT del grafo multimediale. Alla ricezione di tale messaggio, il nodo di origine dell'hub IoT nel grafo multimediale attiva il nodo del [processore del gate di segnale](media-graph-concept.md#signal-gate-processor). Il nodo del processore del gate di segnale viene quindi aperto per un intervallo di tempo configurato. Il flusso video passa attraverso il controllo verso il nodo del sink dell'asset per l'intervallo di tempo specificato. Questa parte dello streaming live viene quindi registrata tramite il nodo [sink di asset](media-graph-concept.md#asset-sink) in un [asset](terminology.md#asset) nell'account Servizi multimediali di Azure.
 
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo

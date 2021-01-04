@@ -174,7 +174,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
   
   * I segni di punteggiature consentiti sono punti, caratteri di sottolineatura, trattini, apostrofi, parentesi (ad esempio **( [ { } ] )**) e separatori (ad esempio **,/;**).
   
-  * La proprietà displayName non può includere il carattere '@'. Se è incluso il carattere '@', è possibile che un evento venga ignorato nei log di provisioning con la descrizione "AttributeValidationFailed".
+  * La proprietà displayName non può includere il carattere '\@'. Se è incluso il carattere '\@', è possibile che un evento venga ignorato nei log di provisioning con la descrizione "AttributeValidationFailed".
 
   * Si aggiorna solo se queste due impostazioni sono configurate nell'area di lavoro/organizzazione di Slack: **è abilitata la sincronizzazione del profilo** e **gli utenti non possono modificare il nome visualizzato**.
 

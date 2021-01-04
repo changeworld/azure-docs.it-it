@@ -1,17 +1,17 @@
 ---
 title: 'Esercitazione: Creare e distribuire un modello'
-description: Creare il primo modello di Azure Resource Manager. L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
+description: Creare il primo modello di Azure Resource Manager (modello di ARM). L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
 ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613187"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107024"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
@@ -19,7 +19,7 @@ Questa esercitazione presenta i modelli di Azure Resource Manager (modelli ARM) 
 
 Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono stati esaminati tutti gli elementi fondamentali di un modello di Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
 
-Per informazioni sui vantaggi derivanti dall'uso dei modelli e sul motivo per cui è consigliabile automatizzare la distribuzione con i modelli, vedere [Modelli di Azure Resource Manager](overview.md).
+Per informazioni sui vantaggi derivanti dall'uso dei modelli e sul motivo per cui è consigliabile automatizzare la distribuzione con i modelli, vedere [Panoramica dei modelli di ARM](overview.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -29,7 +29,7 @@ Per iniziare, verificare di disporre degli strumenti necessari per creare e dist
 
 ### <a name="editor"></a>Editor
 
-I modelli sono file JSON. Per creare i modelli, è necessario un editor JSON valido. È consigliabile usare Visual Studio Code con l'estensione Strumenti di Resource Manager. Se è necessario installare questi strumenti, vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+I modelli sono file JSON. Per creare i modelli, è necessario un editor JSON valido. È consigliabile usare Visual Studio Code con l'estensione Strumenti di Resource Manager. Se è necessario installare questi strumenti, vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Distribuzione dalla riga di comando
 
@@ -52,7 +52,7 @@ A questo punto è possibile iniziare a familiarizzare con i modelli.
 1. Aprire Visual Studio Code con l'estensione Strumenti di Resource Manager installata.
 1. Nel menu **File** selezionare **Nuovo file** per creare un nuovo file.
 1. Nel menu **File** selezionare **Salva con nome**.
-1. Assegnare al file il nome **azuredeploy** e selezionare l'estensione di file **JSON**. Il nome completo del file è **azuredeploy.json**.
+1. Assegnare al file il nome _azuredeploy_ e selezionare l'estensione di file _JSON_. Il nome completo del file è _azuredeploy.json_.
 1. Salvare il file nella workstation. Selezionare un percorso facile da ricordare perché sarà necessario specificare tale percorso in un secondo momento durante la distribuzione del modello.
 1. Copiare e incollare il codice JSON seguente nel file:
 
@@ -64,17 +64,17 @@ A questo punto è possibile iniziare a familiarizzare con i modelli.
     }
     ```
 
-    Ecco come appare l'ambiente VS Code:
+    Ecco come appare l'ambiente Visual Studio Code:
 
-    ![Modello di Resource Manager in Visual Studio Code: primo modello](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
+    ![Modello di ARM in Visual Studio Code: primo modello](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
     Questo modello non distribuisce alcuna risorsa. Si inizierà con un modello vuoto, in modo da acquisire familiarità con i passaggi necessari per distribuire un modello riducendo al minimo le probabilità che si verifichi un errore.
 
     Il file JSON è costituito dagli elementi seguenti:
 
-    - **$schema**: specifica il percorso del file di schema JSON. Il file di schema descrive le proprietà disponibili all'interno di un modello. Ad esempio, lo schema definisce **resources** come una delle proprietà valide per un modello. Non preoccuparsi che la data dello schema sia 2019-04-01. Questa versione dello schema è aggiornata e include tutte le funzionalità più recenti. La data dello schema non è stata modificata perché dalla sua introduzione non sono state apportate modifiche sostanziali.
-    - **contentVersion**: specifica la versione del modello, ad esempio 1.0.0.0. Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto.
-    - **resources**: contiene le risorse da distribuire o aggiornare. Attualmente è vuoto, ma verranno aggiunte risorse in un secondo momento.
+    - `$schema`: specifica il percorso del file di schema JSON. Il file di schema descrive le proprietà disponibili all'interno di un modello. Ad esempio, lo schema definisce `resources` come una delle proprietà valide per un modello. Non preoccuparsi che la data dello schema sia 2019-04-01. Questa versione dello schema è aggiornata e include tutte le funzionalità più recenti. La data dello schema non è stata modificata perché dalla sua introduzione non sono state apportate modifiche sostanziali.
+    - `contentVersion`: specifica la versione del modello, ad esempio 1.0.0.0. Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto.
+    - `resources`: contiene le risorse da distribuire o aggiornare. Attualmente è vuoto, ma verranno aggiunte risorse in un secondo momento.
 
 1. Salvare il file.
 
@@ -83,6 +83,8 @@ Il primo modello è stato creato.
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Per iniziare a usare Azure PowerShell o l'interfaccia della riga di comando di Azure, accedere con le credenziali di Azure.
+
+Selezionare le schede nelle sezioni di codice seguenti per scegliere tra Azure PowerShell e l'interfaccia della riga di comando di Azure. Gli esempi dell'interfaccia della riga di comando in questo articolo sono scritti per la shell Bash.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -98,7 +100,7 @@ az login
 
 ---
 
-Se si dispone di più sottoscrizioni di Azure, selezionare quella da usare:
+Se si hanno più sottoscrizioni di Azure, selezionare quella da usare. Sostituire `[SubscriptionID/SubscriptionName]` e le parentesi quadre `[]` con le informazioni sulla sottoscrizione:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -114,10 +116,9 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ---
 
-
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
-Quando si distribuisce un modello, si specifica un gruppo di risorse che conterrà le risorse. Prima di eseguire il comando di distribuzione, creare il gruppo di risorse usando l'interfaccia della riga di comando di Azure oppure Azure PowerShell. Selezionare le schede nella sezione di codice seguente per scegliere tra Azure PowerShell e l'interfaccia della riga di comando di Azure. Gli esempi dell'interfaccia della riga di comando in questo articolo sono scritti per la shell Bash.
+Quando si distribuisce un modello, si specifica un gruppo di risorse che conterrà le risorse. Prima di eseguire il comando di distribuzione, creare il gruppo di risorse usando l'interfaccia della riga di comando di Azure oppure Azure PowerShell.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -139,7 +140,7 @@ az group create \
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
-Per distribuire il modello, usare l'interfaccia della riga di comando di Azure o Azure PowerShell. Usare il gruppo di risorse creato. Assegnare un nome alla distribuzione in modo da poterla identificare facilmente nella cronologia di distribuzione. Per praticità, creare anche una variabile che archivia il percorso del file modello. Questa variabile semplifica l'esecuzione dei comandi di distribuzione perché non è necessario digitare nuovamente il percorso a ogni nuova distribuzione.
+Per distribuire il modello, usare l'interfaccia della riga di comando di Azure o Azure PowerShell. Usare il gruppo di risorse creato. Assegnare un nome alla distribuzione in modo da poterla identificare facilmente nella cronologia di distribuzione. Per praticità, creare anche una variabile che archivia il percorso del file modello. Questa variabile semplifica l'esecuzione dei comandi di distribuzione perché non è necessario digitare nuovamente il percorso a ogni nuova distribuzione. Sostituire `{provide-the-path-to-the-template-file}` e le parentesi graffe `{}` con il percorso del file di modello.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -178,7 +179,7 @@ Il comando di distribuzione restituisce risultati. Cercare `ProvisioningState` p
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

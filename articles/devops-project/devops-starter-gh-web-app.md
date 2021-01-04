@@ -7,12 +7,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
-ms.openlocfilehash: 9a2abf7e714b75f2551a35a220e30c2465d86a49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332568"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588778"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>Esercitazione: Distribuire un'app Node.js in App Web di Azure usando DevOps Starter per GitHub Actions
 
@@ -48,25 +48,25 @@ DevOps Starter crea un flusso di lavoro in GitHub. È possibile usare un'organiz
 
     ![Dashboard di DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Verificare che il provider CI/CD selezionato sia **GitHub Actions** .
+1. Verificare che il provider CI/CD selezionato sia **GitHub Actions**.
 
     ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
-1. Selezionare **Node.js** e quindi **Avanti** .
+1. Selezionare **Node.js** e quindi **Avanti**.
 
-1. In **Scegli un framework applicazione** selezionare **Express.js** e quindi **Avanti** . Il framework applicazione, scelto in un passaggio precedente, determina il tipo di destinazione della distribuzione del servizio di Azure disponibile. 
+1. In **Scegli un framework applicazione** selezionare **Express.js** e quindi **Avanti**. Il framework applicazione, scelto in un passaggio precedente, determina il tipo di destinazione della distribuzione del servizio di Azure disponibile. 
 
-1. Selezionare **App Web Windows** e quindi **Avanti** .
+1. Selezionare **App Web Windows** e quindi **Avanti**.
 
 ## <a name="configure-github-and-an-azure-subscription"></a>Configurare GitHub e una sottoscrizione di Azure
 
 1. **Autorizzare** GitHub e selezionare l'organizzazione GitHub esistente. 
 
-1. Immettere un nome per il **repository GitHub** . 
+1. Immettere un nome per il **repository GitHub**. 
 
 1. Selezionare i servizi della sottoscrizione di Azure. Facoltativamente, è possibile selezionare **Modifica** e quindi immettere altri dettagli di configurazione, ad esempio la posizione delle risorse di Azure.
  
-1. Immettere il nome di un'app Web e quindi selezionare **Chiudi** . L'app Web di Azure sarà pronta dopo alcuni minuti. Viene configurata un'applicazione di esempio Node.js in un repository dell'organizzazione GitHub, viene attivato un flusso di lavoro e l'applicazione viene distribuita nell'app Web di Azure appena creata.
+1. Immettere il nome di un'app Web e quindi selezionare **Chiudi**. L'app Web di Azure sarà pronta dopo alcuni minuti. Viene configurata un'applicazione di esempio Node.js in un repository dell'organizzazione GitHub, viene attivato un flusso di lavoro e l'applicazione viene distribuita nell'app Web di Azure appena creata.
 
    ![Enter_GH_details](_img/azure-devops-project-nodejs/gh-details.png)    
 
@@ -80,19 +80,19 @@ DevOps Starter configura automaticamente un trigger che distribuisce le modifich
     
 ## <a name="examine-the-github-workflow"></a>Esaminare il flusso di lavoro di GitHub
 
-Nel passaggio precedente DevOps Starter ha configurato automaticamente un flusso di lavoro GitHub completo. Esplorare il flusso di lavoro e personalizzarlo in base alle esigenze. Eseguire questa procedura per acquisire familiarità con il flusso di lavoro.
+Nel passaggio precedente DevOps Starter ha configurato automaticamente un flusso di lavoro GitHub completo. Esplorare e personalizzare il flusso di lavoro in base alle esigenze. Eseguire questa procedura per acquisire familiarità con il flusso di lavoro.
 
-1. Sul lato sinistro del dashboard di DevOps Starter selezionare **Flusso di lavoro GitHub** . Questo collegamento apre una scheda del browser e il flusso di lavoro GitHub per il nuovo progetto.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare **Flusso di lavoro GitHub**. Questo collegamento apre una scheda del browser e il flusso di lavoro GitHub per il nuovo progetto.
     > [!NOTE]
-    > Non rinominare il file del flusso di lavoro. Il nome del file deve essere **devops-starter-workflow.yml** affinché le modifiche vengano visualizzate nel dashboard.
+    > Non rinominare il file del flusso di lavoro. Il nome del file deve essere **devops-starter-workflow.yml** affinché le modifiche vengano visualizzate nel dashboard
 
-1. Il file YAML del flusso di lavoro contiene tutte le azioni di GitHub necessarie per compilare e distribuire l'applicazione. Fare clic sull'opzione **Modifica file** per personalizzare il file del flusso di lavoro.
+1. Il file YAML del flusso di lavoro contiene tutte istanze di GitHub Actions necessarie per compilare e distribuire l'applicazione. Fare clic sull'opzione **Modifica file** per personalizzare il file del flusso di lavoro.
 
-1. Nella scheda **Codice** del repository fare clic su **Commit** . Questa visualizzazione mostra i commit di codice associati alla distribuzione specifica.
+1. Nella scheda **Codice** del repository fare clic su **Commit**. Questa visualizzazione mostra i commit di codice associati alla distribuzione specifica.
 
 1. Nella scheda **Azioni** del repository è possibile visualizzare la cronologia di tutte le esecuzioni del flusso di lavoro del repository.
 
-1. Selezionare l' **ultima esecuzione** per visualizzare tutti i processi eseguiti nel flusso di lavoro.
+1. Selezionare l'**ultima esecuzione** per visualizzare tutti i processi eseguiti nel flusso di lavoro.
 
 1. Fare clic su **Processi** per visualizzare i log dettagliati dell'esecuzione del flusso di lavoro. I log contengono informazioni utili sul processo di distribuzione. Possono essere visualizzati durante e dopo le distribuzioni.
 
@@ -102,14 +102,14 @@ Nel passaggio precedente DevOps Starter ha configurato automaticamente un flusso
 
 DevOps Starter crea un repository in GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
 
-1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo master. Questo collegamento apre una visualizzazione del repository GitHub appena creato.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo principale. Questo collegamento apre una visualizzazione del repository GitHub appena creato.
 
-1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra nel browser. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo master.
+1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra nel browser. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo principale.
 
-1. Sul lato sinistro del browser passare al file **/Application/views/index.pug** .
+1. Sul lato sinistro del browser passare al file **/Application/views/index.pug**.
 
 1. Selezionare **Modifica** e quindi apportare una modifica al testo.
-    Modificare, ad esempio, una parte del testo di uno dei tag.
+    Cambiare, ad esempio, una parte del testo di uno dei tag.
 
 1. Selezionare **Esegui commit** e quindi salvare le modifiche.
 
@@ -124,29 +124,29 @@ Con Azure Application Insights, è possibile monitorare facilmente le prestazion
 
 1. Nel portale di Azure passare al dashboard di DevOps Starter. 
 
-1. In basso a destra, selezionare il collegamento **Application Insights** per l'app. Viene visualizzato il riquadro di **Application Insights** . Questa visualizzazione contiene informazioni di monitoraggio sull'utilizzo, le prestazioni e la disponibilità per l'app.
+1. In basso a destra, selezionare il collegamento **Application Insights** per l'app. Viene visualizzato il riquadro di **Application Insights**. Questa visualizzazione contiene informazioni di monitoraggio sull'utilizzo, le prestazioni e la disponibilità per l'app.
 
    ![Riquadro di Application Insights](_img/azure-devops-project-github/appinsights.png) 
 
-1. Selezionare **Intervallo di tempo** e quindi selezionare **Ultima ora** . Selezionare **Aggiorna** per filtrare i risultati. È ora possibile visualizzare tutte le attività degli ultimi 60 minuti. 
+1. Selezionare **Intervallo di tempo** e quindi selezionare **Ultima ora**. Selezionare **Aggiorna** per filtrare i risultati. È ora possibile visualizzare tutte le attività degli ultimi 60 minuti. 
     
 1. Selezionare la **x** per uscire dall'intervallo di tempo.
 
-1. Selezionare **Avvisi** e quindi selezionare **Aggiungi avviso per la metrica** . 
+1. Selezionare **Avvisi** e quindi selezionare **Aggiungi avviso per la metrica**. 
 
 1. Immettere un nome per l'avviso.
 
-1. Nell'elenco a discesa **Metrica** , esaminare le varie metriche di avviso. L'avviso predefinito è per un **tempo di risposta del server superiore a 1 secondo** . È possibile configurare facilmente un'ampia gamma di avvisi per migliorare le funzionalità di monitoraggio dell'app.
+1. Nell'elenco a discesa **Metrica**, esaminare le varie metriche di avviso. L'avviso predefinito è per un **tempo di risposta del server superiore a 1 secondo**. È possibile configurare facilmente un'ampia gamma di avvisi per migliorare le funzionalità di monitoraggio dell'app.
 
-1. Selezionare la casella di controllo **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** . Facoltativamente, è possibile eseguire azioni aggiuntive quando viene visualizzato un avviso tramite l'esecuzione di un'app per la logica di Azure.
+1. Selezionare la casella di controllo **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**. Facoltativamente, è possibile eseguire azioni aggiuntive quando viene visualizzato un avviso tramite l'esecuzione di un'app per la logica di Azure.
 
 1. Fare clic su **OK** per creare l'avviso. Dopo alcuni istanti, l'avviso viene visualizzato come attivo nel dashboard. 
 
-1. Fare clic su **Esci** per uscire dall'area Avvisi e tornare al riquadro di **Application Insights** .
+1. Fare clic su **Esci** per uscire dall'area Avvisi e tornare al riquadro di **Application Insights**.
 
-1. Selezionare **Disponibilità** e quindi selezionare **Aggiungi test** . 
+1. Selezionare **Disponibilità** e quindi selezionare **Aggiungi test**. 
 
-1. Immettere il nome di un test e quindi selezionare **Crea** . Viene creato un semplice test ping per verificare la disponibilità dell'applicazione. Dopo alcuni minuti, i risultati dei test sono disponibili e nel dashboard di Application Insights viene visualizzato uno stato di disponibilità.
+1. Immettere il nome di un test e quindi selezionare **Crea**. Viene creato un semplice test ping per verificare la disponibilità dell'applicazione. Dopo alcuni minuti, i risultati dei test sono disponibili e nel dashboard di Application Insights viene visualizzato uno stato di disponibilità.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -156,7 +156,7 @@ Se si stanno eseguendo test, è possibile pulire le risorse per evitare che veng
 > La procedura seguente elimina definitivamente le risorse. La funzionalità *Elimina* cancella definitivamente i dati creati dal progetto in DevOps Starter e in Azure e non sarà più possibile recuperarli. Usare questa procedura solo dopo aver letto attentamente le istruzioni visualizzate.
 
 1. Nel portale di Azure passare al dashboard di DevOps Starter.
-1. In alto a destra selezionare **Elimina** . 
+1. In alto a destra selezionare **Elimina**. 
 1. Al prompt, selezionare **Sì** per *eliminare definitivamente* le risorse.
 
 Se si vuole, è possibile modificare il flusso di lavoro in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altri repository. 

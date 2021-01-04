@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931453"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587945"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="prepare-a-powershell-script"></a>Preparare uno script di PowerShell
 
-È possibile usare lo script inline di PowerShell o un file di script.  Questa esercitazione illustra come usare un file di script. Uno script di PowerShell con il contenuto seguente è condiviso da [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+È possibile usare uno script inline di PowerShell o un file di script. Questa esercitazione illustra come usare un file di script. Uno script di PowerShell con il contenuto seguente è condiviso da [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -105,22 +105,22 @@ Aggiungere una risorsa estensione di macchina virtuale al modello esistente con 
 
 Per altre informazioni su questa definizione di risorsa, vedere il [materiale di riferimento dell'estensione](/azure/templates/microsoft.compute/virtualmachines/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
-* **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md).
-* **dependsOn**: creare la risorsa estensione dopo aver creato la macchina virtuale.
-* **fileUris**: posizioni in cui risiedono i file di script. Se si sceglie di non usare la posizione indicata, è necessario aggiornare i valori.
-* **commandToExecute**: questo comando avvia lo script.
+* `name`: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md).
+* `dependsOn`: creare la risorsa estensione dopo aver creato la macchina virtuale.
+* `fileUris`: posizioni in cui risiedono i file di script. Se si sceglie di non usare la posizione indicata, è necessario aggiornare i valori.
+* `commandToExecute`: questo comando avvia lo script.
 
-Per usare lo script inline, rimuovere **fileURIs** e aggiornare **commandToExecute** in:
+Per usare lo script inline, rimuovere `fileUris` e aggiornare `commandToExecute` in:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-Questo script inline aggiorna anche il contenuto di iisstart.html.
+Questo script inline aggiorna anche il contenuto di _iisstart.html_.
 
 È anche necessario aprire la porta HTTP in modo da poter accedere al server Web.
 
-1. Trovare **securityRules** nel modello.
+1. Trovare `securityRules` nel modello.
 1. Aggiungere la regola seguente accanto a **default-allow-3389**.
 
     ```json
@@ -141,7 +141,7 @@ Questo script inline aggiorna anche il contenuto di iisstart.html.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per la procedura di distribuzione, vedere la sezione "Distribuire il modello" di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). È consigliabile usare una password generata per l'account amministratore della macchina virtuale. Vedere la sezione [Prerequisiti](#prerequisites) di questo articolo.
+Per la procedura di distribuzione, vedere la sezione **Distribuire il modello** di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). È consigliabile usare una password generata per l'account amministratore della macchina virtuale. Vedere la sezione [Prerequisiti](#prerequisites) di questo articolo.
 
 In Cloud Shell usare il comando seguente per recuperare l'indirizzo IP pubblico della nuova macchina virtuale:
 

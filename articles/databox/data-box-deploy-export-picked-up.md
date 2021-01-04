@@ -1,19 +1,19 @@
 ---
-title: Esercitazione per restituire Azure Data Box nell'ordine di esportazione| Microsoft Docs
+title: Esercitazione per restituire Azure Data Box nell'ordine di esportazione | Microsoft Docs
 description: Informazioni su come spedire Azure Data Box a Microsoft al termine dell'ordine di esportazione
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1035f7fb34ed5b2b11e3ef472ccda7cccc30f652
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142112"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359031"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Esercitazione: Restituire Azure Data Box (anteprima)
 
@@ -45,7 +45,7 @@ I passaggi successivi dipendono dalla destinazione di restituzione del dispositi
 
 ## <a name="ship-data-box-back"></a>Rispedire il Data Box
 
-Assicurarsi che la copia dei dati dal dispositivo sia completa e che la **preparazione per la spedizione** sia stata eseguita correttamente. In base all'area in cui si spedisce il dispositivo, la procedura è diversa.
+Assicurarsi che la copia dei dati dal dispositivo sia completa e che la **preparazione per la spedizione** sia stata eseguita correttamente. La procedura varia a seconda dell'area in cui si spedisce il dispositivo.
 
 ## <a name="us-canada-europe"></a>[Stati Uniti, Canada o Europa](#tab/in-us-canada-europe)
 
@@ -53,12 +53,12 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
 
 1. Verificare che il dispositivo sia spento e i cavi scollegati. 
 2. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
-3. Assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta viene danneggiata o smarrita oppure non viene visualizzata sul display E-ink, contattare il supporto tecnico Microsoft. Se consigliato dal supporto, è possibile passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo. 
+3. Assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta viene danneggiata o smarrita oppure non viene visualizzata sul display E-ink, contattare il supporto tecnico Microsoft. Se il supporto lo consiglia, è possibile passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo. 
 4. Pianificare un ritiro con UPS per la restituzione del dispositivo. Per pianificare un ritiro:
 
-    - Chiamare il servizio UPS locale (numero verde specifico del paese o area).
-    - Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sul display E-ink o sull'etichetta stampata.
-    - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
+   - Chiamare il servizio UPS locale (numero verde specifico del paese o area).
+   - Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sul display E-ink o sull'etichetta stampata. Se il numero di tracciabilità non viene specificato, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
+   - Se sorgono problemi durante la pianificazione di un ritiro o se vengono addebitati ulteriori corrispettivi, contattare il team Azure Data Box Operations. Inviare un messaggio di posta elettronica all'indirizzo [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     Anziché pianificare il ritiro, è anche possibile consegnare Data Box al più vicino punto di consegna.
 4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
@@ -67,7 +67,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per la spedizione in Australia.
 
-1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
+1. Conservare la scatola originale usata per spedire il dispositivo da restituire.
 2. Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **preparazione per la spedizione** sia stata eseguita correttamente.
 3. Spegnere il dispositivo e rimuovere i cavi.
 4. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
@@ -75,7 +75,7 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 
 ## <a name="japan"></a>[Giappone](#tab/in-japan)
 
-1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
+1. Conservare la scatola originale usata per spedire il dispositivo da restituire.
 2. Spegnere il dispositivo e rimuovere i cavi.
 3. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
 4. Sulla lettera di vettura, nelle informazioni sul mittente, indicare il nome dell'azienda e l'indirizzo.
@@ -105,7 +105,7 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
 ## <a name="singapore"></a>[Singapore](#tab/in-singapore)
 
-1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
+1. Conservare la scatola originale usata per spedire il dispositivo da restituire.
 2. Annotare il numero di tracciabilità (visualizzato come numero di riferimento nella pagina Prepara per la spedizione dell'interfaccia utente Web locale di Data Box). Il numero sarà disponibile dopo il completamento del passaggio Prepara per la spedizione. Scaricare l'etichetta indirizzo da questa pagina e incollarla sulla scatola.
 3. Spegnere il dispositivo e rimuovere i cavi.
 4. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo. 
@@ -194,7 +194,7 @@ Se si usa il dispositivo Data Box in Giappone, Singapore, Corea, India, Sudafric
 ---
 
 ## <a name="erasure-of-data-from-data-box"></a>Cancellare i dati dal Data Box
- 
+
 Quando il dispositivo raggiunge il data center di Azure, i dati vengono cancellati dai dischi del Data Box in base alle [linee guida NIST SP 800-88 revisione 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ## <a name="next-steps"></a>Passaggi successivi

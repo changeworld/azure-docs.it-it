@@ -5,24 +5,28 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
-ms.date: 07/23/2020
-author: sakash279
-ms.author: akshanka
+ms.date: 12/10/2020
+author: ThomasWeiss
+ms.author: thweiss
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f3f5a35beeac6c683aeb6db16a417b897755666
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a5da5e1717f897d2236fd73f0fff525e157f7a0e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079768"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093690"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Java
+
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Questo articolo illustra come creare tabelle, archiviare i dati ed eseguire operazioni CRUD sui dati. Scegliere se usare il servizio tabelle di Azure o l'API Tabella di Azure Cosmos DB. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione** , **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento** , **esecuzione di query** , **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#next-steps) .
+Questo articolo illustra come creare tabelle, archiviare i dati ed eseguire operazioni CRUD sui dati. Scegliere se usare il servizio tabelle di Azure o l'API Tabella di Azure Cosmos DB. Gli esempi sono scritti in Java e usano [Azure Storage SDK v8 per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#next-steps) .
+
+> [!IMPORTANT]
+> L'ultima versione di Azure Storage SDK che supporta l'archiviazione tabelle è la [v8][Azure Storage SDK for Java]. Una nuova versione di Table Storage SDK per Java sarà disponibile a breve.
 
 > [!NOTE]
 > per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK for Android].
@@ -89,7 +93,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-In un'applicazione in esecuzione in un ruolo di Azure, questa stringa può essere archiviata nel file di configurazione del servizio, *ServiceConfiguration.cscfg* , ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
+In un'applicazione in esecuzione in un ruolo di Azure, questa stringa può essere archiviata nel file di configurazione del servizio, *ServiceConfiguration.cscfg*, ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -628,7 +632,7 @@ catch (Exception e)
 Per altre informazioni, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
-[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Java]: https://github.com/Azure/azure-storage-java/tree/v8.6.5
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Riferimento all'SDK del client di archiviazione di Azure]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: /rest/api/storageservices/

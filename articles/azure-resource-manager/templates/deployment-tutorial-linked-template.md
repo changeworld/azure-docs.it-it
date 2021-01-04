@@ -5,12 +5,12 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: a90bb90c90206ffe00f8b4f2d035c0ea844b5c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a8b6cd5044b31ee80f50448d6610ba6a57281e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611674"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585650"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Esercitazione: Distribuire un modello collegato
 
@@ -32,11 +32,11 @@ Nelle esercitazioni precedenti si è distribuito un modello che crea un account 
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-Il modello seguente è il modello principale.  L'oggetto evidenziato **Microsoft.Resources/deployments** mostra come chiamare un modello collegato. Il modello collegato non può essere archiviato come file locale o file disponibile unicamente nella rete locale. È possibile fornire solo un valore URI che includa *http* o *https*. Il servizio Resource Manager deve poter accedere al modello. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento. L'URI viene passato al modello usando un parametro. Vedere la definizione del parametro evidenziato.
+Il modello seguente è il modello principale. L'oggetto evidenziato `Microsoft.Resources/deployments` mostra come chiamare un modello collegato. Il modello collegato non può essere archiviato come file locale o file disponibile unicamente nella rete locale. È possibile specificare solo un valore URI che includa HTTP o HTTPS. Il servizio Resource Manager deve poter accedere al modello. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento. L'URI viene passato al modello usando un parametro. Vedere la definizione del parametro evidenziato.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Salvare una copia del modello principale nel computer locale con l'estensione JSON, ad esempio azuredeploy.json. Non è necessario salvare una copia del modello collegato.  Il modello collegato verrà copiato da un repository GitHub in un account di archiviazione.
+Salvare una copia del modello principale nel computer locale con l'estensione _JSON_, ad esempio _azuredeploy.json_. Non è necessario salvare una copia del modello collegato. Il modello collegato verrà copiato da un repository GitHub in un account di archiviazione.
 
 ## <a name="store-the-linked-template"></a>Archiviare il modello collegato
 
@@ -45,7 +45,7 @@ Con lo script di PowerShell seguente viene creato un account di archiviazione, v
 Selezionare **Prova** per aprire Cloud Shell, selezionare **Copia** per copiare lo script di PowerShell e fare clic con il pulsante destro del mouse sul riquadro della shell per incollare lo script:
 
 > [!IMPORTANT]
-> I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. Il nome deve essere univoco. Nel modello il nome dell'account di archiviazione è il nome del progetto con l'aggiunta di "store" e il nome del progetto deve avere una lunghezza compresa tra 3 e 11 caratteri. Quindi il nome del progetto deve soddisfare i requisiti del nome dell'account di archiviazione e deve avere meno di 11 caratteri.
+> I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. Il nome deve essere univoco. Nel modello il nome dell'account di archiviazione è il nome del progetto con l'aggiunta di **store** e il nome del progetto deve avere una lunghezza compresa tra 3 e 11 caratteri. Quindi il nome del progetto deve soddisfare i requisiti del nome dell'account di archiviazione e deve avere meno di 11 caratteri.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -93,7 +93,7 @@ Per distribuire un modello privato in un account di archiviazione, generare un t
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](./deployment-tutorial-local-template.md#create-resource-group).
 
 > [!NOTE]
-> Nel codice dell'interfaccia della riga di comando di Azure seguente il parametro di data -d sarebbe un argomento non valido in macOS. Gli utenti macOS dovranno quindi usare dovranno usare -v+2H per aggiungere 2 ore all'ora corrente nel terminale in macOS.
+> Nel codice dell'interfaccia della riga di comando di Azure seguente l'argomento `-d` del parametro `date` non è valido in macOS. Gli utenti macOS dovranno quindi usare dovranno usare `-v+2H` per aggiungere due ore all'ora corrente nel terminale in macOS.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -176,7 +176,7 @@ Eliminare le risorse distribuite eliminando il gruppo di risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si è appreso come distribuire un modello collegato. Nell'esercitazione successiva si apprenderà come creare una pipeline DevOp per distribuire un modello.
+Si è appreso come distribuire un modello collegato. Nell'esercitazione successiva si apprenderà come creare una pipeline DevOps per distribuire un modello.
 
 > [!div class="nextstepaction"]
 > [Creare una pipeline](./deployment-tutorial-pipeline.md)

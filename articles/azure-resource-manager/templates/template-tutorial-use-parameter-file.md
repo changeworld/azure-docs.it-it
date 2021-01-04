@@ -1,17 +1,17 @@
 ---
 title: 'Esercitazione: Usare un file di parametri per distribuire il modello'
-description: Usare file di parametri che contengono i valori da usare per la distribuzione del modello di Azure Resource Manager.
+description: Usare file di parametri che contengono i valori da usare per la distribuzione del modello di Azure Resource Manager (modello di ARM).
 author: mumian
 ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069510"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368427"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Esercitazione: Usare file di parametri per distribuire il modello di Azure Resource Manager
 
@@ -41,23 +41,25 @@ Non è necessario specificare un valore per ogni parametro. Se un parametro non 
 
 Nel file di parametri non è possibile specificare un nome di parametro che non corrisponde a un nome di parametro nel modello. Se si specificano parametri sconosciuti, si riceve un errore.
 
-In VS Code creare un nuovo file con il contenuto seguente. Salvare il file con il nome **azuredeploy.parameters.dev.json**.
+In Visual Studio Code creare un nuovo file con il contenuto seguente. Salvare il file con il nome _azuredeploy.parameters.dev.json_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
-Questo è il file di parametri per l'ambiente di sviluppo. Si noti che usa Standard_LRS come account di archiviazione, aggiunge il prefisso **dev** alle risorse e imposta il tag **Environment** su **Dev**.
+Questo è il file di parametri per l'ambiente di sviluppo. Si noti che usa **Standard_LRS** come account di archiviazione, aggiunge il prefisso **dev** alle risorse e imposta il tag `Environment` su **Dev**.
 
-Creare un nuovo file con il contenuto seguente. Salvare il file con il nome **azuredeploy.parameters.prod.json**.
+Creare un nuovo file con il contenuto seguente. Salvare il file con il nome _azuredeploy.parameters.prod.json_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-Questo è il file di parametri per l'ambiente di produzione. Si noti che usa Standard_GRS come account di archiviazione, aggiunge il prefisso **contoso** alle risorse e imposta il tag **Environment** su **Production**. In un ambiente di produzione reale si vuole anche usare un servizio app con uno SKU diverso da quello gratuito, ma per questa esercitazione si continuerà a usare lo SKU gratuito.
+Questo è il file di parametri per l'ambiente di produzione. Si noti che usa **Standard_GRS** come account di archiviazione, aggiunge il prefisso **contoso** alle risorse e imposta il tag `Environment` su **Production**. In un ambiente di produzione reale si vuole anche usare un servizio app con uno SKU diverso da quello gratuito, ma per questa esercitazione si continuerà a usare lo SKU gratuito.
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
 Per distribuire il modello, usare l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
 Come test finale del modello, creare due nuovi gruppi di risorse, uno per l'ambiente di sviluppo e uno per l'ambiente di produzione.
+
+Per le variabili di modelli e parametri, sostituire `{path-to-the-template-file}`, `{path-to-azuredeploy.parameters.dev.json}`, `{path-to-azuredeploy.parameters.prod.json}` e le parentesi graffe `{}` con i percorsi dei file di modelli e parametri.
 
 Prima di tutto, verrà eseguita la distribuzione nell'ambiente di sviluppo.
 
@@ -128,7 +130,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
+> Se la distribuzione non è riuscita, usare l'opzione `verbose` per ottenere informazioni sulle risorse create. Usare l'opzione `debug` per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 
@@ -142,7 +144,7 @@ Per verificare la distribuzione, esplorare i gruppi di risorse nel portale di Az
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
-2. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**. Se questa serie è stata completata, è necessario eliminare tre gruppi di risorse, ovvero myResourceGroup, myResourceGroupDev e myResourceGroupProd.
+2. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**. Se questa serie è stata completata, è necessario eliminare tre gruppi di risorse, ovvero **myResourceGroup**, **myResourceGroupDev** e **myResourceGroupProd**.
 3. Selezionare il nome del gruppo di risorse.
 4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
 

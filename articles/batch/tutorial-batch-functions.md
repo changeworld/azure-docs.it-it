@@ -1,21 +1,29 @@
 ---
-title: Attivare un processo di Batch usando Funzioni di Azure
+title: 'Esercitazione: Attivare un processo di Batch usando Funzioni di Azure'
 description: Esercitazione - Applicare il metodo OCR ai documenti digitalizzati quando vengono aggiunti a un BLOB di archiviazione
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6e481219c6be68f9e9da06d92b6c28998cc7a6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b441b4c4fcbeb089cef24c3a84fa33021e7840de
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930095"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106383"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Esercitazione: Attivare un processo di Batch usando Funzioni di Azure
 
-Questa esercitazione spiega come attivare un processo di Batch usando Funzioni di Azure. Verrà illustrato un esempio in cui ai documenti aggiunti a un contenitore BLOB del servizio di archiviazione di Azure viene applicato il riconoscimento ottico dei caratteri (OCR) tramite Azure Batch. Per semplificare l'elaborazione OCR, verrà configurata una funzione di Azure che esegue un processo OCR di Batch ogni volta che viene aggiunto un file nel contenitore BLOB.
+Questa esercitazione spiega come attivare un processo di Batch usando [Funzioni di Azure](../azure-functions/functions-overview.md). Verrà illustrato un esempio in cui ai documenti aggiunti a un contenitore BLOB del servizio di archiviazione di Azure viene applicato il riconoscimento ottico dei caratteri (OCR) tramite Azure Batch. Per semplificare l'elaborazione OCR, verrà configurata una funzione di Azure che esegue un processo OCR di Batch ogni volta che viene aggiunto un file nel contenitore BLOB. Si apprenderà come:
+
+> [!div class="checklist"]
+> * Usare Batch Explorer per creare pool e processi
+> * Usare Storage Explorer per creare contenitori BLOB e una firma di accesso condiviso
+> * Creare una funzione di Azure attivata da un BLOB
+> * Caricare i file di input nella risorsa di archiviazione
+> * Monitorare l'esecuzione delle attività
+> * Recuperare i file di output
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +45,7 @@ In questa sezione si userà Batch Explorer per creare il pool e il processo di B
 1. Accedere a Batch Explorer con le credenziali di Azure.
 1. Creare un pool selezionando **Pool** nella barra laterale sinistra e quindi facendo clic sul pulsante **Aggiungi** sopra il modulo di ricerca. 
     1. Scegliere un ID e un nome visualizzato. Per questo esempio si userà `ocr-pool`.
-    1. Impostare il tipo di scala su **A dimensione fissa**e il numero di nodi dedicati su 3.
+    1. Impostare il tipo di scala su **A dimensione fissa** e il numero di nodi dedicati su 3.
     1. Selezionare **Ubuntu 18.04-LTS** come sistema operativo.
     1. Scegliere `Standard_f2s_v2` come dimensione della macchina virtuale.
     1. Abilitare l'attività di avvio e aggiungere il comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Assicurarsi di impostare l'identità dell'utente come **Task default user (Admin)** (Utente predefinito attività - Amministratore), per consentire alle attività di avvio di includere comandi con `sudo`.
@@ -97,9 +105,13 @@ Per scaricare i file di output da Storage Explorer nel computer locale, selezion
 > [!TIP]
 > È possibile eseguire ricerche nei file scaricati aprendoli in un lettore PDF.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Vengono addebitati i costi del pool mentre i nodi sono in esecuzione, anche se non sono pianificati processi. Quando il pool non è più necessario, eliminarlo. Nella visualizzazione dell'account selezionare **Pool** e il nome del pool. Selezionare **Elimina**. Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato. I file di output rimangono tuttavia nell'account di archiviazione. Quando non sono più necessari, è anche possibile eliminare l'account Batch e l'account di archiviazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come: 
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare Batch Explorer per creare pool e processi
@@ -109,6 +121,10 @@ In questa esercitazione si è appreso come:
 > * Monitorare l'esecuzione delle attività
 > * Recuperare i file di output
 
-* Per altri esempi di uso dell'API .NET per pianificare ed elaborare i carichi di lavoro di Batch, vedere gli [esempi su GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Per informazioni su altri trigger di Funzioni di Azure che è possibile usare per eseguire i carichi di lavoro di Batch, vedere la [documentazione di Funzioni di Azure](../azure-functions/functions-triggers-bindings.md).
+Per continuare, esplorare le applicazioni di rendering disponibili tramite Batch Explorer nella sezione **Raccolta**. Per ogni applicazione sono disponibili diversi modelli, che verranno estesi nel tempo. Per Blender, ad esempio, esistono modelli che suddividono una singola immagine in riquadri e consentono così di eseguire il rendering in parallelo delle parti di un'immagine.
+
+Per altri esempi di uso dell'API .NET per pianificare ed elaborare i carichi di lavoro di Batch, vedere gli esempi su GitHub.
+
+> [!div class="nextstepaction"]
+> [Esempi C# per Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
