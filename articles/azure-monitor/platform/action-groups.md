@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095169"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695810"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. 
@@ -132,6 +132,18 @@ Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettro
 Inviare il messaggio di posta elettronica ai membri del ruolo della sottoscrizione. Il messaggio di posta elettronica verrà inviato solo ai membri **utente di Azure AD** del ruolo. Il messaggio di posta elettronica non verrà inviato a gruppi di Azure AD o entità servizio.
 
 Un messaggio di posta elettronica di notifica viene inviato solo all'indirizzo di *posta elettronica primario* .
+
+Se non si ricevono notifiche sul messaggio di *posta elettronica principale*, è possibile provare a seguire questa procedura:
+
+1. In portale di Azure passare a *Active Directory*.
+2. Fare clic su tutti gli utenti (nel riquadro sinistro), viene visualizzato l'elenco di utenti (nel riquadro destro).
+3. Selezionare l'utente per il quale si desidera esaminare le informazioni di *posta elettronica primarie* .
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Esempio su come verificare il profilo utente."border="true":::
+
+4. In profilo utente in informazioni di contatto se la scheda "posta elettronica" è vuota, fare clic sul pulsante *modifica* nella parte superiore e aggiungere il *messaggio di posta elettronica principale* e premere il pulsante *Salva* nella parte superiore.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Esempio su come aggiungere un messaggio di posta elettronica primario."border="true":::
 
 Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./alerts-rate-limiting.md).
 

@@ -1,107 +1,89 @@
 ---
 title: Imposta ordine di distribuzione per le risorse
-description: Descrive come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione per garantire che le risorse vengano distribuite nell'ordine corretto.
+description: Viene descritto come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione. Le dipendenze garantiscono che le risorse vengano distribuite nell'ordine corretto.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 933764f1930bd6c9e21d4ccffbde1bb93bbc9613
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 12/21/2020
+ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672815"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722012"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definire l'ordine per la distribuzione delle risorse nei modelli ARM
 
-Quando si distribuisce una risorsa, potrebbe essere necessario assicurarsi che siano presenti altre risorse prima della distribuzione. Ad esempio, è necessario un server SQL logico prima di distribuire un database. Per definire questa relazione, si contrassegna una risorsa come dipendente dall'altra risorsa. Una dipendenza viene definita con l'elemento **dependsOn** oppure con la funzione **reference**.
+Quando si distribuiscono le risorse, potrebbe essere necessario assicurarsi che esistano alcune risorse prima di altre risorse. Ad esempio, è necessario un server SQL logico prima di distribuire un database. Questa relazione viene stabilita contrassegnando una risorsa come dipendente dall'altra risorsa. Usare l'elemento **dependsOn** per definire una dipendenza esplicita. Usare le funzioni **Reference** o **List** per definire una dipendenza implicita.
 
 Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. La definizione delle dipendenze è necessaria solo per le risorse distribuite nello stesso modello.
 
 ## <a name="dependson"></a>dependsOn
 
-All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore è una matrice JSON di stringhe, ognuna delle quali è un nome di risorsa. La matrice può includere risorse [distribuite in modo condizionale](conditional-resource-deployment.md). Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
+All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore è una matrice JSON di stringhe, ognuna delle quali è un nome o un ID di risorsa. La matrice può includere risorse [distribuite in modo condizionale](conditional-resource-deployment.md). Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
 
-L'esempio seguente illustra un set di scalabilità di macchine virtuali dipendente da un servizio di bilanciamento del carico e da una rete virtuale. L'esempio illustra anche un ciclo che crea più account di archiviazione. Queste altre risorse non sono visualizzate nell'esempio seguente, ma devono esistere in un altro punto del modello.
+Nell'esempio seguente viene illustrata un'interfaccia di rete che dipende da una rete virtuale, un gruppo di sicurezza di rete e un indirizzo IP pubblico. Per il modello completo, vedere [il modello di avvio rapido per una VM Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
 ```json
 {
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "apiVersion": "2016-03-30",
-  "name": "[variables('namingInfix')]",
-  "location": "[variables('location')]",
-  "tags": {
-    "displayName": "VMScaleSet"
-  },
-  "dependsOn": [
-    "[variables('loadBalancerName')]",
-    "[variables('virtualNetworkName')]",
-    "storageLoop",
-  ],
-  ...
+    "type": "Microsoft.Network/networkInterfaces",
+    "apiVersion": "2020-06-01",
+    "name": "[variables('networkInterfaceName')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+      "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
+      "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
+      "[resourceId('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
+    ],
+    ...
 }
 ```
 
-Nell'esempio precedente è inclusa una dipendenza per le risorse create tramite il ciclo di copia denominato **storageLoop**. Per avere un esempio, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
-
-Quando si definiscono le dipendenze, per evitare ambiguità è possibile includere lo spazio dei nomi del provider di risorse e il tipo di risorsa. Ad esempio, per distinguere un bilanciamento del carico e una rete virtuale che hanno lo stesso nome di altre risorse, usare il formato seguente:
-
-```json
-"dependsOn": [
-  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
-  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
-]
-```
-
-Anche se si potrebbe essere propensi a usare dependsOn per mappare le relazioni tra le risorse, è importante comprendere il motivo per cui si esegue tale operazione. Per documentare la modalità di interconnessione delle risorse, dependsOn non rappresenta l'approccio corretto. Non è possibile eseguire query per ottenere le risorse definite nell'elemento dependsOn dopo la distribuzione. L'uso di dependsOn potrebbe influire sul tempo necessario per la distribuzione, perché Resource Manager non esegue la distribuzione simultanea in parallelo di due risorse con dipendenza.
+Anche se si potrebbe essere propensi a usare dependsOn per mappare le relazioni tra le risorse, è importante comprendere il motivo per cui si esegue tale operazione. Per documentare la modalità di interconnessione delle risorse, dependsOn non rappresenta l'approccio corretto. Non è possibile eseguire query per ottenere le risorse definite nell'elemento dependsOn dopo la distribuzione. L'impostazione di dipendenze non necessarie rallenta i tempi di distribuzione perché Gestione risorse non possono distribuire tali risorse in parallelo.
 
 ## <a name="child-resources"></a>Risorse figlio
 
-La proprietà delle risorse consente di specificare le risorse figlio correlate alla risorsa definita. Le risorse figlio possono essere solo definite da cinque livelli. È importante notare che una dipendenza di distribuzione implicita non viene creata tra una risorsa figlio e la risorsa padre. Se è necessario che la risorsa figlio sia distribuita dopo la risorsa padre, è necessario dichiarare in modo esplicito tale dipendenza con la proprietà dependsOn.
-
-Ogni risorsa padre accetta solo determinati tipi di risorse come risorse figlio. I tipi di risorse accettate sono specificati nel [schema del modello](https://github.com/Azure/azure-resource-manager-schemas) della risorsa padre. Il nome del tipo di risorsa figlio include il nome del tipo di risorsa padre, ad esempio **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** sono entrambi risorse figlio di **Microsoft.Web/sites**.
+Una dipendenza di distribuzione implicita non viene creata automaticamente tra una [risorsa figlio](child-resource-name-type.md) e la risorsa padre. Se è necessario distribuire la risorsa figlio dopo la risorsa padre, impostare la proprietà dependsOn.
 
 Nell'esempio seguente vengono illustrati un server e un database SQL logici. Si noti che viene definita una dipendenza esplicita tra il database e il server, anche se il database è un figlio del server.
 
 ```json
 "resources": [
   {
-    "name": "[variables('sqlserverName')]",
-    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "displayName": "SqlServer"
-    },
+    "apiVersion": "2020-02-02-preview",
+    "name": "[parameters('serverName')]",
+    "location": "[parameters('location')]",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
     },
     "resources": [
       {
-        "name": "[parameters('databaseName')]",
-        "apiVersion": "2014-04-01-preview",
         "type": "databases",
-        "location": "[resourceGroup().location]",
+        "apiVersion": "2020-08-01-preview",
+        "name": "[parameters('sqlDBName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+          },
         "dependsOn": [
-          "[variables('sqlserverName')]"
-        ],
-        "tags": {
-          "displayName": "Database"
-        },
-        "properties": {
-          "edition": "[parameters('edition')]",
-          "collation": "[parameters('collation')]",
-          "maxSizeBytes": "[parameters('maxSizeBytes')]",
-          "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
-        }
+          "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
+        ]
       }
     ]
   }
 ]
 ```
 
+Per il modello completo, vedere il [modello di avvio rapido per il database SQL di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+
 ## <a name="reference-and-list-functions"></a>funzioni reference e list
 
-La [funzione di riferimento](template-functions-resource.md#reference) consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le [funzioni list*](template-functions-resource.md#list) restituiscono valori per una risorsa da un'operazione elenco.  Le espressioni reference e list dichiarano in modo implicito l'interdipendenza tra due risorse, quando la risorsa di riferimento viene distribuita nello stesso modello e vi si fa riferimento tramite il nome, non tramite l'ID risorsa. Se alla funzione reference o list viene passato l'ID risorsa, non viene creato alcun riferimento implicito.
+La [funzione di riferimento](template-functions-resource.md#reference) consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le [funzioni list*](template-functions-resource.md#list) restituiscono valori per una risorsa da un'operazione elenco.
+
+Le espressioni di riferimento ed elenco dichiarano in modo implicito che una risorsa dipende da un'altra. Quando possibile, usare un riferimento implicito per evitare di aggiungere una dipendenza non necessaria.
+
+Per applicare una dipendenza implicita, fare riferimento alla risorsa in base al nome, non all'ID risorsa. Se alla funzione reference o list viene passato l'ID risorsa, non viene creato alcun riferimento implicito.
 
 Il formato generale della funzione reference è:
 
@@ -132,13 +114,95 @@ Nell'esempio seguente, un endpoint della rete CDN dipende in modo esplicito dal 
     }
 ```
 
-Per specificare le dipendenze, è possibile usare questo elemento o l'elemento dependsOn, ma non è necessario usarli entrambi per la stessa risorsa dipendente. Quando possibile, usare un riferimento implicito per evitare di aggiungere una dipendenza non necessaria.
-
 Per altre informazioni, vedere la [funzione del riferimento](template-functions-resource.md#reference).
+
+## <a name="depend-on-resources-in-a-loop"></a>In base alle risorse in un ciclo
+
+Per distribuire le risorse che dipendono dalle risorse in un [ciclo di copia](copy-resources.md), sono disponibili due opzioni. È possibile impostare una dipendenza dalle singole risorse nel ciclo o nell'intero ciclo.
+
+> [!NOTE]
+> Per la maggior parte degli scenari, è necessario impostare la dipendenza per le singole risorse all'interno del ciclo di copia. È sufficiente che dipenda dall'intero ciclo quando è necessario che tutte le risorse del ciclo esistano prima di creare la risorsa successiva. Impostando la dipendenza sull'intero ciclo, le dipendenze vengono espanse in modo significativo, soprattutto se le risorse in ciclo dipendono da altre risorse. Le dipendenze espanse rendono difficoltoso il completamento della distribuzione in modo efficiente.
+
+Nell'esempio seguente viene illustrato come distribuire più macchine virtuali. Il modello crea lo stesso numero di interfacce di rete. Ogni macchina virtuale dipende da un'interfaccia di rete, anziché da un ciclo intero.
+
+```json
+{
+  "type": "Microsoft.Network/networkInterfaces",
+  "apiVersion": "2020-05-01",
+  "name": "[concat(variables('nicPrefix'),'-',copyIndex())]",
+  "location": "[parameters('location')]",
+  "copy": {
+    "name": "nicCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  ...
+},
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2020-06-01",
+  "name": "[concat(variables('vmPrefix'),copyIndex())]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]"
+  ],
+  "copy": {
+    "name": "vmCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  "properties": {
+    "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]",
+          "properties": {
+            "primary": "true"
+          }
+        }
+      ]
+    },
+    ...
+  }
+}
+```
+
+Nell'esempio seguente viene illustrato come distribuire tre account di archiviazione prima di distribuire la macchina virtuale. Si noti che il nome dell'elemento Copy è impostato su `storagecopy` e anche l'elemento dependsOn per la macchina virtuale è impostato su `storagecopy` .
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-06-15",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="circular-dependencies"></a>Dipendenze circolari
 
-Resource Manager identifica le dipendenze circolari durante la convalida del modello. Se viene visualizzato un errore che indica la presenza di una dipendenza circolare, valutare il modello per verificare se esistono dipendenze non necessarie che possono essere rimosse. Se la rimozione delle dipendenze non è applicabile, è possibile evitare dipendenze circolari spostando alcune operazioni di distribuzione in risorse figlio distribuite dopo le risorse che hanno la dipendenza circolare. Si supponga, ad esempio, di distribuire due macchine virtuali e che sia necessario impostare in ognuna proprietà che fanno riferimento all'altra. È possibile eseguire la distribuzione nell'ordine seguente:
+Resource Manager identifica le dipendenze circolari durante la convalida del modello. Se viene visualizzato un errore per una dipendenza circolare, valutare il modello per verificare se è possibile rimuovere le dipendenze. Se la rimozione delle dipendenze non funziona, è possibile evitare dipendenze circolari spostando alcune operazioni di distribuzione in risorse figlio. Distribuire le risorse figlio dopo le risorse con la dipendenza circolare. Si supponga, ad esempio, di distribuire due macchine virtuali e che sia necessario impostare in ognuna proprietà che fanno riferimento all'altra. È possibile eseguire la distribuzione nell'ordine seguente:
 
 1. VM 1
 2. VM 2

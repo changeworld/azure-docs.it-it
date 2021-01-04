@@ -5,21 +5,21 @@ description: I client che effettuano richieste nell'archiviazione BLOB di Azure 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618727"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694696"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornire una chiave di crittografia per una richiesta all'archiviazione BLOB
 
-I client che effettuano richieste nell'archiviazione BLOB di Azure possono fornire una chiave di crittografia in base alle singole richieste. L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB. Le chiavi fornite dal cliente possono essere archiviate in Azure Key Vault o in un altro archivio chiavi.
+I client che effettuano richieste nell'archivio BLOB di Azure hanno la possibilità di fornire una chiave di crittografia AES-256 in base alle singole richieste. L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB. Le chiavi fornite dal cliente possono essere archiviate in Azure Key Vault o in un altro archivio chiavi.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -41,11 +41,11 @@ Ogni snapshot BLOB può avere una propria chiave di crittografia.
 
 Per le chiamate REST, i client possono usare le intestazioni seguenti per passare in modo sicuro le informazioni sulla chiave di crittografia per una richiesta all'archiviazione BLOB:
 
-|Intestazione della richiesta | Description |
+|Intestazione della richiesta | Descrizione |
 |---------------|-------------|
 |`x-ms-encryption-key` |Obbligatorio per le richieste di scrittura e di lettura. Valore della chiave di crittografia AES-256 con codifica Base64. |
 |`x-ms-encryption-key-sha256`| Obbligatorio per le richieste di scrittura e di lettura. SHA256 con codifica Base64 della chiave di crittografia. |
-|`x-ms-encryption-algorithm` | Obbligatorio per le richieste di scrittura, facoltativo per le richieste di lettura. Specifica l'algoritmo da utilizzare per la crittografia dei dati utilizzando la chiave specificata. Deve essere AES256. |
+|`x-ms-encryption-algorithm` | Obbligatorio per le richieste di scrittura, facoltativo per le richieste di lettura. Specifica l'algoritmo da utilizzare per la crittografia dei dati utilizzando la chiave specificata.  Il valore di questa intestazione deve essere `AES256` . |
 
 La specifica delle chiavi di crittografia nella richiesta è facoltativa. Tuttavia, se si specifica una delle intestazioni elencate in precedenza per un'operazione di scrittura, è necessario specificarle tutte.
 

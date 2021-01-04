@@ -2,19 +2,21 @@
 title: Risorse figlio nei modelli
 description: Viene descritto come impostare il nome e il tipo per le risorse figlio in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80743845"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97721944"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Imposta il nome e il tipo per le risorse figlio
 
-Le risorse figlio sono risorse che esistono solo nel contesto di un'altra risorsa. Ad esempio, un' [estensione della macchina virtuale](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) non può esistere senza una [macchina virtuale](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). La risorsa di estensione è un elemento figlio della macchina virtuale.
+Le risorse figlio sono risorse che esistono solo nel contesto di un'altra risorsa. Ad esempio, un' [estensione della macchina virtuale](/azure/templates/microsoft.compute/virtualmachines/extensions) non può esistere senza una [macchina virtuale](/azure/templates/microsoft.compute/virtualmachines). La risorsa di estensione è un elemento figlio della macchina virtuale.
 
-In un modello di Gestione risorse, è possibile specificare la risorsa figlio all'interno della risorsa padre o all'esterno della risorsa padre. Nell'esempio seguente viene illustrata la risorsa figlio inclusa nella proprietà Resources della risorsa padre.
+Ogni risorsa padre accetta solo determinati tipi di risorse come risorse figlio. Il tipo di risorsa per la risorsa figlio include il tipo di risorsa per la risorsa padre. Ad esempio, **Microsoft. Web/sites/config** e **Microsoft. Web/sites/Extensions** sono entrambe risorse figlio di **Microsoft. Web/sites**. I tipi di risorse accettate sono specificati nel [schema del modello](https://github.com/Azure/azure-resource-manager-schemas) della risorsa padre.
+
+In un modello di Azure Resource Manager (modello ARM), è possibile specificare la risorsa figlio all'interno della risorsa padre o all'esterno della risorsa padre. Nell'esempio seguente viene illustrata la risorsa figlio inclusa nella proprietà Resources della risorsa padre.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ In un modello di Gestione risorse, è possibile specificare la risorsa figlio al
   }
 ]
 ```
+
+Le risorse figlio possono essere solo definite da cinque livelli.
 
 Nell'esempio seguente viene illustrata la risorsa figlio al di fuori della risorsa padre. Questo approccio può essere usato se la risorsa padre non viene distribuita nello stesso modello o se si vuole usare [Copy](copy-resources.md) per creare più di una risorsa figlio.
 
@@ -132,6 +136,6 @@ Nell'esempio seguente vengono illustrate una rete virtuale e una subnet che sono
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md).
+* Per informazioni sulla creazione di modelli ARM, vedere Creazione di [modelli](template-syntax.md).
 
 * Per informazioni sul formato del nome della risorsa quando si fa riferimento alla risorsa, vedere la [funzione Reference](template-functions-resource.md#reference).

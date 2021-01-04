@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182853"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695795"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -52,7 +52,7 @@ Infine, l'esperienza è incredibilmente semplice.
 > [!NOTE]
 > Se si vuole usare automanage in una macchina virtuale connessa a un'area di lavoro in una sottoscrizione diversa, è necessario disporre delle autorizzazioni descritte in precedenza in ogni sottoscrizione.
 
-È anche importante notare che automanage supporta solo le macchine virtuali Windows situate nelle aree seguenti: Europa occidentale, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale, Stati Uniti centro-occidentali.
+È anche importante notare che automanage supporta solo le macchine virtuali Windows situate nelle aree seguenti: Europa occidentale, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale, Stati Uniti centro-occidentali, Giappone orientale.
 
 ## <a name="participating-services"></a>Servizi partecipanti
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 76218003a40c02def3dc62ea8480022d9647938d
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576503"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723338"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
@@ -72,7 +72,7 @@ Usare la procedura seguente per configurare l'account di archiviazione per gli a
 
    ![Impostazioni dell'account di archiviazione dati privato](./media/data-protection/storage-account-create.png)
 
-1. Per eseguire l'autenticazione con identità gestita (anteprima), selezionare **identità gestita** dall'elenco a discesa modalità di autenticazione. Se si sceglie identità gestita, è necessario aggiungere il processo di analisi di flusso all'elenco di controllo di accesso dell'account di archiviazione. Se non si concede l'accesso al processo, il processo non sarà in grado di eseguire alcuna operazione. Per altre informazioni su come concedere l'accesso, vedere usare il controllo degli accessi in base al ruolo [di Azure per assegnare un'identità gestita a un'altra risorsa](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+1. Per eseguire l'autenticazione con identità gestita (anteprima), selezionare **identità gestita** dall'elenco a discesa modalità di autenticazione. Se si sceglie identità gestita, è necessario aggiungere il processo di analisi di flusso all'elenco di controllo di accesso dell'account di archiviazione con il ruolo di *collaboratore dei dati BLOB di archiviazione* . Se non si concede l'accesso al processo, il processo non sarà in grado di eseguire alcuna operazione. Per altre informazioni su come concedere l'accesso, vedere usare il controllo degli accessi in base al ruolo [di Azure per assegnare un'identità gestita a un'altra risorsa](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
 
    :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Impostazioni dell'account di archiviazione dati privati con autenticazione identità gestita":::
 

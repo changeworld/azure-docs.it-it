@@ -57,6 +57,9 @@
           href: container-registry-image-tag-version.md
         - name: Replica geografica
           href: container-registry-geo-replication.md
+        - name: Ridondanza della zona
+          displayName: availability zone
+          href: zone-redundancy.md
         - name: Procedure consigliate per il registro contenitori
           href: container-registry-best-practices.md
         - name: Gestire immagini pubbliche

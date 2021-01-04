@@ -3,12 +3,12 @@ title: Panoramica di AMQP 1,0 nel bus di servizio di Azure
 description: Informazioni su come il bus di servizio di Azure supporta Advance Message Queueing Protocol (AMQP), un protocollo standard aperto.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: e585fcc905d1651d49008b623b01a6c2f8a04fcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 241a6b7fb9f9055ce610e44e5cd37dba87c77554
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498779"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709283"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
 Il servizio cloud del bus di servizio di Azure usa il [protocollo AMQP (Advanced Message Queueing Protocol) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) come mezzo di comunicazione principale. Microsoft è stata impegnata con i partner di tutto il settore, sia per i clienti che per i fornitori di broker di messaggistica in competizione, per sviluppare e sviluppare AMQP negli ultimi decenni, con nuove estensioni sviluppate nel [Comitato tecnico AMQP di Oasis](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 è uno standard ISO e IEC ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -42,7 +42,7 @@ A ottobre 2011 il lavoro di sviluppo è passato a un comitato tecnico all'intern
 * **Fornitori di tecnologie**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **Aziende utenti**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
-Le attuali cattedre del [comitato tecnico OASIS AMQP] ( https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) rappresentano Red Hat e Microsoft.
+Le attuali cattedre del [Comitato tecnico Oasis AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) rappresentano Red Hat e Microsoft.
 
 Di seguito sono indicati alcuni dei vantaggi più apprezzati degli standard aperti:
 
@@ -66,7 +66,7 @@ Tutte le librerie client del bus di servizio supportate disponibili tramite Azur
 
 - [Bus di servizio di Azure per .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
 - [Librerie del bus di servizio di Azure per Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
-- [Provider del bus di servizio di Azure per Java JMS 2,0](how-to-use-java-message-service-20.md)
+- [Provider del bus di servizio di Azure per Java JMS 2.0](how-to-use-java-message-service-20.md)
 - [Moduli del bus di servizio di Azure per JavaScript e TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
 - [Librerie del bus di servizio di Azure per Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 

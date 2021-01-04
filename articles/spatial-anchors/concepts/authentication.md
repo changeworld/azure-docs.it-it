@@ -9,12 +9,12 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95484611"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722964"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per Ancoraggi nello spazio di Azure
 
@@ -176,7 +176,7 @@ Il token di accesso Azure AD viene recuperato tramite [MSAL](../../active-direct
 1.    Registrare l'applicazione in Azure AD:
         1.    Nella portale di Azure selezionare **Azure Active Directory**, quindi selezionare **registrazioni app**.
         2.    Selezionare **Nuova registrazione**.
-        3.    Immettere il nome dell'applicazione, impostare il tipo di applicazione su **App Web/API** e immettere l'URL di autenticazione per il servizio. Selezionare **Create** (Crea).
+        3.    Immettere il nome dell'applicazione, impostare il tipo di applicazione su **App Web/API** e immettere l'URL di autenticazione per il servizio. Selezionare **Crea**.
 2.    Nell'applicazione selezionare **Impostazioni**, quindi selezionare la scheda **certificati e segreti** . Creare un nuovo segreto client, selezionare una durata, quindi selezionare **Aggiungi**. Assicurarsi di salvare il valore del segreto. È necessario includerlo nel codice del servizio Web.
 3.    Concedere all'applicazione e/o agli utenti l'accesso alla risorsa:
         1.    Passare alla risorsa ancoraggi spaziali nella portale di Azure.
@@ -193,7 +193,7 @@ Il token di accesso Azure AD viene recuperato tramite [MSAL](../../active-direct
 **Nel codice**
 
 >[!NOTE]
-> È possibile usare l'esempio di servizio disponibile su GitHub.
+> È possibile usare l' [esempio di servizio](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) disponibile come parte delle [app di esempio di ancoraggi spaziali](https://github.com/Azure/azure-spatial-anchors-samples).
 
 1.    Assicurarsi di usare l'ID applicazione, il segreto applicazione e l'URI di reindirizzamento dell'applicazione Azure AD come i parametri **ID client**, **segreto** e **RedirectUri** in MSAL.
 2.    Impostare l'ID tenant sul proprio Azure AD ID tenant nel parametro **Authority** in MSAL.

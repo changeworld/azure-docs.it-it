@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 12/18/2020
 ms.locfileid: "92459680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Esercitazione: Integrazione di Azure Active Directory con ITRP
@@ -52,7 +52,7 @@ Per configurare l'integrazione di ITRP in Azure AD, è necessario aggiungere ITR
 
     ![Selezionare Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni** :
+2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni**:
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -84,7 +84,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione ITRP del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** :
+1. Nella pagina di integrazione dell'applicazione ITRP del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**:
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 
@@ -92,7 +92,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
     ![Selezionare un metodo di accesso Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** :
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**:
 
     ![Screenshot che mostra la pagina Configura l'accesso Single Sign-On con SAML con l'icona di modifica selezionata.](common/edit-urls.png)
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
     > [!NOTE]
     > Questi valori sono segnaposto. Usare l'identificatore e l'URL di accesso effettivi. Per ottenere i valori, contattare il [team di supporto di ITRP](https://www.4me.com/support/). È anche possibile fare riferimento ai modelli disponibili nella finestra di dialogo **Configurazione SAML di base** del portale di Azure.
 
-5. Nella sezione **Certificato di firma SAML**  selezionare l'icona **Modifica** per aprire la finestra di dialogo **Certificato di firma SAML** :
+5. Nella sezione **Certificato di firma SAML**  selezionare l'icona **Modifica** per aprire la finestra di dialogo **Certificato di firma SAML**:
 
     ![Screenshot che mostra la pagina Certificato di firma SAML con l'icona di modifica selezionata.](common/edit-certificate.png)
 
@@ -137,7 +137,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
     ![Icona Impostazioni](./media/itrp-tutorial/ic775570.png "Icona Impostazioni")
 
-1. Nel riquadro sinistro selezionare **Single Sign-On** :
+1. Nel riquadro sinistro selezionare **Single Sign-On**:
 
     ![Selezione di Single Sign-On](./media/itrp-tutorial/ic775571.png "Selezionare Single Sign-On")
 
@@ -161,7 +161,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** :
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**:
 
     ![Selezionare Tutti gli utenti](common/users.png)
 
@@ -185,7 +185,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ITRP.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **ITRP**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ITRP**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -193,7 +193,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
-3. Nel riquadro sinistro selezionare **Utenti e gruppi** :
+3. Nel riquadro sinistro selezionare **Utenti e gruppi**:
 
     ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 

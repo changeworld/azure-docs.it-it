@@ -1,18 +1,18 @@
 ---
 title: Procedura consigliate per la distribuzione
-description: Questo articolo fornisce le procedure consigliate per la distribuzione di Azure. Azure competenza consente a qualsiasi utente di registrare, individuare, comprendere e utilizzare origini dati.
-author: hophanms
-ms.author: hophan
+description: Questo articolo fornisce le procedure consigliate per la distribuzione di Azure. Azure Purview consente a qualsiasi utente di registrare, individuare, comprendere e utilizzare le origini dati.
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400693"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695852"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Procedure consigliate per la distribuzione di Azure
 
@@ -110,7 +110,7 @@ Questi scenari possono essere scritti in vari modi, ma è necessario includere a
 
 Gli scenari devono essere specifici, interoperabili ed eseguibili con risultati misurabili. Di seguito sono riportati alcuni scenari di esempio che è possibile usare:
 
-|Scenario|Dettaglio|Utente tipo|
+|Scenario|Dettagli|Utente tipo|
 |---------|---------|---------|
 |Asset aziendali critici del catalogo|È necessario disporre di informazioni su ogni set di dati per avere una conoscenza approfondita di ciò che si tratta. Questo scenario include i dati dei metadati aziendali e tecnici relativi al set di dati nel catalogo. Le origini dati includono Azure Data Lake Storage Gen2, Azure sinapsi DW e/o Power BI. Questo scenario include anche risorse locali come SQL Server.|Analista aziendale, data scientist, Data Engineer|
 |Individuare asset aziendali critici|È necessario disporre di un motore di ricerca in grado di eseguire ricerche in tutti i metadati del catalogo. Dovrebbe essere possibile eseguire una ricerca usando un termine tecnico, un termine aziendale con una ricerca semplice o complessa usando caratteri jolly.|Business Analyst, data scientist, Data Engineer, data Admins|
@@ -165,7 +165,7 @@ In questa fase, è necessario creare e configurare la competenza per un set di u
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettaglio|Duration|
+|Attività|Dettagli|Durata|
 |---------|---------|---------|
 |Raccogliere & accettare i requisiti|Discussione con tutte le parti interessate per raccogliere un set completo di requisiti. Per ogni fase del progetto, è necessario che altri utenti debbano accettare un subset di requisiti.|una settimana|
 |Configurare la starter kit|Esaminare il [avvio rapido di competenza](create-catalog-portal.md) e configurare lo [Starter Kit di competenza](tutorial-scan-data.md) per le competenze dimostrative per tutte le parti interessate.|1 giorno|
@@ -192,7 +192,7 @@ Una volta che sono stati concordati i requisiti e le business unit che hanno par
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettaglio|Duration|
+|Attività|Dettagli|Durata|
 |---------|---------|---------|
 |[Analizza analisi sinapsi di Azure](register-scan-azure-synapse-analytics.md)|Iniziare a caricare le origini del database e analizzarle per popolare gli asset chiave|2 giorni|
 |[Creare regole e classificazioni personalizzate](create-a-custom-classification-and-classification-rule.md)|Una volta analizzate le risorse, gli utenti possono tenere presente che esistono altri casi d'uso per una maggiore classificazione accanto alle classificazioni predefinite di competenza.|2-4 settimane|
@@ -217,7 +217,7 @@ Una volta superata la fase MVP, è possibile pianificare l'attività cardine di 
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettaglio|Duration|
+|Attività|Dettagli|Durata|
 |---------|---------|---------|
 |Perfezionare l'analisi con il set di regole di analisi|L'organizzazione avrà una grande quantità di origini dati per la pre-produzione. È importante predefinire i criteri chiave per l'analisi, in modo che le classificazioni e l'estensione di file possano essere applicate in modo coerente nella bacheca.|1-2 giorni|
 |Valutazione della disponibilità dell'area per l'analisi|A seconda dell'area geografica delle origini dati e dei requisiti aziendali per la conformità e la sicurezza, è opportuno considerare le aree che devono essere disponibili per l'analisi.|1 giorno|
@@ -243,7 +243,7 @@ Una volta superata la fase MVP, è possibile pianificare l'attività cardine di 
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettaglio|Duration|
+|Attività|Dettagli|Durata|
 |---------|---------|---------|
 |Analizza le origini dati di produzione con il firewall abilitato|Se questa opzione è facoltativa quando il firewall è presente, ma è importante esplorare le opzioni per la protezione avanzata dell'infrastruttura.|1-5 giorni|
 |Abilita collegamento privato|Se questa opzione è facoltativa quando si usa il collegamento privato. In caso contrario, è possibile ignorare questo perché è necessario avere un criterio quando privato è abilitato.|1-5 giorni|

@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Traduttore?
       href: translator-info-overview.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       href: quickstart-translator.md
     - name: Supporto delle lingue
       href: language-support.md
@@ -56,30 +56,20 @@
       items:
         - name: Informazioni di riferimento su Traduttore v3
           href: reference/v3-0-reference.md
-          items:
-            - name: Languages
-              href: reference/v3-0-languages.md
-            - name: Translate
-              href: reference/v3-0-translate.md
-            - name: Transliterate
-              href: reference/v3-0-transliterate.md
-            - name: Detect
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: Ricerca nel dizionario
-              href: reference/v3-0-dictionary-lookup.md
-            - name: Esempi di dizionari
-              href: reference/v3-0-dictionary-examples.md
-        - name: Informazioni di riferimento su Traduttore v2 (deprecato)
-          href: reference/v2-0-reference.md
-          items:
-            - name: Trasformare il testo
-              href: transform-text.md
-            - name: Come usare i report di Collaborative Translation Framework (CTF)
-              href: ctf-reporting.md
-            - name: Restituire le N migliori traduzioni
-              href: return-n-best-translations.md
+        - name: Languages
+          href: reference/v3-0-languages.md
+        - name: Translate
+          href: reference/v3-0-translate.md
+        - name: Transliterate
+          href: reference/v3-0-transliterate.md
+        - name: Detect
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: Ricerca nel dizionario
+          href: reference/v3-0-dictionary-lookup.md
+        - name: Esempi di dizionari
+          href: reference/v3-0-dictionary-examples.md
         - name: Limiti delle richieste
           href: request-limits.md
     - name: Risorse

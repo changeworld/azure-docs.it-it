@@ -4,12 +4,12 @@ description: In questa guida introduttiva si abilitano gli eventi di Griglia di 
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074217"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694400"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
 
@@ -23,11 +23,11 @@ Al termine dei passaggi descritti in questo articolo, gli eventi inviati dal reg
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash** . Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
+- I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash**. Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure. Il comando [az group create][az-group-create] seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Se si vuole usare un altro nome per il gruppo di risorse, impostare `RESOURCE_GROUP_NAME` su un valore diverso.
+Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure. Il comando [az group create][az-group-create] seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*. Se si vuole usare un altro nome per il gruppo di risorse, impostare `RESOURCE_GROUP_NAME` su un valore diverso.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -78,7 +78,7 @@ Per distribuire l'app di esempio, impostare `SITE_NAME` su un nome univoco per l
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -200,13 +200,13 @@ Lo screenshot seguente mostra l'app di esempio con tre eventi. L'evento `ImageDe
 
 ![Visualizzazione nel Web browser dell'app di esempio con gli eventi ImagePushed e ImageDeleted][sample-app-03]
 
-Congratulazioni! Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
+Congratulazioni. Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando le risorse create in questa guida introduttiva non sono più necessarie, è possibile eliminarle tutte con il seguente comando dell'interfaccia della riga di comando di Azure. Quando si elimina un gruppo di risorse, vengono eliminate definitivamente tutte le risorse contenute nel gruppo.
 
-**AVVISO** : questa operazione è irreversibile. Prima di eseguire il comando assicurarsi che nessuna delle risorse del gruppo sia più necessaria.
+**AVVISO**: questa operazione è irreversibile. Prima di eseguire il comando assicurarsi che nessuna delle risorse del gruppo sia più necessaria.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

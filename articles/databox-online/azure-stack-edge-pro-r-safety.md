@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac3f2cc1c68ea552b2858d932217a28055fee0fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467576"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709440"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Istruzioni di sicurezza R per Pro Azure Stack Edge
 
@@ -86,6 +86,7 @@ Quando si configura e si esegue il dispositivo R Edge Pro Azure Stack Edge, è n
   * Isolamento da campi elettromagnetici forti prodotti da dispositivi elettrici.
   * Fornito con Outlet con basi corrette.
   * Fornito con spazio sufficiente per accedere ai cavi di alimentazione, perché funge da disconnessione elettrica principale del prodotto.
+* I cavi Ethernet non sono forniti con il prodotto. Per ridurre le interferenze elettromagnetiche, è consigliabile usare un cablaggio con coppia schermata (STP) Cat 6.
 * Configurare le apparecchiature in un'area di lavoro, in modo da consentire una circolazione aerea adeguata intorno alle apparecchiature; Assicurarsi che le coperture anteriore e posteriore siano rimosse completamente mentre il dispositivo è in esecuzione.
 * Installare le apparecchiature in un'area controllata a temperatura senza contaminazioni conduttive e consentire una circolazione aerea adeguata intorno alle apparecchiature.
 * Evitare l'uso di apparecchiature da origini di ambienti liquidi e eccessivamente umidi.
@@ -115,6 +116,11 @@ Quando si configura e si esegue il dispositivo R Edge Pro Azure Stack Edge, è n
   * Il dispositivo è caduto e l'involucro si è danneggiato.
   * Si sospetta che il dispositivo richieda un intervento di manutenzione o riparazione.
 * Scollegare definitivamente l'unità prima di spostare o se si ritiene che sia stata danneggiata in alcun modo.
+* Per evitare una perdita elevata, quando un singolo caso di transito ha più di un alimentatore senza interruzioni (UPS), è consigliabile che ogni UPS sia connesso a un circuito di rami indipendente. Tuttavia, in caso di utilizzo di un'unità di distribuzione dell'alimentazione o di un altro dispositivo in cui il piano di sicurezza di ogni UPS si basa su un singolo conduttore di base della PDU, il terminale di base all'esterno di ogni UPS deve essere utilizzato anche con un conduttore di base per la compilazione supplementare.
+
+  > [!NOTE]
+  > Se viene usata una PDU che ha già un conduttore di base supplementare, non è necessario usare il terminale di base aggiuntivo in UPS.
+
 * Fornire una fonte di alimentazione adatta con protezione da sovraccarichi elettrici per soddisfare le specifiche tecniche seguenti:
 
   * Tensione: da 100 a 240 volt AC
@@ -157,7 +163,7 @@ Il dispositivo è progettato per operare negli ambienti seguenti:
 |:--- |:--- |
 |Specifiche di temperatura | <ul><li>Temperatura di archiviazione: – 33 &deg; c – 63 &deg; c (– 28 &deg; f-145 &deg; f) </li><li>Operazione continua: 5 &deg; c – 43 &deg; c (41 &deg; f – 110 &deg; f)</li><li>Gradiente temperatura massima (operativo e archiviazione): 20 &deg; C/h (68 &deg; F/h)</li></ul> |
 |Specifiche relative all'umidità | <ul><li>Archiviazione: da 5% a 95% RH con 33 &deg; C (91 &deg; F) punto di rugiada massimo. L'ambiente deve essere sempre non condensato.</li><li>Funzionamento: umidità relativa dal 5% al 85% con 29 &deg; C (84,2 &deg; F) punto di rugiada massimo</li></ul> |
-| Specifiche di altitudine massima | <ul><li>Operativo (senza UPS): 15.000 ft (4.572 metri)</li><li>Operativo (con UPS): 6,561 ft (2.000 metri)</li><li>Archiviazione: 40.000 ft (12.192 metri)</li></ul> |
+| Specifiche di altitudine massima | <ul><li>Operativo (senza UPS): 15.000 ft (4.572 metri)</li><li>Operativo (con UPS): 10.000 ft (3.048 metri)</li><li>Archiviazione: 40.000 ft (12.192 metri)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |

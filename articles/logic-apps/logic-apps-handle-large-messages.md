@@ -3,16 +3,14 @@ title: Gestire messaggi di grandi dimensioni usando la suddivisione in blocchi
 description: Informazioni su come gestire messaggi di grandi dimensioni usando la suddivisione in blocchi in attività e flussi di lavoro automatizzati creati con App per la logica di Azure
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
-ms.openlocfilehash: 1b23c92ec70b80a6cd08fc42a05ffec1e5b43b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 12/18/2020
+ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656768"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695882"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 
@@ -40,8 +38,57 @@ I servizi che comunicano con App per la logica di Azure possono avere un proprio
 
 Per i connettori che supportano la suddivisione in blocchi, il protocollo di suddivisione in blocchi sottostante è invisibile agli utenti finali. Tuttavia, non tutti i connettori supportano la suddivisione in blocchi; pertanto, questi connettori generano errori di runtime quando i messaggi in arrivo superano i limiti di dimensione dei connettori.
 
-> [!NOTE]
-> Per le azioni che usano la suddivisione in blocchi, non è possibile passare il corpo del trigger o usare espressioni come `@triggerBody()?['Content']`. Per gestire il contenuto di file di testo o JSON, è possibile invece provare a usare l'[azione **compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o [creare una variabile](../logic-apps/logic-apps-create-variables-store-values.md). Se il corpo del trigger contiene altri tipi di contenuto, ad esempio file multimediali, per poter gestire il contenuto è necessario eseguire altri passaggi.
+
+Per le azioni che supportano e sono abilitate per la suddivisione in blocchi, non è possibile usare i corpi, le variabili e le espressioni del trigger, ad esempio `@triggerBody()?['Content']` perché l'uso di uno di questi input impedisce che si verifichi l'operazione di suddivisione in blocchi. Usare invece l'azione [ **compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action). In particolare, è necessario creare un `body` campo usando l'azione **compose** per archiviare l'output dei dati dal corpo del trigger, dalla variabile, dall'espressione e così via, ad esempio:
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+Quindi, per fare riferimento ai dati, nell'azione di suddivisione in blocchi usare `@body('Compose')` .
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 
@@ -121,7 +168,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 2. L'endpoint risponde con il codice di stato di esito positivo"200" e queste informazioni facoltative:
 
-   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Descrizione |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | Descrizione |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
    | **Posizione** | string | Sì | Percorso URL a cui inviare i messaggi HTTP PATCH |
@@ -142,7 +189,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 4. Dopo ogni richiesta PATCH, l'endpoint conferma la ricezione di ogni blocco rispondendo con il codice di stato "200" e le intestazioni di risposta seguenti:
 
-   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Descrizione |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | Descrizione |
    |--------------------------------|------|----------|-------------|
    | **Range** | string | Sì | Intervallo di byte relativo al contenuto ricevuto dall'endpoint, ad esempio: "bytes = 0-1023" |   
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
