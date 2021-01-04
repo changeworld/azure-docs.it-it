@@ -290,6 +290,8 @@
         - name: Usare il controllo integrità in Deployment Manager
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: Percorso di Microsoft Learn sui modelli
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Concetti
   items:
     - name: Procedure consigliate per i modelli

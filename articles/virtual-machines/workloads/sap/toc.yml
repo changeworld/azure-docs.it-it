@@ -72,6 +72,8 @@
       items:
         - name: Controllo di istanze Large di HANA in Azure tramite il portale di Azure
           href: hana-li-portal.md
+        - name: Gestire istanze bare metal tramite il portale di Azure
+          href: baremetal-infrastructure-portal.md
         - name: Configurazione a disponibilità elevata con STONITH
           href: ha-setup-with-stonith.md
         - name: Backup del sistema operativo per SKU di tipo II

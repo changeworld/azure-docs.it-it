@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608436"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656224"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Emulatore Azure Cosmos DB - Note sulla versione e informazioni per il download
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Questo articolo include le note sulla versione dell'emulatore Azure Cosmos DB co
 | | |
 |---------|---------|
 |**Download MSI**|[Area download Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Operazioni preliminari**|[Sviluppare in locale con l'emulatore Azure Cosmos](local-emulator.md)|
+|**Operazioni preliminari**|[Sviluppare in locale con l'emulatore Azure Cosmos DB](local-emulator.md)|
 
 ## <a name="release-notes"></a>Note sulla versione
 
@@ -83,7 +83,7 @@ Questa versione aggiunge due nuove opzioni di avvio dell'emulatore Cosmos:
 
 ### <a name="246"></a>2.4.6
 
-- Questa versione offre le stesse funzionalità incluse nella versione di luglio 2019 del servizio Azure Cosmos, con le eccezioni indicate in [Sviluppare in locale con l'emulatore Azure Cosmos](local-emulator.md). Vengono inoltre corretti diversi bug correlati all'arresto dell'emulatore quando viene richiamato tramite la riga di comando e gli override degli indirizzi IP interni per i client SDK che usano la connettività in modalità diretta.
+- Questa versione offre le stesse funzionalità incluse nella versione di luglio 2019 del servizio Azure Cosmos, con le eccezioni indicate in [Sviluppare in locale con l'emulatore Azure Cosmos DB](local-emulator.md). Vengono inoltre corretti diversi bug correlati all'arresto dell'emulatore quando viene richiamato tramite la riga di comando e gli override degli indirizzi IP interni per i client SDK che usano la connettività in modalità diretta.
 
 ### <a name="243"></a>2.4.3
 

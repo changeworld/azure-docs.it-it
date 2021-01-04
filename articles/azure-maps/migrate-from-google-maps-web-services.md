@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 813cb567ab3edddd6fb37cee050dc5e38ee4289f
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 444e7c9ad06c6f2ad584c0701fa652b901a4c3e7
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904891"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680780"
 ---
-# <a name="tutorial---migrate-web-service-from-google-maps"></a>Esercitazione - Eseguire la migrazione di un servizio Web da Google Maps
+# <a name="tutorial-migrate-web-service-from-google-maps"></a>Esercitazione: Eseguire la migrazione di un servizio Web da Google Maps
 
 Sia Mappe di Azure che Google Maps forniscono l'accesso alle API spaziali tramite i servizi Web REST. Le interfacce API di queste piattaforme eseguono funzionalità simili. Tuttavia, ognuna di esse usa convenzioni di denominazione e oggetti di risposta diversi.
 
@@ -29,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Calcolare una matrice di distanze
 > * Ottenere dettagli sul fuso orario
 
-Verrà inoltre descritto: 
+Verrà inoltre descritto:
 
 > [!div class="checklist"]
 > * Quale servizio REST di Mappe di Azure usare per la migrazione da un servizio Web di Google Maps
@@ -56,8 +56,7 @@ Le API dei servizi seguenti non sono attualmente disponibili in Mappe di Azure:
 - Georilevazione
 - Dettagli e foto di luoghi - I numeri di telefono e gli URL dei siti Web sono disponibili nell'API di ricerca di Mappe di Azure.
 - URL mappa
-- Strade più vicine - Ciò è possibile usando l'SDK Web come mostrato [qui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
-), ma al momento non disponibile come servizio.
+- Strade più vicine - Ciò è possibile usando l'SDK Web come mostrato [qui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), ma al momento non disponibile come servizio.
 - Visualizzazione strada statica
 
 Mappe di Azure offre numerosi servizi Web REST aggiuntivi che possono risultare utili:
@@ -65,7 +64,7 @@ Mappe di Azure offre numerosi servizi Web REST aggiuntivi che possono risultare 
 - [Operazioni spaziali](/rest/api/maps/spatial): consente di eseguire l'offload di operazioni e calcoli spaziali complessi, ad esempio il geofencing, in un servizio.
 - [Traffico](/rest/api/maps/traffic): consente di accedere ai dati degli eventi e del flusso di traffico in tempo reale.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 2. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
@@ -123,17 +122,17 @@ Vedere le [procedure consigliate per la ricerca](how-to-use-best-practices-for-s
 
 L'API di geocodifica inversa di Mappe di Azure include alcune funzionalità aggiuntive che non sono disponibili in Google Maps. Potrebbe risultare utile integrare queste funzionalità nell'applicazione durante la migrazione dell'app:
 
-- Recupero dei dati sui limiti di velocità
-- Recupero delle informazioni specifiche della strada: strada locale, arteria stradale, accesso limitato, rampa e così via
-- Recupero del lato della strada in cui si trova una coordinata
+* Recupero dei dati sui limiti di velocità
+* Recupero delle informazioni specifiche della strada: strada locale, arteria stradale, accesso limitato, rampa e così via
+* Recupero del lato della strada in cui si trova una coordinata
 
 ## <a name="search-for-points-of-interest"></a>Cercare i punti di interesse
 
 È possibile cercare i dati del punto di interesse in Google Maps usando l'API di ricerca luoghi. Questa API offre tre modi diversi per cercare i punti di interesse:
 
-- **Ricerca di un luogo dal testo:** cerca un punto di interesse in base al nome, all'indirizzo o al numero di telefono.
-- **Ricerca nelle vicinanze**: cerca i punti di interesse che si trovano entro una certa distanza da una posizione.
-- **Ricerca testuale:** cerca i luoghi usando un testo in formato libero contenente informazioni sul punto di interesse e sulla posizione. Ad esempio: "pizza a New York" o "ristoranti vicino a Main St".
+* **Ricerca di un luogo dal testo:** cerca un punto di interesse in base al nome, all'indirizzo o al numero di telefono.
+* **Ricerca nelle vicinanze**: cerca i punti di interesse che si trovano entro una certa distanza da una posizione.
+* **Ricerca testuale:** cerca i luoghi usando un testo in formato libero contenente informazioni sul punto di interesse e sulla posizione. Ad esempio: "pizza a New York" o "ristoranti vicino a Main St".
 
 Mappe di Azure offre numerose API di ricerca per i punti di interesse:
 
@@ -192,9 +191,9 @@ La tabella mostra i parametri dell'API Google Maps e i parametri equivalenti del
 
 Calcolare percorsi e indicazioni usando Mappe di Azure. Mappe di Azure offre numerose funzionalità equivalenti a quelle del servizio di pianificazione percorso di Google Maps, ad esempio:
 
-- Orari di arrivo e di partenza.
-- Percorsi basati sul traffico in tempo reale e predittivi.
-- Modalità di trasporto diverse, ad esempio, in auto, a piedi o in bicicletta.
+* Orari di arrivo e di partenza.
+* Percorsi basati sul traffico in tempo reale e predittivi.
+* Modalità di trasporto diverse, ad esempio, in auto, a piedi o in bicicletta.
 
 > [!NOTE]
 > Mappe di Azure richiede che tutti i punti di tragitto siano coordinate. Gli indirizzi devono prima essere geocodificati.
@@ -231,16 +230,16 @@ La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e 
 
 L'API di pianificazione percorso di Mappe di Azure include funzionalità aggiuntive che non sono disponibili in Google Maps. Quando si esegue la migrazione dell'app, valutare la possibilità di includere queste funzionalità utili.
 
-- Supporto per il tipo di percorso: più breve, più veloce, più interessante/panoramico e con minore consumo di carburante.
-- Supporto per modalità di viaggio aggiuntive: autobus, motocicletta, taxi, autocarro e furgone.
-- Supporto per 150 punti di tragitto.
-- Calcolo di più tempi di viaggio in un'unica richiesta. Traffico cronologico, traffico in tempo reale, senza traffico.
-- Possibilità di evitare tipi di strade aggiuntivi: corsie preferenziali, strade non asfaltate, strade già usate.
-- Possibilità di specificare aree personalizzate da evitare.
-- Limitare l'elevazione consentita per il percorso.
-- Percorso basato sulle specifiche del motore. Calcolo dei percorsi per veicoli a combustione o elettrici in base alle specifiche del motore e al carburante o alla carica rimanente.
-- Supporto per i parametri dei percorsi per veicoli commerciali. Ad esempio, dimensioni del veicolo, peso, numero di assi e tipo di carico.
-- Possibilità di specificare la velocità massima del veicolo.
+* Supporto per il tipo di percorso: più breve, più veloce, più interessante/panoramico e con minore consumo di carburante.
+* Supporto per modalità di viaggio aggiuntive: autobus, motocicletta, taxi, autocarro e furgone.
+* Supporto per 150 punti di tragitto.
+* Calcolo di più tempi di viaggio in un'unica richiesta. Traffico cronologico, traffico in tempo reale, senza traffico.
+* Possibilità di evitare tipi di strade aggiuntivi: corsie preferenziali, strade non asfaltate, strade già usate.
+* Possibilità di specificare aree personalizzate da evitare.
+* Limitare l'elevazione consentita per il percorso.
+* Percorso basato sulle specifiche del motore. Calcolo dei percorsi per veicoli a combustione o elettrici in base alle specifiche del motore e al carburante o alla carica rimanente.
+* Supporto per i parametri dei percorsi per veicoli commerciali. Ad esempio, dimensioni del veicolo, peso, numero di assi e tipo di carico.
+* Possibilità di specificare la velocità massima del veicolo.
 
 Inoltre, il servizio di pianificazione percorso in Mappe di Azure supporta il [calcolo dei punti raggiungibili](/rest/api/maps/route/getrouterange), anche noto come isocrone. Comporta la generazione di un poligono che copre un'area percorribile in qualsiasi direzione da un punto di partenza, in base a una quantità di tempo o di carburante/carica specificata.
 
@@ -290,7 +289,7 @@ Oltre a poter generare un'immagine mappa statica, il servizio di rendering di Ma
 
 Aggiungere gli indicatori usando il parametro `markers` nell'URL. Il parametro `markers` accetta uno stile e un elenco di posizioni in base a cui verrà eseguito il rendering sulla mappa, come illustrato di seguito:
 
-```
+```text
 &markers=markerStyles|markerLocation1|markerLocation2|...
 ```
 
@@ -300,21 +299,20 @@ Specificare le posizioni dell'indicatore con il formato "latitudine,longitudine"
 
 Aggiungere gli stili degli indicatori con il formato `optionName:value`, con più stili separati dalla barra verticale (\|), ad esempio: "optionName1:value1\|optionName2:value2". Si noti che i nomi e i valori delle opzioni sono separati da due punti (:). Usare i nomi delle opzioni di stile seguenti per applicare uno stile agli indicatori in Google Maps:
 
-- `color`: colore dell'icona predefinita dell'indicatore. Può essere un colore esadecimale a 24 bit (`0xrrggbb`) o uno dei valori seguenti: `black`, `brown`, `green`, `purple`, `yellow`, `blue`, `gray`, `orange`, `red`, `white`.
-- `label`: singolo carattere alfanumerico maiuscolo da visualizzare nella parte superiore dell'icona.
-- `size`: dimensioni dell'indicatore. Può essere `tiny`, `mid` o `small`.
+* `color`: colore dell'icona predefinita dell'indicatore. Può essere un colore esadecimale a 24 bit (`0xrrggbb`) o uno dei valori seguenti: `black`, `brown`, `green`, `purple`, `yellow`, `blue`, `gray`, `orange`, `red`, `white`.
+* `label`: singolo carattere alfanumerico maiuscolo da visualizzare nella parte superiore dell'icona.
+* `size`: dimensioni dell'indicatore. Può essere `tiny`, `mid` o `small`.
 
 Usare i nomi delle opzioni di stile seguenti per le icone personalizzate in Google Maps:
 
-- `anchor`: specifica come allineare l'immagine dell'icona alla coordinata. Può essere un valore in pixel (x, y) o uno dei valori seguenti: `top`, `bottom`, `left`, `right`, `center`, `topleft`, `topright`, `bottomleft` o `bottomright`.
-- `icon`: URL che punta all'immagine dell'icona.
+* `anchor`: specifica come allineare l'immagine dell'icona alla coordinata. Può essere un valore in pixel (x, y) o uno dei valori seguenti: `top`, `bottom`, `left`, `right`, `center`, `topleft`, `topright`, `bottomleft` o `bottomright`.
+* `icon`: URL che punta all'immagine dell'icona.
 
 Ad esempio, ora verrà aggiunto alla mappa un indicatore rosso di medie dimensioni in corrispondenza delle coordinate di longitudine: -110, latitudine: 45:
 
-```
+```text
 &markers=color:red|size:mid|45,-110
 ```
-
 
 ![Marcatore di Google Maps](media/migrate-google-maps-web-services/google-maps-marker.png)
 
@@ -322,7 +320,7 @@ Ad esempio, ora verrà aggiunto alla mappa un indicatore rosso di medie dimensio
 
 Aggiungere gli indicatori a un'immagine mappa statica specificando il parametro `pins` nell'URL. Come in Google Maps, specificare uno stile e un elenco di posizioni nel parametro. Il parametro `pins` può essere specificato più volte per supportare gli indicatori con stili diversi.
 
-```
+```text
 &pins=iconType|pinStyles||pinLocation1|pinLocation2|...
 ```
 
@@ -332,27 +330,27 @@ In Mappe di Azure la posizione del segnaposto deve essere espressa nel formato "
 
 `iconType` specifica il tipo di segnaposto da creare. I valori possibili sono i seguenti:
 
-- `default`: icona predefinita del segnaposto.
-- `none`: nessuna icona visualizzata. Verrà eseguito il rendering solo delle etichette.
-- `custom`: specifica che è necessario usare un'icona personalizzata. È possibile aggiungere un URL che punta all'immagine dell'icona alla fine del parametro `pins` dopo le informazioni sulla posizione del segnaposto.
-- `{udid}`: ID dati univoco (UDID) per un'icona archiviata nella piattaforma di archiviazione dati di Mappe di Azure.
+* `default`: icona predefinita del segnaposto.
+* `none`: nessuna icona visualizzata. Verrà eseguito il rendering solo delle etichette.
+* `custom`: specifica che è necessario usare un'icona personalizzata. È possibile aggiungere un URL che punta all'immagine dell'icona alla fine del parametro `pins` dopo le informazioni sulla posizione del segnaposto.
+* `{udid}`: ID dati univoco (UDID) per un'icona archiviata nella piattaforma di archiviazione dati di Mappe di Azure.
 
 Aggiungere gli stili dei segnaposto con il formato `optionNameValue`. Separare più stili con la barra verticale (\|). Ad esempio: `iconType|optionName1Value1|optionName2Value2`. I nomi e i valori delle opzioni non sono separati. Usare i nomi delle opzioni di stile seguenti per applicare lo stile agli indicatori:
 
-- `al`: specifica l'opacità (alfa) dell'indicatore. Scegliere un numero compreso tra 0 e 1.
-- `an`: specifica l'ancoraggio del segnaposto. Specificare i valori dei pixel x e y nel formato "x y".
-- `co`: colore del segnaposto. Specificare un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
-- `la`: specifica l'ancoraggio dell'etichetta. Specificare i valori dei pixel x e y nel formato "x y".
-- `lc`: colore dell'etichetta. Specificare un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
-- `ls`: dimensioni dell'etichetta in pixel. Scegliere un numero maggiore di 0.
-- `ro`: valore in gradi per la rotazione dell'icona. Scegliere un numero compreso tra -360 e 360.
-- `sc`: valore di scala per l'icona del segnaposto. Scegliere un numero maggiore di 0.
+* `al`: specifica l'opacità (alfa) dell'indicatore. Scegliere un numero compreso tra 0 e 1.
+* `an`: specifica l'ancoraggio del segnaposto. Specificare i valori dei pixel x e y nel formato "x y".
+* `co`: colore del segnaposto. Specificare un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
+* `la`: specifica l'ancoraggio dell'etichetta. Specificare i valori dei pixel x e y nel formato "x y".
+* `lc`: colore dell'etichetta. Specificare un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
+* `ls`: dimensioni dell'etichetta in pixel. Scegliere un numero maggiore di 0.
+* `ro`: valore in gradi per la rotazione dell'icona. Scegliere un numero compreso tra -360 e 360.
+* `sc`: valore di scala per l'icona del segnaposto. Scegliere un numero maggiore di 0.
 
 Specificare i valori delle etichette per ogni posizione del segnaposto. Questo approccio è più efficiente rispetto all'applicazione di un singolo valore di etichetta a tutti gli indicatori nell'elenco di posizioni. Il valore dell'etichetta può essere una stringa di più caratteri. Racchiudere la stringa tra virgolette singole per assicurarsi che non venga scambiata per un valore di stile o di posizione.
 
 Ora verrà aggiunta un'icona predefinita rossa (`FF0000`) con l'etichetta "Space Needle", posizionata sotto (15 50). L'icona è posizionata in corrispondenza delle coordinate di longitudine: -122.349300, latitudine: 47.620180:
 
-```
+```text
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
@@ -360,7 +358,7 @@ Ora verrà aggiunta un'icona predefinita rossa (`FF0000`) con l'etichetta "Space
 
 Aggiungere tre segnaposto con i valori di etichetta "1", "2" e "3":
 
-```
+```text
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
@@ -372,7 +370,7 @@ Aggiungere tre segnaposto con i valori di etichetta "1", "2" e "3":
 
 Aggiungere linee e poligoni a un'immagine mappa statica usando il parametro `path` nell'URL. Il parametro `path` accetta uno stile e un elenco di posizioni in base a cui verrà eseguito il rendering sulla mappa, come illustrato di seguito:
 
-```
+```text
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
@@ -382,14 +380,14 @@ Le posizioni dei percorsi sono specificate con il formato `latitude1,longitude1|
 
 Aggiungere gli stili del percorso con il formato `optionName:value` e separare più stili con la barra verticale (\|). Infine, separare i nomi e i valori delle opzioni con i due punti (:), nel modo seguente: `optionName1:value1|optionName2:value2`. È possibile usare i nomi delle opzioni di stile seguenti per applicare uno stile ai percorsi in Google Maps:
 
-- `color`: colore del percorso o del contorno del poligono. Può essere un colore esadecimale a 24 bit (`0xrrggbb`), un colore esadecimale a 32 bit (`0xrrggbbbaa`) o uno dei valori seguenti: nero, marrone, verde, viola, giallo, blu, grigio, arancione, rosso, bianco.
-- `fillColor`: colore di riempimento dell'area del percorso (poligono). Può essere un colore esadecimale a 24 bit (`0xrrggbb`), un colore esadecimale a 32 bit (`0xrrggbbbaa`) o uno dei valori seguenti: nero, marrone, verde, viola, giallo, blu, grigio, arancione, rosso, bianco.
-- `geodesic`: indica se il percorso deve essere una linea che segue la curvatura della terra.
-- `weight`: spessore della linea del percorso in pixel.
+* `color`: colore del percorso o del contorno del poligono. Può essere un colore esadecimale a 24 bit (`0xrrggbb`), un colore esadecimale a 32 bit (`0xrrggbbbaa`) o uno dei valori seguenti: nero, marrone, verde, viola, giallo, blu, grigio, arancione, rosso, bianco.
+* `fillColor`: colore di riempimento dell'area del percorso (poligono). Può essere un colore esadecimale a 24 bit (`0xrrggbb`), un colore esadecimale a 32 bit (`0xrrggbbbaa`) o uno dei valori seguenti: nero, marrone, verde, viola, giallo, blu, grigio, arancione, rosso, bianco.
+* `geodesic`: indica se il percorso deve essere una linea che segue la curvatura della terra.
+* `weight`: spessore della linea del percorso in pixel.
 
 Aggiungere alla mappa l'opacità della linea rossa e lo spessore in pixel tra le coordinate nel parametro URL. Per l'esempio seguente, la linea ha un'opacità del 50% e uno spessore di quattro pixel. Le coordinate sono longitudine: -110, latitudine: 45 e longitudine: -100, latitudine: 50.
 
-```
+```text
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
@@ -399,7 +397,7 @@ Aggiungere alla mappa l'opacità della linea rossa e lo spessore in pixel tra le
 
 Aggiungere le linee e i poligoni a un'immagine mappa statica specificando il parametro `path` nell'URL. Come in Google Maps, specificare uno stile e un elenco di posizioni nel parametro. Specificare il parametro `path` più volte per eseguire il rendering di più cerchi, linee e poligoni con stili diversi.
 
-```
+```text
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
@@ -407,16 +405,16 @@ Per le posizioni dei percorsi, Mappe di Azure richiede che le coordinate siano e
 
 Aggiungere gli stili dei percorsi con il formato `optionNameValue`. Separare più stili con la barra verticale (\|), in questo modo: `optionName1Value1|optionName2Value2`. I nomi e i valori delle opzioni non sono separati. Usare i nomi delle opzioni di stile seguenti per applicare uno stile ai percorsi in Mappe di Azure:
 
-- `fa`: opacità del colore di riempimento (alfa) usata per il rendering dei poligoni. Scegliere un numero compreso tra 0 e 1.
-- `fc`: colore di riempimento usato per il rendering dell'area di un poligono.
-- `la`: opacità del colore della linea (alfa) usata per il rendering delle linee e del contorno dei poligoni. Scegliere un numero compreso tra 0 e 1.
-- `lc`: colore della linea usato per il rendering delle linee e del contorno dei poligoni.
-- `lw`: larghezza della linea in pixel.
-- `ra`: specifica il raggio di un cerchio in metri.
+* `fa`: opacità del colore di riempimento (alfa) usata per il rendering dei poligoni. Scegliere un numero compreso tra 0 e 1.
+* `fc`: colore di riempimento usato per il rendering dell'area di un poligono.
+* `la`: opacità del colore della linea (alfa) usata per il rendering delle linee e del contorno dei poligoni. Scegliere un numero compreso tra 0 e 1.
+* `lc`: colore della linea usato per il rendering delle linee e del contorno dei poligoni.
+* `lw`: larghezza della linea in pixel.
+* `ra`: specifica il raggio di un cerchio in metri.
 
 Aggiungere alla mappa l'opacità della linea rossa e lo spessore in pixel tra le coordinate nel parametro URL. Per l'esempio seguente, la linea ha un'opacità del 50% e uno spessore di quattro pixel. Le coordinate hanno i valori seguenti: longitudine:-110, latitudine: 45 e longitudine: -100, latitudine: 50.
 
-```
+```text
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
@@ -481,11 +479,15 @@ Oltre a questa API, Mappe di Azure fornisce diverse API per i fusi orari. Queste
 
 Mappe di Azure fornisce le librerie client per i linguaggi di programmazione seguenti:
 
-- JavaScript, TypeScript, Node.js - [Documentazione](how-to-use-services-module.md) \| [Pacchetto NPM](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js - [Documentazione](how-to-use-services-module.md) \| [Pacchetto NPM](https://www.npmjs.com/package/azure-maps-rest)
 
 Queste librerie client open source sono destinate ad altri linguaggi di programmazione:
 
-- .NET Standard 2.0 - [Progetto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [Pacchetto NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+* .NET Standard 2.0 - [Progetto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [Pacchetto NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Non è possibile pulire le risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -493,18 +495,3 @@ Altre informazioni sui servizi REST di Mappe di Azure:
 
 > [!div class="nextstepaction"]
 > [Procedure consigliate per la ricerca](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Cercare un indirizzo](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Esempi di codice](/samples/browse/?products=azure-maps)
-
-> [!div class="nextstepaction"]
-> [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)
