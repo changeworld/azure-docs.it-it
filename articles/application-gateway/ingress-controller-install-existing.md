@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2d64766c754c0ea104ae83fde799a514e9da6d68
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018699"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693738"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installare un controller di ingresso del gateway applicazione (AGIC) usando un gateway applicazione esistente
 
@@ -323,7 +323,7 @@ Ampliare le autorizzazioni di AGIC con:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Abilita per un'installazione di AGIC esistente
-Si supponga di avere già un AKS funzionante, un gateway applicazione e un AGIC configurato nel cluster. Si dispone di un ingresso per `prod.contosor.com` e il traffico per esso viene servito da AKS. Si vuole aggiungere `staging.contoso.com` al gateway applicazione esistente, ma è necessario ospitarlo in una [macchina virtuale](https://azure.microsoft.com/services/virtual-machines/). Verrà riutilizzato il gateway applicazione esistente e verranno configurati manualmente un listener e i pool back-end per `staging.contoso.com` . Tuttavia, la modifica manuale della configurazione del gateway applicazione (tramite il [portale](https://portal.azure.com), le [API ARM](/rest/api/resources/) o la [bonifica](https://www.terraform.io/)) potrebbe essere in conflitto con i presupposti di AGIC di proprietà completa. Subito dopo l'applicazione delle modifiche, AGIC li sovrascriverà o li eliminerà.
+Si supponga di avere già un AKS funzionante, un gateway applicazione e un AGIC configurato nel cluster. Si dispone di un ingresso per `prod.contoso.com` e il traffico per esso viene servito da AKS. Si vuole aggiungere `staging.contoso.com` al gateway applicazione esistente, ma è necessario ospitarlo in una [macchina virtuale](https://azure.microsoft.com/services/virtual-machines/). Verrà riutilizzato il gateway applicazione esistente e verranno configurati manualmente un listener e i pool back-end per `staging.contoso.com` . Tuttavia, la modifica manuale della configurazione del gateway applicazione (tramite il [portale](https://portal.azure.com), le [API ARM](/rest/api/resources/) o la [bonifica](https://www.terraform.io/)) potrebbe essere in conflitto con i presupposti di AGIC di proprietà completa. Subito dopo l'applicazione delle modifiche, AGIC li sovrascriverà o li eliminerà.
 
 È possibile impedire a AGIC di apportare modifiche a un subset di configurazione.
 

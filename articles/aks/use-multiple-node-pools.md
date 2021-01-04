@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: db153123622a59bbdde71afca4ea30e03a6fbf98
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006934"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694246"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster nel servizio Azure Kubernetes (AKS)
 
@@ -685,10 +685,10 @@ Modificare questi valori come necessario per aggiornare, aggiungere o eliminare 
 }
 ```
 
-Distribuire questo modello usando il comando [AZ Group Deployment create][az-group-deployment-create] , come illustrato nell'esempio seguente. Viene richiesto il nome e il percorso del cluster AKS esistenti:
+Distribuire questo modello usando il comando [AZ Deployment Group create][az-deployment-group-create] , come illustrato nell'esempio seguente. Viene richiesto il nome e il percorso del cluster AKS esistenti:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
@@ -774,7 +774,7 @@ az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodep
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 In questo articolo è stato creato un cluster AKS che include nodi basati su GPU. Per ridurre i costi non necessari, è consigliabile eliminare il *gpunodepool* o l'intero cluster AKS.
 
@@ -829,7 +829,7 @@ Usare i [gruppi di posizionamento di prossimità][reduce-latency-ppg] per ridurr
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

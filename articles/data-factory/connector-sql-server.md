@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 69eda15660cbfe6befee3835a63f937a475f4c80
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.date: 12/18/2020
+ms.openlocfilehash: ee91d06dc5377afa1bd216280e537c2837ada6d9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901659"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694849"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiare dati da e verso SQL Server tramite Azure Data Factory
 
@@ -66,9 +66,9 @@ Per il servizio collegato SQL Server sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su **SqlServer** . | Sì |
+| type | La proprietà Type deve essere impostata su **SqlServer**. | Sì |
 | connectionString |Specificare le informazioni di **ConnectionString** necessarie per connettersi al database di SQL Server usando l'autenticazione SQL o l'autenticazione di Windows. Vedere gli esempi seguenti.<br/>È anche possibile inserire una password in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la `password` configurazione dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
-| userName |Specificare un nome utente se si usa l'autenticazione di Windows. Ad esempio, **nomedominio\\nomeutente** . |No |
+| userName |Specificare un nome utente se si usa l'autenticazione di Windows. Ad esempio, **nomedominio\\nomeutente**. |No |
 | password |Specificare una password per l'account utente specificato per il nome utente. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Azure Data Factory. In alternativa, [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | Questo [runtime di integrazione](concepts-integration-runtime.md) viene usato per connettersi all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
@@ -150,7 +150,7 @@ Per copiare dati da e in un database di SQL Server, sono supportate le propriet�
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su **SqlServerTable** . | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su **SqlServerTable**. | Sì |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | tabella | Nome della tabella/vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella/vista con schema. Questa proprietà è supportata per garantire la compatibilità con le versioni precedenti. Per i nuovi carichi di lavoro, usare `schema` e `table`. | No per l'origine, Sì per il sink |
@@ -185,26 +185,26 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per definire
 >[!TIP]
 >Per caricare i dati da SQL Server in modo efficiente usando il partizionamento dei dati, vedere la [copia parallela dal database SQL](#parallel-copy-from-sql-database).
 
-Per copiare dati da un database SQL Server, impostare il tipo di origine nell'attività di copia su **SqlSource** . Nella sezione source dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da un database SQL Server, impostare il tipo di origine nell'attività di copia su **SqlSource**. Nella sezione source dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **sqlSource** . | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **sqlSource**. | Sì |
 | sqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
 | storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri stored procedure. |No |
-| isolationLevel | Specifica il comportamento di blocco della transazione per l'origine SQL. I valori consentiti sono: **ReadCommitted** , **READUNCOMMITTED** , **RepeatableRead** , **Serializable** , **snapshot** . Se non specificato, viene usato il livello di isolamento predefinito del database. Per altre informazioni dettagliate, vedere [questo documento](/dotnet/api/system.data.isolationlevel). | No |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare i dati da SQL Server. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange** .<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da SQL Server è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
+| isolationLevel | Specifica il comportamento di blocco della transazione per l'origine SQL. I valori consentiti sono: **ReadCommitted**, **READUNCOMMITTED**, **RepeatableRead**, **Serializable**, **snapshot**. Se non specificato, viene usato il livello di isolamento predefinito del database. Per altre informazioni dettagliate, vedere [questo documento](/dotnet/api/system.data.isolationlevel). | No |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare i dati da SQL Server. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da SQL Server è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
 | partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None` . | No |
 | **_In `partitionSettings` :_* _ | | |
-| partitionColumnName | Specificare il nome della colonna di origine _ *nel tipo Integer o date/DateTime* * ( `int` , `smallint` , `bigint` , `date` , `smalldatetime` , `datetime` , `datetime2` o `datetimeoffset` ) che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfDynamicRangePartitionCondition ` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-sql-database) . | No |
+| partitionColumnName | Specificare il nome della colonna di origine _ *nel tipo Integer o date/DateTime** ( `int` , `smallint` , `bigint` , `date` , `smalldatetime` , `datetime` , `datetime2` o `datetimeoffset` ) che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfDynamicRangePartitionCondition ` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-sql-database) . | No |
 | partitionUpperBound | Valore massimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.  <br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-sql-database) . | No |
 | partitionLowerBound | Valore minimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-sql-database) . | No |
 
-**Punti da notare:**
+**Tenere presente quanto segue:**
 
-- Se per **sqlSource** viene specificato **sqlReaderQuery** , l'attività di copia esegue la query sull'origine SQL Server per ottenere i dati. In alternativa, è possibile specificare una stored procedure indicando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** , se la stored procedure accetta parametri.
-- Se non si specifica **sqlReaderQuery** o **sqlReaderStoredProcedureName** , le colonne definite nella sezione "Structure" del set di dati JSON vengono usate per creare una query. La query `select column1, column2 from mytable` viene eseguita nel SQL Server. Se la definizione del set di dati non include "structure", vengono selezionate tutte le colonne della tabella.
+- Se per **sqlSource** viene specificato **sqlReaderQuery** , l'attività di copia esegue la query sull'origine SQL Server per ottenere i dati. In alternativa, è possibile specificare una stored procedure indicando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters**, se la stored procedure accetta parametri.
+- Quando si usa stored procedure nell'origine per recuperare i dati, tenere presente che se il stored procedure è stato progettato per restituire uno schema diverso quando viene passato un valore di parametro diverso, potrebbe verificarsi un errore o un risultato imprevisto durante l'importazione dello schema dall'interfaccia utente o durante la copia dei dati nel database SQL con la creazione automatica della tabella.
 
 **Esempio: usare query SQL**
 
@@ -298,18 +298,18 @@ GO
 > [!TIP]
 > Scopri di più sui comportamenti di scrittura supportati, sulle configurazioni e sulle procedure consigliate, dalla [procedura consigliata per il caricamento dei dati in SQL Server](#best-practice-for-loading-data-into-sql-server).
 
-Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copia su **SqlSink** . Nella sezione sink dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copia su **SqlSink**. Nella sezione sink dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del sink dell'attività di copia deve essere impostata su **sqlsink** . | Sì |
+| type | La proprietà Type del sink dell'attività di copia deve essere impostata su **sqlsink**. | Sì |
 | preCopyScript |Questa proprietà specifica una query SQL per l'attività di copia da eseguire prima di scrivere i dati in SQL Server. Viene richiamata solo una volta per ogni esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No |
 | tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando il sink specifica stored procedure. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
-| sqlWriterStoredProcedureName | Il nome della stored procedure che definisce come applicare i dati di origine in una tabella di destinazione. <br/>Questa stored procedure viene *richiamata per batch* . Per le operazioni che vengono eseguite una sola volta e non hanno nulla a che fare con i dati di origine, ad esempio DELETE o TRUNCATE, usare la `preCopyScript` Proprietà.<br>Vedere l'esempio da [richiamare un stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink). | No |
+| sqlWriterStoredProcedureName | Il nome della stored procedure che definisce come applicare i dati di origine in una tabella di destinazione. <br/>Questa stored procedure viene *richiamata per batch*. Per le operazioni che vengono eseguite una sola volta e non hanno nulla a che fare con i dati di origine, ad esempio DELETE o TRUNCATE, usare la `preCopyScript` Proprietà.<br>Vedere l'esempio da [richiamare un stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink). | No |
 | storedProcedureTableTypeParameterName |Nome del parametro del tipo di tabella specificato nell'stored procedure.  |No |
 | sqlWriterTableType |Nome del tipo di tabella da utilizzare nel stored procedure. Nel corso dell'attività di copia, i dati spostati vengono resi disponibili in una tabella temporanea di questo tipo. Il codice della stored procedure può quindi unire i dati di cui è in corso la copia con i dati esistenti. |No |
 | storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
-| writeBatchSize |Numero di righe da inserire nella tabella SQL *per batch* .<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. |No |
+| writeBatchSize |Numero di righe da inserire nella tabella SQL *per batch*.<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. |No |
 | writeBatchTimeout |Questa proprietà specifica il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono per l'intervallo di tempo. Un esempio è "00:30:00" per 30 minuti. Se non viene specificato alcun valore, il valore predefinito per il timeout è "02:00:00". |No |
 
 **Esempio 1: accodare i dati**
@@ -397,9 +397,9 @@ Si consiglia di abilitare la copia parallela con il partizionamento dei dati, sp
 
 | Scenario                                                     | Impostazioni consigliate                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Caricamento completo da tabelle di grandi dimensioni, con partizioni fisiche.        | **Opzione partition** : partizioni fisiche della tabella. <br><br/>Durante l'esecuzione, Data Factory rileva automaticamente le partizioni fisiche e copia i dati in base alle partizioni. <br><br/>Per verificare se la tabella contiene o meno una partizione fisica, è possibile fare riferimento a [questa query](#sample-query-to-check-physical-partition). |
-| Caricamento completo da tabelle di grandi dimensioni, senza partizioni fisiche, con una colonna integer o DateTime per il partizionamento dei dati. | **Opzioni di partizione** : Partizione a intervalli dinamici.<br>**Colonna partizione** (facoltativo): specificare la colonna utilizzata per partizionare i dati. Se non è specificato, viene utilizzata la colonna di chiave primaria o di indice.<br/>Limite **superiore** della partizione e **limite inferiore della partizione** (facoltativo): specificare se si vuole determinare lo stride della partizione. Questa operazione non è relativa al filtraggio delle righe nella tabella. tutte le righe della tabella verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente i valori.<br><br>Se, ad esempio, la colonna di partizione "ID" ha valori compresi tra 1 e 100 e si imposta il limite inferiore su 20 e il limite superiore come 80, con la copia parallela 4, Data Factory recupera i dati di 4 partizioni-ID nell'intervallo <= 20, [21, 50], [51, 80] e >= 81 rispettivamente. |
-| Caricare una grande quantità di dati tramite una query personalizzata, senza partizioni fisiche, con una colonna integer o date/DateTime per il partizionamento dei dati. | **Opzioni di partizione** : Partizione a intervalli dinamici.<br>**Query** : `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Colonna di partizione** : Specificare la colonna usata per partizionare i dati.<br>Limite **superiore** della partizione e **limite inferiore della partizione** (facoltativo): specificare se si vuole determinare lo stride della partizione. Non per filtrare le righe nella tabella, tutte le righe nel risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.<br><br>Durante l'esecuzione, Data Factory sostituisce `?AdfRangePartitionColumnName` con il nome della colonna e gli intervalli di valori effettivi per ogni partizione e invia al SQL Server. <br>Se, ad esempio, la colonna di partizione "ID" ha valori compresi tra 1 e 100 e si imposta il limite inferiore su 20 e il limite superiore come 80, con la copia parallela 4, Data Factory recupera i dati di 4 partizioni-ID nell'intervallo <= 20, [21, 50], [51, 80] e >= 81 rispettivamente. <br><br>Di seguito sono riportate altre query di esempio per scenari diversi:<br> 1. eseguire una query sull'intera tabella: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. eseguire una query da una tabella con la selezione delle colonne e i filtri aggiuntivi della clausola WHERE: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. eseguire una query con sottoquery: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. query con partizione in sottoquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Caricamento completo da tabelle di grandi dimensioni, con partizioni fisiche.        | **Opzione partition**: partizioni fisiche della tabella. <br><br/>Durante l'esecuzione, Data Factory rileva automaticamente le partizioni fisiche e copia i dati in base alle partizioni. <br><br/>Per verificare se la tabella contiene o meno una partizione fisica, è possibile fare riferimento a [questa query](#sample-query-to-check-physical-partition). |
+| Caricamento completo da tabelle di grandi dimensioni, senza partizioni fisiche, con una colonna integer o DateTime per il partizionamento dei dati. | **Opzioni di partizione**: Partizione a intervalli dinamici.<br>**Colonna partizione** (facoltativo): specificare la colonna utilizzata per partizionare i dati. Se non è specificato, viene utilizzata la colonna di chiave primaria o di indice.<br/>Limite **superiore** della partizione e **limite inferiore della partizione** (facoltativo): specificare se si vuole determinare lo stride della partizione. Questa operazione non è relativa al filtraggio delle righe nella tabella. tutte le righe della tabella verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente i valori.<br><br>Se, ad esempio, la colonna di partizione "ID" ha valori compresi tra 1 e 100 e si imposta il limite inferiore su 20 e il limite superiore come 80, con la copia parallela 4, Data Factory recupera i dati di 4 partizioni-ID nell'intervallo <= 20, [21, 50], [51, 80] e >= 81 rispettivamente. |
+| Caricare una grande quantità di dati tramite una query personalizzata, senza partizioni fisiche, con una colonna integer o date/DateTime per il partizionamento dei dati. | **Opzioni di partizione**: Partizione a intervalli dinamici.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Colonna di partizione**: Specificare la colonna usata per partizionare i dati.<br>Limite **superiore** della partizione e **limite inferiore della partizione** (facoltativo): specificare se si vuole determinare lo stride della partizione. Non per filtrare le righe nella tabella, tutte le righe nel risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.<br><br>Durante l'esecuzione, Data Factory sostituisce `?AdfRangePartitionColumnName` con il nome della colonna e gli intervalli di valori effettivi per ogni partizione e invia al SQL Server. <br>Se, ad esempio, la colonna di partizione "ID" ha valori compresi tra 1 e 100 e si imposta il limite inferiore su 20 e il limite superiore come 80, con la copia parallela 4, Data Factory recupera i dati di 4 partizioni-ID nell'intervallo <= 20, [21, 50], [51, 80] e >= 81 rispettivamente. <br><br>Di seguito sono riportate altre query di esempio per scenari diversi:<br> 1. eseguire una query sull'intera tabella: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. eseguire una query da una tabella con la selezione delle colonne e i filtri aggiuntivi della clausola WHERE: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. eseguire una query con sottoquery: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. query con partizione in sottoquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Procedure consigliate per caricare i dati con l'opzione di partizione:
@@ -473,11 +473,11 @@ L'accodamento dei dati è il comportamento predefinito di questo connettore di s
 
 L'attività di copia attualmente non supporta in modo nativo il caricamento dei dati in una tabella temporanea di database. Esiste una modalità avanzata per configurarla con una combinazione di più attività. vedere ottimizzare gli [scenari di Upsert bulk del database SQL](https://github.com/scoriani/azuresqlbulkupsert). Di seguito viene illustrato un esempio di utilizzo di una tabella permanente come gestione temporanea.
 
-In Azure Data Factory, ad esempio, è possibile creare una pipeline con un' **attività di copia** concatenata a un' **attività di stored procedure** . Il primo copia i dati dall'archivio di origine in una tabella di staging SQL Server, ad esempio **UpsertStagingTable** , come nome della tabella nel set di dati. Il secondo richiama quindi un stored procedure per unire i dati di origine dalla tabella di staging alla tabella di destinazione e pulire la tabella di staging.
+In Azure Data Factory, ad esempio, è possibile creare una pipeline con un' **attività di copia** concatenata a un' **attività di stored procedure**. Il primo copia i dati dall'archivio di origine in una tabella di staging SQL Server, ad esempio **UpsertStagingTable**, come nome della tabella nel set di dati. Il secondo richiama quindi un stored procedure per unire i dati di origine dalla tabella di staging alla tabella di destinazione e pulire la tabella di staging.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-Nel database definire un stored procedure con la logica di MERGE, come nell'esempio seguente, a cui fa riferimento l'attività stored procedure precedente. Si supponga che la destinazione sia la tabella **Marketing** con tre colonne: **profileid** , **stato** e **categoria** . Eseguire Upsert in base alla colonna **profileid** .
+Nel database definire un stored procedure con la logica di MERGE, come nell'esempio seguente, a cui fa riferimento l'attività stored procedure precedente. Si supponga che la destinazione sia la tabella **Marketing** con tre colonne: **profileid**, **stato** e **categoria**. Eseguire Upsert in base alla colonna **profileid** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -512,9 +512,9 @@ Quando si copiano dati in SQL Server database, è anche possibile configurare e 
 
 È possibile usare una stored procedure quando non si possono usare i meccanismi di copia predefiniti. Un esempio è quando si desidera applicare un'ulteriore elaborazione prima dell'inserimento finale dei dati di origine nella tabella di destinazione. Alcuni esempi di elaborazione aggiuntivi sono quando si desidera unire le colonne, cercare valori aggiuntivi e inserirli in più di una tabella.
 
-Nell'esempio seguente viene illustrato come usare una stored procedure per eseguire un'operazione upsert in una tabella del database SQL Server. Si supponga che i dati di input e la tabella di **Marketing** sink includano tre colonne: **profileid** , **state** e **Category** . Eseguire Upsert in base alla colonna **profileid** e applicarla solo a una categoria specifica denominata "producta".
+Nell'esempio seguente viene illustrato come usare una stored procedure per eseguire un'operazione upsert in una tabella del database SQL Server. Si supponga che i dati di input e la tabella di **Marketing** sink includano tre colonne: **profileid**, **state** e **Category**. Eseguire Upsert in base alla colonna **profileid** e applicarla solo a una categoria specifica denominata "producta".
 
-1. Nel database definire il tipo di tabella con lo stesso nome di **sqlWriterTableType** . Lo schema del tipo di tabella è identico allo schema restituito dai dati di input.
+1. Nel database definire il tipo di tabella con lo stesso nome di **sqlWriterTableType**. Lo schema del tipo di tabella è identico allo schema restituito dai dati di input.
 
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -524,7 +524,7 @@ Nell'esempio seguente viene illustrato come usare una stored procedure per esegu
     )
     ```
 
-2. Nel database definire il stored procedure con lo stesso nome di **sqlWriterStoredProcedureName** . che gestisce i dati di input dell'origine specificata e li unisce nella tabella di output. Il nome del parametro del tipo di tabella nella stored procedure corrisponde a **TableName** definito nel set di dati.
+2. Nel database definire il stored procedure con lo stesso nome di **sqlWriterStoredProcedureName**. che gestisce i dati di input dell'origine specificata e li unisce nella tabella di output. Il nome del parametro del tipo di tabella nella stored procedure corrisponde a **TableName** definito nel set di dati.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -627,22 +627,22 @@ Più in particolare:
 
 ## <a name="troubleshoot-connection-issues"></a>Risolvere i problemi di connessione
 
-1. Configurare l'istanza di SQL Server in modo che accetti le connessioni remote. Avviare **SQL Server Management Studio** , fare clic con il pulsante destro del mouse su **Server** e scegliere **proprietà** . Selezionare **connessioni** dall'elenco e selezionare la casella **di controllo Consenti connessioni remote al server** .
+1. Configurare l'istanza di SQL Server in modo che accetti le connessioni remote. Avviare **SQL Server Management Studio**, fare clic con il pulsante destro del mouse su **Server** e scegliere **proprietà**. Selezionare **connessioni** dall'elenco e selezionare la casella **di controllo Consenti connessioni remote al server** .
 
     ![Abilitare le connessioni remote](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
     Per i passaggi dettagliati, vedere [configurare l'opzione di configurazione del server accesso remoto](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option).
 
-2. Avviare **Gestione configurazione SQL Server** . Espandere **Configurazione di rete SQL Server** per l'istanza prevista e selezionare **Protocolli per MSSQLSERVER** . I protocolli vengono visualizzati nel riquadro di destra. Per abilitare TCP/IP, fare clic con il pulsante destro del mouse su **TCP/IP** e selezionare **Abilita** .
+2. Avviare **Gestione configurazione SQL Server**. Espandere **Configurazione di rete SQL Server** per l'istanza prevista e selezionare **Protocolli per MSSQLSERVER**. I protocolli vengono visualizzati nel riquadro di destra. Per abilitare TCP/IP, fare clic con il pulsante destro del mouse su **TCP/IP** e selezionare **Abilita**.
 
     ![Abilitare TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
     Per ulteriori informazioni e modalità alternative di abilitazione del protocollo TCP/IP, vedere [abilitare o disabilitare un protocollo di rete del server](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol).
 
 3. Nella stessa finestra, fare doppio clic su **TCP/IP** per avviare la finestra **proprietà TCP/IP** .
-4. Passare alla scheda **indirizzi IP** . Scorrere verso il basso per visualizzare la sezione **IPAll** . Prendere nota della **porta TCP** . Il valore predefinito è **1433** .
+4. Passare alla scheda **indirizzi IP** . Scorrere verso il basso per visualizzare la sezione **IPAll** . Prendere nota della **porta TCP**. Il valore predefinito è **1433**.
 5. Creare una **regola per Windows Firewall** nel computer per consentire il traffico in ingresso attraverso questa porta. 
-6. **Verificare la connessione** : per connettersi a SQL Server usando un nome completo, usare SQL Server Management Studio da un computer diverso. Un esempio è `"<machine>.<domain>.corp.<company>.com,1433"`.
+6. **Verificare la connessione**: per connettersi a SQL Server usando un nome completo, usare SQL Server Management Studio da un computer diverso. Un esempio è `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di archivi dati supportati come origini e sink dall'attività di copia in Azure Data Factory, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,18 +1,21 @@
 ---
 title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
-ms.date: 11/18/2020
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f19fceca0212bd0a05d7caa311403b173c19de5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563178"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694173"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
 Questo articolo illustra una raccolta di procedure consigliate e suggerimenti utili per l'uso efficace del servizio Azure Batch, in base alle esperienze reali con batch. Questi suggerimenti consentono di migliorare le prestazioni ed evitare problemi di progettazione nelle soluzioni Azure Batch.
+
+> [!TIP]
+> Per informazioni aggiuntive sulla sicurezza in Azure Batch, vedere [procedure consigliate per la sicurezza e la conformità in batch](security-best-practices.md).
 
 ## <a name="pools"></a>Pool
 

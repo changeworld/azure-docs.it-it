@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129457"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683222"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiare o eseguire il backup dei processi di analisi di flusso di Azure
 
@@ -37,8 +37,6 @@ ms.locfileid: "93129457"
 
     Il progetto viene esportato nella cartella selezionata e aggiunta all'area di lavoro corrente.
 
-    ![Esporta processo ASA in Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
-
 3. Per pubblicare il processo in un'altra area o backup usando un altro nome, selezionare **Seleziona dalle sottoscrizioni da pubblicare** nell'editor di query (con \* estensione asaql) e seguire le istruzioni.
 
     ![Pubblicare in Azure in Visual Studio Code](./media/quick-create-visual-studio-code/submit-job.png)
@@ -53,4 +51,3 @@ ms.locfileid: "93129457"
 
 * [Guida introduttiva: creare un processo di analisi di flusso usando Visual Studio Code](quick-create-visual-studio-code.md)
 * [Guida introduttiva: creare un processo di analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
-* [Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)

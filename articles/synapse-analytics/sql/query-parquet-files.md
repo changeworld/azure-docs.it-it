@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462574"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694690"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query su file parquet usando un pool SQL senza server in Azure sinapsi Analytics
 
@@ -38,11 +38,11 @@ from openrowset(
 Verificare che sia possibile accedere a questo file. Se il file è protetto con la chiave SAS o con identità personalizzata di Azure, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Assicurarsi di usare le regole di confronto del database UTF-8 (ad esempio `Latin1_General_100_CI_AS_SC_UTF8` ) perché i valori stringa nei file parquet sono codificati usando la codifica UTF-8.
+> Assicurarsi di usare le regole di confronto del database UTF-8 (ad esempio `Latin1_General_100_BIN2_UTF8` ) perché i valori stringa nei file parquet sono codificati usando la codifica UTF-8.
 > Una mancata corrispondenza tra la codifica del testo nel file PARQUET e le regole di confronto può provocare errori di conversione imprevisti.
-> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_BIN2_UTF8`
 
-### <a name="data-source-usage"></a>Utilizzo dell'origine dati
+### <a name="data-source-usage"></a>Utilizzo delle origini dati
 
 Nell'esempio precedente viene usato il percorso completo del file. In alternativa, è possibile creare un'origine dati esterna con il percorso che punta alla cartella radice dell'archiviazione e usare tale origine dati e il percorso relativo del file nella `OPENROWSET` funzione:
 
@@ -74,10 +74,10 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Assicurarsi di explicilty specificando alcune regole di confronto UTF-8 (ad esempio `Latin1_General_100_CI_AS_SC_UTF8` ) per tutte le colonne stringa nella `WITH` clausola o impostare alcune regole di confronto UTF-8 a livello di database.
+> Assicurarsi di explicilty specificando alcune regole di confronto UTF-8 (ad esempio `Latin1_General_100_BIN2_UTF8` ) per tutte le colonne stringa nella `WITH` clausola o impostare alcune regole di confronto UTF-8 a livello di database.
 > La mancata corrispondenza tra la codifica del testo nel file e le regole di confronto delle colonne stringa può causare errori di conversione imprevisti.
-> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
-> È possibile impostare facilmente le regole di confronto sui tipi Colum usando la definizione seguente: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
+> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_BIN2_UTF8`
+> È possibile impostare facilmente le regole di confronto sui tipi Colum usando la definizione seguente: `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 Nelle sezioni seguenti è possibile vedere come eseguire query su diversi tipi di file PARQUET.
 

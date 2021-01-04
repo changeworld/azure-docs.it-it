@@ -1,20 +1,20 @@
 ---
 title: 'Procedura: esplorare il Data Catalog'
 description: Questo articolo fornisce una panoramica su come esplorare il Data Catalog di competenza di Azure in base al tipo di asset.
-author: hrasheed-msft
-ms.author: hrasheed
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: b8cdbbc29472ae10920c347dde308c352bf0b68a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: dd2fd4fbc9d8aecd9821d668dd02bd4b68659cf6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96552481"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695060"
 ---
-# <a name="browse-the-azure-purview-data-catalog"></a>Esplorare il Catalogo dati di Azure per le competenze
+# <a name="browse-the-azure-purview-data-catalog"></a>Esplorare Azure Purview Data Catalog
 
 Questo articolo descrive come individuare i dati nel Data Catalog di competenza di Azure usando lo spazio dei nomi gerarchico dell'origine dati.
 

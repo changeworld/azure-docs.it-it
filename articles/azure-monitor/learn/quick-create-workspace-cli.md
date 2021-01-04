@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 54d1d8a29c87f8d129c0ea5b29973c4fef0e6f7a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 2d9d511098613ddc5bf3579a42b7abe91f51e1a4
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888998"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694309"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creare un'area di lavoro Log Analytics con l'interfaccia della riga di comando di Azure 2.0
 
@@ -32,10 +32,10 @@ Per altre origini, ad esempio macchine virtuali di Azure e macchine virtuali di 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Questo articolo richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-## <a name="create-a-workspace"></a>Creare un'area di lavoro
-Creare un'area di lavoro con [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). Nell'esempio seguente viene creata un'area di lavoro nella località *eastus* usando un modello di Resource Manager presente nel computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
+## <a name="create-a-workspace"></a>Crea un'area di lavoro
+Creare un'area di lavoro con [AZ Deployment Group create](/cli/azure/deployment/group#az_deployment_group_create). Nell'esempio seguente viene creata un'area di lavoro nella località *eastus* usando un modello di Resource Manager presente nel computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Per informazioni sulle aree geografiche supportate, vedere le [aree geografiche in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/) e cercare Monitoraggio di Azure nel campo **Cerca un prodotto**.
 
@@ -111,7 +111,7 @@ I parametri seguenti impostano un valore predefinito:
 4. A questo punto è possibile distribuire il modello. Usare i comandi seguenti dalla cartella che contiene il modello. Quando viene richiesto un nome di area di lavoro, specificarne uno univoco a livello globale in tutte le sottoscrizioni di Azure.
 
     ```azurecli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio simile al seguente che include il risultato:

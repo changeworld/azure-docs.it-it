@@ -1,23 +1,33 @@
 ---
 title: Azure Lighthouse e applicazioni gestite di Azure
-description: Informazioni sul modo in cui Azure Lighthouse e le applicazioni gestite di Azure consentono di abilitare scenari diversi e di come possono essere usati insieme.
-ms.date: 08/12/2020
+description: Informazioni sul modo in cui è possibile usare insieme Azure Lighthouse e le applicazioni gestite di Azure.
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3d6c83a50f1da006f2618f7f4ff59759dac2555
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5c30c3234a57e25ceaa521ad485f58d4d663ebe9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436522"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693974"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e applicazioni gestite di Azure
 
-Sia le applicazioni gestite di Azure che Azure Lighthouse funzionano abilitando un provider di servizi ad accedere a risorse che risiedono nel tenant del cliente. Può essere utile comprendere le differenze nel modo in cui funzionano e gli scenari che consentono di abilitare, nonché come possono essere utilizzati insieme.
+Sia le applicazioni gestite di Azure che Azure Lighthouse funzionano abilitando un provider di servizi ad accedere a risorse che risiedono nel tenant del cliente. Può essere utile comprendere le differenze nel modo in cui funzionano e gli scenari che consentono di abilitare e il modo in cui possono essere usati insieme.
 
 > [!TIP]
 > Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](enterprise.md) possono utilizzare gli stessi processi e gli stessi strumenti.
 
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Confronto tra Azure Lighthouse e le applicazioni gestite di Azure
+
+Questa tabella illustra alcune differenze di alto livello che possono avere un effetto se è possibile scegliere di usare il faro di Azure o le applicazioni gestite di Azure. Come indicato di seguito, è anche possibile progettare una soluzione che li usi insieme.
+
+|Considerazioni  |Azure Lighthouse  |Applicazioni gestite da Azure  |
+|---------|---------|---------|
+|Utente tipico     |Provider di servizi o aziende che gestiscono più tenant         |Fornitori di software indipendenti (ISV)         |
+|Ambito dell'accesso tra tenant     |Sottoscrizioni o gruppi di risorse         |Gruppo di risorse (con ambito per una singola applicazione)         |
+|Acquistabile in Azure Marketplace     |No (le offerte possono essere pubblicate in Azure Marketplace, ma i clienti vengono fatturati separatamente)        |Sì         |
+|Protezione IP     |Sì (l'IP può rimanere nel tenant del provider di servizi)        |Sì (per progettazione, il gruppo di risorse è bloccato ai clienti)         |
+|Assegnazioni di rifiuto     |No         |Sì        |
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
@@ -51,3 +61,4 @@ I clienti potrebbero anche essere interessati alle applicazioni gestite da più 
 
 - Informazioni sulle [applicazioni gestite di Azure](../../azure-resource-manager/managed-applications/overview.md).
 - Informazioni su come eseguire [l'onboarding di una sottoscrizione al Faro di Azure](../how-to/onboard-customer.md).
+- Informazioni sugli [scenari ISV con Azure Lighthouse](isv-scenarios.md).

@@ -13,12 +13,12 @@ ms.author: aahi
 keywords: text mining, analisi del sentiment, analisi del testo
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: a1eba2f599a0365f43707ff7c9035d91e8637481
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: f93b7954861bf3351d2930132e1391e1f21b2a6f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505855"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655119"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>Avvio rapido: Usare la libreria client e l'API REST di Analisi del testo
 
@@ -39,8 +39,6 @@ Questo articolo fornisce informazioni introduttive sulla libreria client e l'API
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 > * Per usare Analisi del testo per la sanità o per operazioni asincrone, vedere gli esempi in Github per [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) o [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 

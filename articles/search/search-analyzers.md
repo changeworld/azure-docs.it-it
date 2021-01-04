@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/20/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bbda4268ca00d1c12f851517e2b35add7fba7f9b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013820"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694285"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizzatori per l'elaborazione del testo in Azure ricerca cognitiva
 
@@ -47,7 +47,7 @@ Nell'elenco seguente vengono descritti gli analizzatori disponibili in Azure ric
 
 | Category | Descrizione |
 |----------|-------------|
-| [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predefinita. Non è necessaria alcun specifica o configurazione. Questo analizzatore di utilizzo generico è adatto per molti linguaggi e scenari.|
+| [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Valore predefinito. Non è necessaria alcun specifica o configurazione. Questo analizzatore di utilizzo generico è adatto per molti linguaggi e scenari.|
 | Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Azure ricerca cognitiva supporta gli analizzatori del linguaggio 35 Lucene e 50 gli analizzatori di elaborazione del linguaggio naturale Microsoft. |
 |[Analizzatori personalizzati](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Si riferisce a una configurazione definita dall'utente di una combinazione di elementi esistenti, costituiti da un tokenizer (obbligatorio) e da filtri facoltativi (char o token).|
 
@@ -315,55 +315,61 @@ Se si usano gli esempi di codice di .NET SDK, è possibile aggiungere questi ese
 
 Qualsiasi analizzatore usato così com'è, senza configurazione, viene specificato in una definizione di campo. Non è necessario creare una voce nella sezione **[analizzatori]** dell'indice. 
 
-Questo esempio Mostra come assegnare gli analizzatori di Microsoft inglese e francese ai campi di descrizione. Si tratta di un frammento di codice tratto da una definizione più ampia dell'indice degli alberghi, creando usando la classe dell'hotel nel file hotels.cs dell'esempio [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
+Gli analizzatori di lingua vengono usati così come sono. Per usarli, chiamare [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer), specificando il tipo [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) che fornisce un analizzatore di testo supportato in ricerca cognitiva di Azure.
 
-Chiamare [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer), specificando il tipo [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) che fornisce un analizzatore di testo supportato in ricerca cognitiva di Azure.
+Gli analizzatori personalizzati sono specificati in modo analogo nella definizione del campo, ma per questo lavoro è necessario specificare l'analizzatore nella definizione dell'indice, come descritto nella sezione successiva.
 
 ```csharp
     public partial class Hotel
     {
        . . . 
-
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-        [JsonProperty("description")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
         public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("description_fr")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
+        [JsonPropertyName("Description_fr")]
         public string DescriptionFr { get; set; }
 
+        [SearchableField(AnalyzerName = "url-analyze")]
+        public string Url { get; set; }
       . . .
     }
 ```
+
 <a name="Define-a-custom-analyzer"></a>
 
 ### <a name="define-a-custom-analyzer"></a>Definire un analizzatore personalizzato
 
-Quando è necessaria la personalizzazione o la configurazione, sarà necessario aggiungere un costrutto dell'analizzatore a un indice. Una volta definita, è possibile aggiungerla alla definizione del campo, come illustrato nell'esempio precedente.
+Quando è necessaria la personalizzazione o la configurazione, aggiungere un costrutto dell'analizzatore a un indice. Una volta definita, è possibile aggiungerla alla definizione del campo, come illustrato nell'esempio precedente.
 
-Creare un oggetto [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) . Per altri esempi, vedere [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Creare un oggetto [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) . Un analizzatore personalizzato è una combinazione definita dall'utente di un tokenizer noto, di zero o più filtri di token e di zero o più nomi di filtro di caratteri:
+
++ [CustomAnalyzer. Tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer)
++ [CustomAnalyzer.TokenFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
++ [CustomAnalyzer.CharFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
+
+Nell'esempio seguente viene creato un analizzatore personalizzato denominato "URL-Analyze" che usa il [uax_url_email Tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) e il [filtro dei token minuscoli](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase).
 
 ```csharp
+private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 {
-   var definition = new Index()
+   FieldBuilder fieldBuilder = new FieldBuilder();
+   var searchFields = fieldBuilder.Build(typeof(Hotel));
+
+   var analyzer = new CustomAnalyzer("url-analyze", "uax_url_email")
    {
-         Name = "hotels",
-         Fields = FieldBuilder.BuildForType<Hotel>(),
-         Analyzers = new[]
-            {
-               new CustomAnalyzer()
-               {
-                     Name = "url-analyze",
-                     Tokenizer = TokenizerName.UaxUrlEmail,
-                     TokenFilters = new[] { TokenFilterName.Lowercase }
-               }
-            },
+         TokenFilters = { TokenFilterName.Lowercase }
    };
 
-   serviceClient.Indexes.Create(definition);
+   var definition = new SearchIndex(indexName, searchFields);
+
+   definition.Analyzers.Add(analyzer);
+
+   adminClient.CreateOrUpdateIndex(definition);
+}
 ```
+
+Per altri esempi, vedere [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -375,13 +381,13 @@ Creare un oggetto [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.mo
 
 + [Configurare gli analizzatori personalizzati](index-add-custom-analyzers.md) per un'elaborazione minima o specializzata per settori specifici.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
  [Search Documents REST API](/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 
  [Sintassi di query semplice](query-simple-syntax.md) 
 
- [Sintassi di query Lucene completa](query-lucene-syntax.md) 
+ [Full Lucene query syntax](query-lucene-syntax.md) (Sintassi di query completa Lucene) 
  
  [Gestire i risultati della ricerca](search-pagination-page-layout.md)
 

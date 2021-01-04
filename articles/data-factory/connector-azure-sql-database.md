@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: 2e5c04087a9874a01498c70eb3834606069cef13
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: 9b0445a9ca92f05a11f5a97895039a55f9d64d71
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021895"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693904"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 
@@ -277,10 +277,10 @@ Per copiare dati dal database SQL di Azure, nella sezione **origine** dell'attiv
 | partitionUpperBound | Valore massimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.  <br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-sql-database) . | No |
 | partitionLowerBound | Valore minimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-sql-database) . | No |
 
-**Punti da notare:**
+**Tenere presente quanto segue:**
 
 - Se viene specificato **sqlReaderQuery** per **AzureSqlSource**, l'attività di copia esegue questa query nell'origine del database SQL di Azure per ottenere i dati. In alternativa, è possibile specificare una stored procedure indicando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters**, se la stored procedure accetta parametri.
-- Se non si specifica **sqlReaderQuery** o **sqlReaderStoredProcedureName**, le colonne definite nella sezione "Structure" del set di dati JSON vengono usate per creare una query. La query `select column1, column2 from mytable` viene eseguita nel database SQL di Azure. Se la definizione del set di dati non include "structure", vengono selezionate tutte le colonne della tabella.
+- Quando si usa stored procedure nell'origine per recuperare i dati, tenere presente che se il stored procedure è stato progettato per restituire uno schema diverso quando viene passato un valore di parametro diverso, potrebbe verificarsi un errore o un risultato imprevisto durante l'importazione dello schema dall'interfaccia utente o durante la copia dei dati nel database SQL con la creazione automatica della tabella.
 
 #### <a name="sql-query-example"></a>Esempio di query SQL
 
@@ -745,7 +745,7 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |string |
+| Xml |string |
 
 >[!NOTE]
 > Per i tipi di dati che vengono mappati al tipo provvisorio decimale, attualmente l'attività di copia supporta la precisione fino a 28. Se i dati hanno una precisione maggiore di 28, provare a eseguire la conversione in una stringa nella query SQL.

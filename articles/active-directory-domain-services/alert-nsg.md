@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: 58cdd025587823f7eb702164c965ab622a7325d3
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 5b48d326efad889adbcf25d487ee27b8200f558f
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615648"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693915"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: avvisi di configurazione di rete in Azure Active Directory Domain Services
 
@@ -42,9 +42,11 @@ Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono appl
 |----------|------|------|----------|--------|-------------|--------|
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Qualsiasi | Allow |
 | 201      | AllowRD | 3389 | TCP | CorpNetSaw | Qualsiasi | Nega<sup>1</sup> |
-| 65000    | AllVnetInBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Consenti |
+| 65000    | AllVnetInBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Qualsiasi | Qualsiasi | AzureLoadBalancer | Qualsiasi | Allow |
-| 65500    | DenyAllInBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Nega |
+| 65500    | DenyAllInBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Deny |
+
+
 <sup>1</sup> Facoltativo per il debug. Consenti quando necessario per la risoluzione dei problemi avanzata.
 
 > [!NOTE]
@@ -54,9 +56,9 @@ Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono appl
 
 | Priorità | Nome | Porta | Protocollo | Source (Sorgente) | Destination | Azione |
 |----------|------|------|----------|--------|-------------|--------|
-| 65000    | AllVnetOutBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Consenti |
-| 65001    | AllowAzureLoadBalancerOutBound | Qualsiasi | Qualsiasi |  Qualsiasi | Internet | Consenti |
-| 65500    | DenyAllOutBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Nega |
+| 65000    | AllVnetOutBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Allow |
+| 65001    | AllowAzureLoadBalancerOutBound | Qualsiasi | Qualsiasi |  Qualsiasi | Internet | Allow |
+| 65500    | DenyAllOutBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Deny |
 
 >[!NOTE]
 > Per Azure AD DS è necessario l'accesso in uscita senza restrizioni dalla rete virtuale. Non è consigliabile creare regole aggiuntive che limitino l'accesso in uscita per la rete virtuale.

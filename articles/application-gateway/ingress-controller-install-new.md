@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874628"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693656"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Come installare un controller di ingresso del gateway applicazione (AGIC) usando un nuovo gateway applicazione
 
@@ -92,7 +92,7 @@ Questo passaggio consente di aggiungere alla sottoscrizione i componenti seguent
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -101,7 +101,7 @@ Questo passaggio consente di aggiungere alla sottoscrizione i componenti seguent
 
 1. Al termine della distribuzione, scaricare l'output della distribuzione in un file denominato `deployment-outputs.json` .
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## <a name="set-up-application-gateway-ingress-controller"></a>Configurare il controller di ingresso del gateway applicazione
