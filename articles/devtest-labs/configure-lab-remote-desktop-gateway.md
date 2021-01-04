@@ -3,12 +3,12 @@ title: Configurare un Lab per l'uso di Desktop remoto Gateway in Azure DevTest L
 description: Informazioni su come configurare un Lab in Azure DevTest Labs con Gateway Desktop remoto per garantire l'accesso sicuro alle macchine virtuali del Lab senza dover esporre la porta RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144710"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695685"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il Lab in Azure DevTest Labs per l'uso di un Gateway Desktop remoto
 In Azure DevTest Labs, è possibile configurare un Gateway Desktop remoto per il Lab per garantire l'accesso sicuro alle macchine virtuali (VM) Lab senza dover esporre la porta RDP. Il Lab fornisce una posizione centralizzata in cui gli utenti del Lab possono visualizzare e connettersi a tutte le macchine virtuali a cui hanno accesso. Il pulsante **Connetti** nella pagina **macchina virtuale** crea un file RDP specifico del computer che è possibile aprire per connettersi al computer. È possibile personalizzare ulteriormente e proteggere la connessione RDP connettendo il Lab a un Gateway Desktop remoto. 
@@ -135,7 +135,7 @@ Per configurare una soluzione di esempio per la farm di Gateway Desktop remoto, 
     Il modello può essere distribuito usando l'interfaccia della riga di comando di Azure usando il comando seguente:
 
     ```azurecli
-    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
+    az deployment group create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
     Di seguito sono riportate le descrizioni dei parametri:

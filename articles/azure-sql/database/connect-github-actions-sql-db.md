@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669743"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606981"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Usare GitHub Actions per connettersi a Database SQL di Azure
 
-Usare un flusso di lavoro [GitHub Actions](https://docs.github.com/en/actions) per distribuire aggiornamenti di database a [Database SQL di Azure](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Usare un flusso di lavoro [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) per distribuire aggiornamenti di database a [Database SQL di Azure](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ Il file è costituito da due sezioni:
 
 ## <a name="generate-deployment-credentials"></a>Generare le credenziali per la distribuzione
 
-È possibile creare un'[entità servizio](../../active-directory/develop/app-objects-and-service-principals.md) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova** .
+È possibile creare un'[entità servizio](../../active-directory/develop/app-objects-and-service-principals.md) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 Sostituire il segnaposto `server-name` con il nome del server SQL ospitato in Azure. Sostituire `subscription-id` e `resource-group` con l'ID sottoscrizione e il gruppo di risorse connessi al server SQL.  
 
@@ -68,7 +68,7 @@ L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forn
 
 ## <a name="copy-the-sql-connection-string"></a>Copiare la stringa di connessione SQL 
 
-Nel portale di Azure passare al database SQL di Azure e aprire **Impostazioni** > **Stringhe di connessione** . Copiare la stringa di connessione per **ADO.NET** . Sostituire i valori segnaposto `your_database` e `your_password`. La stringa di connessione avrà un aspetto simile a questo output. 
+Nel portale di Azure passare al database SQL di Azure e aprire **Impostazioni** > **Stringhe di connessione**. Copiare la stringa di connessione per **ADO.NET**. Sostituire i valori segnaposto `your_database` e `your_password`. La stringa di connessione avrà un aspetto simile a questo output. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
