@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cee7072f9bc844fb1f89168de3547dc726472b67
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328229"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695905"
 ---
 # <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con i modelli di Resource Manager
 Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale o un set di scalabilità di macchine virtuali usando i modelli Gestione risorse. Questa procedura può essere utilizzata per gli elementi seguenti:
@@ -55,7 +55,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 
 
 ```azurecli
-az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
 
 

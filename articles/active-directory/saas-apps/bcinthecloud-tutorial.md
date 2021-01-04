@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: adac6993c0fc40fa81328655903850c1da85ccf3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5b8d9cedcc2ca3085f342db0bbf5fe3704ac7242
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457368"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con BC in the Cloud
 
@@ -61,9 +61,9 @@ Per configurare l'integrazione di BC in the Cloud in Azure AD, è necessario agg
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **BC in the Cloud** , selezionare **BC in the Cloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **BC in the Cloud**, selezionare **BC in the Cloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![BC in the Cloud nell'elenco risultati](common/search-new-app.png)
+    ![BC in the Cloud nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BC in the Cloud, seguir
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di BC in the Cloud](https://www.bcinthecloud.com/supportcenter/).
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -124,13 +124,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con BC in the Cloud, seguir
 
 ### <a name="configure-bc-in-the-cloud-single-sign-on"></a>Configurare l'accesso Single Sign-On per BC in the Cloud
 
-Per configurare l'accesso Single Sign-On sul lato **BC in the Cloud** , è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di BC in the Cloud](https://www.bcinthecloud.com/supportcenter/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **BC in the Cloud**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di BC in the Cloud](https://www.bcinthecloud.com/supportcenter/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -143,7 +143,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
@@ -155,7 +155,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a BC in the Cloud.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **BC in the Cloud**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **BC in the Cloud**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

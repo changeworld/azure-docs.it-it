@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589913"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672900"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Esercitazione: Integrare Amazon Business con Azure Active Directory
 
@@ -74,12 +74,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
-   ![Modificare la configurazione SAML di base](common/edit-urls.png)
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 1. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     1. Nella casella di testo **Identificatore (ID entità)** digitare un URL in uno dei formati seguenti:
-    
+
        | URL | Region |
        |-|-|
        | `https://www.amazon.com`| America del Nord |
@@ -87,7 +87,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
        | `https://www.amazon.de`| Europa |
 
     1. Nella casella di testo **URL di risposta** digitare un URL in uno dei formati seguenti:
-    
+
        | URL | Region |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| America del Nord |
@@ -146,7 +146,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella procedura guidata **Set up SSO** (Configura accesso SSO) selezionare il provider in base alle esigenze dell'organizzazione e fare clic su **Next** (Avanti).
 
     ![Screenshot che mostra la schermata Set up SSO, con le opzioni Microsoft Azure AD e Next evidenziate.](media/amazon-business-tutorial/default-group1.png)
-    
+
     > [!NOTE]
     > Anche se il file system distribuito di Microsoft Azure è un'opzione inclusa nell'elenco, non funzionerà con l'accesso Single Sign-On di Azure AD.
 
@@ -193,12 +193,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Infine, nella sezione **SSO Connection details** (Dettagli della connessione SSO) **Status** (Stato) è impostato su **Active** (Attivo).
 
     ![Screenshot che mostra la schermata SSO Connection Details con lo stato Active.](media/amazon-business-tutorial/sso-connection5.png)
-    
+
     > [!NOTE]
     > Se si vuole configurare l'applicazione in modalità avviata da **SP**, completare la procedura seguente, incollare l'URL di accesso dallo screenshot precedente nella casella di testo **URL di accesso** della sezione **Impostare URL aggiuntivi** del portale di Azure. Utilizzare il seguente formato:
     >
     > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
-    
+
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
@@ -236,7 +236,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nell'elenco delle applicazioni selezionare **Amazon Business**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 

@@ -3,12 +3,12 @@ title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori
 description: Questo articolo esamina gli avvisi della metrica consigliati disponibili da monitoraggio di Azure per i contenitori in anteprima pubblica.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 16995246578dc8d3c009253d8384c6d7ff3911d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a81dfb3fab57b378a56bfa8ac8102d723a50dbbc
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186882"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695954"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
 
@@ -82,7 +82,7 @@ Le metriche basate sugli avvisi seguenti hanno caratteristiche di comportamento 
 
 Le metriche seguenti sono abilitate e raccolte, se non diversamente specificato, come parte di questa funzionalità:
 
-|Spazio dei nomi delle metriche |Metric |Descrizione |
+|Spazio dei nomi delle metriche |Metrica |Descrizione |
 |---------|----|------------|
 |Insights. contenitore/nodi |cpuUsageMillicores |Utilizzo della CPU in millicore da host.|
 |Insights. contenitore/nodi |cpuUsagePercentage |Percentuale di utilizzo della CPU per nodo.|
@@ -186,7 +186,7 @@ I passaggi di base sono i seguenti:
     ```azurecli
     az login
 
-    az group deployment create \
+    az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file templateFileName.json \

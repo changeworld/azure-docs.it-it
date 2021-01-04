@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e6afa26c65f097683a5b471dc34621cca38c01e6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377397"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679094"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Esercitazione: Pubblicare più versioni dell'API 
 
@@ -60,7 +60,7 @@ Immettere i valori dalla tabella seguente. Fare quindi clic su **Crea** per crea
 
 
 
-|Impostazione   |valore  |Descrizione  |
+|Impostazione   |Valore  |Descrizione  |
 |---------|---------|---------|
 |**Nome**     |  *demo-conference-api-v1*       |  Nome univoco nell'istanza di Gestione API.<br/><br/>Poiché una versione è in realtà una nuova API basata sulla [revisione](api-management-get-started-revise-api.md) di un'API, questa impostazione è il nome della nuova API.   |
 |**Schema di controllo delle versioni**     |  **Percorso**       |  Modo in cui i chiamanti specificano la versione dell'API.     |
@@ -111,4 +111,4 @@ In questa esercitazione sono state illustrate le procedure per:
 Passare all'esercitazione successiva:
 
 > [!div class="nextstepaction"]
-> [Personalizzare lo stile delle pagine del portale per sviluppatori](api-management-customize-styles.md)
+> [Personalizzare lo stile delle pagine del portale per sviluppatori](api-management-howto-developer-portal-customize.md)

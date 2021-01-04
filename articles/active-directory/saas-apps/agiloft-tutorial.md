@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c56f1ab546327aaf281ff3616fa489728f3885a6
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: cd926875eda5676da6c154a57b0ac18ca12d9b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296966"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671612"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Esercitazione: Integrazione di Azure Active Directory con Agiloft
 
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Agiloft in Azure AD, è necessario aggiungere 
 
 4. Nella casella di ricerca digitare **Agiloft**, selezionare **Agiloft** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Agiloft nell'elenco risultati](common/search-new-app.png)
+    ![Agiloft nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -184,7 +184,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 

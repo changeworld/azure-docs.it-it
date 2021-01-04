@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 20f66621368840b5d496000186e6be0e36aff19a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 79c6a5959d000217dcb69370b0e0ac4ccc18ccdd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319202"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Esercitazione: Integrazione di Azure Active Directory con 15Five
 
@@ -63,7 +63,7 @@ Per configurare l'integrazione di 15Five in Azure AD, è necessario aggiungere 1
 
 4. Nella casella di ricerca digitare **15Five**, selezionare **15Five** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![15Five nell'elenco risultati](common/search-new-app.png)
+    ![15Five nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -143,7 +143,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 

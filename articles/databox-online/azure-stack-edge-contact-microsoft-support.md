@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2019
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743302"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696035"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Aprire un ticket di supporto per Azure Stack Edge Pro e Azure Data Box Gateway
 
@@ -24,7 +24,7 @@ Questo articolo si applica a Azure Stack Edge Pro e Azure Data Box Gateway entra
 
 ## <a name="create-a-support-request"></a>Creare una richiesta di supporto
 
-Per creare una richiesta di supporto, attenersi alla procedura seguente.
+Per creare una richiesta di supporto, attenersi alla procedura seguente:
 
 1. Passare a Azure Stack Edge Pro o Data Box Gateway ordine. Passare alla sezione **Supporto e risoluzione dei problemi** e quindi selezionare **Nuova richiesta di supporto**.
 
@@ -51,7 +51,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
     6. Nell'elenco a discesa selezionare il tipo di **Gravità**.
     7. Selezionare il **Metodo di contatto preferito**.
     8. Il campo **Ore per la risposta** viene selezionato automaticamente in base al piano di sottoscrizione effettuato.
-    9. Specificare la lingua preferita per il supporto.
+    9. Fornire la lingua preferita per il supporto.
     10. In **Informazioni di contatto** specificare nome, posta elettronica, numero di telefono, contatto facoltativo, Paese. Il supporto tecnico Microsoft usa queste informazioni per contattare l'utente per altre informazioni, la diagnostica e la risoluzione. 
     11. Selezionare **Avanti: Rivedi e crea >>** .
 
@@ -61,7 +61,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
     ![Problema 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
-    Dopo avere creato il ticket di supporto, si verrà presto contattati da un tecnico del supporto per procedere con la richiesta.
+    Dopo aver creato il ticket di supporto, un tecnico del supporto contatterà il prima possibile per procedere con la richiesta.
 
 ## <a name="get-hardware-support"></a>Ottenere il supporto hardware
 
@@ -73,12 +73,12 @@ Queste informazioni si applicano solo al dispositivo Azure Stack. Di seguito è 
 
     Dopo avere creato il ticket di supporto, si verrà presto contattati da un tecnico del supporto per procedere con la richiesta.
 
-2. Se il supporto tecnico Microsoft determina che si tratta di un problema hardware, viene eseguita una delle azioni seguenti:
+2. Se supporto tecnico Microsoft determina che si tratta di un problema hardware, viene eseguita una delle azioni seguenti:
 
-    * Viene inviata un'unità sostituibile sul campo per il componente hardware in cui si è verificato l'errore. Attualmente, le uniche unità sostituibili sul campo disponibili sono le unità di alimentazione e i dischi rigidi.
+    * Viene inviata un'unità sostituibile sul campo per il componente hardware in cui si è verificato l'errore. Attualmente, le unità di alimentazione e le unità SSD sono le uniche FRU supportate.
     * Solo le unità sostituibili sul campo vengono sostituite entro il giorno lavorativo successivo. Per tutti gli altri componenti, è necessaria la spedizione di un'unità di sostituzione completa del sistema.
 
-3. Se viene emesso un ticket di supporto prima delle 16:30 ora locale (dal lunedì al venerdì), il giorno lavorativo successivo verrà inviato un tecnico presso la sede del cliente per provvedere ala sostituzione di un'unità sostituibile sul campo o di un'unità completa.
+3. Se viene generato un ticket di supporto prima dell'ora locale 4:30 PM (dal lunedì al venerdì), un tecnico in sede invia il giorno lavorativo successivo alla località per eseguire una sostituzione della FRU. Una sostituzione completa del sistema richiede in genere molto più tempo perché le parti vengono spedite dalla nostra fabbrica e possono essere soggette a ritardi di trasporto e di dogana.
 
 ## <a name="manage-a-support-request"></a>Gestire una richiesta di supporto
 

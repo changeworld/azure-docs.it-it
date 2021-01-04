@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b2f50ba910e3e47c55a63f58bc9f5e978e80e95a
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0ae4a311bc4f5084ff930b97d68482d64671a782
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401186"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695752"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gestire la disponibilità delle macchine virtuali Linux
 
@@ -40,7 +40,6 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 * Usare Eventi pianificati per rispondere in modo proattivo agli eventi che hanno impatto sulle macchine virtuali
 * Configurare ogni livello dell'applicazione in set di disponibilità separati
 * Combinare il bilanciamento del carico con zone o set di disponibilità
-* Usare le zone di disponibilità per la protezione dagli errori a livello di data center
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Usare le zone di disponibilità per la protezione dagli errori a livello di data center
 

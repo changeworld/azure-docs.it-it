@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d82fa5b44d4797d4254a91b4caa72b7c6b5e02ab
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9a98a77b9cc89b7a1a05e676048775aa38c83733
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309234"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671993"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Experience Manager
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di Adobe Experience Manager in Azure AD, è neces
 
 4. Nella casella di ricerca digitare **Adobe Experience Manager**, selezionare **Adobe Experience Manager** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Adobe Experience Manager nell'elenco dei risultati](common/search-new-app.png)
+    ![Adobe Experience Manager nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -215,7 +215,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
@@ -253,7 +253,7 @@ In questa sezione viene concesso a Britta Simon l'accesso ad Adobe Experience Ma
 
 In questa sezione viene creato un utente di nome Britta Simon in Adobe Experience Manager. Se è stata selezionata l'opzione **Autocreate CRX Users** (Creazione automatica utenti CRX), gli utenti vengono creati automaticamente dopo l'autenticazione.
 
-Se si vogliono creare utenti manualmente, collaborare con il [team di supporto di Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html)  per aggiungere gli utenti alla piattaforma Adobe Experience Manager.
+Se si vogliono creare utenti manualmente, collaborare con il [team di supporto di Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html) per aggiungere gli utenti nella piattaforma Adobe Experience Manager.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

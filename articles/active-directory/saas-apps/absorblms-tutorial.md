@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 31b0a4fd8d97371eb4e127a2a473893a0487f220
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3d90d35e113b5f9757faf59681bb2532b66f2b09
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319082"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Esercitazione: Integrazione di Azure Active Directory con Absorb LMS
 
@@ -66,7 +66,7 @@ Per configurare l'integrazione di Absorb LMS in Azure AD, è necessario aggiunge
 
 4. Nella casella di ricerca digitare **Absorb LMS**, selezionare **Absorb LMS** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Absorb LMS nell'elenco risultati](common/search-new-app.png)
+    ![Absorb LMS nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -196,7 +196,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare `brittasimon\@yourcompanydomain.extension`.  
     Ad esempio, usare BrittaSimon@contoso.com
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 91d48e42dc1c92e05e963b4c8b53e44daa403378
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f999818ab791cabac6b0877b7735fa730dab89e2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456696"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Esercitazione: Integrazione di Azure Active Directory con Brightspace by Desire2Learn
 
@@ -64,9 +64,9 @@ Per configurare l'integrazione di Brightspace by Desire2Learn in Azure AD, è ne
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Brightspace by Desire2Learn** , selezionare **Brightspace by Desire2Learn** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Brightspace by Desire2Learn**, selezionare **Brightspace by Desire2Learn** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Brightspace by Desire2Learn nell'elenco risultati](common/search-new-app.png)
+    ![Brightspace by Desire2Learn nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Brightspace by Desire2L
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Brightspace by Desire2Learn](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
-    
+
     ```http
     https://<companyname>.tenants.brightspace.com/samlLogin
     https://<companyname>.desire2learn.com/shibboleth-sp
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Brightspace by Desire2L
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Brightspace by Desire2Learn](https://www.d2l.com/contact/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -132,13 +132,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Brightspace by Desire2L
 
 ### <a name="configure-brightspace-by-desire2learn-single-sign-on"></a>Configurare l'accesso Single Sign-On per Brightspace by Desire2Learn
 
-Per configurare l'accesso Single Sign-On sul lato **Brightspace by Desire2Learn** , è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Brightspace by Desire2Learn](https://www.d2l.com/contact/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Brightspace by Desire2Learn**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Brightspace by Desire2Learn](https://www.d2l.com/contact/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -151,7 +151,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
@@ -163,7 +163,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Brightspace by Desire2Learn.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Brightspace by Desire2Learn**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Brightspace by Desire2Learn**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b0e0703105094507a9f6a16bf30775354f67b950
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d1f45244d09ce55b61b04d88ce2eb4a16289b1ab
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457697"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Esercitazione: Integrazione di Azure Active Directory con ASC Contracts
 
@@ -53,7 +53,7 @@ Per configurare l'integrazione di ASC Contracts in Azure AD, è necessario aggiu
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Per configurare l'integrazione di ASC Contracts in Azure AD, è necessario aggiu
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **ASC Contracts** , selezionare **ASC Contracts** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **ASC Contracts**, selezionare **ASC Contracts** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![ASC Contracts nell'elenco dei risultati](common/search-new-app.png)
+    ![ASC Contracts nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ASC Contracts con un utente di test di nome **Britta Simon** .
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ASC Contracts con un utente di test di nome **Britta Simon**.
 Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ASC Contracts.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ASC Contracts, è necessario completare i blocchi predefiniti seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con ASC Contracts, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **ASC Contracts** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **ASC Contracts** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ASC Contracts, seguire 
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ASC Contracts, seguire 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Contattare il team ASC Networks Inc. (ASC) al numero **613.599.6178** per ottenere questi valori.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -124,13 +124,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con ASC Contracts, seguire 
 
 ### <a name="configure-asc-contracts-single-sign-on"></a>Configurare l'accesso Single Sign-On di ASC Contracts
 
-Per configurare l'accesso single sign-on sul lato **ASC Contracts** , chiamare il supporto ASC Networks Inc. (ASC) al numero **613.599.6178** e fornire il file di **XML metadati federazione** scaricato. L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso single sign-on sul lato **ASC Contracts**, chiamare il supporto ASC Networks Inc. (ASC) al numero **613.599.6178** e fornire il file di **XML metadati federazione** scaricato. L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -142,24 +142,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon** .
-  
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea** .
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad ASC Contracts.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **ASC Contracts** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ASC Contracts**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni, selezionare **ASC Contracts** .
+2. Nell'elenco di applicazioni, selezionare **ASC Contracts**.
 
     ![Collegamento di ASC Contracts nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -167,7 +167,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -175,7 +175,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-asc-contracts-test-user"></a>Creare un utente di test di ASC Contracts
 

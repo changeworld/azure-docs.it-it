@@ -4,12 +4,12 @@ description: Informazioni su come abilitare il monitoraggio di un cluster Azure 
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 9f3b9240bc10f4eaa4c9967d8c7bbb956eeab4e1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 547c22e4d82aa728009a2fdb42f2c3b481b7a625
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735138"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695647"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Abilitare il monitoraggio del cluster di Azure Kubernetes Service (AKS) già distribuito
 
@@ -28,7 +28,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Abilitare tramite l'interfaccia della riga di comando di Azure
 
-La procedura seguente abilita il monitoraggio del cluster servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare in anticipo o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes se non ne esiste già una nella regione.  L'area di lavoro predefinita creata è simile al formato di *DefaultWorkspace \<GUID> - \<Region> -* .
+La procedura seguente abilita il monitoraggio del cluster servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare in anticipo o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes se non ne esiste già una nella regione.  L'area di lavoro predefinita creata è simile al formato di *DefaultWorkspace \<GUID> - \<Region> -*.
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -58,7 +58,7 @@ Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attene
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    Copiare il valore per **SubscriptionId** .
+    Copiare il valore per **SubscriptionId**.
 
 2. Passare alla sottoscrizione che ospita l'area di lavoro Log Analytics usando il comando seguente:
 
@@ -105,13 +105,13 @@ Se si preferisce eseguire l'integrazione con un'area di lavoro esistente, attene
 
 Per abilitare il monitoraggio del cluster servizio Azure Kubernetes nel portale di Azure da Monitoraggio di Azure, seguire questa procedura:
 
-1. Nel portale di Azure selezionare **Monitoraggio** .
+1. Nel portale di Azure selezionare **Monitoraggio**.
 
 2. Selezionare **Contenitori** dall'elenco.
 
-3. Nella pagina **monitoraggio-contenitori** selezionare cluster non **monitorati** .
+3. Nella pagina **monitoraggio-contenitori** selezionare cluster non **monitorati**.
 
-4. Dall'elenco dei cluster non monitorati trovare il contenitore nell'elenco e fare clic su **Abilita** .
+4. Dall'elenco dei cluster non monitorati trovare il contenitore nell'elenco e fare clic su **Abilita**.
 
 5. Se nella pagina **Onboarding di Monitoraggio di Azure per i contenitori** è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione del cluster, selezionarla nell'elenco a discesa.
     Nell'elenco sono preselezionate l'area di lavoro e la località predefinite in cui è distribuito il contenitore servizio Azure Kubernetes nella sottoscrizione.
@@ -127,15 +127,15 @@ Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti pr
 
 Per abilitare il monitoraggio direttamente da uno dei cluster AKS nell'portale di Azure, seguire questa procedura:
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** .
+1. Nel portale di Azure fare clic su **Tutti i servizi**.
 
-2. Nell'elenco delle risorse digitare **Contenitori** .  L'elenco viene filtrato in base all'input.
+2. Nell'elenco delle risorse digitare **Contenitori**.  L'elenco viene filtrato in base all'input.
 
-3. Selezionare **Servizi Kubernetes** .
+3. Selezionare **Servizi Kubernetes**.
     
 4. Nell'elenco dei servizi Kubernetes selezionare un servizio.
 
-5. Nella pagina di panoramica del servizio Kubernetes selezionare **monitoraggio-informazioni dettagliate** .
+5. Nella pagina di panoramica del servizio Kubernetes selezionare **monitoraggio-informazioni dettagliate**.
 
 6. Se nella pagina **Onboarding di Monitoraggio di Azure per i contenitori** è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione del cluster, selezionarla dall'elenco a discesa.
     Nell'elenco sono preselezionate l'area di lavoro e la località predefinite in cui è distribuito il contenitore servizio Azure Kubernetes nella sottoscrizione.
@@ -280,7 +280,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
        ```azurecli
        az login
        az account set --subscription "Subscription Name"
-       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       az deployment group create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
        ```
 
        Il completamento della modifica della configurazione può richiedere alcuni minuti. Al termine dell'operazione, viene visualizzato un messaggio simile al seguente in cui è incluso il risultato:

@@ -9,16 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904959"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679081"
 ---
-# <a name="tutorial---migrate-web-service-from-bing-maps"></a>Esercitazione - Eseguire la migrazione di un servizio Web da Bing Maps
+# <a name="tutorial-migrate-web-service-from-bing-maps"></a>Esercitazione: Eseguire la migrazione di un servizio Web da Bing Maps
 
-Sia Mappe di Azure che Bing Maps forniscono l'accesso alle API spaziali tramite servizi Web REST. Le interfacce API per queste piattaforme eseguono funzionalità simili, ma usano convenzioni di denominazione e oggetti risposta diversi.
+Sia Mappe di Azure che Bing Maps forniscono l'accesso alle API spaziali tramite servizi Web REST. Le interfacce API per queste piattaforme eseguono funzionalità simili, ma usano convenzioni di denominazione e oggetti risposta diversi. In questa esercitazione verranno illustrate le procedure per:
+
+> * Geocodifica diretta e inversa
+> * Cercare i punti di interesse
+> * Calcolare percorsi e indicazioni
+> * Recuperare un'immagine mappa
+> * Calcolare una matrice di distanze
+> * Ottenere dettagli sul fuso orario
 
 La tabella seguente illustra le API del servizio Mappe di Azure che forniscono funzionalità simili alle API del servizio Bing Maps.
 
@@ -59,6 +66,12 @@ Assicurarsi di consultare anche le seguenti guide alle procedure consigliate:
 -   [Procedure consigliate per la ricerca](./how-to-use-best-practices-for-search.md)
 -   [Procedure consigliate per la pianificazione percorso](./how-to-use-best-practices-for-routing.md)
 
+## <a name="prerequisites"></a>Prerequisiti
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+2. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+
 ## <a name="geocoding-addresses"></a>Geocodifica di indirizzi
 
 La geocodifica è il processo di conversione di un indirizzo, ad esempio `"1 Microsoft way, Redmond, WA"`, in una coordinata, ad esempio longitudine: -122.1298, latitudine: 47.64005. Le coordinate vengono quindi usate spesso per posizionare una puntina su una mappa o per centrare una mappa.
@@ -91,9 +104,9 @@ Le tabelle seguenti contengono riferimenti incrociati tra i parametri delle API 
 
 Mappe di Azure supporta anche:
 
--   `countrySecondarySubdivision`: contea, distretti
--   `countryTertiarySubdivision`: aree denominate; borghi, cantoni, comuni
--   `ofs`: scorrere i risultati in combinazione con il parametro `maxResults`.
+* `countrySecondarySubdivision`: contea, distretti
+* `countryTertiarySubdivision`: aree denominate; borghi, cantoni, comuni
+* `ofs`: scorrere i risultati in combinazione con il parametro `maxResults`.
 
 **Posizione in base a query (stringa di indirizzo in formato libero)**
 
@@ -109,10 +122,10 @@ Mappe di Azure supporta anche:
 
 Mappe di Azure supporta anche:
 
--   `typeahead`: specifica se la query verrà interpretata come input parziale e la ricerca passerà in modalità predittiva (suggerimenti automatici/completamento automatico).
--   `countrySet`: elenco di codici di paesi ISO2 delimitati da virgole in base a cui limitare la ricerca.
--   `lat`/`lon`, `topLeft`/`btmRight`, `radius`: specificare la posizione e l'area utente per rendere i risultati più pertinenti a livello locale.
--   `ofs`: scorrere i risultati in combinazione con il parametro `maxResults`.
+* `typeahead`: specifica se la query verrà interpretata come input parziale e la ricerca passerà in modalità predittiva (suggerimenti automatici/completamento automatico).
+* `countrySet`: elenco di codici di paesi ISO2 delimitati da virgole in base a cui limitare la ricerca.
+* `lat`/`lon`, `topLeft`/`btmRight`, `radius`: specificare la posizione e l'area utente per rendere i risultati più pertinenti a livello locale.
+* `ofs`: scorrere i risultati in combinazione con il parametro `maxResults`.
 
 Un esempio di utilizzo del servizio di ricerca è documentato [qui](./how-to-search-for-address.md). Assicurarsi di esaminare la documentazione relativa alle [procedure consigliate per la ricerca](./how-to-use-best-practices-for-search.md).
 
@@ -142,9 +155,9 @@ Assicurarsi di esaminare la documentazione relativa alle [procedure consigliate 
 
 L'API di geocodifica inversa di Mappe di Azure include alcune funzionalità aggiuntive non disponibili in Bing Maps che potrebbero essere utili da integrare durante la migrazione dell'app:
 
--   Recupero dei dati sui limiti di velocità.
--   Recupero delle informazioni specifiche della strada: strada locale, arteria, accesso limitato, rampa e così via.
--   Lato della strada corrispondente alla coordinata specificata.
+* Recupero dei dati sui limiti di velocità.
+* Recupero delle informazioni specifiche della strada: strada locale, arteria, accesso limitato, rampa e così via.
+* Lato della strada corrispondente alla coordinata specificata.
 
 **Tabella di confronto dei tipi di entità**
 
@@ -174,10 +187,10 @@ Diverse API di ricerca di Mappe di Azure supportano la modalità predittiva che 
 
 È possibile usare Mappe di Azure per calcolare percorsi e indicazioni. Mappe di Azure offre numerose funzionalità uguali a quelle del servizio di pianificazione percorso di Bing Maps, ad esempio:
 
--   Orari di arrivo e di partenza
--   Percorsi del traffico basati su previsioni e in tempo reale
--   Modalità di trasporto diverse, ad esempio in auto, a piedi, in camion
--   Ottimizzazione dell'ordine dei punti di tragitto
+* Orari di arrivo e di partenza
+* Percorsi del traffico basati su previsioni e in tempo reale
+* Modalità di trasporto diverse, ad esempio in auto, a piedi, in camion
+* Ottimizzazione dell'ordine dei punti di tragitto
 
 > [!NOTE]
 > Mappe di Azure richiede che tutti i punti di tragitto siano coordinate. È quindi prima necessario eseguire la geocodifica degli indirizzi.
@@ -237,21 +250,21 @@ Assicurarsi di vedere la documentazione relativa alle [procedure consigliate per
 
 L'API di pianificazione percorso di Mappe di Azure include numerose funzionalità aggiuntive non disponibili in Bing Maps che potrebbe essere utile integrare durante la migrazione dell'app:
 
--   Supporto per il tipo di percorso: più breve, più veloce, più interessante/panoramico e con minore consumo di carburante.
--   Supporto per modalità di viaggio aggiuntive: bicicletta, autobus, motocicletta, taxi, camion e furgone.
--   Supporto per 150 punti di tragitto.
--   Calcolo di più tempi di viaggio in un'unica richiesta. Traffico cronologico, traffico in tempo reale, senza traffico.
--   Possibilità di evitare tipi di strade aggiuntivi: corsie preferenziali, strade non asfaltate, strade già usate.
--   Pianificazione percorso basato sulle specifiche del motore. Calcolo dei percorsi per veicoli a combustione o elettrici in base al carburante o alla carica rimanente e alle specifiche del motore.
--   Possibilità di specificare la velocità massima del veicolo.
+* Supporto per il tipo di percorso: più breve, più veloce, più interessante/panoramico e con minore consumo di carburante.
+* Supporto per modalità di viaggio aggiuntive: bicicletta, autobus, motocicletta, taxi, camion e furgone.
+* Supporto per 150 punti di tragitto.
+* Calcolo di più tempi di viaggio in un'unica richiesta. Traffico cronologico, traffico in tempo reale, senza traffico.
+* Possibilità di evitare tipi di strade aggiuntivi: corsie preferenziali, strade non asfaltate, strade già usate.
+* Pianificazione percorso basato sulle specifiche del motore. Calcolo dei percorsi per veicoli a combustione o elettrici in base al carburante o alla carica rimanente e alle specifiche del motore.
+* Possibilità di specificare la velocità massima del veicolo.
 
 ## <a name="snap-coordinates-to-road"></a>Allineare le coordinate alla strada
 
 Esistono diversi modi per allineare le coordinate alle strade in Mappe di Azure.
 
--   Usare l'API di indicazioni percorso per allineare le coordinate a un percorso logico lungo la rete stradale.
--   Usare Azure Maps Web SDK per allineare singole coordinate alla strada più vicina nelle tessere vettoriali.
--   Usare direttamente le tessere vettoriali di Mappe di Azure per allineare singole coordinate.
+* Usare l'API di indicazioni percorso per allineare le coordinate a un percorso logico lungo la rete stradale.
+* Usare Azure Maps Web SDK per allineare singole coordinate alla strada più vicina nelle tessere vettoriali.
+* Usare direttamente le tessere vettoriali di Mappe di Azure per allineare singole coordinate.
 
 **Uso dell'API di indicazioni percorso per allineare le coordinate**
 
@@ -259,8 +272,8 @@ Mappe di Azure consente di allineare le coordinate alle strade tramite l'API di 
 
 Esistono due modi diversi per usare l'API di indicazioni percorso per allineare le coordinate alle strade.
 
--   Se le coordinate sono al massimo 150, possono essere passate come punti di tragitto nell'API GET di indicazioni percorso. Con questo approccio è possibile recuperare due tipi diversi di dati allineati: le istruzioni sul percorso conterranno i singoli punti di tragitto allineati, mentre il tragitto del percorso avrà un set interpolato di coordinate che riempiono il percorso completo tra le coordinate.
--   Se le coordinate sono più di 150, è possibile usare l'API POST di indicazioni percorso. Le coordinate di inizio e di fine devono essere passate nel parametro di query, ma tutte le coordinate possono essere passate nel parametro `supportingPoints` nel corpo della richiesta POST e formattate come una raccolta di punti geometrici GeoJSON. Gli unici dati allineati disponibili con questo approccio corrispondono al tragitto del percorso, ovvero un set interpolato di coordinate che riempiono il tragitto completo tra le coordinate. [Ecco un esempio](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) di questo approccio usando il modulo dei servizi di Azure Maps Web SDK.
+* Se le coordinate sono al massimo 150, possono essere passate come punti di tragitto nell'API GET di indicazioni percorso. Con questo approccio è possibile recuperare due tipi diversi di dati allineati: le istruzioni sul percorso conterranno i singoli punti di tragitto allineati, mentre il tragitto del percorso avrà un set interpolato di coordinate che riempiono il percorso completo tra le coordinate.
+* Se le coordinate sono più di 150, è possibile usare l'API POST di indicazioni percorso. Le coordinate di inizio e di fine devono essere passate nel parametro di query, ma tutte le coordinate possono essere passate nel parametro `supportingPoints` nel corpo della richiesta POST e formattate come una raccolta di punti geometrici GeoJSON. Gli unici dati allineati disponibili con questo approccio corrispondono al tragitto del percorso, ovvero un set interpolato di coordinate che riempiono il tragitto completo tra le coordinate. [Ecco un esempio](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) di questo approccio usando il modulo dei servizi di Azure Maps Web SDK.
 
 La tabella seguente include i riferimenti incrociati tra i parametri delle API di Bing Maps e i parametri equivalenti delle API di Mappe di Azure.
 
@@ -368,9 +381,7 @@ In Bing Maps è ad esempio possibile aggiungere alla mappa una puntina rossa con
 
 > `&pushpin=45,-110;7;AB`
 
-<center>
-
-![Puntina di mappa statica di Bing Maps](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)</center>
+![Puntina di mappa statica di Bing Maps](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -384,21 +395,21 @@ Per quanto riguarda le posizioni delle puntine, Mappe di Azure richiede che le c
 
 Il valore `iconType` specifica il tipo di segnaposto da creare con i valori possibili seguenti:
 
--   `default`: icona predefinita del segnaposto.
--   `none`: nessuna icona visualizzata. Verrà eseguito il rendering solo delle etichette.
--   `custom`: specifica che è necessario usare un'icona personalizzata. È possibile aggiungere un URL che punta all'immagine dell'icona alla fine del parametro `pins` dopo le informazioni sulla posizione del segnaposto.
--   `{udid}`: ID dati univoco (UDID) per un'icona archiviata nella piattaforma di archiviazione dati di Mappe di Azure.
+* `default`: icona predefinita del segnaposto.
+* `none`: nessuna icona visualizzata. Verrà eseguito il rendering solo delle etichette.
+* `custom`: specifica che è necessario usare un'icona personalizzata. È possibile aggiungere un URL che punta all'immagine dell'icona alla fine del parametro `pins` dopo le informazioni sulla posizione del segnaposto.
+* `{udid}`: ID dati univoco (UDID) per un'icona archiviata nella piattaforma di archiviazione dati di Mappe di Azure.
 
 Gli stili dei segnaposto in Mappe di Azure vengono aggiunti con il formato `optionNameValue`, con più stili separati dalla barra verticale (`|`), ad esempio: `iconType|optionName1Value1|optionName2Value2`. Si noti che i nomi e i valori delle opzioni non sono separati. È possibile usare i nomi delle opzioni di stile seguenti per le puntine in Mappe di Azure:
 
--   `al`: specifica l'opacità (alfa) delle puntine. Può essere un numero compreso tra 0 e 1.
--   `an`: specifica l'ancoraggio del segnaposto. Valori x e y in pixel specificati nel formato `x y`.
--   `co`: colore del segnaposto. Deve essere un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
--   `la`: specifica l'ancoraggio dell'etichetta. Valori x e y in pixel specificati nel formato `x y`.
--   `lc`: colore dell'etichetta. Deve essere un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
--   `ls`: dimensioni dell'etichetta in pixel. Può essere un numero maggiore di 0.
--   `ro`: valore in gradi per la rotazione dell'icona. Può essere un numero compreso tra -360 e 360.
--   `sc`: valore di scala per l'icona del segnaposto. Può essere un numero maggiore di 0.
+* `al`: specifica l'opacità (alfa) delle puntine. Può essere un numero compreso tra 0 e 1.
+* `an`: specifica l'ancoraggio del segnaposto. Valori x e y in pixel specificati nel formato `x y`.
+* `co`: colore del segnaposto. Deve essere un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
+* `la`: specifica l'ancoraggio dell'etichetta. Valori x e y in pixel specificati nel formato `x y`.
+* `lc`: colore dell'etichetta. Deve essere un colore esadecimale a 24 bit: da `000000` a `FFFFFF`.
+* `ls`: dimensioni dell'etichetta in pixel. Può essere un numero maggiore di 0.
+* `ro`: valore in gradi per la rotazione dell'icona. Può essere un numero compreso tra -360 e 360.
+* `sc`: valore di scala per l'icona del segnaposto. Può essere un numero maggiore di 0.
 
 Vengono specificati valori di etichette per la posizione di ogni puntina, invece di un singolo valore di etichetta applicato a tutte le puntine nell'elenco di posizioni. Il valore dell'etichetta può essere costituito da una stringa di più caratteri racchiusa tra virgolette singole per assicurarsi che non venga interpretato come valore di stile o posizione.
 
@@ -406,17 +417,13 @@ In Mappe di Azure, ad esempio, è possibile aggiungere un'icona predefinita di c
 
 > `&pins=default|coFF0000|la15 50||'Space Needle'-122.349300 47.620180`
 
-<center>
-
-![Puntina di mappa statica di Mappe di Azure](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)</center>
+![Puntina di mappa statica di Mappe di Azure](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)
 
 Nell'esempio seguente vengono aggiunti tre segnaposto con i valori di etichetta '1', '2' e '3':
 
 > `&pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12`
 
-<center>
-
-![Più puntine di mappa statica di Mappe di Azure](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)</center>
+![Più puntine di mappa statica di Mappe di Azure](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)
 
 ### <a name="draw-curve-url-parameter-format-comparison"></a>Confronto tra il formato dei parametri URL per il disegno di curve
 
@@ -436,9 +443,7 @@ In Bing Maps, ad esempio, è possibile aggiungere alla mappa una linea blu con i
 
 `&drawCurve=l,FF000088,4;45,-110_50,-100`
 
-<center>
-
-![Linea di mappa statica di Bing Maps](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)</center>
+![Linea di mappa statica di Bing Maps](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -450,20 +455,18 @@ Per quanto riguarda le posizioni dei tragitti, Mappe di Azure richiede che le co
 
 Gli stili dei percorsi in Mappe di Azure vengono aggiunti con il formato `optionNameValue`, con più stili separati dalla barra verticale (`|`), ad esempio: `optionName1Value1|optionName2Value2`. Si noti che i nomi e i valori delle opzioni non sono separati. È possibile usare i nomi delle opzioni di stile seguenti per applicare uno stile ai percorsi in Mappe di Azure:
 
--   `fa`: opacità del colore di riempimento (alfa) usata per il rendering dei poligoni. Può essere un numero compreso tra 0 e 1.
--   `fc`: colore di riempimento usato per il rendering dell'area di un poligono.
--   `la`: opacità del colore della linea (alfa) usata per il rendering delle linee e del contorno dei poligoni. Può essere un numero compreso tra 0 e 1.
--   `lc`: colore della linea usato per il rendering delle linee e del contorno dei poligoni.
--   `lw`: larghezza della linea in pixel.
--   `ra`: specifica il raggio di un cerchio in metri.
+* `fa`: opacità del colore di riempimento (alfa) usata per il rendering dei poligoni. Può essere un numero compreso tra 0 e 1.
+* `fc`: colore di riempimento usato per il rendering dell'area di un poligono.
+* `la`: opacità del colore della linea (alfa) usata per il rendering delle linee e del contorno dei poligoni. Può essere un numero compreso tra 0 e 1.
+* `lc`: colore della linea usato per il rendering delle linee e del contorno dei poligoni.
+* `lw`: larghezza della linea in pixel.
+* `ra`: specifica il raggio di un cerchio in metri.
 
 In Mappe di Azure, ad esempio, è possibile aggiungere alla mappa una linea blu con il 50% di opacità e uno spessore di quattro pixel tra le coordinate (longitudine: -110, latitudine: 45 e longitudine: -100, latitudine: 50) con il parametro URL seguente:
 
 > `&path=lc0000FF|la.5|lw4||-110 45|-100 50`
 
-<center>
-
-![Linea di mappa statica di Mappe di Azure](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)</center>
+![Linea di mappa statica di Mappe di Azure](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)
 
 ## <a name="calculate-a-distance-matrix"></a>Calcolare una matrice di distanze
 
@@ -547,8 +550,8 @@ Assicurarsi di esaminare la documentazione relativa alle [procedure consigliate 
 
 Mappe di Azure offre diverse API per recuperare i dati sul traffico. Sono disponibili due tipi di dati sul traffico:
 
--   **Dati sul flusso**: metriche sul flusso di traffico in sezioni di strade. Si usano spesso per applicare codici colore alle strade. Questi dati vengono aggiornati ogni 2 minuti.
--   **Dati sugli incidenti**: dati su lavori in corso, chiusure di strade, incidenti e altri eventi che possono influire sul traffico. Questi dati vengono aggiornati ogni minuto.
+* **Dati sul flusso**: metriche sul flusso di traffico in sezioni di strade. Si usano spesso per applicare codici colore alle strade. Questi dati vengono aggiornati ogni 2 minuti.
+* **Dati sugli incidenti**: dati su lavori in corso, chiusure di strade, incidenti e altri eventi che possono influire sul traffico. Questi dati vengono aggiornati ogni minuto.
 
 Bing Maps fornisce i dati sul flusso del traffico e sugli incidenti nei controlli mappa interattivi e rende anche disponibili i dati sugli incidenti come servizio.
 
@@ -602,9 +605,9 @@ Oltre a questo, la piattaforma Mappe di Azure fornisce anche alcune API aggiunti
 
 I servizi dati spaziali di Bing Maps forniscono tre funzionalità principali:
 
--   Geocodifica batch: elaborazione di un batch di grandi dimensioni di geocodici di indirizzi con un'unica richiesta.
--   Recupero di dati dei confini amministrativi: uso di una coordinata per ottenere il confine di intersezione per un tipo di entità specificato.
--   Hosting e query di dati aziendali spaziali: caricamento di una semplice tabella 2D di dati accessibile con alcune semplici query spaziali.
+* Geocodifica batch: elaborazione di un batch di grandi dimensioni di geocodici di indirizzi con un'unica richiesta.
+* Recupero di dati dei confini amministrativi: uso di una coordinata per ottenere il confine di intersezione per un tipo di entità specificato.
+* Hosting e query di dati aziendali spaziali: caricamento di una semplice tabella 2D di dati accessibile con alcune semplici query spaziali.
 
 ### <a name="batch-geocode-data"></a>Dati di geocodifica batch
 
@@ -660,7 +663,11 @@ Mappe di Azure fornisce le librerie client per i linguaggi di programmazione seg
 
 Librerie client open source per altri linguaggi di programmazione:
 
--   .NET Standard 2.0 - [Progetto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [Pacchetto NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+* .NET Standard 2.0 - [Progetto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [Pacchetto NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Non è possibile pulire le risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -668,15 +675,3 @@ Altre informazioni sui servizi REST di Mappe di Azure.
 
 > [!div class="nextstepaction"]
 > [Procedure consigliate per l'uso del servizio di ricerca](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Procedure consigliate per l'uso del servizio di pianificazione percorso](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Esempi di codice](/samples/browse/?products=azure-maps)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 36d6d40b471edb20f2e4294a4ba29323fac2ebc6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8010bf25cc62d2de1b8b6ff9c0ecdc140c02c6a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457487"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Esercitazione: Integrazione di Azure Active Directory con Autotask Workplace
 
@@ -67,7 +67,7 @@ Per configurare l'integrazione di Autotask Workplace in Azure AD, è necessario 
 
 4. Nella casella di ricerca digitare **Autotask Workplace**, selezionare **Autotask Workplace** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Autotask Workplace nell'elenco risultati](common/search-new-app.png)
+    ![Autotask Workplace nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -173,7 +173,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 

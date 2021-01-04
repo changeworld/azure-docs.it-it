@@ -4,12 +4,12 @@ description: Questo articolo descrive come interrompere il monitoraggio del clus
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 99c4ecb6c8b77f1576f25816ba486ed262249c32
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96011643"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695699"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 
@@ -135,7 +135,7 @@ Eseguire il comando seguente con l'interfaccia della riga di comando di Azure in
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 Il completamento della modifica della configurazione può richiedere alcuni minuti. Al termine, viene restituito un messaggio simile al seguente che include il risultato:

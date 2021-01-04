@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc
-ms.openlocfilehash: 4fd652885bb7a78dd1c27c5d9c0e5188af240f96
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15e94b647b0f12baceffc60ad1c6ab81cc84cf22
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364447"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631956"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Esercitazione: Distribuire un'app Django nel servizio Azure Kubernetes con il server flessibile di Database di Azure per PostgreSQL
 
@@ -109,7 +109,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-postgresql---flexible-server"></a>Creare un server flessibile di Database di Azure per PostgreSQL
-Creare un server flessibile con il comando [az postgreSQL flexible-server create](/cli/azure/postgresql/flexible-server?view=azure-cli-latest&preserve-view=true). Il comando seguente crea un server usando le impostazioni predefinite del servizio e i valori del contesto locale dell'interfaccia della riga di comando di Azure:
+Creare un server flessibile con il comando [az postgreSQL flexible-server create](/azure/postgresql/flexible-server?view=azure-cli-latest&preserve-view=true). Il comando seguente crea un server usando le impostazioni predefinite del servizio e i valori del contesto locale dell'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>

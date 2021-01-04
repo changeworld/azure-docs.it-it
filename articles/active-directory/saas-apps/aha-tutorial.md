@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e5b9b9ba71412244d42204f6cad712b939d7c15
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 82f3a2dc7f43bd484d6a81efaa8d07f13b746d9e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319002"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671082"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Esercitazione: Integrare Aha! con Azure Active Directory
 
@@ -77,7 +77,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
-   ![Modificare la configurazione SAML di base](common/edit-urls.png)
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 1. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
@@ -143,7 +143,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     ![Impostazioni](./media/aha-tutorial/IC798950.png "Impostazioni")
 
 5. Fare clic su **Account**.
-  
+
     ![Profilo](./media/aha-tutorial/IC798951.png "Profilo")
 
 6. Fare clic su **Sicurezza e single sign-on**.

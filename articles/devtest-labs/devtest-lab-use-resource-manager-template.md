@@ -3,12 +3,12 @@ title: Visualizzare e usare il modello di Azure Resource Manager di una macchina
 description: Informazioni su come usare un modello di Azure Resource Manager di una macchina virtuale per creare altre macchine virtuali
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb7cb38dfb2c1664017f0e342fefecdd464df45f
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282494"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696016"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creare macchine virtuali usando un modello di Azure Resource Manager 
 
@@ -25,7 +25,7 @@ Esistono due modi per creare macchine virtuali in DevTest Labs usando un modello
 
    ![Screenshot che mostra l'elenco di macchine virtuali come singoli elementi nell'elenco di macchine virtuali di DevTest Labs.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   È possibile eseguire il provisioning di questo tipo di modello di Gestione risorse tramite il comando Azure PowerShell **New-AzResourceGroupDeployment** o tramite il comando dell'interfaccia della riga di comando di Azure **AZ Group Deployment create**. Richiede le autorizzazioni di amministratore, in modo che gli utenti assegnati a un ruolo utente DevTest Labs non possano eseguire la distribuzione. 
+   È possibile eseguire il provisioning di questo tipo di modello di Gestione risorse tramite il comando Azure PowerShell **New-AzResourceGroupDeployment** o tramite il comando dell'interfaccia della riga di comando di Azure **AZ Deployment Group create**. Richiede le autorizzazioni di amministratore, in modo che gli utenti assegnati a un ruolo utente DevTest Labs non possano eseguire la distribuzione. 
 
 - Modelli di Resource Manager che usano un tipo di risorsa Microsoft.Compute/virtualmachines possono eseguire il provisioning di più macchine virtuali come un unico ambiente nell'elenco di macchine virtuali di DevTest Labs:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 8a23cff3f7bfe6d88e6a818117e62762abb6d226
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f5db7efffa685291584bd402e9898d365f615773
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455372"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672612"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Concur
 
@@ -82,7 +82,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<customer-domain>.concursolutions.com`
-    
+
     c. Per **URL di risposta** immettere un URL in uno dei formati seguenti:
 
     | URL di risposta|
@@ -91,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | `https://<customer-domain>.concursolutions.com/<OrganizationId>` |
     | `https://<customer-domain>.concur.com` |
     | `https://<customer-domain>.concursolutions.com` | 
-    
+
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Concur](https://www.concur.co.in/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 

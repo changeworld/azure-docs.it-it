@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6672fd41dbd199940d663c4f7e1cb7f3b1936ce9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 077ebdb4dd33249923064a4f5ed20c5641a82e26
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185777"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695886"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gestire le risorse di Azure usando l'interfaccia della riga di comando
 
@@ -43,14 +43,14 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### <a name="deploy-a-template"></a>Distribuire un modello
 
-Lo script seguente crea la distribuzione di un modello di avvio rapido per creare un account di archiviazione. Per altre informazioni, vedere [Guida introduttiva: creare modelli di Azure Resource Manager usando Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+Lo script seguente crea la distribuzione di un modello di avvio rapido per creare un account di archiviazione. Per altre informazioni, vedere [Guida introduttiva: creare modelli ARM con Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
-az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../templates/deploy-cli.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bd7213f31eb737bedd64d627141c2576fdadb79a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b2241ff6841a5b3f536419336dc4f4fd888663d9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456380"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673070"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Esercitazione: Integrazione di Azure Active Directory con Ceridian Dayforce HCM
 
@@ -61,9 +61,9 @@ Per configurare l'integrazione di Ceridian Dayforce HCM in Azure AD, è necessar
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, digitare **Ceridian Dayforce HCM** , selezionare **Ceridian Dayforce HCM** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca, digitare **Ceridian Dayforce HCM**, selezionare **Ceridian Dayforce HCM** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Ceridian Dayforce HCM nell'elenco risultati](common/search-new-app.png)
+    ![Ceridian Dayforce HCM nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -130,7 +130,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Ceridian Dayforce HCM, 
     ![Screenshot che mostra il riquadro Attributi utente con l'icona di modifica selezionata.](common/edit-attribute.png)
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
-    
+
     | Nome | Attributo di origine|
     | ---------| --------- |
     | name  | user.extensionattribute2 |
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Ceridian Dayforce HCM, 
 
     g. Fare clic su **Salva**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **file XML dei metadati** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **file XML dei metadati** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -169,13 +169,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Ceridian Dayforce HCM, 
 
 ### <a name="configure-ceridian-dayforce-hcm-single-sign-on"></a>Configurare l'accesso Single Sign-On per Ceridian Dayforce HCM
 
-Per configurare l'accesso Single Sign-On sul lato **Ceridian Dayforce HCM** , è necessario inviare il file **XML dei metadati** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Ceridian Dayforce HCM](https://www.ceridian.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Ceridian Dayforce HCM**, è necessario inviare il file **XML dei metadati** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Ceridian Dayforce HCM](https://www.ceridian.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -188,7 +188,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
@@ -200,7 +200,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Ceridian Dayforce HCM.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Ceridian Dayforce HCM**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Ceridian Dayforce HCM**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
