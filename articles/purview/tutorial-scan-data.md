@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922573"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559965"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Esercitazione: Analizzare i dati con Azure Purview (anteprima)
 
@@ -146,10 +146,11 @@ Una volta completata la configurazione del catalogo, eseguire gli script seguent
 
    Quando si esegue il comando, è possibile che venga visualizzata un finestra popup che chiede di accedere con le credenziali di Azure Active Directory.
 
-1. Usare il comando seguente per eseguire lo starter kit. Sostituire i segnaposto `CatalogName`, `TenantID`, `SubscriptionID`, `newresourcegroupname` e `CatalogResourceGroupName`. Per `newresourcegroupname`, usare un nome univoco per il gruppo di risorse che conterrà la piattaforma dati.
 
-> [!IMPORTANT]
-> Per **newresourcegroupname** è possibile usare un massimo di 17 caratteri composti solo da numeri e lettere in minuscolo. **Non è consentito usare lettere in maiuscolo e caratteri speciali.** Questo vincolo deriva dalle regole di denominazione degli account di archiviazione.
+1. Usare il comando seguente per eseguire lo starter kit. Sostituire i segnaposto `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName` e `CatalogResourceGroupName`. Per `NewResourceGroupName`, usare un nome univoco, composto esclusivamente da caratteri alfanumerici minuscoli, per il gruppo di risorse che conterrà la piattaforma dati.
+
+   > [!IMPORTANT]
+   > Per **newresourcegroupname** è possibile usare un massimo di 17 caratteri composti solo da numeri e lettere in minuscolo. **Non è consentito usare lettere in maiuscolo e caratteri speciali.** Questo vincolo deriva dalle regole di denominazione degli account di archiviazione.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

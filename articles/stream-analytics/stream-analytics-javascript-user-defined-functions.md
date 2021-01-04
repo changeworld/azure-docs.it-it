@@ -7,13 +7,13 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
-ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/15/2020
+ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780842"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605531"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -215,6 +215,14 @@ L'output di questa query corrisponde alla data/ora immessa in **de-DE** con le o
 Samstag, 28. Dezember 2019
 ```
 
+## <a name="user-logging"></a>Registrazione utenti
+Il meccanismo di registrazione consente di acquisire informazioni personalizzate mentre un processo è in esecuzione. È possibile usare i dati di log per eseguire il debug o valutare la correttezza del codice personalizzato in tempo reale. Questo meccanismo è disponibile tramite il metodo Console.Log().
+
+```javascript
+console.log('my error message');
+```
+
+È possibile accedere ai messaggi dei log tramite i [log di diagnostica](data-errors.md).
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Funzione definita dall'utente di Machine Learning](./machine-learning-udf.md)

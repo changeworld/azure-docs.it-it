@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95746728"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507711"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Esercitazione: Accesso utenti e chiamata di Microsoft Graph da un'app iOS o macOS
 
@@ -71,16 +71,17 @@ Per scaricare una versione completa dell'app creata in questa esercitazione, è 
 
 ## <a name="register-your-application"></a>Registrare l'applicazione
 
-1. Accedere al [portale di Azure](https://aka.ms/MobileAppReg)
-2. Aprire il pannello Registrazioni app e selezionare **+ Nuova registrazione**.
-3. In **Nome** immettere un nome per l'app senza impostare un URI di reindirizzamento.
-4. Per **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione (qualsiasi directory di Azure AD - Multi-tenant) e account Microsoft personali (ad esempio, Skype, Xbox)**
-5. Selezionare **Registra**
-6. Nella sezione **Gestione** del riquadro visualizzato selezionare **Autenticazione**.
-
-7. Selezionare **Prova la nuova esperienza** nella parte superiore della schermata per aprire la nuova esperienza di registrazione dell'app e quindi fare clic su **+ Nuova registrazione** >  **+ Aggiungi una piattaforma** > **iOS/macOS**.
-    - Immettere l'ID del bundle del progetto. Se è stato scaricato il codice, l'ID è `com.microsoft.identitysample.MSALiOS`. Se si sta creando un progetto personalizzato, selezionare il progetto in Xcode e aprire la scheda **Generale**. L'identificatore del bundle viene visualizzato nella sezione **Identità**.
-8. Selezionare `Configure` e salvare la **Configurazione MSAL** visualizzata nella pagina **Configurazione MSAL** in modo da poterla immettere durante la configurazione dell'app in seguito. Selezionare **Operazione completata**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+1. Immettere un **nome** per l'applicazione. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+1. Selezionare **Account in qualsiasi directory dell'organizzazione (qualsiasi directory di Azure AD - Multi-tenant) e account Microsoft personali (ad esempio, Skype, Xbox)** in **Tipi di account supportati**.
+1. Selezionare **Registra**.
+1. In **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma** > **iOS/macOS**.
+1. Immettere l'ID del bundle del progetto. Se è stato scaricato il codice, l'ID è `com.microsoft.identitysample.MSALiOS`. Se si sta creando un progetto personalizzato, selezionare il progetto in Xcode e aprire la scheda **Generale**. L'identificatore del bundle viene visualizzato nella sezione **Identità**.
+1. Selezionare **Configura** e salvare la **Configurazione MSAL** visualizzata nella pagina **Configurazione MSAL** in modo da poterla immettere durante la configurazione dell'app in seguito. 
+1. Selezionare **Operazione completata**.
 
 ## <a name="add-msal"></a>Aggiungere MSAL
 
@@ -520,7 +521,7 @@ Il frammento di codice seguente consente di recuperare un token per la prima vol
 
 1. Creare `MSALInteractiveTokenParameters` con ambiti.
 2. Chiamare `acquireToken()` con i parametri creati.
-3. Gestire gli errori. Per altri dettagli, vedere la [guida per la gestione degli errori MSAL per iOS e macOS](msal-handling-exceptions.md).
+3. Gestire gli errori. Per altri dettagli, vedere la [guida per la gestione degli errori MSAL per iOS e macOS](msal-error-handling-ios.md).
 4. Gestire il caso di esito positivo.
 
 Aggiungere il codice seguente alla classe `ViewController` .

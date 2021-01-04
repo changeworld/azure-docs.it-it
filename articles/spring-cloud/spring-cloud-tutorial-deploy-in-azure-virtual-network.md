@@ -1,54 +1,59 @@
 ---
-title: 'Esercitazione: Distribuire Azure Spring Cloud nella rete virtuale'
-description: Distribuire Azure Spring Cloud nella rete virtuale (v-net injection).
+title: 'Esercitazione: Distribuire Azure Spring Cloud in una rete virtuale'
+description: Distribuire Azure Spring Cloud in una rete virtuale (VNet injection).
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737244"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587724"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Esercitazione: Distribuire Azure Spring Cloud nella rete virtuale (VNet injection)
+# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>Esercitazione: Distribuire Azure Spring Cloud in una rete virtuale
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
-Questa esercitazione illustra come distribuire un'istanza del servizio Azure Spring Cloud nella rete virtuale, una funzionalità anche nota come VNet injection.  
+Questa esercitazione illustra come distribuire un'istanza di Azure Spring Cloud nella rete virtuale, una funzionalità nota anche come VNet injection.
 
 La distribuzione rende possibili gli scenari seguenti:
 
-* Isolamento delle app di Azure Spring Cloud e del runtime del servizio da Internet nella rete aziendale
-* Interazione di Azure Spring Cloud con i sistemi nei data center locali e/o con i servizi di Azure in altre reti virtuali
-* Possibilità per i clienti di controllare le comunicazioni di rete in ingresso e in uscita per Azure Spring Cloud
+* Isolamento delle app di Azure Spring Cloud e del runtime del servizio da Internet nella rete aziendale.
+* Interazione di Azure Spring Cloud con i sistemi nei data center locali o con i servizi di Azure in altre reti virtuali.
+* Possibilità per i clienti di controllare le comunicazioni di rete in ingresso e in uscita per Azure Spring Cloud.
 
 ## <a name="prerequisites"></a>Prerequisiti
-È necessario registrare i provider di risorse *Microsoft.AppPlatform* e *Microsoft.ContainerService* di Azure Spring Cloud in base alle istruzioni riportate in [Registrare il provider di risorse nel portale di Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) oppure eseguendo il comando az seguente dell'interfaccia della riga di comando:
+
+Registrare i provider di risorse **Microsoft.AppPlatform** e **Microsoft.ContainerService** di Azure Spring Cloud in base alle istruzioni riportate in [Registrare il provider di risorse nel portale di Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) oppure eseguendo il comando seguente dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
 az provider register --namespace Microsoft.ContainerService
 ```
-## <a name="virtual-network-requirements"></a>Requisiti della rete virtuale
-La rete virtuale in cui viene distribuita l'istanza del servizio Azure Spring Cloud deve soddisfare i requisiti seguenti:
 
-* **Località**: la rete virtuale deve risiedere nella stessa località dell'istanza del servizio Azure Spring Cloud.
-* **Sottoscrizione** la rete virtuale deve essere inclusa nella stessa sottoscrizione dell'istanza del servizio Azure Spring Cloud.
-* **Subnet**: la rete virtuale deve includere due subnet dedicate a un'istanza del servizio Azure Spring Cloud: 
-    * Una per il runtime del servizio
-    * Una per le applicazioni di microservizi Spring Boot. 
-    * Deve esistere una relazione uno-a-uno tra queste subnet e un'istanza del servizio Azure Spring Cloud. È necessario usare una nuova subnet per ogni istanza del servizio distribuita e ogni subnet può includere solo una singola istanza del servizio.
-* **Spazio degli indirizzi**: un blocco CIDR fino a /28 per la subnet del runtime del servizio e un altro blocco CIDR fino a /24 per la subnet delle applicazioni di microservizi Spring Boot.
+## <a name="virtual-network-requirements"></a>Requisiti della rete virtuale
+
+La rete virtuale in cui viene distribuita l'istanza di Azure Spring Cloud deve soddisfare i requisiti seguenti:
+
+* **Località**: la rete virtuale deve risiedere nella stessa località dell'istanza di Azure Spring Cloud.
+* **Sottoscrizione** la rete virtuale deve essere inclusa nella stessa sottoscrizione dell'istanza di Azure Spring Cloud.
+* **Subnet**: la rete virtuale deve includere due subnet dedicate a un'istanza di Azure Spring Cloud:
+
+    * Una per il runtime del servizio.
+    * Una per le applicazioni di microservizi Spring Boot.
+    * Deve esistere una relazione uno-a-uno tra queste subnet e un'istanza di Azure Spring Cloud. Usare una nuova subnet per ogni istanza del servizio da distribuire. Ogni subnet può includere solo una singola istanza del servizio.
+* **Spazio degli indirizzi**: blocchi CIDR fino a */28* per la subnet del runtime del servizio e per la subnet delle applicazioni di microservizi Spring Boot.
 * **Tabella di route**: alle subnet non deve essere associata una tabella di route esistente.
 
 Le procedure seguenti descrivono la configurazione della rete virtuale in cui contenere l'istanza di Azure Spring Cloud.
 
 ## <a name="create-a-virtual-network"></a>Creare una rete virtuale
-Se è già disponibile una rete virtuale in cui ospitare l'istanza del servizio Azure Spring Cloud, ignorare i passaggi 1, 2 e 3. È possibile iniziare dal passaggio 4 per preparare le subnet per la rete virtuale.
+
+Se è già disponibile una rete virtuale in cui ospitare un'istanza di Azure Spring Cloud, ignorare i passaggi 1, 2 e 3. È possibile iniziare dal passaggio 4 per preparare le subnet per la rete virtuale.
 
 1. Nel menu del portale di Azure selezionare **Crea una risorsa**. In Azure Marketplace selezionare **Rete** > **Rete virtuale**.
 
@@ -58,39 +63,39 @@ Se è già disponibile una rete virtuale in cui ospitare l'istanza del servizio 
     |-----------------|--------------------------------------------------|
     |Subscription     |Selezionare la propria sottoscrizione.                         |
     |Resource group   |Selezionare il gruppo di risorse o crearne uno nuovo.  |
-    |Name             |Immettere *azure-spring-cloud-vnet*                   |
-    |Location         |Selezionare **Stati Uniti orientali**.                                |
+    |Name             |Immettere **azure-spring-cloud-vnet**.                 |
+    |Location         |Selezionare **Stati Uniti orientali**.                               |
 
-1. Fare clic su **Avanti: Indirizzi IP >** . 
- 
-1. Per Spazio indirizzi IPv4, digitare 10.1.0.0/16.
+1. Selezionare **Avanti: Indirizzi IP**.
 
-1. Selezionare **Aggiungi subnet**, quindi immettere *service-runtime-subnet* per **Nome subnet** e 10.1.0.0/24 per **Intervallo di indirizzi della subnet**. Fare quindi clic su **Aggiungi**.
+1. Per lo spazio indirizzi IPv4, immettere **10.1.0.0/16**.
 
-1. Selezionare di nuovo **Aggiungi subnet** e quindi immettere un valore in **Nome subnet** e **Intervallo di indirizzi subnet**, ad esempio *apps-subnet* e 10.1.1.0/24 rispettivamente.  Scegliere **Aggiungi**.
+1. Selezionare **Aggiungi subnet**. Quindi immettere **service-runtime-subnet** per **Nome subnet** e **10.1.0.0/28** per **Intervallo di indirizzi della subnet**. Quindi selezionare **Aggiungi**.
 
-1. Fare clic su **Rivedi e crea**. Lasciare tutte le altre impostazioni predefinite e fare clic su **Crea**.
+1. Selezionare di nuovo **Aggiungi subnet** e quindi compilare i campi **Nome subnet** e **Intervallo di indirizzi subnet**. Ad esempio, immettere **apps-subnet** e **10.1.1.0/28**. Quindi selezionare **Aggiungi**.
+
+1. Selezionare **Rivedi e crea**. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Concedere al servizio l'autorizzazione per la rete virtuale
 
-Selezionare la rete virtuale *azure-spring-cloud-vnet* creata in precedenza.
+Selezionare la rete virtuale **azure-spring-cloud-vnet** creata in precedenza.
 
-1. Selezionare **Controllo di accesso (IAM)** e quindi **Aggiungi > Aggiungi un'assegnazione di ruolo**.
+1. Selezionare **Controllo di accesso (IAM)** e quindi **Aggiungi** > **Aggiungi assegnazione di ruolo**.
 
-    ![Controllo di accesso per la rete virtuale](./media/spring-cloud-v-net-injection/access-control.png)
+    ![Screenshot che mostra la schermata Controllo di accesso.](./media/spring-cloud-v-net-injection/access-control.png)
 
-2. Nella finestra di dialogo **Aggiungi un'assegnazione di ruolo** immettere o selezionare queste informazioni:
+1. Nella finestra di dialogo **Aggiungi assegnazione di ruolo** immettere o selezionare le informazioni seguenti:
 
     |Impostazione  |valore                                             |
     |---------|--------------------------------------------------|
-    |Ruolo     |Selezionare **Proprietario**                                  |
-    |Select   |Immettere *Provider di risorse Azure Spring Cloud*      |
+    |Ruolo     |Selezionare **Proprietario**.                                 |
+    |Select   |Immettere **Provider di risorse Azure Spring Cloud**.   |
 
-    Selezionare quindi *Provider di risorse Azure Spring Cloud* e fare clic su **Salva**.
+    Selezionare quindi **Provider di risorse Azure Spring Cloud** e poi **Salva**.
 
-    ![Concedere al provider di risorse Azure Spring Cloud l'accesso alla rete virtuale](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    ![Screenshot che mostra la sezione di Provider di risorse Azure Spring Cloud.](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
 
-È anche possibile ottenere questo risultato eseguendo il comando az seguente dell'interfaccia della riga di comando
+È anche possibile eseguire questo passaggio con il comando seguente dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
@@ -105,51 +110,71 @@ az role assignment create \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
-## <a name="deploy-azure-spring-cloud-service-instance-in-the-virtual-network"></a>Distribuire l'istanza del servizio Azure Spring Cloud nella rete virtuale
+## <a name="deploy-an-azure-spring-cloud-instance"></a>Distribuire un'istanza di Azure Spring Cloud
 
-1. Aprire il portale di Azure all'indirizzo https://ms.portal.azure.com.
+Per distribuire l'istanza di Azure Spring Cloud nella rete virtuale:
 
-1. Nella casella di ricerca superiore immettere **Azure Spring Cloud** e selezionare **Azure Spring Cloud** nei risultati.
+1. Aprire il [portale di Azure](https://portal.azure.com).
+
+1. Nella casella di ricerca in alto cercare **Azure Spring Cloud**. Selezionare **Azure Spring Cloud** nei risultati.
 
 1. Nella pagina **Azure Spring Cloud** fare clic su **+ Aggiungi**.
 
-1. Compilare il modulo nella pagina di **creazione** di Azure Spring Cloud. 
+1. Compilare il modulo nella pagina di **creazione** di Azure Spring Cloud.
 
 1. Selezionare lo stesso gruppo di risorse e la stessa area della rete virtuale.
 
-1. Per **Nome** in **Dettagli servizio** selezionare *azure-spring-cloud-vnet*.
+1. Per **Nome** in **Dettagli servizio** selezionare **azure-spring-cloud-vnet**.
 
-1. Selezionare la scheda **Rete** e quindi le opzioni seguenti:
+1. Selezionare la scheda **Rete** e quindi i valori seguenti:
 
     |Impostazione                                |valore                                             |
     |---------------------------------------|--------------------------------------------------|
-    |Distribuisci nella rete virtuale personale     |Selezionare **Sì**                                    |
-    |Rete virtuale                        |Selezionare *azure-spring-cloud-vnet*                  |
-    |Subnet del runtime servizio                 |Selezionare *service-runtime-subnet*                   |
-    |Subnet delle app per microservizi Spring Boot   |Selezionare *app-subnet*                              |
+    |Distribuisci nella rete virtuale personale     |Selezionare **Sì**.                                   |
+    |Rete virtuale                        |Selezionare **azure-spring-cloud-vnet**.               |
+    |Subnet del runtime servizio                 |Selezionare **service-runtime-subnet**.                |
+    |Subnet delle app per microservizi Spring Boot   |Selezionare **app-subnet**.                           |
 
-    ![Scheda per la creazione della rete](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
+    ![Screenshot che mostra la scheda Rete nella pagina di creazione dell'istanza di Azure Spring Cloud.](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
 
-1. Fare clic su **Rivedi e crea**.
+1. Selezionare **Rivedi e crea**.
 
-1. Verificare le specifiche, quindi fare clic su **rea**.
+1. Verificare le specifiche, quindi selezionare **Crea**.
 
-Dopo la distribuzione, nella sottoscrizione verranno creati due gruppi di risorse aggiuntivi in cui ospitare le risorse di rete per l'istanza del servizio Azure Spring Cloud.  Passare a **Home**, quindi selezionare **Gruppi di risorse** tra le voci del menu superiore per trovare i nuovi gruppi di risorse seguenti.
+    ![Screenshot che mostra la verifica delle specifiche.](./media/spring-cloud-v-net-injection/verify-specifications.png)
 
-Il gruppo di risorse denominato *ap-svc-rt_{nome istanza servizio}_{area istanza servizio}* contiene le risorse di rete per il runtime del servizio dell'istanza del servizio.
+Dopo la distribuzione, nella sottoscrizione verranno creati due gruppi di risorse aggiuntivi in cui ospitare le risorse di rete per l'istanza di Azure Spring Cloud. Passare a **Home**, quindi selezionare **Gruppi di risorse** tra le voci del menu superiore per trovare i nuovi gruppi di risorse seguenti.
 
-  ![Runtime del servizio](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
+Il gruppo di risorse denominato **ap-svc-rt_{nome istanza servizio}_{area istanza servizio}** contiene le risorse di rete per il runtime del servizio dell'istanza del servizio.
 
-Il gruppo di risorse denominato *ap-app_{nome istanza servizio}_{area istanza servizio}* contiene le risorse di rete per le applicazioni di microservizi Spring Boot dell'istanza del servizio.
+  ![Screenshot che mostra il runtime del servizio.](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-  ![Gruppo di risorse di app](./media/spring-cloud-v-net-injection/apps-resource-group.png)
+Il gruppo di risorse denominato **ap-app_{nome istanza servizio}_{area istanza servizio}** contiene le risorse di rete per le applicazioni di microservizi Spring Boot dell'istanza del servizio.
+
+  ![Screenshot che mostra il gruppo di risorse app.](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 
 Queste risorse di rete sono connesse alla rete virtuale creata in precedenza.
 
-  ![Rete virtuale con il dispositivo connesso](./media/spring-cloud-v-net-injection/vnet-with-connected-device.png)
+  ![Screenshot che mostra la rete virtuale con i dispositivi connessi.](./media/spring-cloud-v-net-injection/vnet-with-connected-device.png)
 
    > [!Important]
-   > I gruppi di risorse sono completamente gestiti dal servizio Azure Spring Cloud. NON eliminare o modificare manualmente le risorse al loro interno.
+   > I gruppi di risorse sono completamente gestiti dal servizio Azure Spring Cloud. *Non* eliminare o modificare manualmente le risorse al loro interno.
+
+## <a name="limitations"></a>Limitazioni
+
+Un piccolo intervallo di subnet salva gli indirizzi IP, ma comporta limitazioni per il numero massimo di istanze di app che l'istanza di Azure Spring Cloud può contenere.
+
+| CIDR delle subnet di app | Indirizzi IP totali | Indirizzi IP disponibili | Numero massimo di istanze di app                                        |
+| --------------- | --------- | ------------- | ------------------------------------------------------------ |
+| /28             | 16        | 8             | <p> App con 1 core:  96 <br/> App con 2 core: 48<br/>  App con 3 core: 32 <br/> App con 4 core: 24 </p> |
+| /27             | 32        | 24            | <p> App con 1 core:  228<br/> App con 2 core: 144<br/>  App con 3 core: 96 <br/>  App con 4 core: 72</p> |
+| /26             | 64        | 56            | <p> App con 1 core:  500<br/> App con 2 core: 336<br/>  App con 3 core: 224<br/>  App con 4 core: 168</p> |
+| /25             | 128       | 120           | <p> App con 1 core:  500<br> App con 2 core:  500<br>  App con 3 core:  480<br>  App con 4 core: 360</p> |
+| /24             | 256       | 248           | <p> App con 1 core:  500<br/> App con 2 core:  500<br/>  App con 3 core: 500<br/>  App con 4 core: 500</p> |
+
+Per le subnet, cinque indirizzi IP sono riservati da Azure e almeno quattro indirizzi sono richiesti da Azure Spring Cloud. Sono necessari almeno nove indirizzi IP, quindi i blocchi /29 e /30 non sono operativi.
+
+Per una subnet di runtime del servizio, la dimensione minima è /28. Questa dimensione non ha alcun effetto sul numero di istanze di app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

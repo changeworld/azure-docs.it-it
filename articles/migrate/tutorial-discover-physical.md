@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 1263bc3ffe18aa951b3e5b61747c889d36acbab1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2da5577b1b82c5374f33b732a0af54bac5ebae58
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752812"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109216"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Esercitazione: Individuare i server fisici con Valutazione server
 
@@ -223,7 +223,15 @@ Configurare l'appliance per la prima volta.
 
 A questo punto, connettersi dall'appliance ai server fisici da individuare e avviare l'individuazione.
 
-1. In **Passaggio 1: Specificare le credenziali per l'individuazione di server fisici o virtuali Windows e Linux**, fare clic su **Aggiungi credenziali** per specificare un nome descrittivo per le credenziali, aggiungere **Nome utente** e **Password** per un server Windows o Linux. Fare clic su **Save**.
+1. In **Passaggio 1: Fornire le credenziali per l'individuazione di server fisici o virtuali Windows e Linux**, quindi fare clic su **Aggiungi credenziali**.
+1. Per il server Windows, selezionare il tipo di origine **Windows Server**, specificare un nome descrittivo per le credenziali, quindi aggiungere il nome utente e la password. Fare clic su **Salva**.
+1. Se si usa l'autenticazione basata su password per il server Linux, selezionare il tipo di origine **Server Linux (basato su password)** , specificare un nome descrittivo per le credenziali, quindi aggiungere il nome utente e la password. Fare clic su **Salva**.
+1. Se si usa l'autenticazione basata su chiave SSH per il server Linux, selezionare il tipo di origine **Server Linux (basato su chiave SSH)** , specificare un nome descrittivo per le credenziali, quindi aggiungere il nome utente e la password. Fare clic su **Save**.
+
+    - Azure Migrate supporta la chiave privata SSH generata dal comando ssh-keygen tramite algoritmi RSA, DSA, ECDSA e ed25519.
+    - Attualmente Azure Migrate non supporta la chiave SSH basata su passphrase. Usare una chiave SSH senza passphrase.
+    - Attualmente Azure Migrate non supporta il file di chiave privata SSH generato da PuTTy.
+
 1. Se si vogliono aggiungere più credenziali contemporaneamente, fare clic su **Aggiungi altre** per salvare e aggiungere altre credenziali. Sono supportate più credenziali per l'individuazione di server fisici.
 1. In **Passaggio 2: Specificare i dettagli del server fisico o virtuale** fare clic su **Aggiungi origine di individuazione** per specificare **Indirizzo IP/FQDN** del server e il nome descrittivo per le credenziali per la connessione al server.
 1. È possibile selezionare **Add single item** (Aggiungi singolo elemento) o **Add multiple items** (Aggiungi più elementi). È disponibile anche un'opzione per fornire i dettagli del server tramite **Importa CSV**.

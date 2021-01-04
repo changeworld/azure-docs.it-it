@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 08/23/2018
+ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: e6716d2ad4252169cfbbf611b0dadc5b077cd362
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042563"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368294"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando il portale di Azure
 
@@ -46,30 +46,44 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-2. Selezionare **Rete** e quindi **Rete virtuale**.
-3. Immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
+2. Selezionare **Rete** e quindi **Reti virtuali**.
+3. Fare clic su **+ Aggiungi** e immettere le informazioni seguenti: 
 
    |Impostazione|valore|
    |----|----|
-   |Nome| myVirtualNetwork |
-   |Spazio degli indirizzi| 10.0.0.0/16|
-   |Subscription| Selezionare la propria sottoscrizione|
+   |Sottoscrizione| Selezionare la propria sottoscrizione|
    |Resource group | Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
-   |Location| Selezionare **Stati Uniti orientali**. |
-   |Nome della subnet| Pubblico|
-   |Intervallo di indirizzi subnet| 10.0.0.0/24|
-   |Protezione DDoS| Basic|
-   |Endpoint di servizio| Disabled|
-   |Firewall| Disabled|
+   |Name| Immettere *myVirtualNetwork* |
+   |Area| Selezionare **(Stati Uniti) Stati Uniti orientali** |
 
    ![Immettere le informazioni di base sulla rete virtuale](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
+4. Fare clic su **Avanti: Indirizzi IP >**
+   
+   |Impostazione|valore|
+   |----|----|
+   |Spazio indirizzi IPv4| Lasciare il valore predefinito |
+   |Nome della subnet| Fare clic su **predefinito** e cambiare il nome da "predefinito" a "Pubblico"|
+   |Intervallo di indirizzi subnet| Lasciare il valore predefinito|
+
+5. Fare clic su **Avanti: Sicurezza >** 
+   
+   |Impostazione|valore|
+   |----|----|   
+   |BastionHost| Disabilita|
+   |Protezione DDoS| Disabilita|
+   |Firewall| Disabilita|
+
+6. Al termine, fare clic su **Rivedi e crea**.
+7. Se i controlli di convalida vengono superati, fare clic su **Crea**.
+8. Attendere il completamento della distribuzione, quindi fare clic su **Vai alla risorsa** o passare alla sezione successiva. 
+
 ## <a name="enable-a-service-endpoint"></a>Abilitare un endpoint di servizio
 
-Gli endpoint di servizio sono abilitati per servizio e per subnet. Creare una subnet e abilitare un endpoint di servizio per la subnet.
+Gli endpoint di servizio sono abilitati per servizio e per subnet. Per creare una subnet e abilitare un endpoint di servizio:
 
-1. Nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale immettere *myVirtualNetwork*. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca.
-2. Aggiungere una subnet alla rete virtuale. In **IMPOSTAZIONI** selezionare **Subnet** e quindi selezionare **+ Subnet**, come illustrato nell'immagine seguente:
+1. Se non è già aperta la pagina della risorsa rete virtuale, è possibile immettere **myVirtualNetwork** nella casella *Cerca risorse, servizi e documentazione* e selezionare la rete appena creata nell'elenco.
+2. Nel menu **Impostazioni** a sinistra selezionare **Subnet**, quindi selezionare **+ Subnet** come illustrato di seguito:
 
     ![Aggiungi subnet](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
 
@@ -78,31 +92,36 @@ Gli endpoint di servizio sono abilitati per servizio e per subnet. Creare una su
     |Impostazione|valore|
     |----|----|
     |Nome| Privato |
-    |Intervallo di indirizzi| 10.0.1.0/24|
-    |Endpoint di servizio| Selezionare **Microsoft.Storage** in **Servizi**|
+    |Intervallo di indirizzi| Lasciare il valore predefinito|
+    |Endpoint di servizio| Selezionare **Microsoft.Storage**|
+    |Criteri degli endpoint di servizio | Lasciare il valore predefinito 0 |
 
 > [!CAUTION]
 > Prima di abilitare un endpoint di servizio per una subnet esistente che contiene risorse, vedere [Cambiare le impostazioni della subnet](virtual-network-manage-subnet.md#change-subnet-settings).
 
+4. Fare clic su **Salva**, quindi chiudere la finestra Subnet a destra. La subnet appena creata verrà visualizzata nell'elenco.
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Limitare l'accesso di rete per una subnet
 
-Per impostazione predefinita, tutte le macchine virtuali in una subnet possono comunicare con tutte le risorse. È possibile limitare le comunicazioni verso e da tutte le risorse in una subnet creando un gruppo di sicurezza di rete e associandolo alla subnet.
+Per impostazione predefinita, tutte le istanze di macchine virtuali in una subnet possono comunicare con tutte le risorse. È possibile limitare le comunicazioni verso e da tutte le risorse in una subnet creando un gruppo di sicurezza di rete e associandolo alla subnet:
 
-1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-2. Selezionare **Rete** e quindi selezionare **Gruppo di sicurezza di rete**.
-3. In **Create a network security group** (Crea un gruppo di sicurezza di rete) immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
+1. Nell'angolo in alto a sinistra del portale di Azure selezionare **Tutti i servizi**.
+2. Selezionare **Rete** e quindi selezionare o cercare **Gruppi di sicurezza di rete**.
+3. Nella pagina **Gruppi di sicurezza di rete** fare clic su **+ Aggiungi**.
+4. Immettere le informazioni seguenti 
 
     |Impostazione|valore|
     |----|----|
-    |Nome| myNsgPrivate |
-    |Subscription| Selezionare la propria sottoscrizione|
-    |Resource group | Selezionare **Usa esistente** e selezionare *myResourceGroup*.|
+    |Sottoscrizione| Selezionare la propria sottoscrizione|
+    |Gruppo di risorse | Selezionare *myResourceGroup* nell'elenco|
+    |Name| Immettere **myNsgPrivate** |
     |Location| Selezionare **Stati Uniti orientali**. |
 
-4. Dopo che il gruppo di sicurezza di rete è stato creato, immettere *myNsgPrivate* nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Selezionare **myNsgPrivate** quando viene visualizzato nei risultati della ricerca.
-5. In **IMPOSTAZIONI** selezionare **Regole di sicurezza in uscita**.
-6. Selezionare **+ Aggiungi**.
-7. Creare una regola che consenta le comunicazioni in uscita al servizio Archiviazione di Azure. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Aggiungi**:
+5. Fare clic su **Rivedi e crea** e, quando il controllo di convalida viene superato, fare clic su **Crea**.
+6. Dopo aver creato il gruppo di sicurezza di rete, fare clic su **Vai alla risorsa** o cercare *myNsgPrivate*.
+7. In **Impostazioni** a sinistra selezionare **Regole di sicurezza in uscita**.
+8. Selezionare **+ Aggiungi**.
+9. Creare una regola che consenta le comunicazioni in uscita al servizio Archiviazione di Azure. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Aggiungi**:
 
     |Impostazione|valore|
     |----|----|
@@ -110,13 +129,13 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
     |Intervalli di porte di origine| * |
     |Destination | Selezionare **Service Tag** (Tag del servizio)|
     |Tag del servizio di destinazione | Selezionare **Archiviazione**|
-    |Intervalli di porte di destinazione| * |
+    |Intervalli di porte di destinazione| Lasciare il valore predefinito *8080* |
     |Protocollo|Qualsiasi|
-    |Azione|Allow|
+    |Azione|Consenti|
     |Priorità|100|
-    |Nome|Allow-Storage-All|
+    |Nome|Assegnare il nuovo nome **Allow-Storage-All**|
 
-8. Creare un'altra regola di sicurezza in uscita che neghi la comunicazione in Internet. Questa regola esegue l'override di una regola predefinita in tutti i gruppi di sicurezza di rete che consente le comunicazioni Internet in uscita. Completare di nuovo il passaggio 5-7, usando i valori seguenti:
+10. Creare un'altra regola di sicurezza in uscita che neghi la comunicazione in Internet. Questa regola esegue l'override di una regola predefinita in tutti i gruppi di sicurezza di rete che consente le comunicazioni Internet in uscita. Completare i passaggi 6-9 precedenti usando i valori seguenti:
 
     |Impostazione|valore|
     |----|----|
@@ -126,29 +145,32 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
     |Tag del servizio di destinazione| Selezionare **Internet**|
     |Intervalli di porte di destinazione| * |
     |Protocollo|Qualsiasi|
-    |Azione|Nega|
+    |Azione|**Cambiare l'impostazione predefinita in *Nega*** |
     |Priorità|110|
-    |Nome|Deny-Internet-All|
+    |Nome|Cambiare il nome in *Deny-Internet-All*|
 
-9. In **IMPOSTAZIONI** selezionare **Regole di sicurezza in ingresso**.
-10. Selezionare **+ Aggiungi**.
-11. Creare una regola di sicurezza in ingresso che consenta il traffico Remote Desktop Protocol (RDP) verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. Sono consentite le connessioni Desktop remoto alla subnet per poter testare la connettività in un passaggio successivo. In **IMPOSTAZIONI**  selezionare **Regole di sicurezza in ingresso**, selezionare **+Aggiungi**, immettere i valori seguenti e quindi selezionare **Aggiungi**:
+11. Creare una *regola di sicurezza in ingresso* che consenta il traffico RDP (Remote Desktop Protocol) verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. Sono consentite le connessioni Desktop remoto alla subnet per poter testare la connettività in un passaggio successivo. 
+12. In **Impostazioni** selezionare **Regole di sicurezza in ingresso**.
+13. Selezionare **+ Aggiungi** e usare i valori seguenti:
 
     |Impostazione|valore|
     |----|----|
-    |Source (Sorgente)| Qualsiasi |
+    |Origine| Qualsiasi |
     |Intervalli di porte di origine| * |
     |Destination | Selezionare **VirtualNetwork**|
-    |Intervalli di porte di destinazione| 3389 |
+    |Intervalli di porte di destinazione| Cambiare il valore in *3389* |
     |Protocollo|Qualsiasi|
-    |Azione|Allow|
+    |Azione|Consenti|
     |Priorità|120|
-    |Nome|Allow-RDP-All|
+    |Nome|Cambiare il nome in *Allow-RDP-All*|
 
-12. In **Impostazioni** selezionare **Subnet**.
-13. Selezionare **+ Associa**
-14. In **Associa subnet** selezionare **Rete virtuale** e quindi selezionare **myVirtualNetwork** in **Scegliere una rete virtuale**.
-15. In **Scegli subnet** selezionare **Privata** e quindi fare clic su **OK**.
+   >[!WARNING] 
+   > La porta RDP 3389 è esposta a Internet. Questa opzione è consigliata solo per i test. Per gli *ambienti di produzione* è consigliabile usare una connessione privata o VPN.
+
+1.  In **Impostazioni** selezionare **Subnet**.
+2.  Fare clic su **+ Associa**.
+3.  In **Rete virtuale** selezionare **myVirtualNetwork**.
+4.  In **Subnet** selezionare **Privata** e quindi fare clic su **OK**.
 
 ## <a name="restrict-network-access-to-a-resource"></a>Limitare l'accesso di rete a una risorsa
 
@@ -157,53 +179,65 @@ I passaggi necessari per limitare l'accesso di rete alle risorse create tramite 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-2. Selezionare **Archiviazione** e quindi **Account di archiviazione: BLOB, File, Tabelle, Code**.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
+2. Immettere "account di archiviazione" nella barra di ricerca e selezionarlo nel menu a discesa.
+3. Fare clic su **+ Aggiungi**.
+4. Immettere le seguenti informazioni:
 
     |Impostazione|valore|
     |----|----|
-    |Nome| Immettere un nome univoco per tutte le località di Azure, di lunghezza compresa tra 3 e 24 caratteri e costituito solo da numeri e lettere minuscole.|
-    |Tipo di account|Archiviazione v2 (utilizzo generico v2)|
-    |Location| Selezionare **Stati Uniti orientali**. |
+    |Sottoscrizione| Selezionare la propria sottoscrizione|
+    |Gruppo di risorse| Selezionare *MyResourceGroup*|
+    |Nome account di archiviazione| Immettere un nome univoco per tutte le località di Azure, di lunghezza compresa tra 3 e 24 caratteri e costituito solo da numeri e lettere minuscole.|
+    |Posizione| Selezionare **(Stati Uniti) Stati Uniti orientali** |
+    |Prestazioni|Standard|
+    |Tipologia account| Archiviazione V2 (utilizzo generico v2)|
     |Replica| Archiviazione con ridondanza locale|
-    |Subscription| Selezionare la propria sottoscrizione|
-    |Resource group | Selezionare **Usa esistente** e selezionare *myResourceGroup*.|
+
+5. Selezionare **Rivedi e crea** e, quando i controlli di convalida vengono superati, fare clic su **Crea**. 
+
+>[!NOTE] 
+> Il completamento della distribuzione può richiedere un paio di minuti.
+
+6. Dopo aver creato l'account di archiviazione, fare clic su **Vai alla risorsa**
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creare una condivisione file nell'account di archiviazione
 
-1. Dopo aver creato l'account di archiviazione, immettere il nome dell'account di archiviazione nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Quando il nome dell'account di archiviazione viene visualizzato nei risultati della ricerca, selezionarlo.
-2. Selezionare **File** come illustrato nell'immagine seguente:
+1. Passare alla pagina di panoramica dell'account di archiviazione.
+2. Selezionare l'icona dell'app **Condivisioni file**, quindi fare clic su **+ Condivisione file**.
+
+    |Impostazione|valore|
+    |----|----|
+    |Nome| my-file-share|
+    |Quota| 'Imposta su massimo' |
 
    ![Account di archiviazione](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
 
-3. Selezionare **+ Condivisione file**.
-4. Immettere *my-file-share* in **Nome** e quindi fare clic su **OK**.
-5. Chiudere la finestra di dialogo **Servizio file**.
+3. Scegliere **Crea**.
+4. La condivisione file dovrebbe essere visualizzata nella finestra di Azure; in caso contrario, fare clic su **Aggiorna**
 
 ### <a name="restrict-network-access-to-a-subnet"></a>Limitare l'accesso di rete a una subnet
 
-Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete dai client in qualsiasi rete, inclusa la rete Internet. Negare l'accesso di rete da Internet e da tutte le altre subnet in tutte le reti virtuali, tranne per la subnet *privata* nella rete virtuale *myVirtualNetwork*.
+Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete dai client in qualsiasi rete, inclusa la rete Internet. È possibile limitare l'accesso di rete da Internet e da tutte le altre subnet in tutte le reti virtuali, tranne per la subnet *Privata* nella rete virtuale *myVirtualNetwork*. Per limitare l'accesso di rete a una subnet:
 
-1. In **IMPOSTAZIONI** per l'account di archiviazione selezionare **Firewall e reti virtuali**.
+1. In **Impostazioni** per il proprio account di archiviazione (con un nome univoco) selezionare **Rete**.
 2. Selezionare **Reti selezionate**.
-3. Selezionare **+Aggiungi rete virtuale esistente**.
+3. Selezionare **+ Aggiungi rete virtuale esistente**.
 4. In **Aggiungi reti** selezionare i valori seguenti e quindi selezionare **Aggiungi**:
 
     |Impostazione|valore|
     |----|----|
-    |Subscription| Selezionare la propria sottoscrizione.|
-    |Reti virtuali|Selezionare **myVirtualNetwork** in **Reti virtuali**|
-    |Subnet| Selezionare **Privata** in **Subnet**|
+    |Sottoscrizione| Selezionare la propria sottoscrizione|
+    |Reti virtuali| **myVirtualNetwork**|
+    |Subnet| **Privata**|
 
-    ![Screenshot che mostra il riquadro Aggiungi reti in cui è possibile immettere i valori specificati.](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+    ![Screenshot che mostra il riquadro Aggiungi reti in cui è possibile immettere i valori specificati.](./media/tutorial-restrict-network-access-to-resources/virtual-networks.png)
 
-5. Selezionare **Salva**.
-6. Chiudere la finestra di dialogo **Firewall e reti virtuali**.
-7. In **IMPOSTAZIONI** per l'account di archiviazione selezionare **Chiavi di accesso**, come illustrato nell'immagine seguente:
+5. Fare clic su **Aggiungi** e quindi sull'icona **Salva** per salvare le modifiche.
+6. In **Impostazioni** per l'account di archiviazione selezionare **Chiavi di accesso**, come illustrato nell'immagine seguente:
 
       ![Screenshot mostra la voce Chiavi di accesso selezionata In Impostazioni per ottenere una chiave.](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
-8. Prendere nota del valore di **Chiave**, perché sarà necessario immetterlo manualmente in un passaggio successivo quando si eseguirà il mapping della condivisione file a una lettera di unità in una macchina virtuale.
+7. Fare clic su **Mostra chiavi** e prendere nota del valore di **Chiave**, perché sarà necessario immetterlo manualmente in un passaggio successivo quando si eseguirà il mapping della condivisione file a una lettera di unità in una macchina virtuale.
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
@@ -211,45 +245,68 @@ Per testare l'accesso di rete a un account di archiviazione, distribuire una VM 
 
 ### <a name="create-the-first-virtual-machine"></a>Creare la prima macchina virtuale
 
-1. Selezionare **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
-2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**.
-3. Immettere o selezionare le informazioni seguenti e quindi fare clic su **OK**:
+1. Sulla barra "Cerca risorse . . ." cercare **Macchine virtuali**.
+2. Selezionare **+ Aggiungi > Macchina virtuale**. 
+3. Immettere le informazioni seguenti:
 
    |Impostazione|valore|
    |----|----|
-   |Nome| myVmPublic|
-   |Nome utente|Immettere un nome utente a scelta.|
+   |Sottoscrizione| Selezionare la propria sottoscrizione|
+   |Gruppo di risorse| Selezionare **myResourceGroup, creato in precedenza.|
+   |Nome macchina virtuale| Immettere *myVmPublic*|
+   |Area | (Stati Uniti) Stati Uniti orientali
+   |Opzioni di disponibilità| Zona di disponibilità|
+   |Zona di disponibilità | 1 |
+   |Immagine | Windows Server 2019 Datacenter - Gen1 |
+   |Dimensione | Selezionare le dimensioni dell'istanza di VM da usare |
+   |Username|Immettere un nome utente a scelta.|
    |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-   |Subscription| Selezionare la propria sottoscrizione.|
-   |Resource group| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
-   |Location| Selezionare **Stati Uniti orientali**.|
-
-   ![Immettere le informazioni di base relative a una macchina virtuale](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
-4. Selezionare una dimensione per la macchina virtuale e quindi scegliere **Seleziona**.
-5. In **Impostazioni** selezionare **Rete** e quindi selezionare **myVirtualNetwork**. Selezionare quindi **Subnet** e selezionare **Pubblica**, come illustrato nell'immagine seguente:
+   |Porte in ingresso pubbliche | Consenti porte selezionate |
+   |Selezionare le porte in ingresso | Lasciare il valore predefinito *RDP (3389)* |
 
    ![Selezionare una rete virtuale](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
+  
+4. Selezionare la scheda **Rete** e quindi **myVirtualNetwork**. 
+5. Selezionare la subnet *Pubblica*.
+6. In **Gruppo di sicurezza di rete** selezionare **Avanzate**. Il portale crea automaticamente un gruppo di sicurezza di rete per l'utente che consente la porta 3389, che sarà necessario aprire per la connessione alla macchina virtuale in un passaggio successivo. 
 
-6. In **Gruppo di sicurezza di rete** selezionare **Avanzate**. Il portale crea automaticamente un gruppo di sicurezza di rete per l'utente che consente la porta 3389, che sarà necessario aprire per la connessione alla macchina virtuale in un passaggio successivo. Nella pagina **Impostazioni** selezionare **OK**.
-7. Nella pagina **Riepilogo** selezionare **Crea** per avviare la distribuzione della macchina virtuale. La distribuzione della VM richiede alcuni minuti, ma è possibile continuare con il passaggio successivo durante la creazione della VM.
+   ![Immettere le informazioni di base relative a una macchina virtuale](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
+
+7. Selezionare **Rivedi e crea**, quindi **Crea** e attendere il completamento della distribuzione.
+8. Fare clic su **Vai alla risorsa** oppure aprire la pagina **Home > Macchine virtuali** e selezionare la VM *myVmPublic* appena creata, che dovrebbe essere avviata.
 
 ### <a name="create-the-second-virtual-machine"></a>Creare la seconda macchina virtuale
 
-Completare di nuovo i passaggi da 1 a 7, ma nel passaggio 3 assegnare alla macchina virtuale il nome *myVmPrivate* e nel passaggio 5 selezionare la subnet **Privata**.
+1. Completare di nuovo i passaggi 1-8, ma nel passaggio 3 assegnare alla macchina virtuale il nome *myVmPrivate* e impostare **Porta in ingresso pubblica** su "Nessuna". 
+2. Nei passaggi 4-5 selezionare la subnet **Privata**.
 
-La distribuzione della VM richiede alcuni minuti. Non continuare con il passaggio successivo fino al termine della creazione e all'apertura delle impostazioni nel portale.
+>[!NOTE]
+> Le impostazioni di **Gruppo di sicurezza di rete** e **Porte in ingresso pubbliche** dovranno rispecchiare l'immagine seguente, inclusa la finestra di conferma blu indicante che tutto il traffico Internet pubblico verrà bloccato per impostazione predefinita.
+
+   ![Creare macchina virtuale privata](./media/tutorial-restrict-network-access-to-resources/create-private-virtual-machine.png)
+
+3. Selezionare **Rivedi e crea**, quindi **Crea** e attendere il completamento della distribuzione. 
+
+>[!WARNING]
+> Continuare con il passaggio successivo solo dopo il completamento della distribuzione.
+
+4. Attendere che venga visualizzata la finestra di conferma mostrata di seguito e fare clic su **Vai alla risorsa**.
+
+   ![Finestra di conferma della creazione di una macchina virtuale privata](./media/tutorial-restrict-network-access-to-resources/create-vm-confirmation-window.png)
 
 ## <a name="confirm-access-to-storage-account"></a>Verificare che venga consentito l'accesso a un account di archiviazione
 
-1. Al termine della creazione della VM *myVmPrivate*, Azure apre le relative impostazioni. Connettersi alla VM selezionando il pulsante **Connetti**, come illustrato nell'immagine seguente:
+1. Una volta creata la VM *myVmPrivate*, fare clic su **Vai alla risorsa**. 
+2. Connettersi alla VM selezionando **Connetti > RDP**.
+3. Dopo aver selezionato il pulsante **Connetti**, viene creato un file Remote Desktop Protocol con estensione rdp. Fare clic su **Scarica file RDP** per scaricare il file nel computer.  
+4. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Può essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM. Per il campo dell'indirizzo di posta elettronica, immettere le credenziali specificate in precedenza per "Account amministratore: nome utente". 
+5. Selezionare **OK**.
+6. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione. Verrà visualizzata anche la VM in esecuzione, come illustrato di seguito:
 
-   ![Connettersi a una macchina virtuale](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
+   ![Macchina virtuale privata in esecuzione](./media/tutorial-restrict-network-access-to-resources/virtual-machine-running.png)
 
-2. Dopo aver selezionato il pulsante **Connetti**, viene creato e scaricato nel computer un file Remote Desktop Protocol con estensione rdp.  
-3. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM. 
-4. Selezionare **OK**.
-5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione.
-6. Nella VM *myVmPrivate* eseguire il mapping della condivisione file di Azure all'unità Z usando PowerShell. Prima di eseguire i comandi seguenti, sostituire `<storage-account-key>` e `<storage-account-name>` con i valori specificati e recuperati in [Creare un account di archiviazione](#create-a-storage-account).
+7. Nella finestra della VM aprire un'istanza dell'interfaccia della riga di comando di PowerShell.
+8. Usando lo script seguente, eseguire il mapping della condivisione file di Azure all'unità Z usando PowerShell. Prima di eseguire i comandi seguenti, sostituire i valori dei campi `<storage-account-key>` e `<storage-account-name>` con i valori specificati e recuperati in [Creare un account di archiviazione](#create-a-storage-account).
 
    ```powershell
    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -267,34 +324,25 @@ La distribuzione della VM richiede alcuni minuti. Non continuare con il passaggi
 
    Il mapping della condivisione file di Azure all'unità Z è stato eseguito correttamente.
 
-7. Verificare che la VM non abbia connettività Internet in uscita da un prompt dei comandi:
-
-   ```
-   ping bing.com
-   ```
-
-   Non si ricevono risposte perché il gruppo di sicurezza di rete associato alla subnet *privata* non consente l'accesso in uscita a Internet.
-
-8. Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPrivate*.
+9.   Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPrivate*.
 
 ## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga rifiutato l'accesso a un account di archiviazione
 
 1. Immettere *myVmPublic* nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale.
 2. Selezionare **myVmPublic** quando viene visualizzato nei risultati della ricerca.
-3. Completare i passaggi da 1 a 6 di [Verificare che venga consentito l'accesso a un account di archiviazione](#confirm-access-to-storage-account) per la VM *myVmPublic*.
+3. Completare i passaggi 1-8 della sezione [Verificare che venga consentito l'accesso a un account di archiviazione](#confirm-access-to-storage-account) per la VM *myVmPublic*.
 
    Dopo una breve attesa verrà visualizzato un errore `New-PSDrive : Access is denied`. L'accesso viene rifiutato perché la VM *myVmPublic* è distribuita nella subnet *Public*. La subnet *pubblica* non ha un endpoint di servizio abilitato per Archiviazione di Azure. L'account di archiviazione consente l'accesso di rete solo dalla subnet *privata* e non dalla subnet *pubblica*.
 
 4. Chiudere la sessione Desktop remoto alla VM *myVmPublic*.
-
-5. Dal computer passare al [portale](https://portal.azure.com) di Azure.
-6. Immettere il nome dell'account di archiviazione creato nella casella **Cerca risorse, servizi e documentazione**. Quando il nome dell'account di archiviazione viene visualizzato nei risultati della ricerca, selezionarlo.
-7. Selezionare **File**.
-8. Viene visualizzato l'errore illustrato nell'immagine seguente:
+5. Tornare nel portale di Azure e passare all'account di archiviazione con un nome univoco creato in precedenza.
+6. In Servizio file selezionare **Condivisioni file** e quindi la condivisione file *my-file-share* creata in precedenza.
+7. Dovrebbe essere visualizzato il seguente messaggio di errore:
 
    ![Errore Accesso negato](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
-
-   L'accesso viene rifiutato perché il computer non è nella subnet *Privata* della rete virtuale *MyVirtualNetwork*.
+   
+>[!NOTE] 
+> L'accesso viene rifiutato perché il computer non è nella subnet *Privata* della rete virtuale *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

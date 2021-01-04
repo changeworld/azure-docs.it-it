@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95974332"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509462"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Esercitazione: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -347,21 +347,23 @@ private async Task DisplayMessageAsync(string message)
 A questo punto è necessario registrare l'applicazione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare ad **Azure Active Directory** > **Registrazioni per l'app**.
-1. Selezionare **Nuova registrazione**. Immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio *UWP-App-calling-MSGraph*.
-1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** . Selezionare quindi **Registra** per continuare.
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+1. Immettere un **Nome** per l'applicazione, ad esempio `UWP-App-calling-MSGraph`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione (qualsiasi directory di Azure AD - Multi-tenant) e account Microsoft personali (ad esempio, Skype, Xbox)** . 
+1. Selezionare **Registra**.
 1. Nella pagina della panoramica individuare il valore di **ID applicazione (client)** e copiarlo. Tornare a Visual Studio, aprire *MainPage.xaml.cs* e sostituire il valore di `ClientId` con questo valore.
 
 Configurare l'autenticazione per l'applicazione:
 
-1. Tornare al [portale di Azure](https://portal.azure.com) in **Gestisci** selezionare **Autenticazione**.
-1. Nella sezione **URI di reindirizzamento** | **URI di reindirizzamento suggeriti per client pubblici (dispositivi mobili, desktop)** selezionare https://login.microsoftonline.com/common/oauth2/nativeclient.
-1. Selezionare **Salva**.
+1. Tornare nel [portale di Azure](https://portal.azure.com), quindi in **Gestisci**, selezionare **Autenticazione** > **Aggiungi una piattaforma** e poi **Applicazioni per dispositivi mobili e desktop**.
+1. Nella sezione **URI di reindirizzamento** selezionare **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Selezionare **Configura**.
 
 Configurare le autorizzazioni API per l'applicazione:
 
-1. In **Gestisci** selezionare **Autorizzazioni API**.
-1. Selezionare **Aggiungi un'autorizzazione** e assicurarsi di aver selezionato **API Microsoft**.
+1. In **Gestisci** selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione**.
 1. Selezionare **Microsoft Graph**.
 1. Selezionare **Autorizzazioni delegate** cercare *User.Read* e verificare che la voce **User.Read** sia selezionata.
 1. Se sono state apportate modifiche, selezionare **Aggiungi autorizzazioni** per salvarle.

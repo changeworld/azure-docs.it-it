@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 1fb5396fae4676d85f67e98bb333cd58324d5a4e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6e3dbb968d0dff8d8227518fe53d257bfc1fae4b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357570"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607967"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Avvio rapido: Usare GitHub Actions per connettersi ad Azure MySQL
 
 **SI APPLICA A**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Database di Azure per PostgreSQL - Server singolo:::image type="icon" source="./media/applies-to/yes.png" border="false"::: Database di Azure per PostgreSQL - Server flessibile
 
-Usare un flusso di lavoro [GitHub Actions](https://docs.github.com/en/actions) per distribuire aggiornamenti di database a [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql/).
+Usare un flusso di lavoro [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) per distribuire aggiornamenti di database a [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql/).
 
 
 ## <a name="prerequisites"></a>Prerequisiti

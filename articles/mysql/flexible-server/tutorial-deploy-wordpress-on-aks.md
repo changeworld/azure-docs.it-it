@@ -7,16 +7,17 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 31ad9450c775e5e4e7ae543241b48f8c372ad9ee
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 7713b7596b21e02e941a19f64d3658ab0f5f51f5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749209"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359014"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Esercitazione: Distribuire un'app WordPress nel servizio Azure Kubernetes con il server flessibile di Database di Azure per MySQL
 
-In questa guida di avvio rapido si distribuisce un'applicazione WordPress nel servizio Azure Kubernetes con il server flessibile di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure. Il [servizio Azure Kubernetes](../../aks/intro-kubernetes.md) è un servizio Kubernetes gestito che consente di distribuire e gestire rapidamente i cluster. Il [server flessibile di Database di Azure per MySQL (anteprima)](overview.md) è un servizio di database completamente gestito progettato per offrire un controllo più granulare e una maggiore flessibilità rispetto alle funzioni di gestione e alle impostazioni di configurazione del database. Attualmente il server flessibile è disponibile in anteprima.
+In questa guida di avvio rapido si distribuisce un'applicazione WordPress nel servizio Azure Kubernetes con il server flessibile di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure. 
+Il **[servizio Azure Kubernetes](../../aks/intro-kubernetes.md)** è un servizio Kubernetes gestito che consente di distribuire e gestire rapidamente i cluster. Il **[server flessibile di Database di Azure per MySQL (anteprima)](overview.md)** è un servizio di database completamente gestito progettato per offrire un controllo più granulare e una maggiore flessibilità rispetto alle funzioni di gestione e alle impostazioni di configurazione del database. Attualmente il server flessibile è disponibile in anteprima.
 
 > [!NOTE]
 > - Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica
@@ -115,7 +116,7 @@ Il server creato ha gli attributi seguenti:
 - Poiché il comando usa il contesto locale, creerà il server nel gruppo di risorse ```wordpress-project``` e nell'area ```eastus```.
 
 
-## <a name="build-your-wordpress-docker-image"></a>Creare l'immagine Docker di WordPress
+### <a name="build-your-wordpress-docker-image"></a>Creare l'immagine Docker di WordPress
 
 Scaricare l'[ultima versione di WordPress](https://wordpress.org/download/). Creare una nuova directory ```my-wordpress-app``` per il progetto e usare questa semplice struttura della cartella
 
@@ -173,6 +174,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### <a name="create-a-dockerfile"></a>Creare un Dockerfile
 Creare un nuovo Dockerfile e copiare questo frammento di codice. Usare questo Dockerfile per configurare un server Web Apache con PHP e abilitare l'estensione mysqli.
 
 ```docker
@@ -182,12 +184,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## <a name="build-your-docker-image"></a>Creare l'immagine Docker
-Assicurarsi di trovarsi nella directory ```my-wordpress-app``` in un terminale usando il comando ```cd```. Eseguire il comando seguente per creare l'immagine di BBS:
+### <a name="build-your-docker-image"></a>Creare l'immagine Docker
+Assicurarsi di trovarsi nella directory ```my-wordpress-app``` in un terminale usando il comando ```cd```. Eseguire il comando seguente per creare l'immagine:
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -272,8 +274,6 @@ L'output di esempio seguente mostra le distribuzioni e i servizi creati corretta
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
-deployment "azure-vote-front" created
 service "php-svc" created
 ```
 

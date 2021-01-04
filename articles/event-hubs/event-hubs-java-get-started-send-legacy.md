@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare un'applicazione Java che invia
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e77ff762de11a9c8a723b162993db11efe715b66
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e86ca76f3eb661e1407a02b58e60b62b391f5702
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591549"
+ms.locfileid: "97607984"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Usare Java per inviare o ricevere eventi da Hub eventi di Azure (azure-eventhubs)
 
@@ -17,7 +17,6 @@ Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub e
 
 > [!WARNING]
 > In questo argomento di avvio rapido si usano i pacchetti **azure-eventhubs** e **azure-eventhubs-eph** precedenti. Per una guida di avvio rapido che usa l'ultima versione del pacchetto **azure-messaging-eventhubs**, vedere [Inviare e ricevere eventi con azure-messaging-eventhubs](event-hubs-java-get-started-send.md). Per fare in modo che l'applicazione usi il nuovo pacchetto al posto di quello precedente, vedere la [guida alla migrazione da azure-eventhubs ad azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -75,7 +74,6 @@ public class SimpleSend {
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
 
-
     }
  }
 ```
@@ -109,7 +107,6 @@ Creare un evento singolare trasformando una stringa nella relativa codifica UTF-
         // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-
 
         try {
             for (int i = 0; i < 10; i++) {
@@ -418,7 +415,6 @@ All'interno dell'implementazione è possibile ignorare il meccanismo di checkpoi
 È possibile usare qualsiasi archivio dati disponibile nell'ambiente in uso.
 
 La classe com.microsoft.azure.eventprocessorhost.EventProcessorHost offre 2 costruttori che consentono di eseguire l'override di gestione del checkpoint per EventProcessorHost.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere gli articoli seguenti: 
