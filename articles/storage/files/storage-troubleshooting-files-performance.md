@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512070"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724664"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -46,7 +46,7 @@ Per verificare se la condivisione è limitata, è possibile accedere alle metric
 ### <a name="solution"></a>Soluzione
 
 - Se si usa una condivisione file standard, abilitare [condivisioni file di grandi dimensioni](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) nell'account di archiviazione. Le condivisioni file di grandi dimensioni supportano fino a 10.000 IOPS per condivisione.
-- Se si usa una condivisione file Premium, aumentare le dimensioni della condivisione file di cui è stato effettuato il provisioning per aumentare il limite di IOPS. Per ulteriori informazioni, vedere la sezione "informazioni sul provisioning per le condivisioni file Premium" nella [Guida alla pianificazione del file di Azure](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Se si usa una condivisione file Premium, aumentare le dimensioni della condivisione file di cui è stato effettuato il provisioning per aumentare il limite di IOPS. Per altre informazioni, vedere [informazioni sul provisioning per le condivisioni file Premium](./understanding-billing.md#provisioned-billing).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Motivo 2: carico di lavoro elevato di metadati o spazio dei nomi
 

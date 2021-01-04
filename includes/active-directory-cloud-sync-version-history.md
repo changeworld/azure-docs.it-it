@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77866fcb72515d5167d9f06b7d9ad91c59bc7945
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993951"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97700586"
 ---
 Questo articolo elenca le versioni e le funzionalità di Azure Active Directory Connect agente di provisioning che sono state rilasciate. Il team di Azure AD aggiorna periodicamente l'agente di provisioning con nuove caratteristiche e funzionalità. L'agente di provisioning viene aggiornato automaticamente quando viene rilasciata una nuova versione. 
 
@@ -28,6 +28,8 @@ Microsoft fornisce supporto diretto per la versione più recente dell'agente e p
 * Supporto per il filtraggio di pH solo per gli oggetti nell'ambito (originariamente, sono stati sincronizzati gli hash delle password per tutti gli oggetti)
 * Correzione del problema di perdita di memoria nell'agente
 * Miglioramento dei log di provisioning
+* Supporto per la configurazione del [timeout della connessione LDAP](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
+* Supporto per la configurazione dell' [inseguimento dei riferimenti](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 
 
 
 ## <a name="11960"></a>1.1.96.0

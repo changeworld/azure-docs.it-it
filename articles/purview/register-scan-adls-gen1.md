@@ -1,18 +1,18 @@
 ---
 title: Register and Scan Azure Data Lake Storage (ADLS) Gen1
 description: Questa esercitazione descrive come analizzare i dati da Azure Data Lake Storage Gen1 in Azure.
-author: kchandra
-ms.author: kchandra
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: ee0b9238deb7805113f0cbfa28d0b60a114820a9
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555100"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693720"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Registra e analizza Azure Data Lake Storage Gen1
 
@@ -34,7 +34,7 @@ L'origine dati Azure Data Lake Storage Gen1 supporta le funzionalità seguenti:
 - Prima di registrare le origini dati, creare un account Azure. Per altre informazioni sulla creazione di un account di competenza, vedere [Guida introduttiva: creare un account Azure](create-catalog-portal.md).
 - È necessario essere un amministratore dell'origine dati di competenza di Azure
 
-## <a name="setting-up-authentication-for-a-scan"></a>Impostazione dell'autenticazione per un'analisi
+## <a name="setting-up-authentication-for-a-scan"></a>Configurazione dell'autenticazione per un'analisi
 
 Per Azure Data Lake Storage Gen1 sono supportati i metodi di autenticazione seguenti:
 
@@ -69,7 +69,7 @@ Per configurare un'analisi utilizzando l'identità del servizio gestito di Data 
 
 5. Se l'insieme di credenziali delle chiavi non è ancora connesso alla propria competenza, sarà necessario [creare una nuova connessione di Key Vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 
-6. Infine, [creare una nuova credenziale](manage-credentials.md#create-a-new-credential) usando l'entità servizio per configurare l'analisi
+6. Infine, [creare nuove credenziali](manage-credentials.md#create-a-new-credential) usando l'entità servizio per configurare l'analisi
 > [!Note]
 > Dopo aver aggiunto l'identità del servizio gestito del catalogo nell'origine dati, attendere fino a 15 minuti per la propagazione delle autorizzazioni prima di configurare un'analisi.
 
@@ -81,15 +81,15 @@ Per usare un'entità servizio, è innanzitutto necessario crearne una seguendo q
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **Azure Active Directory** dal menu a sinistra.
+2. Selezionare **Azure Active Directory** nel menu a sinistra.
 
 3. Selezionare **Registrazioni per l'app**.
 
 4. Selezionare **+ Registrazione nuova applicazione**.
 
-5. Immettere un nome per l' **applicazione** (il nome dell'entità servizio).
+5. Immettere un nome per l'**applicazione** (il nome dell'entità servizio).
 
-6. Selezionare **account solo in questa directory aziendale**.
+6. Selezionare **Account solo in questa directory dell'organizzazione**.
 
 7. Per **URI di reindirizzamento** selezionare **Web** e immettere l'URL desiderato; non è necessario che sia reale o funzionante.
 
@@ -127,7 +127,7 @@ Per registrare un nuovo account di ADLS Gen1 nel Catalogo dati, eseguire le oper
 
 Nella schermata Register Sources (Azure Data Lake Storage Gen1) eseguire le operazioni seguenti:
 
-1. Immettere un **nome** con cui l'origine dati verrà elencata nel catalogo.
+1. Immettere un **Nome** con il quale l'origine dati sarà elencata nel catalogo.
 2. Scegliere la sottoscrizione per filtrare gli account di archiviazione
 3. Select a storage account (Selezionare un account di archiviazione)
 4. Selezionare una raccolta o crearne una nuova (facoltativo)
@@ -137,5 +137,5 @@ Nella schermata Register Sources (Azure Data Lake Storage Gen1) eseguire le oper
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esplorare il Catalogo dati di Azure per le competenze](how-to-browse-catalog.md)
-- [Cerca nel Data Catalog di competenza di Azure](how-to-search-catalog.md)
+- [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)

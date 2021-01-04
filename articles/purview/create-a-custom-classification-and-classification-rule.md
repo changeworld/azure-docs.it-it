@@ -1,18 +1,18 @@
 ---
 title: Creare una regola di classificazione e classificazione personalizzata (anteprima)
 description: In questo articolo viene descritto come creare classificazioni personalizzate per definire i tipi di dati nel proprio patrimonio di dati che sono univoci per l'organizzazione. Viene inoltre descritta la creazione di regole di classificazione personalizzate che consentono di trovare i dati specificati in tutti i dati.
-author: chandrakavya
-ms.author: kchandra
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/1/2020
-ms.openlocfilehash: 16a714cff506117c5d6f7fd4921fbd5346bfda39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96552669"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693452"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificazioni personalizzate in Azure competenza 
 
@@ -101,8 +101,8 @@ Per creare una regola di classificazione personalizzata:
 |Descrizione      |Facoltativa. Il valore massimo è 256 caratteri.    |
 |Nome classificazione    | Obbligatorio. Selezionare il nome della classificazione dall'elenco a discesa per indicare allo scanner di applicarlo se viene trovata una corrispondenza.        |
 |State   |  Obbligatorio. Le opzioni sono abilitate o disabilitate. Enabled è il valore predefinito.    |
-|Modello di dati    |Facoltativo. Espressione regolare che rappresenta i dati archiviati nel campo dati. Il limite è molto grande. Nell'esempio precedente, i modelli di dati verificano l'ID di un dipendente che è letteralmente la parola `Employee{GUID}` .  |
-|Modello di colonna    |Facoltativo. Espressione regolare che rappresenta i nomi di colonna per i quali si desidera trovare una corrispondenza. Il limite è molto grande.          |
+|Modello di dati    |facoltativo. Espressione regolare che rappresenta i dati archiviati nel campo dati. Il limite è molto grande. Nell'esempio precedente, i modelli di dati verificano l'ID di un dipendente che è letteralmente la parola `Employee{GUID}` .  |
+|Modello di colonna    |facoltativo. Espressione regolare che rappresenta i nomi di colonna per i quali si desidera trovare una corrispondenza. Il limite è molto grande.          |
 
 In **modello dati** sono disponibili due opzioni:
 

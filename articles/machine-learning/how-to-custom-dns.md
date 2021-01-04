@@ -11,16 +11,16 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 07ff656c5eacbbcdc16c6c7cf098478ca6baf745
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509292"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724715"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Come usare l'area di lavoro con un server DNS personalizzato
 
-Quando si usa un'area di lavoro di Azure Machine Learning con un endpoint privato, esistono [diversi modi per gestire la risoluzione dei nomi DNS](../private-link/private-endpoint-dns.md). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Se invece si _Usa un server DNS personalizzato_ _, è necessario creare manualmente le voci DNS per l'area di lavoro.
+Quando si usa un'area di lavoro di Azure Machine Learning con un endpoint privato, esistono [diversi modi per gestire la risoluzione dei nomi DNS](../private-link/private-endpoint-dns.md). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Se invece si _Usa un server DNS personalizzato_ _, è necessario creare manualmente le voci DNS o usare i server d'inoltri condizionali per l'area di lavoro.
 
 > [!IMPORTANT]
 > Questo articolo illustra solo come trovare il nome di dominio completo (FQDN) e gli indirizzi IP per queste voci, ma non fornisce informazioni sulla configurazione dei record DNS per questi elementi. Per informazioni su come aggiungere record, consultare la documentazione relativa al software DNS.
@@ -37,9 +37,9 @@ Quando si usa un'area di lavoro di Azure Machine Learning con un endpoint privat
 
 - Facoltativamente, l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="find-the-ip-addresses"></a>Trovare gli indirizzi IP
-
-L'elenco seguente contiene i nomi di dominio completi (FQDN) usati dall'area di lavoro e dall'endpoint privato:
+## <a name="fqdns-in-use"></a>FQDN in uso
+### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Questi FQDN sono usati nelle aree seguenti: eastus, southcentralus e westus2.
+L'elenco seguente contiene i nomi di dominio completi (FQDN) usati dall'area di lavoro:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
@@ -51,6 +51,19 @@ L'elenco seguente contiene i nomi di dominio completi (FQDN) usati dall'area di 
 
     > [!NOTE]
     > È possibile accedere alle istanze di calcolo solo dall'interno della rete virtuale.
+    
+### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Questi FQDN sono in uso in tutte le altre aree
+L'elenco seguente contiene i nomi di dominio completi (FQDN) usati dall'area di lavoro:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `<instance-name>.<region>.instances.azureml.ms`
+
+    > [!NOTE]
+    > È possibile accedere alle istanze di calcolo solo dall'interno della rete virtuale.
+
+## <a name="find-the-ip-addresses"></a>Trovare gli indirizzi IP
 
 Per trovare gli indirizzi IP interni per i nomi di dominio completi in VNet, usare uno dei metodi seguenti:
 
@@ -89,7 +102,7 @@ Le informazioni restituite da tutti i metodi sono le stesse. elenco di FQDN e in
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]
-> Alcuni FQDN non vengono visualizzati nell'elenco dall'endpoint privato, ma sono richiesti dall'area di lavoro. Questi FQDN sono elencati nella tabella seguente ed è necessario aggiungerli anche al server DNS:
+> Alcuni FQDN non vengono visualizzati nell'elenco dall'endpoint privato, ma sono richiesti dall'area di lavoro in eastus, southcentralus e westus2. Questi FQDN sono elencati nella tabella seguente ed è necessario aggiungerli anche al server DNS e/o a una zona di DNS privato di Azure:
 >
 > * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
@@ -102,3 +115,5 @@ Le informazioni restituite da tutti i metodi sono le stesse. elenco di FQDN e in
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni sull'utilizzo di Azure Machine Learning con una rete virtuale, vedere la [Panoramica della rete virtuale](how-to-network-security-overview.md).
+
+Per altre informazioni sull'integrazione di endpoint privati nella configurazione DNS, vedere [configurazione DNS dell'endpoint privato di Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).

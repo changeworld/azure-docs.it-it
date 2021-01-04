@@ -1,14 +1,14 @@
 ---
 title: Gestione dell'agente server abilitati per Azure Arc
 description: Questo articolo descrive le diverse attività di gestione che in genere vengono eseguite durante il ciclo di vita di Azure Arc Enabled Servers Connected computer Agent.
-ms.date: 10/30/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f408048f61f76d6b258ea8e063630b4e2aa841af
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107193"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724375"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente Azure Connected Machine
 
@@ -61,7 +61,7 @@ Il pacchetto di aggiornamento per l'agente Azure Connected Machine per Windows �
 
 * [Pacchetto di installazione dell'agente Connected Machine per Windows](https://aka.ms/AzureConnectedMachineAgent) dall'Area download Microsoft.
 
-L'agente può essere aggiornato mediante diversi metodi per supportare il processo di gestione degli aggiornamenti software. Oltre al recupero da Microsoft Update, è possibile scaricare ed eseguire manualmente l'aggiornamento dal prompt dei comandi, da uno script o da un'altra soluzione di automazione oppure seguire la procedura guidata dell'interfaccia utente eseguendo `AzureConnectedMachine.msi`.
+Per supportare il processo di gestione degli aggiornamenti software, è possibile aggiornare l'agente dopo diversi metodi. Oltre al recupero da Microsoft Update, è possibile scaricare ed eseguire manualmente l'aggiornamento dal prompt dei comandi, da uno script o da un'altra soluzione di automazione oppure seguire la procedura guidata dell'interfaccia utente eseguendo `AzureConnectedMachine.msi`.
 
 > [!NOTE]
 > * Per aggiornare l'agente, sono necessarie le autorizzazioni di *Amministratore*.
@@ -189,7 +189,7 @@ Per connettersi con le credenziali di accesso con privilegi elevati (interattive
 
 ### <a name="disconnect"></a>Disconnetti
 
-Questo parametro specifica una risorsa in Azure Resource Manager per indicare che il computer è stato eliminato in Azure. Il parametro non elimina l'agente dal computer: questa operazione deve essere eseguita come passaggio separato. Dopo la disconnessione del computer, se si vuole registrarlo di nuovo con i server abilitati per Azure Arc, usare `azcmagent connect` per creare una nuova risorsa in Azure.
+Questo parametro specifica una risorsa in Azure Resource Manager per indicare che il computer è stato eliminato in Azure. Poiché l'agente non viene rimosso dal computer, l'agente viene disinstallato separatamente. Dopo la disconnessione del computer, se si vuole registrarlo di nuovo con i server abilitati per Azure Arc, usare `azcmagent connect` per creare una nuova risorsa in Azure.
 
 > [!NOTE]
 > Se sono state distribuite una o più estensioni di VM di Azure nel server abilitato per Arc e si elimina la registrazione in Azure, le estensioni vengono ancora installate. È importante comprendere che, a seconda dell'estensione installata, sta eseguendo attivamente la relativa funzione. I computer che devono essere ritirati o non più gestiti da server abilitati per Arc devono prima rimuovere le estensioni prima di rimuovere la registrazione da Azure.
@@ -208,7 +208,7 @@ Per disconnettersi con le credenziali di accesso con privilegi elevati (interatt
 
 ## <a name="remove-the-agent"></a>Rimuovere l'agente
 
-Eseguire uno dei metodi seguenti per disinstallare l'agente Azure Connected Machine di Windows o Linux dal computer. La rimozione dell'agente non annulla la registrazione del computer con i server abilitati per Arc o rimuove le estensioni di VM di Azure installate. È necessario eseguire questi passaggi separatamente quando non è più necessario gestire il computer in Azure e devono essere completati prima di disinstallare l'agente.
+Eseguire uno dei metodi seguenti per disinstallare l'agente Azure Connected Machine di Windows o Linux dal computer. La rimozione dell'agente non annulla la registrazione del computer con i server abilitati per Arc o rimuove le estensioni di VM di Azure installate. Annullare la registrazione del computer e rimuovere le estensioni di VM installate separatamente quando non è più necessario gestire il computer in Azure e questi passaggi devono essere completati prima di disinstallare l'agente.
 
 ### <a name="windows-agent"></a>Agente Windows
 
@@ -286,6 +286,10 @@ Se si prevede di arrestare la gestione del computer con servizi di supporto in A
 ## <a name="update-or-remove-proxy-settings"></a>Aggiornare o rimuovere le impostazioni proxy
 
 Per configurare l'agente per comunicare con il servizio tramite un server proxy o rimuovere questa configurazione dopo la distribuzione, usare uno dei modi seguenti per completare questa attività.
+
+> [!NOTE]
+> I server abilitati per Arc non supportano l'uso di un [gateway log Analytics](../../azure-monitor/platform/gateway.md) come proxy per l'agente del computer connesso.
+>
 
 ### <a name="windows"></a>Windows
 

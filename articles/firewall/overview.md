@@ -9,12 +9,12 @@ ms.custom: mvc, contperf-fy21q1
 ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 3bfc8704919fc26db692701eaca526dd5c333b6f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 04ba20bd5607bc309735e509ac37b15c33445c52
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033494"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672734"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -68,7 +68,6 @@ Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non f
 |Gli aggiornamenti della configurazione possono richiedere in media cinque minuti|Un aggiornamento della configurazione di Firewall di Azure può richiedere in media da tre a cinque minuti e gli aggiornamenti paralleli non sono supportati.|È in corso la ricerca di una correzione.|
 |Firewall di Azure usa le intestazioni TLS di SNI per filtrare il traffico HTTPS e MSSQL|Se il software del browser o del server non supporta l'estensione SNI (Server Name Indicator), non sarà possibile connettersi tramite Firewall di Azure.|Se il software del browser o del server non supporta SNI, potrebbe essere possibile controllare la connessione utilizzando una regola di rete anziché una regola dell'applicazione. Vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication) per il software che supporta SNI.|
 |Il DNS personalizzato non supporta il tunneling forzato|Se il tunneling forzato è abilitato, il DNS personalizzato non funziona.|È in corso la ricerca di una correzione.|
-|Supporto del nuovo indirizzo IP pubblico per più zone di disponibilità|Non è possibile aggiungere un nuovo indirizzo IP pubblico quando si distribuisce un firewall con due zona di disponibilità (1 e 2, 2 e 3 o 1 e 3)|Questa è una limitazione della risorsa indirizzo IP pubblico.|
 |L'avvio/arresto non funziona con un firewall configurato in modalità di tunneling forzato|L'avvio/arresto non funziona con Firewall di Azure configurato in modalità di tunneling forzato. Se si tenta di avviare Firewall di Azure con il tunneling forzato configurato, si verifica l'errore seguente:<br><br>*Set-AzFirewall: Non è possibile aggiungere la configurazione IP di gestione del Firewall di Azure FW-xx a un firewall esistente. Per usare il supporto del tunneling forzato, ridistribuire con una configurazione IP di gestione.<br>StatusCode: 400<br>ReasonPhrase: Richiesta non valida*|In fase di analisi.<br><br>Come soluzione alternativa, è possibile eliminare il firewall esistente e crearne uno nuovo con gli stessi parametri.|
 |Non è possibile aggiungere tag dei criteri firewall usando il portale|I criteri di Firewall di Azure hanno una limitazione del supporto delle patch che impedisce di aggiungere un tag usando il portale di Azure. Viene generato l'errore seguente: *Non è stato possibile salvare i tag per la risorsa*.|È in corso la ricerca di una correzione. In alternativa, è possibile usare il cmdlet `Set-AzFirewallPolicy` di Azure PowerShell per aggiornare i tag.|
 |IPv6 non ancora supportato|Se si aggiunge un indirizzo IPv6 a una regola, si verifica un errore del firewall.|Usare solo indirizzi IPv4. Il supporto di IPv6 è in fase di analisi.|

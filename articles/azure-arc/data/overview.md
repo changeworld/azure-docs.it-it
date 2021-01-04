@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316978"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609140"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Che cosa sono i servizi dati con abilitazione di Azure Arc (anteprima)?
 
@@ -33,7 +33,7 @@ I servizi dati con abilitazione di Azure Arc, ad esempio l'istanza gestita di SQ
 
 ## <a name="elastic-scale"></a>Scalabilità elastica
 
-L'elasticità in locale di tipo cloud consente di ridimensionare dinamicamente i database in modo analogo a quanto avviene in Azure, in base alla capacità disponibile dell'infrastruttura. Questa funzionalità è in grado di soddisfare scenari di burst con esigenze volatili, inclusi scenari che richiedono l'inserimento di dati e l'esecuzione di query su di essi in tempo reale, su qualsiasi scala, con tempi di risposta di frazioni di secondo. È inoltre possibile aumentare le istanze di database usando l'opzione di distribuzione con iperscalabilità unica di Database di Azure per PostgreSQL Hyperscale. Questa funzionalità offre ai carichi di lavoro dei dati un ulteriore incremento dell'ottimizzazione della capacità, usando operazioni di lettura e scrittura univoche con scalabilità *orizzontale* .
+L'elasticità in locale di tipo cloud consente di ridimensionare dinamicamente i database in modo analogo a quanto avviene in Azure, in base alla capacità disponibile dell'infrastruttura. Questa funzionalità è in grado di soddisfare scenari di burst con esigenze volatili, inclusi scenari che richiedono l'inserimento di dati e l'esecuzione di query su di essi in tempo reale, su qualsiasi scala, con tempi di risposta di frazioni di secondo. È inoltre possibile aumentare le istanze di database usando l'opzione di distribuzione con iperscalabilità unica di Database di Azure per PostgreSQL Hyperscale. Questa funzionalità offre ai carichi di lavoro dei dati un ulteriore incremento dell'ottimizzazione della capacità, usando operazioni di lettura e scrittura univoche con scalabilità *orizzontale*.
 
 ## <a name="self-service-provisioning"></a>Provisioning self-service
 
@@ -50,7 +50,7 @@ Molti dei servizi, ad esempio il provisioning self-service, i backup o il ripris
 ## <a name="next-steps"></a>Passaggi successivi
 
 > **Si desidera fare semplicemente una prova?**  
-> È possibile iniziare rapidamente a usare [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) nel servizio Azure Kubernetes, in AWS Elastic Kubernetes Service (EKS), in Google Cloud Kubernetes Engine (GKE) o in una macchina virtuale di Azure.
+> È possibile iniziare rapidamente a usare [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) nel servizio Azure Kubernetes, in AWS Elastic Kubernetes Service (EKS), in Google Cloud Kubernetes Engine (GKE) o in una macchina virtuale di Azure.
 
 [Installare gli strumenti client](install-client-tools.md)
 

@@ -3,7 +3,7 @@ title: Come usare archiviazione di Azure per il backup e il ripristino SQL Serve
 description: Informazioni su come eseguire il backup di SQL Server in Archiviazione di Azure. Vengono illustrati i vantaggi del backup dei database SQL in Archiviazione di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MikeRayMSFT
+author: MashaMSFT
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: b4100800385792557358d3fb6438f52650483f89
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359793"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724783"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usare archiviazione di Azure per il backup e il ripristino SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-A partire da SQL Server 2012 SP1 CU2, è ora possibile scrivere SQL Server backup direttamente nell'archiviazione BLOB di Azure. È possibile usare questa funzionalità per eseguire il backup e il ripristino dall'archiviazione BLOB di Azure e da un database di SQL Server. Il backup nel cloud offre i vantaggi della disponibilità, l'archiviazione fuori sede con replica geografica illimitata e la facilità di migrazione dei dati da e verso il cloud. È possibile eseguire istruzioni BACKUP o RESTORE usando T-SQL o SMO.
+A partire da SQL Server 2012 SP1 CU2, è ora possibile scrivere backup SQL Server database direttamente nell'archivio BLOB di Azure. Usare questa funzionalità per eseguire il backup e il ripristino dall'archiviazione BLOB di Azure. Il backup nel cloud offre i vantaggi della disponibilità, l'archiviazione fuori sede con replica geografica illimitata e la facilità di migrazione dei dati da e verso il cloud. È possibile rilasciare `BACKUP` `RESTORE` istruzioni o utilizzando Transact-SQL o Smo.
 
 ## <a name="overview"></a>Panoramica
 In SQL Server 2016 sono disponibili nuove funzionalità. È possibile usare il [backup di snapshot di file](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) per eseguire backup quasi istantanei e ripristini estremamente rapidi.
@@ -52,26 +52,26 @@ Quando si esegue il backup nell'archiviazione BLOB di Azure, vengono usati i com
 | --- | --- |
 | **Account di archiviazione** |l'account di archiviazione è il punto di partenza per tutti i servizi di archiviazione. Per accedere all'archiviazione BLOB di Azure, creare prima un account di archiviazione di Azure. Per altre informazioni sull'archiviazione BLOB di Azure, vedere [come usare l'archivio BLOB di Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Contenitore** |Un contenitore fornisce il raggruppamento di un set di BLOB ed è in grado di archiviare un numero di BLOB illimitato. Per scrivere un backup SQL Server nell'archiviazione BLOB di Azure, è necessario che sia stato creato almeno il contenitore radice. |
-| **BLOB** |file di qualsiasi tipo e dimensioni. I BLOB sono indirizzabili usando il formato di URL seguente: **https://[account di archiviazione].blob.core.windows.net/[contenitore]/[blob]** . Per altre informazioni sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
+| **BLOB** |file di qualsiasi tipo e dimensioni. I BLOB sono indirizzabili usando il formato di URL seguente: `https://<storageaccount>.blob.core.windows.net/<container>/<blob>` . Per altre informazioni sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 
 ## <a name="sql-server-components"></a>Componenti SQL Server
 Quando si esegue il backup nell'archiviazione BLOB di Azure, vengono usati i componenti SQL Server seguenti.
 
 | Componente | Descrizione |
 | --- | --- |
-| **URL** |un URL specifica un URI (Uniform Resource Identifier) in un file di backup univoco. L'URL viene usato per fornire il percorso e il nome del file di backup di SQL Server. L'URL deve puntare a un BLOB effettivo, non solo a un contenitore. Se il BLOB non è disponibile, viene creato. Se viene specificato un BLOB esistente, il comando BACKUP non riuscirà a meno che non sia specificata l'opzione WITH FORMAT. Di seguito è riportato un esempio di URL specificato in un comando BACKUP: **http[s]://[accountarchiviazione].blob.core.windows.net/[contenitore]/[FILENAME.bak]** . HTTPS non è obbligatorio ma è consigliato. |
+| **URL** |un URL specifica un URI (Uniform Resource Identifier) in un file di backup univoco. L'URL fornisce il percorso e il nome del file di backup SQL Server. L'URL deve puntare a un BLOB effettivo, non solo a un contenitore. Se il BLOB non esiste, viene creato da Azure. Se viene specificato un BLOB esistente, il comando backup ha esito negativo, a meno che non `WITH FORMAT` venga specificata l'opzione. Di seguito è riportato un esempio dell'URL da specificare nel comando BACKUP: `https://<storageaccount>.blob.core.windows.net/<container>/<FILENAME.bak>` .<br><br> HTTPS non è obbligatorio ma è consigliato. |
 | **Credenziali** |Le informazioni necessarie per connettersi ed eseguire l'autenticazione nell'archivio BLOB di Azure vengono archiviate come credenziale. Per fare in modo che SQL Server sia in grado di scrivere backup in un BLOB di Azure o di eseguire un ripristino da quest'ultimo, è necessario creare una credenziale di SQL Server. Per altre informazioni, vedere [Credenziali di SQL Server](/sql/t-sql/statements/create-credential-transact-sql). |
 
 > [!NOTE]
 > SQL Server 2016 è stato aggiornato per supportare i BLOB in blocchi. Per informazioni dettagliate, vedere l' [esercitazione sull'uso di Microsoft Azure archiviazione BLOB con SQL Server database 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016) .
 > 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 1. Se non se ne possiede già uno, creare un account di Azure. Se si sta valutando Azure, è consigliabile usare una [versione di prova gratuita](https://azure.microsoft.com/free/).
 2. Eseguire quindi una delle esercitazioni seguenti, in cui vengono fornite informazioni dettagliate sulla creazione di un account di archiviazione e sull'esecuzione di un ripristino.
    
-   * **SQL Server 2014**: [esercitazione: eseguire il backup e il ripristino di SQL Server 2014 nell'archivio BLOB Microsoft Azure](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2014**: [esercitazione: eseguire il backup e il ripristino di SQL Server 2014 nell'archivio BLOB Microsoft Azure](/previous-versions/sql/2014/relational-databases/backup-restore/sql-server-backup-to-url).
    * **SQL Server 2016**: [esercitazione: uso dell'archiviazione BLOB Microsoft Azure con i database SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016)
 3. Esaminare la documentazione aggiuntiva a partire da [SQL Server backup e ripristino con Microsoft Azure archiviazione BLOB](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 
