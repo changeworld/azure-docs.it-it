@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493101"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702636"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -107,9 +107,14 @@ Se la connessione ad Azure non è riuscita, è possibile tentare di risolvere il
 
 1. Usare il portale di [Azure](https://portal.azure.com/) per creare un account di Servizi multimediali di Azure, come descritto in [Creare un account](../previous/media-services-portal-create-account.md).
 
+     Verificare che l'account di servizi multimediali sia stato creato con le API classiche. 
+ 
+    ![API classica di servizi multimediali](./media/create-account/enable-classic-api.png)
+
+
     Quando si crea un account di archiviazione per l'account di servizi multimediali, selezionare **archiviazione V2** per tipo di account e **ridondanza geografica** (GRS) per i campi di replica.
 
-    ![Nuovo account AMS](./media/create-account/create-ams-account1.png)
+    ![Nuovo account AMS](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
     > Assicurarsi di annotare i nomi della risorsa e dell'account di Servizi multimediali. Saranno necessari per i passaggi nella sezione successiva.
@@ -120,14 +125,14 @@ Se la connessione ad Azure non è riuscita, è possibile tentare di risolvere il
 
     Nel nuovo account di servizi multimediali selezionare **endpoint di streaming**. Selezionare quindi l'endpoint di streaming e premere Avvia.
 
-    ![Endpoint di streaming](./media/create-account/create-ams-account2.png)
+    ![Endpoint di streaming](./media/create-account/create-ams-account-se.png)
 4. Per Video Indexer di eseguire l'autenticazione con l'API di servizi multimediali, è necessario creare un'app AD. I passaggi seguenti consentono di eseguire il processo di autenticazione Azure AD descritto in [Introduzione all'autenticazione di Azure AD tramite il portale di Azure](../previous/media-services-portal-get-started-with-aad.md):
 
     1. Nel nuovo account di Servizi multimediali selezionare **Accesso all'API**.
     2. Selezionare il [metodo di autenticazione basata sull'entità servizio](../previous/media-services-portal-get-started-with-aad.md).
     3. Ottenere l'ID client e il segreto client
 
-        Dopo aver selezionato **le chiavi delle impostazioni** -> **Keys**, aggiungere la **Descrizione**, fare clic su **Salva** e il valore della chiave viene popolato.
+        Dopo aver selezionato **le chiavi delle impostazioni** -> , aggiungere la **Descrizione**, fare clic su **Salva** e il valore della chiave viene popolato.
 
         Se la chiave scade, il proprietario dell'account dovrà contattare Video Indexer supporto per rinnovare la chiave.
 
@@ -171,7 +176,9 @@ L'account verrà eliminato definitivamente tra 90 giorni.
 
 Tenere presenti le seguenti considerazioni relative a Servizi multimediali di Azure:
 
-* Se ci si connette automaticamente, vengono visualizzati un nuovo gruppo di risorse, un account di servizi multimediali e un account di archiviazione nella sottoscrizione di Azure.
+* Se si prevede di connettersi a un account di servizi multimediali esistente, verificare che l'account di servizi multimediali sia stato creato con le API classiche. 
+ 
+    ![API classica di servizi multimediali](./media/create-account/enable-classic-api.png)
 * Se ci si connette a un account di servizi multimediali esistente, Video Indexer non modifica la configurazione di media **reserved Units** esistente.
 
    Potrebbe essere necessario modificare il tipo e il numero di media reserved unit in base al carico pianificato. Tenere presente che se il carico è elevato e le unità o la velocità non sono sufficienti, possono verificarsi errori di timeout durante l'elaborazione video.

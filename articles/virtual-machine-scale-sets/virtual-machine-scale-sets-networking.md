@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016693"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722318"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -381,6 +381,140 @@ az vmss show \
   ]
 ]
 ```
+
+## <a name="make-networking-updates-to-specific-instances"></a>Apportare aggiornamenti di rete a istanze specifiche
+
+È possibile apportare aggiornamenti di rete a specifiche istanze del set di scalabilità di macchine virtuali. 
+
+È possibile `PUT` eseguire l'aggiornamento della configurazione di rete per l'istanza. Questa operazione può essere utilizzata per eseguire operazioni quali l'aggiunta o la rimozione di schede di interfaccia di rete (NIC) o la rimozione di un'istanza da un pool back-end.
+
+```
+PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+```
+
+Nell'esempio seguente viene illustrato come aggiungere una seconda configurazione IP alla scheda di interfaccia di rete.
+
+1. `GET` dettagli per un'istanza specifica del set di scalabilità di macchine virtuali.
+    
+    ``` 
+    GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *Il codice seguente è stato semplificato per mostrare solo i parametri di rete per questo esempio.*
+
+    ```json
+    {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
+ 
+2. `PUT` sull'istanza, aggiornamento per aggiungere la configurazione IP aggiuntiva. Questa operazione è simile per l'aggiunta di ulteriori `networkInterfaceConfiguration` .
+
+    
+    ```
+    PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *Il codice seguente è stato semplificato per mostrare solo i parametri di rete per questo esempio.*
+
+    ```json
+      {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  },
+                  {
+                    "name": "my-second-config",
+                    "properties": {
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
 
 
 

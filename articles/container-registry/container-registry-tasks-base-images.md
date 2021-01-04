@@ -3,12 +3,12 @@ title: Aggiornamenti di immagini di base-attività
 description: Informazioni sulle immagini di base per le immagini del contenitore di applicazioni e sul modo in cui un aggiornamento di un'immagine di base può attivare un'attività di Container Registry di Azure.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009824"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707487"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informazioni sugli aggiornamenti delle immagini di base per le attività ACR
 
@@ -57,7 +57,7 @@ Il tempo che intercorre tra l'aggiornamento di un'immagine di base e l'attivazio
 * **Abilitata per impostazione predefinita** : quando si crea un'attività ACR con il comando [AZ ACR task create][az-acr-task-create] , per impostazione predefinita l'attività è *abilitata* per il trigger da un aggiornamento dell'immagine di base. Ciò significa che la proprietà `base-image-trigger-enabled` è impostata su True. Se si vuole disabilitare questo comportamento in un'attività, aggiornare la proprietà impostandola su False. Eseguire ad esempio il comando [az acr task update][az-acr-task-update] seguente:
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **Trigger per tenere traccia delle dipendenze** : per consentire a un'attività ACR di determinare e tenere traccia delle dipendenze di un'immagine del contenitore, tra cui l'immagine di base, è necessario innanzitutto attivare l'attività per compilare l'immagine almeno **una volta**. Attivare ad esempio l'attività manualmente usando il comando [az acr task run][az-acr-task-run].

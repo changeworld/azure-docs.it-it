@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
-ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/20/2020
+ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95758905"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706882"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -19,7 +19,7 @@ Questo articolo illustra il concetto di eliminazione temporanea dell'area di lav
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Considerazioni in caso di eliminazione dell'area di lavoro
 
-Quando si elimina un'area di lavoro di Log Analytics, viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino dell'area di lavoro, inclusi i dati e gli agenti connessi entro 14 giorni, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale. Dopo il periodo di eliminazione temporanea, la risorsa dell'area di lavoro e i relativi dati non sono recuperabili. I dati vengono accodati per l'eliminazione permanente e completamente eliminati entro 30 giorni. Il nome dell'area di lavoro viene "rilasciato" ed è possibile usarlo per creare una nuova area di lavoro.
+Quando si elimina un'area di lavoro di Log Analytics, viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino dell'area di lavoro, inclusi i dati e gli agenti connessi entro 14 giorni, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale. Dopo il periodo di eliminazione temporanea, la risorsa dell'area di lavoro e i relativi dati non sono recuperabili e accodati per essere eliminati completamente entro 30 giorni. Il nome dell'area di lavoro viene "rilasciato" ed è possibile usarlo per creare una nuova area di lavoro.
 
 > [!NOTE]
 > Se si vuole eseguire l'override del comportamento di eliminazione temporanea ed eliminare definitivamente l'area di lavoro, seguire la procedura descritta in [eliminazione permanente dell'area di lavoro](#permanent-workspace-delete).
@@ -76,12 +76,15 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="recover-workspace"></a>Recuperare l'area di lavoro
 Quando si elimina un'area di lavoro di Log Analytics accidentalmente o intenzionalmente, il servizio posiziona l'area di lavoro in uno stato di eliminazione temporanea rendendola inaccessibile a qualsiasi operazione. Il nome dell'area di lavoro eliminata viene mantenuto durante il periodo di eliminazione temporanea e non può essere usato per la creazione di una nuova area di lavoro. Dopo il periodo di eliminazione temporanea, l'area di lavoro non è recuperabile, viene pianificata per l'eliminazione permanente e il nome rilasciato e può essere usato per creare una nuova area di lavoro.
 
-È possibile ripristinare l'area di lavoro durante il periodo di eliminazione temporanea, inclusi i dati, la configurazione e gli agenti connessi. Prima di eseguire l'operazione di eliminazione temporanea sono necessarie le autorizzazioni di Collaboratore per la sottoscrizione e il gruppo di risorse in cui l'area di lavoro è stata posizionata. Il ripristino dell'area di lavoro viene eseguito creando un'area di lavoro di Log Analytics con i dettagli dell'area di lavoro eliminata, tra cui:
+È possibile ripristinare l'area di lavoro durante il periodo di eliminazione temporanea, inclusi i dati, la configurazione e gli agenti connessi. Prima di eseguire l'operazione di eliminazione temporanea sono necessarie le autorizzazioni di Collaboratore per la sottoscrizione e il gruppo di risorse in cui l'area di lavoro è stata posizionata. Il ripristino dell'area di lavoro viene eseguito ricreando l'area di lavoro Log Analytics con i dettagli dell'area di lavoro eliminata, tra cui:
 
 - ID sottoscrizione
 - Nome del gruppo di risorse
 - Nome dell'area di lavoro
 - Region
+
+> [!IMPORTANT]
+> Se l'area di lavoro è stata eliminata come parte dell'operazione di eliminazione del gruppo di risorse, è necessario innanzitutto ricreare il gruppo di risorse.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -104,20 +107,19 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 
 L'area di lavoro e tutti i relativi dati vengono ripristinati dopo l'operazione di ripristino. Le soluzioni e i servizi collegati erano stati rimossi definitivamente dall'area di lavoro al momento dell'eliminazione ed è necessario riconfigurarli per portare l'area di lavoro allo stato configurato in precedenza. Alcuni dati potrebbero non essere disponibili per la query dopo il ripristino dell'area di lavoro fino a quando le soluzioni associate non vengono reinstallate e i relativi schemi vengono aggiunti all'area di lavoro.
 
-> [!NOTE]
-> * Se viene ricreata un'area di lavoro durante il periodo di eliminazione temporanea viene indicato che il nome dell'area di lavoro è già in uso. 
- 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per eliminare un'area di lavoro è necessario disporre di autorizzazioni come *Collaboratore di Log Analytics*.
 
-* Se non si è certi che l'area di lavoro eliminata sia in stato di eliminazione temporanea e possa essere ripristinata, fare clic su [Ripristina](#recover-workspace) nella pagina *aree di lavoro log Analytics* per visualizzare un elenco delle aree di lavoro eliminate temporaneamente per ogni sottoscrizione. Le aree di lavoro eliminate in modo permanente non sono incluse nell'elenco.
+* Se non si è certi che l'area di lavoro eliminata sia in stato di eliminazione temporanea e possa essere ripristinata, fare clic su [Apri cestino](#recover-workspace) nella pagina *aree di lavoro log Analytics* per visualizzare un elenco delle aree di lavoro eliminate temporaneamente per ogni sottoscrizione. Le aree di lavoro eliminate in modo permanente non sono incluse nell'elenco.
 * Se si riceve un messaggio di errore "*Questo nome di dominio è già in uso*" o *"Conflitto"* durante la creazione di un'area di lavoro, la causa potrebbe essere:
   * Il nome dell'area di lavoro non è disponibile e viene usato da un utente dell'organizzazione o da un altro cliente.
-  * L'area di lavoro è stata eliminata negli ultimi 14 giorni e il nome è mantenuto riservato per il periodo di eliminazione temporanea. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro per creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:<br>
+  * L'area di lavoro è stata eliminata negli ultimi 14 giorni e il nome è mantenuto riservato per il periodo di eliminazione temporanea. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro per creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro e quindi eseguire l'eliminazione permanente:<br>
     1. [Recuperare](#recover-workspace) l'area di lavoro.
     2. [Eliminare definitivamente](#permanent-workspace-delete) l'area di lavoro.
     3. Creare una nuova area di lavoro usando il nome della stessa area di lavoro.
-* Se viene visualizzato un codice di risposta 204 che indica che la *risorsa non è stata trovata*, è possibile che si verifichi un tentativo consecutivo di utilizzare l'operazione Elimina area di lavoro. 204 è una risposta vuota, che in genere indica che la risorsa non esiste, quindi l'eliminazione è stata completata senza eseguire alcuna operazione.
-  Al termine della chiamata di eliminazione nel back-end, è possibile ripristinare l'area di lavoro e completare l'operazione di eliminazione permanente in uno dei metodi suggeriti in precedenza.
+ 
+      Al termine della chiamata di eliminazione nel back-end, è possibile ripristinare l'area di lavoro e completare l'operazione di eliminazione permanente in uno dei metodi suggeriti in precedenza.
 
+* Se si ottiene il codice di risposta 204 con la *risorsa non trovata* durante l'eliminazione di un'area di lavoro, potrebbero verificarsi operazioni di ripetizione consecutive. 204 è una risposta vuota, che in genere indica che la risorsa non esiste, quindi l'eliminazione è stata completata senza eseguire alcuna operazione.
+* Se si elimina il gruppo di risorse e l'area di lavoro inclusa, è possibile visualizzare l'area di lavoro eliminata nella pagina del [Cestino aperto](#recover-workspace) . Tuttavia, l'operazione di ripristino avrà esito negativo con codice di errore 404 poiché il gruppo di risorse non esiste, ricreare il gruppo di risorse e riprovare a eseguire il ripristino.

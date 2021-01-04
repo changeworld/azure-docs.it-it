@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488011"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706771"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
@@ -59,7 +59,7 @@ Il modo principale per controllare i costi di archiviazione dei backup consiste 
 
 ## <a name="restore"></a>Restore
 
-In Database di Azure per PostgreSQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
+In Database di Azure per PostgreSQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale. 
 
 Sono disponibili due tipi di ripristino:
 
@@ -68,8 +68,11 @@ Sono disponibili due tipi di ripristino:
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
 
-> [!IMPORTANT]
-> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Per proteggere le risorse del server, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare [blocchi di gestione](../azure-resource-manager/management/lock-resources.md).
+> [!NOTE] 
+> Se il server PostgreSQL di origine è crittografato con le chiavi gestite dal cliente, consultare la [documentazione](concepts-data-encryption-postgresql.md) per ulteriori considerazioni. 
+
+> [!NOTE]
+> Se vuoi ripristinare un server PostgreSQL eliminato, segui la procedura descritta [qui](howto-restore-dropped-server.md).
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 
@@ -81,11 +84,14 @@ Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minu
 
 ### <a name="geo-restore"></a>Ripristino geografico
 
-Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. I server che supportano fino a 4 TB di spazio di archiviazione possono essere ripristinati nell'area geografica abbinata o in qualsiasi area che supporta fino a 16 TB di spazio di archiviazione. Per i server che supportano fino a 16 TB di spazio di archiviazione, è possibile ripristinare i backup geografici in qualsiasi area che supporti i server a 16 TB. Per l'elenco delle aree supportate, vedere i [piani tariffari per database di Azure per PostgeSQL](concepts-pricing-tiers.md) .
+Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. I server che supportano fino a 4 TB di spazio di archiviazione possono essere ripristinati nell'area geografica abbinata o in qualsiasi area che supporta fino a 16 TB di spazio di archiviazione. Per i server che supportano fino a 16 TB di spazio di archiviazione, è possibile ripristinare i backup geografici in qualsiasi area che supporti i server a 16 TB. Esaminare i [piani tariffari di database di Azure per PostgreSQL](concepts-pricing-tiers.md) per l'elenco delle aree supportate.
 
 Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 
 Durante il ripristino geografico è possibile modificare le seguenti opzioni relative alle configurazioni del server: generazione delle risorse di calcolo, vCore, periodo di conservazione dei backup e ridondanza per il backup. La modifica del piano tariffario (Basic, Utilizzo generico oppure Ottimizzato per la memoria) o delle dimensioni della risorsa di archiviazione non è supportata.
+
+> [!NOTE]
+> Se nel server di origine viene utilizzata la crittografia a doppia infrastruttura, per il ripristino del server sono presenti limitazioni che includono le aree disponibili. Per altri dettagli, vedere la [crittografia a doppia infrastruttura](concepts-infrastructure-double-encryption.md) .
 
 ### <a name="perform-post-restore-tasks"></a>Eseguire le attività post-ripristino
 

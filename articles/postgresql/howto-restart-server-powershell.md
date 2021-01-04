@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 99fc29071086a5c9271b8b2dec00976833a36352
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2d37de4a1861cb78b4a76c8ca7bc8c3643245b32
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489779"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706967"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Riavviare il database di Azure per il server PostgreSQL con PowerShell
 
@@ -20,18 +20,19 @@ In questo argomento viene descritta la procedura per riavviare un server di Data
 
 Il riavvio del server è bloccato se il servizio è occupato. È ad esempio possibile che il servizio stia elaborando un'operazione richiesta in precedenza, come il ridimensionamento di vCore.
 
-La quantità di tempo necessaria per completare un riavvio dipende dal processo di ripristino PostgreSQL. Per ridurre il tempo di riavvio, è consigliabile ridurre al minimo la quantità di attività che si verifica sul server prima del riavvio.
+> [!NOTE] 
+> Il tempo necessario per completare un riavvio dipende dal processo di ripristino di PostgreSQL. Per ridurre i tempi di riavvio, è consigliabile ridurre al minimo l'attività in corso nel server prima del riavvio. Potrebbe inoltre essere necessario aumentare la frequenza di checkpoint. È anche possibile ottimizzare i valori dei parametri correlati ai checkpoint, tra cui `max_wal_size` . È inoltre consigliabile eseguire `CHECKPOINT` il comando prima di riavviare il server.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida, è necessario:
 
 - Il [modulo AZ PowerShell](/powershell/azure/install-az-ps) installato localmente o [Azure cloud Shell](https://shell.azure.com/) nel browser
-- [Database di Azure per il server PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
+- Un [database di Azure per il server PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Poiché il modulo Az.PostgreSql di PowerShell è in fase di anteprima, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
-> Quando il modulo Az.PostgreSql di PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
+> Quando il modulo Az.PostgreSql di PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e sarà disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
 Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 

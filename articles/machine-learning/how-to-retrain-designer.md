@@ -1,7 +1,7 @@
 ---
-title: Ripetere il training dei modelli utilizzando Azure Machine Learning Designer
+title: Usare i parametri della pipeline per ripetere il training dei modelli nella finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ripetere il training dei modelli di Machine Learning con le pipeline pubblicate in Azure Machine Learning Designer.
+description: Ripetere il training dei modelli con pipeline pubblicate e parametri della pipeline in Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437117"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708467"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Ripetere il training dei modelli con Azure Machine Learning Designer
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Usare i parametri della pipeline per ripetere il training dei modelli nella finestra di progettazione
 
 
-Questo articolo illustra come usare la finestra di progettazione di Azure Machine Learning per ripetere il training di un modello di Machine Learning. Verranno usate le pipeline pubblicate per automatizzare il flusso di lavoro e impostare i parametri per eseguire il training del modello con i nuovi dati. 
+Questo articolo illustra come usare Azure Machine Learning Designer per ripetere il training di un modello di apprendimento automatico usando i parametri della pipeline. Verranno usate le pipeline pubblicate per automatizzare il flusso di lavoro e impostare i parametri per eseguire il training del modello con i nuovi dati. I parametri della pipeline consentono di riutilizzare le pipeline esistenti per diversi processi.  
 
 In questo articolo vengono illustrate le operazioni seguenti:
 

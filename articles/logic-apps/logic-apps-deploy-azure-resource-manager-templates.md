@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 81fad94dc02bd57f839d7ab8653bec7074e41800
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f5db3fd88f04e7fe569cd675936445dcf730288
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076341"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705337"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementare modelli di Azure Resource Manager per App per la logica di Azure
 
@@ -31,7 +31,7 @@ Dopo aver creato un modello di Azure Resource Manager per l'app per la logica, �
 
 Per distribuire automaticamente un modello di app per la logica in Azure, è possibile scegliere il pulsante **Distribuisci in Azure** seguente, che consente di accedere al portale di Azure e di richiedere informazioni sull'app per la logica. È quindi possibile apportare le modifiche necessarie al modello o ai parametri dell'app per la logica.
 
-[![Distribuisci in Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Ad esempio, dopo aver effettuato l'accesso al portale di Azure vengono richieste le informazioni seguenti:
 
@@ -57,7 +57,7 @@ Per distribuire un modello di app per la logica da un progetto di gruppo di riso
 
 ## <a name="deploy-with-azure-powershell"></a>Distribuire con Azure PowerShell
 
-Per eseguire la distribuzione in un *gruppo di risorse di Azure*specifico, usare il comando seguente:
+Per eseguire la distribuzione in un *gruppo di risorse di Azure* specifico, usare il comando seguente:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -72,16 +72,16 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 ## <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
 
-Per eseguire la distribuzione in un *gruppo di risorse di Azure*specifico, usare il comando seguente:
+Per eseguire la distribuzione in un *gruppo di risorse di Azure* specifico, usare il comando seguente:
 
 ```azurecli
-az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+az deployment group create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
 Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [`az group deployment create`](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az deployment group create`](/cli/azure/deployment/group#az_deployment_group_create)
 
 <a name="azure-pipelines"></a>
 

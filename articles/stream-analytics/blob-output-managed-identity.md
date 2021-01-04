@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 62651e9ea4e1b02b276e7870163453bfa55c3909
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587571"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705133"
 ---
 # <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Usare l'identità gestita (anteprima) per autenticare il processo di analisi di flusso di Azure nell'archivio BLOB di Azure
 
@@ -98,7 +98,7 @@ L'uso di Azure Resource Manager consente di automatizzare completamente la distr
     Il processo precedente può essere distribuito nel gruppo di risorse **ExampleGroup** usando il comando dell'interfaccia della riga di comando di Azure seguente:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Dopo aver creato il processo, è possibile usare Azure Resource Manager per recuperare la definizione completa del processo.

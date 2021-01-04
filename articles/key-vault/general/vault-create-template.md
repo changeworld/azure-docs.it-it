@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1ab382ec10d932b94961c73b7d7ac9082125a88c
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285146"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704521"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Come creare un insieme di credenziali delle chiavi di Azure e i criteri di accesso all'insieme di credenziali usando un modello di Gestione risorse
 
@@ -176,14 +176,14 @@ Qui è possibile trovare altri modelli di Key Vault: [Key Vault gestione risorse
 
 È possibile usare il portale di Azure per distribuire i modelli precedenti usando l'opzione **Compila un modello personalizzato nell'editor** , come descritto qui: [distribuire le risorse da un modello personalizzato](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-È anche possibile salvare i modelli precedenti in file e usare questi comandi:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment create](/cli/azure/group/deployment#az-group-deployment-create):
+È anche possibile salvare i modelli precedenti in file e usare questi comandi:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Deployment Group create](/cli/azure/deployment/group#az_deployment_group_create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file key-vault-template.json
+az deployment group create --resource-group ExampleGroup --template-file key-vault-template.json
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -219,4 +219,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Proteggere l'accesso a un insieme di credenziali delle chiavi](secure-your-key-vault.md)
 - [Eseguire l'autenticazione in un insieme di credenziali delle chiavi](authentication.md)
-- [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](developers-guide.md)
+- [Guida per gli sviluppatori di Azure Key Vault](developers-guide.md)

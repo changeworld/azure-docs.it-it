@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 623ad70572683103edb0a824830be6bbba6c8c35
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 758e5b24afe2edad9bf661e2eb7a6c88db849720
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369047"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705014"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di avviso dei log in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare avvisi delle query su log in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
@@ -271,14 +271,12 @@ L'esempio seguente crea una regola che può essere usata con qualsiasi risorsa.
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

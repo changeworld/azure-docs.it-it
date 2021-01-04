@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512172"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723979"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -133,7 +133,7 @@ Questa sezione illustra le considerazioni relative alla distribuzione dei divers
 
 Probabilmente sarà necessario distribuire diversi account di archiviazione di Azure. Ognuno di essi conterrà un numero inferiore di condivisioni file di Azure, in base al piano di distribuzione, completato nella sezione precedente di questo articolo. Passare alla portale di Azure per [distribuire gli account di archiviazione pianificati](../common/storage-account-create.md#create-a-storage-account). Considerare l'opportunità di rispettare le seguenti impostazioni di base per qualsiasi nuovo account di archiviazione.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>Sottoscrizione
 
 È possibile usare la stessa sottoscrizione usata per la distribuzione di StorSimple o un altro. L'unica limitazione è che la sottoscrizione deve trovarsi nello stesso tenant Azure Active Directory della sottoscrizione StorSimple. Prima di avviare una migrazione, provare a trasferire la sottoscrizione StorSimple al tenant corretto. È possibile spostare solo l'intera sottoscrizione. Le singole risorse StorSimple non possono essere spostate in un tenant o in una sottoscrizione diversa.
 
@@ -145,7 +145,7 @@ I gruppi di risorse sono in aiuto con l'organizzazione delle risorse e le autori
 
 Il nome dell'account di archiviazione diventerà parte di un URL e avrà alcune limitazioni relative ai caratteri. Nella convenzione di denominazione, tenere presente che i nomi degli account di archiviazione devono essere univoci in tutto il mondo, consentire solo lettere minuscole e numeri, richiedere da 3 a 24 caratteri e non consentire caratteri speciali come trattini o caratteri di sottolineatura. Per altre informazioni, vedere [regole di denominazione delle risorse di archiviazione di Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
-#### <a name="location"></a>Location
+#### <a name="location"></a>Percorso
 
 Il percorso o l'area di Azure di un account di archiviazione è molto importante. Se si usa Sincronizzazione file di Azure, tutti gli account di archiviazione devono trovarsi nella stessa area della risorsa del servizio di sincronizzazione archiviazione. L'area di Azure scelta deve essere vicina o centrale ai server e agli utenti locali. Dopo che la risorsa è stata distribuita, non è possibile modificarne l'area.
 
@@ -160,10 +160,10 @@ Il percorso o l'area di Azure di un account di archiviazione è molto importante
 
 Non si è ancora sicuri?
 
-* Se sono necessarie le [prestazioni di una condivisione file di Azure Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares), scegliere archiviazione Premium.
+* Se sono necessarie le [prestazioni di una condivisione file di Azure Premium](understanding-billing.md#provisioned-billing), scegliere archiviazione Premium.
 * Scegliere archiviazione standard per carichi di lavoro di file server per utilizzo generico, che includono dati sensibili e dati di archiviazione. Scegliere anche archiviazione standard se verrà Sincronizzazione file di Azure il solo carico di lavoro nella condivisione nel cloud.
 
-#### <a name="account-kind"></a>Tipo di account
+#### <a name="account-kind"></a>Tipologia account
 
 * Per archiviazione standard scegliere *archiviazione V2 (utilizzo generico v2)*.
 * Per le condivisioni file Premium, scegliere *filestorage*.
@@ -430,7 +430,7 @@ Dopo aver apportato modifiche alla **sincronizzazione iniziale**, lo spazio dei 
 1. Cercare l' **evento 9102** più recente, che corrisponde a una sessione di sincronizzazione completata.
 1. Selezionare **Details (dettagli**) e confermare che si sta cercando un evento in cui il valore **SyncDirection** è **download**.
 1. Per il momento in cui lo spazio dei nomi ha completato il download sul server, sarà presente un solo evento con **scenario**, il valore **FullGhostedSync** e **HRESULT**  =  **0**.
-1. Se si dimentica questo evento, è anche possibile cercare altri **eventi 9102** con il **SyncDirection**  =  **download** e lo **scenario**  =  **"RegularSync"** di SyncDirection. La ricerca di uno di questi eventi indica inoltre che lo spazio dei nomi ha terminato il download e la sincronizzazione in sessioni regolari di sincronizzazione, indipendentemente dalla sincronizzazione.
+1. Se si dimentica questo evento, è anche possibile cercare altri **eventi 9102** con il   =  **download** e lo **scenario**  =  **"RegularSync"** di SyncDirection. La ricerca di uno di questi eventi indica inoltre che lo spazio dei nomi ha terminato il download e la sincronizzazione in sessioni regolari di sincronizzazione, indipendentemente dalla sincronizzazione.
 
 ### <a name="a-final-robocopy"></a>RoboCopy finale
 

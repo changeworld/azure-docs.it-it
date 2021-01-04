@@ -80,7 +80,8 @@
         - name: Configurare i contenitori
           href: text-analytics-resource-container-config.md
         - name: Usare istanze di contenitore
-          href: how-tos/text-analytics-how-to-use-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Usare il servizio Kubernetes
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
         - name: Documentazione dei contenitori di Servizi cognitivi

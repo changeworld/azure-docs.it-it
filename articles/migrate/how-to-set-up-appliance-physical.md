@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/15/2020
-ms.openlocfilehash: 21d40b1962a3e4000876686659b76d019991785d
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 73c3d529978c91946632ed599f02b8938830621e
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751683"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705320"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
@@ -119,11 +119,16 @@ Configurare l'appliance per la prima volta.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
 1. Incollare la **chiave del progetto Azure Migrate** copiata dal portale. Se non si dispone della chiave, passare a **Valutazione server > Individua > Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
-1. Fare clic su **Accedi**. Verrà aperto un prompt di accesso di Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
-1. Nella nuova scheda accedere con nome utente e la password di Azure.
+1. Per eseguire l'autenticazione con Azure, sarà necessario un codice dispositivo. Se si fa clic su **login** , viene aperto un modale con il codice del dispositivo, come illustrato di seguito.
+
+    ![Modale che mostra il codice del dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Fare clic su **Copia codice & account di accesso** per copiare il codice del dispositivo e aprire un prompt di accesso di Azure in una nuova scheda del browser. Se non viene visualizzato, assicurarsi di aver disattivato il blocco popup nel browser.
+1. Nella scheda nuovo incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
    
    L'accesso con un PIN non è supportato.
-3. Dopo aver eseguito l'accesso, tornare all'app Web. 
+3. Se si chiude la scheda di accesso accidentalmente senza eseguire l'accesso, è necessario aggiornare la scheda Esplorazione di gestione configurazione Appliance per abilitare di nuovo il pulsante di accesso.
+1. Dopo aver eseguito l'accesso, tornare alla scheda precedente con Gestione configurazione Appliance.
 4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](./tutorial-discover-physical.md) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 
@@ -132,7 +137,17 @@ Configurare l'appliance per la prima volta.
 
 A questo punto, connettersi dall'appliance ai server fisici da individuare e avviare l'individuazione.
 
-1. In **Passaggio 1: Specificare le credenziali per l'individuazione di server fisici o virtuali Windows e Linux**, fare clic su **Aggiungi credenziali** per specificare un nome descrittivo per le credenziali, aggiungere **Nome utente** e **Password** per un server Windows o Linux. Fare clic su **Save**.
+1. In **Passaggio 1: Fornire le credenziali per l'individuazione di server fisici o virtuali Windows e Linux**, fare clic su **Aggiungi credenziali**.
+1. Per il server Windows, selezionare il tipo di origine **Windows Server**, specificare un nome descrittivo per le credenziali, quindi aggiungere il nome utente e la password. Fare clic su **Salva**.
+1. Se si usa l'autenticazione basata su password per il server Linux, selezionare il tipo di origine **Server Linux (basato su password)** , specificare un nome descrittivo per le credenziali, quindi aggiungere il nome utente e la password. Fare clic su **Salva**.
+1. Se si usa l'autenticazione basata su chiave SSH per il server Linux, selezionare il tipo di origine **Server Linux (basato su chiave SSH)** , specificare un nome descrittivo per le credenziali, quindi aggiungere il nome utente e la password. Fare clic su **Save**.
+
+    - Azure Migrate supporta la chiave privata SSH generata dal comando ssh-keygen tramite algoritmi RSA, DSA, ECDSA e ed25519.
+    - Attualmente Azure Migrate non supporta la chiave SSH basata su passphrase. Usare una chiave SSH senza passphrase.
+    - Attualmente Azure Migrate non supporta il file di chiave privata SSH generato da PuTTy.
+    - Azure Migrate supporta il formato OpenSSH del file di chiave privata SSH, come illustrato di seguito:
+    
+    ![Formato supportato della chiave privata SSH](./media/tutorial-discover-physical/key-format.png)
 1. Se si vogliono aggiungere più credenziali contemporaneamente, fare clic su **Aggiungi altre** per salvare e aggiungere altre credenziali. Sono supportate più credenziali per l'individuazione di server fisici.
 1. In **Passaggio 2: Specificare i dettagli del server fisico o virtuale** fare clic su **Aggiungi origine di individuazione** per specificare **Indirizzo IP/FQDN** del server e il nome descrittivo per le credenziali per la connessione al server.
 1. È possibile selezionare **Add single item** (Aggiungi singolo elemento) o **Add multiple items** (Aggiungi più elementi). È disponibile anche un'opzione per fornire i dettagli del server tramite **Importa CSV**.

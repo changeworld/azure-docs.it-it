@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 16002d7acf97832f743410a203e2f76e99646c0c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673359"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707470"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -412,7 +412,9 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per 
 
 > [!TIP]
 > Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area.
-> Questo tag funziona in tutte le aree in cui è disponibile il servizio App per la logica.
+> Per i connettori gestiti, è possibile usare facoltativamente il tag del servizio **AzureConnectors** , invece di specificare i prefissi degli indirizzi IP del connettore gestito in ingresso per ogni area.
+> Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -476,7 +478,7 @@ Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logi
 
 > [!TIP]
 > Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicApps** invece di specificare i prefissi di indirizzi IP di App per la logica in uscita per ogni area.
-> Per i connettori gestiti, è possibile usare facoltativamente il tag del servizio **AzureConnectors** , invece di specificare i prefissi degli indirizzi IP del connettore gestito in uscita per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica. 
+> Questo tag funziona in tutte le aree in cui è disponibile il servizio App per la logica. 
 
 <a name="multi-tenant-outbound"></a>
 

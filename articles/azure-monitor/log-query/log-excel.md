@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: d903d1bb16ba3576d0092979f1cc6b82fac1c0be
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 6fa181a35c46ed16e4e8c1884e66c54984c418ca
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507525"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703450"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Integrare Log Analytics ed Excel
 
-È possibile integrare monitoraggio di Azure Log Analytics e Microsoft Excel usando la query M e l'API Log Analytics.  Questa integrazione consente di inviare record 500.000 a Excel.
+È possibile integrare monitoraggio di Azure Log Analytics e Microsoft Excel usando la query M e l'API Log Analytics. Questa integrazione consente di inviare fino a 500.000 record a Excel, purché il volume totale dei risultati non superi 61MiB.
 
 > [!NOTE]
 > Poiché Excel è un'applicazione client locale, le limitazioni hardware e software locali influiscano sulle prestazioni e sulla capacità di elaborare set di dati di grandi dimensioni.
@@ -80,11 +80,11 @@ in AnalyticsQuery
 Per importare la query. 
 
 1. Aprire Microsoft Excel. 
-1. Nella barra multifunzione andare al menu **dati** . Selezionare **recuperare i dati**. Da **altre origini** selezionare **query vuota** :
+1. Nella barra multifunzione andare al menu **dati** . Selezionare **recuperare i dati**. Da **altre origini** selezionare **query vuota**:
  
    :::image type="content" source="media/log-excel/excel-import-blank-query.png" alt-text="Importa da blank nell'opzione Excel" border="true":::
 
-1. Nella finestra di Power query selezionare **Editor avanzato** :
+1. Nella finestra di Power query selezionare **Editor avanzato**:
 
    :::image type="content" source="media/log-excel/advanced-editor.png" alt-text="Editor avanzato query di Excel" border="true":::
 
@@ -93,10 +93,13 @@ Per importare la query.
 
    :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="Creazione di una query vuota" border="true":::
  
-1. Selezionare **fine** , quindi **carica e Chiudi**. Excel esegue la query usando l'API di log Analytics e il set di risultati visualizzato.
+1. Selezionare **fine**, quindi **carica e Chiudi**. Excel esegue la query usando l'API di log Analytics e il set di risultati visualizzato.
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Risultati delle query in Excel" border="true":::
+
+> [!Note]
+> Se il numero di record è inferiore al previsto, il volume dei risultati potrebbe superare il limite di 61MiB. Provare a usare `project` o `project-away` nella query per limitare le colonne a quello necessario.
 
 ##  <a name="refreshing--data"></a>Aggiornamento dei dati
 

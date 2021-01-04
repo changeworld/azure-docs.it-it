@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630363"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705371"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Crittografia IPSec in transito per Azure HDInsight
 
 Questo articolo illustra l'implementazione della crittografia in transito per la comunicazione tra i nodi del cluster HDInsight di Azure.
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 Azure HDInsight offre un'ampia gamma di funzionalità di sicurezza per la protezione dei dati aziendali. Queste soluzioni sono raggruppate in base ai pilastri di sicurezza perimetrale, autenticazione, autorizzazione, controllo, crittografia e conformità. La crittografia può essere applicata ai dati inattivi e in transito.
 
@@ -70,7 +70,7 @@ az account set --subscription <SUBSCRIPTION_ID>
 # Create resource group
 az group create --name <RESOURCEGROUPNAME> --location eastus2
 
-az group deployment create --name HDInsightEnterpriseSecDeployment \
+az deployment group create --name HDInsightEnterpriseSecDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-enterprise-security.json \
     --parameters parameters.json

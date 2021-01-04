@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422145"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706797"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
@@ -71,6 +71,8 @@ Ogni replica è abilitata per l'[aumento automatico](concepts-pricing-tiers.md#s
 La funzionalità di replica in lettura usa la replica fisica di PostgreSQL e non la replica logica. Lo streaming della replica usando gli slot di replica è la modalità operativa predefinita. Se necessario, viene usato il log shipping per mettersi in pari.
 
 Informazioni su come [creare una replica di lettura nel portale di Azure](howto-read-replicas-portal.md).
+
+Se il server PostgreSQL di origine è crittografato con le chiavi gestite dal cliente, consultare la [documentazione](concepts-data-encryption-postgresql.md) per ulteriori considerazioni.
 
 ## <a name="connect-to-a-replica"></a>Connessione a una replica
 Quando si crea una replica, non eredita le regole del firewall o l'endpoint del servizio VNet del server primario. Queste regole devono essere configurate in modo indipendente per la replica.
@@ -162,11 +164,11 @@ Una replica viene creata usando le stesse impostazioni di calcolo e di archiviaz
 
 Le regole del firewall, le regole della rete virtuale e le impostazioni dei parametri non vengono ereditate dal server primario alla replica quando la replica viene creata o successivamente.
 
-### <a name="scaling"></a>Scalabilità
+### <a name="scaling"></a>Ridimensionamento
 Ridimensionamento di Vcore o tra per utilizzo generico e con ottimizzazione per la memoria:
 * PostgreSQL richiede che l' `max_connections` impostazione in un server secondario sia [maggiore o uguale all'impostazione sul database primario](https://www.postgresql.org/docs/current/hot-standby.html). in caso contrario, il database secondario non verrà avviato.
 * In database di Azure per PostgreSQL, il numero massimo di connessioni consentite per ogni server è fissato allo SKU di calcolo poiché le connessioni occupano memoria. È possibile ottenere altre informazioni sul [mapping tra max_connections e SKU di calcolo](concepts-limits.md).
-* Scalabilità **verticale** : aumentare prima di tutto il calcolo di una replica, quindi aumentare le prestazioni del database primario. Questo ordine impedisce agli errori di violare il `max_connections` requisito.
+* Scalabilità **verticale**: aumentare prima di tutto il calcolo di una replica, quindi aumentare le prestazioni del database primario. Questo ordine impedisce agli errori di violare il `max_connections` requisito.
 * **Riduzione** delle prestazioni: prima di tutto ridurre le risorse di calcolo del database primario, quindi ridimensionare la replica. Se si prova a ridimensionare la replica in un livello inferiore rispetto al database primario, si verifica un errore perché questo viola il `max_connections` requisito.
 
 Ridimensionamento dello spazio di archiviazione:

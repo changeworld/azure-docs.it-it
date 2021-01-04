@@ -2,13 +2,13 @@
 title: What ' s New with Azure Arc Enabled Servers Agent
 description: Questo articolo contiene le note sulla versione per l'agente Azure Arc Enabled Server. Per molti dei problemi riepilogati sono disponibili collegamenti a ulteriori dettagli.
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 12/21/2020
+ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505648"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722522"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>What ' s New with Azure Arc Enabled Servers Agent
 
@@ -20,6 +20,8 @@ Azure Arc Enabled Servers Connected computer Agent riceve i miglioramenti su bas
 
 ## <a name="december-2020"></a>Dicembre 2020
 
+Versione: 1,3
+
 ### <a name="new-feature"></a>Nuova funzionalità
 
 Aggiunta del supporto per Windows Server 2008 R2
@@ -30,11 +32,15 @@ Risoluzione del problema che impedisce l'installazione dell'estensione di script
 
 ## <a name="november-2020"></a>Novembre 2020
 
+Versione: 1,2
+
 ### <a name="fixed"></a>Fisso
 
 Risolto un problema per cui la configurazione del proxy potrebbe andare persa dopo l'aggiornamento sulle distribuzioni basate su RPM.
 
 ## <a name="october-2020"></a>Ottobre 2020
+
+Versione: 1.1
 
 ### <a name="fixed"></a>Fisso
 
@@ -61,7 +67,7 @@ Versione: 1,0 (disponibilità generale)
 - Aggiunta `azcmagent show --json` dell'opzione per lo stato dell'agente di output in formato facilmente analizzabile.
 - Aggiunta del flag nell' `azcmagent show` output per indicare se il server si trova in una macchina virtuale ospitata in Azure.
 - Aggiunta `azcmagent disconnect --force-local-only` dell'opzione per consentire il ripristino dello stato dell'agente locale quando non è possibile raggiungere il servizio di Azure.
-- Aggiunta dell' `azcmagent connect --cloud` opzione per supportare cloud aggiuntivi. In questa versione, solo Azure è supportato dal servizio al momento della versione dell'agente.
+- Aggiunta dell' `azcmagent connect --cloud` opzione per supportare altri cloud. In questa versione, solo Azure è supportato dal servizio al momento della versione dell'agente.
 - Agent è stato localizzato in lingue supportate da Azure.
 
 ### <a name="fixed"></a>Fisso

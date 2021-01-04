@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 647e07fe32beedbd54ca6c5bb95c1de9564df2fd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654014"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704028"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -42,12 +42,6 @@ Questo problema può verificarsi se il computer dell'appliance si trova dietro u
 - Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, aggiungere [questi URL](migrate-appliance.md#url-access) a un elenco Consenti.
 - Se si usa un proxy di intercettazione per connettersi a Internet, importare il certificato proxy nella macchina virtuale dell'appliance seguendo [questa procedura](./migrate-appliance.md).
 
-
-## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Facendo clic sul pulsante "login" si apre una nuova scheda senza codice dispositivo
-
-Se dopo aver fatto clic su "login in Gestione configurazione Appliance" si apre una nuova scheda senza codice, tornare alla scheda Gestione configurazione Appliance ed è possibile trovare il codice del dispositivo in grassetto nel pulsante "login", come illustrato nella schermata seguente. Copiare il codice e incollarlo nella scheda account di accesso per l'autenticazione con Azure.
-
-![Codice del dispositivo](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Non è possibile accedere ad Azure dall'app Web Appliance
 
@@ -105,7 +99,7 @@ Errore 60028: "Impossibile avviare l'individuazione a causa di un errore. L'oper
 - Se si verifica un errore di convalida, rivedere le indicazioni per la correzione per correggere gli errori, quindi provare a eseguire di nuovo l'opzione **Salva e avvia individuazione** .
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Errore 60025: operazione Azure AD non riuscita 
-Errore 60025: "un'operazione Azure AD non è riuscita. L'errore si è verificato durante la creazione o l'aggiornamento dell'applicazione Azure AD "si verifica quando l'account utente di Azure usato per avviare l'individuazione è diverso dall'account usato per registrare l'appliance. Eseguire una di queste operazioni:
+Errore 60025: "un'operazione Azure AD non è riuscita. L'errore si è verificato durante la creazione o l'aggiornamento dell'applicazione Azure AD "si verifica quando l'account utente di Azure usato per avviare l'individuazione è diverso dall'account usato per registrare l'appliance. Eseguire una delle operazioni seguenti:
 
 - Assicurarsi che l'account utente che avvia l'individuazione sia uguale a quello usato per registrare l'appliance.
 - Fornire Azure Active Directory le autorizzazioni di accesso alle applicazioni per l'account utente per il quale l'operazione di individuazione ha esito negativo.

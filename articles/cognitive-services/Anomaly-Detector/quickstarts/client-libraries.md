@@ -5,7 +5,7 @@ description: L'API Rilevamento anomalie offre librerie client per rilevare le an
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-zone_pivot_groups: ad-quickstart-one
+zone_pivot_groups: anomaly-detector-quickstart
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.date: 09/22/2020
 ms.author: mbullwin
 keywords: rilevamento anomalie, algoritmi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-ms.openlocfilehash: 72b7d720561be97ffb61d7bbe270de1b0dae43e2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dc6e0689a295798d7397e5e40c390b0e165984c0
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164143"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705040"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>Avvio rapido: Usare la libreria client di Rilevamento anomalie
 
@@ -39,3 +39,10 @@ ms.locfileid: "92164143"
 [!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-client-library-python.md)]
 
 ::: zone-end
+
+::: zone pivot="rest-api"
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-rest-api.md)]
+
+::: zone-end
+

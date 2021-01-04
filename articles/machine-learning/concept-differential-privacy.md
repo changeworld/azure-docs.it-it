@@ -1,29 +1,26 @@
 ---
-title: Implementare la privacy differenziale con il pacchetto WhiteNoise (anteprima)
+title: Implementare la privacy differenziale con il pacchetto SmartNoise (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni sulla privacy differenziale e sul modo in cui il pacchetto WhiteNoise può essere utile per implementare sistemi di privacy differenziale in grado di proteggere la privacy dei dati.
+description: Informazioni sulla privacy differenziale e su come il pacchetto SmartNoise può essere utile per implementare sistemi privati differenziali che proteggono la privacy dei dati.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/09/2020
+ms.date: 12/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 307786c0df744751122487b8c931d0e9572d5f22
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86199794"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723491"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Mantenere la privacy dei dati tramite la privacy differenziale e il pacchetto WhiteNoise (anteprima)
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-smartnoise-package-preview"></a>Mantenere la privacy dei dati tramite la privacy differenziale e il pacchetto SmartNoise (anteprima)
 
-Informazioni sulla privacy differenziale e sul modo in cui il pacchetto WhiteNoise può essere utile per implementare sistemi di privacy differenziale.
+Informazioni sulla privacy differenziale e sul modo in cui il pacchetto SmartNoise può essere utile per implementare sistemi privati differenziali.
 
 Con l'aumentare della quantità di dati raccolti e usati dalle organizzazioni per le attività di analisi, crescono anche le preoccupazioni relative alla privacy e alla sicurezza. Le attività di analisi richiedono dati. In genere, quanto maggiore è il numero di dati usati per il training dei modelli, tanto più accurate sono le analisi. Se per le attività di analisi vengono usate informazioni personali, è particolarmente importante che i dati rimangano privati per tutto il periodo di utilizzo.
-
-> [!NOTE]
-> Si noti che il Toolkit viene rinominato e verrà introdotto il nuovo nome nelle prossime settimane. 
 
 ## <a name="how-differential-privacy-works"></a>Come funziona la privacy differenziale
 
@@ -54,10 +51,10 @@ Anche se la tutela della privacy deve essere l'obiettivo prioritario, esiste un 
 
 ## <a name="implementing-differentially-private-systems"></a>Implementazione di sistemi di privacy differenziale
 
-L'implementazione di sistemi di privacy differenziale presenta alcune difficoltà. WhiteNoise è un progetto open source che contiene componenti diversi per la creazione di sistemi globali di privacy differenziale. WhiteNoise è costituito dai componenti di primo livello seguenti:
+L'implementazione di sistemi di privacy differenziale presenta alcune difficoltà. SmartNoise è un progetto open source che contiene componenti diversi per la creazione di sistemi privati globali differenziali. SmartNoise è costituito dai componenti di primo livello seguenti:
 
 - Core
-- Sistema
+- SDK
 
 ### <a name="core"></a>Core
 
@@ -68,9 +65,9 @@ La libreria Core include i meccanismi di privacy seguenti per l'implementazione 
 |Analisi     | Illustrazione grafica di calcoli arbitrari. |
 |Validator     | Libreria Rust che contiene un set di strumenti per la verifica e la derivazione delle condizioni necessarie affinché un'analisi risponda ai criteri di privacy differenziale.          |
 |Runtime     | Mezzo per eseguire l'analisi. Il runtime di riferimento è scritto in Rust, ma i runtime possono essere scritti usando qualsiasi framework di calcolo, ad esempio SQL e Spark, a seconda delle caratteristiche dei dati.        |
-|Associazioni     | Associazioni di linguaggio e librerie di supporto per la creazione di analisi. Attualmente WhiteNoise fornisce associazioni Python. |
+|Associazioni     | Associazioni di linguaggio e librerie di supporto per la creazione di analisi. Attualmente SmartNoise fornisce associazioni Python. |
 
-### <a name="system"></a>Sistema
+### <a name="sdk"></a>SDK
 
 Nella libreria System sono disponibili gli strumenti e i servizi seguenti per l'utilizzo di dati tabulari e relazionali:
 
@@ -84,4 +81,4 @@ Nella libreria System sono disponibili gli strumenti e i servizi seguenti per l'
 
 [Mantenere la privacy dei dati](how-to-differential-privacy.md) in Azure Machine Learning.
 
-Per altre informazioni sui componenti di WhiteNoise, vedere i repository GitHub per il [pacchetto WhiteNoise Core](https://github.com/opendifferentialprivacy/whitenoise-core), il [pacchetto di sistema WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-system) e gli [esempi di WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples).
+Per altre informazioni sui componenti di SmartNoise, vedere gli esempi di repository GitHub per [SmartNoise Core Package](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk)e [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).

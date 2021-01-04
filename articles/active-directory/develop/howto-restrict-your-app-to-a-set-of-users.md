@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116904"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722267"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedura: limitare l'app Azure AD a un set di utenti in un tenant Azure AD
 
@@ -56,7 +56,7 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
     1. Digitare **Azure Active Directory** nella casella di ricerca del filtro e quindi selezionare l'elemento **Azure Active Directory** dal risultato.
 
 1. Nel riquadro **Azure Active Directory** selezionare **applicazioni aziendali** dal menu di spostamento a sinistra **Azure Active Directory** .
-1. Selezionare **tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+1. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
      Se l'applicazione desiderata non viene visualizzata, usare i filtri disponibili nella parte superiore dell'elenco **Tutte le applicazioni** per limitare l'elenco o scorrerlo verso il basso fino a trovare l'applicazione.
 
@@ -65,7 +65,7 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti del tenant devono prima essere assegnati a questa applicazione o non saranno in grado di accedere a questa applicazione.
 1. Selezionare **Salva** per salvare questa modifica di configurazione.
 
-### <a name="app-registration"></a>Registrazione delle app
+### <a name="app-registration"></a>Registrazione dell'app
 
 1. Passare alla [**portale di Azure**](https://portal.azure.com/).
 1. Nella barra superiore selezionare l'account connesso. 
@@ -82,7 +82,7 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 
 Dopo aver configurato l'app per abilitare l'assegnazione degli utenti, è possibile ora assegnare all'app gli utenti e i gruppi desiderati.
 
-1. Selezionare il riquadro **utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione.
+1. Selezionare il riquadro **utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione aziendale.
 1. Nella parte superiore dell'elenco **Utenti e gruppi** selezionare il pulsante **Aggiungi utente** per aprire il riquadro **Aggiungi assegnazione**.
 1. Fare clic sul selettore **Utenti** nel riquadro **Aggiungi assegnazione**. 
 

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: e67376e2ef79f9711f54ce54d0d91623593ca8ea
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853289"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722403"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architettura della connettività per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -311,12 +311,13 @@ Se la rete virtuale include un DNS personalizzato, il server DNS personalizzato 
 
 **TLS 1.2 viene applicato alle connessioni in uscita**: nel gennaio 2020 Microsoft ha applicato in tutti i servizi di Azure il protocollo TLS 1.2 per il traffico interno al servizio. Per il Istanza gestita SQL di Azure, il risultato è che TLS 1,2 viene applicato alle connessioni in uscita utilizzate per la replica e le connessioni al server collegato SQL Server. Se si usano versioni di SQL Server precedenti a 2016 con SQL Istanza gestita, assicurarsi che siano stati applicati [gli aggiornamenti specifici di TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) .
 
-Le funzionalità di rete virtuale seguenti non sono attualmente supportate con SQL Istanza gestita:
+Le funzionalità di rete virtuale seguenti non sono attualmente *supportate* con SQL istanza gestita:
 
 - **Peering Microsoft**: l'abilitazione del [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) nei circuiti ExpressRoute con peering diretto o transitivo con una rete virtuale in cui risiede SQL istanza gestita influisce sul flusso del traffico tra i componenti di SQL istanza gestita all'interno della rete virtuale e i servizi da cui dipende, causando problemi di disponibilità. Le distribuzioni di SQL Istanza gestita alla rete virtuale con peering Microsoft già abilitato dovrebbero avere esito negativo.
 - **Peering di rete virtuale globale**: la connettività del [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md) tra le aree di Azure non funziona per le istanze gestite di SQL inserite in subnet create prima del 9/22/2020.
 - **AzurePlatformDNS**: se si usa il [tag del servizio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS per bloccare la risoluzione DNS della piattaforma, il rendering di SQL istanza gestita non è disponibile. Anche se SQL Istanza gestita supporta il DNS definito dal cliente per la risoluzione DNS all'interno del motore, esiste una dipendenza dal DNS della piattaforma per le operazioni della piattaforma.
 - **Gateway NAT**: l'uso della [rete virtuale di Azure NAT](../../virtual-network/nat-overview.md) per controllare la connettività in uscita con un indirizzo IP pubblico specifico renderebbe SQL istanza gestita non disponibile. Il servizio di Istanza gestita SQL è attualmente limitato all'uso del servizio di bilanciamento del carico di base che non fornisce la coesistenza dei flussi in ingresso e in uscita con la rete virtuale NAT.
+- **IPv6 per rete virtuale di Azure**: la distribuzione di SQL istanza gestita in [reti virtuali IPv4/IPv6 a doppio stack](../../virtual-network/ipv6-overview.md) dovrebbe avere esito negativo. L'associazione del gruppo di sicurezza di rete (NSG) o della tabella di route (UDR) che contiene i prefissi di indirizzo IPv6 alla subnet SQL Istanza gestita o l'aggiunta di prefissi di indirizzi IPv6 a NSG o UDR già associati alla subnet dell'istanza gestita renderebbe SQL Istanza gestita non disponibile. Le distribuzioni di SQL Istanza gestita in una subnet con NSG e UDR che hanno già prefissi IPv6 dovrebbero avere esito negativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

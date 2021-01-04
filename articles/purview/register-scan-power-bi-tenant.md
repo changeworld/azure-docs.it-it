@@ -1,18 +1,18 @@
 ---
 title: Registrare e analizzare un tenant di Power BI (anteprima)
 description: Informazioni su come usare il portale di Azure per la registrazione e l'analisi di un tenant di Power BI.
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615849"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696228"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -72,8 +72,6 @@ Ora che sono state concesse le autorizzazioni per il catalogo per connettersi al
 
 Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenza 
 
-1. Aggiungere la stringa seguente alla fine dell'URI dell'istanza di competenza: `?feature.ext.catalog={"pbi":"true"}` . In questo modo è possibile abilitare l'opzione di registrazione Power BI nel catalogo.
-
 1. Selezionare l'icona del **centro di gestione** .
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Icona del centro di gestione.":::
@@ -112,6 +110,5 @@ Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come usare i cmdlet di PowerShell per registrare e analizzare un tenant di Power BI, vedere:
-  
-- [Usare PowerShell per registrare e analizzare Power BI](powershell-register-scan-power-bi.md)
+- [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)

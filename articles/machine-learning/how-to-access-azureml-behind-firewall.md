@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8560acd9c5a11004c5144441d395863c8b85edba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461398"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705065"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
-Questo articolo illustra come configurare il firewall di Azure per controllare l'accesso all'area di lavoro Azure Machine Learning e alla rete Internet pubblica. Per ulteriori informazioni sulla protezione di Azure Machine Learning, vedere [sicurezza aziendale per Azure Machine Learning](concept-enterprise-security.md)
+Questo articolo illustra come configurare il firewall di Azure per controllare l'accesso all'area di lavoro Azure Machine Learning e alla rete Internet pubblica. Per ulteriori informazioni sulla protezione di Azure Machine Learning, vedere [sicurezza aziendale per Azure Machine Learning](concept-enterprise-security.md).
+
+> [!WARNING]
+> L'accesso all'archiviazione dei dati protetti da un firewall è supportato solo nelle esperienze Code First. L'uso di [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) per accedere ai dati protetti da un firewall non è supportato. Per lavorare con l'archiviazione dei dati in una rete privata con lo studio, è necessario innanzitutto [configurare una rete virtuale](../virtual-network/quick-create-portal.md) e [consentire a studio di accedere ai dati archiviati all'interno di una rete virtuale](how-to-enable-studio-virtual-network.md).
 
 ## <a name="azure-firewall"></a>Firewall di Azure
 
@@ -143,7 +146,7 @@ Gli host in questa sezione sono di proprietà di Microsoft e forniscono i serviz
 | **Necessario per** | **Pubblico di Azure** | **Azure per enti pubblici** | **Azure Cina (21Vianet)** |
 | ----- | ----- | ----- | ----- |
 | Account di archiviazione di Azure | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| Insieme di credenziali chiave di Azure | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
+| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
 | Registro Azure Container | azurecr.io | azurecr.us | azurecr.cn |
 | Registro Container Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 

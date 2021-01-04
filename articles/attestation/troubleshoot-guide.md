@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182836"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704317"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di attestazione Microsoft Azure
 
@@ -280,7 +280,7 @@ Per continuare a interagire con PowerShell Gallery, eseguire il comando seguente
 Utente assegnato con i ruoli appropriati. Ma con problemi di autorizzazione per la gestione dei criteri di attestazione tramite PowerShell.
 
 ### <a name="error"></a>Errore
-Il client con ID oggetto non <object Id>  dispone dell'autorizzazione per eseguire l'azione Microsoft. Authorization/roleAssignments/Write Over Scope ' sottoscrizioni/ <subscriptionId> resourcegroups/secure_enclave_poc/Providers/Microsoft.Authorization/roleAssignments/ <role assignmentId> ' o l'ambito non è valido. Se l'accesso è stato concesso di recente, aggiornare le credenziali
+Il client con ID oggetto ID oggetto non &lt; &gt;  dispone dell'autorizzazione per eseguire l'azione Microsoft. Authorization/roleAssignments/Write Over Scope ' sottoscrizioni/ &lt; subscriptionId &gt; ResourceGroups/secure_enclave_poc/Providers/Microsoft.Authorization/roleAssignments/ &lt; Role assignmentId &gt; ' o l'ambito non è valido. Se l'accesso è stato concesso di recente, aggiornare le credenziali
 
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 

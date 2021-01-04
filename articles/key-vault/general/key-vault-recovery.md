@@ -3,25 +3,37 @@ title: Panoramica di Azure Key Vault Recovery | Microsoft Docs
 description: Key Vault funzionalità di ripristino sono progettate per evitare l'eliminazione accidentale o dannosa dell'insieme di credenziali delle chiavi e dei segreti, delle chiavi e dei certificati archiviati all'interno di Key Vault.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
-ms.date: 12/15/2020
-ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
+ms.date: 09/30/2020
+ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587112"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704215"
 ---
-# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Come abilitare la protezione eliminazione temporanea e ripulitura
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestione del ripristino Azure Key Vault con eliminazione e ripulitura soft
 
 Questo articolo illustra due funzionalità di ripristino di Azure Key Vault, l'eliminazione temporanea e la protezione di ripulitura. Questo documento offre una panoramica di queste funzionalità e illustra come gestirle tramite il portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
+Per ulteriori informazioni su Key Vault, vedere.
+- [Panoramica di Key Vault](overview.md)
+- [Cenni preliminari su chiavi, segreti e certificati Azure Key Vault](about-keys-secrets-certificates.md)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/dotnet)
+* [Modulo di PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
+* Un insieme di credenziali delle chiavi. È possibile crearne uno con il [portale di Azure](../general/quick-create-portal.md), l'[interfaccia della riga di comando di Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md).
+
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Che cosa sono la protezione eliminazione temporanea e ripulitura
 
-La protezione per l'eliminazione e la ripulitura temporanea sono due diverse funzionalità di ripristino di Key Vault.
+La protezione per l' [eliminazione](soft-delete-overview.md) e la ripulitura temporanea sono due diverse funzionalità di ripristino di Key Vault.
+
 > [!IMPORTANT]
 > L'attivazione dell'eliminazione temporanea è fondamentale per garantire che gli insiemi di credenziali delle chiavi e le credenziali siano protetti da eliminazioni accidentali. Tuttavia, l'attivazione dell'eliminazione temporanea è considerata una modifica sostanziale perché potrebbe essere necessario modificare la logica dell'applicazione o fornire autorizzazioni aggiuntive per le entità servizio. Prima di attivare l'eliminazione temporanea usando le istruzioni riportate di seguito, assicurarsi che l'applicazione sia compatibile con la modifica usando questo documento [ **qui**.](soft-delete-change.md)
 
@@ -34,7 +46,9 @@ L' **eliminazione della protezione** è progettata per impedire l'eliminazione d
 > [!NOTE]
 > L'eliminazione della protezione è progettata in modo che nessun ruolo o autorizzazione di amministratore possa ignorare, disabilitare o aggirare l'eliminazione della protezione. **Una volta abilitata l'eliminazione, la protezione non può essere disabilitata o sostituita da chiunque includa Microsoft.** Ciò significa che è necessario ripristinare un insieme di credenziali delle chiavi eliminato oppure attendere che il periodo di conservazione venga trascorso prima di riusare il nome dell'insieme di credenziali delle chiavi.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
+Per ulteriori informazioni sull'eliminazione temporanea, vedere la [Panoramica di Azure Key Vault soft-delete](soft-delete-overview.md)
+
+# <a name="azure-portal"></a>[Portale di Azure](#tab/azure-portal)
 
 ## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>Verificare se l'eliminazione temporanea è abilitata in un insieme di credenziali delle chiavi e abilitare l'eliminazione temporanea
 
@@ -370,3 +384,14 @@ L' **eliminazione della protezione** è progettata per impedire l'eliminazione d
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Cmdlet di Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Comandi dell'interfaccia della riga di comando Key Vault Azure](https://docs.microsoft.com/cli/azure/keyvault)
+- [Backup di Azure Key Vault](backup.md)
+- [Come abilitare la registrazione di Key Vault](howto-logging.md)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](secure-your-key-vault.md)
+- [Guida per gli sviluppatori per Azure Key Vault](developers-guide.md)
+- [Procedure consigliate per usare un insieme di credenziali delle chiavi](best-practices.md)

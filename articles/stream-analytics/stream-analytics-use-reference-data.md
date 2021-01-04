@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/2/2020
-ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.date: 12/18/2020
+ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533609"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722131"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 
@@ -82,7 +82,7 @@ Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di 
 3. I BLOB dei dati di riferimento **non** vengono ordinati in base all'ora dell'Ultima modifica del BLOB, ma solo in base all'ora e alla data specificate nel nome del BLOB usando le sostituzioni {date} e {Time}.
 3. Per evitare di dover elencare un numero elevato di BLOB, valutare l'eliminazione dei BLOB molto vecchi per cui non verrà più eseguita l'elaborazione. Si noti che ASA potrebbe doverne rielaborare una piccola quantità in alcuni scenari, ad esempio un riavvio.
 
-## <a name="azure-sql-database"></a>Database SQL di Azure
+## <a name="azure-sql-database"></a>database SQL di Azure
 
 I dati di riferimento del database SQL di Azure vengono recuperati dal processo di Analisi di flusso archiviati come snapshot in memoria per l'elaborazione. Lo snapshot dei dati di riferimento viene anche archiviato in un contenitore all'interno di un account di archiviazione specificato nelle impostazioni di configurazione. Il contenitore viene creato automaticamente all'avvio del processo. Se il processo viene arrestato o si trova in uno stato di errore, i contenitori creati automaticamente vengono eliminati quando il processo viene riavviato.  
 
@@ -137,6 +137,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## <a name="iot-edge-jobs"></a>IoT Edge processi
+
+Per i processi Edge di analisi di flusso sono supportati solo i dati di riferimento locali. Quando un processo viene distribuito in un dispositivo IoT Edge, carica i dati di riferimento dal percorso file definito dall'utente. Tenere un file di dati di riferimento pronto nel dispositivo. Per un contenitore Windows, inserire il file di dati di riferimento nell'unità locale e condividere l'unità locale con il contenitore Docker. Per un contenitore Linux, creare un volume Docker e popolare il file di dati nel volume.
+
+I dati di riferimento su IoT Edge aggiornamento vengono attivati da una distribuzione. Una volta attivato, il modulo di analisi di flusso preleva i dati aggiornati senza arrestare il processo in esecuzione.
+
+È possibile aggiornare i dati di riferimento in due modi:
+
+* Aggiornare il percorso dei dati di riferimento nel processo di analisi di flusso da portale di Azure.
+
+* Aggiornare la distribuzione IoT Edge.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49a0e48977393aeab7ff93b79e28acc55a87b51a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e3bc8ed2745e06096e05f17319a8f7896f87f80f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016183"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702039"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Come installare e configurare MongoDB in una macchina virtuale Linux
 
@@ -125,10 +125,10 @@ Per creare questo ambiente, è necessario aver installato la versione più recen
 az group create --name myResourceGroup --location eastus
 ```
 
-Quindi distribuire il modello MongoDB con [az group deployment create](/cli/azure/group/deployment). Se richiesto, immettere i propri valori univoci per *newStorageAccountName*, *dnsNameForPublicIP* e nome utente e password dell'amministratore:
+Distribuire quindi il modello MongoDB con [AZ Deployment Group create](/cli/azure/deployment/group). Se richiesto, immettere i propri valori univoci per *newStorageAccountName*, *dnsNameForPublicIP* e nome utente e password dell'amministratore:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
@@ -176,10 +176,10 @@ Per creare questo ambiente, è necessario aver installato la versione più recen
 az group create --name myResourceGroup --location eastus
 ```
 
-Quindi distribuire il modello MongoDB con [az group deployment create](/cli/azure/group/deployment). Definire i nomi e le dimensioni delle risorse desiderati dove necessario per *mongoAdminUsername*, *sizeOfDataDiskInGB* e *configNodeVmSize*:
+Distribuire quindi il modello MongoDB con [AZ Deployment Group create](/cli/azure/deployment/group). Definire i nomi e le dimensioni delle risorse desiderati dove necessario per *mongoAdminUsername*, *sizeOfDataDiskInGB* e *configNodeVmSize*:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --parameters '{"adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "mongoAdminUsername": {"value": "mongoadmin"},
@@ -198,10 +198,10 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Questa distribuzione può impiegare più di un'ora per distribuire e configurare tutte le istanze di VM. Il flag `--no-wait` viene usato alla fine del comando precedente per restituire il controllo al prompt dei comandi dopo che la distribuzione del modello è stata accettata dalla piattaforma Azure. È quindi possibile visualizzare lo stato della distribuzione con [az group deployment show](/cli/azure/group/deployment). L'esempio seguente visualizza lo stato per la distribuzione *myMongoDBCluster* nel gruppo di risorse *myResourceGroup*:
+Questa distribuzione può impiegare più di un'ora per distribuire e configurare tutte le istanze di VM. Il flag `--no-wait` viene usato alla fine del comando precedente per restituire il controllo al prompt dei comandi dopo che la distribuzione del modello è stata accettata dalla piattaforma Azure. È quindi possibile visualizzare lo stato della distribuzione con [AZ Deployment Group Show](/cli/azure/deployment/group). L'esempio seguente visualizza lo stato per la distribuzione *myMongoDBCluster* nel gruppo di risorse *myResourceGroup*:
 
 ```azurecli
-az group deployment show \
+az deployment group show \
     --resource-group myResourceGroup \
     --name myMongoDBCluster \
     --query [properties.provisioningState] \

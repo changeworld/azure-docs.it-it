@@ -12,14 +12,6 @@
       items:
         - name: Librerie client di Rilevamento anomalie
           href: ./quickstarts/client-libraries.md
-    - name: API REST
-      items:
-        - name: Uso di C#
-          href: quickstarts/detect-data-anomalies-csharp.md
-        - name: Uso di Java
-          href: quickstarts/detect-data-anomalies-java.md
-        - name: Uso di Python
-          href: quickstarts/detect-data-anomalies-python.md
 - name: Esercitazioni
   items:
     - name: Visualizzare le anomalie in batch con Power BI

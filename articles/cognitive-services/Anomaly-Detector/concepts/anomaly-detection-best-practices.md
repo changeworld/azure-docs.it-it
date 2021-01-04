@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363644"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705150"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedure consigliate per l'uso dell'API del rilevamento anomalie
 
@@ -104,4 +104,4 @@ Se i dati di streaming vengono campionati a breve (ad esempio secondi o minuti),
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](../quickstarts/detect-data-anomalies-csharp.md)
+* [Guida introduttiva: rilevare anomalie nei dati delle serie temporali usando il rilevatore di anomalie](../quickstarts/client-libraries.md)

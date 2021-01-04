@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6aea427848afd39b9b9ca166856470a2f9b88694
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573409"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705099"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI (anteprima)
 
@@ -100,7 +100,7 @@ Azure Resource Manager consente di automatizzare completamente la distribuzione 
     Distribuire il processo sopra riportato al gruppo di risorse **ExampleGroup** usando il comando dell'interfaccia della riga di comando di Azure seguente:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Dopo aver creato il processo, usare Azure Resource Manager per recuperare la definizione completa del processo.
@@ -201,7 +201,7 @@ Il processo di analisi di flusso può essere aggiunto anche come collaboratore a
 ```http
 POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 ```
-Request Body
+Corpo della richiesta
 ```json
 {
     "groupUserAccessRight": "Contributor",

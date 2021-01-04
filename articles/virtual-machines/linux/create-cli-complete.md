@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 17d36acfa2de699ff2b22ac16d327ea738519f4a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5992fb20fc8b86d4a0094a8fe5ed6cb6eb03754d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975383"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704470"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux completa con l'interfaccia della riga di comando di Azure
 Per creare rapidamente una macchina virtuale in Azure, è possibile usare un singolo comando dell'interfaccia della riga di comando di Azure che si serve dei valori predefiniti per creare tutte le risorse di supporto richieste. Le risorse, ad esempio una rete virtuale, l'indirizzo IP pubblico e regole del gruppo di sicurezza di rete, vengono create automaticamente. Per un maggiore controllo dell'ambiente di produzione è possibile creare queste risorse in anticipo e quindi aggiungervi le macchine virtuali. In questo articolo descrive come creare una macchina virtuale e tutte le risorse di supporto, una alla volta.
@@ -558,10 +558,10 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Questo comando crea il file `myResourceGroup.json` nella directory di lavoro corrente. Quando si crea un ambiente da questo modello, vengono richiesti tutti i nomi delle risorse. È possibile inserire questi nomi nel file del modello aggiungendo il parametro `--include-parameter-default-value` al comando `az group export`. Modificare il modello JSON per specificare i nomi delle risorse o [creare un parameters.jsin un file](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) che specifichi i nomi delle risorse.
 
-Per creare un ambiente in base al modello, usare [az group deployment create](/cli/azure/group/deployment) come indicato di seguito:
+Per creare un ambiente dal modello, usare [AZ Deployment Group create](/cli/azure/deployment/group) come indicato di seguito:
 
 ```azurecli
-az group deployment create \
+az deployment group create \
     --resource-group myNewResourceGroup \
     --template-file myResourceGroup.json
 ```

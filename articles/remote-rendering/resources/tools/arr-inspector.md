@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: 5ee9d39db130c76f683ca1f4d1ff64f9ed86d97e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 300e0ff26d643ae0263d21e604cb26da37a18841
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204742"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723826"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Strumento di ispezione ArrInspector
 
@@ -108,17 +108,3 @@ Nell'angolo superiore destro, un'opzione consente di sospendere l'aggiornamento 
 ![Modalità di sospensione](./media/pause-mode.png)
 
 Quando si riattiva l'aggiornamento in tempo reale, tutti i pannelli vengono reimpostati.
-
-## <a name="host-configuration"></a>Configurazione dell'host
-
-Per impostazione predefinita, lo strumento si connette al server ARR in esecuzione nello stesso host che funge da ArrInspector. Tuttavia, è possibile configurarlo in modo da ispezionare un altro server, supponendo che sia in esecuzione un'istanza ARR con la porta degli strumenti aperta.
-
-A tale scopo, accedere al menu principale a sinistra della barra di intestazione e selezionare *Configurazione host*. Fare clic su **Aggiungi nuovo host**e immettere il nome e il nome host. Per *hostname* usare solo il nome host che termina con `.mixedreality.azure.com` , non includere `http://` o una porta.
-
-![Configurazione dell'host](./media/host-configuration.png)
-
-Per passare rapidamente da un host a un altro, usare l'elenco a discesa in alto a destra.
-
-![Casella combinata host](./media/host-switch-combo.png)
-
-L'elenco host viene archiviato nella risorsa di archiviazione locale del browser, quindi verrà mantenuto quando si riapre lo stesso browser.

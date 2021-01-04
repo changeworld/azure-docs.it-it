@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: cc479f8e4dc87155721b25fab2ba522880b0ac4f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 749dd17c6f9b09db1841459da951b44470d8bb92
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751058"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704708"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -115,11 +115,16 @@ Configurare l'appliance per la prima volta.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
 1. Incollare la **chiave del progetto Azure Migrate** copiata dal portale. Se non si dispone della chiave, passare a **Valutazione server > Individua > Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
-1. Fare clic su **Accedi**. Verrà aperto un prompt di accesso di Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
-1. Nella nuova scheda accedere con nome utente e la password di Azure.
+1. Per eseguire l'autenticazione con Azure, sarà necessario un codice dispositivo. Se si fa clic su **login** , viene aperto un modale con il codice del dispositivo, come illustrato di seguito.
+
+    ![Modale che mostra il codice del dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Fare clic su **Copia codice & account di accesso** per copiare il codice del dispositivo e aprire un prompt di accesso di Azure in una nuova scheda del browser. Se non viene visualizzato, assicurarsi di aver disattivato il blocco popup nel browser.
+1. Nella scheda nuovo incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
    
    L'accesso con un PIN non è supportato.
-3. Dopo aver eseguito l'accesso, tornare all'app Web. 
+3. Se si chiude la scheda di accesso accidentalmente senza eseguire l'accesso, è necessario aggiornare la scheda Esplorazione di gestione configurazione Appliance per abilitare di nuovo il pulsante di accesso.
+1. Dopo aver eseguito l'accesso, tornare alla scheda precedente con Gestione configurazione Appliance.
 4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](./tutorial-discover-vmware.md#prepare-an-azure-user-account) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 

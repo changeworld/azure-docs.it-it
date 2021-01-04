@@ -1,17 +1,17 @@
 ---
 title: Ottimizzazione delle prestazioni Azure Data Lake Storage Gen1-MapReduce
 description: Informazioni sull'ottimizzazione delle prestazioni per MapReduce in Azure Data Lake Storage Gen1, inclusi parametri, indicazioni, un calcolo di esempio e limitazioni.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 2653e0b557f7c5c04184628b3266e8f2909130f6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 2549413241e422fb1e0e5e1f079c287e0b7cf005
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108287"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723729"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Linee guida per l'ottimizzazione delle prestazioni di MapReduce in HDInsight e Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ ms.locfileid: "92108287"
 
 Vengono ora illustrati i parametri più importanti da configurare per aumentare le prestazioni in Data Lake Storage Gen1 durante l'esecuzione di processi MapReduce:
 
-|Parametro      | Description  |
+|Parametro      | Descrizione  |
 |---------|---------|
 |`Mapreduce.map.memory.mb`  |  Quantità di memoria da allocare a ogni Mapper.  |
 |`Mapreduce.job.maps`     |  Numero di attività mappa per processo.  |
@@ -42,7 +42,7 @@ Modificare questo numero in base alla quantità di memoria necessaria per l'atti
 
 Questo determina il numero massimo di Mapper o riduttori da creare. Il numero di divisioni determina il numero di Mapper creati per il processo MapReduce. Pertanto, è possibile ottenere un numero inferiore di Mapper rispetto a quello richiesto se sono presenti meno divisioni rispetto al numero di Mapper richiesti.
 
-## <a name="guidance"></a>Indicazioni
+## <a name="guidance"></a>Materiale sussidiario
 
 ### <a name="step-1-determine-number-of-jobs-running"></a>Passaggio 1: determinare il numero di processi in esecuzione
 

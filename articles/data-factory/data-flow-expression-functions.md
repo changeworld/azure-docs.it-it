@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/01/2020
-ms.openlocfilehash: 875b84613bede922b01b1043f2d6dab9aedbc2e8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/18/2020
+ms.openlocfilehash: f715a51367a82f190d394ecb8e10dea24ca70e97
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436930"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706916"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni per la trasformazione dei dati nel flusso di dati per mapping
 
@@ -1890,6 +1890,28 @@ Seleziona un valore di colonna in base alla relativa posizione (basata su 1) nel
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+
+## <a name="cached-lookup-functions"></a>Funzioni di ricerca memorizzate nella cache
+Le funzioni seguenti sono disponibili solo quando si usa una ricerca memorizzata nella cache quando è stato incluso un sink memorizzato nella cache.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Cerca la prima riga dal sink memorizzato nella cache usando le chiavi specificate che corrispondono alle chiavi del sink memorizzato nella cache.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Cerca tutte le righe corrispondenti dal sink memorizzato nella cache usando le chiavi specificate che corrispondono alle chiavi del sink memorizzato nella cache.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+Restituisce la prima riga dei risultati del sink della cache. * ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+Restituisce l'intero set di righe di output dei risultati del sink della cache. * ``cacheSink#outputs()``
+___
 
 ## <a name="window-functions"></a>Funzioni finestra
 Le funzioni seguenti sono disponibili solo nelle trasformazioni di finestra.

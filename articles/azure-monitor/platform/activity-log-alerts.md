@@ -4,12 +4,12 @@ description: Ricevere una notifica tramite SMS, webhook, posta elettronica e alt
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536082"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708433"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività
 
@@ -18,7 +18,8 @@ ms.locfileid: "95536082"
 Gli avvisi del log attività sono avvisi che vengono attivati quando si verifica un nuovo [evento del log attività](activity-log-schema.md) che corrisponde alle condizioni specificate nell'avviso. In base all'ordine e al volume degli eventi registrati nel [log attività di Azure](platform-logs-overview.md), viene attivata la regola di avviso. Le regole di avviso del log attività sono risorse di Azure, pertanto è possibile crearle usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Per altre informazioni sulla creazione o l'uso di regole di avviso del log attività, vedere [creare e gestire gli avvisi del log attività](alerts-activity-log.md).
 
 > [!NOTE]
-> **Non è possibile** creare avvisi per gli eventi nella categoria avvisi del log attività.
+> * **Non è possibile** creare avvisi per gli eventi nella categoria avvisi del log attività.
+> * Gli avvisi del log attività con la categoria di sicurezza possono essere definiti anche in un [nuovo flusso aggiornato](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) a [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
 
 In genere, si creano avvisi del log attività per ricevere notifiche quando:
 

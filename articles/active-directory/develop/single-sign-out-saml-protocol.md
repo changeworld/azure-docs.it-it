@@ -12,16 +12,18 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118264"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703416"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocollo SAML per Single Sign-Out
 
 Azure Active Directory (Azure AD) supporta il profilo di Single Sign-Out per Web browser SAML 2.0. Perché la disconnessione Single Sign-Out funzioni correttamente il **LogoutURL** per l'applicazione deve essere registrato in modo esplicito con Azure AD durante la registrazione dell'applicazione. Azure AD usa LogoutURL per reindirizzare gli utenti dopo che si sono disconnessi.
+
+Azure AD supporta l'associazione di reindirizzamento (HTTP GET) e non il binding HTTP POST.
 
 Il diagramma seguente descrive il flusso di lavoro del processo Single Sign-Out di Azure AD.
 

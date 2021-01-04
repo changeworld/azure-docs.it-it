@@ -10,17 +10,19 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554683"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722624"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Usare Studio per distribuire i modelli con training nella finestra di progettazione
 
-In questo articolo si apprenderà come distribuire un modello sottoposto a training dalla finestra di progettazione come endpoint in tempo reale in Azure Machine Learning Studio.
+In questo articolo viene illustrato come distribuire un modello di finestra di progettazione come endpoint in tempo reale in Azure Machine Learning Studio.
+
+Una volta registrati o scaricati, è possibile usare modelli con training della finestra di progettazione proprio come qualsiasi altro modello. I modelli esportati possono essere distribuiti in casi d'uso, ad esempio Internet delle cose e distribuzioni locali.
 
 La distribuzione in studio prevede i passaggi seguenti:
 
@@ -61,7 +63,6 @@ Al termine della pipeline di training, registrare il modello sottoposto a traini
 Dopo aver registrato il modello, è possibile trovarlo nella pagina dei **modelli** asset in studio.
     
 ![Screenshot del modello registrato nella pagina asset dei modelli](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## <a name="download-the-entry-script-file-and-conda-dependencies-file"></a>Scaricare il file script di immissione e il file delle dipendenze conda
 

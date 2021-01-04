@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: b2cd5e32503953de874ab470ca3f9413d2b37d59
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014648"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703433"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedura: usare l'API del rilevatore di anomalie nei dati delle serie temporali  
 
@@ -26,7 +26,7 @@ L' [API rilevatore di anomalie](https://westus2.dev.cognitive.microsoft.com/docs
 L'API rilevatore di anomalie fornisce le modalità di rilevamento: batch e flusso.
 
 > [!NOTE]
-> Gli URL di richiesta seguenti devono essere combinati con l'endpoint appropriato per la sottoscrizione. Ad esempio: `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> Gli URL di richiesta seguenti devono essere combinati con l'endpoint appropriato per la sottoscrizione. ad esempio `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>Rilevamento in batch
@@ -71,4 +71,4 @@ Gli esempi seguenti mostrano un risultato dell'API del rilevamento delle anomali
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](../quickstarts/detect-data-anomalies-csharp.md)
+* [Guida introduttiva: rilevare anomalie nei dati delle serie temporali usando il rilevatore di anomalie](../quickstarts/client-libraries.md)

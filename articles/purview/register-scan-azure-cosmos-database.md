@@ -1,18 +1,18 @@
 ---
 title: Come analizzare Azure Cosmos database (API SQL)
 description: Questa guida descrive i dettagli su come eseguire la scansione di Azure Cosmos database (API SQL).
-author: viseshag
-ms.author: viseshag
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
-ms.openlocfilehash: e1d2035b787380d9b93943b92fbe81c09fc6a527
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1aaeed1973ebd15af312b722ab61938aa4271947
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554992"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696246"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Registrare e analizzare Azure Cosmos database (API SQL)
 
@@ -27,7 +27,7 @@ Azure Cosmos database (API SQL) supporta le analisi complete e incrementali per 
 - Prima di registrare le origini dati, creare un account Azure. Per altre informazioni sulla creazione di un account di competenza, vedere [Guida introduttiva: creare un account Azure](create-catalog-portal.md).
 - È necessario essere un amministratore dell'origine dati di competenza di Azure
 
-## <a name="setting-up-authentication-for-a-scan"></a>Impostazione dell'autenticazione per un'analisi
+## <a name="setting-up-authentication-for-a-scan"></a>Configurazione dell'autenticazione per un'analisi
 
 È disponibile un solo modo per configurare l'autenticazione per Azure Cosmos database (API SQL):
 
@@ -38,41 +38,41 @@ Azure Cosmos database (API SQL) supporta le analisi complete e incrementali per 
 Quando il metodo di autenticazione selezionato è la **chiave dell'account**, è necessario ottenere la chiave di accesso e archiviare nell'insieme di credenziali delle chiavi:
 
 1. Passare all'account di Cosmos DB nel portale di Azure 
-1. Selezione **Settings**  >  **chiavi** impostazioni 
+1. Selezione   >  **chiavi** impostazioni 
 1. Copiare la *chiave* e salvarla in un punto qualsiasi per i passaggi successivi
 1. Passare a Key Vault
-1. Selezionare **le impostazioni > segreti**
+1. Selezionare **Impostazioni > Segreti**
 1. Selezionare **+ genera/importa** e immettere il **nome** e il **valore** come *chiave* dell'account di archiviazione
 1. Selezionare **Crea** per completare
-1. Se l'insieme di credenziali delle chiavi non è ancora connesso alla propria competenza, sarà necessario [creare una nuova connessione](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) dell'insieme di credenziali delle chiavi
+1. Se l'insieme di credenziali delle chiavi non è ancora connesso a Purview, sarà necessario [creare una nuova connessione dell'insieme di credenziali delle chiavi](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Infine, [creare una nuova credenziale](manage-credentials.md#create-a-new-credential) usando la chiave per configurare l'analisi
 
 ## <a name="register-an-azure-cosmos-database-sql-api-account"></a>Registrare un account di Azure Cosmos database (API SQL)
 
 Per registrare un nuovo account Azure Cosmos database (API SQL) nel Catalogo dati, seguire questa procedura:
 
-1. Passa all'account di competenza
-1. Selezionare le **origini** nel percorso di spostamento a sinistra
+1. Passare all'account Purview
+1. Selezionare **Origini** nel riquadro di spostamento sinistro
 1. Selezionare **Registra**
 1. In **registra origini** selezionare **Azure Cosmos DB (API SQL)**
 1. Selezionare **Continua**
 
-:::image type="content" source="media/register-scan-azure-cosmos-database/register-new-data-source.png" alt-text="Registra nuova origine dati" border="true":::
+:::image type="content" source="media/register-scan-azure-cosmos-database/register-new-data-source.png" alt-text="Registrare una nuova origine dati" border="true":::
 
 Nella schermata **Register Sources (Azure Cosmos DB (API SQL))** eseguire le operazioni seguenti:
 
-1. Immettere un **nome** con cui l'origine dati verrà elencata nel catalogo.
-1. Scegliere il modo in cui si desidera puntare all'account di archiviazione desiderato:
+1. Immettere un **Nome** con il quale l'origine dati sarà elencata nel catalogo.
+1. Scegliere come puntare all'account di archiviazione desiderato:
    1. Selezionare una **sottoscrizione di Azure**, selezionare la sottoscrizione appropriata nella casella di riepilogo a discesa **sottoscrizione di Azure** e l'account cosmosDB appropriato nella casella di riepilogo a discesa **nome account Cosmos DB** .
    1. In alternativa, è possibile selezionare **invio manualmente** e immettere un endpoint servizio (URL).
-1. **Completare** la registrazione dell'origine dati.
+1. Selezionare **Fine** per completare la registrazione dell'origine dati.
 
-:::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="opzioni registra origini" border="true":::
+:::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="Opzioni di registrazione delle origini" border="true":::
 
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esplorare il Catalogo dati di Azure per le competenze](how-to-browse-catalog.md)
-- [Cerca nel Data Catalog di competenza di Azure](how-to-search-catalog.md)
+- [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)

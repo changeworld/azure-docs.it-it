@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/18/2020
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9bc7d94cff46b54b81615cf064ed63927b3ec60
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929294"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703586"
 ---
-# <a name="email-one-time-passcode-authentication-preview"></a>Indirizzo di posta elettronica per l'autenticazione con password monouso (anteprima)
+# <a name="email-one-time-passcode-authentication"></a>Autenticazione del codice di accesso monouso tramite posta elettronica
 
 Questo articolo descrive come abilitare l'autenticazione del codice di posta elettronica monouso per gli utenti Guest B2B. La funzionalità di accesso monouso per il codice di posta elettronica consente di autenticare gli utenti Guest B2B quando non è possibile eseguire l'autenticazione con altri strumenti, ad esempio Azure AD, un account Microsoft (MSA) o una Federazione Google. Grazie all'autenticazione con passcode monouso, non è necessario creare un account Microsoft. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere.
 
@@ -98,7 +98,7 @@ A partire dal 2021 marzo, la funzionalità di accesso monouso per il codice di p
 
 ## <a name="note-for-public-preview-customers"></a>Nota per i clienti dell'anteprima pubblica
 
-Se si è scelto in precedenza l'anteprima pubblica di un codice di accesso monouso per la posta elettronica, la data di marzo 2021 per l'abilitazione automatica della funzionalità non è applicabile, quindi i processi aziendali correlati non saranno interessati. Inoltre, nel portale di Azure, sotto le proprietà del **codice di posta elettronica** monouso per i guest, non verrà visualizzata l'opzione per abilitare automaticamente il codice di accesso monouso della **posta elettronica per i guest nel 2021 marzo**. Al contrario, verrà visualizzato **quanto segue:** **No**
+Se si è scelto in precedenza l'anteprima pubblica di un codice di accesso monouso per la posta elettronica, la data di marzo 2021 per l'abilitazione automatica della funzionalità non è applicabile, quindi i processi aziendali correlati non saranno interessati. Inoltre, nel portale di Azure, sotto le proprietà del **codice di posta elettronica** monouso per i guest, non verrà visualizzata l'opzione per abilitare automaticamente il codice di accesso monouso della **posta elettronica per i guest nel 2021 marzo**. Al contrario, verrà visualizzato **quanto segue:** 
 
 ![Abilita la password monouso per la posta elettronica](media/delegate-invitations/enable-email-otp-opted-in.png)
 

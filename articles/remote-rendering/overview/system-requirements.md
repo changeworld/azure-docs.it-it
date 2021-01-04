@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: references_regions
+ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207411"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722692"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -64,11 +65,36 @@ Vedere il capitolo dedicato per i [requisiti di rete](../reference/network-requi
 
 Per la risoluzione dei problemi di rete, vedere la [Guida alla risoluzione dei](../resources/troubleshoot.md#unstable-holograms)problemi.
 
-### <a name="network-ports"></a>Porte di rete
+### <a name="network-firewall"></a>Firewall di rete
+
+### <a name="sdk-version--0176"></a>Versione SDK >= 0.1.76
+
+Le macchine virtuali per il rendering remoto usano indirizzi IP condivisi dagli intervalli IP seguenti:
+
+| Nome             | Area         | Prefisso IP         |
+|------------------|:---------------|:------------------|
+| Australia orientale   | australiaeast  | 20.53.44.240/28   |
+| Stati Uniti orientali          | eastus         | 20.62.129.224/28  |
+| Stati Uniti orientali 2        | eastus2        | 20.49.103.240/28  |
+| Giappone orientale       | japaneast      | 20.191.165.112/28 |
+| Europa settentrionale     | northeurope    | 52.146.133.64/28  |
+| Stati Uniti centro-meridionali | southcentralus | 20.65.132.80/28   |
+| Asia sud-orientale   | southeastasia  | 20.195.64.224/28  |
+| Regno Unito meridionale         | uksouth        | 51.143.209.144/28 |
+| Europa occidentale      | westeurope     | 20.61.99.112/28   |
+| West US 2        | westus2        | 20.51.9.64/28     |
+
+Assicurarsi che i firewall (sul dispositivo, all'interno dei router e così via) non blocchino questi intervalli IP e gli intervalli di porte seguenti:
+
+| Porta              | Protocollo  | Allow    |
+|-------------------|---------- |----------|
+| 49152-65534       | TCP/UDP | In uscita |
+
+#### <a name="sdk-version--0176"></a>Versione SDK < 0.1.76
 
 Assicurarsi che i firewall (sul dispositivo, nei router e così via) non blocchino le porte seguenti:
 
-| Porta              | Protocollo | Consenti    | Descrizione |
+| Porta              | Protocollo | Allow    | Descrizione |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | In uscita | Connessione iniziale (handshake HTTP) |
 | 8266              | UDP      | In uscita | Trasferimento di dati |

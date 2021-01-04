@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c321eae9451715077aa50d163b62b51ec88ce1a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ce79fe88b33659241a226af7bbb7a966ede41abb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95496886"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696165"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relazioni di ancoraggio e ricerca di metodi negli ancoraggi spaziali di Azure
 
@@ -64,7 +64,7 @@ Per connettere ancoraggi:
 
 Per connettere ancoraggi su più sessioni:
 
-1. L'app crea alcuni ancoraggi in un CloudSpatialAnchorSession.
+1. L'app crea alcuni ancoraggi (ancoraggi A e B) in un CloudSpatialAnchorSession.
 2. In un momento diverso, l'app individua uno di questi ancoraggi (ad esempio, ancoraggio A) usando un nuovo CloudSpatialAnchorSession.
 3. Passare a una nuova posizione. La piattaforma di realtà mista o di realtà aumentata sottostante tiene traccia dello spostamento.
 4. Creare Anchor C utilizzando lo stesso CloudSpatialAnchorSession. Gli ancoraggi A, B e C sono ora connessi. Il servizio ancoraggi spaziali gestisce questa relazione.
