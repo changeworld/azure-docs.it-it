@@ -2,19 +2,20 @@
 title: Gestire DHCP per la soluzione VMware di Azure
 description: Informazioni su come creare e gestire DHCP per il cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
+ms.custom: contperf-fy21q2
 ms.date: 11/09/2020
-ms.openlocfilehash: 9143a8544fe1b98262c3e990ccdf56f5d5f65957
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: bcaba4274b0e6b423e9fa490c80fc57204d4e153
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335954"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708552"
 ---
 # <a name="manage-dhcp-for-azure-vmware-solution"></a>Gestire DHCP per la soluzione VMware di Azure
 
 Le applicazioni e i carichi di lavoro in esecuzione in un ambiente cloud privato richiedono servizi DHCP per le assegnazioni di indirizzi IP.  Questo articolo illustra come creare e gestire DHCP in una soluzione VMware di Azure in due modi:
 
-- Se si usa NSX-T per ospitare il server DHCP, è necessario [creare un server DHCP](#create-a-dhcp-server) e [inoltrarlo a tale server](#create-dhcp-relay-service). Quando si crea il server DHCP, si aggiungerà anche un segmento di rete e si specificherà l'intervallo di indirizzi IP DHCP.   
+- Se si usa NSX-T per ospitare il server DHCP, sarà necessario [creare un server DHCP](#create-a-dhcp-server) e impostare l'[inoltro a tale server](#create-dhcp-relay-service). Quando si crea il server DHCP, si aggiungerà anche un segmento di rete e si specificherà l'intervallo di indirizzi IP DHCP.   
 
 - Se si usa un server DHCP esterno di terze parti nella rete, sarà necessario [creare il servizio di inoltro DHCP](#create-dhcp-relay-service). Quando si crea un inoltro a un server DHCP, se si usa NSX-T o una terza parte per ospitare il server DHCP, è necessario specificare l'intervallo di indirizzi IP DHCP.
 
@@ -26,13 +27,13 @@ Le applicazioni e i carichi di lavoro in esecuzione in un ambiente cloud privato
 
 Se si vuole usare NSX-T per ospitare il server DHCP, verrà creato un server DHCP. Si aggiungerà quindi un segmento di rete e si specificherà l'intervallo di indirizzi IP DHCP.
 
-1. In NSX-T Manager selezionare **rete**  >  **DHCP** , quindi selezionare **Aggiungi server**.
+1. In NSX-T Manager selezionare **rete**  >  **DHCP**, quindi selezionare **Aggiungi server**.
 
-1. Selezionare **DHCP** per il **tipo di server** , specificare il nome del server e l'indirizzo IP e quindi selezionare **Salva**.
+1. Selezionare **DHCP** per il **tipo di server**, specificare il nome del server e l'indirizzo IP e quindi selezionare **Salva**.
 
    :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Aggiungi server DHCP" border="true":::
 
-1. Selezionare **gateway di livello 1** , selezionare i puntini di sospensione verticali sul gateway di primo livello e quindi scegliere **modifica**.
+1. Selezionare **gateway di livello 1**, selezionare i puntini di sospensione verticali sul gateway di primo livello e quindi scegliere **modifica**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Selezionare il gateway da usare" border="true":::
 
@@ -42,7 +43,7 @@ Se si vuole usare NSX-T per ospitare il server DHCP, verrà creato un server DHC
 
 1. Per **tipo** selezionare **server locale DHCP**. 
    
-1. Per il **server DHCP** , selezionare **DHCP predefinito** e quindi fare clic su **Salva**.
+1. Per il **server DHCP**, selezionare **DHCP predefinito** e quindi fare clic su **Salva**.
 
 1. Selezionare di nuovo **Salva** e quindi selezionare **Chiudi modifica**.
 
@@ -55,13 +56,13 @@ Se si vuole usare NSX-T per ospitare il server DHCP, verrà creato un server DHC
 
 Se si vuole usare un server DHCP esterno di terze parti, è necessario creare un servizio di inoltro DHCP. Specificare anche l'intervallo di indirizzi IP DHCP in NSX-T Manager. 
 
-1. In NSX-T Manager selezionare **rete**  >  **DHCP** , quindi selezionare **Aggiungi server**.
+1. In NSX-T Manager selezionare **rete**  >  **DHCP**, quindi selezionare **Aggiungi server**.
 
-1. Selezionare **inoltro DHCP** per il **tipo di server** , specificare il nome del server e l'indirizzo IP e quindi selezionare **Salva**.
+1. Selezionare **inoltro DHCP** per il **tipo di server**, specificare il nome del server e l'indirizzo IP e quindi selezionare **Salva**.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Crea servizio di inoltro DHCP" border="true":::
 
-1. Selezionare **gateway di livello 1** , selezionare i puntini di sospensione verticali sul gateway di primo livello e quindi scegliere **modifica**.
+1. Selezionare **gateway di livello 1**, selezionare i puntini di sospensione verticali sul gateway di primo livello e quindi scegliere **modifica**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="modificare il gateway di livello 1" border="true":::
 
@@ -71,14 +72,14 @@ Se si vuole usare un server DHCP esterno di terze parti, è necessario creare un
 
 1. Per **tipo** selezionare **server DHCP**. 
    
-1. Per il **server DHCP** , selezionare **inoltro DHCP** , quindi selezionare **Salva**.
+1. Per il **server DHCP**, selezionare **inoltro DHCP**, quindi selezionare **Salva**.
 
 1. Selezionare di nuovo **Salva** e quindi selezionare **Chiudi modifica**.
 
 
 ## <a name="specify-the-dhcp-ip-address-range"></a>Specificare l'intervallo di indirizzi IP DHCP
 
-1. In NSX-T Manager selezionare segmenti di **rete**  >  **Segments**. 
+1. In NSX-T Manager selezionare **Rete** > **Segmenti**. 
    
 1. Selezionare i puntini di sospensione verticali sul nome del segmento e scegliere **modifica**.
    
@@ -90,7 +91,7 @@ Se si vuole usare un server DHCP esterno di terze parti, è necessario creare un
       
    :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="modifica subnet" border="true":::
       
-1. Selezionare **applica** , quindi **Salva**. Al segmento viene assegnato un pool di server DHCP.
+1. Selezionare **applica**, quindi **Salva**. Al segmento viene assegnato un pool di server DHCP.
       
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Pool di server DHCP assegnato a segmento" border="true":::
 
@@ -123,7 +124,7 @@ Se si desidera inviare richieste DHCP dalle macchine virtuali della soluzione VM
 
    :::image type="content" source="media/manage-dhcp/add-segment-profile-bpdu-filter-allow-list.png" alt-text="Screenshot che Mostra gli indirizzi MAC nell'elenco Consenti filtro BPDU":::
 
-1. **Networking**  >  **Segments**  >  In **segmenti** di rete segmenti, nell'area di ricerca, immettere il nome di rete della definizione.
+1.   >    >  In **segmenti** di rete segmenti, nell'area di ricerca, immettere il nome di rete della definizione.
 
    :::image type="content" source="media/manage-dhcp/networking-segments-search.png" alt-text="Screenshot del campo di filtro dei segmenti di > di rete":::
 

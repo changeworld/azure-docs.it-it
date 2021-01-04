@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni e delle limitazioni di sup
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174053"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734794"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matrice di supporto per il backup SQL Server in macchine virtuali di Azure
 
@@ -39,7 +39,7 @@ ms.locfileid: "92174053"
 * Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. CLI non è supportato.
 * La soluzione è supportata in entrambe le tipologie di [distribuzione](../azure-resource-manager/management/deployment-models.md): macchine virtuali di Azure Resource Manager e macchine virtuali classiche.
 * Sono supportati tutti i tipi di backup (completo/differenziale/log) e i modelli di recupero (semplice/completo/con registrazione minima delle operazioni bulk).
-* Per i database di sola **lettura** sono supportati i tipi di backup completo completi e di sola copia.
+* Per i database di sola **lettura** : i backup completi e completi di sola copia sono gli unici tipi di backup supportati.
 * La compressione SQL nativa è supportata se l'utente è abilitato in modo esplicito nel criterio di backup. Backup di Azure esegue l'override delle impostazioni predefinite a livello di istanza con la clausola COMPRESSION/NO_COMPRESSION, a seconda del valore di questo controllo impostato dall'utente.
 * Il backup del database abilitato per Transparent Data Encryption è supportato. Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). È disponibile la compressione dei backup per i database abilitati per Transparent Data Encryption per SQL Server 2016 e versioni successive, ma con una dimensione di trasferimento inferiore, come illustrato [qui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Le operazioni di backup e ripristino per i database mirror e gli snapshot di database non sono supportate.
@@ -62,36 +62,36 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 **Tipo di backup** | **Node**
 --- | ---
-Completo | Principale
-Differenziale | Principale
-File di log |  Principale
-Completo solo copia |  Principale
+Full | Primaria
+Differenziale | Primaria
+Log |  Primaria
+Completo solo copia |  Primaria
 
 #### <a name="backup-preference-secondary-only"></a>Preferenza di backup: solo secondario
 
 **Tipo di backup** | **Node**
 --- | ---
-Completo | Principale
-Differenziale | Principale
-File di log |  Secondari
+Full | Primaria
+Differenziale | Primaria
+Log |  Secondari
 Completo solo copia |  Secondari
 
 #### <a name="backup-preference-secondary"></a>Preferenza di backup: secondaria
 
 **Tipo di backup** | **Node**
 --- | ---
-Completo | Principale
-Differenziale | Principale
-File di log |  Secondari
+Full | Primaria
+Differenziale | Primaria
+Log |  Secondari
 Completo solo copia |  Secondari
 
 #### <a name="no-backup-preference"></a>Nessuna preferenza di backup
 
 **Tipo di backup** | **Node**
 --- | ---
-Completo | Principale
-Differenziale | Principale
-File di log |  Secondari
+Full | Primaria
+Differenziale | Primaria
+Log |  Secondari
 Completo solo copia |  Secondari
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fab8f88a39730411503af273902a53f169e3fe57
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368150"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703738"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuire OpenShift container Platform 3,11 in Azure
 
@@ -32,7 +32,7 @@ Verificare di avere un nome utente, una password e un ID pool validi per Red Hat
 
 ### <a name="private-clusters"></a>Cluster privati
 
-Per la distribuzione di cluster OpenShift privati, non è necessario disporre di un indirizzo IP pubblico associato al servizio di bilanciamento del carico Master (console Web) o al servizio di bilanciamento del carico infra (router).  Un cluster privato USA in genere un server DNS personalizzato (non il DNS di Azure predefinito), un nome di dominio personalizzato (ad esempio contoso.com) e una o più reti virtuali predefinite.  Per i cluster privati, è necessario configurare in anticipo la rete virtuale con tutte le subnet appropriate e le impostazioni del server DNS.  Usare quindi **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference**e **existingNodeSubnetReference** per specificare la subnet esistente per l'uso da parte del cluster.
+Per la distribuzione di cluster OpenShift privati, non è necessario disporre di un indirizzo IP pubblico associato al servizio di bilanciamento del carico Master (console Web) o al servizio di bilanciamento del carico infra (router).  Un cluster privato USA in genere un server DNS personalizzato (non il DNS di Azure predefinito), un nome di dominio personalizzato (ad esempio contoso.com) e una o più reti virtuali predefinite.  Per i cluster privati, è necessario configurare in anticipo la rete virtuale con tutte le subnet appropriate e le impostazioni del server DNS.  Usare quindi **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference** e **existingNodeSubnetReference** per specificare la subnet esistente per l'uso da parte del cluster.
 
 Se è selezionata l'opzione Master privato (**masterClusterType**= private), è necessario specificare un indirizzo IP statico privato per **masterPrivateClusterIp**.  Questo indirizzo IP verrà assegnato al front-end del servizio di bilanciamento del carico principale.  L'indirizzo IP deve essere incluso nel CIDR per la subnet master e non in uso.  **masterClusterDnsType** deve essere impostato su "Custom" ed è necessario fornire il nome DNS master per **masterClusterDns**.  Il nome DNS deve essere mappato all'indirizzo IP privato statico e verrà usato per accedere alla console nei nodi master.
 
@@ -276,7 +276,7 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `keyVaultName` | Nome del Key Vault creato |  |  |
 | `enableAzure` | Abilita provider di servizi cloud di Azure | true <br> false | true |
 | `aadClientId` | ID client di Azure Active Directory noto anche come ID applicazione per l'entità servizio |  |  |
-| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | Nessuno |
+| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | none |
 | `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> custom | default |
 | `masterClusterDns` | Nome DNS personalizzato da usare per accedere alla console Web di OpenShift se è stata selezionata l'opzione ' Custom ' per `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Se impostato su "nipio", `routingSubDomain` utilizzerà NIP.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> custom | nipio |
@@ -312,7 +312,7 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 L'esempio seguente consente di distribuire il cluster OpenShift e tutte le risorse correlate in un gruppo di risorse denominato openshiftrg, con nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato azuredeploy.parameters.json.
 
 ```azurecli 
-az group deployment create -g openshiftrg --name myOpenShiftCluster \
+az deployment group create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```

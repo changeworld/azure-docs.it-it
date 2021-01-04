@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 66a9c9d605911a9d3b30a55d47e16026e26e502a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4c457ef2c4957308735c222488ad04dac80235df
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447251"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740386"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -79,6 +79,8 @@ L'area di lavoro di Azure Machine Learning si basa sui servizi o sulle entità s
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Insieme di credenziali chiave Azure** | `--keyvault <service-id>` |
 | **Registro Azure Container** | `--container-registry <service-id>` |
+
+Azure Container Registry (ACR) attualmente non supporta i caratteri Unicode nei nomi dei gruppi di risorse. Per attenuare questo problema, usare un gruppo di risorse che non contiene questi caratteri.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

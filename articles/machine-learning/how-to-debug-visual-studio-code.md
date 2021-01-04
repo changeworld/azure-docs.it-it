@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: a9d20732c3ae08718c400faff44137000e98fffd
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629430"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739995"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Debug interattivo con Visual Studio Code
 
@@ -536,4 +536,10 @@ docker stop debug
 
 Ora che è stato configurato VS Code remoto, è possibile usare un'istanza di calcolo come calcolo remoto da VS Code per eseguire il debug interattivo del codice. 
 
-In [Esercitazione: Eseguire il training del primo modello di Machine Learning](tutorial-1st-experiment-sdk-train.md) viene illustrato come usare un'istanza di calcolo con un notebook integrato.
+Ulteriori informazioni sulla risoluzione dei problemi:
+
+* [Distribuzione del modello locale](how-to-troubleshoot-deployment-local.md)
+* [Distribuzione del modello remoto](how-to-troubleshoot-deployment.md)
+* [Pipeline di apprendimento automatico](how-to-debug-pipelines.md)
+* [ParallelRunStep](how-to-debug-parallel-run-step.md)
+

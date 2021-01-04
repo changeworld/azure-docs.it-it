@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: cee6d030a9639a7203a32a3c0957733cecb1f8b6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8cf440a517c1a3496b3df438fdd0d2534609908f
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445314"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733112"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Risolvere i problemi di connettività tra Azure Synapse Analytics Synapse Studio e la risorsa di archiviazione
 
@@ -24,7 +24,11 @@ Se l'account di archiviazione non dispone delle autorizzazioni appropriate, non 
 
 Il messaggio di errore dettagliato può variare, ma il significato generale del messaggio di errore è: "questa richiesta non è autorizzata per eseguire questa operazione".
 
-![Problema di connettività di archiviazione 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
+Nel nodo archiviazione collegata:  
+![Problema di connettività di archiviazione 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1.png)
+
+Nel nodo del contenitore di archiviazione:  
+![Problema di connettività di archiviazione 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
 **Soluzione**: per assegnare l'account al ruolo appropriato, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../../storage/common/storage-auth-aad-rbac-portal.md)
 
@@ -33,7 +37,11 @@ Il messaggio di errore dettagliato può variare, ma il significato generale del 
 
 Quando si seleziona la freccia per espandere la struttura di archiviazione in "dati"-> "collegato" in sinapsi studio, è possibile che venga visualizzato il problema "REQUEST_SEND_ERROR" nel pannello di sinistra. Vedere la schermata del sintomo del problema seguente:
 
-![Problema di connettività dell'archiviazione 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.png)
+Nel nodo archiviazione collegata:  
+![Problema di connettività dell'archiviazione 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2.png)
+
+Nel nodo del contenitore di archiviazione:  
+![Problema di connettività di archiviazione 2a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2a.png)
 
 Questo problema può essere dovuto a diversi motivi:
 
@@ -51,6 +59,7 @@ Questo problema può essere dovuto a diversi motivi:
 
 * La risorsa di archiviazione a cui si accede è Azure Data Lake Storage Gen2 ed è dietro un firewall e vNet (con l'endpoint privato di archiviazione configurato) allo stesso tempo.
 * La risorsa contenitore a cui si accede è stata eliminata o non esiste.
+* Cross-tenant: il tenant dell'area di lavoro usato dall'utente per l'accesso non è uguale al tenant dell'account di archiviazione. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

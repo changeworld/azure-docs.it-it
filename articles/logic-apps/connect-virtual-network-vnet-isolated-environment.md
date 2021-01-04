@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 3eaabc6c1e7d34bb5d9433d742581f39bdfbf98e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669534"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739740"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -44,24 +44,14 @@ Questo articolo spiega come completare queste attività usando il portale di Azu
   > [!IMPORTANT]
   > Le app per la logica, i trigger predefiniti, le azioni predefinite e i connettori eseguiti nell'ambiente del servizio di integrazione usano un piano tariffario diverso da quello con pagamento in base al consumo. Per informazioni sul funzionamento dei prezzi e della fatturazione per gli ISE, vedere il [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md#fixed-pricing). Per informazioni sui prezzi, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
 
-* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). La rete virtuale deve avere quattro subnet *vuote* , necessarie per la creazione e la distribuzione di risorse in ISE e usate da questi componenti interni e nascosti:
+* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con quattro subnet *vuote* , necessarie per la creazione e la distribuzione di risorse in ISE e usate da questi componenti interni e nascosti:
 
   * Calcolo di app per la logica
   * Ambiente del servizio app interno (connettori)
   * Gestione API interna (connettori)
   * Redis interni per la memorizzazione nella cache e le prestazioni
   
-  È possibile creare le subnet in anticipo, oppure è possibile attendere fino a quando non si crea ISE per poter creare le subnet nello stesso momento. Tuttavia, prima di creare le subnet, esaminare i [requisiti della subnet](#create-subnet).
-
-  > [!IMPORTANT]
-  >
-  > Non usare gli spazi di indirizzi IP seguenti per la rete virtuale o le subnet perché non sono risolvibili dalle app per la logica di Azure:<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  È possibile creare le subnet in anticipo o quando si crea ISE in modo che sia possibile creare le subnet nello stesso momento. Tuttavia, prima di creare le subnet, assicurarsi di esaminare i [requisiti della subnet](#create-subnet).
 
   * Assicurarsi che la rete virtuale [consenta l'accesso per l’ISE](#enable-access) in modo che l’ISE possa funzionare correttamente e rimanere accessibile.
 
@@ -170,14 +160,14 @@ Se non si consente l'accesso per queste dipendenze, la distribuzione di ISE ha e
 
 * Endpoint di servizio
 
-  È necessario abilitare gli endpoint di servizio per SQL di Azure, archiviazione, bus di servizio e hub eventi perché non è possibile inviare traffico attraverso un firewall a questi servizi.
+  È necessario abilitare gli endpoint di servizio per SQL di Azure, archiviazione, bus di servizio, insieme di credenziali delle credenziali e hub eventi perché non è possibile inviare traffico attraverso un firewall a questi servizi.
 
 *  Altre dipendenze in ingresso e in uscita
 
    Il firewall *deve* consentire le seguenti dipendenze in ingresso e in uscita:
    
    * [Dipendenze del servizio app Azure](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
-   * [Dipendenze del servizio cache di Azure](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Dipendenze del servizio cache di Azure](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
    * [Dipendenze di gestione API di Azure](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
@@ -219,7 +209,7 @@ Se non si consente l'accesso per queste dipendenze, la distribuzione di ISE ha e
 
    * Usa un nome che inizia con un carattere alfabetico o un carattere di sottolineatura (nessun numero) e non usa i caratteri seguenti: `<` , `>` , `%` , `&` , `\\` , `?` , `/` .
 
-   * Usa il [formato CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio indirizzi di classe B.
+   * Usa il [formato CIDR (classal Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
    
      > [!IMPORTANT]
      >

@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0532441e1ab0d2676e7800c9d63878f9bf3bb3dc
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616162"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723270"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -57,7 +57,7 @@ Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente su
 - Amazon Linux 2 (x64)
 
 > [!WARNING]
-> Il nome host Linux o il nome computer Windows non può usare una delle parole riservate o i marchi nel nome, altrimenti il tentativo di registrare il computer connesso con Azure avrà esito negativo. Vedere [risolvere gli errori relativi ai nomi di risorse riservati](../../azure-resource-manager/templates/error-reserved-resource-name.md) per un elenco delle parole riservate.
+> Il nome host Linux o il nome computer Windows non può contenere una delle parole riservate o dei marchi registrati, altrimenti la registrazione del computer connesso con Azure non riuscirà. Per un elenco delle parole riservate, vedere [Risolvere gli errori relativi ai nomi riservati delle risorse](../../azure-resource-manager/templates/error-reserved-resource-name.md).
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
@@ -82,6 +82,10 @@ Per garantire la sicurezza dei dati in transito verso Azure, è consigliabile co
 
 L'agente Connected Machine per Linux e Windows comunica in modo sicuro in uscita con Azure Arc sulla porta TCP 443. Se il computer si connette tramite un firewall o un server proxy per la comunicazione tramite Internet, esaminare quanto segue per conoscere i requisiti di configurazione di rete.
 
+> [!NOTE]
+> I server abilitati per Arc non supportano l'uso di un [gateway log Analytics](../../azure-monitor/platform/gateway.md) come proxy per l'agente del computer connesso.
+>
+
 Se la connettività in uscita è limitata dal firewall o dal server proxy, verificare che gli URL elencati di seguito non siano bloccati. Quando si concedono solo gli intervalli IP o i nomi di dominio necessari per la comunicazione dell'agente con il servizio, è necessario consentire l'accesso ai seguenti tag e URL del servizio.
 
 Tag del servizio:
@@ -97,9 +101,11 @@ URL:
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Configurazione guest|
 |`*.his.arc.azure.com`|Servizio ibrido di gestione delle identità|
+|`www.office.com`|Office 365|
 
 Gli agenti di anteprima (versione 0,11 e inferiore) richiedono anche l'accesso agli URL seguenti:
 
@@ -110,7 +116,7 @@ Gli agenti di anteprima (versione 0,11 e inferiore) richiedono anche l'accesso a
 
 Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](../../virtual-network/network-security-groups-overview.md#service-tags).
 
-Gli URL nella tabella precedente sono necessari in aggiunta alle informazioni relative agli intervalli di indirizzi IP dei tag del servizio, perché la maggior parte dei servizi non dispone attualmente di una registrazione dei tag del servizio e, di conseguenza, gli indirizzi IP sono soggetti a modifiche. Se gli intervalli di indirizzi IP sono necessari per la configurazione del firewall, occorre usare il tag del servizio **AzureCloud** per consentire l'accesso a tutti i servizi di Azure. Non disabilitare il monitoraggio della sicurezza o l'ispezione di questi URL, ma consentire tali URL come si farebbe con il resto del traffico Internet.
+Gli URL nella tabella precedente sono necessari, oltre alle informazioni sull'intervallo di indirizzi IP dei tag del servizio, perché la maggior parte dei servizi attualmente non dispone di una registrazione di tag di servizio. e, di conseguenza, gli indirizzi IP sono soggetti a modifiche. Se gli intervalli di indirizzi IP sono necessari per la configurazione del firewall, occorre usare il tag del servizio **AzureCloud** per consentire l'accesso a tutti i servizi di Azure. Non disabilitare il monitoraggio della sicurezza o l'ispezione di questi URL, ma consentire tali URL come si farebbe con il resto del traffico Internet.
 
 ### <a name="register-azure-resource-providers"></a>Registrare i provider di risorse di Azure
 
@@ -163,7 +169,7 @@ La connessione delle macchine virtuali nell'ambiente ibrido direttamente con Azu
 * Manualmente eseguendo il pacchetto di Windows Installer `AzureConnectedMachineAgent.msi` dalla shell dei comandi.
 * Da una sessione di PowerShell usando un metodo con script.
 
-Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicate le modifiche di configurazione aggiuntive seguenti a livello di sistema.
+Dopo aver installato l'agente computer connesso per Windows, vengono applicate le seguenti modifiche di configurazione a livello di sistema.
 
 * Durante l'installazione, vengono create le cartelle di installazione seguenti.
 
@@ -215,7 +221,7 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
 L'agente Connected Machine per Linux viene fornito nel formato di pacchetto preferito per la distribuzione (RPM o DEB) ospitata nel [repository dei pacchetti](https://packages.microsoft.com/) di Microsoft. L'agente viene installato e configurato con il bundle di script della shell [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
 
-Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate le modifiche di configurazione aggiuntive seguenti a livello di sistema.
+Dopo aver installato l'agente computer connesso per Linux, vengono applicate le seguenti modifiche di configurazione a livello di sistema.
 
 * Durante l'installazione, vengono create le cartelle di installazione seguenti.
 

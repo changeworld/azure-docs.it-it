@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503557"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734182"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurare l'ambiente di sviluppo per gli script di distribuzione nei modelli
 
@@ -155,7 +155,10 @@ Il modello ARM seguente consente di creare un'istanza di contenitore e una condi
 ```
 Il valore predefinito per il percorso di montaggio è **deploymentScript**.  Si tratta del percorso nell'istanza del contenitore in cui è montata nella condivisione file.
 
-L'immagine del contenitore predefinita specificata nel modello è **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.  Per un elenco delle versioni di Azure PowerShell supportate e delle versioni dell'interfaccia della riga di comando di Azure, vedere [Azure PowerShell o Azure CLI](./deployment-script-template.md#prerequisites).
+L'immagine del contenitore predefinita specificata nel modello è **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.   Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
+
+  >[!IMPORTANT]
+  > Lo script di distribuzione usa le immagini dell'interfaccia della riga di comando disponibili del Registro Microsoft Container (MCR). La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se viene usata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
 
 Il modello sospende l'istanza del contenitore 1800 secondi. Sono disponibili 30 minuti prima che l'istanza del contenitore entra nello stato finale e la sessione termina.
 
@@ -200,7 +203,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
 1. Selezionare **Connetti**, quindi selezionare **Connetti**. Se non è possibile connettersi all'istanza del contenitore, riavviare il gruppo di contenitori e riprovare.
 1. Nel riquadro della console eseguire i comandi seguenti:
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -209,6 +212,14 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
     L'output è **Hello John Dole**.
 
     ![test dell'istanza del contenitore dello script di distribuzione](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+
+1. Se si usa AZ CLI container Image, eseguire questo codice:
+
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## <a name="use-docker"></a>Usare Docker
 

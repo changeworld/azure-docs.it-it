@@ -3,21 +3,21 @@ title: Gestire i certificati in Automazione di Azure
 description: Questo articolo descrive come usare i certificati per l'accesso dai runbook e dalle configurazioni DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1c79b7c239c41e8d195230423b17fa3c5a7f51a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbf9eb6c97dcceeca5e86e8bef47a39fb685792f
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825811"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734811"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gestire i certificati in Automazione di Azure
 
 Automazione di Azure archivia i certificati in modo sicuro per l'accesso dai runbook e dalle configurazioni DSC, usando il cmdlet [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate) per le risorse di Azure Resource Manager. L'archiviazione sicura dei certificati consente di creare runbook e configurazioni DSC che usano certificati per l'autenticazione oppure consente di aggiungerli a risorse di Azure o di terze parti.
 
 >[!NOTE]
->Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione usando una chiave univoca generata per ogni account di Automazione. Automazione archivia la chiave nel servizio Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, Automazione carica la chiave da Key Vault e quindi la usa per crittografare l'asset. 
+>Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione usando una chiave univoca generata per ogni account di Automazione. Automazione archivia la chiave nel servizio Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, Automazione carica la chiave da Key Vault e quindi la usa per crittografare l'asset.
 
 ## <a name="powershell-cmdlets-to-access-certificates"></a>Cmdlet di PowerShell per accedere ai certificati
 
@@ -40,12 +40,12 @@ Il cmdlet interno nella tabella seguente viene usato per accedere ai certificati
 |:---|:---|
 |`Get-AutomationCertificate`|Ottiene un certificato da usare in un runbook o in una configurazione DSC. Restituisce un oggetto [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2).|
 
-> [!NOTE] 
+> [!NOTE]
 > È consigliabile evitare di usare le variabili nel parametro `Name` di `Get-AutomationCertificate` in un runbook o una configurazione DSC. Tali variabili possono complicare l'individuazione delle dipendenze tra runbook o configurazioni DSC e variabili di Automazione in fase di progettazione.
 
-## <a name="python-2-functions-to-access-certificates"></a>Funzioni di Python 2 per accedere ai certificati
+## <a name="python-functions-to-access-certificates"></a>Funzioni Python per accedere ai certificati
 
-Usare la funzione indicata nella tabella seguente per accedere ai certificati in un runbook Python 2.
+Usare la funzione nella tabella seguente per accedere ai certificati in un Runbook Python 2 e 3. Python 3 manuali operativi è attualmente in fase di anteprima.
 
 | Funzione | Descrizione |
 |:---|:---|
@@ -126,7 +126,9 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName $ResourceGroupNam
 
 Per recuperare un certificato, usare il cmdlet `Get-AutomationCertificate` interno. Non è possibile usare il cmdlet [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate) poiché restituisce informazioni sull'asset di certificato, ma non il certificato stesso.
 
-### <a name="textual-runbook-example"></a>Esempio di runbook testuale
+### <a name="textual-runbook-examples"></a>Esempi di runbook testuali
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 L'esempio seguente illustra come aggiungere un certificato a un servizio cloud in un runbook. In questo esempio la password viene recuperata da una variabile di automazione crittografata.
 
@@ -138,17 +140,7 @@ $certPwd = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 
-### <a name="graphical-runbook-example"></a>Esempio di runbook grafico
-
-Per aggiungere un'attività per il cmdlet `Get-AutomationCertificate` interno a un runbook grafico, fare clic con il pulsante destro del mouse sul certificato nel riquadro Libreria e selezionare **Aggiungi ad area di disegno**.
-
-![Screenshot dell'aggiunta di un certificato all'area di disegno](../media/certificates/automation-certificate-add-to-canvas.png)
-
-La figura seguente mostra un esempio dell'uso di un certificato in un runbook grafico.
-
-![Screenshot di un esempio di creazione grafica](../media/certificates/graphical-runbook-add-certificate.png)
-
-### <a name="python-2-example"></a>Esempio di Python 2
+# <a name="python-2"></a>[Python 2](#tab/python2)
 
 L'esempio seguente illustra come accedere ai certificati nei runbook Python 2.
 
@@ -159,6 +151,30 @@ cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
 # returns the binary cert content  
 print cert
 ```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+L'esempio seguente illustra come accedere ai certificati in Python 3 manuali operativi (anteprima).
+
+```python
+# get a reference to the Azure Automation certificate
+cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+
+# returns the binary cert content  
+print (cert)
+```
+
+---
+
+### <a name="graphical-runbook-example"></a>Esempio di runbook grafico
+
+Per aggiungere un'attività per il cmdlet `Get-AutomationCertificate` interno a un runbook grafico, fare clic con il pulsante destro del mouse sul certificato nel riquadro Libreria e selezionare **Aggiungi ad area di disegno**.
+
+![Screenshot dell'aggiunta di un certificato all'area di disegno](../media/certificates/automation-certificate-add-to-canvas.png)
+
+La figura seguente mostra un esempio dell'uso di un certificato in un runbook grafico.
+
+![Screenshot di un esempio di creazione grafica](../media/certificates/graphical-runbook-add-certificate.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

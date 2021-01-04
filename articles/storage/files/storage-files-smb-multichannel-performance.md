@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: f85df2e16554b4830d3e5f1bc82c5c8cdf22e28b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586631"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724817"
 ---
 # <a name="smb-multichannel-performance"></a>Prestazioni di SMB multicanale
 
@@ -63,7 +63,7 @@ Nella maggior parte degli scenari, in particolare per i carichi di lavoro multit
 1. Aprire PowerShell come amministratore e usare il comando seguente: `Get-SmbMultichannelConnection |fl`
 1. Cercare le proprietà **MaxChannels** e **CurrentChannels**
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot dei risultati di Get-smbmultichannelconnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot dei risultati della Get-SMBMultichannelConnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
 
 ## <a name="performance-comparison"></a>Confronto delle prestazioni
 
@@ -119,7 +119,7 @@ I suggerimenti seguenti possono aiutare a ottimizzare le prestazioni:
 - Verificare che l'account di archiviazione e il client si trovino nella stessa area di Azure per ridurre la latenza di rete.
 - Usare applicazioni multithread e distribuire il carico su più file.
 - Vantaggi in merito alle prestazioni dell'incremento multicanale SMB con il numero di file che distribuiscono il carico.
-- Le prestazioni di condivisione Premium sono limitate dalle dimensioni della condivisione di cui è stato effettuato il provisioning (IOPS/uscita/ingresso) e dai limiti dei singoli file. Per informazioni dettagliate, vedere [informazioni sul provisioning per le condivisioni file Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Le prestazioni di condivisione Premium sono limitate dalle dimensioni della condivisione di cui è stato effettuato il provisioning (IOPS/uscita/ingresso) e dai limiti dei singoli file. Per informazioni dettagliate, vedere [informazioni sul provisioning per le condivisioni file Premium](understanding-billing.md#provisioned-billing).
 - Il numero massimo di prestazioni di un singolo client VM è ancora associato ai limiti della macchina virtuale. Ad esempio, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) può supportare una larghezza di banda massima di 16.000 Mbps (o 2 Gbps), l'uscita dalla macchina virtuale (scritture nell'archiviazione) è a consumo, il traffico in ingresso (letture dall'archiviazione) non lo è. Le prestazioni della condivisione file sono soggette ai limiti della rete, alle CPU, alla larghezza di banda di rete disponibile per l'archiviazione interna, alle dimensioni di i/o, al parallelismo e ad altri fattori.
 - Il test iniziale è in genere un riscaldamento, ne elimina i risultati e ripete il test.
 - Se le prestazioni sono limitate da un singolo client e il carico di lavoro è ancora inferiore ai limiti della condivisione con provisioning, è possibile ottenere prestazioni più elevate distribuendo il carico su più client.

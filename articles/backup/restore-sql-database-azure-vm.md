@@ -3,12 +3,12 @@ title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
 description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure. È anche possibile usare il ripristino tra aree per ripristinare i database in un'area secondaria.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172166"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734403"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -23,12 +23,13 @@ Backup di Azure è in grado di ripristinare SQL Server database in esecuzione in
 - Ripristinare una data o un'ora specifica (al secondo) utilizzando i backup del log delle transazioni. Backup di Azure determina automaticamente il backup completo differenziale appropriato e la catena di backup del log necessari per il ripristino in base all'ora selezionata.
 - Ripristinare un backup completo o differenziale specifico per eseguire il ripristino in un punto di ripristino specifico.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="restore-prerequisites"></a>Prerequisiti di ripristino
 
 Prima di ripristinare un database, tenere presente quanto segue:
 
 - È possibile ripristinare il database in un'istanza di SQL Server nella stessa area di Azure.
 - Il server di destinazione deve essere registrato nello stesso insieme di credenziali dell'origine.
+- Se si dispone di più istanze in esecuzione in un server, tutte le istanze devono essere in esecuzione. In caso contrario, il server non verrà visualizzato nell'elenco dei server di destinazione in cui ripristinare il database. Per ulteriori informazioni, vedere [la procedura di risoluzione dei problemi](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - È necessario ripristinare i database abilitati per [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) utilizzando l'opzione [Ripristina come file](#restore-as-files) .
 - Prima di ripristinare il database "Master", avviare l'istanza di SQL Server in modalità utente singolo usando l'opzione di avvio **-m AzureWorkloadBackup**.
@@ -36,7 +37,6 @@ Prima di ripristinare un database, tenere presente quanto segue:
   - La connessione può essere aperta solo dal nome client specificato.
 - Per tutti i database di sistema (modello, Master, msdb), arrestare il servizio SQL Server Agent prima di avviare il ripristino.
 - Chiudere tutte le applicazioni che potrebbero tentare di eseguire una connessione a uno di questi database.
-- Se si dispone di più istanze in esecuzione in un server, tutte le istanze devono essere in esecuzione, in caso contrario il server non verrà visualizzato nell'elenco dei server di destinazione in cui ripristinare il database.
 
 ## <a name="restore-a-database"></a>Ripristinare un database
 
@@ -69,7 +69,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
     ![Selezionare Ripristina](./media/backup-azure-sql-database/restore-db.png)
 
-7. In **configurazione ripristino**specificare dove (o come) ripristinare i dati:
+7. In **configurazione ripristino** specificare dove (o come) ripristinare i dati:
    - **Percorso alternativo**: ripristinare il database in un percorso alternativo e salvare il database di origine originale.
    - **Sovrascrivi database**: ripristina i dati nella stessa istanza di SQL Server dell'origine. Questa opzione sovrascrive il database originale.
 
@@ -85,7 +85,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 1. Selezionare il nome di SQL Server e l'istanza in cui si vuole ripristinare il database.
 1. Nella finestra di dialogo **Nome del database ripristinato** inserire il nome del database di destinazione.
 1. Se applicabile, scegliere **Sovrascrivere se il database con lo stesso nome esiste già nell'istanza selezionata di SQL**.
-1. Selezionare **punto di ripristino**e scegliere se eseguire [il ripristino a un punto specifico nel tempo](#restore-to-a-specific-point-in-time) o eseguire [il ripristino a un punto di ripristino specifico](#restore-to-a-specific-restore-point).
+1. Selezionare **punto di ripristino** e scegliere se eseguire [il ripristino a un punto specifico nel tempo](#restore-to-a-specific-point-in-time) o eseguire [il ripristino a un punto di ripristino specifico](#restore-to-a-specific-restore-point).
 
     ![Seleziona punto di ripristino](./media/backup-azure-sql-database/select-restore-point.png)
 
@@ -109,7 +109,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
     ![Selezionare Sovrascrivi database](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
-2. In **Seleziona punto di ripristino**selezionare **registri (temporizzato)** per eseguire [il ripristino a un momento specifico](#restore-to-a-specific-point-in-time). In alternativa, selezionare **completo & differenziale** per ripristinare un [punto di ripristino specifico](#restore-to-a-specific-restore-point).
+2. In **Seleziona punto di ripristino** selezionare **registri (temporizzato)** per eseguire [il ripristino a un momento specifico](#restore-to-a-specific-point-in-time). In alternativa, selezionare **completo & differenziale** per ripristinare un [punto di ripristino specifico](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
     > Il ripristino temporizzato è disponibile solo per i backup del log per i database in modalità di recupero con registrazione completa e con registrazione minima delle operazioni bulk.
@@ -118,7 +118,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
 Per ripristinare i dati di backup come file con estensione bak anziché come database, scegliere **Ripristina come file**. Una volta scaricati i file in un percorso specificato, è possibile utilizzare questi file in qualsiasi computer in cui si desidera ripristinarli come database. Poiché è possibile spostare questi file in qualsiasi computer, è ora possibile ripristinare i dati tra sottoscrizioni e aree geografiche.
 
-1. In **dove e come ripristinare**selezionare **Ripristina come file**.
+1. In **dove e come ripristinare** selezionare **Ripristina come file**.
 1. Selezionare il nome del SQL Server in cui si desidera ripristinare i file di backup.
 1. Nel **percorso di destinazione nel server** immettere il percorso della cartella nel server selezionato nel passaggio 2. Si tratta del percorso in cui il servizio eseguirà il dump di tutti i file di backup necessari. In genere, quando viene specificato come percorso di destinazione, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata in essi.<BR>
 
@@ -134,7 +134,7 @@ Per ripristinare i dati di backup come file con estensione bak anziché come dat
 
     ![Selezionare Ripristina come file](./media/backup-azure-sql-database/restore-as-files.png)
 
-1. Selezionare **punto di ripristino**e scegliere se eseguire [il ripristino a un punto specifico nel tempo](#restore-to-a-specific-point-in-time) o eseguire [il ripristino a un punto di ripristino specifico](#restore-to-a-specific-restore-point).
+1. Selezionare **punto di ripristino** e scegliere se eseguire [il ripristino a un punto specifico nel tempo](#restore-to-a-specific-point-in-time) o eseguire [il ripristino a un punto di ripristino specifico](#restore-to-a-specific-restore-point).
 
 1. Tutti i file di backup associati al punto di ripristino selezionato vengono scaricati nel percorso di destinazione. È possibile ripristinare i file come database in qualsiasi computer in cui sono presenti usando SQL Server Management Studio.
 
@@ -144,13 +144,13 @@ Per ripristinare i dati di backup come file con estensione bak anziché come dat
 
 Se si è scelto **log (punto temporizzato)** come tipo di ripristino, eseguire le operazioni seguenti:
 
-1. In **Data/ora ripristino**aprire il calendario. Nel calendario le date contenenti punti di ripristino vengono visualizzate in grassetto e la data corrente è evidenziata.
+1. In **Data/ora ripristino** aprire il calendario. Nel calendario le date contenenti punti di ripristino vengono visualizzate in grassetto e la data corrente è evidenziata.
 1. Selezionare una data con punti di ripristino. Non è possibile selezionare date senza punti di ripristino.
 
     ![Apri il calendario](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Dopo aver selezionato una data, il grafico della sequenza temporale indica i punti di recupero disponibili in un intervallo continuo.
-1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Selezionare **OK**.
+1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Quindi scegliere **OK**.
 
 ### <a name="restore-to-a-specific-restore-point"></a>Ripristinare uno specifico punto di ripristino
 
@@ -181,7 +181,7 @@ Per verificare se CRR è abilitato, seguire le istruzioni riportate in [Configur
 
 Se CRR è abilitato, è possibile visualizzare gli elementi di backup nell'area secondaria.
 
-1. Dal portale passare a servizi di **ripristino**insieme di credenziali  >  **elementi di backup**.
+1. Dal portale passare a servizi di **ripristino** insieme di credenziali  >  **elementi di backup**.
 1. Selezionare **area secondaria** per visualizzare gli elementi nell'area secondaria.
 
 >[!NOTE]

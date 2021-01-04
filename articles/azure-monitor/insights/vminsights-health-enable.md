@@ -1,57 +1,77 @@
 ---
-title: Abilita Monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)
+title: Abilitare l'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
 description: Viene descritto come abilitare l'integrità Guest di Monitoraggio di Azure per le macchine virtuali nella sottoscrizione e come eseguire l'onboarding delle macchine virtuali.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: references_regions
+ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444778"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740471"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Abilita Monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)
+# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Abilitare l'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali integrità Guest consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come abilitare questa funzionalità nella sottoscrizione e come abilitare il monitoraggio Guest per ogni macchina virtuale.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 Monitoraggio di Azure per le macchine virtuali integrità Guest presenta le limitazioni seguenti nell'anteprima pubblica:
 
 - Attualmente sono supportate solo macchine virtuali di Azure. Azure Arc per i server non è attualmente supportato.
-- La macchina virtuale deve eseguire uno dei sistemi operativi seguenti: 
+
+
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
+La macchina virtuale deve eseguire uno dei sistemi operativi seguenti: 
+
   - Ubuntu 16,04 LTS, Ubuntu 18,04 LTS
   - Windows Server 2012 o versioni successive
-- La macchina virtuale deve trovarsi in una delle aree seguenti:
-  - Australia orientale
-  - Australia sud-orientale
-  - India centrale
-  - Stati Uniti centrali
-  - Stati Uniti orientali
-  - Stati Uniti orientali 2
-  - Stati Uniti orientali 2 EUAP
-  - Germania centro-occidentale
-  - Giappone orientale
-  - Stati Uniti centro-settentrionali
-  - Europa settentrionale
-  - Stati Uniti centro-meridionali
-  - Asia sud-orientale
-  - Regno Unito meridionale
-  - Europa occidentale
-  - Stati Uniti occidentali
-  - Stati Uniti occidentali 2
-- Log Analytics area di lavoro deve trovarsi in una delle aree seguenti:
-  - Stati Uniti orientali
-  - Stati Uniti orientali 2 EUAP
-  - Area Europa occidentale
+
+## <a name="supported-regions"></a>Aree supportate
+
+La macchina virtuale deve trovarsi in una delle aree seguenti:
+
+- Australia centrale
+- Australia orientale
+- Australia sud-orientale
+- India centrale
+- Stati Uniti centrali
+- Asia orientale
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti orientali 2 EUAP
+- Germania centro-occidentale
+- Giappone orientale
+- Stati Uniti centro-settentrionali
+- Europa settentrionale
+- Stati Uniti centro-meridionali
+- Asia sud-orientale
+- Regno Unito meridionale
+- Stati Uniti centro-occidentali
+- Europa occidentale
+- Stati Uniti occidentali
+- Stati Uniti occidentali 2
+
+
+Log Analytics area di lavoro deve trovarsi in una delle aree seguenti:
+
+- Stati Uniti centrali
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti orientali 2 EUAP
+- Europa settentrionale
+- Asia sud-orientale
+- Regno Unito meridionale
+- Area Europa occidentale
+- Stati Uniti occidentali 2
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - La macchina virtuale deve essere caricata in Monitoraggio di Azure per le macchine virtuali.
 - L'utente che esegue i passaggi di caricamento deve avere un accesso minimo a livello di collaboratore alla sottoscrizione in cui si trovano la regola di raccolta dati e macchina virtuale.
 - I provider di risorse di Azure necessari devono essere registrati come descritto nella sezione seguente.
-
 
 ## <a name="register-required-azure-resource-providers"></a>Registrare i provider di risorse di Azure necessari
 I provider di risorse di Azure seguenti devono essere registrati per la sottoscrizione per abilitare l'integrità Guest di Monitoraggio di Azure per le macchine virtuali. 

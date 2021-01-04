@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461458"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734777"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gestire variabili in Automazione di Azure
 
@@ -26,7 +26,7 @@ Le variabili di automazione sono utili per gli scenari seguenti:
 
 Automazione di Azure salva in modo permanente le variabili e le rende disponibili anche in caso di errore per un runbook o una configurazione DSC. Questo comportamento consente a un runbook o a una configurazione DSC di impostare un valore che viene quindi usato da un altro runbook o dallo stesso runbook o dalla stessa configurazione DSC alla successiva esecuzione.
 
-Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Dopo aver creato la variabile, non è possibile modificarne lo stato di crittografia senza ricreare la variabile. Se si dispone di variabili dell'account di automazione che archiviano dati sensibili che non sono già crittografati, è necessario eliminarli e ricrearli come variabili crittografate. Una raccomandazione del Centro sicurezza di Azure consiste nel crittografare tutte le variabili di automazione di Azure, come descritto in [automazione delle variabili dell'account di automazione](../../security-center/recommendations-reference.md#recs-computeapp). Se si dispone di variabili non crittografate che si desidera escludere da questa raccomandazione di sicurezza, vedere [esentare una risorsa dalle raccomandazioni e assegnare un punteggio sicuro](../../security-center/exempt-resource.md) per creare una regola di esenzione.
+Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Dopo aver creato la variabile, non è possibile cambiarne lo stato di crittografia senza crearla nuovamente. Se sono disponibili variabili dell'account di Automazione usate per archiviare dati sensibili che non sono già crittografati, è necessario eliminarle e ricrearle come variabili crittografate. Una raccomandazione del Centro sicurezza di Azure suggerisce di crittografare tutte le variabili di Automazione di Azure, come descritto in [Le variabili dell'account di Automazione devono essere crittografate](../../security-center/recommendations-reference.md#recs-computeapp). Se si vogliono escludere alcune variabili non crittografate da questa raccomandazione di sicurezza, vedere [Esentare una risorsa dalle raccomandazioni e dal punteggio di sicurezza](../../security-center/exempt-resource.md) per creare una regola di esenzione.
 
 >[!NOTE]
 >Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Tali asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di Automazione. Automazione di Azure memorizza la chiave nel Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, Automazione carica la chiave da Key Vault e quindi la usa per crittografare l'asset.
@@ -80,11 +80,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## <a name="python-2-functions-to-access-variables"></a>Funzioni di Python 2 per accedere alle variabili
+## <a name="python-functions-to-access-variables"></a>Funzioni Python per accedere alle variabili
 
-Le funzioni nella tabella seguente vengono usate per accedere alle variabili in un runbook di Python 2.
+Le funzioni nella tabella seguente vengono usate per accedere alle variabili in un Runbook Python 2 e 3. Python 3 manuali operativi è attualmente in fase di anteprima.
 
-|Funzioni di Python 2|Descrizione|
+|Funzioni Python|Descrizione|
 |:---|:---|
 |`automationassets.get_automation_variable`|Recupera il valore di una variabile esistente. |
 |`automationassets.set_automation_variable`|Imposta il valore di una variabile esistente. |
@@ -135,9 +135,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## <a name="textual-runbook-examples"></a>Esempi di runbook testuali
 
-### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Recuperare e impostare un valore semplice da una variabile
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 L'esempio seguente illustra come impostare e recuperare una variabile in un runbook testuale. Questo esempio presuppone la creazione di variabili integer denominate `NumberOfIterations` e `NumberOfRunnings` e di una variabile stringa denominata `SampleMessage`.
 
@@ -154,7 +155,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-### <a name="retrieve-and-set-a-variable-in-a-python-2-runbook"></a>Recuperare e impostare una variabile in un runbook Python 2
+# <a name="python-2"></a>[Python 2](#tab/python2)
 
 L'esempio seguente illustra come recuperare una variabile, impostare una variabile e gestire un'eccezione per una variabile inesistente in un runbook di Python2.
 
@@ -177,6 +178,32 @@ try:
 except AutomationAssetNotFound:
     print "variable not found"
 ```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+Nell'esempio seguente viene illustrato come ottenere una variabile, impostare una variabile e gestire un'eccezione per una variabile inesistente in un Runbook Python 3 (anteprima).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
+
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
+
+# handle a non-existent variable exception
+try:
+    value = automationassets.get_automation_variable("nonexisting variable")
+except AutomationAssetNotFound:
+    print ("variable not found")
+```
+
+---
 
 ## <a name="graphical-runbook-examples"></a>Esempi di runbook grafici
 

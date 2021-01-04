@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380903"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708941"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -39,7 +39,7 @@ I nomi file non possono includere i caratteri seguenti:
 
 ### <a name="maximum-file-size"></a>Dimensione massima dei file
 
-|Formato|Dimensioni massime file (MB)|
+|Format|Dimensioni massime file (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -77,15 +77,15 @@ Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per 
 |Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
 |Nome (chiave)|Consente<br>alfanumerico (lettere e cifre)<br>`_` sottolineatura<br> Non devono contenere spazi.|`^[a-zA-Z0-9_]+$`|100|
-|Valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
+|valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
 Limiti complessivi sul contenuto nella knowledge base:
-* Lunghezza del testo della risposta: 25.000
-* Lunghezza del testo della domanda: 1000
-* Lunghezza del testo della chiave dei metadati: 100
-* Lunghezza del testo del valore dei metadati: 500
+* Lunghezza del testo di risposta: 25.000 caratteri
+* Lunghezza del testo della domanda: 1.000 caratteri
+* Lunghezza del testo della chiave dei metadati: 100 caratteri
+* Lunghezza del testo del valore dei metadati: 500 caratteri
 * Caratteri supportati per il nome dei metadati: alfabeti, cifre e `_`
 * Caratteri supportati per il valore dei metadati: tutti tranne `:` e `|`
 * Lunghezza del nome file: 200

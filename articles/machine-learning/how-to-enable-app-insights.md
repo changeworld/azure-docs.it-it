@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 13b99fe129191b89b5bb2d7f5473e910fa619ce7
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536592"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739842"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 
@@ -157,14 +157,24 @@ Per disabilitare applicazione Azure Insights, usare il codice seguente:
 
 ### <a name="query-logs-for-deployed-models"></a>Log di query per i modelli distribuiti
 
-È possibile utilizzare la `get_logs()` funzione per recuperare i log da un servizio Web distribuito in precedenza. Il log può contenere informazioni dettagliate sugli errori che si sono verificati durante la distribuzione.
+I log degli endpoint in tempo reale sono dati del cliente. È possibile utilizzare la `get_logs()` funzione per recuperare i log da un servizio Web distribuito in precedenza. Il log può contenere informazioni dettagliate sugli errori che si sono verificati durante la distribuzione.
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+Se si hanno più tenant, potrebbe essere necessario aggiungere il codice di autenticazione seguente prima `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### <a name="view-logs-in-the-studio"></a>Visualizzare i log in studio

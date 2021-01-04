@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 01c85311c9ea49be3543edee405cdd66a0659797
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130681"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733006"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrare Analisi di flusso di Azure con Azure Machine Learning (anteprima)
 
@@ -37,7 +37,7 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Passare al processo di Analisi di flusso di Azure nel portale di Azure e selezionare **Funzioni** in **Topologia processo** . Selezionare quindi **Azure Machine Learning servizio** dal menu a discesa **+ Aggiungi** .
+1. Passare al processo di Analisi di flusso di Azure nel portale di Azure e selezionare **Funzioni** in **Topologia processo**. Selezionare quindi **Azure Machine Learning servizio** dal menu a discesa **+ Aggiungi** .
 
    ![Aggiungi Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
@@ -47,17 +47,17 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-1. Aprire il progetto di analisi di flusso in Visual Studio Code e fare clic con il pulsante destro del mouse sulla cartella **funzioni** . Scegliere quindi **Aggiungi funzione** . Selezionare **Machine Learning UDF** dall'elenco a discesa.
+1. Aprire il progetto di analisi di flusso in Visual Studio Code e fare clic con il pulsante destro del mouse sulla cartella **funzioni** . Scegliere quindi **Aggiungi funzione**. Selezionare **Machine Learning UDF** dall'elenco a discesa.
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Aggiungere UDF in VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Aggiungere UDF in VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Aggiungere Azure Machine Learning UDF in VS Code":::
 
 2. Immettere il nome della funzione e inserire le impostazioni nel file di configurazione usando **Select from your subscriptions** in CodeLens.
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Aggiungere UDF in VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Selezionare Azure Machine Learning UDF in VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Aggiungere UDF in VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Configurare Azure Machine Learning UDF in VS Code":::
 
 La tabella seguente descrive ogni proprietà di Azure Machine Learning funzioni del servizio in analisi di flusso.
 
@@ -83,7 +83,7 @@ INTO output
 FROM input
 ```
 
-Analisi di flusso di Azure supporta solo il passaggio di un parametro per le funzioni di Azure Machine Learning. Potrebbe essere necessario preparare i dati prima di passarli come input alla funzione definita dall'utente di Machine Learning.
+Analisi di flusso di Azure supporta solo il passaggio di un parametro per le funzioni di Azure Machine Learning. Potrebbe essere necessario preparare i dati prima di passarli come input alla funzione definita dall'utente di Machine Learning. È necessario assicurarsi che l'input per la funzione definita dall'utente ML non sia null come input null provocherà l'esito negativo del processo.
 
 ## <a name="pass-multiple-input-parameters-to-the-udf"></a>Passare più parametri di input alla funzione definita dall'utente
 
@@ -104,11 +104,18 @@ function createArray(vendorid, weekday, pickuphour, passenger, distance) {
 Dopo aver aggiunto la funzione definita dall'utente JavaScript al processo, è possibile richiamare la funzione definita dall'utente di Azure Machine Learning usando la query seguente:
 
 ```SQL
-SELECT udf.score(
-udf.createArray(vendorid, weekday, pickuphour, passenger, distance)
-)
-INTO output
+WITH 
+ModelInput AS (
+#use JavaScript UDF to construct array that will be used as input to ML UDF
+SELECT udf.createArray(vendorid, weekday, pickuphour, passenger, distance) as inputArray
 FROM input
+)
+
+SELECT udf.score(inputArray)
+INTO output
+FROM ModelInput
+#validate inputArray is not null before passing it to ML UDF to prevent job from failing
+WHERE inputArray is not null
 ```
 
 Di seguito è riportata una richiesta JSON di esempio:

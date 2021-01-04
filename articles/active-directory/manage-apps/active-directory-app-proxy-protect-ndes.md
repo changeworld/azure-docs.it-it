@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0793547c4eafcad256664546240a07c1bcb0e628
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656752"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709011"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Eseguire l'integrazione con Azure AD proxy di applicazione in un server del servizio Registrazione dispositivi di rete (registrazione dispositivi)
 
@@ -81,7 +81,7 @@ Azure AD proxy di applicazione si basa su Azure. Offre una notevole quantità di
 
 1. Selezionare **+ Aggiungi** per salvare l'applicazione.
 
-1. Verificare se è possibile accedere al server registrazione dispositivi tramite il proxy di applicazione Azure AD incollando il collegamento copiato al passaggio 10 in un browser. Verrà visualizzata una pagina iniziale predefinita di IIS.
+1. Verificare se è possibile accedere al server registrazione dispositivi tramite il proxy di applicazione Azure AD incollando il collegamento copiato al passaggio 15 in un browser. Verrà visualizzata una pagina iniziale predefinita di IIS.
 
 1. Come test finale, aggiungere il percorso *mscep.dll* all'URL esistente incollato nel passaggio precedente:
 

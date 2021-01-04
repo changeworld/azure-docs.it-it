@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842708"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724230"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 
@@ -114,56 +114,6 @@ Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di 
 
 ## <a name="storage-tiers"></a>Livelli di archiviazione
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### <a name="understanding-provisioning-for-premium-file-shares"></a>Informazioni sul provisioning per le condivisioni file Premium
-Il provisioning delle condivisioni file premium viene effettuato in base a un rapporto fisso tra GiB, operazioni di I/O al secondo e velocità effettiva. A tutte le dimensioni delle condivisioni viene offerta la linea di base e la velocità effettiva minime. Per ogni GiB di cui è stato effettuato il provisioning, la condivisione verrà rilasciata il numero minimo di IOPS/velocità effettiva e una velocità effettiva di IOPS e 0,1 MiB/s fino al limite massimo per condivisione. Il provisioning minimo consentito è 100 GiB con IOPS/velocità effettiva minime. 
-
-Per tutte le condivisioni Premium viene offerta la disponibilità di un massimo sforzo. Tutte le dimensioni delle condivisioni possono aumentare fino a 4.000 IOPS o fino a tre IOPS per ogni GiB di cui è stato effettuato il provisioning, a seconda del valore che fornisce una maggiore quantità di IOPS nella condivisione. Tutte le condivisioni supportano il prolungamento per una durata massima di 60 minuti al limite massimo di picchi. Le nuove condivisioni iniziano con il credito di burst totale in base alla capacità sottoposta a provisioning.
-
-È necessario eseguire il provisioning delle condivisioni con incrementi di 1 GiB. La dimensione minima è 100 GiB, le dimensioni successive sono 101 GiB e così via.
-
-> [!TIP]
-> IOPS Baseline = 400 + 1 * GiB con provisioning. (Fino a un massimo di 100.000 IOPS).
->
-> Limite di espansione = MAX (4.000, 3 * IOPS baseline). (qualsiasi limite è maggiore, fino a un massimo di 100.000 IOPS).
->
-> velocità in uscita = 60 MiB/s + 0,06 * GiB con provisioning
->
-> velocità in ingresso = 40 MiB/s + 0,04 * GiB con provisioning
-
-Le dimensioni della condivisione di cui è stato effettuato il provisioning sono specificate dalla quota di La quota di condivisione può essere aumentata in qualsiasi momento, ma può essere ridotta solo dopo 24 ore dall'ultimo aumento. Dopo aver atteso 24 ore senza un aumento della quota, è possibile ridurre la quota di condivisione tutte le volte che si desidera, fino a quando non si aumenta nuovamente. Le modifiche alla scalabilità IOPS/velocità effettiva saranno effettive entro pochi minuti dopo la modifica delle dimensioni.
-
-È possibile ridurre le dimensioni della condivisione di cui è stato effettuato il provisioning sotto il GiB usato. In tal caso, non si perderanno i dati, ma verranno comunque addebitate le dimensioni usate e si riceveranno le prestazioni (IOPS di base, velocità effettiva e IOPS di aumento) della condivisione di cui è stato effettuato il provisioning, non le dimensioni usate.
-
-La tabella seguente illustra alcuni esempi di queste formule per le dimensioni della condivisione di cui è stato effettuato il provisioning:
-
-|Capacità (GiB) | Operazioni di I/O al secondo di base | IOPS a impulsi | In uscita (MiB/s) | Ingresso (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | Fino a 4.000     | 66   | 44   |
-|500         | 900     | Fino a 4.000  | 90   | 60   |
-|1\.024       | 1.424   | Fino a 4.000   | 122   | 81   |
-|5120       | 5.520   | Fino a 15.360  | 368   | 245   |
-|10.240      | 10.640  | Fino a 30.720  | 675   | 450   |
-|33.792      | 34.192  | Fino a 100.000 | 2.088 | 1.392   |
-|51.200      | 51.600  | Fino a 100.000 | 3.132 | 2.088   |
-|102.400     | 100,000 | Fino a 100.000 | 6.204 | 4.136   |
-
-È importante tenere presente che le prestazioni effettive delle condivisioni file sono soggette ai limiti della rete, alla larghezza di banda di rete disponibile, alle dimensioni di i/o, al parallelismo, tra molti altri fattori. Ad esempio, in base a test interni con 8 dimensioni di i/o di lettura/scrittura, una singola macchina virtuale Windows senza SMB multicanale abilitato, *F16s_v2 standard*, connessa alla condivisione file Premium tramite SMB, potrebbe ottenere 20 IOPS di lettura e 15.000 di scrittura. Con le dimensioni di i/o in lettura/scrittura di 512 MiB, la stessa VM potrebbe ottenere 1,1 GiB/s in uscita e 370 MiB/s di velocità effettiva in ingresso. Lo stesso client può ottenere fino a \~ 3x prestazioni se SMB multicanale è abilitato nelle condivisioni Premium. Per ottenere la massima scalabilità delle prestazioni, [abilitare SMB multicanale](storage-files-enable-smb-multichannel.md) e distribuire il carico tra più macchine virtuali. Per alcuni problemi comuni di prestazioni e soluzioni alternative, vedere Guida alle prestazioni e alla [risoluzione dei problemi](storage-troubleshooting-files-performance.md) di [SMB multicanale](storage-files-smb-multichannel-performance.md) .
-
-#### <a name="bursting"></a>Espansione nel
-Se il carico di lavoro richiede le prestazioni aggiuntive per soddisfare i picchi della domanda, la condivisione può usare i crediti di espansione per superare il limite di IOPS della linea di base per offrire le prestazioni di condivisione necessarie per soddisfare la domanda. Le condivisioni file Premium possono aumentare il numero di IOPS fino a 4.000 o fino a un fattore pari a tre, a seconda del valore più alto. L'espansione è automatizzata e funziona in base a un sistema di credito. Il processo di prolungamento funziona in base al massimo sforzo e il limite di espansione non è una garanzia, le condivisioni file possono *aumentare fino* al limite per una durata massima di 60 minuti.
-
-I crediti si accumulano in un bucket di espansione ogni volta che il traffico per la condivisione file è inferiore al valore di IOPS Baseline. Una condivisione GiB 100, ad esempio, ha 500 IOPS Baseline. Se il traffico effettivo nella condivisione è 100 IOPS per un intervallo di 1 secondo specifico, le operazioni di 400 i/o al secondo non usate vengono accreditate a un bucket di espansione. Analogamente, la condivisione 1 TiB inattiva aumenta il credito di picco a 1.424 IOPS. Questi crediti verranno quindi usati in seguito quando le operazioni superano il IOPS di base.
-
-Ogni volta che una condivisione supera le operazioni di i/o al secondo e ha crediti in un bucket di espansione, il numero massimo di picchi consentito è elevato. Le condivisioni possono continuare a essere interrotte fino a quando i crediti restano, fino a un massimo di 60 minuti di durata, ma si basano sul numero di crediti di espansione accumulati. Ogni i/o oltre le operazioni di i/o al secondo di base utilizza un credito e una volta che tutti i crediti vengono utilizzati, la condivisione tornerà al IOPS di base.
-
-I crediti di condivisione hanno tre stati:
-
-- Accumulo, quando la condivisione file usa un numero di IOPS inferiore a quello di base.
-- In declino, quando la condivisione file usa più di IOPS di base e in modalità di espansione.
-- Constant, Hen la condivisione file usa esattamente la linea di base IOPS, non sono presenti crediti accumulati o usati.
-
-Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket di espansione. Se i valori di IOPS della condivisione scendono al di sotto della linea di base IOPS a causa della limitazione del server, i crediti di espansione non verranno acquisiti.
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Abilitare condivisioni file standard fino a 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]

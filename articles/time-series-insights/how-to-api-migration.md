@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020726"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740556"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrazione a nuove versioni dell'API Gen2 Azure Time Series Insights
 
@@ -63,7 +63,7 @@ Per consentire agli utenti di eseguire la migrazione delle [variabili del modell
 
     [![Aggiornare le query salvate](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Fare clic su **Done**.
+1. Fare clic su **Fine**.
 
     [![Migrazione completata](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -76,7 +76,7 @@ Se sono state generate query usando il connettore Power BI, vengono effettuate c
 Per aggiornare le query in modo da usare la nuova versione dell'API e la nuova sintassi delle espressioni della serie temporale, è necessario rigenerare le query dalla finestra di esplorazione. Leggere altre informazioni su come [creare query usando il connettore Power bi](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> È necessario utilizzare la versione del 2020 luglio del Power BI Desktop. In caso contrario, potrebbe essere visualizzato un [errore di versione del payload della query non valido](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect).
+> È necessario utilizzare almeno la versione del 2020 luglio del Power BI Desktop. In caso contrario, è possibile che venga visualizzato l'errore "versione del payload della query non valida".
 
 ## <a name="migrate-custom-applications"></a>Eseguire la migrazione di applicazioni personalizzate
 
@@ -107,7 +107,7 @@ Per gli endpoint REST seguenti, è necessario aggiornare la versione dell'API a 
   - [Getserie](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="typesbatchput"></a>TypesBatchPut
 

@@ -1,32 +1,35 @@
 ---
-title: Autenticazione
+title: Authentication
 description: Illustra il funzionamento dell'autenticazione
 author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427459"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724884"
 ---
-# <a name="configure-authentication"></a>Configura autenticazione
+# <a name="configure-authentication"></a>Configurare l'autenticazione
 
 Il rendering remoto di Azure usa lo stesso meccanismo di autenticazione di [Azure Spatial Anchor (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Per chiamare correttamente le API REST, i client devono impostare *uno* dei seguenti elementi:
 
 * **AccountKey**: può essere ottenuto nella scheda "chiavi" per l'account di rendering remoto nel portale di Azure. Le chiavi dell'account sono consigliate solo per lo sviluppo e la creazione di prototipi.
     ![ID account](./media/azure-account-primary-key.png)
 
+* **AccountDomain**: è possibile ottenere la scheda "panoramica" per l'account di rendering remoto nell'portale di Azure.
+    ![Dominio dell'account](./media/azure-account-domain.png)
+
 * **AuthenticationToken**: è un token di Azure ad, che può essere ottenuto tramite la [libreria MSAL](../../active-directory/develop/msal-overview.md). Sono disponibili più flussi diversi per accettare le credenziali utente e usare tali credenziali per ottenere un token di accesso.
 
-* **MRAccessToken**: è un token Mr, che può essere ottenuto dal servizio token di sicurezza di Azure Mixed Reality (STS). Recuperato dall' `https://sts.mixedreality.azure.com` endpoint usando una chiamata REST simile alla chiamata seguente:
+* **MRAccessToken**: è un token Mr, che può essere ottenuto dal servizio token di sicurezza di Azure Mixed Reality (STS). Recuperato dall' `https://sts.<accountDomain>` endpoint usando una chiamata REST simile alla seguente:
 
     ```rest
-    GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+    GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-    Host: sts.mixedreality.azure.com
+    Host: sts.southcentralus.mixedreality.azure.com
     Connection: Keep-Alive
 
     HTTP/1.1 200 OK

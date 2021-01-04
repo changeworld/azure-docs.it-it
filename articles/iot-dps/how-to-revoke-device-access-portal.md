@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c75fcd1fd20e41df5018fcaa07fe83051d7e5f1a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010929"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740369"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
 
@@ -26,7 +26,7 @@ La registrazione nel servizio Device provisioning consente di eseguire il [provi
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>Non consentire i dispositivi usando una singola voce di registrazione
 
-Le registrazioni singole sono valide per un singolo dispositivo e possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. I dispositivi che usano i token di firma di accesso condiviso come meccanismo di attestazione possono essere sottoposti a provisioning solo tramite una registrazione singola. Per non consentire un dispositivo con una registrazione singola, è possibile disabilitare o eliminare la relativa voce di registrazione. 
+Le registrazioni singole si applicano a un singolo dispositivo e possono usare certificati X. 509, chiavi di verifica dell'autenticità del TPM (in un TPM reale o virtuale) o token SAS come meccanismo di attestazione. Per non consentire un dispositivo con una registrazione singola, è possibile disabilitare o eliminare la relativa voce di registrazione. 
 
 Per impedire temporaneamente al dispositivo di disabilitare la voce di registrazione: 
 

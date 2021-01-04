@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332781"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733928"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -56,13 +56,47 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 1. In SQL sono inoltre disponibili alcune linee guida per l'utilizzo dei programmi antivirus. Per informazioni dettagliate, vedere [questo articolo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) .
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>Istanza difettosa in una macchina virtuale con più istanze di SQL Server
+
+È possibile eseguire il ripristino in una macchina virtuale SQL solo se tutte le istanze di SQL in esecuzione nella macchina virtuale sono segnalate integre. Se una o più istanze sono "difettose", la macchina virtuale non verrà visualizzata come destinazione di ripristino. Questo potrebbe essere il motivo per cui è possibile che una macchina virtuale a istanze diverse non venga visualizzata nell'elenco a discesa "Server" durante l'operazione di ripristino.
+
+È possibile convalidare la "conformità del backup" di tutte le istanze di SQL nella macchina virtuale, in **Configura backup**:
+
+![Convalidare la conformità del backup](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+Se si vuole attivare un ripristino nelle istanze di SQL integre, seguire questa procedura:
+
+1. Accedere alla macchina virtuale SQL e andare a `C:\Program Files\Azure Workload Backup\bin` .
+1. Creare un file JSON denominato, `ExtensionSettingsOverrides.json` se non è già presente. Se il file è già presente nella macchina virtuale, continuare a usarlo.
+1. Aggiungere il contenuto seguente nel file JSON e salvare il file:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Attivare l'operazione di **riindividuazione** dei database nel server interessato dalla portale di Azure (la stessa posizione in cui è possibile visualizzare la preparazione per il backup). La macchina virtuale verrà avviata come destinazione per le operazioni di ripristino.
+
+    ![Riindividuare i database](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Rimuovere la voce *whitelistedInstancesForInquiry* dal ExtensionSettingsOverrides.jssul file al termine dell'operazione di ripristino.
+
 ## <a name="error-messages"></a>messaggi di errore
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
 | Gravità | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
-| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Il backup differenziale e il backup del log delle transazioni non sono possibili. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database SP tutti i tipi di backup nel criterio sono supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
+| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Il backup differenziale e il backup del log delle transazioni non sono possibili. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -130,7 +164,7 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non può essere usato per arrestare in un punto nel tempo arbitrario in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](/sql/relational-databases/backup-restore/recovery-models-sql-server)
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non può essere usato per arrestare in un punto nel tempo arbitrario in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 

@@ -3,15 +3,15 @@ title: Gestire le connessioni in Automazione di Azure
 description: L'articolo descrive come gestire le connessioni di Automazione di Azure a servizi esterni o applicazioni e come usarle per lavorare nei runbook.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/13/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0a3cff616f814b8e5209b15f9d3f7439533452ca
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8deb249dc042701ec02c3e5e30f3603be132d0ec
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071762"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733995"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gestire le connessioni in Automazione di Azure
 
@@ -43,10 +43,10 @@ I cmdlet nella tabella seguente vengono usati per creare e gestire le connession
 
 |Cmdlet|Descrizione|
 |---|---|
-|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Recupera informazioni su una connessione.|
-|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Crea una nuova connessione.|
-|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Rimuove una connessione esistente.|
-|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Imposta il valore di un campo specifico per una connessione esistente.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection)|Recupera informazioni su una connessione.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)|Crea una nuova connessione.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection)|Rimuove una connessione esistente.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue)|Imposta il valore di un campo specifico per una connessione esistente.|
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Cmdlet interni per accedere alle connessioni
 
@@ -59,9 +59,9 @@ Il cmdlet interno nella tabella seguente viene usato per accedere alle connessio
 >[!NOTE]
 >Evitare di usare variabili con il parametro `Name` di `Get-AutomationConnection`. In questo caso l'uso delle variabili può complicare l'individuazione delle dipendenze tra runbook o configurazioni DSC e asset di connessione in fase di progettazione.
 
-## <a name="python-2-functions-to-access-connections"></a>Funzioni di Python 2 per accedere alle connessioni
+## <a name="python-functions-to-access-connections"></a>Funzioni Python per accedere alle connessioni
 
-La funzione nella tabella seguente viene usata per accedere alle connessioni in un runbook Python 2.
+La funzione nella tabella seguente viene usata per accedere alle connessioni in un Runbook Python 2 e 3. Python 3 manuali operativi è attualmente in fase di anteprima.
 
 | Funzione | Descrizione |
 |:---|:---|
@@ -124,9 +124,9 @@ L'esempio seguente rappresenta un modello nel formato di file **.json** che defi
 
 ## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Stabilire una connessione in un runbook o in una configurazione DSC
 
-Recuperare una connessione in un runbook o in una configurazione DSC con il cmdlet `Get-AutomationConnection` interno. Questo cmdlet è preferibile rispetto al cmdlet `Get-AzAutomationConnection` in quanto recupera i valori di connessione anziché le informazioni sulla connessione. 
+Recuperare una connessione in un runbook o in una configurazione DSC con il cmdlet `Get-AutomationConnection` interno. Questo cmdlet è preferibile rispetto al cmdlet `Get-AzAutomationConnection` in quanto recupera i valori di connessione anziché le informazioni sulla connessione.
 
-### <a name="textual-runbook-example"></a>Esempio di runbook testuale
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 L'esempio seguente mostra come usare l'account RunAs per eseguire l'autenticazione con le risorse di Azure Resource Manager nel runbook. Usa un asset di connessione per rappresentare l'account RunAs, che fa riferimento all'entità servizio basata su certificato.
 
@@ -135,19 +135,9 @@ $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
-### <a name="graphical-runbook-examples"></a>Esempi di runbook grafico
+# <a name="python"></a>[Python](#tab/python2)
 
-È possibile aggiungere un'attività per il cmdlet `Get-AutomationConnection` interno a un runbook grafico. Fare clic con il pulsante destro del mouse sulla connessione nel riquadro Libreria dell'editor grafico e selezionare **Aggiungi ad area di disegno**.
-
-![Aggiunta all'area di disegno](media/automation-connections/connection-add-canvas.png)
-
-L'immagine seguente mostra un esempio dell'uso di un oggetto di connessione in un runbook grafico. Questo esempio usa il set di dati `Constant value` per l'attività `Get RunAs Connection`, che usa un oggetto di connessione per l'autenticazione. Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#use-links-for-workflow) poiché il parametro `ServicePrincipalCertificate` impostato prevede un singolo oggetto.
-
-![Recupero delle connessioni](media/automation-connections/automation-get-connection-object.png)
-
-### <a name="python-2-runbook-example"></a>Esempio di runbook Python 2
-
-L'esempio seguente illustra come eseguire l'autenticazione usando la connessione RunAs in un runbook Python 2.
+Nell'esempio seguente viene illustrato come eseguire l'autenticazione utilizzando la connessione RunAs in Python 2 e 3 Runbook.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """
@@ -155,7 +145,7 @@ import azure.mgmt.resource
 import automationassets
 
 def get_automation_runas_credential(runas_connection):
-    """ Returns credentials to authenticate against Azure resoruce manager """
+    """ Returns credentials to authenticate against Azure resource manager """
     from OpenSSL import crypto
     from msrestazure import azure_active_directory
     import adal
@@ -189,6 +179,18 @@ runas_connection = automationassets.get_automation_connection(
     "AzureRunAsConnection")
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
+
+---
+
+### <a name="graphical-runbook-examples"></a>Esempi di runbook grafico
+
+È possibile aggiungere un'attività per il cmdlet `Get-AutomationConnection` interno a un runbook grafico. Fare clic con il pulsante destro del mouse sulla connessione nel riquadro Libreria dell'editor grafico e selezionare **Aggiungi ad area di disegno**.
+
+![Aggiunta all'area di disegno](media/automation-connections/connection-add-canvas.png)
+
+L'immagine seguente mostra un esempio dell'uso di un oggetto di connessione in un runbook grafico. Questo esempio usa il set di dati `Constant value` per l'attività `Get RunAs Connection`, che usa un oggetto di connessione per l'autenticazione. Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#use-links-for-workflow) poiché il parametro `ServicePrincipalCertificate` impostato prevede un singolo oggetto.
+
+![Recupero delle connessioni](media/automation-connections/automation-get-connection-object.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

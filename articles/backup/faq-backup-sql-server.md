@@ -4,12 +4,12 @@ description: Risposte alle domande frequenti sul backup di SQL Server database i
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172374"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734114"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -33,11 +33,11 @@ In alcune circostanze, il servizio backup di Azure attiva i backup corretti. La 
 Per impostazione predefinita, la funzionalità di correzione automatica è abilitata per tutti gli utenti. Tuttavia, se si sceglie di rifiutare esplicitamente, seguire questa procedura:
 
 - Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare o modificare il **ExtensionSettingsOverrides.jssu** file.
-- In **ExtensionSettingsOverrides.json**impostare *{"EnableAutoHealer": false}*.
+- In **ExtensionSettingsOverrides.json** impostare *{"EnableAutoHealer": false}*.
 - Salvare le modifiche e chiudere il file.
 - Nell'istanza SQL Server aprire **attività Gestisci** e riavviare il servizio **AzureWLBackupCoordinatorSvc** .
 
-## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>È possibile controllare il numero di backup simultanei eseguiti in SQL Server?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>È possibile controllare il numero di backup simultanei in esecuzione in SQL Server?
 
 Sì. È possibile imitare la velocità di esecuzione del criterio di backup per ridurre al minimo l'impatto su un'istanza di SQL Server. Per modificare l'impostazione:
 
@@ -62,7 +62,7 @@ Secondo le limitazioni di SQL, è possibile eseguire il backup completo di copia
 
 No. Backup di Azure protegge SQL Server database in esecuzione in Azure. Se un gruppo di disponibilità (AG) viene distribuito tra Azure e i computer locali, il gruppo di disponibilità può essere protetto solo se la replica primaria è in esecuzione in Azure. Backup di Azure protegge anche solo i nodi in esecuzione nella stessa area di Azure dell'insieme di credenziali di servizi di ripristino.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>È possibile proteggere i gruppi di disponibilità tra aree?
+## <a name="can-i-protect-availability-groups-across-regions"></a>È possibile proteggere I gruppi di disponibilità tra aree?
 
 L'insieme di credenziali di servizi di ripristino di backup di Azure può rilevare e proteggere tutti i nodi che si trovano nella stessa area dell'insieme di credenziali. Se il SQL Server Always On gruppo di disponibilità si estende su più aree di Azure, configurare il backup dall'area che contiene il nodo primario. Backup di Azure è in grado di rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup. Quando la preferenza di backup non viene soddisfatta, i backup hanno esito negativo e viene generato l'avviso di errore.
 
@@ -78,7 +78,7 @@ Il menu **processo di backup** Mostra tutte le operazioni pianificate e su richi
 
 Sì, è possibile ottenere questa funzionalità con la [protezione automatica](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
-## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se si elimina un database da un'istanza protetta in modo automatico, cosa accade ai backup?
+## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se si elimina un database da un'istanza autoprotetta, cosa accade ai backup?
 
 Se un database viene eliminato da un'istanza protetta in modo automatico, i backup del database vengono comunque tentati. Ciò implica che il database eliminato inizia a essere visualizzato come non integro in **Elementi di backup** e viene ancora protetto.
 
@@ -98,13 +98,18 @@ Un database rinominato viene considerato come nuovo database. Pertanto, il servi
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Perché non è possibile visualizzare un database aggiunto per un'istanza protetta in modo autoprotetto?
 
-Un database che è possibile [aggiungere a un'istanza](backup-sql-server-database-azure-vms.md#enable-auto-protection) protetta in modo autoprotetto potrebbe non essere visualizzato immediatamente in elementi protetti. Il motivo è che l'individuazione viene eseguita in genere ogni 8 ore. Tuttavia, è possibile individuare e proteggere immediatamente i nuovi database se si esegue manualmente un'individuazione selezionando **riindividuare**i database, come illustrato nella figura seguente:
+Un database che è possibile [aggiungere a un'istanza](backup-sql-server-database-azure-vms.md#enable-auto-protection) protetta in modo autoprotetto potrebbe non essere visualizzato immediatamente in elementi protetti. Il motivo è che l'individuazione viene eseguita in genere ogni 8 ore. Tuttavia, è possibile individuare e proteggere immediatamente i nuovi database se si esegue manualmente un'individuazione selezionando **riindividuare** i database, come illustrato nella figura seguente:
 
   ![Individuare manualmente un database appena aggiunto](./media/backup-azure-sql-database/view-newly-added-database.png)
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>È possibile proteggere i database con Transparent Data Encryption (Transparent Data Encryption) accesi e il database rimane crittografato durante l'intero processo di backup?
 
-Sì, backup di Azure supporta il backup di database SQL Server o server con Transparent Data Encryption abilitato. Il backup supporta Transparent Data [Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) con chiavi gestite da Azure o con chiavi gestite dal cliente (BYOK).  Il backup non esegue alcuna crittografia SQL come parte del processo di backup, in modo che il database rimane crittografato quando viene eseguito il backup.
+Sì, backup di Azure supporta il backup di database SQL Server o server con Transparent Data Encryption abilitato. Il backup supporta Transparent Data [Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) con chiavi gestite da Azure o con chiavi gestite dal cliente (BYOK).  Il backup non esegue alcuna crittografia SQL come parte del processo di backup, in modo che il database rimane crittografato quando viene eseguito il backup.
+
+## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>Backup di Azure esegue un'operazione di checksum sul flusso di dati?
+
+Viene eseguita un'operazione di checksum sul flusso di dati. Tuttavia, questo non deve essere confuso con il [checksum SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Il backup del carico di lavoro di Azure calcola il checksum nel flusso di dati e lo archivia in modo esplicito durante l'operazione di backup. Questo flusso di checksum viene quindi considerato un riferimento e verificato in modo incrociato con il checksum del flusso di dati durante l'operazione di ripristino per assicurarsi che i dati siano coerenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

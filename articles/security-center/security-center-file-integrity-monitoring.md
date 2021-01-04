@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341533"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734760"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
 Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
@@ -31,7 +31,7 @@ Informazioni su come configurare il monitoraggio dell'integrità dei file nel ce
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|Richiede [Azure Defender per i server](defender-for-servers-introduction.md).<br>Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Autorizzazioni e ruoli obbligatori:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
-|Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking/overview.md).|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) nazionale/sovrano (US gov, Cina gov, altri gov)<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?
@@ -120,11 +120,11 @@ FIM è disponibile solo dalle pagine del Centro sicurezza nel portale di Azure. 
 
     - Accedere e visualizzare lo stato e le impostazioni di ogni area di lavoro
 
-    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md)
+    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md).
 
     - ![Icona Abilita][3] Abilitare FIM in tutti i computer nell'area di lavoro e configurare le opzioni FIM. Questa icona indica che FIM non è abilitato per l'area di lavoro.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Avvio di FIM":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Abilitazione di FIM per un'area di lavoro specifica":::
 
 
     > [!TIP]
@@ -133,7 +133,7 @@ FIM è disponibile solo dalle pagine del Centro sicurezza nel portale di Azure. 
 
 1. Selezionare **Abilita**. Vengono visualizzati i dettagli dell'area di lavoro, incluso il numero di computer Windows e Linux nell'area di lavoro.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Avvio di FIM":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Pagina dei dettagli dell'area di lavoro FIM":::
 
    Sono elencate anche le impostazioni consigliate per Windows e Linux.  Espandere **File Windows**, **Registro di sistema** e **File Linux** per visualizzare l'elenco completo di elementi consigliati.
 
@@ -150,7 +150,7 @@ FIM è disponibile solo dalle pagine del Centro sicurezza nel portale di Azure. 
 
 Viene visualizzato il dashboard **Monitoraggio dell'integrità dei file** per le aree di lavoro in cui è abilitata la funzionalità. Il dashboard FIM viene aperto dopo l'abilitazione di FIM in un'area di lavoro o quando si seleziona un'area di lavoro nella finestra **Monitoraggio integrità file** in cui è già abilitato FIM.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Avvio di FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Il dashboard FIM e i relativi diversi pannelli informativi":::
 
 Il dashboard FIM per un'area di lavoro Visualizza i dettagli seguenti:
 
@@ -161,7 +161,7 @@ Il dashboard FIM per un'area di lavoro Visualizza i dettagli seguenti:
 
 Selezionare **filtro** nella parte superiore del dashboard per modificare il periodo di tempo per cui vengono visualizzate le modifiche.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Avvio di FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Filtro del periodo di tempo per il dashboard FIM":::
 
 Nella scheda **Server** sono elencati i computer che inviano report a questa area di lavoro. Per ogni computer, il dashboard elenca:
 
@@ -251,7 +251,7 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 
 1. Per disabilitare FIM, tornare al dashboard di **monitoraggio dell'integrità dei file** .
 2. Selezionare un'area di lavoro.
-3. In **Monitoraggio integrità file**selezionare **Disabilita**.
+3. In **Monitoraggio integrità file** selezionare **Disabilita**.
 
    ![Disabilitare il monitoraggio dell'integrità dei file][20]
 

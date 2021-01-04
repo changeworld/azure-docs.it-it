@@ -3,14 +3,14 @@ title: Gestire le credenziali in Automazione di Azure
 description: Questo articolo illustra come creare asset di credenziali e usarli in un runbook o in una configurazione DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/03/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec35653f67c46a7032e834020d8e2ca4ab3125c8
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: caaeb0e40d277ef5e356c0f385a818b831326d6e
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558837"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734828"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gestire le credenziali in Automazione di Azure
 
@@ -51,9 +51,9 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > È consigliabile evitare di usare le variabili nel parametro `Name` di `Get-AutomationPSCredential`. Il loro uso può complicare l'individuazione delle dipendenze tra runbook o configurazioni DSC e gli asset di credenziali in fase di progettazione.
 
-## <a name="python-2-functions-that-access-credentials"></a>Funzioni Python 2 che accedono alle credenziali
+## <a name="python-functions-that-access-credentials"></a>Funzioni Python che accedono alle credenziali
 
-La funzione nella tabella seguente viene usata per accedere alle credenziali in un runbook Python 2.
+La funzione nella tabella seguente viene usata per accedere alle credenziali in un Runbook Python 2 e 3. Python 3 manuali operativi è attualmente in fase di anteprima.
 
 | Funzione | Descrizione |
 |:---|:---|
@@ -104,6 +104,8 @@ In alternativa è possibile usare il metodo [GetNetworkCredential](/dotnet/api/s
 
 ### <a name="textual-runbook-example"></a>Esempio di runbook testuale
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 L'esempio seguente mostra come usare una credenziale PowerShell in un runbook. Recupera la credenziale e assegna il nome utente e la password alle variabili.
 
 ```powershell
@@ -126,6 +128,36 @@ $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$sec
 Connect-AzAccount -Credential $myPsCred
 ```
 
+# <a name="python-2"></a>[Python 2](#tab/python2)
+
+L'esempio seguente illustra l'accesso alle credenziali nei runbook Python 2.
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print cred["username"]
+print cred["password"]
+```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+Nell'esempio seguente viene illustrato un esempio di accesso alle credenziali in Python 3 manuali operativi (anteprima).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print (cred["username"])
+print (cred["password"])
+```
+
+---
+
 ### <a name="graphical-runbook-example"></a>Esempio di runbook grafico
 
 È possibile aggiungere un'attività a un runbook grafico per il cmdlet interno `Get-AutomationPSCredential` facendo clic con il pulsante destro del mouse sulla credenziale nel riquadro Libreria dell'editor grafico e scegliendo **Aggiungi ad area di disegno**.
@@ -139,20 +171,6 @@ La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafi
 ## <a name="use-credentials-in-a-dsc-configuration"></a>Usare le credenziali in una configurazione DSC
 
 Anche se le configurazioni DSC in Automazione di Azure possono funzionare con asset di credenziali usando `Get-AutomationPSCredential`, possono anche passare le risorse di credenziali tramite parametri. Per ulteriori informazioni vedere [Compilazione di configurazioni in Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
-
-## <a name="use-credentials-in-a-python-2-runbook"></a>Usare le credenziali in un runbook Python 2
-
-L'esempio seguente illustra l'accesso alle credenziali nei runbook Python 2.
-
-```python
-import automationassets
-from automationassets import AutomationAssetNotFound
-
-# get a credential
-cred = automationassets.get_automation_credential("credtest")
-print cred["username"]
-print cred["password"]
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,19 +10,19 @@ ms.author: keli19
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591989"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739859"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importare dati in Azure Machine Learning Designer
 
 In questo articolo si spiega come importare dati nella finestra di progettazione per creare soluzioni personalizzate. È possibile importare i dati nella finestra di progettazione in due modi: 
 
-* **Set di dati in Azure Machine Learning** : registrare i [set di dati](concept-data.md#datasets) in Azure Machine Learning per abilitare le funzionalità avanzate che consentono di gestire i dati.
-* **Importare il modulo dati** : usare il modulo [Import Data](algorithm-module-reference/import-data.md) per accedere direttamente ai dati dalle origini dati online.
+* **Set di dati in Azure Machine Learning**: registrare i [set di dati](concept-data.md#datasets) in Azure Machine Learning per abilitare le funzionalità avanzate che consentono di gestire i dati.
+* **Importare il modulo dati**: usare il modulo [Import Data](algorithm-module-reference/import-data.md) per accedere direttamente ai dati dalle origini dati online.
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -47,8 +47,7 @@ Se i dati di output del modulo sono in formato tabulare, è necessario scegliere
  - Il **set di dati del file** registra la cartella di output del modulo come set di dati di file. La cartella di output contiene un file di dati e i metadati che la finestra di progettazione utilizza internamente. Selezionare questa opzione se si desidera continuare a utilizzare il set di dati registrato nella finestra di progettazione. 
 
  - Il set di dati **tabulare** registra solo il file di dati di output del modulo come set di dati tabulare. Questo formato è facilmente utilizzabile da altri strumenti, ad esempio in Machine Learning automatizzato o Python SDK. Selezionare questa opzione se si prevede di utilizzare il set di dati registrato al di fuori della finestra di progettazione.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>Uso di un set di dati
 
@@ -62,6 +61,14 @@ Se si registra un set di dati del file, il tipo di porta di output del set di da
 > [!NOTE]
 > La finestra di progettazione supporta il [controllo delle versioni dei DataSet](how-to-version-track-datasets.md). Specificare la versione del set di dati nel pannello Proprietà del modulo DataSet.
 
+### <a name="limitations"></a>Limitazioni 
+
+- Attualmente è possibile visualizzare solo i set di dati tabulari nella finestra di progettazione. Se si registra un set di dati di file all'esterno di progettazione, non è possibile visualizzarlo nell'area di disegno della finestra di progettazione.
+- Il set di dati è archiviato in rete virtuale (VNet). Se si desidera visualizzare, è necessario abilitare l'identità gestita dell'area di lavoro dell'archivio dati.
+    1. Passare all'archivio dati correlato e fare clic su **Aggiorna** credenziali 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Aggiorna"::: credenziali
+    1. Selezionare **Sì** per abilitare l'identità gestita dell'area di lavoro.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Abilita identità gestita dell'area di lavoro":::
 
 ## <a name="import-data-using-the-import-data-module"></a>Importazione dei dati usando il modulo Importa dati
 

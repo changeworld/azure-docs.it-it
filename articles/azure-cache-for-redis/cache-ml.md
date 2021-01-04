@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: d9731455edf0afbe4c0768ae40a51316ac71ad94
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537576"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734233"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuire un modello di Machine Learning in funzioni di Azure con cache di Azure per Redis 
 
@@ -41,9 +41,9 @@ Cache di Azure per Redis è estremamente efficiente e scalabile: quando abbinato
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Creare un'istanza di Azure Cache per Redis 
 Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure con qualsiasi istanza di cache Basic, standard o Premium. Per creare un'istanza della cache, attenersi alla seguente procedura.  
 
-1. Passare alla Home page di portale di Azure o aprire il menu sidebar, quindi selezionare **Crea una risorsa** . 
+1. Passare alla Home page di portale di Azure o aprire il menu sidebar, quindi selezionare **Crea una risorsa**. 
    
-1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis** .
+1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare Cache di Azure per Redis.":::
    
@@ -51,7 +51,7 @@ Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure 
    
    | Impostazione      | Valore consigliato  | Descrizione |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net* . | 
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net*. | 
    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
    | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
    | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
@@ -71,17 +71,17 @@ Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure 
 
 1. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-1. Selezionare **Rivedi e crea** . Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
-1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea** .
+1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. 
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso. 
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 
 Prima di distribuire, è necessario definire gli elementi necessari per eseguire il modello come servizio Web. Nell'elenco seguente vengono descritti gli elementi principali necessari per una distribuzione:
 
-* Uno __script di immissione__ . Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
+* Uno __script di immissione__. Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
 
     > [!IMPORTANT]
     > Lo script di immissione è specifico del modello. deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
@@ -123,9 +123,9 @@ def run(data):
 
 Per altre informazioni sullo script di immissione, vedere definire il codice di assegnazione dei [punteggi.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
 
-* **Dipendenze** , ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
+* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
-Queste entità sono incapsulate in una __configurazione di inferenza__ . La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
+Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
 > [!IMPORTANT]
 > Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
@@ -149,7 +149,7 @@ Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il 
 Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
-> Quando si esegue la distribuzione in funzioni, non è necessario creare una __configurazione di distribuzione__ .
+> Quando si esegue la distribuzione in funzioni, non è necessario creare una __configurazione di distribuzione__.
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installare il pacchetto di anteprima SDK per il supporto delle funzioni
 
@@ -209,7 +209,7 @@ Quando `show_output=True` viene visualizzato l'output del processo di compilazio
     }
     ```
 
-    Salvare il valore per __username__ e una delle __password__ .
+    Salvare il valore per __username__ e una delle __password__.
 
 1. Se non si dispone già di un gruppo di risorse o di un piano di servizio app per distribuire il servizio, i comandi seguenti illustrano come creare entrambi:
 
@@ -283,14 +283,14 @@ A questo punto, l'app per le funzioni inizia a caricare l'immagine.
 > [!IMPORTANT]
 > Potrebbero essere necessari alcuni minuti prima che l'immagine venga caricata. È possibile monitorare lo stato di avanzamento usando il portale di Azure.
 
-## <a name="test-azure-function-http-trigger"></a>Testare il trigger HTTP della funzione di Azure 
+## <a name="test-azure-functions-http-trigger"></a>Testare il trigger HTTP di funzioni di Azure 
 
-A questo punto verrà eseguito e testato il trigger HTTP della funzione di Azure.
+A questo punto verrà eseguito e testato il trigger HTTP di funzioni di Azure.
 
-1. Passare all'app per le funzioni di Azure nel portale di Azure.
-1. In Developer selezionare **codice + test** . 
+1. Passare all'app per le funzioni nella portale di Azure.
+1. In Developer selezionare **codice + test**. 
 1. Sul lato destro selezionare la scheda **input** . 
-1. Fare clic sul pulsante **Run (Esegui** ) per testare il trigger http della funzione di Azure. 
+1. Fare clic sul pulsante **Run (Esegui** ) per testare il trigger http di funzioni di Azure. 
 
 Un modello è stato distribuito correttamente da Azure Machine Learning come app per le funzioni usando una cache di Azure per l'istanza di Redis. Per altre informazioni su cache di Azure per Redis, vedere i collegamenti nella sezione seguente.
 
@@ -305,17 +305,17 @@ In caso contrario, se si è terminato di usare la Guida introduttiva, è possibi
 
 ### <a name="to-delete-a-resource-group"></a>Per eliminare un gruppo di risorse
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse** .
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 
-2. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. Nel gruppo di risorse, nell'elenco dei risultati, selezionare **...** e quindi **Elimina gruppo di risorse** .
+2. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. Nel gruppo di risorse, nell'elenco dei risultati, selezionare **...** e quindi **Elimina gruppo di risorse**.
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e quindi selezionare **Elimina** .
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e quindi selezionare **Elimina**.
 
 Dopo qualche istante, il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
 * Scopri di più su [cache di Azure per Redis](./cache-overview.md)
-* Informazioni su come configurare l'app per le funzioni nella documentazione di [funzioni](../azure-functions/functions-create-function-linux-custom-image.md) .
+* Informazioni su come configurare l'app per le [funzioni](../azure-functions/functions-create-function-linux-custom-image.md) nella documentazione di funzioni.
 * [Riferimento API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
 * Creare un' [app Python che usa cache di Azure per Redis](./cache-python-get-started.md)

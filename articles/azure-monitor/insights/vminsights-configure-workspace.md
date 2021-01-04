@@ -6,24 +6,24 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: a4380ae7fdb523f8b2f5bc14fefa094b6d96e547
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/22/2020
+ms.openlocfilehash: 2625da3a397c2cdcf7880fb371d13e63caeb9ab1
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95750535"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740573"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurare l'area di lavoro Log Analytics per Monitoraggio di Azure per le macchine virtuali
 Monitoraggio di Azure per le macchine virtuali raccoglie i dati da una o più aree di lavoro Log Analytics in monitoraggio di Azure. Prima di caricare gli agenti, è necessario creare e configurare un'area di lavoro. Questo articolo descrive i requisiti dell'area di lavoro e per configurarlo per Monitoraggio di Azure per le macchine virtuali.
 
 ## <a name="overview"></a>Panoramica
-Una singola sottoscrizione può usare un numero qualsiasi di aree di lavoro in base alle proprie esigenze. l'unico requisito dell'area di lavoro è che si trova in una posizione supportata e deve essere configurato con la soluzione *VMInsights* .
+Una singola sottoscrizione può usare un numero qualsiasi di aree di lavoro in base alle esigenze. L'unico requisito dell'area di lavoro è che si trova in una posizione supportata e deve essere configurato con la soluzione *VMInsights* .
 
-Una volta configurata l'area di lavoro, è possibile usare una qualsiasi delle opzioni disponibili per installare gli agenti necessari in VM e VMSS e specificare un'area di lavoro per l'invio dei dati. Monitoraggio di Azure per le macchine virtuali raccoglierà i dati da qualsiasi area di lavoro configurata nella propria sottoscrizione.
+Una volta configurata l'area di lavoro, è possibile usare una qualsiasi delle opzioni disponibili per installare gli agenti necessari nella macchina virtuale e nel set di scalabilità di macchine virtuali e specificare un'area di lavoro per l'invio dei dati. Monitoraggio di Azure per le macchine virtuali raccoglierà i dati da qualsiasi area di lavoro configurata nella propria sottoscrizione.
 
 > [!NOTE]
-> Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o VMSS usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
+> Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o in un set di scalabilità di macchine virtuali usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
 
 
 ## <a name="create-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
@@ -44,29 +44,13 @@ Accedere alle aree di lavoro Log Analytics nel portale di Azure dal menu **log A
 * [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Aree supportate
+Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log Analytics in una delle [aree supportate da log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all) ad eccezione di quanto segue:
 
-Monitoraggio di Azure per le macchine virtuali supporta Log Analytics aree di lavoro nelle aree seguenti, sebbene sia possibile monitorare le macchine virtuali in qualsiasi area. Le macchine virtuali non sono limitate alle aree supportate dall'area di lavoro Log Analytics.
+- Germania centro-occidentale
+- Corea centrale
 
-- Stati Uniti centro-occidentali
-- Stati Uniti occidentali
-- Stati Uniti occidentali 2
-- Stati Uniti centro-meridionali
-- Stati Uniti orientali
-- Stati Uniti Orientali 2
-- Stati Uniti centrali
-- Stati Uniti centro-settentrionali
-- US Gov AZ
-- US Gov va
-- Canada centrale
-- Regno Unito meridionale
-- Europa settentrionale
-- Europa occidentale
-- Asia orientale
-- Asia sud-orientale
-- India centrale
-- Giappone orientale
-- Australia orientale
-- Australia sud-orientale
+>[!NOTE]
+>È possibile monitorare le macchine virtuali di Azure in qualsiasi area. Le macchine virtuali non sono limitate alle aree supportate dall'area di lavoro Log Analytics.
 
 ## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 Per abilitare e accedere alle funzionalità di Monitoraggio di Azure per le macchine virtuali, è necessario avere il [ruolo di collaboratore log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro. Per visualizzare le prestazioni, l'integrità e la mappa dei dati, è necessario avere il [ruolo di lettore di monitoraggio](../platform/roles-permissions-security.md#built-in-monitoring-roles) per la macchina virtuale di Azure. Per altre informazioni su come controllare l'accesso a un'area di lavoro Log Analytics, vedere [Gestire le aree di lavoro](../platform/manage-access.md).
@@ -78,18 +62,18 @@ Prima di poter usare un'area di lavoro Log Analytics con Monitoraggio di Azure p
 > Quando si aggiunge la soluzione *VMInsights* all'area di lavoro, tutte le macchine virtuali esistenti connesse all'area di lavoro inizieranno a inviare i dati a InsightsMetrics. I dati per gli altri tipi di dati non verranno raccolti fino a quando non si aggiungeranno le Dependency Agent alle macchine virtuali esistenti connesse all'area di lavoro.
 
 ### <a name="azure-portal"></a>Portale di Azure
-Sono disponibili tre opzioni per la configurazione di un'area di lavoro esistente usando il portale di Azure. Ognuno di essi è descritto di seguito.
+Sono disponibili tre opzioni per la configurazione di un'area di lavoro esistente usando il portale di Azure. Ciascun elemento è descritto di seguito.
 
-Per configurare una singola area di lavoro, passare all'opzione **macchine virtuali** nel menu **monitoraggio di Azure** , selezionare le **altre opzioni di onboarding** e quindi **configurare un'area di lavoro**. Selezionare una sottoscrizione e un'area di lavoro, quindi fare clic su **Configura**.
+Per configurare una singola area di lavoro, scegliere l'opzione **macchine virtuali** dal menu **monitoraggio di Azure** , selezionare le **altre opzioni di onboarding** e quindi **configurare un'area di lavoro**. Selezionare una sottoscrizione e un'area di lavoro, quindi fare clic su **Configura**.
 
 [![Configurare l'area di lavoro](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
-Per configurare più aree di lavoro, selezionare la scheda **configurazione area di lavoro** nel menu **macchine virtuali** del menu **monitoraggio** della portale di Azure. Impostare i valori del filtro per visualizzare un elenco delle aree di lavoro esistenti. Selezionare la casella accanto a ogni area di lavoro da abilitare, quindi fare clic su **Configura selezionato** .
+Per configurare più aree di lavoro, selezionare la scheda **configurazione area di lavoro** nel menu **macchine virtuali** del menu **monitoraggio** della portale di Azure. Impostare i valori del filtro per visualizzare un elenco delle aree di lavoro esistenti. Selezionare la casella accanto a ogni area di lavoro da abilitare, quindi fare clic su **Configura selezionato**.
 
 [![Configurazione dell'area di lavoro](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o VMSS usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
+Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o in un set di scalabilità di macchine virtuali usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
 
 [![Abilitare una singola VM nel portale](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 
@@ -97,7 +81,7 @@ Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola 
 ### <a name="resource-manager-template"></a>Modello di Resource Manager
 I modelli di Azure Resource Manager per Monitoraggio di Azure per le macchine virtuali sono disponibili in un file di archivio (con estensione zip) che è possibile [scaricare dal repository GitHub](https://aka.ms/VmInsightsARMTemplates). Questo include un modello denominato **ConfigureWorkspace** che configura un'area di lavoro di Log Analytics per monitoraggio di Azure per le macchine virtuali. Questo modello viene distribuito usando uno dei metodi standard, inclusi i comandi PowerShell e CLI di esempio seguenti: 
 
-# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az deployment group create --name ConfigureWorkspace --resource-group my-resource-group --template-file CreateWorkspace.json  --parameters workspaceResourceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace' workspaceLocation='eastus'
