@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562804"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845072"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -22,6 +22,35 @@ ms.locfileid: "97562804"
 ## <a name="metrics-in-azure"></a>Metriche in Azure
 
 [In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni usando l' [api Application Insights per gli eventi e le metriche personalizzati](../app/api-custom-events-metrics.md), l'  [estensione di Windows diagnostica di Azure (WAD)](./diagnostics-extension-overview.md)o l' [API REST di monitoraggio di Azure](./metrics-store-custom-rest-api.md).
+
+## <a name="resource-scope-picker"></a>Selezione ambito risorsa
+La selezione dell'ambito delle risorse consente di visualizzare le metriche in una o più risorse. Di seguito sono riportate le istruzioni su come usare la selezione dell'ambito delle risorse. 
+
+### <a name="selecting-a-single-resource"></a>Selezione di una singola risorsa
+Selezionare **Metriche** dal menu **Monitoraggio di Azure** o dalla sezione **Monitoraggio** del menu di una risorsa. Fare clic sul pulsante "selezionare un ambito" per aprire la selezione dell'ambito, che consente di selezionare le risorse per cui si vogliono visualizzare le metriche. Questa operazione dovrebbe essere già popolata se si apre Esplora metriche dal menu di una risorsa. 
+
+![Screenshot della selezione dell'ambito delle risorse](./media/metrics-charts/scope-picker.png)
+
+Per alcune risorse, è possibile visualizzare solo le metriche di una singola risorsa alla volta. Queste risorse sono disponibili nella sezione "tutti i tipi di risorse" nell'elenco a discesa tipi di risorse.
+
+![Screenshot di una singola risorsa](./media/metrics-charts/single-resource-scope.png)
+
+Dopo aver fatto clic sulla risorsa desiderata, vengono visualizzate tutte le sottoscrizioni e i gruppi di risorse che contengono tale risorsa.
+
+![Screenshot delle risorse disponibili](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> Se si desidera visualizzare contemporaneamente le metriche di più risorse o le metriche in una sottoscrizione o in un gruppo di risorse, fare clic sul pulsante di voto.
+
+Quando si è soddisfatti della selezione, fare clic su "applica".
+
+### <a name="viewing-metrics-across-multiple-resources"></a>Visualizzazione delle metriche tra più risorse
+Alcuni tipi di risorse hanno permesso di eseguire query per le metriche su più risorse, purché si trovino nella stessa sottoscrizione e nella stessa posizione. Questi tipi di risorse sono disponibili nella parte superiore dell'elenco a discesa "tipi di risorse". Per ottenere altre informazioni su come visualizzare le metriche in più risorse, vedere [questo documento](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Screenshot dei tipi di risorse incrociate](./media/metrics-charts/multi-resource-scope.png)
+
+Per i tipi compatibili con più risorse, è anche possibile eseguire una query per le metriche in una sottoscrizione o in più gruppi di risorse. Per informazioni su come eseguire questa operazione, vedere [questo articolo](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Creare visualizzazioni con più metriche e grafici
 
@@ -61,11 +90,25 @@ Si supponga, ad esempio, che il grafico visualizzi la metrica del **tempo di ris
 
 In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistiche di base: **Sum**, **count**, **min**, **Max** e **Average**. L'aggregazione **Sum** viene a volte definita aggregazione **totale** . Per molte metriche, Esplora metriche nasconderà le aggregazioni che sono totalmente irrilevanti e non possono essere usate.
 
-- **Sum** : somma di tutti i valori acquisiti nell'intervallo di aggregazione
-- **Count** : numero di misurazioni acquisite sull'intervallo di aggregazione. Si noti che **count** sarà uguale a **Sum** nel caso in cui la metrica venga sempre acquisita con il valore 1. Questo è comune quando la metrica tiene traccia del numero di eventi distinti e ogni misura rappresenta un evento, ovvero il codice genera un record di metrica ogni volta che viene ricevuta una nuova richiesta.
-- **Media** : media dei valori della metrica acquisiti nell'intervallo di aggregazione
-- **Min** : il valore più piccolo acquisito nell'intervallo di aggregazione
-- **Max** : il valore più grande acquisito nell'intervallo di aggregazione
+**Sum** : somma di tutti i valori acquisiti nell'intervallo di aggregazione
+
+![Screenshot della somma della richiesta](./media/metrics-charts/request-sum.png)
+
+**Count** : numero di misurazioni acquisite sull'intervallo di aggregazione. Si noti che **count** sarà uguale a **Sum** nel caso in cui la metrica venga sempre acquisita con il valore 1. Questo è comune quando la metrica tiene traccia del numero di eventi distinti e ogni misura rappresenta un evento, ovvero il codice genera un record di metrica ogni volta che viene ricevuta una nuova richiesta.
+
+![Screenshot del conteggio della richiesta](./media/metrics-charts/request-count.png)
+
+**Media** : media dei valori della metrica acquisiti nell'intervallo di aggregazione
+
+![Screenshot della richiesta media](./media/metrics-charts/request-avg.png)
+
+**Min** : il valore più piccolo acquisito nell'intervallo di aggregazione
+
+![Screenshot della richiesta minima](./media/metrics-charts/request-min.png)
+
+**Max** : il valore più grande acquisito nell'intervallo di aggregazione
+
+![Screenshot della richiesta max](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>Applicare filtri ai grafici
 

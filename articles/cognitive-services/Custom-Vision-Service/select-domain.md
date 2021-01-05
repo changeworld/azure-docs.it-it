@@ -10,34 +10,34 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 87b9e4a3ca7151b3666928b00add175eddeea050
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0dbd6ea13069b72e6bca5c065af92568a5c7cdb8
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409383"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844947"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selezionare un dominio per un progetto di Visione personalizzata
 
-Dal pannello impostazioni per il progetto di Visione personalizzata, è possibile selezionare un dominio per il progetto. Scegliere il dominio più vicino allo scenario.
+Dalla scheda impostazioni del progetto Visione personalizzata è possibile selezionare un dominio per il progetto. Scegliere il dominio più vicino allo scenario. Se si accede a Visione personalizzata tramite una libreria client o un'API REST, è necessario specificare un ID di dominio quando si crea il progetto. È possibile ottenere un elenco di ID di dominio con i [domini Get](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab)oppure usare la tabella seguente.
 
 ## <a name="image-classification"></a>Classificazione immagini
 
 |Dominio|Scopo|
 |---|---|
-|__Generico__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico.|
-|__Food__|Ottimizzato per fotografie di piatti come nel menù di un ristorante. Se si vogliono classificare fotografie di singoli frutti o verdure, usare il dominio Food (Cibo).|
-|__Punti di riferimento__|Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Il dominio offre i migliori risultati quando il luogo di interesse è chiaramente visibile nella fotografia. Il dominio è efficace anche se il luogo è leggermente nascosto da utenti posti davanti.|
-|__Retail__|Ottimizzato per le immagini che si trovano in un catalogo di vendita o in un sito Web di vendita. Se si vogliono classificare con alta precisione vestiti, pantaloni e magliette o camicie, usare questo dominio.|
+|__Generale__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini è appropriato oppure non si è certi del dominio da scegliere, selezionare il dominio generale. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Food__|Ottimizzato per fotografie di piatti come nel menù di un ristorante. Se si vogliono classificare fotografie di singoli frutti o verdure, usare il dominio Food (Cibo). ID: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
+|__Punti di riferimento__|Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Il dominio offre i migliori risultati quando il luogo di interesse è chiaramente visibile nella fotografia. Il dominio è efficace anche se il luogo è leggermente nascosto da utenti posti davanti. ID: `ca455789-012d-4b50-9fec-5bb63841c793`|
+|__Retail__|Ottimizzato per le immagini che si trovano in un catalogo di vendita o in un sito Web di vendita. Se si vogliono classificare con alta precisione vestiti, pantaloni e magliette o camicie, usare questo dominio. ID: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Domini compatti__| Ottimizzato per i vincoli di classificazione in tempo reale nei dispositivi perimetrali.|
 
 ## <a name="object-detection"></a>Rilevamento di oggetti
 
 |Dominio|Scopo|
 |---|---|
-|__Generale__| Ottimizzato per un'ampia gamma di attività di rilevamento oggetti. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico.|
-|__Logo__|Ottimizzato per il rilevamento di logo dei marchi nelle immagini.|
-|__Prodotti sugli scaffali__|Ottimizzato per il rilevamento e la classificazione dei prodotti sugli scaffali.|
+|__Generale__| Ottimizzato per un'ampia gamma di attività di rilevamento oggetti. Se nessuno degli altri domini è appropriato oppure non si è certi del dominio da scegliere, selezionare il dominio generale. ID: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
+|__Logo__|Ottimizzato per il rilevamento di logo dei marchi nelle immagini. ID: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
+|__Prodotti sugli scaffali__|Ottimizzato per il rilevamento e la classificazione dei prodotti sugli scaffali. ID: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Domini compatti__| Ottimizzato per i vincoli del rilevamento di oggetti in tempo reale nei dispositivi perimetrali.|
 
 ## <a name="compact-domains"></a>Domini compatti
@@ -46,11 +46,11 @@ I modelli generati da domini compatti possono essere esportati per l'esecuzione 
 
 Le prestazioni del modello variano in base al dominio selezionato. Nella tabella seguente vengono segnalate le dimensioni e il tempo di inferenza del modello su Intel Desktop CPU e NVidia GPU \[ 1 \] . Questi numeri non includono la pre-elaborazione e il tempo di postelaborazione.
 
-|Attività|Dominio|Dimensioni del modello|Tempo di inferenza CPU|Tempo di inferenza GPU|
-|---|---|---|---|---|
-|Classificazione|General (compact) (Generale - compatto)|5 MB|13 ms|5 ms|
-|Rilevamento di oggetti|General (compact) (Generale - compatto)|45 MB|35 ms|5 ms|
-|Rilevamento di oggetti|Generale (Compact) [S1]|14 MB|27 ms|7 ms|
+|Attività|Dominio|ID|Dimensioni del modello|Tempo di inferenza CPU|Tempo di inferenza GPU|
+|---|---|---|---|---|---|
+|Classificazione|General (compact) (Generale - compatto)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 MB|13 ms|5 ms|
+|Rilevamento di oggetti|General (compact) (Generale - compatto)|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 ms|5 ms|
+|Rilevamento di oggetti|Generale (Compact) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 ms|7 ms|
 
 >[!NOTE]
 >Il dominio __generale (Compact)__ per il rilevamento di oggetti richiede una logica di postelaborazione speciale. Per informazioni dettagliate, vedere uno script di esempio nel pacchetto zip esportato. Se è necessario un modello senza la logica di postelaborazione, usare __General (Compact) [S1]__.

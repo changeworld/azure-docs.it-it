@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 3f71cef19d25a7f987af4147ae0a889280e49bd1
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 7539e896d810a2f0fbf3c07f389f25e2d3c31fe1
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563161"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844991"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -209,7 +209,7 @@ Le risposte JSON per tutte le chiamate API hanno nuovi formati. Alcune chiavi e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Completare una [guida di avvio rapido sulla libreria client](quickstarts/client-library.md) per apprendere come scrivere un'app di elaborazione moduli con Riconoscimento modulo nel linguaggio preferito.
+Completare una [Guida introduttiva](quickstarts/client-library.md) per iniziare a scrivere un'app di elaborazione moduli con il riconoscimento del modulo nel linguaggio preferito.
 
 ## <a name="see-also"></a>Vedere anche
 

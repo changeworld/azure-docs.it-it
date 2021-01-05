@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: b3a633c1eff6adf2a33b4f3bfc818eb51ff5ee85
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653096"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844970"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Supporto del linguaggio API Analisi del testo V3 
 
@@ -61,9 +61,9 @@ ms.locfileid: "97653096"
 | Linguaggio               | Codice lingua | supporto v 2.1 | supporto V3 | A partire dalla versione del modello V3: |       Note        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabo                |     `ar`      |     ✓      |            |                                 |                    |
-| Ceco                 |     `cs`      |     ✓      |            |                                 |                    |
 | Cinese semplificato     |   `zh-hans`   |     ✓      |            |                                 | Accettato anche `zh` |
 | Cinese tradizionale   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Ceco                 |     `cs`      |     ✓      |            |                                 |                    |
 | Danese                |     `da`      |     ✓      |            |                                 |                    |
 | Olandese                 |     `nl`      |     ✓      |            |                                 |                    |
 | Inglese                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -77,8 +77,8 @@ ms.locfileid: "97653096"
 | Coreano                |     `ko`      |     ✓      |            |                                 |                    |
 | Norvegese (Bokmål)   |     `no`      |     ✓      |            |                                 | Accettato anche `nb` |
 | Polacco                |     `pl`      |     ✓      |            |                                 |                    |
-| Portoghese (Portogallo) |    `pt-PT`    |     ✓      |            |                                 | Accettato anche `pt` |
 | Portoghese (Brasile)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Portoghese (Portogallo) |    `pt-PT`    |     ✓      |            |                                 | Accettato anche `pt` |
 | Russo              |     `ru`      |     ✓      |            |                                 |                    |
 | Spagnolo               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Svedese               |     `sv`      |     ✓      |            |                                 |                    |
@@ -101,8 +101,8 @@ ms.locfileid: "97653096"
 | Coreano                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norvegese (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | Accettato anche `nb` |
 | Polacco                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portoghese (Portogallo) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | Accettato anche `pt` |
 | Portoghese (Brasile)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Portoghese (Portogallo) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | Accettato anche `pt` |
 | Russo               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Spagnolo               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Svedese               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |

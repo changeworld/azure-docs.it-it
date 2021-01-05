@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 64d90b4d9dc3efbe877230bbc20780b1c4f2d213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5773f7af3bb065976e8f05d7b54c58b90da2d3d2
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939750"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835126"
 ---
 # <a name="security-agent-reference-architecture"></a>Architettura di riferimento dell'agente di sicurezza
 
@@ -45,11 +45,11 @@ Gli agenti di sicurezza di Defender per l'it sono sviluppati come progetti open 
 
 Defender for Internet degli altri offre agenti di installazione diversi per le finestre a 32 bit e 64 bit e lo stesso per Linux a 32 bit e 64 bit. Verificare che sia installato il programma di installazione dell'agente corretto per ogni dispositivo in base alla tabella seguente:
 
-| Architettura | Linux | Windows |    Dettagli|
-|----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32bit  | C  | C#  ||
-| 64 bit  | C# o C           | C#      | È consigliabile usare l'agente C per i dispositivi con risorse del dispositivo più limitate o minime.|
-|
+| Architecture | Linux | Windows | Dettagli |
+|--|--|--|--|
+| 32bit | C | C# |  |
+| 64 bit | C# o C | C# | È consigliabile usare l'agente C per i dispositivi con risorse del dispositivo più limitate o minime. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -59,6 +59,6 @@ Per continuare a usare Defender per la distribuzione di Internet delle cose, ved
 
 - Informazioni sui [metodi di autenticazione dell'agente di sicurezza](concept-security-agent-authentication-methods.md)
 - Selezionare e distribuire un [agente di sicurezza](how-to-deploy-agent.md)
-- Esaminare i [prerequisiti del servizio](service-prerequisites.md) Defender per l'it
+- Esaminare il Defender per i [prerequisiti del sistema](quickstart-system-prerequisites.md) Internet delle cose
 - Informazioni su come [abilitare Defender per il servizio Internet delle cose nell'hub Internet delle](quickstart-onboard-iot-hub.md) cose
 - Altre informazioni sul servizio sono disponibili nella pagina [relativa alle domande frequenti su Defender](resources-frequently-asked-questions.md)

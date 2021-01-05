@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936113"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844933"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Abilità cognitiva per la ricerca di entità personalizzate (anteprima)
 
@@ -41,14 +41,16 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | `entitiesDefinitionUri`    | Percorso di un file JSON o CSV contenente tutto il testo di destinazione rispetto al quale eseguire la corrispondenza. Questa definizione di entità viene letta all'inizio dell'esecuzione di un indicizzatore; eventuali aggiornamenti al file a metà esecuzione non verranno realizzati fino alle esecuzioni successive. Questa configurazione deve essere accessibile tramite HTTPS. Per lo schema CSV o JSON previsto, vedere il formato di [definizione dell'entità personalizzata](#custom-entity-definition-format) ".|
 |`inlineEntitiesDefinition` | Definizioni di entità JSON inline. Questo parametro sostituisce il parametro entitiesDefinitionUri se presente. Non è possibile fornire inline più di 10 KB di configurazione. Vedere la [definizione di entità personalizzata](#custom-entity-definition-format) riportata di seguito per lo schema JSON previsto. |
 |`defaultLanguageCode` |    Opzionale Codice di lingua del testo di input utilizzato per tokenize e delineare il testo di input. Sono supportate le lingue seguenti: `da, de, en, es, fi, fr, it, ko, pt` . Il valore predefinito è inglese ( `en` ). Se si passa un formato languagecode-countrycode, viene usata solo la parte languagecode del formato.  |
-
+|`globalDefaultCaseSensitive` | Opzionale Valore predefinito della distinzione tra maiuscole e minuscole per la competenza. Se `defaultCaseSensitive` il valore di un'entità non è specificato, questo valore diventerà il `defaultCaseSensitive` valore per tale entità. |
+|`globalDefaultAccentSensitive` | Opzionale Valore predefinito con distinzione tra caratteri accentati per la competenza. Se `defaultAccentSensitive` il valore di un'entità non è specificato, questo valore diventerà il `defaultAccentSensitive` valore per tale entità. |
+|`globalDefaultFuzzyEditDistance` | Opzionale Valore predefinito della distanza di modifica fuzzy per la competenza. Se `defaultFuzzyEditDistance` il valore di un'entità non è specificato, questo valore diventerà il `defaultFuzzyEditDistance` valore per tale entità. |
 
 ## <a name="skill-inputs"></a>Input competenze
 
 | Nome input      | Descrizione                   |
 |---------------|-------------------------------|
 | `text`          | Testo da analizzare.          |
-| `languageCode`    | Facoltativa. Il valore predefinito è `"en"`.  |
+| `languageCode`    | facoltativo. Il valore predefinito è `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Output competenze
@@ -151,8 +153,10 @@ Le tabelle seguenti descrivono in modo più dettagliato i diversi parametri di c
 | `subtype` | Opzionale Questo campo può essere utilizzato come passthrough per i metadati personalizzati relativi ai testi corrispondenti. Il valore di questo campo verrà visualizzato con ogni corrispondenza della relativa entità nell'output della competenza. |
 | `id` | Opzionale Questo campo può essere utilizzato come passthrough per i metadati personalizzati relativi ai testi corrispondenti. Il valore di questo campo verrà visualizzato con ogni corrispondenza della relativa entità nell'output della competenza. |
 | `caseSensitive` | Opzionale Il valore predefinito è false. Valore booleano che indica se i confronti con il nome dell'entità devono essere sensibili alle maiuscole e minuscole dei caratteri. Le corrispondenze senza distinzione tra maiuscole e minuscole di esempio di "Microsoft" possono essere: Microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | Opzionale Il valore predefinito è false. Valore booleano che indica se le lettere accentate e non accentate, ad esempio "é" e "e", devono essere identiche. |
 | `fuzzyEditDistance` | Opzionale Il valore predefinito è 0. Valore massimo di 5. Indica il numero accettabile di caratteri divergenti che costituirebbero comunque una corrispondenza con il nome dell'entità. Viene restituito il minor confusione possibile per ogni corrispondenza specificata.  Se ad esempio la distanza di modifica è impostata su 3, "Windows 10" corrisponderà ancora a "Windows", "Windows10" e "Windows 7". <br/> Se la distinzione tra maiuscole e minuscole è impostata su false, le differenze tra maiuscole e minuscole non vengono conteggiate per la tolleranza confusione. |
-| `defaultCaseSensitive` | Opzionale Modifica il valore predefinito della distinzione tra maiuscole e minuscole per questa entità. Viene usato per modificare il valore predefinito di tutti i valori caseSensitive di alias. |
+| `defaultCaseSensitive` | Opzionale Modifica il valore predefinito della distinzione tra maiuscole e minuscole per questa entità. Può essere usato per modificare il valore predefinito di tutti i valori caseSensitive di alias. |
+| `defaultAccentSensitive` | Opzionale Modifica il valore predefinito della distinzione tra caratteri accentati per questa entità. Può essere usato per modificare il valore predefinito di tutti i valori accentSensitive di alias.|
 | `defaultFuzzyEditDistance` | Opzionale Modifica il valore predefinito della distanza di modifica fuzzy per questa entità. Può essere usato per modificare il valore predefinito di tutti i valori fuzzyEditDistance di alias. |
 | `aliases` | Opzionale Matrice di oggetti complessi che può essere utilizzata per specificare ortografie alternative o sinonimi per il nome dell'entità radice. |
 
@@ -160,6 +164,7 @@ Le tabelle seguenti descrivono in modo più dettagliato i diversi parametri di c
 |------------------|-------------|
 | `text`  | Ortografia alternativa o rappresentazione di un nome di entità di destinazione.  |
 | `caseSensitive` | Opzionale Funziona allo stesso modo del parametro "caseSensitive" dell'entità radice, ma si applica solo a questo alias. |
+| `accentSensitive` | Opzionale Funziona allo stesso modo del parametro "accentSensitive" dell'entità radice, ma si applica solo a questo alias. |
 | `fuzzyEditDistance` | Opzionale Funziona allo stesso modo del parametro "fuzzyEditDistance" dell'entità radice, ma si applica solo a questo alias. |
 
 

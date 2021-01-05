@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3ba0788b150f39c43471fd9d5e69b14a36ddbb78
-  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+  ms.openlocfilehash: a94e30beb495d3ead38a14ef86c050dfc1afd0fd
+  ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95493605"
+  ms.lasthandoff: 01/01/2021
+  ms.locfileid: "97845273"
 landingContent:
 - title: Informazioni su Riconoscimento modulo
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
     - text: Uso di JavaScript SDK
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Uso dell'API REST (cURL)
-      url: quickstarts/curl-train-extract.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
 - title: Creare un set di dati di training
   linkLists:
   - linkListType: how-to-guide
@@ -62,8 +62,6 @@ landingContent:
     links:
     - text: Eseguire il training usando lo strumento di etichettatura di esempio
       url: quickstarts/label-tool.md
-    - text: Eseguire il training con le etichette usando l'API REST e Python
-      url: quickstarts/python-labeled-data.md
 - title: Estrarre dati dalle ricevute
   linkLists:
   - linkListType: quickstart
@@ -77,9 +75,7 @@ landingContent:
     - text: Uso di JavaScript SDK
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Uso dell'API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Uso dell'API REST (cURL)
-      url: quickstarts/curl-receipts.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
   - linkListType: concept
     links:
     - text: Concetti relativi alle ricevute
@@ -88,8 +84,16 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Utilizzo dell'API REST
-      url: quickstarts/python-business-cards.md?
+    - text: Uso di .NET SDK
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Uso di Python SDK
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Uso di Java SDK
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Uso di JavaScript SDK
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Uso dell'API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
   - linkListType: concept
     links:
     - text: Concetti relativi ai biglietti da visita
@@ -111,9 +115,7 @@ landingContent:
     - text: Uso di JavaScript SDK
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Uso dell'API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Uso dell'API REST (Python)
-      url: quickstarts/python-layout.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
 - title: Usare i contenitori
   linkLists:
   - linkListType: get-started
