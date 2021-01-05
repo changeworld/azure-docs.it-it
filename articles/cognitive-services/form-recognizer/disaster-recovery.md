@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359813"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808257"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Eseguire il backup e il ripristino dei modelli di riconoscimento moduli
 
-Quando si crea una risorsa di riconoscimento del modulo nella portale di Azure, è necessario specificare un'area. Da quel punto in poi, la risorsa e tutte le relative operazioni vengono mantenute associate a questa particolare area del server di Azure. È raro, ma non impossibile, incontrare un problema di rete che raggiunge un'intera area. Se la soluzione deve essere sempre disponibile, è necessario progettarla per eseguire il failover in un'altra area oppure suddividere il carico di lavoro tra due o più aree. Entrambi gli approcci richiedono almeno due risorse di riconoscimento form in aree diverse e la possibilità di sincronizzare i [modelli personalizzati](./quickstarts/curl-train-extract.md) tra le aree.
+Quando si crea una risorsa di riconoscimento del modulo nella portale di Azure, è necessario specificare un'area. Da quel punto in poi, la risorsa e tutte le relative operazioni vengono mantenute associate a questa particolare area del server di Azure. È raro, ma non impossibile, incontrare un problema di rete che raggiunge un'intera area. Se la soluzione deve essere sempre disponibile, è necessario progettarla per eseguire il failover in un'altra area oppure suddividere il carico di lavoro tra due o più aree. Entrambi gli approcci richiedono almeno due risorse di riconoscimento form in aree diverse e la possibilità di sincronizzare i modelli personalizzati tra le aree.
 
 L'API di copia Abilita questo scenario consentendo di copiare modelli personalizzati da un account di riconoscimento form o in altri, che possono esistere in qualsiasi area geografica supportata. Questa guida illustra come usare l'API REST di copia con cURL. Per eseguire le richieste, è anche possibile usare un servizio di richiesta HTTP, ad esempio il poster.
 

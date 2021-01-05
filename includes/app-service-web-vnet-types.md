@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999442"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97812757"
 ---
 * I sistemi multi-tenant che supportano l'intera gamma di piani tariffari eccetto isolated.
 * Il ambiente del servizio app, che distribuisce nella VNet e supporta le app di piano tariffario isolate.
@@ -33,7 +33,7 @@ Ci sono alcuni aspetti che l'integrazione VNet non supporta, ad esempio:
 * Active Directory l'integrazione.
 * NetBIOS.
 
-Gateway: l'integrazione VNet necessaria consente di accedere alle risorse solo nel VNet di destinazione o nelle reti connesse al VNet di destinazione con peering o VPN. Gateway: l'integrazione VNet necessaria non consente l'accesso alle risorse disponibili tra le connessioni ExpressRoute di Azure o funziona con gli endpoint di servizio.
+Gateway: l'integrazione VNet necessaria consente di accedere alle risorse solo nel VNet di destinazione o nelle reti connesse al VNet di destinazione con peering o VPN. Gateway: l'integrazione VNet necessaria non consente l'accesso alle risorse disponibili tra le connessioni ExpressRoute di Azure o l'uso degli endpoint di servizio.
 
 Indipendentemente dalla versione usata, l'integrazione di VNet consente all'app di accedere alle risorse nel VNet, ma non concede l'accesso privato in ingresso all'app dal VNet. L'accesso al sito privato fa riferimento a rendere l'app accessibile solo da una rete privata, ad esempio dall'interno di una VNet di Azure. L'integrazione di VNet è solo per la creazione di chiamate in uscita dall'app in VNet.
 

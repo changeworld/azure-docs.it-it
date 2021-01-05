@@ -4,12 +4,12 @@ description: Informazioni sui servizi e sullo schema di eventi supportati per i 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: c1c5ed715527add4218378c05602ed3352e55461
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f5ea6d3f28fe85cf1453f3cf2b9eb0132bda0013
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586942"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808301"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 
@@ -23,7 +23,7 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 ## <a name="top-level-common-schema"></a>Schema comune di primo livello
 
-| Name | Obbligatorio/facoltativo | Descrizione |
+| Nome | Obbligatorio/facoltativo | Descrizione |
 |---|---|---|
 | time | Obbligatorio | Il timestamp dell’evento (fuso UTC). |
 | resourceId | Obbligatorio | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
@@ -77,10 +77,10 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Load Balancer |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Protezione DDoS | [Gestire la protezione DDoS di Azure Standard](../../ddos-protection/reports-and-flow-logs.md#sample-log-outputs) |
+| Protezione DDoS | [Gestire la protezione DDoS di Azure Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per backup di Azure](../../backup/backup-azure-reports-data-model.md)|
-| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
+| Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione del database SQL di Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Analisi di flusso |[Log di processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

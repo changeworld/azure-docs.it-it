@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: eff738e24b3abce52e80291c55a3ae64c3c8c853
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905495"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813786"
 ---
-# <a name="test-through-simulations"></a>Eseguire test tramite simulazioni
+# <a name="test-through-simulations"></a>Testare con le simulazioni
 
 È consigliabile testare le ipotesi su come i servizi risponderanno a un attacco effettuando simulazioni periodiche. Durante il test, verificare che i servizi o le applicazioni continuino a funzionare come previsto e che non ci siano interruzioni nell'esperienza dell'utente finale. Identificare le lacune sia dal punto di vista tecnologico che da quello dei processi e integrarle nella strategia di risposta DDoS. È consigliabile eseguire tali test in ambienti di staging o in ore non di punta per ridurre al minimo l'impatto sull'ambiente di produzione.
 
@@ -36,15 +36,15 @@ Abbiamo collaborato con [BreakingPoint cloud](https://www.ixiacom.com/products/b
 
 ## <a name="configure-a-ddos-test-attack"></a>Configurare un attacco di test DDoS
 
-1. Immettere o selezionare i valori seguenti e quindi selezionare **Avvia test** :
+1. Immettere o selezionare i valori seguenti e quindi selezionare **Avvia test**:
 
     |Impostazione        |valore                                              |
     |---------      |---------                                          |
     |Indirizzo IP di destinazione           | Immettere uno degli indirizzi IP pubblici che si desidera testare.                     |
-    |Numero porta   | Immettere _443_ .                       |
-    |Profilo DDoS | Selezionare **TCP SYN Flood** .|
+    |Numero porta   | Immettere _443_.                       |
+    |Profilo DDoS | Selezionare **TCP SYN Flood**.|
     |Dimensioni test       | Selezionare 200.000 **PPS, 100 Mbps e 8 IP di origine.**                                  |
-    |Durata test | Selezionare **10 minuti** .|
+    |Durata test | Selezionare **10 minuti**.|
 
 Il punto dovrebbe essere simile al seguente:
 
@@ -54,15 +54,19 @@ Il punto dovrebbe essere simile al seguente:
 
 1. Accedere a https://portal.azure.com e andare alla sottoscrizione.
 1. Selezionare l'indirizzo IP pubblico su cui è stato testato l'attacco.
-1. In **Monitoraggio** selezionare **Metrica** .
-1. Per **metrica** selezionare _sotto attacco DDoS o no_ .
+1. In **Monitoraggio** selezionare **Metrica**.
+1. Per **metrica** selezionare _sotto attacco DDoS o no_.
 
-Quando la risorsa è sotto attacco, si noterà che il valore cambia da **0** a **1** , come nell'immagine seguente:
+Quando la risorsa è sotto attacco, si noterà che il valore cambia da **0** a **1**, come nell'immagine seguente:
 
 ![Esempio di simulazione di attacco DDoS: portale](./media/ddos-attack-simulation/ddos-attack-simulation-example-2.png)
 
+### <a name="breakingpoint-cloud-api-script"></a>Script API cloud BreakingPoint
+
+Questo [script API](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) può essere usato per automatizzare i test DDoS eseguendo una sola volta o usando cron per pianificare i test normali. Questa operazione è utile per verificare che la registrazione sia configurata correttamente e che le procedure di rilevamento e risposta siano effettive. Gli script richiedono un sistema operativo Linux (testato con Ubuntu 18,04 LTS) e Python 3. Installare i prerequisiti e il client API usando lo script incluso o usando la documentazione nel sito Web [BreakingPoint cloud](http://breakingpoint.cloud/) .
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [visualizzare e configurare la telemetria di protezione DDoS](telemetry-monitoring-alerting.md).
-- Informazioni su come [configurare i report di mitigazione degli attacchi DDoS e i log dei flussi](reports-and-flow-logs.md).
+- Informazioni su come [visualizzare e configurare la telemetria di protezione DDoS](telemetry.md).
+- Informazioni su come [visualizzare e configurare la registrazione diagnostica DDoS](diagnostic-logging.md).
 - Informazioni su come [coinvolgere la risposta rapida DDoS](ddos-rapid-response.md).

@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d8cb5179583dd23ea2bd4baf5ebe7d84b0ae9cbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028547"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814432"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Vantaggi dell'impegno per il consumo di Azure
 
@@ -31,7 +31,7 @@ Per usufruire di questo vantaggio, è sufficiente acquistare un'offerta idonea i
 
 ## <a name="determine-if-your-organization-has-an-azure-consumption-commitment-maccctc"></a>Determinare se l'organizzazione ha un impegno per il consumo di Azure (MACC/CtC)
 
-Se non si è certi che l'organizzazione abbia un contratto valido, accedere all'esperienza del Marketplace all'interno del [portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) in un tenant associato alla propria organizzazione. Se viene visualizzata l'opzione **idonea** per i vantaggi di Azure all'interno del filtro prezzi, si ha un impegno di consumo di Azure idoneo. La qualificazione degli acquisti in Azure Marketplace contribuirà al tuo impegno per il consumo di Azure dell'organizzazione, se acquistato direttamente tramite Azure Marketplace.
+Se non si è certi che l'organizzazione abbia un contratto valido, accedere all'esperienza del Marketplace all'interno del [portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) in un tenant associato alla propria organizzazione. Se viene visualizzata l'opzione per selezionare i **vantaggi di Azure idonei solo** come opzione di filtro, si ha un impegno per il consumo di Azure idoneo. La qualificazione degli acquisti in Azure Marketplace contribuirà al tuo impegno per il consumo di Azure dell'organizzazione, se acquistato direttamente tramite Azure Marketplace.
 
 [![Opzione di menu idoneo per i vantaggi di Azure.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
 

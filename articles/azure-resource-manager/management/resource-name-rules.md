@@ -2,13 +2,13 @@
 title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
-ms.date: 12/04/2020
-ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608317"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814381"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -170,7 +170,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | galleries | gruppo di risorse | 1-80 | Caratteri alfanumerici e punti.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
 > | galleries/applications | gallery | 1-80 | Caratteri alfanumerici, trattini e punti.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
 > | galleries/applications/versions | application | Intero a 32 bit | Numeri e punti. |
-> | galleries/images | gallery | 1-80 | Caratteri alfanumerici, trattini e punti.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
+> | galleries/images | gallery | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, trattini e punti.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
 > | galleries/images/versions | image | Intero a 32 bit | Numeri e punti. |
 > | images | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
 > | snapshots | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
@@ -537,7 +537,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
 > | clusters | gruppo di risorse | 4-63 | Caratteri alfanumerici e trattini.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
-> | aree di lavoro | gruppo di risorse | 4-63 | Caratteri alfanumerici e trattini.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
+> | aree di lavoro | globale | 4-63 | Caratteri alfanumerici e trattini.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

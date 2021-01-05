@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
-ms.openlocfilehash: c30cecf0b480a1765f04ee48a0fd66f4ddd52708
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.reviewer: bonova, sstein, danil
+ms.date: 12/25/2020
+ms.openlocfilehash: 7bdde57c1d33118fd7d3c8e04a2507d8997c36d0
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630327"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809514"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -51,7 +51,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [Regole di confronto - server/istanza](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, le regole di confronto del server predefinite `SQL_Latin1_General_CP1_CI_AS` vengono sempre usate. | Sì, può essere impostato al momento della [creazione dell'istanza](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) e non può essere aggiornato in un secondo momento. |
 | [Indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì, livello [Premium, livello Standard-S3 e versioni successive, livello per utilizzo generico, business critical e livelli Iperscalabili](/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
 | [Common Language Runtime-CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Sì, ma senza accesso a file system nell' `CREATE ASSEMBLY` istruzione, vedere [differenze CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
-| [Credenziali](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sì, ma solo le [credenziali con ambito database](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Sì, ma solo **Azure Key Vault** e `SHARED ACCESS SIGNATURE` sono supportati vedere [i dettagli](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
+| [Credenziali](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sì, ma solo le [credenziali con ambito database](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Sì, ma solo **Azure Key Vault** e `SHARED ACCESS SIGNATURE` sono supportati. vedere [i dettagli](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
 | [Query sul nome tra database/tre parti](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No, vedere [Query elastiche](elastic-query-overview.md) | Sì, oltre a [Query elastiche](elastic-query-overview.md) |
 | [Transazioni tra database](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No | Sì, all'interno dell'istanza. Vedere [differenze tra server collegati](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) per le query tra istanze. |
 | [Posta elettronica database-DbMail](/sql/relational-databases/database-mail/database-mail) | No | Sì |
@@ -128,6 +128,7 @@ La piattaforma Azure offre una serie di funzionalità PaaS che vengono aggiunte 
 | [Integrità risorse di Azure](../../service-health/resource-health-overview.md) | Sì | No |
 | Conservazione dei backup | Sì. 7 giorni per impostazione predefinita, massimo 35 giorni. | Sì. 7 giorni per impostazione predefinita, massimo 35 giorni. |
 | [Servizio Migrazione del database](/sql/dma/dma-overview) | Sì | Sì |
+| [Processi elastici](elastic-jobs-overview.md) | Sì, vedere [processi elastici (anteprima)](elastic-jobs-overview.md) | No (in alternativa, è possibile usare[SQL Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) ). |
 | Accesso al file system | No. Usare [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) per accedere ai dati e caricarli dall'archiviazione BLOB di Azure come alternativa. | No. Usare [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) per accedere ai dati e caricarli dall'archiviazione BLOB di Azure come alternativa. |
 | [Ripristino geografico](recovery-using-backups.md#geo-restore) | Sì | Sì |
 | [Architettura con iperscalabilità](service-tier-hyperscale.md) | Sì | No |
@@ -147,7 +148,7 @@ La piattaforma Azure offre una serie di funzionalità PaaS che vengono aggiunte 
 | [Informazioni dettagliate prestazioni query (QPI)](query-performance-insight-use.md) | Sì | No. Usare i report predefiniti in SQL Server Management Studio e Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Parziale, Abilita l'accesso limitato usando gli [endpoint VNet](vnet-service-endpoint-rule-overview.md) | Sì, SQL Istanza gestita viene inserito nel VNet del cliente. Vedere [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) e [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | Endpoint servizio della rete virtuale | [Sì](vnet-service-endpoint-rule-overview.md) | No |
-| Peering globale VNet | Sì, usando gli [endpoint di servizio e IP privato](vnet-service-endpoint-rule-overview.md) | No, il [istanza gestita SQL non è supportato](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a causa [del vincolo del servizio di bilanciamento del carico nel peering globale VNet](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| Peering globale VNet | Sì, usando gli [endpoint di servizio e IP privato](vnet-service-endpoint-rule-overview.md) | Sì, usando il [peering di rete virtuale](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 
 ## <a name="tools"></a>Strumenti
 
@@ -158,7 +159,7 @@ Il database SQL di Azure e Azure SQL Istanza gestita supportano diversi strument
 | Portale di Azure | Sì | Sì |
 | Interfaccia della riga di comando di Azure | Sì | Sì|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Sì | Sì |
-| Azure PowerShell | Sì | Sì |
+| Azure Powershell | Sì | Sì |
 | [File BACPAC (esportazione)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sì. Vedere [Esportazione di un database SQL](database-export.md) | Sì. vedere [esportazione istanza gestita SQL](database-export.md) |
 | [File BACPAC (importazione)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sì. Vedere [Importazione di un database SQL](database-import.md) | Sì. vedere [importazione SQL istanza gestita](database-import.md) |
 | [Data Quality Services (DQS)](/sql/data-quality-services/data-quality-services) | No | No |

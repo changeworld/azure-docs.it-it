@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6c628d93c112a770c85a10d0eff958614a7cf4cb
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989616"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814160"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Guida introduttiva: creare e configurare protezione DDoS di Azure standard usando l'interfaccia della riga di comando
 
@@ -26,7 +26,7 @@ Un piano di protezione DDoS definisce un set di reti virtuali in cui è abilitat
 
 In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà collegato a una rete virtuale. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Interfaccia della riga di comando di Azure installata in locale o Azure Cloud Shell
@@ -134,4 +134,4 @@ Se si vuole eliminare un piano di protezione DDoS, è necessario innanzitutto an
 Per informazioni su come visualizzare e configurare i dati di telemetria per il piano di protezione DDoS, continuare con le esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry-monitoring-alerting.md)
+> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry.md)

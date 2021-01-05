@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094575"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813939"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Guida introduttiva: creare e configurare la protezione DDoS di Azure standard
 
@@ -38,32 +38,32 @@ In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà c
 ## <a name="create-a-ddos-protection-plan"></a>Creare un piano di protezione DDoS
 
 1. Selezionare **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
-2. Cercare il termine *DDoS* . Quando il **piano di protezione DDoS** viene visualizzato nei risultati della ricerca, selezionarlo.
-3. Selezionare **Crea** .
-4. Immettere o selezionare i valori seguenti e quindi selezionare **Crea** :
+2. Cercare il termine *DDoS*. Quando il **piano di protezione DDoS** viene visualizzato nei risultati della ricerca, selezionarlo.
+3. Selezionare **Crea**.
+4. Immettere o selezionare i valori seguenti e quindi selezionare **Crea**:
 
-    |Impostazione        |Valore                                              |
+    |Impostazione        |valore                                              |
     |---------      |---------                                          |
-    |Nome           | Immettere _MyDdosProtectionPlan_ .                     |
+    |Nome           | Immettere _MyDdosProtectionPlan_.                     |
     |Subscription   | Selezionare la propria sottoscrizione.                         |
-    |Resource group | Selezionare **Crea nuovo** e immettere _MyResourceGroup_ .|
-    |Location       | Immettere _Stati Uniti orientali_ .                                  |
+    |Resource group | Selezionare **Crea nuovo** e immettere _MyResourceGroup_.|
+    |Location       | Immettere _Stati Uniti orientali_.                                  |
 
 ## <a name="enable-ddos-protection-for-a-virtual-network"></a>Abilitare la protezione DDoS per una rete virtuale
 
 ### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Abilitare la protezione DDoS per una nuova rete virtuale
 
 1. Selezionare **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
-2. Selezionare **rete e quindi** **rete virtuale** .
-3. Immettere o selezionare i valori seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea** :
+2. Selezionare **Rete** e quindi **Rete virtuale**.
+3. Immettere o selezionare i valori seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    | Impostazione         | Valore                                           |
+    | Impostazione         | valore                                           |
     | ---------       | ---------                                       |
-    | Nome            | Immettere _MyVnet_ .                                 |
+    | Nome            | Immettere _MyVnet_.                                 |
     | Subscription    | Selezionare la propria sottoscrizione.                                    |
     | Resource group  | Selezionare **Usa esistente** e quindi selezionare **MyResourceGroup** |
     | Location        | Immettere _Stati Uniti orientali_                                                    |
-    | Protezione DDoS Standard | Selezionare **Abilita** . Il piano selezionato può essere nella stessa sottoscrizione della rete virtuale o in una diversa, ma entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory.|
+    | Protezione DDoS Standard | Selezionare **Abilita**. Il piano selezionato può essere nella stessa sottoscrizione della rete virtuale o in una diversa, ma entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory.|
 
 Non è possibile spostare una rete virtuale in un altro gruppo di risorse o in un'altra sottoscrizione quando la protezione DDoS standard è abilitata per la rete virtuale. Se si vuole spostare una rete virtuale con la protezione DDoS standard abilitata, disabilitare innanzitutto la protezione, spostare la rete virtuale e quindi abilitare la protezione DDoS standard. Dopo lo spostamento, vengono reimpostate le soglie dei criteri ottimizzati automaticamente per tutti gli indirizzi IP pubblici protetti nella rete virtuale.
 
@@ -72,15 +72,19 @@ Non è possibile spostare una rete virtuale in un altro gruppo di risorse o in u
 1. Creare un piano di protezione DDoS completando i passaggi descritti in [Creare un piano di protezione DDoS](#create-a-ddos-protection-plan), se non si dispone di un piano di protezione DDoS esistente.
 2. Selezionare **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 3. Immettere il nome della rete virtuale per la quale si vuole abilitare la protezione DDoS standard nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Quando il nome della rete virtuale viene visualizzato nei risultati della ricerca, selezionarlo.
-4. Selezionare **Protezione DDoS** in **Impostazioni** .
-5. Selezionare **Standard** . In **DDoS protection plan** (Piano di protezione DDoS) selezionare un piano di protezione DDoS esistente o il piano creato nel passaggio 1, quindi selezionare **Salva** . Il piano selezionato può essere nella stessa sottoscrizione della rete virtuale o in una diversa, ma entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory.
+4. Selezionare **Protezione DDoS** in **Impostazioni**.
+5. Selezionare **Standard**. In **DDoS protection plan** (Piano di protezione DDoS) selezionare un piano di protezione DDoS esistente o il piano creato nel passaggio 1, quindi selezionare **Salva**. Il piano selezionato può essere nella stessa sottoscrizione della rete virtuale o in una diversa, ma entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory.
+
+### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Abilitare la protezione DDoS per tutte le reti virtuali
+
+Questo [criterio](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) rileverà le reti virtuali in un ambito definito in cui non è abilitato protezione DDoS standard, quindi creare un'attività di correzione che creerà l'associazione per proteggere il VNet. Per istruzioni dettagliate su come distribuire questo criterio, vedere https://aka.ms/ddosvnetpolicy-techcommunity .
 
 ## <a name="validate-and-test"></a>Convalida e verifica
 
 Per prima cosa, verificare i dettagli del piano di protezione DDoS:
 
 1. Selezionare **Tutti i servizi** nella parte superiore sinistra del portale.
-2. Immettere *DDoS* nella casella **Filtro** . Selezionare **Piani di protezione DDoS** quando viene visualizzato nei risultati della ricerca.
+2. Immettere *DDoS* nella casella **Filtro**. Selezionare **Piani di protezione DDoS** quando viene visualizzato nei risultati della ricerca.
 3. Selezionare il piano di protezione DDoS dall'elenco.
 
 Verrà visualizzata la rete virtuale _MyVnet_ . 
@@ -96,14 +100,14 @@ Verrà visualizzata la rete virtuale _MyVnet_ .
 
 2. Filtrare o scorrere verso il basso per trovare il gruppo di risorse _MyResourceGroup_ .
 
-3. Selezionare il gruppo di risorse e quindi **Elimina gruppo di risorse** .
+3. Selezionare il gruppo di risorse e quindi **Elimina gruppo di risorse**.
 
-4. Digitare il nome del gruppo di risorse per verifica, quindi selezionare **Elimina** .
+4. Digitare il nome del gruppo di risorse per verifica, quindi selezionare **Elimina**.
 
 Per disabilitare la protezione DDoS per una rete virtuale: 
 
 1. Immettere il nome della rete virtuale per la quale si vuole disabilitare la protezione DDoS standard nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Quando il nome della rete virtuale viene visualizzato nei risultati della ricerca, selezionarlo.
-2. Selezionare **in protezione DDoS standard** , selezionare **Disabilita** .
+2. Selezionare **in protezione DDoS standard**, selezionare **Disabilita**.
 
 Se si vuole eliminare un piano di protezione DDoS, è necessario innanzitutto annullare l'associazione di tutte le reti virtuali. 
 
@@ -112,4 +116,4 @@ Se si vuole eliminare un piano di protezione DDoS, è necessario innanzitutto an
 Per informazioni su come visualizzare e configurare i dati di telemetria per il piano di protezione DDoS, continuare con le esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry-monitoring-alerting.md)
+> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry.md)

@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c6bac44e6f7212344463665840f180732970c3d4
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1f7a493c071e86114afd7d4a9e08e204bbab509d
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657159"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809480"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -32,10 +32,9 @@ Prima di poter creare una connessione, è necessario aggiungere connettore.
 
    ![Screenshot che mostra il pulsante Crea in Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Nella sezione **area di lavoro di OMS** selezionare l'area di lavoro log Analytics di Azure in cui si vuole installare connettore.
+3. Nella sezione **area di lavoro** , selezionare l'area di lavoro log Analytics di Azure in cui si vuole installare connettore.
    >[!NOTE]
    >
-   > * Nell'ambito della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate *log Analytics aree di lavoro*.
    > * CONNETTORE può essere installato solo nelle aree di lavoro Log Analytics nelle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, US Gov Arizona, US Gov Virginia, Canada centrale, Europa occidentale, Regno Unito meridionale, Asia sudorientale, Giappone orientale, India centrale e Australia sudorientale.
 
 4. Nella sezione **area di lavoro log Analytics** selezionare il gruppo di risorse in cui si vuole creare la risorsa connettore:
@@ -56,10 +55,10 @@ Per creare una connessione, è necessario preparare lo strumento ITSM per consen
 
 In base al prodotto ITSM a cui si sta effettuando la connessione, selezionare uno dei collegamenti seguenti per le istruzioni:
 
-- [System Center Service Manager](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [ServiceNow](./itsmc-connections-servicenow.md)
+- [System Center Service Manager](./itsmc-connections-scsm.md)
+- [Cherwell](./itsmc-connections-cherwell.md)
+- [Provance](./itsmc-connections-provance.md)
 
 Dopo aver preparato gli strumenti ITSM, completare la procedura seguente per creare una connessione:
 
@@ -70,10 +69,14 @@ Dopo aver preparato gli strumenti ITSM, completare la procedura seguente per cre
 1. In **origini dati dell'area di lavoro** nel riquadro sinistro selezionare **connessioni ITSM**:
 
    ![Screenshot che mostra la voce di menu connessioni ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
-   Questa pagina mostra l'elenco di connessioni.
 1. Selezionare **Aggiungi connessione**.
 
-4. Specificare le impostazioni di connessione come descritto in [configurazione della connessione connettore con i prodotti/servizi di ITSM](./itsmc-connections.md).
+1. Specificare le impostazioni di connessione descritte in base ai prodotti/servizi ITSM:
+
+    - [ServiceNow](./itsmc-connections-servicenow.md)
+    - [System Center Service Manager](./itsmc-connections-scsm.md)
+    - [Cherwell](./itsmc-connections-cherwell.md)
+    - [Provance](./itsmc-connections-provance.md)
 
    > [!NOTE]
    >
@@ -83,13 +86,7 @@ Dopo aver preparato gli strumenti ITSM, completare la procedura seguente per cre
 
 ## <a name="use-itsmc"></a>Usare connettore
 
-   È possibile usare connettore per creare elementi di lavoro da avvisi di Azure, Log Analytics avvisi e Log Analytics record di log.
-
-## <a name="template-definitions"></a>Definizioni di modello
-
-   Sono disponibili tipi di elemento di lavoro che possono usare i modelli definiti dallo strumento ITSM.
-Utilizzando i modelli, è possibile definire i campi che verranno popolati automaticamente in base ai valori fissi definiti come parte del gruppo di azioni. I modelli vengono definiti nello strumento ITSM.
-È possibile definire in quale modello si vuole usare come parte della definizione del gruppo di azioni.
+   È possibile usare connettore per creare avvisi dagli avvisi di monitoraggio di Azure nello strumento ITSM.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Creare elementi di lavoro di Gestione dei servizi IT dagli avvisi di Azure
 
@@ -100,7 +97,13 @@ I gruppi di azioni forniscono un metodo modulare e riutilizzabile per attivare l
 > [!NOTE]
 > Dopo aver creato la connessione ITSM, è necessario attendere 30 minuti per il completamento del processo di sincronizzazione.
 
-Usare la procedura seguente per creare elementi di lavoro:
+### <a name="template-definitions"></a>Definizioni di modello
+
+   Sono disponibili tipi di elemento di lavoro che possono usare i modelli definiti dallo strumento ITSM.
+Utilizzando i modelli, è possibile definire i campi che verranno popolati automaticamente in base ai valori fissi definiti come parte del gruppo di azioni. I modelli vengono definiti nello strumento ITSM.
+È possibile definire il modello che si desidera utilizzare come parte della definizione del gruppo di azioni.
+
+Utilizzare la seguente procedura per creare i gruppi di azioni:
 
 1. Nella portale di Azure selezionare  **avvisi**.
 2. Nel menu nella parte superiore della schermata selezionare **Gestisci azioni**:
@@ -115,13 +118,16 @@ Usare la procedura seguente per creare elementi di lavoro:
 
 4. Nell'elenco delle notifiche selezionare **Avanti: azioni**.
 5. Nell'elenco azioni selezionare **ITSM** nell'elenco tipo di **azione** . Consente di specificare un **nome** per l'azione. Selezionare il pulsante penna che rappresenta **i dettagli di modifica**.
+
+    ![Screenshot che mostra la definizione del gruppo di azioni.](media/itsmc-definition/action-group-pen.png)
+
 6. Nell'elenco **sottoscrizione** selezionare la sottoscrizione in cui si trova l'area di lavoro log Analytics. Nell'elenco **connessione** selezionare il nome del connettore ITSM. Sarà seguito dal nome dell'area di lavoro. Ad esempio, MyITSMConnector (area di lavoro).
 
 7. Selezionare un tipo di **elemento di lavoro** .
 
 8. Se si desidera compilare i campi predefiniti con valori fissi, selezionare **Usa modello personalizzato**. In caso contrario, scegliere un [modello](#template-definitions) esistente nell'elenco dei **modelli** e immettere i valori fissi nei campi del modello.
 
-9. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione**, ogni elemento di configurazione disporrà di un proprio elemento di lavoro. È presente un elemento di lavoro per ogni elemento di configurazione. Verrà aggiornato in base agli avvisi che verranno creati.
+9. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione**, ogni elemento di configurazione disporrà di un proprio elemento di lavoro. Significa che sarà presente un elemento di lavoro per ogni elemento di configurazione.
 
     * In caso di selezione nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso": se si deseleziona la casella di controllo **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro. Per ogni elemento di configurazione possono essere presenti più avvisi.
 
@@ -141,124 +147,6 @@ Quando si crea o si modifica una regola di avviso di Azure, usare un gruppo di a
 >
 >- Il campo Descrizione breve nella definizione della regola di avviso è limitato a 40 caratteri quando lo si invia usando l'azione ITSM.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
-
-### <a name="data-synced-from-your-itsm-product"></a>Dati sincronizzati dal prodotto ITSM
-
-Gli eventi imprevisti e le richieste di modifica vengono sincronizzati dal prodotto ITSM all'area di lavoro Log Analytics, in base alla configurazione della connessione.
-
-In questa sezione vengono illustrati alcuni esempi di dati raccolti da connettore.
-
-I campi in **ServiceDesk_CL** variano a seconda del tipo di elemento di lavoro importato nel log Analytics. Ecco un elenco di campi per due tipi di elemento di lavoro:
-
-**Elemento di lavoro:** **Eventi imprevisti**  
-ServiceDeskWorkItemType_s="Incident"
-
-**Fields**
-
-- ServiceDeskConnectionName
-- ID Service Desk
-- State
-- Urgenza
-- Impatto
-- Priorità
-- Riassegnazione
-- Created By (Creato da)
-- Resolved By (Risolto da)
-- Closed By (Chiuso da)
-- Source (Sorgente)
-- Assegnato a
-- Category
-- Titolo
-- Descrizione
-- Data di creazione
-- Data di chiusura
-- Data di risoluzione
-- Data ultima modifica
-- Computer
-
-**Elemento di lavoro:** **Richieste di modifica**
-
-ServiceDeskWorkItemType_s="ChangeRequest"
-
-**Fields**
-- ServiceDeskConnectionName
-- ID Service Desk
-- Created By (Creato da)
-- Closed By (Chiuso da)
-- Source (Sorgente)
-- Assegnato a
-- Titolo
-- Type
-- Category
-- State
-- Riassegnazione
-- Conflict Status (Stato di conflitto)
-- Urgenza
-- Priorità
-- Rischio
-- Impatto
-- Assegnato a
-- Data di creazione
-- Data di chiusura
-- Data ultima modifica
-- Data richiesta
-- Planned Start Date (Data di inizio pianificata)
-- Planned End Date (Data di fine pianificata)
-- Work Start Date (Data di inizio lavoro)
-- Work End Date (Data di fine pianificata)
-- Descrizione
-- Computer
-
-## <a name="output-data-for-a-servicenow-incident"></a>Dati di output per un evento imprevisto ServiceNow
-
-| Campo Log Analytics | Campo di ServiceNow |
-|:--- |:--- |
-| ServiceDeskId_s| Number |
-| IncidentState_s | State |
-| Urgency_s |Urgenza |
-| Impact_s |Impatto|
-| Priority_s | Priorità |
-| CreatedBy_s | Aperto da |
-| ResolvedBy_s | Risolto da|
-| ClosedBy_s  | Chiuso da |
-| Source_s| Tipo di contatto |
-| AssignedTo_s | Assegnato a  |
-| Category_s | Category |
-| Title_s|  Breve descrizione |
-| Description_s|  Note |
-| CreatedDate_t|  Aperto |
-| ClosedDate_t| closed|
-| ResolvedDate_t|Risolto|
-| Computer  | Elemento di configurazione |
-
-## <a name="output-data-for-a-servicenow-change-request"></a>Dati di output per una richiesta di modifica ServiceNow
-
-| Log Analytics | Campo di ServiceNow |
-|:--- |:--- |
-| ServiceDeskId_s| Number |
-| CreatedBy_s | Richiesto da |
-| ClosedBy_s | Chiuso da |
-| AssignedTo_s | Assegnato a  |
-| Title_s|  Breve descrizione |
-| Type_s|  Type |
-| Category_s|  Category |
-| CRState_s|  State|
-| Urgency_s|  Urgenza |
-| Priority_s| Priorità|
-| Risk_s| Rischio|
-| Impact_s| Impatto|
-| RequestedDate_t  | Data richiesta |
-| ClosedDate_t | Data di chiusura |
-| PlannedStartDate_t  | Data di inizio pianificata |
-| PlannedEndDate_t  | Data di fine pianificata |
-| WorkStartDate_t  | Data di inizio effettiva |
-| WorkEndDate_t | Data di fine effettiva|
-| Description_s | Descrizione |
-| Computer  | Elemento di configurazione |
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Panoramica sul connettore [ITSM](./itsmc-overview.md) 
- [Aggiungere prodotti/servizi ITSM a IT Service Management Connector](./itsmc-connections.md) 
- [Risoluzione dei problemi nel connettore ITSM](./itsmc-resync-servicenow.md)
+* [Risolvere i problemi di Connettore di Gestione dei servizi IT](./itsmc-resync-servicenow.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: dec2c845780b62e9a595c73504037142c511c0e6
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989412"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813871"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Gestire i piani di protezione DDoS: autorizzazioni e restrizioni
 
@@ -30,7 +30,7 @@ Un piano di protezione DDoS funziona in diverse aree e sottoscrizioni. Lo stesso
 
 Per lavorare con i piani di protezione DDoS, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Action                                            | Nome                                     |
+| Azione                                            | Nome                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Leggere un piano di protezione DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Creare o aggiornare un piano di protezione DDoS  |
@@ -51,4 +51,4 @@ Per i clienti che hanno diverse sottoscrizioni e che vogliono garantire la distr
 Per informazioni su come visualizzare e configurare i dati di telemetria per il piano di protezione DDoS, continuare con le esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry-monitoring-alerting.md)
+> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry.md)

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 3655b117b641a6179bd6539aaf3f75af07f21a1a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 8de95a56f3da928997a97ff216b13d522c82afca
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992370"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814194"
 ---
 # <a name="azure-ddos-rapid-response"></a>Risposta rapida DDoS di Azure
 
-Durante un accesso attivo, i clienti standard di protezione DDoS di Azure hanno accesso al team DDoS Rapid Response (DRR), che può aiutare a esaminare gli attacchi durante un attacco, oltre ad analisi post-attacco.
+Durante un accesso attivo, i clienti standard di protezione DDoS di Azure hanno accesso al team DDoS Rapid Response (DRR), che può aiutare a esaminare gli attacchi durante un'analisi di attacco e post-attacco.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,5 +56,5 @@ Per altre informazioni, vedere la [documentazione standard di protezione DDoS](.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come eseguire [test tramite simulazioni](test-through-simulations.md).
-- Informazioni su come [visualizzare e configurare la telemetria di protezione DDoS](telemetry-monitoring-alerting.md).
-- Informazioni su come [configurare i report di mitigazione degli attacchi DDoS e i log dei flussi](reports-and-flow-logs.md).
+- Informazioni su come [visualizzare e configurare la telemetria di protezione DDoS](telemetry.md).
+- Informazioni su come [visualizzare e configurare la registrazione diagnostica DDoS](diagnostic-logging.md).

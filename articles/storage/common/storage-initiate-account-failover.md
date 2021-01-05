@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 12/29/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095906"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814330"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Avviare un failover dell'account di archiviazione
 
@@ -38,6 +38,13 @@ Prima di poter eseguire un failover dell'account nell'account di archiviazione, 
 
 Per altre informazioni sulla ridondanza di Archiviazione di Azure, vedere [Ridondanza dell'archiviazione](storage-redundancy.md).
 
+Tenere presente che le funzionalità e i servizi seguenti non sono supportati per il failover dell'account:
+
+- Sincronizzazione file di Azure non supporta il failover dell'account di archiviazione. È consigliabile non effettuare il failover degli account di archiviazione contenenti condivisioni file di Azure che vengono usate come endpoint cloud in Sincronizzazione file di Azure. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli.
+- Gli account di archiviazione ADLS Gen2 (account con spazio dei nomi gerarchico abilitato) non sono supportati in questo momento.
+- Non è possibile effettuare il failover di un account di archiviazione contenente BLOB in blocchi Premium. Gli account di archiviazione che supportano i BLOB in blocchi Premium non supportano attualmente la ridondanza geografica.
+- Impossibile eseguire il failover di un account di archiviazione contenente i contenitori abilitati per i [criteri di immutabilità worm](../blobs/storage-blob-immutable-storage.md) . I criteri di conservazione basati sul tempo sbloccati o bloccati o i criteri di blocco legale impediscono il failover al fine di mantenere la conformità.
+
 ## <a name="initiate-the-failover"></a>Avviare il failover
 
 ## <a name="portal"></a>[Portale](#tab/azure-portal)
@@ -54,7 +61,7 @@ Per avviare un failover dell'account dal portale di Azure, seguire questa proced
 1. Selezionare **Preparare il failover**.
 1. Rivedere la finestra di conferma. Quando si è pronti, immettere **Sì** per confermare e avviare il failover.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot che mostra la replica geografica e lo stato del failover":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot che mostra la finestra di dialogo di conferma per un failover dell'account":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

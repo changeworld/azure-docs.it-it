@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492251"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814500"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Baseline della sicurezza di Azure per protezione DDoS di Azure standard
 
@@ -38,7 +38,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i log a un'area di lavoro Log Analytics, a hub eventi di Azure o all'account di archiviazione di Azure per l'archiviazione. I log attività forniscono informazioni approfondite sulle operazioni eseguite nella cache di Azure per le istanze di redis a livello di piano di controllo. Usando i dati del log attività di Azure, è possibile determinare il "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita a livello di piano di controllo per le istanze di protezione DDoS di Azure.
 
-- [Come configurare gli avvisi per le metriche di protezione DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Visualizzare e configurare la registrazione diagnostica DDoS](../../ddos-protection/diagnostic-logging.md)
 
 - [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i 
 
 **Linee guida**: abilitare le impostazioni di diagnostica del log attività di Azure e inviare i log a un'area di lavoro log Analytics. Eseguire query in Log Analytics per cercare termini, identificare tendenze, analizzare modelli e fornire molte altre informazioni basate sui dati del log attività che potrebbero essere stati raccolti per gli insiemi di credenziali dei servizi di ripristino.
 
-- [Informazioni su come accedere ai dati di telemetria, ai log e all'analisi degli attacchi per il servizio DDoS Protection standard](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Informazioni su come accedere ai dati di telemetria, ai log e all'analisi degli attacchi per il servizio DDoS Protection standard](../../ddos-protection/telemetry.md)
 
 - [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -76,7 +76,7 @@ Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i 
 
 Eseguire l'onboarding di un'area di lavoro Log Analytics in Azure Sentinel perché fornisce una soluzione di sicurezza automatica delle orchestrazioni (SOAR). In questo modo è possibile creare playbook (soluzioni automatizzate) e usarli per risolvere i problemi di sicurezza. Inoltre, è possibile creare avvisi di log personalizzati nell'area di lavoro di Log Analytics usando monitoraggio di Azure.
 
-- [Come configurare gli avvisi per le metriche DDoS](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [Come configurare gli avvisi per le metriche DDoS](../../ddos-protection/alerts.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -142,7 +142,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 - [Come registrare l'applicazione client (entità servizio) con Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Informazioni sull'API di protezione DDos di Azure](/rest/api/virtual-network/)
+- [Informazioni sull'API di protezione DDoS di Azure](/rest/api/virtual-network/)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -166,7 +166,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 - [Distribuire una workstation protetta gestita da Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-- [Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Pianificazione di una distribuzione di Azure AD Multi-Factor Authentication basata sul cloud](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -524,7 +524,7 @@ Testare le ipotesi sul modo in cui i servizi risponderanno a un attacco generand
 
 Selezionare una delle metriche di protezione DDoS disponibili per ricevere un avviso quando si verifica una mitigazione attiva durante un attacco, usando la configurazione degli avvisi di monitoraggio di Azure. Quando vengono soddisfatte le condizioni, l'indirizzo specificato riceve un messaggio di posta elettronica di avviso
 
-- [Configurare gli avvisi per le metriche di protezione DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Configurare gli avvisi per le metriche di protezione DDoS](../../ddos-protection/alerts.md)
 
 - [Come configurare l'esportazione continua](../../security-center/continuous-export.md)
 

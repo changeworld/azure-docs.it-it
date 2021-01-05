@@ -2,20 +2,21 @@
 title: includere file
 description: includere file
 services: cognitive-services
-author: roy-har
-manager: diberry
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.date: 06/03/2020
+ms.date: 12/29/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: roy-har
-ms.openlocfilehash: 8e67a6d0c98a3839922a79e9b452465087da1b69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: aahi
+ms.reviewer: roy-har
+ms.openlocfilehash: 7aa2fba6ef551a745ccaf5b00f36021b9d8680ce
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84418039"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820498"
 ---
 1. Selezionare [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) per aprire la pagina di GitHub per il file `pizza-app-for-luis.json`.
 1. Toccare e tenere premuto a lungo o fare clic con il pulsante destro del mouse sul pulsante **Raw** e selezionare **Salva collegamento come** per salvare `pizza-app-for-luis.json` nel computer.

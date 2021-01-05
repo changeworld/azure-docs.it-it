@@ -7,28 +7,16 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1a9286ff15834fafe4a69907836ce1abd17abca6
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168070"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814262"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
 Usare questo articolo se si verificano problemi di creazione, personalizzazione o interpretazione dei grafici in Esplora metriche di Azure. Se non si ha [familiarità con le](metrics-getting-started.md) metriche, vedere Introduzione a Esplora metriche e [funzionalità avanzate di Esplora metriche](metrics-charts.md). È anche possibile vedere [esempi](metric-chart-samples.md) dei grafici delle metriche configurati.
-
-## <a name="cant-find-your-resource-to-select-it"></a>La risorsa non è stata trovata per selezionarla
-
-Quando si fa clic sul pulsante **Selezionare una risorsa**, la risorsa non viene visualizzata nella finestra di dialogo di selezione delle risorse.
-
-**Soluzione:** Esplora metriche richiede di selezionare le sottoscrizioni e i gruppi di risorse prima di elencare le risorse disponibili. Se non viene visualizzata la risorsa:
-
-1. Assicurarsi di avere selezionato la sottoscrizione corretta nell'elenco a discesa **Sottoscrizione**. Se la sottoscrizione non è elencata, fare clic su **Impostazioni di directory e sottoscrizione** e aggiungere una sottoscrizione con la risorsa.
-
-1. Assicurarsi di aver selezionato il gruppo di risorse corretto.
-    > [!WARNING]
-    > Per prestazioni ottimali, quando si apre Esplora metriche, l'elenco a discesa **Gruppo di risorse** non dispone di nessun gruppo di risorse pre-selezionate. È necessario selezionare almeno un gruppo prima di poter visualizzare tutte le risorse.
 
 ## <a name="chart-shows-no-data"></a>Il grafico non Mostra dati
 
@@ -72,23 +60,23 @@ La raccolta delle metriche del **sistema operativo guest** richiede la configura
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Messaggio "errore durante il recupero dei dati" nel dashboard
 
-Questo problema può verificarsi quando il dashboard è stato creato con una metrica deprecata e rimossa da Azure in un secondo momento. Per verificare se sia questo il caso, aprire la scheda **Metriche** della risorsa e controllare la metrica disponibile nel selettore di metrica. Se la metrica non viene visualizzata, allora è stata rimossa da Azure. In genere, quando una metrica è deprecata, è disponibile una nuova metrica migliore che offre una prospettiva simile sull'integrità delle risorse.
+Questo problema può verificarsi quando il dashboard è stato creato con una metrica deprecata e rimossa da Azure in un secondo momento. Per verificarne il caso, aprire la scheda **metriche** della risorsa e controllare le metriche disponibili nella selezione metrica. Se la metrica non viene visualizzata, allora è stata rimossa da Azure. In genere, quando una metrica è deprecata, è disponibile una nuova metrica migliore che offre una prospettiva simile sull'integrità delle risorse.
 
 **Soluzione:** Aggiornare il riquadro con errore selezionando una metrica alternativa per il grafico nel dashboard. È possibile [consultare un elenco di metriche disponibili per i servizi di Azure](metrics-supported.md).
 
-## <a name="chart-shows-dashed-line"></a>Grafico che mostra la linea tratteggiata
+## <a name="chart-shows-dashed-line"></a>Il grafico mostra una linea tratteggiata
 
 I grafici delle metriche di Azure usano lo stile di linea tratteggiata per indicare che è presente un valore mancante (noto anche come "valore null") tra due punti dati del tempo noto. Se, ad esempio, nel selettore di tempo è stata selezionata la granularità dell'ora "1 minuto" ma la metrica è stata segnalata a 07:26, 07:27, 07:29 e 07:30 (si noti un gap di minuti tra il secondo e il terzo punto dati), una linea tratteggiata connetterà 07:27 e 07:29 e una linea continua connetterà tutti gli altri punti dati. La linea tratteggiata scende verso il basso fino a zero quando la metrica usa l'aggregazione **count** e **Sum** . Per le aggregazioni **AVG**, **min** o **Max** , la linea tratteggiata connette due punti dati noti più vicini. Inoltre, quando mancano i dati sul lato all'estrema destra o sinistra del grafico, la linea tratteggiata si espande nella direzione dei punti dati mancanti.
-  ![Screenshot che mostra in che modo quando i dati risultano mancanti a destra o a sinistra del grafico, la linea tratteggiata si espande fino alla direzione del punto dati mancante.](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+  ![Screenshot che mostra in che modo quando i dati risultano mancanti a destra o a sinistra del grafico, la linea tratteggiata si espande fino alla direzione del punto dati mancante.](./media/metrics-troubleshoot/dashed-line.png)
 
-**Soluzione:** Questo comportamento è da progettazione. È utile per identificare i punti dati mancanti. Il grafico a linee rappresenta una scelta superiore per la visualizzazione delle tendenze delle metriche ad alta densità, ma può essere difficile da interpretare per le metriche con valori di tipo sparse, soprattutto quando i valori con granularità temporale sono importanti. La linea tratteggiata rende più facile la lettura di questi grafici. Tuttavia, se il grafico è ancora poco chiaro, valutare l'uso di un tipo di grafico diverso per visualizzare le metriche. Un grafico tracciato sparse per la stessa metrica, ad esempio, mostra chiaramente ogni intervallo di tempo visualizzando un punto solo quando è presente un valore e ignorando completamente il punto dati quando il valore è mancante: ![ screenshot che evidenzia l'opzione di menu scatter chart (grafico a dispersione).](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**Soluzione:** Questo comportamento è da progettazione. È utile per identificare i punti dati mancanti. Il grafico a linee rappresenta una scelta superiore per la visualizzazione delle tendenze delle metriche ad alta densità, ma può essere difficile da interpretare per le metriche con valori di tipo sparse, soprattutto quando i valori con granularità temporale sono importanti. La linea tratteggiata rende più facile la lettura di questi grafici. Tuttavia, se il grafico è ancora poco chiaro, valutare l'uso di un tipo di grafico diverso per visualizzare le metriche. Un grafico tracciato sparse per la stessa metrica, ad esempio, mostra chiaramente ogni intervallo di tempo visualizzando un punto solo quando è presente un valore e ignorando completamente il punto dati quando il valore è mancante: ![ screenshot che evidenzia l'opzione di menu scatter chart (grafico a dispersione).](./media/metrics-troubleshoot/scatter-plot.png)
 
    > [!NOTE]
    > Se si preferisce comunque un grafico a linee per la metrica, lo spostamento del mouse sul grafico può aiutare a valutare la granularità temporale evidenziando il punto dati in corrispondenza della posizione del puntatore del mouse.
 
-## <a name="chart-shows-unexpected-drop-in-values"></a>Il grafico mostra una riduzione imprevista dei valori
+## <a name="chart-shows-unexpected-drop-in-values"></a>Il grafico mostra una riduzione imprevista nei valori
 
-In molti casi, il calo percepito nei valori delle metriche deriva da un'errata interpretazione dei dati visualizzati nel grafico. È possibile giungere a conclusioni fuorvianti da un calo delle somme o dei conteggi quando nel grafico vengono visualizzati gli ultimi minuti perché gli ultimi punti dati delle metriche non sono stati ancora ricevuti o elaborati da Azure. A seconda del servizio, la latenza delle metriche di elaborazione può essere compresa in un intervallo di due minuti. Per i grafici che mostrano un intervallo di tempo recente con una granularità di 1 o 5 minuti, un calo del valore negli ultimi minuti diventa più evidente: ![ screenshot che mostra un rilascio del valore negli ultimi minuti.](./media/metrics-troubleshoot/drop-in-values.png)
+In molti casi, il calo percepito nei valori delle metriche deriva da un'errata interpretazione dei dati visualizzati nel grafico. È possibile giungere a conclusioni fuorvianti da un calo delle somme o dei conteggi quando nel grafico vengono visualizzati gli ultimi minuti perché gli ultimi punti dati delle metriche non sono stati ancora ricevuti o elaborati da Azure. A seconda del servizio, la latenza delle metriche di elaborazione può essere compresa in un intervallo di due minuti. Per i grafici che mostrano un intervallo di tempo recente con una granularità di 1 o 5 minuti, un calo del valore negli ultimi minuti diventa più evidente: ![ screenshot che mostra un rilascio del valore negli ultimi minuti.](./media/metrics-troubleshoot/unexpected-dip.png)
 
 **Soluzione:** Questo comportamento è da progettazione. Microsoft ritiene che la visualizzazione dei dati appena ricevuti sia utile anche quando i dati sono *parziali* o *incompleti*. In questo modo è possibile giungere a importanti conclusioni più rapidamente e avviare eventuali indagini sin da subito. Ad esempio, per una metrica che mostra il numero di errori, visualizzare un valore parziale X indica che si sono verificati almeno X errori in un minuto specificato. È possibile iniziare l'analisi del problema sin da subito, anziché attendere il conteggio esatto degli errori che si sono verificati in questo minuto, che potrebbe non essere importante. Il grafico verrà aggiornato una volta ricevuto l'intero set di dati, ma in quel momento potrebbe mostrare anche nuovi punti dati incompleti di minuti più recenti.
 
@@ -98,7 +86,7 @@ Macchine virtuali e set di scalabilità di macchine virtuali dispongono di due c
 
 Per impostazione predefinita, le metriche del sistema operativo Guest vengono archiviate nell'account di archiviazione di Azure, scelto nella scheda **Impostazioni di diagnostica** della risorsa. Se le metriche del sistema operativo Guest non vengono raccolte oppure Esplora metriche non può accedervi, viene visualizzato solo lo spazio dei nomi delle metriche per l'**host della macchina virtuale**:
 
-![Immagine di metrica](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
+![Immagine di metrica](./media/metrics-troubleshoot/vm.png)
 
 **Soluzione:** Se lo spazio dei nomi e le metriche **del sistema operativo guest (classico)** non sono visualizzati in Esplora metriche:
 

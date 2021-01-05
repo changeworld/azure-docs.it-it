@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 49fa0c849a6b2eab0647922a711c50b4fe762584
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 69f9b5a74566879ecf8f15f23e689ebb731da45a
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095663"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814143"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>Guida introduttiva: creare e configurare la protezione DDoS di Azure standard usando Azure PowerShell
 
@@ -26,7 +26,7 @@ Un piano di protezione DDoS definisce un set di reti virtuali in cui è abilitat
 
 In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà collegato a una rete virtuale. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installazione di Azure PowerShell in locale o Azure Cloud Shell.
@@ -45,7 +45,7 @@ Per creare un gruppo di risorse, usare [New-AzResourceGroup](/powershell/module/
 New-AzResourceGroup -Name MyResourceGroup -Location "East US"
 ```
 
-A questo punto, creare un piano di protezione DDoS denominato _MyDdosProtectionPlan_ :
+A questo punto, creare un piano di protezione DDoS denominato _MyDdosProtectionPlan_:
 
 ```azurepowershell-interactive
 New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtectionPlan -Location "East US"
@@ -55,7 +55,7 @@ New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 ### <a name="enable-ddos-for-a-new-virtual-network"></a>Abilitare DDoS per una nuova rete virtuale
 
-È possibile abilitare la protezione DDoS quando si crea una rete virtuale. In questo esempio il nome della rete virtuale _MyVnet_ : 
+È possibile abilitare la protezione DDoS quando si crea una rete virtuale. In questo esempio il nome della rete virtuale _MyVnet_: 
 
 ```azurepowershell-interactive
 New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16
@@ -114,4 +114,4 @@ Se si vuole eliminare un piano di protezione DDoS, è necessario innanzitutto an
 Per informazioni su come visualizzare e configurare i dati di telemetria per il piano di protezione DDoS, continuare con le esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry-monitoring-alerting.md)
+> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry.md)

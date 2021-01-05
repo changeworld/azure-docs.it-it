@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 834672274ade1f8551e86e7c636c4625368d997c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652195"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814466"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Ottimizza Azure Data Lake Storage Gen2 per le prestazioni
 
@@ -21,11 +21,11 @@ Azure Data Lake Storage Gen2 supporta la velocità effettiva elevata per l'anali
 
 ![Prestazioni di Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 può essere ridimensionato per offrire la velocità effettiva necessaria per qualsiasi scenario di analisi. Per impostazione predefinita, un account Data Lake Storage Gen2 offre automaticamente la velocità effettiva sufficiente per soddisfare le esigenze di un'ampia categoria di casi d'uso. Per i casi in cui i clienti raggiungono il limite predefinito, è possibile contattare l'[assistenza Azure](https://azure.microsoft.com/support/faq/) per configurare l'account Data Lake Storage Gen2 in modo da ottenere maggiore velocità effettiva.
+Data Lake Storage Gen2 possibile eseguire la scalabilità per fornire la velocità effettiva necessaria per tutti gli scenari di analisi. Per impostazione predefinita, un account Data Lake Storage Gen2 fornisce una velocità effettiva sufficiente nella configurazione predefinita per soddisfare le esigenze di un'ampia categoria di casi d'uso. Per i casi in cui i clienti raggiungono il limite predefinito, è possibile contattare l'[assistenza Azure](https://azure.microsoft.com/support/faq/) per configurare l'account Data Lake Storage Gen2 in modo da ottenere maggiore velocità effettiva.
 
 ## <a name="data-ingestion"></a>Inserimento di dati
 
-Durante l'inserimento di dati da un sistema di origine a Data Lake Storage Gen2, è importante tenere presente che l'hardware di origine, l'hardware di rete di origine e la connettività di rete a Data Lake Storage Gen2 possono costituire il collo di bottiglia.  
+Quando si inseriscono dati da un sistema di origine a Data Lake Storage Gen2, è importante tenere presente che l'hardware di origine, l'hardware di rete di origine o la connettività di rete a Data Lake Storage Gen2 possono costituire il collo di bottiglia.  
 
 ![Diagramma che illustra i fattori da considerare quando si inseriscono dati da un sistema di origine a Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -37,7 +37,7 @@ Indipendentemente dall'uso di computer locali o macchine virtuali in Azure, è n
 
 ### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Connettività di rete a Data Lake Storage Gen2
 
-La connettività di rete tra i dati di origine e Data Lake Storage Gen2 può talvolta costituire il collo di bottiglia. Quando i dati di origine sono in locale, valutare l'opportunità di usare un collegamento dedicato con [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Se i dati di origine sono in Azure, si ottengono prestazioni ottimali quando i dati si trovano nella stessa area di Azure dell'account Data Lake Storage Gen2.
+La connettività di rete tra i dati di origine e Data Lake Storage Gen2 può talvolta costituire il collo di bottiglia. Quando i dati di origine sono locali, è consigliabile usare un collegamento dedicato con [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se i dati di origine sono in Azure, si ottengono prestazioni ottimali quando i dati si trovano nella stessa area di Azure dell'account Data Lake Storage Gen2.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurare gli strumenti di inserimento dei dati per la massima parallelizzazione
 

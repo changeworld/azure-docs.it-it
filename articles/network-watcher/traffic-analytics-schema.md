@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b8e400e9d386fff8f35756a77139e61bbaff1
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74666376"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809293"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema e aggregazione dei dati in Analisi del traffico
 
@@ -39,11 +39,11 @@ Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità 
 5. FlowStartTime_t campo indica la prima occorrenza di un flusso di questo tipo aggregato (stessa tupla con quattro elementi) nell'intervallo di elaborazione del log di flusso tra "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t".
 6. Per qualsiasi risorsa in TA, i flussi indicati nell'interfaccia utente sono flussi totali visualizzati da NSG, ma in Log Analytics utente vedrà solo il singolo record ridotto. Per visualizzare tutti i flussi, usare il campo blob_id, a cui è possibile fare riferimento dalla risorsa di archiviazione. Il conteggio totale dei flussi per il record corrisponderà ai singoli flussi visualizzati nel BLOB.
 
-La query seguente consente di esaminare tutti i log di flusso dall'ambiente locale negli ultimi 30 giorni.
+La query seguente consente di esaminare tutte le subnet che interagiscono con gli indirizzi IP pubblici non di Azure negli ultimi 30 giorni.
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s  
+| project Subnet1_s, Subnet2_s  
 ```
 Per visualizzare il percorso BLOB per i flussi nella query indicata in precedenza, usare la query seguente:
 

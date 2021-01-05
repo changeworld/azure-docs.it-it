@@ -4,12 +4,12 @@ description: Configurare un'azione GitHub che consente di automatizzare i passag
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 7dfa2a66851db760049e7c3dc3446223c7dffad1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: c6c030e05953dc98c82c573704018c3b482d2fea
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609157"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814279"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurare un'azione GitHub per creare un'istanza di contenitore
 
@@ -31,7 +31,7 @@ Questo articolo illustra due modi per configurare il flusso di lavoro:
 > [!IMPORTANT]
 > L'azione GitHub per istanze di contenitore di Azure è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * **Account github** : https://github.com se non si ha già un account, crearne uno.
 * **Interfaccia** della riga di comando di Azure: è possibile usare l'Azure cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure per completare i passaggi della CLI di Azure Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
@@ -56,7 +56,7 @@ Nel flusso di lavoro GitHub è necessario specificare le credenziali di Azure pe
 Per prima cosa, ottenere l'ID risorsa del gruppo di risorse. Sostituire il nome del gruppo con il comando [AZ Group Show][az-group-show] seguente:
 
 ```azurecli
-$groupId=$(az group show \
+groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```
