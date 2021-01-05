@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b9568d03260a9d1ac0b6916e09f3d9ef4da34d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084529"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822166"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight
 
@@ -26,7 +26,7 @@ I cluster HDInsight Spark includono i notebook di [Apache Zeppelin](https://zepp
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Avviare un notebook di Apache Zeppelin
 
-1. Nella **Panoramica**del cluster Spark selezionare **Zeppelin notebook** da **Dashboard cluster**. Immettere le credenziali di amministratore per il cluster.  
+1. Nella **Panoramica** del cluster Spark selezionare **Zeppelin notebook** da **Dashboard cluster**. Immettere le credenziali di amministratore per il cluster.  
 
    > [!NOTE]  
    > È anche possibile raggiungere il notebook di Zeppelin per il cluster aprendo l'URL seguente nel browser. Sostituire **clustername** con il nome del cluster:
@@ -89,7 +89,7 @@ I cluster HDInsight Spark includono i notebook di [Apache Zeppelin](https://zepp
 
     L'istruzione **%sql** all'inizio indica al notebook di usare l'interprete Livy Scala.
 
-6. Selezionare l'icona del **grafico a barre** per modificare la visualizzazione.  **le impostazioni**vengono visualizzate dopo aver selezionato il **grafico a barre**, consente di scegliere le **chiavi**e **i valori**.  Nella schermata riportata di seguito sono illustrate questo output.
+6. Selezionare l'icona del **grafico a barre** per modificare la visualizzazione.  **le impostazioni** vengono visualizzate dopo aver selezionato il **grafico a barre**, consente di scegliere le **chiavi** e **i valori**.  Nella schermata riportata di seguito sono illustrate questo output.
 
     ![Eseguire un'istruzione SQL Spark usando notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Eseguire un'istruzione SQL Spark usando notebook1")
 
@@ -115,13 +115,13 @@ I cluster HDInsight Spark includono i notebook di [Apache Zeppelin](https://zepp
 
 Il notebook di Zeppelin nel cluster Apache Spark in HDInsight può usare pacchetti esterni creati dalla community che non sono inclusi nel cluster. Eseguire una ricerca nel [repository maven](https://search.maven.org/) per l'elenco completo dei pacchetti disponibili. È anche possibile ottenere un elenco dei pacchetti disponibili da altre origini. Ad esempio, un elenco completo dei pacchetti creati dalla community è disponibile nel sito Web [spark-packages.org](https://spark-packages.org/).
 
-In questo articolo si vedrà come usare il pacchetto [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con Jupyter notebook.
+In questo articolo si vedrà come usare il pacchetto [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con la Jupyter notebook.
 
 1. Aprire le impostazioni dell'interprete. Nell'angolo in alto a destra selezionare il nome utente connesso, quindi selezionare **interprete**.
 
     ![Avviare l'interprete](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Output di Hive")
 
-2. Scorrere fino a **livy2**e quindi selezionare **modifica**.
+2. Scorrere fino a **livy2** e quindi selezionare **modifica**.
 
     ![Modifica Settings1 dell'interprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modifica Settings1 dell'interprete")
 
@@ -183,7 +183,7 @@ In tal caso, prima di iniziare a eseguire i processi da un notebook Zeppelin è 
 
     ![Avviare l'interprete](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Output di Hive")
 
-2. Scorrere fino a **livy2**e quindi selezionare **Riavvia**.
+2. Scorrere fino a **livy2** e quindi selezionare **Riavvia**.
 
     ![Riavviare l'interprete Livio](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Riavviare l'interprete Zeppelin")
 
@@ -227,5 +227,5 @@ Per convalidare il servizio dalla riga di comando, connettersi tramite SSH al no
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
-* [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernel disponibili per Jupyter Notebook nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)

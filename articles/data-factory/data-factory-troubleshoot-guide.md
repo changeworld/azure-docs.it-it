@@ -5,17 +5,18 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654593"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822285"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Risoluzione dei problemi di Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra i metodi più comuni per la risoluzione dei problemi relativi alle attività di controllo esterne in Azure Data Factory.
@@ -498,7 +499,7 @@ La tabella seguente si applica a Azure Batch.
 
 - **Messaggio**: `There are duplicate files in the resource folder.`
 
-- **Causa**: in sottocartelle di folderPath sono presenti più file con lo stesso nome.
+- **Motivo**: più file con lo stesso nome si trovano in sottocartelle diverse di folderPath.
 
 - **Raccomandazione**: le attività personalizzate rendono flat la struttura in folderPath. Se è necessario mantenere la struttura di cartelle, comprimere i file ed estrarli in Azure Batch usando un comando di decompressione.
    
@@ -545,7 +546,6 @@ La tabella seguente si applica a Azure Batch.
 - **Causa**: si è verificato un errore interno durante il tentativo di leggere l'entità servizio o di creare un'istanza dell'autenticazione MSI.
 
 - **Raccomandazione**: fornire un'entità servizio con autorizzazioni per creare un cluster HDInsight nella sottoscrizione fornita e riprovare. Verificare che le [identità gestite siano configurate correttamente](../hdinsight/hdinsight-managed-identities.md).
-
 
 ### <a name="error-code-2300"></a>Codice errore: 2300
 
@@ -952,6 +952,16 @@ La tabella seguente si applica a Azure Batch.
 
 - **Raccomandazione**: indicare un account di archiviazione BLOB di Azure come account di archiviazione aggiuntivo per il servizio HDInsight su richiesta collegato.
 
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Errore SSL durante il servizio collegato di ADF con cluster ESP HDInsight
+
+- **Messaggio**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Causa**: il problema è probabilmente correlato all'archivio di attendibilità di sistema.
+
+- **Soluzione**: è possibile passare al percorso **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft hive ODBC Driver\lib** e aprire DriverConfiguration64.exe per modificare l'impostazione.
+
+    ![Deselezionare Usa archivio attendibilità sistema](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## <a name="web-activity"></a>Attività Web
 
 ### <a name="error-code-2128"></a>Codice errore: 2128
@@ -1015,9 +1025,9 @@ Quando si osserva che l'attività è in esecuzione molto più a lungo rispetto a
 
 **Messaggio di errore:**`The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Motivo:** Il payload per ogni esecuzione di attività include la configurazione dell'attività, i set di dati associati e le configurazioni dei servizi collegati, se presenti, e una piccola parte delle proprietà di sistema generate per ogni tipo di attività. Il limite di tali dimensioni del payload è 896KB, come indicato nella sezione [Data Factory limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
+**Motivo:** Il payload per ogni esecuzione di attività include la configurazione dell'attività, i set di dati associati e le configurazioni dei servizi collegati, se presenti, e una piccola parte delle proprietà di sistema generate per ogni tipo di attività. Il limite di tali dimensioni del payload è 896 KB, come indicato nella sezione [Data Factory limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
 
-**Raccomandazione:** Si raggiunge questo limite probabilmente perché si passano uno o più valori di parametro di grandi dimensioni dall'output dell'attività upstream o da External, soprattutto se si passano dati effettivi tra le attività nel flusso di controllo. Verificare se è possibile ridurre le dimensioni dei valori di parametro di grandi dimensioni o ottimizzare la logica della pipeline per evitare di passare tali valori tra le attività e gestirli all'interno dell'attività.
+**Raccomandazione:** Si raggiunge questo limite probabilmente perché si passano uno o più valori di parametro di grandi dimensioni dall'output dell'attività upstream o da External, soprattutto se si passano dati effettivi tra le attività nel flusso di controllo. Controllare se è possibile ridurre le dimensioni dei valori di parametro di grandi dimensioni o ottimizzare la logica della pipeline per evitare di passare tali valori tra le attività e gestirli all'interno dell'attività.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

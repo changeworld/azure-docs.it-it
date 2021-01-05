@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 49f3f44c7de8c700d0093c5eb6f166a1dffb34a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf19a6f77a87f2424f9e7b889e48119d57d1e2e5
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087249"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820983"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure a causa dell'indirizzo IP statico
 
@@ -63,13 +63,13 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 3. Se il DHCP è disabilitato, reimpostare la configurazione dell'interfaccia di rete in modo che usi il DHCP:
 
     ```console
-    netsh interface ip set address name="<NIC Name>" source=dhc
+    netsh interface ip set address name="<NIC Name>" source=dhcp
     ```
 
     Ad esempio, se il nome dell'interfaccia di rete è "Ethernet 2", eseguire il comando seguente:
 
     ```console
-    netsh interface ip set address name="Ethernet 2" source=dhc
+    netsh interface ip set address name="Ethernet 2" source=dhcp
     ```
 
 4. Eseguire di nuovo una query sulla configurazione IP per verificare che l'interfaccia di rete sia impostata correttamente. Il nuovo indirizzo IP dovrebbe corrispondere a quello fornito da Azure.

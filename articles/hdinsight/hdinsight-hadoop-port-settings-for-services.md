@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e3e2ca2eca0d258a14365edc97b98d0c827b0b6f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d0d990bc273c33e94b82b597753b29361b1665e1
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546059"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821860"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Porte usate dai servizi Apache Hadoop su HDInsight
 
@@ -166,7 +166,7 @@ Esempi:
 | --- | --- | --- | --- | --- | --- |
 | Server Spark Thrift |Nodi head |10002 |Thrift | &nbsp; | Servizio per la connessione a Spark SQL (Thrift/JDBC) |
 | Server Livy | Nodi head | 8998 | HTTP | &nbsp; | Servizio per l'esecuzione di istruzioni, processi e applicazioni |
-| Notebook di Jupyter | Nodi head | 8001 | HTTP | &nbsp; | Sito Web Notebook di Jupyter |
+| Jupyter Notebook | Nodi head | 8001 | HTTP | &nbsp; | Sito Web Jupyter Notebook |
 
 Esempi:
 

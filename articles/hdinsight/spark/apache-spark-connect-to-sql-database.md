@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97c326bd1d2f61ba3fb9d6e381f5a8711bd0ca1d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023977"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821197"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usare il cluster HDInsight Spark per leggere e scrivere dati nel database SQL di Azure
 
 Informazioni su come connettere un cluster Apache Spark in Azure HDInsight con il database SQL di Azure. Quindi leggere, scrivere e trasmettere i dati nel database SQL. Le istruzioni in questo articolo usano un Jupyter Notebook per eseguire i frammenti di codice scala. Tuttavia, è possibile creare un'applicazione autonoma in scala o Python ed eseguire le stesse attività.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Cluster Azure HDInsight Spark.  Seguire le istruzioni riportate in [Creare un cluster Apache Spark in HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -36,20 +36,20 @@ Informazioni su come connettere un cluster Apache Spark in Azure HDInsight con i
 Iniziare creando una Jupyter Notebook associata al cluster Spark. Usare quindi il notebook per eseguire i frammenti di codice illustrati in questo articolo.
 
 1. Dal [Portale di Azure](https://portal.azure.com/), aprire il cluster.
-1. Selezionare **Jupyter Notebook** in **Dashboard del cluster** sul lato destro.  Se non vengono visualizzati i **Dashboard del cluster**, scegliere **Panoramica** dal menu a sinistra. Se richiesto, immettere le credenziali per il cluster.
+1. Selezionare **Jupyter notebook** sotto i **Dashboard del cluster** sul lato destro.  Se non vengono visualizzati i **Dashboard del cluster**, scegliere **Panoramica** dal menu a sinistra. Se richiesto, immettere le credenziali per il cluster.
 
-    ![Notebook di Jupyter su Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Notebook di Jupyter in Spark")
+    ![Jupyter Notebook Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter Notebook su Spark")
 
    > [!NOTE]  
-   > Per accedere al notebook di Jupyter nel cluster Spark è possibile anche aprire l'URL seguente nel browser. Sostituire **clustername** con il nome del cluster:
+   > È anche possibile accedere al Jupyter Notebook nel cluster Spark aprendo l'URL seguente nel browser. Sostituire **clustername** con il nome del cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. Nel notebook di Jupyter, nell'angolo superiore destro, fare clic su **Nuovo** e quindi su **Spark** per creare un notebook di Scala. I notebook di Jupyter presenti nel cluster HDInsight Spark forniscono anche il kernel **PySpark** per le applicazioni Python2 e il kernel **PySpark3** per le applicazioni Python3. In questo articolo si creerà un notebook di Scala.
+1. Nell'angolo in alto a destra della Jupyter Notebook fare clic su **nuovo** e quindi su **Spark** per creare un notebook di scala. I notebook di Jupyter nel cluster HDInsight Spark forniscono anche il kernel **PySpark** per le applicazioni python2 e il kernel **PySpark3** per le applicazioni Python3. In questo articolo si creerà un notebook di Scala.
 
-    ![Kernel per il notebook di Jupyter in Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernel per il notebook di Jupyter in Spark")
+    ![Kernel per Jupyter Notebook in Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernel per Jupyter Notebook in Spark")
 
-    Per altre informazioni sui kernel, vedere [Usare i kernel per Jupyter Notebook con cluster Apache Spark in HDInsight](apache-spark-jupyter-notebook-kernels.md).
+    Per altre informazioni sui kernel, vedere [usare Jupyter notebook kernel con cluster di Apache Spark in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
    > [!NOTE]  
    > In questo articolo viene usato un kernel Spark (scala) perché i dati di streaming da Spark nel database SQL sono attualmente supportati solo in scala e Java. Anche se le operazioni di lettura e scrittura in SQL possono essere eseguite con Python, per coerenza a livello di articolo si userà Scala per tutte e tre le operazioni.
@@ -64,7 +64,7 @@ Iniziare creando una Jupyter Notebook associata al cluster Spark. Usare quindi i
 
 In questa sezione si leggeranno i dati di una tabella (ad esempio, **SalesLT.Address**) presente nel database AdventureWorks.
 
-1. In un nuovo notebook di Jupyter, in una cella di codice, incollare il frammento di codice seguente e sostituire i valori segnaposto con i valori del database.
+1. In una nuova Jupyter Notebook, in una cella di codice, incollare il frammento di codice seguente e sostituire i valori segnaposto con i valori del database.
 
     ```scala
     // Declare the values for your database
@@ -121,7 +121,7 @@ In questa sezione si leggeranno i dati di una tabella (ad esempio, **SalesLT.Add
 
 In questa sezione viene usato un file CSV di esempio disponibile nel cluster per creare una tabella nel database e popolarla con i dati. Il file CSV di esempio (**HVAC.csv**) è disponibile in tutti i cluster HDInsight al percorso `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv`.
 
-1. In un nuovo notebook di Jupyter, in una cella di codice, incollare il frammento di codice seguente e sostituire i valori segnaposto con i valori del database.
+1. In una nuova Jupyter Notebook, in una cella di codice, incollare il frammento di codice seguente e sostituire i valori segnaposto con i valori del database.
 
     ```scala
     // Declare the values for your database
@@ -192,7 +192,7 @@ In questa sezione viene eseguito il flusso dei dati nell'oggetto `hvactable` cre
     TRUNCATE TABLE [dbo].[hvactable]
     ```
 
-1. Caricare un nuovo notebook di Jupyter nel cluster HDInsight Spark. Incollare il frammento di codice seguente in una cella di codice e quindi premere **MAIUSC+INVIO**:
+1. Creare una nuova Jupyter Notebook nel cluster HDInsight Spark. Incollare il frammento di codice seguente in una cella di codice e quindi premere **MAIUSC+INVIO**:
 
     ```scala
     import org.apache.spark.sql._

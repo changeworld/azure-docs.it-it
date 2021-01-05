@@ -1,6 +1,6 @@
 ---
-title: Kernel per il notebook di Jupyter nei cluster Spark in Azure HDInsight
-description: Informazioni sui kernel PySpark, PySpark3 e Spark per i notebook di Jupyter disponibili con i cluster Spark in Azure HDInsight.
+title: Kernel per Jupyter Notebook nei cluster Spark in Azure HDInsight
+description: Informazioni sui kernel PySpark, PySpark3 e Spark per Jupyter Notebook disponibili con i cluster Spark in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1139ce2358d5e5b3b52376892524e7ee0dd5611
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084716"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822234"
 ---
-# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel per il notebook di Jupyter nei cluster Apache Spark in Azure HDInsight
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel per Jupyter Notebook nei cluster di Apache Spark in Azure HDInsight
 
-I cluster HDInsight Spark forniscono kernel che è possibile usare con il notebook di Jupyter in [Apache Spark](./apache-spark-overview.md) per testare le applicazioni. Un kernel è un programma che esegue e interpreta il codice. I tre kernel sono:
+I cluster HDInsight Spark forniscono i kernel che è possibile usare con il Jupyter Notebook su [Apache Spark](./apache-spark-overview.md) per il test delle applicazioni. Un kernel è un programma che esegue e interpreta il codice. I tre kernel sono:
 
 - **PySpark** (per le applicazioni scritte in Python2)
 - **PySpark3** (per le applicazioni scritte in Python3)
@@ -25,34 +25,34 @@ I cluster HDInsight Spark forniscono kernel che è possibile usare con il notebo
 
 In questo articolo viene illustrato come usare questi kernel e i vantaggi che ne derivano.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Creare un notebook di Jupyter in HDInsight Spark
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Creare una Jupyter Notebook in Spark HDInsight
 
 1. Dal [portale di Azure](https://portal.azure.com/)selezionare il cluster Spark.  Per le istruzioni vedere la sezione su come [elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters). Verrà visualizzata la vista **Panoramica** .
 
 2. Nella casella **Dashboard cluster** della visualizzazione **Panoramica** selezionare **Jupyter notebook**. Se richiesto, immettere le credenziali per il cluster.
 
-    ![Notebook di Jupyter su Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Notebook di Jupyter in Spark")
+    ![Jupyter Notebook Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook su Spark")
   
    > [!NOTE]  
-   > È anche possibile accedere al notebook di Jupyter nel cluster Spark aprendo l'URL seguente nel browser. Sostituire **clustername** con il nome del cluster:
+   > È anche possibile raggiungere il Jupyter Notebook nel cluster Spark aprendo l'URL seguente nel browser. Sostituire **clustername** con il nome del cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Selezionare **nuovo**e quindi selezionare **Pyspark**, **PySpark3**o **Spark** per creare un notebook. Usare il kernel Spark per applicazioni Scala, il kernel PySpark per applicazioni Python2 e il kernel PySpark3 per applicazioni Python3.
+3. Selezionare **nuovo** e quindi selezionare **Pyspark**, **PySpark3** o **Spark** per creare un notebook. Usare il kernel Spark per applicazioni Scala, il kernel PySpark per applicazioni Python2 e il kernel PySpark3 per applicazioni Python3.
 
-    ![Kernel per il notebook di Jupyter in Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernel per il notebook di Jupyter in Spark")
+    ![Kernel per Jupyter Notebook in Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernel per Jupyter Notebook in Spark")
 
 4. Verrà aperto un notebook con il kernel selezionato.
 
 ## <a name="benefits-of-using-the-kernels"></a>Vantaggi offerti dall'uso dei kernel
 
-Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyter nei cluster HDInsight Spark.
+Ecco alcuni vantaggi dell'uso dei nuovi kernel con Jupyter Notebook nei cluster Spark HDInsight.
 
-- **Contesti predefiniti**. Con  **PySpark**, **PySpark3**o i kernel **Spark** , non è necessario impostare i contesti Spark o hive in modo esplicito prima di iniziare a lavorare con le applicazioni. Questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
+- **Contesti predefiniti**. Con  **PySpark**, **PySpark3** o i kernel **Spark** , non è necessario impostare i contesti Spark o hive in modo esplicito prima di iniziare a lavorare con le applicazioni. Questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
 
   - **sc** : per il contesto Spark
   - **sqlContext** : per il contesto Hive
@@ -78,7 +78,7 @@ Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyt
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Esegue una query Hive su sqlContext. Se viene passato il parametro `-o` , il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati [Pandas](https://pandas.pydata.org/) . |
    | locali |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Il codice deve essere un codice python2 valido indipendentemente dal kernel che si sta usando. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa il `%%local` Magic in una cella, tale cella deve avere solo codice python2 valido. |
    | log |`%%logs` |Visualizza i log per la sessione Livy corrente. |
-   | Elimina |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata per il kernel stesso. |
+   | eliminare |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata per il kernel stesso. |
    | cleanup |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
    > [!NOTE]  
@@ -118,7 +118,7 @@ Indipendentemente dal kernel usato, se si lasciano i notebook in esecuzione veng
 
 ## <a name="where-are-the-notebooks-stored"></a>Dove sono archiviati i notebook
 
-Se il cluster usa Archiviazione di Azure come account di archiviazione predefinito, i notebook Jupyter vengono salvati nell'account di archiviazione nella cartella **/HdiNotebooks**.  I notebook, i file di testo e le cartelle che si creano da Jupyter sono accessibili dall'account di archiviazione.  Ad esempio, se si usa Jupyter per creare una cartella **`myfolder`** e un notebook **cartella/notebook. ipynb**, è possibile accedere al notebook all' `/HdiNotebooks/myfolder/mynotebook.ipynb` interno dell'account di archiviazione.  Analogamente, se si carica un notebook direttamente nell'account di archiviazione in `/HdiNotebooks/mynotebook1.ipynb`, il notebook è visibile anche da Jupyter.  I notebook vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
+Se il cluster Usa archiviazione di Azure come account di archiviazione predefinito, i notebook Jupyter vengono salvati nell'account di archiviazione nella cartella **nella/hdinotebooks** .  I notebook, i file di testo e le cartelle che si creano da Jupyter sono accessibili dall'account di archiviazione.  Ad esempio, se si usa Jupyter per creare una cartella **`myfolder`** e un notebook **cartella/notebook. ipynb**, è possibile accedere al notebook all' `/HdiNotebooks/myfolder/mynotebook.ipynb` interno dell'account di archiviazione.  Analogamente, se si carica un notebook direttamente nell'account di archiviazione in `/HdiNotebooks/mynotebook1.ipynb`, il notebook è visibile anche da Jupyter.  I notebook vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
 
 > [!NOTE]  
 > I cluster HDInsight con Azure Data Lake Storage come spazio di archiviazione predefinito non archiviano i notebook nello spazio di archiviazione associato.
@@ -145,5 +145,5 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Quin
 
 - [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 - [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
-- [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+- [Usare pacchetti esterni con notebook di Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)

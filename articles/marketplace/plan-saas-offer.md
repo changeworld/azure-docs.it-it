@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621604"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821486"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -202,7 +202,7 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
   - file con estensione png
   - Deve includere una didascalia
 - **Media-video** (facoltativo): è possibile aggiungere fino a quattro video con i requisiti seguenti, che dimostrano l'offerta:
-  - Nome
+  - Name
   - URL: deve essere ospitato solo su YouTube o Vimeo.
   - Anteprima: file 1280 x 720. png
 
@@ -250,7 +250,7 @@ Nell'esempio seguente viene illustrata una suddivisione di esempio di costi e pa
 | Microsoft paga l'80% del costo della licenza<br>`*` Per le app SaaS qualificate, Microsoft paga il 90% del costo della licenza| $ 80,00 al mese<br>``*`` $ 90,00 al mese |
 |||
 
-**`*` Tariffa ridotta del servizio Marketplace** : per alcune offerte SaaS pubblicate sul Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. Per informazioni dettagliate sull'idoneità di co-selling IP, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). La tariffa ridotta per il servizio Marketplace si applica anche alle macchine virtuali incentivate di Azure con co-selling IP di Azure, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
+**`*` Tariffa ridotta del servizio Marketplace** : per alcune offerte SaaS pubblicate sul Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa ridotta del servizio Marketplace. Una volta raggiunta l'idoneità, la tariffa di servizio ridotta viene assegnata a tutte le transazioni effettive il primo giorno del mese successivo e continuerà a essere applicata fino a quando lo stato di incentivate di co-selling IP di Azure non viene perso. Per informazioni dettagliate sull'idoneità di co-selling IP, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). La tariffa ridotta per il servizio Marketplace si applica anche alle macchine virtuali incentivate di Azure con co-selling IP di Azure, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
 
 ## <a name="additional-sales-opportunities"></a>Opportunità di vendita aggiuntive
 

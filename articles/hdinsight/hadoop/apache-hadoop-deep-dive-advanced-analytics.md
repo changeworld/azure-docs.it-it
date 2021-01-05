@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13dd960cc7c900882acbcb9b17a5b8a1f32f956c
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504350"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821503"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondimento - Analisi avanzata
 
@@ -42,7 +42,7 @@ Insieme alla selezione degli algoritmi più adatti, è necessario considerare se
 * Senza supervisione: l'algoritmo non richiede dati di training
 * Rinforzo: l'algoritmo usa agenti software per determinare il comportamento ideale in un contesto specifico (tecnica spesso usata in robotica)
 
-| Categoria algoritmo| Uso | Tipo di apprendimento | Algoritmi |
+| Categoria algoritmo| Usa | Tipo di apprendimento | Algoritmi |
 | --- | --- | --- | -- |
 | Classificazione | Classificare oggetti o persone in gruppi | Sotto la supervisione | Alberi delle decisioni, regressione logistica, reti neurali |
 | Clustering | Dividere un set di esempi in gruppi omogenei | Non supervisionato | Clustering K-Means |
@@ -91,7 +91,7 @@ Questo scenario di analisi avanzata prevede tre principali attività:
 
 1. Creare un cluster Hadoop di Azure HDInsight con una distribuzione di Apache Spark 2.1.0.
 2. Eseguire uno script personalizzato per installare Microsoft Cognitive Toolkit in un cluster Spark di Azure HDInsight.
-3. Caricare un notebook di Jupyter pre-compilato nel cluster Spark HDInsight per applicare un modello con training di apprendimento avanzato di Microsoft Cognitive Toolkit ai file di un account di Archiviazione BLOB di Azure tramite l'API Python Spark (PySpark).
+3. Caricare un Jupyter Notebook predefinito nel cluster HDInsight Spark per applicare un modello di apprendimento avanzato Microsoft Cognitive Toolkit con training ai file in un account di archiviazione BLOB di Azure tramite l'API Python Spark (PySpark).
 
 Questo esempio è basato sul set di immagini CIFAR-10 compilato e distribuito da Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. Il set di dati 10 CIFAR contiene 60.000 immagini a colori 32x32 appartenenti a 10 classi che si escludono a vicenda:
 

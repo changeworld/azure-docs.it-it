@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 770c73cb6f1309e64cd44c5a1b1570899108e4e7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539701"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821044"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Lavorare all'interno dell'ecosistema Apache Hadoop in HDInsight da un computer Windows
 
@@ -75,9 +75,9 @@ Questi articoli mostrano come:
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Notebook su Spark per data scientist
 
-I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin che possono essere usati con notebook Jupyter.
+I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin che possono essere usati con i notebook di Jupyter.
 
-* [Informazioni su come usare i kernel nei cluster Apache Spark con notebook Jupyter per testare le applicazioni Spark](spark/apache-spark-zeppelin-notebook.md)
+* [Informazioni su come usare i kernel in Apache Spark cluster con notebook di Jupyter per testare le applicazioni Spark](spark/apache-spark-zeppelin-notebook.md)
 * [Informazioni su come usare notebook Apache Zeppelin nei cluster Spark per eseguire processi Spark](spark/apache-spark-jupyter-notebook-kernels.md)
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Eseguire strumenti e tecnologie basate su Linux in Windows
@@ -85,7 +85,7 @@ I cluster Apache Spark in HDInsight includono notebook e kernel Apache Zeppelin 
 Se si incontra una situazione in cui è necessario usare uno strumento o una tecnologia disponibile solo in Linux, prendere in considerazione le opzioni seguenti:
 
 * **Bash in Ubuntu in Windows 10** fornisce un sottosistema Linux in Windows. Bash consente di eseguire direttamente le utilità di Linux senza dover gestire un'installazione di Linux dedicata. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).
-* **Docker per Windows** fornisce l'accesso a molti strumenti basati su Linux e può essere eseguito direttamente da Windows. Ad esempio è possibile usare Docker per eseguire il client Beeline per Hive direttamente da Windows. È possibile inoltre usare Docker per eseguire un notebook Jupyter locale e connettersi da remoto a Spark in HDInsight. [Introduzione a Docker per Windows](https://docs.docker.com/docker-for-windows/)
+* **Docker per Windows** fornisce l'accesso a molti strumenti basati su Linux e può essere eseguito direttamente da Windows. Ad esempio è possibile usare Docker per eseguire il client Beeline per Hive direttamente da Windows. È anche possibile usare Docker per eseguire una Jupyter Notebook locale e connettersi in remoto a Spark in HDInsight. [Introduzione a Docker per Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** consente di visualizzare graficamente il file system del cluster tramite una connessione SSH.
 
 ## <a name="cross-platform-tools"></a>Strumenti multipiattaforma

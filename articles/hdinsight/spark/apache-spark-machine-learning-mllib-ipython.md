@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6407f7c3b1e8570cdc6b36dceec79fba58689c7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230416"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822183"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
@@ -44,7 +44,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Creare una pipeline di apprendimento automatico MLlib Apache Spark
 
-1. Creare un notebook di Jupyter usando il kernel PySpark. Per istruzioni, vedere [Creare un file di notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Creare un Jupyter Notebook usando il kernel PySpark. Per istruzioni, vedere [Creare un file di Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
 
@@ -121,7 +121,7 @@ Usare il contesto Spark per eseguire il pull dei dati CSV non elaborati in memor
     df.registerTempTable('CountResults')
     ```
 
-    Le quattro colonne di interesse nel frame di dati sono **ID**, **Name**, **results**e **Violations**.
+    Le quattro colonne di interesse nel frame di dati sono **ID**, **Name**, **results** e **Violations**.
 
 4. Eseguire il codice seguente per ottenere un piccolo campione dei dati:
 
@@ -174,7 +174,7 @@ Ora si determinerà il contenuto del set di dati.
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    Il comando speciale `%%sql` seguito da `-o countResultsdf` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene conservato come frame di dati [Pandas](https://pandas.pydata.org/) con il nome specificato **countResultsdf**. Per altre informazioni sul comando Magic `%%sql` e sugli altri comandi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    Il comando speciale `%%sql` seguito da `-o countResultsdf` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene conservato come frame di dati [Pandas](https://pandas.pydata.org/) con il nome specificato **countResultsdf**. Per altre informazioni sul `%%sql` Magic e sugli altri Magic disponibili con il kernel PySpark, vedere [kernel disponibili nei notebook di Jupyter con Apache Spark cluster HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     L'output è il seguente:
 
@@ -349,7 +349,7 @@ model = pipeline.fit(labeledData)
     plt.axis('equal')
     ```
 
-    Viene visualizzato l'output seguente:
+    Dovrebbe venire visualizzato l'output seguente:
 
     ![Output dell'applicazione di Machine Learning Spark: percentuali dei grafici a torta di ispezioni non riuscite.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Output del risultato di Machine Learning Spark")
 

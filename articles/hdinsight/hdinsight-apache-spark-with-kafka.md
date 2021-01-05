@@ -1,6 +1,6 @@
 ---
 title: 'Streaming Apache Spark con Apache Kafka: Azure HDInsight'
-description: Informazioni su come è possibile usare Apache Spark per trasmettere dati in streaming all'interno o all'esterno di Apache Kafka per mezzo di DStreams. In questo esempio i dati vengono trasmessi in streaming tramite un notebook Jupyter da Spark in HDInsight.
+description: Informazioni su come è possibile usare Apache Spark per trasmettere dati in streaming all'interno o all'esterno di Apache Kafka per mezzo di DStreams. In questo esempio i dati vengono trasmessi tramite un Jupyter Notebook da Spark in HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: e2f4bbe6157e1affa4975f6dcee2ad0f1d98a71b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88a62b2d1ebee3bf933729ab82bc9e37a3db066b
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086093"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821180"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Esempio dello streaming Apache Spark (DStream) con Apache Kafka in HDInsight
 
@@ -51,10 +51,10 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 1. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
 
-    |Proprietà |Valore |
+    |Proprietà |valore |
     |---|---|
-    |Resource group|creare un gruppo o selezionarne uno esistente.|
-    |Location|scegliere una località geograficamente vicina.|
+    |Gruppo di risorse|creare un gruppo o selezionarne uno esistente.|
+    |Posizione|scegliere una località geograficamente vicina.|
     |Nome del cluster di base|questo valore viene usato come nome di base per i cluster Spark e Kafka. Ad esempio, se si immette **hdistreaming** viene creato un cluster Spark denominato __spark-hdistreaming__ e un cluster Kafka denominato **kafka-hdistreaming**.|
     |Nome utente dell'account di accesso del cluster|nome utente amministratore per i cluster Spark e Kafka.|
     |Password di accesso al cluster|password dell'utente amministratore per i cluster Spark e Kafka.|
