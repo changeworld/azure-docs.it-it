@@ -3,15 +3,15 @@ title: File di contenitori del profilo FSLogix di desktop virtuali Windows-Azure
 description: Questo articolo descrive i contenitori di profili FSLogix all'interno di un desktop virtuale di Windows e di file di Azure.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef7f19d835f4fef1a911da01015321b2dda67682
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002384"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861880"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -70,7 +70,7 @@ I cluster S2D richiedono un sistema operativo con patch, aggiornamento e manuten
 Il 19 novembre 2018 Microsoft ha [acquisito FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix risolve molti problemi relativi ai contenitori di profili. La chiave tra di essi è:
 
 - **Prestazioni:** I [contenitori del profilo FSLogix](/fslogix/configure-profile-container-tutorial/) sono prestazioni elevate e risoluzione dei problemi di prestazioni con modalità di scambio memorizzata nella cache storicamente bloccata.
-- **OneDrive:** Senza i contenitori del profilo FSLogix, OneDrive for business non è supportato in ambienti RDSH o VDI non persistenti. [Le procedure consigliate per OneDrive for business e FSLogix](/fslogix/overview/) descrivono il modo in cui interagiscono. Per altre informazioni, vedere [usare il client di sincronizzazione su desktop virtuali](/deployoffice/rds-onedrive-business-vdi/).
+- **OneDrive:** Senza i contenitori del profilo FSLogix, OneDrive for business non è supportato in ambienti RDSH o VDI non persistenti. La [pagina del supporto di ONEDRIVE VDI](/onedrive/sync-vdi-support) indica il modo in cui interagiscono. Per altre informazioni, vedere [usare il client di sincronizzazione su desktop virtuali](/deployoffice/rds-onedrive-business-vdi/).
 - **Cartelle aggiuntive:** FSLogix offre la possibilità di estendere i profili utente per includere cartelle aggiuntive.
 
 Dall'acquisizione, Microsoft ha iniziato a sostituire le soluzioni del profilo utente esistenti, ad esempio UPD, con i contenitori del profilo FSLogix.
@@ -87,7 +87,7 @@ Per assicurarsi che l'ambiente desktop virtuale di Windows segua le procedure co
 
 - File di Azure account di archiviazione deve trovarsi nella stessa area delle VM host sessione.
 - File di Azure le autorizzazioni devono corrispondere alle autorizzazioni descritte nei [contenitori dei profili dei requisiti](/fslogix/fslogix-storage-config-ht).
-- Ogni pool di host deve essere compilato con la stessa macchina virtuale di tipo e dimensioni basata sulla stessa immagine master.
+- Ogni macchina virtuale del pool host deve essere compilata con la stessa macchina virtuale di tipo e dimensioni basata sulla stessa immagine master.
 - Ogni macchina virtuale del pool host deve trovarsi nello stesso gruppo di risorse per agevolare la gestione, la scalabilità e l'aggiornamento.
 - Per ottenere prestazioni ottimali, la soluzione di archiviazione e il contenitore del profilo FSLogix devono trovarsi nello stesso percorso data center.
 - L'account di archiviazione contenente l'immagine master deve trovarsi nella stessa area e nella stessa sottoscrizione in cui è in corso il provisioning delle macchine virtuali.

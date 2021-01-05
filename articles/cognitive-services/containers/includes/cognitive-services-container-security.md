@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/11/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4b106ebc5606c4e5a290e12728d4e2011e80f6a2
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574302"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861828"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Sicurezza del contenitore dei servizi cognitivi di Azure
 
@@ -44,7 +44,7 @@ L'host deve consentire la **porta elenco 443** e i domini seguenti:
 
 #### <a name="disable-deep-packet-inspection"></a>Disabilitare l'ispezione approfondita dei pacchetti
 
-> L' [ispezione approfondita dei pacchetti](https://en.wikipedia.org/wiki/Deep_packet_inspection) (dpi) è un tipo di elaborazione dei dati che esamina in dettaglio i dati inviati su una rete di computer e in genere esegue operazioni bloccando, reindirizzando o registrando di conseguenza.
+L' [ispezione approfondita dei pacchetti](https://en.wikipedia.org/wiki/Deep_packet_inspection) (dpi) è un tipo di elaborazione dei dati che esamina in dettaglio i dati inviati su una rete di computer e in genere esegue operazioni bloccando, reindirizzando o registrando di conseguenza.
 
 Disabilitare DPI nei canali protetti creati dai contenitori di servizi cognitivi nei server Microsoft. In caso contrario, il contenitore non funzionerà correttamente.
 

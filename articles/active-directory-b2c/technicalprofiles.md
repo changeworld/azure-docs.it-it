@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 99ed7d3ad81202ab6fe67bf52888bbdbf0b28d2a
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387089"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861861"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -52,7 +52,7 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
 ![Diagramma che illustra il flusso del profilo tecnico](./media/technical-profiles/technical-profile-flow.png)
 
 1. **Gestione delle sessioni Single Sign-on (SSO)** : Ripristina lo stato della sessione del profilo tecnico, usando la [gestione delle sessioni SSO](custom-policy-reference-sso.md).
-1. **Trasformazione delle attestazioni di input** : prima dell'avvio del profilo tecnico, Azure ad B2C esegue l'input [Transformation Claims]. (claimstransformations.md).
+1. **Trasformazione delle attestazioni di input** : prima dell'avvio del profilo tecnico, Azure ad B2C esegue la [trasformazione delle attestazioni](claimstransformations.md)di input.
 1. **Attestazioni di input** : le attestazioni vengono prelevate dall'elenco delle attestazioni usato per il profilo tecnico.
 1. **Esecuzione del profilo tecnico**: il profilo tecnico scambia le attestazioni con l'entità configurata. Ad esempio:
     - Reindirizza l'utente al provider di identità per completare l'accesso. Dopo aver completato l'accesso, l'utente torna indietro e l'esecuzione del profilo tecnico continua.
@@ -120,7 +120,7 @@ Il **protocollo** specifica il protocollo da utilizzare per la comunicazione con
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` o `None` . |
+| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` o `None` . |
 | Gestore | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
 
 ## <a name="metadata"></a>Metadati
@@ -281,7 +281,7 @@ L'elemento **DisplayClaim** contiene gli attributi seguenti:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | No | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DisplayControlReferenceId | No | Identificatore di un [controllo di visualizzazione](display-controls.md) già definito nella sezione ClaimsSchema del file di criteri o del file di criteri padre. |
-| Necessario | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
+| Obbligatorio | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
 
 Nell'esempio seguente viene illustrato l'utilizzo di attestazioni e controlli di visualizzazione con in un profilo tecnico autocertificato.
 
