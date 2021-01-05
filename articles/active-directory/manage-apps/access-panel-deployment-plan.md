@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 209760b51e0f3ab931fa43ef88406f15c75ac079
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835663"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832540"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Pianificare un Azure Active Directory la distribuzione di app personali
 
@@ -74,8 +74,8 @@ La tabella seguente descrive i casi d'uso principali per la distribuzione di app
 
 | Area| Descrizione |
 | - | - |
-| Access| Il portale delle app è accessibile da dispositivi aziendali e personali all'interno della rete aziendale. |
-|Access | Il portale delle app è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
+| Accesso| Il portale delle app è accessibile da dispositivi aziendali e personali all'interno della rete aziendale. |
+|Accesso | Il portale delle app è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
 | Controllo| I dati di utilizzo vengono scaricati nei sistemi aziendali almeno ogni 29 giorni. |
 | Governance| Il ciclo di vita delle assegnazioni degli utenti a gruppi e applicazioni connesse Azure AD viene definito e monitorato. |
 | Sicurezza| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
@@ -303,11 +303,11 @@ Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria 
 
 | Utenti tipo| Ruoli| Ruolo di Azure AD  |
 | - | -| -|
-| Amministratore helpdesk| Supporto di livello 1| Nessuno |
+| Amministratore helpdesk| Supporto di livello 1| nessuno |
 | Amministratore identità| Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD| Amministratore globale |
-| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
+| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| nessuno |
 | Amministratori dell'infrastruttura| Proprietario del rollover del certificato| Amministratore globale |
-| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
+| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| nessuno |
 
 È possibile usare [Privileged Identity Management](../privileged-identity-management/pim-configure.md) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 

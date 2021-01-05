@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089197"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835024"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Domande frequenti su Azure Defender
 
@@ -51,7 +51,7 @@ Sì, è possibile. La soluzione locale di Azure Defender per la piattaforma Inte
 
 Il sensore Azure Defender per l'it si connette a una porta di intervallo o a un TAP di rete e inizia immediatamente a raccogliere il traffico di rete ICS tramite il monitoraggio passivo (senza agenti). Non ha alcun effetto sulle reti OT perché non è disponibile nel percorso dati e non esegue l'analisi attiva dei dispositivi OT.
 
-Esempio:
+Ad esempio:
 - Una singola appliance (virtuale di fisica) può trovarsi nel livello della rete perimetrale del negozio, in modo che tutto il traffico delle celle del negozio venga indirizzato a questo livello.
 - In alternativa, è possibile individuare piccoli sensori in ogni cella del negozio con la gestione cloud o locale che risiederà nel livello della rete perimetrale del negozio. Un altro dispositivo (virtuale o fisico) può monitorare il traffico nel livello della rete perimetrale del negozio (per SCADA, storico o MES).
 
@@ -79,15 +79,11 @@ Sì. È possibile impostare un avviso personalizzato per un set di comportamenti
 
 I sensori e gli agenti continuano a funzionare e a archiviare i dati finché il dispositivo è in esecuzione. I dati vengono memorizzati nella cache dei messaggi di sicurezza in base alla configurazione delle dimensioni. Quando il dispositivo recupera la connettività, viene ripreso anche l’invio dei messaggi sulla sicurezza.
 
-
-
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come iniziare a usare Defender per l'it, vedere gli articoli seguenti:
 
 - Leggi la [Panoramica](overview.md) di Defender for Internet
-- Verificare i [prerequisiti del servizio](service-prerequisites.md)
-- Vedere ulteriori informazioni su come [iniziare](getting-started.md)
+- Verificare i [prerequisiti di sistema](quickstart-system-prerequisites.md)
+- Scopri di più su come [iniziare a usare Defender for](getting-started.md) Internet
 - Informazioni sugli [avvisi di sicurezza di Defender](concept-security-alerts.md)

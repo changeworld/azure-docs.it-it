@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 9862519a2003eb373c43fef1b660986a8d830327
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f584f11603e41b63f3c96749ed6c720eb5ce07a8
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094456"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835058"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>Domande frequenti su Azure Defender per l'agente
 
 Questo articolo fornisce un elenco di domande frequenti e risposte relative al Defender per l'agente.
-
 
 ## <a name="do-i-have-to-install-an-embedded-security-agent"></a>È necessario installare un agente protezione incorporato?
 
@@ -41,7 +40,6 @@ L'installazione dell'agente nei dispositivi Internet non è obbligatoria per con
 Defender per l'agente di gestione dei dispositivi it fornisce copertura delle minacce a livello di dispositivo per la configurazione del dispositivo, il comportamento e l'accesso (tramite l'analisi della configurazione), elaborazione & connettività. Il Defender per l'agente sicurezza non esegue l'analisi dell'attività o dei dati correlati all'azienda.
 
 Defender for Internet Security Agent è open source ed è disponibile su GitHub nelle versioni di Windows e Linux a 32 bit e a 64 bit: https://github.com/Azure/Azure-IoT-Security .
-
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quali sono le dipendenze e i prerequisiti dell'agente?
 
@@ -87,13 +85,11 @@ L'agente non può essere disattivato.
 
 Se l'agente interrompe la comunicazione o non riesce a inviare messaggi sulla sicurezza, viene generato un avviso che informa che il **dispositivo è invisibile all'utente**.
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come iniziare a usare Defender per l'it, vedere gli articoli seguenti:
 
 - Leggi la [Panoramica](overview.md) di Defender for Internet
-- Verificare i [prerequisiti del servizio](service-prerequisites.md)
-- Vedere ulteriori informazioni su come [iniziare](getting-started.md)
+- Verificare i [prerequisiti di sistema](quickstart-system-prerequisites.md)
+- Scopri di più su come [iniziare a usare Defender for](getting-started.md) Internet
 - Informazioni sugli [avvisi di sicurezza di Defender](concept-security-alerts.md)
