@@ -1,19 +1,19 @@
 ---
 title: Soluzione VMware di Azure di CloudSimple-escalation dei privilegi CloudSimple
 description: Viene descritto come eseguire l'escalation delle autorizzazioni CloudSimple per eseguire funzioni amministrative nel cloud privato vCenter
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d481717a79856583d23f61107678d2ecd1af68d6
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025334"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895728"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Escalation dei privilegi CloudSimple per eseguire funzioni amministrative nel cloud privato vCenter
 
@@ -22,7 +22,7 @@ L'approccio con privilegi CloudSimple è progettato per fornire agli utenti di v
 I motivi per i privilegi di escalation possono includere quanto segue:
 
 * Configurazione delle origini identità
-* Gestione utente
+* Gestione degli utenti
 * Eliminazione del gruppo di porte distribuite
 * Installazione di soluzioni vCenter (ad esempio, app di backup)
 * Creazione degli account di servizio

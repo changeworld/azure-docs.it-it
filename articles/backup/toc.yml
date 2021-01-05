@@ -94,6 +94,8 @@
       href: backup-architecture.md
     - name: Materiale sussidiario e procedure consigliate
       href: guidance-best-practices.md
+    - name: Glossario dei termini
+      href: azure-backup-glossary.md
 - name: Guide pratiche
   items:
     - name: Insiemi di credenziali
@@ -164,6 +166,8 @@
               href: backup-azure-manage-vms.md
             - name: Gestire i punti di ripristino
               href: manage-recovery-points.md
+            - name: Modificare i criteri di backup con l'interfaccia della riga di comando di Azure
+              href: modify-vm-policy-cli.md
     - name: Backup di database SQL Server in VM di Azure
       items:
         - name: Panoramica

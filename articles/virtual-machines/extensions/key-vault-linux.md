@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c9b624a1efc72bebec8547e8ecf9f3bf9fc99863
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680655"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895020"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
@@ -38,6 +38,21 @@ L'estensione macchina virtuale di Key Vault supporta queste distribuzioni Linux:
   - Key Vault istanza con certificato. Vedere [creare un Key Vault](../../key-vault/general/quick-create-portal.md)
   - VM/VMSS deve avere l' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) assegnata
   - I criteri di accesso Key Vault devono essere impostati con i segreti `get` e l' `list` autorizzazione per l'identità gestita VM/vmss per recuperare la parte del certificato di un segreto. Vedere [come eseguire l'autenticazione a Key Vault](../../key-vault/general/authentication.md) e [assegnare un criterio di accesso key Vault](../../key-vault/general/assign-access-policy-cli.md).
+  -  VMSS deve avere l'impostazione Identity seguente: ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+ - L'estensione AKV deve avere questa impostazione: `
+                 "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -138,6 +153,17 @@ La configurazione JSON per un'estensione macchina virtuale deve essere annidata 
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>Ordinamento delle dipendenze dell'estensione
+L'estensione della macchina virtuale Key Vault supporta l'ordinamento delle estensioni, se configurato. Per impostazione predefinita, l'estensione segnala che è stata avviata correttamente non appena è iniziata l'esecuzione del polling. Tuttavia, può essere configurato in modo da attendere che l'elenco completo dei certificati sia stato scaricato correttamente prima di segnalare un avvio riuscito. Se altre estensioni dipendono dall'installazione completa del set di certificati prima dell'avvio, l'abilitazione di questa impostazione consentirà a tale estensione di dichiarare una dipendenza dall'estensione Key Vault. In questo modo le estensioni non verranno avviate fino a quando non sono stati installati tutti i certificati da cui dipendono. L'estensione tenterà di nuovo il download iniziale a tempo indefinito e rimarrà in uno `Transitioning` stato.
+
+Per attivare questa impostazione, impostare quanto segue:
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> Si noti L'uso di questa funzionalità non è compatibile con un modello ARM che crea un'identità assegnata dal sistema e aggiorna un criterio di accesso Key Vault con tale identità. In questo modo si otterrà un deadlock perché i criteri di accesso dell'insieme di credenziali non possono essere aggiornati finché non sono state avviate tutte le estensioni. È invece consigliabile usare un' *identità MSI assegnata a un singolo utente* e pre-ACL degli insiemi di credenziali con tale identità prima della distribuzione.
 
 ## <a name="azure-powershell-deployment"></a>Distribuzione con Azure PowerShell
 > [!WARNING]

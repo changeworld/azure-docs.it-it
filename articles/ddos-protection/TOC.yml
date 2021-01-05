@@ -15,9 +15,11 @@
 - name: Esercitazioni
   items:
     - name: Visualizzare e configurare i dati di telemetria della protezione DDoS
-      href: telemetry-monitoring-alerting.md
-    - name: Configurare i report e i log dei flussi per la mitigazione degli attacchi DDoS
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: Visualizzare e configurare la registrazione diagnostica DDoS
+      href: diagnostic-logging.md
+    - name: Visualizzare e configurare gli avvisi di protezione DDoS
+      href: alerts.md
 - name: Concetti
   items:
     - name: Tipi di attacchi

@@ -1,19 +1,19 @@
 ---
 title: "Soluzione VMware di Azure di CloudSimple: configurare vCenter sul cloud privato per l'automazione di vRealize"
 description: Viene descritto come configurare un server VMware vCenter nel cloud privato CloudSimple come endpoint per l'automazione di vRealize VMware
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77024841"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895054"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurare vCenter nel cloud privato per l'automazione vRealize VMware
 
@@ -36,9 +36,9 @@ Completare queste attività prima di configurare il server vCenter:
 | Rete | Assegna rete |
 | Autorizzazioni | Modify Permissions |
 | Risorsa | Assegnare una macchina virtuale al pool di risorse<br>Esegui la migrazione della macchina virtuale spenta<br>Esegui la migrazione della macchina virtuale accesa |
-| Inventario macchina virtuale |  Crea da esistente<br>Creazione di un nuovo sito<br>Spostamento<br>Rimuovere | 
+| Inventario macchina virtuale |  Crea da esistente<br>Creazione di un nuovo sito<br>Spostamento<br>Rimuovi | 
 | Interazione tra macchine virtuali |  Configurare supporti CD<br>Interazione tra console<br>Connessione del dispositivo<br>Spegnimento<br>Accensione<br>Reset<br>Sospendi<br>Installazione degli strumenti | 
-| Configurazione macchina virtuale |  Aggiungi disco esistente<br>Aggiungi nuovo disco<br>Aggiungi o Rimuovi<br>Rimuovi disco<br>Avanzate<br>Cambia Conteggio CPU<br>Cambia risorsa<br>Estendi disco virtuale<br>Rilevamento modifiche disco<br>Memoria<br>Modificare le impostazioni del dispositivo<br>Rinominare<br>Set Annotation (versione 5,0 e successive)<br>Impostazioni<br>Selezione host file |
+| Configurazione macchina virtuale |  Aggiungi disco esistente<br>Aggiungi nuovo disco<br>Aggiungi o Rimuovi<br>Rimuovi disco<br>Avanzato<br>Cambia Conteggio CPU<br>Cambia risorsa<br>Estendi disco virtuale<br>Rilevamento modifiche disco<br>Memoria<br>Modificare le impostazioni del dispositivo<br>Rinomina<br>Set Annotation (versione 5,0 e successive)<br>Impostazioni<br>Selezione host file |
 | Provisioning |  Personalizza<br>Clona modello<br>Clona macchina virtuale<br>Modello di distribuzione<br>Leggi le specifiche di personalizzazione |
 | Stato macchina virtuale | Crea snapshot<br>Rimuovi snapshot<br>Ripristina snapshot |
 
@@ -48,7 +48,7 @@ Completare queste attività prima di configurare il server vCenter:
 2. Distribuire un agente vSphere per l'endpoint di automazione vRealize.
     1. Passare a https://*LRV-URL*: 5480/Installer, dove *LRV-URL* è l'URL usato per accedere all'interfaccia utente di amministrazione di automazione vRealize.
     2. Per scaricare il programma di installazione, fare clic sul **programma di installazione di IaaS** .<br>
-    La convenzione di denominazione per il file del programma di installazione è setup_*LRV-URL* @5480.exe .
+    La convenzione di denominazione per il file del programma di installazione è setup_ *LRV-URL* @5480.exe .
     3. Eseguire il programma di installazione. Nella schermata iniziale fare clic su **Avanti**.
     4. Accettare il contratto di licenza e fare clic su **Avanti**.
     5. Fornire le informazioni di accesso, fare clic su **Accept certificate**, quindi fare clic su **Next**.
@@ -69,10 +69,10 @@ Completare queste attività prima di configurare il server vCenter:
 ## <a name="configure-the-vsphere-agent"></a>Configurare l'agente vSphere
 
 1. Passare a https://*LRV-URL*/vCAC e accedere come **ConfigurationAdmin**.
-2. Selezionare endpoint dell' **infrastruttura**endpoint  >  **Endpoints**  >  **Endpoints**.
+2. Selezionare endpoint dell' **infrastruttura** endpoint  >    >  .
 3. Selezionare **nuovo**  >  **virtuale**  >  **vSphere**.
 4. Immettere il nome dell'endpoint vSphere specificato nella procedura precedente.
-5. Per **Indirizzo**immettere l'URL di server vCenter del cloud privato nel formato https://*vCenter-FQDN*/SDK, dove *vCenter-FQDN* è il nome del server vCenter.
+5. Per **Indirizzo** immettere l'URL di server vCenter del cloud privato nel formato https://*vCenter-FQDN*/SDK, dove *vCenter-FQDN* è il nome del server vCenter.
 6. Immettere le credenziali per l'utente amministratore di vRealize Automation IaaS che è stato creato da CloudSimple.
 7. Fare clic su **Test connessione** per convalidare le credenziali utente. Se il test ha esito negativo, verificare l'URL, le informazioni sull'account e il nome e il test dell' [endpoint](#verify-the-endpoint-name) .
 8. Dopo un test riuscito, fare clic su **OK** per creare l'endpoint vSphere.

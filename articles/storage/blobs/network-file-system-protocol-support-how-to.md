@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b61ce696c28a2c72a2cd3d0eb2d2fde0022dbb01
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906115"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897740"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
@@ -82,7 +82,7 @@ Quando si configura l'account, scegliere i valori seguenti:
 
 |Impostazione | Prestazioni Premium | Prestazioni standard  
 |----|---|---|
-|Location|Tutte le aree disponibili |Una delle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali   
+|Località|Tutte le aree disponibili |Una delle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali   
 |Prestazioni|Premium| Standard
 |Tipologia account|BlockBlobStorage| Utilizzo generico v2
 |Replica|Archiviazione con ridondanza locale| Archiviazione con ridondanza locale
@@ -134,7 +134,7 @@ Creare una directory nel sistema Windows o Linux e quindi montare un contenitore
 
    ![Funzionalità client per file System di rete](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Montare un contenitore usando il comando [Mount](/windows-server/administration/windows-commands/mount) .
+2. Aprire una finestra del **prompt dei comandi** (cmd.exe). Quindi, montare un contenitore usando il comando [Mount](/windows-server/administration/windows-commands/mount) .
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -157,7 +157,7 @@ Creare una directory nel sistema Windows o Linux e quindi montare un contenitore
 
 ## <a name="resolve-common-issues"></a>Risolvere i problemi comuni
 
-|Problema/errore | Risoluzione|
+|Problema/errore | Soluzione|
 |---|---|
 |`Access denied by server while mounting`|Verificare che il client sia in esecuzione all'interno di una subnet supportata. Vedere i [percorsi di rete supportati](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verificare che il contenitore che si sta montando sia stato creato dopo aver verificato la registrazione della funzionalità. Vedere [passaggio 2: verificare che la funzionalità sia registrata](#step-2-verify-that-the-feature-is-registered). Assicurarsi anche di digitare il comando di montaggio e i relativi parametri direttamente nel terminale. Se si copiano e si incollano tutte le parti di questo comando nel terminale da un'altra applicazione, i caratteri nascosti nelle informazioni incollate potrebbero causare la visualizzazione di questo errore.|

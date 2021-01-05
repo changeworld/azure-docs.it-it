@@ -7,45 +7,13 @@
       href: overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Introduzione a Riconoscimento modulo
   expaned: true
   items:
-    - name: Uso della libreria client
+    - name: Uso della libreria client o dell'API REST
       href: quickstarts/client-library.md
     - name: Utilizzo dello strumento di etichettatura di esempio
-      items:
-        - name: Eseguire il training del modello personalizzato con le etichette
-          href: quickstarts/label-tool.md
-    - name: Utilizzo dell'API REST
-      items:
-        - name: Eseguire il training e usare il modello personalizzato senza le etichette
-          items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
-            - name: Python
-              href: quickstarts/python-train-extract.md
-        - name: Eseguire il training e usare il modello personalizzato con le etichette
-          items:
-            - name: Python
-              href: quickstarts/python-labeled-data.md
-        - name: Usare un modello di ricevute predefinito
-          items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
-            - name: Python
-              href: quickstarts/python-receipts.md
-        - name: Usare un modello di biglietti da visita predefinito
-          items:
-            - name: Python
-              href: quickstarts/python-business-cards.md
-        - name: Usare un modello di fattura predefinito
-          items:
-            - name: Python
-              href: quickstarts/python-invoices.md
-        - name: Ottenere informazioni sul layout del testo
-          items:
-            - name: Python
-              href: quickstarts/python-layout.md
+      href: quickstarts/label-tool.md
 - name: Esercitazioni
   items:
     - name: Usare Riconoscimento modulo con Ricerca cognitiva
@@ -77,7 +45,8 @@
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Usare istanze di contenitore
-          href: deploy-form-recognizer-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Documentazione dei contenitori di Servizi cognitivi
           href: ../containers/index.yml
     - name: Modelli di backup e ripristino

@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132211"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897859"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -28,13 +28,13 @@ AzCopy è un'utilità della riga di comando che è possibile usare per copiare i
 
 ## <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
 
-Per configurare le impostazioni proxy per AzCopy, impostare la `https_proxy` variabile di ambiente. Se si esegue AzCopy in Windows, AzCopy rileva automaticamente le impostazioni proxy, quindi non è necessario usare questa impostazione in Windows. Se si sceglie di usare questa impostazione in Windows, verrà eseguito l'override del rilevamento automatico.
+Per configurare le impostazioni proxy per AzCopy, impostare la `HTTPS_PROXY` variabile di ambiente. Se si esegue AzCopy in Windows, AzCopy rileva automaticamente le impostazioni proxy, quindi non è necessario usare questa impostazione in Windows. Se si sceglie di usare questa impostazione in Windows, verrà eseguito l'override del rilevamento automatico.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | In un prompt dei comandi usare: `set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell usare: `$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | In un prompt dei comandi usare: `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> In PowerShell usare: `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTLM o Kerberos.
 
@@ -42,7 +42,7 @@ Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTL
 
 Se si esegue AzCopy in Windows e si vuole indicare che non deve usare _alcun_ proxy (anziché rilevare automaticamente le impostazioni), usare questi comandi. Con queste impostazioni, AzCopy non cercherà o tenterà di usare un proxy.
 
-| Sistema operativo | Ambiente | Comandi:  |
+| Sistema operativo | Ambiente | Comandi  |
 |--------|-----------|----------|
 | **Windows** | Prompt dei comandi (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|

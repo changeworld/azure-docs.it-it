@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315584"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895530"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -54,7 +54,7 @@ Durante l'anteprima pubblica dell'agente di monitoraggio di Azure si applicano l
 
 - L'agente di monitoraggio di Azure non supporta soluzioni e informazioni dettagliate, ad esempio Monitoraggio di Azure per le macchine virtuali e il Centro sicurezza di Azure. L'unico scenario attualmente supportato è la raccolta di dati tramite le regole di raccolta dati configurate. 
 - È necessario creare regole di raccolta dati nella stessa area di qualsiasi area di lavoro Log Analytics utilizzata come destinazione.
-- Le macchine virtuali di Azure e i server abilitati per Azure Arc sono attualmente supportati. I set di scalabilità di macchine virtuali, il servizio Azure Kubernetes e altri tipi di risorse di calcolo non sono attualmente supportati.
+- Le macchine virtuali di Azure, i set di scalabilità di macchine virtuali e i server abilitati per Azure Arc sono attualmente supportati. Il servizio Azure Kubernetes e altri tipi di risorse di calcolo non sono attualmente supportati.
 - La macchina virtuale deve avere accesso agli endpoint HTTPS seguenti:
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com

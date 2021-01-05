@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: fa4db97e2aefe48e792f7d43dbb782e7a0967716
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
+  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905265"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97680668"
 landingContent:
 - title: Informazioni su Mappe di Azure
   linkLists:
@@ -40,6 +40,8 @@ landingContent:
     links:
     - text: Creare un'applicazione Web con Mappe di Azure
       url: quick-demo-map-app.md
+    - text: Creare un'app Android con Mappe di Azure
+      url: quick-android-map.md
   - linkListType: concept
     links:
     - text: Scegliere il piano tariffario corretto per Mappe di Azure
@@ -130,12 +132,26 @@ landingContent:
       url: /javascript/api/azure-maps-spatial-io/
 - title: Sviluppo con Android SDK
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Caricare dati GeoJSON in una mappa
+      url: tutorial-load-geojson-file-android.md
   - linkListType: how-to-guide
     links:
     - text: Introduzione al controllo mappa di Android
       url: how-to-use-android-map-control-library.md
-    - text: Visualizzare le informazioni sui metadati di una funzionalità
-      url: display-feature-information-android.md
+    - text: Creare un'origine dati
+      url: create-data-source-android-sdk.md
+    - text: Aggiungere un livello per le bolle
+      url: map-add-bubble-layer-android.md
+    - text: Aggiungere un livello per i simboli
+      url: how-to-add-symbol-to-android-map.md
+    - text: Aggiungere un livello per le linee
+      url: android-map-add-line-layer.md
+    - text: Aggiungere un livello per i poligoni
+      url: how-to-add-shapes-to-android-map.md
+    - text: Usare espressioni di stile basate sui dati
+      url: data-driven-style-expressions-android-sdk.md
     - text: Aggiungere un livello riquadro a una mappa
       url: how-to-add-tile-layer-android-map.md
     - text: Aggiungere forme a una mappa

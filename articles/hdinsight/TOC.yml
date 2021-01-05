@@ -419,7 +419,7 @@
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Usare i notebook con Apache Spark
               items:
-                - name: Usare un Jupyter Notebook locale
+                - name: Usare un notebook di Jupyter locale
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
                 - name: Kernel di Jupyter Notebook
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md

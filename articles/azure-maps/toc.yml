@@ -9,6 +9,8 @@
   items:
     - name: Creare un'app Web
       href: quick-demo-map-app.md
+    - name: Creare un'app per Android
+      href: quick-android-map.md
 - name: Esercitazioni
   items:
     - name: Esercitazioni sull'SDK Web
@@ -21,6 +23,10 @@
           href: tutorial-prioritized-routes.md
         - name: Creare un localizzatore di punti vendita
           href: tutorial-create-store-locator.md
+    - name: Esercitazioni su Android SDK
+      items:
+        - name: Caricare dati GeoJSON in una mappa
+          href: tutorial-load-geojson-file-android.md
     - name: Esercitazioni sulle API REST
       items:
         - name: Creare piante di interni
@@ -238,16 +244,28 @@
           href: how-to-use-android-map-control-library.md
         - name: Cambiare lo stile della mappa
           href: set-android-map-styles.md
+        - name: Creare un'origine dati
+          href: create-data-source-android-sdk.md
         - name: Aggiungere un livello per i simboli
           href: how-to-add-symbol-to-android-map.md
+        - name: Aggiungere un livello per le bolle
+          href: map-add-bubble-layer-android.md
         - name: Aggiungi forme
           href: how-to-add-shapes-to-android-map.md
+        - name: Aggiungere il livello mappa termica
+          href: map-add-heat-map-layer-android.md
+        - name: Aggiungere un livello per le linee
+          href: android-map-add-line-layer.md
         - name: Visualizzare informazioni sulle funzionalità
           href: display-feature-information-android.md
         - name: Aggiungere un livello per i riquadri
           href: how-to-add-tile-layer-android-map.md
         - name: Visualizzare i dati sul traffico
           href: how-to-show-traffic-android.md
+        - name: Usare espressioni basate sui dati
+          href: data-driven-style-expressions-android-sdk.md
+        - name: Reazione agli eventi
+          href: android-map-events.md
     - name: Usare Mappe di Azure in Power BI
       items:
         - name: Introduzione

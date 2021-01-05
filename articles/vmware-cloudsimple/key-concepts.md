@@ -2,19 +2,19 @@
 title: Concetti chiave per l'amministrazione della soluzione VMware di Azure con CloudSimple
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Vengono descritti i concetti chiave per l'amministrazione di soluzioni VMware di Azure con CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 04/24/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8677bc7e4b9f4c2b24b5439aeefb307b9c544ed3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5544ef7725855d28e20d39ff345db6bb07671a2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525025"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895326"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>Concetti chiave per l'amministrazione di soluzioni VMware di Azure con CloudSimple
 
@@ -58,7 +58,7 @@ Il servizio CloudSimple fornisce una rete per ogni area in cui viene distribuito
 
 Con il servizio CloudSimple è possibile gestire le macchine virtuali VMware dal portale di Azure. È possibile eseguire il mapping di uno o più cluster o pool di risorse dell'ambiente vSphere alla sottoscrizione in cui viene creato il servizio.
 
-Sono disponibili altre informazioni su:
+Altre informazioni su:
 
 * [Macchine virtuali CloudSimple](cloudsimple-virtual-machines.md)
 * [Mapping della sottoscrizione di Azure](./azure-subscription-mapping.md)

@@ -1,19 +1,19 @@
 ---
 title: 'Soluzione VMware di Azure di CloudSimple: configurare la disponibilità elevata dal gateway VPN da sito locale a CloudSimple'
 description: Viene descritto come configurare una connessione a disponibilità elevata dall'ambiente locale a un gateway VPN CloudSimple abilitato per la disponibilità elevata
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025266"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895700"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurare una connessione a disponibilità elevata da locale a gateway VPN CloudSimple
 
@@ -147,7 +147,7 @@ Per il funzionamento della VPN da sito a sito, è necessario consentire UDP 500/
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. creare interfacce tunnel primarie e secondarie
 
-Accedere a palo alto firewall, selezionare interfacce di **rete**  >  **Interfaces**  >  **tunnel**  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Accedere a palo alto firewall, selezionare interfacce di **rete**  >    >  **tunnel**  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Nome dell'interfaccia. Il primo campo viene popolato automaticamente con la parola chiave ' tunnel '. Nel campo adiacente immettere un numero compreso tra 1 e 9999. Questa interfaccia verrà usata come interfaccia tunnel principale per il trasporto del traffico da sito a sito tra il Data Center locale e il cloud privato.
 * Commento. Immettere i commenti per una semplice identificazione dello scopo del tunnel
@@ -162,7 +162,7 @@ Poiché questa configurazione è per una VPN a disponibilità elevata, sono nece
 
 Le route sono necessarie per le subnet locali per raggiungere le subnet del cloud privato CloudSimple.
 
-Selezionare **Network**  >  **router virtuali**di rete  >  *default*  >  le**Route statiche**predefinite  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare   >  **router virtuali** di rete  >    >  le **Route statiche** predefinite  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Name. Immettere un nome per identificare facilmente lo scopo della route.
 * Destinazione. Specificare le subnet del cloud privato CloudSimple da raggiungere tramite le interfacce del tunnel S2S dall'ambiente locale
@@ -238,7 +238,7 @@ Ripetere i passaggi precedenti per creare un altro profilo di crittografia IPsec
 
 ### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. definire i profili di monitoraggio per il monitoraggio del tunnel
 
-Selezionare **rete**  >  **espandere**  >  **monitoraggio**profili di rete  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare **rete**  >  **espandere**  >  **monitoraggio** profili di rete  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Name. Immettere un nome del profilo di monitoraggio da usare per il monitoraggio del tunnel per la reazione proattiva all'errore.
 * Azione. Selezionare **failover**.
@@ -247,7 +247,7 @@ Selezionare **rete**  >  **espandere**  >  **monitoraggio**profili di rete  >  *
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. configurare i tunnel IPsec primari e secondari.
 
-Selezionare **Network**  >  i**tunnel IPSec**di rete  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare   >  i **tunnel IPSec** di rete  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 Scheda Generale:
 

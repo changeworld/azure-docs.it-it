@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: c65833e5bf581c6326bf9362c7e5fc00a985d301
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 01/04/2021
+ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355027"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895139"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Usare identità gestite per accedere a hub eventi da un processo di analisi di flusso di Azure (anteprima)
 
@@ -20,6 +20,9 @@ Analisi di flusso di Azure supporta l'autenticazione dell'identità gestita per 
 Un'identità gestita è un'applicazione gestita registrata in Azure Active Directory che rappresenta un determinato processo di Analisi di flusso. L'applicazione gestita viene usata per eseguire l'autenticazione a una risorsa di destinazione, inclusi gli hub eventi protetti da un firewall o una rete virtuale (VNet). Per altre informazioni su come ignorare i firewall, vedere [consentire l'accesso agli spazi dei nomi di hub eventi di Azure tramite endpoint privati](../event-hubs/private-link-service.md#trusted-microsoft-services).
 
 Questo articolo illustra come abilitare l'identità gestita per l'input o l'output di un hub eventi di un processo di analisi di flusso tramite la portale di Azure.Prima di abilitare l'identità gestita, è necessario avere prima di tutto un processo di analisi di flusso e una risorsa Hub eventi.
+
+### <a name="limitation"></a>Limitazione
+Durante l'anteprima, l'input di campionamento da Hub eventi su portale di Azure non funzionerà quando si usa la modalità di autenticazione identità gestita.
 
 ## <a name="create-a-managedidentity"></a>Creare un'identità gestita  
 
@@ -53,7 +56,7 @@ Per il processo di analisi di flusso per accedere all'hub eventi tramite identit
    |---------|-----|
    |Ruolo|Proprietario dei dati di Hub eventi di Azure|
    |Assegna accesso a|Utente, gruppo o entità servizio|
-   |Select|Immettere il nome del processo di analisi di flusso|
+   |Seleziona|Immettere il nome del processo di analisi di flusso|
 
    :::image type="content" source="media/event-hubs-managed-identity/add-role-assignment.png" alt-text="Aggiungere un'assegnazione di ruolo":::
 

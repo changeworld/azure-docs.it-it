@@ -1,19 +1,19 @@
 ---
 title: 'Domande frequenti: soluzione VMware di Azure di CloudSimple'
 description: Queste domande frequenti per la soluzione VMware di Azure di CloudSimple includono connettività, rete, sicurezza, archiviazione, integrazione di Azure e altro ancora.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140888"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895564"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Domande frequenti sulla soluzione VMware di CloudSimple
 
@@ -96,7 +96,7 @@ Nel portale di CloudSimple è possibile allocare un nuovo indirizzo IP pubblico 
 
 CloudSimple fornisce le seguenti funzionalità di sicurezza per la protezione dell'ambiente cloud privato:
 
-* **Crittografia dei dati**inattivi. È possibile crittografare i dati inattivi presenti nella risorsa di archiviazione rete VSAN nel cloud privato. Rete VSAN supporta i server di gestione delle chiavi esterne, che possono essere distribuiti nell'ambiente Azure vNet o in locale.  Per informazioni dettagliate, vedere [configurare la crittografia rete VSAN per il cloud privato CloudSimple](vsan-encryption.md).
+* **Crittografia dei dati** inattivi. È possibile crittografare i dati inattivi presenti nella risorsa di archiviazione rete VSAN nel cloud privato. Rete VSAN supporta i server di gestione delle chiavi esterne, che possono essere distribuiti nell'ambiente Azure vNet o in locale.  Per informazioni dettagliate, vedere [configurare la crittografia rete VSAN per il cloud privato CloudSimple](vsan-encryption.md).
 * **Sicurezza di rete**. Controllare il flusso del traffico di rete con regole del firewall che si applicano tra il cloud privato e Internet, il cloud privato e l'ambiente locale o all'interno di subnet del cloud privato.
 * **Connessione privata sicura**. Viene stabilita una connessione privata sicura tra la rete locale e la sottoscrizione di Azure.
 

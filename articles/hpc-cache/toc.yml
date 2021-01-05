@@ -42,8 +42,14 @@
       href: hpc-cache-mount.md
     - name: Gestire la cache
       href: hpc-cache-manage.md
-    - name: Configurare impostazioni facoltative
-      href: configuration.md
+    - name: Usare impostazioni facoltative
+      items:
+        - name: Configurare impostazioni facoltative
+          href: configuration.md
+        - name: Personalizzare i criteri di accesso
+          href: access-policies.md
+        - name: Configurare i servizi directory
+          href: directory-services.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

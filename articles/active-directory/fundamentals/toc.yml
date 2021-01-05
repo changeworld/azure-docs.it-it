@@ -13,7 +13,7 @@
       href: whats-new-microsoft-365-government.md
     - name: Archivio delle novità di Azure AD
       href: whats-new-archive.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Accedere al portale e creare un tenant
@@ -25,6 +25,28 @@
   items:
     - name: Sicurezza
       items:
+        - name: Proteggere l'accesso esterno alle risorse
+          items:
+            - name: Panoramica della protezione dell'accesso esterno
+              href: secure-external-access-resources.md
+            - name: 1 Determinare la postura di sicurezza
+              href: 1-secure-access-posture.md
+            - name: 2 Determinare lo stato corrente
+              href: 2-secure-access-current-state.md
+            - name: 3 Creare un piano di sicurezza
+              href: 3-secure-access-plan.md
+            - name: 4 Proteggere l'accesso con i gruppi
+              href: 4-secure-access-groups.md
+            - name: 5 Proteggere l'accesso con la collaborazione B2B
+              href: 5-secure-access-b2b.md
+            - name: 6 Proteggere l'accesso con la gestione entitlement
+              href: 6-secure-access-entitlement-managment.md
+            - name: 7 Proteggere l'accesso con l'accesso condizionale
+              href: 7-secure-access-conditional-access.md
+            - name: 8 Proteggere l'accesso con le etichette di riservatezza
+              href: 8-secure-access-sensitivity-labels.md
+            - name: '9 Proteggere l''accesso a Teams, SharePoint e OneDrive'
+              href: 9-secure-access-teams-sharepoint.md
         - name: Abilitare MFA
           href: concept-fundamentals-mfa-get-started.md
         - name: Impostazioni predefinite di sicurezza

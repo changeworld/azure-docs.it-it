@@ -54,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: Impostazioni upstream
           href: concept-upstream.md
+    - name: Disponibilità
+      items:
+        - name: Arrestare normalmente il server app
+          href: server-graceful-shutdown.md
+    - name: Sicurezza
+      items:
+        - name: Autorizzazione
+          items:
+            - name: Autorizzare l'accesso con Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+        - name: Authentication
+          items:
+            - name: Eseguire l'autenticazione da un'applicazione
+              href: authenticate-application.md
+            - name: Eseguire l'autenticazione con un'identità gestita
+              href: authenticate-managed-identity.md
     - name: Disponibilità elevata
       items:
         - name: Resilienza e ripristino di emergenza

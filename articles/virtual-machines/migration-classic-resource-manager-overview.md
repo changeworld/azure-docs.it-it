@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680219"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897117"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica a Azure Resource Manager in Linux
 
@@ -23,6 +23,8 @@ ms.locfileid: "97680219"
 
 
 In questo articolo viene fornita una panoramica sullo strumento di migrazione supportato dalla piattaforma, su come eseguire la migrazione delle risorse dai modelli di distribuzione di Azure Service Manager (ASM) noti come Gestione risorse (ARM) e viene illustrato come connettere le risorse dei due modelli di distribuzione coesistenti nella sottoscrizione tramite gateway da sito a sito di rete virtuale. Altre informazioni sulle [funzionalità e sui vantaggi Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+
+ASM supporta due diversi prodotti di calcolo, macchine virtuali di Azure (versione classica), noti anche come VM IaaS & [servizi cloud di Azure (versione classica)](https://docs.microsoft.com/azure/cloud-services/) , ovvero PaaS VM o ruoli Web/di lavoro. Questo documento illustra solo la migrazione di macchine virtuali di Azure (versione classica).
 
 ## <a name="goal-for-migration"></a>Obiettivo della migrazione
 Resource Manager consente di distribuire applicazioni complesse mediante modelli, configura le macchine virtuali tramite le estensioni di macchina virtuale e incorpora la gestione degli accessi e l'uso dei tag. Azure Resource Manager include anche una distribuzione parallela e scalabile per le macchine virtuali nei set di disponibilità. Il nuovo modello di distribuzione offre inoltre la gestione del ciclo di vita delle risorse di calcolo, rete e archiviazione, in modo indipendente. Infine, ci si concentra anche sull'abilitazione della sicurezza predefinita tramite l'imposizione di macchine virtuali in una rete virtuale.
@@ -45,7 +47,7 @@ In Azure Resource Manager sono supportate quasi tutte le funzionalità del model
 ## <a name="supported-configurations-for-migration"></a>Configurazioni supportate per la migrazione
 Durante la migrazione sono supportate queste risorse IaaS classiche
 
-| Service | Configurazione |
+| Servizio | Configurazione |
 | --- | --- |
 | Servizi di dominio Azure Active Directory | [Reti virtuali che contengono i servizi di dominio Azure AD](../active-directory-domain-services/migrate-from-classic-vnet.md) |
 
@@ -125,7 +127,7 @@ Le seguenti funzionalità non sono attualmente supportate. È possibile rimuover
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
 Le seguenti configurazioni non sono attualmente supportate.
 
-| Service | Configurazione | Recommendation |
+| Servizio | Configurazione | Recommendation |
 | --- | --- | --- |
 | Gestione risorse |Controllo degli accessi Role-Based (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
 | Calcolo |Più subnet associate a una macchina virtuale |Aggiornare la configurazione delle subnet in modo che faccia riferimento solo a una subnet. Ciò potrebbe richiedere la rimozione di una scheda di interfaccia di rete secondaria (che fa riferimento a un'altra subnet) dalla macchina virtuale e quindi il suo ricollegamento al termine della migrazione. |

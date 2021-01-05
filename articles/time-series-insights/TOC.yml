@@ -85,6 +85,8 @@
       href: ./how-to-ingest-data-event-hub.md
     - name: Connettersi all'hub IoT
       href: ./how-to-ingest-data-iot-hub.md
+    - name: Monitorare Azure Time Series Insights
+      href: ./how-to-monitor-tsi.md
     - name: Gestire le risorse usando modelli
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
     - name: Azure Time Series Insights Gen2
@@ -171,6 +173,8 @@
       items:
         - name: Client SDK JavaScript
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
+    - name: Informazioni di riferimento sui dati del monitoraggio
+      href: how-to-monitor-tsi-reference.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
 - name: Risorse

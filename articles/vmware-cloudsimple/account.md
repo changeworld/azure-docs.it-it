@@ -1,19 +1,19 @@
 ---
 title: 'Gestione degli account: soluzione VMware di Azure con il portale di CloudSimple'
 description: Viene descritto come gestire gli account nella soluzione VMware di Azure tramite il portale di CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c26d5accce77ce6fd8c9b6c2b519b93f95013ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025368"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895173"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>Gestire gli account nella soluzione VMware di Azure tramite il portale di CloudSimple
 
@@ -23,7 +23,7 @@ Per gestire gli account nel portale di CloudSimple, [accedere al portale](access
 
 Selezionare **Riepilogo** per visualizzare le informazioni sulla configurazione CloudSimple della società. Viene visualizzata la capacità corrente della configurazione cloud, tra cui il numero di cloud privati, lo spazio di archiviazione totale, la configurazione del cluster vSphere, il numero di nodi e il numero di core di calcolo. Se la configurazione corrente non soddisfa tutte le esigenze, viene incluso un collegamento per l'acquisto di altri nodi.
 
-## <a name="email-alerts"></a>Avvisi posta elettronica
+## <a name="email-alerts"></a>Avvisi tramite posta elettronica
 
 È possibile aggiungere gli indirizzi di posta elettronica degli utenti a cui si desidera inviare una notifica sulle modifiche apportate alla configurazione del cloud privato.
 
@@ -35,6 +35,6 @@ Per rimuovere una voce, fare clic su **X**.
 
 ## <a name="cloudsimple-operator-access"></a>Accesso dell'operatore CloudSimple
 
-L'impostazione dell'accesso dell'operatore consente a CloudSimple di semplificare la risoluzione dei problemi permettendo a un tecnico del supporto di accedere al portale di CloudSimple.  L'impostazione è abilitata per impostazione predefinita. Tutte le azioni eseguite dal tecnico del supporto quando si è connessi all'account del cliente vengono registrate e disponibili per la revisione nella pagina di controllo dell' **attività**  >  **Audit** .
+L'impostazione dell'accesso dell'operatore consente a CloudSimple di semplificare la risoluzione dei problemi permettendo a un tecnico del supporto di accedere al portale di CloudSimple.  L'impostazione è abilitata per impostazione predefinita. Tutte le azioni eseguite dal tecnico del supporto quando si è connessi all'account del cliente vengono registrate e disponibili per la revisione nella pagina di controllo dell' **attività**  >   .
 
 Fare clic sull'interruttore abilitata per l'accesso dell' **operatore CloudSimple** per attivare o disattivare l'accesso.

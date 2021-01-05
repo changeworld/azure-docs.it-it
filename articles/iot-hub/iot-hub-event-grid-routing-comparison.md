@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f0853261e770b2cba9a243ae66b0b0d766fcd92
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37b411792ea1a3e21e0f26df0c7905eb8d46310e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024688"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897706"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Confrontare il routing dei messaggi e Griglia di eventi per l'hub IoT
 
@@ -32,10 +32,10 @@ Sia il routing dei messaggi che Griglia di eventi consentono la configurazione d
 
 | Funzionalità | Routing dei messaggi dell'hub IoT | Integrazione dell'hub IoT con Griglia di eventi |
 | ------- | --------------- | ---------- |
-| **Messaggi ed eventi del dispositivo** | Sì, il routing dei messaggi può essere usato per i dati di telemetria, per segnalare modifiche del dispositivo gemello, eventi del ciclo di vita del dispositivo Quando i dispositivi vengono creati, eliminati, connessi e disconnessi dall'hub Internet e gli eventi di modifica del gemello digitale. | Sì, griglia di eventi può essere usata per i dati di telemetria e gli eventi del ciclo di vita del dispositivo Non è tuttavia possibile usare la griglia di eventi per gli eventi di modifica del dispositivo gemello e per gli eventi di modifica di un dispositivo |
+| **Messaggi ed eventi del dispositivo** | Sì, il routing dei messaggi può essere usato per i dati di telemetria, le modifiche del dispositivo gemello, gli eventi del ciclo di vita del dispositivo e gli eventi di modifica | Sì, griglia di eventi può essere usata per i dati di telemetria e per gli eventi del dispositivo come il dispositivo creato/eliminato/connesso/disconnesso. Non è tuttavia possibile usare la griglia di eventi per gli eventi di modifica del dispositivo gemello e per gli eventi di modifica del dispositivo |
 | **Ordering** | Sì, viene mantenuto l'ordinamento degli eventi.  | No, l'ordine degli eventi non è garantito. | 
 | **Filtro** | Applicazione di filtri avanzati in proprietà di applicazione del messaggio, proprietà di sistema del messaggio, corpo del messaggio, tag del dispositivo gemello e proprietà del dispositivo gemello. Il filtro non viene applicato agli eventi di modifica del dispositivo gemello digitale. Ad esempio, vedere [Sintassi query per il routing dei messaggi di hub IoT](iot-hub-devguide-routing-query-syntax.md). | Filtro basato sul tipo di evento, il tipo di oggetto e gli attributi in ogni evento. Per esempi, vedere [informazioni sugli eventi di filtro nelle sottoscrizioni di griglia di eventi](../event-grid/event-filtering.md). Quando si sottoscrive un evento di telemetria, è possibile applicare filtri aggiuntivi sui dati per filtrare le proprietà del messaggio, il corpo del messaggio e il dispositivo gemello nell'hub Internet, prima della pubblicazione in griglia di eventi. Vedere [come filtrare gli eventi](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Endpoints** | <ul><li>Hub eventi</li> <li>Archiviazione BLOB di Azure</li> <li>Coda del bus di servizio</li> <li>Argomenti del bus di servizio</li></ul><br>Gli SKU per hub IoT a pagamento (S1, S2 e S3) sono limitati a 10 endpoint personalizzati. Si possono creare 100 route per ogni hub IoT. | <ul><li>Funzioni di Azure</li> <li>Automazione di Azure</li> <li>Hub eventi</li> <li>App per la logica</li> <li>Archiviazione BLOB</li> <li>Argomenti personalizzati</li> <li>Archiviazione code</li> <li>Power Automate</li> <li>Servizi di terze parti tramite webhook</li></ul><br>sono supportati gli endpoint 500 per l'hub Internet. Per l'elenco più aggiornato di endpoint, vedere [Gestori eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). |
+| **Endpoint** | <ul><li>Hub eventi</li> <li>Archiviazione BLOB di Azure</li> <li>Coda del bus di servizio</li> <li>Argomenti del bus di servizio</li></ul><br>Gli SKU per hub IoT a pagamento (S1, S2 e S3) sono limitati a 10 endpoint personalizzati. Si possono creare 100 route per ogni hub IoT. | <ul><li>Funzioni di Azure</li> <li>Automazione di Azure</li> <li>Hub eventi</li> <li>App per la logica</li> <li>Archiviazione BLOB</li> <li>Argomenti personalizzati</li> <li>Archiviazione code</li> <li>Power Automate</li> <li>Servizi di terze parti tramite webhook</li></ul><br>sono supportati gli endpoint 500 per l'hub Internet. Per l'elenco più aggiornato di endpoint, vedere [Gestori eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). |
 | **Costi** | Non vengono addebitati costi separati per il routing dei messaggi. Vengono addebitati solo i dati di telemetria in ingresso nell'hub IoT. Se ad esempio un messaggio viene instradato a tre endpoint diversi, viene fatturato un solo messaggio. | Non è previsto alcun addebito per l'hub IoT. Griglia di eventi offre le prime 100.000 operazioni al mese gratuite e quindi $0,60 per milione di operazioni in seguito. |
 
 ## <a name="similarities"></a>Somiglianze

@@ -86,7 +86,7 @@
       href: overview-vnet-service-endpoints.md
 - name: Guide pratiche
   items:
-    - name: Autenticazione
+    - name: Autenticare e autorizzare
       items:
         - name: Eseguire l'autenticazione a Key Vault
           href: authentication.md
@@ -104,10 +104,6 @@
           href: rbac-migration.md
         - name: Risolvere i problemi di accesso
           href: troubleshooting-access-issues.md
-    - name: Abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva
-      href: key-vault-recovery.md
-    - name: Abilitazione della registrazione
-      href: howto-logging.md
     - name: Sviluppo
       items:
         - name: Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
@@ -118,21 +114,31 @@
           href: vs-key-vault-add-connected-service.md
     - name: Monitoraggio e governance
       items:
-        - name: Configurare il monitoraggio e gli avvisi per Azure Key Vault
+        - name: Notifiche di Griglia di eventi
+          items:
+            - name: Ricevere notifiche tramite App per la logica
+              href: event-grid-logicapps.md
+            - name: Ricevere notifiche tramite Automazione di Azure
+              href: event-grid-tutorial.md
+        - name: Abilitazione della registrazione
+          href: howto-logging.md
+        - name: Configurare il monitoraggio e gli avvisi per Azure Key Vault con Monitoraggio di Azure
           href: alert.md
+        - name: Gestione del ripristino con protezione dell'eliminazione temporanea e dalla rimozione definitiva
+          href: key-vault-recovery.md
         - name: Integrare Azure Key Vault con Criteri di Azure
           href: azure-policy.md
-        - name: Ricevere notifiche tramite Griglia di eventi di Azure e App per la logica
-          href: event-grid-logicapps.md
-        - name: Ricevere notifiche tramite Griglia di eventi di Azure e Automazione di Azure
-          href: event-grid-tutorial.md
         - name: Eseguire il backup di singoli oggetti di Key Vault
           href: backup.md
     - name: Sicurezza
       items:
-        - name: Integrazione con il servizio Collegamento privato di Azure
-          href: private-link-service.md
-        - name: Accedere a Key Vault protetto da firewall - Azure Key Vault
+        - name: Collegamento privato di Azure
+          items:
+            - name: Integrazione con il servizio Collegamento privato di Azure
+              href: private-link-service.md
+            - name: Diagnosticare i problemi di configurazione dei collegamenti privati
+              href: private-link-diagnostics.md
+        - name: Access Key Vault dietro un firewall
           href: access-behind-firewall.md
     - name: Spostare Key Vault
       items:
@@ -142,10 +148,6 @@
           href: move-subscription.md
         - name: Spostare Key Vault in un'altra area
           href: move-region.md
-    - name: Rete
-      items:
-        - name: Diagnosticare i problemi di configurazione dei collegamenti privati
-          href: private-link-diagnostics.md
 - name: Informazioni di riferimento
   items:
     - name: Novità

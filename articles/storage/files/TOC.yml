@@ -71,6 +71,8 @@
           href: storage-files-smb-multichannel-performance.md
         - name: Obiettivi di scalabilità e prestazioni
           href: storage-files-scale-targets.md
+    - name: Informazioni sulla fatturazione
+      href: understanding-billing.md
     - name: Impedire l'eliminazione accidentale di dati
       href: storage-files-prevent-file-share-deletion.md
     - name: Eseguire il backup delle condivisioni file
@@ -85,20 +87,16 @@
       href: storage-files-faq.md
 - name: Guide pratiche
   items:
-    - name: Create
+    - name: Distribuire
       items:
         - name: Creare una condivisione file SMB
           href: storage-how-to-create-file-share.md
+        - name: Distribuire Sincronizzazione file di Azure
+          href: storage-sync-files-deployment-guide.md
         - name: Creare una condivisione file premium
           href: storage-how-to-create-premium-fileshare.md
         - name: Creare una condivisione NFS
           href: storage-files-how-to-create-nfs-shares.md
-    - name: Distribuire
-      items:
-        - name: Distribuire i file di Azure
-          href: storage-files-deployment-guide.md
-        - name: Distribuire Sincronizzazione file di Azure
-          href: storage-sync-files-deployment-guide.md
         - name: Istanza del cluster di failover di SQL Server con condivisioni file Premium
           href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Eseguire il montaggio
