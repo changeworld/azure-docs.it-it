@@ -4,15 +4,15 @@ description: Informazioni sull'architettura della soluzione, la preparazione del
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 3e9380f067b091c4473b8c29bda3d31bb93cbc6d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861965"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97840845"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informazioni su Azure Defender per la configurazione della rete Internet
 
@@ -54,7 +54,7 @@ Registrare le informazioni sul sito, ad esempio:
 
 - Workstation di configurazione.
 
-- Certificati SSL (facoltativo ma consigliato).
+- Certificati SSL (facoltativo).
 
 - Autenticazione SMTP (facoltativo). Per utilizzare il server SMTP con l'autenticazione di, preparare le credenziali necessarie per il server.
 
@@ -569,7 +569,7 @@ Una panoramica del diagramma della rete industriale consentirà di definire la p
     > [!NOTE]
     > Il Defender per l'appliance delle cose deve essere connesso a un commutatore di livello inferiore che rileva il traffico tra le porte del commutatore.  
 
-2. Fornire il numero approssimativo di dispositivi di rete che verranno monitorati. Queste informazioni sono necessarie per il caricamento della sottoscrizione nel portale di Azure Defender for Internet. Durante il processo di onboarding, verrà richiesto di immettere il numero di dispositivi con incrementi di 1000.
+2. Fornire il numero approssimativo di dispositivi nelle reti (facoltativo).
 
 3. Fornire un elenco di subnet per le reti di produzione e una descrizione (facoltativo). 
 
