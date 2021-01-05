@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: f27cb217b60c23f3cf89f48effb933837269000e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960326"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858638"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
@@ -82,21 +82,21 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 L'elenco tabella seguente mostra i gateway e le connessioni supportate con la risoluzione dei problemi di Network Watcher:
 
-| Gateway o connessione | Funzionalità supportata  |
+| Gateway o connessione | Supportato  |
 |---------|---------|
 |**Tipi di gateway**   |         |
-|Connessione      | Funzionalità supportata        |
+|VPN      | Supportato        |
 |ExpressRoute | Non supportato |
 |**Tipi di VPN** | |
-|Basato su route | Funzionalità supportata|
+|Basato su route | Supportato|
 |Basata su criteri | Non supportato|
 |**Tipi di connessioni**||
-|IPsec| Funzionalità supportata|
-|Vnet2Vnet| Funzionalità supportata|
+|IPsec| Supportato|
+|Vnet2Vnet| Supportato|
 |ExpressRoute| Non supportato|
 |VPNClient| Non supportato|
 
-## <a name="log-files"></a>File di log
+## <a name="log-files"></a>File di registro
 
 I file di log della risoluzione dei problemi delle risorse vengono archiviati in un account di archiviazione al termine della risoluzione dei problemi delle risorse. L'immagine seguente mostra i contenuti di esempio di una chiamata che ha generato un errore.
 
@@ -207,6 +207,9 @@ Elapsed Time            330 sec
 |         6    ikeext               ike_sa_management_c3162  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
+
+## <a name="considerations"></a>Considerazioni 
+* Bug CLI: se si usa l'interfaccia della riga di comando di Azure per eseguire il comando, il gateway VPN e l'account di archiviazione devono trovarsi nello stesso gruppo di risorse. I clienti con le risorse in gruppi di risorse diversi possono invece usare PowerShell o il portale di Azure.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
