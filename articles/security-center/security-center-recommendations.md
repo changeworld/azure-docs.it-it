@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/25/2020
 ms.author: memildin
-ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791886"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795989"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
 Questo argomento illustra come visualizzare e comprendere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure.
@@ -42,7 +42,11 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificar
 
 1. Dal menu del Centro sicurezza aprire la pagina **raccomandazioni** per visualizzare le raccomandazioni applicabili all'ambiente in uso. I consigli sono raggruppati in controlli di sicurezza.
 
-      ![Raccomandazioni raggruppate per controllo di sicurezza](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Raccomandazioni raggruppate per controllo di sicurezza" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. Per trovare raccomandazioni specifiche per il tipo di risorsa, la gravità, l'ambiente o altri criteri importanti, usare i filtri facoltativi sopra l'elenco di raccomandazioni.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filtri per ridefinire l'elenco delle raccomandazioni del Centro sicurezza di Azure":::
 
 1. Espandere un controllo e selezionare una raccomandazione specifica per visualizzare la pagina dei dettagli della raccomandazione.
 
@@ -60,7 +64,7 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificar
         - **Risorse non integre** : risorse ancora interessate dal problema identificato.
         - **Risorse non applicabili** : risorse per le quali la raccomandazione non può fornire una risposta definitiva. La scheda non applicabile include anche i motivi di ogni risorsa. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Pagina dei dettagli della raccomandazione.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Risorse non applicabili con motivi.":::
     1. Pulsanti di azione per correggere la raccomandazione o attivare un'app per la logica.
 
 ## <a name="preview-recommendations"></a>Suggerimenti per l'anteprima
@@ -71,7 +75,7 @@ Le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcol
 
 Esempio di una raccomandazione in anteprima:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Pagina dei dettagli della raccomandazione.":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Raccomandazione con il flag di anteprima":::
  
 ## <a name="next-steps"></a>Passaggi successivi
 

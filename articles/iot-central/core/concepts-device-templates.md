@@ -3,17 +3,17 @@ title: Che cosa sono i modelli di dispositivo in Azure IoT Central | Microsoft D
 description: I modelli di dispositivo IoT Central di Azure consentono di specificare il comportamento dei dispositivi connessi all'applicazione. Un modello di dispositivo specifica i dati di telemetria, le proprietà e i comandi che devono essere implementati dal dispositivo. Un modello di dispositivo definisce anche l'interfaccia utente per il dispositivo in IoT Central, ad esempio i moduli e i dashboard utilizzati da un operatore.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 04c2330ffee396f5fc30b85640e992df77c08263
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750697"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795429"
 ---
 # <a name="what-are-device-templates"></a>Che cosa sono i modelli di dispositivo?
 
@@ -247,7 +247,7 @@ IoT Central consente di visualizzare i dati di telemetria nei dashboard e nei gr
 
 È possibile usare la funzionalità di esportazione dei dati IoT Central per trasmettere i dati di telemetria ad altre destinazioni, ad esempio archiviazione o hub eventi.
 
-## <a name="commands"></a>Comandi
+## <a name="commands"></a>Comandi:
 
 Per impostazione predefinita, un comando deve essere eseguito entro 30 secondi e il dispositivo deve essere connesso all'arrivo del comando. Se il dispositivo risponde nel tempo o il dispositivo non è connesso, il comando ha esito negativo.
 

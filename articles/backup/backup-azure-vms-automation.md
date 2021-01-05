@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure con PowerShell
 description: Viene descritto come eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978370"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797061"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -149,7 +149,7 @@ $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" 
 $targetVault.ID
 ```
 
-Or
+Oppure
 
 ```powershell
 $targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -259,6 +259,8 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Se si usa il cloud di Azure per enti pubblici, usare il valore `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` per il parametro **servicePrincipalName** nel cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
 
+Se si desidera eseguire il backup in modo selettivo di pochi dischi ed escluderne altri come indicato in [questi scenari](selective-disk-backup-restore.md#scenarios), è possibile configurare la protezione e il backup solo dei dischi pertinenti, come descritto [qui](selective-disk-backup-restore.md#enable-backup-with-powershell).
+
 ## <a name="monitoring-a-backup-job"></a>Monitoraggio di un processo di backup
 
 È possibile monitorare le operazioni a esecuzione prolungata, ad esempio i processi di backup, senza usare il portale di Azure. Per ottenere lo stato di un processo in corso, usare il cmdlet [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) . Questo cmdlet ottiene i processi di backup per un insieme di credenziali specifico e tale insieme di credenziali è indicato nel relativo contesto. L'esempio seguente ottiene lo stato di un processo in corso sotto forma di matrice e archivia lo stato nella variabile $joblist.
@@ -338,6 +340,10 @@ $bkpPol.AzureBackupRGName="Contosto_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
+### <a name="exclude-disks-for-a-protected-vm"></a>Escludere dischi per una macchina virtuale protetta
+
+Il backup delle macchine virtuali di Azure consente di escludere o includere in modo selettivo dischi utili in [questi scenari](selective-disk-backup-restore.md#scenarios). Se la macchina virtuale è già protetta dal backup delle VM di Azure e se viene eseguito il backup di tutti i dischi, è possibile modificare la protezione per includere o escludere in modo selettivo i dischi come indicato [qui](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### <a name="trigger-a-backup"></a>Attivare un backup
 
@@ -511,6 +517,13 @@ Al termine del processo di ripristino, usare il cmdlet [Get-AzRecoveryServicesBa
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="restore-selective-disks"></a>Ripristinare i dischi selettivi
+
+Un utente può ripristinare in modo selettivo pochi dischi anziché l'intero set di backup. Specificare i LUN del disco necessari come parametro per ripristinarli solo anziché l'intero set, come descritto [qui](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).
+
+> [!IMPORTANT]
+> È necessario eseguire il backup selettivo dei dischi per ripristinare i dischi in modo selettivo. Altre informazioni sono disponibili [qui](selective-disk-backup-restore.md#selective-disk-restore).
 
 Dopo aver ripristinato i dischi, passare alla sezione successiva per creare la macchina virtuale.
 

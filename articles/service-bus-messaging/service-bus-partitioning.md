@@ -4,12 +4,12 @@ description: Descrive come partizionare code e argomenti del bus di servizio usa
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930433"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796636"
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
@@ -29,8 +29,9 @@ Quando un client vuole ricevere un messaggio da una coda partizionata o da una s
 L'operazione di visualizzazione su un'entità non partizionata restituisce sempre il messaggio meno recente, ma non su un'entità partizionata. Viene invece restituito il messaggio meno recente in una delle partizioni il cui Broker di messaggi ha risposto per primo. Non esiste alcuna garanzia che il messaggio restituito sia quello meno recente in tutte le partizioni. 
 
 I messaggi a una coda o a un argomento partizionato non presentano costi aggiuntivi, né in invio né in ricezione.
->[!NOTE]
-> L'operazione di visualizzazione restituisce il messaggio meno recente dalla parte basata sul relativo SequenceNumber. Per le entità partizionate, il numero di sequenza viene emesso in relazione alla partizione. Per ulteriori informazioni, vedere [sequenza dei messaggi e timestamp](../service-bus-messaging/message-sequencing.md).
+
+> [!NOTE]
+> L'operazione di visualizzazione restituisce il messaggio meno recente dalla partizione in base al numero di sequenza. Per le entità partizionate, il numero di sequenza viene emesso in relazione alla partizione. Per ulteriori informazioni, vedere [sequenza dei messaggi e timestamp](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Abilitare il partizionamento
 

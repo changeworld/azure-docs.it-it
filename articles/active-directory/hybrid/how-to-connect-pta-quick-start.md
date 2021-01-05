@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31bdfc7e3eca2a2678b75b80973a1680448737d1
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507677"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792433"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory dell'autenticazione pass-through: avvio rapido
 
@@ -51,7 +51,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
-1. Identificare un server che esegue Windows Server 2012 R2 o versione successiva per l'esecuzione di Azure AD Connect. Se non è già abilitato, [abilitare TLS 1.2 nel server](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Aggiungere il server alla stessa foresta Active Directory degli utenti di cui devono essere convalidate le password.
+1. Identificare un server che esegue Windows Server 2012 R2 o versione successiva per l'esecuzione di Azure AD Connect. Se non è già abilitato, [abilitare TLS 1.2 nel server](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Aggiungere il server alla stessa foresta Active Directory degli utenti di cui devono essere convalidate le password. Si noti che l'installazione di Pass-Through agente di autenticazione nelle versioni di Windows Server Core non è supportata. 
 2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) nel server identificato nel passaggio precedente. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.750.0 o successiva.
 
     >[!NOTE]

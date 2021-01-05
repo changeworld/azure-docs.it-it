@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c82b1ffbb005542822016a55346d9067e23050b2
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 41231e19960edfe1a4f0521b8738fa62a463c927
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630871"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796466"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Esegui il training dei modelli TensorFlow su larga scala con Azure Machine Learning
 
@@ -223,7 +223,7 @@ Per altre informazioni sulla configurazione dei processi con ScriptRunConfig, ve
 L' [oggetto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
 
 ```Python
-run = Experiment(workspace=ws, name='tf-mnist').submit(src)
+run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 ### <a name="what-happens-during-run-execution"></a>Cosa accade durante l'esecuzione dell'esecuzione

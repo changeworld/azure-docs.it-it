@@ -3,17 +3,17 @@ title: Payload della telemetria, della proprietà e del comando in Azure IoT Cen
 description: I modelli di dispositivo IoT Central di Azure consentono di specificare i dati di telemetria, le proprietà e i comandi di un dispositivo devono implementare. Comprendere il formato dei dati che un dispositivo può scambiare con IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121759"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795344"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payload di telemetria, proprietà e comandi
 
@@ -827,7 +827,7 @@ Il dispositivo deve inviare il payload JSON seguente per IoT Central dopo l'elab
 }
 ```
 
-## <a name="commands"></a>Comandi
+## <a name="commands"></a>Comandi:
 
 > [!NOTE]
 > Nell'interfaccia utente Web di IoT Central è possibile selezionare l'opzione **queue if offline** per un comando. Questa impostazione non è inclusa se si esporta un modello o un'interfaccia dal modello di dispositivo.

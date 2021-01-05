@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/26/2020
+ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988545"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792501"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,7 +229,7 @@ Se l'applicazione usa SQL Istanza gestita come livello dati, seguire queste line
 
 ### <a name="creating-the-secondary-instance"></a>Creazione dell'istanza secondaria
 
-Per garantire la connettività senza interruzioni al Istanza gestita SQL primario dopo il failover, entrambe le istanze primarie e secondarie devono trovarsi nella stessa zona DNS. Garantisce che lo stesso certificato di multidominio (SAN) possa essere utilizzato per autenticare le connessioni client a una delle due istanze del gruppo di failover. Quando l'applicazione è pronta per la distribuzione di produzione, creare un Istanza gestita SQL secondario in un'area diversa e assicurarsi che condivida la zona DNS con il Istanza gestita SQL primario. È possibile eseguire questa operazione specificando il `DNS Zone Partner` parametro facoltativo usando il portale di Azure, PowerShell o l'API REST.
+Per garantire la connettività senza interruzioni al Istanza gestita SQL primario dopo il failover, entrambe le istanze primarie e secondarie devono trovarsi nella stessa zona DNS. Garantisce che lo stesso certificato di multidominio (SAN) possa essere utilizzato per autenticare le connessioni client a una delle due istanze del gruppo di failover. Quando l'applicazione è pronta per la distribuzione di produzione, creare un Istanza gestita SQL secondario in un'area diversa e assicurarsi che condivida la zona DNS con il Istanza gestita SQL primario. È possibile eseguire questa operazione specificando il parametro facoltativo durante la creazione. Se si usa PowerShell o l'API REST, il nome del parametro facoltativo è `DNS Zone Partner` e il nome del campo facoltativo corrispondente nel portale di Azure è istanza gestita primario.
 
 > [!IMPORTANT]
 > La prima istanza gestita creata nella subnet determina la zona DNS per tutte le istanze successive nella stessa subnet. Ciò significa che due istanze della stessa subnet non possono appartenere a zone DNS diverse.

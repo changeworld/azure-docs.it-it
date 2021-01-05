@@ -6,16 +6,18 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212583"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763515"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Binding del trigger del servizio SignalR per funzioni di Azure
 
 Usare l'associazione di trigger *SignalR* per rispondere ai messaggi inviati dal servizio Azure SignalR. Quando viene attivata la funzione, i messaggi passati alla funzione vengono analizzati come un oggetto JSON.
+
+In modalità senza server del servizio SignalR il servizio SignalR usa la funzionalità [upstream](../azure-signalr/concept-upstream.md) per inviare messaggi dal client al app per le funzioni. E app per le funzioni usa l'associazione del trigger del servizio SignalR per gestire questi messaggi. L'architettura generale è illustrata di seguito: :::image type="content" source="media/functions-bindings-signalr-service/signalr-trigger.png" alt-text="architettura del trigger SignalR":::
 
 Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-signalr-service.md).
 
@@ -194,45 +196,60 @@ InvocationContext contiene tutto il contenuto del messaggio inviato dal servizio
 |Errore| Disponibile per l'evento *disconnesso* . Può essere vuoto se la connessione è chiusa senza errori o contiene i messaggi di errore.|
 |Hub| Nome dell'hub a cui appartiene il messaggio.|
 |Category| Categoria del messaggio.|
-|Evento| Evento del messaggio.|
+|Event| Evento del messaggio.|
 |ConnectionId| ID connessione del client che invia il messaggio.|
 |UserId| Identità utente del client che invia il messaggio.|
-|Headers| Intestazioni della richiesta.|
+|Intestazioni| Intestazioni della richiesta.|
 |Query| Query della richiesta quando i client si connettono al servizio.|
 |Attestazioni| Attestazioni del client.|
 
 ## <a name="using-parameternames"></a>Uso di `ParameterNames`
 
-La proprietà `ParameterNames` in `SignalRTrigger` consente di associare gli argomenti dei messaggi di chiamata ai parametri delle funzioni. Che offre un modo più pratico per accedere agli argomenti di `InvocationContext` .
+La proprietà `ParameterNames` in `SignalRTrigger` consente di associare gli argomenti dei messaggi di chiamata ai parametri delle funzioni. Il nome definito può essere utilizzato come parte delle [espressioni di associazione](../azure-functions/functions-bindings-expressions-patterns.md) in altre associazioni o come parametri nel codice. Che offre un modo più pratico per accedere agli argomenti di `InvocationContext` .
 
-Supponiamo di avere un client SignalR JavaScript che tenta di richiamare il metodo `broadcast` nella funzione di Azure con due argomenti.
+Supponiamo di avere un client SignalR JavaScript che tenta di richiamare il metodo `broadcast` nella funzione di Azure con due argomenti `message1` , `message2` .
 
 ```javascript
 await connection.invoke("broadcast", message1, message2);
 ```
 
-È possibile accedere a questi due argomenti dal parametro, oltre a assegnare il tipo di parametro tramite `ParameterNames` .
+Dopo aver impostato `parameterNames` , il nome definito corrisponderà rispettivamente agli argomenti inviati sul lato client. 
 
-### <a name="remarks"></a>Commenti
+```cs
+[SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]
+```
+
+Quindi, conterrà il `arg1` contenuto di `message1` e conterrà `arg2` il contenuto di `message2` .
+
+
+### <a name="remarks"></a>Osservazioni
 
 Per l'associazione di parametri, l'ordine è importante. Se si utilizza `ParameterNames` , l'ordine in `ParameterNames` corrisponde all'ordine degli argomenti richiamati nel client. Se si usa l'attributo `[SignalRParameter]` in C#, l'ordine degli argomenti nei metodi della funzione di Azure corrisponde all'ordine degli argomenti nei client.
 
 `ParameterNames` l'attributo e `[SignalRParameter]` **non può** essere usato contemporaneamente oppure si otterrà un'eccezione.
 
-## <a name="send-messages-to-signalr-service-trigger-binding"></a>Inviare messaggi al binding del trigger del servizio SignalR
+## <a name="signalr-service-integration"></a>Integrazione del servizio SignalR
 
-Funzione di Azure genera un URL per l'associazione del trigger del servizio SignalR ed è formattato come segue:
+Il servizio SignalR richiede un URL per accedere a app per le funzioni quando si usa l'associazione del trigger del servizio SignalR. L'URL deve essere configurato nelle **Impostazioni upstream** sul lato del servizio SignalR. 
+
+:::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="Portale upstream":::
+
+Quando si usa il trigger del servizio SignalR, l'URL può essere semplice e formattato come illustrato di seguito:
 
 ```http
-https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>
 ```
 
-`API_KEY`Viene generato dalla funzione di Azure. È possibile ottenere `API_KEY` dal portale di Azure quando si usa l'associazione del trigger del servizio SignalR.
+Il `Function_App_URL` è disponibile nella pagina Panoramica di app per le funzioni e `API_KEY` viene generato dalla funzione di Azure. È possibile ottenere `API_KEY` dal `signalr_extension` nel pannello **chiavi app** di app per le funzioni.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="Chiave API":::
 
-È necessario impostare questo URL in `UrlTemplate` nelle impostazioni upstream del servizio SignalR.
+Se si vuole usare più di un app per le funzioni insieme a un servizio SignalR, upstream può supportare anche regole di routing complesse. Per ulteriori informazioni, vedere [Impostazioni upstream](../azure-signalr/concept-upstream.md).
+
+## <a name="step-by-step-sample"></a>Esempio dettagliato
+
+È possibile seguire l'esempio in GitHub per distribuire una chat room in app per le funzioni con il binding del servizio SignalR e la funzionalità upstream: [esempio di chat room bidirezionale](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Sviluppo e configurazione di Funzioni di Azure e con il Servizio Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md)
-* [Esempio di associazione del trigger del servizio SignalR](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples/bidirectional-chat)
+* [Esempio di associazione del trigger del servizio SignalR](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

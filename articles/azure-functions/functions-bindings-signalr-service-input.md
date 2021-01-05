@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 326115a2a6cf29fcf211cdbd918edd0994fe45ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3a99c83d4a18f3085419b91be947dd67f8eec4
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212116"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763320"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Binding di input del servizio SignalR per funzioni di Azure
 
-Prima che un client possa connettersi al servizio Azure SignalR, deve recuperare l'URL dell'endpoint di servizio e un token di accesso valido. L'associazione di input *SignalRConnectionInfo*genera l'URL dell'endpoint del servizio SignalR e un token valido per la connessione al servizio. Poiché il token ha una durata limitata e può essere usato per autenticare un utente specifico per una connessione, non deve essere memorizzato nella cache né condiviso tra client. I client possono usare un trigger HTTP con questa associazione per recuperare le informazioni di connessione.
+Prima che un client possa connettersi al servizio Azure SignalR, deve recuperare l'URL dell'endpoint di servizio e un token di accesso valido. L'associazione di input *SignalRConnectionInfo* genera l'URL dell'endpoint del servizio SignalR e un token valido per la connessione al servizio. Poiché il token ha una durata limitata e può essere usato per autenticare un utente specifico per una connessione, non deve essere memorizzato nella cache né condiviso tra client. I client possono usare un trigger HTTP con questa associazione per recuperare le informazioni di connessione.
 
 Per altre informazioni su come questa associazione viene usata per creare una funzione "Negotiate" che può essere usata da un SDK client SignalR, vedere l' [articolo sviluppo e configurazione di funzioni di Azure](../azure-signalr/signalr-concept-serverless-development-config.md) nella documentazione relativa ai concetti del servizio SignalR.
 
@@ -245,11 +245,11 @@ Function.json di esempio:
 Ecco il codice Python:
 
 ```python
-def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
+def main(req: func.HttpRequest, connectionInfo: str) -> func.HttpResponse:
     # connectionInfo contains an access key token with a name identifier
     # claim set to the authenticated user
     return func.HttpResponse(
-        connectionInfoJson,
+        connectionInfo,
         status_code=200,
         headers={
             'Content-type': 'application/json'
@@ -280,4 +280,5 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Gestire i messaggi dal servizio SignalR (associazione di trigger)](./functions-bindings-signalr-service-trigger.md)
 - [Inviare messaggi del servizio SignalR (associazione di output)](./functions-bindings-signalr-service-output.md) 

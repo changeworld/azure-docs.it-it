@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998907"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763286"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Binding di output del servizio SignalR per funzioni di Azure
 
@@ -753,4 +753,5 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Gestire i messaggi dal servizio SignalR (associazione di trigger)](./functions-bindings-signalr-service-trigger.md)
 - [Restituire l'URL dell'endpoint del servizio e il token di accesso (associazione di input)](./functions-bindings-signalr-service-input.md)

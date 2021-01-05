@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 89ef196cb5a124b8b1100871c408400f3fceef5c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467164"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763456"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite il portale di Azure
 
@@ -123,8 +123,8 @@ Seguire questa procedura per creare una macchina virtuale dopo aver creato un'im
     |---------|---------|
     |Nome macchina virtuale     |         |
     |Immagine     | Consente di selezionare le immagini di macchina virtuale disponibili sul dispositivo.        |
-    |Dimensione     | Scegliere tra le [dimensioni delle macchine virtuali supportate](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
-    |Nome utente     | Usare il nome utente predefinito *azureuser*.        |
+    |Dimensione     | Scegliere tra le [dimensioni delle macchine virtuali supportate](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
+    |Username     | Usare il nome utente predefinito *azureuser*.        |
     |Tipo di autenticazione    | Scegliere una chiave pubblica SSH o una password definita dall'utente.       |
     |Password     | Immettere una password per accedere alla macchina virtuale. La password deve avere una lunghezza di almeno 12 caratteri e soddisfare i [requisiti di complessità](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)definiti.        |
     |Conferma password    | Immettere di nuovo la password.        |

@@ -3,12 +3,12 @@ title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0b1304b273523d42ad62f4e392fb803e1c174b69
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 72cc2bd1b391acd2065cc4b775c50af94510a840
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937526"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795902"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -1912,9 +1912,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aree di lavoro | Sì | Sì |
-> | workspaces/bigdatapools | Sì | Sì |
-> | workspaces/sqlpools | Sì | Sì |
+> | aree di lavoro | No | No |
+> | workspaces/bigdatapools | No | No |
+> | workspaces/sqlpools | No | No |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 

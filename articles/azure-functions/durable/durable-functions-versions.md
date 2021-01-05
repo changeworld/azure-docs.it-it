@@ -3,14 +3,14 @@ title: Panoramica delle versioni di Durable Functions-funzioni di Azure
 description: Informazioni sulle versioni Durable Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/23/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d10bab06428295bbc8c5319bd47787d7b1fb34
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719411"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763371"
 ---
 # <a name="durable-functions-versions-overview"></a>Panoramica sulle versioni di Durable Functions
 
@@ -50,6 +50,8 @@ Installare la versione 2. x più recente dell'estensione Durable Functions bindi
 
 Durable Functions 2. x è disponibile nella versione 2. x del [bundle di estensioni di funzioni di Azure](../functions-bindings-register.md#extension-bundles).
 
+Il supporto di Python in Durable Functions richiede Durable Functions 2. x.
+
 Per aggiornare la versione del bundle di estensione nel progetto, aprire host.jsin e aggiornare la `extensionBundle` sezione per usare la versione 2. x ( `[2.*, 3.0.0)` ).
 
 ```json
@@ -61,6 +63,9 @@ Per aggiornare la versione del bundle di estensione nel progetto, aprire host.js
     }
 }
 ```
+
+> [!NOTE]
+> Se Visual Studio Code non Visualizza i modelli corretti dopo aver modificato la versione del bundle di estensione, ricaricare la finestra eseguendo il comando *Developer: ricarica finestra* (<kbd>CTRL + r</kbd> in Windows e Linux, <kbd>comando + r</kbd> in MacOS).
 
 #### <a name="net"></a>.NET
 

@@ -3,15 +3,15 @@ title: Configurare il dashboard di Azure IoT Central | Microsoft Docs
 description: Come costruttore, informazioni su come configurare il dashboard dell'applicazione IoT Central di Azure predefinito con i riquadri.
 author: TheJasonAndrew
 ms.author: v-anjaso
-ms.date: 11/06/2020
+ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491999"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797010"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
@@ -22,15 +22,15 @@ Il **Dashboard** è la prima pagina visualizzata quando ci si connette a un'appl
 
 ## <a name="add-tiles"></a>Aggiunta di riquadri
 
-La schermata seguente mostra il dashboard in un'applicazione creata dal modello di **applicazione personalizzata** . Per personalizzare il dashboard corrente, selezionare **modifica** per aggiungere un dashboard personale o condiviso personalizzato, quindi selezionare **nuovo** :
+La schermata seguente mostra il dashboard in un'applicazione creata dal modello di **applicazione personalizzata** . Per personalizzare il dashboard corrente, selezionare **modifica** per aggiungere un dashboard personale o condiviso personalizzato, quindi selezionare **nuovo**:
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
-Dopo aver selezionato **modifica** o **nuovo** , il dashboard si trova in modalità di *modifica* . È possibile usare gli strumenti nel pannello **modifica dashboard** per aggiungere riquadri al dashboard e personalizzare e rimuovere i riquadri nel dashboard stesso. Ad esempio, per aggiungere un riquadro di **telemetria** per mostrare la temperatura corrente indicata da uno o più dispositivi:
+Dopo aver selezionato **modifica** o **nuovo**, il dashboard si trova in modalità di *modifica* . È possibile usare gli strumenti nel pannello **modifica dashboard** per aggiungere riquadri al dashboard e personalizzare e rimuovere i riquadri nel dashboard stesso. Ad esempio, per aggiungere un riquadro di **telemetria** per mostrare la temperatura corrente indicata da uno o più dispositivi:
 
 1. Selezionare un **gruppo** di dispositivi e quindi scegliere i dispositivi nell'elenco a discesa **dispositivi** da visualizzare sul riquadro. Verranno ora visualizzati i dati di telemetria, le proprietà e i comandi disponibili dai dispositivi.
 
-1. Se necessario, usare l'elenco a discesa per selezionare un valore di telemetria da visualizzare nel riquadro. È possibile aggiungere altri elementi al riquadro in un altro selezionando **+ telemetria** , **+ Proprietà** o **+ Proprietà Cloud**.
+1. Se necessario, usare l'elenco a discesa per selezionare un valore di telemetria da visualizzare nel riquadro. È possibile aggiungere altri elementi al riquadro in un altro selezionando **+ telemetria**, **+ Proprietà** o **+ Proprietà Cloud**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Aggiungere un riquadro di telemetria della temperatura al dashboard":::
 
@@ -57,7 +57,7 @@ La tabella seguente descrive i diversi tipi di riquadro che è possibile aggiung
 | ---------------- | ----------- |
 | Markdown         | I riquadri Markdown sono riquadri selezionabili che visualizzano un testo di intestazione e descrizione formattato usando Markdown. L'URL può essere un collegamento relativo a un'altra pagina dell'applicazione o un collegamento assoluto a un sito esterno.|
 | Immagine            | I riquadri immagine visualizzano un'immagine personalizzata e possono essere selezionabili. L'URL può essere un collegamento relativo a un'altra pagina dell'applicazione o un collegamento assoluto a un sito esterno.|
-| Label            | I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o informazioni della Guida.|
+| Etichetta            | I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o informazioni della Guida.|
 | Conteggio            | I riquadri conteggio visualizzano il numero di dispositivi in un gruppo di dispositivi.|
 | Mappa              | I riquadri mappa visualizzano la posizione di uno o più dispositivi su una mappa. È anche possibile visualizzare fino a 100 punti della cronologia della posizione di un dispositivo. Ad esempio, è possibile visualizzare la route campionata in cui si è verificato un dispositivo nella settimana precedente.|
 | KPI              |  I riquadri KPI visualizzano i valori di telemetria aggregati per uno o più dispositivi in un periodo di tempo. Ad esempio, è possibile usarlo per mostrare la temperatura massima e la pressione raggiunta per uno o più dispositivi nell'ultima ora.|

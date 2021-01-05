@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 5e1f8a099256040e14db1cdab288551a228512cd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655374"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796500"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -94,7 +94,7 @@ Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le speci
 
 È possibile visualizzare l'elenco completo delle operazioni di insieme di credenziali e segrete qui: [Key Vault riferimento all'operazione](/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a> I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati.  Le autorizzazioni di accesso per chiavi, segreti e certificati vengono definite a livello di insieme di credenziali. 
+<a id="key-vault-access-policies"></a> I criteri di accesso Key Vault concedono le autorizzazioni separatamente a chiavi, segreti e certificati.  Le autorizzazioni di accesso per chiavi, segreti e certificati vengono definite a livello di insieme di credenziali. 
 
 Per altre informazioni sull'uso dei criteri di accesso di Key Vault, vedere [assegnare un criterio di accesso key Vault](assign-access-policy-portal.md)
 
@@ -130,7 +130,7 @@ Per altre informazioni su Key Vault firewall e sulle reti virtuali, vedere [conf
 
 ## <a name="private-endpoint-connection"></a>Connessione all'endpoint privato
 
-In caso di necessità di bloccare completamente Key Vault l'esposizione al pubblico, è possibile usare un [endpoint privato di Azure](../../private-link/private-endpoint-overview.md) . Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+Se è necessario bloccare completamente Key Vault l'esposizione al pubblico, è possibile usare un [endpoint privato di Azure](../../private-link/private-endpoint-overview.md) . Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
 Scenari comuni per l'uso del collegamento privato per i servizi di Azure:
 

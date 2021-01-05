@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919642"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796058"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -91,7 +91,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
         Selezionare **Avanti**.
 1. Selezionare il set di dati appena creato quando viene visualizzato. È anche possibile visualizzare un'anteprima del set di dati e delle statistiche di esempio. 
 
-1. Nel modulo **Configura esecuzione** immettere un nome di esperimento univoco.
+1. Nel **Configura esecuzione** modulo selezionare **Crea nuovo** e immettere **tutorial-automl-deploy** per il nome dell'esperimento.
 
 1. Selezionare una colonna di destinazione. Si tratta della colonna su cui si desidera eseguire le previsioni.
 
@@ -164,7 +164,7 @@ Imputa con| Selezionare il valore in cui si desidera imputare i valori mancanti 
 Selezionare **Fine** per eseguire l'esperimento. L'esperimento di preparazione del processo può richiedere fino a 10 minuti. Per completare l'esecuzione di ogni pipeline, i processi di training possono richiedere altri 2-3 minuti.
 
 > [!NOTE]
-> Gli algoritmi automatizzati di Machine Learning utilizzano una casualità intrinseca che può causare una lieve variazione in un modello consigliato Punteggio della metrica finale, ad esempio la precisione. Automatizzato ML esegue anche operazioni su dati come la suddivisione del test di training, la suddivisione del training e la convalida incrociata, se necessario. Quindi, se si esegue un esperimento con le stesse impostazioni di configurazione e la metrica primaria più volte, è probabile che si verifichino variazioni in ogni esperimento Punteggio della metrica finale a causa di questi fattori. 
+> Gli algoritmi automatizzati di Machine Learning utilizzano una casualità intrinseca che può causare una lieve variazione del punteggio finale delle metriche di un modello consigliato, ad esempio l'accuratezza. Automatizzato ML esegue anche operazioni su dati come la suddivisione del test di training, la suddivisione del training e la convalida incrociata, se necessario. Quindi, se si esegue un esperimento con le stesse impostazioni di configurazione e la metrica primaria più volte, è probabile che si verifichino variazioni in ogni esperimento Punteggio della metrica finale a causa di questi fattori. 
 
 ### <a name="view-experiment-details"></a>Visualizzare i dettagli sull'esperimento
 
@@ -172,7 +172,7 @@ Viene visualizzata la schermata **Dettagli esecuzione** nella scheda **Dettagli*
 
 La scheda **Modelli** contiene un elenco dei modelli creati, ordinati in base al punteggio della metrica. Per impostazione predefinita, il modello che riceve il punteggio più alto in base alla metrica scelta si trova all'inizio dell'elenco. Man mano che il processo di training prova altri modelli, questi vengono aggiunti all'elenco. Usare questa procedura per ottenere un rapido confronto delle metriche per i modelli prodotti finora.
 
-[![Dashboard dei dettagli di esecuzione](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Dettagli esecuzione](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>Visualizzare i dettagli relativi all'esecuzione del training
 
@@ -199,7 +199,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 
-    Campo| Valore
+    Campo| valore
     ----|----
     Nome| Specificare un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
@@ -216,10 +216,10 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 1. Selezionare **Distribuisci**. Il completamento della distribuzione può richiedere circa 20 minuti.
     Una volta avviata la distribuzione, viene visualizzata la scheda **Riepilogo modello**. Vedere lo stato di avanzamento della distribuzione nella sezione **Stato distribuzione**. 
 
-A questo punto, è disponibile un servizio Web operativo per generare previsioni. Per eseguire il test delle previsioni, è possibile eseguire una query sul servizio dal [supporto Azure Machine Learning incorporato di Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+A questo punto, è disponibile un servizio Web operativo per generare previsioni. Per eseguire il test delle previsioni, è possibile eseguire una query sul servizio dal [supporto Azure Machine Learning incorporato di Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sull’utilizzo di un servizio Web](./how-to-consume-web-service.md).
+* [Informazioni sull’utilizzo di un servizio Web](how-to-consume-web-service.md).
 * [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md).
 * [Altre informazioni su Machine Learning automatizzato](concept-automated-ml.md) e Azure Machine Learning.

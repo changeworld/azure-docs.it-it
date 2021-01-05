@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
+ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400574"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97770962"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,7 +84,7 @@ SQL Istanza gestita dispone di due livelli di servizio: [per utilizzo generico](
 | Numero massimo di sessioni | 30000 | 30000 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) | Quarta generazione: 210 * numero di vCore + 800<br>Quinta generazione: 105 * numero di vCore + 800 | Quarta generazione: 210 * numero di vCore + 800<br>Quinta generazione: 105 * numero di vCore + 800 |
 | [Repliche di sola lettura](../database/read-scale-out.md) | 0 | 1 (inclusa nel prezzo) |
-| Isolamento del calcolo | Quinta generazione:<br/>\- Supportato per 80 vCore<br/>\- Non supportato per altre dimensioni<br/><br/>Quarta generazione non supportata per deprecazione|Quinta generazione:<br/>\- Supportato per 60, 64, 80 vCore<br/>\- Non supportato per altre dimensioni<br/><br/>Quarta generazione non supportata per deprecazione|
+| Isolamento del calcolo | Quinta generazione non è supportato perché le istanze di per utilizzo generico possono condividere hardware fisico con altre istanze<br/>Quarta generazione non supportata per deprecazione|Quinta generazione:<br/>-supportato per 40, 64, 80 vcore<br/>\- Non supportato per altre dimensioni<br/><br/>Quarta generazione non supportata per deprecazione|
 
 
 Di seguito sono riportate alcune considerazioni aggiuntive: 
@@ -150,7 +150,7 @@ La tabella seguente illustra i **limiti predefiniti a livello di area** per i ti
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e MSDN Platforms|2|32|
 
-\* Nella pianificazione delle distribuzioni, tenere presente che il livello di servizio Business Critical (BC) richiede una quantità di vCore quattro (4) volte superiore rispetto al livello di servizio Utilizzo generico (GP). Ad esempio: 1 vCore GP = 1 unità vCore e 1 vCore BC = 4 unità vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui viene distribuito SQL Istanza gestita e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** si applica a ogni sottoscrizione presente in un'area. Non esiste alcun limite per singole subnet, ad eccezione del fatto che la somma di tutti i vCore distribuiti tra più subnet deve essere inferiore o uguale al **numero massimo di unità vCore**.
+\* Nella pianificazione delle distribuzioni, tenere presente che il livello di servizio Business Critical (BC) richiede una quantità di vCore quattro (4) volte superiore rispetto al livello di servizio Utilizzo generico (GP). Ad esempio: 1 GP vCore = 1 unità vCore e 1 BC vCore = 4 vCore. Per semplificare l'analisi del consumo rispetto ai limiti predefiniti, riepilogare le unità vCore in tutte le subnet dell'area in cui viene distribuito SQL Istanza gestita e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. Il **numero massimo di unità vCore** si applica a ogni sottoscrizione presente in un'area. Non esiste alcun limite per singole subnet, ad eccezione del fatto che la somma di tutti i vCore distribuiti tra più subnet deve essere inferiore o uguale al **numero massimo di unità vCore**.
 
 \*\* Sono disponibili limiti di subnet e vCore maggiori nelle aree geografiche seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
 

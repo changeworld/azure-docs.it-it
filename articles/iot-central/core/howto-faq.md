@@ -3,16 +3,16 @@ title: Domande frequenti su Azure IoT Central | Microsoft Docs
 description: Domande frequenti e risposte su Azure IoT Central domande frequenti
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: acabaf843f8acfe7bc0b5e9456dee09bde74bef7
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126721"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796041"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>Domande frequenti per IoT Central
 
@@ -38,11 +38,11 @@ Quando un operatore sblocca un dispositivo, lo stato torna al valore precedente:
 
 Se lo stato del dispositivo è **in attesa di approvazione** nella pagina **dispositivi** , significa che l'opzione **approvazione automatica** è disabilitata:
 
-:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Screenshot che mostra il dispositivo bloccato":::
+:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Screenshot che mostra l'applicazione con l'opzione di approvazione automatica disabilitata.":::
 
 Un operatore deve approvare esplicitamente un dispositivo prima di iniziare a inviare dati. I dispositivi non registrati manualmente nella pagina **Dispositivi**, ma connessi con credenziali valide, avranno lo stato del dispositivo **In attesa di approvazione**. Gli operatori possono approvare questi dispositivi dalla pagina **dispositivi** usando il pulsante **approva** :
 
-:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Screenshot che mostra il dispositivo bloccato":::
+:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Screenshot che illustra come approvare un dispositivo":::
 
 **Ricerca per categorie associare un dispositivo a un modello di dispositivo?**
 
