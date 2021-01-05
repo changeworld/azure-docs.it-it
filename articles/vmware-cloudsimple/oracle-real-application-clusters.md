@@ -1,19 +1,19 @@
 ---
 title: 'Soluzione VMware di Azure di CloudSimple: ottimizzare il cloud privato CloudSimple per Oracle RAC'
 description: Viene descritto come distribuire un nuovo cluster e ottimizzare una macchina virtuale per l'installazione e la configurazione di Oracle Real Application Clusters (RAC)
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424684"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899270"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Ottimizzare il cloud privato di CloudSimple per l'installazione di Oracle RAC
 
@@ -46,7 +46,7 @@ Nell'esempio seguente vengono usati i dischi definiti nella tabella seguente.
 
 | Disco                                      | Scopo                                       | Disco condiviso |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Sistema operativo                                        | Disco del sistema operativo                         | No          |
+| OS                                        | Disco del sistema operativo                         | No          |
 | GRIGLIA                                      | Percorso di installazione per il software Grid Oracle     | No          |
 | DATABASE                                  | Percorso di installazione per il software Oracle database | No          |
 | ORAHOME                                   | Percorso di base per i file binari del database Oracle    | No          |
@@ -87,7 +87,7 @@ I dischi dati vengono utilizzati principalmente per archiviare i file di databas
 
 * Quattro dischi sono configurati come dischi virtuali e montati in tutte le macchine virtuali Oracle RAC.
 * Ogni disco viene montato in un controller SCSI diverso.
-* Ogni disco virtuale è configurato come **provisioning**a spessore con desiderio zero.  
+* Ogni disco virtuale è configurato come **provisioning** a spessore con desiderio zero.  
 * La condivisione è impostata su più **writer**.  
 * I dischi devono essere configurati come gruppo di dischi di gestione archiviazione automatica (ASM).  
 * La ridondanza è definita nell'archiviazione mediante i criteri di rete VSAN.  
@@ -102,7 +102,7 @@ I file di log di rollforward vengono utilizzati per archiviare una copia delle m
 * I dischi di log di rollforward devono essere configurati come più gruppi di dischi.  
 * Sei dischi creati e montati in tutte le macchine virtuali Oracle RAC.
 * I dischi sono montati su controller SCSI diversi
-* Ogni disco virtuale è configurato come **provisioning**a spessore con desiderio zero.
+* Ogni disco virtuale è configurato come **provisioning** a spessore con desiderio zero.
 * La condivisione è impostata su più **writer**.  
 * I dischi devono essere configurati come due gruppi di dischi ASM.
 * Ogni gruppo di dischi ASM contiene tre dischi che si trovano su controller SCSI diversi.  
@@ -130,7 +130,7 @@ I dischi di voto forniscono la funzionalità del disco quorum come canale di com
 
 * Cinque dischi vengono creati e montati in tutte le macchine virtuali Oracle RAC.
 * I dischi sono montati in un controller SCSI
-* Ogni disco virtuale è configurato come **provisioning**a spessore con desiderio zero.
+* Ogni disco virtuale è configurato come **provisioning** a spessore con desiderio zero.
 * La condivisione è impostata su più **writer**.  
 * I dischi devono essere configurati come gruppo di dischi ASM.  
 * La ridondanza ASM è impostata su una ridondanza **elevata** .
@@ -143,7 +143,7 @@ L'area di ripristino rapido (FRA) è file system gestita dal gruppo di dischi Or
 
 * Due dischi vengono creati e montati in tutte le macchine virtuali Oracle RAC.
 * I dischi sono montati in un controller SCSI diverso
-* Ogni disco virtuale è configurato come **provisioning**a spessore con desiderio zero.
+* Ogni disco virtuale è configurato come **provisioning** a spessore con desiderio zero.
 * La condivisione è impostata su più **writer**.  
 * I dischi devono essere configurati come gruppo di dischi ASM.  
 * La ridondanza ASM è impostata su ridondanza **esterna** .
@@ -170,11 +170,11 @@ Per distribuire un cluster vSphere nel cloud privato, seguire questa procedura:
 i criteri rete VSAN definiscono gli errori da tollerare e lo striping del disco per i dati archiviati nei dischi delle macchine virtuali.  I criteri di archiviazione creati devono essere applicati ai dischi della VM durante la creazione della macchina virtuale.
 
 1. [Accedere al client vSphere](./vcenter-access.md) del cloud privato.
-2. Scegliere **criteri e profili**dal menu in alto.
+2. Scegliere **criteri e profili** dal menu in alto.
 3. Nel menu a sinistra selezionare **criteri di archiviazione della macchina virtuale** e quindi selezionare **Crea criteri di archiviazione delle macchine virtuali**.
 4. Immettere un nome significativo per il criterio e fare clic su **Avanti**.
 5. Nella sezione **struttura dei criteri** selezionare **Abilita regole per l'archiviazione rete VSAN** e fare clic su **Avanti**.
-6. Nella sezione **vSAN**  >  **disponibilità** rete VSAN selezionare **nessuno** per la tolleranza di emergenza del sito. Per gli errori da tollerare, selezionare l'opzione di **mirroring RAID** per l'ITF desiderata.
+6. Nella sezione   >  **disponibilità** rete VSAN selezionare **nessuno** per la tolleranza di emergenza del sito. Per gli errori da tollerare, selezionare l'opzione di **mirroring RAID** per l'ITF desiderata.
     ![Impostazioni rete VSAN ](media/oracle-rac-storage-wizard-vsan.png) .
 7. Nella sezione **Avanzate** selezionare il numero di striping del disco per oggetto. Per prenotazione spazio oggetto selezionare con **provisioning di spessore**. Selezionare **Disattiva checksum oggetti**. Fare clic su **Avanti**.
 8. Seguire le istruzioni visualizzate per visualizzare l'elenco di archivi dati rete VSAN compatibili, rivedere le impostazioni e completare la configurazione.

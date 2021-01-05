@@ -1,19 +1,19 @@
 ---
 title: 'Soluzione VMware di Azure di CloudSimple: usare il cloud privato come sito di emergenza per i carichi di lavoro locali'
 description: Viene descritto come configurare il cloud privato CloudSimple come sito di ripristino di emergenza per i carichi di lavoro VMware locali
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd1f157984cdb300cc3b375d71654e5da54d1ae
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77083140"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898131"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurare il cloud privato CloudSimple come sito di ripristino di emergenza per i carichi di lavoro VMware locali
 
@@ -35,7 +35,7 @@ Per la soluzione è necessario:
 
 Nella figura seguente viene illustrata l'architettura per la soluzione Zerto.
 
-![Architecture](media/cloudsimple-zerto-architecture.png)
+![Architettura](media/cloudsimple-zerto-architecture.png)
 
 ## <a name="how-to-deploy-the-solution"></a>Come distribuire la soluzione
 
@@ -93,6 +93,6 @@ Per abilitare la replica virtuale Zerto dall'ambiente locale al cloud privato, c
 6. Personalizzare le impostazioni di rete per le singole macchine virtuali, se necessario, e creare il VPG.
 7. Test del failover dopo il completamento della replica.
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 
 [Documentazione di Zerto](https://www.zerto.com/myzerto/technical-documentation/)

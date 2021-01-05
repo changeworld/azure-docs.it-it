@@ -1,19 +1,19 @@
 ---
 title: 'Soluzione VMware di Azure di CloudSimple: configurare la crittografia rete VSAN per il cloud privato'
 description: Viene descritto come configurare la funzionalità di crittografia del software rete VSAN in modo che il cloud privato CloudSimple possa funzionare con un server di gestione delle chiavi in esecuzione nella rete virtuale di Azure.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5da05c7f3c6878b0804799360e512676b9002d3
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77020642"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899049"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configurare la crittografia rete VSAN per il cloud privato CloudSimple
 

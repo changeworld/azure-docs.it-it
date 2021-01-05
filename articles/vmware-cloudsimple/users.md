@@ -1,19 +1,19 @@
 ---
 title: Visualizzare gli utenti del portale di CloudSimple VMware di Azure-soluzione VMware di Azure di CloudSimple
 description: Viene descritto come visualizzare l'elenco di utenti che hanno accesso al portale di CloudSimple tramite il portale di Azure
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f9043fbbb77059eb4e4ed42dbef8a42e5790d565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20c42f41b168cafa510f7fac80cfcedcc260f4db
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77564007"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899083"
 ---
 # <a name="view-the-list-of-cloudsimple-portal-users"></a>Visualizzare l'elenco degli utenti del portale di CloudSimple
 

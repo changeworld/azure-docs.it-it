@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: a2d26689a3036f05d7c8e7f417fbbb447402aedc
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762861"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898148"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Connettere i processi di analisi di flusso alle risorse in una rete virtuale di Azure (VNet)
 
@@ -41,7 +41,7 @@ I processi possono connettersi ai seguenti servizi di Azure usando questa tecnic
 1. [Archiviazione BLOB o Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) -può essere l'account di archiviazione del processo, l'input o l'output di streaming.
 2. [Hub eventi di Azure](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) : può essere l'input o l'output del processo di streaming.
 
-Se i processi devono connettersi ad altri tipi di input o output, l'unica opzione consiste nell'usare endpoint privati nei cluster di analisi di flusso.
+Se i processi devono connettersi ad altri tipi di input o di output, è possibile scrivere prima da analisi di flusso all'output di hub eventi e quindi a qualsiasi destinazione di propria scelta tramite funzioni di Azure. Se si vuole scrivere direttamente da analisi di flusso in altri tipi di output protetti in un VNet o in un firewall, l'unica opzione consiste nell'usare endpoint privati nei cluster di analisi di flusso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

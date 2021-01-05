@@ -1,19 +1,19 @@
 ---
 title: "Soluzione VMware di Azure di CloudSimple: configurare la VPN tra l'ambiente locale e il cloud privato"
 description: Viene descritto come configurare una connessione VPN da sito a sito o da punto a sito tra la rete locale e il cloud privato CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b7a119b538ee07b961011bfa98d748f92cc76f0e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424671"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899219"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurare una connessione VPN al cloud privato CloudSimple
 
@@ -79,7 +79,7 @@ Una connessione VPN da punto a sito risolve i nomi DNS del primo cloud privato c
 
 1. Avviare il [portale di CloudSimple](access-cloudsimple-portal.md).
 
-2. Passare a **risorse**Cloud  >  **privati** e selezionare il cloud privato a cui si vuole connettersi.
+2. Passare a **risorse** Cloud  >  **privati** e selezionare il cloud privato a cui si vuole connettersi.
 
 3. Nella pagina **Riepilogo** del cloud privato copiare l'indirizzo IP del server DNS del cloud privato in **informazioni di base**.
 
@@ -87,7 +87,7 @@ Una connessione VPN da punto a sito risolve i nomi DNS del primo cloud privato c
 
 4. Fare clic con il pulsante destro del mouse sull'icona di viscosità nella barra delle applicazioni del computer e selezionare **Preferenze**.
 
-    ![Connessione](media/vis00.png)
+    ![VPN](media/vis00.png)
 
 5. Selezionare la connessione VPN CloudSimple.
 

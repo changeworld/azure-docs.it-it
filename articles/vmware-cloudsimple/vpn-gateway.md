@@ -1,19 +1,19 @@
 ---
 title: Soluzione VMware di Azure di CloudSimple-configurare un gateway VPN
 description: Viene descritto come configurare un gateway VPN da punto a sito e un gateway VPN da sito a sito e creare connessioni tra la rete locale e il cloud privato CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78f78bfbf885cbae7708a75cb54ce2d41e7b526c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872001"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899100"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurare i gateway VPN nella rete CloudSimple
 
@@ -94,7 +94,7 @@ Un gateway VPN da punto a sito consente di definire un criterio di aggiunta auto
     * Selezionare la località di Azure in cui viene distribuito il servizio CloudSimple.
     * Specificare la subnet client per il gateway da punto a sito.  Gli indirizzi DHCP verranno assegnati dalla subnet client quando ci si connette.
 
-5. Per **connessione/utente**specificare le impostazioni seguenti e fare clic su **Avanti**.
+5. Per **connessione/utente** specificare le impostazioni seguenti e fare clic su **Avanti**.
 
     * Per consentire automaticamente a tutti gli utenti correnti e futuri di accedere al cloud privato tramite il gateway da punto a sito, selezionare **Aggiungi automaticamente tutti gli utenti**. Quando si seleziona l'opzione, tutti gli utenti nell'elenco utenti vengono selezionati automaticamente. È possibile sostituire l'opzione automatica deselezionando i singoli utenti nell'elenco.
     * Per selezionare singoli utenti, fare clic sulle caselle di controllo nell'elenco degli utenti.

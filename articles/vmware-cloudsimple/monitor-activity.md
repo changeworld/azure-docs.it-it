@@ -2,19 +2,19 @@
 title: Monitorare l'attività del cloud privato
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Descrive le informazioni disponibili sulle attività nella soluzione VMware di Azure in base all'ambiente CloudSimple, inclusi gli avvisi, gli eventi, le attività e il controllo.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/13/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb597cc71d228a1daaaa4e52d76b301764ff9292
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77019673"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899304"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitora l'attività CloudSimple della soluzione VMware
 
@@ -49,7 +49,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Colonna | Descrizione |
 ------------ | ------------- |
 | Tipo di avviso | Categoria di avviso.|
-| Ora | Ora in cui si è verificato l'avviso. |
+| Tempo | Ora in cui si è verificato l'avviso. |
 | Gravità | Importanza dell'avviso.|
 | Nome risorsa | Nome assegnato alla risorsa, ad esempio il nome del cloud privato. |
 | Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
@@ -57,7 +57,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Descrizione | Descrizione dell'elemento che ha attivato l'avviso. |
 | Confermato | Indica se l'avviso è stato riconosciuto. |
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 Eventi Mostra l'attività dell'utente e del sistema nel portale di CloudSimple. Nella pagina eventi sono elencate le attività associate a una risorsa specifica e la gravità dell'effetto.
 
@@ -86,7 +86,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Nome risorsa | Nome assegnato alla risorsa. |
 | Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
 | ID risorsa | Identificatore della risorsa. |
-| Inizia | Ora di inizio dell'attività. |
+| Avvio | Ora di inizio dell'attività. |
 | Fine | Ora di fine dell'attività. |
 | Stato | Stato corrente dell'attività. |
 | Tempo trascorso | Tempo richiesto per il completamento dell'attività (se completata) o in corso (se in corso). |

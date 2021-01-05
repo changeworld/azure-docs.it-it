@@ -1,19 +1,19 @@
 ---
 title: 'Soluzione VMware di Azure di CloudSimple: creare una macchina virtuale in Azure con i modelli di VM'
 description: Descrive come creare macchine virtuali in Azure usando i modelli di VM nell'infrastruttura VMware per il cloud privato CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b01afe60a78a746eb0dc5f03cc7b45989f8cf81e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014502"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898760"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Creare una macchina virtuale in Azure usando i modelli di VM nell'infrastruttura VMware
 
@@ -42,10 +42,10 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
     | Campo | Descrizione |
     | ------------ | ------------- |
-    | Subscription | Sottoscrizione di Azure associata al cloud privato.  |
+    | Sottoscrizione | Sottoscrizione di Azure associata al cloud privato.  |
     | Gruppo di risorse | Gruppo di risorse a cui verrà assegnata la macchina virtuale. È possibile selezionare un gruppo esistente o crearne uno nuovo. |
     | Nome | Nome per identificare la macchina virtuale.  |
-    | Location | Area di Azure in cui è ospitata questa macchina virtuale.  |
+    | Località | Area di Azure in cui è ospitata questa macchina virtuale.  |
     | Cloud privato | CloudSimple cloud privato in cui si vuole creare la macchina virtuale. |
     | Pool di risorse | Pool di risorse mappato per la macchina virtuale. Selezionare un pool di risorse tra quelli disponibili. |
     | Modello vSphere | modello vSphere per la macchina virtuale.  |

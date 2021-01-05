@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c5c3f8dedad47a819ce3648a0b81ffa3e65a1a1e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544888"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898012"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoraggio della connettività di rete con monitoraggio connessione
 
@@ -123,7 +123,7 @@ Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un grup
 
 | Numero di test | Source (Sorgente) | Destination | Configurazione di test |
 | --- | --- | --- | --- |
-| 1 | A | D | Configurazione 1 |
+| 1 | Una | D | Configurazione 1 |
 | 2 | A | D | Configurazione 2 |
 | 3 | A | E | Configurazione 1 |
 | 4 | A | E | Configurazione 2 |
@@ -271,7 +271,7 @@ Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio della c
 
 Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metric | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
+| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
 | AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |

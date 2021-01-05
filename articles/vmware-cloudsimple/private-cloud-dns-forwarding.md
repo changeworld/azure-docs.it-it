@@ -1,19 +1,19 @@
 ---
 title: "Soluzione VMware di Azure: l'invio di DNS dal cloud privato al sito locale"
 description: Viene descritto come abilitare il server DNS del cloud privato di CloudSimple per l'invio della ricerca di risorse locali
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 02/29/2020
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091250"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899202"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Abilitare i server DNS del cloud privato CloudSimple per l'invio della ricerca DNS delle risorse locali ai server DNS
 

@@ -1,27 +1,27 @@
 ---
-title: Gestione della condivisione Pro di Azure Stack Edge | Microsoft Docs
-description: Viene descritto come usare la portale di Azure per gestire le condivisioni in Azure Stack Edge Pro.
+title: Azure Stack Edge Pro-gestione delle condivisioni FPGA | Microsoft Docs
+description: Viene descritto come usare la portale di Azure per gestire le condivisioni nel Azure Stack Edge Pro-FPGA.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444595"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898236"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le condivisioni in Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Usare il portale di Azure per gestire le condivisioni in un FPGA Pro Azure Stack Edge 
 
-Questo articolo descrive come gestire le condivisioni in Azure Stack Edge Pro. È possibile gestire il Azure Stack Edge Pro tramite la portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, eliminare o aggiornare le condivisioni o per sincronizzare la chiave di archiviazione dell'account di archiviazione associato alle condivisioni.
+Questo articolo descrive come gestire le condivisioni nel dispositivo FPGA Azure Stack Edge Pro. È possibile gestire il dispositivo FPGA Azure Stack Edge Pro tramite il portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, eliminare o aggiornare le condivisioni o per sincronizzare la chiave di archiviazione dell'account di archiviazione associato alle condivisioni.
 
 ## <a name="about-shares"></a>Informazioni sulle condivisioni
 
-Per trasferire i dati in Azure, è necessario creare condivisioni sul Azure Stack Edge Pro. Le condivisioni aggiunte al dispositivo Azure Stack Edge Pro possono essere condivisioni locali o condivisioni che effettuano il push dei dati nel cloud.
+Per trasferire i dati in Azure, è necessario creare condivisioni nell'FPGA di Azure Stack Edge Pro. Le condivisioni aggiunte al dispositivo Azure Stack Edge Pro possono essere condivisioni locali o condivisioni che effettuano il push dei dati nel cloud.
 
  - **Condivisioni locali**: usare queste condivisioni quando si desidera che i dati vengano elaborati localmente nel dispositivo.
  - **Condivisioni**: usare queste condivisioni quando si desidera che i dati del dispositivo vengano inseriti automaticamente nell'account di archiviazione nel cloud. Tutte le funzioni cloud, ad esempio le **chiavi di archiviazione** di **aggiornamento** e sincronizzazione, si applicano alle condivisioni.
@@ -39,7 +39,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**. Selezionare **+ Aggiungi condivisione** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Cloud Storage Gateway**. Passare a **condivisioni** , quindi selezionare **+ Aggiungi condivisione** sulla barra dei comandi.
 
     ![Selezionare Aggiungi condivisione](media/azure-stack-edge-manage-shares/add-share-1.png)
 
@@ -72,7 +72,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 ## <a name="add-a-local-share"></a>Aggiungere una condivisione locale
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**. Selezionare **+ Aggiungi condivisione** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **cloud storage gateway > shares**. Selezionare **+ Aggiungi condivisione** sulla barra dei comandi.
 
    ![Selezionare Aggiungi condivisione 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
@@ -88,7 +88,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 6. Nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**.
 
-7. Selezionare **Create** (Crea). 
+7. Selezionare **Crea**. 
 
    ![Creare una condivisione locale](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
@@ -96,15 +96,13 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
    ![Visualizzare gli aggiornamenti del pannello Condivisioni](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
-    Selezionare la condivisione per visualizzare il punto di montaggio locale per i moduli di calcolo Edge relativi a questa condivisione.
 
-   ![Visualizzare i dettagli della condivisione locale](media/azure-stack-edge-manage-shares/add-local-share-4.png)
 
 ## <a name="mount-a-share"></a>Montare una condivisione
 
 Se è stata creata una condivisione prima di configurare il calcolo nel dispositivo Azure Stack Edge Pro, sarà necessario montare la condivisione. Per montare una condivisione, seguire questa procedura.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**. Nell'elenco delle condivisioni selezionare la condivisione da montare. Per la condivisione selezionata, nella colonna **Usata per il calcolo** verrà visualizzato lo stato **Disabilitata**.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **cloud storage gateway > shares**. Nell'elenco delle condivisioni selezionare la condivisione da montare. Per la condivisione selezionata, nella colonna **Usata per il calcolo** verrà visualizzato lo stato **Disabilitata**.
 
    ![Selezionare Condividi 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
@@ -122,13 +120,13 @@ Se è stata creata una condivisione prima di configurare il calcolo nel disposit
 
 5. Selezionare di nuovo la condivisione per visualizzarne il punto di montaggio locale. Il modulo di calcolo Edge usa questo punto di montaggio locale per la condivisione.
 
-   ![Punto di montaggio locale per la condivisione](media/azure-stack-edge-manage-shares/share-mountpoint.png)
+   ![Punto di montaggio locale per la condivisione](media/azure-stack-edge-manage-shares/share-mountpoint.png) 
 
 ## <a name="unmount-a-share"></a>Smontare una condivisione
 
 Per smontare una condivisione, seguire questa procedura nel portale di Azure.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **cloud storage gateway > shares**.
 
    ![Selezionare la condivisione 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
@@ -148,13 +146,13 @@ Per smontare una condivisione, seguire questa procedura nel portale di Azure.
 
 Eseguire i passaggi seguenti nel portale di Azure per eliminare una condivisione.
 
-1. Nell'elenco delle condivisioni fare clic sulla condivisione da eliminare.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **cloud storage gateway > shares**. Nell'elenco delle condivisioni fare clic sulla condivisione da eliminare.
 
    ![Selezionare la condivisione 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Fare clic su **Elimina**.
+2. Selezionare **Elimina**.
 
-   ![Clic su Elimina](media/azure-stack-edge-manage-shares/delete-share-2.png)
+   ![Selezionare Elimina](media/azure-stack-edge-manage-shares/delete-share-2.png)
 
 3. Quando viene richiesta la conferma, fare clic su **Sì**.
 
@@ -173,15 +171,15 @@ La funzionalità di aggiornamento consente di aggiornare il contenuto di una con
 
 Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivisione.
 
-1. Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **cloud storage gateway > shares**. Fare clic sulla condivisione che si vuole aggiornare.
 
    ![Selezionare Condividi 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
-2. Fare clic su **Aggiorna**.
+2. Selezionare **Aggiorna dati**.
 
-   ![Fare clic su Aggiorna](media/azure-stack-edge-manage-shares/refresh-share-2.png)
+   ![Selezionare Aggiorna](media/azure-stack-edge-manage-shares/refresh-share-2.png)
  
-3. Quando viene richiesta la conferma, fare clic su **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale.
+3. Alla richiesta di conferma selezionare **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale.
 
    ![Confermare l'aggiornamento](media/azure-stack-edge-manage-shares/refresh-share-3.png)
 
@@ -199,7 +197,7 @@ Se le chiavi dell'account di archiviazione sono state ruotate, sarà necessario 
 
 Eseguire i passaggi seguenti nel portale di Azure per sincronizzare la chiave di accesso alle risorse di archiviazione.
 
-1. Passare a **Panoramica** nella risorsa. Nell'elenco delle condivisioni, scegliere e fare clic su una condivisione associata all'account di archiviazione che è necessario sincronizzare.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **cloud storage gateway > shares**. Nell'elenco delle condivisioni, scegliere e fare clic su una condivisione associata all'account di archiviazione che è necessario sincronizzare.
 
     ![Selezionare la condivisione con l'account di archiviazione appropriato](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
 
