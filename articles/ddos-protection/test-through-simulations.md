@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813786"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900361"
 ---
 # <a name="test-through-simulations"></a>Testare con le simulazioni
 
@@ -38,13 +38,13 @@ Abbiamo collaborato con [BreakingPoint cloud](https://www.ixiacom.com/products/b
 
 1. Immettere o selezionare i valori seguenti e quindi selezionare **Avvia test**:
 
-    |Impostazione        |valore                                              |
+    |Impostazione        |Valore                                              |
     |---------      |---------                                          |
     |Indirizzo IP di destinazione           | Immettere uno degli indirizzi IP pubblici che si desidera testare.                     |
     |Numero porta   | Immettere _443_.                       |
-    |Profilo DDoS | Selezionare **TCP SYN Flood**.|
-    |Dimensioni test       | Selezionare 200.000 **PPS, 100 Mbps e 8 IP di origine.**                                  |
-    |Durata test | Selezionare **10 minuti**.|
+    |Profilo DDoS | I valori possibili includono **DNS Flood**, **NTPv2 Flood**, **SSDP Flood**, **TCP SYN Flood**, **UDP 64B Flood**, **UDP 128B Flood**, **UDP 256B Flood**, **UDP 512B Flood**, **UDP 1024B Flood**, **UDP 1514B** Flood, UDP **Fragmentation** UDP **memcached**.|
+    |Dimensioni test       | I valori possibili includono **100.000 PPS, 50 Mbps e 4 IP di origine**, 200.000 **PPS, 100 Mbps e 8 IP di origine**, **400.000 PPS, 200Mbps e 16 IP di origine**, **800K PPS, 400 Mbps e 32 IP** di origine.                                  |
+    |Durata test | I valori possibili sono **10 minuti**, **15 minuti**, **20 minuti**, **25 minuti**, **30 minuti**.|
 
 Il punto dovrebbe essere simile al seguente:
 

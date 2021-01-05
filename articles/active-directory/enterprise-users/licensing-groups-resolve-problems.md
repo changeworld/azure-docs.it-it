@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3dce8bb51299eb78bd2958eebf7a69594318a4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546472"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900706"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -68,7 +68,6 @@ Per vedere quali utenti e gruppi utilizzano le licenze, selezionare un prodotto.
 
 Si consideri l'esempio seguente. A un utente viene assegnata direttamente una licenza per Office 365 Enterprise *E1*, con tutti i piani abilitati. L'utente è stato aggiunto a un gruppo a cui è assegnato il prodotto Office 365 Enterprise *E3*. Il prodotto E3 contiene piani di servizio che non possono sovrapporsi con i piani inclusi in E1, quindi l'assegnazione della licenza di gruppo non riesce, generando il messaggio di errore "Piani di servizio in conflitto". In questo esempio, i piani di servizio in conflitto sono:
 
-- SharePoint Online (piano 2) in conflitto con SharePoint Online (piano 1).
 - Exchange Online (piano 2) in conflitto con Exchange Online (piano 1).
 
 Per risolvere questo conflitto è necessario disabilitare due dei piani. È possibile disattivare la licenza E1 che è stata direttamente assegnata all'utente. oppure occorre modificare l'assegnazione di licenze per l'intero gruppo e disabilitare i piani nella licenza E3. In alternativa, è possibile decidere di rimuovere la licenza E1 dall'utente, se è ridondante nel contesto della licenza E3.
@@ -87,7 +86,7 @@ Per risolvere questo problema, è necessario assicurarsi che il piano richiesto 
 
 ## <a name="usage-location-isnt-allowed"></a>La località di utilizzo non è consentita
 
-**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso **User**  >  **Profile**  >  nella sezione relativa alla **modifica** del profilo utente nel portale di Azure.
+**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso   >    >  nella sezione relativa alla **modifica** del profilo utente nel portale di Azure.
 
 Quando Azure AD tenta di assegnare una licenza di gruppo a un utente la cui località di utilizzo non è supportata, l'operazione non riesce e viene registrato un errore per l'utente.
 

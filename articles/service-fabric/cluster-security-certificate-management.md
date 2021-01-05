@@ -4,12 +4,12 @@ description: Informazioni sulla gestione dei certificati in un cluster Service F
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653665"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901267"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestione dei certificati nei cluster Service Fabric
 
@@ -109,9 +109,12 @@ Si noti che IETF [RFC 3647](https://tools.ietf.org/html/rfc3647) definisce forma
 
 Abbiamo visto in precedenza che Azure Key Vault supporta la rotazione automatica dei certificati: i criteri di associazione dei certificati definiscono il punto nel tempo, se per giorni prima della scadenza o percentuale della durata totale, quando il certificato viene ruotato nell'insieme di credenziali. Per distribuire il nuovo certificato a tutti i nodi del cluster, l'agente di provisioning deve essere richiamato dopo questo momento e prima della scadenza del certificato precedente. Service Fabric fornirà assistenza per la generazione di avvisi di integrità quando la data di scadenza di un certificato (e attualmente in uso nel cluster) si verifica prima di un intervallo predeterminato. Un agente di provisioning automatico, ovvero l'estensione della macchina virtuale dell'insieme di credenziali delle credenziali, configurato per osservare il certificato dell'insieme di credenziali, effettuerà periodicamente il polling dell'insieme di credenziali, rileverà la rotazione e recupererà e installerà il nuovo certificato Il provisioning eseguito tramite la funzionalità' Secrets ' di VM/VMSS richiede un operatore autorizzato per aggiornare la VM/VMSS con l'URI dell'insieme di credenziali delle chiavi con versione corrispondente al nuovo certificato.
 
-In entrambi i casi, il certificato ruotato viene ora sottoposta a provisioning in tutti i nodi ed è stato descritto il meccanismo Service Fabric impiega per rilevare le rotazioni. Esaminiamo cosa accade successivamente, presupponendo la rotazione applicata al certificato del cluster dichiarato dal nome comune del soggetto (tutti applicabili al momento della stesura di questo articolo e Service Fabric versione Runtime 7.1.409):
-  - per le nuove connessioni all'interno di e nel cluster, il runtime di Service Fabric troverà e selezionerà il certificato corrispondente con la data di scadenza più lontana (la proprietà' NotAfter ' del certificato, spesso abbreviata come ' na ')
+In entrambi i casi, il certificato ruotato viene ora sottoposta a provisioning in tutti i nodi ed è stato descritto il meccanismo Service Fabric impiega per rilevare le rotazioni. Esaminiamo cosa accade successivamente, supponendo che la rotazione applicata al certificato del cluster dichiarata dal nome comune del soggetto
+  - per le nuove connessioni all'interno di e nel cluster, il runtime di Service Fabric troverà e selezionerà il certificato corrispondente emesso più di recente (valore più grande della proprietà' NotBefore '). Si noti che si tratta di una modifica rispetto alle versioni precedenti di Service Fabric Runtime.
   - le connessioni esistenti verranno mantenute attive/consentite per la scadenza naturale o in caso contrario. un gestore interno riceverà una notifica dell'esistenza di una nuova corrispondenza
+
+> [!NOTE] 
+> Prima della versione 7.2.445 (7,2 CU4), Service Fabric selezionato il certificato più lontano in scadenza (il certificato con la proprietà' NotAfter ' più lontano)
 
 Questo si traduce nelle osservazioni importanti seguenti:
   - Il certificato di rinnovo può essere ignorato se la data di scadenza è prima di quella del certificato attualmente in uso.
@@ -134,8 +137,11 @@ Sono stati descritti i meccanismi, le restrizioni, le regole e le definizioni in
 
 La sequenza è completamente configurabile tramite script e automatizzata e consente una distribuzione iniziale senza tocco da parte dell'utente di un cluster configurato per il rollover automatico del certificato. Di seguito sono riportati i passaggi dettagliati. Verrà usata una combinazione di cmdlet di PowerShell e frammenti di modelli JSON. La stessa funzionalità è realizzabile con tutti i mezzi supportati per interagire con Azure.
 
-[!NOTE] In questo esempio si presuppone che esista già un certificato nell'insieme di credenziali; per la registrazione e il rinnovo di un certificato gestito da un insieme di credenziali di un insieme di credenziali è necessario procedere manualmente come descritto in precedenza in questo articolo. Per gli ambienti di produzione, usare i certificati gestiti dall'insieme di credenziali delle credenziali. uno script di esempio specifico di un'infrastruttura a chiave pubblica interna di Microsoft è incluso di seguito.
-Il rollover automatico dei certificati è opportuno solo per i certificati emessi dall'autorità di certificazione. l'uso di certificati autofirmati, inclusi quelli generati durante la distribuzione di un cluster Service Fabric nel portale di Azure, è insensato, ma è ancora possibile per le distribuzioni locali/ospitate dallo sviluppatore, dichiarando l'identificazione personale dell'autorità di certificazione come il certificato foglia.
+> [!NOTE]
+> In questo esempio si presuppone che esista già un certificato nell'insieme di credenziali; per la registrazione e il rinnovo di un certificato gestito da un insieme di credenziali di un insieme di credenziali è necessario procedere manualmente come descritto in precedenza in questo articolo. Per gli ambienti di produzione, usare i certificati gestiti dall'insieme di credenziali delle credenziali. uno script di esempio specifico di un'infrastruttura a chiave pubblica interna di Microsoft è incluso di seguito.
+
+> [!NOTE]
+> Il rollover automatico dei certificati è opportuno solo per i certificati emessi dall'autorità di certificazione. l'uso di certificati autofirmati, inclusi quelli generati durante la distribuzione di un cluster Service Fabric nel portale di Azure, è insensato, ma è ancora possibile per le distribuzioni locali/ospitate dallo sviluppatore, dichiarando l'identificazione personale dell'autorità di certificazione come il certificato foglia.
 
 ### <a name="starting-point"></a>Punto di partenza
 Per brevità, si presuppone il seguente stato iniziale:

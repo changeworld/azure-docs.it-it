@@ -4,16 +4,16 @@ description: Informazioni su come modificare i livelli di prestazioni per i disc
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a868d5d236cf4c5a8d29f15490909c2f1a53546f
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 625fb1e3dd0b433da6b60f995aa6b380c23ec9ce
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96016584"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901034"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Modificare il livello di prestazioni usando il portale di Azure
 
@@ -47,7 +47,7 @@ La procedura seguente illustra come modificare il livello di prestazioni di un d
 1. Deallocare la macchina virtuale o scollegare il disco.
 1. Selezionare il disco
 1. Selezionare **dimensioni e prestazioni**.
-1. Nell'elenco a discesa **livello di prestazioni** selezionare un livello diverso rispetto alla baseline corrente del disco.
+1. Nell'elenco a discesa **livello di prestazioni** selezionare un livello diverso dal livello di prestazioni corrente del disco.
 1. Selezionare **Ridimensiona**.
 
 :::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="Screenshot del pannello dimensioni + prestazioni. il livello di prestazioni è evidenziato." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::

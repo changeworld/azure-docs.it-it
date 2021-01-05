@@ -3,12 +3,12 @@ title: Aggiornare un cluster per l'uso del nome comune del certificato
 description: Informazioni su come convertire un certificato del cluster di Service Fabric di Azure da dichiarazioni basate su identificazione personale a nomi comuni.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 013b8190390a4b05791b0a56072487f249956ec5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495208"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900791"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Convertire i certificati del cluster da dichiarazioni basate su identificazione personale a nomi comuni
 
@@ -63,8 +63,11 @@ Sono disponibili più Stati di avvio validi per una conversione. L'invariante è
 #### <a name="valid-starting-states"></a>Stati di avvio validi
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, dove `GoalCert` ha una data successiva a `NotAfter` quella di `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, dove `GoalCert` ha una data successiva a `NotAfter` quella di `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, dove `GoalCert` ha una data successiva a `NotBefore` quella di `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, dove `GoalCert` ha una data successiva a `NotBefore` quella di `OldCert1`
+
+> [!NOTE]
+> Prima della versione 7.2.445 (7,2 CU4), Service Fabric selezionato il certificato più lontano in scadenza (il certificato con la proprietà' NotAfter ' più lontano), quindi gli stati iniziali precedenti a 7,2 CU4 richiedono che GoalCert abbia una data successiva a `NotAfter``OldCert1`
 
 Se il cluster non è in uno degli stati validi descritti in precedenza, vedere le informazioni su come ottenere tale stato nella sezione alla fine di questo articolo.
 
@@ -217,11 +220,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | Stato iniziale | Aggiornamento 1 | Aggiornamento 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None`e `GoalCert` con una data successiva a `NotAfter``OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None`e `OldCert1` con una data successiva a `NotAfter``GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, dove `OldCert1` ha una data successiva a `NotAfter``GoalCert` | Eseguire l'aggiornamento a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, dove `OldCert1` ha una data successiva a `NotAfter``GoalCert` | Eseguire l'aggiornamento a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None`e `GoalCert` con una data successiva a `NotBefore``OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None`e `OldCert1` con una data successiva a `NotBefore``GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, dove `OldCert1` ha una data successiva a `NotBefore``GoalCert` | Eseguire l'aggiornamento a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, dove `OldCert1` ha una data successiva a `NotBefore``GoalCert` | Eseguire l'aggiornamento a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Rimuovere uno dei `OldCert1` o `OldCert2` per ottenere lo stato `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continua dal nuovo stato iniziale |
+
+> [!NOTE]
+> Per un cluster in una versione precedente alla versione 7.2.445 (7,2 CU4), sostituire `NotBefore` con `NotAfter` negli stati precedenti.
 
 Per istruzioni su come eseguire uno di questi aggiornamenti, vedere gestire i [certificati in un cluster di Azure Service Fabric](service-fabric-cluster-security-update-certs-azure.md).
 

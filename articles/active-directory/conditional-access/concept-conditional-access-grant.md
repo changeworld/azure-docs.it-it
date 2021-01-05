@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f82fc060586e2df5acefa6b0836171e558aa4a
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615768"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900927"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -36,7 +36,7 @@ Gli amministratori possono scegliere di applicare uno o più controlli durante l
 
 - [Richiedi autenticazione a più fattori (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Richiedi che il dispositivo sia contrassegnato come conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [Richiedi dispositivo ibrido Azure AD aggiunto](../devices/concept-azure-ad-join-hybrid.md)
+- [Richiedere un dispositivo aggiunto ad Azure AD ibrido](../devices/concept-azure-ad-join-hybrid.md)
 - [Richiedi app client approvata](app-based-conditional-access.md)
 - [Richiedere criteri di protezione dell'app](app-protection-based-conditional-access.md)
 - [Richiedere la modifica della password](#require-password-change)
@@ -102,6 +102,7 @@ Questa impostazione si applica alle app iOS e Android seguenti:
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Amministrazione di Microsoft 365
 
 **Osservazioni:**
 

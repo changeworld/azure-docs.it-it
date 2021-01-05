@@ -3,15 +3,15 @@ title: Gestire gruppi di risorse-interfaccia della riga di comando di Azure
 description: Usare l'interfaccia della riga di comando di Azure per gestire i gruppi di risorse tramite Azure Resource Manager. Viene illustrato come creare, elencare ed eliminare gruppi di risorse.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 01/05/2021
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4a9a4ed4ebba7f6f2470bb9e7000a899ebc26323
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: db4a938d2f773ed24d4c7a48d747dd5cc22c0bd2
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185811"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900281"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gestire Azure Resource Manager gruppi di risorse usando l'interfaccia della riga di comando di Azure
 
@@ -84,14 +84,14 @@ Questa funzionalità è nota anche come *rollback in errore*. Per ulteriori info
 
 ## <a name="lock-resource-groups"></a>Blocca gruppi di risorse
 
-Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche, ad esempio la sottoscrizione di Azure, il gruppo di risorse o la risorsa. 
+Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche, ad esempio la sottoscrizione di Azure, il gruppo di risorse o la risorsa.
 
 Lo script seguente blocca un gruppo di risorse in modo che il gruppo di risorse non possa essere eliminato.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName
 ```
 
 Lo script seguente ottiene tutti i blocchi per un gruppo di risorse:
@@ -99,7 +99,7 @@ Lo script seguente ottiene tutti i blocchi per un gruppo di risorse:
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock list --resource-group $resourceGroupName  
+az lock list --resource-group $resourceGroupName
 ```
 
 Lo script seguente elimina un blocco:
@@ -125,13 +125,88 @@ Dopo aver configurato correttamente il gruppo di risorse, potrebbe essere necess
 - Automatizzare le distribuzioni future della soluzione perché il modello contiene tutte le infrastrutture complete.
 - Per informazioni sulla sintassi del modello, vedere il JavaScript Object Notation (JSON) che rappresenta la soluzione.
 
+Per esportare tutte le risorse in un gruppo di risorse, usare il comando [AZ Group Export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) e specificare il nome del gruppo di risorse.
+
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az group export --name $resourceGroupName  
+az group export --name $resourceGroupName
 ```
 
-Lo script Visualizza il modello nella console.  Copiare il codice JSON e salvarlo come file.
+Lo script Visualizza il modello nella console. Copiare il codice JSON e salvarlo come file.
+
+Invece di esportare tutte le risorse nel gruppo di risorse, è possibile selezionare le risorse da esportare.
+
+Per esportare una risorsa, passare l'ID risorsa.
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+storageAccount=$(az resource show --resource-group $resourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv) &&
+az group export --resource-group $resourceGroupName --resource-ids $storageAccount
+```
+
+Per esportare più di una risorsa, passare gli ID di risorsa separati da spazi. Per esportare tutte le risorse, non specificare questo argomento o fornire "*".
+
+```azurecli-interactive
+az group export --resource-group <resource-group-name> --resource-ids $storageAccount1 $storageAccount2
+```
+
+Quando si esporta il modello, è possibile specificare se i parametri vengono usati nel modello. Per impostazione predefinita, i parametri per i nomi delle risorse sono inclusi ma non hanno un valore predefinito. È necessario passare il valore del parametro durante la distribuzione.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "type": "String"
+  }
+}
+```
+
+Nella risorsa viene usato il parametro per il nome.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+Se si usa il `--include-parameter-default-value` parametro durante l'esportazione del modello, il parametro di modello include un valore predefinito impostato sul valore corrente. È possibile utilizzare il valore predefinito oppure sovrascrivere il valore predefinito passando un valore diverso.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+Se si usa il `--skip-resource-name-params` parametro durante l'esportazione del modello, i parametri per i nomi delle risorse non sono inclusi nel modello. Al contrario, il nome della risorsa viene impostato direttamente sulla risorsa sul valore corrente. Non è possibile personalizzare il nome durante la distribuzione.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
 
 La funzionalità Esporta modello non supporta l'esportazione di risorse Azure Data Factory. Per informazioni su come è possibile esportare Data Factory risorse, vedere [copiare o clonare una data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 

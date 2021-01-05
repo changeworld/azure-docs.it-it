@@ -4,22 +4,21 @@ description: Questo articolo descrive come usare lo schema CloudEvents per gli e
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 823c1aa89d38a240af819a68706a02222dd93b9f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881583"
+ms.locfileid: "97901403"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v1.0 con Griglia di eventi
 Oltre allo [schema di eventi predefinito](event-schema.md), Griglia di eventi di Azure supporta in modo nativo gli eventi nell'[implementazione JSON di CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e nel [binding del protocollo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
 
-CloudEvents semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo degli eventi basati sul cloud. Questo schema consente strumenti uniformi, modi standard per il routing e la gestione degli eventi e modi universali per la deserializzazione dello schema di eventi esterni. Con uno schema comune, è possibile integrare più facilmente il lavoro tra le piattaforme.
+CloudEvents semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo di eventi basati sul cloud. Questo schema consente di applicare strumenti uniformi, modalità standard di routing e gestione degli eventi e metodi universali per la deserializzazione dello schema dell'evento esterno. Con uno schema comune, è possibile integrare più facilmente il lavoro tra le piattaforme.
 
 CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 1.0.
 
 Questo articolo descrive come usare lo schema CloudEvents con Griglia di eventi.
-
 
 ## <a name="cloudevent-schema"></a>Schema CloudEvent
 
@@ -51,9 +50,9 @@ Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure n
 }
 ```
 
-Una descrizione dettagliata dei campi disponibili, dei relativi tipi e delle definizioni in CloudEvents v1.0 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Per una descrizione dettagliata dei campi disponibili, i relativi tipi e definizioni, vedere [CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e nello schema Griglia di eventi sono gli stessi, ad eccezione di `content-type`. Per lo schema CloudEvents, tale valore intestazione è `"content-type":"application/cloudevents+json; charset=utf-8"`. Per lo schema Griglia di eventi, tale valore intestazione è `"content-type":"application/json; charset=utf-8"`.
+I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e nello schema Griglia di eventi sono gli stessi, ad eccezione di `content-type`. Per lo schema CloudEvents, il valore dell'intestazione è `"content-type":"application/cloudevents+json; charset=utf-8"` . Per lo schema di griglia di eventi, il valore dell'intestazione è `"content-type":"application/json; charset=utf-8"` .
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Configurare Griglia di eventi per CloudEvents
 
@@ -61,12 +60,11 @@ I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e
 
  Risorsa griglia di eventi | Schema di input       | Schema di recapito
 |---------------------|-------------------|---------------------
-| Argomenti di sistema       | Schema griglia di eventi | Schema di griglia di eventi o schema CloudEvent
-| Argomenti/domini utente | Schema griglia di eventi | Schema griglia di eventi
+| Argomenti di sistema       | Schema di Griglia di eventi | Schema di griglia di eventi o schema CloudEvent
+| Argomenti/domini utente | Schema di Griglia di eventi | Schema di Griglia di eventi
 | Argomenti/domini utente | Schema CloudEvent | Schema CloudEvent
-| Argomenti/domini utente | Schema personalizzato     | Schema personalizzato o schema griglia di eventi o schema CloudEvent
+| Argomenti/domini utente | Schema personalizzato     | Schema personalizzato, schema di griglia di eventi o schema CloudEvent
 | PartnerTopics       | Schema CloudEvent | Schema CloudEvent
-
 
 Per tutti gli schemi di eventi, griglia di eventi richiede la convalida quando si esegue la pubblicazione in un argomento di griglia di eventi e quando si crea una sottoscrizione di eventi.
 
@@ -76,7 +74,7 @@ Per altre informazioni, vedere [Event Grid security and authentication](security
 
 Si imposta lo schema di input per un argomento personalizzato quando si crea l'argomento personalizzato.
 
-Per l'interfaccia della riga di comando di Azure usare:
+Per l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
 az eventgrid topic create \
@@ -100,7 +98,7 @@ New-AzEventGridTopic `
 
 Si imposta lo schema di output quando si crea la sottoscrizione dell'evento.
 
-Per l'interfaccia della riga di comando di Azure usare:
+Per l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
 topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
@@ -125,22 +123,22 @@ New-AzEventGridSubscription `
 
  Attualmente non è possibile usare un trigger di Griglia di eventi per un'app di Funzioni di Azure quando l'evento viene recapitato nello schema CloudEvents. Usare un trigger HTTP. Per esempi di implementazione di un trigger HTTP che riceve gli eventi nello schema CloudEvents, vedere [Usare CloudEvents con Funzioni di Azure](#azure-functions).
 
- ## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida degli endpoint con CloudEvents v 1.0
+## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida degli endpoint con CloudEvents v1.0
 
-Se si ha già familiarità con Griglia di eventi, è possibile che si conosca già l'handshake di convalida degli endpoint per evitare casi di uso improprio. CloudEvents v1.0 implementa la propria [semantica di protezione dall'uso improprio](webhook-event-delivery.md) tramite il metodo HTTP OPTIONS. Per altre informazioni, leggere [qui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, Griglia di eventi usa la protezione dall'uso improprio di CloudEvents v1.0 al posto del meccanismo di eventi di convalida di Griglia di eventi.
+Se si ha già familiarità con griglia di eventi, si potrebbe essere a conoscenza dell'handshake di convalida dell'endpoint per impedire abusi. CloudEvents v 1.0 implementa la propria [semantica di protezione da abusi](webhook-event-delivery.md) usando il metodo delle opzioni http. Per ulteriori informazioni, vedere la pagina [relativa agli hook Web HTTP 1,1 per il recapito degli eventi, versione 1,0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, griglia di eventi usa la protezione dagli abusi di CloudEvents v 1.0 al posto del meccanismo di convalida degli eventi di griglia di eventi.
 
 <a name="azure-functions"></a>
 
 ## <a name="use-with-azure-functions"></a>Usare CloudEvents con Funzioni di Azure
 
-Il [binding di Griglia di eventi per Funzioni di Azure](../azure-functions/functions-bindings-event-grid.md) non supporta CloudEvents in modo nativo, quindi per leggere i messaggi di CloudEvents vengono usate le funzioni attivate da HTTP. Quando si usa un trigger HTTP per leggere CloudEvents, è necessario scrivere il codice per le operazioni che il trigger Griglia di eventi esegue automaticamente:
+Il [binding di griglia di eventi di funzioni di Azure](../azure-functions/functions-bindings-event-grid.md) non supporta in modo nativo CloudEvents, quindi le funzioni attivate da http vengono usate per leggere i messaggi CloudEvents. Quando si usa un trigger HTTP per leggere CloudEvents, è necessario scrivere il codice per il trigger della griglia di eventi automaticamente:
 
-* Invia una risposta di convalida a una [richiesta di convalida della sottoscrizione](../event-grid/webhook-event-delivery.md).
-* Richiama la funzione per ogni elemento della matrice di eventi contenuta nel corpo della richiesta.
+* Invia una risposta di convalida a una [richiesta di convalida della sottoscrizione](../event-grid/webhook-event-delivery.md)
+* Richiama la funzione una volta per ogni elemento della matrice di eventi contenuta nel corpo della richiesta.
 
-Per informazioni sull'URL da usare per richiamare la funzione in locale o quando è in esecuzione in Azure, vedere la [documentazione di riferimento relativa alle associazioni del trigger HTTP](../azure-functions/functions-bindings-http-webhook.md).
+Per informazioni sull'URL da usare per richiamare la funzione localmente o quando viene eseguita in Azure, vedere la documentazione di [riferimento sull'associazione di trigger http](../azure-functions/functions-bindings-http-webhook.md).
 
-Il seguente codice C# di esempio relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi.  Usare questo esempio per gli eventi nello schema CloudEvents.
+Il seguente codice C# di esempio relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi. Usare questo esempio per gli eventi nello schema CloudEvents.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -160,7 +158,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
 
-    // The request is not for subscription validation, so it's for an event.
+    // The request isn't for subscription validation, so it's for an event.
     // CloudEvents schema delivers one event at a time.
     log.LogInformation($"Source: {message["source"]}");
     log.LogInformation($"Time: {message["eventTime"]}");
@@ -191,7 +189,7 @@ module.exports = function (context, req) {
     {
         var message = req.body;
         
-        // The request is not for subscription validation, so it's for an event.
+        // The request isn't for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
         var event = JSON.parse(message);
         context.log('Source: ' + event.source);
@@ -206,5 +204,5 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sul monitoraggio dei recapiti degli eventi, vedere [Monitorare il recapito dei messaggi di Griglia di eventi di Azure](monitor-event-delivery.md).
-* Microsoft invita gli utenti a testare, commentare e [contribuire](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) a CloudEvents.
+* Ti invitiamo a testare, commentare e [contribuire a CloudEvents](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md).
 * Per altre informazioni sulla creazione di una sottoscrizione di Griglia di eventi di Azure, vedere [Schema di sottoscrizione per Griglia di eventi](subscription-creation-schema.md).

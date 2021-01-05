@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 17b0564b4b73f5a5032343dcb78669cbf4cabd5a
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 057f965c67c25d486771a4c037e13153a7f2cf66
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516142"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901148"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usare Azure Machine Learning con il pacchetto open source Fairlearn per valutare l'equità dei modelli di Machine Learning (anteprima)
 
@@ -46,7 +46,7 @@ Le versioni successive di Fairlearn dovrebbero funzionare anche nel codice di es
 
 Nell'esempio seguente viene illustrato come utilizzare il pacchetto di correttezza. Le informazioni dettagliate sull'equità del modello vengono caricate in Azure Machine Learning e viene visualizzato il dashboard di valutazione dell'equità in Azure Machine Learning Studio.
 
-1. Eseguire il training di un modello di esempio in un notebook di Jupyter. 
+1. Eseguire il training di un modello di esempio in Jupyter Notebook. 
 
     Per il set di dati viene usato il noto set di dati del censimento per adulti, che viene recuperato da OpenML. Si Finge di avere un problema di decisione di prestito con l'etichetta che indica se un utente ha ripagato un prestito precedente. Si eseguirà il training di un modello per prevedere se gli utenti precedentemente non visti ripagheranno un prestito. Un modello di questo tipo può essere usato per prendere decisioni di prestito.
 

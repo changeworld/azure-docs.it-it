@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544208"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901539"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -43,8 +43,8 @@ Sì. È possibile avere più endpoint privati nella stessa VNet o nella stessa s
 ### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>È necessaria una subnet dedicata per gli endpoint privati? 
 No. Non è necessaria una subnet dedicata per gli endpoint privati. È possibile scegliere un indirizzo IP di endpoint privato da qualsiasi subnet dal VNet in cui viene distribuito il servizio.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>L'endpoint privato può connettersi al servizio di collegamento privato tra Azure Active Directory tenant? 
-Sì. Gli endpoint privati possono connettersi a servizi di collegamento privato o Azure PaaS tra tenant di AD.  
+### <a name="can-a-private-endpoint-connect-to-private-link-services-across-azure-active-directory-tenants"></a>Un endpoint privato può connettersi a servizi di collegamento privato in Azure Active Directory tenant? 
+Sì. Gli endpoint privati possono connettersi a servizi di collegamento privato o a una PaaS di Azure tra Azure Active Directory tenant. Gli endpoint privati che si connettono tra i tenant richiedono l'approvazione manuale della richiesta. 
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>L'endpoint privato può connettersi alle risorse PaaS di Azure tra aree di Azure?
 Sì. Gli endpoint privati possono connettersi alle risorse PaaS di Azure tra aree di Azure.

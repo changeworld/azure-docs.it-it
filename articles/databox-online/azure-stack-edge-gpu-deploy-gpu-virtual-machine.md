@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 6fa8705221e1f1f9a9143f274a53db21b657988f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0a7f54d991d31594a6ab522dbf9e73958cde3023
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763828"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900145"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>VM GPU per il dispositivo Azure Stack Edge Pro
 
@@ -338,7 +338,7 @@ Per ulteriori informazioni, vedere [estensione driver GPU NVIDIA per Windows](..
 
 ### <a name="gpu-extension-for-linux"></a>Estensione GPU per Linux
 
-Per distribuire driver GPU NVIDIA per una macchina virtuale esistente, modificare il `addGPUExtLinuxVM.parameters.json` file dei parametri e quindi distribuire il modello `addGPUextensiontoVM.json` .
+Per distribuire driver GPU NVIDIA per una macchina virtuale esistente, modificare il file dei parametri e quindi distribuire il modello `addGPUextensiontoVM.json` . Sono disponibili file di parametri specifici per Ubuntu e Red Hat Enterprise Linux (RHEL), come illustrato nelle sezioni seguenti.
 
 #### <a name="edit-parameters-file"></a>Modificare il file dei parametri
 
@@ -371,8 +371,7 @@ Se si usa Ubuntu, il `addGPUExtLinuxVM.parameters.json` file accetta i parametri
     }
     }
 ```
-Se si usa Red Hat Enterprise Linux (RHEL), il file accetta i parametri seguenti:
-
+Se si usa Red Hat Enterprise Linux (RHEL), il `addGPUExtensionRHELVM.parameters.json` file accetta i parametri seguenti:
 
 ```powershell
 {

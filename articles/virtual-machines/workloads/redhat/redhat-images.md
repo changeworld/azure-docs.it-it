@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 5cac21046b6b4afdefc4213f6a1fab438d62cca3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957538"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900502"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Cenni preliminari sulle immagini Red Hat Enterprise Linux
 
@@ -22,7 +22,7 @@ Questo articolo descrive le immagini del Red Hat Enterprise Linux disponibile (R
 Per informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL, vedere [Red Hat Enterprise Linux ciclo di vita](https://access.redhat.com/support/policy/updates/errata). Per informazioni dettagliate sui prezzi, vedere [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> Le immagini RHEL attualmente disponibili in Azure Marketplace supportano i modelli di licenza Bring-your-own-Subscription (BYOS) o con pagamento in base al consumo. Il [vantaggio Azure Hybrid use](../../windows/hybrid-use-benefit-licensing.md) e il passaggio dinamico tra BYOS e le licenze con pagamento in base al consumo non sono supportati. Per cambiare la modalità di gestione delle licenze, è necessario ridistribuire la macchina virtuale dall'immagine corrispondente.
+> Le immagini RHEL attualmente disponibili in Azure Marketplace supportano i modelli di licenza Bring-your-own-Subscription (BYOS) o con pagamento in base al consumo. Il passaggio dinamico tra BYOS e le licenze con pagamento in base al consumo può essere eseguito tramite il [vantaggio Azure Hybrid use](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > Per eventuali problemi relativi alle immagini RHEL in Azure Marketplace, è possibile archiviare un ticket di supporto con Microsoft.

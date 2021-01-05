@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95494778"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900893"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificare le minacce avanzate con l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure
 
@@ -163,7 +163,7 @@ Le pagine di entità sono progettate per essere parte di più scenari di utilizz
 | TimeProcessed             | timestamp dell'elaborazione dell'attività da parte del motore EBA            |
 | ActivityType              | categoria di alto livello dell'attività                                 |
 | ActionType                | nome normalizzato dell'attività                                     |
-| UserName                  | nome utente dell'utente che ha avviato l'attività                    |
+| Nome utente                  | nome utente dell'utente che ha avviato l'attività                    |
 | UserPrincipalName         | nome utente completo dell'utente che ha avviato l'attività               |
 | EventSource               | origine dati che ha fornito l'evento originale                        |
 | SourceIPAddress           | Indirizzo IP da cui è stata avviata l'attività                        |
@@ -177,6 +177,8 @@ Le pagine di entità sono progettate per essere parte di più scenari di utilizz
 | **ActivityInsights**      | analisi contestuale dell'attività in base alla profilatura              |
 | **InvestigationPriority** | Punteggio di anomalia, compreso tra 0-10 (0 = benigno, 10 = molto anomalo)         |
 |
+
+È possibile visualizzare il set completo di arricchimenti contestuali a cui si fa riferimento in **UsersInsights**, **DevicesInsights** e **ActivityInsights** nel documento di riferimento per l' [arricchimento di offrono dati](ueba-enrichments.md).
 
 ### <a name="querying-behavior-analytics-data"></a>Esecuzione di query sui dati di analisi del comportamento
 

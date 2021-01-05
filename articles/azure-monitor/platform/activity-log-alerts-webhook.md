@@ -4,12 +4,12 @@ description: Informazioni sullo schema del formato JSON che viene pubblicato in 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522788"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901437"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
 Nella definizione di un gruppo di azione è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. Con i webhook è possibile instradare queste notifiche ad altri sistemi per la post-elaborazione o azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
@@ -27,6 +27,19 @@ Facoltativamente il webhook può usare l'autorizzazione basata su token per l'au
 
 ## <a name="payload-schema"></a>Schema del payload
 Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.context.activityLog.eventSource del payload.
+
+> [!NOTE]
+> Attualmente, la descrizione che fa parte dell'evento del log attività viene copiata nella proprietà **"Alert Description"** attivata.
+>
+> Per allineare il payload del log attività con altri tipi di avviso, a partire dal 1 ° aprile 2021, la proprietà di avviso attivata **"Description"** conterrà la descrizione della regola di avviso.
+>
+> In preparazione a questa modifica, è stata creata una nuova proprietà **"Descrizione evento log attività"** nell'avviso del log attività attivato. Questa nuova proprietà verrà compilata con la proprietà **"Description"** già disponibile per l'utilizzo. Questo significa che il nuovo campo **"Descrizione evento log attività"** conterrà la descrizione che fa parte dell'evento del log attività.
+>
+> Verificare le regole di avviso, le regole di azione, i webhook, l'app per la logica o qualsiasi altra configurazione in cui è possibile usare la proprietà **"Description"** dell'avviso attivato e sostituirla con la proprietà **"Activity Log Event Description"** .
+>
+> Se la condizione (nelle regole di azione, i webhook, l'app per la logica o qualsiasi altra configurazione) si basa attualmente sulla proprietà **"Description"** per gli avvisi del log attività, potrebbe essere necessario modificarla in modo che sia basata sulla proprietà **"Activity Log Event Description"** .
+>
+> Per riempire la nuova proprietà **"Description"** , è possibile aggiungere una descrizione nella definizione della regola di avviso.
 
 ### <a name="common"></a>Comuni
 
@@ -85,7 +98,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 ```json
 {
@@ -264,11 +277,11 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 | id |ID risorsa dell'avviso. |
 | description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
-|  timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
+| timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
 | resourceId |ID della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
-| event |Elemento contenente i metadati relativi all'evento. |
+| evento |Elemento contenente i metadati relativi all'evento. |
 | authorization |Proprietà del controllo degli accessi in base al ruolo di Azure dell'evento. Queste proprietà includono in genere action, role e scope. |
 | category |Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth e Recommendation. |
 | caller |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. Può essere null per alcune chiamate di sistema. |

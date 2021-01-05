@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b680c275b92340cc7efba187769cb17602b08b45
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 365c9a990f16e9077450ae15f6677ab716fc45ba
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973287"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900451"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione agente Azure AD Connect Health
 
@@ -130,7 +130,7 @@ La funzionalità di analisi dell'utilizzo deve raccogliere e analizzare i dati. 
 
 1. Nella schermata Start aprire **Server Manager**, quindi aprire **criteri di sicurezza locali**. In alternativa, nella barra delle applicazioni aprire **Server Manager**, quindi selezionare **strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella *Security protezione\Criteri locali\Assegnazione Rights Assignment* . Fare quindi doppio clic su **genera controlli di sicurezza**.
-3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungerlo all'elenco. Selezionare **OK**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungerlo all'elenco. Quindi scegliere **OK**.
 4. Per abilitare il controllo, aprire una finestra del prompt dei comandi con privilegi elevati. Quindi, eseguire il comando seguente: 
     
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
@@ -149,7 +149,7 @@ La funzionalità di analisi dell'utilizzo deve raccogliere e analizzare i dati. 
 
 1. Nella schermata Start aprire **Server Manager**, quindi aprire **criteri di sicurezza locali**. In alternativa, nella barra delle applicazioni aprire **Server Manager**, quindi selezionare **strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella *Security protezione\Criteri locali\Assegnazione Rights Assignment* , quindi fare doppio clic su **genera controlli di sicurezza**.
-3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungere l'account del servizio ad FS all'elenco. Selezionare **OK**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungere l'account del servizio ad FS all'elenco. Quindi scegliere **OK**.
 4. Per abilitare il controllo, aprire una finestra del prompt dei comandi con privilegi elevati. Quindi, eseguire il comando seguente: 
 
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
@@ -284,6 +284,17 @@ Dopo aver installato il file di *setup.exe* agente appropriato, è possibile reg
 
 ```
 
+> [!NOTE]
+> Per eseguire la registrazione in cloud sovrani, usare le righe di comando seguenti:
+>
+> ```powershell
+> Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```
+>
+
+
 Questi comandi accettano `Credential` come parametro per completare la registrazione in modo non interattivo o per completare la registrazione in un computer che esegue Server Core. Occorre ricordare che:
 * È possibile acquisire `Credential` in una variabile di PowerShell passata come parametro.
 * È possibile specificare qualsiasi identità di Azure AD con le autorizzazioni per registrare gli agenti e per cui *non* è abilitata l'autenticazione a più fattori.
@@ -379,7 +390,7 @@ Test-AzureADConnectHealthConnectivity -Role ADFS
 Il parametro role accetta attualmente i valori seguenti:
 
 * AD FS
-* Sincronizza
+* Sincronizzazione
 * ADDS
 
 > [!NOTE]

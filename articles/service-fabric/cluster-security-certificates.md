@@ -3,12 +3,12 @@ title: Autenticazione basata su certificati X. 509 in un cluster Service Fabric
 description: Informazioni sull'autenticazione basata su certificati nei cluster Service Fabric e su come rilevare, attenuare e correggere i problemi relativi ai certificati.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 4d81cb9d224bdc2e3002c621c86729df235e0d81
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574769"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901250"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Autenticazione basata su certificati X. 509 nei cluster Service Fabric
 
@@ -170,7 +170,10 @@ I certificati del tipo di nodo possono anche essere dichiarati dal nome comune d
   </NodeTypes>
 ```
 
-Per entrambi i tipi di dichiarazione, un nodo Service Fabric leggerà la configurazione all'avvio, individua e caricherà i certificati specificati e li ordina in ordine decrescente dell'attributo NotAfter; i certificati scaduti vengono ignorati e il primo elemento dell'elenco viene selezionato come credenziale client per qualsiasi Service Fabric connessione tentata da questo nodo. (In effetti, Service Fabric predilige il certificato in scadenza più lontano).
+Per entrambi i tipi di dichiarazione, un nodo Service Fabric leggerà la configurazione all'avvio, individua e caricherà i certificati specificati e li ordina in ordine decrescente dell'attributo NotBefore; i certificati scaduti vengono ignorati e il primo elemento dell'elenco viene selezionato come credenziale client per qualsiasi Service Fabric connessione tentata da questo nodo. (In effetti, Service Fabric predilige il certificato emesso più di recente).
+
+> [!NOTE]
+> Prima della versione 7.2.445 (7,2 CU4), Service Fabric selezionato il certificato più lontano in scadenza (il certificato con la proprietà' NotAfter ' più lontano)
 
 Si noti che, per le dichiarazioni di presentazione basate su nome comune, un certificato viene considerato una corrispondenza se il nome comune del soggetto è uguale al campo X509FindValue (o X509FindValueSecondary) della dichiarazione come un confronto esatto tra maiuscole e minuscole. Si tratta di una differenza rispetto alle regole di convalida, che supporta la corrispondenza con caratteri jolly, oltre ai confronti di stringhe senza distinzione tra maiuscole e minuscole.  
 
