@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: bb2ff066089e3348c40f5a22bd73ea376ecef6de
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 20e45454284af230da74896d5b3f5e9da676dbb4
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341400"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831704"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Ruby per connettersi ai dati ed eseguire query in Database di Azure per PostgreSQL - Server singolo
 
@@ -41,9 +41,9 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 > Il simbolo `@` nel nome utente di Postgres in Azure è stato codificato tramite URL (`%40`) in tutte le stringhe di connessione.
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
-Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE** , seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
+Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
-Il codice usa un ```PG::Connection```oggetto con il costruttore```new``` per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo ```exec()``` per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Il codice cerca gli errori usando la classe ```PG::Error```. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare. Per altre informazioni su queste classi e questi metodi, vedere [Documentazione di riferimento su Ruby Pg](https://www.rubydoc.info/gems/pg/PG).
+Il codice usa un ```PG::Connection```oggetto con il costruttore```new``` per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo ```exec()``` per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Il codice cerca gli errori usando la classe ```PG::Error```. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare. Per altre informazioni su queste classi e questi metodi, vedere Documentazione di riferimento su Ruby Pg.
 
 Sostituire le stringhe `host`, `database`, `user` e `password` con valori personalizzati.
 
@@ -87,7 +87,7 @@ end
 ## <a name="read-data"></a>Leggere i dati
 Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**.
 
-Il codice usa un oggetto ```PG::Connection``` con il costruttore ```new``` per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo ```exec()``` per eseguire il comando SELECT, mantenendo i risultati in un set di risultati. Viene eseguita l'iterazione della raccolta di set di risultati usando il ciclo `resultSet.each do`, mantenendo i valori della riga corrente nella variabile `row`. Il codice cerca gli errori usando la classe ```PG::Error```. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare. Per altre informazioni su queste classi e questi metodi, vedere [Documentazione di riferimento su Ruby Pg](https://www.rubydoc.info/gems/pg/PG).
+Il codice usa un oggetto ```PG::Connection``` con il costruttore ```new``` per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo ```exec()``` per eseguire il comando SELECT, mantenendo i risultati in un set di risultati. Viene eseguita l'iterazione della raccolta di set di risultati usando il ciclo `resultSet.each do`, mantenendo i valori della riga corrente nella variabile `row`. Il codice cerca gli errori usando la classe ```PG::Error```. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare. Per altre informazioni su queste classi e questi metodi, vedere Documentazione di riferimento su Ruby Pg.
 
 Sostituire le stringhe `host`, `database`, `user` e `password` con valori personalizzati.
 
@@ -121,7 +121,7 @@ end
 ## <a name="update-data"></a>Aggiornare i dati
 Usare il codice seguente per connettersi e aggiornare i dati usando un'istruzione SQL **UPDATE**.
 
-Il codice usa un oggetto ```PG::Connection``` con il costruttore ```new``` per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo ```exec()``` per eseguire il comando UPDATE. Il codice cerca gli errori usando la classe ```PG::Error```. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare. Per altre informazioni su queste classi e questi metodi, vedere [Documentazione di riferimento su Ruby Pg](https://www.rubydoc.info/gems/pg/PG).
+Il codice usa un oggetto ```PG::Connection``` con il costruttore ```new``` per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo ```exec()``` per eseguire il comando UPDATE. Il codice cerca gli errori usando la classe ```PG::Error```. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare. Per altre informazioni su queste classi e questi metodi, vedere [Documentazione di riferimento su Ruby Pg](https://rubygems.org/gems/pg).
 
 Sostituire le stringhe `host`, `database`, `user` e `password` con valori personalizzati.
 
@@ -200,4 +200,4 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./howto-migrate-using-export-and-import.md) <br/>
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento su Ruby Pg](https://www.rubydoc.info/gems/pg/PG)
+> [Documentazione di riferimento su Ruby Pg](https://rubygems.org/gems/pg)

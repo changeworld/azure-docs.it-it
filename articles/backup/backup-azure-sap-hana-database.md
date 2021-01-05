@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682850"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831636"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -91,6 +91,9 @@ Se si decide di consentire l'accesso agli IP del servizio, fare riferimento agli
 
 Quando si esegue il backup di un database SAP HANA in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a Backup di Azure e i dati ad Archiviazione di Azure. L'estensione di backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Usare l'elenco di indirizzi IP e FQDN indicati in precedenza per consentire l'accesso ai servizi necessari. I server proxy autenticati non sono supportati.
 
+> [!NOTE]
+> Nessun supporto del proxy del livello di servizio. Ovvero, il traffico tramite il proxy solo da pochi o servizi selezionati (servizi di backup di Azure) non è supportato. È possibile instradare o meno l'intero dati o il traffico tramite il proxy.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Individuare i database
@@ -169,9 +172,9 @@ Specificare le impostazioni del criterio come segue:
     ![Criteri di backup differenziale](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > I backup incrementali sono ora supportati nell'anteprima pubblica. È possibile scegliere un backup differenziale o incrementale come backup giornaliero, ma non entrambi.
-1. In **criterio di backup incrementale** selezionare **Abilita** per aprire la frequenza e i controlli di conservazione.
-    * Al massimo, è possibile attivare un backup incrementale al giorno.
+    > I backup incrementali sono ora supportati nell'anteprima pubblica. È possibile scegliere un backup quotidiano differenziale o incrementale, ma non entrambi.
+1. In **Criteri di backup incrementale** selezionare **Abilita** per aprire i controlli relativi a frequenza e conservazione.
+    * È possibile attivare al massimo un backup differenziale al giorno.
     * I backup incrementali possono essere conservati per un massimo di 180 giorni. Se è necessario conservarli più a lungo, usare i backup completi.
 
     ![Criteri di backup incrementale](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
@@ -196,7 +199,7 @@ I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile 
 
 1. Nel menu dell'insieme di credenziali selezionare **elementi di backup**.
 2. In **elementi di backup** selezionare la macchina virtuale che esegue il database di SAP Hana, quindi selezionare **Esegui backup ora**.
-3. In **backup ora** scegliere il tipo di backup che si desidera eseguire. Selezionare **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
+3. In **backup ora** scegliere il tipo di backup che si desidera eseguire. Quindi scegliere **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 Per impostazione predefinita, la conservazione dei backup su richiesta è di 45 giorni.

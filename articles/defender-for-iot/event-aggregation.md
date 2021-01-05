@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548852"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832370"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Protezione per l'aggregazione di eventi
 
@@ -97,6 +97,6 @@ Per continuare a usare Defender per la distribuzione di Internet delle cose, ved
 
 - Informazioni sui [metodi di autenticazione dell'agente di sicurezza](concept-security-agent-authentication-methods.md)
 - Selezionare e distribuire un [agente di sicurezza](how-to-deploy-agent.md)
-- Verificare i prerequisiti del [servizio](service-prerequisites.md) di protezione delle cose
+- Verifica dei prerequisiti di [sistema](quickstart-system-prerequisites.md) per l'it
 - Informazioni su come [abilitare Defender per il servizio Internet delle cose nell'hub Internet delle](quickstart-onboard-iot-hub.md) cose
 - Altre informazioni sul servizio sono disponibili nella pagina [relativa alle domande frequenti su Defender](resources-frequently-asked-questions.md)

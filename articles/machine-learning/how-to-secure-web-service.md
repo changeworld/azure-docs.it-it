@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 872958f87e7d75427d5939aed73314920cfaf3ea
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.custom: how-to
+ms.openlocfilehash: 86cd5a5cbbb17dc3d3e4d56e4267be2718f6081d
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631092"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830871"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Usare TLS per proteggere un servizio Web tramite Azure Machine Learning
 
@@ -73,14 +73,17 @@ Quando si richiede un certificato, è necessario fornire il nome di dominio comp
 
 ## <a name="enable-tls-and-deploy"></a><a id="enable"></a> Abilitare TLS e distribuire
 
-Per distribuire (o ridistribuire) il servizio con TLS abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare il *ssl_key* sul valore del file di *chiave* .
+**Per la distribuzione di AKS**, è possibile abilitare la terminazione TLS quando si [Crea o si connette un cluster AKS](how-to-create-attach-kubernetes.md) nell'area di lavoro AML. Al momento della distribuzione del modello AKS, è possibile disabilitare la terminazione TLS con l'oggetto di configurazione della distribuzione. in caso contrario, per impostazione predefinita, per tutte le distribuzioni del modello AKS sarà abilitata la terminazione TLS in fase di creazione o associazione
+
+Per la distribuzione di ACI, è possibile abilitare la terminazione TLS in fase di distribuzione del modello con l'oggetto di configurazione della distribuzione.
+
 
 ### <a name="deploy-on-azure-kubernetes-service"></a>Eseguire la distribuzione nel servizio Azure Kubernetes
 
   > [!NOTE]
   > Le informazioni contenute in questa sezione si applicano anche quando si distribuisce un servizio Web sicuro per la finestra di progettazione. Se non si ha familiarità con l'uso di Python SDK, vedere [che cos'è l'SDK di Azure Machine Learning per Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-Sia **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** che **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** restituiscono un oggetto di configurazione con un metodo **enable_ssl** ed è possibile usare **enable_ssl** metodo per abilitare TLS.
+Quando si [Crea o si associa un cluster AKS](how-to-create-attach-kubernetes.md) nell'area di lavoro AML, è possibile abilitare la terminazione TLS con gli oggetti di configurazione **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** e **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Entrambi i metodi restituiscono un oggetto di configurazione con un metodo **enable_ssl** ed è possibile usare **enable_ssl** metodo per abilitare TLS.
 
 È possibile abilitare TLS con il certificato Microsoft o con un certificato personalizzato acquistato dalla CA. 
 

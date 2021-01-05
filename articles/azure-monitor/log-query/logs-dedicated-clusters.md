@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512223"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831772"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -56,6 +56,20 @@ Se l'area di lavoro usa il piano tariffario per nodo Legacy, quando è collegato
 
 Per altri dettagli, vedere la pagina relativa alla fatturazione per i cluster dedicati Log Analytics sono disponibili [qui]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
+## <a name="asynchronous-operations-and-status-check"></a>Operazioni asincrone e controllo dello stato
+
+Alcuni passaggi di configurazione vengono eseguiti in modo asincrono perché non possono essere completati rapidamente. Lo stato in risposta contiene può essere uno dei seguenti:' InProgress ',' Updating ',' deleting ',' SUCCEEDED o ' failed ', incluso il codice di errore. Quando si usa REST, la risposta restituisce inizialmente un codice di stato HTTP 200 (OK) e un'intestazione con Azure-AsyncOperation proprietà quando accettata:
+
+```JSON
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+```
+
+È possibile controllare lo stato dell'operazione asincrona inviando una richiesta GET al valore dell'intestazione Azure-AsyncOperation:
+
+```rst
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+Authorization: Bearer <token>
+```
 
 ## <a name="creating-a-cluster"></a>Creazione di un cluster
 
@@ -75,7 +89,7 @@ Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiu
 
 L'account utente che crea i cluster deve avere l'autorizzazione standard per la creazione di risorse `Microsoft.Resources/deployments/*` di Azure: e l'autorizzazione di scrittura del cluster `(Microsoft.OperationalInsights/clusters/write)` .
 
-### <a name="create"></a>Create 
+### <a name="create"></a>Creazione 
 
 **PowerShell**
 
@@ -90,7 +104,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 *Chiamata* 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -113,7 +127,7 @@ Content-type: application/json
 
 Deve essere 200 OK e un'intestazione.
 
-### <a name="check-provisioning-status"></a>Verificare lo stato del provisioning
+### <a name="check-cluster-provisioning-status"></a>Verificare lo stato del provisioning del cluster
 
 Il provisioning del cluster Log Analytics richiede del tempo per il completamento. È possibile controllare lo stato di provisioning in diversi modi:
 
@@ -127,7 +141,7 @@ Il provisioning del cluster Log Analytics richiede del tempo per il completament
 - Inviare una richiesta GET alla risorsa *Cluster* e osservare il valore di *provisioningState*. Il valore è *ProvisioningAccount* durante il provisioning e il completamento è *riuscito* .
 
    ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
    Authorization: Bearer <token>
    ```
 
@@ -159,104 +173,7 @@ Il provisioning del cluster Log Analytics richiede del tempo per il completament
 
 Il GUID *PrincipalId* viene generato dal servizio di gestione delle identità gestito per la risorsa *cluster* .
 
-## <a name="change-cluster-properties"></a>Modificare le proprietà del cluster
-
-Dopo aver creato la risorsa *cluster* ed è stato effettuato il provisioning completo, è possibile modificare le proprietà aggiuntive a livello di cluster usando PowerShell o l'API REST. Oltre alle proprietà disponibili durante la creazione del cluster, è possibile impostare proprietà aggiuntive solo dopo il provisioning del cluster:
-
-- **keyVaultProperties**: usato per configurare il Azure Key Vault usato per effettuare il provisioning di una [chiave gestita dal cliente di monitoraggio di Azure](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Contiene i parametri seguenti:  *KeyVaultUri*, *nome di codice*, *versione della versione*. 
-- **billingType** : la proprietà *billingType* determina l'attribuzione della fatturazione per la risorsa *cluster* e i relativi dati:
-  - **Cluster** (impostazione predefinita): i costi di prenotazione della capacità per il cluster sono attribuiti alla risorsa *cluster* .
-  - **Aree di lavoro** : i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, con la fatturazione della risorsa *cluster* di parte dell'utilizzo se il totale dei dati inseriti per la giornata è inferiore alla prenotazione della capacità. Per ulteriori informazioni sul modello di determinazione prezzi del cluster, vedere [log Analytics cluster dedicati](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) . 
-
-> [!NOTE]
-> La proprietà *billingType* non è supportata in PowerShell.
-> Gli aggiornamenti delle proprietà del cluster possono essere eseguiti in modo asincrono e l'operazione può richiedere alcuni minuti.
-
-**PowerShell**
-
-```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -KeyVaultUri {key-uri} -KeyName {key-name} -KeyVersion {key-version}
-```
-
-**REST**
-
-> [!NOTE]
-> È possibile aggiornare lo *SKU* di risorse *cluster* , *keyVaultProperties* o *billingType* usando patch.
-
-Ad esempio: 
-
-*Chiamata*
-
-```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-   "sku": {
-     "name": "capacityReservation",
-     "capacity": <capacity-reservation-amount-in-GB>
-     },
-   "properties": {
-    "billingType": "cluster",
-     "KeyVaultProperties": {
-       "KeyVaultUri": "https://<key-vault-name>.vault.azure.net",
-       "KeyName": "<key-name>",
-       "KeyVersion": "<current-version>"
-       }
-   },
-   "location":"<region-name>"
-}
-```
-
-"KeyVaultProperties" contiene i dettagli dell'identificatore di chiave di Key Vault.
-
-*Risposta*
-
-200 OK e intestazione
-
-### <a name="check-cluster-update-status"></a>Verifica dello stato di aggiornamento del cluster
-
-Il completamento della propagazione dell'identificatore di chiave richiede alcuni minuti. È possibile controllare lo stato di aggiornamento in due modi:
-
-- Copiare il valore dell'URL di Azure-AsyncOperation dalla risposta e seguire la verifica dello stato delle operazioni asincrone. 
-
-   OR
-
-- Inviare una richiesta GET alla risorsa *Cluster* e osservare le proprietà *KeyVaultProperties*. I dettagli dell'identificatore di chiave aggiornati di recente verranno restituiti nella risposta.
-
-   Una risposta alla richiesta GET sulla risorsa *Cluster* avrà l'aspetto seguente quando l'aggiornamento dell'identificatore di chiave è stato completato:
-
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principle-id"
-       },
-     "sku": {
-       "name": "capacityReservation",
-       "capacity": 1000,
-       "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-       },
-     "properties": {
-       "keyVaultProperties": {
-         "keyVaultUri": "https://key-vault-name.vault.azure.net",
-         "kyName": "key-name",
-         "keyVersion": "current-version"
-         },
-        "provisioningState": "Succeeded",
-       "billingType": "cluster",
-       "clusterId": "cluster-id"
-     },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-  }
-  ```
-
-## <a name="link-a-workspace-to-the-cluster"></a>Collegare un'area di lavoro al cluster
+## <a name="link-a-workspace-to-cluster"></a>Collegare un'area di lavoro al cluster
 
 Quando un'area di lavoro è collegata a un cluster dedicato, i nuovi dati inseriti nell'area di lavoro vengono indirizzati al nuovo cluster mentre i dati esistenti rimangono nel cluster esistente. Se il cluster dedicato è crittografato con chiavi gestite dal cliente (CMK), solo i nuovi dati vengono crittografati con la chiave. Il sistema astrae questa differenza dagli utenti e gli utenti eseguono solo query nell'area di lavoro come di consueto mentre il sistema esegue query tra cluster sul back-end.
 
@@ -296,10 +213,10 @@ Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Propert
 
 Usare la chiamata REST seguente per il collegamento a un cluster:
 
-*Send*
+*Invia*
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -314,22 +231,34 @@ Content-type: application/json
 
 200 OK e intestazione.
 
-### <a name="using-customer-managed-keys-with-linking"></a>Uso delle chiavi gestite dal cliente con collegamento
-
+### <a name="check-workspace-link-status"></a>Verifica stato collegamento area di lavoro
+  
 Se si usano chiavi gestite dal cliente, i dati inseriti vengono archiviati crittografati con la chiave gestita dopo l'operazione di associazione, che può richiedere fino a 90 minuti per il completamento. 
 
 È possibile controllare lo stato dell'associazione dell'area di lavoro in due modi:
 
 - Copiare il valore dell'URL di Azure-AsyncOperation dalla risposta e seguire la verifica dello stato delle operazioni asincrone.
 
-- Inviare un' [area di lavoro: ottenere](/rest/api/loganalytics/workspaces/get) la richiesta e osservare la risposta. L'area di lavoro associata dispone di un clusterResourceId in "features".
+- Eseguire un'operazione get sull'area di lavoro e osservare se la proprietà *clusterResourceId* è presente nella risposta in *features*.
 
-Una richiesta di invio ha un aspetto simile al seguente:
+**CLI**
 
-*Send*
+```azurecli
+az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+```
+
+**PowerShell**
+
+```powershell
+Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
+```
+
+**REST**
+
+*Chiamata*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -365,14 +294,183 @@ Authorization: Bearer <token>
 }
 ```
 
-## <a name="unlink-a-workspace-from-a-dedicated-cluster"></a>Scollegare un'area di lavoro da un cluster dedicato
+## <a name="change-cluster-properties"></a>Modificare le proprietà del cluster
+
+Dopo aver creato la risorsa *cluster* ed è stato effettuato il provisioning completo, è possibile modificare le proprietà aggiuntive a livello di cluster usando PowerShell o l'API REST. Oltre alle proprietà disponibili durante la creazione del cluster, è possibile impostare proprietà aggiuntive solo dopo il provisioning del cluster:
+
+- **keyVaultProperties** : aggiorna la chiave in Azure Key Vault. Vedere [Aggiorna cluster con i dettagli dell'identificatore di chiave](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details). Contiene i parametri seguenti: *KeyVaultUri*, *nome di codice*, *versione della versione*. 
+- **billingType** : la proprietà *billingType* determina l'attribuzione della fatturazione per la risorsa *cluster* e i relativi dati:
+  - **Cluster** (impostazione predefinita): i costi di prenotazione della capacità per il cluster sono attribuiti alla risorsa *cluster* .
+  - **Aree di lavoro** : i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, con la fatturazione della risorsa *cluster* di parte dell'utilizzo se il totale dei dati inseriti per la giornata è inferiore alla prenotazione della capacità. Per ulteriori informazioni sul modello di determinazione prezzi del cluster, vedere [log Analytics cluster dedicati](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) . 
+
+> [!NOTE]
+> La proprietà *billingType* non è supportata in PowerShell.
+
+### <a name="get-all-clusters-in-resource-group"></a>Ottenere tutti i cluster nel gruppo di risorse
+  
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster list --resource-group "resource-group-name"
+```
+
+**PowerShell**
+
+```powershell
+Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
+```
+
+**REST**
+
+*Chiamata*
+
+  ```rst
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+*Response*.
+  
+  ```json
+  {
+    "value": [
+      {
+        "identity": {
+          "type": "SystemAssigned",
+          "tenantId": "tenant-id",
+          "principalId": "principal-Id"
+        },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
+        "properties": {
+           "keyVaultProperties": {
+              "keyVaultUri": "https://key-vault-name.vault.azure.net",
+              "keyName": "key-name",
+              "keyVersion": "current-version"
+              },
+          "provisioningState": "Succeeded",
+          "billingType": "cluster",
+          "clusterId": "cluster-id"
+        },
+        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
+        "name": "cluster-name",
+        "type": "Microsoft.OperationalInsights/clusters",
+        "location": "region-name"
+      }
+    ]
+  }
+  ```
+
+### <a name="get-all-clusters-in-subscription"></a>Ottenere tutti i cluster nella sottoscrizione
+
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster list
+```
+
+**PowerShell**
+
+```powershell
+Get-AzOperationalInsightsCluster
+```
+
+**REST**
+
+*Chiamata*
+
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+Authorization: Bearer <token>
+```
+    
+*Response*.
+    
+Uguale a quello per i cluster in un gruppo di risorse, ma nell'ambito della sottoscrizione.
+
+
+
+### <a name="update-capacity-reservation-in-cluster"></a>Aggiornare la prenotazione di capacità nel cluster
+
+Quando il volume di dati nelle aree di lavoro collegate cambia nel tempo e si vuole aggiornare il livello di prenotazione di capacità in modo appropriato. La capacità è specificata in unità di GB e può avere valori di 1000 GB/giorno o più in incrementi di 100 GB al giorno. Si noti che non è necessario fornire il corpo della richiesta REST completo, ma deve includere lo SKU.
+
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 1000
+```
+
+**PowerShell**
+
+```powershell
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 1000
+```
+
+**REST**
+
+*Chiamata*
+
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  Content-type: application/json
+
+  {
+    "sku": {
+      "name": "capacityReservation",
+      "Capacity": 2000
+    }
+  }
+  ```
+
+### <a name="update-billingtype-in-cluster"></a>Aggiornare billingType nel cluster
+
+La proprietà *billingType* determina l'attribuzione della fatturazione per il cluster e i relativi dati:
+- *cluster* (impostazione predefinita): la fatturazione viene attribuita alla sottoscrizione che ospita la risorsa Cluster
+- *workspaces*: la fatturazione viene attribuita alle sottoscrizioni che ospitano le aree di lavoro in modo proporzionale
+
+**REST**
+
+*Chiamata*
+
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  Content-type: application/json
+
+  {
+    "properties": {
+      "billingType": "cluster",
+      }  
+  }
+  ```
+
+### <a name="unlink-a-workspace-from-cluster"></a>Scollegare un'area di lavoro dal cluster
 
 È possibile scollegare un'area di lavoro da un cluster. Dopo aver scollegato un'area di lavoro dal cluster, i nuovi dati associati a questa area di lavoro non vengono inviati al cluster dedicato. Inoltre, la fatturazione dell'area di lavoro non viene più eseguita tramite il cluster. I dati obsoleti dell'area di lavoro scollegata potrebbero essere lasciati nel cluster. Se questi dati vengono crittografati con chiavi gestite dal cliente (CMK), i segreti Key Vault vengono conservati. Il sistema estrae questa modifica da Log Analytics utenti. Gli utenti possono semplicemente eseguire query sull'area di lavoro come di consueto. Il sistema esegue query tra cluster sul back-end in base alle esigenze senza alcuna indicazione per gli utenti.  
 
 > [!WARNING] 
-> È previsto un limite di due operazioni di collegamento per area di lavoro all'interno di un mese. Prendere in considerazione e pianificare lo scollegamento delle azioni di conseguenza. 
+> È previsto un limite di due operazioni di collegamento per un'area di lavoro specifica all'interno di un mese. Prendere in considerazione e pianificare lo scollegamento delle azioni di conseguenza.
 
-## <a name="delete-a-dedicated-cluster"></a>Eliminare un cluster dedicato
+**CLI**
+
+```azurecli
+az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "MyWorkspace" --name cluster
+```
+
+**PowerShell**
+
+Usare il comando di PowerShell seguente per scollegare un'area di lavoro dal cluster:
+
+```powershell
+# Unlink a workspace from cluster
+Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster
+```
+
+### <a name="delete-cluster"></a>Eliminare il cluster
 
 È possibile eliminare una risorsa cluster dedicata. Prima di eliminarlo, è necessario scollegare tutte le aree di lavoro dal cluster. Per eseguire questa operazione sono necessarie le autorizzazioni di scrittura per la risorsa *Cluster*. 
 
@@ -381,6 +479,9 @@ Una volta eliminata la risorsa cluster, il cluster fisico entra in un processo d
 Una risorsa *Cluster* eliminata negli ultimi 14 giorni è in stato di eliminazione temporanea e può essere recuperata con i relativi dati. Poiché tutte le aree di lavoro sono state dissociate dalla risorsa *cluster* con l'eliminazione di risorse *cluster* , è necessario riassociare le aree di lavoro dopo il ripristino. L'operazione di ripristino non può essere eseguita dall'utente per contattare il canale Microsoft o il supporto per le richieste di ripristino.
 
 Entro 14 giorni dopo l'eliminazione, il nome della risorsa cluster è riservato e non può essere usato da altre risorse.
+
+> [!WARNING] 
+> È previsto un limite di tre cluster per sottoscrizione. I cluster sia attivi che eliminati temporaneamente vengono conteggiati come parte di questo. I clienti non devono creare procedure ricorrenti per la creazione e l'eliminazione di cluster. Ha un impatto significativo sui sistemi back-end Log Analytics.
 
 **PowerShell**
 
@@ -403,7 +504,73 @@ Usare la chiamata REST seguente per eliminare un cluster:
 
   200 - OK
 
+## <a name="limits-and-constraints"></a>Limiti e i vincoli
 
+- Il numero massimo di cluster per area e sottoscrizione è 2
+
+- Il numero massimo di aree di lavoro collegate al cluster è 1000
+
+- È possibile collegare un'area di lavoro al cluster e quindi scollegarla. Il numero di operazioni di collegamento dell'area di lavoro su un'area di lavoro specifica è limitato a 2 in un periodo di 30 giorni.
+
+- Il collegamento dell'area di lavoro al cluster deve essere eseguito solo dopo aver verificato il completamento del provisioning del cluster Log Analytics.  I dati inviati all'area di lavoro prima del completamento verranno eliminati e non saranno recuperabili.
+
+- Il passaggio del cluster a un altro gruppo di risorse o a una sottoscrizione non è attualmente supportato.
+
+- Il collegamento dell'area di lavoro al cluster non riuscirà se è collegato a un altro cluster.
+
+- L'archivio protetto non è attualmente disponibile in Cina. 
+
+- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dal 2020 ottobre nelle aree supportate. È possibile verificare se il cluster è configurato per la crittografia doppia mediante una richiesta GET nel cluster e osservando il `"isDoubleEncryptionEnabled"` valore della proprietà per i `true` cluster con crittografia doppia abilitata. 
+  - Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster senza crittografia doppia. Aggiungere `"properties": {"isDoubleEncryptionEnabled": false}` la proprietà nel corpo della richiesta REST.
+  - Non è possibile modificare l'impostazione di crittografia doppia dopo la creazione del cluster.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+- Se si verifica un errore di conflitto durante la creazione di un cluster, è possibile che sia stato eliminato il cluster negli ultimi 14 giorni ed è in uno stato di eliminazione temporanea. Il nome del cluster rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando il cluster viene eliminato definitivamente.
+
+- Se si aggiorna il cluster mentre è in corso un'operazione, l'operazione avrà esito negativo.
+
+- Alcune operazioni sono lunghe e possono richiedere del tempo per essere completate, ovvero creazione di cluster, aggiornamento della chiave del cluster e eliminazione del cluster. È possibile controllare lo stato dell'operazione in due modi:
+  - Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
+  - Inviare una richiesta GET a un cluster o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro scollegata non avrà *clusterResourceId* in *funzionalità*.
+
+- messaggi di errore
+  
+  Creazione cluster:
+  -  400--il nome del cluster non è valido. Il nome del cluster può contenere i caratteri a-z, A-Z, 0-9 e la lunghezza di 3-63.
+  -  400: il corpo della richiesta è null o in formato non valido.
+  -  400--il nome dello SKU non è valido. Impostare il nome dello SKU su capacityReservation.
+  -  400: è stata specificata la capacità, ma lo SKU non è capacityReservation. Impostare il nome dello SKU su capacityReservation.
+  -  400: capacità mancante nello SKU. Impostare valore capacità su 1000 o superiore nei passaggi di 100 (GB).
+  -  400--la capacità nello SKU non è compresa nell'intervallo. Deve essere minimo 1000 e fino alla capacità massima consentita disponibile in ' utilizzo e costo stimato ' nell'area di lavoro.
+  -  400: la capacità è bloccata per 30 giorni. La riduzione della capacità è consentita 30 giorni dopo l'aggiornamento.
+  -  400--non è stato impostato alcuno SKU. Impostare il nome dello SKU su capacityReservation e il valore della capacità su 1000 o una versione successiva nei passaggi di 100 (GB).
+  -  400--Identity è null o vuoto. Impostare Identity con systemAssigned Type.
+  -  400--KeyVaultProperties impostati al momento della creazione. Aggiornare KeyVaultProperties dopo la creazione del cluster.
+  -  400: non è possibile eseguire l'operazione ora. L'operazione asincrona è in uno stato diverso da succeeded. Prima di eseguire qualsiasi operazione di aggiornamento, il cluster deve completare l'operazione.
+
+  Aggiornamento cluster
+  -  400--il cluster è in stato di eliminazione. L'operazione asincrona è in corso. Prima di eseguire qualsiasi operazione di aggiornamento, il cluster deve completare l'operazione.
+  -  400--KeyVaultProperties non è vuoto ma presenta un formato non valido. Vedere [aggiornamento dell'identificatore di chiave](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
+  -  400--non è stato possibile convalidare la chiave in Key Vault. La causa potrebbe essere la mancanza di autorizzazioni o la chiave non esiste. Verificare di aver [impostato i criteri di accesso e chiave](../platform/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
+  -  400--la chiave non è reversibile. Key Vault deve essere impostato su soft-delete ed Purge-Protection. Vedere la [documentazione di Key Vault](../../key-vault/general/soft-delete-overview.md)
+  -  400: non è possibile eseguire l'operazione ora. Attendere il completamento dell'operazione asincrona e riprovare.
+  -  400--il cluster è in stato di eliminazione. Attendere il completamento dell'operazione asincrona e riprovare.
+
+  Cluster Get:
+    -  404: Impossibile trovare il cluster. è possibile che sia stato eliminato. Se si tenta di creare un cluster con tale nome e si verifica un conflitto, il cluster viene eliminato temporaneamente per 14 giorni. È possibile contattare il supporto tecnico per ripristinarlo o usare un altro nome per creare un nuovo cluster. 
+
+  Eliminazione del cluster
+    -  409: non è possibile eliminare un cluster in stato di provisioning. Attendere il completamento dell'operazione asincrona e riprovare.
+
+  Collegamento area di lavoro:
+  -  404--area di lavoro non trovata. L'area di lavoro specificata non esiste o è stata eliminata.
+  -  409--collegamento dell'area di lavoro o operazione di scollegamento del collegamento nel processo.
+  -  400--cluster non trovato, il cluster specificato non esiste o è stato eliminato. Se si tenta di creare un cluster con tale nome e si verifica un conflitto, il cluster viene eliminato temporaneamente per 14 giorni. È possibile contattare il supporto tecnico per recuperarlo.
+
+  Scollegamento dell'area di lavoro:
+  -  404--area di lavoro non trovata. L'area di lavoro specificata non esiste o è stata eliminata.
+  -  409--collegamento dell'area di lavoro o operazione di scollegamento del collegamento nel processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

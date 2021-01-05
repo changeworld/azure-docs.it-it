@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 4f6d9f670a1b85e55ccc8f6cb18645b92927221a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 132c21588df2f2180ddd973d208eb95ea6657e7d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351640"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832455"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>Modulo Azure Defender for IoT Edge Security
 
@@ -60,6 +60,6 @@ Per continuare a usare Defender per la distribuzione di Internet delle cose, ved
 
 - Distribuire il [modulo di sicurezza per IOT Edge](how-to-deploy-edge.md)
 - Informazioni su come [configurare il modulo di sicurezza](how-to-agent-configuration.md)
-- Esaminare i [prerequisiti del servizio](service-prerequisites.md) Defender per l'it
+- Esaminare il Defender per il [Defender](resources-manage-proprietary-protocols.md) per Internet delle cose Horizon
 - Informazioni su come [abilitare Defender per il servizio Internet delle cose nell'hub Internet delle](quickstart-onboard-iot-hub.md) cose
 - Altre informazioni sul servizio sono disponibili nella pagina [relativa alle domande frequenti su Defender](resources-frequently-asked-questions.md)

@@ -6,13 +6,13 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: seodec18
+ms.openlocfilehash: e4653419d974db2e597111487c64682c75ffc40b
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021028"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826012"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
@@ -218,7 +218,7 @@ Se si usa https://resources.azure.com , attenersi alla procedura seguente per im
 1. Passare a resources.azure.com e accedere con l'account Azure.
 1. Passare attraverso le risorse al \/ \[ nome sottoscrizione sottoscrizioni resourceGroups nome \] \/ \/ \[ gruppo di risorse \] \/ provider \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE nome \] .
 1. Selezionare **lettura/scrittura** nella parte superiore.
-1. Selezionare **Edit** (Modifica).
+1. Selezionare **Modifica**.
 1. Impostare **upgradePreference** su uno dei tre valori desiderati.
 1. Selezionare **patch**.
 

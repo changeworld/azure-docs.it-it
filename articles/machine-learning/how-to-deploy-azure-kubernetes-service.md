@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy, devx-track-azurecli
+ms.custom: how-to, contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: d7540066ccc0d3a62dbd4012eee100d8e8aea98f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505087"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831729"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
@@ -24,7 +24,7 @@ Informazioni su come usare Azure Machine Learning per distribuire un modello com
 
 - __Tempo di risposta rapido__
 - __Scalabilità__ automatica del servizio distribuito
-- __Logging__
+- __Registrazione__
 - __Raccolta di dati del modello__
 - __autenticazione__
 - __Terminazione TLS__
@@ -91,6 +91,55 @@ Il componente front-end (azureml-Fe) che instrada le richieste di inferenza in i
 Azureml-Fe scala sia verso l'alto (verticalmente) per usare più core, sia orizzontalmente per usare più baccelli. Quando si decide di eseguire la scalabilità verticale, viene usato il tempo necessario per instradare le richieste di inferenza in ingresso. Se questo tempo supera la soglia, viene eseguita una scalabilità verticale. Se il tempo di instradamento delle richieste in ingresso continua a superare la soglia, si verificherà una scalabilità orizzontale.
 
 Quando si esegue il ridimensionamento in basso e in, viene utilizzato l'utilizzo della CPU. Se viene raggiunta la soglia di utilizzo della CPU, il front-end verrà prima ridimensionato. Se l'utilizzo della CPU scende alla soglia di riduzione delle prestazioni, viene eseguita un'operazione di riduzione del livello. La scalabilità verticale e orizzontale si verifica solo se sono disponibili risorse cluster sufficienti.
+
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Informazioni sui requisiti di connettività per il cluster di inferenza AKS
+
+Quando Azure Machine Learning crea o associa un cluster AKS, il cluster AKS viene distribuito con uno dei due modelli di rete seguenti:
+* Funzionalità di rete kubenet: le risorse di rete vengono in genere create e configurate quando viene distribuito il cluster del servizio Azure Kubernetes.
+* Funzionalità di rete Azure Container Networking Interface (Azure CNI): il cluster del servizio Azure Kubernetes viene connesso alle configurazioni e alle risorse di rete virtuale esistenti.
+
+Per la prima modalità di rete, la rete viene creata e configurata correttamente per Azure Machine Learning servizio. Per la seconda modalità di rete, poiché il cluster è connesso a una rete virtuale esistente, in particolare quando viene usato un DNS personalizzato per la rete virtuale esistente, il cliente deve prestare particolare attenzione ai requisiti di connettività per il cluster di inferenza di AKS e garantire la risoluzione DNS e la connettività in uscita per l'inferenza di AKS.
+
+Il diagramma seguente acquisisce tutti i requisiti di connettività per l'inferenza di AKS. Le frecce nere rappresentano la comunicazione effettiva e le frecce blu rappresentano i nomi di dominio che devono essere risolti dal DNS controllato dal cliente.
+
+ ![Requisiti di connettività per l'inferenza di AKS](./media/how-to-deploy-aks/aks-network.png)
+
+### <a name="overall-dns-resolution-requirements"></a>Requisiti generali di risoluzione DNS
+La risoluzione DNS all'interno di VNET esistenti è sotto il controllo del cliente. Le seguenti voci DNS devono essere risolvibili:
+* Server API AKS nel formato \<cluster\> . HPC \<region\> . azmk8s.io
+* Microsoft Container Registry (mcr.microsoft.com):
+* Azure Container Registry (ARC) del cliente nel formato \<ACR name\> . azurecr.io
+* Account di archiviazione di Azure nel formato \<account\> . Table.Core.Windows.NET e \<account\> . blob.Core.Windows.NET
+* Opzionale Per l'autenticazione di AAD: api.azureml.ms
+* Nome di dominio dell'endpoint di assegnazione dei punteggi, generato automaticamente da Azure ML o nome di dominio personalizzato. Il nome di dominio generato automaticamente avrà un aspetto simile al seguente: \<leaf-domain-label \+ auto-generated suffix\> . \<region\> . cloudapp.azure.com
+
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Requisiti di connettività in ordine cronologico: dalla creazione del cluster alla distribuzione del modello
+
+Nel processo di creazione o connessione di AKS, il router Azure ML (azureml-Fe) viene distribuito nel cluster AKS. Per distribuire il router di Azure ML, il nodo AKS dovrebbe essere in grado di:
+* Risolvere il DNS per il server API AKS
+* Risolvere il DNS per il servizio di dominio di Azure per scaricare le immagini Docker per il router Azure ML
+* Scarica le immagini da "di", dove è richiesta la connettività in uscita
+
+Subito dopo la distribuzione di azureml-Fe, verrà eseguito un tentativo di avvio e a questo scopo è necessario:
+* Risolvere il DNS per il server API AKS
+* Eseguire una query sul server API AKS per individuare altre istanze di se stesso (si tratta di un servizio con più POD)
+* Connetti ad altre istanze di se stesso
+
+Dopo l'avvio di azureml-Fe, è necessaria una connettività aggiuntiva per funzionare correttamente:
+* Connettersi ad archiviazione di Azure per scaricare la configurazione dinamica
+* Risolvere il DNS per il server di autenticazione AAD api.azureml.ms e comunicare con esso quando il servizio distribuito usa l'autenticazione di AAD.
+* Eseguire query sul server API AKS per individuare i modelli distribuiti
+* Comunicare con i pod del modello distribuito
+
+Al momento della distribuzione del modello, per un nodo AKS della distribuzione del modello corretto dovrebbe essere possibile: 
+* Risolvere il DNS per l'ACR del cliente
+* Scaricare immagini dall'ACR del cliente
+* Risolvere il DNS per i BLOB di Azure in cui è archiviato il modello
+* Scaricare i modelli dai BLOB di Azure
+
+Dopo la distribuzione del modello e l'avvio del servizio, azureml-Fe lo individuerà automaticamente usando l'API AKS e sarà pronto per instradare la richiesta. Deve essere in grado di comunicare con i pod del modello.
+>[!Note]
+>Se per il modello distribuito è necessaria una connettività, ad esempio per eseguire query su un database esterno o su un altro servizio REST, scaricare un BLOG e così via, è necessario abilitare sia la risoluzione DNS che la comunicazione in uscita per questi servizi.
 
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 

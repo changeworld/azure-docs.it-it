@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aae822665702300064e82e80d74b5c2256423ea1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957283"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827224"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP
 Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Questa distinzione è il risultato della maggior parte della logica di business in esecuzione a livello di applicazione. Poiché il livello dell'applicazione SAP esegue la logica di business, emette query al livello del database a una frequenza elevata, a una frequenza di migliaia o decine di migliaia al secondo. Nella maggior parte dei casi, la natura di queste query è semplice. Spesso possono essere eseguite a livello di database in microsecondi di 500 o meno.
@@ -42,6 +42,8 @@ Per offrire la possibilità di ottimizzare la latenza di rete, Azure offre [grup
 > - Solo quando necessario
 > - Solo per la granularità di un singolo sistema SAP e non per l'intero panorama del sistema o per un panorama applicativo SAP completo
 > - Per evitare che i diversi tipi di VM e il numero di macchine virtuali in un gruppo di posizionamento di prossimità siano minime
+
+Si supponga che se si distribuiscono macchine virtuali specificando zone di disponibilità e si seleziona la stessa zone di disponibilità, la latenza di rete tra queste VM dovrebbe essere sufficiente per il funzionamento dei sistemi SAP NetWeaver e S/4HANA con prestazioni e velocità effettiva soddisfacenti. Questo presupposto è indipendente dal fatto che una determinata zona sia costituita da uno o più data center. L'unico motivo per usare i gruppi di posizionamento di prossimità nelle distribuzioni di zona è il caso in cui si vuole allocare macchine virtuali distribuite con il set di disponibilità di Azure con le macchine virtuali distribuite di zona.
 
 
 ## <a name="what-are-proximity-placement-groups"></a>Che cosa sono i gruppi di posizionamento di prossimità? 

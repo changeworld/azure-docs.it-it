@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7f142aa4ca203a65c45741f87853579ca60e1879
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837363"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831755"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -132,7 +132,7 @@ In precedenza era possibile filtrare l'elenco dei dispositivi solo per attività
 - Stato conforme
 - Tipo di join (Azure AD aggiunto, Azure AD ibrido aggiunto, Azure AD registrato)
 - Timestamp dell'attività
-- Sistema operativo
+- OS
 - Tipo di dispositivo (stampanti, VM sicure, dispositivi condivisi, dispositivi registrati)
 
 Per abilitare la funzionalità di filtro anteprima nella visualizzazione **tutti i dispositivi** :
@@ -165,10 +165,10 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Questi utenti vengono aggiunti al ruolo di *amministratore del dispositivo* in Azure ad. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
 - **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno**, i dispositivi non possono eseguire la registrazione con Azure ad. La registrazione con Microsoft Intune o la gestione di dispositivi mobili (MDM) per Microsoft 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
-- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per ulteriori informazioni sui diversi servizi di Azure AD Multi-Factor Authentication, vedere la pagina relativa all' [Introduzione a Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md). 
+- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un fattore di autenticazione aggiuntivo per aggiungere o registrare il dispositivo in Azure ad. Il valore predefinito è **No**. È consigliabile richiedere l'autenticazione a più fattori durante la registrazione o l'aggiunta a un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per ulteriori informazioni sui diversi servizi di Azure AD Multi-Factor Authentication, vedere la pagina relativa all' [Introduzione a Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dei dispositivi si applica ai dispositivi che sono Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.
+> **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dei dispositivi si applica ai dispositivi che sono Azure ad aggiunti (con alcune eccezioni) o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti, [Azure ad VM Unite in join in Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure ad dispositivi aggiunti con la [modalità di distribuzione automatica di Windows Autopilot](/mem/autopilot/self-deploying).
 
 - **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50**.
 
@@ -202,7 +202,7 @@ Il log di controllo ha una visualizzazione elenco predefinita che mostra:
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
 
-- Categoria
+- Category
 - Activity resource type (Tipo di risorsa dell'attività)
 - Attività
 - Intervallo di date

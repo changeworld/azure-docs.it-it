@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325214"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831551"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -74,6 +74,16 @@ Messaggio di errore: Impossibile bloccare uno o più punti di montaggio della ma
 * Eseguire una verifica di coerenza del file system in questi dispositivi usando il comando **fsck**.
 * Montare di nuovo i dispositivi e provare a ripetere l'operazione di backup.</ol>
 
+Se non è possibile disinstallare i dispositivi, è possibile aggiornare la configurazione del backup della macchina virtuale per ignorare determinati punti di montaggio. Se ad esempio non è possibile annullare l'installazione del punto di montaggio '/mnt/Resource ' e causare errori di backup della macchina virtuale, è possibile aggiornare i file di configurazione del backup della macchina virtuale con la ```MountsToSkip``` proprietà come indicato di seguito.
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
+
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - L'installazione dell'estensione/operazione non è riuscita a causa di un errore COM+
 
 Codice errore: ExtensionSnapshotFailedCOM <br/>
@@ -104,11 +114,11 @@ Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché 
 
 Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere questo problema, seguire questa procedura:
 
-Passaggio 1: riavviare i writer VSS in uno stato non valido.
+Passaggio 1: Riavviare i writer VSS in uno stato non valido.
 
 * Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```.
-* L'output contiene tutti i writer VSS con lo stato. Per ogni VSS writer con uno stato non **[1] stabile**, riavviare il rispettivo servizio del VSS writer.
-* Per riavviare il servizio, eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
+* L'output contiene tutti i writer VSS con lo stato. Per ogni VSS writer con stato non **[1] stabile**, riavviare il rispettivo servizio VSS writer.
+* Per riavviare il servizio, eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati: 
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
@@ -140,16 +150,16 @@ Messaggio di errore: l'operazione di snapshot non è riuscita a causa di un serv
 
 Questo errore si verifica perché il servizio VSS è in uno stato non valido. Le estensioni di backup di Azure interagiscono con il servizio VSS per creare snapshot dei dischi. Per risolvere questo problema, seguire questa procedura:
 
-Riavviare il servizio VSS (copia shadow del volume).
+Riavviare il Servizio Copia Shadow del volume.
 
-* Passare a Services. msc e riavviare "Volume Shadow Copy Service".<br>
+* Passare a Services.msc e riavviare "Servizio Copia Shadow del volume".<br>
 (oppure)<br>
 * Eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
-Se il problema persiste, riavviare la macchina virtuale al tempo di inattività pianificato.
+Se il problema persiste, riavviare la macchina virtuale nel momento in cui si verifica il tempo di inattività pianificato.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-creazione della macchina virtuale non riuscita perché le dimensioni della macchina virtuale selezionate non sono disponibili
 
@@ -255,7 +265,7 @@ La macchina virtuale di Azure non è stata trovata.
 
 Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue:
 
-* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>oppure
+* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>o
 * Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione
@@ -321,7 +331,7 @@ Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno d
 
 Se dopo il ripristino si nota che i dischi sono offline:
 
-* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)  
+* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
 * Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound-il ripristino non è riuscito perché non è stato possibile trovare lo snapshot della macchina virtuale

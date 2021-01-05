@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 3e4a770a33f5cdb3c3b2de09cbcb8431b2fc3fbb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968656"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830650"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Carichi di lavoro Red Hat in Azure
 
@@ -36,7 +36,7 @@ Azure offre un'ampia gamma di immagini RHEL con pagamento in base al consumo. Qu
 ### <a name="red-hat-gold-images"></a>Immagini Red Hat Gold
 
 Azure offre anche immagini Red Hat Gold (`rhel-byos`). Queste immagini possono essere utili per i clienti che vogliono usare le proprie sottoscrizioni Red Hat in Azure. Occorre però abilitare le sottoscrizioni di Red Hat esistenti per Red Hat Cloud Access prima di poterle usare in Azure. L'accesso a queste immagini viene concesso automaticamente quando le sottoscrizioni di Red Hat sono abilitate per Cloud Access e soddisfano i requisiti di idoneità. L'uso di queste immagini consente al cliente di evitare la fatturazione duplicata che può essere applicata alle immagini con pagamento in base al consumo.
-* Per informazioni, vedere [come abilitare le sottoscrizioni di Red Hat per Cloud Access con Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
+* Per informazioni, vedere [come abilitare le sottoscrizioni di Red Hat per Cloud Access con Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access).
 * Per informazioni, vedere come [individuare le immagini Red Hat Gold nel portale di Azure, con l'interfaccia della riga di comando di Azure o con il cmdlet PowerShell](./byos.md).
 
 > [!NOTE]

@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511655"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831670"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -118,6 +118,7 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 | --------------- | ---- |
 | bash | 4 e versioni successive |
 | python | 2.6.6 e versioni successive  |
+| .NET | 4.6.2 e versioni successive |
 | TLS | 1.2 dovrebbe essere supportata  |
 
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Passaggio 4: accedere ai requisiti per eseguire correttamente lo script

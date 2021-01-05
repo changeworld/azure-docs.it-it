@@ -4,12 +4,12 @@ description: Questo articolo descrive come configurare la visualizzazione in tem
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 45ed931f734e874e81af837fff5c4a326349cb21
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530183"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830786"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -48,7 +48,7 @@ Il portale di Azure richiede di convalidare le credenziali di accesso per un clu
 
 Per eliminare la necessità di applicare modifiche di configurazione aggiuntive per consentire l'associazione del ruolo utente Kubernetes **clusterUser** l'accesso alla funzionalità dati in tempo reale (anteprima) dopo l' [Abilitazione dell'autorizzazione KUBERNETES RBAC](#configure-kubernetes-rbac-authorization) , AKS ha aggiunto una nuova associazione di ruoli del cluster Kubernetes denominata **clusterMonitoringUser**. Questa associazione di ruoli del cluster dispone di tutte le autorizzazioni necessarie predefinite per accedere all'API Kubernetes e agli endpoint per l'utilizzo della funzionalità dati in tempo reale (anteprima).
 
-Per usare la funzionalità dati in tempo reale (anteprima) con questo nuovo utente, è necessario essere un membro del ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) sulla risorsa cluster AKS. Il monitoraggio di Azure per i contenitori, se abilitato, è configurato per l'autenticazione con questo utente per impostazione predefinita. Se l'associazione di ruolo clusterMonitoringUser non esiste in un cluster, per l'autenticazione viene usato **clusterUser** .
+Per usare la funzionalità dati in tempo reale (anteprima) con questo nuovo utente, è necessario essere un membro del ruolo utente o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) del [cluster di servizi Kubernetes di Azure](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) nella risorsa del cluster AKS. Il monitoraggio di Azure per i contenitori, se abilitato, è configurato per l'autenticazione con clusterMonitoringUser per impostazione predefinita. Se l'associazione di ruolo clusterMonitoringUser non esiste in un cluster, per l'autenticazione viene usato **clusterUser** . Collaboratore consente di accedere a clusterMonitoringUser (se esiste) e l'utente del cluster di servizi di Azure Kuberenetes fornisce l'accesso a clusterUser. Uno di questi due ruoli concede un accesso sufficiente per usare questa funzionalità.
 
 AKS ha rilasciato questa nuova associazione di ruolo nel 2020 gennaio, quindi i cluster creati prima di gennaio 2020 non lo hanno. Se si dispone di un cluster creato prima del 2020 gennaio, è possibile aggiungere il nuovo **clusterMonitoringUser** a un cluster esistente eseguendo un'operazione Put nel cluster o eseguendo qualsiasi altra operazione nel cluster che esegue un'operazione Put nel cluster, ad esempio l'aggiornamento della versione del cluster.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a657f43ef2d889cad1608d34e9235b1d5e7cb576
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85534d1f64b273e42a2ea063e67286ee7bb4a90a
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894151"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827156"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi vocali
 
@@ -169,7 +169,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Risposta 2:** È necessario specificare il nome della voce corretto nella richiesta, che fa distinzione tra maiuscole e minuscole. Fare riferimento al mapping del nome completo del servizio. È necessario usare `en-US-JessaRUS` , poiché `en-US-JessaNeural` non è disponibile in questo momento nella versione contenitore di sintesi vocale.
+**Risposta 2:** È necessario specificare il nome della voce corretto nella richiesta, che fa distinzione tra maiuscole e minuscole. Fare riferimento al mapping del nome completo del servizio.
 
 **Errore 3:**
 
@@ -310,6 +310,8 @@ Per il codice, impostare l'endpoint su `host:port` /Speech/Recognition/Interacti
 
 Per le varie modalità, vedere modalità di riconoscimento vocale-vedere di seguito:
 
+## <a name="speech-modes---interactive-conversation-dictation"></a>Modalità sintesi vocale-interattiva, conversazione, dettatura
+
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
 La correzione corretta è disponibile con l'SDK 1,8, che include il supporto locale (sceglierà l'endpoint appropriato, quindi non sarà più il servizio online). Nel frattempo, è disponibile un esempio per il riconoscimento continuo, perché non si fa riferimento a questo?
@@ -397,25 +399,25 @@ Quante richieste simultanee sono gestite da 4 core, 4 GB di RAM? Se è necessari
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore      | Minima             | Implementazione consigliata         |
+| Contenitore      | Minima             | Consigliato         |
 |----------------|---------------------|---------------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
-# <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Riconoscimento vocale personalizzato](#tab/cstt)
 
-| Contenitore             | Minima             | Implementazione consigliata         |
+| Contenitore             | Minima             | Consigliato         |
 |-----------------------|---------------------|---------------------|
-| Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
+| Riconoscimento vocale personalizzato | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore      | Minima             | Implementazione consigliata         |
+| Contenitore      | Minima             | Consigliato         |
 |----------------|---------------------|---------------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore             | Minima             | Implementazione consigliata         |
+| Contenitore             | Minima             | Consigliato         |
 |-----------------------|---------------------|---------------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
@@ -558,6 +560,8 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 </summary>
 
 **Risposta:** Esistono tre endpoint sul contenitore di riconoscimento vocale per diversi utilizzi, che vengono definiti come modalità di riconoscimento vocale, vedere di seguito:
+
+## <a name="speech-modes"></a>Modalità sintesi vocale
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 

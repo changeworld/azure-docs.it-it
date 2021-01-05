@@ -1,54 +1,68 @@
 ---
-title: Inviare un numero elevato di attività
-description: Come inviare in modo efficiente un numero elevato di attività in un singolo processo di Azure Batch
+title: Inviare un numero elevato di attività a un processo di Batch
+description: Informazioni su come inviare in modo efficiente un numero molto elevato di attività in un unico processo di Azure Batch.
 ms.topic: how-to
-ms.date: 08/24/2018
+ms.date: 12/30/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 26230372a04d13a8b8f59d50aa5da1362126413b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08cf92507a4556afbf56c9cb7e2c9c1b3a6c9479
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89144057"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831517"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Inviare un numero elevato di attività a un processo di Batch
 
-Quando si eseguono carichi di lavoro di Azure Batch su larga scala, può essere necessario inviare decine o centinaia di migliaia di attività, o anche di più, a un unico processo. 
+Quando si eseguono carichi di lavoro di Azure Batch su larga scala, può essere necessario inviare decine o centinaia di migliaia di attività, o anche di più, a un unico processo.
 
-Questo articolo contiene linee guida e alcuni esempi di codice per inviare un numero elevato di attività con una velocità effettiva notevolmente maggiore a un unico processo di Batch. Dopo l'invio, le attività vengono inserite nella coda di Batch per l'elaborazione nel pool specificato per il processo.
+Questo articolo illustra come inviare un numero elevato di attività con una velocità effettiva sostanzialmente aumentata a un singolo processo batch. Dopo l'invio, le attività vengono inserite nella coda di Batch per l'elaborazione nel pool specificato per il processo.
 
 ## <a name="use-task-collections"></a>Usare le raccolte di attività
 
-Le API di Batch offrono metodi per aggiungere in modo efficiente le attività a un processo come *raccolta*, oltre che individualmente. Quando si aggiunge un numero elevato di attività, è consigliabile usare metodi o overload appropriati per aggiungere le attività come raccolta. In genere una raccolta di attività viene creata definendo le attività mentre si scorre un set di file di input o parametri per il processo.
+Quando si aggiunge un numero elevato di attività, usare i metodi o gli overload appropriati forniti dalle API batch per aggiungere attività come una *raccolta* anziché una alla volta. In genere una raccolta di attività viene creata definendo le attività mentre si scorre un set di file di input o parametri per il processo.
 
-Le dimensioni massime della raccolta di attività che è possibile aggiungere in una singola chiamata dipendono dall'API di Batch usata:
+Le dimensioni massime della raccolta di attività che è possibile aggiungere in una singola chiamata dipendono dall'API batch usata.
 
-* Le API di Batch seguenti limitano la raccolta a **100 attività**. Il limite può essere inferiore a seconda delle dimensioni delle attività, ad esempio nel caso in cui l'attività includa un numero elevato di file di risorse o di variabili di ambiente.
+### <a name="apis-allowing-collections-of-up-to-100-tasks"></a>API che consentono raccolte di un massimo di 100 attività
 
-    * [REST API](/rest/api/batchservice/task/addcollection)
-    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations)
-    * [API Node.js](/javascript/api/@azure/batch/task)
+Queste API batch limitano la raccolta a 100 attività. Il limite può essere minore a seconda delle dimensioni delle attività, ad esempio se le attività hanno un numero elevato di file di risorse o variabili di ambiente.
 
-  Quando si usano queste API, è necessario specificare la logica per dividere il numero di attività in modo da rispettare il limite della raccolta e per gestire errori e tentativi in caso di errore durante l'aggiunta delle attività. Se una raccolta di attività è troppo grande per essere aggiunta, la richiesta genera un errore ed è necessario riprovare con un numero inferiore di attività.
+- [REST API](/rest/api/batchservice/task/addcollection)
+- [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations)
+- [API Node.js](/javascript/api/@azure/batch/task)
 
-* Le API seguenti supportano raccolte di attività molto più grandi, limitate solo dalla disponibilità di RAM nel client richiedente. Queste API gestiscono in modo trasparente la divisione della raccolta di attività in "blocchi" per le API di livello inferiore e i tentativi in caso di errore durante l'aggiunta delle attività.
+Quando si usano queste API, è necessario fornire la logica per dividere il numero di attività in modo da soddisfare il limite di raccolta e per gestire gli errori e i tentativi in caso di errori di aggiunta dell'attività. Se una raccolta di attività è troppo grande per essere aggiunta, la richiesta genera un errore ed è necessario riprovare con un numero inferiore di attività.
 
-    * [API .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync)
-    * [API Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync)
-    * [Estensione dell'interfaccia della riga di comando di Azure Batch](batch-cli-templates.md) con i modelli dell'interfaccia della riga di comando di Batch
-    * [Estensione di Python SDK](https://pypi.org/project/azure-batch-extensions/)
+### <a name="apis-allowing-collections-of-larger-numbers-of-tasks"></a>API che consentono raccolte di un numero maggiore di attività
+
+Altre API batch supportano le raccolte di attività molto più grandi, limitate solo dalla disponibilità di RAM nel client di invio. Queste API gestiscono in modo trasparente la suddivisione della raccolta di attività in "blocchi" per le API di livello inferiore e i tentativi per gli errori di aggiunta di attività.
+
+- [API .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync)
+- [API Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync)
+- [Estensione dell'interfaccia della riga di comando di Azure Batch](batch-cli-templates.md) con i modelli dell'interfaccia della riga di comando di Batch
+- [Estensione di Python SDK](https://pypi.org/project/azure-batch-extensions/)
 
 ## <a name="increase-throughput-of-task-submission"></a>Aumentare la velocità effettiva dell'invio di attività
 
-L'aggiunta di un numero elevato di attività a un processo può richiedere del tempo, ad esempio fino a 1 minuto per aggiungere 20.000 attività tramite l'API .NET. A seconda dell'API di Batch e del carico di lavoro, è possibile migliorare la velocità effettiva delle attività modificando uno o più elementi seguenti:
+L'aggiunta di un'ampia raccolta di attività a un processo può richiedere del tempo. Ad esempio, l'aggiunta di attività 20.000 tramite l'API .NET potrebbe richiedere fino a un minuto. A seconda dell'API batch e del carico di lavoro, è possibile migliorare la velocità effettiva delle attività modificando uno o più degli elementi seguenti.
 
-* **Dimensioni delle attività**: l'aggiunta di attività di grandi dimensioni richiede più tempo rispetto a quelle più piccole. Per ridurre le dimensioni di ogni attività in una raccolta, è possibile semplificare la riga di comando dell'attività, ridurre il numero delle variabili di ambiente o gestire i requisiti per l'esecuzione dell'attività in modo più efficiente. Anziché usare un numero elevato di file di risorse, è possibile ad esempio installare le dipendenze delle attività usando un'[attività di avvio](jobs-and-tasks.md#start-task) nel pool oppure usare un [pacchetto dell'applicazione](batch-application-packages.md) o un [contenitore Docker](batch-docker-container-workloads.md).
+### <a name="task-size"></a>Dimensioni attività
 
-* **Numero di operazioni parallele**: a seconda dell'API di Batch, è possibile migliorare la velocità effettiva aumentando il numero massimo di operazioni simultanee del client di Batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nella versione nativa di Python SDK di Batch. Per impostazione predefinita, questa proprietà è impostata su 1, ma è possibile impostarla su un valore superiore per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è consigliabile impostare un numero di operazioni simultanee inferiore a 100. 
- 
-  L'estensione dell'interfaccia della riga di comando di Azure Batch con i modelli di Batch aumenta automaticamente il numero di operazioni simultanee in base al numero di core disponibili, ma questa proprietà non è configurabile nell'interfaccia della riga di comando. 
+L'aggiunta di attività di grandi dimensioni richiede più tempo dell'aggiunta di quelle più piccole. Per ridurre le dimensioni di ogni attività in una raccolta, è possibile semplificare la riga di comando dell'attività, ridurre il numero delle variabili di ambiente o gestire i requisiti per l'esecuzione dell'attività in modo più efficiente.
 
-* **Limiti di connessione HTTP**: il numero di connessioni HTTP simultanee può limitare le prestazioni del client di Batch quando viene aggiunto un numero elevato di attività. Il numero di connessioni HTTP è limitato con determinate API. Durante lo sviluppo con l'API .NET, ad esempio, la proprietà [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) è impostata su 2 per impostazione predefinita. È consigliabile aumentare il valore a un numero prossimo o superiore al numero di operazioni parallele.
+Ad esempio, anziché usare un numero elevato di file di risorse, installare le dipendenze delle attività usando un' [attività di avvio](jobs-and-tasks.md#start-task) nel pool o usare un [pacchetto dell'applicazione](batch-application-packages.md) o un [contenitore Docker](batch-docker-container-workloads.md).
+
+### <a name="number-of-parallel-operations"></a>Numero di operazioni parallele
+
+A seconda dell'API batch, è possibile aumentare la velocità effettiva aumentando il numero massimo di operazioni simultanee da parte del client batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nella versione nativa di Python SDK di Batch.
+
+Per impostazione predefinita, questa proprietà è impostata su 1, ma è possibile impostarla in modo più elevato per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è necessario impostare il numero di operazioni simultanee su un valore inferiore a 100.
+
+ L'estensione dell'interfaccia della riga di comando di Azure Batch con i modelli di Batch aumenta automaticamente il numero di operazioni simultanee in base al numero di core disponibili, ma questa proprietà non è configurabile nell'interfaccia della riga di comando.
+
+### <a name="http-connection-limits"></a>Limiti di connessione HTTP
+
+La presenza di molte connessioni HTTP simultanee può limitare le prestazioni del client batch quando viene aggiunto un numero elevato di attività. Alcune API limitano il numero di connessioni HTTP. Durante lo sviluppo con l'API .NET, ad esempio, la proprietà [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) è impostata su 2 per impostazione predefinita. È consigliabile aumentare il valore a un numero prossimo o superiore al numero di operazioni parallele.
 
 ## <a name="example-batch-net"></a>Esempio: Batch .NET
 
@@ -63,6 +77,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
   };
 ...
 ```
+
 Aggiungere una raccolta di attività al processo usando l'overload appropriato del metodo [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask
 ). Ad esempio:
 
@@ -73,12 +88,11 @@ List<CloudTask> tasksToAdd = new List<CloudTask>(); // Populate with your tasks
 await batchClient.JobOperations.AddTaskAsync(jobId, tasksToAdd, parallelOptions);
 ```
 
-
 ## <a name="example-batch-cli-extension"></a>Esempio: estensione dell'interfaccia della riga di comando di Batch
 
 Tramite l'uso delle estensioni dell'interfaccia della riga di comando di Azure Batch con i [modelli dell'interfaccia della riga di comando di Batch](batch-cli-templates.md), è possibile creare un file JSON del modello di processo che includa una [factory delle attività](https://github.com/Azure/azure-batch-cli-extensions/blob/master/doc/taskFactories.md). La factory delle attività consente di configurare una raccolta di attività correlate per un processo da una singola definizione di attività.  
 
-Di seguito è riportato un modello di processo di esempio per un processo di sweep parametrico unidimensionale con un numero elevato di attività, in questo caso 250.000. La riga di comando dell'attività è un semplice comando `echo`.
+Di seguito è riportato un modello di processo di esempio per un processo di sweep parametrico unidimensionale con un numero elevato di attività (in questo caso, 250.000). La riga di comando dell'attività è un semplice comando `echo`.
 
 ```json
 {
@@ -115,6 +129,7 @@ Di seguito è riportato un modello di processo di esempio per un processo di swe
     }
 }
 ```
+
 Per eseguire un processo con il modello, vedere [Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch](batch-cli-templates.md).
 
 ## <a name="example-batch-python-sdk-extension"></a>Esempio: estensione di Python SDK di Batch
@@ -136,7 +151,6 @@ client = batch.BatchExtensionsClient(
 ```
 
 Creare una raccolta di attività da aggiungere a un processo. Ad esempio:
-
 
 ```python
 tasks = list()
@@ -201,5 +215,6 @@ except Exception as e:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sull'uso dell'estensione dell'interfaccia della riga di comando di Azure Batch con i [modelli dell'interfaccia della riga di comando di Batch](batch-cli-templates.md).
-* Altre informazioni sull'[estensione di Python SDK di Batch](https://pypi.org/project/azure-batch-extensions/).
+- Altre informazioni sull'uso dell'estensione dell'interfaccia della riga di comando di Azure Batch con i [modelli dell'interfaccia della riga di comando di Batch](batch-cli-templates.md).
+- Altre informazioni sull'[estensione di Python SDK di Batch](https://pypi.org/project/azure-batch-extensions/).
+- Leggere le [procedure consigliate per Azure batch](best-practices.md).
