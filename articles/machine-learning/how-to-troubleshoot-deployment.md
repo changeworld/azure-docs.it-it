@@ -1,7 +1,7 @@
 ---
-title: Risolvere i problemi di distribuzione del servizio Web remoto
+title: Risoluzione dei problemi di distribuzione del modello remoto
 titleSuffix: Azure Machine Learning
-description: Informazioni su come aggirare, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure.
+description: Informazioni su come risolvere, risolvere e risolvere alcuni errori comuni relativi alla distribuzione di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031505"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740624"
 ---
-# <a name="troubleshoot-model-deployment"></a>Risolvere i problemi di distribuzione del modello
+# <a name="troubleshooting-remote-model-deployment"></a>Risoluzione dei problemi di distribuzione del modello remoto 
 
-Informazioni su come risolvere e risolvere gli errori comuni di distribuzione di Docker remoti con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) usando Azure Machine Learning.
+Informazioni su come risolvere gli errori comuni che possono verificarsi durante la distribuzione di un modello in istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) con Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -177,6 +177,16 @@ Per altre informazioni sull'impostazione di `autoscale_target_utilization`, `aut
 Un codice di stato 504 indica che si è verificato il timeout della richiesta. Il timeout predefinito è 1 minuto.
 
 È possibile aumentare il timeout o provare ad accelerare il servizio modificando il file score.py per rimuovere le chiamate non necessarie. Se queste azioni non consentono di risolvere il problema, usare le informazioni in questo articolo per eseguire il debug del file score.py. Il codice potrebbe trovarsi in uno stato non reattivo o in un ciclo infinito.
+
+## <a name="other-error-messages"></a>Altri messaggi di errore
+
+Eseguire queste azioni per gli errori seguenti:
+
+|Errore  | Soluzione  |
+|---------|---------|
+|Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |
+|Errore di FPGA     |  Non sarà possibile distribuire i modelli in FPGA fino a quando non viene richiesta e approvata la quota FPGA. Per richiedere l'accesso, compilare il modulo di richiesta della quota: https://aka.ms/aml-real-time-ai       |
 
 ## <a name="advanced-debugging"></a>Debug avanzato
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0a2439f0ed18cf93691a1d0389e049b1b7993d93
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095305"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732062"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
 
@@ -32,11 +32,11 @@ Tipi di dati supportati:
 * Log IIS
 
 ## <a name="using-private-links"></a>Uso di collegamenti privati
-Gli account di archiviazione gestiti dal cliente sono necessari in alcuni casi d'uso, quando si usano i collegamenti privati per connettersi alle risorse di monitoraggio di Azure. Un caso di questo tipo è l'inserimento di log personalizzati o di log di IIS. Questi tipi di dati vengono prima caricati come BLOB in un account di archiviazione di Azure intermediario e quindi inseriti solo in un'area di lavoro. Analogamente, alcune soluzioni di monitoraggio di Azure possono usare gli account di archiviazione per archiviare file di grandi dimensioni, ad esempio i file di dump Watson, usati dalla soluzione del Centro sicurezza di Azure. 
+Gli account di archiviazione gestiti dal cliente sono necessari in alcuni casi d'uso, quando si usano i collegamenti privati per connettersi alle risorse di monitoraggio di Azure. Un caso di questo tipo è l'inserimento di log personalizzati o di log di IIS. Questi tipi di dati vengono prima caricati come BLOB in un account di archiviazione di Azure intermediario e quindi inseriti solo in un'area di lavoro. Analogamente, alcune soluzioni di monitoraggio di Azure possono usare gli account di archiviazione per archiviare file di grandi dimensioni, ad esempio il Centro sicurezza di Azure (ASC), che potrebbe dover caricare file. 
 
 ##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Scenari di collegamento privato che richiedono una risorsa di archiviazione gestita dal cliente
 * Inserimento di log personalizzati e log di IIS
-* Consentire alla soluzione ASC di raccogliere i file di dump di Watson
+* Consentire alla soluzione ASC di caricare i file
 
 ### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Come usare un account di archiviazione gestito dal cliente tramite un collegamento privato
 ##### <a name="workspace-requirements"></a>Requisiti dell'area di lavoro
@@ -45,13 +45,14 @@ Quando ci si connette a monitoraggio di Azure tramite un collegamento privato, g
 Perché l'account di archiviazione si connetta correttamente al collegamento privato, è necessario:
 * Trovarsi nella VNet o in una rete con peering e connettersi alla VNet tramite un collegamento privato. In questo modo gli agenti nel VNet possono inviare i log all'account di archiviazione.
 * Trovarsi nella stessa area dell'area di lavoro a cui è collegato.
-* Consentire a monitoraggio di Azure di accedere all'account di archiviazione. Se si sceglie di consentire solo la selezione di reti per l'accesso all'account di archiviazione, è necessario consentire anche questa eccezione: "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione". Questo consente Log Analytics di leggere i log inseriti in questo account di archiviazione.
+* Consentire a monitoraggio di Azure di accedere all'account di archiviazione. Se si sceglie di consentire solo la selezione di reti per l'accesso all'account di archiviazione, è necessario selezionare l'eccezione: "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione".
+![Immagine dei servizi MS di attendibilità dell'account di archiviazione](./media/private-storage/storage-trust.png)
 * Se l'area di lavoro gestisce anche il traffico da altre reti, è necessario configurare l'account di archiviazione per consentire il traffico in ingresso proveniente dalle reti/Internet pertinenti.
 
 ##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Collegare l'account di archiviazione a un'area di lavoro Log Analytics
 È possibile collegare l'account di archiviazione all'area di lavoro tramite l'interfaccia della riga di comando di [Azure](/cli/azure/monitor/log-analytics/workspace/linked-storage) o l' [API REST](/rest/api/loganalytics/linkedstorageaccounts). Valori dataSourceType applicabili:
 * CustomLogs: per usare l'archiviazione per i log personalizzati e i log di IIS durante l'inserimento.
-* AzureWatson: usare i file di dump di archiviazione per Watson caricati dalla soluzione ASC (Centro sicurezza di Azure). Per altre informazioni sulla gestione della conservazione, sulla sostituzione di un account di archiviazione collegato e sul monitoraggio dell'attività dell'account di archiviazione, vedere [gestione degli account di archiviazione collegati](#managing-linked-storage-accounts). 
+* AzureWatson: usare lo spazio di archiviazione per i file caricati dalla soluzione ASC (Centro sicurezza di Azure). Per altre informazioni sulla gestione della conservazione, sulla sostituzione di un account di archiviazione collegato e sul monitoraggio dell'attività dell'account di archiviazione, vedere [gestione degli account di archiviazione collegati](#managing-linked-storage-accounts). 
 
 ## <a name="encrypting-data-with-cmk"></a>Crittografia dei dati con CMK
 Archiviazione di Azure crittografa tutti i dati inattivi in un account di archiviazione. Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite da Microsoft (MMK). Tuttavia, archiviazione di Azure consente invece di usare una chiave gestita dal cliente (CMK) da Azure Key Vault per crittografare i dati di archiviazione. È possibile importare le proprie chiavi in Azure Key Vault oppure è possibile usare le API Azure Key Vault per generare chiavi.

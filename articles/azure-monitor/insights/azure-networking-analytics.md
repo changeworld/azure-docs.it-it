@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563110"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707691"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 
@@ -104,6 +104,21 @@ La scheda "Visualizza metriche dettagliate" apre la cartella di lavoro pre-popol
 
 [![Screenshot della cartella di lavoro del gateway applicazione](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nuove funzionalità con la cartella di lavoro di Network Insights di monitoraggio di Azure
+
+> [!NOTE]
+> Alla cartella di lavoro di Azure monitor Insights non sono associati costi aggiuntivi. L'area di lavoro Log Analytics continuerà a essere fatturata in base all'utilizzo.
+
+La cartella di lavoro di Network Insights consente di sfruttare le funzionalità più recenti di monitoraggio di Azure e Log Analytics tra cui:
+
+* Console centralizzata per il monitoraggio e la risoluzione dei problemi con i dati di [metrica](../insights/network-insights-overview.md#resource-health-and-metrics) e di log.
+
+* Area di disegno flessibile per supportare la creazione di [visualizzazioni](../platform/workbooks-overview.md#visualizations)personalizzate avanzate.
+
+* Possibilità di utilizzare e [condividere modelli di cartelle di lavoro](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) con community più ampia.
+
+Per ulteriori informazioni sulle funzionalità della nuova soluzione cartella di lavoro [, vedere cartelle di lavoro-Panoramica](../platform/workbooks-overview.md)
+
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrazione dalla soluzione Azure gateway Analytics alle cartelle di lavoro di monitoraggio di Azure
 
 > [!NOTE]
@@ -119,21 +134,6 @@ La scheda "Visualizza metriche dettagliate" apre la cartella di lavoro pre-popol
 3. Dopo aver visualizzato tutte le informazioni dettagliate sulle metriche e i log, per pulire la soluzione Azure gateway Analytics dall'area di lavoro, è possibile eliminare la soluzione dalla pagina delle risorse della soluzione.
 
 [![Screenshot dell'opzione di eliminazione per applicazione Azure soluzione di analisi del gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
-
-### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nuove funzionalità con la cartella di lavoro di Network Insights di monitoraggio di Azure
-
-> [!NOTE]
-> Alla cartella di lavoro di Azure monitor Insights non sono associati costi aggiuntivi. L'area di lavoro Log Analytics continuerà a essere fatturata in base all'utilizzo.
-
-La cartella di lavoro di Network Insights consente di sfruttare le funzionalità più recenti di monitoraggio di Azure e Log Analytics tra cui:
-
-* Console centralizzata per il monitoraggio e la risoluzione dei problemi con i dati di [metrica](../insights/network-insights-overview.md#resource-health-and-metrics) e di log.
-
-* Area di disegno flessibile per supportare la creazione di [visualizzazioni](../platform/workbooks-overview.md#visualizations)personalizzate avanzate.
-
-* Possibilità di utilizzare e [condividere modelli di cartelle di lavoro](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) con community più ampia.
-
-Per ulteriori informazioni sulle funzionalità della nuova soluzione cartella di lavoro [, vedere cartelle di lavoro-Panoramica](../platform/workbooks-overview.md)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Soluzione di analisi del gruppo di sicurezza di rete di Azure in Monitoraggio di Azure
 

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b6ec9d7035194efc471fc06befad9822c8684a5d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685580"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740675"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 
@@ -220,6 +220,7 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+
 ## <a name="directly-access-datasets-in-your-script"></a>Accedere direttamente ai set di impostazioni nello script
 
 I set di impostazioni registrati sono accessibili sia localmente che in remoto nei cluster di calcolo, ad esempio il calcolo Azure Machine Learning. Per accedere al set di dati registrato tra gli esperimenti, usare il codice seguente per accedere all'area di lavoro e al set di dati registrato in base al nome. Per impostazione predefinita, il [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) metodo della `Dataset` classe restituisce la versione più recente del set di dati registrato con l'area di lavoro.
@@ -255,7 +256,34 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="notebook-examples"></a>Esempi di notebook
 
 + I [notebook del set di dati](https://aka.ms/dataset-tutorial) dimostrano ed espandono i concetti in questo articolo.
-+ Vedere How to [parametize DataSets nelle pipeline ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
++ Vedere How to [parametrizzare DataSets nelle pipeline ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+* **Inizializzazione del set di dati non riuscita: si è verificato un timeout durante l'attesa del punto di montaggio**: 
+  * Se non sono presenti regole del [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) in uscita e si usano `azureml-sdk>=1.12.0` , aggiornare `azureml-dataset-runtime` e le relative dipendenze come più recenti per la versione secondaria specifica o se si usa in un'esecuzione, ricreare l'ambiente in modo che sia possibile applicare la patch più recente con la correzione. 
+  * Se si usa `azureml-sdk<1.12.0` , eseguire l'aggiornamento alla versione più recente.
+  * Se sono presenti regole NSG in uscita, assicurarsi che sia presente una regola in uscita che consente tutto il traffico per il tag di servizio `AzureResourceMonitor` .
+
+### <a name="overloaded-azurefile-storage"></a>Archiviazione AzureFile di overload
+
+Se viene visualizzato un errore `Unable to upload project files to working directory in AzureFile because the storage is overloaded` , applicare le soluzioni alternative seguenti.
+
+Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasferimento dei dati, si consiglia di usare i BLOB in modo che la condivisione file sia disponibile per l'invio di esecuzioni. È inoltre possibile suddividere il carico di lavoro tra due aree di lavoro diverse.
+
+### <a name="passing-data-as-input"></a>Passaggio di dati come input
+
+*  **TypeError: FileNotFound: nessun file o directory** di questo tipo: questo errore si verifica se il percorso del file fornito non è quello in cui si trova il file. È necessario assicurarsi che il modo in cui si fa riferimento al file sia coerente con la posizione in cui è stato montato il set di dati nella destinazione di calcolo. Per garantire uno stato deterministico, è consigliabile usare il percorso astratto quando si monta un set di dati in una destinazione di calcolo. Nel codice seguente, ad esempio, il set di dati viene montato sotto la radice del file System della destinazione di calcolo `/tmp` . 
+    
+    ```python
+    # Note the leading / in '/tmp/dataset'
+    script_params = {
+        '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+    } 
+    ```
+
+    Se non si include la barra iniziale '/', sarà necessario anteporre la directory di lavoro ad esempio alla `/mnt/batch/.../tmp/dataset` destinazione di calcolo per indicare dove si desidera montare il set di dati.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

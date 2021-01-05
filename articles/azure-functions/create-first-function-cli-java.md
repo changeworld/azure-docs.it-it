@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175679"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707555"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Java in Azure dalla riga di comando
 
@@ -73,7 +73,7 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
     ---
 
     > [!IMPORTANT]
-    > + Usare `-DjavaVersion=11` se si vuole che le funzioni vengano eseguite in Java 11. Per altre informazioni, vedere [Versioni di Java](functions-reference-java.md#java-versions). 
+    > + Usare `-DjavaVersion=11` per eseguire le funzioni in Java 11. Per altre informazioni, vedere [Versioni di Java](functions-reference-java.md#java-versions). 
     > + Per completare questo articolo, è necessario impostare la variabile di ambiente `JAVA_HOME` sul percorso di installazione della versione corretta di JDK.
 
 1. Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione.   
@@ -146,7 +146,7 @@ L'archetipo genera anche uno unit test per la funzione. Quando si modifica la fu
     </pre>
     
     > [!NOTE]  
-    > Se HttpExample non viene visualizzato come illustrato di seguito, è probabile che l'host non sia stato avviato dalla cartella radice del progetto. In tal caso, premere **CTRL**+**C** per arrestare l'host, passare alla cartella radice del progetto ed eseguire di nuovo il comando precedente.
+    > Se HttpExample non viene visualizzato come illustrato sopra, è probabile che l'host non sia stato avviato dalla cartella radice del progetto. In tal caso, premere **CTRL**+**C** per arrestare l'host, passare alla cartella radice del progetto ed eseguire di nuovo il comando precedente.
 
 1. Copiare l'URL della funzione `HttpExample` da questo output in un browser e aggiungere la stringa di query `?name=<YOUR_NAME>`, rendendo l'URL completo come `http://localhost:7071/api/HttpExample?name=Functions`. Nel browser dovrebbe essere visualizzato un messaggio simile a `Hello Functions`:
 

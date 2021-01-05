@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd83fb3ef3225fc19c48bb4c5962d6559cf32f8
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903805"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708450"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code
 
@@ -35,7 +35,7 @@ Prima di tutto è necessario preparare i file di dati di input di esempio. Se si
 
 ## <a name="define-a-local-input"></a>Definire un input locale
 
-1. Fare clic ** suinput.js** nella cartella inputs nel progetto di analisi di flusso. Quindi selezionare **Aggiungi input locale** dalla riga superiore.
+1. Fare clic **suinput.js** nella cartella inputs nel progetto di analisi di flusso. Quindi selezionare **Aggiungi input locale** dalla riga superiore.
 
     ![Aggiungi input locale dal progetto](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
@@ -45,7 +45,7 @@ Prima di tutto è necessario preparare i file di dati di input di esempio. Se si
 
 2. Selezionare **input locale**.
 
-    ![Aggiungere input locale ASA in Visual Studio Code](./media/vscode-local-run/add-local-input.png)
+    ![Aggiungere l'input locale ASA in Visual Studio Code](./media/vscode-local-run/add-local-input.png)
 
 3. Selezionare **+ nuovo input locale**.
 
@@ -55,7 +55,7 @@ Prima di tutto è necessario preparare i file di dati di input di esempio. Se si
 
     ![Aggiungere un nuovo alias di input locale ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. NelLocalInput_Input.jsappena generato ** su** file immettere il percorso del file in cui si trova il file di dati locale.
+5. NelLocalInput_Input.jsappena generato **su** file immettere il percorso del file in cui si trova il file di dati locale.
 
     ![Immettere il percorso del file locale in Visual Studio](./media/vscode-local-run/local-file-path.png)
 

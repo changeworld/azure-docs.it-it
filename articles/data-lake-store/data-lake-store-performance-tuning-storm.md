@@ -1,17 +1,17 @@
 ---
 title: Ottimizzazione delle prestazioni-Storm con Azure Data Lake Storage Gen1
 description: Comprendere i fattori da tenere in considerazione quando si ottimizzano le prestazioni di una topologia di Storm di Azure, inclusa la risoluzione dei problemi comuni.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 95619c75d332ec1bf68af97fc3dddbc67b6706ed
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101648"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725038"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Storm in HDInsight e Azure Data Lake Storage Gen1
 
@@ -126,7 +126,7 @@ Se si raggiungono i limiti di larghezza di banda di Data Lake Storage Gen1, è p
 
 Per verificare la presenza di limitazioni, abilitare la registrazione di debug sul lato client:
 
-1. In **Ambari**  >  **Storm**  >  **config**  >  **Advanced Storm-Worker-log4j**impostare ** &lt; root level = "info" &gt; ** su ** &lt; root level = "debug" &gt; **. Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
+1. In **Ambari**  >  **Storm**  >  **config**  >  **Advanced Storm-Worker-log4j** impostare **&lt; root level = "info" &gt;** su **&lt; root level = "debug" &gt;**. Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
 2. Monitorare i log della topologia Storm sui nodi di lavoro (in /var/log/storm/worker-artifacts/&lt;NomeTopologia&gt;/&lt;porta&gt;/worker.log) per le eccezioni alle limitazioni di Data Lake Storage Gen1.
 
 ## <a name="next-steps"></a>Passaggi successivi

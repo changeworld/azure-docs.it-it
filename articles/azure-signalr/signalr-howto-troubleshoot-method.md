@@ -1,17 +1,17 @@
 ---
 title: Procedura di risoluzione dei problemi per il servizio Azure SignalR
 description: Informazioni su come risolvere i problemi relativi alla connettività e al recapito dei messaggi
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183958"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707657"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Come risolvere i problemi relativi alla connettività e al recapito dei messaggi
 
@@ -28,6 +28,8 @@ Prima di tutto, è necessario verificare dalla portale di Azure quale [ServiceMo
 * Per la `Classic` modalità, vedere la pagina relativa alla [risoluzione dei problemi in modalità classica](#classic_mode_tsg)
 
 <a name="default_mode_tsg"></a>
+
+[Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="default-mode-troubleshooting"></a>Risoluzione dei problemi in modalità predefinita
 
@@ -73,6 +75,7 @@ La *connessione al server* può essere eliminata a causa di un'instabilità dell
 
 Visualizzazione della traccia di rete sul lato server per individuare il codice di stato e i dettagli dell'errore perché la *connessione al server* viene eliminata o rifiutata dal *servizio* e cerca la causa radice nella [Guida alla risoluzione dei problemi](./signalr-howto-troubleshoot-guide.md).
 
+[Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
 
 ### <a name="how-to-add-logs"></a>Come aggiungere log
 
@@ -166,19 +169,25 @@ Controllare se sono stati registrati log degli errori o avvisi anomali.
 
 <a name="serverless_mode_tsg"></a>
 
+[Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="serverless-mode-troubleshooting"></a>Risoluzione dei problemi in modalità senza server
 
-Quando **ASRS** è in modalità senza *server* , solo **ASP.NET Core SignalR** supporta `Serverless` la modalità e **ASP.NET SignalR** non **NOT** supporta questa modalità.
+Quando **ASRS** è in modalità senza *server* , solo **ASP.NET Core SignalR** supporta `Serverless` la modalità e **ASP.NET SignalR** non  supporta questa modalità.
 
 Per diagnosticare i problemi di connettività in `Serverless` modalità, il modo più semplice consiste nel [visualizzare il traffico sul lato client](#view_traffic_client). È anche possibile abilitare i log [lato client](#add_logs_client) e i [log sul lato servizio](#add_logs_server) .
 
 <a name="classic_mode_tsg"></a>
+
+[Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="classic-mode-troubleshooting"></a>Risoluzione dei problemi in modalità classica
 
 `Classic` la modalità è obsoleta e non è consigliata per l'uso di. In questa modalità, il servizio Azure SignalR usa le *connessioni del server* connesso per determinare se il servizio corrente è in `default` modalità o in `serverless` modalità. Questo può causare problemi di connettività dei client intermedi perché, quando si verifica un calo improvviso di tutte le *connessioni al server* connesso, ad esempio a causa dell'instabilità della rete, Azure SignalR ritiene che sia ora impostato sulla `serverless` modalità e i client connessi durante questo periodo non verranno mai indirizzati al server applicazioni ospitato. Abilitare i [log sul lato servizio](#add_logs_server) e verificare se sono presenti client registrati come `ServerlessModeEntered` se fosse stato ospitato il server app, ma alcuni client non raggiungono mai il lato server dell'app. Se è presente, [interrompere le connessioni client](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) e consentire al riavvio dei client di aiutarlo.
 
 La risoluzione dei problemi relativi `classic` alla connettività in modalità e al recapito dei messaggi è simile alla [risoluzione dei problemi in modalità predefinita](#default_mode_tsg).
+
+[Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="service-health"></a>Service Health
 
@@ -188,13 +197,15 @@ La risoluzione dei problemi relativi `classic` alla connettività in modalità e
 
 * Codice di stato della risposta:
   * 200: integro.
-  * 503: il servizio non è integro. È possibile scegliere:
+  * 503: il servizio non è integro. È possibile:
     * Attendere alcuni minuti per il recupero automatico.
     * Verificare che l'indirizzo IP sia uguale all'indirizzo IP del portale.
     * Oppure riavviare l'istanza.
     * Se tutte le opzioni sopra riportate non funzionano, contattaci aggiungendo una nuova richiesta di supporto in portale di Azure.
 
 Altre informazioni sul [ripristino di emergenza](./signalr-concept-disaster-recovery.md).
+
+[Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

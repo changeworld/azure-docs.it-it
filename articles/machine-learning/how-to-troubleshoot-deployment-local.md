@@ -1,7 +1,7 @@
 ---
-title: Risoluzione dei problemi di distribuzione del servizio Web in locale
+title: Risoluzione dei problemi di distribuzione del modello locale
 titleSuffix: Azure Machine Learning
-description: Informazioni su come risolvere, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Azure Machine Learning Docker in locale.
+description: Provare una distribuzione del modello locale come primo passaggio per la risoluzione degli errori di distribuzione del modello.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 01a5f600acf9542c5adabcdf2523a42ca44233af
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680504"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740641"
 ---
-# <a name="troubleshoot-model-deployment-locally"></a>Risoluzione dei problemi di distribuzione del modello in locale
+# <a name="troubleshooting-with-a-local-model-deployment"></a>Risoluzione dei problemi con una distribuzione del modello locale
 
-Informazioni su come risolvere e risolvere, o aggirare, i comuni errori di distribuzione del servizio Web Docker Azure Machine Learning in locale.
+Provare una distribuzione del modello locale come primo passaggio per la risoluzione dei problemi di distribuzione in istanze di contenitore di Azure (ACI) o in Azure Kubernetes Service (AKS).  L'uso di un servizio Web locale rende più semplice individuare e correggere gli errori comuni di distribuzione del servizio Web Docker Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,8 +33,6 @@ Informazioni su come risolvere e risolvere, o aggirare, i comuni errori di distr
     Per verificare l'installazione Docker, usare il comando `docker run hello-world` da un terminale o da un prompt dei comandi. Per informazioni sull'installazione Docker o sulla risoluzione dei problemi relativi agli errori Docker, vedere la [Documentazione di Docker](https://docs.docker.com/).
 
 ## <a name="debug-locally"></a>Eseguire il debug in locale
-
-Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi.
 
 Per esplorare un esempio eseguibile, è possibile trovare un [notebook di distribuzione locale](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) di esempio nel repository  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) .
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018121"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724698"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitoraggio e avvisi per Azure Key Vault
 
@@ -40,7 +40,7 @@ Dopo aver iniziato a usare Key Vault per archiviare i segreti di produzione, è 
 
 **Saturazione** dell'insieme di credenziali: il numero di richieste al secondo che può essere utilizzato da un insieme di credenziali delle chiavi è basato sul tipo di operazione eseguita. Alcune operazioni dell'insieme di credenziali hanno una soglia di richieste al secondo inferiori. Questa metrica aggrega l'utilizzo totale dell'insieme di credenziali delle chiavi in tutti i tipi di operazione per trovare un valore percentuale che indica l'utilizzo corrente dell'insieme di credenziali delle chiavi. Per un elenco completo dei limiti del servizio Key Vault, vedere il documento seguente. [Limiti dei servizi Azure Key Vault ](service-limits.md)
 
-**Latenza API del servizio** : questa metrica Mostra la latenza media di una chiamata a Key Vault. Anche se l'insieme di credenziali delle chiavi può essere entro i limiti del servizio, un utilizzo elevato dell'insieme di credenziali delle chiavi può comportare una latenza che impedisce la riuscita delle applicazioni 
+**Latenza API del servizio** : questa metrica Mostra la latenza media delle chiamate a Key Vault, misurata nel servizio. Non include il tempo utilizzato dal client o dalla rete tra il client e il servizio.
 
 **Totale riscontri API** : questa metrica Mostra tutte le chiamate effettuate all'insieme di credenziali delle chiavi. Ciò consentirà di identificare le applicazioni che chiamano l'insieme di credenziali delle chiavi. 
 

@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305751"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725021"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parità di Azure Machine Learning del cloud sovrano
 
@@ -92,7 +92,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Etichettatura assistita ML (classificazione immagini e rilevamento oggetti)           | Anteprima pubblica       | YES                | YES         |
 | **ML responsabile** |   | | |
 | Spiegazione dell'interfaccia utente                                                       | Anteprima pubblica       | NO                 | NO          |
-| WhiteNoise Toolkit per la privacy differenziale                                    | OSS                  | NO                 | NO          |
+| SmartNoise Toolkit per la privacy differenziale                                    | OSS                  | NO                 | NO          |
 | Tag personalizzati in Azure Machine Learning per implementare i fogli dati              | GA                   | NO                 | NO          |
 | Integrazione con AzureML Equity                                               | Anteprima pubblica       | NO                 | NO          |
 | SDK per l'interpretazione                                                      | GA                   | YES                | YES         |
@@ -104,7 +104,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Inferenza** |   | | |
 | Inferenza batch                                                          | GA                   | YES                | YES         |
 | Data Box Edge con FPGA                                                    | Anteprima pubblica       | NO                 | NO          |
-| **Altro** |   | | |
+| **Altri** |   | | |
 | Set di dati aperti                                                              | Anteprima pubblica       | YES                | YES         |
 | ricerca cognitiva personalizzati                                                    | Anteprima pubblica       | YES                | YES         |
 | Molti modelli                                                                | Anteprima pubblica       | NO                 | NO          |
@@ -205,7 +205,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Etichettatura assistita ML (classificazione immagini e rilevamento oggetti)           | Anteprima pubblica   | YES       | N/D        |
 | **ML responsabile** |    | | |
 | Spiegazione dell'interfaccia utente                                                       | Anteprima pubblica   | NO        | N/D        |
-| WhiteNoise Toolkit per la privacy differenziale                                    | OSS              | NO        | N/D        |
+| SmartNoise Toolkit per la privacy differenziale                                    | OSS              | NO        | N/D        |
 | Tag personalizzati in Azure Machine Learning per implementare i fogli dati              | GA               | NO        | N/D        |
 | Integrazione con AzureML Equity                                               | Anteprima pubblica   | NO        | N/D        |
 | SDK per l'interpretazione                                                      | GA               | YES       | N/D        |
@@ -217,7 +217,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Inferenza** |   | | |
 | Inferenza batch                                                          | GA               | YES       | N/D        |
 | Data Box Edge con FPGA                                                    | Anteprima pubblica   | NO        | N/D        |
-| **Altro** |    | | |
+| **Altri** |    | | |
 | Set di dati aperti                                                              | Anteprima pubblica   | YES       | N/D        |
 | ricerca cognitiva personalizzati                                                    | Anteprima pubblica   | YES       | N/D        |
 | Molti modelli                                                                | Anteprima pubblica   | NO        | N/D        |

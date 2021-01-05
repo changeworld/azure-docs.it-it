@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447322"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739587"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creare e gestire aree di lavoro Azure Machine Learning 
 
@@ -32,7 +32,9 @@ Poiché le esigenze cambiano o i requisiti per l'aumento dell'automazione, è an
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
-## <a name="create-a-workspace"></a>Creare un'area di lavoro
+Per impostazione predefinita, la creazione di un'area di lavoro crea anche un Container Registry di Azure (ACR).  Poiché ACR attualmente non supporta i caratteri Unicode nei nomi dei gruppi di risorse, usare un gruppo di risorse che non contiene questi caratteri.
+
+## <a name="create-a-workspace"></a>Crea un'area di lavoro
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -132,13 +134,13 @@ In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autent
    Campo|Descrizione 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
-   Subscription |Selezionare la sottoscrizione di Azure da usare.
-   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
-   Region | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
+   Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
+   Gruppo di risorse | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
+   Area | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
    | Account di archiviazione | Account di archiviazione predefinito per l'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
    | Key Vault | Azure Key Vault utilizzata dall'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
    | Application Insights | Istanza di Application Insights per l'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
-   | Registro contenitori | Container Registry di Azure per l'area di lavoro. Per impostazione predefinita, un nuovo _non_ viene creato inizialmente per l'area di lavoro. Viene invece creato quando necessario durante la creazione di un'immagine Docker durante il training o la distribuzione. |
+   | Registro Container | Container Registry di Azure per l'area di lavoro. Per impostazione predefinita, un nuovo _non_ viene creato inizialmente per l'area di lavoro. Viene invece creato quando necessario durante la creazione di un'immagine Docker durante il training o la distribuzione. |
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configurare l'area di lavoro.":::
 
@@ -154,6 +156,8 @@ In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autent
  1. Per visualizzare la nuova area di lavoro, selezionare **Vai alla risorsa**.
  
 ---
+
+
 
 ### <a name="networking"></a>Rete  
 
@@ -197,7 +201,7 @@ Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azur
 
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. È consigliabile consentire al centro sicurezza di Azure di analizzare le risorse e seguire le indicazioni. Per altre informazioni, vedere  [azure container Registry Image Scan by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services Integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
-### <a name="advanced"></a>Avanzato
+### <a name="advanced"></a>Avanzate
 
 Per impostazione predefinita, i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
 
@@ -368,6 +372,16 @@ Nella [portale di Azure](https://portal.azure.com/)selezionare **Elimina**  nell
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+* **Browser supportati in Azure Machine Learning Studio**: si consiglia di usare il browser più aggiornato compatibile con il sistema operativo. Sono supportati i browser seguenti:
+  * Microsoft Edge (il nuovo Microsoft Edge, la versione più recente. Non legacy Microsoft Edge)
+  * Safari (versione più recente, solo Mac)
+  * Chrome (versione più recente)
+  * Firefox (versione più recente)
+
+* **Portale di Azure**: 
+  * Se si passa direttamente all'area di lavoro da un collegamento di condivisione dall'SDK o dalla portale di Azure, non è possibile visualizzare la pagina **Panoramica** standard che contiene informazioni sulla sottoscrizione nell'estensione. In questo scenario non è possibile passare a un'altra area di lavoro. Per visualizzare un'altra area di lavoro, passare direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
+  * Tutti gli asset (set di impostazioni, esperimenti, calcoli e così via) sono disponibili solo in [Azure Machine Learning Studio](https://ml.azure.com). *Non* sono disponibili dal portale di Azure.
 
 ### <a name="resource-provider-errors"></a>Errori del provider di risorse
 

@@ -2,13 +2,13 @@
 title: Distribuire più istanze di risorse
 description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager (modello ARM) per distribuire il tipo di risorsa molte volte.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 7a894ee6a31a43dd8da3d84d88276824c6bbc9f7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 12/21/2020
+ms.openlocfilehash: c9bcb22ec53129520fd9574d0eb58b1e5777531e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672832"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724494"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
 
@@ -97,7 +97,7 @@ Crea questi nomi:
 * storage1
 * storage2
 
-Per eseguire l'offset del valore di indice, è possibile passare un valore nella `copyIndex()` funzione. Il numero di iterazioni è ancora specificato nell'elemento Copy, ma il valore di `copyIndex` è offset in base al valore specificato. Quindi l'esempio seguente:
+Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione `copyIndex()`. Il numero di iterazioni è ancora specificato nell'elemento Copy, ma il valore di `copyIndex` è offset in base al valore specificato. Quindi l'esempio seguente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -189,43 +189,6 @@ Ad esempio, per distribuire in modo seriale gli account di archiviazione due all
 
 La `mode` proprietà accetta anche **Parallel**, che corrisponde al valore predefinito.
 
-## <a name="depend-on-resources-in-a-loop"></a>In base alle risorse in un ciclo
-
-L'elemento `dependsOn` consente di specificare che una risorsa sia distribuita dopo un'altra. Per distribuire una risorsa che dipende dalla raccolta di risorse in un ciclo, usare il nome del ciclo di copia nell'elemento dependsOn. Nell'esempio seguente viene illustrato come distribuire tre account di archiviazione prima di distribuire la macchina virtuale. La definizione completa della macchina virtuale non viene visualizzata. Si noti che il nome dell'elemento Copy è impostato su `storagecopy` e anche l'elemento dependsOn per la macchina virtuale è impostato su `storagecopy` .
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
-
 ## <a name="iteration-for-a-child-resource"></a>Iterazione di una risorsa figlio
 
 Non è possibile usare un ciclo di copia per una risorsa figlio. Per creare più istanze di una risorsa cosiddetta "annidata" all'interno di un'altra risorsa è invece necessario creare tale risorsa come una risorsa di livello superiore. La relazione con la risorsa padre si definisce con le proprietà type e name.
@@ -286,11 +249,10 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più ista
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |
 |[Copia risorsa di archiviazione con matrice](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Distribuisce più account di archiviazione. Il nome include un valore di una matrice. |
-|[Distribuzione VM con un numero variabile di dischi dati](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuisce più dischi dati con una macchina virtuale. |
-|[Più regole di sicurezza](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuisce più regole di sicurezza a un gruppo di sicurezza di rete. Costruisce le regole di sicurezza da un parametro. Per il parametro, vedere il [file di parametri NSG multipli](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per impostare le dipendenze dalle risorse create in un ciclo di copia, vedere [definire l'ordine per la distribuzione delle risorse nei modelli ARM](define-resource-dependency.md).
 * Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
 * Per un modulo Microsoft Learn che copre la copia delle risorse, vedere [gestire le distribuzioni cloud complesse usando le funzionalità avanzate del modello ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Per altri usi dell'elemento Copy, vedere:
