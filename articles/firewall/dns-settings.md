@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/04/2021
 ms.author: victorh
-ms.openlocfilehash: 197d48a2f5368111ec194a18f86aedf5ad78e1b2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 855c06b610fb8166f6f2dfcf37af34efb3713ffe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565620"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883223"
 ---
 # <a name="azure-firewall-dns-settings"></a>Impostazioni DNS del firewall di Azure
 
@@ -65,13 +65,16 @@ $azFw | Set-AzFirewall
 
 È possibile configurare il firewall di Azure in modo che funga da proxy DNS. Un proxy DNS è un intermediario per le richieste DNS dalle macchine virtuali client a un server DNS. Se si configura un server DNS personalizzato, abilitare il proxy DNS per evitare una mancata corrispondenza della risoluzione DNS e abilitare il filtro FQDN (nome di dominio completo) nelle regole di rete.
 
+:::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="D N S configurazione proxy utilizzando un server D N personalizzato.":::
+
+
 Se non si Abilita il proxy DNS, le richieste DNS dal client possono passare a un server DNS in un momento diverso o restituire una risposta diversa rispetto a quella del firewall. Il proxy DNS inserisce il firewall di Azure nel percorso delle richieste del client per evitare l'incoerenza.
 
 Quando il firewall di Azure è un proxy DNS, sono possibili due tipi di funzioni di memorizzazione nella cache:
 
-- **Cache positiva** : la risoluzione DNS è riuscita. Il firewall usa la durata (TTL, time to Live) del pacchetto o dell'oggetto. 
+- **Cache positiva**: la risoluzione DNS è riuscita. Il firewall usa la durata (TTL, time to Live) del pacchetto o dell'oggetto. 
 
-- **Cache negativa** : la risoluzione DNS non restituisce alcuna risposta o nessuna soluzione. Il firewall memorizza nella cache queste informazioni per un'ora.
+- **Cache negativa**: la risoluzione DNS non restituisce alcuna risposta o nessuna soluzione. Il firewall memorizza nella cache queste informazioni per un'ora.
 
 Il proxy DNS archivia tutti gli indirizzi IP risolti da FQDN nelle regole di rete. Come procedura consigliata, usare i nomi di dominio completi che vengono risolti in un unico indirizzo IP.  
 

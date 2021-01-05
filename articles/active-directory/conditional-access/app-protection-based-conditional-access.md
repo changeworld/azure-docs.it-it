@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266043"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881162"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con Accesso condizionale
 
@@ -51,17 +51,17 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organ
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**  >  **includere**selezionare **Office 365**.
+1. In **app Cloud o azioni**  >  **includere** selezionare **Office 365**.
 1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
    1. Includere **Android** e **iOS**.
-1. In **condizioni**selezionare **app client**.
+1. In **condizioni** selezionare **app client**.
    1. Impostare **Configura** su **Sì**.
    1. Selezionare **app per dispositivi mobili e client desktop** e deselezionare tutte le altre operazioni.
 1. In **Controlli di accesso** > **Concedi** selezionare le opzioni seguenti:
    - **Richiedi app client approvata**
-   - **Richiedi criteri di protezione delle app (anteprima)**
-   - **Richiedi tutti i controlli selezionati**
+   - **Richiedere criteri di protezione dell'app**
+   - **Richiedi uno dei controlli selezionati**
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -76,7 +76,7 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
    1. Selezionare **Operazione completata**.
 1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Office 365 Exchange Online**.
-1. In **condizioni**selezionare **app client**:
+1. In **condizioni** selezionare **app client**:
    1. Impostare **Configura** su **Sì**.
    1. Selezionare **client di Exchange ActiveSync** e deselezionare tutti gli altri elementi.
 1. In **Controlli di accesso** > **Concedi** selezionare **Concedi accesso**, **Richiedi criteri di protezione dell'app** e quindi **Seleziona**.
@@ -102,17 +102,17 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organ
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**  >  **includere**selezionare **Office 365**.
+1. In **app Cloud o azioni**  >  **includere** selezionare **Office 365**.
 1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
    1. Includere **Android** e **iOS**.
-1. In **condizioni**selezionare **app client**.
+1. In **condizioni** selezionare **app client**.
    1. Impostare **Configura** su **Sì**.
    1. Selezionare **browser** e deselezionare tutti gli altri elementi.
 1. In **Controlli di accesso** > **Concedi** selezionare le opzioni seguenti:
    - **Richiedi app client approvata**
-   - **Richiedi criteri di protezione delle app (anteprima)**
-   - **Richiedi tutti i controlli selezionati**
+   - **Richiedere criteri di protezione dell'app**
+   - **Richiedi uno dei controlli selezionati**
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -139,12 +139,12 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
 1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
    1. Includere **Android** e **iOS**.
-1. In **condizioni**selezionare **app client**.
+1. In **condizioni** selezionare **app client**.
    1. Impostare **Configura** su **Sì**.
    1. Selezionare **app per dispositivi mobili e client desktop** e deselezionare tutte le altre operazioni.
 1. In **Controlli di accesso** > **Concedi** selezionare le opzioni seguenti:
    - **Richiedi app client approvata**
-   - **Richiedi criteri di protezione delle app (anteprima)**
+   - **Richiedere criteri di protezione dell'app**
    - **Richiedi uno dei controlli selezionati**
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
@@ -158,7 +158,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
    1. Selezionare **Operazione completata**.
 1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Office 365 Exchange Online**.
-1. In **condizioni**selezionare **app client**:
+1. In **condizioni** selezionare **app client**:
    1. Impostare **Configura** su **Sì**.
    1. Selezionare **client di Exchange ActiveSync** e deselezionare tutti gli altri elementi.
 1. In **Controlli di accesso** > **Concedi** selezionare **Concedi accesso**, **Richiedi criteri di protezione dell'app** e quindi **Seleziona**.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979964"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881510"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -143,7 +143,7 @@ Prerequisiti:
 
 - PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps)
 
-Eseguire lo script seguente:
+Eseguire lo script riportato di seguito:
 
 ```PowerShell
 # Log in to your Azure subscription
@@ -169,7 +169,7 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Problemi durante la registrazione di Microsoft. modificare il provider di risorse di analisi dalla scheda cronologia modifiche
 Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'integrazione con l'analisi delle modifiche dell'applicazione, si noterà che il provider di risorse **Microsoft. ChangeAnalysis** viene registrato automaticamente. In rari casi potrebbe non riuscire per i motivi seguenti:
@@ -183,7 +183,6 @@ Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'inte
     ```
 
 - **Non è stato possibile registrare il provider di risorse Microsoft. ChangeAnalysis**. Questo messaggio indica che si è verificato un errore immediatamente perché l'interfaccia utente ha inviato una richiesta di registrazione del provider di risorse e non è correlata al problema di autorizzazione. Probabilmente potrebbe trattarsi di un problema temporaneo di connettività Internet. Provare ad aggiornare la pagina e a controllare la connessione a Internet. Se l'errore è permanente, contattare changeanalysishelp@microsoft.com
-- Non è **stato possibile eseguire una query sul provider di risorse Microsoft. ChangeAnalysis** con messaggio *la sottoscrizione di Azure Lighthouse non è supportata. le modifiche sono disponibili solo nel tenant principale della sottoscrizione*. Attualmente esiste una limitazione per la registrazione del provider di risorse di analisi delle modifiche tramite la sottoscrizione di Azure Lighthouse per gli utenti che non si trova nel tenant Home. Questa limitazione verrà risolta nel prossimo futuro. Se si tratta di un problema di blocco, esiste una soluzione alternativa che prevede la creazione di un'entità servizio e l'assegnazione esplicita del ruolo per consentire l'accesso.  Per ulteriori informazioni, contattare il contatto changeanalysishelp@microsoft.com .
 
 - **Questa operazione richiede più tempo del previsto**. Questo messaggio indica che la registrazione richiede più di 2 minuti. Si tratta di un'operazione insolita, ma non implica necessariamente un errore. È possibile passare alle **sottoscrizioni | Provider di risorse** per verificare lo stato di registrazione del provider di risorse **Microsoft. ChangeAnalysis** . È possibile provare a usare l'interfaccia utente per annullare la registrazione, ripetere la registrazione o aggiornare per verificare se è utile. Se il problema persiste, contattare il changeanalysishelp@microsoft.com supporto tecnico.
     ![Risoluzione dei problemi di registrazione RP troppo lungo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
@@ -191,6 +190,10 @@ Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'inte
 ![Screenshot dello strumento diagnostica e Risolvi i problemi per una macchina virtuale con strumenti di risoluzione dei problemi selezionati.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![Screenshot del riquadro per lo strumento analizza la risoluzione dei problemi delle modifiche recenti per una macchina virtuale.](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>La sottoscrizione di Azure Lighthouse non è supportata
+
+- Non è **stato possibile eseguire una query sul provider di risorse Microsoft. ChangeAnalysis** con messaggio *la sottoscrizione di Azure Lighthouse non è supportata. le modifiche sono disponibili solo nel tenant principale della sottoscrizione*. Attualmente esiste una limitazione per la registrazione del provider di risorse di analisi delle modifiche tramite la sottoscrizione di Azure Lighthouse per gli utenti che non si trova nel tenant Home. Questa limitazione verrà risolta nel prossimo futuro. Se si tratta di un problema di blocco, esiste una soluzione alternativa che prevede la creazione di un'entità servizio e l'assegnazione esplicita del ruolo per consentire l'accesso.  Per ulteriori informazioni, contattare il contatto changeanalysishelp@microsoft.com .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

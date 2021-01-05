@@ -3,12 +3,12 @@ title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34aaaa60ed9d757cc1a63ffaebb2225900cff61f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3023991c76d94dc8aa87cfe950c18ab5d6a07ba9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966684"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883062"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -123,7 +123,7 @@ Di seguito è riportato l'elenco degli operatori tabulari di KQL supportati da R
 |KQL |Query di esempio di Resource Graph |Note |
 |---|---|---|
 |[count](/azure/kusto/query/countoperator) |[Contare gli insiemi di credenziali delle chiavi](../samples/starter.md#count-keyvaults) | |
-|[distinct](/azure/kusto/query/distinctoperator) |[Mostrare valori distinti per un alias specifico](../samples/starter.md#distinct-alias-values) | |
+|[distinct](/azure/kusto/query/distinctoperator) |[Mostrare le risorse che contengono archivi](../samples/starter.md#show-storage) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Insieme di credenziali delle chiavi con il nome della sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query. Strategie di join personalizzate, ad esempio il join di trasmissione, non sono consentite. Per informazioni sulle tabelle che è possibile usare `join` , vedere [tabelle di grafici delle risorse](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di `take` . Non funziona con [Skip](./work-with-data.md#skipping-records). |

@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 814158ad68e63760c1f2a1bce3eeff812de3c13e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938733"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882365"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrare i servizi di Azure con reti virtuali per l'isolamento rete
 
 L'integrazione della rete virtuale (VNet) per un servizio di Azure consente di bloccare l'accesso al servizio solo all'infrastruttura di rete virtuale. L'infrastruttura di VNet include anche reti virtuali con peering e reti locali.
 
 L'integrazione con VNet offre ai servizi di Azure i vantaggi dell'isolamento rete e può essere eseguita da uno o più dei metodi seguenti:
-- [Distribuzione di istanze dedicate del servizio in una rete virtuale](virtual-network-service-endpoints-overview.md). I servizi sono accessibili privatamente all'interno della rete virtuale e da reti locali.
+- [Distribuzione di istanze dedicate del servizio in una rete virtuale](virtual-network-for-azure-services.md). I servizi sono accessibili privatamente all'interno della rete virtuale e da reti locali.
 - Uso di un [endpoint privato](../private-link/private-endpoint-overview.md) che si connette privatamente e in modo sicuro a un servizio basato sul [collegamento privato di Azure](../private-link/private-link-overview.md). L'endpoint privato usa un indirizzo IP privato della VNet, portando il servizio nella rete virtuale.
 - Accesso al servizio mediante endpoint pubblici mediante l'estensione di una rete virtuale al servizio tramite gli [endpoint di servizio](virtual-network-service-endpoints-overview.md). Gli endpoint di servizio consentono di proteggere le risorse del servizio nella rete virtuale.
 - Uso dei [tag di servizio](service-tags-overview.md) per consentire o negare il traffico alle risorse di Azure da e verso gli endpoint IP pubblici.

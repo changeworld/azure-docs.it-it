@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297196"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882875"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
 In Servizi multimediali di Microsoft Azure, un [endpoint di streaming](/rest/api/media/streamingendpoints) rappresenta un servizio di creazione e creazione di pacchetti dinamici (just-in-Time) in grado di fornire contenuti live e on demand direttamente a un'app per giocatori client usando uno dei protocolli di streaming media comuni (HLS o Dash). Inoltre, l' **endpoint di streaming** fornisce la crittografia dinamica (just-in-Time) a DRM leader del settore. 
 
-Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. Non è possibile eliminare l'endpoint di streaming **predefinito** . È possibile creare altri endpoint di streaming con l'account (vedere [quote e limiti](limits-quotas-constraints.md)).
+Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. È possibile creare altri endpoint di streaming con l'account (vedere [quote e limiti](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > Per avviare lo streaming di video, è necessario avviare l **'endpoint di streaming** da cui si vuole trasmettere il video.
@@ -51,7 +51,7 @@ Il limite massimo di unità di streaming è in genere 10. Contattaci [qui](https
 
 La tabella seguente descrive i tipi:
 
-|Type|Unità di scala|Descrizione|
+|Tipo|Unità di scala|Descrizione|
 |--------|--------|--------|  
 |**Standard**|0|L'endpoint di streaming predefinito è un tipo **standard** , che può essere modificato nel tipo Premium regolando `scaleUnits` .|
 |**Premium**|>0|**Premium** Gli endpoint di streaming sono adatti per carichi di lavoro avanzati e offrono una capacità di larghezza di banda dedicata e scalabile. Si passa a un tipo **Premium** regolando `scaleUnits` (unità di streaming). Il valore `scaleUnits` rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Quando si usa il tipo **Premium** , ogni unità abilitata fornisce ulteriore capacità di larghezza di banda per l'app. |
@@ -67,7 +67,7 @@ Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
-Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
+Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo

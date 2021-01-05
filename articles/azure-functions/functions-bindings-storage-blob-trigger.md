@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3213df378bc3b8403ebd11f899d722106de67a65
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094846"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882025"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Trigger di archiviazione BLOB di Azure per funzioni di Azure
 
@@ -114,6 +114,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Questa funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `myblob` contenitore.
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
@@ -146,6 +164,34 @@ module.exports = function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Nell'esempio seguente viene illustrato come creare una funzione che viene eseguita quando un file viene aggiunto al `source` contenitore di archiviazione BLOB.
+
+Il file di configurazione della funzione (_function.jsin_) include un'associazione con la classe `type` di `blobTrigger` e `direction` impostata su `in` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
+}
+```
+
+Ecco il codice associato per il file di _run.ps1_ .
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -183,24 +229,6 @@ import azure.functions as func
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Questa funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `myblob` contenitore.
-
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
 ```
 
 ---
@@ -267,17 +295,21 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 Gli attributi non sono supportati da Script C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Gli attributi non sono supportati da Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
 ---
 
@@ -305,17 +337,21 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Accedere ai dati BLOB usando `context.bindings.<NAME>` Where `<NAME>` corrisponde al valore definito in *function.json*.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Accedere ai dati BLOB tramite un parametro che corrisponda al nome designato dal parametro Name del binding nel _function.jssu_ file.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Accedere ai dati BLOB tramite il parametro tipizzato come [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
-
-# <a name="java"></a>[Java](#tab/java)
-
-L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
+Accedere ai dati BLOB tramite il parametro tipizzato come [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
 ---
 
@@ -374,6 +410,10 @@ Se il BLOB è denominato *{20140101}-soundfile.mp3*, il `name` valore della vari
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+I metadati non sono disponibili in Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
@@ -383,13 +423,13 @@ module.exports = function (context, myBlob) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+I metadati sono disponibili tramite il `$TriggerMetadata` parametro.
+
 # <a name="python"></a>[Python](#tab/python)
 
 I metadati non sono disponibili in Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-I metadati non sono disponibili in Java.
 
 ---
 
@@ -399,11 +439,11 @@ Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB ve
 
 Funzioni di Azure archivia le conferme di BLOB in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure per l'app per le funzioni, specificato dall'impostazione app `AzureWebJobsStorage`. Una conferma di BLOB contiene le seguenti informazioni:
 
-* Funzione attivata ("nome dell'app per le *&lt; funzioni>*. Funzioni. *&lt; nome della funzione>*", ad esempio:" MyFunctionApp. Functions. CopyBlob ")
+* Funzione attivata ( `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` , ad esempio: `MyFunctionApp.Functions.CopyBlob` )
 * Il nome del contenitore
-* Il tipo di BLOB ("BlockBlob" o "PageBlob")
+* Tipo di BLOB ( `BlockBlob` o `PageBlob` )
 * Il nome del BLOB
-* Il valore ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
+* ETag (identificatore di versione del BLOB, ad esempio: `0x8D1DC6E70A277EF` )
 
 Per forzare la rielaborazione di un BLOB è possibile eliminare manualmente la conferma del BLOB dal contenitore *azure-webjobs-hosts*. Mentre la rielaborazione potrebbe non essere immediatamente eseguita, è garantita in un momento successivo. Per la rielaborazione immediata, il BLOB *ScanInfo* in *Azure-webjobs-hosts/blobscaninfo* può essere aggiornato. Tutti i BLOB con il timestamp dell'Ultima modifica dopo la `LatestScan` proprietà verranno analizzati nuovamente.
 
@@ -413,11 +453,11 @@ Se una funzione di trigger del BLOB ha esito negativo per un determinato BLOB, p
 
 Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a una coda di archiviazione denominata *webjobs-blobtrigger-poison*. Il numero massimo di tentativi è configurabile. La stessa impostazione MaxDequeueCount viene usata per la gestione dei BLOB non elaborabili e per la gestione dei messaggi della coda non elaborabile. Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato nome dell'app per le *&lt; funzioni>*. Funzioni. *&lt; nome funzione>*)
-* BlobType ("BlockBlob" o "PageBlob")
+* FunctionId (nel formato `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` )
+* BlobType ( `BlockBlob` o `PageBlob` )
 * ContainerName
 * BlobName
-* ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
+* ETag (identificatore di versione del BLOB, ad esempio: `0x8D1DC6E70A277EF` )
 
 ## <a name="concurrency-and-memory-usage"></a>Concorrenza e utilizzo della memoria
 

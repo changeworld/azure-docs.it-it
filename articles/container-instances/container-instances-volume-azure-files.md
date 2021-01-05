@@ -4,12 +4,12 @@ description: Informazioni su come montare un volume di File di Azure per rendere
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746869"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881804"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di Azure Container
 
@@ -20,6 +20,9 @@ Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il c
 >
 > Il montaggio di una condivisione di File di Azure in un'istanza di contenitore è simile a quello di un [montaggio di binding](https://docs.docker.com/storage/bind-mounts/)docker. Tenere presente che se si monta una condivisione in una directory del contenitore in cui sono presenti file o directory, questi file o directory sono nascosti dal montaggio e non sono accessibili durante l'esecuzione del contenitore.
 >
+
+> [!IMPORTANT]
+> Se si distribuiscono gruppi di contenitori in una rete virtuale di Azure, è necessario aggiungere un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) all'account di archiviazione di Azure.
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 
@@ -81,7 +84,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-Il `--dns-name-label` valore deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Aggiornare il valore nel comando precedente se viene visualizzato un messaggio di errore relativo all' **etichetta del nome DNS** quando si esegue il comando.
+Il `--dns-name-label` valore deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Aggiornare il valore nel comando precedente se viene visualizzato un messaggio di errore relativo all'**etichetta del nome DNS** quando si esegue il comando.
 
 ## <a name="manage-files-in-mounted-volume"></a>Gestire i file nel volume montato
 
@@ -235,7 +238,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 Per montare più volumi in un'istanza di contenitore, è necessario eseguire la distribuzione usando un [modello di Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), un file YAML o un altro metodo programmatico. Per usare un modello o un file YAML, fornire i dettagli della condivisione e definire i volumi popolando la `volumes` matrice nella `properties` sezione del file. 
 
-Se, ad esempio, sono state create due condivisioni di File di Azure denominate *Share1* e *Share2* nell'account di archiviazione *myStorageAccount* , la `volumes` matrice in un modello di gestione risorse apparirà simile alla seguente:
+Se, ad esempio, sono state create due condivisioni di File di Azure denominate *Share1* e *Share2* nell'account di archiviazione *myStorageAccount*, la `volumes` matrice in un modello di gestione risorse apparirà simile alla seguente:
 
 ```JSON
 "volumes": [{
@@ -256,7 +259,7 @@ Se, ad esempio, sono state create due condivisioni di File di Azure denominate *
 }]
 ```
 
-Successivamente, per ogni contenitore del relativo gruppo in cui si desidera montare i volumi, inserire la matrice `volumeMounts` nella sezione `properties` della definizione del contenitore. Ad esempio, in questo modo vengono montati i due volumi, *myvolume1* e *myvolume2* , definiti in precedenza:
+Successivamente, per ogni contenitore del relativo gruppo in cui si desidera montare i volumi, inserire la matrice `volumeMounts` nella sezione `properties` della definizione del contenitore. Ad esempio, in questo modo vengono montati i due volumi, *myvolume1* e *myvolume2*, definiti in precedenza:
 
 ```JSON
 "volumeMounts": [{

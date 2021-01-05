@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561937"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882960"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc abilitata per il cluster Kubernetes sulla GPU Pro Azure Stack Edge
 
@@ -27,13 +27,15 @@ La distribuzione viene eseguita usando GitOps nel cluster Kubernetes con Arc abi
 
 Questa procedura è destinata agli utenti che hanno esaminato i [carichi di lavoro Kubernetes sul dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e hanno familiarità con i concetti di [Azure Arc Enabled Kubernetes (anteprima)](../azure-arc/kubernetes/overview.md).
 
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine slave, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter distribuire l'applicazione senza stato, verificare di aver completato i prerequisiti seguenti nel dispositivo e il client che si userà per accedere al dispositivo:
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine slave, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine slave, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 ### <a name="for-device"></a>Per il dispositivo
 
@@ -108,7 +110,6 @@ Seguire questa procedura per configurare la risorsa di Azure Arc per distribuire
 1. La distribuzione richiede alcuni minuti. Al termine della distribuzione, lo **stato dell'operatore** indica **installato**.
 
     ![Screenshot mostra il cluster Kubernetes abilitato per Azure Arc in uno stato installato.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

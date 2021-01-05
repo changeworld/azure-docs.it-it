@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032559"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883351"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -41,7 +41,7 @@ HDInsight usa ora macchine virtuali di Azure per eseguire il provisioning del cl
 
 ## <a name="deprecation"></a>Deprecazione
 ### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Deprecazione del cluster di servizi HDInsight 3,6 ML
-Il tipo di cluster di servizi ML di HDInsight 3,6 sarà la fine del supporto entro il 31 2020 dicembre. I clienti non creeranno nuovi cluster di 3,6 ML Services dopo il 31 2020 dicembre. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Verificare la scadenza del supporto per le versioni di HDInsight e i tipi di cluster [qui](./hdinsight-component-versioning.md#available-versions).
+Il tipo di cluster di servizi ML di HDInsight 3,6 sarà la fine del supporto entro il 31 2020 dicembre. I clienti non saranno in grado di creare nuovi cluster di 3,6 ML Services dopo il 31 2020 dicembre. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Verificare la scadenza del supporto per le versioni di HDInsight e i tipi di cluster [qui](./hdinsight-component-versioning.md#available-versions).
 
 ### <a name="disabled-vm-sizes"></a>Dimensioni VM disabilitate
 A partire dal 16 2020 novembre, HDInsight bloccherà i nuovi clienti creando cluster con standand_A8, standand_A9, standand_A10 e standand_A11 le dimensioni delle macchine virtuali. I clienti esistenti che hanno usato queste dimensioni di VM negli ultimi tre mesi non saranno interessati. A partire dal 9 2021 gennaio, HDInsight bloccherà tutti i clienti che creano cluster con standand_A8, standand_A9, standand_A10 e standand_A11 le dimensioni delle macchine virtuali. I cluster esistenti vengono eseguiti così come sono. Provare a migrare a HDInsight 4,0 per evitare potenziali interruzioni del sistema o del supporto.
@@ -53,8 +53,14 @@ HDInsight ha aggiunto gruppi di sicurezza di rete (gruppi) e il controllo delle 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 Nelle versioni future verranno apportate le modifiche seguenti.
 
+### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>Le dimensioni predefinite della macchina virtuale del cluster verranno modificate in EV3 Family
+A partire dalla versione successiva (intorno alla fine di gennaio), le dimensioni predefinite delle macchine virtuali del cluster verranno modificate dalla famiglia D alla famiglia EV3. Questa modifica si applica ai nodi head e ai nodi del ruolo di lavoro. Per evitare questa modifica, specificare le dimensioni delle macchine virtuali che si vuole usare nel modello ARM.
+
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>La versione predefinita del cluster verrà modificata in 4,0
 A partire dal 2021 febbraio, la versione predefinita del cluster HDInsight verrà modificata da 3,6 a 4,0. Per ulteriori informazioni sulle versioni disponibili, vedere [versioni disponibili](./hdinsight-component-versioning.md#available-versions). Altre informazioni sulle novità di [HDInsight 4,0](./hdinsight-version-release.md)
+
+### <a name="os-version-upgrade"></a>Aggiornamento versione sistema operativo
+HDInsight sta aggiornando la versione del sistema operativo da 16,04 a 18,04. L'aggiornamento viene completato prima del 2021 aprile.
 
 ### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3,6-fine del supporto del 30 2021 giugno
 HDInsight 3,6 sarà la fine del supporto. A partire dal 30 2021 giugno, i clienti non possono creare nuovi cluster HDInsight 3,6. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Provare a migrare a HDInsight 4,0 per evitare potenziali interruzioni del sistema o del supporto.

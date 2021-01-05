@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 15a878eb863b71a4519e75def2598f013152dfb7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917172"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881634"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Come usare Azure.Search.Documents in un'applicazione .NET C#
 
@@ -31,7 +31,7 @@ Come per le versioni precedenti, è possibile usare questa libreria per:
 + Caricare e gestire i documenti di ricerca in un indice
 + Eseguire query, tutto senza dover gestire i dettagli di HTTP e JSON
 
-La libreria viene distribuita come una singola [Azure.Search.Docpacchetto NuGet ument](https://www.nuget.org/packages/Azure.Search.Documents/), che include tutte le API usate per l'accesso a livello di codice a un servizio di ricerca.
+La libreria viene distribuita come una singola [Azure.Search.Docpacchetto NuGet uments](https://www.nuget.org/packages/Azure.Search.Documents/), che include tutte le API usate per l'accesso a livello di codice a un servizio di ricerca.
 
 La libreria client definisce classi come `SearchIndex`, `SearchField`, e `SearchDocument`, nonché operazioni quali `SearchIndexClient.CreateIndex` e `SearchClient.Search` sulle classi `SearchIndexClient` e `SearchClient`. Le classi sono organizzate negli spazi dei nomi seguenti:
 
@@ -56,7 +56,7 @@ Se si usa la versione precedente di .NET SDK e si vuole eseguire l'aggiornamento
 
 + Scaricare il [pacchetto diAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents) usando **strumenti**  >  **Gestione pacchetti NuGet**  >  **Gestisci pacchetti NuGet per la soluzione** in Visual Studio. Cercare il nome del pacchetto `Azure.Search.Documents` .
 
-Azure SDK per .NET è conforme a [.NET Standard 2,0](/dotnet/standard/net-standard#net-implementation-support), ovvero .NET Framework 4.6.1 e .net core 2,0 come requisiti minimi.
+Azure SDK per .NET è conforme a [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), il che significa che .NET Framework 4.6.1 e .NET Core 2.0 sono i requisiti minimi.
 
 ## <a name="example-application"></a>Applicazione di esempio
 

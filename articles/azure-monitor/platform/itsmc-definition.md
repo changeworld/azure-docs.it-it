@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 1f7a493c071e86114afd7d4a9e08e204bbab509d
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 20c59e5ecc24dfe5c9eadb05899bf37d39ce09e7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809480"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882284"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -129,7 +129,22 @@ Utilizzare la seguente procedura per creare i gruppi di azioni:
 
 9. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione**, ogni elemento di configurazione disporrà di un proprio elemento di lavoro. Significa che sarà presente un elemento di lavoro per ogni elemento di configurazione.
 
-    * In caso di selezione nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso": se si deseleziona la casella di controllo **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro. Per ogni elemento di configurazione possono essere presenti più avvisi.
+    * Se si seleziona nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso": 
+        * Se si seleziona la casella **di controllo Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione.
+
+            Ad esempio:
+            1) Avviso 1 con 3 elementi di configurazione: A, B, C creerà 3 elementi di lavoro.
+            2) Avviso 2 con 1 elemento di configurazione: D creerà 1 elemento di lavoro.
+
+                **Alla fine di questo flusso saranno presenti 4 avvisi**
+        * Se si deseleziona la casella **di controllo Crea elementi di lavoro singoli per ogni elemento di configurazione** , saranno presenti avvisi che non creeranno un nuovo elemento di lavoro. gli elementi di lavoro verranno uniti in base alla regola di avviso.
+
+            Ad esempio:
+            1) Avviso 1 con 3 elementi di configurazione: A, B, C creerà 1 elemento di lavoro.
+            2) Avviso 2 per la stessa regola di avviso della fase 1 con 1 elemento di configurazione: D verrà unito all'elemento di lavoro della fase 1.
+            3) Avviso 3 per una regola di avviso diversa con 1 elemento di configurazione: E creerà 1 elemento di lavoro.
+
+                **Alla fine di questo flusso saranno presenti 2 avvisi**
 
        ![Screenshot che mostra la finestra evento imprevisto ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 

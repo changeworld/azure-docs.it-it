@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755974"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881787"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -138,9 +138,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+Se la risorsa ha proprietà obbligatorie, queste devono essere restituite anche da `Get-TargetResource` in parallelo con la `reasons` classe. Se `reasons` non è incluso, il servizio include un comportamento "catch-all" che confronta i valori di input `Get-TargetResource` e i valori restituiti da `Get-TargetResource` e fornisce un confronto dettagliato come `reasons` .
+
 ### <a name="configuration-requirements"></a>Requisiti di configurazione
 
 Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione Guest nel modello di Azure Resource Manager (modello ARM) devono essere uguali.
+
+### <a name="policy-requirements"></a>Requisiti dei criteri
+
+La sezione Definizione dei criteri `metadata` deve includere due proprietà per il servizio di configurazione Guest per automatizzare il provisioning e la creazione di report delle assegnazioni di configurazione Guest. La `category` proprietà deve essere impostata su "Guest Configuration" e una sezione denominata `Guest Configuration` deve contenere informazioni sull'assegnazione della configurazione Guest. Il `New-GuestConfigurationPolicy` cmdlet crea automaticamente questo testo.
+Vedere le istruzioni dettagliate in questa pagina.
+
+Nell'esempio seguente viene illustrata la `metadata` sezione.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Scaffolding di un progetto di Configurazione guest
 

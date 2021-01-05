@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 340455450cd6a18adfd8d0843fee423f82f10a45
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 153ffd699b22a6379758bf66b896a2b37a19fdf3
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858400"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883283"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services in File di Azure
 
@@ -22,7 +22,8 @@ ms.locfileid: "97858400"
 Se non si ha familiarità con le condivisioni file di Azure, è consigliabile leggere la [Guida alla pianificazione](storage-files-planning.md) prima di leggere la serie di articoli riportata di seguito.
 
 > [!NOTE]
-> File di Azure supporta l'autenticazione Kerberos con Azure AD DS con crittografia RC4-HMAC e AES 256. File di Azure supporta l'autenticazione per Azure AD DS con sincronizzazione completa con Azure AD. Se è stata abilitata la sincronizzazione con ambito in Azure AD DS che sincronizzano solo un set limitato di identità da Azure AD, non è supportata l'autenticazione e l'autorizzazione.
+> File di Azure supporta l'autenticazione Kerberos con Azure AD DS solo con RC4-HMAC. La crittografia Kerberos AES non è ancora supportata.
+> File di Azure supporta l'autenticazione per Azure AD DS con sincronizzazione completa con Azure AD. Se è stata abilitata la sincronizzazione con ambito in Azure AD DS che sincronizzano solo un set limitato di identità da Azure AD, non è supportata l'autenticazione e l'autorizzazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

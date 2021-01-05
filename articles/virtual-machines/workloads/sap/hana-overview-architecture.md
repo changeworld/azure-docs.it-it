@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0144c57549e374404d3dde0fe997ba41adc8606b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967585"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880988"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
 
@@ -35,12 +35,14 @@ L'isolamento dei clienti nel modulo dell'infrastruttura viene realizzato in base
 
 Queste unità server bare metal sono supportate solo per l'esecuzione di SAP HANA. Il livello applicazione SAP o il livello middleware dei carichi di lavoro viene eseguito nelle macchine virtuali. I moduli dell'infrastruttura che eseguono le unità SAP HANA in Azure (istanze Large) sono connessi ai backbone dei servizi di rete di Azure. In questo modo, viene fornita connettività a bassa latenza tra le unità SAP HANA in Azure (istanze Large) e le macchine virtuali.
 
-A partire dal 2019 luglio, viene differenziata tra due revisioni diverse dei timbri delle istanze large di HANA e il percorso delle distribuzioni:
+A partire dal 2021 gennaio, viene differenziata tra due revisioni diverse dei timbri delle istanze large di HANA e il percorso delle distribuzioni:
 
 - "Revisione 3" (Rev 3): sono i timbri che sono stati resi disponibili per il cliente per la distribuzione prima del 2019 luglio
 - "Revisione 4" (Rev 4): nuova progettazione di timbri distribuita in prossimità degli host di macchine virtuali di Azure e che finora vengono rilasciate nelle aree di Azure di:
     -  Stati Uniti occidentali 2 
-    -  Stati Uniti orientali 
+    -  Stati Uniti orientali
+    -  East Uniti (tra due zone di disponibilità)
+    -  Stati Uniti centro-meridionali (tra due zone di disponibilità)
     -  Europa occidentale
     -  Europa settentrionale
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a65b83195bff48934668ff029f925e13884bad
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743701"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881243"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure AD Multi-Factor Authentication
 
@@ -108,7 +108,7 @@ Per configurare o rivedere l'opzione Mantieni l' *accesso* , completare i passag
 1. Selezionare informazioni personalizzate distintive dell' **azienda**, quindi, per ogni impostazione locale, scegliere **Mostra opzione per mantenere l'accesso**.
 1. Scegliere *Sì*, quindi fare clic su **Salva**.
 
-Per memorizzare le impostazioni di autenticazione a più fattori, attenersi alla procedura seguente:
+Per memorizzare le impostazioni di autenticazione a più fattori nei dispositivi attendibili, seguire questa procedura:
 
 1. Nel portale di Azure AD cercare e selezionare *Azure Active Directory*.
 1. Selezionare **sicurezza** **, quindi autenticazione** a più fattori.

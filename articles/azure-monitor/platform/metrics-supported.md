@@ -4,15 +4,15 @@ description: Elenco delle metriche disponibili per ogni tipo di risorsa con il m
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/09/2020
+ms.date: 01/04/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 54ef00d32cea26a41581fc0bbd89d2be34919c02
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929107"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883028"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -116,7 +116,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |BackendDuration|Sì|Duration of Backend Requests (Durata delle richieste back-end)|Millisecondi|Media|Durata delle richieste back-end in millisecondi|Location, Hostname|
 |Capacità|Sì|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
-|Duration|Sì|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
+|Durata|Sì|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
 |EventHubDroppedEvents|Sì|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Location|
 |EventHubRejectedEvents|Sì|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Location|
 |EventHubSuccessfulEvents|Sì|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Location|
@@ -618,8 +618,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
+|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti utilizzati dalla macchina virtuale. Disponibile solo nelle [macchine virtuali di serie B](../../virtual-machines/sizes-b-series-burstable.md). Vedere |Nessuna dimensione|
+|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il numero di picchi. Disponibile solo nelle [macchine virtuali di serie B](../../virtual-machines/sizes-b-series-burstable.md).|Nessuna dimensione|
 |Percentuale di utilizzo della larghezza di banda del disco dati|Sì|Percentuale di utilizzo della larghezza di banda del disco dati|Percentuale|Media|Percentuale di larghezza di banda del disco dati utilizzata al minuto|LUN|
 |Percentuale di IOPS del disco dati utilizzata|Sì|Percentuale di IOPS del disco dati utilizzata|Percentuale|Media|Percentuale di I/o su disco dati utilizzati al minuto|LUN|
 |Profondità coda per un disco dati|Sì|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|LUN|
@@ -671,8 +671,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
+|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti utilizzati dalla macchina virtuale. Disponibile solo nelle [macchine virtuali di serie B](../../virtual-machines/sizes-b-series-burstable.md).|Nessuna dimensione|
+|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il numero di picchi. Disponibile solo nelle [macchine virtuali di serie B](../../virtual-machines/sizes-b-series-burstable.md).|Nessuna dimensione|
 |Profondità coda per un disco dati|Sì|Profondità coda per un disco dati (anteprima)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|LUN, VMName|
 |Byte letti da disco/sec per un disco dati|Sì|Byte letti da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Byte/sec letti da un singolo disco durante il periodo di monitoraggio|LUN, VMName|
 |Operazioni di lettura da disco/sec per un disco dati|Sì|Operazioni di lettura da disco/sec per un disco dati (anteprima)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|LUN, VMName|
@@ -1051,7 +1051,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|AddRegion|Sì|Area aggiunta|Conteggio|Conteggio|Area aggiunta|Region|
+|AddRegion|Sì|Area aggiunta|Conteggio|Conteggio|Area aggiunta|Area|
 |AutoscaleMaxThroughput|No|Scalabilità automatica max velocità effettiva|Conteggio|Massimo|Scalabilità automatica max velocità effettiva|DatabaseName, CollectionName|
 |AvailableStorage|No|deprecato Archiviazione disponibile|Byte|Totale|"Spazio di archiviazione disponibile" verrà rimosso da monitoraggio di Azure alla fine del 2023 settembre. Cosmos DB dimensioni di archiviazione della raccolta sono ora illimitate. L'unica restrizione è che le dimensioni di archiviazione per ogni chiave di partizione logica sono 20 GB. È possibile abilitare PartitionKeyStatistics nel log di diagnostica per verificare il consumo di spazio di archiviazione per le chiavi di partizione principali. Per ulteriori informazioni sulla quota di archiviazione Cosmos DB, consultare il documento https://docs.microsoft.com/azure/cosmos-db/concepts-limits . Dopo la deprecazione, le regole di avviso rimanenti ancora definite nella metrica deprecata verranno disabilitate automaticamente dopo la data di deprecazione.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|No|Chiusure di connessione Cassandra|Conteggio|Totale|Numero di connessioni Cassandra chiuse, segnalate a una granularità di 1 minuto|Region, ClosureReason|
@@ -1094,7 +1094,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |NormalizedRUConsumption|No|Consumo ur normalizzato|Percentuale|Massimo|Percentuale di utilizzo massimo delle UR al minuto|CollectionName, DatabaseName, Region, PartitionKeyRangeId|
 |ProvisionedThroughput|No|Velocità effettiva sottoposta a provisioning|Conteggio|Massimo|Velocità effettiva sottoposta a provisioning|DatabaseName, CollectionName|
 |RegionFailover|Sì|Area sottoposta a failover|Conteggio|Conteggio|Area sottoposta a failover|Nessuna dimensione|
-|RemoveRegion|Sì|Area rimossa|Conteggio|Conteggio|Area rimossa|Region|
+|RemoveRegion|Sì|Area rimossa|Conteggio|Conteggio|Area rimossa|Area|
 |ReplicationLatency|Sì|P99 Replication Latency (Latenza di replica P99)|Millisecondi|Media|Latenza di replica P99 tra aree di origine e di destinazione per l'account abilitato per la replica geografica|SourceRegion, TargetRegion|
 |ServerSideLatency|No|Latenza lato server|Millisecondi|Media|Latenza lato server|DatabaseName, CollectionName, Region, ConnectionMode, OperationType, PublicAPIType|
 |ServiceAvailability|No|Disponibilità del servizio|Percentuale|Media|L'account richiede disponibilità a una granularità di un'ora, giorno o mese|Nessuna dimensione|
@@ -1192,13 +1192,13 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |ActiveConnections|No|ActiveConnections|Conteggio|Media|Totale connessioni attive per Microsoft.EventHub.|Nessuna dimensione|
-|AvailableMemory|No|Memoria disponibile|Percentuale|Massimo|Memoria disponibile per il cluster di hub eventi come percentuale della memoria totale.|Role|
+|AvailableMemory|No|Memoria disponibile|Percentuale|Massimo|Memoria disponibile per il cluster di hub eventi come percentuale della memoria totale.|Ruolo|
 |CaptureBacklog|No|Backlog acquisiti.|Conteggio|Totale|Backlog acquisiti per Microsoft.EventHub.|Nessuna dimensione|
 |CapturedBytes|No|Byte acquisiti.|Byte|Totale|Byte acquisiti per Microsoft.EventHub.|Nessuna dimensione|
 |CapturedMessages|No|Messaggi acquisiti.|Conteggio|Totale|Messaggi acquisiti per Microsoft.EventHub.|Nessuna dimensione|
 |ConnectionsClosed|No|Connessioni chiuse.|Conteggio|Media|Connessioni chiuse per Microsoft.EventHub.|Nessuna dimensione|
 |ConnectionsOpened|No|Connessioni aperte.|Conteggio|Media|Connessioni aperte per Microsoft.EventHub.|Nessuna dimensione|
-|CPU|No|CPU|Percentuale|Massimo|Uso CPU per il cluster dell'hub eventi in percentuale|Role|
+|CPU|No|CPU|Percentuale|Massimo|Uso CPU per il cluster dell'hub eventi in percentuale|Ruolo|
 |IncomingBytes|Sì|Byte in ingresso.|Byte|Totale|Byte in ingresso per Microsoft.EventHub.|Nessuna dimensione|
 |IncomingMessages|Sì|Messaggi in ingresso|Conteggio|Totale|Messaggi in ingresso per Microsoft.EventHub.|Nessuna dimensione|
 |IncomingRequests|Sì|Richieste in ingresso|Conteggio|Totale|Richieste in ingresso per Microsoft.EventHub.|Nessuna dimensione|
@@ -1206,7 +1206,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |OutgoingMessages|Sì|Messaggi in uscita|Conteggio|Totale|Messaggi in uscita per Microsoft.EventHub.|Nessuna dimensione|
 |QuotaExceededErrors|No|Errori di superamento quota.|Conteggio|Totale|Errori di superamento quota per Microsoft.EventHub.|Nessuna dimensione|
 |ServerErrors|No|Errori server.|Conteggio|Totale|Errori del server per Microsoft.EventHub.|Nessuna dimensione|
-|Dimensione|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|Role|
+|Dimensione|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|Ruolo|
 |SuccessfulRequests|No|Richieste riuscite|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub.|Nessuna dimensione|
 |ThrottledRequests|No|Richieste limitate.|Conteggio|Totale|Richieste limitate per Microsoft.EventHub.|Nessuna dimensione|
 |UserErrors|No|Errori utente.|Conteggio|Totale|Errori utente per Microsoft.EventHub.|Nessuna dimensione|
@@ -1501,7 +1501,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |Disponibilità|Sì|Disponibilità|Percentuale|Media|Disponibilità delle API|ApiCategory, ApiName|
-|Uso|No|Uso|Conteggio|Conteggio|Numero di chiamate API|ApiCategory, ApiName, ResultType, ResponseCode|
+|Utilizzo|No|Uso|Conteggio|Conteggio|Numero di chiamate API|ApiCategory, ApiName, ResultType, ResponseCode|
 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
@@ -1911,9 +1911,9 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Average_Used Memory MBytes|Sì|Used Memory MBytes|Conteggio|Media|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Users|Sì|Utenti|Conteggio|Media|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Virtual Shared Memory|Sì|Virtual Shared Memory|Conteggio|Media|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Evento|Sì|Event|Conteggio|Media|Evento|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+|Event|Sì|Event|Conteggio|Media|Event|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 |Heartbeat|Sì|Heartbeat|Conteggio|Totale|Heartbeat|Computer, OSType, Version, SourceComputerId|
-|Aggiornamento|Sì|Aggiornamento|Conteggio|Media|Aggiornamento|Computer, Product, Classification, UpdateState, Optional, Approved|
+|Aggiorna|Sì|Aggiornamento|Conteggio|Media|Aggiorna|Computer, Product, Classification, UpdateState, Optional, Approved|
 
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft. peering/peering

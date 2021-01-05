@@ -3,12 +3,12 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873949"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883079"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -42,6 +42,8 @@ Le richieste di creazione o aggiornamento di una risorsa vengono valutate prima 
 - Il **controllo** viene valutato per ultimo.
 
 Quando il provider di risorse restituisce un codice di esito positivo in una richiesta in modalità Gestione risorse, **AuditIfNotExists** e **DeployIfNotExists** valutano per determinare se è necessaria una registrazione o un'azione di conformità aggiuntiva.
+
+Inoltre, `PATCH` le richieste che modificano solo i `tags` campi correlati limitano la valutazione dei criteri ai criteri che contengono condizioni che controllano i `tags` campi correlati.
 
 ## <a name="append"></a>Accoda
 
@@ -372,7 +374,7 @@ Quando **enforcementMode** viene _disabilitato_, le risorse vengono comunque val
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Questo effetto viene usato con una _modalità_di definizione di criteri di `Microsoft.Kubernetes.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v3 definite con [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) per i cluster Kubernetes in Azure.
+Questo effetto viene usato con una _modalità_ di definizione di criteri di `Microsoft.Kubernetes.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v3 definite con [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) per i cluster Kubernetes in Azure.
 
 > [!IMPORTANT]
 > Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e la categoria del **servizio Kubernetes** correlata sono _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
@@ -428,7 +430,7 @@ Esempio: Regola di controllo dell'ammissione di Gatekeeper v3 per impostare i li
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Questo effetto viene usato con una _modalità_di definizione dei criteri di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v2 definite con [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) nei [servizi Azure Kubernetes](../../../aks/intro-kubernetes.md).
+Questo effetto viene usato con una _modalità_ di definizione dei criteri di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v2 definite con [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) nei [servizi Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!IMPORTANT]
 > Le definizioni dei criteri in anteprima limitata con l'effetto **EnforceRegoPolicy** e la categoria **Servizio Kubernetes** sono _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
@@ -503,10 +505,10 @@ Quando viene specificato un alias, vengono eseguiti i controlli aggiuntivi segue
 - La proprietà a cui è associato l'alias è contrassegnata come ' modificabile ' nella versione dell'API della richiesta.
 - Il tipo di token nell'operazione di modifica corrisponde al tipo di token previsto per la proprietà nella versione API della richiesta.
 
-Se uno di questi controlli ha esito negativo, la valutazione del criterio esegue il fallback al **conflictEffect**specificato.
+Se uno di questi controlli ha esito negativo, la valutazione del criterio esegue il fallback al **conflictEffect** specificato.
 
 > [!IMPORTANT]
-> È assoluta che la modifica delle definizioni che includono alias usa l' _audit_ **effetto dei conflitti** di controllo per evitare richieste non riuscite usando le versioni API in cui la proprietà mappata non è' modificabile '. Se lo stesso alias si comporta in modo diverso tra le versioni dell'API, è possibile usare le operazioni di modifica condizionale per determinare l'operazione di modifica usata per ogni versione dell'API.
+> È assoluta che la modifica delle definizioni che includono alias usa l'  **effetto dei conflitti** di controllo per evitare richieste non riuscite usando le versioni API in cui la proprietà mappata non è' modificabile '. Se lo stesso alias si comporta in modo diverso tra le versioni dell'API, è possibile usare le operazioni di modifica condizionale per determinare l'operazione di modifica usata per ogni versione dell'API.
 
 Quando una definizione dei criteri che usa l'effetto Modify viene eseguita come parte di un ciclo di valutazione, non apporta modifiche alle risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
 
@@ -573,7 +575,7 @@ Nella proprietà **operation** sono disponibili le opzioni seguenti:
 |-|-|
 |addOrReplace |Aggiunge la proprietà definita o il tag e il valore alla risorsa, anche se la proprietà o il tag esiste già con un valore diverso. |
 |Add |Aggiunge la proprietà, il tag e il valore definiti alla risorsa. |
-|Rimuovi |Rimuove la proprietà o il tag definito dalla risorsa. |
+|Rimuovere |Rimuove la proprietà o il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Esempi di Modify
 

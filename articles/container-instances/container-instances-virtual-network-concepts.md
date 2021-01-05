@@ -3,12 +3,12 @@ title: Scenari di utilizzo di una rete virtuale
 description: Scenari, risorse e limitazioni per la distribuzione di gruppi di contenitori in una rete virtuale di Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569170"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882433"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenari e risorse della rete virtuale
 
@@ -41,6 +41,7 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 * Non è possibile usare un' [identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
 * Non è possibile abilitare un probe di [Livezza](container-instances-liveness-probe.md) o un probe di [conformità](container-instances-readiness-probe.md) in un gruppo di contenitori distribuito in una rete virtuale.
 * A causa delle risorse di rete aggiuntive, le distribuzioni in una rete virtuale sono in genere più lente rispetto alla distribuzione di un'istanza di contenitore standard.
+* Se si connette il gruppo di contenitori a un account di archiviazione di Azure, è necessario aggiungere un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) a tale risorsa.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 

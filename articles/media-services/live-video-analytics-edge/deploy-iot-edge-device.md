@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 38d138b43441016e06fca5003bc09c940cb23efe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498320"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883317"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -108,7 +108,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     Esempi:
     
     * **Nome del modulo IOT Edge**: lvaEdge
-    * **URI immagine**: MCR.Microsoft.com/media/Live-Video-Analytics:1.0    
+    * **URI immagine**: MCR.Microsoft.com/media/Live-Video-Analytics:2.0    
     
     ![Screenshot mostra la scheda impostazioni del modulo.](./media/deploy-iot-edge-device/add.png)
     

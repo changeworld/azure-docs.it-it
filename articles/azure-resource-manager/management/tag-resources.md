@@ -2,14 +2,14 @@
 title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d1161eb99e1145c7a003326310db1922ec3d55c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558148"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881749"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -438,9 +438,12 @@ Se i nomi o i valori dei tag includono spazi, racchiuderli tra virgolette doppie
 az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## <a name="templates"></a>Modelli
+## <a name="arm-templates"></a>Modelli di Gestione risorse di Azure
 
-È possibile contrassegnare risorse, gruppi di risorse e sottoscrizioni durante la distribuzione con un modello di Gestione risorse.
+È possibile contrassegnare risorse, gruppi di risorse e sottoscrizioni durante la distribuzione con un modello di Azure Resource Manager (modello ARM).
+
+> [!NOTE]
+> I tag applicati tramite il modello ARM sovrascrivono eventuali tag esistenti.
 
 ### <a name="apply-values"></a>Applica valori
 
@@ -448,7 +451,7 @@ Nell'esempio seguente viene distribuito un account di archiviazione con tre tag.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcShort": {
@@ -487,7 +490,7 @@ Nell'esempio seguente viene distribuito un account di archiviazione con tre tag.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -525,7 +528,7 @@ Per memorizzare più valori in un singolo tag, è possibile applicare una string
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -558,7 +561,7 @@ Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [re
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 666b3c609224c1665c150718b2b89c4bac72577e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488069"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882229"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -42,18 +42,13 @@ In una distribuzione di Servizi Desktop remoto, il ruolo di Web Desktop remoto e
 ## <a name="requirements"></a>Requisiti
 
 - Entrambi gli endpoint Web Desktop remoto e Gateway Desktop remoto devono trovarsi nello stesso computer e avere una radice comune. Web Desktop remoto e Gateway Desktop remoto vengono pubblicati come un'unica applicazione con il proxy di applicazione in modo da offrire un'esperienza di accesso Single Sign-On tra le due applicazioni.
-
-- Si dovrebbe avere già [distribuito Servizi Desktop remoto](/windows-server/remote/remote-desktop-services/rds-in-azure) e avere già [abilitato il proxy applicazione](application-proxy-add-on-premises-application.md).
-
+- Si dovrebbe avere già [distribuito Servizi Desktop remoto](/windows-server/remote/remote-desktop-services/rds-in-azure) e avere già [abilitato il proxy applicazione](application-proxy-add-on-premises-application.md). Assicurarsi di aver soddisfatto i prerequisiti per abilitare il proxy di applicazione, ad esempio l'installazione del connettore, l'apertura delle porte e degli URL necessari e l'abilitazione di TLS 1,2 sul server.
 - Gli utenti finali devono usare un browser compatibile per connettersi al client Web Desktop remoto o desktop remoto. Per altri dettagli, vedere [supporto per le configurazioni client](#support-for-other-client-configurations).
-
 - Quando si pubblica Web Desktop remoto, è consigliabile usare lo stesso FQDN interno ed esterno. Se gli FQDN interni ed esterni sono diversi è consigliabile disabilitare la richiesta di traduzione dell'intestazione per evitare che il client riceva collegamenti non validi.
-
 - Se si utilizza il Web Desktop remoto in Internet Explorer, sarà necessario abilitare il componente aggiuntivo ActiveX di Servizi Desktop remoto.
-
 - Se si usa il client Web Desktop remoto, sarà necessario usare il connettore del proxy di applicazione [1.5.1975 o versione successiva](./application-proxy-release-version-history.md).
-
 - Per il flusso di pre-autenticazione Azure AD, gli utenti possono connettersi solo alle risorse pubblicate nel riquadro **RemoteApp e desktop** . Gli utenti non possono connettersi a un desktop usando il riquadro **Connetti a un PC remoto** .
+- Se si usa Windows Server 2019, potrebbe essere necessario disabilitare il protocollo HTTP2. Per altre informazioni, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Distribuire lo scenario di Servizi desktop remoto e proxy applicazione congiunti
 
@@ -96,7 +91,7 @@ Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e m
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Per esempio:**
+   **Ad esempio:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 10/15/2020
-ms.openlocfilehash: fb4746972f78dc40a3ec264d2e1964e8d4e99b3d
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097593"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882305"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -126,7 +126,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
 |Numero di repliche|1|1|1|1|1|1|1|
-|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Zone di disponibilità multiple|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -158,7 +158,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...16, 24, 32, 40|0, 0,25, 0,5, 1...16, 24, 32, 40, 80|
 |Numero di repliche|1|1|1|1|1|1|1|
-|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Zone di disponibilità multiple|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -425,8 +425,8 @@ Se tutti i vCore in un pool elastico sono occupati, ogni database nel pool ricev
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati per pool <sup>2</sup>|31.248|37.497|49.996|99.993|160.000|
 |Velocità massima di log per pool (MBps)|120|144|192|264|264|
-|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|2.000|2400|3\.200|6.400|12.800|
-|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|2.000|2400|3\.200|6.400|12.800|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|2\.000|2400|3\.200|6.400|12.800|
+|Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|2\.000|2400|3\.200|6.400|12.800|
 |Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|
 |Zone di disponibilità multiple|No|No|No|No|No|

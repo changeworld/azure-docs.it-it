@@ -2,13 +2,13 @@
 title: Domande frequenti
 description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 12/22/2020
-ms.openlocfilehash: 941708003558dda601aa43459bc83133788687fd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/4/2020
+ms.openlocfilehash: d0228739a6ee4eac20d2fa04e47cf86b6fddb84e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835194"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881226"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -201,7 +201,7 @@ La rete WAN virtuale di Azure non fornisce il routing transitivo tra due circuit
 
 #### <a name="could-i-use-hcx-through-public-internet-communications-as-a-workaround-for-the-non-supportability-of-hcx-when-using-vpn-s2s-with-vwan-for-on-premises-communications"></a>È possibile usare HCX tramite le comunicazioni Internet pubbliche come soluzione alternativa per la non supportabilità di HCX quando si usa S2S VPN con vWAN per le comunicazioni locali?
 
-Attualmente, l'unico metodo supportato per HCX è attraverso ExpressRoute.
+Attualmente, l'unico metodo supportato per VMware HCX è attraverso ExpressRoute.
 
 ## <a name="accounts-and-privileges"></a>Account e privilegi
 

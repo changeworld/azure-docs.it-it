@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 12b9639342e2e35b9229aa15bb9cfb4695427606
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172663"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881192"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -45,13 +45,13 @@ Nell'esempio seguente viene illustrato un profilo tecnico per la password monous
 
 ## <a name="generate-code"></a>Generare il codice
 
-La prima modalità di questo profilo tecnico consiste nel generare un codice. Di seguito sono elencate le opzioni che possono essere configurate per questa modalità.
+La prima modalità di questo profilo tecnico consiste nel generare un codice. Di seguito sono elencate le opzioni che possono essere configurate per questa modalità. I codici generati e i tentativi vengono rilevati all'interno della sessione. 
 
 ### <a name="input-claims"></a>Attestazioni di input
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Descrizione |
+| ClaimReferenceId | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | identificatore | Sì | Identificatore per identificare l'utente che deve verificare il codice in un secondo momento. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 
@@ -61,7 +61,7 @@ L'elemento **InputClaimsTransformations** può contenere una raccolta di element
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni generate dal provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Descrizione |
+| ClaimReferenceId | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | otpGenerated | Sì | Il codice generato la cui sessione viene gestita da Azure AD B2C. |
 
@@ -71,9 +71,9 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 Per configurare la modalità di generazione del codice, è possibile usare le impostazioni seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo: `60` ; Massimo: `1200` ; Impostazione predefinita: `600` . Ogni volta che viene fornito un codice (lo stesso codice che usa `ReuseSameCode` o un nuovo codice), la scadenza del codice viene estesa.  |
+| CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo: `60` ; Massimo: `1200` ; Impostazione predefinita: `600` . Ogni volta che viene fornito un codice (lo stesso codice che usa `ReuseSameCode` o un nuovo codice), la scadenza del codice viene estesa. Questo tempo viene anche usato per impostare il timeout di ripetizione dei tentativi (al raggiungimento del numero massimo di tentativi, l'utente è bloccato dal tentativo di ottenere nuovi codici fino alla scadenza di questo periodo) |
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
 | CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio, `a-z0-9A-Z` Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
 | NumRetryAttempts | No | Il numero di tentativi di verifica prima che il codice venga considerato non valido. Il valore predefinito è `5`. |
@@ -117,7 +117,7 @@ La seconda modalità di questo profilo tecnico consiste nel verificare un codice
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Descrizione |
+| ClaimReferenceId | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | identificatore | Sì | Identificatore per identificare l'utente che ha generato in precedenza un codice. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 | otpToVerify | Sì | Codice di verifica fornito dall'utente. |
@@ -134,7 +134,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 Per la modalità di verifica del codice è possibile usare le impostazioni seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | Operazione | Sì | L'operazione da eseguire. Valore possibile: `VerifyCode` . |
 
@@ -143,7 +143,7 @@ Per la modalità di verifica del codice è possibile usare le impostazioni segue
 
 I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati quando si verifica un errore di verifica del codice. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization-string-ids.md#one-time-password-error-messages).
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Messaggio da visualizzare all'utente se la sessione di verifica del codice è scaduta. Il codice è scaduto o il codice non è mai stato generato per un identificatore specificato. |
 | UserMessageIfMaxRetryAttempted | No | Messaggio da visualizzare all'utente se è stato superato il numero massimo di tentativi di verifica consentiti. |

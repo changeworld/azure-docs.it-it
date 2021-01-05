@@ -10,12 +10,12 @@ ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 04b0b20452264493a0045c5adb6a1c32df5c6191
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531784"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883130"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -64,8 +64,8 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano l
 | Tipo di account di archiviazione | Aree supportate | Servizi supportati |
 |--|--|--|
 | Utilizzo generico v2<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Sudafrica settentrionale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2 | BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-| BlockBlobStorage<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br /> Europa occidentale<br /> Stati Uniti orientali <br /> Stati Uniti orientali 2 <br /> Stati Uniti occidentali 2| Solo BLOB in blocchi Premium |
-| FileStorage | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br /> Europa occidentale<br /> Stati Uniti orientali <br /> Stati Uniti orientali 2 <br /> Stati Uniti occidentali 2 | Solo condivisioni file Premium |
+| BlockBlobStorage<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br /> Europa occidentale<br /> Giappone orientale<br /> Stati Uniti orientali <br /> Stati Uniti orientali 2 <br /> Stati Uniti occidentali 2| Solo BLOB in blocchi Premium |
+| FileStorage | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br /> Europa occidentale<br /> Giappone orientale<br /> Stati Uniti orientali <br /> Stati Uniti orientali 2 <br /> Stati Uniti occidentali 2 | Solo condivisioni file Premium |
 
 <sup>1</sup> Il livello di archiviazione non è attualmente supportato per gli account ZRS.<br />
 <sup>2</sup> Gli account di archiviazione contenenti i dischi gestiti di Azure per le macchine virtuali usano sempre con l'archiviazione con ridondanza locale. I dischi non gestiti di Azure devono usare anche l'archiviazione con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa l'archiviazione con ridondanza geografica, ma non è consigliabile a causa di possibili problemi di coerenza della replica geografica asincrona. Né i dischi gestiti e né quelli non gestiti supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [Prezzi per i dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).

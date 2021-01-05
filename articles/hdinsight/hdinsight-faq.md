@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 120a73c7bf2ea9ee61d1fe1aef9ffa39a3cb3f76
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011830"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882399"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: domande frequenti
 
@@ -198,7 +198,7 @@ Negli scenari in cui è necessario controllare la pianificazione, è possibile e
 
 1. Disabilitare l'esecuzione automatica usando il comando seguente:
    
-   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+  riavvio del servizio sudo sudo `usr/local/bin/azsecd config -s clamav -d Disabled` azsecd 
    
 1. Aggiungere un processo cron che esegue il comando seguente come radice:
    

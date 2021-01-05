@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/18/2020
+ms.date: 01/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c075e19422341ad7ccfd3ad951517876ab26a495
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1b0771687aa7ccf9b749c107a6b1c507cb3ba08d
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858417"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881940"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Account e autorizzazioni
 
@@ -44,7 +44,7 @@ Oltre a questi tre account usati per eseguire Azure AD Connect, per installare A
 
 - **Account amministratore dell'organizzazione Active Directory Domain Services**: usato facoltativamente per creare l'"account del connettore di AD DS" sopra.
 
-- **Account Administrator globale di AD Azure**:  usato per creare l'account del connettore di Azure AD e configurare Azure AD.
+- **Account Administrator globale di AD Azure**:  usato per creare l'account del connettore di Azure AD e configurare Azure AD.  È possibile visualizzare gli account amministratore globale nel portale di Azure.  Vedere [View Roles](../../active-directory/roles/manage-roles-portal.md#view-all-roles).
 
 - **Account SA di SQL (facoltativo)** :     usato per creare il database ADSync, quando si usa la versione completa di SQL Server.  SQL Server può essere locale o remoto per l'installazione di Azure AD Connect.  Questo account può essere lo stesso dell'amministratore dell'organizzazione.  L'amministratore SQL può ora effettuare il provisioning del database fuori banda e quindi l'amministratore di Azure AD Connect può eseguire l'installazione con diritti di proprietario del database.  Per altre informazioni, vedere [Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL](how-to-connect-install-sql-delegation.md)
 

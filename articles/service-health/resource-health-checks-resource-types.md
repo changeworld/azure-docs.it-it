@@ -3,12 +3,12 @@ title: Tipi di risorse supportati tramite Integrità risorse di Azure|Microsoft 
 description: Tipi di risorse supportati tramite Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f979b55366d29ca8cf22a1e65ebdcc557ef594
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899495"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883368"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -168,6 +168,11 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |Controlli eseguiti|
 |---|
 |<ul><li>Le prestazioni del gateway applicazione risultano ridotte?</li><li>Il gateway applicazione è disponibile?</li></ul>|
+
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionhosts
+|Controlli eseguiti|
+|---|
+|<ul><li>L'host Bastion è attivo e in esecuzione?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Controlli eseguiti|

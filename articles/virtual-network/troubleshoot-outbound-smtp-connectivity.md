@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 0a69df8a20c4e1502de151c38c60b54667c2d4dc
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814483"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883113"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Risolvere i problemi di connettività SMTP in uscita in Azure
 
@@ -76,10 +76,6 @@ Per le sottoscrizioni dei seguenti tipi creati dopo il 15 novembre 2017, saranno
 Se si vuole essere in grado di inviare messaggi di posta elettronica da macchine virtuali di Azure direttamente a provider di posta elettronica esterni, senza usare un inoltro SMTP autenticato, è possibile effettuare una richiesta aprendo un caso di supporto usando il tipo di problema seguente: la connettività di  >  **rete virtuale** tecnica  >    >  **non può inviare messaggi di posta elettronica (SMTP/porta 25)**. Assicurarsi di aggiungere i dettagli sul motivo per cui la distribuzione deve inviare messaggi di posta elettronica direttamente ai provider di posta anziché usare un inoltro autenticato. Le richieste verranno esaminate e approvate a discrezione di Microsoft. Le richieste verranno concesse solo dopo il completamento di ulteriori controlli anti-frode. 
 
 Dopo che una sottoscrizione è stata esentata e le macchine virtuali sono state arrestate e riavviate nella portale di Azure, tutte le macchine virtuali della sottoscrizione verranno esentate in futuro. L'esenzione si applica solo alla sottoscrizione richiesta e solo al traffico delle macchine virtuali indirizzato direttamente a Internet.
-
-## <a name="restrictions-and-limitations"></a>Restrizioni e limitazioni
-
-Il traffico della porta 25 di routing tramite i servizi PaaS di Azure come il [firewall di Azure](https://azure.microsoft.com/services/azure-firewall/) non è supportato.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

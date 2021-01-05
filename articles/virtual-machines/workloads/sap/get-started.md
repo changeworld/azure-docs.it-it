@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/21/2020
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e842e4d2a4dbd118840498587696df085b07700
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d56ed0cdae9046cb7d76f7d74545309ee6292ecd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722896"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883096"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -83,6 +83,8 @@ In questa sezione vengono illustrati i documenti sull'integrazione di Microsoft 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
+- 01/04/2021: aggiungere nuove aree di Azure supportate da HLI in informazioni [sulle SAP Hana in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- 12/29/2020: aggiungere consigli sull'architettura per aree di Azure specifiche nelle [configurazioni del carico di lavoro SAP con zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 12/21/2020: aggiungere nuove certificazioni a SKU di istanze large di HANA in [SKU disponibili per HLI](./hana-available-skus.md)
 - 12/12/2020: aggiunto il puntatore alla nota SAP per chiarire i dettagli sul supporto di Oracle Enterprise Linux da SAP in merito al [software SAP supportato per le distribuzioni di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 11/26/2020: adattare [SAP Hana le configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md) e [i tipi di archiviazione di Azure per il carico di lavoro SAP](./planning-guide-storage.md) per modificare i [contratti](https://azure.microsoft.com/support/legal/sla/virtual-machines) di

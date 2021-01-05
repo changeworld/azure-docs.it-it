@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c48e23de6832999b262283c0bf6664b4dfe88ee7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859879"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881566"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
@@ -84,10 +84,11 @@ Questi passaggi consentono di creare impostazioni a livello di directory, che si
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. Aggiornare quindi il valore delle linee guida sull'utilizzo:
+4. Aggiornare quindi l'oggetto Settings con un nuovo valore. I due esempi seguenti modificano il valore delle linee guida di utilizzo e abilitano le etichette di riservatezza. Impostare queste o qualsiasi altra impostazione nel modello come richiesto:
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. Applicare quindi l'impostazione:
   
@@ -118,7 +119,7 @@ Per aggiornare il valore di UsageGuideLinesUrl nel modello di impostazione, legg
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions

@@ -11,27 +11,27 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1159a6cfda6b877f04573c85fa437ce3bff81af1
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: b905b050752e2a6b7acd11e82420c0b0203dfcd1
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97761746"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882195"
 ---
 # <a name="deploy-mlflow-models-with-azure-machine-learning-preview"></a>Distribuire modelli MLflow con Azure Machine Learning (anteprima)
 
-In questo articolo si apprenderà come distribuire il modello di MLflow come servizio Web di Azure Machine Learning, in modo da poter sfruttare e applicare le funzionalità di gestione dei modelli di Azure Machine Learning e di rilevamento della deriva ai modelli di produzione.
+In questo articolo si apprenderà come distribuire il modello di [MLflow](https://www.mlflow.org) come servizio web di Azure Machine Learning, in modo da poter sfruttare e applicare le funzionalità di gestione dei modelli di Azure Machine Learning e di rilevamento della deriva ai modelli di produzione.
 
 Azure Machine Learning offre configurazioni di distribuzione per:
 * Istanza di contenitore di Azure (ACI) che rappresenta la scelta ideale per una rapida distribuzione di sviluppo e test.
 * Azure Kubernetes Service (AKS), consigliato per le distribuzioni di produzione scalabili.
 
-[MLflow](https://www.mlflow.org) è una libreria open source per la gestione del ciclo di vita degli esperimenti di machine learning. L'integrazione con Azure Machine Learning consente di estendere questa gestione oltre la fase di training del modello, alla fase di distribuzione del modello di produzione.
+MLflow è una libreria open source per la gestione del ciclo di vita degli esperimenti di machine learning. L'integrazione con Azure Machine Learning consente di estendere questa gestione oltre la fase di training del modello alla fase di distribuzione del modello di produzione.
 
 >[!NOTE]
 > Come libreria open source, MLflow cambia di frequente. Di conseguenza, le funzionalità rese disponibili tramite l'integrazione Azure Machine Learning e MLflow devono essere considerate come anteprima e non sono completamente supportate da Microsoft.
 
-Il diagramma seguente illustra che con l'API di distribuzione MLflow è possibile distribuire il modello MLflow esistente come servizio Web Azure Machine Learning, nonostante i relativi Framework, PyTorch, Tensorflow, Scikit-learn, ONNX e così via, e gestire i modelli di produzione nell'area di lavoro.
+Il diagramma seguente illustra che con l'API di distribuzione MLflow e Azure Machine Learning è possibile distribuire i modelli creati con i Framework più diffusi, ad esempio PyTorch, Tensorflow, Scikit-learn e così via, come Azure Machine Learning servizi Web e gestirli nell'area di lavoro. 
 
 ![ distribuire modelli mlflow con Azure Machine Learning](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
@@ -40,9 +40,11 @@ Il diagramma seguente illustra che con l'API di distribuzione MLflow è possibil
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Configurare l'URI di rilevamento MLflow per la connessione Azure Machine Learning](how-to-use-mlflow.md).
+* Un modello di machine learning. Se non si dispone di un modello sottoposto a training, trovare l'esempio di notebook più adatto allo scenario di calcolo in [questo repository](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) e seguire le istruzioni. 
+* [Configurare l'URI di rilevamento MLflow per la connessione Azure Machine Learning](how-to-use-mlflow.md#track-local-runs).
 * Installare il pacchetto `azureml-mlflow`. 
     * Questo pacchetto introduce automaticamente il `azureml-core` [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), che fornisce la connettività per MLflow per accedere all'area di lavoro.
+* Vedere le [autorizzazioni di accesso necessarie per eseguire le operazioni di MLflow con l'area di lavoro](how-to-assign-roles.md#mlflow-operations). 
 
 ## <a name="deploy-to-aci"></a>Distribuire in ACI
 
@@ -140,7 +142,7 @@ Se non si prevede di usare il servizio Web distribuito, usare `service.delete()`
 
 ## <a name="example-notebooks"></a>Notebook di esempio
 
-I [notebook MLflow con Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) dimostrano e ampliano le nozioni presentate in questo articolo.
+I [MLflow con Azure Machine Learning notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) dimostrano ed espandono i concetti presentati in questo articolo.
 
 > [!NOTE]
 > Un repository gestito dalla community di esempi che usano mlflow è disponibile all'indirizzo https://github.com/Azure/azureml-examples .
@@ -150,3 +152,4 @@ I [notebook MLflow con Azure Machine Learning](https://github.com/Azure/MachineL
 * [Gestire i modelli](concept-model-management-and-deployment.md).
 * Monitorare i modelli di produzione per la [deriva dei dati](./how-to-enable-data-collection.md).
 * [Tenere traccia dei Azure Databricks eseguiti con MLflow](how-to-use-mlflow-azure-databricks.md).
+

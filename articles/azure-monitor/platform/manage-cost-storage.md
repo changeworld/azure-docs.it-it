@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 12/24/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a3a4c7a51f0d75b67465a83a2fbbf3ae8a141c4c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 45f02850797582f97220e91d1582b04b3be711c0
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97671166"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882484"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -132,9 +132,9 @@ La fatturazione del [Centro sicurezza di Azure](../../security-center/index.yml)
 
 ## <a name="change-the-data-retention-period"></a>Cambiare il periodo di conservazione dei dati
 
-La procedura seguente descrive come configurare il periodo di conservazione dei dati nell'area di lavoro. La conservazione dei dati può essere configurata da 30 a 730 giorni (2 anni) per tutte le aree di lavoro, a meno che non utilizzino il piano tariffario Gratuito legacy. [Altre informazioni](https://azure.microsoft.com/pricing/details/monitor/) sui prezzi per la conservazione dei dati più lunga. 
+La procedura seguente descrive come configurare il periodo di conservazione dei dati nell'area di lavoro. La conservazione dei dati a livello di area di lavoro può essere configurata da 30 a 730 giorni (2 anni) per tutte le aree di lavoro, a meno che non utilizzi il piano tariffario gratuito legacy. [Altre](https://azure.microsoft.com/pricing/details/monitor/) informazioni sui prezzi per la conservazione dei dati più lunga. La conservazione per i singoli tipi di dati può essere impostata su un minimo di 4 giorni. 
 
-### <a name="default-retention"></a>Conservazione predefinita
+### <a name="workspace-level-default-retention"></a>Conservazione predefinita a livello di area di lavoro
 
 Per impostare la conservazione predefinita per l'area di lavoro, 
  
@@ -158,7 +158,7 @@ Notare che l'[API di rimozione](/rest/api/loganalytics/workspacepurge/purge) di 
 
 ### <a name="retention-by-data-type"></a>Conservazione per tipo di dati
 
-È anche possibile specificare diverse impostazioni di conservazione per i singoli tipi di dati da 30 a 730 giorni (ad eccezione delle aree di lavoro nel piano tariffario Gratuito legacy). Ogni tipo di dati è una risorsa secondaria dell'area di lavoro. Ad esempio, la tabella SecurityEvent può essere considerata in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) come:
+È anche possibile specificare diverse impostazioni di conservazione per i singoli tipi di dati da 4 a 730 giorni (ad eccezione delle aree di lavoro nel piano tariffario gratuito legacy) che sostituiscono la conservazione predefinita a livello di area di lavoro. Ogni tipo di dati è una risorsa secondaria dell'area di lavoro. Ad esempio, la tabella SecurityEvent può essere considerata in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) come:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -350,7 +350,8 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution 
+| render columnchart
 ```
 
 La clausola con `TimeGenerated` è solo per assicurarsi che l'esperienza di query nel portale di Azure esegue la ricerca oltre le 24 ore predefinite. Quando si usa il tipo di dati Utilizzo, `StartTime` e `EndTime` rappresentano i bucket temporali per i quali vengono presentati i risultati. 
@@ -364,7 +365,8 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType 
+| render columnchart
 ```
 
 In alternativa, per visualizzare una tabella in base alla soluzione e al tipo per l'ultimo mese,
@@ -661,4 +663,5 @@ Esistono alcuni limiti di Log Analytics aggiuntivi, alcuni dei quali dipendono d
 - Per configurare un criterio efficace per la raccolta degli eventi, vedere [Criteri per i filtri del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md).
 - Modificare la [configurazione del contatore delle prestazioni](data-sources-performance-counters.md).
 - Per modificare le impostazioni di raccolta degli eventi, vedere la [configurazione del registro eventi](data-sources-windows-events.md).
+- Per modificare le impostazioni di raccolta di SysLog, vedere la [configurazione di SysLog](data-sources-syslog.md).
 - Per modificare le impostazioni di raccolta di SysLog, vedere la [configurazione di SysLog](data-sources-syslog.md).

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/15/2020
-ms.openlocfilehash: d6936d6c72855bc22e3fc9323028fd0b8cd0fb29
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097576"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882306"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -307,7 +307,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|1|
-|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Zone di disponibilità multiple|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -332,7 +332,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|1|
-|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Zone di disponibilità multiple|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponibile in anteprima](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -550,8 +550,8 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati *|31.248|37.497|49.996|99.993|160.000|
 |Velocità massima log (MBps)|120|144|192|264|264|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|2.000|2400|3\.200|6.400|12.800|
-|Numero massimo di accessi simultanei|2.000|2400|3\.200|6.400|12.800|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|2\.000|2400|3\.200|6.400|12.800|
+|Numero massimo di accessi simultanei|2\.000|2400|3\.200|6.400|12.800|
 |Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|
 |Zone di disponibilità multiple|No|No|No|No|No|

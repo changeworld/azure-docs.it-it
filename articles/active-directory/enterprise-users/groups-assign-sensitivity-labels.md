@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859964"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881397"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory
 
@@ -48,7 +48,7 @@ Per applicare le etichette pubblicate ai gruppi, è innanzitutto necessario abil
     ```
 
     > [!NOTE]
-    > Se per questa organizzazione Azure AD non sono state create impostazioni di gruppo, è necessario innanzitutto creare le impostazioni. Attenersi alla procedura descritta in [Azure Active Directory cmdlets per configurare le impostazioni di gruppo](../enterprise-users/groups-settings-cmdlets.md) per creare le impostazioni di gruppo per l'organizzazione Azure ad.
+    > Se non sono state create impostazioni di gruppo per questo Azure AD organizzazione, nel cmdlet precedente verrà visualizzato un errore che indica che "non è possibile associare l'argomento al parametro ' ID ' perché è null". In questo caso è necessario innanzitutto creare le impostazioni. Attenersi alla procedura descritta in [Azure Active Directory cmdlets per configurare le impostazioni di gruppo](../enterprise-users/groups-settings-cmdlets.md) per creare le impostazioni di gruppo per l'organizzazione Azure ad.
 
 1. Successivamente, visualizzare le impostazioni del gruppo corrente.
 

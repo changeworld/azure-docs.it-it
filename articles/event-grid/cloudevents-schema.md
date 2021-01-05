@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare lo schema CloudEvents per gli e
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e13c3635da7e7a86f4fa2d31215303152167741c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 823c1aa89d38a240af819a68706a02222dd93b9f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109250"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881583"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v1.0 con Griglia di eventi
 Oltre allo [schema di eventi predefinito](event-schema.md), Griglia di eventi di Azure supporta in modo nativo gli eventi nell'[implementazione JSON di CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e nel [binding del protocollo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
@@ -180,8 +180,12 @@ module.exports = function (context, req) {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
-        context.res = { status: 200 };
-        context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.azure.net');
+        context.res = {
+            status: 200,
+            headers: {
+                'Webhook-Allowed-Origin': 'eventgrid.azure.net',
+            },
+         };
     }
     else
     {
