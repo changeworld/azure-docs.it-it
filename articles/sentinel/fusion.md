@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906278"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746185"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Rilevamento avanzato degli attacchi multifase in Sentinel di Azure
 
@@ -49,7 +49,7 @@ Questo rilevamento è abilitato per impostazione predefinita in Sentinel di Azur
  Poiché il tipo di regola **Fusion** contiene solo una regola che non può essere modificata, i modelli di regole non sono applicabili per questo tipo di regola.
 
 > [!NOTE]
-> Azure Sentinel usa attualmente i dati cronologici per 30 giorni per eseguire il training dei sistemi di machine learning. Questi dati vengono sempre crittografati usando le chiavi di Microsoft mentre passano attraverso la pipeline di machine learning. Tuttavia, i dati di training non vengono crittografati con le [chiavi gestite dal cliente (CMK)](customer-managed-keys.md) se è stato abilitato CMK nell'area di lavoro di Azure Sentinel. Per rifiutare esplicitamente la fusione, passare ad **Azure Sentinel**   \>  **Configuration**   \>  **Analytics \> Active rules \> Advanced MultiStage Attack Detection** e nella colonna **stato** selezionare **Disable (Disabilita).**
+> Azure Sentinel usa attualmente i dati cronologici per 30 giorni per eseguire il training dei sistemi di machine learning. Questi dati vengono sempre crittografati usando le chiavi di Microsoft mentre passano attraverso la pipeline di machine learning. Tuttavia, i dati di training non vengono crittografati con le [chiavi gestite dal cliente (CMK)](customer-managed-keys.md) se è stato abilitato CMK nell'area di lavoro di Azure Sentinel. Per rifiutare esplicitamente la fusione, passare ad **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules \> Advanced MultiStage Attack Detection** e nella colonna **stato** selezionare **Disable (Disabilita).**
 
 ## <a name="attack-detection-scenarios"></a>Scenari di rilevamento degli attacchi
 
@@ -84,6 +84,70 @@ Questo scenario è attualmente disponibile in **anteprima pubblica**.
 - **Evento di accesso da un indirizzo IP anonimo che conduce a più attività di creazione di macchine virtuali**
 
 - **Evento di accesso dall'utente con credenziali perse che portano a più attività di creazione di macchine virtuali**
+
+## <a name="credential-harvesting-new-threat-classification"></a>Raccolta delle credenziali (nuova classificazione delle minacce)
+
+### <a name="malicious-credential-theft-tool-execution-following-suspicious-sign-in"></a>Esecuzione dello strumento di furto di credenziali dannose dopo l'accesso sospetto
+
+**Mitre ATT&le tattiche CK:** Accesso iniziale, accesso alle credenziali
+
+**Mitre ATT&le tecniche CK:** Account valido (T1078), dump delle credenziali del sistema operativo (T1003)
+
+**Origini connettore dati:** Azure Active Directory Identity Protection, Microsoft Defender per endpoint
+
+**Descrizione:** Gli eventi imprevisti di Fusion di questo tipo indicano che è stato eseguito uno strumento di furto delle credenziali noto in seguito a un Azure AD di accesso sospetto. In questo modo si indica che l'account utente indicato nella descrizione dell'avviso è stato compromesso e potrebbe avere correttamente usato uno strumento come **Mimikatz** per raccogliere le credenziali, ad esempio le chiavi, le password in testo non crittografato e/o gli hash delle password dal sistema. Le credenziali raccolte possono consentire a un utente malintenzionato di accedere ai dati sensibili, eseguire l'escalation dei privilegi e/o spostarsi in un secondo momento attraverso la rete. Le permutazioni di avvisi di accesso Azure AD sospette con l'avviso relativo agli strumenti di furto di credenziali dannose sono:
+
+- **Trasferimento Impossibile a posizioni atipiche che provocano l'esecuzione degli strumenti di furto di credenziali dannose**
+
+- **Evento di accesso da una posizione non nota che causa l'esecuzione di uno strumento di furto di credenziali dannose**
+
+- **Evento di accesso da un dispositivo infetto che causa l'esecuzione di uno strumento di furto di credenziali dannose**
+
+- **Evento di accesso da un indirizzo IP anonimo che provoca l'esecuzione di uno strumento di furto di credenziali dannose**
+
+- **Evento di accesso dall'utente con credenziali perse che provocano l'esecuzione degli strumenti di furto di credenziali dannose**
+
+### <a name="suspected-credential-theft-activity-following-suspicious-sign-in"></a>Attività sospette di furto delle credenziali dopo l'accesso sospetto
+
+**Mitre ATT&le tattiche CK:** Accesso iniziale, accesso alle credenziali
+
+**Mitre ATT&le tecniche CK:** Account valido (T1078), credenziali da archivi password (T1555), dump delle credenziali del sistema operativo (T1003)
+
+**Origini connettore dati:** Azure Active Directory Identity Protection, Microsoft Defender per endpoint
+
+**Descrizione:** Gli eventi imprevisti Fusion di questo tipo indicano che l'attività associata a modelli di furto delle credenziali si è verificata dopo un Azure AD di accesso sospetto. In questo modo si indica che l'account utente indicato nella descrizione dell'avviso è stato compromesso e utilizzato per sottrarre le credenziali, ad esempio le chiavi, le password di testo normale, gli hash delle password e così via. Le credenziali rubate possono consentire a un utente malintenzionato di accedere ai dati sensibili, inoltrare i privilegi e/o spostarsi lateralmente in rete. Le permutazioni di avvisi di accesso Azure AD sospette con l'avviso di attività di furto delle credenziali sono:
+
+- **Trasferimento Impossibile a posizioni atipiche che portano a sospette attività di furto delle credenziali**
+
+- **Evento di accesso da una posizione non nota che causa un'attività sospetta di furto delle credenziali**
+
+- **Evento di accesso da un dispositivo infetto che provoca un'attività sospetta di furto delle credenziali**
+
+- **Evento di accesso da un indirizzo IP anonimo che provoca un'attività sospetta di furto delle credenziali**
+
+- **Evento di accesso dall'utente con credenziali perse che causano un'attività sospetta di furto delle credenziali**
+
+## <a name="crypto-mining-new-threat-classification"></a>Crypto-mining (nuova classificazione delle minacce)
+
+### <a name="crypto-mining-activity-following-suspicious-sign-in"></a>Attività di data mining che segue l'accesso sospetto
+
+**Mitre ATT&le tattiche CK:** Accesso iniziale, accesso alle credenziali
+
+**Mitre ATT&le tecniche CK:** Account valido (T1078), Hijack delle risorse (T1496)
+
+**Origini connettore dati:** Azure Active Directory Identity Protection, Azure Defender (Centro sicurezza di Azure)
+
+**Descrizione:** Gli eventi imprevisti di Fusion di questo tipo indicano l'attività di data mining associata a un accesso sospetto a un account Azure AD. In questo modo si indica che l'account utente indicato nella descrizione dell'avviso è stato compromesso ed è stato usato per eseguire il Hijack delle risorse nell'ambiente per la crittografia di crittografia. Questo può ridurre le risorse di calcolo della potenza e/o produrre fatture di utilizzo del cloud significativamente più elevate. Le permutazioni di avvisi di accesso Azure AD sospette con l'avviso di attività di data mining sono:  
+
+- **Trasferimento Impossibile a posizioni atipiche che comportano attività di crittografia di data mining**
+
+- **Evento di accesso da una posizione non nota che determina l'attività di crittografia di data mining**
+
+- **Evento di accesso da un dispositivo infetto che genera attività di data mining di crittografia**
+
+- **Evento di accesso da un indirizzo IP anonimo che conduce a attività di data mining di crittografia**
+
+- **Evento di accesso dall'utente con credenziali perse che portano a attività di crittografia di data mining**
 
 ## <a name="data-exfiltration"></a>Esfiltrazione di dati
 
@@ -368,6 +432,26 @@ Questo scenario è attualmente disponibile in **anteprima pubblica**.
 **Origini connettore dati:** Microsoft Defender per endpoint (in precedenza MDATP), Palo Alto Networks 
 
 **Descrizione:** Gli eventi imprevisti di Fusion di questo tipo indicano che i comandi di Windows Management Interface (WMI) sono stati eseguiti in modalità remota in un sistema e, successivamente, l'attività in ingresso sospetta è stata rilevata dal firewall Palo Alto Networks. Ciò indica che un utente malintenzionato potrebbe avere ottenuto l'accesso alla rete e che sta tentando di spostarsi in modo successivo, inoltrare i privilegi e/o eseguire payload dannosi. Come per tutti gli attacchi di "vita fuori terra", questa attività potrebbe essere un utilizzo legittimo di WMI. Tuttavia, l'esecuzione del comando WMI remoto seguita da un'attività del firewall in ingresso sospetta aumenta la fiducia che WMI viene usato in modo dannoso e deve essere analizzato ulteriormente. Nei registri di palo alto, Azure Sentinel si concentra sui [log delle minacce](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e il traffico viene considerato sospetto quando sono consentite le minacce (dati sospetti, file, inondazioni, pacchetti, analisi, spyware, URL, virus, vulnerabilità, incendi-virus, incendi). Fare riferimento anche al log di palo alto Threat corrispondente al [tipo di contenuto o minaccia](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) elencato nella descrizione dell'evento imprevisto Fusion per ulteriori dettagli sull'avviso.
+
+### <a name="suspicious-powershell-command-line-following-suspicious-sign-in"></a>Riga di comando di PowerShell sospetta che segue l'accesso sospetto
+
+**Mitre ATT&le tattiche CK:** Accesso iniziale, esecuzione
+
+**Mitre ATT&le tecniche CK:** Account valido (T1078), interprete di comandi e scripting (T1059)
+
+**Origini connettore dati:** Azure Active Directory Identity Protection, Microsoft Defender per endpoint (noto in precedenza come MDATP)
+
+**Descrizione:** Gli eventi imprevisti di Fusion di questo tipo indicano che un utente ha eseguito comandi di PowerShell potenzialmente dannosi dopo un accesso sospetto a un account Azure AD. In questo modo si indica che l'account indicato nella descrizione dell'avviso è stato compromesso e sono state intraprese altre azioni dannose. Gli utenti malintenzionati usano spesso PowerShell per eseguire payload dannosi in memoria senza lasciare gli artefatti sul disco, al fine di evitare il rilevamento da meccanismi di sicurezza basati su disco come i programmi antivirus. Le permutazioni di avvisi di accesso Azure AD sospette con l'avviso di comando di PowerShell sospetto sono:
+
+- **Trasferimento Impossibile a posizioni atipiche che portano alla riga di comando di PowerShell sospetta**
+
+- **Evento di accesso da una posizione non nota che conduce alla riga di comando di PowerShell sospetta**
+
+- **Evento di accesso da un dispositivo infetto che conduce alla riga di comando di PowerShell sospetta**
+
+- **Evento di accesso da un indirizzo IP anonimo che conduce alla riga di comando di PowerShell sospetta**
+
+- **Evento di accesso dall'utente con credenziali perse che portano alla riga di comando di PowerShell sospetta**
 
 ## <a name="malware-c2-or-download"></a>Malware C2 o download
 

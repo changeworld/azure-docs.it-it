@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6eb44c1efd683b6febe9a355ef72c80cc6f2e40d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85078140"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746627"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visualizzare report e log in Azure AD gestione dei diritti
 
@@ -85,7 +85,7 @@ Per ottenere ulteriori dettagli su come un utente ha richiesto e ricevuto l'acce
 
 1. Nella parte superiore, modificare la **categoria** in `EntitlementManagement` o `UserManagement` , a seconda del record di controllo che si sta cercando.  
 
-1. Fare clic su **Applica**.
+1. Fare clic su **Apply**.
 
 1. Per scaricare i log, fare clic su **download**.
 
@@ -93,7 +93,7 @@ Quando Azure AD riceve una nuova richiesta, scrive un record di controllo, in cu
 
 Azure AD scriverà record di controllo aggiuntivi mentre è in corso la richiesta, tra cui:
 
-| Categoria | Attività | Stato della richiesta |
+| Category | Attività | Stato della richiesta |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | La richiesta non richiede l'approvazione |
 | `UserManagement` | `Create request approval` | La richiesta richiede l'approvazione |

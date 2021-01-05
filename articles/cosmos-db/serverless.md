@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: c5086eee805ffbcdf0741eae4db405b1bcbe8692
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170834"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760360"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB senza server (anteprima)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -19,7 +19,7 @@ ms.locfileid: "96170834"
 > [!IMPORTANT]
 > Azure Cosmos DB senza server è attualmente in fase di anteprima. Questa versione di anteprima viene fornita senza una Contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB senza server consente di usare l'account Azure Cosmos in modo basato sul consumo, in cui vengono addebitate solo le unità di richiesta utilizzate dalle operazioni del database e la risorsa di archiviazione utilizzata dai dati. Non è previsto alcun addebito minimo quando si usa Azure Cosmos DB in modalità senza server.
+Azure Cosmos DB senza server consente di usare l'account Azure Cosmos in modo basato sul consumo, in cui vengono addebitate solo le unità di richiesta utilizzate dalle operazioni del database e la risorsa di archiviazione utilizzata dai dati. I contenitori senza server possono gestire migliaia di richieste al secondo senza alcun addebito minimo e non è necessaria alcuna pianificazione della capacità.
 
 > [!IMPORTANT] 
 > Ci sono commenti e suggerimenti su senza server? Vogliamo sentirci! È possibile rilasciare un messaggio al team Azure Cosmos DB senza server: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com) .
@@ -36,13 +36,12 @@ Azure Cosmos DB gli scenari più adatti per i server in cui ci si aspetta:
 - **Traffico basso, intermittente e imprevedibile**: poiché la capacità di provisioning in tali situazioni non è necessaria e può essere dispendiosa in termini di costi
 - **Prestazioni moderate**: poiché i contenitori senza server hanno [caratteristiche specifiche delle prestazioni](#performance)
 
-Per questi motivi, è necessario prendere in considerazione Azure Cosmos DB senza server per i seguenti tipi di carico di lavoro:
+Per questi motivi, è necessario considerare Azure Cosmos DB senza server nelle situazioni seguenti:
 
-- Sviluppo
-- Test
-- Creazione di prototipi
-- Modello di verifica
-- Applicazione non critica con traffico leggero
+- Introduzione a Azure Cosmos DB
+- Sviluppo, test e creazione di prototipi di nuove applicazioni
+- Esecuzione di applicazioni di piccole e medie dimensioni con traffico intermittente difficile da prevedere
+- Integrazione con servizi di calcolo senza server come [funzioni di Azure](../azure-functions/functions-overview.md)
 
 Per altre indicazioni su come scegliere l'offerta più adatta ai casi d'uso, vedere l'articolo [come scegliere tra velocità effettiva con provisioning e senza server](throughput-serverless.md) .
 

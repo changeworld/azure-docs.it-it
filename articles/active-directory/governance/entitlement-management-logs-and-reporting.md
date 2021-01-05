@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783823"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746644"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Log di archiviazione e creazione di report su gestione entitlement di Azure AD in Monitoraggio di Azure
 
@@ -44,7 +44,7 @@ Per archiviare i log di controllo di Azure AD è necessario disporre di Monitora
     ![Riquadro Impostazioni di diagnostica](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
 
 
-1. Dopo l'invio del log a Monitoraggio di Azure, selezionare **Aree di lavoro Log Analytics**e selezionare l'area di lavoro che contiene i log di controllo di Azure AD.
+1. Dopo l'invio del log a Monitoraggio di Azure, selezionare **Aree di lavoro Log Analytics** e selezionare l'area di lavoro che contiene i log di controllo di Azure AD.
 
 1. Selezionare **Utilizzo e costi stimati** e fare clic su **Conservazione dei dati**. Modificare il dispositivo di scorrimento in base al numero di giorni per cui si vuole mantenere i dati per soddisfare i requisiti di controllo.
 

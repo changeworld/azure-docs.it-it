@@ -5,20 +5,20 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563512"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746763"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurare una regola di restrizione IP con un Web Application Firewall per lo sportello anteriore di Azure
 
 Questo articolo illustra come configurare le regole di restrizione IP in un Web Application Firewall (WAF) per il front-end di Azure usando il portale di Azure, l'interfaccia della riga di comando di Azure, Azure PowerShell o un modello di Azure Resource Manager.
 
-Una regola di controllo di accesso basata su indirizzi IP è una regola WAF personalizzata che consente di controllare l'accesso alle applicazioni Web. Questa operazione viene eseguita specificando un elenco di indirizzi IP o intervalli di indirizzi IP nel formato CIDR (Class senza Inter-Domain routing).
+Una regola di controllo di accesso basata su indirizzi IP è una regola WAF personalizzata che consente di controllare l'accesso alle applicazioni Web. Questa operazione viene eseguita specificando un elenco di indirizzi IP o intervalli di indirizzi IP nel formato CIDR (Class senza Inter-Domain routing). Esistono due tipi di variabili di corrispondenza nella corrispondenza degli indirizzi IP, **IndirizzoRemoto** e **SocketAddr**. IndirizzoRemoto è l'indirizzo IP client originale che in genere viene inviato tramite l'intestazione della richiesta X-Inoltred-for. SocketAddr è l'indirizzo IP di origine WAF vede. Se l'utente si trova dietro un proxy, SocketAddr è spesso l'indirizzo del server proxy.
 
 Per impostazione predefinita, l'applicazione Web è accessibile da Internet. Se si vuole limitare l'accesso ai client da un elenco di indirizzi IP o intervalli di indirizzi IP noti, è possibile creare una regola di corrispondenza IP che contenga l'elenco di indirizzi IP come valori corrispondenti e imposta Operator su "not" (negazione è true) e l'azione da **bloccare**. Dopo che è stata applicata una regola di restrizione IP, le richieste originate da indirizzi esterni a questo elenco consentito ricevono una risposta 403-accesso negato.
 
@@ -30,7 +30,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
 ### <a name="create-a-waf-policy"></a>Creare un criterio WAF
 
-1. Nella portale di Azure selezionare **Crea una risorsa** , digitare  **Web Application Firewall** nella casella di ricerca e quindi selezionare **Web Application Firewall (WAF)**.
+1. Nella portale di Azure selezionare **Crea una risorsa**, digitare  **Web Application Firewall** nella casella di ricerca e quindi selezionare **Web Application Firewall (WAF)**.
 2. Selezionare **Crea**.
 3. Nella pagina **Crea un criterio WAF** usare i valori seguenti per completare la scheda **nozioni di base** :
    
@@ -38,13 +38,13 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
    |---------|---------|
    |Criteri per     |WAF globale (porta anteriore)|
    |Sottoscrizione     |Selezionare la propria sottoscrizione|
-   |Gruppo di risorse     |Selezionare il gruppo di risorse in cui si trova la porta anteriore.|
+   |Resource group     |Selezionare il gruppo di risorse in cui si trova la porta anteriore.|
    |Nome criteri     |Digitare un nome per il criterio|
    |Stato criteri     |Attivato|
 
    Selezionare **Avanti: impostazioni dei criteri**
 
-1. Nella scheda **Impostazioni criteri** selezionare **prevenzione**. Per il **corpo della risposta del blocco** , digitare *che è stato bloccato.* quindi, è possibile osservare che la regola personalizzata è attiva.
+1. Nella scheda **Impostazioni criteri** selezionare **prevenzione**. Per il **corpo della risposta del blocco**, digitare *che è stato bloccato.* quindi, è possibile osservare che la regola personalizzata è attiva.
 2. Selezionare **Avanti: regole gestite**.
 3. Selezionare **Avanti: regole personalizzate**.
 4. Selezionare **Aggiungi regola personalizzata**.
@@ -109,7 +109,7 @@ Usare il comando [AZ Network front-door WAF-Policy Custom-Rule create](/cli/azur
 
 Negli esempi seguenti:
 -  Sostituire *IPAllowPolicyExampleCLI* con il criterio univoco creato in precedenza.
--  Sostituire *IP-address-range-1* , *IP-address-range-2* con il proprio intervallo.
+-  Sostituire *IP-address-range-1*, *IP-address-range-2* con il proprio intervallo.
 
 Per prima cosa, creare una regola IP allow per i criteri creati nel passaggio precedente. 
 > [!NOTE]
@@ -190,7 +190,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
 ### <a name="define-an-ip-match-condition"></a>Definire una condizione di corrispondenza IP
 Usare il comando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) per definire una condizione di corrispondenza IP.
-Nell'esempio seguente sostituire *IP-address-range-1* , *IP-address-range-2* con il proprio intervallo.    
+Nell'esempio seguente sostituire *IP-address-range-1*, *IP-address-range-2* con il proprio intervallo.    
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
@@ -225,7 +225,7 @@ Trovare il nome del gruppo di risorse che contiene il profilo di porta anteriore
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Collegare un criterio WAF a un host front-end di Azure front-end
 
-Collegare un oggetto Criteri WAF a un host front-end esistente e aggiornare le proprietà della porta anteriore di Azure. Per prima cosa, recuperare l'oggetto front door di Azure usando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Impostare quindi la proprietà **WebApplicationFirewallPolicyLink** sull'ID risorsa di *$IPAllowPolicyExamplePS* , creato nel passaggio precedente, usando il comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) .
+Collegare un oggetto Criteri WAF a un host front-end esistente e aggiornare le proprietà della porta anteriore di Azure. Per prima cosa, recuperare l'oggetto front door di Azure usando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Impostare quindi la proprietà **WebApplicationFirewallPolicyLink** sull'ID risorsa di *$IPAllowPolicyExamplePS*, creato nel passaggio precedente, usando il comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) .
 
 ```azurepowershell
   $FrontDoorObjectExample = Get-AzFrontDoor `

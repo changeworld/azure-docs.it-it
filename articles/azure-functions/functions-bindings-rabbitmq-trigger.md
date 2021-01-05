@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673988"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760402"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Panoramica del trigger RabbitMQ per funzioni di Azure
 
 > [!NOTE]
-> Le associazioni RabbitMQ sono completamente supportate solo nei piani **Windows Premium e dedicati** . Il consumo e Linux non sono attualmente supportati.
+> Le associazioni RabbitMQ sono completamente supportate solo su piani **Premium e dedicati** . Il consumo non è supportato.
 
 Usare il trigger RabbitMQ per rispondere ai messaggi provenienti da una coda di RabbitMQ.
 
@@ -43,18 +43,23 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
 Nell'esempio seguente viene illustrato come leggere il messaggio come POCO.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
 
-[FunctionName("RabbitMQTriggerCSharp")]
-public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
-    ILogger logger
-    )
-{
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
+    public class RabbitMQTriggerCSharp{
+        [FunctionName("RabbitMQTriggerCSharp")]
+        public static void RabbitMQTrigger_BasicDeliverEventArgs(
+            [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
+            ILogger logger
+            )
+        {
+            logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {pocObj}");
+        }
+    }
 }
 ```
 
@@ -82,7 +87,7 @@ Ecco i dati di associazione nel file *function.json*:
 
 Ecco il codice script C#:
 
-```csx
+```C#
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
@@ -216,7 +221,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**userNameSetting**|**UserNameSetting**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene il nome utente per accedere alla coda. Esempio: UserNameSetting: "% < UserNameFromSettings >%"|
 |**passwordSetting**|**PasswordSetting**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene la password per accedere alla coda. Esempio: PasswordSetting: "% < PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nome dell'impostazione dell'app che contiene la stringa di connessione della coda di messaggi RabbitMQ. Si noti che se si specifica la stringa di connessione direttamente e non tramite un'impostazione dell'app in local.settings.json, il trigger non funzionerà. (Ad esempio, in *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**Porta**|(ignorato se si usa ConnectionStringSetting) Ottiene o imposta la porta utilizzata. Il valore predefinito è 0.|
+|**port**|**Porta**|(ignorato se si usa ConnectionStringSetting) Ottiene o imposta la porta utilizzata. Il valore predefinito è 0 che punta all'impostazione della porta predefinita del client RabbitMQ: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -280,7 +285,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 |prefetchCount|30|Ottiene o imposta il numero di messaggi che il ricevitore del messaggio può richiedere simultaneamente e viene memorizzato nella cache.|
 |queueName|n/d| Nome della coda da cui ricevere i messaggi.|
 |connectionString|n/d|Stringa di connessione della coda di messaggi RabbitMQ. Si noti che la stringa di connessione viene specificata direttamente qui e non tramite un'impostazione dell'app.|
-|port|0|(ignorato se si usa ConnectionStringSetting) Ottiene o imposta la porta utilizzata. Il valore predefinito è 0.|
+|port|0|(ignorato se si usa connectionString) Ottiene o imposta la porta utilizzata. Il valore predefinito è 0 che punta all'impostazione della porta predefinita del client RabbitMQ: 5672.|
 
 ## <a name="local-testing"></a>Test locale
 
@@ -305,9 +310,24 @@ Se si esegue il test in locale senza una stringa di connessione, è necessario i
 
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
-|hostName|n/d|(ignorato se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
-|userName|n/d|(ignorato se si usa ConnectionStringSetting) <br>Nome per accedere alla coda |
-|password|n/d|(ignorato se si usa ConnectionStringSetting) <br>Password per accedere alla coda|
+|hostName|n/d|(ignorato se si usa connectionString) <br>Nome host della coda (ad esempio: 10.26.45.210)|
+|userName|n/d|(ignorato se si usa connectionString) <br>Nome per accedere alla coda |
+|password|n/d|(ignorato se si usa connectionString) <br>Password per accedere alla coda|
+
+
+## <a name="enable-runtime-scaling"></a>Abilita scalabilità Runtime
+
+Per consentire la scalabilità orizzontale del trigger RabbitMQ a più istanze, è necessario abilitare l'impostazione di **monitoraggio della scalabilità di runtime** . 
+
+Nel portale questa impostazione è disponibile in   >  **impostazioni runtime funzione** di configurazione per l'app per le funzioni.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+Nell'interfaccia della riga di comando è possibile abilitare il **monitoraggio della scala di runtime** usando il comando seguente:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>Monitoraggio dell'endpoint RabbitMQ
 Per monitorare le code e gli scambi per un determinato endpoint RabbitMQ:

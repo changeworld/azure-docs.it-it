@@ -7,21 +7,21 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: a38015d9f7560930d77d5d50ac70dca5bcdde6a6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672509"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746525"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Cenni preliminari sulle associazioni RabbitMQ per funzioni di Azure
 
 > [!NOTE]
-> Le associazioni RabbitMQ sono completamente supportate solo nei piani **Windows Premium e dedicati** . Il consumo e Linux non sono attualmente supportati.
+> Le associazioni RabbitMQ sono completamente supportate solo su piani **Premium e dedicati** . Il consumo non è supportato.
 
 Funzioni di Azure si integra con [RabbitMQ](https://www.rabbitmq.com/) tramite [trigger e associazioni](./functions-triggers-bindings.md). L'estensione RabbitMQ di funzioni di Azure consente di inviare e ricevere messaggi usando l'API RabbitMQ con le funzioni.
 
-| Azione | Tipo |
+| Azione | Type |
 |---------|---------|
 | Esegui una funzione quando un messaggio RabbitMQ passa attraverso la coda | [Trigger](./functions-bindings-rabbitmq-trigger.md) |
 | Invia messaggi RabbitMQ |[Binding di output](./functions-bindings-rabbitmq-output.md) |
@@ -34,7 +34,7 @@ Per iniziare a sviluppare con questa estensione, assicurarsi di [configurare pri
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Osservazioni
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 4. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure] è consigliata per l'uso con Visual Studio Code. |

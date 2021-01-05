@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 9b2ab664f319de07fd70bd1a22b1ba6d64ac208f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05dadfe88ed64aea8066b02298ba158a44a03c6f
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320256"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760184"
 ---
 # <a name="metric-chart-examples"></a>Esempi di grafici delle metriche 
 
@@ -24,7 +24,7 @@ Come condividere ottimi esempi di grafici? Contribuendo a questa pagina su GitHu
 
 Questo grafico mostra se l'uso della CPU per un servizio app rientra in un intervallo accettabile e lo suddivide per istanza per determinare se il carico è stato distribuito correttamente. Il grafico mostra che l'app era in esecuzione in una singola istanza del server prima delle ore 06:00 e che in seguito è stata aumentata mediante l'aggiunta di un'altra istanza.
 
-![Grafico a linee della percentuale CPU media per istanza del server](./media/metric-chart-samples/cpu-by-instance.png)
+![Grafico a linee della percentuale CPU media per istanza del server](./media/metrics-charts/cpu-by-instance.png)
 
 ### <a name="how-to-configure-this-chart"></a>Come configurare questo grafico?
 
@@ -34,17 +34,17 @@ Selezionare la risorsa del Servizio app di Azure e cercare la metrica **Percentu
 
 Consente di visualizzare la disponibilità dell'applicazione per area, per identificare quali aree geografiche stanno riscontrando problemi. Questo grafico mostra la metrica di disponibilità di Application Insights. È possibile notare che l'applicazione monitorata non presenta alcun problema di disponibilità dal data center degli Stati Uniti orientali, ma sussiste un problema di disponibilità parziale dai data center degli Stati Uniti occidentali e dell'Asia orientale.
 
-![Grafico della disponibilità media in base ai percorsi](./media/metric-chart-samples/availability-run-location.png)
+![Grafico della disponibilità media in base ai percorsi](./media/metrics-charts/availability-by-location.png)
 
 ### <a name="how-to-configure-this-chart"></a>Come configurare questo grafico?
 
 È innanzitutto necessario attivare il monitoraggio della [disponibilità di Application Insights](../app/monitor-web-app-availability.md) dal sito Web. In seguito, selezionare la risorsa di Application Insights e selezionare la metrica di disponibilità. Applicare la suddivisione nella dimensione **Percorso esecuzione**.
 
-## <a name="volume-of-storage-account-transactions-by-api-name"></a>Volume delle transazioni di un account di archiviazione in base al nome API
+## <a name="volume-of-failed-storage-account-transactions-by-api-name"></a>Volume delle transazioni dell'account di archiviazione non riuscite per nome API
 
-La risorsa dell'account di archiviazione sta riscontrando un volume di transazioni eccessivo. È possibile usare la metrica delle transazioni per identificare quale sia l'API del carico in eccesso. Si noti che il grafico seguente viene configurato con la stessa dimensione (nome API) durante il filtraggio e la suddivisione per limitare la visualizzazione alle chiamate API di interesse:
+La risorsa dell'account di archiviazione sta riscontrando un volume eccedente di transazioni non riuscite. È possibile usare la metrica transazioni per identificare quale API è responsabile dell'errore in eccesso. Si noti che il grafico seguente viene configurato con la stessa dimensione (nome API) in divisione e filtrato in base al tipo di risposta non riuscita:
 
-![Grafico a barre delle transazioni API](./media/metric-chart-samples/transactions-by-api.png)
+![Grafico a barre delle transazioni API](./media/metrics-charts/split-and-filter-example.png)
 
 ### <a name="how-to-configure-this-chart"></a>Come configurare questo grafico?
 

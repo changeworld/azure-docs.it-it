@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426cf78f6b87acf1d8c7551b0b0a6172a30167b1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 68a129f38e9a94a7e381d11ffa3c3d02791b025b
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621096"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755770"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
-La trascrizione batch è un set di operazioni API REST che consente di trascrivere una grande quantità di audio nell'archivio. È possibile puntare a file audio usando un URI tipico o un URI di firma di accesso condiviso e ricevere in modo asincrono i risultati della trascrizione. Con l'API v 3.0 è possibile trascrivere uno o più file audio oppure elaborare un intero contenitore di archiviazione.
+La trascrizione batch è un set di operazioni API REST che consente di trascrivere una grande quantità di audio nell'archivio. È possibile puntare a file audio usando un URI tipico o un URI di [firma di accesso condiviso](../../storage/common/storage-sas-overview.md) e ricevere in modo asincrono i risultati della trascrizione. Con l'API v 3.0 è possibile trascrivere uno o più file audio oppure elaborare un intero contenitore di archiviazione.
 
 È possibile usare le API REST per la trascrizione batch per chiamare i metodi seguenti:
 
@@ -66,7 +66,7 @@ Per creare una trascrizione finale ordinata, usare i timestamp generati per espr
 
 ### <a name="configuration"></a>Configurazione
 
-I parametri di configurazione vengono forniti come JSON.
+I parametri di configurazione vengono forniti come JSON. 
 
 **Trascrizione di uno o più singoli file.** Se è presente più di un file da trascrivere, è consigliabile inviare più file in un'unica richiesta. L'esempio seguente usa tre file:
 
@@ -85,7 +85,7 @@ I parametri di configurazione vengono forniti come JSON.
 }
 ```
 
-**Elaborazione di un intero contenitore di archiviazione:**
+**Elaborazione di un intero contenitore di archiviazione.** La firma di accesso condiviso [del contenitore deve](../../storage/common/storage-sas-overview.md) contenere `r` le autorizzazioni (lettura) e `l` (elenco):
 
 ```json
 {
@@ -177,7 +177,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL facoltativo con firma di accesso condiviso [ad hoc del servizio](../../storage/common/storage-sas-overview.md) in un contenitore scrivibile in Azure. Il risultato viene archiviato in questo contenitore. La firma di accesso condiviso con criteri di accesso archiviati **non** è supportata. Quando non è specificato, Microsoft archivia i risultati in un contenitore di archiviazione gestito da Microsoft. Quando la trascrizione viene eliminata chiamando la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), verranno eliminati anche i dati del risultato.
+      URL facoltativo con [SAS ad hoc](../../storage/common/storage-sas-overview.md) in un contenitore scrivibile in Azure. Il risultato viene archiviato in questo contenitore. La firma di accesso condiviso con criteri di accesso archiviati **non** è supportata. Quando non è specificato, Microsoft archivia i risultati in un contenitore di archiviazione gestito da Microsoft. Quando la trascrizione viene eliminata chiamando la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), verranno eliminati anche i dati del risultato.
 :::row-end:::
 
 ### <a name="storage"></a>Archiviazione

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447367"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762920"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Distribuire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python
 
@@ -27,7 +27,7 @@ Questa esercitazione descrive come creare e gestire una macchina virtuale nel di
 
 Il flusso di lavoro di distribuzione è illustrato nel diagramma seguente.
 
-![Flusso di lavoro di distribuzione della VM](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![Flusso di lavoro di distribuzione della VM](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 Il riepilogo generale del flusso di lavoro di distribuzione è il seguente:
 
@@ -43,7 +43,7 @@ Il riepilogo generale del flusso di lavoro di distribuzione è il seguente:
 10. Creare una rete virtuale
 11. Creare una scheda di interfaccia di rete virtuale usando l'ID subnet della rete virtuale
 
-Per una spiegazione dettagliata del diagramma del flusso di lavoro, vedere [Distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro con Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Per informazioni su come connettersi ad Azure Resource Manager, vedere [Connettersi ad Azure Resource Manager con Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+Per una spiegazione dettagliata del diagramma del flusso di lavoro, vedere [Distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro con Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). Per informazioni su come connettersi ad Azure Resource Manager, vedere [Connettersi ad Azure Resource Manager con Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

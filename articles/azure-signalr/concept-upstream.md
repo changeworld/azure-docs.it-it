@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143249"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763116"
 ---
 # <a name="upstream-settings"></a>Impostazioni upstream
 
@@ -53,16 +53,29 @@ Quando un client nell'hub "chat" richiama il metodo dell'hub `broadcast` , viene
 http://host.com/chat/api/messages/broadcast
 ```
 
+### <a name="key-vault-secret-reference-in-url-template-settings"></a>Riferimento Key Vault segreto nelle impostazioni del modello URL
+
+L'URL dell'upstream non è la crittografia dei inattivi. Se si dispone di informazioni riservate, è consigliabile usare Key Vault per salvarle, in cui il controllo degli accessi ha una migliore assicurazione. In pratica, è possibile abilitare l'identità gestita del servizio Azure SignalR e quindi concedere l'autorizzazione di lettura per un'istanza di Key Vault e usare Key Vault riferimento anziché il testo non crittografato nel modello URL upstream.
+
+1. Aggiungere un'identità assegnata dal sistema o un'identità assegnata dall'utente. Vedere [come aggiungere identità gestite nel portale di Azure](./howto-use-managed-identity.md#add-a-system-assigned-identity)
+
+2. Concedere l'autorizzazione di lettura segreta per l'identità gestita nei criteri di accesso del Key Vault. Vedere [assegnare un criterio di accesso key Vault usando il portale di Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+
+3. Sostituire il testo sensibile con la sintassi `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` nel modello upstream URL.
+
+> [!NOTE]
+> Il contenuto del segreto viene riletto solo quando si modificano le impostazioni upstream o si modifica l'identità gestita. Assicurarsi di aver concesso l'autorizzazione di lettura segreta all'identità gestita prima di usare il riferimento Key Vault Secret.
+
 ### <a name="rule-settings"></a>Impostazioni regola
 
-È possibile impostare separatamente le regole per le regole dell' *Hub*, *le regole di categoria*e *le regole degli eventi* . La regola di corrispondenza supporta tre formati. Prendere le regole degli eventi come esempio:
+È possibile impostare separatamente le regole per le regole dell' *Hub*, *le regole di categoria* e *le regole degli eventi* . La regola di corrispondenza supporta tre formati. Prendere le regole degli eventi come esempio:
 - Usare un asterisco (*) per trovare la corrispondenza con qualsiasi evento.
 - Usare una virgola (,) per unire più eventi. Ad esempio, `connected, disconnected` corrisponde agli eventi connessi e disconnessi.
 - Usare il nome completo dell'evento per trovare la corrispondenza con l'evento. Ad esempio, `connected` corrisponde all'evento connesso.
 
 > [!NOTE]
-> Se si usa funzioni di Azure e il [trigger SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md), il trigger SignalR esporrà un singolo endpoint nel formato seguente: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` .
-> È possibile configurare solo il modello di URL in questo URL.
+> Se si usa funzioni di Azure e il [trigger SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md), il trigger SignalR esporrà un singolo endpoint nel formato seguente: `<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>` .
+> È possibile configurare solo **le impostazioni del modello URL** in questo URL e Mantieni **le impostazioni predefinite delle regole** . Per informazioni dettagliate su come trovare e, vedere [integrazione del servizio SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration) `<Function_App_URL>` `<API_KEY>` .
 
 ### <a name="authentication-settings"></a>Authentication settings
 
@@ -80,9 +93,9 @@ Quando si seleziona `ManagedIdentity` , è necessario abilitare in anticipo un'i
     :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Impostazioni upstream":::
 
 3. Aggiungere URL nel **modello URL upstream**. Impostazioni come le **regole dell'hub** mostreranno quindi il valore predefinito.
-4. Per impostare le impostazioni per le **regole dell'hub**, le **regole degli eventi**, le regole di **categoria**e **l'autenticazione upstream**, selezionare il valore delle **regole dell'hub**. Viene visualizzata una pagina che consente di modificare le impostazioni:
+4. Per impostare le impostazioni per le **regole dell'hub**, le **regole degli eventi**, le regole di **categoria** e **l'autenticazione upstream**, selezionare il valore delle **regole dell'hub**. Viene visualizzata una pagina che consente di modificare le impostazioni:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Impostazioni upstream":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Dettagli impostazione upstream":::
 
 5. Per impostare **l'autenticazione upstream**, assicurarsi che sia stata abilitata per prima un'identità gestita. Selezionare quindi **Usa identità gestita**. Secondo le esigenze, è possibile scegliere qualsiasi opzione in **ID risorsa di autenticazione**. Per informazioni dettagliate, vedere [identità gestite per il servizio Azure SignalR](howto-use-managed-identity.md) .
 
@@ -115,7 +128,7 @@ Per creare le impostazioni upstream usando un [modello di Azure Resource Manager
 
 ## <a name="serverless-protocols"></a>Protocolli senza server
 
-Il servizio Azure SignalR invia messaggi agli endpoint che seguono i protocolli seguenti.
+Il servizio Azure SignalR invia messaggi agli endpoint che seguono i protocolli seguenti. È possibile usare l' [associazione del trigger del servizio SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md) con app per le funzioni, che gestisce automaticamente questi protocolli.
 
 ### <a name="method"></a>Metodo
 
@@ -135,7 +148,7 @@ POST
 |X-ASRS-client-query |Query della richiesta quando i client si connettono al servizio.|
 |Authentication |Token facoltativo quando si usa `ManagedIdentity` . |
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 #### <a name="connected"></a>Connesso
 
@@ -170,3 +183,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 - [Identità gestite per il servizio Azure SignalR](howto-use-managed-identity.md)
 - [Sviluppo e configurazione di Funzioni di Azure e con il Servizio Azure SignalR](signalr-concept-serverless-development-config.md)
+- [Gestire i messaggi dal servizio SignalR (associazione di trigger)](../azure-functions/functions-bindings-signalr-service-trigger.md)
+- [Esempio di associazione del trigger del servizio SignalR](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

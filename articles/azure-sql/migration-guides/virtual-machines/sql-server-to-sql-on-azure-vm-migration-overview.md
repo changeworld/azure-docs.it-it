@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 4979902853602073e6230ef7387d6c6596fe77da
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325920"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746576"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Panoramica della migrazione: SQL Server SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -24,7 +24,7 @@ Informazioni sulle diverse strategie di migrazione per eseguire la migrazione de
 
 È possibile eseguire la migrazione di SQL Server in esecuzione in locale o in:
 
-- SQL Server in macchine virtuali  
+- SQL Server nelle macchine virtuali  
 - Amazon Web Services (AWS) EC2 
 - Servizio database relazionale di Amazon (AWS RDS) 
 - Motore di calcolo (Google Cloud Platform-GCP)
@@ -127,6 +127,20 @@ Tali servizi includono:
 
 Quando si prepara la migrazione di database SQL Server a SQL Server in macchine virtuali di Azure, assicurarsi di prendere in considerazione le versioni di SQL Server supportate. Per un elenco delle versioni correnti SQL Server supportate nelle macchine virtuali di Azure, vedere [SQL Server in macchine virtuali di Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
+## <a name="migration-assets"></a>Risorse per la migrazione 
+
+Per ulteriore assistenza, vedere le risorse seguenti sviluppate per i progetti di migrazione reali.
+
+|Asset  |Descrizione  |
+|---------|---------|
+|[Strumento e modello di valutazione dei carichi di lavoro dei dati](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| Questo strumento indica le piattaforme di destinazione "più idonee" suggerite, la preparazione per il cloud e il livello di correzione di applicazioni/database per un determinato carico di lavoro. Offre funzionalità semplici e accessibili con un solo clic per l'esecuzione di calcoli e la generazione di report, che consentono di accelerare le valutazioni in ambienti estesi grazie a un processo decisionale automatizzato e uniforme per la piattaforma di destinazione.|
+|[Automazione della raccolta dati Perfmon con logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Strumento che raccoglie i dati per comprendere le prestazioni di base che assistono nella raccomandazione della destinazione della migrazione. Questo strumento utilizza logman.exe per creare il comando per la creazione, l'avvio, l'arresto e l'eliminazione dei contatori delle prestazioni impostati in una SQL Server remota.|
+|[Distribuzione SQL Server in Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|Questo white paper sulle linee guida consente di esaminare le varie opzioni disponibili per spostare i carichi di lavoro SQL Server in Azure, inclusi il confronto tra le funzionalità, la disponibilità elevata e le considerazioni su backup/archiviazione. |
+|[SQL Server locale alla macchina virtuale di Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|Questo white paper descrive i passaggi per eseguire il backup e il ripristino dei database da SQL Server locali per SQL Server nella macchina virtuale di Azure usando script di esempio.|
+|[Multi-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|Questo white paper descrive i passaggi per configurare più macchine virtuali di Azure in un SQL Server Always On configurazione del gruppo di disponibilità.|
+|[Macchine virtuali di Azure che supportano Ultra SSD per area](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Questi script di PowerShell forniscono un'opzione a livello di codice per recuperare l'elenco delle aree che supportano le macchine virtuali di Azure che supportano le unità SSD.|
+
+Queste risorse sono state sviluppate come parte del programma Data SQL Ninja, sponsorizzato dal team di progettazione Azure Data Group. Obiettivo principale del programma Data SQL Ninja è rendere disponibili opportunità per velocizzare progetti di modernizzazione complessi e la migrazione delle piattaforme dati alla piattaforma dati di Microsoft Azure. Se si ritiene che l'organizzazione possa essere interessata a partecipare al programma Data SQL Ninja, contattare il team dell'account per richiedere l'invio di una candidatura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

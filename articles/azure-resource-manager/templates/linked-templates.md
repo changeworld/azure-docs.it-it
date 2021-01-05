@@ -1,22 +1,22 @@
 ---
 title: Collegare i modelli per la distribuzione
-description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
+description: Viene descritto come usare i modelli collegati in un modello di Azure Resource Manager (modello ARM) per creare una soluzione di modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 1e2ccc57b42f8072c9aa28612d534507b9a674ed
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852099"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760623"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
-Per distribuire soluzioni complesse, è possibile suddividere il modello in molti modelli correlati e quindi distribuirli insieme tramite un modello principale. I modelli correlati possono essere file separati o la sintassi del modello incorporata nel modello principale. Questo articolo usa il termine **modello collegato** per fare riferimento a un file di modello separato a cui viene fatto riferimento tramite un collegamento del modello principale. Usa il termine **modello annidato** per fare riferimento alla sintassi del modello incorporata all'interno del modello principale.
+Per distribuire soluzioni complesse, è possibile suddividere il modello di Azure Resource Manager (modello ARM) in molti modelli correlati e quindi distribuirli insieme tramite un modello principale. I modelli correlati possono essere file separati o la sintassi del modello incorporata nel modello principale. Questo articolo usa il termine **modello collegato** per fare riferimento a un file di modello separato a cui viene fatto riferimento tramite un collegamento del modello principale. Usa il termine **modello annidato** per fare riferimento alla sintassi del modello incorporata all'interno del modello principale.
 
 Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione. È possibile riutilizzare facilmente questi modelli per altri scenari.
 
-Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./deployment-tutorial-linked-template.md).
+Per un'esercitazione, vedere [esercitazione: distribuire un modello collegato](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
 > Per i modelli collegati o annidati, è possibile impostare la modalità di distribuzione solo come [incrementale](deployment-modes.md). Tuttavia, il modello principale può essere distribuito in modalità completa. Se si distribuisce il modello principale in modalità completa e il modello collegato o annidato è destinato allo stesso gruppo di risorse, le risorse distribuite nel modello collegato o annidato sono incluse nella valutazione per la distribuzione in modalità completa. La raccolta combinata di risorse distribuite nel modello principale e nei modelli collegati o annidati viene confrontata con le risorse esistenti nel gruppo di risorse. Tutte le risorse non incluse in questa raccolta combinata verranno eliminate.
@@ -26,7 +26,7 @@ Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure R
 
 ## <a name="nested-template"></a>Modello annidato
 
-Per annidare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella proprietà **template** specificare la sintassi del modello.
+Per annidare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella `template` Proprietà specificare la sintassi del modello.
 
 ```json
 {
@@ -283,7 +283,7 @@ Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segr
 
 ## <a name="linked-template"></a>Modello collegato
 
-Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella proprietà **templateLink** specificare l'URI del modello da includere. Nell'esempio seguente viene collegato a un modello che si trova in un account di archiviazione.
+Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella `templateLink` Proprietà specificare l'URI del modello da includere. Nell'esempio seguente viene collegato a un modello che si trova in un account di archiviazione.
 
 ```json
 {
@@ -310,9 +310,9 @@ Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/template
 }
 ```
 
-Quando si fa riferimento a un modello collegato, il valore di `uri` non può essere un file locale o un file disponibile solo nella rete locale. Azure Resource Manager deve essere in grado di accedere al modello. Fornire un valore URI scaricabile come **http** o **https**. 
+Quando si fa riferimento a un modello collegato, il valore di `uri` non può essere un file locale o un file disponibile solo nella rete locale. Azure Resource Manager deve essere in grado di accedere al modello. Fornire un valore URI scaricabile come HTTP o HTTPS.
 
-È possibile fare riferimento ai modelli utilizzando parametri che includono **http** o **https**. Ad esempio, un modello comune consiste nell'usare il `_artifactsLocation` parametro. È possibile impostare il modello collegato con un'espressione simile alla seguente:
+È possibile fare riferimento ai modelli utilizzando parametri che includono HTTP o HTTPS. Ad esempio, un modello comune consiste nell'usare il `_artifactsLocation` parametro. È possibile impostare il modello collegato con un'espressione simile alla seguente:
 
 ```json
 "uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
@@ -324,47 +324,49 @@ Se si sta eseguendo il collegamento a un modello in GitHub, usare l'URL non elab
 
 ### <a name="parameters-for-linked-template"></a>Parametri per il modello collegato
 
-È possibile specificare i parametri per il modello collegato in un file esterno o inline. Quando si specifica un file di parametri esterno, utilizzare la proprietà **parametersLink** :
+È possibile specificare i parametri per il modello collegato in un file esterno o inline. Quando si specifica un file di parametri esterno, utilizzare la `parametersLink` proprietà:
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "linkedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-      "contentVersion":"1.0.0.0"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parametersLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
     }
-  }
   }
 ]
 ```
 
-Per passare i valori dei parametri inline, utilizzare la proprietà **Parameters** .
+Per passare i valori dei parametri inline, utilizzare la `parameters` Proprietà.
 
 ```json
 "resources": [
   {
-   "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2019-10-01",
-   "name": "linkedTemplate",
-   "properties": {
-     "mode": "Incremental",
-     "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-     },
-     "parameters": {
-      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parameters": {
+        "storageAccountName": {
+          "value": "[parameters('storageAccountName')]"
+        }
+      }
     }
-   }
   }
 ]
 ```
@@ -394,7 +396,7 @@ Non è necessario specificare la `contentVersion` proprietà per la `templateLin
 
 Negli esempi precedenti sono illustrati i valori di URL hard-coded per i collegamenti del modello. Questo approccio potrebbe funzionare per un modello semplice, ma non è adatto per un set di modelli modulari di grandi dimensioni. In alternativa, è possibile creare una variabile statica contenente un URL di base per il modello principale e quindi creare dinamicamente gli URL per i modelli collegati da tale URL di base. Il vantaggio di questo approccio consiste nel fatto che è possibile spostare o creare un fork del modello in modo semplice perché è necessario modificare solo la variabile statica nel modello principale. Il modello principale passa gli URI corretti a tutto il modello scomposto.
 
-Nell'esempio seguente viene illustrato come usare un URL di base per creare due URL per i modelli collegati (**sharedTemplateUrl** e **vmTemplate**).
+Nell'esempio seguente viene illustrato come utilizzare un URL di base per creare due URL per i modelli collegati ( `sharedTemplateUrl` e `vmTemplateUrl` ).
 
 ```json
 "variables": {
@@ -404,7 +406,7 @@ Nell'esempio seguente viene illustrato come usare un URL di base per creare due 
 }
 ```
 
-È inoltre possibile usare [deployment ()](template-functions-deployment.md#deployment) per ottenere l'URL di base per il modello corrente e usarlo per ottenere l'URL per altri modelli nello stesso percorso. Questo approccio è utile se la posizione del modello cambia o si vuole evitare la codifica di URL nel file del modello. La proprietà templateLink viene restituita solo durante il collegamento a un modello remoto con un URL. Se si usa un modello locale, tale proprietà non è disponibile.
+È inoltre possibile usare [deployment ()](template-functions-deployment.md#deployment) per ottenere l'URL di base per il modello corrente e usarlo per ottenere l'URL per altri modelli nello stesso percorso. Questo approccio è utile se la posizione del modello cambia o si vuole evitare la codifica di URL nel file del modello. La `templateLink` proprietà viene restituita solo in caso di collegamento a un modello remoto con un URL. Se si usa un modello locale, tale proprietà non è disponibile.
 
 ```json
 "variables": {
@@ -423,49 +425,49 @@ Infine, si utilizzerà la variabile nella `uri` proprietà di una `templateLink`
 
 ## <a name="using-copy"></a>Uso di Copy
 
-Per creare più istanze di una risorsa con un modello annidato, aggiungere l'elemento Copy a livello della risorsa **Microsoft. resources/Deployments** . In alternativa, se l'ambito è interno, è possibile aggiungere la copia all'interno del modello annidato.
+Per creare più istanze di una risorsa con un modello annidato, aggiungere l' `copy` elemento al livello della `Microsoft.Resources/deployments` risorsa. In alternativa, se l'ambito è `inner` , è possibile aggiungere la copia all'interno del modello annidato.
 
-Il modello di esempio seguente mostra come usare copy con un modello annidato.
+Il modello di esempio seguente mostra come usare `copy` con un modello annidato.
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "[concat('nestedTemplate', copyIndex())]",
-  // yes, copy works here
-  "copy":{
-    "name": "storagecopy",
-    "count": 2
-  },
-  "properties": {
-    "mode": "Incremental",
-    "expressionEvaluationOptions": {
-    "scope": "inner"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy": {
+      "name": "storagecopy",
+      "count": 2
     },
-    "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(variables('storageName'), copyIndex())]",
-      "location": "West US",
-      "sku": {
-        "name": "Standard_LRS"
+    "properties": {
+      "mode": "Incremental",
+      "expressionEvaluationOptions": {
+        "scope": "inner"
       },
-      "kind": "StorageV2"
-      // Copy works here when scope is inner
-      // But, when scope is default or outer, you get an error
-      //"copy":{
-      //  "name": "storagecopy",
-      //  "count": 2
-      //}
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "sku": {
+              "name": "Standard_LRS"
+            },
+            "kind": "StorageV2"
+            // Copy works here when scope is inner
+            // But, when scope is default or outer, you get an error
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
       }
-    ]
     }
-  }
   }
 ]
 ```
@@ -476,7 +478,7 @@ Per ottenere un valore di output da un modello collegato, recuperare il valore d
 
 Quando si recupera una proprietà di output da un modello collegato, il nome della proprietà non deve includere un trattino.
 
-Gli esempi seguenti illustrano come fare riferimento a un modello collegato e recuperare un valore di output. Il modello collegato restituisce un messaggio semplice.  Primo, il modello collegato:
+Gli esempi seguenti illustrano come fare riferimento a un modello collegato e recuperare un valore di output. Il modello collegato restituisce un messaggio semplice. Primo, il modello collegato:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworld.json":::
 
@@ -613,28 +615,28 @@ L'esempio seguente mostra come passare un token di firma di accesso condiviso qu
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "securestring" }
+    "containerSasToken": { "type": "securestring" }
   },
   "resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
-    "name": "linkedTemplate",
-    "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-      "contentVersion": "1.0.0.0"
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
     }
-    }
-  }
   ],
   "outputs": {
   }
 }
 ```
 
-In PowerShell ottenere un token per il contenitore e distribuire i modelli con i comandi seguenti. Si noti che il parametro **containerSasToken** è definito nel modello. Non è un parametro del comando **New-AzResourceGroupDeployment**.
+In PowerShell ottenere un token per il contenitore e distribuire i modelli con i comandi seguenti. Si noti che il `containerSasToken` parametro è definito nel modello. Non è un parametro nel `New-AzResourceGroupDeployment` comando.
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -680,7 +682,7 @@ Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./deployment-tutorial-linked-template.md).
-* Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager](define-resource-dependency.md).
-* Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager](copy-resources.md).
-* Per conoscere la procedura per la configurazione di un modello in un account di archiviazione e per la generazione di un token con firma di accesso condiviso, consultare [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) (Distribuire le risorse con i modelli di Resource Manager e Azure PowerShell) o [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md) (Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure).
+* Per eseguire un'esercitazione, vedere [esercitazione: distribuire un modello collegato](./deployment-tutorial-linked-template.md).
+* Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [definire l'ordine per la distribuzione delle risorse nei modelli ARM](define-resource-dependency.md).
+* Per informazioni su come definire una risorsa, ma crearne molte istanze, vedere [iterazione delle risorse nei modelli ARM](copy-resources.md).
+* Per la procedura di configurazione di un modello in un account di archiviazione e la generazione di un token di firma di accesso condiviso, vedere [distribuire risorse con modelli ARM e Azure PowerShell](deploy-powershell.md) o [distribuire risorse con modelli ARM e l'interfaccia](deploy-cli.md)della riga di comando di Azure

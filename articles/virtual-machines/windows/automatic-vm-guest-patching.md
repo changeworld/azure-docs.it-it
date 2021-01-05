@@ -5,14 +5,14 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 12/23/2020
 ms.author: manayar
-ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e22e8b81382614c2930c72a8150606f859be501d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744725"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762980"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Anteprima: applicazione automatica delle patch guest alle macchine virtuali Windows in Azure
 
@@ -34,11 +34,11 @@ L'applicazione automatica di patch per guest VM presenta le caratteristiche segu
 
 Se l'applicazione automatica delle patch Guest per le VM è abilitata in una macchina virtuale, le patch di *sicurezza* e *critiche* disponibili vengono scaricate e applicate automaticamente nella macchina virtuale. Questo processo viene automaticamente interrotto ogni mese quando vengono rilasciate nuove patch tramite Windows Update. La valutazione e l'installazione delle patch sono automatiche e il processo include il riavvio della macchina virtuale secondo le esigenze.
 
-La macchina virtuale viene valutata periodicamente per determinare le patch applicabili per tale macchina virtuale. Le patch possono essere installate ogni giorno nella macchina virtuale durante gli orari di minore traffico per la macchina virtuale. Questa valutazione automatica garantisce che tutte le patch mancanti vengano individuate alla prima possibile opportunità.
+La macchina virtuale viene valutata periodicamente ogni pochi giorni e più volte entro un periodo di 30 giorni per determinare le patch applicabili per tale macchina virtuale. Le patch possono essere installate ogni giorno nella macchina virtuale durante gli orari di minore traffico per la macchina virtuale. Questa valutazione automatica garantisce che tutte le patch mancanti vengano individuate alla prima possibile opportunità.
 
-Le patch vengono installate entro 30 giorni dalla versione di Windows Update mensile, seguendo la prima orchestrazione di disponibilità descritta di seguito. Le patch vengono installate solo durante gli orari di minore traffico per la macchina virtuale, a seconda del fuso orario della macchina virtuale. Per installare automaticamente le patch, la macchina virtuale deve essere in esecuzione durante gli orari di minore traffico. Se una macchina virtuale viene spenta durante una valutazione periodica, la macchina virtuale verrà automaticamente valutata e le patch applicabili verranno installate automaticamente durante la valutazione periodica successiva quando la macchina virtuale è accesa.
+Le patch vengono installate entro 30 giorni dalla versione di Windows Update mensile, seguendo la prima orchestrazione di disponibilità descritta di seguito. Le patch vengono installate solo durante gli orari di minore traffico per la macchina virtuale, a seconda del fuso orario della macchina virtuale. Per installare automaticamente le patch, la macchina virtuale deve essere in esecuzione durante gli orari di minore traffico. Se una macchina virtuale viene spenta durante una valutazione periodica, la macchina virtuale verrà automaticamente valutata e le patch applicabili verranno installate automaticamente durante la successiva valutazione periodica (in genere entro pochi giorni) quando la macchina virtuale è accesa.
 
-Per installare patch con altre classificazioni patch o pianificare l'installazione di patch all'interno della finestra di manutenzione personalizzata, è possibile usare [Gestione aggiornamenti](tutorial-config-management.md#manage-windows-updates).
+Gli aggiornamenti delle definizioni e altre patch non classificate come *critiche* o la *sicurezza* non verranno installate tramite l'applicazione automatica delle patch per i guest di macchine virtuali. Per installare patch con altre classificazioni patch o pianificare l'installazione di patch all'interno della finestra di manutenzione personalizzata, è possibile usare [Gestione aggiornamenti](tutorial-config-management.md#manage-windows-updates).
 
 ### <a name="availability-first-patching"></a>Disponibilità-prima applicazione di patch
 
@@ -67,13 +67,13 @@ Nell'anteprima sono attualmente supportate solo le macchine virtuali create da d
 
 Gli SKU di piattaforma seguenti sono attualmente supportati e altri vengono aggiunti periodicamente:
 
-| Publisher               | Offerta sistema operativo      |  Sku               |
+| Editore               | Offerta sistema operativo      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Server-Core |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 
 ## <a name="patch-orchestration-modes"></a>Patch Orchestration Mode
 Le macchine virtuali Windows in Azure supportano ora le modalità di orchestrazione delle patch seguenti:
@@ -83,7 +83,7 @@ Le macchine virtuali Windows in Azure supportano ora le modalità di orchestrazi
 - Questa modalità è obbligatoria per la prima applicazione di patch.
 - L'impostazione di questa modalità Disabilita inoltre la Aggiornamenti automatici nativa nella macchina virtuale Windows per evitare la duplicazione.
 - Questa modalità è supportata solo per le macchine virtuali create con le immagini della piattaforma del sistema operativo supportate sopra.
-- Per usare questa modalità, impostare la proprietà `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e impostare la proprietà  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` nel modello di macchina virtuale.
+- Per usare questa modalità, impostare la proprietà `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e impostare la proprietà  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` nel modello di macchina virtuale.
 
 **AutomaticByOS:**
 - Questa modalità Abilita Aggiornamenti automatici nella macchina virtuale Windows e le patch vengono installate nella VM tramite Aggiornamenti automatici.
@@ -107,7 +107,7 @@ Le macchine virtuali Windows in Azure supportano ora le modalità di orchestrazi
 - La macchina virtuale deve essere in grado di accedere Windows Update endpoint. Se la macchina virtuale è configurata per l'utilizzo di Windows Server Update Services (WSUS), è necessario che gli endpoint server WSUS pertinenti siano accessibili.
 - Usare l'API di calcolo versione 2020-06-01 o successiva.
 
-Per abilitare la funzionalità di anteprima, è necessario un unico consenso esplicito per la funzionalità *InGuestAutoPatchVMPreview* per sottoscrizione, come descritto di seguito.
+Per abilitare la funzionalità di anteprima, è necessario un unico consenso esplicito per la funzionalità **InGuestAutoPatchVMPreview** per sottoscrizione, come descritto di seguito.
 
 ### <a name="rest-api"></a>API REST
 Nell'esempio seguente viene descritto come abilitare l'anteprima per la sottoscrizione:
@@ -199,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [AZ VM create](/cli/azure/vm#az-vm-create) per abilitare l'applicazione automatica delle patch Guest per le VM quando si crea una nuova macchina virtuale. Nell'esempio seguente viene configurata l'applicazione automatica delle patch Guest per una macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup* :
+Usare [AZ VM create](/cli/azure/vm#az-vm-create) per abilitare l'applicazione automatica delle patch Guest per le VM quando si crea una nuova macchina virtuale. Nell'esempio seguente viene configurata l'applicazione automatica delle patch Guest per una macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
@@ -254,10 +254,10 @@ I risultati dell'installazione della patch per la macchina virtuale possono esse
 ## <a name="on-demand-patch-assessment"></a>Valutazione patch su richiesta
 Se l'applicazione automatica delle patch Guest per la VM è già abilitata per la macchina virtuale, viene eseguita una valutazione periodica delle patch sulla macchina virtuale durante le ore di minore traffico della macchina virtuale. Questo processo è automatico e i risultati della valutazione più recente possono essere esaminati tramite la visualizzazione dell'istanza della macchina virtuale, come descritto in precedenza in questo documento. È anche possibile attivare una valutazione delle patch su richiesta per la macchina virtuale in qualsiasi momento. La valutazione della patch può richiedere alcuni minuti per il completamento e lo stato dell'ultima valutazione viene aggiornato nella visualizzazione dell'istanza della macchina virtuale.
 
-Per abilitare la funzionalità di anteprima, è necessario un unico consenso esplicito per la funzionalità *InGuestPatchVMPreview* per sottoscrizione. L'anteprima delle funzionalità per la valutazione delle patch su richiesta può essere abilitata seguendo il [processo di abilitazione dell'anteprima](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descritto in precedenza per l'applicazione automatica delle patch Guest per macchine virtuali.
+Per abilitare la funzionalità di anteprima, è necessario un unico consenso esplicito per la funzionalità **InGuestPatchVMPreview** per sottoscrizione. Questa funzionalità di anteprima è diversa dalla registrazione automatica delle funzionalità di applicazione delle patch per le VM effettuate in precedenza per **InGuestAutoPatchVMPreview**. L'abilitazione dell'anteprima della funzionalità aggiuntiva è un requisito separato e aggiuntivo. L'anteprima delle funzionalità per la valutazione delle patch su richiesta può essere abilitata seguendo il [processo di abilitazione dell'anteprima](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descritto in precedenza per l'applicazione automatica delle patch Guest per macchine virtuali.
 
 > [!NOTE]
->La valutazione patch su richiesta non attiva automaticamente l'installazione della patch. Le patch valutate e applicabili per la macchina virtuale verranno installate solo durante le ore non di punta della macchina virtuale, in seguito al processo di applicazione delle patch prima della disponibilità descritto in precedenza in questo documento.
+>La valutazione patch su richiesta non attiva automaticamente l'installazione della patch. Se è stata abilitata l'applicazione automatica di patch per guest VM, le patch valutate e applicabili per la macchina virtuale verranno installate durante le ore non di punta della macchina virtuale, in seguito al processo di applicazione delle patch prima della disponibilità descritto in precedenza in questo documento.
 
 ### <a name="rest-api"></a>API REST
 ```

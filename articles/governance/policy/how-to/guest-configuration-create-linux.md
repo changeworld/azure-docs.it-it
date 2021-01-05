@@ -4,12 +4,12 @@ description: Informazioni su come creare criteri di Configurazione guest di Crit
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302702"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755872"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -329,10 +329,15 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Ciclo di vita dei criteri
 
-Per rilasciare un aggiornamento alla definizione dei criteri, sono disponibili tre campi che richiedono attenzione.
+Se si vuole rilasciare un aggiornamento del criterio, apportare la modifica sia per il pacchetto di configurazione Guest che per i dettagli della definizione di criteri di Azure.
 
 > [!NOTE]
 > La `version` proprietà dell'assegnazione di configurazione Guest ha effetto solo sui pacchetti ospitati da Microsoft. La procedura consigliata per il controllo delle versioni del contenuto personalizzato consiste nell'includere la versione nel nome del file.
+
+In primo luogo, quando `New-GuestConfigurationPackage` si esegue, specificare un nome per il pacchetto che lo renda univoco rispetto alle versioni precedenti. È possibile includere un numero di versione nel nome, ad esempio `PackageName_1.0.0` .
+Il numero in questo esempio viene utilizzato solo per rendere univoco il pacchetto, non per specificare che il pacchetto deve essere considerato più recente o meno recente di altri pacchetti.
+
+In secondo luogo, aggiornare i parametri usati con il `New-GuestConfigurationPolicy` cmdlet attenendosi a ognuna delle spiegazioni riportate di seguito.
 
 - **Version**: quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.
 - **contentUri**: quando si esegue il `New-GuestConfigurationPolicy` cmdlet, è necessario specificare un URI per il percorso del pacchetto. Se si include una versione del pacchetto nel nome del file, il valore di questa proprietà verrà modificato in ogni versione.

@@ -4,14 +4,14 @@ description: Come creare percorsi destinati ai client per l'archiviazione back-e
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339677"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760541"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurare lo spazio dei nomi aggregato
 
@@ -21,13 +21,13 @@ Per ulteriori informazioni su questa funzionalità, vedere [pianificare lo spazi
 
 La pagina **dello spazio dei nomi** nel portale di Azure Mostra i percorsi utilizzati dai client per accedere ai dati tramite la cache. Utilizzare questa pagina per creare, rimuovere o modificare i percorsi dello spazio dei nomi. È anche possibile configurare percorsi dello spazio dei nomi tramite l'interfaccia della riga di comando di Azure.
 
-Tutti i percorsi del client esistenti sono elencati nella pagina **spazio dei nomi** . Se una destinazione di archiviazione non dispone di alcun percorso, non viene visualizzata nella tabella.
+Tutti i percorsi rivolte ai client definiti per questa cache sono elencati nella pagina **spazio dei nomi** . Le destinazioni di archiviazione che non hanno percorsi dello spazio dei nomi definiti non sono ancora presenti nella tabella.
 
-È possibile ordinare le colonne della tabella facendo clic sulle frecce per comprendere meglio lo spazio dei nomi aggregato della cache.
+È possibile ordinare le colonne della tabella per comprendere meglio lo spazio dei nomi aggregato della cache. Fare clic sulle frecce nelle intestazioni di colonna per ordinare i percorsi.
 
-![screenshot della pagina dello spazio dei nomi del portale con due percorsi in una tabella. Intestazioni di colonna: percorso dello spazio dei nomi, destinazione di archiviazione, percorso di esportazione ed esportazione sottodirectory. Gli elementi nella prima colonna sono collegamenti selezionabili. Pulsanti principali: Aggiungi percorso spazio dei nomi, Aggiorna, Elimina](media/namespace-page.png)
+[![screenshot della pagina dello spazio dei nomi del portale con due percorsi in una tabella. Intestazioni di colonna: percorso dello spazio dei nomi, destinazione di archiviazione, percorso di esportazione ed esportazione della sottodirectory e dei criteri di accesso client. I nomi di percorso nella prima colonna sono collegamenti selezionabili. Pulsanti principali: Aggiungi percorso spazio dei nomi, Aggiorna, Elimina ](media/namespace-page.png)](media/namespace-page.png#lightbox)
 
-## <a name="add-or-edit-client-facing-namespace-paths"></a>Aggiungere o modificare percorsi dello spazio dei nomi per il client
+## <a name="add-or-edit-namespace-paths"></a>Aggiungi o modifica percorsi dello spazio dei nomi
 
 È necessario creare almeno un percorso dello spazio dei nomi prima che i client possano accedere alla destinazione di archiviazione. Per altre informazioni sull'accesso client, vedere [montare la cache HPC di Azure](hpc-cache-mount.md) .
 
@@ -43,15 +43,17 @@ Dalla portale di Azure caricare la pagina impostazioni **spazio dei nomi** . Da 
 
 * **Aggiungere un nuovo percorso:** Fare clic sul pulsante **+ Aggiungi** nella parte superiore e immettere le informazioni nel pannello modifica.
 
-  * Selezionare la destinazione di archiviazione nell'elenco a discesa. In questa schermata non è possibile selezionare la destinazione di archiviazione BLOB perché contiene già un percorso dello spazio dei nomi.
+  ![Screenshot della finestra Aggiungi spazio dei nomi modifica campi con una destinazione di archiviazione BLOB selezionata. I percorsi di esportazione e sottodirectory sono impostati su/e non modificabili.](media/namespace-add-blob.png)
 
-    ![Screenshot del nuovo spazio dei nomi modificare i campi con il selettore di destinazione di archiviazione esposto](media/namespace-select-storage-target.png)
+  * Immettere il percorso che i client utilizzeranno per accedere a questa destinazione di archiviazione.
+
+  * Consente di selezionare i criteri di accesso da usare per questo percorso. Per altre informazioni sulla personalizzazione dell'accesso client, vedere [usare i criteri di accesso client](access-policies.md).
+
+  * Selezionare la destinazione di archiviazione nell'elenco a discesa. Se per una destinazione di archiviazione BLOB è già presente un percorso dello spazio dei nomi, non è possibile selezionarlo.
 
   * Per una destinazione di archiviazione BLOB di Azure, i percorsi di esportazione e sottodirectory vengono impostati automaticamente su ``/`` .
 
-* **Modificare un percorso esistente:** Fare clic sul percorso dello spazio dei nomi. Verrà visualizzato il pannello modifica in cui è possibile modificare il percorso.
-
-  ![Screenshot della pagina dello spazio dei nomi dopo aver fatto clic sul percorso di uno spazio dei nomi BLOB. i campi di modifica vengono visualizzati in un riquadro a destra](media/edit-namespace-blob.png)
+* **Modificare un percorso esistente:** Fare clic sul percorso dello spazio dei nomi. Verrà visualizzato il pannello modifica. È possibile modificare il percorso e i criteri di accesso, ma non è possibile passare a una destinazione di archiviazione diversa.
 
 * **Eliminare un percorso dello spazio dei nomi:** Selezionare la casella di controllo a sinistra del percorso e fare clic sul pulsante **Elimina** .
 
@@ -81,7 +83,7 @@ Questo elenco Mostra il numero massimo di percorsi dello spazio dei nomi per con
 
   * cache da 3 TB-10 percorsi dello spazio dei nomi
   * cache da 6 TB-10 percorsi dello spazio dei nomi
-  * cache da 23 TB-20 percorsi dello spazio dei nomi
+  * cache da 12 TB-20 percorsi dello spazio dei nomi
 
 * Fino a 4 GB/s di velocità effettiva:
 
@@ -109,13 +111,15 @@ Immettere questi valori per ogni percorso dello spazio dei nomi:
 
 * **Percorso dello spazio dei nomi** : percorso del file per il client.
 
+* **Criteri di accesso client** : selezionare i criteri di accesso da usare per questo percorso. Per altre informazioni sulla personalizzazione dell'accesso client, vedere [usare i criteri di accesso client](access-policies.md).
+
 * **Destinazione di archiviazione** : se si crea un nuovo percorso dello spazio dei nomi, selezionare una destinazione di archiviazione dal menu a discesa.
 
 * **Percorso di esportazione** : immettere il percorso dell'esportazione NFS. Assicurarsi di digitare correttamente il nome esportazione. il portale convalida la sintassi per questo campo, ma non controlla l'esportazione finché non viene inviata la modifica.
 
 * **Esporta sottodirectory** : se si vuole che questo percorso Monti una sottodirectory specifica dell'esportazione, immetterla qui. In caso contrario, lasciare vuoto questo campo.
 
-![screenshot della pagina dello spazio dei nomi del portale con la pagina di aggiornamento aperta a destra](media/update-namespace-nfs.png)
+![screenshot della pagina dello spazio dei nomi del portale con la pagina di modifica aperta a destra. Il modulo di modifica Mostra le impostazioni per un percorso dello spazio dei nomi di destinazione di archiviazione NFS](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 

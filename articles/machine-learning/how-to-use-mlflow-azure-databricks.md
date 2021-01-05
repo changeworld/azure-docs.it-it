@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 72079cc399eea249bce4d285e2c3c4fbf9304708
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319027"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760606"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Tenere traccia degli esperimenti Azure Databricks ML con MLflow e Azure Machine Learning (anteprima)
 
@@ -43,7 +43,7 @@ Vedere [eseguire l'esperimento di tracking e creare endpoint con MLflow e Azure 
 
 Il rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche e gli artefatti registrati dal Azure Databricks eseguito in entrambi i: 
 
-* Area di lavoro di Azure Databricks.
+* Area di lavoro Azure Databricks.
 * Area di lavoro di Azure Machine Learning
 
 Dopo aver creato l'area di lavoro Azure Databricks e il cluster, 
@@ -156,9 +156,9 @@ Dopo aver eseguito il training del modello, è possibile registrare e registrare
 
 Il server di rilevamento back-end è l'area di lavoro Azure Databricks per impostazione predefinita. a meno che non si sia scelto di [impostare MLflow Tracking per tenere traccia solo nell'area di lavoro Azure Machine Learning](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), il server di rilevamento back-end è l'area di lavoro Azure Machine Learning.   
 
-* **Se non esiste un modello registrato con il nome** , il metodo registra un nuovo modello, crea la versione 1 e restituisce un oggetto ModelVersion MLflow. 
+* **Se non esiste un modello registrato con il nome**, il metodo registra un nuovo modello, crea la versione 1 e restituisce un oggetto ModelVersion MLflow. 
 
-* **Se esiste già un modello registrato con il nome** , il metodo crea una nuova versione del modello e restituisce l'oggetto versione. 
+* **Se esiste già un modello registrato con il nome**, il metodo crea una nuova versione del modello e restituisce l'oggetto versione. 
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -180,8 +180,8 @@ Quando si è pronti per creare un endpoint per i modelli ML. È possibile distri
 È possibile utilizzare l'API [mlflow. azureml. deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) per distribuire un modello nell'area di lavoro Azure Machine Learning. Se il modello è stato registrato solo nell'area di lavoro Azure Databricks, come descritto nella sezione [registrare i modelli con MLflow](#register-models-with-mlflow) , specificare il `model_name` parametro per registrare il modello nell'area di lavoro Azure Machine Learning. 
 
 È possibile distribuire Azure Databricks esecuzioni negli endpoint seguenti: 
-* [Istanza di contenitore di Azure](how-to-use-mlflow.md#deploy-to-aci)
-* [Servizio Azure Kubernetes](how-to-use-mlflow.md#deploy-to-aks)
+* [Istanza di contenitore di Azure](how-to-deploy-models-with-mlflow.md#deploy-to-aci)
+* [Servizio Azure Kubernetes](how-to-deploy-models-with-mlflow.md#deploy-to-aks)
 
 ### <a name="deploy-models-to-adb-endpoints-for-batch-scoring"></a>Distribuire i modelli negli endpoint ADB per il Punteggio batch 
 

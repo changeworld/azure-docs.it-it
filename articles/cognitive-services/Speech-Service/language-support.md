@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617052"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762963"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -137,6 +137,11 @@ Sia Microsoft Speech SDK che le API REST supportano le voci seguenti, ognuna del
 La sintesi vocale neurale è un nuovo tipo di sintesi vocale basata su reti neurali profonde. Quando si usa una voce neurale, è praticamente impossibile distinguere la sintesi vocale dalle registrazioni umane.
 
 Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le interazioni con chatbot e assistenti vocali, per convertire testo digitale, come gli e-book, in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Con la prosodia naturale simile al linguaggio umano e l'articolazione chiara delle parole, le voci neurali riducono in modo significativo le difficoltà di ascolto durante l'interazione degli utenti con i sistemi di intelligenza artificiale.
+
+> [!NOTE]
+> Le voci neurali vengono create da campioni che usano una frequenza di campionamento di 24 kHz.
+> Tutte le voci possono eseguire il campionamento o Downsample ad altre frequenze di campionamento durante la sintesi.
+
 
 | Linguaggio | Impostazioni locali | Sesso | Nome della voce | Supporto dello stile |
 |---|---|---|---|---|
@@ -294,6 +299,11 @@ Per informazioni su come configurare e modificare le voci neurali, ad esempio gl
 
 Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni locali, che consentono di convertire il testo in contenuto vocale sintetizzato. Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
+> [!NOTE]
+> Con due eccezioni, le voci standard vengono create da campioni che usano una frequenza di campionamento di 16 kHz.
+> Anche **le voci en-US-AriaRUS** e **en-US-GuyRUS** vengono create da esempi che usano una frequenza di campionamento di 24 kHz.
+> Tutte le voci possono eseguire il campionamento o Downsample ad altre frequenze di campionamento durante la sintesi.
+
 | Linguaggio | Impostazioni locali (BCP-47) | Sesso | Nome della voce |
 |--|--|--|--|
 | Arabo (arabo) | `ar-EG` | Female | `ar-EG-Hoda`|
@@ -325,7 +335,7 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 | Inglese (Regno Unito) | `en-GB` | Female | `en-GB-Susan`|
 | Inglese (Stati Uniti) | `en-US` | Male | `en-US-BenjaminRUS`|
 | Inglese (Stati Uniti) | `en-US` | Male | `en-US-GuyRUS`|
-| Inglese (Stati Uniti) | `en-US` | Female | `en-US-JessaRUS`|
+| Inglese (Stati Uniti) | `en-US` | Female | `en-US-AriaRUS`|
 | Inglese (Stati Uniti) | `en-US` | Female | `en-US-ZiraRUS`|
 | Finlandese (Finlandia) | `fi-FI` | Female | `fi-FI-HeidiRUS`|
 | Francese (Canada) | `fr-CA` | Female | `fr-CA-Caroline`|

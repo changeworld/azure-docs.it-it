@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 4c964f3661e120026189a75d331e6db975b41c70
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516691"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756076"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenziali per l'autenticazione dell'origine in Azure
 
@@ -73,7 +73,7 @@ Tipo di credenziale attualmente supportato in ambito di competenza:
 * Autenticazione SQL: la **password** viene aggiunta come segreto nell'insieme di credenziali delle chiavi
 * Chiave dell'account: la chiave dell' **account** viene aggiunta come segreto nell'insieme di credenziali delle chiavi
 
-Per altre informazioni su come aggiungere segreti a un insieme di credenziali delle chiavi, vedere l'articolo relativo all'inserimento di Key Vault
+Per altre informazioni, vedere [aggiungere un segreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 Dopo aver archiviato i segreti nell'insieme di credenziali delle chiavi, creare la nuova credenziale selezionando + nuovo dalla barra dei comandi delle credenziali. Fornire le informazioni necessarie, inclusa la selezione del metodo di autenticazione e di un'istanza di Key Vault da cui selezionare un segreto. Una volta completati tutti i dettagli, fare clic su Crea.
 

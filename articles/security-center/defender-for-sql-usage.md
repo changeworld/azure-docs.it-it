@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/23/2020
 ms.author: memildin
-ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 3899b00038f3c12add4dbf49a7f05e07141d8606
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512279"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755855"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
 
@@ -58,7 +58,7 @@ Entrambi sono descritti di seguito.
     - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](../azure-monitor/platform/agent-windows.md).
 
 
-### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Passaggio 2: Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
+### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Passaggio 2. Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
 
 1. Dal menu del Centro sicurezza aprire la pagina dei **prezzi & impostazioni** .
 
@@ -108,7 +108,7 @@ Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei 
     In ogni visualizzazione, i controlli di sicurezza sono ordinati in base alla **gravità**. Fare clic su un controllo di sicurezza specifico per visualizzare un riquadro dei dettagli con una **Descrizione**, **come risolverlo e altre** informazioni correlate, ad esempio **Impact** o **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Avvisi di Azure Defender per SQL
-Gli avvisi vengono generati da tentativi insoliti e potenzialmente dannosi di accedere o sfruttare le macchine virtuali SQL. Questi eventi possono attivare gli avvisi mostrati nella [sezione avvisi per database SQL e Azure sinapsi Analytics della pagina di riferimento per gli avvisi](alerts-reference.md#alerts-sql-db-and-warehouse).
+Gli avvisi vengono generati da tentativi insoliti e potenzialmente dannosi di accedere o sfruttare le macchine virtuali SQL. Questi eventi possono attivare gli avvisi visualizzati nella [pagina di riferimento](alerts-reference.md#alerts-sql-db-and-warehouse)per gli avvisi.
 
 ## <a name="explore-and-investigate-security-alerts"></a>Esplorare ed esaminare gli avvisi di sicurezza
 
@@ -126,9 +126,8 @@ Gli avvisi di Azure Defender per SQL sono disponibili nella pagina degli avvisi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per materiale correlato, vedere l'articolo seguente:
+Per i materiali correlati, vedere l'articolo seguente:
 
 - [Avvisi di sicurezza per il database SQL e Azure sinapsi Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Configurare le notifiche tramite posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md)
 - [Scopri di più su Azure Sentinel](../sentinel/index.yml)
-- [Pacchetto di sicurezza dei dati del Centro sicurezza di Azure](../azure-sql/database/azure-defender-for-sql.md)

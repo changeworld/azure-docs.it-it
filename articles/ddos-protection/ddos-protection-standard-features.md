@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 104c9dcd3b7fd931e4f54841c9de9d17cfd72353
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 602bb98f2cdc8a96874eba8dadfa33f3267d19ac
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937322"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746559"
 ---
 # <a name="azure-ddos-protection-standard-features"></a>Funzionalità di Protezione DDoS di Azure Standard
 
@@ -24,23 +24,23 @@ Le sezioni seguenti descrivono le caratteristiche principali del servizio Protez
 
 ## <a name="always-on-traffic-monitoring"></a>Monitoraggio del traffico always on
 
-Protezione DDoS Standard monitora l'utilizzo effettivo del traffico e lo confronta continuamente con le soglie definite nei criteri DDoS. Quando la soglia di traffico viene superata, viene avviata automaticamente la mitigazione DDoS. Quando il traffico torna sotto la soglia, la mitigazione viene rimossa.
+Protezione DDoS Standard monitora l'utilizzo effettivo del traffico e lo confronta continuamente con le soglie definite nei criteri DDoS. Quando la soglia di traffico viene superata, viene avviata automaticamente la mitigazione DDoS. Quando il traffico viene restituito sotto le soglie, la mitigazione viene arrestata.
 
 ![Mitigazione standard di protezione DDoS di Azure](./media/ddos-protection-overview/mitigation.png)
 
-Durante la mitigazione il traffico inviato alla risorsa protetta viene reindirizzato dal servizio Protezione DDoS e vengono eseguiti diversi controlli, ad esempio i controlli seguenti:
+Durante la mitigazione il traffico inviato alla risorsa protetta viene reindirizzato dal servizio protezione DDoS e vengono eseguiti diversi controlli, ad esempio:
 
 - Verificare che i pacchetti siano conformi alle specifiche Internet e abbiano un formato valido.
 - Interagire con il client per determinare se il traffico è stato potenzialmente falsificato, ad esempio usando una tecnica SYN Auth o SYN Cookie oppure eliminando un pacchetto in modo che l'origine lo trasmetta di nuovo.
 - Limitare la frequenza dei pacchetti se non è possibile usare altri metodi di imposizione.
 
-La protezione DDoS blocca il traffico degli attacchi e inoltra il traffico rimanente alla destinazione prevista. Entro pochi minuti dal rilevamento degli attacchi, si riceve una notifica in base alle metriche di Monitoraggio di Azure. Configurando la registrazione per la telemetria di Protezione DDoS Standard, è possibile scrivere log disponibili per analisi future. I dati delle metriche di Monitoraggio di Azure per Protezione DDoS Standard vengono mantenuti per 30 giorni.
+La protezione DDoS Elimina il traffico di attacco e trasmette il traffico rimanente alla destinazione prevista. Entro pochi minuti dal rilevamento degli attacchi si riceve una notifica in base alle metriche di Monitoraggio di Azure. Configurando la registrazione per la telemetria di Protezione DDoS Standard, è possibile scrivere log disponibili per analisi future. I dati delle metriche di Monitoraggio di Azure per Protezione DDoS Standard vengono mantenuti per 30 giorni.
 
 ## <a name="adaptive-real-time-tuning"></a>Ottimizzazione in tempo reale adattiva
 
-Il servizio Protezione DDoS di Azure Basic aiuta a proteggere i clienti e a prevenire gli impatti su altri clienti. Se ad esempio viene eseguito il provisioning di un servizio per un volume tipico di traffico legittimo in entrata minore della *frequenza trigger* dei criteri di Protezione DDoS per l'intera infrastruttura, potrebbe passare inosservato un attacco DDoS alle risorse di quel cliente. Più in generale, la natura complessa degli attacchi recenti (ad esempio DDoS multi-vettore), nonché i comportamenti specifici dell'applicazione dei tenant, richiedono criteri di protezione personalizzati per ogni cliente. Il servizio realizza questa personalizzazione in due modi:
+Il servizio Protezione DDoS di Azure Basic aiuta a proteggere i clienti e a prevenire gli impatti su altri clienti. Se ad esempio viene eseguito il provisioning di un servizio per un volume tipico di traffico legittimo in entrata minore della *frequenza trigger* dei criteri di Protezione DDoS per l'intera infrastruttura, potrebbe passare inosservato un attacco DDoS alle risorse di quel cliente. Più in generale, la complessità degli attacchi recenti (ad esempio, il DDoS multi-vettore) e i comportamenti specifici dell'applicazione dei tenant chiamano per i criteri di protezione personalizzati per ogni cliente. Il servizio esegue questa operazione usando due informazioni dettagliate:
 
-- Apprendimento automatico dei modelli di traffico per ogni cliente (per ogni IP) per i livelli 3 e 4.
+- Apprendimento automatico degli schemi di traffico per singolo cliente (IP per singolo pubblico) per i livelli 3 e 4.
 
 - Riduzione al minimo dei falsi positivi, considerando che la scalabilità di Azure consente di assorbire una quantità significativa di traffico.
 
@@ -48,7 +48,7 @@ Il servizio Protezione DDoS di Azure Basic aiuta a proteggere i clienti e a prev
 
 ## <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>Telemetria, monitoraggio e avvisi di Protezione DDoS
 
-Protezione DDoS Standard espone dati di telemetria avanzata tramite [Monitoraggio di Azure](../azure-monitor/overview.md) durante un attacco DDoS. È possibile configurare gli avvisi per qualsiasi metrica di Monitoraggio di Azure usata da Protezione DDoS. È possibile integrare la registrazione con Splunk (hub eventi di Azure), i log di monitoraggio di Azure e archiviazione di Azure per l'analisi avanzata tramite l'interfaccia di diagnostica di monitoraggio di Azure.
+Protezione DDoS standard espone la telemetria avanzata tramite [monitoraggio di Azure](../azure-monitor/overview.md). È possibile configurare gli avvisi per qualsiasi metrica di Monitoraggio di Azure usata da Protezione DDoS. È possibile integrare la registrazione con Splunk (hub eventi di Azure), i log di monitoraggio di Azure e archiviazione di Azure per l'analisi avanzata tramite l'interfaccia di diagnostica di monitoraggio di Azure.
 
 ### <a name="ddos-mitigation-policies"></a>Criteri di mitigazione della protezione DDoS
 

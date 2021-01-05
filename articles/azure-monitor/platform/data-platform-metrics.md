@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: f64a91e3b285c265296c361366a10443eda18201
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b7af6b489aeb919fd1db0e45ddba58a21b1c3633
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489426"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760139"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Panoramica delle metriche di monitoraggio di Azure
 Le metriche di monitoraggio di Azure sono una funzionalità di monitoraggio di Azure che raccoglie dati numerici dalle [risorse monitorate](../monitor-reference.md) in un database di serie temporali. Le metriche sono valori numerici raccolti a intervalli regolari e descrivono alcuni aspetti di un sistema in un determinato momento. Le metriche in Monitoraggio di Azure sono elementi leggeri e in grado di supportare scenari near real-time, rendendole particolarmente utili per la generazione di avvisi e il rilevamento rapido dei problemi. È possibile analizzarli in modo interattivo con Esplora metriche, ricevere notifiche in modo proattivo con un avviso quando un valore supera una soglia o visualizzarli in una cartella di lavoro o in un dashboard.
@@ -56,7 +56,7 @@ Sono disponibili tre origini principali delle metriche raccolte da Monitoraggio 
 ## <a name="metrics-explorer"></a>Esplora metriche
 È possibile usare [Esplora metriche](metrics-charts.md) per analizzare in modo interattivo i dati nel database delle metriche e tracciare un grafico dei valori di più metriche nel tempo. È possibile aggiungere i grafici a un dashboard per visualizzarli con altre visualizzazioni. È anche possibile recuperare le metriche usando l'[API REST di monitoraggio di Azure](rest-api-walkthrough.md).
 
-![Esplora metriche](media/data-platform/metrics-explorer.png)
+![Esplora metriche](media/data-platform-metrics/metrics-explorer.png)
 
 - Per iniziare a usare Esplora metriche, vedere [Introduzione a Esplora metriche di monitoraggio di Azure](metrics-getting-started.md) .
 
@@ -73,7 +73,7 @@ I dati raccolti dalle metriche di Monitoraggio di Azure vengono archiviati in un
 ## <a name="multi-dimensional-metrics"></a>Metriche multidimensionali
 Una delle difficoltà per i dati delle metriche è che spesso contengono informazioni limitate per fornire il contesto dei valori raccolti. Monitoraggio di Azure risolve questo problema con le metriche multidimensionali. Le dimensioni di una metrica sono coppie nome/valore contenenti dati aggiuntivi per descrivere il valore della metrica. Ad esempio, la metrica _Spazio su disco disponibile_ può avere una dimensione denominata _Unità_ con i valori _C:_ e _D:_ , che permettono la visualizzazione dello spazio su disco disponibile in tutte le unità o per ogni unità singolarmente.
 
-L'esempio seguente mostra due set di dati per un'ipotetica metrica denominata _Velocità effettiva di rete_. Il primo set di dati non ha dimensioni. Il secondo mostra i valori con due dimensioni, _Indirizzo IP_ e _Direzione_ :
+L'esempio seguente mostra due set di dati per un'ipotetica metrica denominata _Velocità effettiva di rete_. Il primo set di dati non ha dimensioni. Il secondo mostra i valori con due dimensioni, _Indirizzo IP_ e _Direzione_:
 
 ### <a name="network-throughput"></a>Velocità effettiva della rete
 

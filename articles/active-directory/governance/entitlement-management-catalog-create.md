@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980039"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745964"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
 
@@ -69,7 +69,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 1. Fare clic su **Aggiungi risorse**.
 
-1. Fare clic su un tipo di risorsa: **gruppi e team**, **applicazioni**o **siti di SharePoint**.
+1. Fare clic su un tipo di risorsa: **gruppi e team**, **applicazioni** o **siti di SharePoint**.
 
     Se non viene visualizzata una risorsa che si vuole aggiungere o se non si è in grado di aggiungere una risorsa, verificare di avere il ruolo Azure AD della directory e il ruolo di gestione dei diritti richiesti. Potrebbe essere necessario disporre di un utente con i ruoli necessari per aggiungere la risorsa al catalogo. Per altre informazioni, vedere [Ruoli necessari per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
@@ -138,7 +138,7 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
     ![Modificare le impostazioni del catalogo](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ## <a name="delete-a-catalog"></a>Eliminare un catalogo
 
@@ -150,7 +150,7 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
 1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo che si desidera eliminare.
 
-1. Nella **Panoramica**del catalogo fare clic su **Elimina**.
+1. Nella **Panoramica** del catalogo fare clic su **Elimina**.
 
 1. Nella finestra di messaggio visualizzata fare clic su **Sì**.
 

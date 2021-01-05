@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0dd5f6a48175bad35b37155c8ff881e352922ca7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674472"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756059"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorare e visualizzare i log e le metriche per l'esecuzione di ML
 
@@ -121,7 +121,7 @@ I file di log sono una risorsa essenziale per il debug dei carichi di lavoro di 
 Le tabelle seguenti illustrano il contenuto dei file di log nelle cartelle che verranno visualizzate in questa sezione.
 
 > [!NOTE]
-> Informazioni che l'utente deve notare anche se skimmingYou non visualizzerà necessariamente ogni file per ogni esecuzione. Ad esempio, il 20_image_build_log *. txt viene visualizzato solo quando viene compilata una nuova immagine, ad esempio quando si modifica l'ambiente.
+> Ogni file non sarà necessariamente visibile per ogni esecuzione. Ad esempio, il 20_image_build_log *. txt viene visualizzato solo quando viene compilata una nuova immagine, ad esempio quando si modifica l'ambiente.
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs`
 

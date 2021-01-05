@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: 1943aae3a2b01490dca687bcdea99d76da238d51
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187256"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760334"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Come scegliere tra la velocità effettiva con provisioning e senza server
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB è disponibile in due modalità di capacità diverse: [velocità
 | Criteri | Velocità effettiva con provisioning | Senza server |
 | --- | --- | --- |
 | Stato | Disponibile a livello generale | In anteprima |
-| Ideale per | Carichi di lavoro cruciali che richiedono prestazioni prevedibili | Carichi di lavoro non critici da piccoli a medi con traffico leggero e intermittente |
+| Ideale per | Carichi di lavoro cruciali che richiedono prestazioni prevedibili | Carichi di lavoro di piccole e medie dimensioni con traffico chiaro e intermittente difficile da prevedere |
 | Funzionamento | Per ogni contenitore viene effettuato il provisioning di una quantità di velocità effettiva espressa in [unità richiesta](request-units.md) al secondo. Ogni secondo, questa quantità di unità richiesta è disponibile per le operazioni del database. La velocità effettiva con provisioning può essere aggiornata manualmente o modificata automaticamente con la [scalabilità](provision-throughput-autoscale.md)automatica. | È possibile eseguire le operazioni di database sui contenitori senza dover effettuare il provisioning di alcuna capacità. |
 | Distribuzione geografica | Disponibile (numero illimitato di aree di Azure) | Non disponibile (gli account senza server possono essere eseguiti solo in un'area di Azure) |
 | Dimensione massima di archiviazione per ogni contenitore | Nessuna limitazione | 50 GB |
