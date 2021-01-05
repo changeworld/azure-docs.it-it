@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/18/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8e9841c71a6f5bc2e12887f41c62b43a17203a6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: a9e1ae369560fcf8357e6016e1f7e2e438edd8c9
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107585"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803222"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -32,6 +32,192 @@ Le note sulla versione Novità di Active Directory forniscono informazioni su:
 - Funzionalità deprecate
 - Modifiche pianificate
 
+---
+## <a name="june-2020"></a>Giugno 2020 
+
+### <a name="user-risk-condition-in-conditional-access-policy"></a>Condizione di rischio utente nei criteri di accesso condizionale
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** Accesso condizionale  
+**Funzionalità del prodotto:** Protezione e sicurezza delle identità
+ 
+
+Il supporto dei rischi per gli utenti in Azure AD i criteri di accesso condizionale consente di creare più criteri basati sul rischio utente. Per utenti e app diversi possono essere necessari livelli di rischio utente minimi diversi. In base al rischio utente, è possibile creare criteri per bloccare l'accesso, richiedere l'autenticazione a più fattori, modificare la password sicura o reindirizzare a Microsoft Cloud App Security per applicare i criteri di sessione, ad esempio il controllo aggiuntivo.
+
+La condizione di rischio utente richiede Azure AD Premium P2 perché usa Azure Identity Protection, un'offerta P2. per altre informazioni sull'accesso condizionale, vedere [Azure ad documentazione sull'accesso condizionale](../conditional-access/index.yml).
+
+---
+
+### <a name="saml-sso-now-supports-apps-that-require-spnamequalifier-to-be-set-when-requested"></a>SAML SSO supporta ora le app che richiedono l'impostazione di SPNameQualifier quando richiesto
+
+**Tipo:** Correzione  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** SSO
+ 
+Per alcune applicazioni SAML è necessario che SPNameQualifier venga restituito nell'oggetto dell'asserzione quando richiesto. A questo punto Azure AD risponde correttamente quando viene richiesto un SPNameQualifier nel criterio NameID della richiesta. Questa operazione funziona anche per l'accesso avviato da SP e l'accesso avviato da IdP verrà eseguito.  Per ulteriori informazioni sul protocollo SAML in Azure Active Directory, vedere il [protocollo Single Sign-On SAML](../develop/single-sign-on-saml-protocol.md).
+
+---
+
+### <a name="azure-ad-b2b-collaboration-supports-inviting-msa-and-google-users-in-azure-government-tenants"></a>Azure AD collaborazione B2B supporta l'invito di utenti MSA e Google in tenant di Azure per enti pubblici
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** B2B  
+**Funzionalità del prodotto:** B2B/B2C
+ 
+
+I tenant di Azure per enti pubblici che usano le funzionalità di collaborazione B2B possono ora invitare gli utenti con un account Microsoft o Google. Per sapere se il tenant può usare queste funzionalità, seguire le istruzioni in [come è possibile stabilire se la collaborazione B2B è disponibile nel tenant di Azure US Government?](../external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
+
+ 
+---
+ 
+### <a name="user-object-in-ms-graph-v1-now-includes-externaluserstate-and-externaluserstatechangeddatetime-properties"></a>L'oggetto utente in MS Graph V1 include ora le proprietà externalUserState e externalUserStateChangedDateTime
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** B2B  
+**Funzionalità del prodotto:** B2B/B2C
+ 
+
+Le proprietà externalUserState e externalUserStateChangedDateTime possono essere usate per trovare i guest B2B invitati che non hanno accettato gli inviti ma anche l'automazione della compilazione, ad esempio l'eliminazione di utenti che non hanno accettato gli inviti dopo un certo numero di giorni. Queste proprietà sono ora disponibili in MS Graph V1. Per informazioni sull'uso di queste proprietà, vedere [tipo di risorsa utente](/graph/api/resources/user).
+ 
+---
+
+### <a name="manage-authentication-sessions-in-azure-ad-conditional-access-is-now-generally-available"></a>Gestire le sessioni di autenticazione in Azure AD accesso condizionale è ora disponibile a livello generale
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Accesso condizionale  
+**Funzionalità del prodotto:** Protezione e sicurezza delle identità
+ 
+Le funzionalità di gestione delle sessioni di autenticazione consentono di configurare la frequenza con cui gli utenti devono fornire le credenziali di accesso e se devono fornire le credenziali dopo aver chiuso e riaperto i browser per offrire maggiore sicurezza e flessibilità nell'ambiente in uso.
+ 
+Inoltre, la gestione delle sessioni di autenticazione usata per l'autenticazione del primo fattore si applica solo ai dispositivi Azure AD aggiunti, Azure AD ibrido Uniti e Azure AD registrati. La gestione della sessione di autenticazione verrà ora applicata anche a multi-factor authentication. Per altre informazioni, vedere [configurare la gestione delle sessioni di autenticazione con l'accesso condizionale](../conditional-access/howto-conditional-access-session-lifetime.md).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---june-2020"></a>Nuove app federate disponibili nella raccolta di applicazioni Azure AD-2020 giugno
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** Integrazione con app di terze parti
+ 
+Nel giugno 2020 abbiamo aggiunto le 29 nuove applicazioni seguenti nella raccolta di app con supporto federativo:
+
+[Shopify Plus](../saas-apps/shopify-plus-tutorial.md), [Ekarda](../saas-apps/ekarda-tutorial.md), [MailGates](../saas-apps/mailgates-tutorial.md), [BullseyeTDP](../saas-apps/bullseyetdp-tutorial.md), [Raketa](../saas-apps/raketa-tutorial.md), [Segment](../saas-apps/segment-tutorial.md), [ai auditor](https://www.mindbridge.ai/products/ai-auditor/), [Pobuca Connect](https://app.pobu.ca/), [proto.io](../saas-apps/proto.io-tutorial.md), [Gatekeeper](https://www.gatekeeperhq.com/), [Hub Planner](../saas-apps/hub-planner-tutorial.md), [ansira-partner go-to-Market casella degli strumenti](https://ansira.com/technology/channel-engagement), [IBM Digital Business Automation su cloud](../saas-apps/ibm-digital-business-automation-on-cloud-tutorial.md), [Kisi Physical Security](../saas-apps/kisi-physical-security-tutorial.md), [ViewpointOne](https://team.viewpoint.com/), [IntelligenceBank](../saas-apps/intelligencebank-tutorial.md), [pymetrics](../saas-apps/pymetrics-tutorial.md), [zero](https://www.teamzero.com/), [Instation](https://instation.invillia.com/), [EDX for business SAML 2,0 Integration](../saas-apps/edx-for-business-saml-integration-tutorial.md), [MOOC Office 365](https://mooc.office365-training.com/en/), [SmartKargo](../saas-apps/smartkargo-tutorial.md), [PKIsigning Platform](https://platform.pkisigning.nl/), [SiteIntel](../saas-apps/siteintel-tutorial.md), [Field ID](../saas-apps/field-id-tutorial.md), [curriculas SAML](../saas-apps/curricula-saml-tutorial.md), [Perforce Core-Helix Authentication Service](../saas-apps/perforce-helix-core-tutorial.md), [concompliance cloud](https://cloud.metacompliance.com/), [Smallstep](https://smallstep.com/sso-ssh/)  
+
+È anche possibile trovare la documentazione di tutte le applicazioni da qui https://aka.ms/AppsTutorial . Per elencare l'applicazione nella raccolta di app Azure AD, leggere i dettagli qui: https://aka.ms/AzureADAppRequest .
+
+---
+
+### <a name="api-connectors-for-external-identities-self-service-sign-up-are-now-in-public-preview"></a>I connettori API per l'iscrizione self-service di identità esterne sono ora disponibili in anteprima pubblica
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** B2B  
+**Funzionalità del prodotto:** B2B/B2C
+ 
+I connettori API delle identità esterne consentono di sfruttare le API Web per integrare l'iscrizione self-service con i sistemi cloud esterni. Ciò significa che è ora possibile richiamare le API Web come passaggi specifici in un flusso di iscrizione per attivare flussi di lavoro personalizzati basati sul cloud. Ad esempio, è possibile usare i connettori API per:
+
+- Eseguire l'integrazione con un flusso di lavoro di approvazione personalizzato.
+- Esegui la correzione dell'identità
+- Convalida dati di input utente
+- Sovrascrivi attributi utente
+- Eseguire la logica di business personalizzata
+
+Per altre informazioni su tutte le esperienze possibili con i connettori API, vedere [usare i connettori API per personalizzare ed estendere l'iscrizione self-service](../external-identities/api-connectors-overview.md)o [personalizzare le identità esterne self-service iscrizione con le integrazioni dell'API Web](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-external-identities-self-service-sign-up-with-web-api/ba-p/1257364#.XvNz2fImuQg.linkedin).
+ 
+---
+
+### <a name="provision-on-demand-and-get-users-into-your-apps-in-seconds"></a>Esegui il provisioning su richiesta e ottieni utenti nelle tue app in pochi secondi
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Provisioning di app  
+**Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
+ 
+Il servizio di provisioning Azure AD attualmente funziona su base ciclica. Il servizio viene eseguito ogni 40 minuti. La [funzionalità di provisioning su richiesta](https://aka.ms/provisionondemand) consente di selezionare un utente ed eseguirne il provisioning in pochi secondi. Questa funzionalità consente di risolvere rapidamente i problemi di provisioning, senza dover eseguire un riavvio per forzare l'avvio del ciclo di provisioning. 
+ 
+---
+
+### <a name="new-permission-for-using-azure-ad-entitlement-management-in-graph"></a>Nuova autorizzazione per l'uso di Azure AD gestione dei diritti in Graph
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Altro  
+**Funzionalità del prodotto:** Gestione dei diritti
+ 
+Una nuova autorizzazione delegata EntitlementManagement. Read. All è ora disponibile per l'uso con l'API di gestione dei diritti in Microsoft Graph beta. Per altre informazioni sulle API disponibili, vedere [uso dell'API di gestione dei diritti Azure ad](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+
+---
+
+### <a name="identity-protection-apis-available-in-v10"></a>API di Identity Protection disponibili nella versione 1.0
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Identity Protection  
+**Funzionalità del prodotto:** Protezione e sicurezza delle identità
+ 
+Le API Microsoft Graph riskyUsers e riskDetections sono ora disponibili a livello generale. Ora che sono disponibili nell'endpoint v 1.0, viene invitato a usarli nell'ambiente di produzione. Per ulteriori informazioni, consultare la documentazione di [Microsoft Graph](/graph/api/resources/identityprotectionroot).
+ 
+---
+
+### <a name="sensitivity-labels-to-apply-policies-to-microsoft-365-groups-is-now-generally-available"></a>Le etichette di riservatezza per applicare i criteri ai gruppi di Microsoft 365 sono ora disponibili a livello generale
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Gestione gruppi  
+**Funzionalità del prodotto:** Collaborazione
+ 
+
+È ora possibile creare etichette di riservatezza e usare le impostazioni delle etichette per applicare i criteri a gruppi di Microsoft 365, inclusi i criteri di accesso utente esterno (pubblico o privato). È possibile creare un'etichetta con l'informativa sulla privacy come privata e i criteri di accesso utente esterno per non consentire l'aggiunta di utenti guest. Quando un utente applica questa etichetta a un gruppo, il gruppo sarà privato e nessun utente Guest potrà essere aggiunto al gruppo. 
+
+Le etichette di riservatezza sono importanti per proteggere i dati cruciali per l'azienda e consentono di gestire i gruppi su larga scala, in modo conforme e sicuro. Per informazioni sull'uso delle etichette di riservatezza, vedere [assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory (anteprima)](../enterprise-users/groups-assign-sensitivity-labels.md).
+ 
+---
+
+### <a name="updates-to-support-for-microsoft-identity-manager-for-azure-ad-premium-customers"></a>Aggiornamenti per il supporto di Microsoft Identity Manager per clienti Azure AD Premium
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** Microsoft Identity Manager  
+**Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
+ 
+Il supporto di Azure è ora disponibile per i componenti di integrazione Azure AD di Microsoft Identity Manager 2016, fino alla fine del supporto esteso per Microsoft Identity Manager 2016. Per altre informazioni, vedere l' [aggiornamento del supporto per Azure ad Premium clienti che usano Microsoft Identity Manager](/microsoft-identity-manager/support-update-for-azure-active-directory-premium-customers).
+
+---
+
+### <a name="the-use-of-group-membership-conditions-in-sso-claims-configuration-is-increased"></a>L'uso di condizioni di appartenenza a gruppi nella configurazione delle attestazioni SSO è aumentato
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** SSO
+ 
+In precedenza, il numero di gruppi che è possibile usare quando si modificano le attestazioni in modo condizionale in base all'appartenenza al gruppo all'interno di una singola configurazione di applicazione era limitato a 10. L'uso di condizioni di appartenenza a gruppi nella configurazione delle attestazioni SSO è ora aumentato fino a un massimo di 50 gruppi. Per ulteriori informazioni sulla configurazione delle attestazioni, vedere la pagina relativa alla [configurazione delle attestazioni SSO delle applicazioni aziendali](../develop/active-directory-saml-claims-customization.md#emitting-claims-based-on-conditions). 
+
+---
+
+### <a name="enabling-basic-formatting-on-the-sign-in-page-text-component-in-company-branding"></a>Abilitazione della formattazione di base sul componente testo della pagina di accesso in informazioni personalizzate distintive dell'azienda.
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** Autenticazioni (accessi)  
+**Funzionalità del prodotto:** Autenticazione utente
+ 
+La funzionalità di personalizzazione dell'azienda nell'esperienza di accesso Azure AD/Microsoft 365 è stata aggiornata per consentire al cliente di aggiungere collegamenti ipertestuali e formattazione semplice, inclusi il tipo di carattere, la sottolineatura e il corsivo in grassetto. Per istruzioni sull'uso di questa funzionalità, vedere [aggiungere informazioni personalizzate alla pagina di accesso Azure Active Directory dell'organizzazione](./customize-branding.md).
+
+---
+
+### <a name="provisioning-performance-improvements"></a>Miglioramenti delle prestazioni del provisioning
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** Provisioning di app  
+**Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
+ 
+Il servizio di provisioning è stato aggiornato per ridurre il tempo necessario per il completamento di un [ciclo incrementale](../app-provisioning/how-provisioning-works.md#incremental-cycles) . Questo significa che gli utenti e i gruppi verranno sottoposti a provisioning nelle applicazioni più velocemente rispetto a quanto precedentemente fatto. Tutti i nuovi processi di provisioning creati dopo 6/10/2020 trarranno automaticamente vantaggio dai miglioramenti delle prestazioni. Tutte le applicazioni configurate per il provisioning prima del 6/10/2020 dovranno essere riavviate una volta dopo 6/10/2020 per sfruttare i miglioramenti delle prestazioni. 
+
+---
+
+### <a name="announcing-the-deprecation-of-adal-and-ms-graph-parity"></a>Annunciare la deprecazione di ADAL e MS Graph parità
+
+**Tipo:** Deprecato  
+**Categoria di servizio:** N/D  
+**Funzionalità del prodotto:** Gestione del ciclo di vita dei dispositivi
+
+Ora che sono disponibili le librerie di autenticazione Microsoft (MSAL), non verranno più aggiunte nuove funzionalità alle librerie di autenticazione Azure Active Directory (ADAL) e le patch di sicurezza verranno terminate il 30 giugno 2022. Per ulteriori informazioni su come eseguire la migrazione a MSAL, vedere [eseguire la migrazione di applicazioni a Microsoft Authentication Library (MSAL)](../develop/msal-migration.md).
+
+Abbiamo inoltre completato il lavoro per rendere disponibili tutte le funzionalità di Azure AD Graph tramite MS Graph. Quindi, Azure AD API Graph riceveranno solo bugfix e correzioni per la sicurezza fino al 30 giugno 2022. Per altre informazioni, vedere [aggiornare le applicazioni per l'uso di Microsoft Authentication Library e dell'API Microsoft Graph](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
+ 
 ---
 ## <a name="may-2020"></a>Maggio 2020
 
@@ -127,7 +313,7 @@ Se il token di accesso SAML originale usava un formato diverso per NameID (ad es
 **Categoria di servizio:** Provisioning di Azure AD cloud  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-Gli amministratori IT possono iniziare a usare il nuovo ruolo "amministratore ibrido" come ruolo con privilegi minimi per la configurazione del provisioning cloud ADConnect di Azure. Con questo nuovo ruolo, non è più necessario usare il ruolo di amministratore globale per configurare e configurare il provisioning del cloud. [Altre informazioni](../roles/delegate-by-task.md#connect).
+Gli amministratori IT possono iniziare a usare il nuovo ruolo "amministratore ibrido" come ruolo con privilegi minimi per la configurazione di Azure AD Connect provisioning cloud. Con questo nuovo ruolo, non è più necessario usare il ruolo di amministratore globale per configurare e configurare il provisioning del cloud. [Altre informazioni](../roles/delegate-by-task.md#connect).
  
 ---
 
@@ -760,7 +946,7 @@ Siamo lieti di condividere che abbiamo implementato l'esperienza di aggiornament
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-Il servizio di provisioning Azure AD offre un set completo di funzionalità di configurazione. I clienti devono essere in grado di salvare la configurazione in modo da potervi fare riferimento in un secondo momento o eseguire il rollback a una versione funzionante nota. È stata aggiunta la possibilità di scaricare la configurazione di provisioning come file JSON e caricarla quando è necessario. [Altre informazioni](../app-provisioning/export-import-provisioning-configuration.md).
+Il servizio di provisioning Azure AD offre un set completo di funzionalità di configurazione. I clienti devono essere in grado di salvare la configurazione in modo da potervi fare riferimento in un secondo momento o eseguire il rollback a una versione funzionante nota. È stata aggiunta la possibilità di scaricare la configurazione di provisioning come file JSON e caricarla quando è necessario. [Altre informazioni](../app-provisioning/export-import-provisioning-configuration.md)
 
 ---
  
@@ -772,7 +958,7 @@ Il servizio di provisioning Azure AD offre un set completo di funzionalità di c
  
 Nelle versioni precedenti di Microsoft Azure gestite da 21Vianet (Azure China 21Vianet), gli amministratori che usano la reimpostazione della password self-service (SSPR) per reimpostare le proprie password necessitavano solo di una "Gate" (Challenge) per dimostrare la propria identità. In cloud pubblici e in altri cloud nazionali, gli amministratori in genere devono usare due controlli per dimostrare la propria identità quando usano SSPR. Tuttavia, dal momento che non sono stati supportati SMS o telefonate in Azure China 21Vianet, è stata consentita la reimpostazione della password di un solo Gate da parte degli amministratori
 
-È in corso la creazione della parità di funzionalità SSPR tra Azure China 21Vianet e il cloud pubblico. In futuro, è necessario che gli amministratori usino due controlli quando usano SSPR. Verranno supportate le notifiche e i codici delle app di autenticazione e SMS, le chiamate telefoniche e i codici. [Altre informazioni](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences).
+È in corso la creazione della parità di funzionalità SSPR tra Azure China 21Vianet e il cloud pubblico. In futuro, è necessario che gli amministratori usino due controlli quando usano SSPR. Verranno supportate le notifiche e i codici delle app di autenticazione e SMS, le chiamate telefoniche e i codici. [Altre informazioni](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences)
 
 ---
 
@@ -821,7 +1007,7 @@ Per offrire ai clienti un modo più flessibile per creare gruppi a livello di di
  
 Stiamo pianificando di sostituire l'anteprima dei controlli personalizzati corrente con un approccio che consente alle funzionalità di autenticazione fornite dai partner di funzionare senza interruzioni con il Azure Active Directory amministratore e l'esperienza dell'utente finale. Attualmente, le soluzioni di autenticazione a più fattori di partner affrontano le limitazioni seguenti: funzionano solo dopo l'immissione di una password; non vengono usati come multi-factor authentication per l'autenticazione step-up in altri scenari chiave. e non si integrano con le funzioni di gestione delle credenziali amministrative e degli utenti finali. La nuova implementazione consentirà ai fattori di autenticazione forniti dai partner di operare insieme a fattori predefiniti per gli scenari principali, ad esempio registrazione, utilizzo, attestazione dell'autenticazione a più fattori, autenticazione, creazione di report e registrazione. 
 
-I controlli personalizzati continueranno a essere supportati in anteprima insieme alla nuova progettazione fino a quando non raggiunge la disponibilità generale. A questo punto, si fornirà ai clienti il tempo per eseguire la migrazione alla nuova progettazione. A causa delle limitazioni dell'approccio corrente, non verranno caricati nuovi provider fino a quando non sarà disponibile la nuova progettazione. Stiamo lavorando a stretto contatto con clienti e provider e la cronologia verrà comunicata Man mano che ci avviciniamo. [Altre informazioni](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
+I controlli personalizzati continueranno a essere supportati in anteprima insieme alla nuova progettazione fino a quando non raggiunge la disponibilità generale. A questo punto, si fornirà ai clienti il tempo per eseguire la migrazione alla nuova progettazione. A causa delle limitazioni dell'approccio corrente, non verranno caricati nuovi provider fino a quando non sarà disponibile la nuova progettazione. Stiamo lavorando a stretto contatto con clienti e provider e la cronologia verrà comunicata Man mano che ci avviciniamo. [Altre informazioni](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#)
 
 ---
 
@@ -980,7 +1166,7 @@ Per altre informazioni su come migliorare la sicurezza dell'organizzazione usand
  
 Nel gennaio 2020 sono state aggiunte le nuove app 33 con supporto federativo per la raccolta di app: 
 
-[JOSA](../saas-apps/josa-tutorial.md), [fastly Edge cloud](../saas-apps/fastly-edge-cloud-tutorial.md), di [bonifica Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), SkyKick [,](../saas-apps/upshotly-tutorial.md) [LeaveBot](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [SSOGEN](https://leavebot.io/#home), [Datacamp](../saas-apps/datacamp-tutorial.md), [tripattioni](../saas-apps/tripactions-tutorial.md), [Smarts](https://www.intumit.com/english/SmartWork.html), [dotcom-monitor](../saas-apps/dotcom-monitor-tutorial.md), [-Azure ad SSO gateway per Oracle E-Business Suite-EBS, PeopleSoft e JDE](../saas-apps/ssogen-tutorial.md), [Hosted MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu Property Management Platform](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), [overwork Enterprise](../saas-apps/upwork-enterprise-tutorial.md), [Talentsoft](../saas-apps/talentsoft-tutorial.md), [SmartDB for Microsoft teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient Management Manager software](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), PortalTalk [365](https://www.portaltalk.com/), [CoreView](https://portal.coreview.com/), [squelch cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), [PrinterLogic Saas](../saas-apps/printerlogic-saas-tutorial.md), Taskize [Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai, EZRentOut](https://app.sandwai.com/) [, AssetSonar](../saas-apps/ezrentout-tutorial.md), [Akari Virtual Assistant](https://akari.io/akari-virtual-assistant/) [](../saas-apps/assetsonar-tutorial.md)
+[JOSA](../saas-apps/josa-tutorial.md), [fastly Edge cloud](../saas-apps/fastly-edge-cloud-tutorial.md), di [bonifica Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), SkyKick [,](../saas-apps/upshotly-tutorial.md) [LeaveBot](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [SSOGEN](https://appsource.microsoft.com/en-us/product/office/WA200001175), [Datacamp](../saas-apps/datacamp-tutorial.md), [tripattioni](../saas-apps/tripactions-tutorial.md), [Smarts](https://www.intumit.com/english/SmartWork.html), [dotcom-monitor](../saas-apps/dotcom-monitor-tutorial.md), [-Azure ad SSO gateway per Oracle E-Business Suite-EBS, PeopleSoft e JDE](../saas-apps/ssogen-tutorial.md), [Hosted MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu Property Management Platform](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), [overwork Enterprise](../saas-apps/upwork-enterprise-tutorial.md), [Talentsoft](../saas-apps/talentsoft-tutorial.md), [SmartDB for Microsoft teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient Management Manager software](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), PortalTalk [365](https://www.portaltalk.com/), [CoreView](https://portal.coreview.com/), [squelch cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), [PrinterLogic Saas](../saas-apps/printerlogic-saas-tutorial.md), Taskize [Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai, EZRentOut](https://app.sandwai.com/) [, AssetSonar](../saas-apps/ezrentout-tutorial.md), [Akari Virtual Assistant](https://akari.io/akari-virtual-assistant/) [](../saas-apps/assetsonar-tutorial.md)
 
 Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS con Azure Active Directory](../saas-apps/tutorial-list.md). Per altre informazioni su come inserire l'applicazione nella raccolta di app di Azure AD, vedere [Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
@@ -1968,7 +2154,7 @@ Per altre informazioni, vedere la [documentazione di riferimento dell'API di ril
 
 Nel mese di giugno 2019 sono state aggiunte queste 22 nuove app con il supporto della federazione alla raccolta di app:
 
-[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Azure VPN Client](https://portal.azure.com/), [ExpenseIn](../saas-apps/expensein-tutorial.md), [Helper Helper](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz In-Car Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-tutorial.md), [CyberArk SAML Authentication](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible Edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise OS](https://proptimise.co.uk/software/), [Vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager for Oracle Retail Merchandising, Oracle Access Manager for Oracle E-Business Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
+[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Azure VPN Client](https://portal.azure.com/), [ExpenseIn](../saas-apps/expensein-tutorial.md), [Helper Helper](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz In-Car Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-tutorial.md), [CyberArk SAML Authentication](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible Edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise OS](https://proptimise.co.uk/), [Vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager for Oracle Retail Merchandising, Oracle Access Manager for Oracle E-Business Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
 
 Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS con Azure Active Directory](../saas-apps/tutorial-list.md). Per altre informazioni su come inserire l'applicazione nella raccolta di app di Azure AD, vedere [Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 

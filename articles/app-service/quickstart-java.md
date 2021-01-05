@@ -10,12 +10,13 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+adobe-target: true
+ms.openlocfilehash: b54df350e3f59720a92d7c1e74e28d9fcafddf94
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333087"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802474"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Avvio rapido: Creare un'app Java nel Servizio app di Azure
 
@@ -78,11 +79,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quando viene visualizzata l'opzione **Sottoscrizione** , selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
-1. Quando viene visualizzata l'opzione **App Web** , accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
-1. Quando viene visualizzata l'opzione **Sistema operativo** , selezionare **Windows** immettendo `3`.
-1. Quando viene visualizzata l'opzione **Piano tariffario** , selezionare **B2** immettendo `2`.
-1. Usare la versione predefinita di Java, **Java 8** , premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **Windows** immettendo `3`.
+1. Quando viene visualizzata l'opzione **Piano tariffario**, selezionare **B2** immettendo `2`.
+1. Usare la versione predefinita di Java, **Java 8**, premendo INVIO.
 1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
 
     L'output di riepilogo sarà simile al frammento riportato di seguito.
@@ -110,12 +111,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quando viene visualizzata l'opzione **Sottoscrizione** , selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
-1. Quando viene visualizzata l'opzione **App Web** , accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
-1. Quando viene visualizzata l'opzione **Sistema operativo** , selezionare **Windows** immettendo `3`.
-1. Quando viene visualizzata l'opzione **Piano tariffario** , selezionare **B2** immettendo `2`.
-1. Usare la versione predefinita di Java, **Java 8** , premendo INVIO.
-1. Usare il contenitore Web predefinito, **Tomcat 8.5** , premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **Windows** immettendo `3`.
+1. Quando viene visualizzata l'opzione **Piano tariffario**, selezionare **B2** immettendo `2`.
+1. Usare la versione predefinita di Java, **Java 8**, premendo INVIO.
+1. Usare il contenitore Web predefinito, **Tomcat 8.5**, premendo INVIO.
 1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
 
     L'output di riepilogo sarà simile al frammento riportato di seguito.
@@ -148,11 +149,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quando viene visualizzata l'opzione **Sottoscrizione** , selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
-1. Quando viene visualizzata l'opzione **App Web** , accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
-1. Quando viene visualizzata l'opzione **Sistema operativo** , selezionare **Linux** premendo INVIO.
-1. Quando viene visualizzata l'opzione **Piano tariffario** , selezionare **B2** immettendo `2`.
-1. Usare la versione predefinita di Java, **Java 8** , premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **Linux** premendo INVIO.
+1. Quando viene visualizzata l'opzione **Piano tariffario**, selezionare **B2** immettendo `2`.
+1. Usare la versione predefinita di Java, **Java 8**, premendo INVIO.
 1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
 
     ```
@@ -177,12 +178,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quando viene visualizzata l'opzione **Sottoscrizione** , selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
-1. Quando viene visualizzata l'opzione **App Web** , accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
-1. Quando viene visualizzata l'opzione **Sistema operativo** , selezionare **Linux** premendo INVIO.
-1. Quando viene visualizzata l'opzione **Piano tariffario** , selezionare **B2** immettendo `2`.
-1. Usare la versione predefinita di Java, **Java 8** , premendo INVIO.
-1. Usare il contenitore Web predefinito, **Tomcat 8.5** , premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO oppure selezionare un'app esistente.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **Linux** premendo INVIO.
+1. Quando viene visualizzata l'opzione **Piano tariffario**, selezionare **B2** immettendo `2`.
+1. Usare la versione predefinita di Java, **Java 8**, premendo INVIO.
+1. Usare il contenitore Web predefinito, **Tomcat 8.5**, premendo INVIO.
 1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
 
     ```
@@ -217,7 +218,7 @@ Proprietà | Obbligatoria | Descrizione | Versione
 `<subscriptionId>` | false | Specificare l'ID sottoscrizione. | 0.1.0+
 `<resourceGroup>` | true | Gruppo di risorse di Azure per App Web. | 0.1.0+
 `<appName>` | true | Nome dell'App Web. | 0.1.0+
-`<region>` | true | Specifica l'area in cui verrà ospitata l'app Web. Il valore predefinito è **westeurope**. Le aree valide sono disponibili nella sezione [Aree supportate](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
+`<region>` | true | Specifica l'area in cui verrà ospitata l'app Web. Il valore predefinito è **westeurope**. Le aree valide sono disponibili nella sezione [Aree supportate](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md). | 0.1.0+
 `<pricingTier>` | false | Il piano tariffario per l'App Web. Il valore predefinito è **P1V2** per il carico di lavoro di produzione, mentre **B2** è il valore minimo consigliato per le attività di sviluppo/test Java. [Scopri di più](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | Configurazione dell'ambiente di runtime. I dettagli sono disponibili [qui](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | Configurazione della distribuzione. I dettagli sono disponibili [qui](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+

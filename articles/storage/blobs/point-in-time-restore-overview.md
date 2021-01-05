@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908796"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803868"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
@@ -43,7 +43,7 @@ L'operazione **Restore Ranges BLOB** restituisce un ID di ripristino che identif
 > Quando l'account di archiviazione viene replicato geograficamente, è possibile che le operazioni di lettura dalla posizione secondaria continuino durante l'operazione di ripristino.
 
 > [!CAUTION]
-> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un contenitore, eliminare i singoli BLOB se si desidera ripristinarli.
+> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un intero contenitore, eliminare i singoli BLOB se si desidera ripristinarli in un secondo momento.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Prerequisiti per il ripristino temporizzato
 
@@ -57,9 +57,12 @@ Il ripristino temporizzato richiede che le funzionalità di archiviazione di Azu
 
 Quando si Abilita il ripristino temporizzato per un account di archiviazione, è necessario specificare un periodo di conservazione. I BLOB in blocchi nell'account di archiviazione possono essere ripristinati durante il periodo di memorizzazione.
 
-Il periodo di memorizzazione inizia quando si Abilita il ripristino temporizzato. Tenere presente che non è possibile ripristinare i BLOB in uno stato precedente all'inizio del periodo di memorizzazione. Ad esempio, se è stato abilitato il ripristino temporizzato il 1 ° maggio con un periodo di conservazione di 30 giorni, il 15 maggio è possibile eseguire il ripristino fino a un massimo di 15 giorni. Il 1 ° giugno è possibile ripristinare i dati da 1 a 30 giorni.
+Il periodo di memorizzazione inizia pochi minuti dopo l'abilitazione del ripristino temporizzato. Tenere presente che non è possibile ripristinare i BLOB in uno stato precedente all'inizio del periodo di memorizzazione. Ad esempio, se è stato abilitato il ripristino temporizzato il 1 ° maggio con un periodo di conservazione di 30 giorni, il 15 maggio è possibile eseguire il ripristino fino a un massimo di 15 giorni. Il 1 ° giugno è possibile ripristinare i dati da 1 a 30 giorni.
 
 Il periodo di memorizzazione per il ripristino temporizzato deve essere almeno un giorno inferiore rispetto al periodo di memorizzazione specificato per l'eliminazione temporanea. Se, ad esempio, il periodo di memorizzazione dell'eliminazione temporanea è impostato su 7 giorni, il periodo di conservazione del ripristino temporizzato può essere compreso tra 1 e 6 giorni.
+
+> [!IMPORTANT]
+> Il tempo necessario per ripristinare un set di dati si basa sul numero di operazioni di scrittura ed eliminazione effettuate durante il periodo di ripristino. Ad esempio, un account con 1 milione oggetti con 3.000 oggetti aggiunti al giorno e 1.000 oggetti eliminati al giorno richiederà circa due ore per il ripristino fino a un punto di 30 giorni nel passato. Un periodo di conservazione e un ripristino più di 90 giorni in passato non sarebbero consigliati per un account con questa frequenza di modifica.
 
 ### <a name="permissions-for-point-in-time-restore"></a>Autorizzazioni per il ripristino temporizzato
 

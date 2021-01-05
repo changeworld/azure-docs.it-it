@@ -9,12 +9,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: f559c87a5c3285bf966f9389d623b2262e93cbca
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bf357dcc9c4790632a1131278edc41c13ac810b1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425814"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802610"
 ---
 # <a name="client-application-registration"></a>Registrazione dell'applicazione client
 Nell'esercitazione precedente è stata distribuita e configurata l'API di Azure per FHIR. Ora che è stata configurata l'API di Azure per FHIR, verrà registrata un'applicazione client pubblica. Per informazioni dettagliate o per la risoluzione dei problemi, è possibile leggere l'intera guida pratica su come [registrare un'app client pubblica](register-public-azure-ad-client-app.md), ma di seguito vengono illustrati i passaggi principali per questa esercitazione.
@@ -22,7 +22,7 @@ Nell'esercitazione precedente è stata distribuita e configurata l'API di Azure 
 1. Passare ad Azure Active Directory
 1. Selezionare **Registrazione dell'app** --> **Nuova registrazione**
 1. Assegnare un nome all'applicazione
-1. Selezionare **Client pubblico/nativo (per dispositivi mobili e desktop)** e impostare l'URL di reindirizzamento su https://www.getpostman.com/oauth2/callback.
+1. Selezionare **Client pubblico/nativo (per dispositivi mobili e desktop)** e impostare l'URL di reindirizzamento su `https://www.getpostman.com/oauth2/callback`.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Screenshot del riquadro Registra un'applicazione con un nome applicazione e un URL di reindirizzamento di esempio.":::
 
@@ -36,7 +36,7 @@ Dopo aver registrato l'applicazione client, copiare l'ID applicazione (client) e
 
 Se [l'app Web è stata scritta](tutorial-web-app-write-web-app.md) per connettersi con l'API di Azure per FHIR, occorre anche impostare le opzioni di autenticazione corrette. 
 
-1. Nel menu a sinistra, in **Gestisci** , selezionare **Autenticazione**. 
+1. Nel menu a sinistra, in **Gestisci**, selezionare **Autenticazione**. 
 
 1. Per aggiungere una nuova configurazione della piattaforma, selezionare **Web**.
 

@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: d83745db6c720a2fdc2260a07a4e3e66b1a0771d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9578793c88c069b885f03dd682c47ae9f1f1b0a1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422213"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802627"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installare il software e configurare le risorse per l'esercitazione
 
@@ -32,7 +32,7 @@ In questa esercitazione in tre parti si creerà un modello di Machine Learning p
 5. Installare la versione più recente dell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Per gli script seguenti è necessaria la versione più recente di Azure PowerShell (3.5.0, febbraio 2020).
 6. Impostare l'ambiente per eseguire e testare la soluzione IoT Edge ed effettuarne il debug installando [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).
 7. Installare Docker.
-8. Scaricare il file [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) che verrà usato nell'esercitazione. 
+8. Scaricare il file DACPAC che verrà usato nell'esercitazione. 
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Distribuire le risorse di Azure usando lo script PowerShell
 

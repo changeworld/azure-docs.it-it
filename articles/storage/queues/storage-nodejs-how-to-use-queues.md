@@ -4,17 +4,17 @@ description: Informazioni su come usare l'archiviazione code di Azure per creare
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 08/31/2020
+ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: ebae3c8850947f3b6cbde6f2ebd8bfbd45b2fbb4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12ae05e10cdf0fa9a5f0725acaa1784eedc3612c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592178"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803681"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Come usare l'archiviazione di Accodamento di Azure da Node.js
 
@@ -350,4 +350,4 @@ Per cancellare tutti i messaggi da una coda senza eliminarli, chiamare `clearMes
 Ora che sono state apprese le nozioni di base dell'archiviazione code, seguire i collegamenti seguenti per informazioni sulle attività di archiviazione più complesse.
 
 - Per informazioni sulle novità, visitare il [Blog del team di archiviazione di Azure](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog)
-- Visitare il repository della [libreria client di archiviazione di Azure per JavaScript](https://github.com/Azure/Azure-SDK-for-js/tree/master/SDK/storage#Azure-storage-client-library-for-JavaScript) su GitHub
+- Visitare il repository della [libreria client di archiviazione di Azure per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#Azure-storage-client-library-for-JavaScript) su GitHub

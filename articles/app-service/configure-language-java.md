@@ -10,12 +10,13 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+adobe-target: true
+ms.openlocfilehash: 0334e259f75440cae25f1e165c0621c85f7c7705
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183142"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804004"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app Java per il servizio app di Azure
 
@@ -25,7 +26,7 @@ Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Jav
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
-È possibile usare il plug-in [app Web di Azure per Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) per distribuire i file con estensione War o jar. La distribuzione con IDE comuni è supportata anche con il [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+È possibile usare il plug-in [app Web di Azure per Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) per distribuire i file con estensione War o jar. La distribuzione con IDE comuni è supportata anche con il [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Altrimenti, il metodo di distribuzione dipenderà dal tipo di archivio:
 

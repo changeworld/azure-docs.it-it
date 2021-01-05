@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989463"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797214"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,7 +95,7 @@ Per ripristinare un database di istanza gestita a un punto nel tempo tramite il 
   ![Screenshot delle opzioni di ripristino del database per l'istanza gestita di SQL.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> Per ripristinare a livello di codice un database da un backup, vedere esecuzione di un [ripristino a livello di codice tramite backup automatici](recovery-using-backups.md).
+> Per ripristinare a livello di codice un database da un backup, vedere [ripristino a livello di codice tramite backup automatici](recovery-using-backups.md).
 
 ## <a name="deleted-database-restore"></a>Ripristino di un database eliminato
 
@@ -253,7 +253,7 @@ Per ripristinare un database usando l'interfaccia della riga di comando di Azure
 
 Per ripristinare un database di istanza gestita usando l'interfaccia della riga di comando di Azure, vedere [AZ SQL MidB Restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e le dimensioni di calcolo.
 

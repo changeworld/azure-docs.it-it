@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df2962c8d428694a663acddf5922829f8b913b92
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 1a7bd36a6e3f3cc5b785745fc51f0aede3b47b74
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737490"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803307"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure
 
@@ -163,9 +163,9 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
 
 ![Med](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>Alta
+#### <a name="high"></a>Alto
 
-![Alta](./media/media-services-face-redaction/blur3.png)
+![Alto](./media/media-services-face-redaction/blur3.png)
 
 #### <a name="box"></a>Box
 
@@ -385,4 +385,4 @@ namespace FaceRedaction
 
 [Panoramica di Analisi servizi multimediali di Azure](./legacy-components.md)
 
-[Demo di Analisi servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demo di Analisi servizi multimediali di Azure](http://amslabs.azurewebsites.net/demos/Analytics.html)

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936540"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802508"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -112,7 +112,7 @@ Il token di firma di accesso condiviso è una stringa generata sul lato client, 
 
 Le applicazioni client forniscono l'URI SAS ad archiviazione di Azure come parte di una richiesta. Il servizio controlla quindi i parametri SAS e la firma per verificare che siano validi. Se il servizio conferma che la firma è valida, la richiesta viene autorizzata. In caso contrario, la richiesta viene rifiutata con il codice errore 403 (accesso negato).
 
-Ecco un esempio di URI di firma di accesso condiviso del servizio, che mostra l'URI della risorsa e il token di firma di accesso condiviso:
+Ecco un esempio di URI di firma di accesso condiviso del servizio, che mostra l'URI della risorsa e il token di firma di accesso condiviso. Poiché il token di firma di accesso condiviso è costituito dalla stringa di query URI, l'URI della risorsa deve essere seguito da un punto interrogativo e quindi dal token di firma di accesso condiviso:
 
 ![Componenti di un URI di firma di accesso condiviso del servizio](./media/storage-sas-overview/sas-storage-uri.png)
 

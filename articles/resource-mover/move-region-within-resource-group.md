@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528228"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797278"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Spostare le risorse tra le aree (dal gruppo di risorse)
 
@@ -27,7 +27,7 @@ Questo articolo illustra come spostare le risorse in un gruppo di risorse specif
 - È necessario l'accesso del *proprietario* per la sottoscrizione in cui si trovano le risorse che si desidera spostare.
     - La prima volta che si aggiunge una risorsa per un mapping di origine e destinazione specifico in una sottoscrizione di Azure, il motore risorse crea un' [identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (precedentemente nota come identità del servizio gestito) considerata attendibile dalla sottoscrizione.
     - Per creare l'identità e assegnarle il ruolo richiesto (Collaboratore o Amministratore Accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere le risorse deve avere le autorizzazioni di *Proprietario* nella sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
-- La sottoscrizione richiede una quota sufficiente per creare le risorse di origine nell'area di destinazione. In caso contrario, richiedere limiti aggiuntivi. [Altre informazioni](../azure-resource-manager/management/azure-subscription-service-limits.md)
+- La sottoscrizione richiede una quota sufficiente per creare le risorse di origine nell'area di destinazione. In caso contrario, richiedere limiti aggiuntivi. [Altre informazioni](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le macchine virtuali. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
 - Controllare che le risorse che si vuole spostare siano supportate da Resource Mover:
     - Macchine virtuali di Azure e dischi associati
@@ -57,6 +57,9 @@ Questo articolo illustra come spostare le risorse in un gruppo di risorse specif
 ## <a name="select-resources-to-move"></a>Selezionare le risorse da spostare
 
 Selezionare le risorse da spostare. Si spostano le risorse in un'area di destinazione nella sottoscrizione dell'area di origine. Se si vuole cambiare la sottoscrizione, è possibile eseguire questa operazione dopo lo spostamento delle risorse.
+
+> [!NOTE]
+>  Non selezionare i dischi associati o l'operazione avrà esito negativo. I dischi associati vengono inclusi automaticamente nello spostamento di una macchina virtuale.
 
 1. Nel portale di Azure aprire il gruppo di risorse pertinente.
 2. Nella pagina gruppo di risorse selezionare le risorse che si desidera spostare.

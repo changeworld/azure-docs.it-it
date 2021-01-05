@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181204"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803528"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -44,6 +44,7 @@ Questo argomento offre una panoramica del report di provisioning.
 ### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 * I proprietari dell'applicazione possono visualizzare i log per le applicazioni di loro proprietà
 * Utenti nei ruoli amministratore sicurezza, lettore sicurezza, lettore report, amministratore applicazione e amministratore applicazione cloud
+* Utenti in un ruolo personalizzato con l' [autorizzazione provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Amministratori globali
 
 
@@ -56,7 +57,7 @@ Il tenant deve disporre di una licenza di Azure AD Premium associata per visuali
 I log di provisioning forniscono risposte alle domande seguenti:
 
 * Quali gruppi sono stati creati correttamente in ServiceNow?
-* Quali ruoli sono stati importati da Amazon Web Services?
+* Quali utenti sono stati rimossi correttamente da Adobe?
 * Quali utenti non sono stati creati correttamente in DropBox?
 
 È possibile accedere ai log di provisioning selezionando i **log di provisioning** nella sezione **monitoraggio** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record del provisioning nel portale.
@@ -86,7 +87,7 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtra")
+![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning
@@ -100,7 +101,7 @@ Nella visualizzazione predefinita è possibile selezionare i filtri seguenti:
 - Azione
 
 
-![Aggiungere filtri](./media/concept-provisioning-logs/default-filter.png "Filtra")
+![Aggiungere filtri](./media/concept-provisioning-logs/default-filter.png "Filtro")
 
 Il filtro di **identità** consente di specificare il nome o l'identità a cui si è interessati. Questa identità può essere un utente, un gruppo, un ruolo o un altro oggetto. È possibile eseguire la ricerca in base al nome o all'ID dell'oggetto. L'ID varia in base allo scenario. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a SalesForce, l'ID di origine è l'ID oggetto dell'utente in Azure AD mentre TargetID è l'ID dell'utente in Salesforce. Quando si effettua il provisioning da giorni lavorativi a Active Directory, l'ID di origine è l'ID del dipendente del lavoro lavorativo. Si noti che il nome dell'utente potrebbe non essere sempre presente nella colonna Identity. Ci sarà sempre un ID. 
 
@@ -119,7 +120,7 @@ Quando si seleziona un intervallo di tempo personalizzato, è possibile configur
 
 Il filtro **Stato** consente di selezionare:
 
-- All
+- Tutti
 - Operazione completata
 - Operazioni non riuscite
 - Operazione ignorata
@@ -128,11 +129,11 @@ Il filtro **Stato** consente di selezionare:
 
 Il filtro **azione** consente di filtrare:
 
-- Create 
-- Aggiornamento
+- Creazione 
+- Aggiorna
 - Delete
 - Disabilita
-- Altro
+- Altri
 
 Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i filtri seguenti:
 
@@ -173,7 +174,7 @@ I dettagli sono raggruppati in base alle categorie seguenti:
 
 - Proprietà modificate
 
-- Summary
+- Riepilogo
 
 
 ![Dettagli del provisioning](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
@@ -191,7 +192,7 @@ Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il
 
 
 
-![Screenshot mostra la scheda passaggi, che mostra i passaggi di provisioning.](./media/concept-provisioning-logs/steps.png "Filtra")
+![Screenshot mostra la scheda passaggi, che mostra i passaggi di provisioning.](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Risoluzione dei problemi e suggerimenti
@@ -205,7 +206,7 @@ La scheda **risoluzione dei problemi e indicazioni** fornisce il codice e il mot
 Le **proprietà modificate** visualizzano il valore precedente e il nuovo valore. Nei casi in cui non è presente alcun valore precedente, la colonna del valore precedente è vuota. 
 
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degli identificatori per l'oggetto nel sistema di origine e di destinazione. 
 
@@ -219,7 +220,9 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 
 - È possibile che vengano visualizzati eventi ignorati per gli utenti che non rientrano nell'ambito. Questo comportamento è previsto, soprattutto quando l'ambito di sincronizzazione è impostato su tutti gli utenti e i gruppi. Il servizio valuterà tutti gli oggetti nel tenant, anche quelli che non rientrano nell'ambito. 
 
-- I log di provisioning non sono attualmente disponibili nel cloud per enti pubblici. Se non si è in grado di accedere ai log di provisioning, usare i log di controllo come soluzione temporanea.  
+- I log di provisioning non sono attualmente disponibili nel cloud per enti pubblici. Se non si è in grado di accedere ai log di provisioning, usare i log di controllo come soluzione temporanea. 
+
+- I log di provisioning non mostrano le importazioni di ruolo (si applica a AWS, SalesForce e ZenDesk). I log per le importazioni di ruolo sono reperibili nei log di controllo. 
 
 ## <a name="error-codes"></a>Codici errore
 

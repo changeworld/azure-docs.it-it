@@ -2,13 +2,13 @@
 title: Evento di avvio ridimensionamento pool di Azure Batch
 description: Riferimento per l’evento di avvio ridimensionamento del pool di batch. L'esempio mostra il corpo di un evento di avvio ridimensionamento pool per un pool ridimensionato da 0 a 2 nodi in modo manuale.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: 63576b04b06aad024211d0a50225907c88c138ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/28/2020
+ms.openlocfilehash: be64a2ef30cbe3c404633b29202a4adf1e49ea9e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83723732"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803613"
 ---
 # <a name="pool-resize-start-event"></a>Evento di avvio ridimensionamento pool
 
@@ -18,14 +18,14 @@ ms.locfileid: "83723732"
 
 ```
 {
-    "id": "myPool1",
-    "nodeDeallocationOption": "Invalid",
-    "currentDedicatedNodes": 0,
-    "targetDedicatedNodes": 2,
-    "currentLowPriorityNodes": 0,
-    "targetLowPriorityNodes": 2,
-    "enableAutoScale": false,
-    "isAutoPool": false
+   "id": "myPool1",
+   "nodeDeallocationOption": "Invalid",
+   "currentDedicatedNodes": 0,
+   "targetDedicatedNodes": 2,
+   "currentLowPriorityNodes": 0,
+   "targetLowPriorityNodes": 2,
+   "enableAutoScale": false,
+   "isAutoPool": false
 }
 ```
 

@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 59de7ee14a3af2f8740d63a3cae19571469afd7f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 8937272f8b6ef945d80076732ea38523f7b475a1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630344"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802542"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -163,10 +163,10 @@ Queste condizioni indicano che il cluster è soggetto a latenze di scrittura ele
 Questo consiglio fa emergere le tabelle di Esplora dati di Azure con un numero più elevato di query che si riferiscono al periodo (criteri) configurato per la permanenza nella cache. Verranno visualizzate le 10 tabelle principali per percentuale di cache che accedono ai dati non appartenenti alla cache. Azione consigliata per migliorare le prestazioni del cluster: Limitare le query nella tabella all'intervallo di tempo minimo necessario (entro i criteri definiti). In alternativa, se servono i dati dell'intero intervallo di tempo, aumentare il periodo della cache al valore consigliato.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Migliorare le prestazioni ottimizzando il dimensionamento della tabella temporanea MySQL
-L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Scopri di più](https://aka.ms/azure_mysql_tmp_table)
+L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Altre informazioni](https://aka.ms/azure_mysql_tmp_table)
 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuire i dati nel gruppo di server per la distribuzione del carico di lavoro tra i nodi
-Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2135201) 
+Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Migliorare l'esperienza utente e la connettività distribuendo VM più vicine al percorso di distribuzione di desktop virtuale Windows
 Si è riscontrato che le macchine virtuali si trovano in un'area diversa o lontana da quella da cui si connettono gli utenti, tramite Desktop virtuale Windows. Questo può comportare tempi di risposta della connessione più lunghi e influisce sull'esperienza utente complessiva in Desktop virtuale Windows. Quando si creano macchine virtuali per i pool di host, è consigliabile tentare di usare un'area più vicina all'utente. Una maggiore vicinanza assicura un'affidabilità costante del servizio Desktop virtuale Windows e una migliore qualità complessiva dell'esperienza. [Altre informazioni sulla latenza di connessione](../virtual-desktop/connection-latency.md)sono disponibili qui.
@@ -179,7 +179,7 @@ Scopri di più su [immersive Reader SDK](../cognitive-services/immersive-reader/
 
 Advisor rileva che si dispone di un pool di host con un primo set di profondità come algoritmo di bilanciamento del carico e che il limite massimo della sessione del pool host è maggiore o uguale a 99999. Il bilanciamento del carico in profondità usa il limite massimo di sessioni per determinare il numero massimo di utenti che possono disporre di sessioni simultanee in un singolo host della sessione. Se il limite massimo della sessione è troppo elevato, tutte le sessioni utente verranno indirizzate allo stesso host di sessione e ciò causerà problemi di prestazioni e affidabilità. Pertanto, quando si imposta un pool di host in modo da avere un primo bilanciamento del carico di profondità, è necessario impostare un limite massimo di sessioni appropriato in base alla configurazione della distribuzione e della capacità delle macchine virtuali. 
 
-Per ulteriori informazioni sul bilanciamento del carico in desktop virtuali Windows, vedere [configurare il metodo di bilanciamento del carico per desktop virtuali Windows](/virtual-desktop/troubleshoot-set-up-overview.md).
+Per ulteriori informazioni sul bilanciamento del carico in desktop virtuali Windows, vedere [configurare il metodo di bilanciamento del carico per desktop virtuali Windows](/azure/virtual-desktop/troubleshoot-set-up-overview).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Come accedere ai consigli sulle prestazioni in Advisor
 

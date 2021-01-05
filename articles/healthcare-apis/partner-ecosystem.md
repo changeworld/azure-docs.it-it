@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/22/2019
 ms.author: chrupa
-ms.openlocfilehash: 556cc7fb5f735346a35903840501cf8f8e1be033
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 30fcaccbb4b87212cc4474b418712ba849156a8e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372175"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803171"
 ---
 # <a name="partner-ecosystem-for-azure-api-for-fhir"></a>Ecosistema di partner per l'API di Azure per FHIR
 Siamo lieti che l'API di Azure per FHIR sia stata rilasciata in genere a tutti i clienti di Azure. Siamo ancora più entusiasti delle soluzioni che potrai creare con il nostro servizio.  
@@ -23,7 +23,7 @@ Quando si crea una soluzione end-to-end basata sull'API di Azure per FHIR, è po
 
 | Partner          | Funzionalità                               | Paesi/aree geografiche supportati         | Contatto                                                                                                                                |
 |------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Medaglie            | Deidentificazione, conversione legacy-FHIR  | USA                         | [Contact](http://www.medal.com/)                                                                                           |
+| Medaglie            | Deidentificazione, conversione legacy-FHIR  | USA                         | [Contact](https://asab.squarespace.com/asab-medal/)                                                                                           |
 | Rhapsody         | Conversione legacy-FHIR                     | Stati Uniti, Australia, Nuova Zelanda | [Contact](https://rhapsody.health/contact-us)                                                                                          |
 | iNTERFACEWARE    | Conversione legacy-FHIR                     | Stati Uniti, Canada                 | [Contact](https://www.interfaceware.com/contact)                                                                                  |
 | Soluzioni Darena | Sviluppo di applicazioni, integratori di sistemi | USA                         | [Contact](https://www.darenasolutions.com/contact)                                                                                     |

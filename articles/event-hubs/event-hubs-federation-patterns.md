@@ -3,12 +3,12 @@ title: Modelli di attività di replica degli eventi-Hub eventi di Azure | Micros
 description: Questo articolo fornisce indicazioni dettagliate per l'implementazione di modelli di attività di replica di eventi specifici
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 370c0f2d5c5c591668aa2dadf0512760a4a9b2f5
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663651"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803987"
 ---
 # <a name="event-replication-tasks-patterns"></a>Modelli di attività di replica degli eventi
 
@@ -136,7 +136,7 @@ Le varianti di questi schemi sono:
 
 Le prime due varianti di modello sono semplici e non differiscono dalle attività di replica normale.
 
-Per l'ultimo scenario è necessario escludere gli eventi già replicati dalla replica. La tecnica è illustrata e illustrata nell'esempio [EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/main/code/EventHubToEventHubMerge) .
+Per l'ultimo scenario è necessario escludere gli eventi già replicati dalla replica. La tecnica è illustrata e illustrata nell'esempio [EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/code/EventHubMerge) .
 
 ## <a name="editor"></a>Editor
 

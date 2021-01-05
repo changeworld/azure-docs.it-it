@@ -13,12 +13,12 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
-ms.openlocfilehash: 1d6a51e2e9c052be0c59435b287c5fdde459f55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334192"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802525"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
 
@@ -97,7 +97,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 1. Scaricare Raspbian.
 
-   a. [Raspbian Buster con desktop](https://www.raspberrypi.org/downloads/raspbian/) (file zip).
+   a. [Raspbian Buster con desktop](https://www.raspberrypi.org/software/) (file zip).
 
    b. Estrarre l'immagine di Raspbian in una cartella nel computer.
 
@@ -172,7 +172,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
 1. Connettersi a Raspberry Pi usando uno dei client SSH seguenti dal computer host.
 
-   **Utenti Windows**
+   **Utenti di Windows**
 
    a. Scaricare e installare [PuTTY](https://www.putty.org/) per Windows.
 

@@ -2,13 +2,13 @@
 title: Evento di avvio eliminazione del pool di Azure Batch
 description: Riferimento per l’evento di avvio eliminazione del pool di batch. Questo evento viene generato quando un'operazione di eliminazione pool è stata avviata.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: d4fac833b6c77258e48b38838f6b7b133738a6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/28/2020
+ms.openlocfilehash: 86f6eb8e7b269cb45f692398e9e60390375ca073
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83723936"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803749"
 ---
 # <a name="pool-delete-start-event"></a>Evento di avvio eliminazione pool
 
@@ -18,7 +18,7 @@ ms.locfileid: "83723936"
 
 ```
 {
-    "id": "myPool1"
+   "id": "myPool1"
 }
 ```
 

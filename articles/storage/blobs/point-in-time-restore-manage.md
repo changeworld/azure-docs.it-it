@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895724"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803919"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Eseguire un ripristino temporizzato sui dati BLOB in blocchi
 
@@ -23,7 +23,7 @@ ms.locfileid: "95895724"
 Per altre informazioni sul ripristino temporizzato, vedere [ripristino temporizzato per i BLOB in blocchi](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un contenitore, eliminare i singoli BLOB se si desidera ripristinarli.
+> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un intero contenitore, eliminare i singoli BLOB se si desidera ripristinarli in un secondo momento.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Abilitare e configurare il ripristino temporizzato
 
@@ -36,7 +36,7 @@ Prima di abilitare e configurare il ripristino temporizzato, abilitare i relativ
 > [!IMPORTANT]
 > L'abilitazione dell'eliminazione temporanea, del feed delle modifiche e del controllo delle versioni BLOB può comportare addebiti aggiuntivi. Per altre informazioni, vedere [eliminazione temporanea per i BLOB](soft-delete-blob-overview.md), [supporto del feed delle modifiche nell'archivio BLOB di Azure](storage-blob-change-feed.md)e [controllo delle versioni dei BLOB](versioning-overview.md).
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per configurare il ripristino temporizzato con il portale di Azure, attenersi alla procedura seguente:
 
@@ -107,12 +107,14 @@ Vengono ripristinati solo i BLOB in blocchi. I BLOB di pagine e i BLOB di Accoda
 > Quando si esegue un'operazione di ripristino, archiviazione di Azure blocca le operazioni sui dati nei BLOB negli intervalli da ripristinare per la durata dell'operazione. Le operazioni di lettura, scrittura ed eliminazione sono bloccate nella posizione primaria. Per questo motivo, è possibile che le operazioni come l'elenco dei contenitori nell'portale di Azure non vengano eseguite come previsto mentre è in corso l'operazione di ripristino.
 >
 > Quando l'account di archiviazione viene replicato geograficamente, è possibile che le operazioni di lettura dalla posizione secondaria continuino durante l'operazione di ripristino.
+>
+> Il tempo necessario per ripristinare un set di dati si basa sul numero di operazioni di scrittura ed eliminazione effettuate durante il periodo di ripristino. Ad esempio, un account con 1 milione oggetti con 3.000 oggetti aggiunti al giorno e 1.000 oggetti eliminati al giorno richiederà circa due ore per il ripristino fino a un punto di 30 giorni nel passato. Un periodo di conservazione e un ripristino più di 90 giorni in passato non sarebbero consigliati per un account con questa frequenza di modifica.
 
 ### <a name="restore-all-containers-in-the-account"></a>Ripristinare tutti i contenitori nell'account
 
 È possibile ripristinare tutti i contenitori nell'account di archiviazione per ripristinarne lo stato precedente in un determinato momento.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con la portale di Azure, attenersi alla procedura seguente:
 
@@ -158,7 +160,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 È possibile ripristinare uno o più intervalli di lessicografico di BLOB all'interno di un singolo contenitore o tra più contenitori per restituire tali BLOB allo stato precedente in un determinato momento.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per ripristinare un intervallo di BLOB in uno o più contenitori con la portale di Azure, attenersi alla seguente procedura:
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: f82adad5273f1c5559cbeb1924f59e57c863f6b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e954eab9da5dfc638f93a7c4e55c675c4f2ac9
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303455"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797248"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Come gestire le impostazioni di modellazione e apprendimento
 
@@ -18,7 +18,7 @@ Il modello di apprendimento automatico e le impostazioni di apprendimento posson
 
 ## <a name="export-the-personalizer-model"></a>Esportare il modello di Personalizza esperienze
 
-Dalla sezione relativa alla gestione delle risorse per **le impostazioni relative a modelli e apprendimento**esaminare la creazione del modello e la data dell'ultimo aggiornamento ed esportare il modello corrente. È possibile usare il portale di Azure o le API di Personalizza esperienze per esportare un file di modello a scopo di archiviazione.
+Dalla sezione relativa alla gestione delle risorse per **le impostazioni relative a modelli e apprendimento** esaminare la creazione del modello e la data dell'ultimo aggiornamento ed esportare il modello corrente. È possibile usare il portale di Azure o le API di Personalizza esperienze per esportare un file di modello a scopo di archiviazione.
 
 ![Esportare il modello corrente di Personalizza esperienze](media/settings/export-current-personalizer-model.png)
 
@@ -55,4 +55,4 @@ Le impostazioni dei [criteri di apprendimento](concept-active-learning.md#unders
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su come gestire un criterio di formazione](how-to-manage-model.md)
+[Analizzare il ciclo di apprendimento con una valutazione offline](how-to-offline-evaluation.md)

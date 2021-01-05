@@ -1,6 +1,6 @@
 ---
 title: Correggere le raccomandazioni nel centro sicurezza di Azure | Microsoft Docs
-description: Questo articolo illustra come correggere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse e conformarsi ai criteri di sicurezza.
+description: Questo articolo illustra come rispondere alle raccomandazioni del Centro sicurezza di Azure per proteggere le risorse e soddisfare i criteri di sicurezza.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637089"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807991"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Correzione delle raccomandazioni nel Centro sicurezza di Azure
 
@@ -26,41 +26,41 @@ Le raccomandazioni forniscono suggerimenti su come proteggere meglio le risorse.
 
 ## <a name="remediation-steps"></a>Procedura di correzione <a name="remediation-steps"></a>
 
-Dopo aver esaminato tutte le raccomandazioni, decidere quale risolvere prima di tutto. Si consiglia di usare l' [effetto del Punteggio sicuro](security-center-recommendations.md#monitor-recommendations) per definire la priorità delle operazioni da eseguire prima.
+Dopo aver esaminato tutte le raccomandazioni, decidere quale risolvere prima di tutto. Si consiglia di assegnare priorità ai controlli di sicurezza con il massimo potenziale per aumentare il Punteggio sicuro.
 
-1. Nell'elenco fare clic sull'indicazione.
+1. Selezionare un suggerimento dall'elenco.
 
 1. Seguire le istruzioni riportate nella sezione relativa alla **procedura di correzione** . Ogni raccomandazione dispone di un proprio set di istruzioni. Nella schermata seguente vengono illustrati i passaggi correttivi per la configurazione delle applicazioni in modo da consentire solo il traffico su HTTPS.
 
-    ![Dettagli delle raccomandazioni](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Procedura di correzione manuale per una raccomandazione" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
-1. Al termine, viene visualizzata una notifica che informa se la correzione ha avuto esito positivo.
+1. Al termine, viene visualizzata una notifica che informa se il problema è stato risolto.
 
-## <a name="quick-fix-remediation"></a>Correzione rapida<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Correzione rapida
 
-La correzione rapida semplifica la correzione e consente di aumentare rapidamente il Punteggio sicuro, migliorando la sicurezza dell'ambiente.
+Per semplificare la correzione e migliorare la sicurezza dell'ambiente (e aumentare il Punteggio sicuro), molte raccomandazioni includono un'opzione di correzione rapida.
 
-La correzione rapida consente di correggere rapidamente una raccomandazione su più risorse. 
+La correzione rapida consente di correggere rapidamente una raccomandazione su più risorse.
 
 > [!TIP]
-> La correzione rapida è disponibile solo per raccomandazioni specifiche. Per trovare le raccomandazioni con l'opzione correzione rapida, usare il filtro dedicato nella parte superiore dell'elenco di raccomandazioni:
+> Le soluzioni per la correzione rapida sono disponibili solo per raccomandazioni specifiche. Per trovare le raccomandazioni con una correzione rapida disponibile, usare il filtro **azioni di risposta** per l'elenco di raccomandazioni:
 > 
 > :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Usare i filtri sopra l'elenco di indicazioni per trovare raccomandazioni con l'opzione correzione rapida":::
 
-Per implementare una correzione rapida per la correzione:
+Per implementare una soluzione di correzione rapida:
 
-1. Dall'elenco di raccomandazioni con la **correzione rapida.** etichetta, fare clic sull'indicazione.
+1. Dall'elenco di raccomandazioni con la **correzione rapida.** Label selezionare un suggerimento.
 
-    [![Selezionare correzione rapida.](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
+    [![Selezionare correzione rapida.](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
 
-1. Dalla scheda **risorse non integre** selezionare le risorse su cui si desidera implementare l'indicazione e **quindi fare clic su Correggi**.
+1. Dalla scheda **risorse non integre** selezionare le risorse su cui si desidera implementare l'indicazione e selezionare **Correggi.**
 
     > [!NOTE]
     > Alcune delle risorse elencate potrebbero essere disabilitate, perché non si dispone delle autorizzazioni appropriate per modificarle.
 
 1. Nella casella Conferma leggere i dettagli e le implicazioni per la correzione.
 
-    ![Correzione rapida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![Correzione rapida](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > Le implicazioni sono elencate nella casella grigio della finestra Correggi **risorse** che viene visualizzata dopo aver **fatto clic su** Correggi. Elencano le modifiche che si verificano quando si procede con la correzione rapida.
@@ -79,7 +79,7 @@ Per applicare la configurazione nella risorsa, l'operazione di monitoraggio e ag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo documento è stato illustrato come correggere le raccomandazioni nel centro sicurezza. Per ulteriori informazioni sul centro sicurezza, vedere gli argomenti seguenti:
+In questo documento è stato illustrato come correggere le raccomandazioni nel centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere le pagine seguenti:
 
 * [Impostazione dei criteri di sicurezza nel centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.

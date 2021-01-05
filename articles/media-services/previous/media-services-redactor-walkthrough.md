@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 048635a33c3d84416dae00b731b386572aa3f89d
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040716"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802576"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "93040716"
 
 **Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](./legacy-components.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per ulteriori informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) Blog.
 
-Per informazioni dettagliate su **Azure Media Redactor** , vedere la [panoramica sull'offuscamento dei volti](media-services-face-redaction.md).
+Per informazioni dettagliate su **Azure Media Redactor**, vedere la [panoramica sull'offuscamento dei volti](media-services-face-redaction.md).
 
 Questo argomento fornisce istruzioni dettagliate su come eseguire un flusso di lavoro di offuscamento completo usando Azure Media Services Explorer (AMSE) e Azure Media Redactor Visualizer (strumento open source).
 
@@ -38,7 +38,7 @@ Per ulteriori informazioni, vedere [questo](https://azure.microsoft.com/blog/red
 
 ## <a name="azure-media-services-explorer-workflow"></a>Flusso di lavoro di Azure Media Services Explorer
 
-Il modo più semplice iniziare a usare Azure Media Redactor è usare lo strumento AMSE open source su GitHub. Se non occorre accedere al file JSON di annotazioni o alle immagini .JPG dei volti, è possibile eseguire un flusso di lavoro semplificato in modalità **combinata** .
+Il modo più semplice iniziare a usare Azure Media Redactor è usare lo strumento AMSE open source su GitHub. Se non occorre accedere al file JSON di annotazioni o alle immagini .JPG dei volti, è possibile eseguire un flusso di lavoro semplificato in modalità **combinata**.
 
 ### <a name="download-and-setup"></a>Download e installazione
 
@@ -133,6 +133,6 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
 ## <a name="related-links"></a>Collegamenti correlati
 [Panoramica di Analisi servizi multimediali di Azure](./legacy-components.md)
 
-[Demo di Analisi servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demo di Analisi servizi multimediali di Azure](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
 [Presto sarà disponibile l'offuscamento dei volti per Analisi Servizi multimediali di Azure](https://azure.microsoft.com/blog/azure-media-redactor/)

@@ -4,12 +4,12 @@ description: Monitorare l'app Web in tempo reale, con metriche personalizzate e 
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973579"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803579"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -29,13 +29,14 @@ Con Live Metrics Stream, è possibile:
 
 Le metriche attive sono attualmente supportate per le app ASP.NET, ASP.NET Core, funzioni di Azure, Java e Node.js.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 1. Seguire le linee guida specifiche del linguaggio per abilitare le metriche in tempo reale.
    * [ASP.NET](./asp-net.md) -la metrica dinamica è abilitata per impostazione predefinita.
    * La metrica [ASP.NET Core](./asp-net-core.md)-Live è abilitata per impostazione predefinita.
    * Per impostazione predefinita, le metriche di [.NET/.NET Core Console/Worker](./worker-service.md)-Live sono abilitate.
    * [Applicazioni .NET: consente di abilitare l'uso del codice](#enable-livemetrics-using-code-for-any-net-application).
+    * Le metriche [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) -Live sono abilitate per impostazione predefinita.
    * [Node.JS](./nodejs.md#live-metrics)
 
 2. Nel [portale di Azure](https://portal.azure.com) aprire la risorsa di Application Insights per l'app e quindi Live Stream.
@@ -114,7 +115,7 @@ Mentre l'esempio precedente è per un'app console, lo stesso codice può essere 
 |**Latency**|Dati visualizzati in un secondo|Aggregati in minuti|
 |**Nessuna conservazione**|I dati vengono mantenuti finché si trovano nel grafico, poi vengono eliminati|[Dati mantenuti per 90 giorni](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**Su richiesta**|I dati vengono trasmessi solo quando il riquadro metriche attive è aperto |I dati vengono inviati ogni volta che l'SDK viene installato e attivato|
-|**Free**|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](./pricing.md)
+|**Gratuito**|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](./pricing.md)
 |**Campionamento**|Tutte le metriche selezionate e i contatori vengono trasmessi. Gli errori e le analisi dello stack vengono usati come esempi. |Eventi potrebbero essere usati come [esempi](./api-filtering-sampling.md)|
 |**Canale di controllo**|I segnali di controllo del filtro vengono inviati all'SDK. È consigliabile proteggere questo canale.|La comunicazione è unidirezionale, al portale|
 

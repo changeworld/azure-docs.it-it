@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 90831c0e8d5ab73f65dc801319a357d59799cbc6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522329"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807553"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Risolvere i problemi di connettività all'endpoint privato di Azure
 
@@ -100,8 +100,24 @@ Esaminare questi passaggi per assicurarsi che tutte le configurazioni usuali sia
     
        ![Regole in uscita NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
+1. La macchina virtuale di origine deve avere la route all'indirizzo IP dell'endpoint privato come InterfaceEndpoints nelle route effettive della scheda di interfaccia di rete. 
+
+    a. Se non si è in grado di visualizzare la route dell'endpoint privato nella macchina virtuale di origine, controllare se 
+     - La macchina virtuale di origine e l'endpoint privato appartengono allo stesso VNET. In caso affermativo, è necessario coinvolgere il supporto tecnico. 
+     - La macchina virtuale di origine e l'endpoint privato fanno parte di reti virtuali diversi, quindi verificano la connettività IP tra reti virtuali. Se ci sono connettività IP e non è ancora possibile vedere la route, coinvolgere il supporto tecnico. 
+
 1. Se la connessione ha convalidato i risultati, il problema di connettività potrebbe essere correlato ad altri aspetti come segreti, token e password a livello di applicazione.
-   - In questo caso, esaminare la configurazione della risorsa di collegamento privato associata all'endpoint privato. Per ulteriori informazioni, vedere la [Guida alla risoluzione dei problemi del collegamento privato di Azure](troubleshoot-private-link-connectivity.md).
+   - In questo caso, esaminare la configurazione della risorsa di collegamento privato associata all'endpoint privato. Per ulteriori informazioni, vedere la [Guida alla risoluzione dei problemi del collegamento privato di Azure](troubleshoot-private-link-connectivity.md)
+   
+1. È sempre consigliabile restringere prima di generare il ticket di supporto. 
+
+    a. Se l'origine è locale che si connette a un endpoint privato in Azure con problemi, provare a connettersi 
+      - In un'altra macchina virtuale dall'ambiente locale e verificare se si dispone di connettività IP alla rete virtuale dall'ambiente locale. 
+      - Da una macchina virtuale nella rete virtuale all'endpoint privato.
+      
+    b. Se l'origine è Azure e l'endpoint privato si trova in una rete virtuale diversa, provare a connettersi 
+      - All'endpoint privato da un'altra origine. In tal caso, è possibile isolare eventuali problemi specifici della macchina virtuale. 
+      - A qualsiasi macchina virtuale che fa parte della stessa rete virtuale di tale endpoint privato.  
 
 1. Se il problema non è ancora risolto, contattare il team di [supporto di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) ed esiste ancora un problema di connettività.
 

@@ -4,14 +4,14 @@ description: Questo articolo fornisce una panoramica della Federazione multisito
 ms.topic: article
 ms.date: 12/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 02057d505308902d780e20e095bc248d1eaa1a74
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7deb6fe04241225f1f97a204cc62b4aefad9f440
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657466"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804038"
 ---
-# <a name="multi-site-and-multi-region-federation"></a>Federazione multisito e più aree
+# <a name="multi-site-and-multi-region-federation"></a>Federazione multisito e multiarea
 
 Molte soluzioni sofisticate richiedono che gli stessi flussi di eventi siano resi disponibili per l'utilizzo in più posizioni o che richiedono la raccolta di flussi di eventi in più posizioni e quindi consolidati in una posizione specifica per l'utilizzo. Spesso è anche necessario arricchire o ridurre i flussi di eventi o eseguire conversioni di formato evento, anche per all'interno di una singola area e soluzione.
 
@@ -148,9 +148,9 @@ Per implementare i modelli precedenti, è necessario un ambiente di esecuzione s
 
 Per le applicazioni di replica con stato che devono prendere in considerazione le relazioni tra gli eventi, creare eventi compositi, arricchire gli eventi o ridurre gli eventi, creare aggregazioni di dati e trasformare i payload degli eventi, [analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) è l'opzione di implementazione migliore.
 
-In analisi di flusso di Azure è possibile [creare processi](../stream-analytics/stream-analytics-quick-create-portal.md) che integrano [input](../stream-analytics/stream-analytics-add-inputs.md) e [output](../stream-analytics/stream-analytics-define-outputs.md) e integrano i dati dagli input tramite [query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) che restituiscono un risultato che viene quindi reso disponibile negli output.
+In analisi di flusso di Azure è possibile [creare processi](../stream-analytics/stream-analytics-quick-create-portal.md) che integrano [input](../stream-analytics/stream-analytics-add-inputs.md) e [output](../stream-analytics/stream-analytics-define-outputs.md) e integrano i dati dagli input tramite [query](/stream-analytics-query/stream-analytics-query-language-reference) che restituiscono un risultato che viene quindi reso disponibile negli output.
 
-Le query sono basate sul [linguaggio di query SQL](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) e possono essere usate per filtrare, ordinare, aggregare e unire facilmente i dati in streaming in un determinato periodo di tempo. È anche possibile estendere questo linguaggio SQL con [funzioni definite dall'utente (UDF)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md) [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) e C#. È possibile modificare facilmente le opzioni di ordinamento degli eventi e la durata delle finestre temporali durante l'esecuzione di operazioni di aggregazione tramite semplici costrutti di linguaggio e/o configurazioni.
+Le query sono basate sul [linguaggio di query SQL](/stream-analytics-query/stream-analytics-query-language-reference) e possono essere usate per filtrare, ordinare, aggregare e unire facilmente i dati in streaming in un determinato periodo di tempo. È anche possibile estendere questo linguaggio SQL con [funzioni definite dall'utente (UDF)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md) [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) e C#. È possibile modificare facilmente le opzioni di ordinamento degli eventi e la durata delle finestre temporali durante l'esecuzione di operazioni di aggregazione tramite semplici costrutti di linguaggio e/o configurazioni.
 
 Ogni processo include uno o più output dei dati trasformati ed è possibile controllare cosa avviene in risposta alle informazioni analizzate. Ad esempio, è possibile:
 
@@ -191,7 +191,7 @@ In questo articolo è stata esaminata una gamma di modelli di Federazione e vien
 
 A questo punto, si potrebbe voler leggere come configurare un'applicazione Replicator con analisi di flusso di Azure o funzioni di Azure e come replicare i flussi di eventi tra hub eventi e altri sistemi di messaggistica e gestione degli eventi:
 
-- [Modelli di attività di replica degli eventi][10]
+- [Modelli di attività di replica di eventi][10]
 - [Elaborare dati con analisi di flusso di Azure][9]
 - [Applicazioni di Event Replicator in funzioni di Azure][1]
 - [Replica di eventi tra hub eventi][2]

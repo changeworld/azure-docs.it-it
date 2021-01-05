@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc6b7553d240de05404d24f828a5f7db14772f93
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 279a00a6146d756e6a518dbf86b88f471d170b3a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657512"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805605"
 ---
 ## <a name="what-is-a-replication-task"></a>Che cos'è un'attività di replica?
 
@@ -22,11 +22,11 @@ La maggior parte delle attività di replica inoltrerà gli eventi senza modifich
 
 Le attività di replica sono in genere senza stato, vale a dire che non condividono lo stato o altri effetti collaterali in esecuzioni sequenziali o parallele di un'attività. Questo vale anche per l'invio in batch e il concatenamento, che possono essere implementati entrambi sopra lo stato esistente di un flusso. 
 
-Ciò rende le attività di replica diverse dalle attività di aggregazione, che sono in genere con stato, e sono il dominio di Framework e servizi di analisi come [analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction.md).
+Ciò rende le attività di replica diverse dalle attività di aggregazione, che sono in genere con stato, e sono il dominio di Framework e servizi di analisi come [analisi di flusso di Azure](/azure/stream-analytics/stream-analytics-introduction).
 
 ## <a name="replication-applications-and-tasks-in-azure-functions"></a>Applicazioni e attività di replica in funzioni di Azure
 
-In funzioni di Azure, un'attività di replica viene implementata usando un [trigger](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md) che acquisisce uno o più messaggi di input da un'origine configurata e un' [associazione di output](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md#binding-direction) che trasmette i messaggi copiati dall'origine a una destinazione configurata. 
+In funzioni di Azure, un'attività di replica viene implementata usando un [trigger](/azure/azure-functions/functions-triggers-bindings) che acquisisce uno o più messaggi di input da un'origine configurata e un' [associazione di output](/azure/azure-functions/functions-triggers-bindings#binding-direction) che trasmette i messaggi copiati dall'origine a una destinazione configurata. 
 
 | Trigger  | Output |
 |----------|--------|
@@ -57,17 +57,17 @@ Per le semplici attività di replica che consentono di copiare messaggi tra hub 
 
 ### <a name="retry-policy"></a>Criterio di ripetizione dei tentativi
 
-Per evitare la perdita di dati durante l'evento di disponibilità su entrambi i lati di una funzione di replica, è necessario configurare i criteri di ripetizione dei tentativi in modo che siano affidabili. Per configurare i criteri di ripetizione dei tentativi, vedere la [documentazione di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) . 
+Per evitare la perdita di dati durante l'evento di disponibilità su entrambi i lati di una funzione di replica, è necessario configurare i criteri di ripetizione dei tentativi in modo che siano affidabili. Per configurare i criteri di ripetizione dei tentativi, vedere la [documentazione di funzioni di Azure](/azure/azure-functions/functions-bindings-error-pages) . 
 
 Le impostazioni dei criteri scelti per i progetti di esempio nel [repository di esempio](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) configurano una strategia backoff esponenziale con intervalli di tentativi da 5 secondi a 15 minuti con tentativi infiniti per evitare la perdita di dati. 
 
-Per il bus di servizio, vedere la sezione ["uso del supporto per tentativi nella parte superiore della resilienza dei trigger"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) per comprendere l'interazione dei trigger e il numero massimo di recapiti definiti per la coda.
+Per il bus di servizio, vedere la sezione ["uso del supporto per tentativi nella parte superiore della resilienza dei trigger"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) per comprendere l'interazione dei trigger e il numero massimo di recapiti definiti per la coda.
 
 ### <a name="setting-up-a-replication-application-host"></a>Configurazione di un host di applicazioni di replica
 
 Un'applicazione di replica è un host di esecuzione per una o più attività di replica. 
 
-Si tratta di un'applicazione di funzioni di Azure configurata per essere eseguita nel piano a consumo o (scelta consigliata) in un piano Premium di funzioni di Azure. Tutte le applicazioni di replica devono essere eseguite in un' [identità gestita di sistema o assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity.md). 
+Si tratta di un'applicazione di funzioni di Azure configurata per essere eseguita nel piano a consumo o (scelta consigliata) in un piano Premium di funzioni di Azure. Tutte le applicazioni di replica devono essere eseguite in un' [identità gestita di sistema o assegnata dall'utente](/azure/app-service/overview-managed-identity). 
 
 I modelli di Azure Resource Manager collegati (ARM) creano e configurano un'applicazione di replica con:
 
@@ -78,7 +78,7 @@ I modelli di Azure Resource Manager collegati (ARM) creano e configurano un'appl
 Le applicazioni di replica che devono accedere a hub eventi associati a una rete virtuale di Azure (VNet) devono usare il piano Premium di funzioni di Azure e devono essere configurate per connettersi allo stesso VNet, che è anche una delle opzioni disponibili.
 
 
-|       | Distribuire | Visualizzazione  
+|       | Distribuisci | Visualizzazione  
 |-------|------------------|--------------|---------------|
 | **Piano a consumo di Funzioni di Azure** | [![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2FAconsumption%2Fazuredeploy.json)|[![Visualizzare](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fconsumption%2Fazuredeploy.json)
 | **Piano Premium di funzioni di Azure** |[![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json) | [![Visualizzare](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json)
@@ -137,7 +137,7 @@ Per informazioni dettagliate diagnostiche immediate, è possibile usare lo strum
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuzioni di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies.md)
-* [Diagnostica di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-diagnostics.md)
-* [Opzioni di rete di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-networking-options.md)
-* [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview.md)
+* [Distribuzioni di funzioni di Azure](/azure/azure-functions/functions-deployment-technologies)
+* [Diagnostica di funzioni di Azure](/azure/azure-functions/functions-diagnostics)
+* [Opzioni di rete di funzioni di Azure](/azure/azure-functions/functions-networking-options)
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)

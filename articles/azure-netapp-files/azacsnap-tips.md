@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: d73bfd19a4135d09e9e19fcbcfedd50dbc1f7067
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632809"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803188"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Suggerimenti e consigli per l'uso di applicazione Azure strumento snapshot coerente (anteprima)
 
@@ -132,7 +132,7 @@ Uno snapshot del volume di archiviazione può essere ripristinato in un nuovo vo
 
 Uno snapshot può essere copiato nuovamente nell'area dati SAP HANA, ma SAP HANA non deve essere in esecuzione quando viene eseguita una copia ( `cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*` ).
 
-Per istanze di grandi dimensioni di Azure, è possibile contattare il team operativo Microsoft aprendo una richiesta di servizio per ripristinare uno snapshot desiderato dagli snapshot disponibili esistenti. È possibile aprire una richiesta di servizio da portale di Azure: <https://portal.azure.com.>
+Per istanze di grandi dimensioni di Azure, è possibile contattare il team operativo Microsoft aprendo una richiesta di servizio per ripristinare uno snapshot desiderato dagli snapshot disponibili esistenti. È possibile aprire una richiesta di servizio da portale di Azure: <https://portal.azure.com>
 
 Se si decide di eseguire il failover di ripristino di emergenza, il `azacsnap -c restore --restore revertvolume` comando nel sito di ripristino di emergenza renderà automaticamente disponibili gli snapshot del volume più recenti ( `/hana/data` e `/hana/logbackups` ) per consentire un ripristino SAP Hana. Usare questo comando con cautela mentre interrompe la replica tra i siti di produzione e di ripristino di emergenza.
 
@@ -249,7 +249,7 @@ In alcuni casi, i clienti dispongono già di strumenti per proteggere SAP HANA e
 
 1. Il cliente dovrà arrestare il server.
 1. Dopo l'arresto del server, il cliente dovrà aprire una richiesta di servizio che contiene l'ID e lo snapshot del computer da ripristinare.
-    > I clienti possono aprire una richiesta di servizio dalla portale di Azure: <https://portal.azure.com.>
+    > I clienti possono aprire una richiesta di servizio dalla portale di Azure: <https://portal.azure.com>
 1. Microsoft ripristinerà il LUN del sistema operativo usando l'ID e lo snapshot del computer specificati, quindi avvierà il server.
 1. Il cliente dovrà quindi verificare che il server sia avviato e integro.
 
