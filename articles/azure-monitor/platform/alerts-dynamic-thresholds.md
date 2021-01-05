@@ -4,13 +4,13 @@ description: Creare avvisi con apprendimento automatico in base a soglie dinamic
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
-ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/04/2021
+ms.openlocfilehash: 92fafc9357ca08cd31c9ba7badbf7f6433f44f86
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012340"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862588"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi relativi alle metriche con soglie dinamiche in monitoraggio di Azure
 
@@ -39,7 +39,7 @@ Le soglie dinamiche apprendono costantemente i dati della serie di metriche e pr
 Le soglie vengono selezionate in modo che un'eventuale deviazione da queste indichi un'anomalia nel comportamento delle metriche.
 
 > [!NOTE]
-> Il rilevamento di modelli stagionali è impostato su un intervallo di ora, giorno o settimana. Ciò significa che potrebbero non essere rilevati altri modelli, ad esempio il criterio biorario o semiweekly.
+> Le soglie dinamiche possono rilevare la stagionalità per modelli orari, giornalieri o settimanali. È possibile che non vengano rilevati altri modelli come la stagionalità bisettimanale o semestrale. Per rilevare la stagionalità settimanale, sono necessarie almeno tre settimane di dati cronologici. 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>A cosa serve l'impostazione "Sensibilità" per le soglie dinamiche?
 
@@ -127,7 +127,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
 
-9. Fare clic su **Done**.
+9. Fare clic su **Fine**.
 
 10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
 
@@ -162,7 +162,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
 
-9. Fare clic su **Done**.
+9. Fare clic su **Fine**.
 
 10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
 

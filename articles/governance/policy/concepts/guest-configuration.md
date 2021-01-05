@@ -1,14 +1,14 @@
 ---
 title: Informazioni su come controllare i contenuti delle macchine virtuali
-description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
+description: Informazioni su come i criteri di Azure usano il client di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 58fe1c630de4abfb2fe04ddedb45b360cfebd423
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347881"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862317"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -58,7 +58,7 @@ Il client di Configurazione guest verifica la presenza di nuovi contenuti ogni c
 
 ## <a name="supported-client-types"></a>Tipi di client supportati
 
-Le definizioni dei criteri di configurazione Guest sono incluse nelle nuove versioni. Le versioni precedenti dei sistemi operativi disponibili in Azure Marketplace vengono escluse se l'agente di configurazione Guest non è compatibile. La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azure:
+Le definizioni dei criteri di configurazione Guest sono incluse nelle nuove versioni. Le versioni precedenti dei sistemi operativi disponibili in Azure Marketplace vengono escluse se il client di configurazione Guest non è compatibile. La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azure:
 
 |Editore|Nome|Versioni|
 |-|-|-|

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 874d44e3900b1edf24c2f6bee95d787c5fc3988d
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 24f6052c436b73d0075371fa74160d21826e2209
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704844"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97866013"
 ---
 ## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Creare una risorsa dell'istanza di contenitore di Azure usando il portale di Azure
 
@@ -28,8 +28,8 @@ ms.locfileid: "97704844"
     |Resource group|Selezionare il gruppo di risorse disponibile o crearne uno nuovo, ad esempio `cognitive-services` .|
     |Nome contenitore|Immettere un nome, ad esempio `cognitive-container-instance` . Il nome deve essere in maiuscolo.|
     |Location|Selezionare un'area per la distribuzione.|
-    |Tipo di immagine|Se l'immagine del contenitore è archiviata in un registro contenitori che non richiede credenziali, scegliere `Public` . Se l'accesso all'immagine del contenitore richiede credenziali, scegliere `Private` . Per informazioni [](../../cognitive-services-container-support.md#container-repositories-and-images) dettagliate sul fatto che l'immagine del contenitore sia `Public` o `Private` ("anteprima pubblica"), vedere repository del contenitore e immagini. |
-    |Nome immagine|Immettere il percorso del contenitore di servizi cognitivi. Il percorso è quello usato come argomento del `docker pull` comando. Vedere i [repository del contenitore e le immagini](../../cognitive-services-container-support.md#container-repositories-and-images) per i nomi delle immagini disponibili e il repository corrispondente.<br><br>Il nome dell'immagine deve essere completo specificando tre parti. Innanzitutto, il registro contenitori, quindi il repository, infine il nome dell'immagine: `<container-registry>/<repository>/<image-name>` .<br><br>Di seguito è riportato un esempio che `mcr.microsoft.com/azure-cognitive-services/keyphrase` rappresenta l'immagine estrazione frasi chiave in Microsoft container Registry nel repository dei servizi cognitivi di Azure. Un altro esempio è, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` che rappresenterebbe il riconoscimento vocale nell'immagine di testo nel repository Microsoft del registro contenitori di anteprima del contenitore. |
+    |Tipo di immagine|Se l'immagine del contenitore è archiviata in un registro contenitori che non richiede credenziali, scegliere `Public` . Se l'accesso all'immagine del contenitore richiede credenziali, scegliere `Private` . Per informazioni [](../container-image-tags.md) dettagliate sul fatto che l'immagine del contenitore sia `Public` o `Private` ("anteprima pubblica"), vedere repository del contenitore e immagini. |
+    |Nome immagine|Immettere il percorso del contenitore di servizi cognitivi. Il percorso è quello usato come argomento del `docker pull` comando. Vedere i [repository del contenitore e le immagini](../container-image-tags.md) per i nomi delle immagini disponibili e il repository corrispondente.<br><br>Il nome dell'immagine deve essere completo specificando tre parti. Innanzitutto, il registro contenitori, quindi il repository, infine il nome dell'immagine: `<container-registry>/<repository>/<image-name>` .<br><br>Di seguito è riportato un esempio che `mcr.microsoft.com/azure-cognitive-services/keyphrase` rappresenta l'immagine estrazione frasi chiave in Microsoft container Registry nel repository dei servizi cognitivi di Azure. Un altro esempio è, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` che rappresenterebbe il riconoscimento vocale nell'immagine di testo nel repository Microsoft del registro contenitori di anteprima del contenitore. |
     |Tipo di sistema operativo|`Linux`|
     |Dimensione|Modificare le dimensioni in base alle raccomandazioni suggerite per il contenitore di servizi cognitivi specifico:<br>2 core CPU<br>4 GB
 

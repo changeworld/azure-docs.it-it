@@ -2,22 +2,31 @@
 title: Ripristino di emergenza geografico per il bus di servizio di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza nel bus di servizio di Azure
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: c07721c07923a40da9fe28e0e3116bfd6a52210f
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372524"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862357"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
-In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico*, quindi, è una funzionalità importante per qualsiasi azienda. Il bus di servizio di Azure supporta il ripristino di emergenza geografico a livello di spazio dei nomi.
+La resilienza contro interruzioni disastrose delle risorse di elaborazione dati è un requisito per molte aziende e in alcuni casi anche richiesto dalle normative del settore. 
 
-La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per lo SKU Premium del bus di servizio. 
+Il bus di servizio di Azure distribuisce già il rischio di errori irreversibili dei singoli computer o persino dei rack completi tra i cluster che si estendono su più domini di errore all'interno di un Data Center e implementa meccanismi di rilevamento e failover trasparenti in modo che il servizio continui a funzionare entro i livelli di servizio assicurati e in genere senza interruzioni evidenti in caso di errori. Se è stato creato uno spazio dei nomi del bus di servizio con l'opzione Enabled per le [zone di disponibilità](../availability-zones/az-overview.md), il rischio è che il rischio di interruzione sia ulteriormente distribuito in tre strutture fisicamente separate e il servizio dispone di un numero sufficiente di riserve di capacità per affrontare immediatamente la perdita completa e irreversibile dell'intera struttura. 
 
->[!NOTE]
-> Questa funzionalità assicura solo che i metadati (code, argomenti, sottoscrizioni e filtri) vengano copiati dallo spazio dei nomi primario a quello secondario, se sono abbinati.
+Il modello di cluster del bus di servizio di Azure completamente attivo con supporto per la zona di disponibilità è superiore a qualsiasi prodotto di broker di messaggi locale in termini di resilienza in caso di guasti hardware gravi e persino di perdita irreversibile di intere strutture del Data Center. È comunque possibile che si verifichino situazioni gravi con la distruzione fisica diffusa che anche le misure non possono essere sufficientemente difesa. 
+
+La funzionalità di ripristino di emergenza geografico del bus di servizio è progettata per semplificare il ripristino da una situazione di emergenza e per abbandonare un'area di Azure non riuscita e senza dover modificare le configurazioni dell'applicazione. L'abbandono di un'area di Azure comporterà in genere diversi servizi e questa funzionalità mira principalmente a mantenere l'integrità della configurazione dell'applicazione composita. La funzionalità è disponibile a livello globale per lo SKU Premium del bus di servizio. 
+
+La funzionalità di ripristino Geo-Disaster garantisce che l'intera configurazione di uno spazio dei nomi (code, argomenti, sottoscrizioni, filtri) venga replicata continuamente da uno spazio dei nomi primario a uno spazio dei nomi secondario quando abbinato e consente di avviare un failover solo una volta dal database primario a quello secondario in qualsiasi momento. Lo spostamento del failover consente di reindirizzare il nome dell'alias scelto per lo spazio dei nomi allo spazio dei nomi secondario e quindi di suddividere l'associazione. Il failover è quasi istantaneo una volta avviata. 
+
+> [!IMPORTANT]
+> La funzionalità consente la continuità immediata delle operazioni con la stessa configurazione, ma **non replica i messaggi contenuti nelle code o nelle sottoscrizioni degli argomenti o nelle code dei messaggi non recapitabili**. Per mantenere la semantica della coda, tale replica richiederà non solo la replica dei dati del messaggio, ma di ogni modifica dello stato nel Broker. Per la maggior parte degli spazi dei nomi del bus di servizio, il traffico di replica necessario supera il traffico dell'applicazione e con le code con velocità effettiva elevata, la maggior parte dei messaggi viene comunque replicata nel database secondario mentre sono già stati eliminati dal database primario, causando un traffico eccessivamente inutile. Per le route di replica a latenza elevata, che si applicano a molti abbinamenti che si scelgono per il ripristino di emergenza geografico, potrebbe anche essere Impossibile per il traffico di replica sostenere in modo sostenibile il traffico dell'applicazione a causa di effetti di limitazione delle richieste di latenza.
+ 
+> [!TIP]
+> Per replicare il contenuto delle code e delle sottoscrizioni degli argomenti e operare gli spazi dei nomi corrispondenti nelle configurazioni attive/attive per far fronte a interruzioni e emergenze, non appoggiarsi a questo set di funzionalità di ripristino di emergenza geografico, ma attenersi alle [linee guida](service-bus-federation-overview.md)per la replica.  
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
@@ -51,14 +60,14 @@ Di seguito viene fornita una panoramica della procedura di configurazione dell'a
 
 Il processo di configurazione si articola nelle fasi seguenti:
 
-1. Effettuare il provisioning di uno spazio dei nomi Premium ***primario*** del bus di servizio.
+1. Effettuare il provisioning di uno spazio dei nomi premium del bus di servizio.
 
-2. Effettuare il provisioning di uno spazio dei nomi Premium ***secondario*** del bus di servizio in un'area *diversa da quella in cui è stato eseguito il provisioning dello spazio dei nomi primario*. In questo modo è possibile attivare l'isolamento dei guasti tra aree di data center diverse.
+2. Effettuare il provisioning di uno spazio dei nomi premium del bus di servizio _*_secondario_*_ in un'area _different da dove viene effettuato il provisioning dello spazio dei nomi In questo modo è possibile attivare l'isolamento dei guasti tra aree di data center diverse.
 
-3. Creare l'associazione tra lo spazio dei nomi primario e quello secondario in modo da ottenere l'***alias***.
+3. Creare un'associazione tra lo spazio dei nomi primario e lo spazio dei nomi secondario per ottenere l'**alias***.
 
     >[!NOTE] 
-    > Se [è stata eseguita la migrazione dello spazio dei nomi Standard del bus di servizio di Azure al livello Premium del bus di servizio di Azure](service-bus-migrate-standard-premium.md), è necessario usare l'alias preesistente (ad esempio la stringa di connessione dello spazio dei nomi Standard del bus di servizio) per creare la configurazione del ripristino di emergenza tramite **PowerShell o l'interfaccia della riga di comando** o l'**API REST**.
+    > Se è stata [eseguita la migrazione dello spazio dei nomi standard del bus di servizio di Azure a Premium del bus di servizio di Azure](service-bus-migrate-standard-premium.md), è necessario usare l'alias preesistente, ad esempio la stringa di connessione dello spazio dei nomi standard del bus di servizio, per creare la configurazione del ripristino di emergenza tramite _ *PS/CLI** o l' **API REST**.
     >
     >
     > Questo perché, durante la migrazione, la stringa di connessione dello spazio dei nomi Standard del bus di servizio di Azure o il nome DNS stesso diventa un alias dello spazio dei nomi Premium del bus di servizio di Azure.
@@ -68,7 +77,7 @@ Il processo di configurazione si articola nelle fasi seguenti:
     > Se per configurare il ripristino di emergenza si usa il portale, quest'ultimo visualizzerà questa avvertenza in forma riepilogativa.
 
 
-4. Usare l'***alias*** ottenuto nel passaggio 3 per connettere le applicazioni client allo spazio dei nomi primario abilitato per il ripristino di emergenza geografico. Inizialmente, l'alias fa riferimento allo spazio dei nomi primario.
+4. Usare l'*_alias_** ottenuto nel passaggio 3 per connettere le applicazioni client allo spazio dei nomi primario abilitato per il ripristino di emergenza geografico. Inizialmente, l'alias fa riferimento allo spazio dei nomi primario.
 
 5. [Facoltativo] Aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover.
 
@@ -80,7 +89,7 @@ Un failover viene attivato manualmente dal cliente (sia in modo esplicito con un
 
 In seguito all'attivazione del failover:
 
-1. La stringa di connessione ***alias*** viene aggiornata in modo che faccia riferimento allo spazio dei nomi Premium secondario.
+1. La stringa di connessione _*_alias_*_ viene aggiornata in modo da puntare allo spazio dei nomi Premium secondario.
 
 2. I client (mittenti e destinatari) si connettono automaticamente allo spazio dei nomi secondario.
 
@@ -170,7 +179,7 @@ Si supponga di avere due reti virtuali, VNET-1 e VNET-2, e gli spazi dei nomi, r
 
 Il vantaggio di questo approccio è che il failover può verificarsi a livello di applicazione indipendentemente dallo spazio dei nomi del bus di servizio. Esaminare gli scenari seguenti: 
 
-**Failover della sola applicazione**: in questo caso, l'applicazione non esiste in VNET-1 ma passa a VNET-2. Poiché entrambi gli endpoint privati sono configurati sia in VNET-1 che VNET-2 per entrambi gli spazi dei nomi primario e secondario, l'applicazione funzionerà. 
+_ *Failover solo applicazione:** in questo caso, l'applicazione non esisterà in VNET-1, ma passerà a VNET-2. Poiché entrambi gli endpoint privati sono configurati sia in VNET-1 che VNET-2 per entrambi gli spazi dei nomi primario e secondario, l'applicazione funzionerà. 
 
 **Failover del solo spazio dei nomi del bus di servizio**: anche in questo caso, poiché entrambi gli endpoint privati sono configurati in entrambe le reti virtuali per entrambi gli spazi dei nomi primario e secondario, l'applicazione funzionerà. 
 

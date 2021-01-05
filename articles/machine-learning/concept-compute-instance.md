@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: fafa4c1e8c12ce26a90cfdf9df940823abf5ff25
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857444"
+ms.locfileid: "97862143"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -130,7 +130,7 @@ Queste azioni possono essere controllate da RBAC di Azure:
 * *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
 * *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
 
-Si noti che per creare un'istanza di calcolo è necessario che l'utente disponga delle autorizzazioni per le azioni seguenti:
+Per creare un'istanza di calcolo è necessario disporre delle autorizzazioni per le azioni seguenti:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft. MachineLearningServices/Workspaces/checkComputeNameAvailability/Action*
 

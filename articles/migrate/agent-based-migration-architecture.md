@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753893"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861956"
 ---
 # <a name="agent-based-migration-architecture"></a>Architettura di migrazione basata su agente
 
@@ -99,7 +99,7 @@ Usare i valori in questa tabella per determinare se è necessario un server di e
 --- | --- | --- | --- | ---
 8 vCPU (2 socket * 4 core \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB o inferiore | < 100 computer 
 12 vCPU (2 socket * 6 core \@ 2,5 GHz) | 18 GB | 600 GB | Da 501 GB a 1 TB | 100-150 computer.
-16 vCPU (2 socket * 8 core \@ 2,5 GHz) | 32 G1 |  1 TB | Da 1 TB a 2 TB | 151-200 computer.
+16 vCPU (2 socket * 8 core \@ 2,5 GHz) | 32 GB |  1 TB | Da 1 TB a 2 TB | 151-200 computer.
 
 ### <a name="sizing-scale-out-process-servers"></a>Ridimensionamento di server di elaborazione con scalabilità orizzontale
 
@@ -108,7 +108,7 @@ Se è necessario distribuire un server di elaborazione con scalabilità orizzont
 **Server di elaborazione** | **Spazio disponibile per la memorizzazione nella cache dei dati** | **Frequenza di varianza** | **Limiti di replica**
 --- | --- | --- | --- 
 4 vCPU (2 socket * 2 core \@ 2,5 GHz), 8 GB di memoria | 300 GB | 250 GB o inferiore | Fino a 85 computer 
-8 vCPU (2 socket * 4 core \@ 2,5 GHz), 12 GB di memoria | 600 GB | Da 251 GB a 1 TB    | 86-150 computer.
+8 vCPU (2 socket * 4 core \@ 2,5 GHz), 12 GB di memoria | 600 GB | Da 251 GB a 1 TB | 86-150 computer.
 12 vCPU (2 socket * 6 core \@ 2,5 GHz), 24 GB di memoria | 1 TB | 1-2 TB | 151-225 computer.
 
 ## <a name="throttle-upload-bandwidth"></a>Limitazione della larghezza di banda di caricamento.

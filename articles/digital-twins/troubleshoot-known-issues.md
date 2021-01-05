@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: a9735e355244d51464c66c10e02f97f03d2e67cd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d0c26255e6d9d35d51390ed2b432b9c5dc9ab2be
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673470"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862466"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -37,13 +37,21 @@ Questo articolo fornisce informazioni sui problemi noti associati ai dispositivi
 | --- | --- | --- |
 | Per determinare se l'assegnazione di ruolo è stata configurata correttamente dopo l'esecuzione dello script, seguire le istruzioni riportate nella sezione [*verificare l'assegnazione del ruolo utente*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) dell'articolo di installazione. Se l'utente non viene visualizzato con questo ruolo, questo problema ha effetto. | Per gli utenti che hanno effettuato l'accesso con un [account Microsoft personale (MSA)](https://account.microsoft.com/account), l'ID principale dell'utente che identifica l'utente in comandi come questo può essere diverso dal messaggio di posta elettronica di accesso dell'utente, rendendo difficile l'individuazione e l'utilizzo da parte dello script per assegnare il ruolo in modo appropriato. | Per risolvere il caso, è possibile configurare manualmente l'assegnazione di ruolo usando le [istruzioni dell'interfaccia](how-to-set-up-instance-cli.md#set-up-user-access-permissions) della riga di comando o le [istruzioni portale di Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions). |
 
-## <a name="issue-with-interactive-browser-authentication"></a>Problemi con l'autenticazione interattiva del browser
+## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Problemi con l'autenticazione interattiva del browser in Azure. identità 1.2.0
 
 **Descrizione del problema:** Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) . Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException" quando si tenta di eseguire l'autenticazione in una finestra del browser. È possibile che la finestra del browser non venga avviata completamente o che venga eseguita correttamente l'autenticazione dell'utente, mentre l'applicazione client ha ancora esito negativo con l'errore.
 
 | Questa operazione ha effetto? | Causa | Soluzione |
 | --- | --- | --- |
-| Il &nbsp; &nbsp; Metodo interessato &nbsp; viene &nbsp; usato &nbsp; negli &nbsp; &nbsp; articoli seguenti:<br><br>[*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)<br><br>[*Procedura: scrivere codice di autenticazione dell'app*](how-to-authenticate-client.md)<br><br>[*Procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md) | Alcuni utenti hanno riscontrato questo problema con la versione **1.2.0** della `Azure.Identity` libreria. | Per risolvere il, aggiornare le applicazioni in modo che utilizzino la [versione più recente](https://www.nuget.org/packages/Azure.Identity) di `Azure.Identity` . Dopo aver aggiornato la versione della libreria, il browser dovrebbe caricare e autenticarsi come previsto. |
+| Il &nbsp; &nbsp; Metodo interessato &nbsp; viene &nbsp; usato &nbsp; negli &nbsp; &nbsp; articoli seguenti:<br><br>[*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)<br><br>[*Procedura: scrivere codice di autenticazione dell'app*](how-to-authenticate-client.md)<br><br>[*Procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md) | Alcuni utenti hanno riscontrato questo problema con la versione **1.2.0** della `Azure.Identity` libreria. | Per risolvere il, aggiornare le applicazioni in modo che utilizzino una [versione successiva](https://www.nuget.org/packages/Azure.Identity) di `Azure.Identity` . Dopo aver aggiornato la versione della libreria, il browser dovrebbe caricare e autenticarsi come previsto. |
+
+## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problema con l'autenticazione delle credenziali di Azure predefinita in Azure. identità 1.3.0
+
+**Descrizione del problema:** Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.3.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, è possibile che si verifichino problemi con il metodo [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) usato in molti esempi in tutti i documenti. Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication Failed" quando il codice tenta di eseguire l'autenticazione.
+
+| Questa operazione ha effetto? | Causa | Soluzione |
+| --- | --- | --- |
+| DefaultAzureCredential viene usato nella maggior parte degli esempi di documentazione che includono l'autenticazione di. Se si scrive codice di autenticazione con DefaultAzureCredential e si usa la versione 1.3.0 della `Azure.Identity` libreria, questo potrebbe influire negativamente sull'utente. | Questo problema si presenta quando si usa DefaultAzureCredential con la versione **1.3.0** della `Azure.Identity` libreria. | Per risolvere il passaggio, impostare l'applicazione in modo che usi la [versione 1.2.2](https://www.nuget.org/packages/Azure.Identity/1.2.2) di `Azure.Identity` . Dopo aver modificato la versione della libreria, l'autenticazione avrà esito positivo come previsto. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
