@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492211"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845481"
 ---
 # <a name="receipt-concepts"></a>Concetti relativi alle ricevute
 
@@ -62,7 +62,7 @@ L'API di ricezione restituisce anche le informazioni seguenti:
 Per provare il servizio di ricezione del modulo di riconoscimento, passare allo strumento dell'interfaccia utente di esempio online:
 
 > [!div class="nextstepaction"]
-> [Prova modelli predefiniti](https://fott-preview.azurewebsites.net/)
+> [Provare i modelli predefiniti](https://fott-preview.azurewebsites.net/)
 
 ## <a name="input-requirements"></a>Requisiti di input
 
@@ -95,7 +95,7 @@ La [ricezione dell'analisi](https://westcentralus.dev.cognitive.microsoft.com/do
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di ricezione dell'analisi. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata. |
 | |  | Running: l'operazione di analisi è in corso. |
@@ -456,12 +456,11 @@ L'output della ricevuta è utile anche per la contabilità generale per l'uso az
 
 Le ricevute contengono dati utili che è possibile usare per analizzare il comportamento degli utenti e le tendenze degli acquisti.
 
-L'API di ricezione consente inoltre di alimentare la [funzionalità di elaborazione della ricezione di AIBuilder](/ai-builder/prebuilt-receipt-processing).
+L'API di ricezione consente inoltre di alimentare la [funzionalità di elaborazione della ricevuta del compilatore ai](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Completare una [Guida introduttiva alla libreria client di riconoscimento moduli](quickstarts/client-library.md) per iniziare a scrivere un'app di elaborazione della ricevuta con il riconoscimento del modulo nel linguaggio scelto.
-- In alternativa, seguire la [Guida introduttiva all'API di ricezione Python](./quickstarts/python-receipts.md) per riconoscere le ricevute tramite l'API REST.
+- Completare una [Guida introduttiva](quickstarts/client-library.md) per il riconoscimento dei moduli per iniziare a scrivere un'app di elaborazione della ricevuta con il riconoscimento del modulo nel linguaggio preferito.
 
 ## <a name="see-also"></a>Vedere anche
 

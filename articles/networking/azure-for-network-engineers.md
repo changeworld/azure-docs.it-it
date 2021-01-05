@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85516001"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861400"
 ---
 # <a name="azure-for-network-engineers"></a>Azure per tecnici di rete
 In qualità di progettista di rete convenzionale, le risorse fisiche, ad esempio router, commutatori, cavi e firewall per la creazione dell'infrastruttura, sono state distribuite. A un livello logico è stata configurata la LAN virtuale (VLAN), lo Spanning Tree Protocol (STP), i protocolli di routing (RIP, OSPF, BGP). La rete è stata gestita usando gli strumenti di gestione e l'interfaccia della riga di comando. La rete nel cloud è diversa, in cui gli endpoint di rete sono logici e l'uso dei protocolli di routing è minimo. Si collaborerà con Azure Resource Manager API, l'interfaccia della riga di comando di Azure e PowerShell per la configurazione e la gestione degli asset in Azure. Si inizierà il percorso di rete nel cloud comprendendo i tenant di base della rete di Azure. 
@@ -39,7 +39,7 @@ Come per gli host o i dispositivi fisici, è possibile allocare un indirizzo IP 
 
 Gli indirizzi IP privati vengono allocati dalle subnet definite all'interno di una rete virtuale. Per una macchina virtuale, è possibile scegliere una subnet per l'allocazione IP. Se una macchina virtuale contiene più schede di interfaccia di rete, è possibile scegliere una subnet diversa per ogni scheda di interfaccia di rete.
 
-## <a name="routing"></a>Routing
+## <a name="routing"></a>Routing.
 Quando si crea una rete virtuale, Azure crea una tabella di routing per la rete. Questa tabella di routing contiene i tipi di route seguenti.
 - Route di sistema
 - Route predefinite subnet
@@ -67,7 +67,7 @@ Quando si hanno voci in competizione in una tabella di routing, Azure seleziona 
 
 ## <a name="security"></a>Sicurezza
 
-È possibile filtrare il traffico di rete da e verso le risorse in una rete virtuale usando gruppi di sicurezza di rete. Si usano anche appliance virtuali di rete, ad esempio firewall di Azure o firewall di altri fornitori. È possibile controllare come Azure instrada il traffico proveniente da subnet. È inoltre possibile limitare gli utenti dell'organizzazione che possono usare le risorse nelle reti virtuali.
+È possibile filtrare il traffico di rete da e verso le risorse in una rete virtuale usando gruppi di sicurezza di rete. È anche possibile usare appliance virtuali di rete, ad esempio firewall di Azure o firewall da altri fornitori. È possibile controllare come Azure instrada il traffico proveniente da subnet. È inoltre possibile limitare gli utenti dell'organizzazione che possono usare le risorse nelle reti virtuali.
 
 Un gruppo di sicurezza di rete (NSG) contiene una serie di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete verso le subnet, le interfacce di rete o entrambe. I gruppi di sicurezza di rete possono essere associati a subnet o singole interfacce di rete connesse a una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le VM in tale subnet. Il traffico verso una singola interfaccia di rete può essere limitato associando un gruppo di sicurezza di rete direttamente a un'interfaccia di rete.
 

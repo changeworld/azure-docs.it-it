@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353698"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845567"
 ---
 # <a name="form-recognizer-layout-service"></a>Servizio di layout riconoscimento moduli
 
@@ -89,8 +89,7 @@ Il layout estrae anche i contrassegni di selezione dai documenti. I contrassegni
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Provare l'estrazione del layout usando l' [interfaccia utente di esempio di riconoscimento form](https://fott-preview.azurewebsites.net/)
-- Completare una [Guida introduttiva alla libreria client di riconoscimento moduli](quickstarts/client-library.md) per iniziare a estrarre i layout nel linguaggio preferito.
-- In alternativa, seguire la Guida introduttiva [estrarre i dati di layout](./QuickStarts/python-layout.md) per implementare l'estrazione dei dati di layout con Python e l'API REST.
+- Completare una [Guida introduttiva](quickstarts/client-library.md) per il riconoscimento dei moduli per iniziare a estrarre i layout nel linguaggio preferito.
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025651"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857359"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
 
@@ -23,7 +23,7 @@ Questo articolo illustra come misurare quantitativamente e migliorare l'accurate
 
 ## <a name="evaluate-custom-speech-accuracy"></a>Valutare l'accuratezza di Riconoscimento vocale personalizzato
 
-Lo standard di settore per misurare l'accuratezza del modello è la *frequenza degli errori di Word* (WER). WER conta il numero di parole non corrette identificate durante il riconoscimento, quindi divide in base al numero totale di parole fornite nella trascrizione con etichetta umana (mostrata di seguito come N). Infine, tale numero viene moltiplicato per il 100% per calcolare il WER.
+Lo standard di settore per misurare l'accuratezza del modello è la [frequenza degli errori di Word](https://en.wikipedia.org/wiki/Word_error_rate) (WER). WER conta il numero di parole non corrette identificate durante il riconoscimento, quindi divide in base al numero totale di parole fornite nella trascrizione con etichetta umana (mostrata di seguito come N). Infine, tale numero viene moltiplicato per il 100% per calcolare il WER.
 
 ![Formula WER](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -36,6 +36,8 @@ Le parole identificate in modo errato rientrano in tre categorie:
 Ecco un esempio:
 
 ![Esempio di parole erroneamente identificate](./media/custom-speech/custom-speech-dis-words.png)
+
+Se si vuole replicare le misurazioni di WER localmente, è possibile usare sclite da [SCTK](https://github.com/usnistgov/SCTK).
 
 ## <a name="resolve-errors-and-improve-wer"></a>Risolvere gli errori e migliorare WER
 
@@ -96,7 +98,7 @@ Le sezioni seguenti descrivono in che modo ogni tipo di dati di training aggiunt
 
 ### <a name="add-related-text-sentences"></a>Aggiungere frasi di testo correlate
 
-Le frasi di testo correlate aggiuntive possono principalmente ridurre gli errori di sostituzione correlati a errori di riconoscimento di parole comuni e parole specifiche del dominio visualizzandoli nel contesto. Le parole specifiche del dominio possono essere parole non comuni o composte, ma la loro pronuncia deve essere semplice da riconoscere.
+Quando si esegue il training di un nuovo modello personalizzato, iniziare aggiungendo il testo correlato per migliorare il riconoscimento di parole e frasi specifiche di dominio. Le frasi di testo correlate possono ridurre principalmente gli errori di sostituzione correlati a errori di riconoscimento di parole comuni e parole specifiche del dominio visualizzandoli nel contesto. Le parole specifiche del dominio possono essere parole non comuni o composte, ma la loro pronuncia deve essere semplice da riconoscere.
 
 > [!NOTE]
 > Evitare le frasi di testo correlate che includono rumori come caratteri o parole non riconoscibili.
@@ -111,6 +113,12 @@ Considerare i seguenti dettagli:
 * Evitare esempi che includono errori di trascrizione, ma includere una varietà di qualità audio.
 * Evitare frasi non correlate al dominio del problema. Le frasi non correlate possono danneggiare il modello.
 * Quando la qualità delle trascrizioni varia, è possibile duplicare frasi eccezionalmente valide, come le trascrizioni eccezionali che includono frasi chiave, per aumentarne il peso.
+* Il servizio riconoscimento vocale userà automaticamente le trascrizioni per migliorare il riconoscimento di parole e frasi specifiche del dominio, come se fossero state aggiunte come testo correlato.
+* Il training con audio offrirà i maggiori vantaggi se l'audio è anche difficile da comprendere per gli utenti. Nella maggior parte dei casi, è consigliabile avviare il training semplicemente utilizzando il testo correlato.
+* Il completamento di un'operazione di training può richiedere diversi giorni. Per migliorare la velocità di training, assicurarsi di creare la sottoscrizione al servizio di riconoscimento vocale in un' [area con hardware dedicato](custom-speech-overview.md#set-up-your-azure-account) per il training.
+
+> [!NOTE]
+> Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio.
 
 ### <a name="add-new-words-with-pronunciation"></a>Aggiungi nuove parole con la pronuncia
 

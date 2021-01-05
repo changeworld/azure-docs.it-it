@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
 keywords: locale, Docker, contenitore, identificazione
-ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 64169069bc0a1ccd126d1b79ee89a5666e1caeb1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000548"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861051"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installare ed eseguire i contenitori viso (anteprima)
 
@@ -32,9 +32,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori del servizio Face.
 
-|Necessario|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
-|Motore Docker| Il motore Docker deve essere installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
+|Motore Docker| Il motore Docker deve essere installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È necessaria una conoscenza di base dei concetti di Docker, ad esempio registri, repository, contenitori e immagini del contenitore. È anche necessario conoscere i comandi di base `docker` .| 
 |Risorsa Face |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **Face** di Azure e la chiave API associata e l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine **Panoramica** e **chiavi** per la risorsa. È necessario avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**
 
@@ -48,7 +48,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 La tabella seguente descrive i core CPU minimi e consigliati e la memoria da allocare per ogni contenitore del servizio viso.
 
-| Contenitore | Minima | Implementazione consigliata | Transazioni al secondo<br>(Minimo, massimo)|
+| Contenitore | Minima | Consigliato | Transazioni al secondo<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |Viso | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |10, 20|
 
@@ -61,7 +61,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Sono disponibili le immagini del contenitore per il servizio Face. 
 
-| Contenitore | Archivio |
+| Contenitore | Repository |
 |-----------|------------|
 | Viso | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
@@ -84,7 +84,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori e, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) `{ENDPOINT_URI}` `{API_KEY}` .
 
-[Examples](face-resource-container-config.md#example-docker-run-commands) `docker run` Sono disponibili esempi di comando.
+[](face-resource-container-config.md#example-docker-run-commands) `docker run` Sono disponibili esempi di comando.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -137,10 +137,6 @@ I contenitori di servizi volti inviano informazioni di fatturazione ad Azure usa
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./face-resource-container-config.md).
-
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Riepilogo
 

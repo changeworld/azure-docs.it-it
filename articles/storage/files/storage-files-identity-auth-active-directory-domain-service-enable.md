@@ -4,16 +4,16 @@ description: Informazioni su come abilitare l'autenticazione basata su identità
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: deed7c3dce2d7da1940a8a4871efac7453e2cf60
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 340455450cd6a18adfd8d0843fee423f82f10a45
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033681"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858400"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services in File di Azure
 
@@ -22,8 +22,7 @@ ms.locfileid: "97033681"
 Se non si ha familiarità con le condivisioni file di Azure, è consigliabile leggere la [Guida alla pianificazione](storage-files-planning.md) prima di leggere la serie di articoli riportata di seguito.
 
 > [!NOTE]
-> File di Azure supporta l'autenticazione Kerberos con Azure AD DS con la crittografia RC4-HMAC. La crittografia Kerberos AES non è ancora supportata.
-> File di Azure supporta l'autenticazione per Azure AD DS con sincronizzazione completa con Azure AD. Se è stata abilitata la sincronizzazione con ambito in Azure AD DS che sincronizzano solo un set limitato di identità da Azure AD, non è supportata l'autenticazione e l'autorizzazione.
+> File di Azure supporta l'autenticazione Kerberos con Azure AD DS con crittografia RC4-HMAC e AES 256. File di Azure supporta l'autenticazione per Azure AD DS con sincronizzazione completa con Azure AD. Se è stata abilitata la sincronizzazione con ambito in Azure AD DS che sincronizzano solo un set limitato di identità da Azure AD, non è supportata l'autenticazione e l'autorizzazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,7 +58,7 @@ Prima di abilitare Azure AD su SMB per le condivisioni file di Azure, assicurars
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-File di Azure autenticazione con Azure AD DS è disponibile in [tutte le aree pubbliche e gov di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+File di Azure autenticazione con Azure AD DS è disponibile in [tutte le aree pubbliche, gov e Cina di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Panoramica del flusso di lavoro
 

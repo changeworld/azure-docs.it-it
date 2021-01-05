@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96021572"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845451"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -30,12 +30,12 @@ LUIS riconosce espressioni nelle lingue seguenti:
 
 | Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | **[Analisi del testo](../text-analytics/language-support.md)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
-| Inglese (Stati Uniti) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabo (anteprima-arabo standard moderno) |`ar-AR`|-|-|-|-|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Olandese |`nl-NL` |✔|-|-|✔|
-| Francese (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
+| Inglese (Stati Uniti) |`en-US` | ✔ | ✔  |✔|✔|
 | Francese (Canada) |`fr-CA` |-|-|-|✔|
+| Francese (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
 | Tedesco |`de-DE` |✔| ✔ |✔ |✔|
 | Gujarati | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
@@ -44,8 +44,8 @@ LUIS riconosce espressioni nelle lingue seguenti:
 | Coreano |`ko-KR` |✔|-|-|Solo la frase chiave|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portoghese (Brasile) |`pt-BR` |✔| ✔ |✔ |non tutte le impostazioni cultura secondarie|
-| Spagnolo (Spagna) |`es-ES` |✔| ✔ |✔|✔|
 | Spagnolo (Messico)|`es-MX` |-|-|✔|✔|
+| Spagnolo (Spagna) |`es-ES` |✔| ✔ |✔|✔|
 | Tamil | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|
 | Turco | `tr-TR` |✔|✔|-|Solo sentiment|

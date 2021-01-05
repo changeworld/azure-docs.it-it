@@ -2,20 +2,22 @@
 title: Unità di istanza di BareMetal in Azure
 description: Informazioni su come identificare e interagire con le unità di istanza di BareMetal tramite il portale di Azure.
 ms.topic: how-to
-ms.date: 12/31/2020
-ms.openlocfilehash: 927baa79519781ef74920b17bc9fcd858f0f6c6f
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829190"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861037"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gestire istanze bare metal tramite il portale di Azure
  
 Questo articolo illustra come il [portale di Azure](https://portal.azure.com/) Visualizza le [istanze Baremetal](baremetal-overview-architecture.md). Questo articolo illustra anche le attività che è possibile eseguire nel portale di Azure con le unità di istanza BareMetal distribuite. 
  
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
-Un provider di risorse di Azure per le istanze di BareMetal offre visibilità delle istanze nel portale di Azure, attualmente in anteprima pubblica. Per impostazione predefinita, la sottoscrizione di Azure usata per le distribuzioni di istanze di BareMetal registra il provider di risorse *BareMetalInfrastructure* . Se non vengono visualizzate le unità di istanza BareMetal distribuite, è necessario registrare il provider di risorse con la sottoscrizione. È possibile registrare il provider di risorse dell'istanza di BareMetal in due modi:
+Un provider di risorse di Azure per le istanze di BareMetal offre visibilità delle istanze nel portale di Azure, attualmente in anteprima pubblica. Per impostazione predefinita, la sottoscrizione di Azure usata per le distribuzioni di istanze di BareMetal registra il provider di risorse *BareMetalInfrastructure* . Se non vengono visualizzate le unità di istanza BareMetal distribuite, è necessario registrare il provider di risorse con la sottoscrizione. 
+
+È possibile registrare il provider di risorse dell'istanza di BareMetal in due modi:
  
 * [Interfaccia della riga di comando di Azure](#azure-cli)
  
@@ -85,15 +87,15 @@ Gli attributi nell'immagine non hanno un aspetto molto diverso rispetto agli att
 A destra, verranno visualizzati il nome, il sistema operativo, l'indirizzo IP e lo SKU dell'unità che mostra il numero di thread CPU e la memoria. Verrà visualizzata anche la versione di Power State and hardware (revisione del timbro dell'istanza di BareMetal). Lo stato di alimentazione indica se l'unità hardware è accesa o spenta. I dettagli del sistema operativo, tuttavia, non indicano se è in esecuzione.
  
 Le revisioni hardware possibili sono:
+
+* Revisione 3 (Rev 3)
+
+* Revisione 4 (Rev 4)
  
-* Revisione 3
- 
-* Revisione 4
- 
-* Revisione 4,2
+* Revisione 4,2 (Rev 4,2)
  
 >[!NOTE]
->La revisione 4,2 è la versione più recente dell'infrastruttura BareMetal con l'architettura revisione 4. Offre miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le unità di istanza BareMetal distribuite in timbri o righe di revisione 4. Per altre informazioni sulle diverse revisioni, vedere [infrastruttura Baremetal in Azure](baremetal-overview-architecture.md).
+>Rev 4,2 è la versione più recente dell'infrastruttura BareMetal con l'architettura Rev 4 esistente. Il Rev 4 fornisce una prossimità più vicina agli host della macchina virtuale (VM) di Azure. Offre miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le unità di istanza BareMetal distribuite in indicatori o righe Rev 4. È possibile accedere alle istanze di BareMetal e gestirle tramite il portale di Azure. Per altre informazioni, vedere [infrastruttura Baremetal in Azure](baremetal-overview-architecture.md).
  
 Sul lato destro è anche disponibile il nome del [gruppo di posizionamento di prossimità di Azure](../../../virtual-machines/linux/co-location.md) , creato automaticamente per ogni unità di istanza Baremetal distribuita. Quando si distribuiscono le macchine virtuali di Azure che ospitano il livello dell'applicazione, fare riferimento al gruppo di posizionamento di prossimità. Quando si usa il gruppo di posizionamento di prossimità associato all'unità di istanza di BareMetal, si garantisce che le macchine virtuali di Azure vengano distribuite vicino all'unità di istanza di BareMetal.
  

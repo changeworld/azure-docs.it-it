@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: fc54d2ba3ca4e7a150a1602c671b99f58197bc44
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657295"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857342"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
@@ -265,6 +265,23 @@ Ad esempio:
 -   Regola di avviso metrica che monitora più dimensioni: quando viene aggiunta una nuova combinazione di valori di dimensione
 -   Regola di avviso metrica che monitora più risorse: quando una nuova risorsa viene aggiunta all'ambito
 -   Regola di avviso metrica che monitora una metrica che non viene emessa continuamente (metrica di tipo sparse): quando la metrica viene emessa dopo un periodo di tempo superiore a 24 ore in cui non è stata emessa
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>I bordi della soglia dinamica non sembrano adattarsi ai dati
+
+Se il comportamento di una metrica è stato modificato di recente, le modifiche non verranno necessariamente applicate immediatamente ai bordi della soglia dinamica (limiti superiori e inferiori), perché vengono calcolate in base ai dati delle metriche degli ultimi 10 giorni. Quando si visualizzano i bordi della soglia dinamica per una determinata metrica, assicurarsi di esaminare la tendenza della metrica nell'ultima settimana e non solo per le ore o i giorni recenti.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>Perché la stagionalità settimanale non è stata rilevata da soglie dinamiche?
+
+Per identificare la stagionalità settimanale, il modello di soglie dinamiche richiede almeno tre settimane di dati cronologici. Quando sono disponibili dati cronologici sufficienti, qualsiasi stagionalità settimanale presente nei dati della metrica verrà identificata e il modello verrà regolato di conseguenza. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>Le soglie dinamiche mostrano un limite inferiore negativo per una metrica anche se la metrica ha sempre valori positivi
+
+Quando una metrica presenta una fluttuazione elevata, le soglie dinamiche compilano un modello più ampio intorno ai valori della metrica, che può comportare un bordo inferiore inferiore a zero. In particolare, questo problema può verificarsi nei casi seguenti:
+1. La sensibilità è impostata su low 
+2. I valori mediano sono vicini a zero
+3. La metrica presenta un comportamento irregolare con varianza elevata (sono presenti picchi o DIP nei dati)
+
+Quando il limite inferiore presenta un valore negativo, significa che la metrica raggiunge un valore zero in base al comportamento irregolare della metrica. È possibile scegliere una sensibilità più elevata o una maggiore *granularità di aggregazione (periodo)* per rendere il modello meno sensibile oppure utilizzare l'opzione *Ignora dati prima* per escludere un irregulaity recente dai dati cronologici utilizzati per compilare il modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

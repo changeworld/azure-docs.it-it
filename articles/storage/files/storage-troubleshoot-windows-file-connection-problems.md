@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f2d55d1fcc92abdc629581d6e4d277ec0294dce0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492047"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858689"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
@@ -406,6 +406,8 @@ Il cmdlet esegue questi controlli in sequenza e fornisce indicazioni sugli error
 5. CheckSidHasAadUser: verificare che l'utente di Active Directory connesso venga sincronizzato con Azure AD. Se si vuole cercare se un utente di Active Directory specifico viene sincronizzato con Azure AD, è possibile specificare il nome utente e il dominio nei parametri di input. 
 6. CheckGetKerberosTicket: tentativo di ottenere un ticket Kerberos per connettersi all'account di archiviazione. Se non è disponibile un token Kerberos valido, eseguire il cmdlet klist Get CIFS/storage-account-name. file. Core. Windows. NET ed esaminare il codice di errore per la radice, causando l'errore di recupero del ticket.
 7. CheckStorageAccountDomainJoined: verificare se l'autenticazione di Active Directory è stata abilitata e le proprietà di Active Directory dell'account sono popolate. In caso contrario, fare riferimento all' [istruzione seguente](./storage-files-identity-ad-ds-enable.md) per abilitare l'autenticazione di servizi di dominio Active directory su file di Azure. 
+8. CheckUserRbacAssignment: verificare se l'utente di Active Directory ha l'assegnazione di ruolo RBAC appropriata per fornire l'autorizzazione a livello di condivisione per accedere File di Azure. In caso contrario, fare riferimento all'istruzione [qui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) per configurare l'autorizzazione a livello di condivisione. (Supportato in AzFilesHybrid v 0.2.3 + versione)
+9. CheckUserFileAccess: verificare se l'utente di Active Directory dispone dell'autorizzazione file/directory (ACL Windows) appropriata per accedere File di Azure. In caso contrario, fare riferimento all'istruzione [qui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) per configurare l'autorizzazione a livello di directory/file. (Supportato in AzFilesHybrid v 0.2.3 + versione)
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Impossibile configurare le autorizzazioni a livello di directory/file (ACL di Windows) con Esplora file di Windows
 

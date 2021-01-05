@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: fafa4c1e8c12ce26a90cfdf9df940823abf5ff25
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563818"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857444"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -102,7 +102,7 @@ La scrittura di file di piccole dimensioni può essere più lenta nelle unità d
 
 ## <a name="managing-a-compute-instance"></a>Gestione di un'istanza di calcolo
 
-Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo** , quindi selezionare **Istanza di calcolo** nella parte superiore.
+Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo**, quindi selezionare **Istanza di calcolo** nella parte superiore.
 
 ![Gestire un'istanza di calcolo](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -130,7 +130,12 @@ Queste azioni possono essere controllate da RBAC di Azure:
 * *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
 * *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>Creare un'istanza di ambiente di calcolo
+Si noti che per creare un'istanza di calcolo è necessario che l'utente disponga delle autorizzazioni per le azioni seguenti:
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft. MachineLearningServices/Workspaces/checkComputeNameAvailability/Action*
+
+
+### <a name="create-a-compute-instance"></a><a name="create"></a>Creare un'istanza di calcolo
 
 Nell'area di lavoro in Azure Machine Learning Studio [creare una nuova istanza di calcolo](how-to-create-attach-compute-studio.md#compute-instance) dalla sezione **calcolo** o nella sezione **notebook** quando si è pronti per eseguire uno dei notebook. 
 

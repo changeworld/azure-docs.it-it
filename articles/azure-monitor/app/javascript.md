@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559880"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858553"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -107,7 +107,7 @@ Ogni opzione di configurazione è illustrata sopra in una nuova riga, se non si 
 
 Le opzioni di configurazione disponibili sono
 
-| Nome | Type | Descrizione
+| Nome | Tipo | Descrizione
 |------|------|----------------
 | src | stringa **[obbligatorio]** | URL completo da cui caricare l'SDK. Questo valore viene usato per l'attributo "src" di uno &lt; script/tag aggiunto dinamicamente &gt; . È possibile usare il percorso di rete CDN pubblico o un host privato.
 | name | String *[facoltativo]* | Nome globale per l'SDK inizializzato. il valore predefinito è `appInsights` . ```window.appInsights```Sarà quindi un riferimento all'istanza inizializzata. Nota: se si specifica un valore di nome o un'istanza precedente sembra essere assegnata (tramite il nome globale appInsightsSDK), il valore del nome verrà definito anche nello spazio dei nomi globale come ```window.appInsightsSDK=<name value>``` , necessario per il codice di inizializzazione dell'SDK per assicurarsi che l'inizializzazione e l'aggiornamento dei metodi del frammento e del proxy corretti.
@@ -339,7 +339,7 @@ Modifiche di rilievo nella versione SDK v2:
 - Per consentire una migliore firma API, alcune chiamate API, ad esempio trackPageView e trackexception, sono state aggiornate. L'esecuzione in Internet Explorer 8 e nelle versioni precedenti del browser non è supportata.
 - La busta di telemetria presenta modifiche al nome del campo e alla struttura a causa degli aggiornamenti dello schema dei dati.
 - Spostato `context.operation` in `context.telemetryTrace` . Sono stati modificati anche alcuni campi ( `operation.id`  -->  `telemetryTrace.traceID` ).
-  - Per aggiornare manualmente l'ID di visualizzazione corrente (ad esempio, nelle app SPA), usare `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` .
+  - Per aggiornare manualmente l'ID di visualizzazione corrente (ad esempio, nelle app SPA), usare `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` .
     > [!NOTE]
     > Per tenere l'ID di traccia univoco, in cui è stato usato in precedenza `Util.newId()` , ora usare `Util.generateW3CId()` . Entrambi finiscono in definitiva l'ID operazione.
 

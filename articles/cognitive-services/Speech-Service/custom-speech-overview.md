@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: be01309fee3454fbd4be78130f9826b493e7bf7a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033766"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854894"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è il servizio Riconoscimento vocale personalizzato?
 
@@ -43,6 +43,23 @@ In questo diagramma vengono evidenziati i componenti che costituiscono il [porta
 ## <a name="set-up-your-azure-account"></a>Configurare l'account Azure
 
 Per poter usare il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per creare un modello personalizzato, è necessario disporre di una sottoscrizione di Azure e del servizio di riconoscimento vocale. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](overview.md#try-the-speech-service-for-free).
+
+Se si prevede di eseguire il training di un modello personalizzato con dati audio, scegliere una delle aree seguenti per cui è disponibile hardware dedicato per il training. In questo modo si riduce il tempo necessario per il training di un modello.
+
+* Australia orientale
+* Canada centrale
+* India centrale
+* Stati Uniti orientali
+* Stati Uniti orientali 2
+* Stati Uniti centro-settentrionali
+* Europa settentrionale
+* Stati Uniti centro-meridionali
+* Asia sud-orientale
+* Regno Unito meridionale
+* US Gov Arizona
+* US Gov Virginia
+* Europa occidentale
+* Stati Uniti occidentali 2
 
 > [!NOTE]
 > Assicurarsi di creare una sottoscrizione standard (S0). Le sottoscrizioni gratuite (F0) non sono supportate.

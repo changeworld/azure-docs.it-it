@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/03/2020
-ms.openlocfilehash: 69b2713e928707479945df0bb242ac2fbc001c32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.date: 12/23/2020
+ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600660"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858655"
 ---
 # <a name="data-flow-script-dfs"></a>Script del flusso di dati (DFS)
 
@@ -245,6 +245,18 @@ derive(each(match(type=='string'), $$ = 'string'),
     each(match(type=='timestamp'), $$ = 'timestamp'),
     each(match(type=='boolean'), $$ = 'boolean'),
     each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### <a name="fill-down"></a>Copiare
+Di seguito viene illustrato come implementare il problema comune di "riempimento" con i set di dati quando si desidera sostituire i valori NULL con il valore del precedente valore non NULL nella sequenza. Si noti che questa operazione può avere implicazioni negative sulle prestazioni perché è necessario creare una finestra sintetica nell'intero set di dati con un valore di categoria "fittizio". Inoltre, è necessario ordinare in base a un valore per creare la sequenza di dati corretta per trovare il valore non NULL precedente. Questo frammento di codice seguente crea la categoria sintetica come "fittizio" e ordina in base a una chiave surrogata. È possibile rimuovere la chiave surrogata e utilizzare una chiave di ordinamento specifica per i dati. Questo frammento di codice presuppone che sia già stata aggiunta una trasformazione di origine denominata ```source1```
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+    asc(sk, true),
+    Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

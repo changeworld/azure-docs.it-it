@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 11/24/2020
-ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 01/03/2021
+ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095084"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858782"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
@@ -38,6 +38,8 @@ Utilizzare l'attività flusso di dati per trasformare e spostare i dati tramite 
          "computeType": "General"
       },
       "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -95,6 +97,14 @@ Se si usa un'analisi di sinapsi di Azure come sink o origine, è necessario sceg
 Se non è necessaria l'esecuzione di ogni pipeline delle attività del flusso di dati per registrare completamente tutti i log di telemetria dettagliati, è possibile impostare facoltativamente il livello di registrazione su "Basic" o "None". Quando si eseguono i flussi di dati in modalità "verbose" (impostazione predefinita), si richiede ad ADF di registrare completamente l'attività a ogni singolo livello di partizione durante la trasformazione dei dati. Questa operazione può rivelarsi costosa, quindi l'abilitazione dettagliata solo quando la risoluzione dei problemi può migliorare le prestazioni complessive della pipeline e del flusso di dati. La modalità "Basic" registrerà solo le durate della trasformazione mentre "None" fornirà solo un riepilogo delle durate.
 
 ![Livello di registrazione](media/data-flow/logging.png "Impostare il livello di registrazione")
+
+## <a name="sink-properties"></a>Proprietà sink
+
+La funzionalità di raggruppamento nei flussi di dati consente di impostare l'ordine di esecuzione dei sink e di raggruppare i sink utilizzando lo stesso numero di gruppo. Per semplificare la gestione dei gruppi, è possibile chiedere ad ADF di eseguire sink, nello stesso gruppo, in parallelo. È anche possibile impostare il gruppo di sink per continuare anche dopo che uno dei sink rileva un errore.
+
+Il comportamento predefinito dei sink del flusso di dati consiste nell'eseguire ogni sink in sequenza, in modo seriale, e per interrompere il flusso di dati quando viene rilevato un errore nel sink. Inoltre, tutti i sink vengono impostati automaticamente sullo stesso gruppo, a meno che non si acceda alle proprietà del flusso di dati e si impostano le diverse priorità per i sink.
+
+![Proprietà sink](media/data-flow/sink-properties.png "Imposta proprietà sink")
 
 ## <a name="parameterizing-data-flows"></a>Flussi di dati parametrizzazione
 

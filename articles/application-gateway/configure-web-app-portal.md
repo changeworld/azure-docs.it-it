@@ -6,18 +6,18 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
-ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: aadd4904ff218613c0dd24daff784ad5b8b90fbb
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397553"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854911"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
 
-Poiché il servizio app è un servizio multi-tenant anziché una distribuzione dedicata, usa l'intestazione host nella richiesta in ingresso per risolvere la richiesta all'endpoint corretto del servizio app. In genere, il nome DNS dell'applicazione, che a sua volta è il nome DNS associato al gateway applicazione che precede il servizio app, è diverso dal nome di dominio del servizio app back-end. Pertanto, l'intestazione host nella richiesta originale ricevuta dal gateway applicazione non corrisponde al nome host del servizio back-end. Per questo motivo, a meno che l'intestazione host nella richiesta dal gateway applicazione al back-end non venga modificata nel nome host del servizio back-end, i back-end multi-tenant non sono in grado di risolvere la richiesta nell'endpoint corretto.
+Poiché il servizio app è un servizio multi-tenant anziché una distribuzione dedicata, usa l'intestazione host nella richiesta in ingresso per risolvere la richiesta all'endpoint di servizio app corretto. In genere, il nome DNS dell'applicazione, che a sua volta è il nome DNS associato al gateway applicazione che precede il servizio app, è diverso dal nome di dominio del servizio app back-end. Pertanto, l'intestazione host nella richiesta originale ricevuta dal gateway applicazione non corrisponde al nome host del servizio back-end. Per questo motivo, a meno che l'intestazione host nella richiesta dal gateway applicazione al back-end non venga modificata nel nome host del servizio back-end, i back-end multi-tenant non sono in grado di risolvere la richiesta nell'endpoint corretto.
 
 Il gateway applicazione fornisce un'opzione denominata `Pick host name from backend target` che sostituisce l'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end. Questa funzionalità consente il supporto per back-end multi-tenant, ad esempio servizio app di Azure e gestione API. 
 

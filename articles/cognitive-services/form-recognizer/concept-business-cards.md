@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498861"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845604"
 ---
 # <a name="business-card-concepts"></a>Concetti relativi ai biglietti da visita
 
@@ -62,7 +62,7 @@ La [scheda analizza business](https://westcentralus.dev.cognitive.microsoft.com/
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business card result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione analizza business card. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 
@@ -374,7 +374,7 @@ Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" c
 }
 ```
 
-Seguire la Guida introduttiva per l'estrazione dei [dati delle schede business](./QuickStarts/python-business-cards.md) con Python e l'API REST.
+Seguire la Guida introduttiva di [avvio rapido](./QuickStarts/client-library.md) per implementare l'estrazione dei dati delle schede business con Python e l'API REST.
 
 ## <a name="customer-scenarios"></a>Scenari utente  
 
@@ -385,11 +385,11 @@ I dati estratti con l'API Business Card possono essere utilizzati per eseguire d
 * Tenere traccia dei lead di vendita.  
 * Estrai le informazioni di contatto in blocco dalle immagini dei biglietti aziendali esistenti. 
 
-L'API dei biglietti da business è anche la [funzionalità di elaborazione di AIBuilder business card](/ai-builder/prebuilt-business-card).
+L'API per i biglietti da business è anche la [funzionalità di elaborazione delle schede business](/ai-builder/prebuilt-business-card)per i Builder.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Seguire la [Guida introduttiva all'API](./quickstarts/python-business-cards.md) per i biglietti da visita per iniziare a riconoscere i biglietti aziendali.
+- Seguire la [Guida introduttiva](./quickstarts/client-library.md) per iniziare a riconoscere i biglietti da visita.
 
 ## <a name="see-also"></a>Vedere anche
 

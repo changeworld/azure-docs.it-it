@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317555"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857427"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
@@ -62,9 +62,9 @@ L'intervallo di tempo è impostato nella definizione della condizione della rego
 
 Analogamente a log Analytics, l'intervallo di tempo limita i dati delle query all'intervallo specificato. Anche se nella query viene usato il comando **fa** , verrà applicato l'intervallo di tempo.
 
-Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica **Period** dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
+Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
 
-### <a name="measure"></a>Measure
+### <a name="measure"></a>Misura
 
 Gli avvisi del log consentono di accedere a valori numerici che possono essere valutati. È possibile misurare due elementi diversi:
 
@@ -120,6 +120,8 @@ Nelle aree di lavoro e Application Insights è supportato solo nel tipo di misur
 ### <a name="split-by-alert-dimensions"></a>Dividi per dimensioni avviso
 
 Suddividere gli avvisi per numero o colonne stringa in avvisi distinti raggruppando in combinazioni univoche. Quando si creano avvisi incentrati sulle risorse su larga scala (ambito di sottoscrizione o di gruppo di risorse), è possibile suddividerli in base alla colonna ID risorsa di Azure. La suddivisione nella colonna ID risorsa di Azure consente di modificare la destinazione dell'avviso sulla risorsa specificata.
+
+La suddivisione in base alla colonna ID risorsa di Azure è consigliata quando si vuole monitorare la stessa condizione in più risorse di Azure. Ad esempio, monitoraggio di tutte le macchine virtuali per l'utilizzo della CPU superiore al 80%. Si può anche decidere di non dividere quando si desidera una condizione su più risorse nell'ambito, ad esempio il monitoraggio che almeno cinque computer nell'ambito del gruppo di risorse hanno un utilizzo della CPU superiore al 80%.
 
 Nelle aree di lavoro e Application Insights è supportato solo nel tipo di misura **metrica misurazione** . Il campo è denominato **Aggregate in**. È limitato a tre colonne. La presenza di più di tre gruppi per colonne nella query può causare risultati imprevisti. In tutti gli altri tipi di risorse, è configurato nella sezione **Split by Dimensions** della condizione (limitata a sei divisioni).
 
@@ -184,10 +186,10 @@ Vedere questo esempio di valutazione degli avvisi:
 
 | Tempo    | Valutazione della condizione del log | Risultato 
 | ------- | ----------| ----------| ------- 
-| 00:05 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione.
+| 00:05 | FALSE | L'avviso non viene attivato. Non è stata chiamata alcuna azione.
 | 00:10 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
 | 00:15 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
-| 00:20 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato degli avvisi di precedente rimane attivo.
+| 00:20 | FALSE | L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato degli avvisi di precedente rimane attivo.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione per gli avvisi del log
 

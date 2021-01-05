@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 32f6a9dae1a5b0be604b53d814ebc85cb7813b91
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a78e18de1f495feb6234fa5bfd97162d8b80de4c
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353766"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857325"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -25,7 +25,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: Qual è la differenza tra un modello di base e un modello di riconoscimento vocale personalizzato?**
 
-**R**: Un modello di base è stato sottoposto a training con dati di proprietà di Microsoft ed è già stato distribuito nel cloud. È possibile usare un modello personalizzato per adattare un modello a un determinato ambiente con una lingua o rumori di fondo particolari. Fabbriche, automobili o strade rumorose richiederebbero un modello acustico adattato. Argomenti come biologia, fisica, radiologia, nomi di prodotti e acronimi personalizzati richiederebbero un modello di lingua adattato.
+**R**: Un modello di base è stato sottoposto a training con dati di proprietà di Microsoft ed è già stato distribuito nel cloud. È possibile usare un modello personalizzato per adattare un modello a un determinato ambiente con una lingua o rumori di fondo particolari. Fabbriche, automobili o strade rumorose richiederebbero un modello acustico adattato. Argomenti come biologia, fisica, radiologia, nomi di prodotti e acronimi personalizzati richiederebbero un modello di lingua adattato. Se si esegue il training di un modello personalizzato, è consigliabile iniziare con il testo correlato per migliorare il riconoscimento di termini e frasi speciali.
 
 **D: Da dove è necessario iniziare per usare un modello di base?**
 
@@ -49,9 +49,15 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **R**: Al momento non è possibile eseguire il rollback di un processo di adattamento di un modello acustico o linguistico. I modelli e i dati importati possono essere eliminati quando sono in uno stato terminale.
 
-**D: Qual è la differenza tra i modelli Search and Dictation (Ricerca e dettatura) e Conversational (Colloquiale)?**
+**D: si ottengono diversi risultati per ogni frase con il formato di output dettagliato. Quale si deve usare?**
 
-**R**: Sono disponibili più modelli di base tra cui scegliere nel Servizio di riconoscimento vocale. Il modello Conversational (Colloquiale) è utile per il riconoscimento vocale di una conversazione. Questo modello è ideale per la trascrizione delle chiamate telefoniche. Il modello Search and Dictation (Ricerca e dettatura) è ideale per le app con attivazione vocale. Il modello Universal (Universale) è un nuovo modello che mira a risolvere entrambi questi scenari. Il modello universale è attualmente a un livello di qualità pari o superiore rispetto al modello colloquiale nella maggior parte delle impostazioni locali.
+**R**: eseguire sempre il primo risultato, anche se un altro risultato ("N-Best") può avere un valore di confidenza maggiore. Il servizio riconoscimento vocale considera il primo risultato come il migliore. Può anche essere una stringa vuota se non è stata riconosciuta alcuna voce.
+
+È probabile che gli altri risultati siano peggiori e che non si applichino le maiuscole e la punteggiatura complete. Questi risultati sono particolarmente utili in scenari speciali, ad esempio fornire agli utenti la possibilità di scegliere le correzioni da un elenco o di gestire i comandi riconosciuti in modo errato.
+
+**D: perché esistono modelli di base diversi?**
+
+**R**: è possibile scegliere da più di un modello di base nel servizio di riconoscimento vocale. Ogni nome di modello contiene la data in cui è stata aggiunta. Quando si avvia il training di un modello personalizzato, usare il modello più recente per ottenere la massima precisione. I modelli di base precedenti sono ancora disponibili per un certo periodo di tempo quando viene reso disponibile un nuovo modello. È possibile continuare a usare il modello con cui si è lavorato fino a quando non viene ritirato (vedere ciclo di vita del [modello](custom-speech-overview.md#model-lifecycle)). È comunque consigliabile passare al modello di base più recente per una maggiore accuratezza.
 
 **D: È possibile aggiornare un modello esistente (stacking di modelli)?**
 
@@ -59,19 +65,27 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 I set di dati precedente e nuovo devono essere combinati in un unico file ZIP (per dati acustici) o in un file con estensione txt (per dati linguistici). Dopo aver terminato l'adattamento, per ottenere un nuovo endpoint è necessario ridistribuire il nuovo modello aggiornato
 
-**D: quando è disponibile una nuova versione di una linea di base, la distribuzione viene aggiornata automaticamente?**
+**D: quando è disponibile una nuova versione di un modello di base, la distribuzione viene aggiornata automaticamente?**
 
 **R**: Le distribuzioni NON vengono aggiornate automaticamente.
 
-Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzione rimarrà invariata. I clienti possono rimuovere le autorizzazioni del modello distribuito, riadattarlo utilizzando la versione più recente della linea di base e ridistribuirlo.
+Se è stato adattato e distribuito un modello, la distribuzione rimarrà invariata. È possibile rimuovere le autorizzazioni del modello distribuito, riadattarlo utilizzando la versione più recente del modello di base e ridistribuirlo per una maggiore accuratezza.
+
+Sia i modelli di base che i modelli personalizzati verranno ritirati in seguito (vedere ciclo di vita del [modello](custom-speech-overview.md#model-lifecycle)).
 
 **D: È possibile scaricare il modello ed eseguirlo in locale?**
 
-**R**: Non è possibile scaricare i modelli ed eseguirli in locale.
+**R**: è possibile eseguire localmente un modello personalizzato in un [contenitore Docker](speech-container-howto.md?tabs=cstt).
+
+**D: è possibile copiare o spostare i set di impostazioni, I modelli e le distribuzioni in un'altra area o sottoscrizione?**
+
+**R**: è possibile usare l' [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) per copiare un modello personalizzato in un'altra area o sottoscrizione. Impossibile copiare i set di impostazioni o le distribuzioni. È possibile importare di nuovo un set di dati in un'altra sottoscrizione e creare endpoint utilizzando le copie del modello.
 
 **D: Le richieste vengono registrate?**
 
-**R**: per impostazione predefinita, le richieste non vengono registrate, né audio né trascrizioni. Se necessario, è possibile selezionare *il contenuto del log da questa* opzione di endpoint quando si [Crea un endpoint personalizzato](./how-to-custom-speech-train-model.md) per abilitare la traccia. Quindi le richieste verranno registrate in Azure in un archivio protetto.
+**R**: per impostazione predefinita, le richieste non vengono registrate, né audio né trascrizioni. Se necessario, è possibile selezionare *il contenuto del log da questa opzione di endpoint* quando si [Crea un endpoint personalizzato](./how-to-custom-speech-train-model.md). È anche possibile abilitare la registrazione audio nell' [SDK di riconoscimento vocale](speech-sdk.md) in base alle singole richieste senza creare un endpoint personalizzato. In entrambi i casi, i risultati dell'audio e del riconoscimento delle richieste verranno archiviati in un archivio protetto. Per le sottoscrizioni che usano l'archiviazione di proprietà di Microsoft, saranno disponibili per 30 giorni.
+
+È possibile esportare i file registrati nella pagina di distribuzione in speech studio se si usa un endpoint personalizzato con *contenuto di log da questo endpoint* abilitato. Se la registrazione audio è abilitata tramite l'SDK, chiamare l' [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) per accedere ai file.
 
 **D: Le richieste sono limitate?**
 
@@ -92,7 +106,7 @@ Vedere [quote e limiti per i servizi di riconoscimento vocale](speech-services-q
 
 **D: Qual è il limite di dimensione per un set di dati e perché esiste tale limite?**
 
-**R**: il limite è dovuto alla restrizione sulla dimensione di un file per il caricamento http. Vedere [quote e limiti per i servizi vocali](speech-services-quotas-and-limits.md) per il limite effettivo.
+**R**: il limite è dovuto alla restrizione sulla dimensione di un file per il caricamento http. Vedere [quote e limiti per i servizi vocali](speech-services-quotas-and-limits.md) per il limite effettivo. È possibile suddividere i dati in più set di dati e selezionarli tutti per eseguire il training del modello.
 
 **D**: È possibile comprimere i file di testo per poter caricare file più grandi?
 
@@ -120,19 +134,17 @@ Vedere [quote e limiti per i servizi di riconoscimento vocale](speech-services-q
 
 **R**: Sì. È possibile farlo personalmente o usando un servizio di trascrizione professionale. Alcuni utenti preferiscono usare sistemi di trascrizione professionali, mentre altri usano il crowdsourcing o eseguono le trascrizioni autonomamente.
 
+**D: quanto tempo sarà necessario per eseguire il training di dati audio di un modello personalizzato?**
+
+**R**: il training di un modello con dati audio è un processo lungo. A seconda della quantità di dati, la creazione di un modello personalizzato può richiedere diversi giorni. Se l'operazione non può essere completata entro una settimana, il servizio potrebbe interrompere l'operazione di training e segnalare il modello come non riuscito. Per ottenere risultati più rapidi, usare una delle [aree](custom-speech-overview.md#set-up-your-azure-account) in cui è disponibile hardware dedicato per il training. È possibile copiare il modello completamente sottoposto a training in un'altra area usando l' [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Il training con solo testo è molto più veloce e in genere viene completato in pochi minuti.
+
+Alcuni modelli di base non possono essere personalizzati con dati audio. Il servizio utilizzerà semplicemente il testo della trascrizione per il training ed eliminerà i dati audio. Il training verrà completato molto più velocemente e i risultati saranno uguali a quelli di training con solo testo.
+
 ## <a name="accuracy-testing"></a>Test di accuratezza
-
-**D: È possibile eseguire il testing offline del modello acustico personalizzato usando un modello linguistico personalizzato?**
-
-**R**: Sì, è sufficiente selezionare il modello linguistico personalizzato nel menu a discesa durante la configurazione del test offline.
-
-**D: È possibile eseguire il testing offline del modello linguistico personalizzato usando un modello acustico personalizzato?**
-
-**R**: Sì, è sufficiente selezionare il modello acustico personalizzato nel menu a discesa durante la configurazione del test offline.
 
 **D: Che cos'è la frequenza degli errori di parola (WER) e come viene calcolata?**
 
-**R**: La frequenza degli errori di parola (WER) è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento. Per altre informazioni, vedere [frequenza degli errori di parola](https://en.wikipedia.org/wiki/Word_error_rate).
+**R**: La frequenza degli errori di parola (WER) è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento. Per altre informazioni, vedere [Evaluate riconoscimento vocale personalizzato Precision](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy).
 
 **D: Come si determina se i risultati di un test di accuratezza sono positivi?**
 

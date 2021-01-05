@@ -1,15 +1,15 @@
 ---
 title: Panoramica dell'anteprima dell'infrastruttura BareMetal in Azure
-description: Panoramica su come distribuire l'infrastruttura BareMetal in Azure.
+description: Panoramica dell'infrastruttura BareMetal in Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 12/31/2020
-ms.openlocfilehash: db974d9260344d1f6050235bb2a9fbaa0420659b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829201"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860975"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>Che cos'è l'anteprima dell'infrastruttura BareMetal in Azure?
 
@@ -25,7 +25,7 @@ L'infrastruttura BareMetal fornisce un percorso per modernizzare il paesaggio de
 - Stati Uniti centro-meridionali
 
 >[!NOTE]
->**Rev 4,2** è la versione più recente dell'infrastruttura Baremetal che usa l'architettura Rev 4 esistente.  Rev 4 fornisce una prossimità più vicina agli host della macchina virtuale (VM) di Azure e riduce la latenza tra le macchine virtuali di Azure e le unità di istanza di BareMetal. È possibile accedere alle istanze di BareMetal e gestirle tramite il portale di Azure. 
+>**Rev 4,2** è la versione più recente dell'infrastruttura Baremetal con l'architettura Rev 4 esistente.  Il Rev 4 fornisce una prossimità più vicina agli host della macchina virtuale (VM) di Azure. Offre miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le unità di istanza BareMetal distribuite in indicatori o righe Rev 4.  È possibile accedere alle istanze di BareMetal e gestirle tramite il portale di Azure. 
 
 ## <a name="support"></a>Supporto
 L'infrastruttura BareMetal è conforme a ISO 27001, ISO 27017, SOC 1 e SOC 2.  USA anche un modello BYOL (Bring your own License): sistema operativo, carico di lavoro specializzato e applicazioni di terze parti.  
@@ -35,13 +35,13 @@ Non appena si riceve l'accesso alla radice e il controllo completo, si presuppon
 - Licenze, sicurezza e supporto per il software del sistema operativo e di terze parti
 
 Microsoft è responsabile di:
-- Fornire hardware certificato per carichi di lavoro specializzati 
+- Fornire l'hardware per carichi di lavoro specializzati 
 - Provisioning del sistema operativo
 
 :::image type="content" source="media/baremetal-support-model.png" alt-text="Modello di supporto dell'infrastruttura BareMetal" border="false":::
 
 ## <a name="compute"></a>Calcolo
-L'infrastruttura BareMetal offre più SKU certificati per carichi di lavoro specializzati. Gli SKU disponibili variano dal sistema a due socket inferiore al sistema a 24 socket. Usare gli SKU certificati specifici del carico di lavoro per il carico di lavoro specializzato.
+L'infrastruttura BareMetal offre più SKU per carichi di lavoro specializzati. Gli SKU disponibili variano dal sistema a due socket inferiore al sistema a 24 socket. Usare gli SKU specifici del carico di lavoro per il carico di lavoro specializzato.
 
 Il timbro dell'istanza di BareMetal stesso combina i componenti seguenti:
 
@@ -72,10 +72,10 @@ Le versioni del sistema operativo Linux disponibili sono:
    - SLES 15 SP1
 
 ## <a name="storage"></a>Archiviazione
-Le istanze di BareMetal basate su un tipo di SKU specifico sono disponibili con archiviazione NFS predefinita basata su un tipo di carico di lavoro specifico. Quando si esegue il provisioning di BareMetal, è possibile effettuare il provisioning di archiviazione aggiuntiva in base alla crescita stimata inviando una richiesta Tutto lo spazio di archiviazione è dotato di un disco tutto Flash nella revisione 4,2 con supporto per NFSv3 e NFSv4. Sarà disponibile la versione più recente di NVMe SSD 4,5. Per ulteriori informazioni sul dimensionamento dello spazio di archiviazione, vedere la sezione [tipo di carico di lavoro Baremetal](../../../virtual-machines/workloads/sap/get-started.md) .
+Le istanze di BareMetal basate su un tipo di SKU specifico sono disponibili con archiviazione NFS predefinita per il tipo di carico di lavoro specifico. Quando si esegue il provisioning di BareMetal, è possibile effettuare il provisioning di più spazio di archiviazione in base alla crescita prevista inviando una richiesta Tutto lo spazio di archiviazione è dotato di un disco tutto Flash nella revisione 4,2 con supporto per NFSv3 e NFSv4. Sarà disponibile la versione più recente di NVMe SSD 4,5. Per ulteriori informazioni sul dimensionamento dello spazio di archiviazione, vedere la sezione [tipo di carico di lavoro Baremetal](../../../virtual-machines/workloads/sap/get-started.md) .
 
 >[!NOTE]
->Per impostazione predefinita, lo spazio di archiviazione usato per BareMetal soddisfa i requisiti di sicurezza FIPS 140-2 che offrono la crittografia inattiva. I dati vengono archiviati in modo sicuro sui dischi.
+>Per impostazione predefinita, lo spazio di archiviazione usato per BareMetal soddisfa [Federal Information Processing Standard (FIPS) publication 140-2](/microsoft-365/compliance/offering-fips-140-2) requirements offering Encryption inattivo. I dati vengono archiviati in modo sicuro sui dischi.
 
 ## <a name="networking"></a>Rete
 L'architettura dei servizi di rete di Azure è un componente chiave per una corretta distribuzione di carichi di lavoro specializzati nelle istanze di BareMetal. È probabile che non tutti i sistemi IT si trovino già in Azure. Azure ti offre la tecnologia di rete per rendere Azure simile a una data center virtuale alle distribuzioni software locali. La funzionalità di rete di Azure necessaria per le istanze di BareMetal è:
@@ -91,10 +91,10 @@ Viene eseguito il provisioning delle istanze di BareMetal all'interno dell'inter
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" alt-text="Diagramma dell'infrastruttura di Azure BareMetal" lightbox="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" border="false":::
 
 L'architettura illustrata è suddivisa in tre sezioni.
-- A **sinistra:** Mostra l'infrastruttura locale del cliente che esegue diverse applicazioni, che si connettono tramite il partner o il router perimetrale locale come Equinix. Per altre informazioni, vedere [provider e località di connettività: Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
-- Al **centro:** Mostra il provisioning di [ExpressRoute](../../../expressroute/expressroute-introduction.md) con la sottoscrizione di Azure che offre connettività alla rete perimetrale di Azure.
-- A **destra:** Mostra Azure IaaS e, in questo caso, l'uso di macchine virtuali per ospitare le applicazioni, di cui viene eseguito il provisioning nella rete virtuale di Azure.
-- In **basso:** Mostra l'uso del gateway ExpressRoute abilitato con [ExpressRoute FastPath](../../../expressroute/about-fastpath.md) per la connettività Baremetal che offre bassa latenza.   
+- **Left:** Mostra l'infrastruttura locale del cliente che esegue applicazioni diverse, connettendosi tramite il router perimetrale partner o locale come Equinix. Per altre informazioni, vedere [provider e località di connettività: Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
+- **Center:** Mostra il provisioning di [ExpressRoute](../../../expressroute/expressroute-introduction.md) con la sottoscrizione di Azure che offre connettività alla rete perimetrale di Azure.
+- **Right:** Mostra Azure IaaS e, in questo caso, l'uso di macchine virtuali per ospitare le applicazioni, di cui viene eseguito il provisioning all'interno della rete virtuale di Azure.
+- In **basso:** Mostra come usare il gateway ExpressRoute abilitato con [ExpressRoute FastPath](../../../expressroute/about-fastpath.md) per la connettività Baremetal che offre bassa latenza.   
    >[!TIP]
    >Per supportare questa operazione, il gateway ExpressRoute deve essere UltraPerformance.  Per ulteriori informazioni, vedere [informazioni sui gateway di rete virtuale ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md).
 

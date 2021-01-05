@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631366"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858808"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Come si applica Vantaggio Azure Hybrid per le macchine virtuali Linux
 
@@ -39,7 +39,7 @@ Vantaggio Azure Hybrid è disponibile per tutte le immagini RHEL e SLES PAYG di 
 
 Le istanze riservate, le istanze host dedicate di Azure e i vantaggi ibridi SQL non sono idonee per Vantaggio Azure Hybrid se si usa già il vantaggio con le VM Linux.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 ### <a name="red-hat-customers"></a>Clienti Red Hat
 
@@ -172,7 +172,7 @@ Per altre informazioni sulla conformità delle sottoscrizioni di Red Hat, sugli 
 
 ### <a name="suse"></a>SUSE
 
-Per usare Vantaggio Azure Hybrid per le macchine virtuali SLES, è necessario prima registrarsi con il [programma SUSE Public Cloud](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). Dopo aver acquistato le sottoscrizioni SUSE, è necessario registrare le VM che usano tali sottoscrizioni per la propria origine degli aggiornamenti. Utilizzare SUSE Customer Center, Subscription Management Tool Server o SUSE Manager per questa registrazione.
+Per usare Vantaggio Azure Hybrid per le VM SLES e per informazioni sul passaggio da SLES PAYG a BYOS o dal passaggio da SLES BYOS a PAYG, vedere [SUSE Linux Enterprise e vantaggio Azure Hybrid](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 *D: è possibile usare un tipo di licenza `RHEL_BYOS` con un'immagine SLES o viceversa?*
@@ -210,6 +210,10 @@ R: No, non è possibile. Le istanze riservate non sono attualmente nell'ambito d
 *D: è possibile usare Vantaggio Azure Hybrid in una macchina virtuale distribuita per SQL Server su immagini RHEL?*
 
 R: No, non è possibile. Non è previsto alcun piano per il supporto di queste macchine virtuali.
+
+*D: è possibile usare Vantaggio Azure Hybrid nella sottoscrizione del data center virtuale RHEL?*
+
+R: No, non è possibile. Il data center virtuale non è supportato in Azure, incluso vantaggio Azure Hybrid.  
  
 
 ## <a name="common-problems"></a>Problemi comuni

@@ -3,12 +3,12 @@ title: Usare Hub eventi dall'app Apache Kafka - Hub eventi di Azure | Microsoft 
 description: Questo articolo fornisce informazioni sul supporto di Apache Kafka in Hub eventi di Azure.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369591"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861341"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usare Hub eventi di Azure da applicazioni Apache Kafka
 Hub eventi fornisce un endpoint compatibile con le API Apache Kafka® Producer e consumer che possono essere usate dalla maggior parte delle applicazioni client Apache Kafka esistenti in alternativa all'esecuzione di un cluster Apache Kafka. Hub eventi supporta i client API Producer e consumer di Apache Kafka alla versione 1,0 e successive.
@@ -81,7 +81,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 > [!IMPORTANT]
-> Sostituire `{YOUR.EVENTHUBS.CONNECTION.STRING}` con la stringa di connessione per lo spazio dei nomi di Hub eventi. Per istruzioni su come ottenere la stringa di connessione, vedere [ottenere una stringa di connessione di hub eventi](event-hubs-get-connection-string.md). Ecco una configurazione di esempio: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Sostituire `{YOUR.EVENTHUBS.CONNECTION.STRING}` con la stringa di connessione per lo spazio dei nomi di Hub eventi. Per istruzioni su come ottenere la stringa di connessione, vedere [Ottenere una stringa di connessione ad Hub eventi](event-hubs-get-connection-string.md). Ecco un esempio di configurazione: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 > [!NOTE]
 > Quando si usa l'autenticazione SAS con client Kafka, le connessioni stabilite non vengono disconnesse quando viene rigenerata la chiave SAS. 
@@ -118,9 +118,7 @@ Il payload di qualsiasi evento di hub eventi è un flusso di byte e il contenuto
 
 ### <a name="log-compaction"></a>Compattazione log
 
-Apache Kafka compressione dei log è una funzionalità che consente di rimuovere tutti i record, tranne l'ultimo, di ogni chiave da una partizione, in modo da trasformare un argomento di Apache Kafka in un archivio chiave-valore in cui l'ultimo valore aggiunto sostituisce quello precedente. Il modello di archivio chiave-valore, anche con aggiornamenti frequenti, è molto meglio supportato dai servizi di database come [Azure Cosmos DB](../cosmos-db/introduction.md).
-
-La funzionalità di compressione dei log viene usata dai framework client di Kafka Connect e Kafka Streams.
+Apache Kafka compressione dei log è una funzionalità che consente di rimuovere tutti i record, tranne l'ultimo, di ogni chiave da una partizione, in modo da trasformare un argomento di Apache Kafka in un archivio chiave-valore in cui l'ultimo valore aggiunto sostituisce quello precedente. Questa funzionalità non è attualmente implementata da Hub eventi di Azure. Il modello di archivio chiave-valore, anche con aggiornamenti frequenti, è molto meglio supportato dai servizi di database come [Azure Cosmos DB](../cosmos-db/introduction.md). Per altri dettagli, vedere l'argomento relativo alla [proiezione dei log](event-hubs-federation-overview.md#log-projections) nella Guida alla Federazione di hub eventi. 
 
 ### <a name="kafka-streams"></a>Kafka Streams
 
@@ -130,7 +128,7 @@ Il motivo più comune per cui i clienti di hub eventi di Azure chiedono il suppo
 
 Autonomo e senza ksqlDB, i flussi Kafka hanno meno funzionalità rispetto a molti Framework e servizi alternativi, la maggior parte dei quali hanno interfacce SQL di streaming predefinite e che si integrano oggi con hub eventi di Azure:
 
-- [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md)
+- [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
 - [Analisi delle sinapsi di Azure (tramite acquisizione di hub eventi)](../event-grid/event-grid-event-hubs-integration.md)
 - [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)

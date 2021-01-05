@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839893"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861440"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gestire la console di gestione locale
 
@@ -298,6 +298,26 @@ Per reimpostare la password:
 
 > [!NOTE]
 > Il sensore è collegato alla sottoscrizione a cui è stata originariamente connessa. È possibile recuperare la password solo utilizzando la stessa sottoscrizione a cui è collegata.
+
+## <a name="update-the-software-version"></a>Aggiornare la versione del software
+
+Nella procedura seguente viene descritto come aggiornare la versione del software della console di gestione locale. Il processo di aggiornamento richiede circa 30 minuti.
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+
+1. Passa a Defender for Internet.
+
+1. Passare alla pagina **aggiornamenti** .
+
+1. Selezionare una versione dalla sezione console di gestione locale.
+
+1. Selezionare **Download** e salvare il file.
+
+1. Accedere alla console di gestione locale e selezionare **impostazioni di sistema** dal menu laterale.
+
+1. Nel riquadro **aggiornamento versione** selezionare **Aggiorna**.
+
+1. Selezionare il file scaricato dalla pagina Defender for Internet **Updates** .
 
 ## <a name="see-also"></a>Vedere anche
 

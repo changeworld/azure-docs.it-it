@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972649"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854860"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 
@@ -44,11 +44,13 @@ Il servizio riconoscimento vocale è disponibile nelle aree geografiche per **ri
 
 Se si usa l' [SDK per la sintesi vocale](speech-sdk.md), le aree vengono specificate dall' **identificatore di area** (ad esempio, come parametro per `SpeechConfig.FromSubscription` ). Assicurarsi che l'area corrisponda all'area della sottoscrizione.
 
+Se si prevede di eseguire il training di un modello personalizzato con dati audio, utilizzare una delle [aree con hardware dedicato](custom-speech-overview.md#set-up-your-azure-account) per un training più rapido. È possibile usare l' [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) per copiare il modello completamente sottoposto a training in un'altra area in un secondo momento.
+
 ### <a name="intent-recognition"></a>Riconoscimento finalità
 
 Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono le seguenti:
 
-| Regione globale | Region           | Identificatore area |
+| Regione globale | Area           | Identificatore area |
 | ------------- | ---------------- | -------------------- |
 | Asia          | Asia orientale        | `eastasia`           |
 | Asia          | Asia sud-orientale   | `southeastasia`      |
@@ -60,24 +62,28 @@ Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono 
 | America del Nord | Stati Uniti centro-meridionali | `southcentralus`     |
 | America del Nord | Stati Uniti centro-occidentali  | `westcentralus`      |
 | America del Nord | Stati Uniti occidentali          | `westus`             |
-| America del Nord | West US 2        | `westus2`            |
+| America del Nord | Stati Uniti occidentali 2        | `westus2`            |
 | America del Sud | Brasile meridionale     | `brazilsouth`        |
 
 Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizio Language Understanding (LUIS)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Assistenti vocali
 
-[Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** in queste aree:
+[Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** tramite la voce [Direct Line](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) in queste aree:
 
-| Region         | Identificatore area |
-| -------------- | -------------------- |
-| Stati Uniti occidentali        | `westus`             |
-| Stati Uniti occidentali 2      | `westus2`            |
-| Stati Uniti orientali        | `eastus`             |
-| Stati Uniti orientali 2      | `eastus2`            |
-| Europa occidentale    | `westeurope`         |
-| Europa settentrionale   | `northeurope`        |
-| Asia sud-orientale | `southeastasia`      |
+| Regione globale | Area           | Identificatore area    |
+| ------------- | ---------------- | -------------------- |
+| America del Nord | Stati Uniti occidentali          | `westus`             |
+| America del Nord | Stati Uniti occidentali 2        | `westus2`            |
+| America del Nord | Stati Uniti orientali          | `eastus`             |
+| America del Nord | Stati Uniti orientali 2        | `eastus2`            |
+| America del Nord | Stati Uniti centro-occidentali  | `westcentralus`      |
+| America del Nord | Stati Uniti centro-meridionali | `southcentralus`     |
+| Europa        | Europa occidentale      | `westeurope`         |
+| Europa        | Europa settentrionale     | `northeurope`        |
+| Asia          | Asia orientale        | `eastasia`           |
+| Asia          | Asia sud-orientale   | `southeastasia`      |
+| India         | India centrale    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Riconoscimento del parlante
 

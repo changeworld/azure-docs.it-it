@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911716"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845592"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creazione di un set di dati di training per un modello personalizzato
 
@@ -72,11 +72,8 @@ Se si aggiunge il contenuto seguente al corpo della richiesta, l'API eseguirà i
 
 Ora che si è appreso come creare un set di dati di training, seguire una guida introduttiva per eseguire il training di un modello di riconoscimento modulo personalizzato e iniziare a usarlo nei moduli.
 
-* [Eseguire il training di un modello ed estrarre i dati del modulo usando la libreria client](./quickstarts/client-library.md)
-* [Eseguire il training di un modello ed estrarre i dati del modulo usando cURL](./quickstarts/curl-train-extract.md)
-* [Eseguire il training di un modello ed estrarre i dati del modulo usando l'API REST e Python](./quickstarts/python-train-extract.md)
+* [Eseguire il training di un modello ed estrarre i dati del modulo usando la libreria client o l'API REST](./quickstarts/client-library.md)
 * [Eseguire il training con le etichette usando lo strumento di assegnazione di etichette di esempio](./quickstarts/label-tool.md)
-* [Eseguire il training con le etichette usando l'API REST e Python](./quickstarts/python-labeled-data.md)
 
 ## <a name="see-also"></a>Vedere anche
 

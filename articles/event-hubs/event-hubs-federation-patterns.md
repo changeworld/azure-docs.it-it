@@ -3,12 +3,12 @@ title: Modelli di attività di replica degli eventi-Hub eventi di Azure | Micros
 description: Questo articolo fornisce indicazioni dettagliate per l'implementazione di modelli di attività di replica di eventi specifici
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 494de442b636d535fa1ed6fdeeeda28db9783952
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803987"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861377"
 ---
 # <a name="event-replication-tasks-patterns"></a>Modelli di attività di replica degli eventi
 
@@ -20,7 +20,7 @@ In questo articolo vengono illustrate in dettaglio le linee guida di implementaz
 
 Il modello di replica copia gli eventi da un hub eventi a quello successivo o da un hub eventi a un'altra destinazione, ad esempio una coda del bus di servizio. Gli eventi vengono trasmessi senza apportare alcuna modifica al payload dell'evento.
 
-L'implementazione di questo modello è coperta dalla [replica degli eventi tra gli hub eventi](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) e la [replica degli eventi tra gli hub eventi e gli esempi del bus di servizio](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) .
+L'implementazione di questo modello è coperta dalla [replica degli eventi tra gli hub eventi](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) e la [replica degli eventi tra gli hub eventi e](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) gli esempi del bus di servizio e l'esercitazione [usare Apache Kafka MirrorMaker con hub eventi](event-hubs-kafka-mirror-maker-tutorial.md) per il caso specifico di replica dei dati da un broker di Apache Kafka a hub eventi.
 
 ### <a name="streams-and-order-preservation"></a>Flussi e conservazione degli ordini
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d6b916ce03c6850f78217f1aac0b63048a6aff3b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399248"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858502"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -353,6 +353,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Considerazioni sull'account di archiviazione**: 
 
 - Località: l'account di archiviazione usato deve trovarsi nella stessa area del NSG.
+- Livello di prestazioni: attualmente sono supportati solo gli account di archiviazione di livello standard.
 - Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i log di flusso NSG smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riabilitare i log dei flussi di NSG.
 
 **Costi** per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità relativa ai criteri di conservazione con la registrazione del flusso NSG significa sostenere costi di archiviazione separati per periodi di tempo prolungati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per ulteriori informazioni, vedere [Network Watcher prezzi](https://azure.microsoft.com/pricing/details/network-watcher/) e [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
@@ -374,7 +375,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi, è consigliabile abilitare i log dei flussi NSG in tutti i gruppi applicati alla subnet o all'interfaccia di rete della risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni, vedere [come viene valutato il traffico](../virtual-network/network-security-group-how-it-works.md) nei gruppi di sicurezza di rete. 
 
 Pochi scenari comuni:
-1. **Più NSG di rete in una scheda** di interfaccia di rete: se più gruppi sono collegati a una scheda di interfaccia di rete, la registrazione dei flussi deve essere abilitata su tutte
+1. **Più schede di rete in una VM**: nel caso in cui siano collegate più schede di rete a una macchina virtuale, la registrazione dei flussi deve essere abilitata su tutte
 1. **Con NSG a livello di nic e di subnet**: nel caso in cui NSG sia configurato nella scheda di interfaccia di rete e nel livello di subnet, la registrazione del flusso deve essere abilitata in entrambi i gruppi. 
 
 **Provisioning dell'archiviazione**: è necessario eseguire il provisioning dell'archiviazione in sintonia con il volume di log di flusso previsto.

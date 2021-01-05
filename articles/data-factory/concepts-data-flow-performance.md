@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022361"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858587"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -169,7 +169,7 @@ Il livello di isolamento della lettura in un sistema di origine SQL di Azure ha 
 
 ### <a name="azure-synapse-analytics-sources"></a>Origini di Azure sinapsi Analytics
 
-Quando si usa Azure sinapsi Analytics, un'impostazione denominata **Abilita staging** esiste nelle opzioni di origine. Ciò consente ad ADF di leggere da sinapsi usando ```Polybase``` , che migliora notevolmente le prestazioni di lettura. ```Polybase```Per abilitare è necessario specificare un archivio BLOB di Azure o Azure Data Lake storage percorso di gestione temporanea Gen2 nelle impostazioni dell'attività flusso di dati.
+Quando si usa Azure sinapsi Analytics, un'impostazione denominata **Abilita staging** esiste nelle opzioni di origine. Ciò consente ad ADF di leggere da sinapsi usando ```Staging``` , che migliora notevolmente le prestazioni di lettura. ```Staging```Per abilitare è necessario specificare un archivio BLOB di Azure o Azure Data Lake storage percorso di gestione temporanea Gen2 nelle impostazioni dell'attività flusso di dati.
 
 ![Abilitare lo staging](media/data-flow/enable-staging.png "Abilitare lo staging")
 
@@ -216,9 +216,9 @@ Pianificare un ridimensionamento di Azure SLQ DB e DW di origine e sink prima de
 
 ### <a name="azure-synapse-analytics-sinks"></a>Sink di analisi della sinapsi di Azure
 
-Quando si scrive in Azure sinapsi Analytics, assicurarsi che **Abilita staging** sia impostato su true. In questo modo, ADF è in grado di scrivere utilizzando la [polibase](/sql/relational-databases/polybase/polybase-guide) , che carica i dati in blocco. È necessario fare riferimento a un Azure Data Lake Storage account di archiviazione BLOB di Azure o Gen2 per la gestione temporanea dei dati quando si usa la funzione di base.
+Quando si scrive in Azure sinapsi Analytics, assicurarsi che **Abilita staging** sia impostato su true. In questo modo, ADF è in grado di scrivere utilizzando il [comando SQL Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) , che carica i dati in blocco. È necessario fare riferimento a un Azure Data Lake Storage account di archiviazione BLOB di Azure o Gen2 per la gestione temporanea dei dati quando si usa la gestione temporanea.
 
-Oltre a polibase, le stesse procedure consigliate si applicano ad Azure sinapsi Analytics come database SQL di Azure.
+Oltre alla gestione temporanea, le stesse procedure consigliate si applicano ad Azure sinapsi Analytics come database SQL di Azure.
 
 ### <a name="file-based-sinks"></a>Sink basati su file 
 
@@ -309,6 +309,14 @@ L'esecuzione sequenziale dei processi richiederà probabilmente il tempo più lu
 ### <a name="overloading-a-single-data-flow"></a>Overload di un singolo flusso di dati
 
 Se si inserisce tutta la logica all'interno di un singolo flusso di dati, ADF eseguirà l'intero processo in una singola istanza di Spark. Sebbene questo possa sembrare un modo per ridurre i costi, combina flussi logici diversi e può essere difficile da monitorare ed eseguire il debug. Se un componente ha esito negativo, anche tutte le altre parti del processo avranno esito negativo. Il team di Azure Data Factory consiglia di organizzare i flussi di dati in base a flussi indipendenti della logica di business. Se il flusso di dati diventa troppo grande, la suddivisione in componenti separati renderà più semplice il monitoraggio e il debug. Sebbene non esistano limiti rigidi al numero di trasformazioni in un flusso di dati, la presenza di un numero eccessivo renderà il processo complesso.
+
+### <a name="execute-sinks-in-parallel"></a>Esegui sink in parallelo
+
+Il comportamento predefinito dei sink del flusso di dati consiste nell'eseguire ogni sink in sequenza, in modo seriale, e per interrompere il flusso di dati quando viene rilevato un errore nel sink. Inoltre, tutti i sink vengono impostati automaticamente sullo stesso gruppo, a meno che non si acceda alle proprietà del flusso di dati e si impostano le diverse priorità per i sink.
+
+I flussi di dati consentono di raggruppare i sink in gruppi dalla scheda Proprietà flusso di dati nella finestra di progettazione dell'interfaccia utente. È possibile impostare l'ordine di esecuzione dei sink e raggruppare i sink utilizzando lo stesso numero di gruppo. Per semplificare la gestione dei gruppi, è possibile chiedere ad ADF di eseguire sink nello stesso gruppo per l'esecuzione in parallelo.
+
+Nell'attività Esegui flusso di dati della pipeline sotto la sezione "Proprietà sink" è possibile attivare il caricamento di sink paralleli. Quando si Abilita l'esecuzione in parallelo, si indica ai flussi di dati di scrivere in sink connessi nello stesso momento anziché in modo sequenziale. Per utilizzare l'opzione parallela, i sink devono essere raggruppati e connessi allo stesso flusso tramite un nuovo ramo o una suddivisione condizionale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

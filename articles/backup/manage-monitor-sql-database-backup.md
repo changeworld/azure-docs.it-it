@@ -3,12 +3,12 @@ title: Gestire e monitorare SQL Server database in una macchina virtuale di Azur
 description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021504"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858739"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -20,7 +20,7 @@ Se non sono ancora stati configurati backup per i database di SQL Server, vedere
 
 Backup di Azure Mostra tutte le operazioni pianificate e su richiesta nei **processi di backup** nel portale, ad eccezione dei backup del log pianificati, poiché possono essere molto frequenti. I processi visualizzati in questo portale includono l'individuazione e la registrazione del database, la configurazione del backup e le operazioni di backup e ripristino.
 
-![Portale dei processi di backup](./media/backup-azure-sql-database/jobs-list.png)
+![Portale dei processi di backup](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 Per informazioni dettagliate sugli scenari di monitoraggio, vedere [monitoraggio nella portale di Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoraggio tramite](backup-azure-monitoring-use-azuremonitor.md)monitoraggio di Azure.  
 
@@ -36,13 +36,9 @@ Per monitorare gli avvisi di backup del database:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel dashboard dell'insieme di credenziali, selezionare **Avvisi ed eventi**.
+2. Nel dashboard dell'insieme di credenziali, selezionare **Avvisi di backup**.
 
-   ![Selezionare Avvisi ed eventi](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. In **Avvisi ed eventi**, selezionare **avvisi di Backup**.
-
-   ![Selezionare Avvisi di backup](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Selezionare Avvisi di backup](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## <a name="stop-protection-for-a-sql-server-database"></a>Interrompere la protezione di un database di SQL Server
 
@@ -83,7 +79,7 @@ Per interrompere la protezione per un database:
 >
 >Per ulteriori informazioni sull'opzione Elimina dati, vedere le domande frequenti seguenti:
 >
->- [Se si elimina un database da un'istanza protetta in modo automatico, cosa accade ai backup?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Se si elimina un database da un'istanza autoprotetta, cosa accade ai backup?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 >- [Se si interrompe l'operazione di backup di un database autoprotetto, quale sarà il comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >

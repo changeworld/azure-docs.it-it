@@ -3,18 +3,27 @@ title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608351"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861480"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
-In caso di tempo di inattività di interi data center o di aree di Azure complete (se non si usano [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-> [!NOTE]
-> La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/).  
+La resilienza contro interruzioni disastrose delle risorse di elaborazione dati è un requisito per molte aziende e in alcuni casi anche richiesto dalle normative del settore. 
+
+Hub eventi di Azure distribuisce già il rischio di errori irreversibili dei singoli computer o persino dei rack completi tra i cluster che si estendono su più domini di errore all'interno di un Data Center e implementa meccanismi di rilevamento e failover trasparenti, in modo che il servizio continui a funzionare entro i livelli di servizio garantiti e in genere senza interruzioni evidenti in caso di errori di questo tipo. Se è stato creato uno spazio dei nomi di hub eventi con l'opzione Enabled per le [zone di disponibilità](../availability-zones/az-overview.md), il rischio è che il rischio di interruzione sia ulteriormente distribuito in tre strutture fisicamente separate e il servizio dispone di un numero sufficiente di riserve di capacità per gestire immediatamente la perdita completa e irreversibile dell'intera struttura. 
+
+Il modello di cluster di hub eventi di Azure all-Active con supporto per la zona di disponibilità offre resilienza in caso di guasti hardware gravi e anche di perdita irreversibile di intere strutture del Data Center. È comunque possibile che si verifichino situazioni gravi con la distruzione fisica diffusa che anche le misure non possono essere sufficientemente difesa. 
+
+La funzionalità di ripristino di emergenza geografico di hub eventi è progettata per semplificare il ripristino da una situazione di emergenza e per abbandonare un'area di Azure non riuscita e senza dover modificare le configurazioni dell'applicazione. L'abbandono di un'area di Azure comporterà in genere diversi servizi e questa funzionalità mira principalmente a mantenere l'integrità della configurazione dell'applicazione composita.  
+
+La funzionalità di ripristino Geo-Disaster garantisce che l'intera configurazione di uno spazio dei nomi (hub eventi, gruppi di consumer e impostazioni) venga replicata continuamente da uno spazio dei nomi primario a uno spazio dei nomi secondario quando abbinato e consente di avviare un failover solo una volta dal database primario al database secondario in qualsiasi momento. Lo spostamento del failover consente di reindirizzare il nome dell'alias scelto per lo spazio dei nomi allo spazio dei nomi secondario e quindi di suddividere l'associazione. Il failover è quasi istantaneo una volta avviata. 
+
+> [!IMPORTANT]
+> La funzionalità consente la continuità immediata delle operazioni con la stessa configurazione, ma **non replica i dati dell'evento**. A meno che l'emergenza non abbia causato la perdita di tutte le zone, i dati dell'evento vengono conservati nell'hub eventi primario dopo che il failover sarà reversibile ed è possibile ottenere gli eventi cronologici da una volta ripristinato l'accesso. Per la replica dei dati degli eventi e il funzionamento degli spazi dei nomi corrispondenti nelle configurazioni attive/attive per far fronte a interruzioni e emergenze, non bisogna occuparsi di questo set di funzionalità di ripristino di emergenza geografico, ma attenersi alle [linee guida](event-hubs-federation-overview.md)per la replica.  
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 

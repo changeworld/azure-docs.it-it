@@ -3,12 +3,12 @@ title: Centro di backup-domande frequenti
 description: Questo articolo risponde a domande frequenti su Backup Center
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: c5b23a32b60f651cd3ff91819155d83a7465491a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5befa39411c22253bfccc689d8b5c5967a8cd759
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173819"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858621"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Centro di backup-domande frequenti
 
@@ -34,7 +34,9 @@ No. Il centro di backup è pronto per l'uso. Tuttavia, per visualizzare i [repor
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>È necessario disporre di autorizzazioni speciali per usare il centro di backup?
 
-Il centro di backup non necessita di nuove autorizzazioni. Fino a quando si dispone del livello corretto di accesso RBAC di Azure per le risorse gestite, è possibile usare il centro di backup per queste risorse. Per visualizzare le informazioni sui backup, ad esempio, è necessario l'accesso in **lettura** agli insiemi di credenziali. Per configurare il backup ed eseguire altre azioni correlate al backup, saranno necessari i ruoli **collaboratore backup** o **operatore di backup** . Altre informazioni sui [ruoli di Azure per backup di Azure](./backup-rbac-rs-vault.md).
+Il centro di backup non necessita di nuove autorizzazioni. Fino a quando si dispone del livello corretto di accesso RBAC di Azure per le risorse gestite, è possibile usare il centro di backup per queste risorse. Per visualizzare le informazioni sui backup, ad esempio, è necessario l'accesso in **lettura** agli insiemi di credenziali. Per configurare il backup ed eseguire altre azioni correlate al backup, saranno necessari i ruoli **collaboratore backup** o **operatore di backup** . Altre informazioni sui [ruoli di Azure per backup di Azure](./backup-rbac-rs-vault.md). 
+
+Se si usano i [report di backup](./configure-reports.md) in centro backup, sarà necessario accedere alle aree di lavoro log Analytics a cui gli insiemi di credenziali inviano i dati per visualizzare i report per questi insiemi di credenziali.
 
 ## <a name="pricing"></a>Prezzi
 

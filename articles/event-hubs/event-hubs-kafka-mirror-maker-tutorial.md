@@ -2,17 +2,17 @@
 title: Utilizzo di Apache Kafka MirrorMaker - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come usare Kafka MirrorMaker per eseguire il mirroring di cluster Kafka in Hub eventi di Azure.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: f2e7ac6951c84adfd8fc313995724021640ee0ab
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 01/04/2021
+ms.openlocfilehash: 654e9e19dfde0d0c58d00e41cf8ab0ba8e1484d7
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503200"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860996"
 ---
-# <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Usare Kafka MirrorMaker con Hub eventi per Apache Kafka
+# <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Usare Apache Kafka MirrorMaker con hub eventi
 
-Questa esercitazione illustra come eseguire il mirroring di un broker Kafka in un hub eventi usando Kafka MirrorMaker.
+Questa esercitazione illustra come eseguire il mirroring di un broker Kafka in un hub eventi di Azure usando Kafka MirrorMaker. Se si ospita Apache Kafka in Kubernetes usando l'operatore CNCF Strimzi, è possibile fare riferimento all'esercitazione in [questo post di Blog](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/) per informazioni su come configurare Kafka con Strimzi e il creatore di Mirror 2. 
 
    ![Kafka MirrorMaker con Hub eventi](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
@@ -20,7 +20,7 @@ Questa esercitazione illustra come eseguire il mirroring di un broker Kafka in u
 > Questo esempio è disponibile su [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine *whitelist*, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -31,9 +31,11 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Eseguire Kafka MirrorMaker
 
 ## <a name="introduction"></a>Introduzione
-Una delle considerazioni principali per le moderne app a livello del cloud è la possibilità di aggiornare, migliorare e modificare l'infrastruttura senza interrompere il servizio. Questa esercitazione illustra come un hub eventi e Kafka MirrorMaker possono integrare una pipeline Kafka esistente in Azure eseguendo il "mirroring" del flusso di input Kafka nel servizio Hub eventi. 
+Questa esercitazione illustra come un hub eventi e Kafka MirrorMaker possono integrare una pipeline Kafka esistente in Azure tramite il "mirroring" del flusso di input Kafka nel servizio Hub eventi, che consente l'integrazione dei flussi di Apache Kafka usando diversi [modelli di Federazione](event-hubs-federation-overview.md). 
 
-Un endpoint Kafka di Hub eventi di Azure consente la connessione a Hub eventi di Azure tramite il protocollo Kafka, ovvero i client Kafka. Apportando modifiche minime a un'applicazione Kafka, è possibile connettersi a Hub eventi di Azure e sfruttare i vantaggi dell'ecosistema di Azure. Hub eventi supporta attualmente le versioni 1,0 e successive di Kafka.
+Un endpoint Kafka di Hub eventi di Azure consente la connessione a Hub eventi di Azure tramite il protocollo Kafka, ovvero i client Kafka. Apportando modifiche minime a un'applicazione Kafka, è possibile connettersi a Hub eventi di Azure e sfruttare i vantaggi dell'ecosistema di Azure. Hub eventi supporta attualmente il protocollo di Apache Kafka versioni 1,0 e successive.
+
+È possibile Apache Kafka usare MirrorMaker 1 in modo unidirezionale da Apache Kafka a hub eventi. MirrorMaker 2 può essere usato in entrambe le direzioni, ma i [ `MirrorCheckpointConnector` e `MirrorHeartbeatConnector` configurabili in MirrorMaker 2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) devono essere configurati in modo da puntare al broker di Apache Kafka e non agli hub eventi. Questa esercitazione illustra la configurazione di MirrorMaker 1.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

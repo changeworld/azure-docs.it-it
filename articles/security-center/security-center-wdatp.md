@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296812"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854843"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -42,10 +42,10 @@ Microsoft Defender for endpoint è una soluzione di sicurezza completa di endpoi
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stato della versione:                  | Disponibile a livello generale                                                                                                                                                                                                                                                                                      |
 | Prezzi:                        | Richiede [Azure Defender per server](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Piattaforme supportate:            | ![Sì](./media/icons/yes-icon.png) Macchine virtuali di Azure che eseguono Windows<br>![Sì](./media/icons/yes-icon.png) Computer Azure Arc che eseguono Windows|
-| Versioni supportate di Windows:  | Defender for endpoint è integrato in Windows 10 1703 (e versioni successive) e Windows Server 2019.<br>Il Centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1.<br>Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC. |
-| Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione** o **collaboratore della sottoscrizione**                         |
-| Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali.<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure globali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi                                                        |
+| Piattaforme supportate:            | Macchine virtuali di Azure che eseguono Windows<br>Computer Azure Arc che eseguono Windows|
+| Versioni supportate di Windows:  |  • Il Centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC<br> • Nessun supporto per Windows Server 2019, Windows 10 1703 (e versioni successive) o Linux|
+| Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione** o **collaboratore della sottoscrizione**|
+| Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure globali                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 

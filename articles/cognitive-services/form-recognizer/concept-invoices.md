@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602445"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845573"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
@@ -34,7 +34,7 @@ Per provare il modulo del servizio di fatturazione di riconoscimento, passare al
 > [!div class="nextstepaction"]
 > [Provare i modelli predefiniti](https://fott-preview.azurewebsites.net/)
 
-È necessaria una sottoscrizione di Azure ([crearne una gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e un modulo e una chiave dell'endpoint della [risorsa riconoscimento](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) per provare il servizio di fatturazione del modulo di riconoscimento. 
+È necessaria una sottoscrizione di Azure ([crearne una gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e un endpoint e una chiave della [risorsa di riconoscimento del modulo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) per provare il servizio di fatturazione del modulo di riconoscimento. 
 
 ![Esempio di fattura analizzata](./media/analyze-invoice.png)
 
@@ -55,7 +55,7 @@ L'operazione [Analyze fattura](https://westcentralus.dev.cognitive.microsoft.com
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di analisi della fattura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 
@@ -74,7 +74,7 @@ L'output JSON è costituito da 3 parti:
 
 Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Invoice. Di seguito sono riportati i campi estratti da una fattura nella risposta di output JSON (l'output seguente usa questa [fattura di esempio](./media/sample-invoice.jpg))  
 
-|Nome| Type | Descrizione | Testo | Valore (output standardizzato) |
+|Nome| Tipo | Descrizione | Testo | Valore (output standardizzato) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente che viene fatturato | Microsoft Corp |  |
 | CustomerId | string | ID di riferimento per il cliente | CID-12345 |  |
@@ -91,24 +91,24 @@ Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Inv
 | BillingAddressRecipient | string | Nome associato a BillingAddress | Servizi Microsoft | |
 | ShippingAddress | string | Indirizzo di spedizione esplicito per il cliente | 123 Ship St, Redmond WA, 98052 | |
 | ShippingAddressRecipient | string | Nome associato a ShippingAddress | Microsoft Delivery | |
-| SubTotal | Numero | Campo Subtotale identificato in questa fattura | $100,00 | 100 | 
-| TotalTax | Numero | Campo fiscale totale identificato sulla fattura | $10,00 | 10 |
-| TotaleFattura | Numero | Totale nuovi addebiti associati alla fattura | $110,00 | 110 |
-| Controlli ImportoDovuto |  Numero | Importo totale dovuto al fornitore | $610,00 | 610 |
+| SubTotal | d'acquisto | Campo Subtotale identificato in questa fattura | $100,00 | 100 | 
+| TotalTax | d'acquisto | Campo fiscale totale identificato sulla fattura | $10,00 | 10 |
+| TotaleFattura | d'acquisto | Totale nuovi addebiti associati alla fattura | $110,00 | 110 |
+| Controlli ImportoDovuto |  d'acquisto | Importo totale dovuto al fornitore | $610,00 | 610 |
 | ServiceAddress | string | Indirizzo di proprietà o indirizzo di servizio esplicito per il cliente | 123 servizio St, Redmond WA, 98052 | |
 | ServiceAddressRecipient | string | Nome associato a ServiceAddress | Servizi Microsoft | |
 | RemittanceAddress | string | Rimessa esplicita o indirizzo di pagamento per il cliente | 123, New York, NY, 10001 |  |
 | RemittanceAddressRecipient | string | Nome associato a RemittanceAddress | Fatturazione di contoso |  |
 | ServiceStartDate | Data | Prima data del periodo di servizio (ad esempio, un periodo del servizio di fatturazione dell'utilità) | 14/10/2019 | 2019-10-14 |
 | ServiceEndDate | Data | Data di fine del periodo di servizio (ad esempio, un periodo del servizio di fatturazione dell'utilità) | 11/14/2019 | 2019-11-14 |
-| PreviousUnpaidBalance | Numero | Saldo precedentemente non pagato esplicito | $500,00 | 500 |
+| PreviousUnpaidBalance | d'acquisto | Saldo precedentemente non pagato esplicito | $500,00 | 500 |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Provare le proprie fatture ed esempi nell' [interfaccia utente di esempio di riconoscimento moduli](https://fott-preview.azurewebsites.net/).
-- Completare una [Guida introduttiva alla libreria client di riconoscimento moduli](quickstarts/client-library.md) per iniziare a scrivere un'app per l'elaborazione di fatture con il riconoscimento del modulo nel linguaggio preferito.
-- In alternativa, seguire la Guida introduttiva [Estrai dati fattura](./quickstarts/python-invoices.md) per implementare l'estrazione dei dati di fattura tramite Python e l'API REST.
+- Completare una [Guida introduttiva](quickstarts/client-library.md) per il riconoscimento dei moduli per iniziare a scrivere un'app per l'elaborazione delle fatture con il riconoscimento del modulo nel linguaggio scelto.
+
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Riconoscimento modulo](./overview.md)
