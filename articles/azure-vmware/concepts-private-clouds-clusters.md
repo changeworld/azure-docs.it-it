@@ -3,12 +3,12 @@ title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967381"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825081"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concetti relativi ai cluster e al cloud privato della soluzione VMware di Azure
 
@@ -48,18 +48,8 @@ Gli host usati per compilare o ridimensionare i cluster provengono da un pool is
 
 ## <a name="vmware-software-versions"></a>Versioni del software VMware
 
-Le versioni software correnti del software VMware usato nei cluster di cloud privato della soluzione VMware di Azure sono:
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Software              |    Versione   |
-| :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6,7 U3    | 
-| ESXi                  |    6,7 U3    | 
-| Rete VSAN                  |    6,7 U3    |
-| NSX-T                 |      2.5     |
-
-Per qualsiasi nuovo cluster in un cloud privato, la versione del software corrisponde a quella attualmente in esecuzione. Per ogni nuovo cloud privato in una sottoscrizione, viene installata la versione più recente dello stack di software.
-
-È possibile trovare i criteri e i processi di aggiornamento generali per il software della piattaforma della soluzione VMware di Azure descritta in [aggiornamenti e aggiornamenti del cloud privato](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Gestione del ciclo di vita e manutenzione dell'host
 

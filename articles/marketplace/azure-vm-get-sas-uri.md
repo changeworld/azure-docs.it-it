@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e28942a77a1d695a17f3231901f337695e602c64
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129117"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825554"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Come generare un URI di firma di accesso condiviso per un'immagine di macchina virtuale
 
@@ -34,12 +34,12 @@ Per creare un indirizzo SAS (URL) sono disponibili due strumenti comuni:
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Uso dello strumento 1: Azure Storage Explorer
 
-1. Passare all' **account di archiviazione** .
-1. Aprire **Storage Explorer** .
+1. Passare all' **account di archiviazione**.
+1. Aprire **Storage Explorer**.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Finestra dell'account di archiviazione.":::
 
-3. Nel **contenitore** , fare clic con il pulsante destro del mouse sul file VHD e selezionare **Ottieni firma di accesso alla condivisione** .
+3. Nel **contenitore**, fare clic con il pulsante destro del mouse sul file VHD e selezionare **Ottieni firma di accesso alla condivisione**.
 4. Nella finestra di dialogo **firma di accesso condiviso** completare i campi seguenti:
 
     1. Ora di inizio: data e ora di inizio autorizzazione per l'accesso al disco rigido virtuale. Specificare una data precedente di un giorno rispetto alla data corrente.
@@ -62,7 +62,7 @@ Per creare un indirizzo SAS (URL) sono disponibili due strumenti comuni:
 1. Scaricare e installare [Microsoft Azure CL](/cli/azure/install-azure-cli)I. Le versioni sono disponibili per Windows, macOS e diverse distribuzioni di Linux.
 2. Creare un file PowerShell (con estensione .ps1), copiarlo nel codice seguente e quindi salvarlo in locale.
 
-    ```JSON
+    ```azurecli-interactive
     az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
@@ -70,25 +70,26 @@ Per creare un indirizzo SAS (URL) sono disponibili due strumenti comuni:
 
     - nome account: nome dell'account di archiviazione di Azure.
     - chiave account: chiave dell'account di archiviazione di Azure.
-    - VHD-nome: nome del disco rigido virtuale.
     - Data inizio: data di inizio dell'autorizzazione per l'accesso al disco rigido virtuale. Specificare la data del giorno precedente rispetto alla data corrente.
     - Data di scadenza: data di scadenza dell'autorizzazione per l'accesso al disco rigido virtuale. Specificare una data successiva di almeno tre settimane alla data corrente.
 
     Di seguito è riportato un esempio di valori di parametri appropriati (al momento della stesura di questo articolo):
 
-    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    ```
 
 1. Salvare le modifiche.
 2. Usando uno dei metodi seguenti, eseguire questo script con privilegi amministrativi per creare una stringa di connessione della firma di accesso condiviso per l'accesso a livello di contenitore:
 
-    - Eseguire lo script dalla console. In Windows fare clic con il pulsante destro del mouse sullo script e selezionare **Esegui come amministratore** .
+    - Eseguire lo script dalla console. In Windows fare clic con il pulsante destro del mouse sullo script e selezionare **Esegui come amministratore**.
     - Eseguire lo script da un editor di script di PowerShell, ad esempio [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Questa schermata mostra la creazione di una stringa di connessione di firma di accesso condiviso nell'editor:
 
     [![creazione di una stringa di connessione SAS nell'editor di PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 
 6. Copiare la stringa di connessione della firma di accesso condiviso e salvarla in un file di testo in un percorso sicuro. Modificare la stringa per aggiungere le informazioni sul percorso del disco rigido virtuale per creare l'URI di firma di accesso condiviso finale.
 7. Nella portale di Azure passare all'archivio BLOB che include il disco rigido virtuale associato al nuovo URI.
-8. Copiare l'URL dell'endpoint del servizio thebBlob:
+8. Copiare l'URL dell'endpoint del servizio BLOB:
 
     ![Copia dell'URL dell'endpoint del servizio BLOB.](media/vm/create-sas-uri-blob-endpoint.png)
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 66b14e435b777595e23fcf5a98d4820f36d21a1a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0722119b35ecebf3ed1e7a377707de02a6c127bf
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742043"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825197"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Usare Apache Kafka in HDInsight con l'hub IoT
 
@@ -21,7 +21,7 @@ Informazioni su come usare il connettore di [Apache Kafka Connect Azure IoT Hub]
 
 L'API Kafka Connect consente di implementare i connettori che eseguono in modo continuativo il pull dei dati in Kafka o eseguono il push dei dati da Kafka a un altro sistema. [Apache Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) è un connettore che esegue il pull dei dati dall'hub IoT di Azure a Kafka. Può anche eseguire il push dei dati da Kafka all'hub IoT.
 
-Quando si esegue il pull dall'hub IoT, si usa un connettore di __origine__ . Quando si esegue il push all'hub IoT, si usa un connettore __sink__ . Il connettore hub IoT offre sia il connettore di origine che il connettore sink.
+Quando si esegue il pull dall'hub IoT, si usa un connettore di __origine__. Quando si esegue il push all'hub IoT, si usa un connettore __sink__. Il connettore hub IoT offre sia il connettore di origine che il connettore sink.
 
 Nel diagramma seguente viene illustrato il flusso di dati tra l'hub IoT e Kafka in HDInsight quando si usa il connettore.
 
@@ -29,7 +29,7 @@ Nel diagramma seguente viene illustrato il flusso di dati tra l'hub IoT e Kafka 
 
 Per ulteriori informazioni sull'API Connect, vedere [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un cluster Apache Kafka in HDInsight. Per altre informazioni, vedere il documento [Creare un cluster Kafka in HDInsight](apache-kafka-get-started.md).
 
@@ -118,14 +118,14 @@ Dalla connessione SSH al nodo perimetrale, usare la procedura seguente per confi
 
 1. Apportare le modifiche seguenti:
 
-    |Valore corrente |Nuovo valore | Commento |
+    |Valore corrente |Nuovo valore | Aggiungere commenti |
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|Sostituire il `localhost:9092` valore con gli host broker del passaggio precedente|Configura la configurazione autonoma per il nodo perimetrale per trovare i broker Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|La modifica consente di eseguire test usando il producer di console incluso in Kafka. Potrebbero essere necessari diversi convertitori per altri producer e consumer. Per informazioni sull'utilizzo di altri valori di convertitore, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Come sopra.|
     |N/D|`consumer.max.poll.records=10`|Aggiungere alla fine del file. Questa modifica è finalizzata a evitare i timeout nel connettore sink mediante l'impostazione di un limite di 10 record alla volta. Per altre informazioni, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
-1. Per salvare il file, usare __Ctrl + X__ , __Y__ e __INVIO__ .
+1. Per salvare il file, usare __Ctrl + X__, __Y__ e __INVIO__.
 
 1. Per creare gli argomenti usati dal connettore, usare i comandi seguenti:
 
@@ -149,11 +149,11 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
 
 1. Ottenere l'endpoint compatibile con hub eventi e il nome dell'endpoint compatibile con hub eventi per l'hub IoT. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
-   * __Dal [portale di Azure](https://portal.azure.com/)__ , attenersi alla procedura seguente:
+   * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
 
-     1. Passare all'hub IoT e selezionare __Endpoint__ .
-     2. Da __Endpoint predefiniti__ , selezionare __Eventi__ .
-     3. Da __Proprietà__ , copiare il valore dei campi seguenti:
+     1. Passare all'hub IoT e selezionare __Endpoint__.
+     2. Da __Endpoint predefiniti__, selezionare __Eventi__.
+     3. Da __Proprietà__, copiare il valore dei campi seguenti:
 
          * __Nome compatibile con l'hub eventi__
          * __Endpoint compatibile con hub eventi__
@@ -162,7 +162,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
         > [!IMPORTANT]  
         > Il valore dell'endpoint del portale può contenere testo aggiuntivo che non è necessario in questo esempio. Estrarre il testo che corrisponde al criterio `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Dall' [interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli)__ , usare il comando seguente:
+   * __Dall'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -176,15 +176,15 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
        "Partitions": 2
        ```
 
-2. Ottenere i __criteri di accesso condiviso__ e la __chiave__ . Per questo esempio, usare la chiave __service__ . Per ottenere tali informazioni, usare uno dei metodi seguenti:
+2. Ottenere i __criteri di accesso condiviso__ e la __chiave__. Per questo esempio, usare la chiave __service__. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
-    * __Dal [portale di Azure](https://portal.azure.com/)__ , attenersi alla procedura seguente:
+    * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
 
-        1. Selezionare __Criteri di accesso condiviso__ e quindi __service__ .
+        1. Selezionare __Criteri di accesso condiviso__ e quindi __service__.
         2. Copiare il valore della __chiave primaria__ .
-        3. Copiare il valore di __Stringa di connessione - chiave primaria__ .
+        3. Copiare il valore di __Stringa di connessione - chiave primaria__.
 
-    * __Dall' [interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli)__ , usare il comando seguente:
+    * __Dall'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
 
         1. Per ottenere il valore della chiave primaria, usare il comando seguente:
 
@@ -233,7 +233,7 @@ Per configurare l'origine per l'hub IoT, eseguire le azioni seguenti da una conn
 
     Per una configurazione di esempio, vedere [connettore di origine Kafka Connect per l'hub Azure](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-1. Per salvare le modifiche, usare __CTRL + X__ , __Y__ e quindi __INVIO__ .
+1. Per salvare le modifiche, usare __CTRL + X__, __Y__ e quindi __INVIO__.
 
 Per ulteriori informazioni sulla configurazione dell'origine del connettore, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
@@ -262,7 +262,7 @@ Per configurare la connessione sink per l'hub IoT, eseguire le azioni seguenti d
 
     Per una configurazione di esempio, vedere il [connettore di sink di Kafka Connect per l'hub Azure](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-1. Per salvare le modifiche, usare __CTRL + X__ , __Y__ e quindi __INVIO__ .
+1. Per salvare le modifiche, usare __CTRL + X__, __Y__ e quindi __INVIO__.
 
 Per ulteriori informazioni sulla configurazione del sink del connettore, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 

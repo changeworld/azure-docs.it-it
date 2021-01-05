@@ -3,13 +3,13 @@ title: Configurare il monitoraggio per funzioni di Azure
 description: Informazioni su come connettere l'app per le funzioni a Application Insights per il monitoraggio e su come configurare la raccolta dei dati.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 5c4e9795109a9b4b5a6e9ceeec6b22e0168eb28f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 77cc87e44990f471ef38871c0225835660779a3c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027629"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825759"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 
@@ -28,7 +28,7 @@ Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria
 
 # <a name="v2x"></a>[V2. x +](#tab/v2)
 
-| Categoria | Tabella | Descrizione |
+| Category | Tabella | Descrizione |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **dipendenze**| I dati sulle dipendenze vengono raccolti automaticamente per alcuni servizi. Per le esecuzioni riuscite, questi log sono al `Information` livello. Per altre informazioni, vedere [dipendenze](functions-monitoring.md#dependencies). Le eccezioni vengono registrate a `Error` livello di. Il runtime crea anche `Warning` log di livello, ad esempio quando i messaggi della coda vengono inviati alla [coda non elaborabile](functions-bindings-storage-queue-trigger.md#poison-messages). | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | Gli SDK C# e JavaScript consentono di raccogliere metriche personalizzate e registrare eventi personalizzati. Per altre informazioni, vedere [dati di telemetria personalizzati](functions-monitoring.md#custom-telemetry-data).|
@@ -44,7 +44,7 @@ Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
-| Categoria | Tabella | Descrizione |
+| Category | Tabella | Descrizione |
 | ----- | ----- | ----- |
 | **`Function`** | **traces**| Log generati dall'utente, che possono essere a qualsiasi livello di log. Per altre informazioni sulla scrittura nei log delle funzioni, vedere [scrittura nei log](functions-monitoring.md#writing-to-logs). | 
 | **`Host.Aggregator`** | **customMetrics** | Questi log generati in fase di esecuzione forniscono conteggi e medie delle chiamate di funzione in un periodo di tempo [configurabile](#configure-the-aggregator) . Il periodo predefinito è 30 secondi o 1000 risultati, ovvero quello che viene prima. Gli esempi indicano il numero di esecuzioni, la percentuale di riuscita e la durata. Tutti questi log vengono scritti al livello `Information`. Se si filtra per `Warning` o categoria successiva, non verrà visualizzato alcun dato. |

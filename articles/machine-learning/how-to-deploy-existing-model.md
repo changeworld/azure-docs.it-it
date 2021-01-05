@@ -10,13 +10,13 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 6721357464c2a49331d9c02982841d36aa207cc6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, deploy
+ms.openlocfilehash: 46b8f153e65f436fa1062a0606e0fb0136d972a5
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324980"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824593"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Distribuire il modello esistente con Azure Machine Learning
 
@@ -25,7 +25,7 @@ Questo articolo illustra come registrare e distribuire un modello di Machine Lea
 
 Per altre informazioni sui concetti e i termini in questo articolo, vedere [gestire, distribuire e monitorare i modelli di Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
   + Negli esempi di Python si presuppone che la `ws` variabile sia impostata sull'area di lavoro Azure Machine Learning. Per ulteriori informazioni su come connettersi all'area di lavoro, consultare la [documentazione di Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=trueworkspace).

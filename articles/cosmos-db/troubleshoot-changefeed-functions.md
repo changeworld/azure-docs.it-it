@@ -4,16 +4,16 @@ description: Problemi comuni, soluzioni alternative e procedure di diagnostica, 
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/13/2020
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340533"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825627"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -85,16 +85,18 @@ Il concetto di "modifica" è un'operazione su un documento. Gli scenari più com
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Alcune modifiche non sono presenti nel trigger
 
-Se alcune delle modifiche apportate al contenitore Azure Cosmos non vengono prelevate dalla funzione di Azure, è necessario eseguire un passaggio di analisi iniziale.
+Se si ritiene che alcune delle modifiche apportate al contenitore Azure Cosmos non vengano prelevate dalla funzione di Azure o che alcune modifiche non siano presenti nella destinazione durante la copia, seguire questa procedura.
 
 Quando la funzione di Azure riceve le modifiche, le elabora spesso e può facoltativamente inviare il risultato a un'altra destinazione. Quando si esaminano le modifiche mancanti, assicurarsi di **misurare le modifiche ricevute nel punto di** inserimento (all'avvio della funzione di Azure) e non nella destinazione.
 
 Se nella destinazione mancano alcune modifiche, ciò potrebbe indicare che si è verificato un errore durante l'esecuzione della funzione di Azure dopo la ricezione delle modifiche.
 
-In questo scenario, il modo migliore consiste nell'aggiungere `try/catch` blocchi nel codice e all'interno dei cicli che potrebbero elaborare le modifiche, per rilevare eventuali errori per un subset specifico di elementi e gestirli di conseguenza (inviarli a un'altra risorsa di archiviazione per un'ulteriore analisi o nuovi tentativi). 
+In questo scenario, il modo migliore consiste nell'aggiungere `try/catch` blocchi nel codice e all'interno dei cicli che potrebbero elaborare le modifiche, per rilevare eventuali errori per un subset specifico di elementi e gestirli di conseguenza (inviarli a un'altra risorsa di archiviazione per un'ulteriore analisi o nuovi tentativi).
 
 > [!NOTE]
 > Per impostazione predefinita, il trigger di Funzioni di Azure per Cosmos DB non cerca di ripetere un batch di modifiche se si è verificata un'eccezione non gestita durante l'esecuzione del codice. Ciò significa che il motivo per cui le modifiche non arrivano alla destinazione è dovuto al fatto che l'elaborazione non è riuscita.
+
+Se la destinazione è un altro contenitore Cosmos ed è in corso l'esecuzione di operazioni Upsert per copiare gli elementi, **verificare che la definizione della chiave di partizione sia nel contenitore Monitored che in quello di destinazione sia la stessa**. Le operazioni Upsert potrebbero salvare più elementi di origine come uno nella destinazione a causa di questa differenza di configurazione.
 
 Se si rileva che alcune modifiche non sono state ricevute dal trigger, lo scenario più comune è che è **in esecuzione un'altra funzione di Azure**. Potrebbe trattarsi di un'altra funzione di Azure distribuita in Azure o di una funzione di Azure in esecuzione in locale nel computer di uno sviluppatore che ha **esattamente la stessa configurazione** (gli stessi contenitori monitorati e di lease) e che questa funzione di Azure sta rubando un subset delle modifiche che si prevede vengano elaborate dalla funzione di Azure.
 

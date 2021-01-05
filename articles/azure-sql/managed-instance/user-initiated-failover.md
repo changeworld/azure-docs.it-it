@@ -3,19 +3,19 @@ title: Avviare manualmente un failover in SQL Istanza gestita
 description: Informazioni su come eseguire manualmente il failover delle repliche primarie e secondarie in Azure SQL Istanza gestita.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: 7f30ff70e0219a803051b0f8e1208740c359863a
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605395"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825919"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in Istanza gestita di SQL
 
@@ -46,7 +46,7 @@ Per avviare un failover, l'utente deve avere uno dei seguenti ruoli di Azure:
 - Ruolo personalizzato con l'autorizzazione seguente:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Mediante PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 La versione minima di AZ. SQL deve essere [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Si consiglia di usare [Azure cloud Shell](../../cloud-shell/overview.md) dal portale di Azure in cui è sempre disponibile la versione più recente di PowerShell. 
 

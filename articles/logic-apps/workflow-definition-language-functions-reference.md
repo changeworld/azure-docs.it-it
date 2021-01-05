@@ -3,15 +3,15 @@ title: Guida di riferimento alle funzioni nelle espressioni
 description: Guida di riferimento per le funzioni nelle espressioni per App per la logica di Azure e Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: a4646263eeb93a33a03e32107b46bb6dc104ce06
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326302"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825850"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -1678,7 +1678,7 @@ decodeUriComponent('<value>')
 Questo esempio sostituisce i caratteri di escape in questa stringa con le versioni decodificate:
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 E viene restituito questo risultato: `"https://contoso.com"`
@@ -1753,7 +1753,7 @@ Questo esempio crea una versione con codifica URI per questa stringa:
 encodeUriComponent('https://contoso.com')
 ```
 
-E viene restituito questo risultato: `"http%3A%2F%2Fcontoso.com"`
+E viene restituito questo risultato: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -2729,7 +2729,7 @@ Se il valore della stringa o della sottostringa è vuoto, si verifica il comport
 
   * Lunghezza della stringa, meno 1.
 
-*esempi*
+*Esempi*
 
 In questo esempio viene trovato il valore di indice iniziale per l'ultima occorrenza della sottostringa della sottostringa `world` nella stringa `hello world hello world` . Il risultato restituito è `18` :
 
@@ -4174,7 +4174,7 @@ Questo esempio crea una matrice dal valore della chiave "feedUrl" nell'output di
 triggerFormDataMultiValues('feedUrl')
 ```
 
-E restituisce questa matrice come risultato di esempio: `["http://feeds.reuters.com/reuters/topNews"]`
+E restituisce questa matrice come risultato di esempio: `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4205,7 +4205,7 @@ Questo esempio crea una stringa dal valore della chiave "feedUrl" nell'output di
 triggerFormDataValue('feedUrl')
 ```
 
-E restituisce questa stringa come risultato di esempio: `"http://feeds.reuters.com/reuters/topNews"`
+E restituisce questa stringa come risultato di esempio: `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4336,7 +4336,7 @@ Questo esempio crea una versione con codifica URI per questa stringa:
 uriComponent('https://contoso.com')
 ```
 
-E viene restituito questo risultato: `"http%3A%2F%2Fcontoso.com"`
+E viene restituito questo risultato: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4363,7 +4363,7 @@ uriComponentToBinary('<value>')
 Questo esempio crea la versione binaria per questa stringa con codifica URI:
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 E viene restituito questo risultato:
@@ -4398,7 +4398,7 @@ uriComponentToString('<value>')
 Questo esempio crea la versione stringa decodificata per questa stringa con codifica URI:
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 E viene restituito questo risultato: `"https://contoso.com"`
@@ -4458,7 +4458,7 @@ uriPath('<uri>')
 Questo esempio trova il valore `path` per questo URI:
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E viene restituito questo risultato: `"/catalog/shownew.htm"`
@@ -4488,7 +4488,7 @@ uriPathAndQuery('<uri>')
 Questo esempio trova i valori `path` e `query` per questo URI:
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E viene restituito questo risultato: `"/catalog/shownew.htm?date=today"`
@@ -4518,7 +4518,7 @@ uriPort('<uri>')
 Questo esempio restituisce il valore `port` per questo URI:
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 E viene restituito questo risultato: `8080`
@@ -4548,7 +4548,7 @@ uriQuery('<uri>')
 Questo esempio restituisce il valore `query` per questo URI:
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E viene restituito questo risultato: `"?date=today"`
@@ -4578,7 +4578,7 @@ uriScheme('<uri>')
 Questo esempio restituisce il valore `scheme` per questo URI:
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E viene restituito questo risultato: `"http"`
@@ -4918,16 +4918,16 @@ Ecco il risultato: `30`
 
 *Esempio 8*
 
-In questo esempio si supponga di avere questa stringa XML, che include lo spazio dei nomi del documento XML `xmlns="http://contoso.com"` :
+In questo esempio si supponga di avere questa stringa XML, che include lo spazio dei nomi del documento XML `xmlns="https://contoso.com"` :
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-Queste espressioni usano un'espressione XPath `/*[name()="file"]/*[name()="location"]` o `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` per trovare i nodi che corrispondono al `<location></location>` nodo. Questi esempi illustrano la sintassi usata nella finestra di progettazione dell'app per la logica o nell'editor espressioni:
+Queste espressioni usano un'espressione XPath `/*[name()="file"]/*[name()="location"]` o `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` per trovare i nodi che corrispondono al `<location></location>` nodo. Questi esempi illustrano la sintassi usata nella finestra di progettazione dell'app per la logica o nell'editor espressioni:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Ecco il nodo del risultato che corrisponde al nodo `<location></location>`: 
 

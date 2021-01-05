@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1627db2f1f19c393d4f40892ca65141f26424ac9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c9f9cc53c62ed19fa5fbd1e78c840a8a34b6fb84
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656938"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824648"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -81,15 +81,9 @@ Azure Digital Twins .NET (C#) SDK è parte di Azure SDK per .NET. È open source
 > [!NOTE]
 > Per altre informazioni sulla progettazione di SDK, vedere i [principi di progettazione generali per gli SDK di Azure](https://azure.github.io/azure-sdk/general_introduction.html) e le [linee guida di progettazione .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html)specifiche.
 
-Per usare l'SDK, includere il pacchetto NuGet **Azure. DigitalTwins. Core** con il progetto. Sarà necessaria anche la versione più recente del pacchetto **Azure. Identity** .
-
-* In Visual Studio è possibile aggiungere pacchetti con gestione pacchetti NuGet (a cui si accede tramite *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione*). 
-* Utilizzando lo strumento da riga di comando .NET è possibile eseguire:
-
-    ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-    dotnet add package Azure.identity
-    ```
+Per usare l'SDK, includere il pacchetto NuGet **Azure. DigitalTwins. Core** con il progetto. Sarà necessaria anche la versione più recente del pacchetto **Azure. Identity** . In Visual Studio è possibile aggiungere questi pacchetti usando Gestione pacchetti NuGet (a cui si accede tramite *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione*). In alternativa, è possibile usare lo strumento da riga di comando .NET con i comandi disponibili nei collegamenti al pacchetto NuGet seguenti per aggiungerli al progetto:
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Questo è il pacchetto per l'[SDK Gemelli digitali di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Questa libreria fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
 
 Per una procedura dettagliata sull'uso delle API, vedere l' [*esercitazione: scrivere codice per un'app client*](tutorial-code.md). 
 

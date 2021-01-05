@@ -11,13 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-- devx-track-azurecli
-ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792464"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825161"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
 
@@ -57,7 +56,7 @@ La creazione a livello di codice di un flusso dispositivo tramite SDK include i 
 
 1. L'applicazione del dispositivo registra anticipatamente un callback di cui ricevere notifica quando viene avviato un nuovo flusso dispositivo nel dispositivo. In genere questo passaggio si verifica quando il dispositivo viene avviato e si connette all'hub IoT.
 
-2. Il programma del lato servizio avvia un flusso dispositivo quando necessario fornendo l'ID dispositivo ( _non_ l'indirizzo IP).
+2. Il programma del lato servizio avvia un flusso dispositivo quando necessario fornendo l'ID dispositivo (_non_ l'indirizzo IP).
 
 3. L'hub IoT informa il programma del lato dispositivo richiamando il callback registrato nel passaggio 1. Il dispositivo può accettare o rifiutare la richiesta di avvio flusso. Questa logica può essere specifica per lo scenario dell'applicazione. Se la richiesta di streaming viene rifiutata dal dispositivo, l'hub IoT informa il servizio di conseguenza; in caso contrario, attenersi alla procedura seguente.
 
@@ -129,9 +128,9 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 Attenersi alla procedura seguente per creare un'impostazione di diagnostica per inviare i log dei flussi del dispositivo per l'hub di Internet delle cose ai log di monitoraggio di Azure:
 
-1. In portale di Azure passare all'hub Internet. Nel riquadro sinistro, in **monitoraggio** , selezionare **impostazioni di diagnostica** . Quindi selezionare **Aggiungi impostazioni di diagnostica** .
+1. In portale di Azure passare all'hub Internet. Nel riquadro sinistro, in **monitoraggio**, selezionare **impostazioni di diagnostica**. Quindi selezionare **Aggiungi impostazione di diagnostica**.
 
-2. Specificare un nome per l'impostazione di diagnostica e selezionare **DeviceStreams** nell'elenco dei log. Selezionare quindi **Invia a log Analytics** . Verrà richiesto di scegliere un'area di lavoro Log Analytics esistente o crearne una nuova.
+2. Specificare un nome per l'impostazione di diagnostica e selezionare **DeviceStreams** nell'elenco dei log. Selezionare quindi **Invia a log Analytics**. Verrà richiesto di scegliere un'area di lavoro Log Analytics esistente o crearne una nuova.
 
     :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Abilitare i log dei flussi del dispositivo":::
 
@@ -183,7 +182,7 @@ L'esempio relativo al proxy locale illustra un modo per abilitare il tunneling d
 
 Questa sezione descrive l'uso di flussi dispositivo per abilitare l'utente per SSH in un dispositivo tramite flussi dispositivo (nel caso di RDP o di altre applicazioni client/server la procedura è simile usando la porta corrispondente del protocollo).
 
-La configurazione si basa su due programmi di *proxy locale* mostrati nella figura seguente, ovvero il *proxy locale per dispositivi* e il *proxy locale per servizi* . I programmi proxy locali sono tenuti a eseguire l'[handshake di avvio del flusso dispositivo](#device-stream-creation-flow) con l'hub IoT e a interagire con client SSH e daemon SSH usando normali socket client/server.
+La configurazione si basa su due programmi di *proxy locale* mostrati nella figura seguente, ovvero il *proxy locale per dispositivi* e il *proxy locale per servizi*. I programmi proxy locali sono tenuti a eseguire l'[handshake di avvio del flusso dispositivo](#device-stream-creation-flow) con l'hub IoT e a interagire con client SSH e daemon SSH usando normali socket client/server.
 
 !["Configurazione del proxy di flusso del dispositivo per SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

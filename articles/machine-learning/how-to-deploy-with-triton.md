@@ -10,13 +10,13 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: b47b8f9d9429f38fb8b5da6d8f9083736f230fcb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: deploy
+ms.openlocfilehash: c5db04a673c1cdc0c0f24e128f340f4ae55fea81
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458266"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825522"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servizio a prestazioni elevate con il server di inferenza Triton (anteprima) 
 
@@ -32,7 +32,7 @@ Triton è un Framework *ottimizzato per l'inferenza*. Offre un utilizzo migliore
 > [!TIP]
 > I frammenti di codice in questo documento sono a scopo illustrativo e potrebbero non mostrare una soluzione completa. Per il codice di esempio funzionante, vedere gli [esempi end-to-end di Triton in Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarità con le [modalità di distribuzione di un modello](how-to-deploy-and-where.md) con Azure Machine Learning.
