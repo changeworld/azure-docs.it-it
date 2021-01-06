@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: a6f4b0a503e942b79dff28212863831055892246
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916559"
+ms.locfileid: "97955213"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 
@@ -168,7 +168,7 @@ Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
 LUIS consente di eseguire il test in batch usando il portale LUIS e l'API REST. Gli endpoint per l'API REST sono elencati di seguito. Per informazioni sui test batch tramite il portale LUIS, vedere [esercitazione: set di dati di test batch](luis-tutorial-batch-testing.md). Usare gli URL completi indicati di seguito, sostituendo i valori segnaposto con la chiave e l'endpoint di stima di LUIS. 
 
-Ricordarsi di aggiungere la chiave LUIS a `Apim-Subscription-Id` nell'intestazione e impostare `Content-Type` su `application/json` .
+Ricordarsi di aggiungere la chiave LUIS a `Ocp-Apim-Subscription-Key` nell'intestazione e impostare `Content-Type` su `application/json` .
 
 ### <a name="start-a-batch-test"></a>Avviare un test batch
 

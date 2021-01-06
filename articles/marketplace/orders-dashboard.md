@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450765"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955026"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard degli ordini nell'analisi per il marketplace commerciale
 
@@ -109,14 +109,13 @@ Nella tabella Order Details viene visualizzato un elenco numerato dei 1.000 ordi
 - I dati possono essere estratti in un oggetto. CSV o. File TSV se il numero di record è inferiore a 1.000.
 - Se il numero di record è superiore a 1.000, i dati esportati verranno posizionati in modo asincrono in una pagina di download per i successivi 30 giorni.
 - Applicare i filtri alla tabella **Order Details** per visualizzare solo i dati a cui si è interessati. Filtra per paese/area geografica, tipo di licenza di Azure, tipo di licenza per Marketplace commerciale, tipo di offerta, stato dell'ordine, tracce gratuite, ID sottoscrizione del Marketplace commerciale, ID cliente e nome della società.
-- Poiché le offerte SaaS acquistate tramite Azure Marketplace o Microsoft AppSource, non richiedono una sottoscrizione di Azure, l'ID sottoscrizione del Marketplace verrà visualizzato nel formato 00000000-0000-0000-0000-000000000000 nella sezione relativa ai **dati degli ordini dettagliati** .
 - Quando un ordine viene acquistato da un cliente protetto, le informazioni in **Orders detailed data** vengono mascherate (* * * * * * * * * * * *).
 
 **_Tabella 1: dizionario dei termini di dati_* _
 
 | Nome colonna | Nome attributo | Definizione |
 | ------------ | ------------- | ------------- |
-| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. L'ID è stato in precedenza il GUID della sottoscrizione di Azure. |
+| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. Per le offerte di infrastruttura, si tratta del GUID della sottoscrizione di Azure del cliente. Per le offerte SaaS, questo viene visualizzato come zeri perché gli acquisti SaaS non richiedono una sottoscrizione di Azure. |
 | MonthStartDate | Data di inizio del mese | Data di inizio del mese rappresenta il mese di acquisto. |
 | Tipo di offerta | Tipo di offerta | Tipo di offerta di Marketplace commerciale. |
 | Azure License Type | Azure License Type | Tipo di contratto di licenza usato dai clienti per acquistare Azure. È detto anche canale. I valori possibili sono:<ul><li>Provider di soluzioni cloud</li><li>Enterprise</li><li>Enterprise tramite rivenditore</li><li>Con pagamento in base al consumo</li></ul> |

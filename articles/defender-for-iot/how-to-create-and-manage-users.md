@@ -4,15 +4,15 @@ description: Creare e gestire gli utenti dei sensori e la console di gestione lo
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840965"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955111"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informazioni su Defender per gli utenti della console
 
@@ -89,8 +89,8 @@ Questa sezione descrive come definire gli utenti. Gli utenti di CyberX, support 
 Per definire un utente:
 
 1. Dal riquadro sinistro per il sensore o la console di gestione locale selezionare **utenti**.
-2. Nella finestra **utenti** selezionare **Crea utente**.
-3. Nel riquadro **Crea utente** definire i parametri seguenti:
+1. Nella finestra **utenti** selezionare **Crea utente**.
+1. Nel riquadro **Crea utente** definire i parametri seguenti:
 
    - **Nome utente**: immettere un nome utente.
    - **Email**: immettere l'indirizzo di posta elettronica dell'utente.
@@ -122,7 +122,7 @@ Per accedere al comando:
 
 1. Accedere all'interfaccia della riga di comando per il sensore o la console di gestione locale usando Defender per le credenziali amministrative.
 
-2. Immettere `sudo nano /var/cyberx/properties/authentication`.
+1. Immettere `sudo nano /var/cyberx/properties/authentication`.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -138,7 +138,6 @@ Per accedere al comando:
 Per disabilitare la funzionalità, modificare `infinity_session_expiration = true` in `infinity_session_expiration = false` .
 
 Per aggiornare i periodi di conteggio di disconnessione, impostare il `= <number>` valore sul tempo richiesto.
-
 
 ## <a name="track-user-activity"></a>Tenere traccia dell'attività dell'utente 
 
@@ -171,11 +170,11 @@ Per configurare Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Visualizzare le impostazioni del sistema di Active Directory.":::
 
-2. Nel riquadro **Impostazioni sistema** selezionare **Active Directory**.
+1. Nel riquadro **Impostazioni sistema** selezionare **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Modificare le configurazioni del Active Directory.":::
 
-3. Nella finestra di dialogo **modifica configurazione Active Directory** selezionare **Active Directory integrazione abilitata**  >  **Salva**. La finestra di dialogo **modifica configurazione Active Directory** si espande e ora è possibile immettere i parametri per configurare Active Directory.
+1. Nella finestra di dialogo **modifica configurazione Active Directory** selezionare **Active Directory integrazione abilitata**  >  **Salva**. La finestra di dialogo **modifica configurazione Active Directory** si espande e ora è possibile immettere i parametri per configurare Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Immettere i parametri per configurare Active Directory.":::
 
@@ -184,7 +183,7 @@ Per configurare Active Directory:
     > - Per tutti i parametri di Active Directory, utilizzare solo caratteri minuscoli. Utilizzare caratteri minuscoli anche quando le configurazioni in Active Directory utilizzano caratteri maiuscoli.
     > - Non è possibile configurare LDAP e LDAP per lo stesso dominio. È tuttavia possibile utilizzare entrambi per domini diversi contemporaneamente.
 
-4. Impostare i parametri del server Active Directory, come indicato di seguito:
+1. Impostare i parametri del server Active Directory, come indicato di seguito:
 
    | Parametro Server | Descrizione |
    |--|--|
@@ -194,9 +193,79 @@ Per configurare Active Directory:
    | Gruppi di Active Directory | Immettere i nomi dei gruppi definiti nella configurazione del Active Directory nel server LDAP. |
    | Domini trusted | Per aggiungere un dominio trusted, aggiungere il nome di dominio e il tipo di connessione di un dominio trusted. <br />È possibile configurare domini trusted solo per gli utenti definiti in utenti. |
 
-5. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
-6. Per aggiungere un server attendibile, selezionare **Aggiungi server** e configurare un altro server.
+1. Per aggiungere un server attendibile, selezionare **Aggiungi server** e configurare un altro server.
+
+## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Reimpostazione della password di un utente per il sensore o la console di gestione locale
+
+### <a name="cyberx-or-support-user"></a>CyberX o utente del supporto tecnico
+
+Solo **CyberX** e l'utente di **supporto** possono accedere alla funzionalità di **recupero della password** . Se il **CyberX** o il **supporto** utente ha dimenticato la password, è possibile reimpostare la password tramite l'opzione di **recupero della password** nella pagina di accesso di Defender for Internet.
+
+Per reimpostare la password per un CyberX o un utente del supporto tecnico:
+
+1. Nella schermata Defender for Internet all Sign-in selezionare il  **ripristino della password**. Verrà visualizzata la schermata di **ripristino della password** .
+
+1. Selezionare **CyberX** o **support**, quindi copiare l'identificatore univoco.
+
+1. Passare alla portale di Azure e selezionare **siti e sensori**.  
+
+1. Selezionare l'icona del **filtro della sottoscrizione** :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  dalla barra degli strumenti in alto e selezionare la sottoscrizione a cui è connesso il sensore.
+
+1. Selezionare la scheda **Ripristina password della console di gestione locale** .
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selezionare il pulsante Ripristina gestione locale per scaricare il file di ripristino.":::
+
+1. Immettere l'identificatore univoco ricevuto nella schermata di **ripristino della password** e selezionare **Ripristina**. Il `password_recovery.zip` file viene scaricato.
+
+    > [!NOTE]
+    > Non modificare il file di recupero della password. Si tratta di un file firmato che non funziona se si manomette.
+
+1. Nella schermata di **ripristino della password** selezionare **carica**. Viene visualizzata **la finestra Carica file di ripristino della password** .
+
+   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Caricare il file di ripristino per ottenere una nuova password.":::
+
+1. Selezionare **Sfoglia** per individuare il `password_recovery.zip` file o trascinare la nella `password_recovery.zip` finestra.
+
+    > [!NOTE]
+    > Potrebbe essere visualizzato un messaggio di errore che indica che il file non è valido. Per correggere questo messaggio di errore, verificare di aver selezionato la sottoscrizione corretta prima di scaricare il `password_recovery.zip` e scaricarlo di nuovo.  
+
+1. Selezionare **Avanti**. verrà visualizzato l'utente e la password generata dal sistema per la console di gestione.
+
+### <a name="administrator-security-analyst-and-read-only-user"></a>Amministratore, analista della sicurezza e utente di sola lettura
+
+Gli analisti di sola lettura e di sicurezza non possono reimpostare la propria password ed è necessario contattare un utente con i ruoli amministratore, supporto o CyberX per reimpostare la password. Per reimpostare la password, un utente amministratore deve contattare il **CyberX** o l'utente del **supporto tecnico** .
+
+Per reimpostare la password di un utente nel sensore:
+
+1. Un utente con ruolo di amministratore, supporto o CyberX deve accedere al sensore.
+
+1. Selezionare **utenti** dal pannello a sinistra.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Selezionare l'opzione User (utente) dal riquadro sul lato sinistro.":::
+
+1. Individuare l'utente e scegliere **modifica** dal menu a discesa **azioni** .
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="selezionare modifica dal menu a discesa azioni.":::
+
+1. Immettere la nuova password nei campi **nuova** password e **Conferma nuova password** .
+
+1. Selezionare **Aggiorna**.
+
+Per reimpostare la password di un utente nella console di gestione locale:
+
+1. Un utente con ruolo di amministratore, supporto o CyberX deve accedere al sensore.
+
+1. Selezionare **utenti** dal pannello a sinistra.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="Nel riquadro sinistro selezionare l'opzione dell'utente.":::
+
+1. Individuare l'utente e selezionare l'icona di modifica :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: .
+
+1. Immettere la nuova password nei campi **nuova** password e **Conferma nuova password** .
+
+1. Selezionare **Aggiorna**.
 
 ## <a name="see-also"></a>Vedere anche
 

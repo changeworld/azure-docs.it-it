@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: b26643daede9e26f2bf1807ae99a6ced5d1cb08c
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 072abffcc74b8b060d98c07d1f310413c7b323ef
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901573"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954941"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -127,30 +127,34 @@ Utilizzare la seguente procedura per creare i gruppi di azioni:
 
 8. Se si desidera compilare i campi predefiniti con valori fissi, selezionare **Usa modello personalizzato**. In caso contrario, scegliere un [modello](#template-definitions) esistente nell'elenco dei **modelli** e immettere i valori fissi nei campi del modello.
 
-9. Nell'ultima sezione della definizione di gruppo ITSM di azione è possibile definire il numero di avvisi che verranno creati da ogni avviso. Questa sezione è pertinente solo per gli avvisi di ricerca nei log.
+9. Nell'ultima sezione della definizione del gruppo ITSM azione è possibile definire il numero di elementi di lavoro che verranno creati per ogni avviso.
+
+    >[!NOTE]
+    >
+    > * Questa sezione è pertinente solo per gli avvisi di ricerca nei log.
+    > * Gli avvisi delle metriche e gli avvisi del log attività creeranno sempre un elemento di lavoro per ogni avviso.
 
     * Se si seleziona nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso":
-        * Se si seleziona la casella **di controllo Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione.
+        * Se si seleziona la casella di controllo **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** , ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione.
 
-            Esempio:
+            Ad esempio:
             1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 3 elementi di lavoro.
-            2) Avviso 2 con 1 elemento di configurazione: D-creerà 1 elemento di lavoro.
+            2) Avviso 2 con 1 elemento di configurazione: A-creerà 1 elemento di lavoro.
 
-                **Alla fine di questo flusso saranno presenti 4 avvisi**
-        * Se si deseleziona la casella **di controllo Crea elementi di lavoro singoli per ogni elemento di configurazione** , saranno presenti avvisi che non creeranno un nuovo elemento di lavoro. gli elementi di lavoro verranno uniti in base alla regola di avviso.
+        * Se si deseleziona la casella di controllo **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** , il connettore ITSM creerà un singolo elemento di lavoro per ogni regola di avviso e vi aggiungerà tutti gli elementi di configurazione interessati. Verrà creato un nuovo elemento di lavoro se quello precedente è chiuso.
+        >[!NOTE]
+        > In questo caso parte dell'avviso attivato non genererà nuovi elementi di lavoro nello strumento ITSM.
 
-            Esempio:
-            1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 1 elemento di lavoro.
-            2) Avviso 2 per la stessa regola di avviso della fase 1 con 1 elemento di configurazione: D-verrà unito all'elemento di lavoro della fase 1.
-            3) Avviso 3 per una regola di avviso diversa con 1 elemento di configurazione: E-creerà 1 elemento di lavoro.
-
-                **Alla fine di questo flusso saranno presenti 2 avvisi**
+            For example:
+            1) Alert 1 with 3 Configuration Items: A, B, C - will create 1 work item.
+            2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D - will be merged to the work item in phase 1.
+            3) Alert 3 for a different alert rule with 1 Configuration Item: E - will create 1 work item.
 
        ![Screenshot che mostra la finestra evento imprevisto ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 
     * Se si seleziona nell'elenco a discesa elemento di lavoro "evento":
-        * Se si seleziona **Crea elementi di lavoro singoli per ogni voce di log** nella selezione dei pulsanti di opzione, verrà creato un avviso per ogni riga nei risultati della ricerca della query di avviso di ricerca log. Nel payload dell'avviso la proprietà Description avrà la riga dei risultati della ricerca.
-        * Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione** nella selezione dei pulsanti di opzione, ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione. Corrisponde alla casella di controllo verifica nella sezione evento imprevisto/avviso.
+        * Se si seleziona **"Crea elementi di lavoro singoli per ogni voce di log (il campo elemento di configurazione non è pieno. Può generare un numero elevato di elementi di lavoro.) "** nella selezione dei pulsanti di opzione viene creato un avviso per ogni riga nei risultati della ricerca della query di avviso di ricerca log. Nel payload dell'avviso la proprietà Description avrà la riga dei risultati della ricerca.
+        * Se si seleziona **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** nella selezione dei pulsanti di opzione, ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione. Corrisponde alla casella di controllo verifica nella sezione evento imprevisto/avviso.
     ![Screenshot che mostra la finestra dell'evento ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Selezionare **OK**.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857376"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955196"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
 
@@ -48,6 +48,11 @@ Nella tabella **Training** viene visualizzata una nuova voce che corrisponde al 
 
 Vedere le [procedure per](how-to-custom-speech-evaluate-data.md) valutare e migliorare riconoscimento vocale personalizzato accuratezza del modello. Se si sceglie di verificare l'accuratezza, è importante selezionare un set di dati acustico diverso da quello usato con il modello per ottenere un senso realistico delle prestazioni del modello.
 
+> [!NOTE]
+> Sia i modelli di base che i modelli personalizzati possono essere usati solo fino a una determinata data (vedere ciclo di vita del [modello](custom-speech-overview.md#model-lifecycle)). Speech studio Mostra questa data nella colonna **scadenza** per ogni modello ed endpoint. Dopo la richiesta di una data a un endpoint o la trascrizione in batch potrebbe avere esito negativo o eseguire il fallback al modello di base.
+>
+> Ripetere il training del modello usando il modello di base più recente per trarre vantaggio dai miglioramenti di accuratezza e per evitare che il modello scada.
+
 ## <a name="deploy-a-custom-model"></a>Distribuire un modello personalizzato
 
 Al termine del caricamento e del controllo dei dati, della valutazione dell'accuratezza e del training di un modello personalizzato, è possibile distribuire un endpoint personalizzato da usare con le app, gli strumenti e i prodotti. 
@@ -63,7 +68,7 @@ Selezionare quindi **Aggiungi endpoint** e immettere un **nome** e una **Descriz
 
 Quindi selezionare **Crea**. Questa azione consente di tornare alla pagina **distribuzione** . La tabella include ora una voce che corrisponde all'endpoint personalizzato. Lo stato dell'endpoint Mostra lo stato corrente. Possono essere necessari fino a 30 minuti per creare un'istanza di un nuovo endpoint usando i modelli personalizzati. Quando lo stato della distribuzione diventa **completato**, l'endpoint è pronto per l'utilizzo.
 
-Dopo la distribuzione dell'endpoint, il nome dell'endpoint viene visualizzato come collegamento. Selezionare il collegamento per visualizzare informazioni specifiche per l'endpoint, ad esempio la chiave dell'endpoint, l'URL dell'endpoint e il codice di esempio.
+Dopo la distribuzione dell'endpoint, il nome dell'endpoint viene visualizzato come collegamento. Selezionare il collegamento per visualizzare informazioni specifiche per l'endpoint, ad esempio la chiave dell'endpoint, l'URL dell'endpoint e il codice di esempio. Prendere nota della data di scadenza e aggiornare il modello dell'endpoint prima di tale data per garantire il servizio senza interruzioni.
 
 ## <a name="view-logging-data"></a>Visualizzare i dati di registrazione
 

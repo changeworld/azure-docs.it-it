@@ -3,12 +3,12 @@ title: Che cos'è Inoltro di Azure? | Microsoft Docs
 description: Questo articolo offre una panoramica del servizio Inoltro di Azure, che consente di sviluppare applicazioni cloud che utilizzano servizi locali in esecuzione nella rete aziendale senza aprire una connessione firewall o apportare modifiche di notevole impatto all'infrastruttura di rete.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322639"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955383"
 ---
 # <a name="what-is-azure-relay"></a>Che cos'è Inoltro di Azure?
 Il servizio Inoltro di Azure consente di esporre in modo sicuro nel cloud pubblico i servizi in esecuzione che vengono eseguiti nella rete aziendale. È possibile eseguire questa operazione senza aprire una porta nel firewall o apportare modifiche di notevole impatto all'infrastruttura di rete aziendale. 
@@ -17,7 +17,7 @@ Il servizio di inoltro supporta gli scenari seguenti tra servizi locali e applic
 
 - Comunicazione tradizionale unidirezionale, richiesta/risposta e peer-to-peer 
 - Distribuzione di eventi in ambito Internet per abilitare scenari di pubblicazione/sottoscrizione 
-- Comunicazione bidirezionale e tramite socket non memorizzato nel buffe tra limiti di rete.
+- Comunicazione di socket bidirezionale e senza buffer tra i confini della rete
 
 Inoltro di Azure è diverso dalle tecnologie di integrazione a livello di rete come VPN. È possibile limitare un inoltro di Azure a un singolo endpoint applicazione in un singolo computer. La tecnologia VPN ha un impatto di gran lunga maggiore perché si basa sulla modifica dell'ambiente di rete. 
 
@@ -56,7 +56,7 @@ Sia Connessioni ibride che Inoltro WCF consentono la connessione sicura ad asset
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Protocollo aperto basato su standard** | |x |
 | **Modelli di programmazione RPC** | |x |
 

@@ -4,15 +4,15 @@ description: Risolvere i problemi relativi al sensore e alla console di gestione
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a57db4f88de4a3b32b4fb315fb331500f955d501
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840696"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955434"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Risolvere i problemi relativi al sensore e alla console di gestione locale
 
@@ -28,22 +28,33 @@ Questo articolo descrive gli strumenti di base per la risoluzione dei problemi r
 
 ### <a name="investigate-password-failure-at-initial-sign-in"></a>Esaminare gli errori di password all'accesso iniziale
 
-Quando si accede a un sensore di freccia preconfigurato per la prima volta, è necessario eseguire il ripristino della password seguente:
+Quando si accede a un sensore di freccia preconfigurato per la prima volta, è necessario eseguire il ripristino della password.
 
-1. Nella schermata di accesso di Defender for Internet, selezionare l'opzione per il **ripristino della password** . 
+Per ripristinare la password:
 
-   Verrà visualizzata la schermata di **ripristino della password** . Viene richiesto di selezionare l'utente e la sottoscrizione e si riceve un identificatore univoco.
+1. Nella schermata Defender for Internet all Sign-in selezionare il  **ripristino della password**. Verrà visualizzata la schermata di **ripristino della password** .
 
-1. Passare alla pagina Defender per i **siti e i sensori** e selezionare la scheda **Ripristina password** .
+1. Selezionare **CyberX** o **support**, quindi copiare l'identificatore univoco.
+
+1. Passare alla portale di Azure e selezionare **siti e sensori**.  
+
+1. Selezionare la scheda **Ripristina password della console di gestione locale** .
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selezionare il pulsante Ripristina gestione locale per scaricare il file di ripristino.":::
 
 1. Immettere l'identificatore univoco ricevuto nella schermata di **ripristino della password** e selezionare **Ripristina**. Il `password_recovery.zip` file viene scaricato.
 
-   > [!NOTE]
-   > Non modificare il file di attivazione. Si tratta di un file firmato che non funziona se si manomette.
+    > [!NOTE]
+    > Non modificare il file di recupero della password. Si tratta di un file firmato che non funziona se si manomette.
 
-1. Nella schermata di **ripristino della password** caricare il `password_recovery.zip` file e selezionare **Avanti**.
+1. Nella schermata di **ripristino della password** selezionare **carica**. Viene visualizzata **la finestra Carica file di ripristino della password** .
 
-Viene quindi ricevuta la password generata dal sistema per la console di gestione. 
+1. Selezionare **Sfoglia** per individuare il `password_recovery.zip` file o trascinare la nella `password_recovery.zip` finestra.
+
+1. Selezionare **Avanti**. verrà visualizzato l'utente e la password generata dal sistema per la console di gestione.
+
+    > [!NOTE]
+    > Quando si accede a un sensore o a una console di gestione locale per la prima volta, questo verrà collegato alla sottoscrizione a cui è stata connessa. Se è necessario reimpostare la password per il CyberX o l'utente del supporto, sarà necessario selezionare tale sottoscrizione. Per ulteriori informazioni sul ripristino di un CyberX o la password dell'utente di supporto, vedere [reimpostazione della password di un utente per il sensore o la console di gestione locale](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
 
 ### <a name="investigate-a-lack-of-traffic"></a>Esaminare la mancanza di traffico
 
@@ -65,35 +76,35 @@ Per controllare le prestazioni del sistema:
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot di un dashboard di esempio."::: 
 
-2. Dal menu laterale selezionare **Devices (dispositivi**).
+1. Dal menu laterale selezionare **Devices (dispositivi**).
 
-3. Nella finestra **dispositivi** verificare che i dispositivi vengano individuati.
+1. Nella finestra **dispositivi** verificare che i dispositivi vengano individuati.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Assicurarsi che i dispositivi vengano individuati.":::
 
-4. Scegliere **data mining** dal menu laterale.
+1. Scegliere **data mining** dal menu laterale.
 
-5. Nella finestra **data mining** selezionare **tutti** e generare un report.
+1. Nella finestra **data mining** selezionare **tutti** e generare un report.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Consente di generare un nuovo report utilizzando data mining.":::
 
-6. Verificare che il report contenga dati.
+1. Verificare che il report contenga dati.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Verificare che il report contenga dati.":::
 
-7. Dal menu laterale selezionare **trends & Statistics**.
+1. Dal menu laterale selezionare **trends & Statistics**.
 
-8. Nella finestra **tendenze & statistiche** selezionare **Aggiungi widget**.
+1. Nella finestra **tendenze & statistiche** selezionare **Aggiungi widget**.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Per aggiungere un widget, selezionarlo.":::
 
-9. Aggiungere un widget e assicurarsi che mostri i dati.
+1. Aggiungere un widget e assicurarsi che mostri i dati.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Verificare che il widget mostri i dati.":::
 
-10. Dal menu laterale selezionare **avvisi**. Verrà visualizzata la finestra **avvisi** .
+1. Dal menu laterale selezionare **avvisi**. Verrà visualizzata la finestra **avvisi** .
 
-11. Verificare che gli avvisi siano stati creati.
+1. Verificare che gli avvisi siano stati creati.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Verificare che gli avvisi siano stati creati.":::
 
@@ -154,9 +165,9 @@ Per correggere la configurazione:
 
 1. Fare clic con il pulsante destro del mouse sull'icona del cloud nella mappa del dispositivo e selezionare **Esporta indirizzi IP**. Copiare gli intervalli pubblici privati e aggiungerli all'elenco di subnet. Per altre informazioni, vedere [configurare le subnet](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
-2. Genera un nuovo report di data mining per le connessioni Internet.
+1. Genera un nuovo report di data mining per le connessioni Internet.
 
-3. Nel report data mining selezionare :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: per attivare la modalità amministratore ed eliminare gli indirizzi IP dei dispositivi ICS.
+1. Nel report data mining selezionare :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: per attivare la modalità amministratore ed eliminare gli indirizzi IP dei dispositivi ICS.
 
 ### <a name="tweak-the-sensors-quality-of-service"></a>Modificare la qualità del servizio del sensore
 
@@ -179,7 +190,7 @@ Per ottimizzare la qualità del servizio:
    > [!NOTE]
    > Per un dispositivo fisico, usare l'interfaccia EM1.
 
-2. Per cancellare la limitazione dell'interfaccia, immettere `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
+1. Per cancellare la limitazione dell'interfaccia, immettere `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>Strumenti per la risoluzione dei problemi della console di gestione locale
 
@@ -203,7 +214,7 @@ Per ottimizzare la qualità del servizio:
 
 1. Accedere come difensore per l'utente. 
 
-2. Verificare i valori predefiniti:
+1. Verificare i valori predefiniti:
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -216,20 +227,20 @@ Per ottimizzare la qualità del servizio:
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. Modificare le impostazioni predefinite:
+1. Modificare le impostazioni predefinite:
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. Modificare le impostazioni delle righe seguenti:
+1. Modificare le impostazioni delle righe seguenti:
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. Salvare le modifiche. Non occorre eseguire nessun riavvio.
+1. Salvare le modifiche. Non occorre eseguire nessun riavvio.
 
 ## <a name="export-information-for-troubleshooting"></a>Esporta informazioni per la risoluzione dei problemi
 
@@ -239,13 +250,13 @@ Per esportare i log:
 
 1. Nel riquadro sinistro selezionare impostazioni di **sistema**.
 
-2. Selezionare **Esporta log**.
+1. Selezionare **Esporta log**.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Esportare un log nel supporto di sistema.":::
 
-3. Nella casella **nome file** immettere il nome del file che si desidera utilizzare per l'esportazione dei log. L'impostazione predefinita è la data corrente.
+1. Nella casella **nome file** immettere il nome del file che si desidera utilizzare per l'esportazione dei log. L'impostazione predefinita è la data corrente.
 
-4. Per definire i dati che si desidera esportare, selezionare le categorie di dati:  
+1. Per definire i dati che si desidera esportare, selezionare le categorie di dati:  
 
     | Esporta categoria | Descrizione |
     |--|--|
@@ -261,12 +272,12 @@ Per esportare i log:
     | **Log applicazioni Web** | Selezionare questa opzione per ottenere informazioni su tutte le richieste inviate dall'interfaccia Web dell'applicazione. |
     | **Backup del sistema** | Selezionare questa opzione per esportare un backup di tutti i dati di sistema per l'analisi dello stato esatto del sistema. |
     | **Statistiche di dissezione** | Selezionare questa opzione per consentire l'ispezione avanzata delle statistiche del protocollo. |
-    | **Log di database** | Selezionare questa opzione per esportare i log dal database di sistema. L'analisi dei registri di sistema facilita l'identificazione dei problemi di sistema. |
+    | **Log di database** | Selezionare questa opzione per esportare i log dal database di sistema. L'analisi dei registri di sistema consente di identificare i problemi di sistema. |
     | **Configuration** | Selezionare questa opzione per esportare informazioni su tutti i parametri configurabili per verificare che tutti gli elementi siano stati configurati correttamente. |
 
-5. Per selezionare tutte le opzioni, selezionare **Seleziona tutto** accanto a **Scegli categorie**.
+1. Per selezionare tutte le opzioni, selezionare **Seleziona tutto** accanto a **Scegli categorie**.
 
-6. Selezionare **Esporta log**.
+1. Selezionare **Esporta log**.
 
 I log esportati vengono aggiunti all'elenco dei **log archiviati** . Inviare il OTP al team di supporto in un messaggio e un supporto separato dai log esportati. Il team di supporto potrà estrarre i log esportati solo usando l'OTP univoco usato per crittografare i log.
 

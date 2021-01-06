@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e46cf78c76e873bcb78af4942f42a5c4be45391
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169934"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955587"
 ---
 # <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 
@@ -55,6 +55,7 @@ Indirizzi IP pubblici con SKU standard:
 - Sicurezza per impostazione predefinita e chiusa al traffico in ingresso. Consentire il traffico in ingresso elenco con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
 - Assegnati a interfacce di rete, bilanciamenti del carico pubblico standard o gateway applicazione. Per altre informazioni sul servizio di bilanciamento del carico standard, vedere [Load Balancer standard di Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Può essere con ridondanza della zona (pubblicizzato da tutte e 3 le zone) o di zona (è possibile creare una zona e garantirla in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Gli IP con ridondanza della zona possono essere creati solo in aree in cui sono attive [3 zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-region) .** Gli IP creati prima che le zone siano Live non saranno con ridondanza della zona.
+- Può essere usato come IP front-end anycast per i [bilanciamenti del carico tra aree](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) (funzionalità di anteprima).
  
 > [!NOTE]
 > La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.

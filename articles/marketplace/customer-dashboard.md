@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460490"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954278"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Dashboard dei clienti in analisi del Marketplace commerciale
 
@@ -144,14 +144,14 @@ _**Tabella 1: dizionario dei termini dati**_
 
 | Nome colonna | Nome attributo | Definizione |
 | ------------ | ------------- | ------------- |
-| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. L'ID è stato in precedenza il GUID della sottoscrizione di Azure. |
+| ID sottoscrizione Marketplace | ID sottoscrizione Marketplace | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta del Marketplace commerciale. Per le offerte di infrastruttura, si tratta del GUID della sottoscrizione di Azure del cliente. Per le offerte SaaS, questo viene visualizzato come zeri perché gli acquisti SaaS non richiedono una sottoscrizione di Azure. |
 | DateAcquired | Date Acquired | La prima data in cui il cliente ha acquistato eventuali offerte pubblicate. |
 | DateLost | Date Lost | Ultima data in cui il cliente ha annullato l'ultima delle offerte acquistate in precedenza. |
 | Provider Name | Provider Name | Nome del provider associato alla relazione tra Microsoft e il cliente. Se il cliente è di tipo Enterprise tramite rivenditore, sarà il rivenditore. Se è coinvolto un provider di soluzioni cloud (CSP), sarà il CSP. |
 | Posta elettronica del provider | Posta elettronica del provider | Indirizzo di posta elettronica del provider associato alla relazione tra Microsoft e il cliente. Se il cliente è di tipo Enterprise tramite rivenditore, sarà il rivenditore. Se è coinvolto un provider di soluzioni cloud (CSP), sarà il CSP. |
 | FirstName | Customer First Name | Il primo nome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. |
 | LastName | Customer Last Name | Cognome fornito dal cliente. Il nome potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure di un cliente. |
-| E-mail | Customer Email | Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente. |
+| Email | Customer Email | Indirizzo di posta elettronica fornito dal cliente finale. Il messaggio di posta elettronica potrebbe essere diverso dall'indirizzo di posta elettronica nella sottoscrizione di Azure di un cliente. |
 | Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente. |
 | CustomerCity | Città del cliente | Nome della città fornito dal cliente. La città potrebbe essere diversa da quella della città nella sottoscrizione di Azure di un cliente. |
 | Customer Postal Code | Customer Postal Code | Codice postale fornito dal cliente. Il codice può essere diverso dal codice postale fornito nella sottoscrizione di Azure di un cliente. |

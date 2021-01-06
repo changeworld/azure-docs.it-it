@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 60aab2c77a5ccf59e129b21deab34daf756b2e23
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 054d18337e50a367cf1f6f004f4e1d1652c7751e
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827428"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954406"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
@@ -468,15 +468,17 @@ Per informazioni generali su come abilitare le spiegazioni dei modelli e l'impor
   2. Immettere `pip freeze` e cercare `tensorflow` , se presente, la versione elencata deve essere < 1,13
   3. Se la versione elencata non è supportata, `pip uninstall tensorflow` nella shell dei comandi e immettere y per la conferma.
   
- * **Esecuzione non riuscita `jwt.exceptions.DecodeError` con**: messaggio di errore esatto: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
- 
-    Provare a eseguire l'aggiornamento alla versione più recente di AutoML SDK: `pip install -U azureml-sdk[automl]` . 
-    
-    Se non è possibile, verificare la versione di PyJWT. Le versioni supportate sono < 2.0.0. Disinstallare PyJWT dall'ambiente se la versione è >= 2.0.0. È possibile controllare la versione di PyJWT, disinstallare e installare la versione corretta nel modo seguente:
+ * **Esecuzione non riuscita `jwt.exceptions.DecodeError` con**: messaggio di errore esatto: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` .
+
+    Per le versioni <= 1.17.0 dell'SDK, l'installazione potrebbe avere come risultato una versione non supportata di PyJWT. Controllare la versione di PyJWT nell'ambiente automatico ML conda. Le versioni supportate sono < 2.0.0. È possibile controllare la versione di PyJWT come indicato di seguito:
     1. Avviare una shell dei comandi, attivare l'ambiente conda in cui sono installati i pacchetti di Machine Learning automatici.
     2. Immettere `pip freeze` e cercare `PyJWT` , se presente, la versione elencata deve essere < 2.0.0
-    3. Se la versione elencata non è supportata, `pip uninstall PyJWT` nella shell dei comandi e immettere y per la conferma.
-    4. Eseguire l'installazione usando `pip install 'PyJWT<2.0.0'` .
+
+    Se la versione elencata non è supportata:
+    1. Provare a eseguire l'aggiornamento alla versione più recente di AutoML SDK: `pip install -U azureml-sdk[automl]` .
+    2. Se non è possibile, disinstallare PyJWT dall'ambiente e installare la versione corretta nel modo seguente:
+        - `pip uninstall PyJWT` nella shell dei comandi e immettere `y` per la conferma.
+        - Eseguire l'installazione usando `pip install 'PyJWT<2.0.0'` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

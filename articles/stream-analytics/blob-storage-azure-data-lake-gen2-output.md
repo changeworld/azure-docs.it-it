@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ba64f5972d77637ec830fe6b872af66363d6c1bd
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 708e6351350a1925d58cd4da6b71427a98633362
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740046"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954958"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Archiviazione BLOB e output di Azure Data Lake Gen2 da analisi di flusso di Azure
 
-Data Lake Storage Gen2 usa Archiviazione di Azure come base per la compilazione di Enterprise Data Lake (EDL) in Azure. Progettato dall'inizio per servire più petabyte di informazioni supportando al contempo centinaia di Gigabit di velocità effettiva, Data Lake Storage Gen2 consente di gestire facilmente grandi quantità di dati. Una parte fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno spazio dei nomi gerarchico all'archiviazione BLOB.
+Data Lake Storage Gen2 usa Archiviazione di Azure come base per la compilazione di Enterprise Data Lake (EDL) in Azure. Progettato dall'inizio per servire più petabyte di informazioni supportando al contempo centinaia di Gigabit di velocità effettiva, Data Lake Storage Gen2 consente di gestire facilmente grandi quantità di dati. Una parte fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno spazio dei nomi gerarchico all'archivio BLOB.
 
 L'archiviazione BLOB offre una soluzione conveniente e scalabile per archiviare grandi quantità di dati non strutturati nel cloud. Per un'introduzione all'archiviazione BLOB e al relativo utilizzo, vedere [Caricare, scaricare ed elencare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 

@@ -4,16 +4,16 @@ description: Informazioni su come montare un volume di File di Azure per rendere
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881804"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954975"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di Azure Container
 
-Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Come illustrato in questo articolo, le istanze di contenitore di Azure possono montare una condivisione file di Azure creata con [file di Azure](../storage/files/storage-files-introduction.md). File di Azure offre condivisioni file completamente gestite ospitate in archiviazione di Azure accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di Azure Container offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
+Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il contenitore viene riavviato, si arresta in modo anomalo o si interrompe, tutto il relativo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Come illustrato in questo articolo, le istanze di contenitore di Azure possono montare una condivisione file di Azure creata con [file di Azure](../storage/files/storage-files-introduction.md). File di Azure offre condivisioni file completamente gestite ospitate in archiviazione di Azure accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di Azure Container offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
 
 > [!NOTE]
 > Il montaggio di una condivisione File di Azure è attualmente limitato ai contenitori Linux. Trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers).

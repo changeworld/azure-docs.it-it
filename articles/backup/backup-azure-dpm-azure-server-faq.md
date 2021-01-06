@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande più co
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: cd974181c78586f915dad6cc6ed39d9255a1456b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1663a842b7e00c611543451d4caef96b5b5a913f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172587"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954992"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Domande frequenti su server di Backup di Azure e DPM
 
@@ -56,6 +56,10 @@ Per la protezione di VMware/Hyper-V non è necessaria alcuna licenza separata.
 
 - Se si è cliente di System Center, usare System Center Data Protection Manager, ovvero DPM, per proteggere le macchine virtuali VMware.
 - Se non si è clienti System Center, per proteggere le macchine virtuali VMware è possibile usare il server di Backup di Azure (con pagamento in base al consumo).
+
+### <a name="can-i-restore-a-backup-of-a-hyper-v-or-vmware-vm-stored-in-azure-to-azure-as-an-azure-vm"></a>È possibile ripristinare un backup di una macchina virtuale Hyper-V o VMware, archiviata in Azure, in Azure come macchina virtuale di Azure?
+
+No, non è attualmente possibile. È possibile eseguire il ripristino solo in un host locale.
 
 ## <a name="sharepoint"></a>SharePoint
 

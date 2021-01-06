@@ -1,24 +1,24 @@
 ---
-title: Che cosa sono i rischi? Azure AD Identity Protection
+title: Che cos'è il rischio? Azure AD Identity Protection
 description: Spiegazione del rischio in Azure AD Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10d8a94be53780f732112c012600a7fb840642b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 18e504579c750caf452ef74844c4a388ec96448a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180643"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954486"
 ---
-# <a name="what-is-risk"></a>Che cosa sono i rischi?
+# <a name="what-is-risk"></a>Che cos'è il rischio?
 
 I rilevamenti dei rischi in Azure AD Identity Protection includono eventuali azioni sospette identificate relative agli account utente nella directory.
 
@@ -55,7 +55,7 @@ Questi rischi possono essere calcolati in tempo reale o calcolati offline usando
 | Rilevamento del rischio | Tipo di rilevamento | Descrizione |
 | --- | --- | --- |
 | Indirizzo IP anonimo | Tempo reale | Questo tipo di rilevamento dei rischi indica gli accessi da un indirizzo IP anonimo, ad esempio Tor Browser o una VPN anonima. Questi indirizzi IP sono in genere usati da attori che vogliono nascondere i dati di telemetria relativi agli accessi (indirizzo IP, posizione, dispositivo e così via) con intenzioni potenzialmente dannose. |
-| Trasferimento atipico | Offline | Questo tipo di rilevamento dei rischi identifica due accessi provenienti da località geograficamente distanti, in cui almeno una delle posizioni può essere atipica per l'utente, dato il comportamento precedente. Oltre ad altri fattori, l'algoritmo di apprendimento automatico prende in considerazione il tempo che intercorre tra i due accessi e il tempo necessario all'utente per spostarsi dalla prima posizione alla seconda, che indica che un altro utente sta usando le stesse credenziali. <br><br> L'algoritmo ignora i "falsi positivi" evidenti che contribuiscono alle condizioni di impossibilità del trasferimento, ad esempio le VPN e le posizioni usate regolarmente da altri utenti nell'organizzazione. Il sistema ha un periodo di apprendimento iniziale dei primi 14 giorni o 10 accessi, durante i quali apprende il comportamento di accesso di un nuovo utente. |
+| Spostamento fisico atipico | Offline | Questo tipo di rilevamento dei rischi identifica due accessi provenienti da località geograficamente distanti, in cui almeno una delle posizioni può essere atipica per l'utente, dato il comportamento precedente. Oltre ad altri fattori, l'algoritmo di apprendimento automatico prende in considerazione il tempo che intercorre tra i due accessi e il tempo necessario all'utente per spostarsi dalla prima posizione alla seconda, che indica che un altro utente sta usando le stesse credenziali. <br><br> L'algoritmo ignora i "falsi positivi" evidenti che contribuiscono alle condizioni di impossibilità del trasferimento, ad esempio le VPN e le posizioni usate regolarmente da altri utenti nell'organizzazione. Il sistema ha un periodo di apprendimento iniziale dei primi 14 giorni o 10 accessi, durante i quali apprende il comportamento di accesso di un nuovo utente. |
 | Indirizzo IP collegato a malware | Offline | Questo tipo di rilevamento dei rischi indica gli accessi dagli indirizzi IP infetti da malware noto per la comunicazione attiva con un server bot. Questo rilevamento è determinato dalla correlazione tra gli indirizzi IP del dispositivo dell'utente e gli indirizzi IP che erano in contatto con un server bot mentre il server bot era attivo. |
 | Proprietà di accesso insolite | Tempo reale | Questo tipo di rilevamento dei rischi considera la cronologia di accesso precedente (IP, Latitudine/Longitudine e ASN) per la ricerca di accessi anomali. Il sistema archivia le informazioni sui percorsi precedenti usati da un utente e considera tali percorsi "noti". Il rilevamento dei rischi viene attivato quando viene eseguito l'accesso da una posizione non ancora presente nell'elenco di posizioni note. Gli utenti appena creati saranno in "modalità di apprendimento" per un periodo di tempo in cui i rilevamenti dei rischi delle proprietà di accesso non note verranno spenti mentre gli algoritmi apprendono il comportamento dell'utente. La durata della modalità di apprendimento è dinamica e dipende dalla quantità di tempo impiegato dall'algoritmo per raccogliere informazioni sufficienti sui modelli di accesso dell'utente. La durata minima è di cinque giorni. Un utente può tornare alla modalità di apprendimento dopo un lungo periodo di inattività. Il sistema ignora anche gli accessi da dispositivi noti e le posizioni geograficamente vicine a una posizione nota. <br><br> È anche possibile eseguire questo rilevamento per l'autenticazione di base (o i protocolli legacy). Poiché questi protocolli non hanno proprietà moderne, ad esempio l'ID client, i dati di telemetria per ridurre i falsi positivi sono limitati. È consigliabile passare all'autenticazione moderna. |
 | L'amministratore ha confermato che l'utente è compromesso | Offline | Questo rilevamento indica che un amministratore ha selezionato ' conferma utente compromesso ' nell'interfaccia utente Risky Users o usando l'API riskyUsers. Per verificare quale amministratore ha confermato la compromissione dell'utente, controllare la cronologia dei rischi dell'utente (tramite interfaccia utente o API). |
@@ -63,6 +63,9 @@ Questi rischi possono essere calcolati in tempo reale o calcolati offline usando
 | Regole di manipolazione della posta in arrivo sospette | Offline | Questo rilevamento viene individuato da [Microsoft cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Questo criterio di rilevamento profila l'ambiente e genera avvisi quando nella Posta in arrivo di un utente vengono configurate regole sospette per eliminare o spostare messaggi o cartelle. Questo rilevamento può indicare che l'account dell'utente è compromesso, che i messaggi sono intenzionalmente nascosti e che la cassetta postale viene utilizzata per distribuire posta indesiderata o malware nell'organizzazione. |
 | Password spraying | Offline | Un attacco con spray per la password è la posizione in cui vengono attaccati più nomi utente usando password comuni in modo unificato per la forza bruta per ottenere accessi non autorizzati. Questo rilevamento del rischio viene attivato quando viene eseguito un attacco di spray per la password. |
 | Comunicazione impossibile | Offline | Questo rilevamento viene individuato da [Microsoft cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Questo rilevamento identifica due attività utente (in una singola sessione o in più sessioni) provenienti da località geograficamente distanti e realizzate in un intervallo di tempo più breve rispetto a quello che sarebbe stato necessario all'utente per spostarsi dalla prima alla seconda località. Si tratta pertanto di un altro utente che sta usando le stesse credenziali. |
+| Nuovo paese | Offline | Questo rilevamento viene individuato da [Microsoft cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). Questo rilevamento prende in considerazione le località di attività passate per determinare località nuove e non frequenti. Il motore di rilevamento delle anomalie archivia le informazioni sulle località precedenti usate dagli utenti dell'organizzazione. |
+| Attività da indirizzo IP anonimo | Offline | Questo rilevamento viene individuato da [Microsoft cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). Questo rilevamento indica che erano presenti utenti attivi da un indirizzo IP identificato come indirizzo IP proxy anonimo. |
+| Inoltro sospetto della Posta in arrivo | Offline | Questo rilevamento viene individuato da [Microsoft cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). Questo rilevamento consente di rilevare regole di inoltro della posta elettronica sospette, ad esempio se un utente ha creato una regola per la posta in arrivo che inoltra una copia di tutti i messaggi di posta elettronica a un indirizzo esterno. |
 
 ### <a name="other-risk-detections"></a>Altri rilevamenti di rischio
 

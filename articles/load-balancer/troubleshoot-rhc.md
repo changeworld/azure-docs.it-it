@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696320"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955621"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Risolvere i problemi di disponibilità di integrità delle risorse, front-end e back-end 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Risolvere i problemi relativi all'integrità delle risorse e alla disponibilità in ingresso 
 
 Questo articolo è una guida per esaminare i problemi che influiscano sulla disponibilità dell'IP front-end del servizio di bilanciamento del carico e delle risorse back-end. 
+
+Il controllo Integrità risorse (RHC) per il Load Balancer viene usato per determinare l'integrità del servizio di bilanciamento del carico. Analizza la metrica di disponibilità del percorso dati in un intervallo di **2 minuti** per determinare se sono disponibili gli endpoint di bilanciamento del carico, le combinazioni di IP front-end e porte front-end con regole di bilanciamento del carico.
+
+La tabella seguente descrive la logica RHC usata per determinare lo stato di integrità del servizio di bilanciamento del carico.
+
+| Stato di integrità delle risorse | Descrizione |
+| --- | --- |
+| Disponibile | Il servizio di bilanciamento del carico standard è integro e disponibile. |
+| Degraded | Il servizio di bilanciamento del carico standard dispone di eventi avviati dalla piattaforma o dagli utenti che influiscano sulle prestazioni. La metrica di disponibilità del percorso dati ha restituito un valore di integrità inferiore al 90% ma maggiore del 25% per almeno due minuti. Si verificheranno un notevole effetto sulle prestazioni. 
+| Non disponibile | La risorsa di Load Balancer standard non è integra. La metrica di disponibilità del percorso di DataPath ha segnalato meno il 25% di integrità per almeno due minuti. Si verificherà un impatto significativo sulle prestazioni o la mancanza di disponibilità per la connettività in ingresso. Potrebbero verificarsi eventi di utenti o piattaforme che provocano l'indisponibilità. |
+| Sconosciuto | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è stato ancora aggiornato o non ha ricevuto informazioni sulla disponibilità del percorso dati per gli ultimi 10 minuti. Questo stato deve essere temporaneo e rifletterà lo stato corretto non appena vengono ricevuti i dati. |
+
 
 ## <a name="about-the-metrics-well-use"></a>Informazioni sulle metriche da usare
 Le due metriche da usare sono lo stato di *disponibilità del percorso dei dati* e del *Probe di integrità* ed è importante comprenderne il significato per derivare informazioni corrette. 

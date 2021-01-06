@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2902274cfff11ac256459abd4fe0378146ee067b
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: dde2794e459e9375a231b7792bc1bd5ab21561bf
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280190"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955230"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Creare un'istanza gestita di SQL di Azure con gli strumenti Kubernetes
 
@@ -34,7 +34,7 @@ Per creare un'istanza gestita di SQL, è necessario creare un segreto Kubernetes
 
 ## <a name="create-a-yaml-file"></a>Creare un file YAML
 
-È possibile usare il file [YAML del modello](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/sqlmi.yaml) come punto di partenza per creare un file YAML di istanza gestita di SQL personalizzato.  Scaricare questo file nel computer locale e aprirlo in un editor di testo.  È utile usare un editor di testo, ad esempio [vs code](https://code.visualstudio.com/download) che supporta l'evidenziazione della sintassi e la sfilacciatura per i file YAML.
+È possibile usare il file [YAML del modello](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/sqlmi.yaml) come punto di partenza per creare un file YAML di istanza gestita di SQL personalizzato.  Scaricare questo file nel computer locale e aprirlo in un editor di testo.  È utile usare un editor di testo, ad esempio [vs code](https://code.visualstudio.com/download) che supporta l'evidenziazione della sintassi e la sfilacciatura per i file YAML.
 
 Questo è un esempio di file YAML:
 

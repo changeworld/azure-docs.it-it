@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 0b4cf72622df78e13add723853d935fc97649b4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 19451fb09919238a04ac953c9c38fc70b4744d16
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358997"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955298"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creare un controller di dati di Azure ARC usando il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -271,12 +271,12 @@ Dopo aver eseguito il comando, continuare con il [monitoraggio dello stato di cr
 Prima di creare il controller dati in Azure Red Hat OpenShift, è necessario applicare specifici vincoli del contesto di sicurezza (SCC). Per la versione di anteprima, questi vincoli di sicurezza sono attenuati. Le versioni future forniranno il SCC aggiornato.
 
 1. Scaricare il vincolo del contesto di sicurezza personalizzato (SCC). Usare uno dei seguenti: 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - (Non[elaborato](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml))
+   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
+   - (Non[elaborato](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
    - `curl` Il comando seguente Scarica Arc-data-SCC. YAML:
 
       ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
+      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
       ```
 
 1. Crea SCC.
@@ -329,12 +329,12 @@ Dopo aver eseguito il comando, continuare con il [monitoraggio dello stato di cr
 Prima di creare il controller dati in Red Hat OCP, sarà necessario applicare specifici vincoli di contesto di sicurezza (SCC). Per la versione di anteprima, questi vincoli di sicurezza sono attenuati. Le versioni future forniranno il SCC aggiornato.
 
 1. Scaricare il vincolo del contesto di sicurezza personalizzato (SCC). Usare uno dei seguenti: 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - (Non[elaborato](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml))
+   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
+   - (Non[elaborato](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
    - `curl` Il comando seguente Scarica Arc-data-SCC. YAML:
 
       ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
+      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
       ```
 
 1. Crea SCC.

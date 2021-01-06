@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: da4c5f7891b518f4e6393f3fb4e153d464f4f2a2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697561"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955536"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -231,7 +231,14 @@ Il grafico consente al cliente di risolvere i problemi della distribuzione in mo
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Stato di integrità delle risorse
 
-Lo stato di integrità per le risorse di Load Balancer Standard viene esposto tramite **Integrità risorse** in **Monitoraggio > Integrità dei servizi**.
+Lo stato di integrità per le risorse di Load Balancer Standard viene esposto tramite **Integrità risorse** in **Monitoraggio > Integrità dei servizi**. Viene valutato ogni **due minuti** misurando la disponibilità del percorso dati che determina se gli endpoint di bilanciamento del carico front-end sono disponibili.
+
+| Stato di integrità delle risorse | Descrizione |
+| --- | --- |
+| Disponibile | Il servizio di bilanciamento del carico standard è integro e disponibile. |
+| Degraded | Il servizio di bilanciamento del carico standard dispone di eventi avviati dalla piattaforma o dagli utenti che influiscano sulle prestazioni. La metrica di disponibilità del percorso dati ha restituito un valore di integrità inferiore al 90% ma maggiore del 25% per almeno due minuti. Si verificheranno un notevole effetto sulle prestazioni. [Seguire la guida alla risoluzione dei problemi di RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) per determinare se sono presenti eventi avviati dall'utente che potrebbero compromettere la disponibilità.
+| Non disponibile | La risorsa di Load Balancer standard non è integra. La metrica di disponibilità del percorso di DataPath ha segnalato meno il 25% di integrità per almeno due minuti. Si verificherà un impatto significativo sulle prestazioni o la mancanza di disponibilità per la connettività in ingresso. Potrebbero verificarsi eventi di utenti o piattaforme che provocano l'indisponibilità. [Seguire la guida alla risoluzione dei problemi di RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) per determinare se sono presenti eventi avviati dall'utente che incidono sulla disponibilità. |
+| Sconosciuto | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è stato ancora aggiornato o non ha ricevuto informazioni sulla disponibilità del percorso dati per gli ultimi 10 minuti. Questo stato deve essere temporaneo e rifletterà lo stato corretto non appena vengono ricevuti i dati. |
 
 Per visualizzare l'integrità delle risorse della configurazione pubblica di Load Balancer Standard:
 1. Selezionare **monitoraggio**  >  **integrità del servizio**.
@@ -254,12 +261,6 @@ Per visualizzare l'integrità delle risorse della configurazione pubblica di Loa
  
 La descrizione dello stato di integrità delle risorse generiche è disponibile nella [documentazione di RHC](../service-health/resource-health-overview.md). Per gli stati specifici per il Azure Load Balancer sono elencati nella tabella seguente: 
 
-| Stato di integrità delle risorse | Descrizione |
-| --- | --- |
-| Disponibile | Il servizio di bilanciamento del carico standard è integro e disponibile. |
-| Degraded | Il servizio di bilanciamento del carico standard dispone di eventi avviati dalla piattaforma o dagli utenti che influiscano sulle prestazioni. La metrica di disponibilità del percorso di DataPath ha restituito un valore inferiore al 90%, ma maggiore del 25% di integrità per almeno due minuti. Si verificheranno un notevole effetto sulle prestazioni. [Attenersi alla guida alla disponibilità per la risoluzione dei problemi del percorso dati] per determinare se sono presenti eventi avviati dall'utente che potrebbero compromettere la disponibilità.
-| Non disponibile | La risorsa di Load Balancer standard non è integra. La metrica di disponibilità del percorso di DataPath ha segnalato meno il 25% di integrità per almeno due minuti. Si verificherà un impatto significativo sulle prestazioni o la mancanza di disponibilità per la connettività in ingresso. Potrebbero verificarsi eventi di utenti o piattaforme che provocano l'indisponibilità. [Seguire la risoluzione dei problemi Guida alla disponibilità del percorso dati] per determinare se sono presenti eventi avviati dall'utente che incidono sulla disponibilità. |
-| Sconosciuto | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è stato ancora aggiornato o non ha ricevuto informazioni sulla disponibilità del percorso dati per gli ultimi 10 minuti. Questo stato deve essere temporaneo e rifletterà lo stato corretto non appena vengono ricevuti i dati. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
