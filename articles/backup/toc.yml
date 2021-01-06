@@ -75,7 +75,7 @@
         - name: Domande frequenti - Insieme di credenziali di Servizi di ripristino
           href: backup-azure-backup-faq.md
         - name: Domande frequenti - Centro backup
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: Domande frequenti - Backup di macchine virtuali di Azure
           href: backup-azure-vm-backup-faq.md
         - name: Domande frequenti - Agente MARS

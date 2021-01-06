@@ -1090,6 +1090,8 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
+        - name: Esplora dati di Azure (anteprima)
+          href: insights/data-explorer.md
         - name: Reti
           href: insights/network-insights-overview.md
         - name: Key Vault
