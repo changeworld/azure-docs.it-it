@@ -11,19 +11,19 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355394"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932691"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Aggiungere un connettore API a un flusso utente
 
 Per usare un [connettore API](api-connectors-overview.md), è necessario innanzitutto creare il connettore API e quindi abilitarlo in un flusso utente.
 
 > [!IMPORTANT]
->**A partire dal 4 gennaio 2021**, Google sta [deprecando il supporto per l'accesso a WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se si usa la Federazione di Google o l'iscrizione self-service con Gmail, è necessario [testare le applicazioni native line-of-business per la compatibilità](google-federation.md#deprecation-of-webview-sign-in-support).
+>**A partire dal 4 gennaio 2021**, il [supporto dell'accesso WebView verrà deprecato](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) da Google. Se si usa la federazione Google o l'iscrizione self-service con Gmail, è consigliabile [testare la compatibilità delle applicazioni line-of-business native](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="create-an-api-connector"></a>Creare un connettore API
 
@@ -319,7 +319,7 @@ Assicurarsi che:
 * L' **URL dell'endpoint** del connettore API punta all'endpoint API corretto.
 * L'API verifica in modo esplicito la presenza di valori Null delle attestazioni ricevute.
 * L'API risponde nel minor tempo possibile per garantire un'esperienza utente fluida.
-    * Se si utilizza una funzione senza server o un servizio Web scalabile, utilizzare un piano di hosting che contenga l'API "attiva" o "caldo". Per funzioni di Azure, è consigliabile usare il [piano Premium](../../azure-functions/functions-scale.md#premium-plan). 
+    * Se si utilizza una funzione senza server o un servizio Web scalabile, utilizzare un piano di hosting che contenga l'API "attiva" o "caldo". Per funzioni di Azure, è consigliabile usare il [piano Premium](../../azure-functions/functions-premium-plan.md). 
 
 
 ### <a name="use-logging"></a>USA registrazione

@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c34135a59521eca361c59a1c82854469626616
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8dd570a31813ef12ee8a007c84facb8aa5e7aca4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743964"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933133"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>Gestire l'accesso esterno con i criteri di accesso condizionale 
 
-L' [accesso condizionale](../conditional-access/overview.md) è lo strumento Azure ad USA per riunire i segnali, applicare i criteri e determinare se un utente deve essere autorizzato ad accedere alle risorse. Per informazioni dettagliate su come creare e usare i criteri di accesso condizionale (criteri CA), vedere [pianificare una distribuzione di accesso condizionale](../conditional-access/plan-conditional-access.md). 
+L' [accesso condizionale](../conditional-access/overview.md) è lo strumento Azure ad USA per riunire i segnali, applicare i criteri e determinare se un utente deve essere autorizzato ad accedere alle risorse. Per informazioni dettagliate su come creare e usare i criteri di accesso condizionale (criteri di accesso condizionale), vedere [pianificare una distribuzione dell'accesso condizionale](../conditional-access/plan-conditional-access.md). 
 
 ![Diagramma dei segnali e delle decisioni di accesso condizionale](media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-Questo articolo illustra l'applicazione di criteri di autorità di certificazione a utenti esterni e presuppone che non si abbia accesso alla funzionalità di [gestione dei diritti](../governance/entitlement-management-overview.md) . I criteri CA possono essere e usati insieme alla gestione dei diritti.
+Questo articolo illustra l'applicazione di criteri di accesso condizionale a utenti esterni e presuppone che non si abbia accesso alle funzionalità di [gestione dei diritti](../governance/entitlement-management-overview.md) . I criteri di accesso condizionale possono essere usati insieme alla gestione dei diritti.
 
 In precedenza in questo set di documenti è [stato creato un piano di sicurezza](3-secure-access-plan.md) che descrive:
 
@@ -36,27 +36,27 @@ In precedenza in questo set di documenti è [stato creato un piano di sicurezza]
 
 * Requisiti di accesso per gli utenti esterni.
 
-Questo piano viene usato per creare i criteri di autorità di certificazione per l'accesso esterno. 
+Questo piano viene usato per creare i criteri di accesso condizionale per l'accesso esterno. 
 
 > [!IMPORTANT]
 > Creare alcuni account di test utente esterni per poter testare i criteri creati prima di applicarli a tutti gli utenti esterni.
 
 ## <a name="conditional-access-policies-for-external-access"></a>Criteri di accesso condizionale per l'accesso esterno
 
-Di seguito sono illustrate le procedure consigliate relative alla gestione dell'accesso esterno con i criteri della CA.
+Di seguito sono illustrate le procedure consigliate relative alla gestione dell'accesso esterno con i criteri di accesso condizionale.
 
-* Se non è possibile usare le organizzazioni connesse nella gestione dei diritti, creare un gruppo di sicurezza Azure AD o un gruppo di Microsoft 365 per ogni organizzazione partner con cui si lavora. Assegnare tutti gli utenti del partner al gruppo. È quindi possibile utilizzare tali gruppi nei criteri della CA.
+* Se non è possibile usare le organizzazioni connesse nella gestione dei diritti, creare un gruppo di sicurezza Azure AD o un gruppo di Microsoft 365 per ogni organizzazione partner con cui si lavora. Assegnare tutti gli utenti del partner al gruppo. È quindi possibile utilizzare tali gruppi nei criteri di accesso condizionale.
 
-* Creare il minor numero di criteri CA possibili. Per le applicazioni che hanno le stesse esigenze di accesso, aggiungerle tutte allo stesso criterio.  
+* Creare il minor numero possibile di criteri di accesso condizionale. Per le applicazioni che hanno le stesse esigenze di accesso, aggiungerle tutte allo stesso criterio.  
 ‎ 
    > [!NOTE]
-   > I criteri CA possono essere applicati a un massimo di 250 di applicazioni. Se più di 250 app hanno le stesse esigenze di accesso, creare criteri duplicati. Il criterio A si applica alle app 1-250, il criterio B si applica alle app 251-500 e così via.
+   > I criteri di accesso condizionale possono essere applicati a un massimo di 250 di applicazioni. Se più di 250 app hanno le stesse esigenze di accesso, creare criteri duplicati. Il criterio A si applica alle app 1-250, il criterio B si applica alle app 251-500 e così via.
 
 * Denominare chiaramente i criteri specifici dell'accesso esterno con una convenzione di denominazione. Una convenzione di denominazione è *ExternalAccess_actiontaken_AppGroup*. Ad esempio ExternalAccess_Block_FinanceApps.
 
 ## <a name="block-all-external-users-from-resources"></a>Blocca tutti gli utenti esterni dalle risorse
 
-È possibile impedire agli utenti esterni di accedere a set di risorse specifici con i criteri della CA. Una volta determinato il set di risorse a cui si vuole bloccare l'accesso, creare un criterio.
+È possibile impedire agli utenti esterni di accedere a set di risorse specifici con criteri di accesso condizionale. Una volta determinato il set di risorse a cui si vuole bloccare l'accesso, creare un criterio.
 
 Per creare un criterio che blocca l'accesso per gli utenti esterni a un set di applicazioni:
 

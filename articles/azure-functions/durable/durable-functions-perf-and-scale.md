@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854989"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931739"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -51,7 +51,7 @@ L'estensione di attività durevole implementa un algoritmo di backup esponenzial
 Il ritardo massimo di polling può essere configurato tramite la `maxQueuePollingInterval` proprietà nell' [host.jssu file](../functions-host-json.md#durabletask). L'impostazione di questa proprietà su un valore superiore può comportare latenze di elaborazione dei messaggi più elevate. Le latenze più elevate sarebbero previste solo dopo periodi di inattività. L'impostazione di questa proprietà su un valore inferiore può comportare costi di archiviazione più elevati a causa di un aumento delle transazioni di archiviazione.
 
 > [!NOTE]
-> Quando viene eseguito nei piani di consumo e Premium di funzioni di Azure, il [controller di scalabilità di funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) eseguirà il polling di ogni controllo e coda di elementi di lavoro ogni 10 secondi. Questo polling aggiuntivo è necessario per determinare quando attivare le istanze delle app per le funzioni e prendere decisioni di scalabilità. Al momento della stesura di questa operazione, questo intervallo di 10 secondi è costante e non può essere configurato.
+> Quando viene eseguito nei piani di consumo e Premium di funzioni di Azure, il [controller di scalabilità di funzioni di Azure](../event-driven-scaling.md) eseguirà il polling di ogni controllo e coda di elementi di lavoro ogni 10 secondi. Questo polling aggiuntivo è necessario per determinare quando attivare le istanze delle app per le funzioni e prendere decisioni di scalabilità. Al momento della stesura di questa operazione, questo intervallo di 10 secondi è costante e non può essere configurato.
 
 ### <a name="orchestration-start-delays"></a>Ritardi di avvio dell'orchestrazione
 Le istanze delle orchestrazioni vengono avviate inserendo un `ExecutionStarted` messaggio in una delle code di controllo dell'hub attività. In determinate condizioni, è possibile osservare ritardi tra più secondi tra il momento in cui un'orchestrazione è pianificata per l'esecuzione e l'avvio dell'esecuzione. Durante questo intervallo di tempo, l'istanza di orchestrazione rimane nello `Pending` stato. Questo ritardo può essere causato da due possibili cause:
@@ -138,7 +138,7 @@ In generale, le funzioni dell'agente di orchestrazione devono essere semplici, s
 
 ## <a name="auto-scale"></a>Scalabilità automatica
 
-Come con tutte le funzioni di Azure in esecuzione nei piani di consumo e Premium elastico, Durable Functions supporta la scalabilità automatica tramite il [controller di scalabilità di funzioni di Azure](../functions-scale.md#runtime-scaling). Il controller di scalabilità consente di monitorare la latenza di tutte le code eseguendo periodicamente comandi _peek_. In base alle latenze dei messaggi sottoposti al comando peek, il controller di scalabilità stabilisce se aggiungere o rimuovere macchine virtuali.
+Come con tutte le funzioni di Azure in esecuzione nei piani di consumo e Premium elastico, Durable Functions supporta la scalabilità automatica tramite il [controller di scalabilità di funzioni di Azure](../event-driven-scaling.md#runtime-scaling). Il controller di scalabilità consente di monitorare la latenza di tutte le code eseguendo periodicamente comandi _peek_. In base alle latenze dei messaggi sottoposti al comando peek, il controller di scalabilità stabilisce se aggiungere o rimuovere macchine virtuali.
 
 Se il controller di scalabilità determina che le latenze dei messaggi della coda di controllo sono troppo elevate, aggiunge istanze di macchine virtuali fino a quando la latenza dei messaggi non diminuisce fino a un livello accettabile o non raggiunge il numero di partizioni della coda di controllo. In modo analogo, il controller di scalabilità aggiunge continuamente istanze di macchine virtuali se le latenze della coda di elementi di lavoro sono elevate, indipendentemente dal numero di partizioni.
 

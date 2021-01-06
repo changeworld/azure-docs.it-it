@@ -9,7 +9,7 @@
       href: what-is-single-sign-on.md
     - name: Novità della documentazione
       href: whats-new-docs.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Visualizzare le app
@@ -28,7 +28,7 @@
       href: delete-application-portal.md
 - name: Esercitazioni
   items:
-    - name: Elenco delle app preconfigurate
+    - name: Elenco di esercitazioni sull'integrazione di app
       href: /azure/active-directory/saas-apps/
     - name: Aggiungere un'app locale con proxy dell'applicazione
       href: application-proxy-add-on-premises-application.md

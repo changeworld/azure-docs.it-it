@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2157a1cb96475209762e829c549d628f2c35fd91
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425847"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930787"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configurare una condivisione file per la connessione all'app MSIX (anteprima)
 
@@ -64,6 +64,12 @@ Di seguito sono riportate alcune altre operazioni consigliate per ottimizzare le
 Il processo di installazione per la condivisione file di MSIX app è in gran parte uguale al [processo di installazione per le condivisioni file del profilo FSLogix](create-host-pools-user-profile.md). Tuttavia, è necessario assegnare agli utenti autorizzazioni diverse. Il collegamento dell'app MSIX richiede autorizzazioni di sola lettura per accedere alla condivisione file.
 
 Se si archiviano le applicazioni MSIX in File di Azure, per gli host di sessione è necessario assegnare tutte le VM host della sessione sia il controllo degli accessi in base al ruolo dell'account di archiviazione (RBAC) sia le autorizzazioni NTFS (New Technology File System) per la condivisione.
+
+| Oggetto di Azure                      | Ruolo obbligatorio                                     | Role (funzione)                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Host sessione (oggetti computer macchina virtuale)| Collaboratore per la condivisione SMB di dati per file di archiviazione          | Lettura ed esecuzione, lettura, visualizzazione contenuto cartella  |
+| Amministratori nella condivisione file              | Collaboratore con privilegi elevati per la condivisione SMB di dati per file di archiviazione | Controllo completo                                  |
+| Utenti nella condivisione file               | Collaboratore per la condivisione SMB di dati per file di archiviazione          | Lettura ed esecuzione, lettura, visualizzazione contenuto cartella  |
 
 Per assegnare le autorizzazioni VM host sessione per l'account di archiviazione e la condivisione file:
 

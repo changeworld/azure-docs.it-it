@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 6e561a0e05cf1a0870d85369867caba6c4d6bf12
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862450"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932419"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -3733,7 +3733,7 @@ Per altre informazioni su come inserire l'applicazione nella raccolta di app di 
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** Altro **Funzionalità del prodotto:** Directory
 
-Sono state rilasciate nuove guide dettagliate per la distribuzione di Azure Active Directory (Azure AD), con argomenti quali reimpostazione della password self-service, accesso Single Sign-On (SSO), accesso condizionale, Application Proxy, Provisioning utenti, passaggio da Active Directory Federation Services (AD FS) all'autenticazione pass-through e passaggio da Active Directory Federation Services (AD FS) alla sincronizzazione dell'hash delle password.
+Nuove istruzioni dettagliate su come distribuire Azure Active Directory (Azure AD), tra cui la reimpostazione della password self-service (SSPR), la Single Sign-On (SSO), l'accesso condizionale, il proxy applicazione, il provisioning utenti, il Active Directory Federation Services (ADFS) per l'autenticazione pass-through (PTA) e la sincronizzazione dell'hash delle password (pH).
 
 Per visualizzare le guide alla distribuzione, visitare il repository [Identity Deployment Guides](./active-directory-deployment-plans.md) (Guide alla distribuzione di identità) in GitHub. Per fornire commenti e suggerimenti sulle guide alla distribuzione, usare il [modulo di feedback per il piano di distribuzione](https://aka.ms/deploymentplanfeedback). In caso di domande sulle guide alla distribuzione, contattare Microsoft all'indirizzo [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 

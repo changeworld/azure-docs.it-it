@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350705"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897289"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico
 
@@ -50,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 1. Identificare il nome dell'istanza di ServiceNow. Il nome dell'istanza è disponibile nell'URL usato per accedere a ServiceNow. Nell'esempio seguente il nome dell'istanza è dev35214.
 
-   ![Istanza di ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Istanza di ServiceNow](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. Ottenere le credenziali per un amministratore in ServiceNow. Passare al profilo utente in ServiceNow e verificare che l'utente disponga del ruolo di amministratore. 
 
@@ -94,7 +94,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **Credenziali amministratore** immettere le credenziali dell'amministratore di ServiceNow e il nome utente. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app ServiceNow. Se la connessione non riesce, verificare che l'account ServiceNow disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![Screenshot che mostra la pagina di provisioning di ServiceNow, in cui è possibile immettere le credenziali di amministratore.](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Screenshot che mostra la pagina di provisioning di ServiceNow, in cui è possibile immettere le credenziali di amministratore.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -142,11 +142,16 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   Questo errore indica un problema di comunicazione con l'istanza di ServiceNow. Controllare che le impostazioni seguenti siano *disabilitate* in ServiceNow:
+   Questo errore indica un problema di comunicazione con l'istanza di ServiceNow. 
+   
+   Se si verificano problemi con la connessione di test, provare a **disabilitare** le impostazioni seguenti in ServiceNow:
    
    1. Selezionare **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests** (Sicurezza del sistema > Impostazioni di sicurezza elevata > Richiedi autenticazione di base per le richieste SCHEMA in ingresso).
    2. Selezionare **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests** (Proprietà di sistema > Servizi Web > Richiedi autenticazione di base per le richieste SOAP in ingresso).
 
+   ![Autorizzazione della richiesta SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   Se i problemi vengono risolti, contattare il supporto di ServiceNow e chiedere di attivare il debug SOAP per facilitare la risoluzione dei problemi. 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08a4f4a31893fc93789d019ea87dff390552f6a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744023"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932521"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. creare un piano di sicurezza per l'accesso esterno 
 
@@ -134,7 +134,7 @@ Sebbene i criteri vengano personalizzati in base alle proprie esigenze, tenere p
 
 * **Gruppi di Microsoft 365**. Impostare [criteri di scadenza](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dei gruppi per Microsoft 365 gruppi a cui gli utenti esterni vengono invitati. 
 
-* **Altre opzioni**. Se gli utenti esterni possono accedere al di fuori dei pacchetti di accesso alla gestione dei diritti o dei gruppi di Microsoft 365, configurare il processo di business da verificare quando gli account devono essere resi inattivi o eliminati. Ad esempio:
+* **Altre opzioni**. Se gli utenti esterni possono accedere al di fuori dei pacchetti di accesso alla gestione dei diritti o dei gruppi di Microsoft 365, configurare il processo di business da verificare quando gli account devono essere resi inattivi o eliminati. Esempio:
 
    * Rimuovere la funzionalità di accesso per qualsiasi account non connesso a per 90 giorni.
 
@@ -175,7 +175,7 @@ Azure AD P2 e Microsoft 365 E5 hanno la suite completa di strumenti di sicurezza
 | Gestione dei diritti| **Aggiungi utente tramite assegnazione o accesso self-service**| **Pacchetti di accesso**| **Pacchetti di accesso**|  |
 | Gruppo Office 365| | Accesso ai siti (e al contenuto associato) inclusi nel gruppo| Accesso ai team (e al contenuto associato) inclusi nel gruppo|  |
 | Etichette di riservatezza| | **Classificare e limitare manualmente e automaticamente l'accesso**| **Classificare e limitare manualmente e automaticamente l'accesso**| **Classificare e limitare manualmente e automaticamente l'accesso** |
-| Gruppi di sicurezza di Azure AD| **Criteri CA per l'accesso non inclusi nei pacchetti di accesso**| | |  |
+| Gruppi di sicurezza di Azure AD| **Criteri di accesso condizionale per l'accesso non incluso nei pacchetti di accesso**| | |  |
 
 
 ### <a name="entitlement-management"></a>Gestione dei diritti 
@@ -195,7 +195,7 @@ I [pacchetti di accesso alla gestione dei diritti](https://docs.microsoft.com/az
 | Collaborazione B2B Azure AD| **Invito tramite posta elettronica, OTP, self-service**| Federazione B2B diretta| **Revisione periodica per partner**| Rimozione di un account<br>Limita accesso |
 | Gruppi Microsoft o Office 365| | | | Scadenza o eliminazione del gruppo.<br>Rimozione dal gruppo. |
 | Gruppi di sicurezza| | **Aggiungere utenti esterni ai gruppi di sicurezza (organizzazione, team, progetto e così via)**| |  |
-| Criteri di accesso condizionale| | **Criteri della CA di accesso per gli utenti esterni**| |  |
+| Criteri di accesso condizionale| | **Criteri di accesso condizionale per gli utenti esterni**| |  |
 
 
  ### <a name="access-to-resources"></a>Accesso alle risorse.
@@ -204,7 +204,7 @@ I [pacchetti di accesso alla gestione dei diritti](https://docs.microsoft.com/az
 | - |-|-|-|-|
 | Gruppi Microsoft o Office 365| | **Accesso ai siti inclusi nel gruppo (e contenuto associato)**|**Accesso ai team inclusi nel gruppo Microsoft 365 (e contenuto associato)**|  |
 | Etichette di riservatezza| | Classificare e limitare manualmente l'accesso| Classificare e limitare manualmente l'accesso.| Classificazione manuale per limitare e crittografare |
-| Criteri di accesso condizionale| Criteri CA per il controllo di accesso| | |  |
+| Criteri di accesso condizionale| Criteri di accesso condizionale per il controllo di accesso| | |  |
 | Metodi aggiuntivi| | Limitare l'accesso al sito di SharePoint in dettaglio con i gruppi di sicurezza.<br>Non consentire la condivisione diretta.| **Limitare gli inviti esterni ai team**|  |
 
 

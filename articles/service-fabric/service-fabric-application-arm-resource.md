@@ -3,12 +3,12 @@ title: Distribuire e aggiornare con Azure Resource Manager
 description: Informazioni su come distribuire applicazioni e servizi in un cluster di Service Fabric usando un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ed6bc7d96cb3ea0934929e6543c5e637a9f42c1f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681670"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930838"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gestire applicazioni e servizi come risorse di Azure Resource Manager
 
@@ -50,13 +50,12 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
 }
 ```
 
-
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Aggiungere una nuova applicazione al modello di Resource Manager
 
 1. Preparare il modello di Resource Manager del cluster per la distribuzione. Per altre informazioni in proposito, vedere [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Esaminare alcune delle applicazioni che si intende distribuire nel cluster. Esistono applicazioni che saranno sempre in esecuzione e con cui altre applicazioni potrebbero stabilire dipendenze? È prevista la distribuzione di applicazioni di configurazione o governance del cluster? Questi tipi di applicazioni possono essere gestiti in modo ottimale tramite un modello di Resource Manager, come illustrato in precedenza. 
-3. Dopo aver individuato le applicazioni da distribuire in questo modo, è necessario crearne un pacchetto, comprimerlo e inserirlo in una condivisione file. La condivisione deve essere accessibile tramite un endpoint REST per poter essere utilizzata da Azure Resource Manager durante la distribuzione.
-4. Nel modello di Resource Manager, sotto la dichiarazione del cluster descrivere le proprietà di ogni applicazione. Tali proprietà includono il numero di repliche o istanze e tutte le catene di dipendenze tra le risorse (altre applicazioni o servizi). Per un elenco delle proprietà complete, vedere la [specifica di spavalderia dell'API REST](https://aka.ms/sfrpswaggerspec). Si noti che questa operazione non sostituisce i manifesti dell'applicazione o del servizio, ma descrive alcuni elementi che li contiene come parte del modello di Gestione risorse del cluster. Di seguito è riportato un modello di esempio che include la distribuzione di un servizio senza stato *Service1* e un servizio con stato *Service2* come parte di *Application1*:
+3. Una volta individuate le applicazioni che si desidera distribuire in questo modo, le applicazioni devono essere compresse, compresse e inserite in una condivisione di archiviazione. La condivisione deve essere accessibile tramite un endpoint REST per poter essere utilizzata da Azure Resource Manager durante la distribuzione. Per informazioni dettagliate, vedere [creare un account di archiviazione](service-fabric-concept-resource-model.md#create-a-storage-account) .
+4. Nel modello di Resource Manager, sotto la dichiarazione del cluster descrivere le proprietà di ogni applicazione. Tali proprietà includono il numero di repliche o istanze e tutte le catene di dipendenze tra le risorse (altre applicazioni o servizi). Si noti che ciò non sostituisce i manifesti dell'applicazione o del servizio, ma descrive parte del loro contenuto all'interno del modello di Resource Manager del cluster. Di seguito è riportato un modello di esempio che include la distribuzione di un servizio senza stato *Service1* e un servizio con stato *Service2* come parte di *Application1*:
 
    ```json
    {
@@ -244,7 +243,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
    ```
 
    > [!NOTE] 
-   > La proprietà *apiVersion* deve essere impostata su `"2019-03-01"`. Questo modello può essere distribuito anche indipendentemente dal cluster, a condizione che il cluster sia già stato distribuito.
+   > Per informazioni sull'utilizzo e i dettagli sulle singole proprietà dei modelli, fare riferimento alla Service Fabric [Azure Resource Manager riferimento](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) .
 
 5. Eseguire la distribuzione. 
 

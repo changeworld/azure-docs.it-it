@@ -93,6 +93,8 @@
       href: manage.md
     - name: set di scalabilità di macchine virtuali
       items:
+        - name: Aggiornare o eliminare le istanze esistenti di Azure Load Balancer usate da un set di scalabilità di macchine virtuali
+          href: update-load-balancer-with-vm-scale-set.md
         - name: Uso con un'istanza esistente di Azure Load Balancer - Portale
           href: configure-vm-scale-set-portal.md
         - name: Uso con un'istanza esistente di Azure Load Balancer - PowerShell

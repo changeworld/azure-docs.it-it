@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d900659f3ca8a8688c1b1d3a66cd888f37521fc6
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488537"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883385"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -23,7 +23,7 @@ Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere uti
 
 È possibile accedere alle informazioni di registrazione dopo massimo 10 minuti dall'operazione sull'insieme di credenziali delle chiavi, ma nella maggior parte dei casi si potrà farlo prima.  La gestione dei log nell'account di archiviazione è compito dell'utente:
 
-* Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
+* Usare i metodi di controllo di accesso standard di Azure nell'account di archiviazione per proteggere i log limitandone l'accesso.
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
 Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](overview.md). Per informazioni sulla disponibilità di Key Vault, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/key-vault/). Per informazioni sull'uso, vedere [Monitoraggio di Azure per Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
@@ -73,7 +73,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 | **callerIpAddress** |Indirizzo IP del client che ha eseguito la richiesta. |
 | **correlationId** |GUID facoltativo che il client può passare per correlare i log sul lato client con quelli sul lato servizio (insieme di credenziali delle chiavi). |
 | **identity** |Identità del token presentato nella richiesta API REST. In genere si tratta di un "utente", una "entità servizio" o una combinazione "utente+appId", come nel caso di una richiesta generata da un cmdlet di Azure PowerShell. |
-| **properties** |Informazioni diverse in base all'operazione ( **operationName** ). Nella maggior parte dei casi, questo campo contiene informazioni sul client (la stringa agente dell'utente passata dal client), l'URI esatto della richiesta dell'API REST e il codice di stato HTTP. Inoltre, quando un oggetto viene restituito come risultato di una richiesta, ad esempio **KeyCreate** o **VaultGet** , conterrà anche l'URI della chiave (come `id`), l'URI dell'insieme di credenziali o l'URI del segreto. |
+| **properties** |Informazioni diverse in base all'operazione (**operationName**). Nella maggior parte dei casi, questo campo contiene informazioni sul client (la stringa agente dell'utente passata dal client), l'URI esatto della richiesta dell'API REST e il codice di stato HTTP. Inoltre, quando un oggetto viene restituito come risultato di una richiesta, ad esempio **KeyCreate** o **VaultGet**, conterrà anche l'URI della chiave (come `id`), l'URI dell'insieme di credenziali o l'URI del segreto. |
 
 I valori del campo **operationName** sono nel formato *OggettoVerbo*. Ad esempio:
 
@@ -84,6 +84,8 @@ I valori del campo **operationName** sono nel formato *OggettoVerbo*. Ad esempio
 La tabella seguente include un elenco di valori **operationName** con il comando API REST corrispondente:
 
 ### <a name="operation-names-table"></a>Tabella di nomi di operazioni
+
+# <a name="vault"></a>[Insiemi di credenziali](#tab/Vault)
 
 | operationName | Comando API REST |
 | --- | --- |
@@ -97,6 +99,12 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **VaultRecover** |Recuperare l'insieme di credenziali eliminato|
 | **VaultGetDeleted** |[Ottenere l'insieme di credenziali eliminato](/rest/api/keyvault/vaults/getdeleted) |
 | **VaultListDeleted** |[Elencare gli insiemi di credenziali eliminati](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultAccessPolicyChangedEventGridNotification** | Evento di modifica dei criteri di accesso all'insieme di credenziali pubblicato |
+
+# <a name="keys"></a>[Chiavi](#tab/Keys)
+
+| operationName | Comando API REST |
+| --- | --- |
 | **KeyCreate** |[Creare una chiave](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Ottenere informazioni su una chiave](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importare una chiave in un insieme di credenziali](/rest/api/keyvault/vaults) |
@@ -116,6 +124,32 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **KeyRecover** |[Recuperare una chiave](/rest/api/keyvault/recoverdeletedkey) |
 | **KeyGetDeleted** |[Ottenere la chiave eliminata](/rest/api/keyvault/getdeletedkey) |
 | **KeyListDeleted** |[Elencare le chiavi eliminate in un insieme di credenziali](/rest/api/keyvault/getdeletedkeys) |
+| **KeyNearExpiryEventGridNotification** |Evento di chiave vicina alla scadenza pubblicato |
+| **KeyExpiredEventGridNotification** |Evento di chiave scaduta pubblicato |
+
+# <a name="secrets"></a>[Segreti](#tab/Secrets)
+
+| operationName | Comando API REST |
+| --- | --- |
+| **SecretSet** |[Creare un segreto](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Ottenere un segreto](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Aggiornare un segreto](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Eliminare un segreto](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Elencare i segreti in un insieme di credenziali](/rest/api/keyvault/getsecrets) |
+| **SecretListVersions** |[Elencare le versioni di un segreto](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Rimuovere definitivamente un segreto](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Eseguire il backup di un segreto](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Ripristinare un segreto](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Recuperare un segreto](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Ottenere il segreto eliminato](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Elencare i segreti eliminati in un insieme di credenziali](/rest/api/keyvault/getdeletedsecrets) |
+| **SecretNearExpiryEventGridNotification** |Evento di segreto vicino alla scadenza pubblicato |
+| **SecretExpiredEventGridNotification** |Evento di segreto scaduto pubblicato |
+
+# <a name="certificates"></a>[Certificati](#tab/Cerificates)
+
+| operationName | Comando API REST |
+| --- | --- |
 | **CertificateGet** |[Ottenere informazioni su un certificato](/rest/api/keyvault/getcertificate) |
 | **CertificateCreate** |[Creare un certificato](/rest/api/keyvault/createcertificate) |
 | **CertificateImport** |[Importare un certificato in un insieme di credenziali](/rest/api/keyvault/importcertificate) |
@@ -146,25 +180,9 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **CertificatePendingMerge** |Impostare un merge di certificati come in sospeso |
 | **CertificatePendingUpdate** |Impostare un aggiornamento di certificati come in sospeso |
 | **CertificatePendingDelete** |Eliminare un certificato in sospeso |
-| **SecretSet** |[Creare un segreto](/rest/api/keyvault/updatecertificate) |
-| **SecretGet** |[Ottenere un segreto](/rest/api/keyvault/getsecret) |
-| **SecretUpdate** |[Aggiornare un segreto](/rest/api/keyvault/updatesecret) |
-| **SecretDelete** |[Eliminare un segreto](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[Elencare i segreti in un insieme di credenziali](/rest/api/keyvault/getsecrets) |
-| **SecretListVersions** |[Elencare le versioni di un segreto](/rest/api/keyvault/getsecretversions) |
-| **SecretPurge** |[Rimuovere definitivamente un segreto](/rest/api/keyvault/purgedeletedsecret) |
-| **SecretBackup** |[Eseguire il backup di un segreto](/rest/api/keyvault/backupsecret) |
-| **SecretRestore** |[Ripristinare un segreto](/rest/api/keyvault/restoresecret) |
-| **SecretRecover** |[Recuperare un segreto](/rest/api/keyvault/recoverdeletedsecret) |
-| **SecretGetDeleted** |[Ottenere il segreto eliminato](/rest/api/keyvault/getdeletedsecret) |
-| **SecretListDeleted** |[Elencare i segreti eliminati in un insieme di credenziali](/rest/api/keyvault/getdeletedsecrets) |
-| **VaultAccessPolicyChangedEventGridNotification** | Evento di modifica dei criteri di accesso all'insieme di credenziali pubblicato |
-| **SecretNearExpiryEventGridNotification** |Evento di segreto vicino alla scadenza pubblicato |
-| **SecretExpiredEventGridNotification** |Evento di segreto scaduto pubblicato |
-| **KeyNearExpiryEventGridNotification** |Evento di chiave vicina alla scadenza pubblicato |
-| **KeyExpiredEventGridNotification** |Evento di chiave scaduta pubblicato |
 | **CertificateNearExpiryEventGridNotification** |Evento di certificato vicino alla scadenza pubblicato |
 | **CertificateExpiredEventGridNotification** |Evento di certificato scaduto pubblicato |
+---
 
 ## <a name="use-azure-monitor-logs"></a>Usare i log di Monitoraggio di Azure
 
@@ -175,6 +193,7 @@ Per altre informazioni, anche su come configurare la soluzione, vedere [Azure Ke
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Come abilitare la registrazione di Key Vault](howto-logging.md)
+- [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/)
 - Per un'esercitazione sull'uso di Azure Key Vault in un'applicazione Web .NET, vedere [Usare Azure Key Vault da un'app Web](tutorial-net-create-vault-azure-web-app.md).
 - Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](developers-guide.md).
 - Per un elenco di cmdlet di Azure PowerShell 1.0 per Azure Key Vault, vedere [Cmdlet per Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).

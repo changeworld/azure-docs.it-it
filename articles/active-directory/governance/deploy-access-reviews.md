@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746304"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932436"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
 
@@ -333,9 +333,9 @@ I gruppi sincronizzati da Active Directory locali non possono avere un proprieta
 > [!NOTE]
 > Si consiglia di definire i criteri di business che definiscono il modo in cui vengono creati i gruppi per garantire una chiara proprietà del gruppo e la responsabilità per una verifica regolare dell'appartenenza. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>Verificare l'appartenenza dei gruppi di esclusioni nei criteri della CA 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Verificare l'appartenenza dei gruppi di esclusioni nei criteri di accesso condizionale 
 
-In alcuni casi, i criteri di accesso condizionale progettati per proteggere la rete non devono essere applicati a tutti gli utenti. Ad esempio, un criterio dell'autorità di certificazione che consente agli utenti di accedere solo mentre nella rete aziendale potrebbe non essere applicabile al team di vendita, che viaggia in modo esteso. In tal caso, i membri del team di vendita vengono inseriti in un gruppo e tale gruppo verrebbe escluso dai criteri di autorità di certificazione. 
+In alcuni casi, i criteri di accesso condizionale progettati per proteggere la rete non devono essere applicati a tutti gli utenti. Ad esempio, un criterio di accesso condizionale che consente solo agli utenti di accedere mentre nella rete aziendale potrebbe non essere applicabile al team di vendita, che viaggia in modo esteso. In tal caso, i membri del team di vendita vengono inseriti in un gruppo e tale gruppo verrebbe escluso dai criteri di accesso condizionale. 
 
 Verificare regolarmente l'appartenenza a un gruppo, in quanto l'esclusione rappresenta un potenziale rischio se i membri non corretti sono esclusi dal requisito.
 

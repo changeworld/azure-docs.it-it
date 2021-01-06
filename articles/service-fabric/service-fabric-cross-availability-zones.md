@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 73a3be62e57991b63525372f008e15d8e4f36a74
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401730"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930821"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -35,7 +35,7 @@ Per la topologia consigliata per il tipo di nodo primario sono necessarie le ris
 >[!NOTE]
 > Il set di scalabilità di macchine virtuali proprietà del gruppo di posizionamento singolo deve essere impostato su true, poiché Service Fabric non supporta un singolo set di scalabilità di macchine virtuali che si estende su zone.
 
- ![Architettura della zona di disponibilità di Azure Service Fabric][sf-architecture]
+ ![Diagramma che illustra l'architettura della zona di disponibilità di Azure Service Fabric.][sf-architecture]
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 ### <a name="public-ip-and-load-balancer-resource"></a>IP pubblico e risorsa Load Balancer

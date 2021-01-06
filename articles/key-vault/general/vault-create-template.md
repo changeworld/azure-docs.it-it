@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1ab382ec10d932b94961c73b7d7ac9082125a88c
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704521"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933932"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Come creare un insieme di credenziali delle chiavi di Azure e i criteri di accesso all'insieme di credenziali usando un modello di Gestione risorse
 
@@ -213,10 +213,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Leggi una [Panoramica del Azure Key Vault](../general/overview.md).
 - Altre informazioni su [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Esaminare [Azure Key Vault procedure consigliate](../general/best-practices.md).
+- Esaminare la [Panoramica della sicurezza Azure Key Vault](security-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Proteggere l'accesso a un insieme di credenziali delle chiavi](secure-your-key-vault.md)
 - [Eseguire l'autenticazione in un insieme di credenziali delle chiavi](authentication.md)
-- [Guida per gli sviluppatori di Azure Key Vault](developers-guide.md)
+- [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](developers-guide.md)
