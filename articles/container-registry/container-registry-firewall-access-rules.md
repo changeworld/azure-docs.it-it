@@ -1,14 +1,14 @@
 ---
 title: Regole di accesso al firewall
-description: Configurare le regole per accedere a un registro contenitori di Azure da dietro un firewall, consentendo l'accesso (inserimento in un "elenco elementi consentiti") all'API REST e ai nomi di dominio dell'endpoint dati o agli intervalli di indirizzi IP specifici del servizio.
+description: Configurare le regole per accedere a un registro contenitori di Azure da dietro un firewall, consentendo l'accesso all'API REST e ai nomi di dominio dell'endpoint dati o agli intervalli di indirizzi IP specifici del servizio.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148514"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935989"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall
 

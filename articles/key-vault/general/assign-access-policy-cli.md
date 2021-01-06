@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 59ba81944ecdf4f2b6322f4298e61df33f5b1da8
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0c7910ac149c8de43eeac92913a0d314fcc1854e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289190"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934578"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Assegnare un criterio di accesso Key Vault
 
@@ -23,11 +23,11 @@ Un criterio di accesso Key Vault determina se una determinata entità servizio, 
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Per altre informazioni sulla creazione di gruppi in Azure Active Directory usando l'interfaccia della riga di comando di Azure, vedere [AZ ad Group create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) e [AZ ad Group member Add](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add).
+Per altre informazioni sulla creazione di gruppi in Azure Active Directory usando l'interfaccia della riga di comando di Azure, vedere [AZ ad Group create](/cli/azure/ad/group#az-ad-group-create) e [AZ ad Group member Add](/cli/azure/ad/group/member#az-ad-group-member-add).
 
 ## <a name="configure-the-azure-cli-and-sign-in"></a>Configurare l'interfaccia della riga di comando di Azure ed accedere
 
-1. Per eseguire i comandi di Azure CLI localmente, installare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Per eseguire i comandi di Azure CLI localmente, installare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli).
  
     Per eseguire i comandi direttamente nel cloud, usare il [Azure cloud Shell](../../cloud-shell/overview.md).
 
@@ -43,19 +43,19 @@ Per altre informazioni sulla creazione di gruppi in Azure Active Directory usand
 
 Determinare l'ID oggetto dell'applicazione, del gruppo o dell'utente a cui si desidera assegnare i criteri di accesso:
 
-- Applicazioni e altre entità servizio: usare il comando [AZ ad SP list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) per recuperare le entità servizio. Esaminare l'output del comando per determinare l'ID oggetto dell'entità di sicurezza a cui si desidera assegnare i criteri di accesso.
+- Applicazioni e altre entità servizio: usare il comando [AZ ad SP list](/cli/azure/ad/sp#az-ad-sp-list) per recuperare le entità servizio. Esaminare l'output del comando per determinare l'ID oggetto dell'entità di sicurezza a cui si desidera assegnare i criteri di accesso.
 
     ```azurecli-interactive
     az ad sp list --show-mine
     ```
 
-- Gruppi: usare il comando [AZ ad Group List](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) , filtrando i risultati con il `--display-name` parametro:
+- Gruppi: usare il comando [AZ ad Group List](/cli/azure/ad/group#az-ad-group-list) , filtrando i risultati con il `--display-name` parametro:
 
      ```azurecli-interactive
     az ad group list --display-name <search-string>
     ```
 
-- Utenti: usare il comando [AZ ad User Show](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) , passando l'indirizzo di posta elettronica dell'utente nel `--id` parametro:
+- Utenti: usare il comando [AZ ad User Show](/cli/azure/ad/user#az-ad-user-show) , passando l'indirizzo di posta elettronica dell'utente nel `--id` parametro:
 
     ```azurecli-interactive
     az ad user show --id <email-address-of-user>
@@ -63,7 +63,7 @@ Determinare l'ID oggetto dell'applicazione, del gruppo o dell'utente a cui si de
 
 ## <a name="assign-the-access-policy"></a>Assegnare i criteri di accesso
     
-Usare il comando [AZ Vault set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) per assegnare le autorizzazioni desiderate:
+Usare il comando [AZ Vault set-Policy](/cli/azure/keyvault#az-keyvault-set-policy) per assegnare le autorizzazioni desiderate:
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
@@ -71,11 +71,10 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permis
 
 Sostituire `<object-id>` con l'ID oggetto dell'entità servizio.
 
-È necessario includere `--secret-permissions` , `--key-permissions` e solo quando si `--certificate-permissions` assegnano autorizzazioni a tali tipi particolari. I valori consentiti per `<secret-permissions>` , `<key-permissions>` e `<certificate-permissions>` sono specificati nella documentazione [AZ di Vault set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) .
+È necessario includere `--secret-permissions` , `--key-permissions` e solo quando si `--certificate-permissions` assegnano autorizzazioni a tali tipi particolari. I valori consentiti per `<secret-permissions>` , `<key-permissions>` e `<certificate-permissions>` sono specificati nella documentazione [AZ di Vault set-Policy](/cli/azure/keyvault#az-keyvault-set-policy) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Sicurezza di Azure Key Vault: Gestione delle identità e dell'accesso](overview-security.md#identity-and-access-management)
+- [Sicurezza di Azure Key Vault: Gestione delle identità e dell'accesso](security-overview.md#identity-management)
 - [Proteggere l'](secure-your-key-vault.md)insieme di credenziali delle chiavi.
 - [Guida per gli sviluppatori per Azure Key Vault](developers-guide.md)
-- [Procedure consigliate per Azure Key Vault](best-practices.md)

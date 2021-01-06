@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/04/2021
+ms.date: 1/05/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4674fe41a0e3d63ef0cadc6ad55eca02fc69618e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916253"
+ms.locfileid: "97935904"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -94,7 +94,7 @@ Alcuni dei miglioramenti del formato del token V2 sono disponibili per le app ch
 
 | Attestazione JWT     | Nome                            | Descrizione | Note |
 |---------------|---------------------------------|-------------|-------|
-|`aud`          | Destinatari | Sempre presente in token JWT, ma nei token di accesso V1 può essere generato in diversi modi, che può essere difficile da codificare quando si esegue la convalida dei token.  Usare le [proprietà aggiuntive per questa attestazione](#additional-properties-of-optional-claims) per assicurarsi che sia sempre impostato su un GUID nei token di accesso V1. | solo token di accesso JWT V1|
+|`aud`          | Destinatari | Sempre presente in token JWT, ma nei token di accesso V1 può essere generato in diversi modi, ovvero qualsiasi URI appID, con o senza una barra finale, nonché l'ID client della risorsa. Questa sequenza casuale può essere difficile da codificare quando si esegue la convalida del token.  Usare le [proprietà aggiuntive per questa attestazione](#additional-properties-of-optional-claims) per assicurarsi che sia sempre impostato sull'ID client della risorsa nei token di accesso V1. | solo token di accesso JWT V1|
 |`preferred_username` | Nome utente preferito        | Fornisce l'attestazione nome utente preferita entro i token V1. Questo rende più semplice per le app fornire hint per il nome utente e visualizzare i nomi visualizzati leggibili, indipendentemente dal tipo di token.  È consigliabile usare questa attestazione facoltativa invece di usare, ad esempio `upn` o `unique_name` . | token ID V1 e token di accesso |
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
@@ -108,8 +108,8 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 | `upn`          |                          | Utilizzabile per le risposte SAML e JWT e per i token v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Include l'UPN guest così come è archiviato nel tenant della risorsa. Ad esempio, usare `foo_hometenant.com#EXT#@resourcetenant.com` |
 |                | `include_externally_authenticated_upn_without_hash` | Come sopra, tranne che i cancelletti (`#`) vengono sostituiti da caratteri di sottolineatura (`_`), ad esempio `foo_hometenant.com_EXT_@resourcetenant.com`|
-| `aud`          |                          | Nei token di accesso V1, viene usato per modificare il formato dell' `aud` attestazione.  Questa operazione non ha alcun effetto nei token v2 o ID, in cui l' `aud` attestazione è sempre l'ID client. Usare questo per assicurarsi che l'API possa eseguire più facilmente la convalida dei destinatari. Come tutte le attestazioni facoltative che influiscono sul token di accesso, la risorsa nella richiesta deve impostare questa attestazione facoltativa, dal momento che le risorse sono proprietarie del token di accesso.|
-|                | `use_guid`               | Genera l'ID client della risorsa (API) in formato GUID come `aud` attestazione anziché come URI o GUID di AppID. Quindi, se l'ID client di una risorsa è `bb0a297b-6a42-4a55-ac40-09a501456577` , qualsiasi app che richiede un token di accesso per tale risorsa riceverà un token di accesso con `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` .|
+| `aud`          |                          | Nei token di accesso V1, viene usato per modificare il formato dell' `aud` attestazione.  Questa operazione non ha alcun effetto nei token v2 o nei token ID della versione, in cui l' `aud` attestazione è sempre l'ID client. Usare questa configurazione per garantire che l'API possa eseguire più facilmente la convalida dei destinatari. Come tutte le attestazioni facoltative che influiscono sul token di accesso, la risorsa nella richiesta deve impostare questa attestazione facoltativa, dal momento che le risorse sono proprietarie del token di accesso.|
+|                | `use_guid`               | Genera l'ID client della risorsa (API) in formato GUID come `aud` attestazione sempre anziché come dipendente dal runtime. Se, ad esempio, una risorsa imposta questo flag e l'ID client è `bb0a297b-6a42-4a55-ac40-09a501456577` , qualsiasi app che richiede un token di accesso per tale risorsa riceverà un token di accesso con `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` . </br></br> Senza questo set di attestazioni, un'API potrebbe ottenere i token con un' `aud` attestazione `api://MyApi.com` , `api://MyApi.com/` `api://myapi.com/AdditionalRegisteredField` o qualsiasi altro valore impostato come URI ID app per l'API e l'ID client della risorsa. |
 
 #### <a name="additional-properties-example"></a>Esempio di proprietà aggiuntive
 

@@ -1,20 +1,20 @@
 ---
 title: Risorse figlio nei modelli
-description: Viene descritto come impostare il nome e il tipo per le risorse figlio in un modello di Azure Resource Manager.
+description: Viene descritto come impostare il nome e il tipo per le risorse figlio in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97721944"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934306"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Imposta il nome e il tipo per le risorse figlio
 
 Le risorse figlio sono risorse che esistono solo nel contesto di un'altra risorsa. Ad esempio, un' [estensione della macchina virtuale](/azure/templates/microsoft.compute/virtualmachines/extensions) non può esistere senza una [macchina virtuale](/azure/templates/microsoft.compute/virtualmachines). La risorsa di estensione è un elemento figlio della macchina virtuale.
 
-Ogni risorsa padre accetta solo determinati tipi di risorse come risorse figlio. Il tipo di risorsa per la risorsa figlio include il tipo di risorsa per la risorsa padre. Ad esempio, **Microsoft. Web/sites/config** e **Microsoft. Web/sites/Extensions** sono entrambe risorse figlio di **Microsoft. Web/sites**. I tipi di risorse accettate sono specificati nel [schema del modello](https://github.com/Azure/azure-resource-manager-schemas) della risorsa padre.
+Ogni risorsa padre accetta solo determinati tipi di risorse come risorse figlio. Il tipo di risorsa per la risorsa figlio include il tipo di risorsa per la risorsa padre. Ad esempio, `Microsoft.Web/sites/config` e `Microsoft.Web/sites/extensions` sono entrambe risorse figlio della `Microsoft.Web/sites` . I tipi di risorse accettate sono specificati nel [schema del modello](https://github.com/Azure/azure-resource-manager-schemas) della risorsa padre.
 
 In un modello di Azure Resource Manager (modello ARM), è possibile specificare la risorsa figlio all'interno della risorsa padre o all'esterno della risorsa padre. Nell'esempio seguente viene illustrata la risorsa figlio inclusa nella proprietà Resources della risorsa padre.
 
@@ -89,7 +89,7 @@ Nell'esempio seguente viene illustrata una rete virtuale e una subnet. Si noti c
 ]
 ```
 
-Il tipo di risorsa completo è ancora **Microsoft. Network/virtualNetworks/Subnets**. Non si fornisce **Microsoft. Network/virtualNetworks/** perché si presuppone dal tipo di risorsa padre.
+Il tipo di risorsa completo è ancora `Microsoft.Network/virtualNetworks/subnets` . Non si specifica `Microsoft.Network/virtualNetworks/` perché viene ottenuto dal tipo della risorsa padre.
 
 Il nome della risorsa figlio è impostato su **Subnet1** , ma il nome completo include il nome padre. Non viene fornito **VNet1** perché si presuppone dalla risorsa padre.
 
@@ -102,7 +102,7 @@ Quando viene definito all'esterno della risorsa padre, si formatta il tipo e con
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-Nell'esempio seguente vengono illustrate una rete virtuale e una subnet che sono entrambe definite a livello di radice. Si noti che la subnet non è inclusa nell'array di risorse per la rete virtuale. Il nome è impostato su **VNet1/Subnet1** e il tipo è impostato su **Microsoft. Network/virtualNetworks/Subnets**. La risorsa figlio è contrassegnata come dipendente dalla risorsa padre perché la risorsa padre deve esistere prima che la risorsa figlio possa essere distribuita.
+Nell'esempio seguente vengono illustrate una rete virtuale e una subnet che sono entrambe definite a livello di radice. Si noti che la subnet non è inclusa nell'array di risorse per la rete virtuale. Il nome è impostato su **VNet1/Subnet1** e il tipo è impostato su `Microsoft.Network/virtualNetworks/subnets` . La risorsa figlio è contrassegnata come dipendente dalla risorsa padre perché la risorsa padre deve esistere prima che la risorsa figlio possa essere distribuita.
 
 ```json
 "resources": [
@@ -136,6 +136,6 @@ Nell'esempio seguente vengono illustrate una rete virtuale e una subnet che sono
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla creazione di modelli ARM, vedere Creazione di [modelli](template-syntax.md).
+* Per informazioni sulla creazione di modelli ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 
 * Per informazioni sul formato del nome della risorsa quando si fa riferimento alla risorsa, vedere la [funzione Reference](template-functions-resource.md#reference).

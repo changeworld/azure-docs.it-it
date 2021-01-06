@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare Funzioni di Azure in C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 9e11d013b6e7473f290ba1ccb54857034491d116
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672666"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936924"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -138,7 +138,7 @@ public static class BindingExpressionsExample
 
 Il processo di compilazione crea un file *function.json* in una cartella della funzione nella cartella di compilazione. Come affermato in precedenza, questo file non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. 
 
-Lo scopo di questo file è fornire informazioni al controller di scalabilità da usare per le [decisioni di scalabilità nel piano a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
+Lo scopo di questo file è fornire informazioni al controller di scalabilità da usare per le [decisioni di scalabilità nel piano a consumo](event-driven-scaling.md). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
 
 Il file *function.json* generato include una proprietà `configurationSource` che indica al runtime di usare gli attributi .NET per le associazioni invece della configurazione *function.json*. Ecco un esempio:
 
@@ -208,7 +208,7 @@ Se si installano gli strumenti di base usando npm, questo non ha alcun effetto s
 
 ## <a name="readytorun"></a>ReadyToRun
 
-È possibile compilare l'app per le funzioni come [file binari ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun è una forma di compilazione anticipata che può migliorare le prestazioni di avvio per ridurre l'effetto dell'avvio a [freddo](functions-scale.md#cold-start) durante l'esecuzione in un [piano a consumo](functions-scale.md#consumption-plan).
+È possibile compilare l'app per le funzioni come [file binari ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun è una forma di compilazione anticipata che può migliorare le prestazioni di avvio per ridurre l'effetto dell'avvio a [freddo](event-driven-scaling.md#cold-start) durante l'esecuzione in un [piano a consumo](consumption-plan.md).
 
 ReadyToRun è disponibile in .NET 3,0 e richiede [la versione 3,0 del runtime di funzioni di Azure](functions-versions.md).
 

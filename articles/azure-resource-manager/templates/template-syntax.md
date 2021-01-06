@@ -3,12 +3,12 @@ title: Struttura e sintassi del modello
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager (modelli ARM) usando la sintassi dichiarativa JSON.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 698309c5aa0817c4b758ec81133d4c98061aa355
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4c08612325d2776f8f1a7fe4486e6f592ca474a0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653130"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934697"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli di Resource Manager
 
@@ -35,7 +35,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
-| $schema |Sì |Percorso del file di schema JSON che descrive la versione del linguaggio del modello. Il numero di versione usato dipende dall'ambito della distribuzione e dall'editor JSON.<br><br>Se si usa [vs code con l'estensione strumenti di Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), usare la versione più recente per le distribuzioni di gruppi di risorse:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Altri editor (incluso Visual Studio) potrebbero non essere in grado di elaborare questo schema. Per gli editor, usare:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: <br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Per le distribuzioni di gruppi di gestione, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Per le distribuzioni tenant, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Sì |Percorso del file di schema JavaScript Object Notation (JSON) che descrive la versione del linguaggio del modello. Il numero di versione usato dipende dall'ambito della distribuzione e dall'editor JSON.<br><br>Se si usa [Visual Studio Code con l'estensione strumenti di Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), usare la versione più recente per le distribuzioni di gruppi di risorse:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Altri editor (incluso Visual Studio) potrebbero non essere in grado di elaborare questo schema. Per gli editor, usare:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: <br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Per le distribuzioni di gruppi di gestione, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Per le distribuzioni tenant, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Sì |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
 | apiProfile |No | Versione API che funge da raccolta di versioni API per i tipi di risorse. Usare questo valore per evitare di dover specificare le versioni API per ogni risorsa nel modello. Quando si specifica una versione del profilo API e non si specifica una versione API per il tipo di risorsa, Gestione risorse usa la versione dell'API per quel tipo di risorsa definito nel profilo.<br><br>La proprietà del profilo API è particolarmente utile quando si distribuisce un modello in ambienti diversi, ad esempio Azure Stack e Azure globale. Usare la versione del profilo API per assicurarsi che il modello usi automaticamente le versioni supportate in entrambi gli ambienti. Per un elenco delle versioni correnti del profilo API e delle versioni API delle risorse definite nel profilo, vedere [profilo API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Per altre informazioni, vedere [tenere traccia delle versioni usando i profili API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |No |Valori forniti durante la distribuzione per personalizzare la distribuzione di risorse. |
@@ -98,13 +98,13 @@ La stringa protetta usa lo stesso formato di stringa e l'oggetto protetto usa lo
 
 Per i numeri interi passati come parametri inline, l'intervallo di valori può essere limitato dall'SDK o dallo strumento da riga di comando usato per la distribuzione. Ad esempio, quando si usa PowerShell per distribuire un modello, i tipi integer possono variare da-2147483648 a 2147483647. Per evitare questa limitazione, specificare valori integer di grandi dimensioni in un [file di parametri](parameter-files.md). I tipi di risorsa applicano i propri limiti per le proprietà Integer.
 
-Quando si specificano valori booleani e Integer nel modello, non racchiudere il valore tra virgolette. Valori stringa iniziale e finale con virgolette doppie.
+Quando si specificano valori booleani e Integer nel modello, non racchiudere il valore tra virgolette. Valori stringa iniziale e finale con virgolette doppie ( `"string value"` ).
 
-Gli oggetti iniziano con una parentesi graffa sinistra e terminano con una parentesi graffa destra. Le matrici iniziano con una parentesi quadra aperta e terminano con una parentesi quadra chiusa.
+Gli oggetti iniziano con una parentesi graffa sinistra ( `{` ) e terminano con una parentesi graffa destra ( `}` ). Le matrici iniziano con una parentesi quadra aperta ( `[` ) e terminano con una parentesi quadra chiusa ( `]` ).
 
 ## <a name="parameters"></a>Parametri
 
-Nella sezione parameters del modello specificare i valori che si possono immettere durante la distribuzione delle risorse. È previsto un limite di 256 parametri in un modello. È possibile ridurre il numero di parametri utilizzando oggetti che contengono più proprietà.
+Nella `parameters` sezione del modello si specificano i valori che è possibile immettere durante la distribuzione delle risorse. È previsto un limite di 256 parametri in un modello. È possibile ridurre il numero di parametri utilizzando oggetti che contengono più proprietà.
 
 Le proprietà disponibili per un parametro sono:
 
@@ -128,7 +128,7 @@ Le proprietà disponibili per un parametro sono:
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | Nome parametro |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
-| type |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati](#data-types). |
+| tipo |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati](#data-types). |
 | defaultValue |No |Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. |
 | allowedValues |No |Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. |
 | minValue |No |Il valore minimo per i parametri di tipo int, questo valore è inclusivo. |
@@ -141,7 +141,7 @@ Per esempi relativi all'uso dei parametri, vedere [parametri nei modelli ARM](te
 
 ## <a name="variables"></a>variables
 
-Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse. Il formato di ogni variabile corrisponde a uno dei [tipi di dati](#data-types).
+Nella `variables` sezione si costruiscono i valori che possono essere usati in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse. Il formato di ogni variabile corrisponde a uno dei [tipi di dati](#data-types).
 
 Nell'esempio seguente vengono illustrate le opzioni disponibili per la definizione di una variabile:
 
@@ -211,7 +211,7 @@ Quando si crea una funzione definita dall'utente, è necessario tenere presente 
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | namespace |Sì |Spazio dei nomi per le funzioni personalizzate. Usare per evitare conflitti di denominazione con le funzioni di modello. |
-| Nome funzione |Sì |Nome della funzione personalizzata. Quando si chiama la funzione, combinare il nome della funzione con lo spazio dei nomi. Ad esempio, per chiamare una funzione denominata UniqueName nello spazio dei nomi contoso, usare `"[contoso.uniqueName()]"` . |
+| Nome funzione |Sì |Nome della funzione personalizzata. Quando si chiama la funzione, combinare il nome della funzione con lo spazio dei nomi. Ad esempio, per chiamare una funzione denominata `uniqueName` nello spazio dei nomi contoso, usare `"[contoso.uniqueName()]"` . |
 | Nome parametro |No |Nome del parametro da usare all'interno della funzione personalizzata. |
 | valore parametro |No |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
 | tipo di output |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input della funzione. |
@@ -221,7 +221,7 @@ Per esempi relativi all'uso di funzioni personalizzate, vedere [funzioni definit
 
 ## <a name="resources"></a>Risorse
 
-Nella sezione risorse è possibile definire le risorse da distribuire o aggiornare.
+Nella `resources` sezione vengono definite le risorse che vengono distribuite o aggiornate.
 
 Le risorse vengono definite con la struttura seguente:
 
@@ -282,7 +282,7 @@ Le risorse vengono definite con la struttura seguente:
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | condizione | No | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Vedere [Condition](conditional-resource-deployment.md). |
-| type |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft. storage/storageAccounts**. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). Per una risorsa figlio, il formato del tipo dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
+| tipo |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio `Microsoft.Storage/storageAccounts` . Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). Per una risorsa figlio, il formato del tipo dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 | apiVersion |Sì |Versione dell'API REST da utilizzare per la creazione della risorsa. Quando si crea un nuovo modello, impostare questo valore sulla versione più recente della risorsa che si sta distribuendo. Fino a quando il modello funziona in base alle esigenze, continua a usare la stessa versione API. Continuando a usare la stessa versione dell'API, è possibile ridurre al minimo il rischio che una nuova versione dell'API cambi la modalità di funzionamento del modello. Provare ad aggiornare la versione dell'API solo quando si vuole usare una nuova funzionalità introdotta in una versione successiva. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). |
 | name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi di Azure che espongono il nome della risorsa alle parti esterne convalidano il nome per assicurarsi che non sia un tentativo di falsificare un'altra identità. Per una risorsa figlio, il formato del nome dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
 | comments |No |Le note per documentare le risorse nel modello. Per altre informazioni, consultare la sezione [Comments in templates](template-syntax.md#comments) (Commenti nel modello). |
@@ -298,7 +298,7 @@ Le risorse vengono definite con la struttura seguente:
 
 ## <a name="outputs"></a>Output
 
-Nella sezione dell'output è possibile specificare i valori restituiti dalla distribuzione. In genere, i valori vengono restituiti dalle risorse distribuite.
+Nella `outputs` sezione vengono specificati i valori restituiti dalla distribuzione. In genere, i valori vengono restituiti dalle risorse distribuite.
 
 L'esempio seguente illustra la struttura di una definizione di output:
 
@@ -320,7 +320,7 @@ L'esempio seguente illustra la struttura di una definizione di output:
 |:--- |:--- |:--- |
 | nome di output |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |
-| type |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. Se si specifica **SecureString** per il tipo di output, il valore non viene visualizzato nella cronologia di distribuzione e non può essere recuperato da un altro modello. Per usare un valore segreto in più di un modello, archiviare il segreto in un Key Vault e fare riferimento al segreto nel file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md). |
+| tipo |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. Se si specifica **SecureString** per il tipo di output, il valore non viene visualizzato nella cronologia di distribuzione e non può essere recuperato da un altro modello. Per usare un valore segreto in più di un modello, archiviare il segreto in un Key Vault e fare riferimento al segreto nel file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md). |
 | Valore |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare un **valore** o una **copia**. |
 | copy |No | Utilizzato per restituire più di un valore per un output. Specificare il **valore** o la **copia**. Per altre informazioni, vedere [iterazione di output nei modelli ARM](copy-outputs.md). |
 
@@ -351,7 +351,7 @@ Per i commenti inline, è possibile usare `//` o, `/* ... */` ma questa sintassi
   ],
 ```
 
-In Visual Studio Code, l' [estensione strumenti Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) può rilevare automaticamente un modello ARM e modificare la modalità di linguaggio. Se viene visualizzato **Azure Resource Manager modello** nell'angolo in basso a destra di vs code, è possibile usare i commenti inline. In questo modo i commenti inline non verranno più contrassegnati come non validi.
+In Visual Studio Code, l' [estensione strumenti Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) può rilevare automaticamente un modello ARM e modificare la modalità di linguaggio. Se viene visualizzato **Azure Resource Manager modello** nell'angolo in basso a destra di Visual Studio Code, è possibile usare i commenti inline. In questo modo i commenti inline non verranno più contrassegnati come non validi.
 
 ![Modalità modello di Visual Studio Code Azure Resource Manager](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -369,7 +369,7 @@ In Visual Studio Code, l' [estensione strumenti Azure Resource Manager](quicksta
   },
 ```
 
-Per **parameters**, aggiungere un oggetto `metadata` con una proprietà `description`.
+Per `parameters` , aggiungere un `metadata` oggetto con una `description` Proprietà.
 
 ```json
 "parameters": {
@@ -385,7 +385,7 @@ Durante la distribuzione del modello tramite il portale, il testo specificato ne
 
 ![Mostra il suggerimento relativo al parametro](./media/template-syntax/show-parameter-tip.png)
 
-Per **resources**, aggiungere un elemento `comments` o un oggetto metadata. L'esempio seguente mostra sia un elemento comments sia un oggetto metadata.
+Per `resources` , aggiungere un `comments` elemento o un `metadata` oggetto. Nell'esempio seguente vengono illustrati sia un `comments` elemento sia un `metadata` oggetto.
 
 ```json
 "resources": [
@@ -411,7 +411,7 @@ Per **resources**, aggiungere un elemento `comments` o un oggetto metadata. L'es
 ]
 ```
 
-Per **outputs**, aggiungere un oggetto metadata al valore di output.
+Per `outputs` , aggiungere un `metadata` oggetto al valore di output.
 
 ```json
 "outputs": {
@@ -424,11 +424,11 @@ Per **outputs**, aggiungere un oggetto metadata al valore di output.
   },
 ```
 
-Non è possibile aggiungere un oggetto metadata alle funzioni definite dall'utente.
+Non è possibile aggiungere un `metadata` oggetto alle funzioni definite dall'utente.
 
 ## <a name="multi-line-strings"></a>Stringhe a più righe
 
-È possibile suddividere una stringa in più righe. Vedere ad esempio la proprietà Location e uno dei commenti nell'esempio JSON seguente.
+È possibile suddividere una stringa in più righe. Vedere ad esempio la `location` proprietà e uno dei commenti nell'esempio JSON seguente.
 
 ```json
 {
@@ -448,7 +448,8 @@ Non è possibile aggiungere un oggetto metadata alle funzioni definite dall'uten
   ],
 ```
 
-Per distribuire modelli con stringhe a più righe usando l'interfaccia della riga di comando di Azure con la versione 2.3.0 o precedente, è necessario usare l' `--handle-extended-json-format` opzione.
+> [!NOTE]
+> Per distribuire modelli con stringhe a più righe usando l'interfaccia della riga di comando di Azure con la versione 2.3.0 o precedente, è necessario usare l' `--handle-extended-json-format` opzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

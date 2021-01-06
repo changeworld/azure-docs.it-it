@@ -3,12 +3,12 @@ title: Indirizzi IP in Funzioni di Azure
 description: Informazioni su come trovare gli indirizzi IP in ingresso e in uscita per le app per le funzioni e sugli elementi che ne causano la modifica.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652466"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936720"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
@@ -27,7 +27,7 @@ Ogni app per le funzioni ha un singolo indirizzo IP in ingresso. Per trovare tal
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'app per le funzioni.
-3. Selezionare **Funzionalità della piattaforma**.
+3. Selezionare **funzionalità della piattaforma**.
 4. Selezionare **Proprietà**. L'indirizzo IP in ingresso verrà visualizzati in **Indirizzo IP virtuale**.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Indirizzi IP in uscita delle app per le funzioni
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> Quando viene ridimensionata un'app per le funzioni in esecuzione nel [piano a consumo](functions-scale.md#consumption-plan) o nel [piano Premium](functions-scale.md#premium-plan) , è possibile assegnare un nuovo intervallo di indirizzi IP in uscita. Quando si esegue uno di questi piani, potrebbe essere necessario aggiungere l'intero data center a un elenco Consenti.
+> Quando viene ridimensionata un'app per le funzioni in esecuzione nel [piano a consumo](consumption-plan.md) o nel [piano Premium](functions-premium-plan.md) , è possibile assegnare un nuovo intervallo di indirizzi IP in uscita. Quando si esegue uno di questi piani, potrebbe essere necessario aggiungere l'intero data center a un elenco Consenti.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Indirizzi IP in uscita del data center
 
@@ -89,7 +89,7 @@ L'indirizzo IP in ingresso **potrebbe** cambiare in caso di:
 - Eliminazione dell'ultima app per le funzioni in una combinazione di gruppo di risorse e area e successiva ricreazione.
 - Eliminare un'associazione TLS, ad esempio durante il [rinnovo del certificato](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Quando l'app per le funzioni viene eseguita in un [piano a consumo](functions-scale.md#consumption-plan) o in un [piano Premium](functions-scale.md#premium-plan), l'indirizzo IP in ingresso potrebbe cambiare anche se non sono state eseguite azioni come quelle [elencate in precedenza](#inbound-ip-address-changes).
+Quando l'app per le funzioni viene eseguita in un [piano a consumo](consumption-plan.md) o in un [piano Premium](functions-premium-plan.md), l'indirizzo IP in ingresso potrebbe cambiare anche se non sono state eseguite azioni come quelle [elencate in precedenza](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Modifiche degli indirizzi IP in uscita
 
@@ -98,7 +98,7 @@ Il set di indirizzi IP in uscita disponibili per un'app per le funzioni potrebbe
 * Esecuzione di un'azione che può modificare l'indirizzo IP in ingresso.
 * Modifica del piano tariffario del servizio app. L'elenco di tutti i possibili indirizzi IP in uscita utilizzabili dall'app, per tutti i piani tariffari, è disponibile nella proprietà `possibleOutboundIPAddresses`. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ip-addresses).
 
-Quando l'app per le funzioni viene eseguita in un [piano a consumo](functions-scale.md#consumption-plan) o in un [piano Premium](functions-scale.md#premium-plan), l'indirizzo IP in uscita potrebbe cambiare anche se non sono state eseguite azioni come quelle [elencate in precedenza](#inbound-ip-address-changes).
+Quando l'app per le funzioni viene eseguita in un [piano a consumo](consumption-plan.md) o in un [piano Premium](functions-premium-plan.md), l'indirizzo IP in uscita potrebbe cambiare anche se non sono state eseguite azioni come quelle [elencate in precedenza](#inbound-ip-address-changes).
 
 Per forzare deliberatamente la modifica di un indirizzo IP in uscita:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443314"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936023"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API Web-Acquisisci un token
 
@@ -57,7 +57,7 @@ L'ambito usato per le credenziali client deve essere sempre l'ID della risorsa s
 
 > [!IMPORTANT]
 > Quando MSAL richiede un token di accesso per una risorsa che accetta un token di accesso versione 1,0, Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa.
-> Se, ad esempio, il database SQL di Azure ( **https: \/ /database.Windows.NET** ), la risorsa si aspetta un pubblico che termina con una barra (per il database SQL di Azure `https://database.windows.net/` ), è necessario richiedere un ambito `https://database.windows.net//.default` . Prendere nota della barra doppia. Vedere anche problema MSAL.NET [#747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Se, ad esempio, il database SQL di Azure (**https: \/ /database.Windows.NET**), la risorsa si aspetta un pubblico che termina con una barra (per il database SQL di Azure `https://database.windows.net/` ), è necessario richiedere un ambito `https://database.windows.net//.default` . Prendere nota della barra doppia. Vedere anche problema MSAL.NET [#747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient usa la cache del token dell'applicazione
+
+In MSAL.NET `AcquireTokenForClient` utilizza la cache del token dell'applicazione. Tutti gli altri metodi AcquireToken *XX* utilizzano la cache dei token utente. Non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient` , perché `AcquireTokenSilent` Usa la cache del token *utente* . `AcquireTokenForClient` Controlla la cache del token *dell'applicazione* e la Aggiorna.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Per altre informazioni, vedere la documentazione del protocollo: [Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="application-token-cache"></a>Cache del token dell'applicazione
-
-In MSAL.NET `AcquireTokenForClient` utilizza la cache del token dell'applicazione. Tutti gli altri metodi AcquireToken *XX* utilizzano la cache dei token utente. Non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient` , perché `AcquireTokenSilent` Usa la cache del token *utente* . `AcquireTokenForClient` Controlla la cache del token *dell'applicazione* e la Aggiorna.
-
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Si è usato l'ambito Resource/. default?
@@ -228,6 +228,12 @@ Content: {
   }
 }
 ```
+
+### <a name="are-you-calling-your-own-api"></a>Si sta chiamando la propria API?
+
+Se si chiama un'API Web personalizzata e non è stato possibile aggiungere un'autorizzazione app per la registrazione dell'app per l'app daemon, è stato esposto un ruolo app nell'API Web?
+
+Per informazioni dettagliate, vedere [esposizione delle autorizzazioni dell'applicazione (ruoli dell'app)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) e, in particolare, [garantire che Azure ad rilascia i token per l'API Web solo ai client autorizzati](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

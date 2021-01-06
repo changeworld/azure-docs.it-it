@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: d10689937a037469399863395e0190e399334bd3
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924522"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936533"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Creare flussi di lavoro con stato e senza stato nel portale di Azure con app per la logica di Azure Preview
 
 > [!IMPORTANT]
 > Questa funzionalità è in anteprima pubblica, viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con l'anteprima di app per la [logica di Azure](logic-apps-overview-preview.md)è possibile creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica che includono flussi di lavoro con [ *stato* e senza stato *stateless*](logic-apps-overview-preview.md#stateful-stateless) nel portale di Azure iniziando con il nuovo tipo di risorsa app per la **logica (anteprima)** . Con questo nuovo tipo di app per la logica è possibile creare più flussi di lavoro basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, non solo Azure, ma anche contenitori docker. Per altre informazioni sul nuovo tipo di app per la logica, vedere [Panoramica dell'anteprima di app per la logica di Azure](logic-apps-overview-preview.md).
+Con l'anteprima di app per la [logica di Azure](logic-apps-overview-preview.md)è possibile creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica che includono flussi di lavoro con [ *stato* e senza stato](logic-apps-overview-preview.md#stateful-stateless) nel portale di Azure iniziando con il nuovo tipo di risorsa app per la **logica (anteprima)** . Con questo nuovo tipo di app per la logica è possibile creare più flussi di lavoro basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, non solo Azure, ma anche contenitori docker. Per altre informazioni sul nuovo tipo di app per la logica, vedere [Panoramica dell'anteprima di app per la logica di Azure](logic-apps-overview-preview.md).
 
 ![Screenshot che mostra la portale di Azure con la finestra di progettazione del flusso di lavoro per la risorsa "app per la logica (anteprima)".](./media/create-stateful-stateless-workflows-azure-portal/azure-portal-logic-apps-overview.png)
 
@@ -90,7 +90,7 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Account di archiviazione** | Sì | <*Azure-storage-account-name*> | L' [account di archiviazione di Azure](../storage/common/storage-account-overview.md) da usare per le transazioni di archiviazione. Il nome della risorsa deve essere univoco in tutte le aree e contenere 3-24 caratteri con solo numeri e lettere minuscole. Selezionare un account esistente o creare un nuovo account. <p><p>Questo esempio crea un account di archiviazione denominato `fabrikamstorageacct` . |
-   | **Tipo di piano** | Sì | <*Azure-hosting-piano*> | [Piano di hosting](../app-service/overview-hosting-plans.md) da usare per la distribuzione dell'app per la logica, che può essere [**Premium**](../azure-functions/functions-scale.md#premium-plan) o [**piano di servizio app**](../azure-functions/functions-scale.md#app-service-plan). La scelta riguarda i piani tariffari che è possibile scegliere in un secondo momento. <p><p>Questo esempio usa il **piano di servizio app**. <p><p>**Nota**: Analogamente alle funzioni di Azure, il tipo di risorsa app per la **logica (anteprima)** richiede un piano di hosting e un piano tariffario. I piani di hosting a consumo non sono supportati né disponibili per questo tipo di risorsa. Per ulteriori informazioni, vedere gli argomenti seguenti: <p><p>- [Scalabilità e hosting di funzioni di Azure](../azure-functions/functions-scale.md) <br>- [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **Tipo di piano** | Sì | <*Azure-hosting-piano*> | [Piano di hosting](../app-service/overview-hosting-plans.md) da usare per la distribuzione dell'app per la logica, che può essere [**Premium**](../azure-functions/functions-premium-plan.md) o [**piano di servizio app**](../azure-functions/dedicated-plan.md). La scelta riguarda i piani tariffari che è possibile scegliere in un secondo momento. <p><p>Questo esempio usa il **piano di servizio app**. <p><p>**Nota**: Analogamente alle funzioni di Azure, il tipo di risorsa app per la **logica (anteprima)** richiede un piano di hosting e un piano tariffario. I piani di hosting a consumo non sono supportati né disponibili per questo tipo di risorsa. Per ulteriori informazioni, vedere gli argomenti seguenti: <p><p>- [Scalabilità e hosting di funzioni di Azure](../azure-functions/functions-scale.md) <br>- [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
    | **Piano Windows** | Sì | <*Nome piano*> | Nome del piano da utilizzare. Selezionare un piano esistente o specificare il nome per un nuovo piano. <p><p>Questo esempio usa il nome `Fabrikam-Service-Plan`. |
    | **SKU e dimensioni** | Sì | <*piano tariffario*> | Piano [tariffario](../app-service/overview-hosting-plans.md) da usare per l'hosting dell'app per la logica. Le scelte sono influenzate dal tipo di piano scelto in precedenza. Per modificare il livello predefinito, selezionare **modifica dimensioni**. È quindi possibile selezionare altri piani tariffari, in base al carico di lavoro necessario. <p><p>Questo esempio usa il piano **tariffario F1** gratuito per i carichi di lavoro di **sviluppo/test** . Per altre informazioni, vedere [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
@@ -103,7 +103,7 @@ Questo articolo illustra come compilare l'app per la logica e il flusso di lavor
 
 1. Dopo che Azure ha convalidato le impostazioni dell'app per la logica, nella scheda **Verifica + crea** selezionare **Crea**.
 
-   Ad esempio:
+   Esempio:
 
    ![Screenshot che mostra il portale di Azure e le nuove impostazioni delle risorse dell'app per la logica.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
@@ -135,7 +135,7 @@ Se è stato selezionato **contenitore Docker** durante la creazione dell'app per
 
    ![Screenshot che mostra il menu delle risorse dell'app per la logica con "flussi di lavoro" selezionati e quindi Hen sulla barra degli strumenti, è selezionata l'opzione "Aggiungi".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-add-blank-workflow.png)
 
-1. Dopo l'apertura del **nuovo riquadro del flusso di lavoro** , specificare un nome per il flusso di lavoro e scegliere il tipo di flusso di lavoro con [ **stato** o senza stato **Stateless**](logic-apps-overview-preview.md#stateful-stateless) . Al termine, selezionare **Crea**.
+1. Dopo l'apertura del **nuovo riquadro del flusso di lavoro** , specificare un nome per il flusso di lavoro e scegliere il tipo di flusso di lavoro con [ **stato** o senza stato](logic-apps-overview-preview.md#stateful-stateless) . Al termine, selezionare **Crea**.
 
    Questo esempio aggiunge un flusso di lavoro con stato vuoto denominato `Fabrikam-Stateful-Workflow` . Per impostazione predefinita, il flusso di lavoro è abilitato, ma non esegue alcuna operazione fino a quando non viene aggiunto un trigger e le azioni.
 
@@ -307,7 +307,7 @@ Per un flusso di lavoro con stato, dopo l'esecuzione di ogni flusso di lavoro, �
    | **Running** | L'esecuzione è stata attivata ed è in corso, ma questo stato può anche essere visualizzato per un'esecuzione limitata a causa di [limiti di azione](logic-apps-limits-and-config.md) o del [piano tariffario corrente](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Suggerimento**: se si configura la [registrazione diagnostica](monitor-logic-apps-log-analytics.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
    | **Completato** | Esecuzione completata. Se un'azione ha esito negativo, un'azione successiva nel flusso di lavoro ha gestito l'errore. |
    | **Timeout** | Si è verificato il timeout dell'esecuzione perché la durata corrente supera il limite di durata dell'esecuzione, che è controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits). La durata di un'esecuzione viene calcolata usando l'ora di inizio e il limite di durata dell'esecuzione all'ora di inizio. <p><p>**Nota**: se la durata dell'esecuzione supera anche il *limite di conservazione della cronologia di esecuzione* corrente, che è anche controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits), l'esecuzione viene cancellata dalla cronologia esecuzioni da un processo di pulizia giornaliero. Se l'esecuzione scade o viene completata, il periodo di memorizzazione viene sempre calcolato usando l'ora di inizio e il limite di conservazione *corrente* dell'esecuzione. Quindi, se si riduce il limite di durata per un'esecuzione in corso, si verifica il timeout dell'esecuzione. Tuttavia, l'esecuzione rimane o viene cancellata dalla cronologia delle esecuzioni a seconda che la durata dell'esecuzione superi il limite di conservazione. |
-   | **Waiting** | L'esecuzione non è stata avviata o è stata sospesa, ad esempio, a causa di un'istanza del flusso di lavoro precedente ancora in esecuzione. |
+   | **Attesa** | L'esecuzione non è stata avviata o è stata sospesa, ad esempio, a causa di un'istanza del flusso di lavoro precedente ancora in esecuzione. |
    |||
 
 1. Per esaminare lo stato di ogni passaggio di un'esecuzione, selezionare l'esecuzione che si desidera esaminare.
@@ -328,7 +328,7 @@ Per un flusso di lavoro con stato, dopo l'esecuzione di ogni flusso di lavoro, �
    | Completato | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
    | Operazione completata con nuovi tentativi | ![Icona per lo stato dell'azione "riuscito con ripetizione dei tentativi"][succeeded-with-retries-icon] | L'azione è stata completata ma solo dopo uno o più tentativi. Per esaminare la cronologia dei tentativi, nella visualizzazione dei dettagli della cronologia di esecuzione selezionare l'azione in modo che sia possibile visualizzare gli input e gli output. |
    | Timeout | ![Icona per lo stato dell'azione "timeout"][timed-out-icon] | L'azione è stata interrotta a causa del limite di timeout specificato dalle impostazioni di tale azione. |
-   | Waiting | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
+   | Attesa | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -385,7 +385,7 @@ Per eseguire il debug di un flusso di lavoro senza stato in modo più semplice, 
 
 1. Nella casella **valore** immettere il valore seguente: `WithStatelessRunHistory`
 
-   Ad esempio:
+   Esempio:
 
    ![Screenshot che mostra la risorsa portale di Azure e app per la logica (anteprima) con il riquadro "configurazione" > "nuova impostazione applicazione" < "Aggiungi/modifica impostazione applicazione" e i flussi di lavoro. {yourWorkflowName}. OperationOptions "opzione impostata su" WithStatelessRunHistory ".](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
 
@@ -447,7 +447,7 @@ Per risolvere il problema, seguire questa procedura per eliminare la versione ob
 
    `rm -rf {bundle-version}`
 
-   Ad esempio: `rm -rf 1.1.3`
+   ad esempio `rm -rf 1.1.3`
 
    > [!TIP]
    > Se viene ricevuto un errore, ad esempio "autorizzazione negata" o "file in uso", aggiornare la pagina nel browser e ripetere i passaggi precedenti fino a quando la cartella non viene eliminata.

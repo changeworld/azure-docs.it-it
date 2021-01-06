@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033035"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936839"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -113,7 +113,7 @@ Poiché le funzioni si integrano anche con monitoraggio di Azure, è anche possi
 
 _Questa funzionalità è disponibile in anteprima._ 
 
-Il [controller di scalabilità di funzioni di Azure](./functions-scale.md#runtime-scaling) monitora le istanze dell'host di funzioni di Azure in cui viene eseguita l'app. Questo controller prende le decisioni relative al momento in cui aggiungere o rimuovere le istanze in base alle prestazioni correnti. È possibile fare in modo che il controller di scalabilità crei log per Application Insights per comprendere meglio le decisioni prese dal controller di scalabilità per l'app per le funzioni. È anche possibile archiviare i log generati nell'archivio BLOB per l'analisi da parte di un altro servizio. 
+Il [controller di scalabilità di funzioni di Azure](./event-driven-scaling.md#runtime-scaling) monitora le istanze dell'host di funzioni di Azure in cui viene eseguita l'app. Questo controller prende le decisioni relative al momento in cui aggiungere o rimuovere le istanze in base alle prestazioni correnti. È possibile fare in modo che il controller di scalabilità crei log per Application Insights per comprendere meglio le decisioni prese dal controller di scalabilità per l'app per le funzioni. È anche possibile archiviare i log generati nell'archivio BLOB per l'analisi da parte di un altro servizio. 
 
 Per abilitare questa funzionalità, è necessario aggiungere un'impostazione dell'applicazione denominata `SCALE_CONTROLLER_LOGGING_ENABLED` per le impostazioni dell'app per le funzioni. Per informazioni, vedere [configurare i log del controller di scalabilità](configure-monitoring.md#configure-scale-controller-logs).
 

@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 708478f50078276245a7dfab7d185dd50d597407
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f9c11c0671db882edd9a72bca8d11c7326edee43
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589798"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936890"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -28,8 +28,8 @@ Una distribuzione di funzioni di Azure è in genere costituita da queste risorse
 
 | Risorsa                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Un'app per le funzioni                                                                     | Obbligatorio    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Un account di [archiviazione di Azure](../storage/index.yml)                                   | Obbligatorio    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Un'app per le funzioni                                                                     | Necessario    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Un account di [archiviazione di Azure](../storage/index.yml)                                   | Necessario    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativo    | [Microsoft. Insights/Components](/azure/templates/microsoft.insights/components)         |
 | [Piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -175,7 +175,7 @@ Queste proprietà vengono specificate nella `appSettings` raccolta nella `siteCo
 
 ## <a name="deploy-on-consumption-plan"></a>Distribuisci nel piano a consumo
 
-Il piano a consumo alloca automaticamente la potenza di calcolo quando il codice è in esecuzione, aumenta le dimensioni in base alle esigenze per gestire il carico e quindi esegue il ridimensionamento quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md#consumption-plan).
+Il piano a consumo alloca automaticamente la potenza di calcolo quando il codice è in esecuzione, aumenta le dimensioni in base alle esigenze per gestire il carico e quindi esegue il ridimensionamento quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](consumption-plan.md).
 
 Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni nel piano a consumo].
 

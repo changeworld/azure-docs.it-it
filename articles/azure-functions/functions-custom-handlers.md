@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746030"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936992"
 ---
 # <a name="azure-functions-custom-handlers"></a>Gestori personalizzati di funzioni di Azure
 
@@ -216,7 +216,7 @@ Questo è un esempio di payload di risposta.
 }
 ```
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 I gestori personalizzati possono essere implementati in qualsiasi linguaggio che supporti la ricezione di eventi HTTP. Negli esempi seguenti viene illustrato come implementare un gestore personalizzato utilizzando il linguaggio di programmazione go.
 
@@ -407,7 +407,7 @@ Impostando l' `message` output uguale ai dati dell'ordine forniti dalla richiest
 Per le funzioni attivate da HTTP senza ulteriori binding o output, è possibile fare in modo che il gestore funzioni direttamente con la richiesta e la risposta HTTP anziché con i payload di [richiesta](#request-payload) e [risposta](#response-payload) del gestore personalizzato. Questo comportamento può essere configurato in *host.js* usando l' `enableForwardingHttpRequest` impostazione.
 
 > [!IMPORTANT]
-> Lo scopo principale della funzionalità gestori personalizzati è quello di abilitare linguaggi e Runtime che attualmente non dispongono di un supporto di prima classe in funzioni di Azure. Sebbene possa essere possibile eseguire applicazioni Web con gestori personalizzati, funzioni di Azure non è un proxy inverso standard. Alcune funzionalità, ad esempio streaming di risposta, HTTP/2 e WebSocket, non sono disponibili. È possibile che alcuni componenti della richiesta HTTP, ad esempio determinate intestazioni e route, siano limitati. È anche possibile che l'applicazione riscontri un [avvio a freddo](functions-scale.md#cold-start)eccessivo.
+> Lo scopo principale della funzionalità gestori personalizzati è quello di abilitare linguaggi e Runtime che attualmente non dispongono di un supporto di prima classe in funzioni di Azure. Sebbene possa essere possibile eseguire applicazioni Web con gestori personalizzati, funzioni di Azure non è un proxy inverso standard. Alcune funzionalità, ad esempio streaming di risposta, HTTP/2 e WebSocket, non sono disponibili. È possibile che alcuni componenti della richiesta HTTP, ad esempio determinate intestazioni e route, siano limitati. È anche possibile che l'applicazione riscontri un [avvio a freddo](event-driven-scaling.md#cold-start)eccessivo.
 >
 > Per risolvere queste circostanze, provare a eseguire le app Web nel [servizio app Azure](../app-service/overview.md).
 

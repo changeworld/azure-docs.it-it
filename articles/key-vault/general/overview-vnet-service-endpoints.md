@@ -1,5 +1,5 @@
 ---
-title: Endpoint servizio di rete virtuale per Azure Key Vault - Azure Key Vault | Microsoft Docs
+title: Endpoint servizio di rete virtuale per Azure Key Vault
 description: Informazioni su come gli endpoint di servizio di rete virtuale per Azure Key Vault consentono di limitare l'accesso a una rete virtuale specificata, inclusi gli scenari di utilizzo.
 services: key-vault
 author: amitbapat
@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 9cbce00e2c2743aec57cd857b6f38d20bce33698
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 9dcabe10822fd09c8f7a0da6259d81a089c1a042
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532908"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936295"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
@@ -35,28 +35,6 @@ Di seguito sono riportati alcuni esempi di uso degli endpoint del servizio:
 * Si vuole bloccare l'accesso all'insieme di credenziali delle chiavi in modo che solo l'applicazione o un breve elenco di host designati possano connettesi all'insieme di credenziali delle chiavi.
 * Si ha un'applicazione in esecuzione nella rete virtuale di Azure e la rete virtuale è bloccata per tutto il traffico in ingresso e in uscita. L'applicazione deve comunque connettersi a Key Vault per recuperare segreti o certificati o usare le chiavi di crittografia.
 
-## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configurare firewall e reti virtuali Key Vault
-
-Ecco i passaggi necessari per configurare i firewall e le reti virtuali. Questi passaggi sono applicabili se si usa PowerShell, l'interfaccia della riga di comando di Azure o il portale di Azure.
-
-1. Abilitare la [registrazione in Key Vault](logging.md) per visualizzare i log di accesso dettagliati. Ciò è utile nella diagnostica quando i firewall e le regole di rete virtuale impediscono l'accesso a un insieme di credenziali delle chiavi. Questo passaggio è facoltativo ma consigliato.
-2. Abilitare gli **endpoint del servizio per l'insieme di credenziali delle chiavi** per le reti virtuali di destinazione e le subnet.
-3. Configurare i firewall e le regole di rete virtuale per un insieme di credenziali delle chiavi per limitare l'accesso a tale insieme da reti virtuali, subnet e intervalli di indirizzi IPv4 specifici.
-4. Se questo insieme di credenziali delle chiavi deve essere accessibile da tutti i servizi Microsoft attendibili, abilitare l'opzione per consentire ai **servizi di Azure attendibili** di connettersi a Key Vault.
-
-Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Azure Key Vault](network-security.md).
-
-> [!IMPORTANT]
-> Quando le regole del firewall sono operative, gli utenti possono eseguire le operazioni del [piano dati](secure-your-key-vault.md#data-plane-access-control) Key Vault solo se le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
-
-
-> [!NOTE]
-> Tenere presente le seguenti limitazioni di configurazione:
-> * Sono consentite al massimo 127 regole di rete virtuale e 127 regole IPv4. 
-> * Gli intervalli di indirizzi di piccole dimensioni che usano dimensioni di prefisso "/31" o "/32" non sono supportati. Configurare questi intervalli usando le regole dei singoli indirizzi IP.
-> * Le regole di rete IP sono consentite solo per gli indirizzi IP pubblici. Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP. Le reti private includono indirizzi che iniziano con **10.** , **172.16-31.** e **192.168.** . 
-> * Attualmente sono supportati solo gli indirizzi IPv4.
-
 ## <a name="trusted-services"></a>Servizi attendibili
 
 Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad accedere a un insieme di credenziali delle chiavi se è abilitata l'opzione **Allow trusted services** (Consenti servizi attendibili).
@@ -71,7 +49,7 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Exchange Online e SharePoint Online|Consentire l'accesso alla chiave cliente per la crittografia del servizio di archiviazione di Azure con [Chiave cliente](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Consentire l'accesso alla chiave del tenant per [Azure Information Protection](/azure/information-protection/what-is-information-protection).|
 |Servizio app di Azure|[Distribuire un certificato dell'app Web di Azure con Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Database SQL di Azure|[Transparent Data Encryption con supporto Bring your own key per il database SQL di Azure e l'analisi delle sinapsi di Azure](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|database SQL di Azure|[Transparent Data Encryption con supporto Bring your own key per il database SQL di Azure e l'analisi delle sinapsi di Azure](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&preserve-view=true&viewFallbackFrom=azuresqldb-current).|
 |Archiviazione di Azure|[Crittografia del servizio di archiviazione usando chiavi gestite dal cliente in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Archivio Azure Data Lake|[Crittografia dei dati in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) con una chiave gestita dal cliente.|
 |Azure Databricks|[Servizio di analisi veloce, facile e collaborativo basato su Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
@@ -87,5 +65,5 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Proteggere l'insieme di credenziali delle chiavi](secure-your-key-vault.md)
-* [Configurare reti virtuali e firewall di Azure Key Vault](network-security.md)
+- Per istruzioni dettagliate, vedere [configurare i firewall e le reti virtuali di Azure Key Vault](network-security.md)
+- vedere [Cenni preliminari sulla sicurezza Azure Key Vault](security-overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370968"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935751"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guida di riferimento per le operazioni di Azure Active Directory governance
 
@@ -59,7 +59,7 @@ Sono presenti modifiche che richiedono considerazioni speciali durante i test, d
 | Scenario| Recommendation |
 |-|-|
 |Modifica del tipo di autenticazione da federato a pH/PTA o viceversa| Usare l' [implementazione temporanea](../hybrid/how-to-connect-staged-rollout.md) per verificare l'effetto della modifica del tipo di autenticazione.|
-|Implementazione di nuovi criteri di accesso condizionale (CA) o di protezione delle identità|Creare un nuovo criterio CA e assegnarlo agli utenti di test.|
+|Implementazione di nuovi criteri di accesso condizionale (CA) o di protezione delle identità|Creare nuovi criteri di accesso condizionale e assegnarli agli utenti di test.|
 |Onboarding di un ambiente di test di un'applicazione|Aggiungere l'applicazione a un ambiente di produzione, nasconderla dal pannello app e assegnarla agli utenti di test durante la fase di controllo di qualità (QA).|
 |Modifica delle regole di sincronizzazione|Eseguire le modifiche in un Azure AD Connect di test con la stessa configurazione attualmente in produzione, nota anche come modalità di staging, e analizzare i risultati di CSExport. Se soddisfatta, lo scambio in produzione è pronto.|
 |Modifica della personalizzazione|Eseguire il test in un tenant di test separato.|

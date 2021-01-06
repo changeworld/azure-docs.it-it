@@ -3,12 +3,12 @@ title: Funzioni definite dall'utente nei modelli
 description: Viene descritto come definire e usare funzioni definite dall'utente in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436964"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934680"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funzioni definite dall'utente nel modello ARM
 
@@ -44,7 +44,7 @@ Le funzioni richiedono che sia definito un valore dello spazio dei nomi per evit
 
 ## <a name="use-the-function"></a>Usare la funzione
 
-Nell'esempio seguente viene illustrato un modello che include una funzione definita dall'utente. USA tale funzione per ottenere un nome univoco per un account di archiviazione. Il modello contiene un parametro denominato **storageNamePrefix** che viene passato come parametro alla funzione.
+Nell'esempio seguente viene illustrato un modello che include una funzione definita dall'utente. USA tale funzione per ottenere un nome univoco per un account di archiviazione. Il modello include un parametro denominato `storageNamePrefix` che viene passato come parametro alla funzione.
 
 ```json
 {

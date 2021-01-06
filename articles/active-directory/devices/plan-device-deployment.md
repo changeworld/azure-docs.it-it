@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093090"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936448"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Pianificare la distribuzione del dispositivo Azure Active Directory
 
@@ -44,7 +44,7 @@ I vantaggi principali per fornire ai dispositivi un'identità Azure AD:
 
 * Aumentare la produttività: con Azure AD, gli utenti possono eseguire l' [accesso Single Sign-on (SSO)](./azuread-join-sso.md) alle risorse locali e cloud, consentendo loro di essere produttivi ovunque si trovino.
 
-* Aumentare la sicurezza: i dispositivi Azure AD consentono di applicare i [criteri di accesso condizionale](../conditional-access/require-managed-devices.md) alle risorse in base all'identità del dispositivo o dell'utente. I criteri CA possono offrire protezione aggiuntiva usando [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md). L'aggiunta di un dispositivo a Azure AD è un prerequisito per aumentare la sicurezza con una strategia di [autenticazione senza password](../authentication/concept-authentication-passwordless.md) .
+* Aumentare la sicurezza: i dispositivi Azure AD consentono di applicare i [criteri di accesso condizionale](../conditional-access/require-managed-devices.md) alle risorse in base all'identità del dispositivo o dell'utente. I criteri di accesso condizionale possono offrire protezione aggiuntiva tramite [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md). L'aggiunta di un dispositivo a Azure AD è un prerequisito per aumentare la sicurezza con una strategia di [autenticazione senza password](../authentication/concept-authentication-passwordless.md) .
 
 * Migliorare l'esperienza utente: con le identità del dispositivo in Azure AD, è possibile fornire agli utenti un accesso facile alle risorse basate sul cloud dell'organizzazione da dispositivi personali e aziendali. Gli amministratori possono abilitare [Enterprise state roaming](enterprise-state-roaming-overview.md) per un'esperienza unificata in tutti i dispositivi Windows.
 
@@ -102,7 +102,7 @@ Utilizzare questo albero per determinare le opzioni per i dispositivi di proprie
 
 i dispositivi iOS e Android possono essere registrati solo Azure AD. La tabella seguente presenta considerazioni di alto livello per i dispositivi client Windows. Utilizzarlo come panoramica, quindi esplorare in dettaglio i diversi metodi di integrazione.
 
-| Considerazioni | Registrazione in Azure AD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido |
+| Considerazioni | Registrato con AAD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido |
 | - | - | - | - |
 | **Sistemi operativi client**| | |  |
 | Dispositivi Windows 10| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
@@ -129,7 +129,7 @@ Accesso condizionale <br>(Richiedi dispositivi ibridi Azure AD aggiunti)| | | ![
 
 I dispositivi registrati vengono spesso gestiti con [Microsoft Intune](/mem/intune/enrollment/device-enrollment). I dispositivi vengono registrati in Intune in diversi modi, a seconda del sistema operativo. 
 
-Azure AD dispositivi registrati offrono il supporto per i dispositivi BYOD (Bring Your Own Device) e i dispositivi di proprietà dell'azienda per l'accesso SSO alle risorse cloud. L'accesso alle risorse è basato sui criteri di Azure AD [CA](../conditional-access/require-managed-devices.md) applicati al dispositivo e all'utente.
+Azure AD dispositivi registrati offrono il supporto per i dispositivi BYOD (Bring Your Own Device) e i dispositivi di proprietà dell'azienda per l'accesso SSO alle risorse cloud. L'accesso alle risorse è basato sui [criteri di accesso condizionale](../conditional-access/require-managed-devices.md) Azure ad applicati al dispositivo e all'utente.
 
 ### <a name="registering-devices"></a>Registrazione dei dispositivi
 
@@ -183,7 +183,7 @@ Scegliere la procedura di distribuzione dopo un attento [confronto di questi app
 | - | - | - |
 | Aggiunta a un dominio locale| Aggiunta ad Azure AD| Separare il dispositivo dal dominio locale prima di unirlo a Azure AD |
 | Join ibrido ad Azure AD| Aggiunta ad Azure AD| Separare il dispositivo dal dominio locale e da Azure AD prima di unirlo a Azure AD |
-| Registrazione in Azure AD| Aggiunta ad Azure AD| Annulla la registrazione del dispositivo prima di unirlo a Azure AD |
+| Registrato con AAD| Aggiunta ad Azure AD| Annulla la registrazione del dispositivo prima di unirlo a Azure AD |
 
 
 ## <a name="hybrid-azure-ad-join"></a>Aggiunta ad Azure AD ibrido
@@ -237,7 +237,7 @@ Gli amministratori possono proteggere e controllare ulteriormente i dispositivi 
 
 Esaminare le piattaforme supportate e non supportate per i dispositivi integrati:
 
-| Strumenti di gestione dei dispositivi| Registrazione in Azure AD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido|
+| Strumenti di gestione dei dispositivi| Registrato con AAD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido|
 | - | - | - | - |
 | [Gestione dei dispositivi mobili (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Esempio: Microsoft Intune| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)|  |
 | [Co-gestione con Microsoft Intune e Microsoft endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 e versioni successive)| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)|  |

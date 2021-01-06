@@ -3,12 +3,12 @@ title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243070"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934646"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -64,6 +64,9 @@ Quando si crea un pool di Batch, specificare la configurazione delle macchine vi
 
 Esistono due tipi di configurazioni pool disponibili in Batch.
 
+> [!IMPORTANT]
+> I pool devono essere configurati con "Virtual Machine Configuration" e non "Cloud Services Configuration". Tutte le funzionalità batch sono supportate dai pool ' configurazione macchina virtuale ' e vengono aggiunte nuove funzionalità. I pool di ' configurazione di servizi cloud ' non supportano tutte le funzionalità e non sono state pianificate nuove funzionalità.
+
 ### <a name="virtual-machine-configuration"></a>Configurazione macchina virtuale
 
 La **Configurazione macchina virtuale**, specifica che il pool è composto da macchine virtuali di Azure. È possibile creare queste VM da immagini Linux o Windows.
@@ -101,7 +104,7 @@ Quando si crea un pool, è possibile specificare i tipi di nodo desiderati e il 
 - **Nodi dedicati.** I nodi di calcolo dedicati sono riservati per i carichi di lavoro. Sono più costosi dei nodi con priorità bassa, ma non vengono mai superati.
 - **Nodi a priorità bassa.** I nodi con priorità bassa sfruttano la capacità in eccesso di Azure per l'esecuzione dei carichi di lavoro di Batch. I nodi con priorità bassa hanno un costo orario inferiore a quello dei nodi dedicati e supportano carichi di lavoro che richiedono una potenza di calcolo significativa. Per altre informazioni, vedere [Usare le VM con priorità bassa in Batch](batch-low-pri-vms.md).
 
-Può verificarsi il superamento dei nodi con priorità bassa quando Azure ha capacità in eccesso insufficiente. In caso di superamento di un nodo durante l'esecuzione di attività, le attività vengono accodate ed eseguite di nuovo quando il nodo di calcolo torna disponibile. I nodi con priorità bassa sono utili per i carichi di lavoro con tempi di completamento del processo flessibili e in cui il lavoro è distribuito tra più nodi. Prima di scegliere di usare nodi con priorità bassa per lo scenario, assicurarsi che l'eventuale quantità di lavoro persa a causa della precedenza sia minima e facile da ricreare.
+Può verificarsi il superamento dei nodi con priorità bassa quando Azure ha capacità in eccesso insufficiente. In caso di superamento di un nodo durante l'esecuzione di attività, le attività vengono accodate ed eseguite di nuovo quando il nodo di calcolo torna disponibile. I nodi con priorità bassa sono utili per i carichi di lavoro con tempi di completamento del processo flessibili e in cui il lavoro è distribuito tra più nodi. Prima di scegliere di usare nodi con priorità bassa per lo scenario, assicurarsi che l'eventuale quantità di lavoro persa a causa del processo di prelazione sia minima e facile da ricreare.
 
 Lo stesso pool può includere nodi di calcolo con priorità bassa e nodi di calcolo dedicati. Ogni tipo di nodo ha un'impostazione di destinazione propria, per cui è possibile specificare il numero desiderato di nodi.
 

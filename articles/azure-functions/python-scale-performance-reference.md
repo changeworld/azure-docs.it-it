@@ -4,19 +4,19 @@ description: Informazioni su come sviluppare app di funzioni di Azure con Python
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3383ec322903d15c6090630890d14ce6d90bc96f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97899398"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935870"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Migliorare le prestazioni della velocità effettiva delle app Python in funzioni di Azure
 
 Quando si sviluppa per funzioni di Azure con Python, è necessario comprendere come funzionano le funzioni e in che modo le prestazioni influiscono sul modo in cui l'app per le funzioni viene ridimensionata. La necessità è più importante quando si progettano app a prestazioni elevate. I fattori principali da considerare durante la progettazione, la scrittura e la configurazione delle app per le funzioni sono la scalabilità orizzontale e le configurazioni delle prestazioni della velocità effettiva.
 
 ## <a name="horizontal-scaling"></a>Scalabilità orizzontale
-Per impostazione predefinita, Funzioni di Azure monitora automaticamente il carico dell'applicazione e crea istanze host aggiuntive per Python, se necessario. Funzioni di Azure usa soglie predefinite per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Queste soglie non sono configurabili dall'utente. Per altre informazioni, vedere [Come funzionano i piani a consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Per impostazione predefinita, Funzioni di Azure monitora automaticamente il carico dell'applicazione e crea istanze host aggiuntive per Python, se necessario. Funzioni di Azure usa soglie predefinite per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Queste soglie non sono configurabili dall'utente. Per altre informazioni, vedere [scalabilità guidata dagli eventi in funzioni di Azure](event-driven-scaling.md).
 
 ## <a name="improving-throughput-performance"></a>Miglioramento delle prestazioni della velocità effettiva
 

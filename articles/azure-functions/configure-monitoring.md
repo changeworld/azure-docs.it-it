@@ -4,12 +4,12 @@ description: Informazioni su come connettere l'app per le funzioni a Application
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77cc87e44990f471ef38871c0225835660779a3c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825759"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937281"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 
@@ -197,7 +197,7 @@ Per altre informazioni, vedere [campionamento in Application Insights](../azure-
 
 _Questa funzionalità è disponibile in anteprima._ 
 
-È possibile fare in modo che il [controller di scalabilità di funzioni di Azure](./functions-scale.md#runtime-scaling) emetta i log in Application Insights o nell'archiviazione BLOB per comprendere meglio le decisioni che il controller di scala sta effettuando per l'app per le funzioni.
+È possibile fare in modo che il [controller di scalabilità di funzioni di Azure](./event-driven-scaling.md#runtime-scaling) emetta i log in Application Insights o nell'archiviazione BLOB per comprendere meglio le decisioni che il controller di scala sta effettuando per l'app per le funzioni.
 
 Per abilitare questa funzionalità, è necessario aggiungere un'impostazione dell'applicazione denominata `SCALE_CONTROLLER_LOGGING_ENABLED` per le impostazioni dell'app per le funzioni. Il valore di questa impostazione deve essere nel formato `<DESTINATION>:<VERBOSITY>` , in base agli elementi seguenti:
 

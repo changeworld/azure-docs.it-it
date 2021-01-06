@@ -1,26 +1,26 @@
 ---
 title: Configurare l'ambiente di sviluppo per gli script di distribuzione nei modelli | Microsoft Docs
-description: configurare l'ambiente di sviluppo per gli script di distribuzione nei modelli Azure Resource Manager.
+description: Configurare l'ambiente di sviluppo per gli script di distribuzione in modelli di Azure Resource Manager (modelli ARM).
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 13dc072e31f0d27768de8d9a62ea942d55460713
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734182"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936397"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurare l'ambiente di sviluppo per gli script di distribuzione nei modelli
+# <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurare l'ambiente di sviluppo per gli script di distribuzione nei modelli ARM
 
 Informazioni su come creare un ambiente di sviluppo per lo sviluppo e il test di script di distribuzione con un'immagine dello script di distribuzione. È possibile creare un' [istanza di contenitore di Azure](../../container-instances/container-instances-overview.md) o usare [Docker](https://docs.docker.com/get-docker/). Entrambi sono trattati in questo articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non si dispone di uno script di distribuzione, è possibile creare un file di **hello.ps1** con il contenuto seguente:
+Se non si dispone di uno script di distribuzione, è possibile creare un file di _hello.ps1_ con il contenuto seguente:
 
 ```powershell
 param([string] $name)
@@ -39,11 +39,11 @@ Per modificare gli script nel computer, è necessario creare un account di archi
 
 ### <a name="create-an-azure-container-instance"></a>Creare un'istanza di contenitore di Azure
 
-Il modello ARM seguente consente di creare un'istanza di contenitore e una condivisione file e quindi di montare la condivisione file nell'immagine del contenitore.
+Il modello di Azure Resource Manager seguente (modello ARM) crea un'istanza del contenitore e una condivisione file, quindi monta la condivisione file nell'immagine del contenitore.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -153,12 +153,13 @@ Il modello ARM seguente consente di creare un'istanza di contenitore e una condi
   ]
 }
 ```
-Il valore predefinito per il percorso di montaggio è **deploymentScript**.  Si tratta del percorso nell'istanza del contenitore in cui è montata nella condivisione file.
 
-L'immagine del contenitore predefinita specificata nel modello è **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.   Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
+Il valore predefinito per il percorso di montaggio è `deploymentScript` . Si tratta del percorso nell'istanza del contenitore in cui è montata nella condivisione file.
+
+L'immagine del contenitore predefinita specificata nel modello è `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3` . Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
 
   >[!IMPORTANT]
-  > Lo script di distribuzione usa le immagini dell'interfaccia della riga di comando disponibili del Registro Microsoft Container (MCR). La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se viene usata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
+  > Lo script di distribuzione usa le immagini CLI disponibili di Microsoft Container Registry. La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se viene utilizzata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
 
 Il modello sospende l'istanza del contenitore 1800 secondi. Sono disponibili 30 minuti prima che l'istanza del contenitore entra nello stato finale e la sessione termina.
 
@@ -196,7 +197,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
 
 1. Dal portale di Azure aprire il gruppo di risorse in cui è stata distribuita l'istanza del contenitore e l'account di archiviazione.
 1. Aprire il gruppo di contenitori. Il nome del gruppo di contenitori predefinito è il nome del progetto con l'aggiunta di **CG** . Si noterà che lo stato dell'istanza del contenitore è in **esecuzione** .
-1. Selezionare **contenitori** dal menu a sinistra. Verrà visualizzata un'istanza di contenitore.  Il nome dell'istanza del contenitore è il nome del progetto con il **contenitore** accodato.
+1. Selezionare **contenitori** dal menu a sinistra. Verrà visualizzata un'istanza di contenitore. Il nome dell'istanza del contenitore è il nome del progetto con il **contenitore** accodato.
 
     ![istanza del contenitore Connect script di distribuzione](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -248,7 +249,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Sostituire **&lt;lettera unità host>** e **&lt;nome directory host>** con una cartella esistente nell'unità condivisa.  Esegue il mapping della cartella nella cartella **/data** del contenitore. Per esempi per eseguire il mapping di D:\docker:
+    Sostituire **&lt;lettera unità host>** e **&lt;nome directory host>** con una cartella esistente nell'unità condivisa. Esegue il mapping della cartella nella cartella _/data_ del contenitore. Ad esempio, per eseguire il mapping di _D:\docker_:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -262,7 +263,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. Lo screenshot seguente illustra come eseguire uno script di PowerShell, dato che è presente un file di helloworld.ps1 nell'unità condivisa.
+1. Lo screenshot seguente illustra come eseguire uno script di PowerShell, dato che è presente un file di _helloworld.ps1_ nell'unità condivisa.
 
     ![Script di distribuzione del modello di Resource Manager docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -273,4 +274,4 @@ Una volta testato correttamente lo script, è possibile utilizzarlo come script 
 In questo articolo si è appreso come usare gli script di distribuzione. Per esaminare un'esercitazione relativa a uno script di distribuzione:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Usare gli script di distribuzione nei modelli di Azure Resource Manager](./template-tutorial-deployment-script.md)
+> [Esercitazione: usare gli script di distribuzione nei modelli ARM](./template-tutorial-deployment-script.md)

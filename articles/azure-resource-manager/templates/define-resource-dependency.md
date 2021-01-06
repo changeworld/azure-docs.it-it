@@ -1,24 +1,24 @@
 ---
 title: Imposta ordine di distribuzione per le risorse
-description: Viene descritto come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione. Le dipendenze garantiscono che le risorse vengano distribuite nell'ordine corretto.
+description: Viene descritto come impostare una risorsa di Azure come dipendente da un'altra risorsa durante la distribuzione. Le dipendenze garantiscono che le risorse vengano distribuite nell'ordine corretto.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722012"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934748"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definire l'ordine per la distribuzione delle risorse nei modelli ARM
 
-Quando si distribuiscono le risorse, potrebbe essere necessario assicurarsi che esistano alcune risorse prima di altre risorse. Ad esempio, è necessario un server SQL logico prima di distribuire un database. Questa relazione viene stabilita contrassegnando una risorsa come dipendente dall'altra risorsa. Usare l'elemento **dependsOn** per definire una dipendenza esplicita. Usare le funzioni **Reference** o **List** per definire una dipendenza implicita.
+Quando si distribuiscono le risorse, potrebbe essere necessario assicurarsi che esistano alcune risorse prima di altre risorse. Ad esempio, è necessario un server SQL logico prima di distribuire un database. Questa relazione viene stabilita contrassegnando una risorsa come dipendente dall'altra risorsa. Utilizzare l' `dependsOn` elemento per definire una dipendenza esplicita. Usare le funzioni **Reference** o **List** per definire una dipendenza implicita.
 
-Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. La definizione delle dipendenze è necessaria solo per le risorse distribuite nello stesso modello.
+Azure Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine dipendente. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. La definizione delle dipendenze è necessaria solo per le risorse distribuite nello stesso modello.
 
 ## <a name="dependson"></a>dependsOn
 
-All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore è una matrice JSON di stringhe, ognuna delle quali è un nome o un ID di risorsa. La matrice può includere risorse [distribuite in modo condizionale](conditional-resource-deployment.md). Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
+All'interno del modello di Azure Resource Manager (modello ARM), l' `dependsOn` elemento consente di definire una risorsa come dipendente da una o più risorse. Il valore è una matrice di stringhe JavaScript Object Notation (JSON), ognuno dei quali è un nome o un ID di risorsa. La matrice può includere risorse [distribuite in modo condizionale](conditional-resource-deployment.md). Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
 
 Nell'esempio seguente viene illustrata un'interfaccia di rete che dipende da una rete virtuale, un gruppo di sicurezza di rete e un indirizzo IP pubblico. Per il modello completo, vedere [il modello di avvio rapido per una VM Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
@@ -37,11 +37,11 @@ Nell'esempio seguente viene illustrata un'interfaccia di rete che dipende da una
 }
 ```
 
-Anche se si potrebbe essere propensi a usare dependsOn per mappare le relazioni tra le risorse, è importante comprendere il motivo per cui si esegue tale operazione. Per documentare la modalità di interconnessione delle risorse, dependsOn non rappresenta l'approccio corretto. Non è possibile eseguire query per ottenere le risorse definite nell'elemento dependsOn dopo la distribuzione. L'impostazione di dipendenze non necessarie rallenta i tempi di distribuzione perché Gestione risorse non possono distribuire tali risorse in parallelo.
+Sebbene sia possibile usare per eseguire il `dependsOn` mapping delle relazioni tra le risorse, è importante comprendere il motivo per cui si esegue questa operazione. Per documentare il modo in cui le risorse sono interconnesse, ad esempio, `dependsOn` non è l'approccio corretto. Non è possibile eseguire una query sulle risorse definite nell' `dependsOn` elemento dopo la distribuzione. L'impostazione di dipendenze non necessarie rallenta i tempi di distribuzione perché Gestione risorse non possono distribuire tali risorse in parallelo.
 
 ## <a name="child-resources"></a>Risorse figlio
 
-Una dipendenza di distribuzione implicita non viene creata automaticamente tra una [risorsa figlio](child-resource-name-type.md) e la risorsa padre. Se è necessario distribuire la risorsa figlio dopo la risorsa padre, impostare la proprietà dependsOn.
+Una dipendenza di distribuzione implicita non viene creata automaticamente tra una [risorsa figlio](child-resource-name-type.md) e la risorsa padre. Se è necessario distribuire la risorsa figlio dopo la risorsa padre, impostare la `dependsOn` Proprietà.
 
 Nell'esempio seguente vengono illustrati un server e un database SQL logici. Si noti che viene definita una dipendenza esplicita tra il database e il server, anche se il database è un figlio del server.
 
@@ -85,13 +85,13 @@ Le espressioni di riferimento ed elenco dichiarano in modo implicito che una ris
 
 Per applicare una dipendenza implicita, fare riferimento alla risorsa in base al nome, non all'ID risorsa. Se alla funzione reference o list viene passato l'ID risorsa, non viene creato alcun riferimento implicito.
 
-Il formato generale della funzione reference è:
+Il formato generale della `reference` funzione è:
 
 ```json
 reference('resourceName').propertyPath
 ```
 
-Il formato generale della funzione listKeys è:
+Il formato generale della `listKeys` funzione è:
 
 ```json
 listKeys('resourceName', 'yyyy-mm-dd')
@@ -165,7 +165,7 @@ Nell'esempio seguente viene illustrato come distribuire più macchine virtuali. 
 }
 ```
 
-Nell'esempio seguente viene illustrato come distribuire tre account di archiviazione prima di distribuire la macchina virtuale. Si noti che il nome dell'elemento Copy è impostato su `storagecopy` e anche l'elemento dependsOn per la macchina virtuale è impostato su `storagecopy` .
+Nell'esempio seguente viene illustrato come distribuire tre account di archiviazione prima di distribuire la macchina virtuale. Si noti che l' `copy` elemento è `name` impostato su `storagecopy` e `dependsOn` anche l'elemento per la macchina virtuale è impostato su `storagecopy` .
 
 ```json
 {
@@ -213,10 +213,9 @@ Per informazioni sulla valutazione dell'ordine di distribuzione e la risoluzione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](template-tutorial-create-templates-with-dependent-resources.md).
+* Per eseguire un'esercitazione, vedere [esercitazione: creare modelli ARM con risorse dipendenti](template-tutorial-create-templates-with-dependent-resources.md).
 * Per un modulo Microsoft Learn che copre le dipendenze delle risorse, vedere [gestire le distribuzioni cloud complesse usando le funzionalità avanzate del modello ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
-* Per suggerimenti sull'impostazione di dipendenze, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
+* Per indicazioni sull'impostazione delle dipendenze, vedere procedure consigliate per i [modelli ARM](template-best-practices.md).
 * Per informazioni sulla risoluzione dei problemi relativi alle dipendenze durante la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
-* Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md).
-* Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](template-functions.md).
-
+* Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per un elenco delle funzioni disponibili in un modello, vedere [funzioni del modello ARM](template-functions.md).

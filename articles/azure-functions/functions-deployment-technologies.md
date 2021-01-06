@@ -4,12 +4,12 @@ description: Informazioni sui diversi modi in cui è possibile distribuire il co
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168101"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936958"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -25,7 +25,7 @@ Nella tabella seguente vengono descritti i metodi di distribuzione disponibili p
 | -- | -- | -- |
 | Basati su strumenti | &bull;&nbsp;[Pubblicazione di Visual &nbsp; Studio &nbsp; Code &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Pubblicazione di Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Pubblicazione degli strumenti di base](functions-run-local.md#publish) | Distribuzioni durante lo sviluppo e altre distribuzioni ad. Le distribuzioni vengono gestite localmente dagli strumenti. | 
 | Servizio app-gestito| &bull;&nbsp;[&nbsp;Centro distribuzione &nbsp; (ci/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[&nbsp;Distribuzioni di contenitori](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Distribuzione continua (CI/CD) dal controllo del codice sorgente o da un registro contenitori. Le distribuzioni vengono gestite dalla piattaforma del servizio app (kudu).|
-| Pipeline esterne|&bull;&nbsp;[Pipeline DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Azioni di GitHub](functions-how-to-github-actions.md) | Le pipeline di produzione e DevOps che includono convalida aggiuntiva, test e altre azioni vengono eseguite nell'ambito di una distribuzione automatica. Le distribuzioni vengono gestite dalla pipeline. |
+| Pipeline esterne|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Azioni di GitHub](functions-how-to-github-actions.md) | Le pipeline di produzione e DevOps che includono convalida aggiuntiva, test e altre azioni vengono eseguite nell'ambito di una distribuzione automatica. Le distribuzioni vengono gestite dalla pipeline. |
 
 Sebbene le distribuzioni di funzioni specifiche usino la tecnologia migliore in base al contesto, la maggior parte dei metodi di distribuzione si basano sulla [distribuzione zip](#zip-deploy).
 
@@ -33,9 +33,9 @@ Sebbene le distribuzioni di funzioni specifiche usino la tecnologia migliore in 
 
 Funzioni di Azure supporta lo sviluppo locale multipiattaforma e l'hosting in Windows e Linux. Attualmente sono disponibili tre piani di hosting:
 
-+ [Consumo](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
-+ [Dedicato (servizio app)](functions-scale.md#app-service-plan)
++ [Consumo](consumption-plan.md)
++ [Premium](functions-premium-plan.md)
++ [Dedicato (servizio app)](dedicated-plan.md)
 
 Ogni piano ha comportamenti diversi. Non tutte le tecnologie di distribuzione sono disponibili per ogni versione di funzioni di Azure. Nel grafico seguente vengono illustrate le tecnologie di distribuzione supportate per ogni combinazione di sistema operativo e piano di hosting:
 
@@ -96,7 +96,7 @@ Le app per le funzioni di Linux in esecuzione nel piano a consumo non dispongono
 
 ##### <a name="dedicated-and-premium-plans"></a>Piani dedicati e Premium
 
-Le app per le funzioni in esecuzione in Linux nel [piano dedicato (servizio app)](functions-scale.md#app-service-plan) e nel [piano Premium](functions-scale.md#premium-plan) hanno anche un sito SCM/Kudu limitato.
+Le app per le funzioni in esecuzione in Linux nel [piano dedicato (servizio app)](dedicated-plan.md) e nel [piano Premium](functions-premium-plan.md) hanno anche un sito SCM/Kudu limitato.
 
 ## <a name="deployment-technology-details"></a>Dettagli sulla tecnologia di distribuzione
 

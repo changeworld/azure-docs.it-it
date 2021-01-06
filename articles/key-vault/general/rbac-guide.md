@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445184"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936244"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
 
@@ -41,7 +41,7 @@ Le autorizzazioni per chiavi, segreti e certificati singoli devono essere usate 
 
 Per ulteriori informazioni sulle linee guida per la gestione di Azure Key Vault, vedere:
 
-- [Procedure consigliate per Azure Key Vault](best-practices.md)
+- [Panoramica della sicurezza di Azure Key Vault](security-overview.md)
 - [Limiti del servizio Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Ruoli predefiniti di Azure per Key Vault operazioni del piano dati (anteprima)

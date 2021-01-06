@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare e testare funzioni di Azure usando 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168433"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936975"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare Funzioni di Azure con Visual Studio Code
 
@@ -187,11 +187,11 @@ Visual Studio Code consente di aggiungere binding al function.jsnel file attenen
 
 Di seguito sono riportate alcune richieste di esempio per definire una nuova associazione di output di archiviazione:
 
-| Prompt | valore | Descrizione |
+| Prompt | Valore | Descrizione |
 | -------- | ----- | ----------- |
 | **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
-| **Nome usato per identificare questa associazione nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
+| **Il nome usato per identificare questo binding nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
 | **La coda a cui verrà inviato il messaggio** | `outqueue` | Il nome della coda in cui scrive il binding. Se *queueName* non esiste, il binding lo crea al primo utilizzo. |
 | **Selezionare l'impostazione da "local.settings.json"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L' `AzureWebJobsStorage` impostazione contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
 
@@ -251,11 +251,11 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
 1. Dopo i prompt, fornire le seguenti informazioni:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Selezionare l'app per le funzioni in Azure | Crea nuovo app per le funzioni in Azure | Al prompt successivo, digitare un nome univoco globale che identifichi la nuova app per le funzioni e quindi premere INVIO. I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
     | Selezionare un sistema operativo | Windows | L'app per le funzioni viene eseguita in Windows. |
-    | Selezionare un piano di hosting | Piano a consumo | Viene usato un [piano A consumo](functions-scale.md#consumption-plan) senza server che ospita. |
+    | Selezionare un piano di hosting | Piano a consumo | Viene usato un [piano A consumo](consumption-plan.md) senza server che ospita. |
     | Selezionare un runtime per la nuova app | Lingua del progetto | Il runtime deve corrispondere al progetto che si sta pubblicando. |
     | Selezionare un gruppo di risorse per le nuove risorse | Crea nuovo gruppo di risorse | Al prompt successivo, digitare il nome di un gruppo di risorse, ad esempio `myResourceGroup` , e quindi premere INVIO. È anche possibile selezionare un gruppo di risorse esistente. |
     | Select a storage account (Selezionare un account di archiviazione) | Creare un nuovo account di archiviazione | Al prompt successivo, digitare un nome univoco globale per il nuovo account di archiviazione usato dall'app per le funzioni e quindi premere INVIO. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile selezionare un account esistente. |
@@ -396,7 +396,7 @@ Per altre informazioni sul monitoraggio con Application Insights, vedere [monito
 
 Per impostazione predefinita, tutti i progetti C# vengono creati come [progetti della libreria di classi compilata in c#](functions-dotnet-class-library.md). Se invece si preferisce usare i progetti script C#, è necessario selezionare lo script C# come lingua predefinita nelle impostazioni dell'estensione funzioni di Azure:
 
-1. Selezionare **File**  >  **Preferenze** file  >  **Impostazioni**.
+1. Selezionare   >  **Preferenze** file  >  **Impostazioni**.
 
 1. Passare a **User Settings**  >  **Extensions**  >  **funzioni di Azure**.
 

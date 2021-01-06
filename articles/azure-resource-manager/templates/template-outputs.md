@@ -3,12 +3,12 @@ title: Output nei modelli
 description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353528"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934731"
 ---
 # <a name="outputs-in-arm-templates"></a>Output nei modelli ARM
 
@@ -47,7 +47,7 @@ Per un esempio semplice di output condizionale, vedere [modello di output condiz
 
 ## <a name="dynamic-number-of-outputs"></a>Numero dinamico di output
 
-In alcuni scenari non si conosce il numero di istanze di un valore che è necessario restituire quando si crea il modello. È possibile restituire un numero variabile di valori usando l'elemento **Copy** .
+In alcuni scenari non si conosce il numero di istanze di un valore che è necessario restituire quando si crea il modello. È possibile restituire un numero variabile di valori usando l' `copy` elemento.
 
 ```json
 "outputs": {
@@ -61,7 +61,7 @@ In alcuni scenari non si conosce il numero di istanze di un valore che è necess
 }
 ```
 
-Per ulteriori informazioni, vedere l' [iterazione degli output nei modelli Azure Resource Manager](copy-outputs.md).
+Per altre informazioni, vedere [iterazione di output nei modelli ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Modelli collegati
 

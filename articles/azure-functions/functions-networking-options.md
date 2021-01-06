@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020995"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936865"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -21,9 +21,9 @@ Nei modelli di hosting sono disponibili diversi livelli di isolamento della rete
 È possibile ospitare le app per le funzioni in due modi:
 
 * È possibile scegliere tra le opzioni di piano eseguite in un'infrastruttura multi-tenant, con diversi livelli di opzioni di connettività e scalabilità della rete virtuale:
-    * Il [Piano a consumo](functions-scale.md#consumption-plan) si ridimensiona dinamicamente in risposta al carico e offre opzioni minime di isolamento rete.
-    * Anche il [piano Premium](functions-scale.md#premium-plan) si ridimensiona dinamicamente e offre un isolamento rete più completo.
-    * Il [piano di servizio app](functions-scale.md#app-service-plan) di Azure opera su scala fissa e offre un isolamento rete simile a quello del piano Premium.
+    * Il [Piano a consumo](consumption-plan.md) si ridimensiona dinamicamente in risposta al carico e offre opzioni minime di isolamento rete.
+    * Anche il [piano Premium](functions-premium-plan.md) si ridimensiona dinamicamente e offre un isolamento rete più completo.
+    * Il [piano di servizio app](dedicated-plan.md) di Azure opera su scala fissa e offre un isolamento rete simile a quello del piano Premium.
 * È possibile eseguire funzioni in un [ambiente del servizio app](../app-service/environment/intro.md). Questo metodo distribuisce la funzione nella rete virtuale e offre controllo di rete e isolamento completi.
 
 ## <a name="matrix-of-networking-features"></a>Matrice delle funzionalità di rete
@@ -34,7 +34,7 @@ Nei modelli di hosting sono disponibili diversi livelli di isolamento della rete
 
 È possibile usare le restrizioni di accesso per definire un elenco con priorità di indirizzi IP consentiti o negati per l'accesso all'app. L'elenco può includere indirizzi IPv4 e IPv6 o subnet di rete virtuale specifiche usando gli [endpoint di servizio](#use-service-endpoints). In presenza di una o più voci, alla fine dell'elenco è presente un'istruzione di tipo "rifiuta tutto" implicita. Le restrizioni IP funzionano con tutte le opzioni di hosting di funzioni.
 
-Le restrizioni di accesso sono disponibili in [Premium](functions-premium-plan.md), [utilizzo](functions-scale.md#consumption-plan)e [servizio app](functions-scale.md#app-service-plan).
+Le restrizioni di accesso sono disponibili in [Premium](functions-premium-plan.md), [utilizzo](consumption-plan.md)e [servizio app](dedicated-plan.md).
 
 > [!NOTE]
 > Con le restrizioni di rete, è possibile eseguire la distribuzione solo dall'interno della rete virtuale o quando è stato inserito l'indirizzo IP del computer usato per accedere al portale di Azure nell'elenco dei destinatari sicuri. Tuttavia, è comunque possibile gestire la funzione tramite il portale.
@@ -128,7 +128,7 @@ Attualmente è possibile usare funzioni trigger non HTTP da una rete virtuale in
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Piano Premium con trigger di rete virtuale
 
-Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP a servizi in esecuzione all'interno di una rete virtuale. A tale scopo è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di **monitoraggio della scalabilità di runtime** si trova nel [portale di Azure](https://portal.azure.com) in **Configuration**  >  **impostazioni runtime funzione** di configurazione.
+Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP a servizi in esecuzione all'interno di una rete virtuale. A tale scopo è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di **monitoraggio della scalabilità di runtime** si trova nel [portale di Azure](https://portal.azure.com) in   >  **impostazioni runtime funzione** di configurazione.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

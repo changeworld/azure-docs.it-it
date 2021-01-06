@@ -1,25 +1,34 @@
 ---
-title: Integrare Apache Kafka connettersi all'hub eventi di Azure (anteprima) con Debezium for Change Data Capture
+title: Integrare Apache Kafka connettersi a hub eventi di Azure con Debezium per Change Data Capture
 description: Questo articolo fornisce informazioni su come usare Debezium con hub eventi di Azure per Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
-ms.date: 08/11/2020
-ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 01/06/2021
+ms.openlocfilehash: 0ad1df23e71e652f7d380ffbabb542b81954e038
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505410"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935173"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrare il supporto di Apache Kafka Connect nell'hub eventi di Azure (anteprima) con Debezium for Change Data Capture
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-with-debezium-for-change-data-capture"></a>Integrare il supporto di Apache Kafka Connect negli hub eventi di Azure con Debezium per Change Data Capture
 
 **Change Data Capture (CDC)** è una tecnica utilizzata per tenere traccia delle modifiche a livello di riga nelle tabelle di database in risposta alle operazioni di creazione, aggiornamento ed eliminazione. [Debezium](https://debezium.io/) è una piattaforma distribuita che si basa sulle funzionalità di Change Data Capture disponibili in database diversi, ad esempio la [decodifica logica in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html). Fornisce un set di [connettori Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) che consentono di accedere alle modifiche a livello di riga nelle tabelle di database e di convertirle in flussi di eventi che vengono quindi inviati a [Apache Kafka](https://kafka.apache.org/).
+
+> [!WARNING]
+> L'uso del framework Apache Kafka Connect, nonché della piattaforma Debezium e dei relativi connettori, **non è idoneo per il supporto del prodotto tramite Microsoft Azure**.
+>
+> Apache Kafka Connect presuppone che la configurazione dinamica venga mantenuta negli argomenti compressi con una conservazione illimitata. Hub eventi di Azure non [implementa la compattazione come funzionalità Broker](event-hubs-federation-overview.md#log-projections) e impone sempre un limite di conservazione basato sul tempo per gli eventi conservati, radicando dal principio che hub eventi di Azure è un motore di streaming di eventi in tempo reale e non un archivio dati o di configurazione a lungo termine.
+>
+> Sebbene il progetto di Apache Kafka possa avere dimestichezza con la combinazione di questi ruoli, Azure ritiene che tali informazioni siano gestite in modo ottimale in un database o in un archivio di configurazione appropriato.
+>
+> Molti scenari di connessione Apache Kafka saranno funzionanti, ma queste differenze concettuali tra i modelli di conservazione dei Apache Kafka e di hub eventi di Azure possono impedire a determinate configurazioni di funzionare come previsto. 
 
 Questa esercitazione illustra come configurare un sistema basato su Change Data Capture in Azure con [Hub eventi di Azure](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (per Kafka), [database di Azure per PostgreSQL](../postgresql/overview.md) e Debezium. Verrà usato il [connettore Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) per trasmettere le modifiche del database da PostgreSQL a Kafka in hub eventi di Azure
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine *whitelist*, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 In questa esercitazione vengono completati i passaggi seguenti:
 

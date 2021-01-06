@@ -3,12 +3,12 @@ title: Variabili nei modelli
 description: Viene descritto come definire le variabili in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353460"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934663"
 ---
 # <a name="variables-in-arm-template"></a>Variabili nel modello ARM
 
@@ -28,7 +28,7 @@ L'esempio seguente illustra la definizione di una variabile: Crea un valore stri
 },
 ```
 
-Non è possibile usare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) nella sezione Variables. Queste funzioni ottengono lo stato di runtime di una risorsa e non possono essere eseguite prima della distribuzione quando le variabili vengono risolte.
+Non è possibile usare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) nella `variables` sezione. Queste funzioni ottengono lo stato di runtime di una risorsa e non possono essere eseguite prima della distribuzione quando le variabili vengono risolte.
 
 ## <a name="use-variable"></a>Usare la variabile
 
@@ -63,7 +63,7 @@ Nel modello si fa riferimento al valore per il parametro usando la funzione [var
 },
 ```
 
-Nei parametri, creare un valore che indichi i valori di configurazione da usare.
+In `parameters` viene creato un valore che indica i valori di configurazione da utilizzare.
 
 ```json
 "parameters": {

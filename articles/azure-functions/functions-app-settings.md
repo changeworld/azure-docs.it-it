@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898726"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937111"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -256,7 +256,7 @@ Per l'utilizzo & solo piani Premium. Il percorso del file per il codice e la con
 Il numero massimo di istanze che l'app per le funzioni è in grado di scalare orizzontalmente. Il valore predefinito è no limit.
 
 > [!IMPORTANT]
-> Questa impostazione è in anteprima.  È stata aggiunta una [Proprietà app per la funzione Max scale out](./functions-scale.md#limit-scale-out) ed è il metodo consigliato per limitare la scalabilità orizzontale.
+> Questa impostazione è in anteprima.  È stata aggiunta una [Proprietà app per la funzione Max scale out](./event-driven-scaling.md#limit-scale-out) ed è il metodo consigliato per limitare la scalabilità orizzontale.
 
 |Chiave|Valore di esempio|
 |---|------------|

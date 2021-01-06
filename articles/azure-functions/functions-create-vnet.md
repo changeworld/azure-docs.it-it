@@ -3,12 +3,12 @@ title: Integrare funzioni di Azure con una rete virtuale di Azure
 description: Esercitazione dettagliata che illustra come connettere una funzione a una rete virtuale di Azure
 ms.topic: article
 ms.date: 4/23/2020
-ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387524"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937018"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Esercitazione: Integrare Funzioni con una rete virtuale di Azure
 
@@ -61,8 +61,8 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
     | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Scegliere `myResourceGroup` o il gruppo di risorse creato con l'app per le funzioni. L'uso dello stesso gruppo di risorse per l'app per le funzioni, la macchina virtuale WordPress e il piano di hosting rende più semplice la pulizia delle risorse al termine dell'esercitazione. |
     | **Nome macchina virtuale** | VNET-Wordpress | Il nome della VM deve essere univoco nel gruppo di risorse. |
     | **[Area](https://azure.microsoft.com/regions/)** | Europa Europa occidentale | Scegliere un'area vicina o vicina alle funzioni che accedono alla macchina virtuale. |
-    | **Dimensione** | B1S | Scegliere **modifica dimensioni** , quindi selezionare l'immagine standard B1S, che include 1 vCPU e 1 GB di memoria. |
-    | **Tipo di autenticazione** | Password | Per usare l'autenticazione della password, è necessario specificare anche un **nome utente**, una **password**sicura e quindi **confermare la password**. Per questa esercitazione non è necessario accedere alla macchina virtuale, a meno che non sia necessario risolvere il problema. |
+    | **Dimensioni** | B1S | Scegliere **modifica dimensioni** , quindi selezionare l'immagine standard B1S, che include 1 vCPU e 1 GB di memoria. |
+    | **Tipo di autenticazione** | Password | Per usare l'autenticazione della password, è necessario specificare anche un **nome utente**, una **password** sicura e quindi **confermare la password**. Per questa esercitazione non è necessario accedere alla macchina virtuale, a meno che non sia necessario risolvere il problema. |
 
 1. Scegliere la scheda **rete** e in Configura reti virtuali selezionare **Crea nuovo**.
 
@@ -81,7 +81,7 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
 
 1. Tornare alla scheda **rete** e scegliere **nessuno** per l' **indirizzo IP pubblico**.
 
-1. Scegliere la scheda **gestione** , quindi in **account di archiviazione di diagnostica**scegliere l'account di archiviazione creato con l'app per le funzioni.
+1. Scegliere la scheda **gestione** , quindi in **account di archiviazione di diagnostica** scegliere l'account di archiviazione creato con l'app per le funzioni.
 
 1. Selezionare **Rivedi e crea**. Al termine della convalida selezionare **Crea**. Il processo di creazione della VM richiederà alcuni minuti. La VM creata può accedere solo alla rete virtuale.
 
@@ -105,9 +105,9 @@ Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtual
 
 1. Nella pagina **integrazione rete virtuale** selezionare **Aggiungi VNET**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Scegliere la rete nell'app per le funzioni":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Aggiungere l'anteprima dell'integrazione VNet":::
 
-1. In **stato funzionalità di rete**usare le impostazioni nella tabella sotto l'immagine:
+1. In **stato funzionalità di rete** usare le impostazioni nella tabella sotto l'immagine:
 
     ![Definire la rete virtuale dell'app per le funzioni](./media/functions-create-vnet/networking-3.png)
 
@@ -129,7 +129,7 @@ Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per 
 
 1. Nell'app per le funzioni selezionare  **proxy** dal menu a sinistra e quindi selezionare **Aggiungi**. Usare le impostazioni proxy nella tabella sotto l'immagine:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Scegliere la rete nell'app per le funzioni":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definire le impostazioni del proxy":::
 
     | Impostazione  | Valore consigliato  | Descrizione      |
     | -------- | ---------------- | ---------------- |
@@ -139,7 +139,7 @@ Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per 
 
 1. Selezionare **Crea** per aggiungere il proxy all'app per le funzioni.
 
-## <a name="try-it-out"></a>Provare il servizio
+## <a name="try-it-out"></a>Provare questa operazione
 
 1. Nel browser provare ad accedere all'URL usato come **URL back-end**. Come previsto, si verifica il timeout della richiesta. Si verifica un timeout perché il sito WordPress è connesso solo alla rete virtuale e non a Internet.
 
@@ -160,4 +160,4 @@ Le funzioni in esecuzione in un piano Premium condividono la stessa infrastruttu
 > [!div class="nextstepaction"]
 > [Altre informazioni sulle opzioni di rete in Funzioni](./functions-networking-options.md)
 
-[Piano Premium]: functions-scale.md#premium-plan
+[Piano Premium]: functions-premium-plan.md

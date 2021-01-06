@@ -3,15 +3,15 @@ title: Gestire server-interfaccia della riga di comando di Azure-database di Azu
 description: Informazioni su come gestire un server di database di Azure per PostgreSQL dall'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490119"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935802"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Gestire un server singolo di database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure
 
@@ -39,7 +39,7 @@ Se non è ancora stato creato un server, fare riferimento a questa [Guida introd
 
 ## <a name="scale-compute-and-storage"></a>Ridimensionare le risorse di calcolo e archiviazione
 
-È possibile aumentare facilmente il piano tariffario, il calcolo e l'archiviazione usando il comando seguente. È possibile visualizzare tutte le operazioni del server che è possibile eseguire [AZ Postgres Server Overview](/cli/azure/mysql/server)
+È possibile scalare facilmente il piano tariffario, il calcolo e l'archiviazione usando il comando seguente. È possibile visualizzare tutte le operazioni del server che è possibile eseguire [AZ Postgres Server Overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144

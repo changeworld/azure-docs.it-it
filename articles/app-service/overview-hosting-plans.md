@@ -6,16 +6,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a29d81be9b750d89230a180b8a7c786466d99bb8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183006"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936431"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
-Nel servizio app (app Web, app per le API o app per dispositivi mobili) un'app viene sempre eseguita in un _piano di servizio app_. Inoltre, [funzioni di Azure](../azure-functions/functions-scale.md#app-service-plan) può anche essere eseguito in un piano di _servizio app_. Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. Queste risorse di calcolo sono analoghe alla [_server farm_](https://wikipedia.org/wiki/Server_farm) nell'hosting Web convenzionale. È possibile configurare una o più app per eseguirle nelle stesse risorse di calcolo (o nello stesso piano di servizio app).
+Nel servizio app (app Web, app per le API o app per dispositivi mobili) un'app viene sempre eseguita in un _piano di servizio app_. Inoltre, [funzioni di Azure](../azure-functions/dedicated-plan.md) può anche essere eseguito in un piano di _servizio app_. Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. Queste risorse di calcolo sono analoghe alla [_server farm_](https://wikipedia.org/wiki/Server_farm) nell'hosting Web convenzionale. È possibile configurare una o più app per eseguirle nelle stesse risorse di calcolo (o nello stesso piano di servizio app).
 
 Quando si crea un piano di servizio app in una determinata area (ad esempio, Europa occidentale), viene creato un set di risorse di calcolo per quel piano in quell'area. Tutte le app inserite nel piano di servizio app vengono eseguite in queste risorse di calcolo definite dal piano di servizio app. Ogni piano di servizio app definisce:
 

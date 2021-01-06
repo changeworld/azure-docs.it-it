@@ -3,12 +3,12 @@ title: Stima dei costi del piano di consumo in funzioni di Azure
 description: Informazioni su come stimare meglio i costi che possono verificarsi quando si esegue l'app per le funzioni in un piano a consumo in Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 58082e03c1416848e9aa1e97308bed1ceaa67295
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168113"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934884"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Stima dei costi del piano a consumo
 
@@ -16,9 +16,9 @@ Esistono attualmente tre tipi di piani di hosting per un'app in esecuzione in fu
 
 | Pianificare | Description |
 | ---- | ----------- |
-| [**Consumo**](functions-scale.md#consumption-plan) | Viene addebitato solo il tempo di esecuzione dell'app per le funzioni. Questo piano include una[pagina dei prezzi] di [concessione gratuita]per ogni sottoscrizione.|
-| [**Premium**](functions-scale.md#premium-plan) | Fornisce le stesse funzionalità e il meccanismo di scalabilità del piano a consumo, ma con prestazioni migliorate e accesso VNET. Il costo si basa sul piano tariffario scelto. Per altre informazioni, vedere [piano Premium di funzioni di Azure](functions-premium-plan.md). |
-| [**Dedicato (servizio app)**](functions-scale.md#app-service-plan) <br/>(livello Basic o superiore) | Quando è necessario eseguire in macchine virtuali dedicate o in isolamento, usare immagini personalizzate oppure usare la capacità del piano di servizio app in eccesso. Usa la [fatturazione normale del piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/). Il costo si basa sul piano tariffario scelto.|
+| [**Consumo**](consumption-plan.md) | Viene addebitato solo il tempo di esecuzione dell'app per le funzioni. Questo piano include una[pagina dei prezzi] di [concessione gratuita]per ogni sottoscrizione.|
+| [**Premium**](functions-premium-plan.md) | Fornisce le stesse funzionalità e il meccanismo di scalabilità del piano a consumo, ma con prestazioni migliorate e accesso VNET. Il costo si basa sul piano tariffario scelto. Per altre informazioni, vedere [piano Premium di funzioni di Azure](functions-premium-plan.md). |
+| [**Dedicato (servizio app)**](dedicated-plan.md) <br/>(livello Basic o superiore) | Quando è necessario eseguire in macchine virtuali dedicate o in isolamento, usare immagini personalizzate oppure usare la capacità del piano di servizio app in eccesso. Usa la [fatturazione normale del piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/). Il costo si basa sul piano tariffario scelto.|
 
 Si è scelto il piano che meglio supporta le prestazioni della funzione e i requisiti di costo. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
 
@@ -75,7 +75,7 @@ Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metr
 
 1. Nella parte superiore del [portale di Azure] in **Cerca servizi, risorse e documentazione**  Cerca `monitor` e seleziona **monitoraggio** in **Servizi**.
 
-1. A sinistra selezionare **metrica**  >  **selezionare una risorsa**e quindi usare le impostazioni sotto l'immagine per scegliere l'app per le funzioni.
+1. A sinistra selezionare **metrica**  >  **selezionare una risorsa** e quindi usare le impostazioni sotto l'immagine per scegliere l'app per le funzioni.
 
     ![Selezionare la risorsa dell'app per le funzioni](media/functions-consumption-costing/select-a-resource.png)
 
@@ -89,7 +89,7 @@ Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metr
 
 1. Selezionare **applica** per scegliere l'app per le funzioni come risorsa da monitorare.
 
-1. Da **metrica**scegliere **Numero esecuzioni di funzioni** e **Sum** per **aggregazione**. In questo modo viene aggiunta la somma dei conteggi di esecuzione durante il periodo scelto al grafico.
+1. Da **metrica** scegliere **Numero esecuzioni di funzioni** e **Sum** per **aggregazione**. In questo modo viene aggiunta la somma dei conteggi di esecuzione durante il periodo scelto al grafico.
 
     ![Definire una metrica dell'app per le funzioni da aggiungere al grafico](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 

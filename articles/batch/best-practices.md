@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694173"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934289"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -24,6 +24,9 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 ### <a name="pool-configuration-and-naming"></a>Configurazione e denominazione del pool
 
 - **Modalità di allocazione pool** Quando si crea un account Batch, è possibile scegliere tra due modalità di allocazione pool: **servizio Batch** o **sottoscrizione utente**. Nella maggior parte dei casi si userà la modalità predefinita del servizio Batch, in cui i pool vengono allocati dietro le quinte nelle sottoscrizioni gestite da Batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono usati principalmente per rendere possibile un sottoinsieme di scenari, piccolo ma importante. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [Configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **' cloudServiceConfiguration ' o ' virtualMachineConfiguration '.**
+    usare ' virtualMachineConfiguration '. Tutte le funzionalità batch sono supportate dai pool ' virtualMachineConfiguration '. Non tutte le funzionalità sono supportate per i pool ' cloudServiceConfiguration ' e non sono state pianificate nuove funzionalità.
 
 - **Considerare il tempo di esecuzione di processi e attività per determinare il mapping tra processi e pool.**
     Se i processi sono costituiti prevalentemente da attività di breve durata e il numero totale previsto di attività è ridotto, per cui il tempo di esecuzione complessivo previsto per il processo non è molto lungo, non allocare un nuovo pool per ogni processo. Il tempo di allocazione dei nodi ridurrà il tempo di esecuzione del processo.

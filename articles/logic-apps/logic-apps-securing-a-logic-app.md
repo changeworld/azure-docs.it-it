@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/08/2020
-ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/09/2020
+ms.openlocfilehash: 1d2ba6dbbcc2b8674718912f00b1d1ec58e1c4c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922943"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936091"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -308,12 +308,13 @@ Per aggiungere altri [protocolli di autenticazione](../active-directory/develop/
 
 Oltre alla firma di accesso condiviso (SAS) è possibile che l'utente voglia limitare client specifici che possono chiamare l'app per la logica. Ad esempio, se si gestisce l'endpoint di richiesta usando [gestione API di Azure](../api-management/api-management-key-concepts.md), è possibile limitare l'app per la logica ad accettare le richieste solo dall'indirizzo IP per l' [istanza del servizio gestione API creata](../api-management/get-started-create-service-instance.md).
 
-> [!NOTE]
-> Indipendentemente dagli indirizzi IP specificati, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta tramite l' [API REST di app per la logica: trigger del flusso di lavoro-eseguire](/rest/api/logic/workflowtriggers/run) la richiesta o usando gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
+Indipendentemente dagli indirizzi IP specificati, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta tramite l' [API REST di app per la logica: trigger del flusso di lavoro-eseguire](/rest/api/logic/workflowtriggers/run) la richiesta o usando gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
 
 <a name="restrict-inbound-ip-portal"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Limitare gli intervalli di indirizzi IP in ingresso in portale di Azure
+
+Quando si usa il portale per limitare gli indirizzi IP in ingresso per l'app per la logica, queste restrizioni influiscono su trigger *e* azioni, nonostante la descrizione nel portale in **indirizzi IP in ingresso consentiti**. Per configurare le restrizioni sui trigger separatamente dalle azioni, usare l' [ `accessControl` oggetto nel modello di Azure Resource Manager dell'app per la logica](#restrict-inbound-ip-template) o nell'API REST di app per la [logica: Workflow-create o Update](/rest/api/logic/workflows/createorupdate).
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
@@ -1125,7 +1126,7 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
 
 * Per eseguire il proprio codice o eseguire la trasformazione XML, [creare e chiamare una funzione di Azure](../logic-apps/logic-apps-azure-functions.md), anziché usare la [funzionalità di codice inline](../logic-apps/logic-apps-add-run-inline-code.md) o fornire gli [assembly da usare rispettivamente come Maps](../logic-apps/logic-apps-enterprise-integration-maps.md). Inoltre, configurare l'ambiente host per l'app per le funzioni in modo che soddisfi i requisiti di isolamento.
 
-  Ad esempio, per soddisfare i requisiti del livello di influenza 5, creare l'app per le funzioni con il [piano di servizio app](../azure-functions/functions-scale.md#app-service-plan) usando il piano [tariffario **isolato**](../app-service/overview-hosting-plans.md) insieme a un [ambiente del servizio app (ASE)](../app-service/environment/intro.md) che usa anche il piano tariffario **isolato** . In questo ambiente, le app per le funzioni vengono eseguite in macchine virtuali di Azure dedicate e in reti virtuali di Azure dedicate, che garantiscono l'isolamento della rete oltre l'isolamento di calcolo per le app e le funzionalità di scalabilità orizzontale. Per altre informazioni, vedere [linee guida sull'isolamento di Azure Government Impact Level 5-funzioni di Azure](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Ad esempio, per soddisfare i requisiti del livello di influenza 5, creare l'app per le funzioni con il [piano di servizio app](../azure-functions/dedicated-plan.md) usando il piano [tariffario **isolato**](../app-service/overview-hosting-plans.md) insieme a un [ambiente del servizio app (ASE)](../app-service/environment/intro.md) che usa anche il piano tariffario **isolato** . In questo ambiente, le app per le funzioni vengono eseguite in macchine virtuali di Azure dedicate e in reti virtuali di Azure dedicate, che garantiscono l'isolamento della rete oltre l'isolamento di calcolo per le app e le funzionalità di scalabilità orizzontale. Per altre informazioni, vedere [linee guida sull'isolamento di Azure Government Impact Level 5-funzioni di Azure](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
   Per altre informazioni, vedere gli argomenti seguenti:<p>
 

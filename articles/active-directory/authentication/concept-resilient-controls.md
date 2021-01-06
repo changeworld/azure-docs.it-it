@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861290"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937094"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -38,8 +38,8 @@ Questo documento fornisce materiale sussidiario sulle strategie che un'organizza
 Da questo documento si traggono quattro punti chiave:
 
 * Evitare il blocco dell'amministratore usando account di accesso di emergenza.
-* Implementare l'autenticazione a più fattori usando l'accesso condizionale (CA) anziché l'autenticazione a più fattori per utente.
-* Attenuare il blocco degli utenti usando più controlli di accesso condizionale (CA).
+* Implementare l'autenticazione a più fattori usando l'accesso condizionale anziché l'autenticazione a più fattori per utente
+* Attenuare il blocco degli utenti usando più controlli di accesso condizionale.
 * Ridurre i blocchi dell'utente effettuando il provisioning di più metodi o equivalenti di autenticazione per ciascun utente.
 
 ## <a name="before-a-disruption"></a>Prima di un'interruzione
@@ -120,7 +120,7 @@ Un criterio di accesso condizionale di emergenza è un **criterio di backup** ch
 * Configurare un set di criteri di fallback se un'interruzione in un tipo di credenziali o in un meccanismo di controllo di accesso ha effetti sull'accesso alle app. Configurare un criterio nello stato solo report che richiede l'aggiunta a un dominio come controllo, come backup per un criterio attivo che richiede un provider di autenticazione a più fattori di terze parti.
 * Ridurre il rischio di password indovinate da malintenzionati, quando l'autenticazione a più fattori non è necessaria, seguendo le procedure consigliate nel white paper relativo alle [indicazioni sulle password](https://aka.ms/passwordguidance).
 * Distribuire [Reimpostazione self-service delle password di Azure AD (SSPR)](./tutorial-enable-sspr.md) e [Protezione della password di Azure AD](./howto-password-ban-bad-on-premises-deploy.md) per assicurarsi che gli utenti non usino password comuni e termini esclusi.
-* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Ad esempio:
+* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Esempio:
   * Configurare un criterio di backup che invia l'attestazione di sessione con restrizioni a Exchange e SharePoint.
   * Se l'organizzazione usa Microsoft Cloud App Security, è consigliabile eseguire il fallback a un criterio che coinvolga MCAS, quindi che MCAS consenta l'accesso di sola lettura, ma non il caricamento.
 * Assegnare un nome ai criteri per esseri sicuri di trovarli facilmente durante un'interruzione. Includere gli elementi seguenti nel nome dei criteri:
@@ -138,9 +138,9 @@ Lo standard di denominazione per i criteri di emergenza avrà il formato seguent
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-Nell'esempio seguente, **un esempio di criterio CA di emergenza per ripristinare l'accesso alle app di collaborazione cruciali**, è una tipica contingenza aziendale. In questo scenario, l'organizzazione richiede in genere l'autenticazione a più fattori per tutti gli accessi a Exchange Online e SharePoint Online e l'interruzione in questo caso è il provider di autenticazione a più fattori per il cliente ha un'interruzione (sia Azure AD l'autenticazione a più fattori, il provider di autenticazione a più fattori locale o l'autenticazione a più fattori di terz Questo criterio riduce l'interruzione permettendo a utenti di destinazione specifici di accedere a tali app da dispositivi Windows attendibili esclusivamente quando l'accesso all'app si verifica tramite la rete aziendale attendibile. Anche gli account di emergenza e degli amministratori di core saranno esclusi da queste restrizioni. Gli utenti di destinazione otterranno quindi l'accesso a Exchange Online e SharePoint Online, mentre gli altri utenti continueranno a non poter accedere alle app a causa dell'interruzione del servizio. In questo esempio, saranno necessari un percorso di rete denominato **CorpNetwork**, un gruppo di sicurezza **ContingencyAccess** con gli utenti di destinazione, uno denominato **CoreAdmins** con gli amministratori di core e uno denominato **EmergencyAccess** con gli account di accesso di emergenza. L'emergenza richiede quattro criteri per garantire l'accesso desiderato. 
+Nell'esempio seguente, ad esempio, i **criteri di accesso condizionale di emergenza per ripristinare l'accesso alle app di collaborazione cruciale** sono una tipica contingenza aziendale. In questo scenario, l'organizzazione richiede in genere l'autenticazione a più fattori per tutti gli accessi a Exchange Online e SharePoint Online e l'interruzione in questo caso è il provider di autenticazione a più fattori per il cliente ha un'interruzione (sia Azure AD l'autenticazione a più fattori, il provider di autenticazione a più fattori locale o l'autenticazione a più fattori di terz Questo criterio riduce l'interruzione permettendo a utenti di destinazione specifici di accedere a tali app da dispositivi Windows attendibili esclusivamente quando l'accesso all'app si verifica tramite la rete aziendale attendibile. Anche gli account di emergenza e degli amministratori di core saranno esclusi da queste restrizioni. Gli utenti di destinazione otterranno quindi l'accesso a Exchange Online e SharePoint Online, mentre gli altri utenti continueranno a non poter accedere alle app a causa dell'interruzione del servizio. In questo esempio, saranno necessari un percorso di rete denominato **CorpNetwork**, un gruppo di sicurezza **ContingencyAccess** con gli utenti di destinazione, uno denominato **CoreAdmins** con gli amministratori di core e uno denominato **EmergencyAccess** con gli account di accesso di emergenza. L'emergenza richiede quattro criteri per garantire l'accesso desiderato. 
 
-**Esempio A: criteri di accesso condizionale di emergenza per il ripristino dell'accesso alle app di collaborazione di importanza strategica fondamentale:**
+**Esempio A-criteri di accesso condizionale di emergenza per ripristinare l'accesso alle app di collaborazione cruciali:**
 
 * Criteri 1: Richiedi dispositivi aggiunti a un dominio per Exchange e SharePoint
   * Nome: EM001-ENABLE IN EMERGENCY: interferenza dell'autenticazione a più fattori [1/4]-Exchange SharePoint-Richiedi Aggiunta ad Azure AD ibrido
@@ -180,9 +180,9 @@ Ordine di attivazione:
 5. Abilita criterio 4: verificare che tutti gli utenti non possano ottenere Exchange Online dalle applicazioni di posta elettronica native sui dispositivi mobili.
 6. Disabilitare i criteri di autenticazione a più fattori esistenti per SharePoint Online ed Exchange Online.
 
-In questo esempio successivo, **Esempio B: criteri di accesso condizionale di emergenza per consentire l'accesso a Salesforce da dispositivi mobili**, viene ripristinata l'accesso a un app aziendale. In questo scenario, in genere, il cliente richiede che l'accesso a Salesforce (configurato per l'accesso singolo con Azure AD) da parte degli addetti alla vendita con dispositivi mobili sia consentito solo se tramite dispositivi conformi. L'interruzione, in questo caso, consiste in un problema nella valutazione della conformità dei dispositivi. Si è verificata un'interruzione a un orario delicato, dove il team vendite deve accedere a Salesforce per chiudere delle operazioni commerciali. Questi criteri di emergenza concederanno l'accesso a Salesforce da un dispositivo mobile agli utenti fondamentali, in modo da poter continuare a chiudere operazioni commerciali senza interrompere le attività. In questo esempio, **SalesforceContingency** contiene tutti gli addetti alle vendite che hanno bisogno di mantenere l'accesso, mentre **SalesAdmins** include gli amministratori di Salesforce necessari.
+Nell'esempio seguente, ad **esempio i criteri di accesso condizionale B-contingenza per consentire l'accesso mobile a Salesforce**, viene ripristinato l'accesso di un'app aziendale. In questo scenario, in genere, il cliente richiede che l'accesso a Salesforce (configurato per l'accesso singolo con Azure AD) da parte degli addetti alla vendita con dispositivi mobili sia consentito solo se tramite dispositivi conformi. L'interruzione, in questo caso, consiste in un problema nella valutazione della conformità dei dispositivi. Si è verificata un'interruzione a un orario delicato, dove il team vendite deve accedere a Salesforce per chiudere delle operazioni commerciali. Questi criteri di emergenza concederanno l'accesso a Salesforce da un dispositivo mobile agli utenti fondamentali, in modo da poter continuare a chiudere operazioni commerciali senza interrompere le attività. In questo esempio, **SalesforceContingency** contiene tutti gli addetti alle vendite che hanno bisogno di mantenere l'accesso, mentre **SalesAdmins** include gli amministratori di Salesforce necessari.
 
-**Esempio B: criteri di accesso condizionale di emergenza:**
+**Esempio B: criteri di accesso condizionale di contingenza:**
 
 * Criterio 1: bloccare tutti gli utenti non presenti nel team SalesContingency
   * Nome: EM001-ENABLE IN EMERGENCY: interferenza della conformità del dispositivo [1/2]-Salesforce-blocca tutti gli utenti tranne SalesforceContingency

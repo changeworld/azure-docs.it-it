@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049384"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935887"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Che cos'è la modalità solo report di accesso condizionale?
 
@@ -30,7 +30,7 @@ La modalità solo report è un nuovo stato dei criteri di accesso condizionale c
 - I clienti con una sottoscrizione di monitoraggio di Azure possono monitorare l'effetto dei criteri di accesso condizionale usando la cartella di lavoro delle informazioni dettagliate sull'accesso condizionale.
 
 > [!WARNING]
-> I criteri in modalità solo report che richiedono dispositivi conformi possono richiedere agli utenti di Mac, iOS e Android di selezionare un certificato del dispositivo durante la valutazione dei criteri, anche se non viene applicata la conformità del dispositivo. Queste richieste possono essere ripetute fino a quando il dispositivo non viene reso conforme. Per impedire agli utenti finali di ricevere richieste durante l'accesso, escludere le piattaforme per dispositivi Mac, iOS e Android dai criteri di solo report che eseguono i controlli di conformità del dispositivo. Si noti che la modalità solo report non è applicabile per i criteri di accesso condizionale con ambito "Azioni utente".
+> I criteri in modalità solo report che richiedono dispositivi conformi possono richiedere agli utenti di Mac, iOS e Android di selezionare un certificato del dispositivo durante la valutazione dei criteri, anche se non viene applicata la conformità del dispositivo. Queste richieste possono essere ripetute fino a quando il dispositivo non viene reso conforme. Per impedire agli utenti finali di ricevere richieste durante l'accesso, escludere le piattaforme per dispositivi Mac, iOS e Android dai criteri di solo report che eseguono i controlli di conformità del dispositivo. Si noti che la modalità solo report non è applicabile per i criteri di accesso condizionale con ambito "azioni utente".
 
 ![Scheda solo report nel log di accesso Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

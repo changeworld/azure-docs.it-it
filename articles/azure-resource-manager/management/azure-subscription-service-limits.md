@@ -3,12 +3,12 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 182df937ae5c0194aecfbe20b5962b44b363c708
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547849"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934468"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -132,7 +132,7 @@ Per i limiti del Database di Azure per PostgreSQL, vedere [Limiti di Database di
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-Per altre informazioni, vedere [confronto dei piani di hosting di funzioni](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+Per altre informazioni, vedere [confronto dei piani di hosting di funzioni](../../azure-functions/functions-scale.md).
 
 ## <a name="azure-kubernetes-service-limits"></a>Limiti del servizio Azure Kubernetes
 

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a43200985820779c56983f09b81a86989261c36f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837482"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935003"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -24,7 +24,7 @@ Pianificare la distribuzione dell'accesso condizionale è fondamentale affinché
 
 In un mondo dominato dai dispositivi mobili e basato sul cloud, gli utenti accedono alle risorse dell'organizzazione da qualsiasi luogo con una serie di dispositivi e applicazioni. Pertanto, non è più sufficiente concentrarsi solo su chi può accedere a una risorsa. È anche necessario considerare la posizione in cui si trova l'utente, il dispositivo usato, la risorsa a cui accede e altro ancora. 
 
-L'accesso condizionale (CA) di Azure Active Directory (Azure AD) analizza segnali quali l'utente, il dispositivo e la posizione per automatizzare le decisioni e applicare i criteri di accesso dell'organizzazione per le risorse. È possibile usare i criteri di accesso condizionale per applicare controlli di accesso quali l'autenticazione a più fattori (MFA). I criteri di accesso condizionale consentono di richiedere agli utenti di usare l'autenticazione a più fattori quando necessario per la sicurezza e di evitare di ostacolare gli utenti quando non necessario.
+L'accesso condizionale Azure Active Directory (Azure AD) analizza i segnali, ad esempio utente, dispositivo e posizione, per automatizzare le decisioni e applicare i criteri di accesso dell'organizzazione per le risorse. È possibile usare i criteri di accesso condizionale per applicare controlli di accesso come Multi-Factor Authentication (multi-factor authentication). I criteri di accesso condizionale consentono di richiedere agli utenti l'autenticazione a più fattori quando sono necessari per la sicurezza e di rimanere fuori dal modo in cui gli utenti non sono più necessari.
 
 ![Panoramica dell'accesso condizionale](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
@@ -38,7 +38,7 @@ Prima di iniziare, assicurarsi di comprendere il funzionamento dell'[accesso con
 
 I vantaggi della distribuzione dell'accesso condizionale sono:
 
-* Aumento della produttività. Interrupt degli utenti solo con una condizione di accesso, ad esempio l'autenticazione a più fattori quando richiesta da uno o più segnali. I criteri di accesso condizionale consentono di controllare quando agli utenti viene richiesta l'autenticazione a più fattori, quando l'accesso è bloccato e quando è necessario usare un dispositivo attendibile.
+* Aumento della produttività. Interrupt degli utenti solo con una condizione di accesso, ad esempio l'autenticazione a più fattori quando richiesta da uno o più segnali. I criteri di accesso condizionale consentono di controllare quando viene richiesto agli utenti di usare l'autenticazione a più fattori, quando l'accesso è bloccato e quando devono usare un dispositivo attendibile.
 
 * per gestire i rischi. L'automazione della valutazione dei rischi con le condizioni dei criteri significa che gli accessi a rischio sono identificati immediatamente e vengono risolti o bloccati. L'accoppiamento dell'accesso condizionale con [Identity Protection](../identity-protection/overview-identity-protection.md), che rileva anomalie ed eventi sospetti, consente di definire le destinazioni quando l'accesso alle risorse è bloccato o controllato. 
 
@@ -71,7 +71,7 @@ Le seguenti risorse possono essere utili per acquisire familiarità con l'access
 
 * [Informazioni sull'accesso condizionale](https://youtu.be/ffMAw2IVO7A)
 * [Distribuzione dell'accesso condizionale](https://youtu.be/c_izIRNJNuk)
-* [Distribuzione dei criteri dell'accesso condizionale agli utenti finali](https://youtu.be/0_Fze7Zpyvc)
+* [Come implementare i criteri di accesso condizionale per gli utenti finali](https://youtu.be/0_Fze7Zpyvc)
 * [Accesso condizionale con controlli dispositivo](https://youtu.be/NcONUf-jeS4)
 * [Accesso condizionale con Azure AD multi-factor authentication](https://youtu.be/Tbc-SU97G-w)
 * [Accesso condizionale in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
@@ -102,13 +102,13 @@ Quando i nuovi criteri sono pronti per l'ambiente, distribuirli in più fasi nel
 > [!NOTE]
 > Per implementare nuovi criteri non specifici per gli amministratori, escludere tutti gli amministratori. In questo modo gli amministratori possono comunque accedere ai criteri e apportare modifiche o revocarli in caso di impatto significativo. Convalidare sempre i criteri con gruppi di utenti più piccoli prima di applicare i criteri a tutti gli utenti.
 
-## <a name="understand-ca-policy-components"></a>Informazioni sui componenti dei criteri di accesso condizionale
-I criteri CA sono istruzioni if-then: se viene soddisfatta un'assegnazione, applicare tali controlli di accesso.
+## <a name="understand-conditional-access-policy-components"></a>Informazioni sui componenti dei criteri di accesso condizionale
+I criteri di accesso condizionale sono istruzioni if-then: se viene soddisfatta un'assegnazione, applicare tali controlli di accesso.
 
-Quando si configurano i criteri dell'accesso condizionale, le condizioni sono denominate *assegnazioni*. I criteri di accesso condizionale consentono di applicare i controlli di accesso alle applicazioni dell'organizzazione in base a determinate assegnazioni.
+Quando si configurano i criteri di accesso condizionale, le condizioni vengono chiamate *assegnazioni*. I criteri di accesso condizionale consentono di applicare controlli di accesso alle app dell'organizzazione in base a determinate assegnazioni.
 
 
-Per altre informazioni, vedere [Creazione di un criterio di accesso condizionale](concept-conditional-access-policies.md).
+Per altre informazioni, vedere [compilazione di un criterio di accesso condizionale](concept-conditional-access-policies.md).
 
 ![Schermata Crea criterio](media/plan-conditional-access/create-policy.png)
 
@@ -195,7 +195,7 @@ Si desidera applicare uno dei controlli di accesso seguenti nelle applicazioni c
 ![Diagramma di rilascio dei token di accesso](media/plan-conditional-access/CA-policy-token-issuance.png)
 
 > [!NOTE]
-> Se non è richiesta alcuna assegnazione e nessun criterio CA è attivo, il comportamento predefinito prevede l'emissione di un token di accesso. 
+> Se non è richiesta alcuna assegnazione e non è attivo alcun criterio di accesso condizionale, il comportamento predefinito prevede l'emissione di un token di accesso. 
 
 Si consideri, ad esempio, un criterio in cui:
 
@@ -207,14 +207,14 @@ Se un utente non presente nel Gruppo 1 tenta di accedere all'applicazione, non v
 
 Il framework di accesso condizionale offre ottima flessibilità di configurazione. Con un'elevata flessibilità, tuttavia, è consigliabile esaminare attentamente ogni criterio di configurazione prima del rilascio per evitare risultati indesiderati.
 
-### <a name="apply-ca-policies-to-every-app"></a>Applicare i criteri di accesso condizionale a tutte le applicazioni
+### <a name="apply-conditional-access-policies-to-every-app"></a>Applicare i criteri di accesso condizionale a ogni app
 
-Per impostazione predefinita, i token di accesso vengono rilasciati se una condizione del criterio di accesso condizionale non attiva un controllo di accesso. Assicurarsi che tutte le applicazioni dispongano di almeno un criterio di accesso condizionale applicato
+Per impostazione predefinita, i token di accesso vengono emessi se una condizione dei criteri di accesso condizionale non attiva un controllo di accesso. Assicurarsi che tutte le applicazioni dispongano di almeno un criterio di accesso condizionale applicato
 
 > [!IMPORTANT]
 > Prestare molta attenzione nell'uso del blocco e di tutte le applicazioni in un singolo criterio. Questo potrebbe bloccare l'accesso degli amministratori al Portale di amministrazione di Azure e sarebbe impossibile configurare le esclusioni per endpoint importanti, ad esempio Microsoft Graph.
 
-### <a name="minimize-the-number-of-ca-policies"></a>Ridurre al minimo il numero di criteri di accesso condizionale
+### <a name="minimize-the-number-of-conditional-access-policies"></a>Ridurre al minimo il numero di criteri di accesso condizionale
 
 La creazione di un criterio per ciascuna applicazione non è un'operazione efficiente e rende complicata l'amministrazione. L'accesso condizionale applicherà solo i primi 195 criteri per utente. Si consiglia di analizzare le applicazioni e raggrupparle in applicazioni che presentano gli stessi requisiti di risorse per gli stessi utenti. Se, ad esempio, tutte le app Microsoft 365 o tutte le app HR hanno gli stessi requisiti per gli stessi utenti, creare un singolo criterio e includere tutte le app a cui si applica. 
 
@@ -228,9 +228,9 @@ Se si configura un criterio in modo errato, potrebbe bloccare l'accesso delle or
 
   * Creare un gruppo di sicurezza locale e sincronizzarlo con Azure AD. Il gruppo di sicurezza deve contenere l'account di amministrazione dei criteri dedicato. 
 
-   * ESENTARE questo gruppo di sicurezza da tutti i criteri di accesso condizionale.
+   * ESENTAre questo gruppo di sicurezza forma tutti i criteri di accesso condizionale.
 
-   * Quando si verifica un'interruzione del servizio, aggiungere gli altri amministratori al gruppo locale nel modo appropriato e forzare una sincronizzazione. In questo modo viene attivata l’esenzione dai criteri di accesso condizionale.
+   * Quando si verifica un'interruzione del servizio, aggiungere gli altri amministratori al gruppo locale nel modo appropriato e forzare una sincronizzazione. Questa operazione consente di animare l'esenzione per i criteri di accesso condizionale.
 
 ### <a name="set-up-report-only-mode"></a>Configurare la modalità solo report
 
@@ -240,7 +240,7 @@ Può essere difficile prevedere il numero e i nomi degli utenti interessati da i
 * richiesta di autenticazione a più fattori
 * implementazione di criteri di rischio di accesso
 
-La [modalità solo report ](concept-conditional-access-report-only.md) consente agli amministratori di valutare l'impatto dei criteri di accesso condizionale prima di abilitarli nell'ambiente in uso.
+La [modalità solo report](concept-conditional-access-report-only.md) consente agli amministratori di valutare l'impatto dei criteri di accesso condizionale prima di abilitarli nel proprio ambiente.
 
 Informazioni su come [configurare la modalità solo report in un criterio di accesso condizionale](howto-conditional-access-insights-reporting.md).
 
@@ -295,7 +295,7 @@ Quando per l'ambiente sono pronti nuovi criteri, assicurarsi di esaminare ogni c
 
 ## <a name="common-policies"></a>Criteri comuni
 
-Quando si pianifica una soluzione di criterio di accesso condizionale, valutare se è necessario creare criteri per ottenere i seguenti risultati.
+Quando si pianifica la soluzione dei criteri di accesso condizionale, valutare se è necessario creare criteri per ottenere i risultati seguenti.
 
 * [Richiedere l'autenticazione MFA](#require-mfa)
 * [Rispondere ad account potenzialmente compromessi](#respond-to-potentially-compromised-accounts)
@@ -319,7 +319,7 @@ I casi d'uso comuni per richiedere l'autenticazione a più fattori:
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Rispondere ad account potenzialmente compromessi
 
-Con i criteri di accesso condizionale, è possibile implementare risposte automatiche per gli accessi da identità potenzialmente compromesse. La probabilità che un account sia stato compromesso viene espressa sotto forma di livelli di rischio. Identity Protection calcola due livelli di rischio: rischio di accesso e rischio utente. Di seguito sono riportati i tre criteri predefiniti che è possibile abilitare.
+Con i criteri di accesso condizionale è possibile implementare risposte automatiche a accessi tramite identità potenzialmente compromesse. La probabilità che un account sia stato compromesso viene espressa sotto forma di livelli di rischio. Identity Protection calcola due livelli di rischio: rischio di accesso e rischio utente. Di seguito sono riportati i tre criteri predefiniti che è possibile abilitare.
 
 * [Richiedere agli utenti di registrarsi per l'autenticazione a più fattori](howto-conditional-access-policy-risk.md)
 
@@ -374,7 +374,7 @@ Alcune organizzazioni hanno tenant di test a questo scopo. Tuttavia, può essere
 
 ### <a name="create-a-test-plan"></a>Creare un piano di test
 
-Il piano di test è importante per disporre di un confronto tra i risultati previsti e i risultati effettivi. È sempre necessario definire il risultato atteso prima di eseguire un test. Nella tabella seguente vengono descritti alcuni test case di esempio. Modificare gli scenari e i risultati previsti in base al modo in cui sono configurati i criteri di accesso condizionale.
+Il piano di test è importante per disporre di un confronto tra i risultati previsti e i risultati effettivi. È sempre necessario definire il risultato atteso prima di eseguire un test. Nella tabella seguente vengono descritti alcuni test case di esempio. Modificare gli scenari e i risultati previsti in base alla configurazione dei criteri di accesso condizionale.
 
 | Policy| Scenario| Risultato previsto |
 | - | - | - |
@@ -389,9 +389,9 @@ Il piano di test è importante per disporre di un confronto tra i risultati prev
 
 ### <a name="configure-the-test-policy"></a>Configurare il criterio di test
 
-Nel [portale di Azure](https://portal.azure.com/) configurare i criteri di accesso condizionale in Azure Active Directory > Sicurezza > Accesso condizionale.
+Nella [portale di Azure](https://portal.azure.com/)è possibile configurare i criteri di accesso condizionale in Azure Active Directory > sicurezza > l'accesso condizionale.
 
-Per ulteriori informazioni su come creare i criteri di accesso condizionale, vedere l'esempio seguente: [Criterio di accesso condizionale per richiedere l'autenticazione a più fattori quando un utente accede al portale di Azure](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Questo argomento di avvio rapido consente di:
+Per altre informazioni su come creare criteri di accesso condizionale, vedere questo esempio: [criteri di accesso condizionale per richiedere l'autenticazione a più fattori quando un utente accede al portale di Azure](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Questo argomento di avvio rapido consente di:
 
 * Acquisire familiarità con l'interfaccia utente
 
@@ -415,7 +415,7 @@ Selezionando il criterio, è anche possibile vedere come le assegnazioni e i con
 Un altro modo per convalidare i criteri di accesso condizionale consiste nell'usare lo [strumento What If](troubleshoot-conditional-access-what-if.md), che simula i criteri applicabili in circostanze ipotetiche a un utente che effettua l'accesso. Selezionare gli attributi di accesso che si desidera testare, ad esempio, utente, applicazione, piattaforma del dispositivo e posizione, e vedere quali criteri si applicano.
 
 > [!NOTE] 
-> Anche se un'esecuzione simulata offre un'impressione valida dell'impatto dei criteri di accesso condizionale, non sostituisce un'effettiva esecuzione dei test.
+> Mentre un'esecuzione simulata offre un'idea efficace dell'effetto di un criterio di accesso condizionale, non sostituisce un'esecuzione dei test effettiva.
 
 ### <a name="test-your-policy"></a>Verificare i criteri
 
@@ -442,14 +442,14 @@ Nel caso in cui sia necessario eseguire il rollback dei criteri appena implement
 
 ## <a name="manage-access-to-cloud-apps"></a>Gestire l'accesso alle applicazioni cloud
 
-Usare le seguenti opzioni di gestione per controllare e gestire i criteri di accesso condizionale:
+Usare le opzioni di gestione seguenti per controllare e gestire i criteri di accesso condizionale:
 
 ![Screenshot mostra le opzioni di gestione per i criteri di C, inclusi i percorsi denominati, i controlli personalizzati, Condizioni per l'utilizzo, la connettività V P N e i criteri classici selezionati.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Posizioni specifiche
 
-La condizione della posizione dei criteri di accesso condizionale consente di associare le impostazioni dei controlli dell'accesso ai percorsi di rete degli utenti. Con le [località denominate](location-condition.md) è possibile creare raggruppamenti logici di intervalli di indirizzi IP o di paesi e regioni.
+La condizione di percorso di un criterio di accesso condizionale consente di associare le impostazioni dei controlli di accesso ai percorsi di rete degli utenti. Con le [località denominate](location-condition.md) è possibile creare raggruppamenti logici di intervalli di indirizzi IP o di paesi e regioni.
 
 ### <a name="custom-controls"></a>Controlli personalizzati
 
@@ -461,7 +461,7 @@ Prima che gli utenti accedano ad applicazioni cloud specifiche all'interno dell'
 
 ## <a name="troubleshoot-conditional-access"></a>Risolvere i problemi di accesso condizionale
 
-Quando un utente ha un problema con un criterio di accesso condizionale, raccogliere le informazioni seguenti per semplificare la risoluzione dei problemi.
+Quando un utente ha un problema con un criterio di accesso condizionale, raccogliere le informazioni seguenti per facilitare la risoluzione dei problemi.
 
 * Nome dell'entità utente
 
@@ -493,4 +493,4 @@ Dopo aver raccolto le informazioni, vedere le seguenti risorse:
 
 [Altre informazioni su Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Gestire i criteri dell'accesso condizionale con l'API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gestire i criteri di accesso condizionale con Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

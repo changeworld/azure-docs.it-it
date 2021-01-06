@@ -3,12 +3,12 @@ title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
 ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d254c90881d23255dda5c38a868eb61e51b4f08
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356413"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936108"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
@@ -46,7 +46,7 @@ Poiché si tratta di un ampio livello di accesso, è consigliabile assegnare que
 
 - [Creare un nuovo account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md) da usare solo per questa funzione, invece di assegnare questo ruolo a un'entità servizio esistente usata per l'automazione.
 - Assicurarsi che questa entità servizio non disponga dell'accesso alle risorse dei clienti Delegate.
-- [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/security-overview.md).
 - Limitare gli utenti che dispongono dell'accesso per agire per conto dell'entità servizio.
 
 > [!NOTE]

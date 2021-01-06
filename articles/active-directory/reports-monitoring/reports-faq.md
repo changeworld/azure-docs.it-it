@@ -16,18 +16,18 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107431"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935088"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
 Questo articolo include risposte alle domande frequenti sulla creazione di report in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Creazione di report in Azure Active Directory](overview-reports.md). 
 
-## <a name="getting-started"></a>Guida introduttiva 
+## <a name="getting-started"></a>Introduzione 
 
 **D: attualmente si utilizzano le `https://graph.windows.net/<tenant-name>/reports/` API endpoint per eseguire il pull Azure ad i report di controllo e di utilizzo delle applicazioni integrati nei sistemi di report a livello di codice. Che cosa devo passare a?**
 
@@ -143,8 +143,8 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **R:** Lo stato di accesso condizionale può includere i valori seguenti:
 
-* **Non applicato**: ciò significa che non è presente alcun criterio di accesso condizionale con l'utente e con l'app previsti. 
-* **Operazione riuscita**: ciò significa che è presente un criterio di accesso condizionale con l'utente e con l'app previsti e i criteri di accesso condizionale sono stati soddisfatti correttamente. 
+* **Non applicato**: ciò significa che non sono presenti criteri di accesso condizionale con l'utente e l'app nell'ambito. 
+* **Success**: ciò significa che sono presenti criteri di accesso condizionale con l'utente e l'app nell'ambito e i criteri di accesso condizionale sono stati soddisfatti. 
 * **Errore**: l'accesso ha soddisfatto la condizione dell'utente e dell'applicazione di almeno un criterio di accesso condizionale e i controlli di concessione non sono soddisfatti o impostati per bloccare l'accesso.
     
 **D: quali sono tutti i valori possibili per il risultato dei criteri di accesso condizionale?**
@@ -158,7 +158,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
     
 **D: il nome del criterio nel report tutti gli accesso non corrisponde al nome del criterio in CA. perché?**
 
-**R:** Il nome del criterio nel report di tutti gli accessi è basato sul nome del criterio di accesso condizionale al momento dell'accesso. Ciò può essere incoerente con il nome del criterio nell'accesso condizionale se è stato aggiornato il nome del criterio in un secondo momento, vale a dire, dopo l'accesso.
+**R:** Il nome del criterio nel report tutti gli accessi è basato sul nome dei criteri di accesso condizionale al momento dell'accesso. Ciò può essere incoerente con il nome del criterio nell'accesso condizionale se è stato aggiornato il nome del criterio in un secondo momento, vale a dire, dopo l'accesso.
 
 **D: l'accesso è stato bloccato a causa di un criterio di accesso condizionale, ma il report sull'attività di accesso indica che l'accesso è riuscito. Perché?**
 

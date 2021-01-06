@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: fd341a4f6e2402ce934bdffd4f024e0ef569eec1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9c3d9e647fc09946c1e7c1b8b2ebcbe310716ff2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340918"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935785"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -183,7 +183,7 @@ In Android è inoltre necessario specificare l'attività padre usando `.WithPare
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-L'interfaccia utente è importante perché è interattiva. `AcquireTokenInteractive` prevede un parametro facoltativo specifico che può specificare, per le piattaforme che lo supportano, l'interfaccia utente padre. Quando viene usato in un'applicazione desktop, `.WithParentActivityOrWindow` ha un tipo diverso, che dipende dalla piattaforma. In alternativa, è possibile omettere il parametro facoltativo della finestra padre per creare una finestra, se non si desidera controllare la posizione di visualizzazione della finestra di dialogo di accesso sullo schermo. Questo sarebbe applicabile per le applicazioni che sono basate sulla riga di comando, utilizzate per passare le chiamate a qualsiasi altro servizio back-end e non necessitano di alcuna finestra per l'interazione dell'utente.
+L'interfaccia utente è importante perché è interattiva. `AcquireTokenInteractive` prevede un parametro facoltativo specifico che può specificare, per le piattaforme che lo supportano, l'interfaccia utente padre. Quando viene usato in un'applicazione desktop, `.WithParentActivityOrWindow` ha un tipo diverso, che dipende dalla piattaforma. In alternativa, è possibile omettere il parametro facoltativo della finestra padre per creare una finestra, se non si desidera controllare la posizione in cui viene visualizzata la finestra di dialogo di accesso sullo schermo. Questo sarebbe applicabile per le applicazioni che sono basate sulla riga di comando, utilizzate per passare le chiamate a qualsiasi altro servizio back-end e non necessitano di alcuna finestra per l'interazione dell'utente.
 
 ```csharp
 // net45
@@ -1180,7 +1180,7 @@ La personalizzazione della serializzazione della cache dei token per condividere
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>Serializzazione semplice della cache dei token (solo MSAL)
 
-Di seguito è riportato un esempio di implementazione semplice della serializzazione personalizzata di una cache dei token per le applicazioni desktop. In questo caso, la cache dei token dell'utente è un file nella stessa cartella dell'applicazione.
+Di seguito è riportato un esempio di implementazione semplice della serializzazione personalizzata di una cache dei token per le applicazioni desktop. In questo caso, la cache dei token utente si trova in un file nella stessa cartella dell'applicazione o in un utente per ogni cartella dell'app, nel caso in cui l'app sia un' [applicazione desktop in pacchetto](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Per il codice completo, vedere l'esempio seguente: [Active-Directory-DotNet-desktop-MSGraph-V2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 Dopo aver creato l'applicazione, si abilita la serializzazione chiamando il metodo ``TokenCacheHelper.EnableSerialization()`` e passando `UserTokenCache` all'applicazione.
 
@@ -1199,15 +1199,27 @@ static class TokenCacheHelper
   {
    tokenCache.SetBeforeAccess(BeforeAccessNotification);
    tokenCache.SetAfterAccess(AfterAccessNotification);
+   try
+   {
+    // For packaged desktop apps (MSIX packages) the executing assembly folder is read-only. 
+    // In that case we need to use Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin" 
+    // which is a per-app read/write folder for packaged apps.
+    // See https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes
+    CacheFilePath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path, "msalcache.bin3");
+   }
+   catch (System.InvalidOperationException)
+   {
+    // Fall back for an un-packaged desktop app
+    CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin";
+   }
   }
 
   /// <summary>
   /// Path to the token cache
   /// </summary>
-  public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+  public static string CacheFilePath { get; private set; }
 
   private static readonly object FileLock = new object();
-
 
   private static void BeforeAccessNotification(TokenCacheNotificationArgs args)
   {

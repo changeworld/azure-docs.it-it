@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835075"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935819"
 ---
 # <a name="develop-custom-commands-applications"></a>Sviluppare applicazioni di comandi personalizzati
 
@@ -96,7 +96,7 @@ Per altre informazioni sulle regole e sulle regole di completamento, vedere [con
     | Impostazione    | Valore consigliato                          | Descrizione                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nome**       | `ConfirmationResponse`                  | Nome che descrive lo scopo della regola          |
-    | **Condizioni** | nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
+    | **Condizioni** | Nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
     | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, turning the tv on` | Azione da eseguire quando la condizione della regola è true |
 
    > [!div class="mx-imgBorder"]
@@ -119,7 +119,7 @@ Modificare quindi le regole di completamento **eseguite** esistenti come segue:
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | **Nome**  | `ConfirmationResponse`                  |
-| **Condizioni** | nessuno                                     |
+| **Condizioni** | Nessuno                                     |
 | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, setting temperature to 40 degrees` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -131,7 +131,7 @@ Creare un nuovo `SetAlarm` comando. Usare la frase di esempio `Set an alarm for 
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | **Nome**  | `ConfirmationResponse`                  |
-| **Condizioni** | nessuno                                     |
+| **Condizioni** | Nessuno                                     |
 | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, setting an alarm for 9 am tomorrow` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -178,7 +178,7 @@ Per iniziare, modificare il `TurnOn` comando esistente per attivare e disattivar
    1. Selezionare **Aggiorna**.
 
        > [!div class="mx-imgBorder"]
-       > ![Screenshot che mostra dove creare una risposta obbligatoria per il parametro.](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Screenshot che mostra la sezione ' Aggiungi risposta per un parametro obbligatorio ' con la scheda ' editor semplice ' selezionata.](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Configurare le proprietà del parametro usando la tabella seguente. Per informazioni su tutte le proprietà di configurazione di un comando, vedere [concetti e definizioni dei comandi personalizzati](./custom-commands-references.md).
       
@@ -221,7 +221,7 @@ Per iniziare, modificare il `TurnOn` comando esistente per attivare e disattivar
 
 #### <a name="modify-example-sentences"></a>Modificare le frasi di esempio
 
-Per i comandi che usano parametri, è utile aggiungere frasi di esempio che coprono tutte le possibili combinazioni. Ad esempio:
+Per i comandi che usano parametri, è utile aggiungere frasi di esempio che coprono tutte le possibili combinazioni. Esempio:
 
 * Informazioni complete sui parametri: `turn {OnOff} the {SubjectDevice}`
 * Informazioni sul parametro parziale: `turn it {OnOff}`

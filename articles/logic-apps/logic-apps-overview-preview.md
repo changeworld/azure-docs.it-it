@@ -1,24 +1,24 @@
 ---
-title: Panoramica dell'anteprima di app per la logica di Azure
+title: Panoramica di App per la logica di Azure (anteprima)
 description: L'anteprima di app per la logica di Azure è una soluzione cloud per la creazione di flussi di lavoro con stato e senza stato automatizzati che integrano app, dati, servizi e sistemi con codice minimo per scenari di livello aziendale.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0c4d0416c107c9ceb4cd0dbdf80761ab9b52d56c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924285"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936125"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Panoramica: anteprima di app per la logica di Azure
 
 > [!IMPORTANT]
 > Questa funzionalità è in anteprima pubblica, viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con l'anteprima di app per la logica di Azure è possibile creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica che includono flussi di lavoro con [ *stato* e senza stato *stateless*](#stateful-stateless) usando il nuovo tipo di risorsa app per la **logica (anteprima)** . Con questo nuovo tipo di app per la logica è possibile creare più flussi di lavoro basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, non solo Azure, ma anche contenitori docker.
+Con l'anteprima di app per la logica di Azure è possibile creare soluzioni di automazione e integrazione tra app, dati, servizi cloud e sistemi creando ed eseguendo app per la logica che includono flussi di lavoro con [ *stato* e senza stato](#stateful-stateless) usando il nuovo tipo di risorsa app per la **logica (anteprima)** . Con questo nuovo tipo di app per la logica è possibile creare più flussi di lavoro basati sul runtime di anteprima di app per la logica di Azure riprogettato, che offre portabilità, migliori prestazioni e flessibilità per la distribuzione e l'esecuzione in diversi ambienti host, non solo Azure, ma anche contenitori docker.
 
 Come è possibile? Il runtime riprogettato usa il [modello di estendibilità di funzioni di Azure](../azure-functions/functions-bindings-register.md) ed è ospitato come estensione nel runtime di funzioni di Azure. Questa architettura significa che è possibile eseguire il nuovo tipo di app per la logica ovunque sia in esecuzione funzioni di Azure. È possibile ospitare il runtime riprogettato in quasi tutte le topologie di rete e scegliere le dimensioni di calcolo disponibili per gestire il carico di lavoro necessario per i flussi di lavoro. Per altre informazioni, vedere [Introduzione a funzioni di Azure](../azure-functions/functions-overview.md) e [trigger e associazioni di funzioni di Azure](../azure-functions/functions-triggers-bindings.md).
 
@@ -148,7 +148,7 @@ L'anteprima di app per la logica di Azure include molte funzionalità correnti e
 
 Quando si crea il nuovo tipo di app per la logica nella portale di Azure o si distribuisce da Visual Studio Code, è necessario scegliere un piano di hosting, ovvero [servizio app o Premium](../azure-functions/functions-scale.md), per l'app per la logica da usare. Questo piano determina il modello di determinazione dei prezzi applicabile all'esecuzione dell'app per la logica. Se si seleziona il piano di servizio app, è necessario anche scegliere un piano [tariffario](../app-service/overview-hosting-plans.md).
 
-I flussi di lavoro con *stato* usano l' [archiviazione esterna](../azure-functions/functions-scale.md#storage-account-requirements), quindi i [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) si applicano alle transazioni di archiviazione eseguite dal runtime di anteprima di app per la logica di Azure Ad esempio, le code vengono utilizzate per la pianificazione, mentre le tabelle e i BLOB vengono utilizzati per l'archiviazione degli Stati del flusso di lavoro.
+I flussi di lavoro con *stato* usano l' [archiviazione esterna](../azure-functions/storage-considerations.md#storage-account-requirements), quindi i [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) si applicano alle transazioni di archiviazione eseguite dal runtime di anteprima di app per la logica di Azure Ad esempio, le code vengono utilizzate per la pianificazione, mentre le tabelle e i BLOB vengono utilizzati per l'archiviazione degli Stati del flusso di lavoro.
 
 > [!NOTE]
 > Durante l'anteprima pubblica, l'esecuzione di app per la logica nel servizio app non comporta costi *aggiuntivi* oltre il piano selezionato.

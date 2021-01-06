@@ -3,16 +3,16 @@ title: Creare un'app per le funzioni in Linux dal portale di Azure
 description: Informazioni su come creare la prima funzione di Azure in Linux usando il portale di Azure.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 20390239ed58e42749e9a3bae472a2f3f6324bb2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 34a93795b5e041ccef8e9576f97092e16c429444
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181255"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937179"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
 
-Funzioni di Azure consente di ospitare le funzioni in Linux in un contenitore di Servizio app di Azure predefinito. Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per creare un'app per le funzioni ospitata in Linux che viene eseguita in un [piano di servizio app](functions-scale.md#app-service-plan). È anche possibile [usare un contenitore personalizzato](functions-create-function-linux-custom-image.md).
+Funzioni di Azure consente di ospitare le funzioni in Linux in un contenitore di Servizio app di Azure predefinito. Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per creare un'app per le funzioni ospitata in Linux che viene eseguita in un [piano di servizio app](dedicated-plan.md). È anche possibile [usare un contenitore personalizzato](functions-create-function-linux-custom-image.md).
 
 ![Creare un'app per le funzioni nel portale di Azure](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
@@ -50,7 +50,7 @@ Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le f
 
     | Impostazione      | Valore consigliato  | Descrizione |
     | ------------ | ---------------- | ----------- |
-    | **[Account di archiviazione](../storage/common/storage-account-create.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](../azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Account di archiviazione](../storage/common/storage-account-create.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](../azure-functions/storage-considerations.md#storage-account-requirements). |
     |**Sistema operativo**| **Linux** | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. |
     | **[Piano](../azure-functions/functions-scale.md)** | **Consumo (serverless)** | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel **piano a consumo** predefinito le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni. In questo hosting [serverless](https://azure.microsoft.com/overview/serverless-computing/) si paga solo per il periodo in cui le funzioni sono in esecuzione. In caso di esecuzione in un piano di servizio app, è necessario gestire il [ridimensionamento dell'app per le funzioni](../azure-functions/functions-scale.md).  |
 

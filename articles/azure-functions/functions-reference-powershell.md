@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422536"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936788"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding` :
 
-| Nome | Type | Posizione | Descrizione |
+| Nome | Tipo | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
@@ -525,7 +525,7 @@ Molti moduli sono comunemente usati dal ruolo di lavoro del linguaggio di PowerS
 L'elenco corrente dei moduli è il seguente:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulo usato per lavorare con gli archivi, ad esempio, `.zip` `.nupkg` e altri.
-* **ThreadJob** : implementazione basata su thread delle API del processo di PowerShell.
+* **ThreadJob**: implementazione basata su thread delle API del processo di PowerShell.
 
 Per impostazione predefinita, funzioni utilizza la versione più recente di questi moduli. Per usare una versione specifica del modulo, inserire la versione specifica nella `Modules` cartella dell'app per le funzioni.
 
@@ -649,11 +649,11 @@ Quando si lavora con le funzioni di PowerShell, tenere presenti le considerazion
 
 ### <a name="cold-start"></a>Avvio a freddo
 
-Quando si sviluppano funzioni di Azure nel [modello di hosting senza server](functions-scale.md#consumption-plan), le partenze a freddo sono realtà. L' *avvio a freddo* si riferisce al periodo di tempo necessario per l'avvio dell'esecuzione dell'app per le funzioni per l'elaborazione di una richiesta. L'avvio a freddo si verifica più frequentemente nel piano a consumo perché l'app per le funzioni viene arrestata durante i periodi di inattività.
+Quando si sviluppano funzioni di Azure nel [modello di hosting senza server](consumption-plan.md), le partenze a freddo sono realtà. L' *avvio a freddo* si riferisce al periodo di tempo necessario per l'avvio dell'esecuzione dell'app per le funzioni per l'elaborazione di una richiesta. L'avvio a freddo si verifica più frequentemente nel piano a consumo perché l'app per le funzioni viene arrestata durante i periodi di inattività.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Aggregare i moduli anziché usare `Install-Module`
 
-Lo script viene eseguito a ogni chiamata. Evitare `Install-Module` di usare nello script. Usare invece `Save-Module` before Publishing in modo che la funzione non debba sprecare tempo per scaricare il modulo. Se l'avvio a freddo influisca sulle funzioni, provare a distribuire l'app per le funzioni in un [piano di servizio app](functions-scale.md#app-service-plan) impostato su *Always on* o su un [piano Premium](functions-scale.md#premium-plan).
+Lo script viene eseguito a ogni chiamata. Evitare `Install-Module` di usare nello script. Usare invece `Save-Module` before Publishing in modo che la funzione non debba sprecare tempo per scaricare il modulo. Se l'avvio a freddo influisca sulle funzioni, provare a distribuire l'app per le funzioni in un [piano di servizio app](dedicated-plan.md) impostato su *Always on* o su un [piano Premium](functions-premium-plan.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

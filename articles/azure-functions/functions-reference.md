@@ -4,12 +4,12 @@ description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure nec
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 54bfd770fba9a1766396d66c0c263111c233c9c2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167880"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936737"
 ---
 # <a name="azure-functions-developer-guide"></a>Guida per sviluppatori di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -42,7 +42,7 @@ La proprietà `bindings` è quella che consente di configurare trigger e associa
 
 | Proprietà | Valori/tipi | Commenti |
 | --- | --- | --- |
-| `type` |string |Tipo di associazione. Ad esempio, `queueTrigger` |
+| `type` |string |Tipo di associazione. Ad esempio: `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
 | `name` |string |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
 
@@ -69,7 +69,7 @@ La struttura di cartelle mostrata sopra è quella predefinita (e consigliata) pe
 L'editor delle funzioni integrato nel portale di Azure permette di aggiornare il codice e il file *function.json* direttamente inline. Si tratta di un approccio consigliato solo per piccole modifiche o modelli di verifica, mentre la procedura consigliata consiste nell'usare uno strumento di sviluppo locale come Visual Studio Code.
 
 ## <a name="parallel-execution"></a>Esecuzione parallela
-Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo riesca a elaborare, il runtime chiama la funzione più volte in parallelo.  Se un'app per le funzioni usa il [piano di hosting a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work), il numero di istanze dell'app può aumentare automaticamente.  Ogni istanza dell'app per le funzioni, indipendentemente dal fatto che venga eseguita in un piano di hosting a consumo o in un normale [piano di hosting del servizio app](../app-service/overview-hosting-plans.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread.  Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app per le funzioni dipende dal tipo di trigger usato e dalle risorse usate dalle altre funzioni nell'app per le funzioni.
+Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo riesca a elaborare, il runtime chiama la funzione più volte in parallelo.  Se un'app per le funzioni usa il [piano di hosting a consumo](event-driven-scaling.md), il numero di istanze dell'app può aumentare automaticamente.  Ogni istanza dell'app per le funzioni, indipendentemente dal fatto che venga eseguita in un piano di hosting a consumo o in un normale [piano di hosting del servizio app](../app-service/overview-hosting-plans.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread.  Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app per le funzioni dipende dal tipo di trigger usato e dalle risorse usate dalle altre funzioni nell'app per le funzioni.
 
 ## <a name="functions-runtime-versioning"></a>Controllo delle versioni del runtime di Funzioni
 

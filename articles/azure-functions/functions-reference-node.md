@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 21ab58095fa919e6302251c16e474b02f1445993
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: bf6ebd01a18a0ebf0ab5dd7d7ac3aa34256b4696
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301996"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936805"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -18,7 +18,7 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Per gli sviluppatori di Express.js, Node.js o JavaScript, se non si ha familiarità con funzioni di Azure, prendere in considerazione prima di tutto uno degli articoli seguenti:
 
-| Guida introduttiva | Concetti| Apprendimento guidato |
+| Introduzione | Concetti| Apprendimento guidato |
 | -- | -- | -- | 
 | <ul><li>[Node.js funzione utilizzando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunzioneNode.js con terminale/prompt dei comandi](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
@@ -327,7 +327,7 @@ Oltre al livello predefinito, sono disponibili i seguenti metodi di registrazion
 | ---------------------- | ------------------------------------------ |
 | **errore (_messaggio_)**   | Scrive un evento a livello di errore nei log.   |
 | **warn(_messaggio_)**    | Scrive un evento a livello di avviso nei log. |
-| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
+| **Info (_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
 | **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
 
 Nell'esempio seguente viene scritto lo stesso log a livello di traccia di avviso, anziché il livello info:
@@ -493,7 +493,7 @@ Quando si usano trigger HTTP, è possibile accedere agli oggetti richiesta e ris
 
 ## <a name="scaling-and-concurrency"></a>Scalabilità e concorrenza
 
-Per impostazione predefinita, funzioni di Azure monitora automaticamente il carico sull'applicazione e crea istanze host aggiuntive per Node.js in base alle esigenze. Funzioni usa soglie predefinite (non configurabili dall'utente) per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Per altre informazioni, vedere [Come funzionano i piani a consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Per impostazione predefinita, funzioni di Azure monitora automaticamente il carico sull'applicazione e crea istanze host aggiuntive per Node.js in base alle esigenze. Funzioni usa soglie predefinite (non configurabili dall'utente) per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Per altre informazioni, vedere [Come funzionano i piani a consumo e Premium](event-driven-scaling.md).
 
 Questo comportamento di ridimensionamento è sufficiente per molte applicazioni Node.js. Per le applicazioni con associazione alla CPU, è possibile migliorare ulteriormente le prestazioni usando più processi di lavoro in lingua.
 
