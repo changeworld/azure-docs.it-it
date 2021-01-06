@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 58dacc9e65da6502d083446cb7202c222cb7e795
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1b43a1ceb1f9e098e4932b405553ae8f33e27262
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034038"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937349"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure usa limiti e quote per evitare sovraccarichi del budget dovuti a frodi e p
 > + Aumento della quota richiesta.
 > + Endpoint privati e quote DNS.
 
-Insieme alla gestione delle quote, è possibile ottenere informazioni su come [pianificare e gestire i costi per Azure Machine Learning](concept-plan-manage-cost.md).
+Insieme alla gestione delle quote, è possibile ottenere informazioni su come [pianificare e gestire i costi per Azure Machine Learning](concept-plan-manage-cost.md) o ottenere informazioni sui [limiti del servizio in Azure Machine Learning](resource-limits-quotas-capacity.md).
 
 ## <a name="special-considerations"></a>Considerazioni speciali
 
@@ -53,7 +53,9 @@ In questa sezione vengono illustrati i limiti di quota predefiniti e massimi per
 + Archiviazione di Azure
 
 > [!IMPORTANT]
-> I limiti sono soggetti a modifiche. Per informazioni aggiornate, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md) per tutte le risorse di Azure.
+> I limiti sono soggetti a modifiche. Per informazioni aggiornate, vedere  [limiti del servizio in Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### <a name="azure-machine-learning-assets"></a>Asset Azure Machine Learning
 I limiti seguenti per le risorse si applicano in base all'area di lavoro. 
@@ -118,7 +120,7 @@ Non è possibile aumentare i limiti per le macchine virtuali sopra i valori indi
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-### <a name="container-instances"></a>Istanze di contenitore
+### <a name="container-instances"></a>Istanze di Container
 
 Per altre informazioni, vedere [limiti delle istanze del contenitore](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
@@ -210,3 +212,4 @@ Per richiedere una concessione per questi scenari, attenersi alla procedura segu
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Pianificare e gestire i costi per Azure Machine Learning](concept-plan-manage-cost.md)
++ [Limiti del servizio in Azure Machine Learning](resource-limits-quotas-capacity.md)
