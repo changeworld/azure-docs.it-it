@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: d0c26255e6d9d35d51390ed2b432b9c5dc9ab2be
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: db29fbda404900c29f85fa876e9427994ee9a093
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862466"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915913"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -47,11 +47,11 @@ Questo articolo fornisce informazioni sui problemi noti associati ai dispositivi
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problema con l'autenticazione delle credenziali di Azure predefinita in Azure. identità 1.3.0
 
-**Descrizione del problema:** Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.3.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, è possibile che si verifichino problemi con il metodo [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) usato in molti esempi in tutti i documenti. Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication Failed" quando il codice tenta di eseguire l'autenticazione.
+**Descrizione del problema:** Quando si scrive il codice di autenticazione usando la versione **1.3.0** della libreria di **[identità di Azure](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, alcuni utenti hanno riscontrato problemi con il metodo [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) usato in molti esempi in questi documenti di Azure Digital gemelli. Si presenta come risposta di errore "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication Failed" quando il codice tenta di eseguire l'autenticazione.
 
 | Questa operazione ha effetto? | Causa | Soluzione |
 | --- | --- | --- |
-| DefaultAzureCredential viene usato nella maggior parte degli esempi di documentazione che includono l'autenticazione di. Se si scrive codice di autenticazione con DefaultAzureCredential e si usa la versione 1.3.0 della `Azure.Identity` libreria, questo potrebbe influire negativamente sull'utente. | Questo problema si presenta quando si usa DefaultAzureCredential con la versione **1.3.0** della `Azure.Identity` libreria. | Per risolvere il passaggio, impostare l'applicazione in modo che usi la [versione 1.2.2](https://www.nuget.org/packages/Azure.Identity/1.2.2) di `Azure.Identity` . Dopo aver modificato la versione della libreria, l'autenticazione avrà esito positivo come previsto. |
+| `DefaultAzureCredential` viene utilizzato nella maggior parte degli esempi di documentazione per questo servizio che includono l'autenticazione di. Se si scrive il codice di autenticazione usando `DefaultAzureCredential` con la versione 1.3.0 della `Azure.Identity` libreria e visualizzando questo messaggio di errore, l'operazione avrà effetto sull'utente. | Questo è probabilmente il risultato di un problema di configurazione con `Azure.Identity` . | Una strategia per risolvere questo problema consiste nell'escludere `SharedTokenCacheCredential` dalle credenziali, come descritto in questo [problema DefaultAzureCredential](https://github.com/Azure/azure-sdk/issues/1970) attualmente aperto `Azure.Identity` .<br>Un'altra opzione consiste nel modificare l'applicazione per l'utilizzo di una versione precedente di `Azure.Identity` , ad esempio la [versione 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). Questo non ha alcun effetto funzionale sui dispositivi gemelli digitali di Azure e pertanto è anche una soluzione accettata. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

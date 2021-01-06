@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854700"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913499"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -137,6 +137,16 @@ Azure NetApp Files supporta NFSv3 e NFSv 4.1. È possibile [creare un volume uti
 Sì, è possibile. Tuttavia, il percorso del file deve essere usato in una sottoscrizione diversa o in un'area diversa.   
 
 Ad esempio, è possibile creare un volume denominato `vol1` . Si crea quindi un altro volume chiamato anche `vol1` in un pool di capacità diverso, ma nella stessa sottoscrizione e nella stessa area. In questo caso, se si utilizza lo stesso nome del volume, `vol1` verrà generato un errore. Per usare lo stesso percorso di file, il nome deve trovarsi in un'area o in una sottoscrizione diversa.
+
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Quando si tenta di accedere ai volumi NFS tramite un client Windows, perché il client richiede molto tempo per la ricerca di cartelle e sottocartelle?
+
+Verificare che `CaseSensitiveLookup` sia abilitato nel client Windows per velocizzare la ricerca di cartelle e sottocartelle:
+
+1. Usare il comando di PowerShell seguente per abilitare CaseSensitiveLookup:   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Montare il volume nel server Windows.   
+    Esempio:   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>Domande frequenti su SMB
 

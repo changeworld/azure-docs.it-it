@@ -3,14 +3,14 @@ title: Rimuovere VM da Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo descrive come rimuovere i computer gestiti con Gestione aggiornamenti.
 services: automation
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 01/05/2021
 ms.custom: mvc
-ms.openlocfilehash: 774dbe29cbb6b4d063d3619d0c710efb1949b99a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d0399aed9be8d81abb2aa55190225570ddcc1a4e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222564"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913193"
 ---
 # <a name="remove-vms-from-update-management"></a>Rimuovere macchine virtuali da Gestione aggiornamenti
 
@@ -32,13 +32,20 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 3. Nella portale di Azure passare a **log Analytics aree di lavoro**. Selezionare l'area di lavoro dall'elenco.
 
-4. Nell'area di lavoro Log Analytics selezionare **log** , quindi scegliere **Esplora query** dal menu azioni principali.
+4. Nell'area di lavoro Log Analytics selezionare **Impostazioni avanzate** , quindi scegliere **gruppi di computer** dal menu a sinistra.
 
-5. Da **Esplora query** nel riquadro di destra, espandere **salvato Queries\Updates** e selezionare la query di ricerca salvata `MicrosoftDefaultComputerGroup` per modificarla.
+5. Da **gruppi di computer** nel riquadro di destra selezionare **gruppi salvati**.
 
-6. Nell'editor di query esaminare la query e trovare l'UUID per la macchina virtuale. Rimuovere l'UUID per la macchina virtuale e ripetere i passaggi per qualsiasi altra VM che si vuole rimuovere.
+6. Dalla tabella, per gli aggiornamenti della query di ricerca salvata **: MicrosoftDefaultComputerGroup**, fare clic sull'icona **Visualizza membri** per eseguire e visualizzare i relativi membri.
 
-7. Salvare la ricerca salvata al termine della modifica selezionando **Salva** nella barra superiore.
+7. Nell'editor di query esaminare la query e trovare l'UUID per la macchina virtuale. Rimuovere l'UUID per la macchina virtuale e ripetere i passaggi per qualsiasi altra VM che si vuole rimuovere.
+
+8. Salvare la ricerca salvata al termine della modifica selezionando **Salva** nella barra superiore. Quando richiesto, specificare quanto segue:
+
+    * **Nome**: MicrosoftDefaultComputerGroup
+    * **Salva con nome**: funzione
+    * **Alias**: Updates__MicrosoftDefaultComputerGroup
+    * **Categoria**: aggiornamenti
 
 >[!NOTE]
 >Le macchine virtuali vengono comunque visualizzate dopo aver annullato la registrazione, perché si segnalano tutti i computer valutati nelle ultime 24 ore. Dopo aver rimosso il computer, è necessario attendere 24 ore prima che non vengano più elencate.

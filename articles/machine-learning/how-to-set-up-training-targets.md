@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: d8918181024715a57c6029d3ad0a36ea75140fcb
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: a3427be85314f06b5408c4450e0415768122879f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739944"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913006"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurare e inviare le esecuzioni di training
 
@@ -204,6 +204,18 @@ Vedere questi notebook per esempi di configurazione delle esecuzioni per diversi
     ```
 
     Internamente, Azure ML concatena i blocchi con lo stesso nome di metrica in un elenco contiguo.
+
+* **Esecuzione non riuscita `jwt.exceptions.DecodeError` con**: messaggio di errore esatto: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
+    
+    Provare a eseguire l'aggiornamento alla versione più recente di azureml-Core: `pip install -U azureml-core` .
+    
+    Se si verifica questo problema per le esecuzioni locali, controllare la versione di PyJWT installata nell'ambiente in cui si avvia l'esecuzione. Le versioni supportate di PyJWT sono < 2.0.0. Disinstallare PyJWT dall'ambiente se la versione è >= 2.0.0. È possibile controllare la versione di PyJWT, disinstallare e installare la versione corretta nel modo seguente:
+    1. Avviare una shell dei comandi, attivare l'ambiente conda in cui è installato azureml-core.
+    2. Immettere `pip freeze` e cercare `PyJWT` , se presente, la versione elencata deve essere < 2.0.0
+    3. Se la versione elencata non è supportata, `pip uninstall PyJWT` nella shell dei comandi e immettere y per la conferma.
+    4. Installare usando `pip install 'PyJWT<2.0.0'`
+    
+    Se si sta inviando un ambiente creato dall'utente con l'esecuzione, provare a usare la versione più recente di azureml-core in tale ambiente. Versioni >= 1.18.0 di azureml-core già pin PyJWT < 2.0.0. Se è necessario usare una versione di azureml-Core < 1.18.0 nell'ambiente inviato, assicurarsi di specificare PyJWT < 2.0.0 nelle dipendenze PIP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

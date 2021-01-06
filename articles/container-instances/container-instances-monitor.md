@@ -2,13 +2,13 @@
 title: Monitorare le istanze di contenitore
 description: Come monitorare il consumo delle risorse di calcolo, ad esempio CPU e memoria, da parte dei contenitori in Istanze di Azure Container.
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/17/2020
+ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007257"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916083"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di Azure Container
 
@@ -27,11 +27,11 @@ In questo momento, le metriche di Monitoraggio di Azure sono disponibili solo pe
 
 Monitoraggio di Azure fornisce le [metriche per Istanze di Azure Container][supported-metrics] seguenti. Queste metriche sono disponibili per un gruppo di contenitori e per singoli contenitori. Per impostazione predefinita, le metriche vengono aggregate come medie.
 
-* **Utilizzo CPU**: misurato in **millicore**. Uno millicore è 1/1000 di un core CPU, quindi 500 millicore rappresenta l'utilizzo di 0,5 core CPU.
-
-* **Utilizzo memoria** : in byte.
-
-* **Byte di rete ricevuti al secondo** e **byte di rete trasmessi al secondo**. 
+- **Utilizzo della CPU** misurato in **millicore**. 
+  - Uno millicore è 1/1000 di un core CPU, quindi 500 millicore rappresenta l'utilizzo di 0,5 core CPU.
+- **Utilizzo memoria** in byte
+- **Byte di rete ricevuti** al secondo
+- **Byte di rete trasmessi** al secondo 
 
 ## <a name="get-metrics---azure-portal"></a>Ottenere le metriche: portale di Azure
 
@@ -39,7 +39,7 @@ Quando viene creato un gruppo di contenitori, i dati di Monitoraggio di Azure so
 
 ![grafico doppio][dual-chart]
 
-Se un gruppo di contenitori contiene più contenitori, usare una [dimensione][monitor-dimension] per presentare le metriche per contenitore. Per creare un grafico con le metriche di un singolo contenitore, eseguire la procedura seguente:
+In un gruppo di contenitori che contiene più contenitori, usare una [dimensione][monitor-dimension] per visualizzare le metriche in base al contenitore. Per creare un grafico con le metriche di un singolo contenitore, eseguire la procedura seguente:
 
 1. Nella pagina **Panoramica** selezionare uno dei grafici delle metriche, ad esempio **CPU**. 
 1. Selezionare il pulsante **Applicare separazione** e quindi **Nome contenitore**.
@@ -64,18 +64,11 @@ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output t
 ```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
-2019-04-23 22:59:00  CPU Usage
-2019-04-23 23:00:00  CPU Usage
-2019-04-23 23:01:00  CPU Usage  0.0
-2019-04-23 23:02:00  CPU Usage  0.0
-2019-04-23 23:03:00  CPU Usage  0.5
-2019-04-23 23:04:00  CPU Usage  0.5
-2019-04-23 23:05:00  CPU Usage  0.5
-2019-04-23 23:06:00  CPU Usage  1.0
-2019-04-23 23:07:00  CPU Usage  0.5
-2019-04-23 23:08:00  CPU Usage  0.5
-2019-04-23 23:09:00  CPU Usage  1.0
-2019-04-23 23:10:00  CPU Usage  0.5
+2020-12-17 23:34:00  CPU Usage
+. . .
+2020-12-18 00:25:00  CPU Usage
+2020-12-18 00:26:00  CPU Usage  0.4
+2020-12-18 00:27:00  CPU Usage  0.0
 ```
 
 Modificare il valore del parametro `--metric` nel comando per ottenere altre [metriche supportate][supported-metrics]. Ad esempio, usare il comando seguente per ottenere le metriche di utilizzo della **memoria**. 

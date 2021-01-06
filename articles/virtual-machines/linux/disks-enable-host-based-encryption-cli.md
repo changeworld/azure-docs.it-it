@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 5c0336b80bee1cd5eb76d0ce3d5f99c7296a8467
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b53f9b9599a899a23c5d243c345f48d7f17748c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499765"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916389"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usare l'interfaccia della riga di comando di Azure per abilitare la crittografia end-to-end usando la crittografia nell'host
 
@@ -208,7 +208,7 @@ Chiamare l' [API SKU di risorse](/rest/api/compute/resourceskus/list) e verifica
     }
 ```
 
-Oppure, chiamando il cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) di PowerShell.
+Oppure, chiamando il cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0&preserve-view=true) di PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

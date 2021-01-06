@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: e74b729f837c8e6ebe86514a01b6c8bdddc616e4
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881090"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914994"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files
 
@@ -133,7 +133,10 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
     * Un altro computer nel dominio che contiene il certificato radice  
 
 3. Esportare il certificato CA radice.  
-    I certificati CA radice possono essere esportati da autorità di certificazione radice personali o attendibili.   
+    I certificati CA radice possono essere esportati dalla directory di autorità di certificazione radice personali o attendibili, come illustrato negli esempi seguenti:   
+    ![screenshot che mostra i certificati personali](../media/azure-netapp-files/personal-certificates.png)   
+    ![screenshot che mostra le autorità di certificazione radice attendibili](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     Verificare che il certificato venga esportato nel X. 509 con codifica base 64 (. Formato CER): 
 
     ![Esportazione guidata certificati](../media/azure-netapp-files/certificate-export-wizard.png)

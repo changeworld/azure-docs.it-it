@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/13/2019
+ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819891"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915845"
 ---
 # <a name="microsoft-global-network"></a>Rete globale Microsoft
 
@@ -71,4 +71,5 @@ Questi principi si applicano a tutti i livelli della rete: dall'interfaccia di r
 La crescita esponenziale di Azure e della sua rete ha raggiunto un punto in cui ci si è resi conto che l'intuizione umana non poteva essere più del tutto attendibile per la gestione delle operazioni di rete globali. Per soddisfare l'esigenza di convalidare modifiche a lungo, medio e breve termine sulla rete, è stata sviluppata una piattaforma per il mirroring e l'emulazione della rete di produzione in modo sintetico. La capacità di creare ambienti con mirroring ed eseguire milioni di simulazioni consente di testare le modifiche software e hardware e il rispettivo impatto, prima di eseguirne il commit nella piattaforma e nella rete di produzione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [Informazioni sul modo in cui Microsoft sta avanzando l'affidabilità della rete globale tramite software intelligente](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
 - [Altre informazioni sui servizi di rete disponibili in Azure](https://azure.microsoft.com/product-categories/networking/)

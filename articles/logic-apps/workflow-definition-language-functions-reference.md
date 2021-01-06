@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825850"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914485"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -2072,7 +2072,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Si supponga di voler formattare il numero `17.35`. Questo esempio formatta il numero come stringa "$17,35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Esempio 4*
@@ -2080,7 +2080,7 @@ formatNumber(17.36, 'C2')
 Si supponga di voler formattare il numero `17.35`. Questo esempio formatta il numero come stringa "17,35 kr".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2719,15 +2719,11 @@ lastIndexOf('<text>', '<searchText>')
 
 Se il valore della stringa o della sottostringa è vuoto, si verifica il comportamento seguente:
 
-* Se il valore della stringa è vuoto, `-1` viene restituito:
+* Se solo il valore della stringa è vuoto, la funzione restituisce `-1` .
 
-* Se i valori della stringa e della sottostringa sono entrambi vuoti, `0` viene restituito.
+* Se i valori della stringa e della sottostringa sono entrambi vuoti, la funzione restituisce `0` .
 
-* Se solo il valore della sottostringa è vuoto, viene restituito maggiore dei due valori seguenti:
-
-  * `0`
-
-  * Lunghezza della stringa, meno 1.
+* Se solo il valore della sottostringa è vuoto, la funzione restituisce la lunghezza della stringa meno 1.
 
 *Esempi*
 
@@ -2860,7 +2856,7 @@ Questa funzione può essere usata solo con i trigger e le azioni per i tipi di c
 listCallbackUrl()
 ```
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*callback-URL*> | string | URL di callback per un trigger o un'azione |
 ||||
@@ -3014,7 +3010,7 @@ Restituisce il corpo per una parte specifica dell'output di un'azione con più p
 multipartBody('<actionName>', <index>)
 ```
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sì | string | Nome per l'azione che ha un output con più parti |
 | <*index*> | Sì | Integer | Valore di indice per la parte desiderata |
@@ -3041,7 +3037,7 @@ not(<expression>)
 | <*expression*> | Sì | Boolean | Espressione da verificare |
 |||||
 
-| Valore restituito | Tipo | Descrizione |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Restituisce true se l'espressione è false. Restituisce false se l'espressione è true. |
 ||||
@@ -3090,7 +3086,7 @@ or(<expression1>, <expression2>, ...)
 | <*expression1*>, <*expression2*>, ... | Sì | Boolean | Espressioni da verificare |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Restituisce true se almeno un'espressione è true. Restituisce false se tutte le espressioni sono false. |
 ||||
@@ -3425,7 +3421,7 @@ Restituisce gli input e gli output di tutte le azioni all'interno dell'azione co
 result('<scopedActionName>')
 ```
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*scopedActionName*> | Sì | string | Nome dell'azione con ambito da cui restituire gli input e gli output di tutte le azioni interne |
 ||||
@@ -3846,7 +3842,7 @@ Restituisce la versione stringa di un valore.
 string(<value>)
 ```
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sì | Qualsiasi | Valore da convertire. Se questo valore è null o restituisce null, il valore viene convertito in un valore stringa vuoto ( `""` ). <p><p>Se ad esempio si assegna una variabile stringa a una proprietà inesistente, a cui è possibile accedere con l' `?` operatore, il valore null viene convertito in una stringa vuota. Tuttavia, il confronto di un valore null non equivale a confrontare una stringa vuota. |
 |||||
@@ -4141,7 +4137,7 @@ Vedere [trigger()](#trigger).
 triggerBody()
 ```
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*trigger-body-output*> | string | Oggetto `body` di output del trigger |
 ||||
@@ -4192,7 +4188,7 @@ triggerFormDataValue('<key>')
 | <*key*> | Sì | string | Nome della chiave di cui si vuole ottenere il valore |
 |||||
 
-| Valore restituito | Type | Descrizione |
+| Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
 | <*key-value*> | string | Valore nella chiave specificata |
 ||||
@@ -4254,7 +4250,7 @@ Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggi
 trim('<text>')
 ```
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sì | string | Stringa da cui rimuovere gli spazi iniziali e finali |
 |||||
@@ -4286,7 +4282,7 @@ union('<collection1>', '<collection2>', ...)
 union([<collection1>], [<collection2>], ...)
 ```
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*collection1*>, <*collection2*>, ...  | Sì | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *tutti* gli elementi |
 |||||
@@ -4563,7 +4559,7 @@ Restituisce il valore `scheme` per un URI (Uniform Resource Identifier).
 uriScheme('<uri>')
 ```
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Sì | string | URI di cui restituire il valore `scheme` |
 |||||
@@ -4697,7 +4693,7 @@ xml('<value>')
 | <*value*> | Sì | string | Stringa con l'oggetto JSON da convertire <p>L'oggetto JSON deve avere una sola proprietà radice, che non può essere una matrice. <br>Il carattere barra rovesciata (\\) viene usato come carattere di escape per le virgolette doppie ("). |
 |||||
 
-| Valore restituito | Tipo | Descrizione |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
 | <*xml-version*> | Oggetto | Elemento XML codificato per la stringa o l'oggetto JSON specificato |
 ||||

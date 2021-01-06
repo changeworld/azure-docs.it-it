@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2020
+ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 283dbf152778b5ef58e298444058f619356ef241
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756110"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916372"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -72,7 +72,7 @@ Per riepilogo, il Punteggio sicuro viene visualizzato nei percorsi seguenti nell
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Ottenere il Punteggio sicuro dall'API REST
 
-È possibile accedere al Punteggio tramite l'API per il Punteggio sicuro (attualmente in anteprima). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. Ad esempio, è possibile usare l' [API dei punteggi sicuri](/rest/api/securitycenter/securescores) per ottenere il punteggio per una sottoscrizione specifica. Inoltre, è possibile usare l' [API di controllo del Punteggio sicuro](/rest/api/securitycenter/securescorecontrols) per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
+È possibile accedere al Punteggio tramite l'API del Punteggio sicuro. I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. Ad esempio, è possibile usare l' [API dei punteggi sicuri](/rest/api/securitycenter/securescores) per ottenere il punteggio per una sottoscrizione specifica. Inoltre, è possibile usare l' [API di controllo del Punteggio sicuro](/rest/api/securitycenter/securescorecontrols) per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
 
 ![Recupero di un singolo Punteggio sicuro tramite l'API](media/secure-score-security-controls/single-secure-score-via-api.png)
 

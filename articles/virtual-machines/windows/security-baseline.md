@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: af7cc9d83b87c8a772a190c431d6946eec4dda86
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9e5f7d4e3c358c05713301ac1b1b896062f12bee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483131"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914757"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Windows
 
@@ -596,7 +596,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 * [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registrazione di Analisi di archiviazione di Azure](../../storage/common/storage-analytics-logging.md)
+* [Registrazione di Analisi archiviazione di Azure](../../storage/common/storage-analytics-logging.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -893,7 +893,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 * [Informazioni sulla creazione di modelli ARM](./ps-template.md)
 
-* [Come caricare un disco rigido virtuale di una macchina virtuale personalizzata in Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Come caricare un disco rigido virtuale di una macchina virtuale personalizzata in Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359252"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914247"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizzare la gestione con l'estensione SQL Server agente IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,20 +42,21 @@ L'estensione SQL Server Agent IaaS offre numerosi vantaggi per SQL Server in mac
 
 - **Gratuito**: l'estensione in tutte e tre le modalità di gestibilità è completamente gratuita. Non vi sono costi aggiuntivi associati all'estensione o con modalità di gestione mutevoli. 
 
-- **Gestione semplificata delle licenze**: l'estensione semplifica SQL Server la gestione delle licenze e consente di identificare rapidamente SQL Server VM con la vantaggio Azure Hybrid abilitata usando il [portale di Azure](manage-sql-vm-portal.md), l'interfaccia della riga di comando di Azure o PowerShell: 
-
-   # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-   ```azurecli-interactive
-   $vms = az sql vm list | ConvertFrom-Json
-   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
-   ```
+- **Gestione semplificata delle licenze**: l'estensione semplifica SQL Server la gestione delle licenze e consente di identificare rapidamente SQL Server VM con la vantaggio Azure Hybrid abilitata usando il [portale di Azure](manage-sql-vm-portal.md), PowerShell o l'interfaccia della riga di comando di Azure: 
 
    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
    ```
+
+   # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+   ```azurecli-interactive
+   $ az sql vm list --query "[?sqlServerLicenseType=='AHUB']"
+   ```
+
+
 
    ---
 
@@ -71,7 +72,7 @@ Il SQL Server estensione dell'agente IaaS sblocca diversi vantaggi di funzionali
 La tabella seguente illustra i vantaggi seguenti: 
 
 
-| Funzionalità | Description |
+| Funzionalità | Descrizione |
 | --- | --- |
 | **Gestione nel portale** | Sblocca [la gestione nel portale](manage-sql-vm-portal.md), in modo che sia possibile visualizzare tutte le macchine virtuali SQL Server in un'unica posizione, in modo che sia possibile abilitare e disabilitare funzionalità specifiche di SQL direttamente dal portale. 
 | **Backup automatico** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita o a un'istanza denominata [correttamente installata](frequently-asked-questions-faq.md#administration) di SQL Server nella macchina virtuale. Per altre informazioni, vedere l'articolo [Backup automatico per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-backup-sql-2014.md). |
@@ -239,7 +240,7 @@ Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Ser
 
 **Qual è il costo per la registrazione con l'estensione SQL IaaS Agent o con l'aggiornamento alla modalità di gestibilità completa?**
 
-Nessuno. Non sono previste tariffe associate alla registrazione con l'estensione SQL IaaS Agent o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con l'estensione è completamente gratuita. 
+No. Non sono previste tariffe associate alla registrazione con l'estensione SQL IaaS Agent o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con l'estensione è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'uso delle diverse modalità di gestibilità?**
 

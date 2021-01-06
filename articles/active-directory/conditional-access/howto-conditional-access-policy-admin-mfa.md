@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5917de03468b86b67520c0b4f04dfd732377a021
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366293"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915709"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedi autenticazione a più fattori per gli amministratori
 
@@ -31,6 +31,7 @@ Microsoft consiglia di richiedere l'autenticazione a più fattori sui seguenti r
 * Amministratore globale
 * Amministratore dell'help desk
 * Amministratore password
+* Amministratore dei ruoli con privilegi
 * Amministratore della sicurezza
 * Amministratore di SharePoint
 * Amministratore utenti
@@ -55,7 +56,7 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
-   1. In **Includi**selezionare **ruoli della directory (anteprima)** e scegliere almeno i ruoli seguenti:
+   1. In **Includi** selezionare **ruoli della directory (anteprima)** e scegliere almeno i ruoli seguenti:
       * Amministratore dell'autenticazione
       * Amministratore fatturazione
       * Amministratore di accesso condizionale

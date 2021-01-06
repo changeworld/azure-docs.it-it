@@ -1,7 +1,7 @@
 ---
 title: Integrazione di machine learning open source
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare framework di apprendimento automatico Python open source per eseguire il training, distribuire e gestire soluzioni di Machine Learning end-to-end in Azure Machine Learning.
+description: Informazioni su come usare framework di apprendimento automatico Python open source per eseguire il training, la distribuzione e la gestione di soluzioni di Machine Learning end-to-end in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 12/16/2020
-ms.openlocfilehash: b3fa9767310bfc300087c9dc7384f33993aca70d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675880"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914111"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integrazione open source con progetti Azure Machine Learning
 
@@ -52,7 +52,7 @@ Il training di un modello di apprendimento avanzato da zero spesso richiede gran
 
 L'apprendimento per rinforzo è una tecnica di intelligenza artificiale che consente di eseguire il training dei modelli usando azioni, Stati e premi: gli agenti di formazione per rinforzo imparano a eseguire una serie di azioni predefinite che massimizzano i premi specificati in base allo stato corrente dell'ambiente. 
 
-Il progetto [Ray RLLib](https://github.com/ray-project/ray) dispone di una serie di funzionalità che consentono una scalabilità elevata durante il processo di training. Il processo iterativo è il tempo e l'utilizzo intensivo di risorse come gli agenti di formazione di rinforzo tentano di apprendere il modo ottimale per ottenere un'attività.  Ray RLLib supporta anche Framework di apprendimento avanzato come TensorFlow e PyTorch.  
+Il progetto [Ray RLLib](https://github.com/ray-project/ray) include un set di funzionalità che consentono una scalabilità elevata durante il processo di training. Il processo iterativo è il tempo e l'utilizzo intensivo di risorse come gli agenti di formazione di rinforzo tentano di apprendere il modo ottimale per ottenere un'attività.  Ray RLLib supporta anche Framework di apprendimento avanzato come TensorFlow e PyTorch.  
 
 Per informazioni su come usare Ray RLLib con Azure Machine Learning, vedere [come eseguire il training di un modello di apprendimento di rinforzo](how-to-use-reinforcement-learning.md).
 
@@ -101,4 +101,4 @@ Machine Learning Operations (MLOps), comunemente concepito come DevOps per Machi
 
 Usando le procedure DevOps, ad esempio l'integrazione continua (CI) e la distribuzione continua (CD), è possibile automatizzare il ciclo di vita di Machine Learning end-to-end e acquisire i dati di governance. È possibile definire la pipeline di integrazione continua/recapito continuo di [machine learning nelle azioni di GitHub](./how-to-github-actions-machine-learning.md) per eseguire Azure Machine Learning attività di training e distribuzione. 
 
-Acquisire le dipendenze software, le metriche, i metadati, i dati e il controllo delle versioni dei modelli sono una parte importante del processo di MLOps per creare pipeline trasparenti, riproducibili e controllabili. Per questa attività, è possibile [usare MLFlow in Azure Machine Learning](how-to-use-mlflow.md) e quando si esegue il [training dei modelli di Machine Learning in Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+Acquisire le dipendenze software, le metriche, i metadati, i dati e il controllo delle versioni dei modelli sono una parte importante del processo di MLOps per creare pipeline trasparenti, riproducibili e controllabili. Per questa attività, è possibile [usare MLFlow in Azure Machine Learning](how-to-use-mlflow.md) e quando si esegue il [training dei modelli di Machine Learning in Azure Databricks](./how-to-use-mlflow-azure-databricks.md). È anche possibile [distribuire i modelli MLflow come servizio Web di Azure](how-to-deploy-mlflow-models.md). 

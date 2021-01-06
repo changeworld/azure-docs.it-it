@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2cac7a8310482305467a1cb3ed3127eb18ae416
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95976194"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915777"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurare la microfocus CICS BankDemo per Micro Focus Enterprise Developer 4,0 in Azure
 
@@ -28,7 +28,7 @@ CICs sta per il sistema di controllo delle informazioni dei clienti, la piattafo
 
 - [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Scaricarlo e installarlo nella macchina virtuale Enterprise Developer. Enterprise Server richiede un database per la gestione delle aree CICS e l'applicazione BankDemo usa anche un database SQL Server denominato BANKDEMO. Questa demo presuppone l'uso di SQL Server Express per entrambi i database. Quando si installa, selezionare l'installazione di base.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS viene usato per la gestione dei database e l'esecuzione di uno script T-SQL. Scaricarlo e installarlo nella macchina virtuale Enterprise Developer.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) (SSMS). SSMS viene usato per la gestione dei database e l'esecuzione di uno script T-SQL. Scaricarlo e installarlo nella macchina virtuale Enterprise Developer.
 
 - [Visual studio 2019](https://azure.microsoft.com/downloads/) con la versione più recente di Service Pack o [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), che è possibile scaricare gratuitamente.
 
@@ -268,7 +268,7 @@ L'ultima cosa da fare è configurare una sessione 3270 usando Rumba, un emulator
 ![Visualizzazione del mainframe visualizzazione del mainframe schermata iniziale ](media/14-demo.png)
  ![ -Rumba-schermata di dimostrazione del sottosistema](media/15-demo.png)
 
-Congratulazioni! Viene ora eseguita un'applicazione CICS in Azure usando Micro Focus Enterprise Server.
+La procedura è stata completata. Viene ora eseguita un'applicazione CICS in Azure usando Micro Focus Enterprise Server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

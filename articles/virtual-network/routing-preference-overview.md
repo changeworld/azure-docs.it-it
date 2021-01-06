@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: c1c2c5f27143be7fc10269c948bee9d5465d565a
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530443"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912700"
 ---
 # <a name="what-is-routing-preference-preview"></a>Che cos'è la preferenza di routing (anteprima)?
 
@@ -72,11 +72,6 @@ Per l'archiviazione, gli endpoint primari usano sempre la **rete globale Microso
 ## <a name="pricing"></a>Prezzi
 La differenza di prezzo tra le due opzioni si riflette nei prezzi del trasferimento dei dati in uscita su Internet. Il prezzo del trasferimento dei dati per il routing tramite **rete globale Microsoft** è uguale all'attuale prezzo in uscita su Internet. Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi della larghezza di banda di Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
-## <a name="availability"></a>Disponibilità
-
-Il supporto per la preferenza di routing è disponibile nelle aree seguenti per servizi come macchine virtuali e servizio di bilanciamento del carico con connessione Internet che usano un indirizzo IP pubblico per l'uscita da Internet, ovvero Europa settentrionale, Europa occidentale, Francia meridionale, Regno Unito meridionale, Stati Uniti orientali, Sta, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti centro-occidentali, Asia sud-orientale, Germania centro-occidentale, Svizzera occidentale, Giappone orientale e Giappone occidentale.
-
-Il supporto delle preferenze di routing per l'account di archiviazione è disponibile nelle aree di Azure seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti occidentali, Europa settentrionale, Francia meridionale, Germania centro-occidentale, Svizzera occidentale, Asia orientale sud, Giappone orientale e Giappone occidentale.
 ## <a name="limitations"></a>Limitazioni
 
 * La preferenza di routing è compatibile solo con lo SKU Standard dell'indirizzo IP pubblico. Lo SKU Basic dell'indirizzo IP pubblico non è supportato.

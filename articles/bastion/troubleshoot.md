@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831931"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915556"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Risolvere i problemi di Azure Bastion
 
@@ -81,7 +81,7 @@ The key's randomart image is:
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Schermata nera nella portale di Azure
 
-**D:** Quando si tenta di connettersi usando Azure Bastion, viene visualizzata una schermata nera nell'portale di Azure.
+**D:** Quando si tenta di connettersi usando Azure Bastion, non è possibile connnect alla macchina virtuale di destinazione e viene visualizzata una schermata nera nella portale di Azure.
 
 **R:** Ciò si verifica quando esiste un problema di connettività di rete tra il Web browser e Azure Bastion (il firewall Internet del client può bloccare il traffico di WebSocket o simile) o tra il Bastion di Azure e la macchina virtuale di destinazione. La maggior parte dei casi include un NSG applicato a AzureBastionSubnet o alla subnet VM di destinazione che blocca il traffico RDP/SSH nella rete virtuale. Consentire il traffico di WebSockets sul firewall Internet client e controllare gruppi nella subnet VM di destinazione.
 

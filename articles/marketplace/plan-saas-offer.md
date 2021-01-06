@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: e188c74c6eba5e4182f7b72277db8dd8e08db8d4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821486"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913933"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -156,7 +156,7 @@ Quando si [Crea una nuova offerta SaaS](create-new-saas-offer.md) nel centro per
 
 Nell'esempio seguente viene illustrato un elenco di offerte nel portale di Azure.
 
-![Viene illustrato un elenco di offerte nel portale di Azure.](./media/example-managed-services.png)
+![Viene illustrato un elenco di offerte nel portale di Azure.](./media/example-managed-service-azure-portal.png)
 
 **Descrizioni delle chiamate**
 
@@ -202,7 +202,7 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
   - file con estensione png
   - Deve includere una didascalia
 - **Media-video** (facoltativo): è possibile aggiungere fino a quattro video con i requisiti seguenti, che dimostrano l'offerta:
-  - Name
+  - Nome
   - URL: deve essere ospitato solo su YouTube o Vimeo.
   - Anteprima: file 1280 x 720. png
 

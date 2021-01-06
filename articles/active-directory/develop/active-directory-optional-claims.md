@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 1/04/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509564"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916253"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -66,7 +66,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | Account del servizio gestito, Azure AD | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (gli utenti all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Stato dell'account utente nel tenant | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
-| `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve anch'esso essere impostato. Per informazioni dettagliate, vedere [Attestazioni di gruppo](#configuring-groups-optional-claims). Per altre informazioni sulle attestazioni di gruppo, vedere [Come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve essere impostato anche. Per informazioni dettagliate, vedere [Attestazioni di gruppo](#configuring-groups-optional-claims). Per altre informazioni sulle attestazioni di gruppo, vedere [Come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](../authentication/howto-authentication-use-email-signin.md) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
 | `idtyp`                    | Tipo di token   | Token di accesso JWT | Speciale: solo nei token di accesso solo app |  Il valore è `app` quando il token è un token solo app. Questo è il modo più accurato per un'API per determinare se un token è un token dell'app o un token dell'utente e dell'app.|
 
@@ -85,7 +85,17 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v1.0, ma non sono 
 | `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
 | `family_name` | Cognome                       | Fornisce il cognome dell'utente, come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato nell'account del servizio gestito e in Azure AD. Richiede l'ambito `profile`.   |
 | `given_name`  | Nome                      | Fornisce il nome dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato nell'account del servizio gestito e in Azure AD.  Richiede l'ambito `profile`. |
-| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](../authentication/howto-authentication-use-email-signin.md) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
+| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](../authentication/howto-authentication-use-email-signin.md) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece l' `preferred_username` attestazione seguente per visualizzare lo stato di accesso all'utente. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
+
+
+**Tabella 4: solo per le attestazioni facoltative v 1.0**
+
+Alcuni dei miglioramenti del formato del token V2 sono disponibili per le app che usano il formato di token V1, perché contribuiscono a migliorare la sicurezza e l'affidabilità. Queste non diverranno effettive per i token ID richiesti dall'endpoint V2, né i token di accesso per le API che usano il formato di token V2. 
+
+| Attestazione JWT     | Nome                            | Descrizione | Note |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | Destinatari | Sempre presente in token JWT, ma nei token di accesso V1 può essere generato in diversi modi, che può essere difficile da codificare quando si esegue la convalida dei token.  Usare le [proprietà aggiuntive per questa attestazione](#additional-properties-of-optional-claims) per assicurarsi che sia sempre impostato su un GUID nei token di accesso V1. | solo token di accesso JWT V1|
+|`preferred_username` | Nome utente preferito        | Fornisce l'attestazione nome utente preferita entro i token V1. Questo rende più semplice per le app fornire hint per il nome utente e visualizzare i nomi visualizzati leggibili, indipendentemente dal tipo di token.  È consigliabile usare questa attestazione facoltativa invece di usare, ad esempio `upn` o `unique_name` . | token ID V1 e token di accesso |
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
 
@@ -97,7 +107,9 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Utilizzabile per le risposte SAML e JWT e per i token v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Include l'UPN guest così come è archiviato nel tenant della risorsa. Ad esempio, usare `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Come sopra, tranne che i cancelletti (`#`) vengono sostituiti da caratteri di sottolineatura (`_`), ad esempio `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Come sopra, tranne che i cancelletti (`#`) vengono sostituiti da caratteri di sottolineatura (`_`), ad esempio `foo_hometenant.com_EXT_@resourcetenant.com`|
+| `aud`          |                          | Nei token di accesso V1, viene usato per modificare il formato dell' `aud` attestazione.  Questa operazione non ha alcun effetto nei token v2 o ID, in cui l' `aud` attestazione è sempre l'ID client. Usare questo per assicurarsi che l'API possa eseguire più facilmente la convalida dei destinatari. Come tutte le attestazioni facoltative che influiscono sul token di accesso, la risorsa nella richiesta deve impostare questa attestazione facoltativa, dal momento che le risorse sono proprietarie del token di accesso.|
+|                | `use_guid`               | Genera l'ID client della risorsa (API) in formato GUID come `aud` attestazione anziché come URI o GUID di AppID. Quindi, se l'ID client di una risorsa è `bb0a297b-6a42-4a55-ac40-09a501456577` , qualsiasi app che richiede un token di accesso per tale risorsa riceverà un token di accesso con `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` .|
 
 #### <a name="additional-properties-example"></a>Esempio di proprietà aggiuntive
 

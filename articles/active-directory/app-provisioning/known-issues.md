@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509547"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914349"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemi noti: provisioning delle applicazioni
 Problemi noti da tenere presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
@@ -82,6 +82,10 @@ Il [tempo](./application-provisioning-when-will-provisioning-finish-specific-use
 **Le modifiche non passano dall'app di destinazione al Azure AD**
 
 Il servizio di provisioning delle app non è in grado di riconoscere le modifiche apportate alle app esterne. Non viene quindi eseguita alcuna azione per eseguire il rollback. Il servizio di provisioning delle app si basa sulle modifiche apportate in Azure AD. 
+
+**Il cambio dalla sincronizzazione all alla sincronizzazione assegnata non funziona**
+
+Dopo aver modificato l'ambito da "Sincronizza tutto" a "sincronizzazione assegnata", assicurarsi di eseguire anche un riavvio per assicurarsi che la modifica venga applicata. È possibile eseguire il riavvio dall'interfaccia utente.
 
 **Il ciclo di provisioning continua fino al completamento**
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bef344414a9ba27d5808fcd17ed664b7f51bddc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743591"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916013"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire gli utenti in Azure Stack Edge Pro
 
@@ -30,19 +30,19 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="about-users"></a>Informazioni sugli utenti
 
-Gli utenti possono accedere in sola lettura o con privilegi completi. Come indicano i nomi, gli utenti di sola lettura possono visualizzare solo i dati della condivisione. Gli utenti con privilegi completi possono leggere, modificare o eliminare i dati della condivisione e scrivere in tali condivisioni.
+Gli utenti possono accedere in sola lettura o con privilegi completi. Gli utenti di sola lettura possono visualizzare solo i dati della condivisione. Gli utenti con privilegi completi possono leggere i dati della condivisione, scrivere in queste condivisioni e modificare o eliminare i dati della condivisione.
 
  - **Utente con privilegi completi**: un utente locale con accesso completo.
  - **Utente di sola lettura**. un utente locale con accesso di sola lettura. Questi utenti sono associati alle condivisioni che consentono operazioni di sola lettura.
 
-Le autorizzazioni dell'utente vengono prima di tutto definite durante la creazione contemporanea di utente e condivisione. Dopo aver definito le autorizzazioni associate a un utente, è possibile modificarle con Esplora file.
+Le autorizzazioni dell'utente vengono prima di tutto definite durante la creazione contemporanea di utente e condivisione. Possono essere modificati usando Esplora file.
 
 
 ## <a name="add-a-user"></a>Aggiungere un utente
 
 Seguire questa procedura nel portale di Azure per aggiungere un utente.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **panoramica > utenti**. Selezionare **+ Aggiungi utente** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **utenti**. Selezionare **+ Aggiungi utente** sulla barra dei comandi.
 
     ![Selezionare Aggiungi utente](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
 
@@ -59,7 +59,7 @@ Seguire questa procedura nel portale di Azure per aggiungere un utente.
 ## <a name="modify-user"></a>Modificare un utente
 
 È possibile cambiare la password associata a un utente dopo averlo creato. Selezionare dall'elenco degli utenti. Immettere e confermare la nuova password. Salvare le modifiche.
- 
+
 ![Modificare un utente](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
 
 
@@ -68,7 +68,7 @@ Seguire questa procedura nel portale di Azure per aggiungere un utente.
 Eseguire i passaggi seguenti nel portale di Azure per eliminare un utente.
 
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **panoramica > utenti**.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **utenti**.
 
     ![Selezionare l'utente da eliminare](media/azure-stack-edge-j-series-manage-users/delete-user-1.png)
 

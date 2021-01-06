@@ -1,15 +1,15 @@
 ---
 title: Abilitare l'estensione macchina virtuale usando l'interfaccia della riga di comando
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando l'interfaccia della riga di comando di Azure.
-ms.date: 11/20/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3fa8273b15518c182aefa038e67d85773d500b30
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6edb7d55e542f963c75693d535fa3b50dc5b827b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991452"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916202"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Abilitare le estensioni di VM di Azure usando l'interfaccia della riga di comando
 
@@ -29,10 +29,10 @@ az extension add --name connectedmachine
 
 Per abilitare un'estensione della macchina virtuale nel server abilitato per Arc, usare [AZ connectedmachine Extension create](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_create) con i `--machine-name` `--extension-name` parametri,, `--location` , `--type` , `settings` e `--publisher` .
 
-L'esempio seguente abilita l'estensione della macchina virtuale Log Analytics in un server Linux abilitato per Arc:
+Nell'esempio seguente viene abilitata l'estensione della macchina virtuale Log Analytics in un server abilitato per Arc:
 
 ```azurecli
-az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentforLinux" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.EnterpriseCloud.Monitoring" --settings "{\"workspaceId\":\"workspaceId"}" --protected-settings "{\workspaceKey\":"\workspaceKey"} --type-handler-version "1.10" --resource-group "myResourceGroup"
+az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "eastus" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
 ```
 
 Nell'esempio seguente viene abilitata l'estensione di script personalizzato in un server abilitato per Arc:
@@ -79,7 +79,7 @@ Per rimuovere un'estensione VM installata nel server abilitato per Arc, usare [A
 Ad esempio, per rimuovere l'estensione Log Analytics VM per Linux, eseguire il comando seguente:
 
 ```azurecli
-az connectedmachine extension delete --machine-name "myMachineName" --name "OmsAgentforLinux" --resource-group "myResourceGroup"
+az connectedmachine extension delete --machine-name "myMachineName" --name "OmsAgentForLinux" --resource-group "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

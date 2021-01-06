@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570995"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914961"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Impostazioni pull per la configurazione dell'app con Azure Pipelines
 
@@ -60,7 +60,7 @@ Assegnare il ruolo di configurazione dell'app appropriato alla connessione del s
 
 In questa sezione viene illustrato come usare l'attività di configurazione app Azure in una pipeline di compilazione di Azure DevOps.
 
-1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  **Pipelines**. Per la documentazione della pipeline di compilazione, vedere  [creare la prima pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
+1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  . Per la documentazione della pipeline di compilazione, vedere  [creare la prima pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
       - Se si sta creando una nuova pipeline di compilazione, fare clic su **nuova pipeline** e selezionare il repository per la pipeline. Selezionare **Mostra Assistente** sul lato destro della pipeline e cercare l'attività di **configurazione app Azure** .
       - Se si usa una pipeline di compilazione esistente, selezionare **modifica** per modificare la pipeline. Nella scheda **attività** cercare l'attività di **configurazione app Azure** .
 1. Configurare i parametri necessari per l'attività per eseguire il pull dei valori di chiave dall'archivio di configurazione dell'app. Le descrizioni dei parametri sono disponibili nella sezione **Parameters** riportata di seguito e nelle descrizioni comandi accanto a ogni parametro.
@@ -103,6 +103,9 @@ Se, ad esempio, un'attività successiva esegue uno script di PowerShell, potrebb
 echo "$env:myBuildSetting"
 ```
 Il valore verrà quindi stampato sulla console.
+
+> [!NOTE]
+> I riferimenti Azure Key Vault nella configurazione dell'app verranno risolti e impostati come [variabili segrete](/azure/devops/pipelines/process/variables#secret-variables). Nelle pipeline di Azure le variabili segrete sono nascoste dal log. Non vengono passati in attività come variabili di ambiente e devono invece essere passati come input. 
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

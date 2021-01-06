@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: dd350cc5fa0c3b30b4f0d57938348a8328af311a
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827394"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915165"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualizzare e configurare la registrazione diagnostica DDoS
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Prima di eseguire i passaggi di questa esercitazione, è necessario creare prima di tutto un [piano di protezione standard DDoS di Azure](manage-ddos-protection.md) e la protezione DDoS standard deve essere abilitata in una rete virtuale.
-- La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile monitorare l'indirizzo IP pubblico di tutte le risorse distribuite tramite Gestione risorse (non classico) elencate in [rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (inclusi i servizi di bilanciamento del carico di Azure in cui le macchine virtuali back-end si trovano nella rete virtuale), ad eccezione degli ambienti del servizio app Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).    
+- La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile monitorare l'indirizzo IP pubblico di tutte le risorse distribuite tramite Gestione risorse (non classico) elencate in [rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (inclusi i servizi di bilanciamento del carico di Azure in cui le macchine virtuali di back-end si trovano nella rete virtuale), ad eccezione dei app Azure ambienti del servizio. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).    
 
 ## <a name="configure-ddos-diagnostic-logs"></a>Configurare i log di diagnostica DDoS
 
@@ -76,7 +76,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 | **SubscriptionId** | ID sottoscrizione del piano di protezione DDoS. |
 | **Risorsa** | Nome dell'indirizzo IP pubblico. |
 | **ResourceType** | Questa operazione sarà sempre `PUBLICIPADDRESS` . |
-| **OperationName** | Per le notifiche, questo sarà `DDoSProtectionNotifications` .  |
+| **NomeOperazione** | Per le notifiche, questo sarà `DDoSProtectionNotifications` .  |
 | **Message** | Dettagli dell'attacco. |
 | **Tipo** | Tipo di notifica. I valori possibili includono `MitigationStarted` . `MitigationStopped`. |
 | **PublicIpAddress** | Indirizzo IP pubblico. |
@@ -92,7 +92,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 | **SubscriptionId** | ID sottoscrizione del piano di protezione DDoS. |
 | **Risorsa** | Nome dell'indirizzo IP pubblico. |
 | **ResourceType** | Questa operazione sarà sempre `PUBLICIPADDRESS` . |
-| **OperationName** | Per i log di flusso, questo sarà `DDoSMitigationFlowLogs` . |
+| **NomeOperazione** | Per i log di flusso, questo sarà `DDoSMitigationFlowLogs` . |
 | **Message** | Dettagli dell'attacco. |
 | **SourcePublicIpAddress** | Indirizzo IP pubblico del client che genera il traffico verso l'indirizzo IP pubblico. |
 | **SourcePort** | Numero di porta compreso tra 0 e 65535. |
@@ -111,7 +111,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 | **SubscriptionId** | ID sottoscrizione del piano di protezione DDoS. |
 | **Risorsa** | Nome dell'indirizzo IP pubblico. |
 | **ResourceType** | Questa operazione sarà sempre `PUBLICIPADDRESS` . |
-| **OperationName** | Per i report di mitigazione, questo sarà `DDoSMitigationReports` . |
+| **NomeOperazione** | Per i report di mitigazione, questo sarà `DDoSMitigationReports` . |
 | **ReportType** | I valori possibili includono `Incremental` , `PostMitigation` .|
 | **MitigationPeriodStart** | Data e ora in formato UTC in cui è stata avviata la mitigazione.  |
 | **MitigationPeriodEnd** | Data e ora in formato UTC in cui è terminata la mitigazione. |

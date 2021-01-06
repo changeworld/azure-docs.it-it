@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 4f9de2f956451cd6ab8bc8a7a0fc51903ec54694
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97815901"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915148"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Visualizzare e configurare gli avvisi di protezione DDoS
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Prima di eseguire i passaggi di questa esercitazione, è necessario creare prima di tutto un [piano di protezione standard DDoS di Azure](manage-ddos-protection.md) e la protezione DDoS standard deve essere abilitata in una rete virtuale.
-- La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile monitorare l'indirizzo IP pubblico di tutte le risorse distribuite tramite Gestione risorse (non classico) elencate in [rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (inclusi i servizi di bilanciamento del carico di Azure in cui le macchine virtuali back-end si trovano nella rete virtuale), ad eccezione degli ambienti del servizio app Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).     
+- La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile monitorare l'indirizzo IP pubblico di tutte le risorse distribuite tramite Gestione risorse (non classico) elencate in [rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (inclusi i servizi di bilanciamento del carico di Azure in cui le macchine virtuali di back-end si trovano nella rete virtuale), ad eccezione dei app Azure ambienti del servizio. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).     
 
 ## <a name="configure-alerts-through-azure-monitor"></a>Configurare gli avvisi tramite monitoraggio di Azure
 
@@ -62,9 +62,9 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile sel
 
     |Impostazione                  |Valore                                                                                               |
     |---------                |---------                                                                                           |
-    | Ambito                   | Scegliere **Seleziona risorsa**. </br> Selezionare la **sottoscrizione** che contiene l'indirizzo IP pubblico che si vuole registrare, selezionare **indirizzo IP pubblico** per **tipo di risorsa**, quindi selezionare l'indirizzo IP pubblico specifico per cui si vogliono registrare le metriche. </br> Selezionare **Operazione completata**. | 
-    | Condizione | Selezionare **Seleziona condizione**. </br> In nome segnale selezionare **sotto attacco DDoS o no**. </br> In **operatore** selezionare **maggiore o uguale a**. </br> In **tipo di aggregazione** selezionare **massimo**. </br> In **valore soglia** immettere *1*. Per la metrica **attacco DDoS o no** , **0** indica che non si è sotto attacco mentre **1** indica che l'utente è sotto attacco. </br> Selezionare **Operazione completata**. | 
-    | Azioni | Selezionare **Aggiungi gruppi di azioni**. </br> Selezionare **Crea gruppo di azioni**. </br> In **notifiche**, in **tipo di notifica**, selezionare **messaggio di posta elettronica/SMS/push/Voice**. </br> In **nome** immettere _MyUnderAttackEmailAlert_. </br> Fare clic sul pulsante modifica, quindi selezionare **posta elettronica** e il numero di opzioni seguenti, quindi selezionare **OK**. </br> Selezionare **Rivedi e crea**. | 
+    | Ambito                   | Scegliere **Seleziona risorsa**. </br> Selezionare la **sottoscrizione** che contiene l'indirizzo IP pubblico che si vuole registrare, selezionare **indirizzo IP pubblico** per **tipo di risorsa**, quindi selezionare l'indirizzo IP pubblico specifico per cui si vogliono registrare le metriche. </br> Selezionare **Fine**. | 
+    | Condizione | Selezionare **Seleziona condizione**. </br> In nome segnale selezionare **sotto attacco DDoS o no**. </br> In **operatore** selezionare **maggiore o uguale a**. </br> In **tipo di aggregazione** selezionare **massimo**. </br> In **valore soglia** immettere *1*. Per la metrica **attacco DDoS o no** , **0** indica che non si è sotto attacco mentre **1** indica che l'utente è sotto attacco. </br> Selezionare **Fine**. | 
+    | Actions | Selezionare **Aggiungi gruppi di azioni**. </br> Selezionare **Crea gruppo di azioni**. </br> In **notifiche**, in **tipo di notifica**, selezionare **messaggio di posta elettronica/SMS/push/Voice**. </br> In **nome** immettere _MyUnderAttackEmailAlert_. </br> Fare clic sul pulsante modifica, quindi selezionare **posta elettronica** e il numero di opzioni seguenti, quindi selezionare **OK**. </br> Selezionare **Rivedi e crea**. | 
     | Dettagli regola di avviso | In **Nome regola di avviso** immettere _MyDdosAlert_. |
 
 Entro pochi minuti dal rilevamento degli attacchi, si dovrebbe ricevere un messaggio di posta elettronica dalle metriche di monitoraggio di Azure che hanno un aspetto simile all'immagine seguente:

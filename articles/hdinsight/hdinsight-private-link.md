@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352542"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915624"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteggere e isolare i cluster HDInsight di Azure con collegamento privato (anteprima)
 
@@ -29,7 +29,7 @@ Per impostazione predefinita, HDInsight RP usa una connessione in *ingresso* al 
 
 I bilanciamenti del carico di base usati nell'architettura di rete virtuale predefinita forniscono automaticamente il NAT pubblico (Network Address Translation) per accedere alle dipendenze in uscita necessarie, ad esempio HDInsight RP. Se si vuole limitare la connettività in uscita alla rete Internet pubblica, è possibile [configurare un firewall](./hdinsight-restrict-outbound-traffic.md), ma non è un requisito.
 
-`resourceProviderConnection`La configurazione in uscita consente anche di accedere a risorse specifiche del cluster, ad esempio Azure Data Lake storage Gen2 o Metastore esterni, usando endpoint privati. L'uso di endpoint privati per queste risorse non è mandetory, ma se si prevede di avere endpoint privati per queste risorse, è necessario configurare gli endpoint privati e le voci DNS `before` che si crea il cluster HDInsight. Si consiglia di creare e fornire tutti i database SQL esterni necessari, ad esempio Apache Ranger, Ambari, oozie e Metastore hive, al momento della creazione del cluster. Il requisito è che tutte queste risorse devono essere accessibili dall'interno della subnet del cluster, tramite il proprio endpoint privato o in caso contrario.
+`resourceProviderConnection`La configurazione in uscita consente anche di accedere a risorse specifiche del cluster, ad esempio Azure Data Lake storage Gen2 o Metastore esterni, usando endpoint privati. L'uso di endpoint privati per queste risorse non è obbligatorio, ma se si prevede di avere endpoint privati per queste risorse, è necessario configurare gli endpoint privati e le voci DNS `before` che si crea il cluster HDInsight. Si consiglia di creare e fornire tutti i database SQL esterni necessari, ad esempio Apache Ranger, Ambari, oozie e Metastore hive, al momento della creazione del cluster. Il requisito è che tutte queste risorse devono essere accessibili dall'interno della subnet del cluster, tramite il proprio endpoint privato o in caso contrario.
 
 L'uso di endpoint privati per Azure Key Vault non è supportato. Se si usa Azure Key Vault per la crittografia CMK, è necessario che l'endpoint Azure Key Vault sia accessibile dall'interno della subnet HDInsight senza endpoint privato.
 
