@@ -8,16 +8,32 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708896"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916457"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Risolvere i problemi delle condivisioni file NFS di Azure
 
 Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file NFS di Azure. Fornisce possibili cause e soluzioni alternative quando si verificano questi problemi.
+
+## <a name="chgrp-filename-failed-invalid-argument-22"></a>chgrp "nomefile" non riuscito: argomento non valido (22)
+
+### <a name="cause-1-idmapping-is-not-disabled"></a>Cause 1: idmapping non è disabilitato
+File di Azure non consente UID/GID alfanumerico. Quindi, idmapping deve essere disabilitato. 
+
+### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>Motivo 2: idmapping è stato disabilitato, ma è stato riabilitato dopo aver rilevato un nome file/dir non valido
+Anche se idmapping è stato disabilitato correttamente, in alcuni casi le impostazioni per la disabilitazione di idmapping vengono ignorate. Ad esempio, quando il File di Azure rileva un nome di file non valido, viene restituito un errore. Quando viene visualizzato questo particolare codice di errore, il client Linux NFS v 4,1 decide di riabilitare idmapping e le richieste future vengono nuovamente inviate con UID/GID alfanumerico. Per un elenco di caratteri non supportati in File di Azure, vedere questo [articolo](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). Il segno di due punti è uno dei caratteri non supportati. 
+
+### <a name="workaround"></a>Soluzione alternativa
+Verificare che idmapping sia disabilitato e che non sia stata riabilitata, quindi eseguire le operazioni seguenti:
+
+- Smontare la condivisione
+- Disabilitare il mapping di ID con # Echo Y >/sys/module/NFS/Parameters/nfs4_disable_idmapping
+- Montare nuovamente la condivisione
+- Se si esegue rsync, eseguire rsync con l'argomento "-numeric-IDS" dalla directory che non dispone di un nome di file dir/file errato.
 
 ## <a name="unable-to-create-an-nfs-share"></a>Non è possibile creare una condivisione NFS
 
@@ -52,7 +68,7 @@ NFS è disponibile solo negli account di archiviazione con la seguente configura
 - Livello Premium
 - Tipo di account-filestorage
 - Ridondanza-con ridondanza locale
-- Aree-Stati Uniti orientali, Stati Uniti orientali 2, Regno Unito meridionale, Asia sudorientale
+- Aree: [elenco delle aree supportate](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Soluzione
 
@@ -90,7 +106,7 @@ Il diagramma seguente illustra la connettività usando gli endpoint pubblici.
     - Il peering di rete virtuale con reti virtuali ospitate nell'endpoint privato consente a NFS di condividere l'accesso ai client nelle reti virtuali con peering.
     - Gli endpoint privati possono essere usati con VPN ExpressRoute, da punto a sito e da sito a sito.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagramma della connettività degli endpoint pubblici." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagramma della connettività degli endpoint privati." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Motivo 2: il trasferimento sicuro obbligatorio è abilitato
 
@@ -100,7 +116,7 @@ La crittografia doppia non è ancora supportata per le condivisioni NFS. Azure f
 
 Disabilitare il trasferimento sicuro necessario nel pannello di configurazione dell'account di archiviazione.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagramma della connettività degli endpoint pubblici.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot del pannello di configurazione dell'account di archiviazione. è necessario disabilitare il trasferimento sicuro.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Motivo 3: NFS-il pacchetto comune non è installato
 Prima di eseguire il comando di montaggio, installare il pacchetto eseguendo il comando specifico della distro riportato di seguito.
