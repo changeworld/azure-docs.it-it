@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: cc4f775c3cf4c016173c485d57f203b4665c6393
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3c320b8faf5ccb0b1aec521909b152dff171cbd7
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370645"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862590"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD
 
@@ -44,7 +44,7 @@ Amministratore account, Amministratore del servizio e Coamministratore sono i tr
 
 | Amministratore sottoscrizione classica | Limite | Autorizzazioni | Note |
 | --- | --- | --- | --- |
-| Amministratore dell'account | 1 per ogni account di Azure | <ul><li>Gestire la fatturazione nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)</li><li>Gestire tutte le sottoscrizioni in un account</li><li>Creare nuove sottoscrizioni</li><li>Annullare le sottoscrizioni</li><li>Modificare la fatturazione per una sottoscrizione</li><li>Modificare l'amministratore del servizio</li></ul> | Concettualmente, il proprietario della fatturazione della sottoscrizione.<br>L'amministratore account non ha accesso al portale di Azure. |
+| Amministratore dell'account | 1 per ogni account di Azure | <ul><li>Gestire la fatturazione nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)</li><li>Gestire tutte le sottoscrizioni in un account</li><li>Creare nuove sottoscrizioni</li><li>Annullare le sottoscrizioni</li><li>Modificare la fatturazione per una sottoscrizione</li><li>Modificare l'amministratore del servizio</li></ul> | Concettualmente, il proprietario della fatturazione della sottoscrizione. |
 | Amministratore del servizio | 1 per ogni sottoscrizione di Azure | <ul><li>Gestire i servizi nel [portale di Azure](https://portal.azure.com)</li><li>Annullare la sottoscrizione</li><li>Assegnare utenti al ruolo di coamministratore</li></ul> | Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio.<br>L'amministratore del servizio ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione.<br>L'amministratore del servizio ha accesso completo al portale di Azure. |
 | Coamministratore | 200 per ogni sottoscrizione | <ul><li>Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure</li><li>Può assegnare utenti al ruolo di coamministratore, ma non può modificare l'amministratore del servizio</li></ul> | Il coamministratore ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. |
 
@@ -87,7 +87,7 @@ Nel portale di Azure le assegnazioni di ruolo tramite il controllo degli accessi
 
 ![Pannello Controllo di accesso (IAM) nel portale di Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
-Quando si fa clic sulla scheda **Ruoli** , viene visualizzato l'elenco dei ruoli predefiniti e personalizzati.
+Quando si fa clic sulla scheda **Ruoli**, viene visualizzato l'elenco dei ruoli predefiniti e personalizzati.
 
 ![Ruoli predefiniti nel portale di Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
@@ -103,7 +103,7 @@ I ruoli di Azure AD consentono di gestire le risorse di Azure AD in una director
 | [Amministratore utenti](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>Creare e gestire tutti gli aspetti di utenti e gruppi</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li><li>Modificare le password degli utenti, degli amministratori del supporto tecnico e di altri amministratori degli utenti</li></ul> |  |
 | [Amministratore fatturazione](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>Effettuare acquisti</li><li>Gestire le sottoscrizioni</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li></ul> |  |
 
-Nel portale di Azure è possibile visualizzare l'elenco dei ruoli di Azure AD nel pannello **Ruoli e amministratori** . Per un elenco di tutti i ruoli di Azure AD, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+Nel portale di Azure è possibile visualizzare l'elenco dei ruoli di Azure AD nel pannello **Ruoli e amministratori**. Per un elenco di tutti i ruoli di Azure AD, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ![Ruoli di Azure AD nel portale di Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 

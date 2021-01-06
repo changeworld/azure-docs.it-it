@@ -5,18 +5,18 @@ author: cgillum
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 504ef93a0002895bc5662d95ad269c8593170ee2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ec1b080c195a47caafd0120240b5fb61ede062b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "74233007"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932283"
 ---
 # <a name="durable-functions-billing"></a>Fatturazione di Durable Functions
 
 La fatturazione di [Durable Functions](durable-functions-overview.md) è analoga a quella di Funzioni di Azure. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
 
-Quando si eseguono le funzioni dell'agente di orchestrazione nel [piano a consumo](../functions-scale.md#consumption-plan) di Funzioni di Azure, è necessario essere a conoscenza di alcuni comportamenti della fatturazione. Le sezioni seguenti descrivono in dettaglio questi comportamenti e il relativo effetto.
+Quando si eseguono le funzioni dell'agente di orchestrazione nel [piano a consumo](../consumption-plan.md) di Funzioni di Azure, è necessario essere a conoscenza di alcuni comportamenti della fatturazione. Le sezioni seguenti descrivono in dettaglio questi comportamenti e il relativo effetto.
 
 ## <a name="orchestrator-function-replay-billing"></a>Fatturazione della riesecuzione di funzioni dell'agente di orchestrazione
 
@@ -45,7 +45,7 @@ Diversi fattori contribuiscono ai costi effettivi di Archiviazione di Azure gene
 
 * Una singola app per le funzioni viene associata a un singolo hub attività, che condivide un set di risorse di Archiviazione di Azure. Queste risorse vengono usate da tutte le istanze di Durable Functions in un'app per le funzioni. Il numero effettivo di funzioni dell'app per le funzioni non influisce sui costi delle transazioni di Archiviazione di Azure.
 * Ogni istanza di app per le funzioni esegue internamente il polling di più code nell'account di archiviazione usando un algoritmo di polling basato su backoff esponenziale. Un'istanza di app inattiva esegue il polling delle code con una minore frequenza rispetto a quella di un'app attiva, di conseguenza i costi delle transazioni risultano inferiori. Per altre informazioni sul comportamento del polling delle code di Durable Functions, vedere la [sezione sul polling di code nell'articolo su prestazioni e scalabilità](durable-functions-perf-and-scale.md#queue-polling).
-* Quando viene eseguito nei piani a consumo o Premium di Funzioni di Azure, il [controller di scalabilità di Funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) esegue regolarmente il polling di tutte le code dell'hub attività in background. Nel caso di un'app per le funzioni su scala leggera o moderata, il polling di queste code viene eseguito solo da una singola istanza del controller di scalabilità. Se l'app per le funzioni viene ampliata per includere un numero elevato di istanze, potrebbero essere aggiunte altre istanze del controller di scalabilità. Queste istanze aggiuntive possono comportare un aumento dei costi totali delle transazioni delle code.
+* Quando viene eseguito nei piani a consumo o Premium di Funzioni di Azure, il [controller di scalabilità di Funzioni di Azure](../event-driven-scaling.md) esegue regolarmente il polling di tutte le code dell'hub attività in background. Nel caso di un'app per le funzioni su scala leggera o moderata, il polling di queste code viene eseguito solo da una singola istanza del controller di scalabilità. Se l'app per le funzioni viene ampliata per includere un numero elevato di istanze, potrebbero essere aggiunte altre istanze del controller di scalabilità. Queste istanze aggiuntive possono comportare un aumento dei costi totali delle transazioni delle code.
 * Ogni istanza dell'app per le funzioni compete per un set di lease di BLOB. Queste istanze effettuano periodicamente chiamate al servizio BLOB di Azure per rinnovare i lease mantenuti o per provare ad acquisirne di nuovi. Il conteggio delle partizioni configurato dell'hub attività determina il numero di lease di BLOB. L'ampliamento con l'aggiunta di un numero più elevato di istanze dell'app per le funzioni può comportare un aumento dei costi delle transazioni di Archiviazione di Azure con queste operazioni di lease.
 
 Per altre informazioni, vedere la [documentazione sui prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). 
