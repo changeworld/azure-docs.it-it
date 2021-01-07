@@ -51,6 +51,11 @@
               href: azure-network-latency.md
             - name: Preferenza di routing Internet in Azure
               href: ../virtual-network/routing-preference-overview.md
+        - name: Sicurezza
+          items:
+            - name: Controlli di sicurezza in base a Criteri di Azure
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
         - name: Reti virtuali
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Bilanciamento del carico di rete
@@ -65,7 +70,7 @@
           href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: 'Connettersi all''ambiente locale: rete dedicata'
           href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: Guida introduttiva
+- name: Avvio rapido
   items:
     - name: Creare la prima rete virtuale
       href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
@@ -135,6 +140,9 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: REST
       href: 'https://msdn.microsoft.com/library/mt163658.aspx'
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Creare modelli

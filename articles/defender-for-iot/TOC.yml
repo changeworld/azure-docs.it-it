@@ -3,6 +3,8 @@
 - name: Panoramica
   href: overview.md
   items:
+    - name: Novità
+      href: release-notes.md
     - name: Architettura della soluzione
       href: architecture.md
 - name: Avvi rapidi

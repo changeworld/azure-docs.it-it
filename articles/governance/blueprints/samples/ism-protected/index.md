@@ -3,16 +3,16 @@ title: Panoramica di esempio del progetto Australian Government ISM PROTECTED
 description: Panoramica dell'esempio di progetto Australian Government ISM PROTECTED. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISM PROTECTED.
 ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 4e6b1db0d2f4ecff13068c8e673f2237740ffec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f18c7a34bdf39ebbc2031b187d033c999165a9
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038695"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955570"
 ---
 # <a name="overview-of-the-australian-government-ism-protected-blueprint-sample"></a>Panoramica dell'esempio di progetto Australian Government ISM PROTECTED
 
-L'esempio di progetto ISM Governance fornisce una serie di misure di tutela per la governance tramite [Criteri di Azure](../../../policy/overview.md) che contribuiscono ad acquisire l'attestazione ISM PROTECTED (versione di febbraio 2020). Questo esempio di progetto consente ai clienti di distribuire un set di base di criteri per qualsiasi architettura distribuita in Azure che richiede l'accreditamento o la conformità al framework ISM. La sezione sul mapping dei controlli fornisce informazioni sui criteri inclusi in questa iniziativa e su come soddisfano i vari controlli definiti dal framework ISM. Le risorse assegnate a un'architettura verranno valutate da Criteri di Azure per rilevare la mancata conformità ai criteri assegnati.
+L'esempio di progetto ISM Governance fornisce una serie di misure di tutela per la governance tramite [Criteri di Azure](../../../policy/overview.md) che contribuiscono ad acquisire l'attestazione ISM PROTECTED (versione di febbraio 2020). Questo esempio di progetto consente ai clienti di distribuire un set di base di criteri per qualsiasi architettura distribuita in Azure che richiede l'accreditamento o la conformità al framework ISM. 
 
 ## <a name="control-mapping"></a>Mapping dei controlli
 
