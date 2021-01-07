@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648277"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964253"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Procedura per aggiungere un'assegnazione di ruolo
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Questo articolo descrive i passaggi di alto livello per aggiungere un'assegnazione di ruolo usando il [portale di Azure](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), l'interfaccia della riga di comando di [Azure](role-assignments-cli.md)o l' [API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Questo articolo descrive i passaggi di alto livello per aggiungere un'assegnazione di ruolo usando il [portale di Azure](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), l'interfaccia della riga di comando di [Azure](role-assignments-cli.md)o l' [API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Passaggio 1: determinare chi necessita dell'accesso
 

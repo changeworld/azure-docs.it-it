@@ -3,12 +3,12 @@ title: Risorse figlio nei modelli
 description: Viene descritto come impostare il nome e il tipo per le risorse figlio in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934306"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963913"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Imposta il nome e il tipo per le risorse figlio
 
@@ -137,5 +137,4 @@ Nell'esempio seguente vengono illustrate una rete virtuale e una subnet che sono
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulla creazione di modelli ARM, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
-
 * Per informazioni sul formato del nome della risorsa quando si fa riferimento alla risorsa, vedere la [funzione Reference](template-functions-resource.md#reference).

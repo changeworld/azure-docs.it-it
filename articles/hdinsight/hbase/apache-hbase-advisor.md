@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 36d40215f759190cc9e6c6e3f4918dcbc384f94f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893276"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964593"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Avvisi di Apache HBase in Azure HDInsight
 
@@ -21,9 +21,9 @@ Questo articolo descrive diversi avvisi che consentono di ottimizzare le prestaz
 
 ## <a name="optimize-hbase-to-read-most-recently-written-data"></a>Ottimizza HBase per leggere i dati scritti più di recente
 
-Quando si usa Apache HBase in Azure HDInsight, è possibile ottimizzare la configurazione di HBase per lo scenario in cui l'applicazione legge i dati scritti più di recente. Per ottenere prestazioni elevate, è ottimale che le letture HBase vengano gestite da memstore, anziché dall'archiviazione remota.
+Se la useCase prevede la lettura dei dati scritti più di recente da HBase, questo avviso può essere utile. Per ottenere prestazioni elevate, è ottimale che le letture HBase vengano gestite da memstore, anziché dall'archiviazione remota.
 
-Query Advisory indica che per una determinata famiglia di colonne in una tabella sono presenti > 75% di letture che vengono gestite da memstore. Questo indicatore suggerisce che anche se si verifica uno scaricamento in memstore, è necessario accedere al file recente e che deve trovarsi nella cache. I dati vengono innanzitutto scritti in memstore il sistema accede ai dati recenti. C'è la possibilità che i thread di scaricamento HBase interni rilevino che una determinata area ha raggiunto le dimensioni 128M (impostazione predefinita) e può attivare uno scaricamento. Questo scenario si verifica anche quando i dati più recenti sono stati scritti quando il memstore era intorno alle dimensioni di 128M. Pertanto, una lettura successiva dei record recenti potrebbe richiedere la lettura di un file anziché memstore. È quindi consigliabile ottimizzare che anche i dati recenti scaricati di recente possano trovarsi nella cache.
+Query Advisory indica che per una determinata famiglia di colonne in una tabella > 75% di letture che vengono gestite da memstore. Questo indicatore suggerisce che anche se si verifica uno scaricamento in memstore, è necessario accedere al file recente e che deve trovarsi nella cache. I dati vengono innanzitutto scritti in memstore il sistema accede ai dati recenti. C'è la possibilità che i thread di scaricamento HBase interni rilevino che una determinata area ha raggiunto le dimensioni 128M (impostazione predefinita) e può attivare uno scaricamento. Questo scenario si verifica anche quando i dati più recenti sono stati scritti quando il memstore era intorno alle dimensioni di 128M. Pertanto, una lettura successiva dei record recenti potrebbe richiedere la lettura di un file anziché memstore. È quindi consigliabile ottimizzare che anche i dati recenti scaricati di recente possano trovarsi nella cache.
 
 Per ottimizzare i dati recenti nella cache, prendere in considerazione le impostazioni di configurazione seguenti:
 
@@ -33,9 +33,9 @@ Per ottimizzare i dati recenti nella cache, prendere in considerazione le impost
 
 3. Se si segue il passaggio 2 e si imposta compactionThreshold, quindi si passa `hbase.hstore.compaction.max` a un valore superiore, ad esempio `100` , e si aumenta anche il valore della configurazione `hbase.hstore.blockingStoreFiles` a un valore più alto, ad esempio `300` .
 
-4. Se si è certi di dover leggere solo nei dati recenti, impostare la `hbase.rs.cachecompactedblocksonwrite` configurazione **su on**. Questa configurazione indica al sistema che anche se si verifica una compattazione, i dati rimangono nella cache. Le configurazioni possono essere impostate anche a livello di famiglia. 
+4. Se si è certi di dover leggere solo i dati recenti, impostare la `hbase.rs.cachecompactedblocksonwrite` configurazione **su on**. Questa configurazione indica al sistema che anche se si verifica una compattazione, i dati rimangono nella cache. Le configurazioni possono essere impostate anche a livello di famiglia. 
 
-   Nella shell di HBase eseguire il comando seguente:
+   Nella shell di HBase eseguire il comando seguente per impostare la `hbase.rs.cachecompactedblocksonwrite` configurazione:
    
    ```
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
@@ -43,15 +43,15 @@ Per ottimizzare i dati recenti nella cache, prendere in considerazione le impost
 
 5. La cache a blocchi può essere disattivata per un determinato gruppo in una tabella. Assicurarsi che **sia attivato per le famiglie con le** letture dei dati più recenti. Per impostazione predefinita, la cache a blocchi viene attivata per tutte le famiglie di una tabella. Se è stata disabilitata la cache a blocchi per una famiglia ed è necessario attivarla, utilizzare il comando ALTER dalla shell HBase.
 
-   Queste configurazioni consentono di garantire che i dati siano memorizzati nella cache e che i dati recenti non subiscono una compattazione. Se è possibile usare una durata (TTL) nello scenario, provare a usare la compattazione a livelli di data. Per altre informazioni, vedere [Guida di riferimento di Apache HBase: compattazione a livelli di data](https://hbase.apache.org/book.html#ops.date.tiered)  
+   Queste configurazioni consentono di garantire che i dati siano disponibili nella cache e che i dati recenti non subiscono una compattazione. Se è possibile usare una durata (TTL) nello scenario, provare a usare la compattazione a livelli di data. Per altre informazioni, vedere [Guida di riferimento di Apache HBase: compattazione a livelli di data](https://hbase.apache.org/book.html#ops.date.tiered)  
 
 ## <a name="optimize-the-flush-queue"></a>Ottimizzare la coda di scaricamento
 
-L'avviso di ottimizzazione della coda di scaricamento indica che è possibile che sia necessario eseguire lo scaricamento di HBase. I gestori di scaricamento potrebbero non essere sufficientemente elevati come configurati.
+Questo avviso indica che è possibile che sia necessario ottimizzare gli scaricamenti HBase. La configurazione corrente per i gestori di scaricamento potrebbe non essere sufficientemente elevata da gestire il traffico di scrittura, causando un rallentamento dello svuotamento.
 
 Nell'interfaccia utente del server di area, si noti che la coda di scaricamento supera 100. Questa soglia indica che gli scaricamenti sono lenti e potrebbe essere necessario ottimizzare la   `hbase.hstore.flusher.count` configurazione. Per impostazione predefinita, il valore è 2. Assicurarsi che i thread di svuotamento massimo non aumentino oltre i 6.
 
-Vedere anche se si ha una raccomandazione per l'ottimizzazione del numero di aree. In caso affermativo, provare prima di tutto l'ottimizzazione dell'area per verificare se questo consente di scaricare più rapidamente. L'ottimizzazione dei thread di scaricamento può essere utile in diversi modi, ad esempio 
+Vedere anche se si ha una raccomandazione per l'ottimizzazione del numero di aree. In caso affermativo, è consigliabile provare l'ottimizzazione dell'area per verificare se questo consente di scaricare più rapidamente. In caso contrario, l'ottimizzazione dei thread di scaricamento potrebbe essere utile.
 
 ## <a name="region-count-tuning"></a>Ottimizzazione del numero di aree
 
@@ -65,7 +65,7 @@ Uno scenario di esempio:
 
 - Con queste impostazioni, il numero di aree è 100. Il memstore globale da 4 GB è ora suddiviso in 100 aree. Quindi, ogni area ottiene solo 40 MB per memstore. Quando le Scritture sono uniformi, il sistema esegue Scaricamenti frequenti e dimensioni inferiori dell'ordine < 40 MB. La presenza di molti thread di scaricamento potrebbe aumentare la velocità di scaricamento `hbase.hstore.flusher.count` .
 
-L'Advisory significa che sarebbe opportuno riconsiderare il numero di aree per server, le dimensioni dell'heap e la configurazione globale delle dimensioni memstore insieme all'ottimizzazione dei thread di scaricamento, in modo da evitare che tali aggiornamenti possano essere bloccati.
+L'Advisory significa che sarebbe opportuno riconsiderare il numero di aree per server, le dimensioni dell'heap e la configurazione globale delle dimensioni del memstore insieme all'ottimizzazione dei thread di scaricamento per evitare che gli aggiornamenti vengano bloccati.
 
 ## <a name="compaction-queue-tuning"></a>Ottimizzazione della coda di compattazione
 

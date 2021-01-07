@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: feb647cc42c878778b4326c9ee76a32809751314
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: e4f230663e0eeddcf874c24e5041653f241f481c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369311"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964270"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando l'API REST.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando l'API REST.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,10 +58,10 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Ambito | Tipo |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | Sottoscrizione |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Risorsa |
 
@@ -72,10 +72,10 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di 
 1. Nel corpo della richiesta sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Ambito | Tipo |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | Sottoscrizione |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Risorsa |
 
@@ -132,10 +132,10 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo Az
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Ambito | Tipo |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | Sottoscrizione |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Risorsa |
 

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1aebb80fcba6c21ccce63772195af80b94092bde
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7c58641f0039982f05be14d0f24ba89c62273d4b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368319"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964304"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando il portale di Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando il portale di Azure.
 
 Se è necessario assegnare ruoli di amministratore in Azure Active Directory, vedere [visualizzare e assegnare ruoli di amministratore in Azure Active Directory](../active-directory/roles/manage-roles-portal.md).
 
@@ -53,7 +53,7 @@ In controllo degli accessi in base al ruolo di Azure per concedere l'accesso a u
 
 1. Fare clic sulla risorsa specifica per tale ambito.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo in questo ambito.
 
@@ -130,7 +130,7 @@ Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata
 
     ![Identità gestita assegnata dal sistema](./media/shared/identity-system-assigned.png)
 
-1. In **autorizzazioni**fare clic su **assegnazioni di ruolo di Azure**.
+1. In **autorizzazioni** fare clic su **assegnazioni di ruolo di Azure**.
 
     Se i ruoli sono già stati assegnati all'identità gestita assegnata dal sistema selezionata, viene visualizzato l'elenco di assegnazioni di ruolo. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
 
@@ -140,7 +140,7 @@ Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata
 
 1. Fare clic su **Aggiungi assegnazione ruolo (anteprima)**.
 
-1. Usare gli elenchi a discesa per selezionare il set di risorse a cui si applica l'assegnazione di ruolo, ad esempio **sottoscrizione**, **gruppo di risorse**o risorsa.
+1. Usare gli elenchi a discesa per selezionare il set di risorse a cui si applica l'assegnazione di ruolo, ad esempio **sottoscrizione**, **gruppo di risorse** o risorsa.
 
     Se non si dispone delle autorizzazioni di scrittura per l'assegnazione di ruolo per l'ambito selezionato, verrà visualizzato un messaggio inline. 
 
@@ -168,7 +168,7 @@ Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata
 
 1. Fare clic su **Aggiungi assegnazione ruolo (anteprima)**.
 
-1. Usare gli elenchi a discesa per selezionare il set di risorse a cui si applica l'assegnazione di ruolo, ad esempio **sottoscrizione**, **gruppo di risorse**o risorsa.
+1. Usare gli elenchi a discesa per selezionare il set di risorse a cui si applica l'assegnazione di ruolo, ad esempio **sottoscrizione**, **gruppo di risorse** o risorsa.
 
     Se non si dispone delle autorizzazioni di scrittura per l'assegnazione di ruolo per l'ambito selezionato, verrà visualizzato un messaggio inline. 
 

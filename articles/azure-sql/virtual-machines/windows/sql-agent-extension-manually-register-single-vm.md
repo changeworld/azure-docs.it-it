@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505631"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964525"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registrare SQL Server VM con l'estensione SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -188,6 +188,9 @@ $sqlvm.SqlManagementType
 ## <a name="upgrade-to-full"></a>Aggiorna a completo  
 
 SQL Server le macchine virtuali che hanno registrato l'estensione in modalità *Lightweight* possono eseguire l'aggiornamento _completo_ usando il portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell. Le macchine virtuali SQL Server in modalità _NoAgent_ possono eseguire l'aggiornamento alla modalità _completa_ dopo l'aggiornamento del sistema operativo a Windows 2008 R2 e versioni successive. Non è possibile effettuare il downgrade. a tale scopo, sarà necessario [annullare la registrazione](#unregister-from-extension) della macchina virtuale SQL Server dall'estensione SQL IaaS Agent. Questa operazione rimuoverà la **risorsa** _macchina virtuale di SQL Server_ ma non eliminerà la macchina virtuale in sé. 
+
+> [!NOTE]
+> Quando si aggiorna la modalità di gestione per l'estensione SQL IaaS a Full, il servizio SQL Server verrà riavviato. In alcuni casi, il riavvio può causare la modifica dei nomi dell'entità servizio (SPN) associati al servizio SQL Server all'account utente errato. Se si verificano problemi di connettività dopo l'aggiornamento della modalità di gestione a Full, [annullare la registrazione e registrare nuovamente i nomi SPN](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
 
 
 ### <a name="azure-portal"></a>Portale di Azure

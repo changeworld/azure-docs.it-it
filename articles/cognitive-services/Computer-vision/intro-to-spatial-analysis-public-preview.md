@@ -10,29 +10,30 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: e017fac551e3122cc6586b32423ff166462ccad8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 158a5e5f859749ec2ca20bfa4783fe32cc17ee0e
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97513334"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964610"
 ---
 # <a name="introduction-to-computer-vision-spatial-analysis"></a>Introduzione all'analisi spaziale Visione artificiale
 
-Visione artificiale analisi spaziale è una nuova funzionalità dei servizi cognitivi di Azure Visione artificiale che aiuta le organizzazioni a massimizzare il valore dei propri spazi fisici comprendendo i movimenti e la presenza di persone all'interno di una determinata area. Consente di inserire video da telecamere TVCC o di sorveglianza, eseguire le competenze per intelligenza artificiale per estrarre informazioni dai flussi video e generare eventi che verranno usati da altri sistemi. Con l'input da un flusso della fotocamera, un'abilità di intelligenza artificiale può eseguire operazioni come il conteggio del numero di persone che entrano in uno spazio o la misurazione della conformità con le linee guida di dissociazione
+Visione artificiale analisi spaziale è una nuova funzionalità dei servizi cognitivi di Azure Visione artificiale che aiuta le organizzazioni a massimizzare il valore dei propri spazi fisici comprendendo i movimenti e la presenza di persone all'interno di una determinata area. Consente di inserire video da telecamere TVCC o di sorveglianza, eseguire operazioni di intelligenza artificiale per estrarre informazioni dettagliate dai flussi video e generare eventi che verranno usati da altri sistemi. Con l'input da un flusso della fotocamera, un'operazione di intelligenza artificiale può eseguire operazioni come il conteggio del numero di persone che entrano in uno spazio o la misurazione della conformità con le linee guida per la maschera e l'allontanamento
 
 ## <a name="the-basics-of-spatial-analysis"></a>Nozioni di base sull'analisi spaziale
 
-Oggi le competenze principali dell'analisi spaziale sono tutte basate su una pipeline che inserisce video, rileva le persone nel video, tiene traccia delle persone mentre si spostano nel tempo e genera eventi quando gli utenti interagiscono con le aree di interesse.
+Attualmente, le principali operazioni di analisi spaziale sono tutte basate su una pipeline che inserisce video, rileva persone nel video, tiene traccia delle persone mentre si spostano nel tempo e genera eventi quando gli utenti interagiscono con le aree di interesse.
 
 ## <a name="spatial-analysis-terms"></a>Termini di analisi spaziale
 
 | Termine | Definizione |
 |------|------------|
 | Rilevamento persone | Questo componente risponde alla domanda "dove sono le persone in questa immagine"? Trova gli utenti in un'immagine e passa un rettangolo di delimitazione che indica la posizione di ogni persona al componente di rilevamento persone. |
-| Rilevamento persone | Questo componente connette i rilevamenti degli utenti nel tempo mentre gli utenti si spostano davanti a una fotocamera. Usa la logica temporale sul modo in cui le persone si spostano in genere e le informazioni di base sull'aspetto generale delle persone a tale scopo. Non è in grado di rilevare persone tra più fotocamere o di riidentificare un utente scomparso per più di circa un minuto. Il rilevamento di persone non usa marcatori biometrici come il riconoscimento facciale o il rilevamento dell'andamento. |
-| Area di interesse | Si tratta di una zona o di una linea definita nel video di input come parte della configurazione. Quando una persona interagisce con l'area del video, il sistema genera un evento. Per l'abilità PersonCrossingLine, ad esempio, viene definita una riga nel video. Quando un utente incrocia la riga, viene generato un evento. |
-| Evento | Un evento è l'output primario dell'analisi spaziale. Ogni Skill emette un evento specifico periodicamente (ad esempio una volta al minuto) o quando si verifica un trigger specifico. L'evento include informazioni su ciò che si è verificato nel video di input, ma non include immagini o video. Ad esempio, l'abilità PeopleCount può emettere un evento contenente il conteggio aggiornato ogni volta che il conteggio delle persone cambia (trigger) o ogni minuto (periodicamente). |
+| Rilevamento persone | Questo componente connette i rilevamenti degli utenti nel tempo mentre gli utenti si spostano davanti a una fotocamera. Usa la logica temporale sul modo in cui le persone si spostano in genere e le informazioni di base sull'aspetto generale delle persone a tale scopo. Non tiene traccia delle persone tra più fotocamere. Se una persona esiste nel campo di visualizzazione da una fotocamera per più di un minuto e quindi immette nuovamente la visualizzazione della fotocamera, il sistema lo percepirà come una nuova persona. Il rilevamento utenti non identifica in modo univoco gli utenti nelle fotocamere. Non usa il riconoscimento facciale o il rilevamento dell'andamento. |
+| Rilevamento maschera viso | Questo componente rileva la posizione della faccia di una persona nel campo di visualizzazione della fotocamera e identifica la presenza di una maschera faccia. A tale scopo, l'operazione di intelligenza artificiale analizza le immagini dal video; Quando viene rilevata una faccia, il servizio fornisce un rettangolo di delimitazione intorno alla faccia. Utilizzando le funzionalità di rilevamento oggetti, viene identificata la presenza di maschere facciali all'interno del rettangolo di delimitazione. Il rilevamento viso maschera non implica la distinzione di una faccia da un'altra faccia, la stima o la classificazione degli attributi facciali o l'esecuzione del riconoscimento facciale. |
+| Area di interesse | Si tratta di una zona o di una linea definita nel video di input come parte della configurazione. Quando una persona interagisce con l'area del video, il sistema genera un evento. Per l'operazione PersonCrossingLine, ad esempio, viene definita una riga nel video. Quando un utente incrocia la riga, viene generato un evento. |
+| Event | Un evento è l'output primario dell'analisi spaziale. Ogni operazione genera un evento specifico periodicamente, ad esempio una volta al minuto) o quando si verifica un trigger specifico. L'evento include informazioni su ciò che si è verificato nel video di input, ma non include immagini o video. L'operazione PeopleCount, ad esempio, può generare un evento contenente il conteggio aggiornato ogni volta che il conteggio delle persone cambia (trigger) o ogni minuto (periodicamente). |
 
 ## <a name="example-use-cases-for-spatial-analysis"></a>Casi d'uso di esempio per l'analisi spaziale
 
@@ -43,6 +44,8 @@ Di seguito sono riportati alcuni casi d'uso di esempio che abbiamo preso in cons
 **Analisi del cliente** : un negozio di alimentari usa le fotocamere a cui puntano i prodotti per misurare l'effetto delle modifiche di merchandising nel traffico di archiviazione. Il sistema consente al gestore del negozio di identificare i nuovi prodotti che comportano la maggior parte delle modifiche apportate a Engagement.
 
 **Gestione delle code** : le fotocamere che puntano alle code di checkout forniscono avvisi ai responsabili quando il tempo di attesa diventa troppo lungo, consentendo loro di aprire più righe. I dati cronologici sull'abbandono della coda forniscono informazioni dettagliate sul comportamento degli utenti.
+
+**Conformità mascheramento** : i negozi al dettaglio possono usare le fotocamere che puntano ai fronti dello Store per verificare se i clienti che visitano il negozio indossano maschere facciali per garantire la conformità della sicurezza e analizzare le statistiche aggregate per ottenere informazioni dettagliate sulle tendenze di utilizzo delle maschere. 
 
 **Compilazione** di un & di lavoro: un edificio di Office USA le fotocamere incentrate sugli accessi agli spazi chiave per misurare calpestio e il modo in cui gli utenti usano l'area di lavoro. Le informazioni dettagliate consentono al responsabile della creazione di adattare il servizio e il layout per servire meglio gli occupanti.
 

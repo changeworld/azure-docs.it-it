@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 06a9a955e8a963f94b1885abf5a920cb96c01940
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007443"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964372"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di ruolo di Azure usando il portale di Azure
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Questo articolo descrive come elencare le assegnazioni di ruolo usando il portale di Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Questo articolo descrive come elencare le assegnazioni di ruolo usando il portale di Azure.
 
 > [!NOTE]
 > Se l'organizzazione dispone di funzioni di gestione esternalizzate a un provider di servizi che usa la [gestione delle risorse delegate di Azure](../lighthouse/concepts/azure-delegated-resource-management.md), le assegnazioni di ruolo autorizzate dal provider di servizi non verranno visualizzate qui.
@@ -83,7 +83,7 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
 
 1. Fare clic sulla scheda **Verifica l'accesso**.
 
-    ![Controllo di accesso del gruppo di risorse-controllo scheda di accesso](./media/role-assignments-list-portal/rg-access-control-check-access.png)
+    ![Scheda Verifica l'accesso della pagina Controllo di accesso per un gruppo di risorse](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
 1. Nell'elenco **trova** selezionare l'utente, il gruppo, l'entità servizio o l'identità gestita per cui si vuole controllare l'accesso.
 
@@ -93,11 +93,11 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
 
 1. Fare clic sull'entità di sicurezza per aprire il riquadro **Assegnazioni**.
 
-    In questo riquadro è possibile visualizzare l'accesso per l'entità di sicurezza selezionata in questo ambito ed ereditata in questo ambito. Le assegnazioni negli ambiti figlio non sono elencate. Vengono visualizzate le seguenti assegnazioni:
+    In questo riquadro è possibile visualizzare l'accesso per l'entità di sicurezza selezionata in questo ambito, oltre a quello ereditato da un altro ambito. Le assegnazioni in corrispondenza degli ambiti figlio non sono elencate. Vengono visualizzate le assegnazioni seguenti:
 
-    - Assegnazioni di ruolo aggiunte con RBAC di Azure.
-    - Negare le assegnazioni aggiunte usando i progetti di Azure o le app gestite di Azure.
-    - Amministratore del servizio classico o assegnazioni di Co-Administrator per le distribuzioni classiche. 
+    - Assegnazioni di ruolo aggiunte con il controllo degli accessi in base al ruolo di Azure.
+    - Assegnazioni di rifiuto aggiunte tramite Azure Blueprints o app gestite di Azure.
+    - Assegnazioni classiche di amministratore del servizio e coamministratore per le distribuzioni classiche. 
 
     ![Riquadro Assegnazioni](./media/shared/rg-check-access-assignments-user.png)
 

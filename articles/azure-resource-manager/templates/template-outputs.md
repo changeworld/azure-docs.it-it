@@ -3,16 +3,16 @@ title: Output nei modelli
 description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934731"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964015"
 ---
 # <a name="outputs-in-arm-templates"></a>Output nei modelli ARM
 
-Questo articolo descrive come definire i valori di output nel modello di Azure Resource Manager (modello ARM). Gli output vengono usati quando è necessario restituire valori dalle risorse distribuite.
+Questo articolo descrive come definire i valori di output nel modello di Azure Resource Manager (modello ARM). Usare `outputs` quando è necessario restituire i valori dalle risorse distribuite.
 
 Il formato di ogni valore di output deve corrispondere a uno dei [tipi di dati](template-syntax.md#data-types).
 
@@ -31,7 +31,7 @@ L'esempio seguente illustra come restituire l'ID risorsa per un indirizzo IP pub
 
 ## <a name="conditional-output"></a>Output condizionale
 
-Nella sezione output è possibile restituire un valore in modo condizionale. In genere, la condizione viene usata negli output quando si [distribuisce](conditional-resource-deployment.md) una risorsa in modo condizionale. Nell'esempio seguente viene illustrato come restituire in modo condizionale l'ID risorsa per un indirizzo IP pubblico a seconda che sia stato distribuito un nuovo:
+Nella `outputs` sezione è possibile restituire un valore in modo condizionale. In genere si usa `condition` in `outputs` quando si [distribuisce](conditional-resource-deployment.md) una risorsa in modo condizionale. Nell'esempio seguente viene illustrato come restituire in modo condizionale l'ID risorsa per un indirizzo IP pubblico a seconda che sia stato distribuito un nuovo:
 
 ```json
 "outputs": {
@@ -112,7 +112,7 @@ az deployment group show \
 
 Gli esempi seguenti illustrano gli scenari per l'uso degli output.
 
-|Modello  |Descrizione  |
+|Modello  |Description  |
 |---------|---------|
 |[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crea variabili complesse e restituisce i valori. Non distribuisce alcuna risorsa. |
 |[Indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crea un indirizzo IP pubblico e restituisce l'ID risorsa. |

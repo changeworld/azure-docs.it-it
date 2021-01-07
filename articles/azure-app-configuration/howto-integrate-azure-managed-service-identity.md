@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d6b3d60a44725869d68dd9f1158d2279f3cf3e86
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929753"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963981"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Usare le identità gestite per accedere a Configurazione app
 
@@ -102,7 +102,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     using Azure.Identity;
     ```
 
-1. Se si vuole accedere solo ai valori archiviati direttamente nella configurazione dell'app, aggiornare il `CreateWebHostBuilder` Metodo sostituendo il `config.AddAzureAppConfiguration()` metodo.
+1. Se si vuole accedere solo ai valori archiviati direttamente nella configurazione dell'app, aggiornare il `CreateWebHostBuilder` Metodo sostituendo il `config.AddAzureAppConfiguration()` Metodo (presente nel `Microsoft.Azure.AppConfiguration.AspNetCore` pacchetto).
 
     > [!IMPORTANT]
     > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
