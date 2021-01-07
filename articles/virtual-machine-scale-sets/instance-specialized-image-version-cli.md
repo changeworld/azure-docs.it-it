@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e58cef5ae1fc727235539a91e80e424e6ed3be34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0f9b79e193c06b6492cfffcbf25811edb5c40d3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496373"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967022"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Creare un set di scalabilità usando una versione di immagine specializzata con l'interfaccia della riga di comando di Azure
 
 Creare un set di scalabilità da una [versione di immagine specializzata](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) archiviata in una raccolta di immagini condivise. Se si vuole creare un set di scalabilità usando una versione di immagine generalizzata, vedere [creare un set di scalabilità da un'immagine generalizzata](instance-generalized-image-version-cli.md).
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.4.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa esercitazione è necessario eseguire la versione 2.4.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 Sostituire i nomi delle risorse di questo esempio secondo necessità. 
 
@@ -49,7 +49,7 @@ az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-   --Specialized
+   --specialized
 ```
 
 

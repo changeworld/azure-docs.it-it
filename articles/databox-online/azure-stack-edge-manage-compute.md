@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952149"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967831"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gestire il calcolo nel Azure Stack Edge Pro
 
@@ -38,7 +38,7 @@ Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud
 
 Eseguire i passaggi seguenti nel portale di Azure per creare un trigger.
 
-1. Nel portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **bordo calcolo > trigger**. Sulla barra dei comandi selezionare **+ Aggiungi Trigger**.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge trigger >**. Sulla barra dei comandi selezionare **+ Aggiungi Trigger**.
 
     ![Selezionare Aggiungi trigger](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
@@ -68,15 +68,15 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare un trigger.
 
 1. Nell'elenco dei trigger selezionare il trigger che si desidera eliminare.
 
-    ![Selezionare il trigger](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Selezionare il trigger](media/azure-stack-edge-manage-compute/delete-trigger-1.png)
 
 2. Fare clic con il pulsante destro del mouse e quindi scegliere **Elimina**.
 
-    ![Selezionare Elimina](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Selezionare Elimina](media/azure-stack-edge-manage-compute/delete-trigger-2.png)
 
 3. Quando viene richiesta la conferma, fare clic su **Sì**.
 
-    ![Conferma dell'eliminazione](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Conferma dell'eliminazione](media/azure-stack-edge-manage-compute/delete-trigger-3.png)
 
 Viene inoltre aggiornato l'elenco dei trigger per riflettere l'eliminazione.
 
@@ -88,11 +88,11 @@ Usare il portale di Azure per visualizzare la configurazione di calcolo, rimuove
 
 Eseguire i passaggi seguenti nel portale di Azure per visualizzare la configurazione di calcolo per il dispositivo.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Edge compute > Modules**. Selezionare **Visualizza calcolo** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge panoramica >**. 
 
     ![Selezionare Visualizza calcolo](media/azure-stack-edge-manage-compute/view-compute-1.png)
 
-2. Prendere nota della configurazione di calcolo del dispositivo. Dopo aver configurato il calcolo, verrà creata una risorsa dell'hub IoT. In tale risorsa dell'hub IoT, sono configurati un dispositivo IoT e un dispositivo IoT Edge. Solo i moduli di Linux sono supportati per l'esecuzione nel dispositivo IoT Edge.
+2. Passare alla pagina delle **Proprietà** . Prendere nota della configurazione di calcolo del dispositivo. Dopo aver configurato il calcolo, verrà creata una risorsa dell'hub IoT. In tale risorsa dell'hub IoT, sono configurati un dispositivo IoT e un dispositivo IoT Edge. Solo i moduli di Linux sono supportati per l'esecuzione nel dispositivo IoT Edge.
 
     ![Visualizza configurazione](media/azure-stack-edge-manage-compute/view-compute-2.png)
 
@@ -101,7 +101,7 @@ Eseguire i passaggi seguenti nel portale di Azure per visualizzare la configuraz
 
 Eseguire i passaggi seguenti nel portale di Azure per rimuovere la configurazione di calcolo Edge esistente per il dispositivo.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Edge compute > Get Started**. Selezionare **Rimuovi calcolo** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge panoramica >**. Selezionare **Rimuovi** sulla barra dei comandi.
 
     ![Selezionare Rimuovi calcolo](media/azure-stack-edge-manage-compute/remove-compute-1.png)
 
@@ -119,7 +119,7 @@ Se il dispositivo Internet delle cose e IoT Edge chiavi del dispositivo sono sta
 
 Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di accesso per il proprio dispositivo.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Edge compute > Get Started**. Selezionare **Aggiorna configurazione** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge panoramica >**. Selezionare **Aggiorna configurazione** sulla barra dei comandi.
 
     ![Selezionare Aggiorna configurazione](media/azure-stack-edge-manage-compute/refresh-configuration-1.png)
 

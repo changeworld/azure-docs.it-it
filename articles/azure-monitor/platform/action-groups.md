@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 72caeb60fc058b88158979d211a0bc38985975c7
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695810"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968858"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. 
@@ -318,7 +318,11 @@ I prezzi per i paesi/regioni supportati sono elencati nella [pagina relativa ai 
 ### <a name="webhook"></a>webhook
 
 > [!NOTE]
-> L'uso dell'azione webhook richiede che l'endpoint del webhook di destinazione non richieda i dettagli dell'avviso per funzionare correttamente o che sia in grado di analizzare le informazioni sul contesto dell'avviso fornite come parte dell'operazione POST. Se l'endpoint del webhook non è in grado di gestire le informazioni sul contesto dell'avviso in modo autonomo, è possibile usare una soluzione come un' [azione dell'app](./action-groups-logic-app.md) per la logica per una manipolazione personalizzata delle informazioni sul contesto degli avvisi in modo che corrispondano al formato dati previsto del webhook.
+> L'uso dell'azione webhook richiede che l'endpoint del webhook di destinazione non richieda i dettagli dell'avviso per funzionare correttamente o che sia in grado di analizzare le informazioni sul contesto dell'avviso fornite come parte dell'operazione POST. 
+
+> L'utente deve essere il **proprietario** dell'entità servizio webhook per assicurarsi che la sicurezza non venga violata. Poiché un cliente di Azure può accedere a tutti gli ID oggetto tramite il portale, senza controllare il proprietario, chiunque può aggiungere il webhook sicuro al proprio gruppo di azioni per la notifica di avviso di monitoraggio di Azure che viola la sicurezza.
+
+> Se l'endpoint del webhook non è in grado di gestire le informazioni sul contesto dell'avviso in modo autonomo, è possibile usare una soluzione come un' [azione dell'app](./action-groups-logic-app.md) per la logica per una manipolazione personalizzata delle informazioni sul contesto degli avvisi in modo che corrispondano al formato dati previsto del webhook.
 
 I webhook vengono elaborati usando le regole seguenti
 - Una chiamata al webhook viene tentata un massimo di 3 volte.

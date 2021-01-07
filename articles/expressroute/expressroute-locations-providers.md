@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: duau
-ms.openlocfilehash: 09d5b76dac7daf621d5c21bd71f5b2bb037ffa4d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f808b12fdb33342d30f1a3ce5b6022bd068a7fa1
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913091"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968025"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -124,7 +124,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Norvegia orientale | 10 G, 100 G | GlobalConnect, Megaport, Telenor, Telia Carrier |
 | **Parigi** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | Francia centrale | 10 G, 100 G | British Telecom, CenturyLink Cloud Connect, puledre, Equinix, intercloud, Interxion, Jaguar Network, Orange, Telia Carrier, Zayo |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | n/d | 10 G | Megaport, NextDC |
-| **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/north-america/phoenix-az/) | 1 | n/d | 10 G | |
+| **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/north-america/phoenix-az/) | 1 | n/d | 10 G, 100 G | |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada orientale | n/d | Bell Canada, Megaport |
 | **Queretaro (Messico)** | [Reti KIO QR01](https://www.kionetworks.com/es-mx/) | 4 | n/d | 10 G | Transtelco|
 | **Quincy** | [Sabey datacenter-creazione di un](https://sabeydatacenters.com/data-center-locations/central-washington-data-centers/quincy-data-center) | 1 | Stati Uniti occidentali 2 | 10 G, 100 G | | 

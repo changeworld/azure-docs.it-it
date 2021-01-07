@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746610"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968535"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -269,7 +269,7 @@ Lo strumento supporta anche la query **SQL Spark** :
 
 > [!NOTE]
 >
-> ["MS-python >= la versione 2020.5.78807 non è supportata in questa estensione"](#issues-changed) è stato risolto. Per il momento è possibile usare la versione più recente di MS-Python.
+> ["MS-python >= la versione 2020.5.78807 non è supportata in questa estensione"](#issues-changed) è stata risolta. Aggiornare ora **MS-Python** alla **versione più recente** .
 
 ## <a name="submit-pyspark-batch-job"></a>Inviare il processo batch PySpark
 
@@ -353,34 +353,34 @@ Inviare un file e notare che la `.vscode` cartella viene aggiunta automaticament
   
   **Corpo della richiesta**
 
-  | name | description | type |
+  | name | description | tipo |
   | --- | --- | --- |
   | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
-  | proxyUser | Utente da rappresentare quando si esegue il processo | string |
-  | className | Classe principale Java/Spark dell'applicazione | string |
+  | proxyUser | Utente da rappresentare quando si esegue il processo | Stringa |
+  | className | Classe principale Java/Spark dell'applicazione | Stringa |
   | args | Argomenti della riga di comando per l'applicazione | Elenco di stringhe |
   | jars | Jar da usare in questa sessione | Elenco di stringhe | 
   | pyFiles | File Python da usare in questa sessione | Elenco di stringhe |
   | files | File da usare in questa sessione | Elenco di stringhe |
-  | driverMemory | Quantità di memoria da usare per il processo del driver | string |
+  | driverMemory | Quantità di memoria da usare per il processo del driver | Stringa |
   | driverCores | Numero di core da usare per il processo del driver | Int |
-  | executorMemory | Quantità di memoria da usare per un processo executor | string |
+  | executorMemory | Quantità di memoria da usare per un processo executor | Stringa |
   | executorCores | Numero di core da usare per ogni executor | Int |
   | numExecutors | Numero di executor da avviare per questa sessione | Int |
   | archives | Archivi da usare in questa sessione | Elenco di stringhe |
   | coda | Nome della coda YARN da inviare a| string |
-  | name | Nome della sessione | string |
+  | name | Nome della sessione | Stringa |
   | conf | Proprietà di configurazione Spark | Mappa di chiave=valore |
 
   **Corpo della risposta** Oggetto batch creato.
 
-  | name | description | type |
+  | name | description | tipo |
   | --- | ---| --- |
   | ID | ID sessione | Int |
-  | appId | ID applicazione della sessione | string |
+  | appId | ID applicazione della sessione | Stringa |
   | appInfo | Informazioni dettagliate sull'applicazione | Mappa di chiave=valore |
   | log | Righe di log | Elenco di stringhe |
-  | state |Stato batch | string |
+  | state |Stato batch | Stringa |
 
   > [!NOTE]
   > Quando si invia lo script, la configurazione di Livio assegnata viene visualizzata nel riquadro di output.
@@ -485,13 +485,13 @@ Inviare un processo a un cluster HDInsight usando Data Lake Storage Gen2. Viene 
 
 3. Vedere la visualizzazione di **output** per la verifica.  
 
-## <a name="sign-out"></a>Disconnessione  
+## <a name="sign-out"></a>Disconnetti  
 
 Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi** e quindi immettere **Azure: disconnettersi**.
 
 ## <a name="issues-changed"></a>Problemi modificati
 
-Per questo problema "MS-Python >= la versione 2020.5.78807 non è supportata in questa estensione" è stato risolto, per il momento è possibile usare la **versione più recente di MS-Python** .
+Per questo problema "MS-Python >= la versione di 2020.5.78807 non è supportata in questa estensione" è stata risolta. aggiornare ora **MS-Python** alla **versione più recente** .
 
 
 ## <a name="next-steps"></a>Passaggi successivi

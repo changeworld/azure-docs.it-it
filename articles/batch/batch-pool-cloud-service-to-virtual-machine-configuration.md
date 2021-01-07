@@ -2,19 +2,21 @@
 title: Eseguire la migrazione della configurazione del pool di batch dai servizi cloud alle macchine virtuali
 description: Informazioni su come aggiornare la configurazione del pool alla configurazione più recente e consigliata
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: 52e1762dc8e81b3eb7e1bce388d91dfd2c76191a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/6/2021
+ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937713"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969028"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Eseguire la migrazione della configurazione del pool di batch dai servizi cloud alle macchine virtuali
 
 I pool di batch possono essere creati usando [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) o [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). ' virtualMachineConfiguration ' è la configurazione consigliata perché supporta tutte le funzionalità batch. i pool ' cloudServiceConfiguration ' non supportano tutte le funzionalità e non sono state pianificate nuove funzionalità.
 
-Se si usano i pool ' cloudServiceConfiguration ', si consiglia di passare all'uso dei pool ' virtualMachineConfiguration '. Questo articolo descrive come eseguire la migrazione alla configurazione ' virtualMachineConfiguration ' consigliata.
+Se si usano i pool ' cloudServiceConfiguration ', si consiglia di passare all'uso dei pool ' virtualMachineConfiguration '. Ciò consentirà di trarre vantaggio da tutte le funzionalità batch, ad esempio una selezione ampliata [di serie di VM](batch-pool-vm-sizes.md), VM Linux, [contenitori](batch-docker-container-workloads.md), [Azure Resource Manager reti virtuali](batch-virtual-network.md)e [crittografia del disco del nodo](disk-encryption.md).
+
+Questo articolo descrive come eseguire la migrazione a' virtualMachineConfiguration '.
 
 ## <a name="new-pools-are-required"></a>Sono necessari nuovi pool
 

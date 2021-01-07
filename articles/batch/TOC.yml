@@ -137,6 +137,8 @@
           href: batch-automatic-scaling.md
         - name: Scegliere le dimensioni della macchina virtuale per i nodi di calcolo
           href: batch-pool-vm-sizes.md
+        - name: Passare dal servizio cloud ai pool di macchine virtuali
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Configurare l'accesso ai nodi di calcolo
           href: pool-endpoint-configuration.md
         - name: Creare un pool con Raccolta immagini condivise

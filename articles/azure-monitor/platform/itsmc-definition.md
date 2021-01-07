@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: fc0f148da518c718dafaab082f9598ccd4372a1f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 2d7c732771749c0c0372c5433b76c3e30469e2b0
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963811"
+ms.locfileid: "97968416"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -43,7 +43,7 @@ Prima di poter creare una connessione, è necessario aggiungere connettore.
    >[!NOTE]
    >Nell'ambito della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate *log Analytics aree di lavoro*.
 
-5. Selezionare **OK**.
+5. Seleziona **OK**.
 
 Quando viene distribuita la risorsa connettore, viene visualizzata una notifica nell'angolo superiore destro della finestra.
 
@@ -137,27 +137,28 @@ Utilizzare la seguente procedura per creare i gruppi di azioni:
     * Se si seleziona nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso":
         * Se si seleziona la casella di controllo **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** , ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione.
 
-            Ad esempio:
-            1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 3 elementi di lavoro.
-            2) Avviso 2 con 1 elemento di configurazione: A-creerà 1 elemento di lavoro.
-       >[!NOTE]
-        > In questo caso parte dell'avviso attivato non genererà nuovi elementi di lavoro nello strumento ITSM.
+             Ad esempio:
+             1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 3 elementi di lavoro.
+             2) Avviso 2 con 1 elemento di configurazione: A-creerà 1 elemento di lavoro.
 
         * Se si deseleziona la casella di controllo **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** , il connettore ITSM creerà un singolo elemento di lavoro per ogni regola di avviso e vi aggiungerà tutti gli elementi di configurazione interessati. Verrà creato un nuovo elemento di lavoro se quello precedente è chiuso.
 
-            Ad esempio:
-             1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 1 elemento di lavoro.
-             2) Avviso 2 per la stessa regola di avviso della fase 1 con 1 elemento di configurazione: D-verrà unito all'elemento di lavoro della fase 1.
-             3) Avviso 3 per una regola di avviso diversa con 1 elemento di configurazione: E-creerà 1 elemento di lavoro.
+        >[!NOTE]
+        > In questo caso parte dell'avviso attivato non genererà nuovi elementi di lavoro nello strumento ITSM.
+
+        Ad esempio:
+         1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 1 elemento di lavoro.
+         2) Avviso 2 per la stessa regola di avviso della fase 1 con 1 elemento di configurazione: D-verrà unito all'elemento di lavoro della fase 1.
+         3) Avviso 3 per una regola di avviso diversa con 1 elemento di configurazione: E-creerà 1 elemento di lavoro.
 
        ![Screenshot che mostra la finestra evento imprevisto ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 
     * Se si seleziona nell'elenco a discesa elemento di lavoro "evento":
-        * Se si seleziona **"Crea elementi di lavoro singoli per ogni voce di log (il campo elemento di configurazione non è pieno. Può generare un numero elevato di elementi di lavoro.) "** nella selezione dei pulsanti di opzione viene creato un avviso per ogni riga nei risultati della ricerca della query di avviso di ricerca log. Nel payload dell'avviso la proprietà Description avrà la riga dei risultati della ricerca.
+        * Se si seleziona **"Crea elementi di lavoro singoli per ogni voce di log (il campo elemento di configurazione non è pieno. Può generare un numero elevato di elementi di lavoro.) "** nella selezione dei pulsanti di opzione viene creato un elemento di lavoro per ogni riga nei risultati della ricerca della query di avviso di ricerca log. Nel payload dell'elemento di lavoro la proprietà Description avrà la riga dei risultati della ricerca.
         * Se si seleziona **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** nella selezione dei pulsanti di opzione, ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione. Corrisponde alla casella di controllo verifica nella sezione evento imprevisto/avviso.
     ![Screenshot che mostra la finestra dell'evento ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-10. Selezionare **OK**.
+10. Seleziona **OK**.
 
 Quando si crea o si modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione ITSM. Quando l'avviso viene attivato, l'elemento di lavoro viene creato o aggiornato nello strumento ITSM.
 

@@ -3,12 +3,12 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325231"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968994"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -92,7 +92,7 @@ La tabella seguente illustra i diversi tipi di coerenza degli snapshot:
 **Disco** | Il backup dei dischi delle macchine virtuali è parallelo. Se, ad esempio, una macchina virtuale dispone di quattro dischi, il servizio di backup tenterà di eseguire il backup di tutti e quattro i dischi in parallelo. Il backup è incrementale (solo i dati modificati).
 **Pianificazione** |  Per ridurre il traffico di backup, eseguire il backup di macchine virtuali diverse in momenti diversi del giorno e verificare che i tempi non si sovrappongano. Il backup di macchine virtuali nello stesso momento crea problemi di traffico.
 **Preparazione dei backup** | Tenere presente il tempo necessario per preparare il backup. che include l'installazione o l'aggiornamento dell'estensione di backup, nonché la generazione di uno snapshot in base alla pianificazione del backup.
-**Trasferimento di dati** | Prendere in considerazione il tempo necessario per il backup di Azure per identificare le modifiche incrementali dal backup precedente.<br/><br/> In caso di backup incrementale, Backup di Azure determina le modifiche calcolando il checksum del blocco. Gli eventuali blocchi modificati vengono contrassegnati per il trasferimento nell'insieme di credenziali. Il servizio analizza i blocchi identificati per tentare di ridurre ulteriormente la quantità di dati da trasferire. Dopo aver valutato tutti i blocchi modificati, Backup di Azure trasferisce le modifiche nell'insieme di credenziali.<br/><br/> Può verificarsi un ritardo tra la creazione dello snapshot e la copia nell'insieme di credenziali. In momenti di picco, possono essere necessarie fino a otto ore prima che gli snapshot vengano trasferiti nell'insieme di credenziali. Il tempo di backup per una macchina virtuale sarà inferiore a 24 ore per il backup giornaliero.
+**Trasferimento dati** | Prendere in considerazione il tempo necessario per il backup di Azure per identificare le modifiche incrementali dal backup precedente.<br/><br/> In caso di backup incrementale, Backup di Azure determina le modifiche calcolando il checksum del blocco. Gli eventuali blocchi modificati vengono contrassegnati per il trasferimento nell'insieme di credenziali. Il servizio analizza i blocchi identificati per tentare di ridurre ulteriormente la quantità di dati da trasferire. Dopo aver valutato tutti i blocchi modificati, Backup di Azure trasferisce le modifiche nell'insieme di credenziali.<br/><br/> Può verificarsi un ritardo tra la creazione dello snapshot e la copia nell'insieme di credenziali. In momenti di picco, possono essere necessarie fino a otto ore prima che gli snapshot vengano trasferiti nell'insieme di credenziali. Il tempo di backup per una macchina virtuale sarà inferiore a 24 ore per il backup giornaliero.
 **Backup iniziale** | anche se il tempo totale di backup per i backup incrementali è inferiore a 24 ore, potrebbe non essere così per il primo backup. Il tempo necessario per il backup iniziale dipenderà dalla dimensione dei dati e dal momento in cui viene elaborato il backup.
 **Coda di ripristino** | Backup di Azure elabora i processi di ripristino da più account di archiviazione contemporaneamente e inserisce le richieste di ripristino in una coda.
 **Copia di ripristino** | Durante il processo di ripristino i dati vengono copiati dall'insieme di credenziali all'account di archiviazione.<br/><br/> Il tempo totale di ripristino dipende dal numero di operazioni di I/O al secondo (IOPS) e dalla velocità effettiva dell'account di archiviazione.<br/><br/> Per ridurre il tempo di copia, selezionare un account di archiviazione non impegnato con altre operazioni di lettura e scrittura di applicazioni.
@@ -121,6 +121,7 @@ Quando si configurano backup per macchine virtuali, è consigliabile seguire que
 - Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](../storage/common/storage-account-upgrade.md) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
 - Per il backup delle macchine virtuali che usano archiviazione Premium con il ripristino immediato, si consiglia di allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup
 - Il limite relativo al numero di dischi per account di archiviazione dipende dalla modalità con cui le applicazioni in esecuzione in una macchina virtuale IaaS accedono ai dischi. Come regola generale, se sono presenti da 5 a 10 o più dischi in un solo account di archiviazione, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
+- Per ripristinare le macchine virtuali con dischi gestiti usando PowerShell, specificare il parametro aggiuntivo **_TargetResourceGroupName_* _ per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti. [altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks)sono disponibili qui.
 
 ## <a name="backup-costs"></a>Costi di backup
 
@@ -130,7 +131,7 @@ La fatturazione non viene avviata fino al completamento del primo backup complet
 
 La fatturazione relativa a una macchina virtuale specifica viene interrotta solo se viene arrestata la protezione e vengono eliminati i dati di backup. Quando si arresta la protezione e non vi sono processi di backup attivi, la dimensione dell'ultimo backup della macchina virtuale completato correttamente diventa la dimensione dell'istanza protetta usata per la fatturazione mensile.
 
-Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni *effettive* della macchina virtuale. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
+Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni _actual * della VM. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
 
 Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviati in backup di Azure, ovvero la somma dei dati effettivi in ogni punto di ripristino.
 

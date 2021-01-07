@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: bdfbe5106f220a9fe4a3568709187b9071bc7917
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 96652b2a1eb35668bd8a810b309ab31cec5afdb7
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334277"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967260"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,7 +53,9 @@ La possibilità di eseguire JavaScript direttamente nel motore di database offre
 
 Il controllo della concorrenza ottimistica consente di evitare la perdita di aggiornamenti ed eliminazioni. Operazioni simultanee in conflitto vengono sottoposte al regolare blocco pessimistico del motore di database ospitato dalla partizione logica che possiede l'elemento. Quando due operazioni simultanee tentano di aggiornare la versione più recente di un elemento all'interno di una partizione logica, una di esse avrà la precedenza e l'altra avrà esito negativo. Tuttavia, se una o due operazioni che tentano di aggiornare contemporaneamente lo stesso elemento avevano precedentemente letto un valore meno recente dell'elemento, il database non riconosce se il valore precedentemente letto da una o entrambe le operazioni in conflitto era effettivamente il valore più recente dell'elemento. Fortunatamente, questa situazione può essere rilevata con il **controllo della concorrenza ottimistica** prima di consentire alle due operazioni di immettere il limite della transazione all'interno del motore di database. Il controllo di concorrenza ottimistica protegge i dati impedendo che vengano sovrascritte le modifiche apportate da altri utenti. Impedisce anche ad altri utenti di sovrascrivere accidentalmente le proprie modifiche.
 
-Gli aggiornamenti simultanei di un oggetto sono soggetti al controllo di concorrenza ottimistica dal livello di protocollo di comunicazione di Azure Cosmos DB. Il database di Azure Cosmos garantisce che la versione lato client dell'elemento in fase di aggiornamento (o di eliminazione) sia la stessa versione dell'elemento nel contenitore di Azure Cosmos. Ciò garantisce che le Scritture siano protette da sovrascrivere accidentalmente dalle Scritture di altri e viceversa. In un ambiente multiutente, il controllo della concorrenza ottimistica protegge l'utente da un'accidentale eliminazione o aggiornamento della versione errata di un elemento. Di conseguenza, gli elementi sono protetti contro i famigerati problemi di "aggiornamento perso" o "eliminazione persa".
+Gli aggiornamenti simultanei di un oggetto sono soggetti al controllo di concorrenza ottimistica dal livello di protocollo di comunicazione di Azure Cosmos DB. Per gli account Azure Cosmos configurati per le **Scritture in una singola area**, Azure Cosmos DB garantisce che la versione del lato client dell'elemento che si sta aggiornando (o eliminando) corrisponda alla versione dell'elemento nel contenitore di Azure Cosmos. Ciò garantisce che le Scritture siano protette da sovrascrivere accidentalmente dalle Scritture di altri e viceversa. In un ambiente multiutente, il controllo della concorrenza ottimistica protegge l'utente da un'accidentale eliminazione o aggiornamento della versione errata di un elemento. Di conseguenza, gli elementi vengono protetti da problemi di "perdita di aggiornamenti" o "perdita di eliminazione".
+
+In un account Azure Cosmos configurato con le **Scritture** in più aree, è possibile eseguire il commit dei dati in modo indipendente nelle aree secondarie se `_etag` corrisponde a quello dei dati nell'area locale. Una volta eseguito il commit dei nuovi dati in locale in un'area secondaria, questo viene unito nell'hub o nell'area primaria. Se i criteri di risoluzione dei conflitti uniscono i nuovi dati nell'area dell'hub, questi dati verranno replicati a livello globale con il nuovo `_etag` . Se i criteri di risoluzione dei conflitti rifiutano i nuovi dati, verrà eseguito il rollback dell'area secondaria ai dati originali e `_etag` .
 
 Ogni elemento archiviato in un contenitore di Azure Cosmos ha un sistema definito proprietà `_etag`. Il valore di `_etag` viene automaticamente generato e aggiornato dal server ogni volta che viene aggiornato l'elemento. `_etag` può essere usato con l'intestazione della richiesta fornita dal client `if-match` per consentire al server di decidere se un elemento può essere aggiornato in modo condizionale. Il valore dell' `if-match` intestazione corrisponde al valore di `_etag` nel server, l'elemento viene quindi aggiornato. Se il valore dell' `if-match` intestazione della richiesta non è più aggiornato, il server rifiuta l'operazione con un messaggio di risposta "errore di precondizione HTTP 412". Il client può quindi recuperare nuovamente l'elemento per acquisire la versione corrente dell'elemento nel server o eseguire l'override della versione dell'elemento nel server con il proprio `_etag` valore per l'elemento. Inoltre, `_etag` può essere usato con l' `if-none-match` intestazione per determinare se è necessaria una rilettura di una risorsa.
 

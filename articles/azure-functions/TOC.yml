@@ -141,8 +141,16 @@
     - name: Confronto tra versioni di runtime
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
-    - name: Piano Premium
-      href: functions-premium-plan.md
+    - name: Hosting e scalabilità
+      items:
+        - name: Piano a consumo
+          href: consumption-plan.md
+        - name: Piano Premium
+          href: functions-premium-plan.md
+        - name: Piano dedicato
+          href: dedicated-plan.md
+        - name: Scalabilità basata su eventi
+          href: event-driven-scaling.md
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Eventi e messaggistica
@@ -261,6 +269,8 @@
                   href: create-function-app-linux-app-service-plan.md
                 - name: Piano a consumo per Linux
                   href: create-first-function-cli-python.md
+                - name: Piano Premium
+                  href: create-premium-plan-function-app-portal.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Trigger di Azure Cosmos DB

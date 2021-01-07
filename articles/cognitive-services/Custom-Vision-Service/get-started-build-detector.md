@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento delle immagini, app per il riconoscimento delle immagini, visione personalizzata
-ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018369"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912985"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Avvio rapido: Creare un rilevatore di oggetti con il sito Web di Visione personalizzata
 
@@ -100,6 +100,7 @@ Al termine del training, le prestazioni del modello vengono calcolate e visualiz
 
 - La **precisione** indica la frazione delle classificazioni identificate corrette. Se ad esempio il modello identificasse 100 immagini come cani e 99 di essi fossero effettivamente cani, la precisione sarebbe del 99%.
 - Il **recupero** indica la frazione delle classificazioni effettive identificate correttamente. Se ad esempio fossero effettivamente presenti 100 immagini di mele e il modello ne identificasse 80 come mele, il recupero sarebbe dell'80%.
+- **Mean Average Precision** corrisponde al valore medio della precisione media. La precisione media è l'area sotto la curva di precisione/richiamo (precisione tracciata rispetto al richiamo per ogni previsione eseguita).
 
 ![I risultati del training mostrano la precisione e il recupero complessivi e la precisione media.](./media/get-started-build-detector/trained-performance.png)
 

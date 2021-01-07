@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616389"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901216"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Risoluzione dei problemi relativi ai criteri di accesso di Azure Key Vault
 
@@ -32,10 +32,10 @@ Quando si inizia a ridimensionare il servizio, il numero di richieste inviate al
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Non si riesce a modificare i criteri di accesso. Che cosa bisogna fare per abilitarla?
 Per modificare i criteri di accesso, l'utente deve avere autorizzazioni AAD sufficienti. In questo caso l'utente deve avere il ruolo di collaboratore di livello superiore.
 
-### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Viene visualizzato l'errore 'Criteri sconosciuti'. Che cosa significa?
+### <a name="i-am-seeing-unknown-policy-error-what-does-that-mean"></a>Viene visualizzato l'errore 'Criteri sconosciuti'. Che cosa significa?
 I criteri di accesso vengono visualizzati nella sezione Sconosciuti in due casi:
 * Un utente precedente ha effettuato l'accesso, ma per qualche motivo l'utente non esiste.
-* Se i criteri di accesso vengono aggiunti tramite PowerShell e vengono aggiunti per l'ID oggetto dell'applicazione anziché per l'entità servizio
+* I criteri di accesso vengono aggiunti tramite PowerShell e per l'ID oggetto applicazione invece che per l'entità servizio.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>In che modo è possibile assegnare il controllo di accesso per ogni oggetto dell'insieme di credenziali delle chiavi? 
 

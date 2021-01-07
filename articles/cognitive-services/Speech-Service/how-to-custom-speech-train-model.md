@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955196"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968467"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
 
@@ -35,12 +35,12 @@ Se si riscontrano problemi di riconoscimento con un modello di base, è possibil
 
 Il primo passaggio per eseguire il training di un modello consiste nel caricare i dati di training. Per istruzioni dettagliate su come preparare le trascrizioni con etichetta umana e il testo correlato (espressioni e pronunce), vedere [preparare e testare i dati](./how-to-custom-speech-test-and-train.md) . Dopo aver caricato i dati di training, seguire queste istruzioni per avviare il training del modello:
 
-1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
+1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Se si prevede di eseguire il training di un modello con i set di impostazioni per la trascrizione audio e con etichetta umana, scegliere una sottoscrizione vocale in un' [area con hardware dedicato](custom-speech-overview.md#set-up-your-azure-account) per il training.
 2. Passare a **riconoscimento vocale**  >  **riconoscimento vocale personalizzato**  >  **[nome del progetto]**  >  **formazione**.
 3. Selezionare **Train Model**.
 4. Assegnare un **nome** e una **Descrizione** al training.
 5. Nell'elenco **scenario e modello di base** selezionare lo scenario più adatto al dominio. Se non si è certi dello scenario da scegliere, selezionare **generale**. Il modello di base è il punto di partenza per il training. Il modello più recente è in genere la scelta migliore.
-6. Nella pagina **selezione dati di training** , scegliere uno o più set di dati di trascrizione audio e con etichetta umana che si desidera utilizzare per il training.
+6. Nella pagina **selezione dati di training** scegliere uno o più set di dati di testo correlati oppure i set di dati di trascrizione audio e con etichetta umana che si desidera utilizzare per il training. Quando si esegue il training di un nuovo modello, iniziare con il testo correlato; il training con audio e la trascrizione con etichetta umana potrebbe richiedere molto più tempo (fino a [diversi giorni](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
 7. Al termine del training, è possibile eseguire test di accuratezza sul modello appena sottoposto a training. Questo passaggio è facoltativo.
 8. Selezionare **Crea** per compilare il modello personalizzato.
 

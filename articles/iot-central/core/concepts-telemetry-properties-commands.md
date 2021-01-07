@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795344"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969062"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payload di telemetria, proprietà e comandi
 
@@ -829,9 +829,6 @@ Il dispositivo deve inviare il payload JSON seguente per IoT Central dopo l'elab
 
 ## <a name="commands"></a>Comandi:
 
-> [!NOTE]
-> Nell'interfaccia utente Web di IoT Central è possibile selezionare l'opzione **queue if offline** per un comando. Questa impostazione non è inclusa se si esporta un modello o un'interfaccia dal modello di dispositivo.
-
 Il frammento di codice seguente di un modello di dispositivo Mostra la definizione di un comando che non presenta parametri e non prevede che il dispositivo restituisca alcun risultato:
 
 ```json
@@ -1000,6 +997,91 @@ Al termine dell'elaborazione della richiesta, il dispositivo deve inviare una pr
 }
 ```
 
+### <a name="offline-commands"></a>Comandi offline
+
+Nell'interfaccia utente Web di IoT Central è possibile selezionare l'opzione **queue if offline** per un comando. I comandi offline sono notifiche unidirezionali al dispositivo della soluzione che vengono recapitate non appena si connette un dispositivo. I comandi offline possono avere parametri della richiesta ma non restituiscono una risposta.
+
+La **coda se** l'impostazione offline non è inclusa se si esporta un modello o un'interfaccia dal modello di dispositivo. Non è possibile stabilire guardando un modello o un'interfaccia JSON esportato che un comando è un comando offline.
+
+I comandi offline usano [messaggi da cloud a dispositivo dell'hub](../../iot-hub/iot-hub-devguide-messages-c2d.md) Internet per inviare il comando e il payload al dispositivo.
+
+Il frammento di codice seguente di un modello di dispositivo Mostra la definizione di un comando. Il comando ha un parametro oggetto con un campo DateTime e un'enumerazione:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 2,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Se si Abilita l'opzione **queue if offline** nell'interfaccia utente del modello di dispositivo per il comando del frammento precedente, il messaggio ricevuto dal dispositivo include le proprietà seguenti:
+
+| Nome proprietà | Valore di esempio |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In qualità di sviluppatore di dispositivi, ora che si è appreso a conoscere i modelli di dispositivo, i passaggi successivi suggeriti sono la lettura della [connessione ad Azure IOT Central per ottenere](./concepts-get-connected.md) altre informazioni su come registrare i dispositivi con IOT Central e sul modo in cui IOT Central protegge le connessioni del dispositivo.
+In qualità di sviluppatore di dispositivi, ora che sono stati appresi i modelli di dispositivo, i passaggi successivi suggeriti sono la lettura della [connessione ad Azure IOT Central per ottenere](./concepts-get-connected.md) altre informazioni su come registrare i dispositivi con IOT Central e sul modo in cui IOT Central protegge le connessioni dei dispositivi.

@@ -45,22 +45,18 @@
       href: basic-concepts.md
     - name: Sicurezza
       items:
-        - name: Nozioni fondamentali sull'autenticazione di Key Vault
+        - name: Panoramica della sicurezza
+          href: security-overview.md
+        - name: Proteggere l'accesso a un insieme di credenziali delle chiavi
+          href: secure-your-key-vault.md
+        - name: Nozioni di base sull'autenticazione di Key Vault
           href: authentication-fundamentals.md
-        - name: Sicurezza di Azure Key Vault
-          href: overview-security.md
-        - name: Procedure consigliate per usare Key Vault - Azure Key Vault
-          href: best-practices.md
-        - name: Scenari di sicurezza di Azure Key Vault
+        - name: Scenari di sicurezza e confini geografici
           href: overview-security-worlds.md
         - name: Sicurezza di rete
           href: network-security.md
-        - name: Proteggere l'accesso a un insieme di credenziali delle chiavi - Azure Key Vault
-          href: secure-your-key-vault.md
         - name: Baseline di sicurezza di Azure per Key Vault
           href: security-baseline.md
-        - name: Raccomandazioni sulla sicurezza per Azure Key Vault
-          href: security-recommendations.md
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
           href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
@@ -82,7 +78,7 @@
       href: overview-throttling.md
     - name: Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
       href: disaster-recovery-guidance.md
-    - name: Endpoint servizio di rete virtuale per Azure Key Vault - Azure Key Vault
+    - name: Endpoint servizio di rete virtuale per Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Guide pratiche
   items:
@@ -154,9 +150,9 @@
       href: whats-new.md
     - name: Librerie client
       href: client-libraries.md
-    - name: Codici di errore dell'API REST - Azure Key Vault
+    - name: Codici errore delle API REST
       href: rest-error-codes.md
-    - name: Codici di errore comuni - Azure Key Vault
+    - name: Codici di errore comuni
       href: common-error-codes.md
     - name: Parametri e intestazioni comuni
       href: common-parameters-and-headers.md

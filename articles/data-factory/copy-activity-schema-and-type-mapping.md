@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507524"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968875"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapping dei tipi di dati nell'attività di copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -58,7 +58,7 @@ Altre informazioni su:
 
 Le proprietà seguenti sono supportate `translator` in oltre a `mappings` :
 
-| Proprietà            | Descrizione                                                  | Obbligatorio |
+| Proprietà            | Descrizione                                                  | Obbligatoria |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Applicare quando si copiano dati da un'origine gerarchica, ad esempio Cosmos DB, MongoDB o connettori REST.<br>Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. | No       |
 
@@ -66,7 +66,7 @@ Le proprietà seguenti sono supportate `translator` in oltre a `mappings` :
 
 Ad esempio, per copiare dati da Salesforce nel database SQL di Azure ed eseguire il mapping esplicito di tre colonne:
 
-1. Nella scheda mapping dell'attività di copia > fare clic sul pulsante **Importa schema** per importare gli schemi di origine e sink.
+1. Nella scheda mapping dell'attività di copia > fare clic sul pulsante **Importa schemi** per importare gli schemi di origine e sink.
 
 2. Eseguire il mapping dei campi necessari ed escludere/eliminare il resto.
 
@@ -180,7 +180,7 @@ E si desidera copiarlo in un file di testo nel formato seguente con la riga di i
 
 È possibile definire tale mapping in Data Factory interfaccia utente di creazione:
 
-1. Nella scheda mapping dell'attività di copia > fare clic sul pulsante **Importa schema** per importare gli schemi di origine e sink. Data Factory esegue il campionamento dei primi oggetti quando si importa lo schema, se un campo non viene visualizzato, è possibile aggiungerlo al livello corretto nella gerarchia-passare il puntatore del mouse su un nome di campo esistente e scegliere di aggiungere un nodo, un oggetto o una matrice.
+1. Nella scheda mapping dell'attività di copia > fare clic sul pulsante **Importa schemi** per importare gli schemi di origine e sink. Data Factory esegue il campionamento dei primi oggetti quando si importa lo schema, se un campo non viene visualizzato, è possibile aggiungerlo al livello corretto nella gerarchia-passare il puntatore del mouse su un nome di campo esistente e scegliere di aggiungere un nodo, un oggetto o una matrice.
 
 2. Selezionare la matrice da cui si desidera eseguire l'iterazione ed estrarre i dati. Verrà popolato automaticamente come **riferimento alla raccolta**. Si noti che per tale operazione è supportata una sola matrice.
 
@@ -283,16 +283,16 @@ L'attività di copia supporta attualmente i tipi di dati provvisori seguenti: bo
 
 Le conversioni dei tipi di dati seguenti sono supportate tra i tipi provvisori dall'origine al sink.
 
-| Source\Sink | Boolean | Matrice di byte | Decimal | Data/ora <small>(1)</small> | Virgola mobile <small>(2)</small> | GUID | Integer <small>(3)</small> | string | TimeSpan |
+| Source\Sink | Booleano | Matrice di byte | Decimal | Data/ora <small>(1)</small> | Virgola mobile <small>(2)</small> | GUID | Integer <small>(3)</small> | Stringa | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Booleano     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Matrice di byte  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/ora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Virgola mobile | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
 | Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| string      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| Stringa      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) la data e l'ora includono DateTime e DateTimeOffset.
@@ -307,7 +307,7 @@ Le conversioni dei tipi di dati seguenti sono supportate tra i tipi provvisori d
 
 Le proprietà seguenti sono supportate nell'attività di copia per la conversione del tipo di dati (nella `translator` sezione relativa alla creazione a livello di codice):
 
-| Proprietà                         | Descrizione                                                  | Obbligatorio |
+| Proprietà                         | Descrizione                                                  | Obbligatoria |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | Abilitare la nuova esperienza di conversione del tipo di dati. <br>Il valore predefinito è false a causa della compatibilità con le versioni precedenti.<br><br>Per le nuove attività di copia create tramite l'interfaccia utente di creazione Data Factory dalla fine del 2020 giugno, questa conversione del tipo di dati è abilitata per impostazione predefinita per un'esperienza ottimale ed è possibile visualizzare le seguenti impostazioni di conversione dei tipi nell'attività di copia-scheda mapping > per gli scenari applicabili. <br>Per creare una pipeline a livello di codice, è necessario impostare in modo esplicito la `typeConversion` proprietà su true per abilitarla.<br>Per le attività di copia esistenti create prima del rilascio di questa funzionalità, non verranno visualizzate le opzioni di conversione dei tipi nell'interfaccia utente di creazione Data Factory per la compatibilità con le versioni precedenti. | No       |
 | typeConversionSettings           | Gruppo di impostazioni di conversione dei tipi. Applicare quando `typeConversion` è impostato su `true` . Le proprietà seguenti sono tutte sottoposte a questo gruppo. | No       |

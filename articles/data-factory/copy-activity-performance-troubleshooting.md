@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: d22d040b0001ee30e29c551e686a7cb6bc47c2af
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/07/2021
+ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921924"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968892"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi delle prestazioni dell'attività di copia
 
@@ -172,6 +172,60 @@ Quando le prestazioni di copia non soddisfano le aspettative, per risolvere i pr
 
   - Si consideri di ottimizzare gradualmente le [copie parallele](copy-activity-performance-features.md). si noti che troppe copie parallele potrebbero anche danneggiare le prestazioni.
 
+
+## <a name="connector-and-ir-performance"></a>Prestazioni del connettore e IR
+
+Questa sezione illustra alcune guide per la risoluzione dei problemi relativi alle prestazioni per un particolare tipo di connettore o runtime di integrazione.
+
+### <a name="activity-execution-time-varies-using-azure-ir-vs-azure-vnet-ir"></a>Il tempo di esecuzione delle attività varia a seconda che si usi Azure IR e Azure VNet IR
+
+Il tempo di esecuzione dell'attività varia quando il set di dati è basato su Integration Runtime diversi.
+
+- **Sintomi**: è sufficiente impostare l'elenco a discesa servizio collegato nel set di dati per eseguire le stesse attività della pipeline, ma con tempi di esecuzione notevolmente diversi. Quando il set di dati è basato sulla rete virtuale gestita Integration Runtime, in media sono necessari più di 2 minuti per completare l'esecuzione, ma sono necessari circa 20 secondi per essere completati quando si basano sulla Integration Runtime predefinita.
+
+- **Motivo**: se si verificano i dettagli delle esecuzioni della pipeline, è possibile osservare che la pipeline lenta viene eseguita in un runtime di integrazione VNet (rete virtuale) gestito, mentre quello normale viene eseguito in Azure IR. Per impostazione predefinita, il runtime di integrazione VNet gestito impiega più tempo di coda rispetto a Azure IR perché non si riserva un nodo di calcolo per ogni data factory, quindi si verificano circa 2 minuti per l'avvio di ogni attività di copia e si verifica principalmente nel join VNet invece che Azure IR.
+
+    
+### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Prestazioni ridotte durante il caricamento dei dati nel database SQL di Azure
+
+- **Sintomi**: la copia dei dati nel database SQL di Azure risulta lenta.
+
+- **Causa**: la causa principale del problema viene principalmente attivata dal collo di bottiglia del lato del database SQL di Azure. Di seguito sono riportate alcune possibili cause:
+
+    - Il livello del database SQL di Azure non è sufficientemente elevato.
+
+    - L'utilizzo di DTU del database SQL di Azure è prossimo al 100%. È possibile [monitorare le prestazioni](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e prendere in considerazione l'aggiornamento del livello del database SQL di Azure.
+
+    - Gli indici non sono impostati correttamente. Rimuovere tutti gli indici prima del caricamento dei dati e ricrearli al termine del caricamento.
+
+    - WriteBatchSize non è sufficientemente grande da contenere le dimensioni della riga dello schema. Provare a ingrandire la proprietà del problema.
+
+    - Anziché inserire in blocco, viene usato stored procedure, che dovrebbe avere prestazioni peggiori. 
+
+- **Soluzione**: fare riferimento a [risolvere i problemi relativi alle prestazioni dell'attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
+
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Timeout o rallentamento delle prestazioni durante l'analisi di file di Excel di grandi dimensioni
+
+- **Sintomi**:
+
+    - Quando si crea un set di dati di Excel e si importa lo schema dai fogli di lavoro di connessione/archivio, Anteprima dati, elenco o aggiornamento, è possibile che si verifichi un errore di timeout se le dimensioni del file di Excel sono elevate.
+
+    - Quando si usa l'attività di copia per copiare dati da un file di Excel di grandi dimensioni (>= 100 MB) in un altro archivio dati, è possibile che si verifichi un problema di prestazioni insufficienti.
+
+- **Causa**: 
+
+    - Per operazioni quali l'importazione dello schema, l'anteprima dei dati e l'elenco dei fogli di lavoro nel set di dati di Excel, il timeout è 100 s e static. Per il file di Excel di grandi dimensioni, queste operazioni potrebbero non terminare entro il valore di timeout.
+
+    - L'attività di copia ADF legge l'intero file di Excel in memoria e quindi individua le celle e il foglio di lavoro specificati per leggere i dati. Questo comportamento è dovuto all'utilizzo dell'ADF SDK sottostante.
+
+- **Risoluzione**: 
+
+    - Per l'importazione dello schema, è possibile generare un file di esempio più piccolo, ovvero un subset del file originale, e scegliere "Importa schema da file di esempio" anziché "Importa schema da connessione/archivio".
+
+    - Per elencare il foglio di testo, nell'elenco a discesa del foglio di testo è possibile fare clic su "modifica" e immettere invece il nome o l'indice del foglio.
+
+    - Per copiare un file di Excel di grandi dimensioni (>100 MB) in un altro archivio, è possibile usare l'origine Excel del flusso di dati, che consente di leggere e migliorare le prestazioni di streaming.
+    
 ## <a name="other-references"></a>Altri riferimenti
 
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:

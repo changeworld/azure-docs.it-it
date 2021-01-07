@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: fac4f3029d783e9257d00466ddb9fc9741b0f5a2
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3b7b405e34b6ca82da593507ad6103d360c5df1e
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895649"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968586"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Risolvere i problemi di Azure Data Factory sicurezza e controllo di accesso
 
@@ -151,16 +151,6 @@ Per risolvere il problema, passare al [collegamento privato di Azure per Azure D
 Provare ad abilitare l'accesso alla rete pubblica nell'interfaccia utente, come illustrato nello screenshot seguente:
 
 ![Screenshot del controllo "abilitato" per "Consenti accesso alla rete pubblica" nel riquadro rete.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
-
-### <a name="pipeline-runtime-varies-when-basing-on-different-ir"></a>Il runtime della pipeline varia quando si basa su un IR diverso
-
-#### <a name="symptoms"></a>Sintomi
-
-Semplicemente attivando o disattivando l'elenco a discesa servizio collegato nel set di dati vengono eseguite le stesse attività della pipeline, ma con tempi di esecuzione notevolmente diversi. Quando il set di dati è basato sulla rete virtuale gestita Integration Runtime, in media sono necessari più di 2 minuti per completare l'esecuzione, ma sono necessari circa 20 secondi per essere completati quando si basano sulla Integration Runtime predefinita.
-
-#### <a name="cause"></a>Causa
-
-Verificando i dettagli delle esecuzioni della pipeline, è possibile osservare che la pipeline lenta è in esecuzione in un runtime di integrazione VNet (rete virtuale) gestito mentre quello normale viene eseguito in Azure IR. Per impostazione predefinita, il runtime di integrazione VNet gestito impiega più tempo di coda rispetto a Azure IR perché non si riserva un nodo di calcolo per ogni data factory, quindi si verificano circa 2 minuti per l'avvio di ogni attività di copia e si verifica principalmente nel join VNet invece che Azure IR.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
