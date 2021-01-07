@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919747"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976827"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -307,7 +307,7 @@ Gli utenti con questo ruolo possono monitorare tutte le notifiche nel Centro mes
 
 Gli utenti con questo ruolo possono monitorare le notifiche e gli aggiornamenti di integrità consultivi in [Message Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione in servizi configurati, ad esempio Exchange, Intune e Microsoft teams. I lettori del centro messaggi ricevono i digest settimanali dei post, degli aggiornamenti e possono condividere i post del centro messaggi in Microsoft 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
-### <a name="modern-commerce-user"></a>[Utente commerciale moderno](#modern-commerce-user-permissions)
+### <a name="modern-commerce-user"></a>[Utente Commerce moderno](#modern-commerce-user-permissions)
 
 Non usare. Questo ruolo viene assegnato automaticamente da Commerce e non è progettato o supportato per altri usi. Vedere i dettagli di seguito.
 
@@ -481,7 +481,7 @@ gli utenti con questo ruolo possono risolvere i problemi di comunicazione all'in
 
 gli utenti con questo ruolo possono risolvere i problemi di comunicazione all'interno di Microsoft Teams e Skype for Business tramite gli strumenti di risoluzione dei problemi relativi alle chiamate utente nell'interfaccia di amministrazione di Microsoft Teams e Skype for Business. Gli utenti con questo ruolo possono visualizzare i dettagli dell'utente nella chiamata per l'utente specifico cercato. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
-### <a name="teams-devices-administrator"></a>[Amministratore dispositivi Teams](#teams-devices-administrator-permissions)
+### <a name="teams-devices-administrator"></a>[Amministratore di dispositivi di Teams](#teams-devices-administrator-permissions)
 
 Gli utenti con questo ruolo possono gestire i [dispositivi certificati](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) dai team dal centro di amministrazione dei team. Questo ruolo consente di visualizzare tutti i dispositivi a colpo d'occhio, con la possibilità di cercare e filtrare i dispositivi. L'utente può controllare i dettagli di ogni dispositivo, tra cui account di accesso, marca e modello del dispositivo. L'utente può modificare le impostazioni del dispositivo e aggiornare le versioni del software. Questo ruolo non concede le autorizzazioni per controllare l'attività dei team e la qualità della chiamata del dispositivo. 
 
@@ -1434,6 +1434,14 @@ Non usare: non destinato all'uso generale.
 
 | **Actions** | **Descrizione** |
 | --- | --- |
+| Microsoft. directory/Applications/appRoles/Update | Gestire i ruoli dell'app e richiedere autorizzazioni delegate per le applicazioni. |
+| microsoft.directory/applications/audience/update | Aggiornare i destinatari in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/authentication/update | Aggiornare l'autenticazione su tutti i tipi di applicazioni. |
+| microsoft.directory/applications/basic/update | Aggiornare le proprietà di base in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/credentials/update | Aggiornare le credenziali in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/owners/update | Aggiornare i proprietari in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/permissions/update | Aggiornare le autorizzazioni esposte e le autorizzazioni necessarie per tutti i tipi di applicazioni. |
+| microsoft.directory/applications/policies/update | Aggiornare la proprietà applications.policies in Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Aggiornare le proprietà di base sui contatti in Azure Active Directory. |
 | microsoft.directory/contacts/create | Creare contatti in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Eliminare contatti in Azure Active Directory. |
@@ -1467,6 +1475,14 @@ Non usare: non destinato all'uso generale.
 
 | **Actions** | **Descrizione** |
 | --- | --- |
+| Microsoft. directory/Applications/appRoles/Update | Gestire i ruoli dell'app e richiedere autorizzazioni delegate per le applicazioni. |
+| microsoft.directory/applications/audience/update | Aggiornare i destinatari in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/authentication/update | Aggiornare l'autenticazione su tutti i tipi di applicazioni. |
+| microsoft.directory/applications/basic/update | Aggiornare le proprietà di base in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/credentials/update | Aggiornare le credenziali in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/owners/update | Aggiornare i proprietari in tutti i tipi di applicazioni. |
+| microsoft.directory/applications/permissions/update | Aggiornare le autorizzazioni esposte e le autorizzazioni necessarie per tutti i tipi di applicazioni. |
+| microsoft.directory/applications/policies/update | Aggiornare la proprietà applications.policies in Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Aggiornare le proprietà di base sui contatti in Azure Active Directory. |
 | microsoft.directory/contacts/create | Creare contatti in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Eliminare contatti in Azure Active Directory. |
@@ -1944,7 +1960,7 @@ Amministratore licenze | Amministratore licenze | 4d6ac14f-3453-41d0-bef9-a3e0c5
 Amministratore del servizio Lync | Amministratore di Skype for Business | 75941009-915A-4869-abe7-691bff18279e
 Ruolo con autorizzazioni di lettura per la privacy del Centro messaggi | Ruolo con autorizzazioni di lettura per la privacy del Centro messaggi | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Ruolo con autorizzazioni di lettura per il Centro messaggi | Ruolo con autorizzazioni di lettura per il Centro messaggi | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-Utente commerciale moderno | Utente commerciale moderno | d24aef57-1500-4070-84db-2666f29cf966
+Utente Commerce moderno | Utente Commerce moderno | d24aef57-1500-4070-84db-2666f29cf966
 Amministratore di rete | Amministratore di rete | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Amministratore delle app di Office | Amministratore delle app di Office | 2b745bdf-0803-4d80-aa65-822c4493daac
 Supporto partner - Livello 1 | Non viene visualizzato perché non deve essere usato | 4ba39ca4-527c-499a-b93d-d9b492c50246
@@ -1967,7 +1983,7 @@ Amministratore del servizio SharePoint | Amministratore di SharePoint | f28a1f50
 Amministratore comunicazioni Teams | Amministratore comunicazioni Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Tecnico di supporto comunicazioni Teams | Tecnico di supporto comunicazioni Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Specialista di supporto comunicazioni Teams | Specialista di supporto comunicazioni Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
-Amministratore dispositivi Teams | Amministratore dispositivi Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
+Amministratore di dispositivi di Teams | Amministratore di dispositivi di Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Amministratore del servizio Teams | Amministratore del servizio Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Utente | Non viene visualizzato perché non può essere usato | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Amministratore account utente | Amministratore utenti | fe930be7-5e62-47db-91af-98c3a49a38b1

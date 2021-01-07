@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955111"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977014"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informazioni su Defender per gli utenti della console
 
@@ -223,8 +223,6 @@ Per reimpostare la password per un CyberX o un utente del supporto tecnico:
     > Non modificare il file di recupero della password. Si tratta di un file firmato che non funziona se si manomette.
 
 1. Nella schermata di **ripristino della password** selezionare **carica**. Viene visualizzata **la finestra Carica file di ripristino della password** .
-
-   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Caricare il file di ripristino per ottenere una nuova password.":::
 
 1. Selezionare **Sfoglia** per individuare il `password_recovery.zip` file o trascinare la nella `password_recovery.zip` finestra.
 

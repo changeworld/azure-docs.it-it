@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 90debef39b3e657bf96221dfaf5fa762d332a364
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584494"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976521"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Esercitazione: Creare un endpoint SCIM e configurare il provisioning degli utenti con Azure AD
 
@@ -1217,7 +1217,7 @@ Passaggi nel flusso di concessione del codice OAuth:
 > [!NOTE]
 > Anche se al momento non è possibile configurare OAuth nell'applicazione non della raccolta, è possibile generare manualmente un token di accesso dal server di autorizzazione e immetterlo nel campo del token segreto dell'applicazione non della raccolta. In questo modo è possibile verificare la compatibilità del server SCIM con il client SCIM di Azure AD prima di eseguire l'onboarding nella raccolta di app, che non supporta la concessione del codice OAuth.  
 
-**Token di connessione OAuth di lunga durata:** se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, è anche possibile generare un token di connessione OAuth di lunga durata che potrà essere usato da un amministratore per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning verrà messo [in quarantena](application-provisioning-quarantine-status.md) alla scadenza del token. Il token deve essere di dimensioni inferiori a 1 KB.  
+**Token di connessione OAuth di lunga durata:** se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, è anche possibile generare un token di connessione OAuth di lunga durata che potrà essere usato da un amministratore per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning verrà messo [in quarantena](application-provisioning-quarantine-status.md) alla scadenza del token.
 
 Per altri metodi di autenticazione e autorizzazione, comunicare questa esigenza in [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

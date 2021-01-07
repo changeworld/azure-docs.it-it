@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861774"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976844"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -50,6 +50,8 @@ L'estensione per gli script personalizzati per Windows verrà eseguita sui siste
 ### <a name="internet-connectivity"></a>Connettività Internet
 
 Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall e il gruppo di sicurezza di rete. Se ad esempio lo script si trova in Archiviazione di Azure, è possibile consentire l'accesso usando i tag di servizio del gruppo di sicurezza di rete di Azure per [Archiviazione](../../virtual-network/network-security-groups-overview.md#service-tags).
+
+Si noti che l'estensione CustomScript non ha alcun modo per ignorare la convalida del certificato. Quindi, se si esegue il download da un percorso protetto con ad esempio. un certificato autofirmato può finire con errori come *"il certificato remoto non è valido in base alla procedura di convalida"*. Verificare che il certificato sia installato correttamente nell'archivio *"autorità di certificazione radice attendibili"* della macchina virtuale.
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall e il gruppo di sicurezza di rete.
 

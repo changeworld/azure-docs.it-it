@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 68a384197409115343a81aea23b0f7d42166d716
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762963"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976810"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -53,9 +53,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabo (Emirati Arabi Uniti)      | `ar-AE` | Modello linguistico                                   |
 | Bulgaro (Bulgaria)               | `bg-BG` | Modello linguistico                                   |
 | Catalano (Spagna)                    | `ca-ES` | Modello linguistico                                   |
-| Cinese (cantonese, tradizionale)   | `zh-HK` | Modello linguistico                                   |
+| Cinese (cantonese, tradizionale)   | `zh-HK` | Modello acustico<br>Modello linguistico                 |
 | Cinese (mandarino, semplificato)     | `zh-CN` | Modello acustico<br>Modello linguistico                 |
-| Cinese (mandarino taiwanese)       | `zh-TW` | Modello linguistico                                   |
+| Cinese (mandarino taiwanese)       | `zh-TW` | Modello acustico<br>Modello linguistico                 |
 | Croato (Croazia)                 | `hr-HR` | Modello linguistico                                   |
 | Ceco (Repubblica Ceca)             | `cs-CZ` | Modello linguistico                                   |
 | Danese (Danimarca)                   | `da-DK` | Modello linguistico                                   |
@@ -83,8 +83,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Ungherese (Ungheria)                | `hu-HU` | Modello linguistico                                   |
 | Irlandese (Irlanda)                     | `ga-IE` | Modello linguistico                                   |
 | Italiano (Italia)                    | `it-IT` | Modello acustico<br>Modello linguistico<br>Pronuncia|
-| Giapponese (Giappone)                   | `ja-JP` | Modello linguistico                                   |
-| Coreano (Corea)                     | `ko-KR` | Modello linguistico                                   |
+| Giapponese (Giappone)                   | `ja-JP` | Modello acustico<br>Modello linguistico                 |
+| Coreano (Corea)                     | `ko-KR` | Modello acustico<br>Modello linguistico                 |
 | Lettone (Lettonia)                   | `lv-LV` | Modello linguistico                                   |
 | Lituano (Lituania)             | `lt-LT` | Modello linguistico                                   |
 | Maltese (Malta)                     | `mt-MT` | Modello linguistico                                   |
@@ -143,7 +143,7 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 > Tutte le voci possono eseguire il campionamento o Downsample ad altre frequenze di campionamento durante la sintesi.
 
 
-| Linguaggio | Impostazioni locali | Sesso | Nome della voce | Supporto dello stile |
+| Linguaggio | Locale | Sesso | Nome della voce | Supporto dello stile |
 |---|---|---|---|---|
 | Arabo (Egitto) | `ar-EG` | Female | `ar-EG-SalmaNeural` | Generale |
 | Arabo (Egitto) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>Nuovo</sup> | Generale |
@@ -264,7 +264,7 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 
 Sotto le voci neurali sono disponibili in anteprima pubblica. 
 
-| Linguaggio                         | Impostazioni locali  | Sesso | Nome della voce                             | Supporto dello stile |
+| Linguaggio                         | Locale  | Sesso | Nome della voce                             | Supporto dello stile |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | Cinese (mandarino, semplificato) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | Generale, più stili disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Cinese (mandarino, semplificato) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | Generale, più Riproduci ruoli e stili disponibili [con SSML](speech-synthesis-markup.md#adjust-speaking-styles) |

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108502"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976504"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
@@ -51,7 +51,7 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 - Lo stato attivo viene ora inserito nel campo password dopo la verifica del messaggio di posta elettronica.
 - Rimosso `autofocus` dal controllo CheckBox. 
 - Aggiunta del supporto per un controllo di visualizzazione per la verifica del numero di telefono.
-- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML] (Customize-UI-with-HTML. MD # Guidelines-for
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
   - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
 - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti.

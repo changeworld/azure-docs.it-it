@@ -3,18 +3,18 @@ title: Guida al protocollo per le connessioni ibride di inoltro di Azure | Micro
 description: Questo articolo descrive le interazioni lato client con l'inoltro di Connessioni ibride per la connessione dei client nei ruoli listener e mittente
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 36321f88de173a37c9aa6615c4c0f2b29aec9f20
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862327"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976963"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
 L'inoltro di Azure è una delle funzionalità chiave di base della piattaforma Bus di servizio di Azure. La nuova funzionalità _Connessioni ibride_ di inoltro è un'evoluzione sicura del protocollo aperto basata su HTTP e WebSocket. Sostituisce la caratteristica dei _Servizi BizTalk_ precedente, con lo stesso nome, compilata in base a un protocollo di proprietà. L'integrazione di Connessioni ibride nei servizi app di Azure continuerà a funzionare così com'è.
 
-Connessioni ibride permette di stabilire una comunicazione bidirezionale con flussi binari tra due applicazioni di rete, di cui una o entrambe le parti sono protette da NAT o firewall.
+Connessioni ibride consente la comunicazione bidirezionale, richiesta-risposta e flusso binario e il flusso semplice di datagramma tra due applicazioni di rete. Una o entrambe le parti possono trovarsi dietro NAT o firewall.
 
 Questo articolo descrive le interazioni lato client con l'inoltro di Connessioni ibride per la connessione dei client nei ruoli listener e mittente e il modo in cui i listener accettano nuove connessioni e richieste.
 
@@ -24,11 +24,11 @@ L'inoltro di Connessioni ibride connette due parti tramite un punto di incontro 
 
 Il servizio consente di inoltrare connessioni WebSocket e richieste e risposte HTTP/HTTPS.
 
-Il modello di interazione si basa sulla nomenclatura stabilita da diverse altre API di rete. È presente un listener che prima indica la conformità alla gestione delle connessioni in ingresso e successivamente le accetta quando arrivano. Sull'altro lato un client si connette al listener, aspettando che la connessione venga accettata per stabilire un percorso di comunicazione bidirezionale. "Connettersi", "essere in ascolto", "accettare" sono gli stessi termini usati nella maggior parte delle API socket.
+Il modello di interazione si basa sulla nomenclatura stabilita da diverse altre API di rete. Un listener indica prima di tutto la preparazione per la gestione delle connessioni in ingresso e successivamente li accetta al momento dell'arrivo. Sull'altro lato un client si connette al listener, aspettando che la connessione venga accettata per stabilire un percorso di comunicazione bidirezionale. "Connettersi", "essere in ascolto", "accettare" sono gli stessi termini usati nella maggior parte delle API socket.
 
 In un modello di comunicazione di inoltro entrambe le parti creano connessioni in uscita verso un endpoint di servizio, rendendo il "listener" anche un "client" nel linguaggio comune e causando altre sovrapposizioni terminologiche. La terminologia esatta usata per Connessioni ibride è quindi la seguente:
 
-I programmi su entrambi i lati di una connessione sono detti "client", perché sono i client del servizio. Il client che attende e accetta le connessioni è il "listener", che è anche nel "ruolo listener". Il client che avvia una nuova connessione verso un listener tramite il servizio è detto "mittente", che è anche nel "ruolo mittente".
+I programmi su entrambi i lati di una connessione sono detti "client", dal momento che sono client per il servizio. Il client che attende e accetta le connessioni è il "listener", che è anche nel "ruolo listener". Il client che avvia una nuova connessione verso un listener tramite il servizio è detto "mittente", che è anche nel "ruolo mittente".
 
 ### <a name="listener-interactions"></a>Interazioni del listener
 
@@ -49,7 +49,7 @@ Per Connessioni ibride, se sono presenti due o più listener attivi, le connessi
 Quando un mittente apre una nuova connessione nel servizio, il servizio sceglie uno dei listener attivi nella connessione ibrida e gli invia una notifica. La notifica viene inviata al listener tramite il canale di controllo aperto come messaggio JSON contenente l'URL dell'endpoint del WebSocket a cui il listener deve connettersi per accettare la connessione.
 
 L'URL può e deve essere usato direttamente dal listener senza operazioni aggiuntive.
-Le informazioni codificate sono valide solo per un breve periodo, essenzialmente finché il mittente è disposto ad attendere che venga stabilita una connessione end-to-end. Il tempo massimo previsto è pari a 30 secondi. L'URL può essere usato solo per tentativo di connessione riuscito. Non appena viene stabilita la connessione WebSocket con l'URL di incontro, tutte le altre attività in questo WebSocket vengono inoltrate da e verso il mittente, senza interventi o interpretazioni da parte del servizio.
+Le informazioni codificate sono valide solo per un breve periodo, essenzialmente finché il mittente è disposto ad attendere che venga stabilita una connessione end-to-end. Il tempo massimo previsto è pari a 30 secondi. L'URL può essere usato solo per tentativo di connessione riuscito. Non appena viene stabilita la connessione WebSocket con l'URL di incontro, tutte le altre attività in questo WebSocket vengono inoltrate da e verso il mittente, Questo comportamento si verifica senza interventi o interpretazioni da parte del servizio.
 
 ### <a name="request-message"></a>Messaggio di richiesta
 
@@ -65,7 +65,7 @@ Il flusso di richiesta/risposta usa il canale di controllo per impostazione pred
 
 Sul canale di controllo le dimensioni dei corpi dei messaggi di richiesta e risposta sono limitate a un massimo di 64 KB. I metadati di intestazione HTTP sono limitati a un totale di 32 KB. Se la richiesta o la risposta supera tale soglia, il listener DEVE eseguire l'aggiornamento a un WebSocket di incontro con un'azione equivalente alla gestione del massaggio di [accettazione](#accept-message).
 
-Il servizio decide se instradare le richieste tramite il canale di controllo. Ciò include, in via esemplificativa, il caso in cui una richiesta superi i 64 KB (intestazioni e corpo) complessivi o quello in cui la richiesta venga inviata con [codifica di trasferimento in blocchi](https://tools.ietf.org/html/rfc7230#section-4.1) e il servizio preveda che la richiesta superi i 64 KB o legga che la richiesta non è istantanea. Se il servizio sceglie di recapitare la richiesta sul punto di incontro, al listener passa solo l'indirizzo di quest'ultimo.
+Il servizio decide se instradare le richieste tramite il canale di controllo. Questo include, ma potrebbe non essere limitato ai casi in cui una richiesta supera 64 kB (intestazioni più corpo), o se la richiesta viene inviata con la [codifica di trasferimento "Chunked"](https://tools.ietf.org/html/rfc7230#section-4.1) e il servizio ha motivo di prevedere che la richiesta superi 64 KB o la lettura della richiesta non è immediata. Se il servizio sceglie di recapitare la richiesta sul punto di incontro, al listener passa solo l'indirizzo di quest'ultimo.
 Il listener DEVE quindi stabilire il WebSocket di incontro e il servizio recapita tempestivamente la richiesta completa, inclusi i corpi, sul WebSocket di incontro. Anche la risposta DEVE usare il WebSocket di incontro.
 
 Per le richieste che arrivano tramite il canale di controllo, il listener decide se rispondere sul canale di controllo o tramite punto di incontro. Il servizio DEVE includere un indirizzo del punto di incontro in tutte le richieste indirizzate tramite il canale di controllo. Tale indirizzo è valido solo per l'aggiornamento dalla richiesta corrente.
@@ -164,7 +164,7 @@ La notifica "accept" viene inviata dal servizio al listener tramite il canale di
 Il messaggio contiene un oggetto JSON denominato "accept", che definisce le proprietà attuali seguenti:
 
 * **address**: stringa dell'URL da usare per stabilire il WebSocket al servizio per accettare una connessione in ingresso.
-* **id**: identificatore univoco per questa connessione. Se l'ID è stato fornito dal client mittente, si tratta del valore fornito dal mittente. In caso contrario, è un valore generato dal sistema.
+* **id**: identificatore univoco per questa connessione. Se l'ID è stato fornito dal client mittente, si tratta del valore fornito dal mittente; in caso contrario, è un valore generato dal sistema.
 * **connectHeaders**: tutte le intestazioni HTTP fornite all'endpoint di inoltro dal mittente, che include anche le intestazioni Sec-WebSocket-Protocol e Sec-WebSocket-Extensions.
 
 ```json
@@ -202,7 +202,7 @@ L'URL deve essere usato così com'è per stabilire il socket di accettazione, ma
 `{path}` è il percorso dello spazio dei nomi codificato con URL della connessione ibrida preconfigurata in cui registrare questo listener. Questa espressione viene aggiunta alla parte del percorso `$hc/` fissa.
 
 L'espressione `path` può essere estesa aggiungendo al nome registrato una barra, un suffisso e un'espressione di stringa di query.
-Il client mittente può in questo modo trasmettere gli argomenti di invio al listener di accettazione quando non è possibile includere le intestazioni HTTP. Il framework del listener dovrebbe analizzare la parte fissa del percorso e il nome registrato dal percorso, quindi rendere disponibile la parte restante (possibilmente senza argomenti di stringa di query con prefisso `sb-`) all'applicazione perché decida se accettare la connessione.
+Questo parametro consente al client mittente di passare argomenti dispatch al listener di accettazione quando non è possibile includere intestazioni HTTP. Il framework del listener dovrebbe analizzare la parte fissa del percorso e il nome registrato dal percorso, quindi rendere disponibile la parte restante (possibilmente senza argomenti di stringa di query con prefisso `sb-`) all'applicazione perché decida se accettare la connessione.
 
 Per altre informazioni, vedere la sezione "Protocollo per il mittente" che segue.
 
@@ -210,7 +210,7 @@ In caso di errore il servizio può rispondere come segue:
 
 | Codice | Errore          | Descrizione
 | ---- | -------------- | -----------------------------------
-| 403  | Accesso negato      | URL non valido.
+| 403  | Accesso negato      | L'URL non è valido.
 | 500  | Errore interno | Si è verificato un errore nel servizio
 
  Dopo che la connessione è stata stabilita, il server arresta il WebSocket quando il WebSocket mittente si arresta o ha lo stato seguente:
@@ -230,7 +230,7 @@ In caso di errore il servizio può rispondere come segue:
 
  Per rifiutare il socket, il client accetta l'URI dell'indirizzo dal messaggio `accept` e vi aggiunge due parametri di stringa di query, come indicato di seguito:
 
-| Param                   | Obbligatoria | Description                              |
+| Param                   | Obbligatoria | Descrizione                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | Sì      | Codice di stato HTTP numerico.                |
 | sb-hc-statusDescription | Sì      | Motivo leggibile del rifiuto. |
@@ -241,7 +241,7 @@ Se completato correttamente, questo handshake non riuscirà di proposito con il 
 
 | Codice | Errore          | Descrizione                          |
 | ---- | -------------- | ------------------------------------ |
-| 403  | Accesso negato      | URL non valido.                |
+| 403  | Accesso negato      | L'URL non è valido.                |
 | 500  | Errore interno | Si è verificato un errore nel servizio. |
 
 #### <a name="request-message"></a>Messaggio di richiesta
@@ -249,7 +249,7 @@ Se completato correttamente, questo handshake non riuscirà di proposito con il 
 Il messaggio `request` viene inviato dal servizio al listener tramite il canale di controllo. Dopo la definizione della connessione, lo stesso messaggio viene inviato anche sul WebSocket di incontro.
 
 L'elemento `request` è costituito da due parti: un frame dell'intestazione e uno del corpo binario.
-Se non è presente alcun corpo, i frame del corpo vengono omessi. L'indicatore per verificare se è un corpo è presente è la proprietà booleana `body` nel messaggio di richiesta.
+Se non è presente alcun corpo, i frame del corpo vengono omessi. La proprietà booleana `body` indica se un corpo è presente nel messaggio di richiesta.
 
 Per una richiesta con un corpo, la richiesta è simile alla presente:
 
@@ -290,7 +290,7 @@ Per una richiesta senza corpo, è disponibile solo un frame di testo.
 
 Il contenuto JSON per `request` è indicato di seguito:
 
-* **address** - stringa URI. Questo è l'indirizzo di incontro da usare per la richiesta. Se la richiesta in ingresso è superiore a 64 KB, la parte restante di questo messaggio viene lasciata vuota e il client DEVE avviare un handshake di incontro equivalente all'operazione `accept` descritta di seguito. Il servizio inserisce quindi l'elemento `request` completo sul WebSocket stabilito. Se si prevede che la risposta superi i 64 KB, il listener DEVE anche avviare un handshake di incontro e quindi trasferire la risposta tramite il WebSocket stabilito.
+* **address** - stringa URI. Si tratta dell'indirizzo Rendezvous da usare per questa richiesta. Se la richiesta in ingresso è superiore a 64 KB, la parte restante di questo messaggio viene lasciata vuota e il client DEVE avviare un handshake di incontro equivalente all'operazione `accept` descritta di seguito. Il servizio inserisce quindi l'elemento `request` completo sul WebSocket stabilito. Se si prevede che la risposta superi i 64 KB, il listener DEVE anche avviare un handshake di incontro e quindi trasferire la risposta tramite il WebSocket stabilito.
 * **id** - stringa. Identificatore univoco per questa richiesta.
 * **requestHeaders** - questo oggetto contiene tutte le intestazioni HTTP inviate dal mittente all'endpoint, ad eccezione delle informazioni di autorizzazione come indicato [in precedenza](#request-operation), e le intestazioni strettamente correlate alla connessione con il gateway. In particolare, TUTTE le intestazioni definite o riservate in [RFC7230](https://tools.ietf.org/html/rfc7230), ad eccezione di `Via`, vengono rimosse e non inoltrate:
 
@@ -303,9 +303,9 @@ Il contenuto JSON per `request` è indicato di seguito:
   * `Upgrade` (RFC7230, Sezione 6.7)
   * `Close` (RFC7230, Sezione 8.1)
 
-* **requestTarget** - stringa. Questa proprietà contiene la ["destinazione richiesta" (RFC7230, Sezione 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) della richiesta. Ciò include la parte della stringa di query, rimossa da TUTTI i parametri `sb-hc-` con prefisso.
+* **requestTarget** - stringa. Questa proprietà contiene la ["destinazione richiesta" (RFC7230, Sezione 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) della richiesta. Include la parte della stringa di query, che viene rimossa da tutti i `sb-hc-` parametri con prefisso.
 * **method** - stringa. Metodo della richiesta, per ogni elemento [RFC7231, Sezione 4](https://tools.ietf.org/html/rfc7231#section-4). Il metodo `CONNECT` NON DEVE essere usato.
-* **body** - booleano. Indica se sono presenti uno o più frame di corpo binario.
+* **body** - booleano. Indica se seguono uno o più frame del corpo binario.
 
 ``` JSON
 {
@@ -404,7 +404,7 @@ Quando il token del listener sta per scadere, può essere sostituito inviando un
 
 Se la convalida del token non riesce, l'accesso viene negato e il servizio cloud chiude il WebSocket del canale di controllo con un errore. In caso contrario non vi è alcuna risposta.
 
-| Stato Web Socket | Description                                                                     |
+| Stato Web Socket | Descrizione                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1008      | Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati. |
 
@@ -449,11 +449,11 @@ Se la connessione WebSocket non riesce perché il percorso della connessione ibr
 
 Se la connessione WebSocket viene intenzionalmente arrestata dal servizio dopo la configurazione iniziale, il motivo viene comunicato usando un codice di errore del protocollo WebSocket appropriato con un messaggio di errore descrittivo che include anche un ID di traccia.
 
-| Stato Web Socket | Description
+| Stato Web Socket | Descrizione
 | --------- | ------------------------------------------------------------------------------- 
-| 1000      | Il listener ha arrestato il socket.
+| 1000      | Il socket è stato arrestato dal listener.
 | 1001      | Il percorso della connessione ibrida è stato eliminato o disabilitato.
-| 1008      | Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati.
+| 1008      | Il token di sicurezza è scaduto, quindi i criteri di autorizzazione vengono violati.
 | 1011      | Si è verificato un errore nel servizio.
 
 ### <a name="http-request-protocol"></a>Protocollo di richiesta HTTP
@@ -471,7 +471,7 @@ La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse que
 
 Le opzioni dei parametri della stringa di query sono le seguenti:
 
-| Param          | Necessaria? | Description
+| Param          | Necessaria? | Descrizione
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sì\*     | Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Send**.
 
@@ -485,7 +485,7 @@ Il servizio aggiunge il nome host dello spazio dei nomi di inoltro all'elemento 
 | 200  | OK       | La richiesta è stata gestita da almeno un listener.  |
 | 202  | Accepted | La richiesta è stata accettata da almeno un listener. |
 
-In caso di errore il servizio può rispondere come indicato di seguito. Per determinare se la risposta viene generata dal servizio o da quella del listener, verificare la presenza dell'intestazione `Via`. Se l'intestazione è presente, la risposta proviene dal listener.
+Se si verifica un errore, il servizio può rispondere come segue. Per determinare se la risposta viene generata dal servizio o da quella del listener, verificare la presenza dell'intestazione `Via`. Se l'intestazione è presente, la risposta proviene dal listener.
 
 | Codice | Errore           | Descrizione
 | ---- | --------------- |--------- |
@@ -493,8 +493,8 @@ In caso di errore il servizio può rispondere come indicato di seguito. Per dete
 | 401  | Non autorizzata    | Il token di sicurezza è mancante, non valido o non corretto.
 | 403  | Accesso negato       | Il token di sicurezza non è valido per questo percorso e per questa azione.
 | 500  | Errore interno  | Si è verificato un errore nel servizio.
-| 503  | Gateway non valido     | La richiesta potrebbe non essere indirizzata ad alcun listener.
-| 504  | Timeout gateway | La richiesta è stata indirizzata a un listener, ma il listener non ha confermato il ricevimento nel periodo di tempo necessario.
+| 503  | Gateway non valido     | Non è stato possibile instradare la richiesta a un listener.
+| 504  | Timeout gateway | La richiesta è stata indirizzata a un listener, ma il listener non ha confermato la ricezione nel tempo richiesto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

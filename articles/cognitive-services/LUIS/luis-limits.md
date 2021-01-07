@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018804"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976793"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limiti per il modello e le chiavi LUIS
 LUIS presenta diverse aree di limite. Il primo è il [limite del modello](#model-limits), che controlla gli Intent, le entità e le funzionalità in Luis. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area dei limiti è la [combinazione di tasti](#keyboard-controls) per il controllo del sito Web Luis. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
@@ -28,9 +28,9 @@ Se l'app supera i limiti del modello LUIS, provare a usare un'app [Luis dispatch
 | [Test in batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | Nessun limite |
-| [Finalità][intents]|500 per applicazione: 499 Intent personalizzati e la finalità obbligatoria _None_ .<br>L'applicazione [basata su dispatch](https://aka.ms/dispatch-tool) ha origini di invio 500 corrispondenti.|
+| [Intent][intents]|500 per applicazione: 499 Intent personalizzati e la finalità obbligatoria _None_ .<br>L'applicazione [basata su dispatch](https://aka.ms/dispatch-tool) ha origini di invio 500 corrispondenti.|
 | [Elencare entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
-| [entità e ruoli di Machine Learning](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un composito con un'entità semplice, che ha 2 ruoli: 1 composito + 1 Simple + 2 Roles = 4 delle entità 330.<br>Le sottoentità possono essere annidate fino a 5 livelli.|
+| [entità e ruoli di Machine Learning](./luis-concept-entity-types.md):<br> composito<br>semplice<br>ruolo entità|Limite di 100 entità padre o di 330 entità, a seconda del limite che viene raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è costituito da un composito con un'entità semplice, che ha 2 ruoli: 1 composito + 1 Simple + 2 Roles = 4 delle entità 330.<br>Le sottoentità possono essere annidate fino a 5 livelli, con un massimo di 10 elementi figlio per livello.|
 |Modello come funzionalità| Numero massimo di modelli che possono essere utilizzati come funzionalità per un modello specifico come 10 modelli. Il numero massimo di elenchi di frasi usati come funzionalità per un modello specifico come un elenco di 10 frasi.|
 | [Anteprima-entità elenco dinamico](./luis-migration-api-v3.md)|2 elenchi di ~ 1K per richiesta dell'endpoint di stima di query|
 | [Modelli](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|

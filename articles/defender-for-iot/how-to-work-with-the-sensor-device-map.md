@@ -1,18 +1,18 @@
 ---
-title: Usare la mappa del dispositivo del sensore
+title: Usare la mappa dei dispositivi rilevati dai sensori
 description: La mappa del dispositivo fornisce una rappresentazione grafica dei dispositivi di rete rilevati. Usare la mappa per analizzare e gestire le informazioni sul dispositivo, le sezioni di rete e generare report.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: dd0f28411dccab1a1dd36fbd01d2d1acbcc689e0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841352"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976759"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Esaminare i rilevamenti dei sensori nella mappa del dispositivo
 
@@ -59,7 +59,7 @@ Ogni subnet viene presentata come una singola entità nella mappa del dispositiv
 
 Nella figura seguente è illustrata una subnet IT compressa con 27 elementi di rete IT.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="subnet IT compressa con 27 elementi rete IT":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="subnet IT compressa con 27 elementi rete IT":::
 
 Per abilitare la funzionalità di compressione delle reti IT:
 
@@ -86,7 +86,7 @@ Per espandere una subnet IT:
 
 4. Viene visualizzata una finestra di conferma che informa che non è possibile ripetere la modifica del layout.
 
-5. Selezionare **OK**. Gli elementi della subnet IT vengono visualizzati sulla mappa.
+5. Seleziona **OK**. Gli elementi della subnet IT vengono visualizzati sulla mappa.
 
    :::image type="content" source="media/how-to-work-with-maps/fixed-map.png" alt-text="OK":::
 
@@ -120,7 +120,7 @@ Sono disponibili i gruppi predefiniti seguenti:
 
 | Nome gruppo | Descrizione |
 |--|--|
-| **Applicazioni note o porte non standrad (impostazione predefinita)** | Dispositivi che utilizzano porte riservate, ad esempio TCP. Dispositivi che utilizzano porte o porte non standard a cui non è stato assegnato un alias. |
+| **Applicazioni note o porte non standard (impostazione predefinita)** | Dispositivi che utilizzano porte riservate, ad esempio TCP. Dispositivi che utilizzano porte o porte non standard a cui non è stato assegnato un alias. |
 | **Protocolli OT (impostazione predefinita)** | Dispositivi che gestiscono il traffico OT. |
 | **Authorization (impostazione predefinita)** | Dispositivi individuati in rete durante il processo di apprendimento o aggiunti ufficialmente alla rete |
 | **Filtri inventario dispositivi** | Dispositivi raggruppati in base ai filtri salvati nella tabella inventario dispositivo. |
@@ -226,7 +226,7 @@ L'icona del tipo di dispositivo viene visualizzata con i dispositivi connessi.
 
 La visualizzazione dettagliata presenta i dispositivi e le etichette e gli indicatori del dispositivo con le seguenti informazioni:
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Visualizzazione dettagliata":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Visualizzazione dettagliata":::
 
 ### <a name="control-the-zoom-view"></a>Controllare la visualizzazione zoom
 
@@ -236,7 +236,7 @@ La vista mappa visualizzata dipende dal livello di zoom della mappa. Il passaggi
 
 ### <a name="enable-simplified-zoom-views"></a>Abilita visualizzazioni zoom semplificate
 
-Gli amministratori che desiderano gli analisti della sicurezza e gli utenti RO possono accedere alle viste della connessione di Brid e dei dispositivi e dei tipi, per consentire l'opzione di visualizzazione semplificata.
+Gli amministratori che desiderano gli analisti della sicurezza e gli utenti RO possono accedere alle viste di connessione di tipo Bird-Eye e Device e Type, per abilitare l'opzione di visualizzazione semplificata.
 
 Per abilitare le visualizzazioni mappa semplificate:
 
@@ -323,7 +323,7 @@ Le informazioni seguenti possono essere aggiornate manualmente. Le informazioni 
 | Sistema operativo | Sistema operativo del dispositivo. |
 | Livello Purdue | Il livello Purdue identificato dal sensore per questo dispositivo, tra cui: <br /> -Automatico <br /> -Controllo processo <br /> -Supervisione <br /> - Enterprise |
 | Descrizione | Un campo di testo libero. <br /> Aggiungere altre informazioni sul dispositivo. |
-| Attributes | Tutte le informazioni aggiuntive individuate sul dispositivo durante il periodo di apprendimento e non appartenenti ad altre categorie vengono visualizzate nella sezione attributi. <br /> Le informazioni sono RO. |
+| Attributi | Tutte le informazioni aggiuntive individuate sul dispositivo durante il periodo di apprendimento e non appartenenti ad altre categorie vengono visualizzate nella sezione attributi. <br /> Le informazioni sono RO. |
 | Impostazioni | È possibile modificare manualmente le impostazioni del dispositivo per evitare falsi positivi: <br /> - **Dispositivo autorizzato**: durante il periodo di apprendimento tutti i dispositivi individuati nella rete vengono identificati come dispositivi autorizzati. Quando un dispositivo viene individuato dopo il periodo di apprendimento, viene visualizzato come dispositivo non autorizzato per impostazione predefinita. Questa definizione può essere modificata manualmente. <br /> - **Noto come scanner**: abilitare questa opzione se si è certi che questo dispositivo è noto come scanner e non è necessario segnalarlo. <br /> - **Device Programming**: abilitare questa opzione se si è certi che questo dispositivo è noto come dispositivo di programmazione e non è necessario segnalarlo. |
 | Gruppi personalizzati | Gruppi personalizzati nella mappa del dispositivo a cui partecipa questo dispositivo. |
 | State | Sicurezza e stato di autorizzazione del dispositivo: <br /> -Lo stato è `Secured` quando non sono presenti avvisi <br /> -Quando sono presenti avvisi relativi al dispositivo, viene visualizzato il numero di avvisi <br /> -Lo stato `Unauthorized` viene visualizzato per i dispositivi aggiunti alla rete dopo il periodo di apprendimento. È possibile definire manualmente il dispositivo come `Authorized Device` nelle impostazioni <br /> -Se l'indirizzo del dispositivo è definito come indirizzo dinamico, `DHCP` viene aggiunto allo stato. |

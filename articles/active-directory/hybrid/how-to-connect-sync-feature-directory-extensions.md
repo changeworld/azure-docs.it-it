@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172368"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976878"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: estensioni della directory
 È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni](/graph/extensibility-overview
@@ -46,7 +46,7 @@ Attualmente nessun carico di lavoro Microsoft 365 utilizza questi attributi.
 
 
 >[!NOTE]
-> Anche se Azure AD Connect supporta la sincronizzazione di attributi Active Directory multivalore con Azure AD come estensioni di directory multivalore, attualmente non è possibile recuperare/usare i dati caricati negli attributi di estensioni di directory multivalore.
+> Dopo Azure AD Connect Active Directory attributo multivalore sincronizzato Azure AD come estensione degli attributi multivalore, è possibile includere l'attributo nell'attestazione SAML. Tuttavia, non è possibile utilizzare questi dati tramite una chiamata API.
 
 L'elenco di attributi viene letto dalla cache dello schema creata durante l'installazione di Azure AD Connect. Se è stato esteso lo schema di Active Directory con altri attributi, prima che questi nuovi attributi siano visibili è necessario [aggiornare lo schema](how-to-connect-installation-wizard.md#refresh-directory-schema).
 

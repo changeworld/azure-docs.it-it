@@ -1,5 +1,5 @@
 ---
-title: Controllare il traffico monitorato
+title: Controllare quale traffico viene monitorato
 description: I sensori eseguono automaticamente il rilevamento approfondito dei pacchetti per l'IT e il traffico e per risolvere le informazioni sui dispositivi di rete, ad esempio gli attributi e il comportamento della rete. Sono disponibili diversi strumenti per controllare il tipo di traffico rilevato da ogni sensore.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 08afba8ade30775a49492f337bb5337320b9e282
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841037"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977074"
 ---
-# <a name="control-what-traffic-is-monitored"></a>Controllare il traffico monitorato
+# <a name="control-what-traffic-is-monitored"></a>Controllare quale traffico viene monitorato
 
 I sensori eseguono automaticamente il rilevamento approfondito dei pacchetti per l'IT e il traffico e per risolvere le informazioni sui dispositivi di rete, ad esempio gli attributi e il comportamento del dispositivo. Sono disponibili diversi strumenti per controllare il tipo di traffico rilevato da ogni sensore.
 
@@ -228,7 +228,7 @@ Usando un asset di test, verificare che le impostazioni definite funzionino corr
 
 3. Immettere un indirizzo in **indirizzo di ricerca** per la finestra di dialogo **test di ricerca inversa DNS per il server** .
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-looup-test-screen.png" alt-text="Screenshot che mostra l'area degli indirizzi di ricerca.":::
+    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Screenshot che mostra l'area degli indirizzi di ricerca.":::
 
 4. Selezionare **Test**.
 
