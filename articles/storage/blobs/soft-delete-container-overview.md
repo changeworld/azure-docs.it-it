@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 01/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: references_regions
+ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746601"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962177"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
@@ -53,11 +53,9 @@ La versione 2019-12-12 e successive dell'API REST di archiviazione di Azure supp
 
 L'eliminazione temporanea del contenitore è disponibile per i tipi di account di archiviazione seguenti:
 
-- Account di archiviazione per utilizzo generico V2
+- Account di archiviazione per utilizzo generico V2 e V1
 - Bloccare gli account di archiviazione BLOB
 - Account di archiviazione BLOB
-
-Se l'account di archiviazione è un account per utilizzo generico V1, usare il portale di Azure per eseguire l'aggiornamento a un account per utilizzo generico V2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
 Sono supportati anche gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2.
 

@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 21c8476bd76a591b7bd7ba7cae41e3c64d06b329
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 65ea6513046cd0372720e5a9438941dda2a74877
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565104"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934357"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Creare un'app per le funzioni Python serverless con l'interfaccia della riga di comando di Azure
 
@@ -27,7 +27,7 @@ Questo script di esempio di Funzioni di Azure crea un'app per le funzioni che è
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo script crea un'app per le funzioni di Azure usando il [Piano a consumo](../functions-scale.md#consumption-plan).
+Questo script crea un'app per le funzioni di Azure usando il [Piano a consumo](../consumption-plan.md).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 

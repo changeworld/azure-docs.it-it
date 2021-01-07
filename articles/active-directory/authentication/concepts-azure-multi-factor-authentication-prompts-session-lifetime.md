@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881243"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963520"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure AD Multi-Factor Authentication
 
@@ -121,7 +121,7 @@ Per configurare i criteri di accesso condizionale per la frequenza di accesso e 
 1. Selezionare **sicurezza**, quindi **accesso condizionale**.
 1. Configurare un criterio usando le opzioni di gestione delle sessioni consigliate descritte in questo articolo.
 
-Per esaminare le durate dei token, [usare Azure ad PowerShell per eseguire una query su tutti i criteri di Azure ad](../develop/configure-token-lifetimes.md#prerequisites). Disabilitare tutti i criteri disponibili.
+Per esaminare le durate dei token, [usare Azure ad PowerShell per eseguire una query su tutti i criteri di Azure ad](../develop/configure-token-lifetimes.md#get-started). Disabilitare tutti i criteri disponibili.
 
 Se nel tenant è abilitata più di un'impostazione, è consigliabile aggiornare le impostazioni in base alle licenze disponibili. Se ad esempio si hanno Azure AD licenze Premium, è consigliabile usare solo i criteri di accesso condizionale per la *frequenza* di accesso e la *sessione del browser permanente*. Se si dispone di Microsoft 365 app o Azure AD licenze gratuite, è necessario usare la configurazione *rimanere connessi?* .
 

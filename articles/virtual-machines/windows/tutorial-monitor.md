@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a71599ba095924c01b0cd29cedbee273012979f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323571"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912832"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare una macchina virtuale in Azure
 
@@ -39,7 +39,7 @@ Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro
 
 ## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
-Per configurare il monitoraggio di Azure e la gestione degli aggiornamenti in questa esercitazione, è necessario disporre di una macchina virtuale Windows in Azure. Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Per configurare il monitoraggio di Azure e la gestione degli aggiornamenti in questa esercitazione, è necessario disporre di una macchina virtuale Windows in Azure. Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

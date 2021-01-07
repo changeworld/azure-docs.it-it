@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963364"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963794"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usare macchine virtuali spot in Azure
 
@@ -81,7 +81,7 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 
 **Tabella**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Screenshot delle opzioni relative alle aree con la differenza di prezzi e frequenze di eliminazione come grafico.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Screenshot delle opzioni relative alle aree con la differenza di prezzi e frequenze di rimozione come tabella.":::
 
 
 
@@ -110,6 +110,11 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 **D:** Dove è possibile pubblicare le domande?
 
 **R:** È possibile pubblicare e contrassegnare la domanda con `azure-spot` in [Domande e risposte](/answers/topics/azure-spot.html). 
+
+
+**D:** Come è possibile modificare il prezzo massimo per una VM spot?
+
+**R:** Prima di poter modificare il prezzo massimo, è necessario deallocare la macchina virtuale. È quindi possibile modificare il prezzo massimo nel portale, dalla sezione di **configurazione** per la macchina virtuale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Usare l' [interfaccia](./linux/spot-cli.md)della riga di comando, il [portale](spot-portal.md), il [modello ARM](./linux/spot-template.md)o [PowerShell](./windows/spot-powershell.md) per distribuire le VM spot.

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930821"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962432"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -344,7 +344,7 @@ Il modello di esempio completo è disponibile [qui](https://github.com/Azure-Sam
 Per abilitare le zone in un set di scalabilità di macchine virtuali, è necessario includere i tre valori seguenti nella risorsa del set di scalabilità di macchine virtuali.
 
 * Il primo valore è la proprietà **Zones** , che specifica il zone di disponibilità presente nel set di scalabilità di macchine virtuali.
-* Il secondo valore è la proprietà "singlePlacementGroup", che deve essere impostata su true.
+* Il secondo valore è la proprietà "singlePlacementGroup", che deve essere impostata su true. **Il set di scalabilità in 3 AZ può essere ridimensionato fino a 300 VM anche con "singlePlacementGroup = true".**
 * Il terzo valore è "zoneBalance" ed è facoltativo, che garantisce un rigido bilanciamento della zona se impostato su true. Vedere informazioni su [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * Non è necessario configurare gli override di FaultDomain e UpgradeDomain.
 

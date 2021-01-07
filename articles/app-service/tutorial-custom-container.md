@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: servizio app di azure, app web, linux, windows, docker, contenitore
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 68fe49ff201ead89d846a0676e81dda9fc9b75b9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: b3507e22c691f3e3ca9f9e6562a313e95e42f080
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558607"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900196"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Eseguire la migrazione di un software personalizzato al Servizio app di Azure usando un contenitore personalizzato
 
 ::: zone pivot="container-windows"  
 
-Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Tuttavia, usando un contenitore Windows personalizzato nel Servizio app (Anteprima) è possibile apportare le modifiche del sistema operativo necessarie per l'app, per poter eseguire in modo semplice la migrazione di un'app locale che richiede una configurazione personalizzata di software e sistema operativo. Questa esercitazione illustra come eseguire la migrazione al servizio app di un'app ASP.NET che usa tipi di carattere personalizzati installati nella libreria dei tipi di carattere Windows. Si distribuisce un'immagine Windows configurata in modo personalizzato da Visual Studio a [Registro Azure Container](../container-registry/index.yml) e quindi la si esegue nel servizio app.
+Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Tuttavia, usando un contenitore Windows personalizzato nel servizio app è possibile apportare le modifiche del sistema operativo necessarie per l'app, per poter eseguire in modo semplice la migrazione di un'app locale che richiede una configurazione personalizzata di software e sistema operativo. Questa esercitazione illustra come eseguire la migrazione al servizio app di un'app ASP.NET che usa tipi di carattere personalizzati installati nella libreria dei tipi di carattere Windows. Si distribuisce un'immagine Windows configurata in modo personalizzato da Visual Studio a [Registro Azure Container](../container-registry/index.yml) e quindi la si esegue nel servizio app.
 
 ![Mostra l'app Web in esecuzione in un contenitore di Windows.](media/tutorial-custom-container/app-running.png)
 

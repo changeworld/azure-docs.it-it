@@ -1,73 +1,82 @@
 ---
 title: Archivi dati supportati in Condivisione dati di Azure
-description: Informazioni sugli archivi dati supportati per l'uso di condivisione dati di Azure.
+description: Informazioni sugli archivi dati supportati per l'uso nella condivisione dati di Azure.
 ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 12/16/2020
-ms.openlocfilehash: d45d9a29f671e66c6caba689f49e1748780545e0
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616746"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963680"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati in Condivisione dati di Azure
 
-La condivisione di dati di Azure offre una condivisione dei dati aperta e flessibile, inclusa la possibilità di condividere da e in archivi dati diversi. I provider di dati possono condividere dati da un tipo di archivio dati e i relativi consumer di dati possono scegliere l'archivio dati in cui ricevere i dati. 
+La condivisione di dati di Azure offre una condivisione dei dati aperta e flessibile, inclusa la possibilità di condividere da e in archivi dati diversi. I provider di dati possono condividere dati da un tipo di archivio dati e i consumer di dati possono scegliere un archivio dati per ricevere i dati. 
 
-Questo articolo illustra il set completo di archivi dati di Azure supportati nella condivisione dati di Azure. È inoltre possibile trovare informazioni sulle combinazioni di archivi dati che possono essere utilizzati da provider di dati e consumer di dati. 
+Questo articolo illustra il set completo di archivi dati di Azure supportati dalla condivisione dati di Azure. Verranno inoltre fornite informazioni sul modo in cui i provider di dati e i consumer di dati possono combinare archivi dati diversi. 
 
-## <a name="what-data-stores-are-supported-in-azure-data-share"></a>Quali archivi dati sono supportati nella condivisione dati di Azure? 
+## <a name="supported-data-stores"></a>Archivi dati supportati 
 
-La tabella seguente illustra in dettaglio le origini dati supportate per la condivisione di dati di Azure. 
+La tabella seguente illustra gli archivi dati supportati da Azure Data Share. 
 
-| Archivio dati | Condivisione basata su snapshot (snapshot completo) | Condivisione basata su snapshot (snapshot incrementale) | Condivisione sul posto 
+| Archivio dati | Condivisione basata su snapshot completi | Condivisione basata su snapshot incrementali | Condivisione sul posto 
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Archiviazione BLOB di Azure |✓ |✓ | |
 | Azure Data Lake Storage Gen1 |✓ |✓ | |
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
-| Database SQL di Azure |✓ | | |
-| Azure sinapsi Analytics (in precedenza Azure SQL DW) |✓ | | |
+| database SQL di Azure |✓ | | |
+| Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) |✓ | | |
 | Azure sinapsi Analytics (area di lavoro) pool SQL dedicato |✓ | | |
 | Esplora dati di Azure | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice di supporto dell'archivio dati
 
-La condivisione di dati di Azure offre la flessibilità dei consumer di dati per la scelta di un archivio dati in cui accettare i dati. Ad esempio, i dati condivisi dal database SQL di Azure possono essere ricevuti in Azure Data Lake Store Gen2, nel database SQL di Azure o in Azure sinapsi Analytics. I clienti possono scegliere il formato in cui ricevere i dati durante la configurazione di una condivisione dati ricevuta. 
+La condivisione di dati di Azure consente ai consumer di dati di scegliere un archivio dati per accettare i dati. Ad esempio, i dati condivisi dal database SQL di Azure possono essere ricevuti in Azure Data Lake Storage Gen2, nel database SQL di Azure o in Azure sinapsi Analytics. Quando i clienti configurano una condivisione dati ricevente, possono scegliere il formato per la ricezione dei dati. 
 
-Nella tabella seguente vengono illustrate le diverse combinazioni e scelte che i consumer di dati hanno per l'accettazione e la configurazione della condivisione di dati. Per ulteriori informazioni su come configurare i mapping dei set di dati, vedere [come configurare i mapping dei set di dati](how-to-configure-mapping.md).
+Nella tabella seguente vengono illustrate le combinazioni e le opzioni che i consumer di dati possono scegliere quando accettano e configurano una condivisione di dati. Per altre informazioni, vedere [configurare il mapping di un set di dati](how-to-configure-mapping.md).
 
-| Archivio dati | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Database SQL di Azure | Azure sinapsi Analytics (in precedenza Azure SQL DW) | Azure sinapsi Analytics (area di lavoro) pool SQL dedicato | Esplora dati di Azure
+| Archivio dati | Archiviazione BLOB | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Database SQL | Sinapsi Analytics (in precedenza SQL Data Warehouse) | Pool SQL dedicato dell'analisi sinapsi (area di lavoro) | Esplora dati
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
-| Archiviazione BLOB di Azure | ✓ || ✓ |||
-| Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
-| Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
-| Database SQL di Azure | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Azure sinapsi Analytics (in precedenza Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Azure sinapsi Analytics (area di lavoro) pool SQL dedicato | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Esplora dati di Azure ||||||| ✓ |
+| Archiviazione BLOB | ✓ || ✓ |||
+| Data Lake Storage Gen1 | ✓ | | ✓ |||
+| Data Lake Storage Gen2 | ✓ | | ✓ |||
+| Database SQL | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Sinapsi Analytics (in precedenza SQL Data Warehouse) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Pool SQL dedicato dell'analisi sinapsi (area di lavoro) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Esplora dati ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Condividere da un account di archiviazione
-Condivisione dati di Azure supporta la condivisione di file, cartelle e file System da Azure Data Lake Gen1 e Azure Data Lake Gen2. Supporta anche la condivisione di BLOB, cartelle e contenitori dall'archiviazione BLOB di Azure. Attualmente è supportato solo il BLOB in blocchi. Quando i file System, i contenitori o le cartelle sono condivisi nella condivisione basata su snapshot, il consumer di dati può scegliere di eseguire una copia completa dei dati di condivisione o sfruttare la funzionalità di snapshot incrementale per copiare solo i file nuovi o aggiornati. Gli snapshot incrementali si basano sull'ora dell'Ultima modifica dei file. I file esistenti con lo stesso nome verranno sovrascritti durante lo snapshot. Il file eliminato dall'origine non viene eliminato nella destinazione. 
+La condivisione di dati di Azure supporta la condivisione di file, cartelle e file System da Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2. Supporta anche la condivisione di BLOB, cartelle e contenitori dall'archiviazione BLOB di Azure. Attualmente sono supportati solo i BLOB in blocchi. 
 
-Per informazioni dettagliate, vedere [condividere e ricevere dati dall'archivio BLOB di Azure e Azure Data Lake storage](how-to-share-from-storage.md) .
+Quando i file System, i contenitori o le cartelle sono condivisi nella condivisione basata su snapshot, i consumer di dati possono scegliere di eseguire una copia completa dei dati condivisi. In alternativa, è possibile usare la funzionalità di snapshot incrementale per copiare solo i nuovi file o i file aggiornati. 
+
+Uno snapshot incrementale si basa sull'ora dell'Ultima modifica dei file. I file esistenti con lo stesso nome dei file nei dati ricevuti vengono sovrascritti in uno snapshot. I file eliminati dall'origine non vengono eliminati nella destinazione. 
+
+Per altre informazioni, vedere [condividere e ricevere dati da un archivio BLOB di Azure e Azure Data Lake storage](how-to-share-from-storage.md).
 
 ## <a name="share-from-a-sql-based-source"></a>Condividere da un'origine basata su SQL
-La condivisione di dati di Azure supporta la condivisione di tabelle e viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW) e la condivisione di tabelle da Azure sinapsi Analytics (area di lavoro) pool SQL dedicato. La condivisione da Azure sinapsi Analytics (area di lavoro) pool SQL senza server non è attualmente supportata. I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
+La condivisione di dati di Azure supporta la condivisione di tabelle e viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse). Supporta la condivisione di tabelle dal pool SQL dedicato di analisi delle sinapsi di Azure (area di lavoro). La condivisione da Azure sinapsi Analytics (area di lavoro) pool SQL senza server non è attualmente supportata. 
 
-Quando si accettano dati in Azure Data Lake Store Gen2 o nell'archiviazione BLOB di Azure, gli snapshot completi sovrascrivono il contenuto del file di destinazione, se già esistente.
-Quando i dati vengono ricevuti nella tabella e se la tabella di destinazione non esiste già, la condivisione di dati di Azure crea la tabella SQL con lo schema di origine. Se una tabella di destinazione esiste già con lo stesso nome, verrà eliminata e sovrascritta con lo snapshot completo più recente. Gli snapshot incrementali non sono attualmente supportati.
+I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file di un file con estensione CSV o parquet. Possono anche accettare dati come tabelle nel database SQL di Azure e in Azure sinapsi Analytics.
 
-Per informazioni dettagliate, fare riferimento a [condividere e ricevere dati dal database SQL di Azure e da Azure sinapsi Analytics](how-to-share-from-sql.md) .
+Quando i consumer accettano i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure, gli snapshot completi sovrascrivono il contenuto del file di destinazione se il file esiste già. Quando i dati vengono ricevuti in una tabella e la tabella di destinazione non esiste già, la condivisione di dati di Azure crea una tabella SQL usando lo schema di origine. Se una tabella di destinazione esiste già e ha lo stesso nome, viene eliminata e sovrascritta con lo snapshot completo più recente. Gli snapshot incrementali non sono attualmente supportati.
 
-## <a name="share-from-azure-data-explorer"></a>Condividere da Esplora dati di Azure
-La condivisione di dati di Azure supporta la possibilità di condividere i database sul posto da Azure Esplora dati cluster. Il provider di dati può condividere a livello di database o di cluster. Quando è condiviso a livello di database, il consumer di dati sarà in grado di accedere solo ai database specifici condivisi dal provider di dati. Quando viene condiviso a livello di cluster, il consumer di dati può accedere a tutti i database dal cluster del provider, inclusi eventuali database futuri creati dal provider di dati.
+Per altre informazioni, vedere [condividere e ricevere dati da un database SQL di Azure e da Azure sinapsi Analytics](how-to-share-from-sql.md).
 
-Per accedere ai database condivisi, il consumer di dati deve avere il proprio cluster Esplora dati di Azure. Il cluster di Azure Esplora dati del consumer di dati deve trovarsi nella stessa data center di Azure del cluster di Azure Esplora dati del provider di dati. Quando si stabilisce una relazione di condivisione, condivisione dati di Azure crea un collegamento simbolico tra i cluster di Azure Esplora dati del provider e del consumer. I dati inseriti con la modalità batch nel cluster di Azure Esplora dati di origine vengono visualizzati nel cluster di destinazione entro pochi secondi per pochi minuti.
+## <a name="share-from-data-explorer"></a>Condividi da Esplora dati
+La condivisione di dati di Azure supporta la possibilità di condividere i database sul posto da Azure Esplora dati cluster. Un provider di dati può condividere a livello del database o del cluster. 
 
-Per informazioni dettagliate, vedere [condividere e ricevere dati da Azure Esplora dati](/azure/data-explorer/data-share) . 
+Quando i dati vengono condivisi a livello di database, i consumer di dati possono accedere solo ai database condivisi dal provider di dati. Quando un provider condivide i dati a livello di cluster, i consumer di dati possono accedere a tutti i database dal cluster del provider, inclusi eventuali database futuri creati dal provider di dati.
+
+Per accedere ai database condivisi, i consumer di dati necessitano del proprio cluster di Esplora dati di Azure. Il cluster deve trovarsi nello stesso data center di Azure del cluster di Azure Esplora dati del provider di dati. 
+
+Quando viene stabilita una relazione di condivisione, condivisione dati di Azure crea un collegamento simbolico tra il cluster del provider e il cluster del consumer. I dati inseriti nel cluster di origine con la modalità batch vengono visualizzati nel cluster di destinazione entro pochi minuti.
+
+Per altre informazioni, vedere [condividere e ricevere dati da Azure Esplora dati](/azure/data-explorer/data-share). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

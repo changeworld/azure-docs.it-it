@@ -9,19 +9,19 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 183d8b415ccb35d22dcc23ccf11d0707ad0778dd
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533481"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963656"
 ---
 # <a name="monitor-azure-machine-learning"></a>Monitorare Azure Machine Learning
 
 Quando si usano applicazioni e processi aziendali critici basati sulle risorse di Azure, è consigliabile monitorare tali risorse per verificarne disponibilità, prestazioni e funzionamento. Questo articolo descrive i dati di monitoraggio generati da Azure Machine Learning e come analizzare e inviare avvisi su questi dati con monitoraggio di Azure.
 
 > [!TIP]
-> Le informazioni contenute in questo documento sono destinate principalmente __agli amministratori__ , in quanto descrive il monitoraggio per il servizio Azure Machine Learning e i servizi di Azure associati. Se si è un __esperto di dati__ o uno __sviluppatore__ e si desidera monitorare le informazioni specifiche per le *esecuzioni di training del modello* , vedere i documenti seguenti:
+> Le informazioni contenute in questo documento sono destinate principalmente __agli amministratori__, in quanto descrive il monitoraggio per il servizio Azure Machine Learning e i servizi di Azure associati. Se si è un __esperto di dati__ o uno __sviluppatore__ e si desidera monitorare le informazioni specifiche per le *esecuzioni di training del modello*, vedere i documenti seguenti:
 >
 > * [Avviare, monitorare e annullare le esecuzioni di training](how-to-manage-runs.md)
 > * [Registrare le metriche per le esecuzioni di training](how-to-track-experiments.md)
@@ -91,6 +91,8 @@ Tutte le metriche per Azure Machine Learning si trovano nell' **area di lavoro M
 
 Come riferimento, è possibile visualizzare un elenco di [tutte le metriche delle risorse supportate in monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
 
+> [!TIP]
+> I dati delle metriche di monitoraggio di Azure sono disponibili per 90 giorni. Tuttavia, quando si creano i grafici, è possibile visualizzare solo 30 giorni. Se ad esempio si desidera visualizzare un periodo di 90 giorni, è necessario suddividerlo in tre grafici di 30 giorni entro il periodo di 90 giorni.
 ### <a name="filtering-and-splitting"></a>Filtro e suddivisione
 
 Per le metriche che supportano le dimensioni, è possibile applicare filtri usando un valore della dimensione. Ad esempio, filtrando i **core attivi** per il nome di un **cluster** `cpu-cluster` . 
@@ -162,7 +164,7 @@ Di seguito sono riportate le query che è possibile usare per monitorare le riso
 
 La tabella seguente elenca le regole di avviso delle metriche comuni e consigliate per Azure Machine Learning:
 
-| Tipo di avviso | Condizione | Descrizione |
+| Tipo di avviso | Condizione | Description |
 |:---|:---|:---|
 | Model Deploy Failed (Distribuzione di modelli non riuscita) | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando una o più distribuzioni di modelli non sono riuscite |
 | Quota Utilization Percentage (Percentuale di utilizzo quota) | Tipo di aggregazione: media, operatore: maggiore di, valore soglia: 90| Quando la percentuale di utilizzo della quota è superiore al 90% |

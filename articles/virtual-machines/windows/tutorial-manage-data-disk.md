@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 528fe5dea533faf9447e03dd901568d783891ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d81bfaba572361304224932fadb7da5b1cc3f8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718935"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912888"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Esercitazione: gestire i dischi di Azure con Azure PowerShell
 
@@ -64,7 +64,7 @@ Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni d
 
 Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, creare una macchina virtuale con i comandi seguenti.
 
-Impostare il nome utente e la password necessari per l'account amministratore della macchina virtuale con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Impostare il nome utente e la password necessari per l'account amministratore della macchina virtuale con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 
 Creare la macchina virtuale con [New-AzVM](/powershell/module/az.compute/new-azvm). Verrà richiesto di immettere un nome utente e una password per l'account amministratore per la macchina virtuale.

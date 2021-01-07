@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 5f511a898b3b2964f954ba150b05f02486456dcf
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e49a84f5ac507ac80481313c103701a88934083a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171495"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900774"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito Hugo in App Web statiche di Azure (anteprima)
 
@@ -105,27 +105,27 @@ I passaggi seguenti illustrano come creare una nuova app del sito statica e dist
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Creare una risorsa di App Web statiche di Azure nel portale":::
 
-1. Per **Sottoscrizione** , accettare la sottoscrizione elencata o sceglierne una nuova nell'elenco a discesa.
+1. Per **Sottoscrizione**, accettare la sottoscrizione elencata o sceglierne una nuova nell'elenco a discesa.
 
-1. Per _Gruppo di risorse_ selezionare **Nuovo** . In _Nome nuovo gruppo di risorse_ immettere **hugo-static-app** e scegliere **OK** .
+1. Per _Gruppo di risorse_ selezionare **Nuovo**. In _Nome nuovo gruppo di risorse_ immettere **hugo-static-app** e scegliere **OK**.
 
-1. Immettere quindi un nome per l'app nella casella **Nome** . I caratteri validi includono `a-z`, `A-Z`, `0-9` e `-`.
+1. Immettere quindi un nome per l'app nella casella **Nome**. I caratteri validi includono `a-z`, `A-Z`, `0-9` e `-`.
 
 1. In _Area_ selezionare un'area disponibile nelle vicinanze.
 
-1. In _SKU_ selezionare **Gratuito** .
+1. In _SKU_ selezionare **Gratuito**.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Creare una risorsa di App Web statiche di Azure nel portale":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Dettagli inseriti":::
 
-1. Fare clic sul pulsante **Accedi con GitHub** .
+1. Fare clic sul pulsante **Accedi con GitHub**.
 
-1. Selezionare l' **organizzazione** in cui è stato creato il repository.
+1. Selezionare l'**organizzazione** in cui è stato creato il repository.
 
-1. Selezionare **hugo-static-app** come valore di _Repository_ .
+1. Selezionare **hugo-static-app** come valore di _Repository_.
 
-1. In _Ramo_ selezionare **master** .
+1. In _Ramo_ selezionare **master**.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Creare una risorsa di App Web statiche di Azure nel portale":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Informazioni su GitHub inserite":::
 
 ### <a name="build"></a>Compilare
 
@@ -135,7 +135,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Impostare _Percorso app_ su **/** .
 
-1. Impostare _Percorso artefatto app_ su **public** .
+1. Impostare _Percorso artefatto app_ su **public**.
 
    Non è necessario specificare alcun valore per _Percorso API_ perché al momento non viene distribuita alcuna API.
 
@@ -149,7 +149,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Nella finestra _Panoramica_ del portale di Azure della risorsa di App Web statiche di Azure appena creata, fare clic sul collegamento _URL_ per aprire l'applicazione distribuita.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Creare una risorsa di App Web statiche di Azure nel portale":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Applicazione distribuita":::
 
 #### <a name="custom-hugo-version"></a>Versione di Hugo personalizzata
 
@@ -176,7 +176,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "api" # Api source code path - optional
-          app_artifact_location: "public" # Built app content directory - optional
+          output_location: "public" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
           HUGO_VERSION: 0.58.0

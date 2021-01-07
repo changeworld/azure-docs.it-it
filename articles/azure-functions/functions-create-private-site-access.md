@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182505"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937043"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Esercitazione: Stabilire l'accesso privato al sito per Funzioni di Azure
 
@@ -130,7 +130,7 @@ Il primo passaggio di questa esercitazione consiste nel creare una nuova macchin
 
 ## <a name="create-an-azure-functions-app"></a>Creare un'app Funzioni di Azure
 
-Il passaggio successivo consiste nel creare un'app per le funzioni in Azure usando il [piano a consumo](functions-scale.md#consumption-plan). Più avanti nell'esercitazione si distribuirà il codice della funzione in questa risorsa.
+Il passaggio successivo consiste nel creare un'app per le funzioni in Azure usando il [piano a consumo](consumption-plan.md). Più avanti nell'esercitazione si distribuirà il codice della funzione in questa risorsa.
 
 1. Nel portale scegliere **Aggiungi** nella parte superiore della visualizzazione del gruppo di risorse.
 1. Selezionare **Calcolo > App per le funzioni**.
@@ -149,7 +149,7 @@ Il passaggio successivo consiste nel creare un'app per le funzioni in Azure usan
 
     | Impostazione      | Valore consigliato  | Descrizione      |
     | ------------ | ---------------- | ---------------- |
-    | _Account di archiviazione_ | Nome globalmente univoco | Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](./functions-scale.md#storage-account-requirements). |
+    | _Account di archiviazione_ | Nome globalmente univoco | Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements). |
     | _Sistema operativo_ | Sistema operativo preferito | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. |
     | _Pianificare_ | Consumo | Il [piano di hosting](./functions-scale.md) determina la modalità di scalabilità dell'app per le funzioni e la disponibilità delle risorse per ogni istanza. |
 1. Selezionare **Rivedi e crea** per rivedere le selezioni effettuate per la configurazione dell'app.

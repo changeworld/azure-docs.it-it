@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f2d55d1fcc92abdc629581d6e4d277ec0294dce0
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 8e657386c417ce3407aea9b3765419e1d2b70bb9
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858689"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962449"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
@@ -126,7 +126,7 @@ File di Azure supporta anche REST oltre a SMB. L'accesso a REST viene eseguito s
 
 L'errore di sistema 53 o 87 può verificarsi se sul client è abilitata la comunicazione NTLMv1. File di Azure supporta solo l'autenticazione NTLMv2. Con la comunicazione NTLMv1 abilitata, il client è meno sicuro. Di conseguenza, la comunicazione viene bloccata per File di Azure. 
 
-Per determinare se questa è la causa dell'errore, assicurarsi che la sottochiave seguente del Registro di sistema sia impostata su 3:
+Per determinare se questa è la cause dell'errore, verificare che la seguente sottochiave del registro di sistema non sia impostata su un valore inferiore a 3:
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa &gt; LmCompatibilityLevel**
 

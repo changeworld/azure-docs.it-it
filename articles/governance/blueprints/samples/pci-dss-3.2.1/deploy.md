@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto PCI-DSS v3.2.1
 description: Procedura di distribuzione per l'esempio di progetto Payment Card Industry Data Security Standard v3.2.1, inclusi i dettagli dei parametri degli artefatti del progetto.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b1d635a073dc19e41a7ba73e130d6028daca99
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649211"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955672"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v3.2.1
 
@@ -93,7 +93,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|\[Anteprima\]: Verifica controlli PCI v3.2.1:2018 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione dei criteri|Elenco dei tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Per impostazione predefinita, sono selezionate tutte le risorse.| 
+|PCI v3.2.1:2018|Assegnazione dei criteri|Elenco dei tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Per impostazione predefinita, sono selezionate tutte le risorse.| 
 |Percorsi consentiti|Assegnazione dei criteri|Elenco di località consentite|Elenco di località di data center consentite in cui distribuire qualsiasi risorsa. Questo elenco è personalizzabile in base alle località di Azure a livello globale. Selezionare le località da consentire.| 
 |Località consentite per i gruppi di risorse|Assegnazione dei criteri |Località consentita |Questi criteri consentono di limitare le località in cui l'organizzazione può creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.| 
 |Distribuisci il controllo nei server SQL|Assegnazione dei criteri|Giorni di conservazione|Conservazione dei dati in numero di giorni. Il valore predefinito è 180, ma PCI richiede 365.| 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8d6e10b025b9e9524982b1558beacfab1970eb59
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f9f37bc27c54971c15db457abf157e04cc5d60e8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216437"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914672"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
 
@@ -37,7 +37,7 @@ In Cloud Shell selezionare **Prova** nell'angolo in alto a destra di qualsiasi b
 
 Per configurare il monitoraggio di Azure e la gestione degli aggiornamenti in questa esercitazione, è necessario disporre di una macchina virtuale Windows in Azure.
 
-Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -113,7 +113,7 @@ Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtual
 | **Nome** |immettere un nome univoco per identificare la distribuzione di aggiornamenti. |
 |**Sistema operativo**| Selezionare **Linux** o **Windows**.|
 | **Gruppi da aggiornare** |Per le macchine virtuali ospitate in Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag. Questa query crea un gruppo dinamico di macchine virtuali ospitate in Azure da includere nella distribuzione. </br></br>Per le macchine virtuali non ospitate in Azure, selezionare una ricerca salvata esistente. Con questa ricerca, è possibile selezionare un gruppo di queste VM da includere nella distribuzione. </br></br> Per altre informazioni, vedere [Gruppi dinamici](../../automation/update-management/configure-groups.md).|
-| **Computer da aggiornare** |Selezionare **Ricerca salvata**, **Gruppi importati**o **Computer**.<br/><br/>Se si seleziona **Computer**, è possibile scegliere singoli computer nell'elenco a discesa. L'idoneità di ogni computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE** della tabella.</br></br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md) |
+| **Computer da aggiornare** |Selezionare **Ricerca salvata**, **Gruppi importati** o **Computer**.<br/><br/>Se si seleziona **Computer**, è possibile scegliere singoli computer nell'elenco a discesa. L'idoneità di ogni computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE** della tabella.</br></br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md) |
 |**Classificazioni aggiornamenti**|Scegliere tutte le classificazioni degli aggiornamenti necessarie.|
 |**Includi/Escludi aggiornamenti**|Selezionare questa opzione per aprire il riquadro **Includi/Escludi**. Gli aggiornamenti da includere e quelli da escludere si trovano in schede separate. Per altre informazioni su come viene gestita l'inclusione, vedere [Pianificare la distribuzione degli aggiornamenti](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Impostazioni pianificazione**|Selezionare l'ora di inizio, quindi selezionare **Una sola volta** o **Ricorrente**.|
@@ -170,7 +170,7 @@ Dopo l'abilitazione della soluzione, la raccolta dell'inventario sulla macchina 
 
 ### <a name="track-changes"></a>Rilevare le modifiche
 
-Nella macchina virtuale in **OPERAZIONI**selezionare **Rilevamento modifiche**, quindi **Modifica impostazioni**. Viene visualizzato il riquadro **Rilevamento modifiche**. Selezionare il tipo di impostazione che si vuole rilevare e quindi fare clic su **+ Aggiungi** per configurare le impostazioni.
+Nella macchina virtuale in **OPERAZIONI** selezionare **Rilevamento modifiche**, quindi **Modifica impostazioni**. Viene visualizzato il riquadro **Rilevamento modifiche**. Selezionare il tipo di impostazione che si vuole rilevare e quindi fare clic su **+ Aggiungi** per configurare le impostazioni.
 
 Le opzioni delle impostazioni disponibili per Windows sono:
 

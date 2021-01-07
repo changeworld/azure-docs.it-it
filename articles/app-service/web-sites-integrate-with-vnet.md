@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854945"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963588"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app con una rete virtuale di Azure
 
@@ -130,6 +130,12 @@ L'interfaccia utente di Integrazione rete virtuale del piano di servizio app mos
 
 * **Sincronizzare la rete**: l'operazione di sincronizzazione della rete viene usata solo per la funzionalità di integrazione rete virtuale dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete assicura che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o modifica il DNS della rete virtuale, eseguire un'operazione di sincronizzazione della rete. Questa operazione riavvia tutte le app che usano questa rete virtuale. Questa operazione non funzionerà se si usano un'app e una rete virtuale appartenenti a sottoscrizioni diverse.
 * **Aggiungere route**: l'aggiunta di route indirizzerà il traffico in uscita nella rete virtuale.
+
+L'indirizzo IP privato assegnato all'istanza viene esposto tramite la variabile di ambiente, **WEBSITE_PRIVATE_IP**. L'interfaccia utente della console Kudu Mostra anche l'elenco delle variabili di ambiente disponibili per l'app Web. Questo IP viene assegnato dall'intervallo di indirizzi della subnet integrata. Per l'integrazione VNet a livello di area, il valore di WEBSITE_PRIVATE_IP è un indirizzo IP dall'intervallo di indirizzi della subnet delegata e per l'integrazione VNet richiesta dal gateway, il valore è un indirizzo IP dall'intervallo di indirizzi del pool di indirizzi da punto a sito configurato nel gateway di rete virtuale. Si tratta dell'indirizzo IP che verrà usato dall'app Web per connettersi alle risorse tramite la rete virtuale. 
+
+> [!NOTE]
+> Il valore di WEBSITE_PRIVATE_IP è associato alla modifica. Tuttavia, sarà un IP compreso nell'intervallo di indirizzi della subnet di integrazione o nell'intervallo di indirizzi da punto a sito, pertanto sarà necessario consentire l'accesso dall'intero intervallo di indirizzi.
+>
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Routing dell'integrazione rete virtuale richiesta dal gateway
 Le route definite in una rete virtuale vengono usate per indirizzare il traffico dall'app alla propria rete virtuale. Per inviare altro traffico in uscita nella rete virtuale, aggiungere qui i blocchi di indirizzi. Questa funzionalità può essere usata solo con l'integrazione rete virtuale richiesta dal gateway. Le tabelle di route non influiscono sul traffico dell'app quando si usa l'integrazione rete virtuale richiesta dal gateway, come avviene con l'integrazione rete virtuale a livello di area.

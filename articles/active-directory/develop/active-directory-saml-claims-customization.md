@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936795"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963503"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -135,7 +135,7 @@ Per trasformare le attestazioni, è possibile usare le funzioni seguenti.
 | **StartWith()** | Restituisce un attributo o una costante se l'input inizia con il valore specificato. In caso contrario, se non esistono corrispondenze, è possibile specificare un altro output.<br/>Ad esempio, è possibile scegliere che venga creata un'attestazione in cui il valore corrisponde all'ID dipendente dell'utente se il paese/area geografica inizia con "US" e in caso contrario che venga restituito un attributo di estensione. A questo scopo, configurare i valori seguenti:<br/>*Parametro 1 (input)* : user.country<br/>*Value*: "US"<br/>Parametro 2 (output): user.employeeid<br/>Parametro 3 (output se non esistono corrispondenze): user.extensionattribute1 |
 | **Extract() - Dopo la corrispondenza** | Restituisce la sottostringa dopo aver trovato una corrispondenza con il valore specificato.<br/>Ad esempio, se il valore di input è "Finance_BSimon", il valore corrispondente è "Finance_", allora l'output dell'attestazione è "BSimon". |
 | **Extract() - Prima della corrispondenza** | Restituisce la sottostringa finché non trova una corrispondenza con il valore specificato.<br/>Ad esempio, se il valore di input è "BSimon_US", il valore corrispondente è "_US", allora l'output dell'attestazione è "BSimon". |
-| **Extract() - Tra corrispondenze** | Restituisce la sottostringa finché non trova una corrispondenza con il valore specificato.<br/>Ad esempio, se il valore di input è "Finance_BSimon_US", il primo valore corrispondente è "Finance_", il secondo valore corrispondente è "_US", allora l'output dell'attestazione è "BSimon". |
+| **Extract() - Tra corrispondenze** | Restituisce la sottostringa finché non trova una corrispondenza con il valore specificato.<br/>Se, ad esempio, il valore di input è "Finance_BSimon_US", il primo valore corrispondente è "Finance \_ ", il secondo valore corrispondente è " \_ US", quindi l'output dell'attestazione è "BSimon". |
 | **ExtractAlpha() - Prefisso** | Restituisce la parte alfabetica del prefisso della stringa.<br/>Ad esempio, se il valore di input è "BSimon_123", restituisce "BSimon". |
 | **ExtractAlpha() - Suffisso** | Restituisce la parte alfabetica del suffisso della stringa.<br/>Ad esempio, se il valore di input è "123_Simon", restituisce "Simon". |
 | **ExtractNumeric() - Prefisso** | Restituisce la parte numerica del prefisso della stringa.<br/>Ad esempio, se il valore di input è "123_BSimon", restituisce "123". |
