@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 704449a9d70a38f9a05a68df290a4c0d0e6aeb54
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2aaa301a95f3f07ca81d20daba3ef28b812da0e6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318904"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Esercitazione: Integrazione di Azure Active Directory con Alcumus Info Exchange
 
@@ -63,7 +63,7 @@ Per configurare l'integrazione di Alcumus Info Exchange in Azure AD, è necessar
 
 4. Nella casella di ricerca digitare **Alcumus Info Exchange**, selezionare **Alcumus Info Exchange** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Alcumus Info Exchange nell'elenco risultati](common/search-new-app.png)
+    ![Alcumus Info Exchange nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -143,7 +143,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-alcumus-info-exchange-test-user"></a>Creare l'utente di test di Alcumus Info Exchange
 
-In questa sezione viene creato un utente di nome Britta Simon in Alcumus Info Exchange. Rivolgersi al  [team di supporto di Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) per aggiungere gli utenti alla piattaforma Alcumus Info Exchange. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Alcumus Info Exchange. Collaborare con il [team di supporto di Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) per aggiungere gli utenti alla piattaforma Alcumus Info Exchange. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

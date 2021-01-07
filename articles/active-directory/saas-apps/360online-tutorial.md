@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f3de29e5f046da56638876a35ca983792a4ce6c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2e7935de23dcbdccfa6f4efa602dbab42931075
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319132"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Esercitazione: Integrazione di Azure Active Directory con 360 Online
 
@@ -63,7 +63,7 @@ Per configurare l'integrazione di 360 Online in Azure AD, è necessario aggiunge
 
 4. Nella casella di ricerca digitare **360 Online**, selezionare **360 Online** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![360 Online nell'elenco risultati](common/search-new-app.png)
+    ![360 Online nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -76,7 +76,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con 360 Online, �
 2. **[Configurare l'accesso Single Sign-On per 360 Online](#configure-360-online-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di 360 Online ](#create-360-online-test-user)** : per avere una controparte di Britta Simon in 360 Online collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di 360 Online](#create-360-online-test-user)** : per avere una controparte di Britta Simon in 360 Online collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -141,7 +141,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
@@ -177,7 +177,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-360-online-test-user"></a>Creare l'utente di test di 360 Online
 
-In questa sezione viene creato un utente di nome Britta Simon in 360 Online. Collaborare con il  [team di supporto di 360 Online](mailto:360online@software-innovation.com) per aggiungere gli utenti alla piattaforma 360 Online. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in 360 Online. Collaborare con il [team di supporto di 360 Online](mailto:360online@software-innovation.com) per aggiungere gli utenti alla piattaforma 360 Online. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

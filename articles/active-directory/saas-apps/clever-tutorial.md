@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: d232048cbc5592b9b0fcacea6ee44e00e8d671e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7275bd8bc51d5f2889c7fc9365e9187040049876
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455834"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722250"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Clever
 
@@ -25,8 +25,6 @@ Questa esercitazione descrive come integrare Clever con Azure Active Directory (
 * Controllare in Azure AD chi può accedere a Clever.
 * Abilitare gli utenti per l'accesso automatico a Clever con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +38,6 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Clever supporta l'accesso SSO avviato da **SP**
-* Dopo aver configurato Concur, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -49,7 +46,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di Clever in Azure AD, è necessario aggiungere Clever dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
@@ -74,7 +71,7 @@ Per configurare e testare l'accesso SSO di Azure AD con Clever, completare le pr
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Clever** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Clever** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -114,42 +111,14 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Clever**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-clever-sso"></a>Configurare l'accesso Single Sign-On di Clever
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di Clever come amministratore.
-
-1. Nella barra degli strumenti fare clic su **Instant Login**.
-
-    ![Accesso immediato](./media/clever-tutorial/ic798984.png "Instant Login")
-
-    > [!NOTE]
-    > Prima di poter testare l'accesso Single Sign-On, è necessario contattare il [team di supporto clienti di Clever](https://clever.com/about/contact/) per abilitare l'accesso SSO di Microsoft 365 nel back-end.
-
-1. Nella pagina **Instant Login** seguire questa procedura:
- 
-    ![Configurazione dell'accesso SSO nella pagina Instant Login](./media/clever-tutorial/ic798985.png "Instant Login")
-
-    a. Digitare un valore in **URL di accesso**.
-
-    >[!NOTE]
-    >Per **Login URL** usare un valore personalizzato. Per ottenere questo valore, contattare il [team di supporto clienti di Clever](https://clever.com/about/contact/).
-
-    b. Per **Identity System** (Sistema di identità) scegliere **ADFS**.
-
-    c. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
-
-    d. Fare clic su **Salva**.
+Seguire le istruzioni fornite nel [collegamento](https://support.clever.com/hc/articles/205889768-Single-Sign-On-SSO-Log-in-with-Office-365-Azure-) per configurare l'accesso Single Sign-On sul lato Clever.
 
 ### <a name="create-clever-test-user"></a>Creare l'utente di test di Clever
 
@@ -162,16 +131,14 @@ Nel caso di Clever, collaborare con il [team di supporto clienti di Clever](http
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di Clever nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Clever per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di Clever, in cui è possibile avviare il flusso di accesso. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Passare direttamente all'URL di accesso di Clever e avviare il flusso di accesso da questa posizione.
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Clever in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Clever. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Provare Clever con Azure AD](https://aad.portal.azure.com/)
+Dopo aver configurato Clever, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

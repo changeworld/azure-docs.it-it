@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 3a53a5b7e60ef214a3db58d9e280e9dee8fec609
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 11aac69816714611c168cd05c2828dd1ae85786e
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355920"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813650"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con AWS ClientVPN
 
@@ -89,7 +89,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     |
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso Single Sign-On effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di AWS ClientVPN](https://aws.amazon.com/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali,  è necessario aggiornarli con l'URL di risposta e l'URL di accesso Single Sign-On effettivi.  È possibile specificare lo stesso valore per l'URL di accesso e l'URL di risposta (http://127.0.0.1:35001).  Per informazioni dettagliate, vedere la [documentazione di AWS Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad).   È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure. Per eventuali problemi di configurazione, contattare il [team di supporto di AWS ClientVPN](https://aws.amazon.com/contact-us/). 
 
 1. Nel servizio Azure Active Directory passare a **Registrazioni app** e quindi selezionare **Tutte le applicazioni**.
 

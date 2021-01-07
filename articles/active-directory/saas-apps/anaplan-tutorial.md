@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 92a878c60ba2a7c08a17ce2833132b389ef49435
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9b6fcec6f564e944f0e73d151b61d46af4b4cc03
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318738"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Esercitazione: Integrazione di Azure Active Directory con Anaplan
 
@@ -63,7 +63,7 @@ Per configurare l'integrazione di Anaplan in Azure AD, è necessario aggiungere 
 
 4. Nella casella di ricerca digitare **Anaplan**, selezionare **Anaplan** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Anaplan nell'elenco risultati](common/search-new-app.png)
+    ![Anaplan nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -143,7 +143,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-anaplan-test-user"></a>Creare l'utente di test di Anaplan
 
-In questa sezione viene creato un utente di nome Britta Simon in Anaplan. Rivolgersi al  [team di supporto di Anaplan](mailto:support@anaplan.com) per aggiungere utenti alla piattaforma Anaplan. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Anaplan. Collaborare con il [team di supporto di Anaplan](mailto:support@anaplan.com) per aggiungere gli utenti alla piattaforma Anaplan. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
