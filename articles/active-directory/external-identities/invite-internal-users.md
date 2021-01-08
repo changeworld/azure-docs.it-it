@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093469"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015760"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Invitare gli utenti interni alla collaborazione B2B
 
@@ -44,8 +44,7 @@ In questi casi, se l'utente interno deve essere modificato in un utente B2B, è 
 
 È possibile usare PowerShell o l'API di invito per inviare un invito B2B all'utente interno. Verificare che l'indirizzo di posta elettronica che si vuole usare per l'invito sia impostato come indirizzo di posta elettronica esterno per l'oggetto utente interno.
 
-- Per un utente solo cloud, usare l'indirizzo di posta elettronica nella proprietà User. OtherMails per l'invito.
-- Per un utente sincronizzato locale, è necessario usare il valore nella proprietà User. mail per l'invito.
+- È necessario usare l'indirizzo di posta elettronica nella proprietà User. mail per l'invito.
 - Il dominio nella proprietà della posta dell'utente deve corrispondere all'account usato per l'accesso. In caso contrario, alcuni servizi, ad esempio i team, non saranno in grado di autenticare l'utente.
 
 Per impostazione predefinita, l'invito invierà all'utente un messaggio di posta elettronica che informa che è stato invitato, ma è possibile eliminarlo e inviare il proprio messaggio.

@@ -3,16 +3,15 @@ title: Monitorare e gestire processi di Analisi di flusso di Azure con PowerShel
 description: Questo articolo descrive come usare Azure PowerShell e i cmdlet per monitorare e gestire i processi di Analisi di flusso di Azure.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 4d41e8231f5bd186408ea511c0f096a6a5f26c83
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6b404516c513dea0888974ffb4fa3d8d43db6c44
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123643"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015182"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorare e gestire i processi di Analisi di flusso con i cmdlet di Azure PowerShell
 Informazioni su come monitorare e gestire le risorse di Analisi di flusso con i cmdlet di Azure PowerShell e gli script di PowerShell che eseguono attività di base di Analisi di flusso.

@@ -2,16 +2,16 @@
 title: Esplorare i processi di analisi di flusso di Azure in Visual Studio Code
 description: Questo articolo illustra come esportare un processo di analisi di flusso di Azure in un progetto locale, elencare i processi e visualizzare le entità del processo.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.openlocfilehash: 4b4ddd7db4891c642ec2002bbe992314fe67a20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1c0650820a419275ade6095344033b6d81a568
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891973"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013873"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Esplora analisi di flusso di Azure con Visual Studio Code (anteprima)
 

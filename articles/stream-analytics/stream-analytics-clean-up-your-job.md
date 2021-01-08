@@ -1,19 +1,18 @@
 ---
 title: Pulire un processo di Analisi di flusso di Azure
 description: Questo articolo illustra metodi diversi per eliminare i processi di Analisi di flusso di Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2652b97c9392d3016bbc52209d4b2bda81c31706
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31812ac805bd3465b1b735842b45adb372286d66
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022082"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016066"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Arrestare o eliminare il processo di analisi di flusso di Azure
 

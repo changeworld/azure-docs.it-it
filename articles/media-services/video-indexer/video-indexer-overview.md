@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052138"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014536"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Informazioni su Video Indexer di Servizi multimediali di Azure
 
@@ -76,7 +76,7 @@ L'elenco seguente contiene le informazioni dettagliate che è possibile recupera
 
 * **Trascrizione audio**: converte la voce in testo in 12 lingue diverse e consente le estensioni. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese mandarino, giapponese, arabo, russo, portoghese, hindi e coreano.
 * **Rilevamento automatico della lingua**: identifica automaticamente la lingua parlata dominante. Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese mandarino, giapponese, russo e portoghese. Se la lingua non può essere identificata in modo affidabile, Video Indexer presuppone che la lingua parlata sia l'inglese. Per altre informazioni, vedere [Modello di identificazione della lingua](language-identification-model.md).
-* **Identificazione e trascrizione del parlato multilingue** (anteprima): identifica automaticamente la lingua parlata in segmenti diversi dell'audio. Invia ogni segmento del file multimediale da trascrivere, quindi combina nuovamente la trascrizione in un'unica trascrizione unificata. Per altre informazioni, vedere [Identificare e trascrivere automaticamente contenuto multilingue](multi-language-identification-transcription.md).
+* **Riconoscimento vocale e trascrizione** in più lingue: identifica automaticamente il linguaggio parlato in segmenti diversi dall'audio. Invia ogni segmento del file multimediale da trascrivere, quindi combina nuovamente la trascrizione in un'unica trascrizione unificata. Per altre informazioni, vedere [Identificare e trascrivere automaticamente contenuto multilingue](multi-language-identification-transcription.md).
 * **Sottotitoli**: consente di creare sottotitoli in tre formati: VTT, TTML e SRT.
 * **Elaborazione a due canali**: rileva automaticamente trascrizioni separate e le unisce in una singola sequenza temporale.
 * **Riduzione del rumore**: ripulisce le registrazioni audio di telefonia o le registrazioni con rumori (in base ai filtri Skype).

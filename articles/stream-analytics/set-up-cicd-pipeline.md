@@ -4,16 +4,15 @@ description: Questo articolo descrive come configurare una pipeline di integrazi
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757759"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014247"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Usare Azure DevOps per creare una pipeline CI/CD per un processo di analisi di flusso
 
@@ -39,7 +38,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
 
 1. Selezionare il tipo di origine, il progetto team e il repository. Quindi selezionare **continue (continua**).
 
-   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Selezionare il progetto di analisi di flusso di Azure":::
 
 1. Nella pagina **Scegli un modello** selezionare **processo vuoto**.
 
@@ -47,7 +46,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
 
 1. Nella pagina **attività** , selezionare il segno più accanto a **processo agente 1**. Immettere *NPM* nella ricerca attività e selezionare **NPM**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Selezionare l'attività NPM":::
 
 2. Assegnare all'attività un **nome visualizzato**. Modificare l'opzione di **comando** in *Custom* e immettere il comando seguente in **Command and arguments**. Lasciare le opzioni predefinite rimanenti.
 
@@ -55,7 +54,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Immettere le configurazioni per l'attività NPM":::
 
 ## <a name="add-a-build-task"></a>Aggiungere un'attività di compilazione
 
@@ -77,7 +76,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
 
    L'immagine seguente usa un progetto di analisi di flusso Visual Studio Code come esempio.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Immettere le configurazioni per l'attività della riga di comando Visual Studio Code":::
 
 ## <a name="add-a-test-task"></a>Aggiungere un'attività di test
 
@@ -87,7 +86,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
    |-|-|
    |testPath|Test|
 
-   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Aggiungi variabili pipeline":::
 
 2. Nella pagina **attività** , selezionare il segno più accanto a **processo agente 1**. Cerca **riga di comando**.
 
@@ -99,7 +98,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Immettere le configurazioni per l'attività della riga di comando":::
 
 ## <a name="add-a-copy-files-task"></a>Aggiungere un'attività copia file
 
@@ -116,7 +115,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
 
 2. Espandere **Opzioni di controllo**. Selezionare **anche se un'attività precedente non è riuscita, a meno che la compilazione non sia stata annullata** in **eseguire questa attività**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Immettere le configurazioni per l'attività di copia":::
 
 ## <a name="add-a-publish-build-artifacts-task"></a>Aggiungere un'attività pubblica artefatti di compilazione
 
@@ -124,7 +123,7 @@ In questa sezione viene illustrato come creare una pipeline di compilazione. È 
 
 2. Espandere **Opzioni di controllo**. Selezionare **anche se un'attività precedente non è riuscita, a meno che la compilazione non sia stata annullata** in **eseguire questa attività**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Immettere le configurazioni per l'attività di pubblicazione":::
 
 ## <a name="save-and-run"></a>Salvare ed eseguire
 
@@ -134,9 +133,9 @@ Dopo aver completato l'aggiunta delle attività pacchetto NPM, riga di comando, 
 
 Il file di riepilogo dei test e i file del modello di Azure Resource Manager si trovano nella cartella **pubblicata** .
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Verificare il risultato della compilazione e del test":::
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Verifica artefatti":::
 
 ## <a name="release-with-azure-pipelines"></a>Rilascia con Azure Pipelines
 
@@ -148,9 +147,9 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
 
 2. Selezionare **inizia con un processo vuoto**.
 
-3. Nella casella **elementi** selezionare **+ Aggiungi un artefatto**. In **origine**selezionare la pipeline di compilazione creata e selezionare **Aggiungi**.
+3. Nella casella **elementi** selezionare **+ Aggiungi un artefatto**. In **origine** selezionare la pipeline di compilazione creata e selezionare **Aggiungi**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Crea nuova pipeline di Azure":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Immettere l'artefatto della pipeline di compilazione":::
 
 4. Modificare il nome della **fase 1** per **distribuire il processo nell'ambiente di test**.
 
@@ -162,7 +161,7 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
 
 2. Selezionare il **+** accanto a **processo di Agent** e cercare **distribuzione modello ARM**. Immettere i parametri seguenti:
 
-   |Parametro|Valore|
+   |Parametro|valore|
    |-|-|
    |Nome visualizzato| *Distribuire myASAProject*|
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
@@ -173,13 +172,13 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
    |Modello| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-CICD-demo-CI-deploy/drop/myASAProject.JobTemplate.json |
    |Parametri di modelli|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-CICD-demo-CI-deploy/drop/myASAProject.JobTemplate.parameters.json |
    |Eseguire l'override dei parametri del modello|-<arm_template_parameter> "valore". È possibile definire i parametri usando le **variabili**.|
-   |Modalità di distribuzione|Incrementale|
+   |Modalità di distribuzione|Incremental|
 
 3. Dall'elenco a discesa attività selezionare **Distribuisci processo in ambiente di produzione**.
 
 4. Selezionare il **+** accanto a **processo di Agent** e cercare *distribuzione modello ARM*. Immettere i parametri seguenti:
 
-   |Parametro|Valore|
+   |Parametro|valore|
    |-|-|
    |Nome visualizzato| *Distribuire myASAProject*|
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
@@ -190,13 +189,13 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
    |Modello| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-CICD-demo-CI-deploy/drop/myASAProject.JobTemplate.json |
    |Parametri di modelli|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-CICD-demo-CI-deploy/drop/myASAProject.JobTemplate.parameters.json |
    |Eseguire l'override dei parametri del modello|-<arm_template_parameter> "valore"|
-   |Modalità di distribuzione|Incrementale|
+   |Modalità di distribuzione|Incremental|
 
 ### <a name="create-a-release"></a>Creare una versione
 
 Per creare una versione, selezionare **Crea versione** nell'angolo superiore destro.
 
-:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Crea nuova pipeline di Azure":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Creare una versione usando Azure Pipelines":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

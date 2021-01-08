@@ -1,18 +1,17 @@
 ---
 title: Output delle code del bus di servizio da analisi di flusso di Azure
 description: Questo articolo descrive le code del bus di servizio come output per analisi di flusso di Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 3527bdbbf1ba337d24dc390f97ed090c8dfbe039
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9f71a0f9c6d3fdca4b81be3a69479c78236fcc31
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348390"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014213"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Output delle code del bus di servizio da analisi di flusso di Azure
 
@@ -34,7 +33,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Formato di serializzazione eventi |Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica |Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON. |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
-| Format |Applicabile solo per il tipo JSON. **Separato da righe** specifica che l'output viene formattato separando ciascun oggetto JSON con una nuova riga. Se si seleziona **Separato da righe** , JSON viene letto un oggetto alla volta. L'intero contenuto non è di per sé un oggetto JSON valido. **Matrice** specifica che l'output viene formattato come matrice di oggetti JSON. |
+| Format |Applicabile solo per il tipo JSON. **Separato da righe** specifica che l'output viene formattato separando ciascun oggetto JSON con una nuova riga. Se si seleziona **Separato da righe**, JSON viene letto un oggetto alla volta. L'intero contenuto non è di per sé un oggetto JSON valido. **Matrice** specifica che l'output viene formattato come matrice di oggetti JSON. |
 | Colonne delle proprietà | Facoltativa. Colonne delimitate da virgole che devono essere associate come proprietà utente del messaggio in uscita anziché del payload. Altre informazioni su questa funzionalità sono illustrate nella sezione [Proprietà dei metadati personalizzati per l'output](#custom-metadata-properties-for-output). |
 | Colonne delle proprietà di sistema | Facoltativa. Coppie chiave-valore delle proprietà di sistema e nomi di colonna corrispondenti che devono essere allegati al messaggio in uscita anziché al payload.  |
 

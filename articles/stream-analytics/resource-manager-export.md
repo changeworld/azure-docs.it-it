@@ -2,17 +2,17 @@
 title: Esportare un processo di Analisi di flusso di Azure con un modello di Azure Resource Manager
 description: Questo articolo descrive come esportare un modello di Azure Resource Manager per il processo di analisi di flusso di Azure.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 2afebe61c4b2998692c823e66d8fc73584ec1dc2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa17d83dcc14675db5ff6aa4597314baffbffdbb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125649"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015420"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Esportare un processo di Analisi di flusso di Azure con un modello di Azure Resource Manager
 
@@ -24,7 +24,7 @@ ms.locfileid: "93125649"
 
 Prima di poter esportare un modello, è innanzitutto necessario aprire un processo di analisi di flusso esistente in Visual Studio Code. 
 
-Per esportare un processo in un progetto locale, individuare il processo che si vuole esportare in **Esplora analisi di flusso** nel portale di Azure. Dalla pagina **query** selezionare **Apri in Visual Studio** . Quindi selezionare **Visual Studio Code** .
+Per esportare un processo in un progetto locale, individuare il processo che si vuole esportare in **Esplora analisi di flusso** nel portale di Azure. Dalla pagina **query** selezionare **Apri in Visual Studio**. Quindi selezionare **Visual Studio Code**.
 
 ![Aprire il processo di analisi di flusso in Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
 
@@ -58,7 +58,7 @@ Completare quindi il file dei parametri del modello di gestione risorse di Azure
 
 Si è pronti per distribuire il processo di analisi di flusso di Azure usando i modelli di Azure Resource Manager generati nella sezione precedente.
 
-In una finestra di PowerShell eseguire il comando seguente. Assicurarsi di reaplce *ResourceGroupName* , *TemplateFile* e *TemplateParameterFile* con il nome del gruppo di risorse effettivo e i percorsi di file completi per la *JobTemplate.js* in e *JobTemplate.parameters.jssui* file nella **cartella Deploy** dell'area di lavoro del processo.
+In una finestra di PowerShell eseguire il comando seguente. Assicurarsi di reaplce *ResourceGroupName*, *TemplateFile* e *TemplateParameterFile* con il nome del gruppo di risorse effettivo e i percorsi di file completi per la *JobTemplate.js* in e *JobTemplate.parameters.jssui* file nella **cartella Deploy** dell'area di lavoro del processo.
 
 Se Azure PowerShell non è configurato, seguire la procedura descritta in [Install Azure PowerShell Module](/powershell/azure/install-Az-ps).
 

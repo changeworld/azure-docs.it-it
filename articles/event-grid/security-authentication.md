@@ -2,13 +2,13 @@
 title: Autenticare il recapito di eventi a gestori eventi (griglia di eventi di Azure)
 description: Questo articolo descrive le diverse modalità di autenticazione del recapito ai gestori di eventi in griglia di eventi di Azure.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: abe16c9598c8c10caa832150aafac997dd7f1624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 8360aa49e3d83879499af79448ff9f85082f47ac
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87460644"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015539"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticare il recapito di eventi a gestori eventi (griglia di eventi di Azure)
 Questo articolo fornisce informazioni sull'autenticazione del recapito di eventi ai gestori eventi. Viene anche illustrato come proteggere gli endpoint del webhook usati per ricevere eventi da griglia di eventi usando Azure Active Directory (Azure AD) o un segreto condiviso.
@@ -16,7 +16,7 @@ Questo articolo fornisce informazioni sull'autenticazione del recapito di eventi
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Usare le identità assegnate dal sistema per il recapito degli eventi
 È possibile abilitare un'identità gestita assegnata dal sistema per un argomento o un dominio e usare l'identità per l'invio di eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
 
-Di seguito sono riportati i passaggi necessari: 
+Ecco i passaggi necessari: 
 
 1. Creare un argomento o un dominio con un'identità assegnata dal sistema oppure aggiornare un argomento o un dominio esistente per abilitare l'identità. 
 1. Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio.
@@ -41,6 +41,9 @@ Per altre informazioni su come recapitare gli eventi ai webhook, vedere [Recapit
 
 > [!IMPORTANT]
 Griglia di eventi di Azure supporta solo endpoint webhook **HTTPS**. 
+
+## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida degli endpoint con CloudEvents v1.0
+Se si ha già familiarità con griglia di eventi, si potrebbe essere a conoscenza dell'handshake di convalida dell'endpoint per impedire abusi. CloudEvents v 1.0 implementa la propria [semantica di protezione da abusi](webhook-event-delivery.md) usando il metodo delle **Opzioni http** . Per ulteriori informazioni, vedere la pagina [relativa agli hook Web HTTP 1,1 per il recapito degli eventi, versione 1,0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, griglia di eventi usa la protezione dagli abusi di CloudEvents v 1.0 al posto del meccanismo di convalida degli eventi di griglia di eventi. Per altre informazioni, vedere [usare lo schema CloudEvents v 1.0 con griglia di eventi](cloudevents-schema.md). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

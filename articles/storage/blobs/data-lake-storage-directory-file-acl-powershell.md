@@ -10,12 +10,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7617a41798821fbb4208898171b7d78b6dcafc99
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 83a19074eb131b4024c0eaf92631a7b2f3d266d9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964066"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014468"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
@@ -78,8 +78,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 Con questo approccio, il sistema non controlla le autorizzazioni RBAC o ACL di Azure.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName "<storage-account-name>" -StorageAccountKey "<storage-account-key>"
 ```
 
 ## <a name="create-a-container"></a>Creare un contenitore

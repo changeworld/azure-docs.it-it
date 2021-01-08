@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614898"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014723"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
 
@@ -83,7 +83,7 @@ Se l'app usa solo l'autenticazione con nome utente e password, non è necessario
 
 Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, procedere nel seguente modo:
 
-1. Sempre nella [portale di Azure](https://portal.azure.com)selezionare l'app in **registrazioni app** e quindi selezionare **autenticazione**.
+1. Sempre nella <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portale di Azure</a>Selezionare l'app in **registrazioni app** e quindi selezionare **autenticazione**.
 1. In **Impostazioni avanzate**  >  **Consenti flussi client pubblici**  >  **Abilita i flussi di dispositivi mobili e desktop seguenti:** selezionare **Sì**.
 
    :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Abilitare l'impostazione client pubblica nel riquadro autenticazione in portale di Azure":::

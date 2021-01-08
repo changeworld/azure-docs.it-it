@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341315"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015692"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzazione](index-policy.md) definiti per ogni contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati applicano indici di intervallo per qualsiasi stringa o numero. Questo criterio può essere sostituito con i criteri di indicizzazione personalizzati.
+In Azure Cosmos DB i dati vengono indicizzati in seguito ai [criteri di indicizzazione](index-policy.md) definiti per ogni contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati applicano indici di intervallo per qualsiasi stringa o numero. Questo criterio può essere sostituito con i criteri di indicizzazione personalizzati.
 
 > [!NOTE]
 > Il metodo di aggiornamento dei criteri di indicizzazione descritti in questo articolo si applica solo all'API SQL (Core) di Azure Cosmos DB. Informazioni sull'indicizzazione nell' [API Azure Cosmos DB per MongoDB e l'](mongodb-indexing.md) [indicizzazione secondaria in Azure Cosmos DB API Cassandra.](cassandra-secondary-index.md)
@@ -27,7 +27,7 @@ In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzaz
 
 Di seguito sono riportati alcuni esempi di criteri di indicizzazione mostrati nel [formato JSON](index-policy.md#include-exclude-paths), che è il modo in cui vengono esposti nel portale di Azure. Gli stessi parametri possono essere impostati tramite l'interfaccia della riga di comando di Azure o qualsiasi SDK.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Criteri di esclusione per escludere in modo selettivo alcuni percorsi delle proprietà
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a><a id="range-index"></a>Criteri di esclusione per escludere in modo selettivo alcuni percorsi delle proprietà
 
 ```json
     {
@@ -146,7 +146,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
 > [!NOTE]
 > È in genere consigliabile usare un criterio di indicizzazione di tipo **rifiuto esplicito** per consentire a Azure Cosmos DB di indicizzare in modo proattivo tutte le nuove proprietà che possono essere aggiunte al modello di dati.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usare un indice spaziale solo in un percorso di proprietà specifico
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a><a id="spatial-index"></a>Usare un indice spaziale solo in un percorso di proprietà specifico
 
 ```json
 {
@@ -176,7 +176,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>Esempi di criteri di indicizzazione composti
+## <a name="composite-indexing-policy-examples"></a><a id="composite-index"></a>Esempi di criteri di indicizzazione composti
 
 Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi avranno un vantaggio a livello di prestazioni per le query con più filtri o con un filtro e una clausola ORDER BY.
 

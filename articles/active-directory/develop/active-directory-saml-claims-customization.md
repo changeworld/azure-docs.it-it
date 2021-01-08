@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963503"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013788"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -81,7 +81,7 @@ Per altre informazioni, vedere [Tabella 3: Valori di ID validi per origine](acti
 
 È anche possibile assegnare qualsiasi valore costante (statico) a tutte le attestazioni definite in Azure AD. Per assegnare un valore costante, seguire questa procedura:
 
-1. Nella sezione **Attributi utente e attestazioni** del [portale di Azure](https://portal.azure.com/) fare clic sull'icona **Modifica** per modificare le attestazioni.
+1. Nel <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, nella sezione **attributi utente & attestazioni** , fare clic sull'icona **modifica** per modificare le attestazioni.
 
 1. Fare clic sull'attestazione richiesta da modificare.
 

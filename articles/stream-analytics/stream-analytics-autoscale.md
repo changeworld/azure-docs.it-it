@@ -3,16 +3,15 @@ title: Ridimensionare i processi di analisi di flusso
 description: Questo articolo descrive come ridimensionare automaticamente il processo di analisi di flusso in base a una pianificazione o a valori predefiniti della metrica del processo
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 8e5bcdaeaf1ec99387a708199f4353736b6bc60f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a8e089e302e9d40c69cf7ff2a3480c17894e1463
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129848"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016287"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Ridimensionare i processi di analisi di flusso con automazione di Azure
 
@@ -31,9 +30,9 @@ Aggiungere le variabili seguenti all'interno dell'account di automazione di Azur
 
 | Nome | Type | valore |
 | --- | --- | --- |
-| **jobName** | string | Nome del processo di analisi di flusso che si vuole ridimensionare automaticamente. |
-| **resourceGroupName** | string | Nome del gruppo di risorse in cui è presente il processo. |
-| **subId** | string | ID sottoscrizione in cui è presente il processo. |
+| **jobName** | Stringa | Nome del processo di analisi di flusso che si vuole ridimensionare automaticamente. |
+| **resourceGroupName** | Stringa | Nome del gruppo di risorse in cui è presente il processo. |
+| **subId** | Stringa | ID sottoscrizione in cui è presente il processo. |
 | **increasedSU** | Integer | Il valore di SU superiore a cui si vuole ridimensionare il processo in una pianificazione. Questo valore deve corrispondere a una delle opzioni di SU valide visualizzate nelle impostazioni di **scalabilità** del processo mentre è in esecuzione. |
 | **decreasedSU** | Integer | Valore di SU inferiore a cui si vuole applicare la scalabilità del processo in una pianificazione. Questo valore deve corrispondere a una delle opzioni di SU valide visualizzate nelle impostazioni di **scalabilità** del processo mentre è in esecuzione. |
 | **maxSU** | Integer | Il valore massimo SU cui si vuole ridimensionare il processo nei passaggi durante la scalabilità automatica in base al carico. Questo valore deve corrispondere a una delle opzioni di SU valide visualizzate nelle impostazioni di **scalabilità** del processo mentre è in esecuzione. |
@@ -43,7 +42,7 @@ Aggiungere le variabili seguenti all'interno dell'account di automazione di Azur
 
 ### <a name="create-runbooks"></a>Creare runbook
 Il passaggio successivo consiste nel creare due manuali operativi di PowerShell. Uno per la scalabilità verticale e l'altro per le operazioni di ridimensionamento.
-1. Nell'account di automazione di Azure passare a **manuali operativi** in **automazione processi**  e selezionare **Crea Runbook** .
+1. Nell'account di automazione di Azure passare a **manuali operativi** in **automazione processi**  e selezionare **Crea Runbook**.
 2. Denominare il primo *ScaleUpRunbook* runbook con il tipo impostato su PowerShell. Usare lo [script di PowerShell ScaleUpRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) disponibile in GitHub. Salvarlo e pubblicarlo.
 3. Creare un altro Runbook denominato *ScaleDownRunbook* con il tipo PowerShell. Usare lo [script di PowerShell ScaleDownRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) disponibile in GitHub. Salvarlo e pubblicarlo.
 
@@ -53,27 +52,27 @@ A questo punto si dispone di manuali operativi in grado di attivare automaticame
 
 ## <a name="autoscale-based-on-a-schedule"></a>Ridimensionare automaticamente in base a una pianificazione
 Automazione di Azure consente di configurare una pianificazione per attivare la manuali operativi.
-1. Nell'account di automazione di Azure selezionare **pianificazioni** in **risorse condivise** . Selezionare quindi **Aggiungi pianificazione** .
+1. Nell'account di automazione di Azure selezionare **pianificazioni** in **risorse condivise**. Selezionare quindi **Aggiungi pianificazione**.
 2. Ad esempio, è possibile creare due pianificazioni. Uno che rappresenta quando si desidera che il processo venga scalato in verticale e un altro che rappresenta quando si desidera che il processo venga ridimensionato. È possibile definire una ricorrenza per queste pianificazioni.
 
    ![Pianificazioni in Automazione di Azure](./media/autoscale/schedules.png)
 
-3. Aprire il **ScaleUpRunbook** e quindi selezionare **pianificazioni** in **risorse** . È quindi possibile collegare il Runbook a una pianificazione creata nei passaggi precedenti. È possibile avere più pianificazioni collegate con lo stesso Runbook, che può essere utile quando si desidera eseguire la stessa operazione di ridimensionamento in momenti diversi del giorno.
+3. Aprire il **ScaleUpRunbook** e quindi selezionare **pianificazioni** in **risorse**. È quindi possibile collegare il Runbook a una pianificazione creata nei passaggi precedenti. È possibile avere più pianificazioni collegate con lo stesso Runbook, che può essere utile quando si desidera eseguire la stessa operazione di ridimensionamento in momenti diversi del giorno.
 
 ![Pianificazione di manuali operativi in automazione di Azure](./media/autoscale/schedulerunbook.png)
 
-1. Ripetere il passaggio precedente per **ScaleDownRunbook** .
+1. Ripetere il passaggio precedente per **ScaleDownRunbook**.
 
 ## <a name="autoscale-based-on-load"></a>Ridimensionamento automatico in base al carico
 Potrebbero esserci casi in cui non è possibile stimare il carico di input. In questi casi, è più ottimale applicare la scalabilità verso l'alto o verso il basso in passaggi entro un limite minimo e massimo. È possibile configurare le regole di avviso nei processi di analisi di flusso per attivare manuali operativi quando le metriche del processo vanno oltre una soglia.
-1. Nell'account di automazione di Azure creare altre due variabili integer denominate **mins** e **maxSU** . Consente di impostare i limiti entro i quali il processo verrà ridimensionato in passaggi.
+1. Nell'account di automazione di Azure creare altre due variabili integer denominate **mins** e **maxSU**. Consente di impostare i limiti entro i quali il processo verrà ridimensionato in passaggi.
 2. Creare due nuovi manuali operativi. È possibile usare lo [script di PowerShell StepScaleUp](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) che aumenta il valore di SUs del processo in incrementi fino al valore di **maxSU** . È anche possibile usare lo [script di PowerShell StepScaleDown](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) che riduce il SUs del processo nei passaggi fino a quando non viene raggiunto il valore **mins** . In alternativa, è possibile usare manuali operativi della sezione precedente se sono presenti valori di unità di streaming specifici a cui si vuole applicare la scalabilità.
-3. Nel processo di analisi di flusso selezionare **le regole di avviso** in **monitoraggio** . 
-4. Creare due gruppi di azioni. Una da usare per l'operazione di scalabilità verticale e un'altra per l'operazione di riduzione. Selezionare **Gestisci azioni** e quindi fare clic su **Aggiungi gruppo di azioni** . 
-5. Compilare i campi obbligatori. Scegliere **Runbook di automazione** quando si seleziona il **tipo di azione** . Selezionare il Runbook che si desidera attivare quando viene attivato l'avviso. Quindi, creare il gruppo di azioni.
+3. Nel processo di analisi di flusso selezionare **le regole di avviso** in **monitoraggio**. 
+4. Creare due gruppi di azioni. Una da usare per l'operazione di scalabilità verticale e un'altra per l'operazione di riduzione. Selezionare **Gestisci azioni** e quindi fare clic su **Aggiungi gruppo di azioni**. 
+5. Compilare i campi obbligatori. Scegliere **Runbook di automazione** quando si seleziona il **tipo di azione**. Selezionare il Runbook che si desidera attivare quando viene attivato l'avviso. Quindi, creare il gruppo di azioni.
 
    ![Creare un gruppo di azioni](./media/autoscale/create-actiongroup.png)
-6. Creare una [**nuova regola di avviso**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) nel processo. Specificare una condizione in base a una metrica di propria scelta. Per la definizione della logica di scalabilità automatica sono consigliate le metriche per gli eventi di [ *input* , l' *utilizzo su%* o *gli eventi di input con backlog*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) . È inoltre consigliabile utilizzare la *granularità* e la *frequenza di valutazione di* 1 minuto quando si attivano le operazioni di scalabilità verticale. In questo modo si garantisce che il processo disponga di risorse sufficienti per gestire picchi elevati nel volume di input.
+6. Creare una [**nuova regola di avviso**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) nel processo. Specificare una condizione in base a una metrica di propria scelta. Per la definizione della logica di scalabilità automatica sono consigliate le metriche per gli eventi di [ *input*, l' *utilizzo su%* o *gli eventi di input con backlog*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) . È inoltre consigliabile utilizzare la *granularità* e la *frequenza di valutazione di* 1 minuto quando si attivano le operazioni di scalabilità verticale. In questo modo si garantisce che il processo disponga di risorse sufficienti per gestire picchi elevati nel volume di input.
 7. Selezionare il gruppo di azioni creato nell'ultimo passaggio e creare l'avviso.
 8. Ripetere i passaggi da 2 a 4 per qualsiasi operazione di ridimensionamento aggiuntiva che si vuole attivare in base alla condizione delle metriche del processo.
 

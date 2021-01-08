@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366157"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014944"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -53,7 +53,7 @@ Nella sottoscrizione di Azure, l'account deve avere `Microsoft.Authorization/*/W
 
 Per controllare le proprie autorizzazioni di sottoscrizione:
 
-1. Cercare e selezionare le **sottoscrizioni**oppure selezionare **sottoscrizioni** nella **Home** page.
+1. Cercare e selezionare le **sottoscrizioni** oppure selezionare **sottoscrizioni** nella **Home** page.
 
    ![Ricerca](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -75,11 +75,11 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 Si passerà direttamente alla creazione dell'identità. Se si verifica un problema, controllare le [autorizzazioni necessarie](#permissions-required-for-registering-an-app) per assicurarsi che l'account possa creare l'identità.
 
-1. Accedere al proprio account Azure tramite il [portale di Azure](https://portal.azure.com).
+1. Accedere al proprio account Azure tramite il <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Selezionare **Azure Active Directory**.
 1. Selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
-1. Assegnare un nome all'applicazione. Selezionare un tipo di account supportato, che determina chi può usare l'applicazione. In **URI di reindirizzamento**selezionare **Web** per il tipo di applicazione che si desidera creare. Immettere l'URI a cui viene inviato il token di accesso. Non è possibile creare credenziali per un'[applicazione nativa](../manage-apps/application-proxy-configure-native-client-application.md) e non è possibile usare questo tipo per creare un'applicazione automatica. Dopo aver impostato i valori, selezionare **Register (registra**).
+1. Assegnare un nome all'applicazione. Selezionare un tipo di account supportato, che determina chi può usare l'applicazione. In **URI di reindirizzamento** selezionare **Web** per il tipo di applicazione che si desidera creare. Immettere l'URI a cui viene inviato il token di accesso. Non è possibile creare credenziali per un'[applicazione nativa](../manage-apps/application-proxy-configure-native-client-application.md) e non è possibile usare questo tipo per creare un'applicazione automatica. Dopo aver impostato i valori, selezionare **Register (registra**).
 
    ![Digitare un nome per l'applicazione](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -91,7 +91,7 @@ Per accedere alle risorse nella sottoscrizione, è necessario assegnare un ruolo
 
 È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Ad esempio, l'aggiunta di un'applicazione al ruolo *lettore* per un gruppo di risorse significa che può leggere il gruppo di risorse e tutte le risorse in esso contenute.
 
-1. Nella portale di Azure selezionare il livello di ambito a cui si vuole assegnare l'applicazione. Ad esempio, per assegnare un ruolo nell'ambito della sottoscrizione, cercare e selezionare le **sottoscrizioni**oppure selezionare **sottoscrizioni** nella **Home** page.
+1. Nella portale di Azure selezionare il livello di ambito a cui si vuole assegnare l'applicazione. Ad esempio, per assegnare un ruolo nell'ambito della sottoscrizione, cercare e selezionare le **sottoscrizioni** oppure selezionare **sottoscrizioni** nella **Home** page.
 
    ![Ad esempio, assegnare un ruolo nell'ambito della sottoscrizione](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -181,7 +181,7 @@ Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto 
 ## <a name="configure-access-policies-on-resources"></a>Configurare i criteri di accesso per le risorse
 Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. Ad esempio, è necessario aggiornare anche i [criteri di accesso](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) dell'insieme di credenziali delle chiavi per consentire all'applicazione di accedere a chiavi, segreti o certificati.
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'insieme di credenziali delle chiavi e selezionare **criteri di accesso**.
+1. Nella <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portale di Azure</a>passare all'insieme di credenziali delle chiavi e selezionare **criteri di accesso**.
 1. Selezionare **Aggiungi criteri di accesso**, quindi selezionare la chiave, il segreto e le autorizzazioni per i certificati per cui si vuole concedere l'applicazione.  Selezionare l'entità servizio creata in precedenza.
 1. Selezionare **Aggiungi** per aggiungere i criteri di accesso, quindi **Salva** per eseguire il commit delle modifiche.
     ![Aggiungere un criterio di accesso](./media/howto-create-service-principal-portal/add-access-policy.png)

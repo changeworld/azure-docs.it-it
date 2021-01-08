@@ -1,17 +1,17 @@
 ---
 title: Livelli di compatibilità di analisi di flusso di Azure
 description: Informazioni su come impostare un livello di compatibilità per un processo di Analisi di flusso di Azure e modifiche sostanziali nel livello di compatibilità più recente
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348934"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015981"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -53,7 +53,7 @@ Nel livello di compatibilità 1,2 sono state introdotte le modifiche principali 
 
 ###  <a name="amqp-messaging-protocol"></a>Protocollo di messaggistica AMQP
 
-**1,2 livello** : analisi di flusso di Azure usa il protocollo di messaggistica [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) per scrivere in code e argomenti del bus di servizio. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard.
+**1,2 livello**: analisi di flusso di Azure usa il protocollo di messaggistica [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) per scrivere in code e argomenti del bus di servizio. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard.
 
 ### <a name="geospatial-functions"></a>Funzioni geospaziali
 

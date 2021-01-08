@@ -3,17 +3,16 @@ title: Monitorare e gestire processi di Analisi di flusso di Azure a livello di 
 description: Questo articolo descrive come monitorare a livello di codice processi di Analisi di flusso creati tramite le API REST, Azure SDK o PowerShell.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c746e409964b4625a4c9921d9f02ca0c9730a35
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: dda1b6b652870440e7228e6640bb555f4c2e4a63
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123447"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015077"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
 
@@ -136,7 +135,7 @@ Il codice seguente configurerà le variabili e i client di gestione necessari.
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Abilitare il monitoraggio per un processo di analisi di flusso esistente
 
-Il codice seguente abilita il monitoraggio per un processo di analisi di flusso **esistente** . La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Viene usata la proprietà *ID* (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice, che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio del processo di Analisi di flusso.
+Il codice seguente abilita il monitoraggio per un processo di analisi di flusso **esistente**. La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Viene usata la proprietà *ID* (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice, che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio del processo di Analisi di flusso.
 
 > [!WARNING]
 > Se la funzione di monitoraggio è stata precedentemente abilitata per un processo di analisi di flusso diverso, tramite il portale di Azure o a livello di programmazione con il codice riportato di seguito, **è consigliabile specificare lo stesso nome di account di archiviazione usato nel monitoraggio abilitato precedentemente.**

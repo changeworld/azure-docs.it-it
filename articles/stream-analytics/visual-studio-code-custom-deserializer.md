@@ -3,16 +3,15 @@ title: Creare deserializzatori .NET personalizzati per i processi cloud di anali
 description: Questa esercitazione illustra come creare un deserializzatore .NET personalizzato per un processo cloud di analisi di flusso di Azure usando Visual Studio Code.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
-ms.openlocfilehash: 0f041910d1b02cc6d1fd48bfd773711c3361c0f5
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822477"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013924"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Creare deserializzatori .NET personalizzati per analisi di flusso di Azure in Visual Studio Code
 
@@ -22,7 +21,7 @@ Analisi di flusso di Azure include il [supporto predefinito per tre formati di d
 
 È possibile creare, testare ed eseguire il debug di un deserializzatore .NET personalizzato per un processo cloud di analisi di flusso di Azure usando Visual Studio Code.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 
 * Installare [.NET Core SDK](https://dotnet.microsoft.com/download) e riavviare Visual Studio Code.
 
@@ -71,7 +70,7 @@ Analisi di flusso di Azure include il [supporto predefinito per tre formati di d
    |Impostazione|Valore consigliato|
    |-------|---------------|
    |Nome|Input|
-   |Sottoscrizione|< sottoscrizione >|
+   |Subscription|< sottoscrizione >|
    |Account di archiviazione|< account di archiviazione >|
    |Contenitore|< contenitore di archiviazione >|
    |Tipo di serializzazione|Scegliere **personalizzata**|

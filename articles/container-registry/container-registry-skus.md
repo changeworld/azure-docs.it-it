@@ -1,14 +1,14 @@
 ---
 title: Livelli di servizio registro e funzionalità
-description: Informazioni sulle funzionalità e sui limiti dei livelli di servizio Basic, Standard e Premium (SKU) di Registro Azure Container.
+description: Informazioni sulle funzionalità e i limiti (quote) nei livelli di servizio Basic, standard e Premium di Azure Container Registry.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048475"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015666"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Livelli di servizio di Registro Azure Container
 
@@ -30,7 +30,9 @@ La tabella seguente illustra in dettaglio le funzionalità e i limiti del regist
 
 ## <a name="changing-tiers"></a>Modifica dei livelli
 
-È possibile cambiare il livello di servizio del registro tramite l'interfaccia della riga di comando di Azure o nel portale di Azure. È possibile passare liberamente da un livello all'altro, purché il livello a cui si passa abbia la capacità di archiviazione massima richiesta. 
+È possibile cambiare il livello di servizio del registro tramite l'interfaccia della riga di comando di Azure o nel portale di Azure. È possibile spostarsi liberamente tra i livelli, purché il livello a cui si passa abbia la capacità di archiviazione massima richiesta. 
+
+Non vi è alcun tempo di inattività del registro di sistema o l'effetto sulle operazioni del registro di sistema quando si passa da un livello
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
