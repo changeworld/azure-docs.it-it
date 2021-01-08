@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f6725045064b74079e00ca5bbe1d560f3b19f3ff
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006218"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937128"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler One per il provisioning utenti automatico
 
@@ -77,6 +77,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 > [!TIP]
 > È anche possibile abilitare il Single Sign-On basato su SAML per Zscaler One. Seguire le istruzioni riportate nell'[esercitazione per l'accesso Single Sign-On di Zscaler One](zscaler-One-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+
+> [!NOTE]
+> Quando si esegue il provisioning o il deprovisioning di utenti e gruppi, è consigliabile riavviare periodicamente il provisioning per assicurarsi che le appartenenze ai gruppi vengano aggiornate correttamente. Il riavvio forza il servizio a valutare di nuovo tutti i gruppi e ad aggiornare le appartenenze.  
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configurare il provisioning utenti automatico per Zscaler One in Azure AD
 

@@ -1,17 +1,17 @@
 ---
 title: Errori dati del log delle risorse di analisi di flusso di Azure
 description: Questo articolo illustra i diversi errori di dati di input e output che possono verificarsi quando si usa analisi di flusso di Azure.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ca289cd52b9a406e486ee9c186be683e71f02d0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011422"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020112"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errori dei dati di Analisi di flusso di Azure
 

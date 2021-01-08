@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 14708ddcc5c0e06ee58f5e9db5945c4e9f1a1d08
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351572"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937145"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler Private Access (ZPA) per il provisioning utenti automatico
 
@@ -117,6 +117,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 > È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Zscaler Private Access (ZPA), seguendo le istruzioni fornite nell'[esercitazione sull'accesso Single Sign-On per Zscaler Private Access (ZPA)](./zscalerprivateaccess-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
+> Quando si esegue il provisioning o il deprovisioning di utenti e gruppi, è consigliabile riavviare periodicamente il provisioning per assicurarsi che le appartenenze ai gruppi vengano aggiornate correttamente. Il riavvio forza il servizio a valutare di nuovo tutti i gruppi e ad aggiornare le appartenenze.  
+
+> [!NOTE]
 > Per altre informazioni sull'endpoint SCIM di Zscaler Private Access, vedere [questo articolo](https://www.zscaler.com/partners/microsoft).
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Zscaler Private Access (ZPA) in Azure AD:
@@ -131,7 +134,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni di gestione con l'opzione Provisioning evidenziata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 

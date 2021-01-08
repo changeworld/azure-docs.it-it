@@ -1,18 +1,17 @@
 ---
 title: Introduzione alle funzioni geospaziali di Analisi di flusso di Azure
 description: Questo articolo descrive le funzioni geospaziali che vengono usate nei processi di Analisi di flusso di Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8d01f43dd6e404bb8f8ae0898625ae1ea9d09fd6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130409"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020435"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduzione alle funzioni geospaziali di Analisi di flusso
 
@@ -26,7 +25,7 @@ Degli esempi di scenari che possono trarre vantaggio da funzioni geospaziali com
 * Definizione del geo-fencing
 * Rilevamento telefonico tra siti di cella
 
-Linguaggio di query di analisi di flusso ha sette funzioni geospaziali incorporati: **CreateLineString** , **Createpoint(20.0** , **CreatePolygon** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** , e **ST_WITHIN** .
+Linguaggio di query di analisi di flusso ha sette funzioni geospaziali incorporati: **CreateLineString**, **Createpoint(20.0**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**, e **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -57,7 +56,7 @@ Per altre informazioni, visitare il riferimento [CreateLineString](/stream-analy
 
 ## <a name="createpoint"></a>CreatePoint
 
-La funzione `CreatePoint` accetta una latitudine e longitudine e restituisce un punto GeoJSON, che può essere tracciato su una mappa. I termini di latitudine e longitudine devono essere un tipo di dati **float** .
+La funzione `CreatePoint` accetta una latitudine e longitudine e restituisce un punto GeoJSON, che può essere tracciato su una mappa. I termini di latitudine e longitudine devono essere un tipo di dati **float**.
 
 La query di esempio seguente usa `CreatePoint` per creare un punto che usa termini di latitudine e longitudine dall'esecuzione del flusso di dati di input.
 

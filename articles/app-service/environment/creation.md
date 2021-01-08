@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238395"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020180"
 ---
 # <a name="create-an-app-service-environment"></a>Creare una ambiente del servizio app
 
@@ -20,10 +20,9 @@ ms.locfileid: "95238395"
 > Questo articolo riguarda il ambiente del servizio app V3 (anteprima)
 > 
 
-Il [ambiente del servizio app (ASE)][Intro] è una distribuzione a tenant singolo del servizio app che inserisce nella rete virtuale di Azure (VNet).  ASEv3 supporta solo l'esposizione di app in un indirizzo privato in vnet. Quando viene creato un ASEv3 durante la fase di anteprima, vengono aggiunte tre risorse alla sottoscrizione.
+Il [ambiente del servizio app (ASE)][Intro] è una distribuzione a tenant singolo del servizio app che inserisce nella rete virtuale di Azure (VNet).  ASEv3 supporta solo l'esposizione di app in un indirizzo privato in vnet. Quando viene creato un ASEv3 durante la fase di anteprima, queste risorse vengono aggiunte alla sottoscrizione.
 
 - Ambiente del servizio app
-- Zona privata di DNS di Azure
 - Endpoint privato
 
 Una distribuzione di un ambiente del servizio app richiede l'uso di due subnet.  Una subnet conterrà l'endpoint privato.  Questa subnet può essere usata per altri elementi, ad esempio le macchine virtuali.  L'altra subnet viene usata per le chiamate in uscita dall'ambiente del servizio app.  Questa subnet non può essere usata per altri scopi diversi dall'ambiente del servizio app. 

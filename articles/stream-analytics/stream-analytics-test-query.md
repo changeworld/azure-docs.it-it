@@ -1,19 +1,18 @@
 ---
 title: Testare un processo di Analisi di flusso di Azure con dati di esempio
 description: Questo articolo descrive come usare il portale di Azure per testare un processo di Analisi di flusso di Azure, un input di esempio e caricare i dati di esempio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490968"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020044"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
 
@@ -37,11 +36,11 @@ Analisi di flusso di Azure recupera automaticamente gli eventi dagli input di st
     
    c. Se i dati visualizzati non sono aggiornati, selezionare **Aggiorna** per visualizzare gli eventi più recenti.
 
-   La tabella seguente è un esempio di dati nel **formato tabella** :
+   La tabella seguente è un esempio di dati nel **formato tabella**:
 
    ![Input di esempio di analisi di flusso di Azure in formato tabella](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   La tabella seguente è un esempio di dati in **formato non elaborato** :
+   La tabella seguente è un esempio di dati in **formato non elaborato**:
 
    ![Input di esempio di analisi di flusso di Azure in formato non elaborato](./media/stream-analytics-test-query/asa-sample-raw.png)
 
@@ -53,7 +52,7 @@ Analisi di flusso di Azure recupera automaticamente gli eventi dagli input di st
    
    ![Intervallo di tempo di analisi di flusso di Azure per gli eventi di esempio in ingresso](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-7. Impostare l'intervallo di tempo degli eventi che si vuole usare per testare la query e selezionare **Sample (esempio** ). All'interno di tale intervallo di tempo, è possibile recuperare fino a 1000 eventi o 1 MB, a seconda di quale si verifichi per primo.
+7. Impostare l'intervallo di tempo degli eventi che si vuole usare per testare la query e selezionare **Sample (esempio**). All'interno di tale intervallo di tempo, è possibile recuperare fino a 1000 eventi o 1 MB, a seconda di quale si verifichi per primo.
 
    ![Intervallo di tempo set di analisi di flusso di Azure per gli eventi di esempio in ingresso](./media/stream-analytics-test-query/asa-set-time-range.png)
 
@@ -61,7 +60,7 @@ Analisi di flusso di Azure recupera automaticamente gli eventi dagli input di st
 
    ![Analisi di flusso di Azure visualizzare i risultati dei test](./media/stream-analytics-test-query/asa-view-test-results.png)
 
-9. Selezionare **Reimposta** per visualizzare l'elenco degli eventi in ingresso di esempio. Se si seleziona **Reimposta** , la selezione dell'intervallo di tempo andrà persa. Selezionare **query di test** per testare la query ed esaminare i risultati nella scheda **risultati test** .
+9. Selezionare **Reimposta** per visualizzare l'elenco degli eventi in ingresso di esempio. Se si seleziona **Reimposta**, la selezione dell'intervallo di tempo andrà persa. Selezionare **query di test** per testare la query ed esaminare i risultati nella scheda **risultati test** .
 
 10. Quando si apportano modifiche alla query, fare clic su **Salva query** per testare la nuova logica di query. In questo modo è possibile modificare la query in modo iterativo e testarla di nuovo per vedere come cambia l'output.
 
@@ -81,11 +80,11 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
    ![Screenshot che mostra l'opzione Upload Sample input.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Selezionare **OK**.
+5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Seleziona **OK**.
 
    ![Screenshot mostra la finestra di dialogo Carica dati di esempio in cui è possibile selezionare un file.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
-6. Non appena si carica il file, è anche possibile visualizzare il contenuto del file nel form come tabella o nel formato non elaborato. Se si seleziona **Reimposta** , i dati di esempio torneranno ai dati di input descritti nella sezione precedente. È possibile caricare qualsiasi altro file per testare la query in qualsiasi momento.
+6. Non appena si carica il file, è anche possibile visualizzare il contenuto del file nel form come tabella o nel formato non elaborato. Se si seleziona **Reimposta**, i dati di esempio torneranno ai dati di input descritti nella sezione precedente. È possibile caricare qualsiasi altro file per testare la query in qualsiasi momento.
 
 7. Selezionare **Test query** per testare la query sul file di esempio caricato.
 

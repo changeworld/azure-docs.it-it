@@ -1,18 +1,18 @@
 ---
 title: Sviluppare funzioni di .NET Standard per i processi di analisi di flusso di Azure (anteprima)
 description: Informazioni su come scrivere funzioni C# definite dall'utente per i processi di analisi di flusso.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9cf929a3a6f5b3752b030f449b3b24b2bdc941a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fa6f05db5452a2e7b8ec4f93d65525873c8c7e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907241"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020571"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
 
@@ -42,7 +42,7 @@ Per usare i valori di analisi di flusso di Azure in C#, è necessario eseguirne 
 |float | double |
 |nvarchar(max) | string |
 |Datetime | Datetime |
-|Registra | Dizionario\<string, object> |
+|Record | Dizionario\<string, object> |
 |Array | Oggetto [] |
 
 Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad analisi di flusso di Azure, che si verifica sul valore di output di una funzione definita dall'utente. La tabella seguente illustra i tipi supportati:
@@ -53,10 +53,10 @@ Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad 
 |double  |  float   |
 |string  |  nvarchar(max)   |
 |Datetime  |  dateTime   |
-|struct  |  Registra   |
-|object  |  Registra   |
+|struct  |  Record   |
+|object  |  Record   |
 |Oggetto []  |  Array   |
-|Dizionario\<string, object>  |  Registra   |
+|Dizionario\<string, object>  |  Record   |
 
 ## <a name="develop-a-udf-in-visual-studio-code"></a>Sviluppare una funzione definita dall'utente in Visual Studio Code
 
@@ -110,21 +110,21 @@ I passaggi seguenti illustrano come aggiungere la funzione UDF C# al progetto di
 
 1. Fare clic con il pulsante destro del mouse sulla cartella **funzioni** e scegliere **Aggiungi elemento**.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function.png" alt-text="Aggiungere una nuova funzione nel progetto di analisi di flusso di Azure":::
 
 2. Aggiungere una funzione C# **SquareFunction** al progetto di analisi di flusso di Azure.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-2.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-2.png" alt-text="Selezionare la funzione CSharp dal progetto di analisi di flusso in VS Code":::
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-name.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-name.png" alt-text="Immettere il nome della funzione CSharp in VS Code":::
 
 3. Nella configurazione della funzione C# selezionare **Scegli percorso progetto libreria** per scegliere il progetto c# dall'elenco a discesa e selezionare **Compila progetto** per compilare il progetto. Scegliere quindi **Seleziona classe** e **Selezionare Metodo** per selezionare la classe e il nome del metodo correlati dall'elenco a discesa. Per fare riferimento ai metodi, ai tipi e alle funzioni nella query di analisi di flusso, le classi devono essere definite come *pubbliche* e gli oggetti devono essere definiti come *pubblici statici*.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-project.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-project.png" alt-text="VS Code di configurazione della funzione di analisi di flusso C Sharp":::
 
     Se si vuole usare la funzione definita dall'utente C# da una DLL, selezionare **Scegli percorso dll libreria** per scegliere la dll. Scegliere quindi **Seleziona classe** e **Selezionare Metodo** per selezionare la classe e il nome del metodo correlati dall'elenco a discesa.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-dll.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-dll.png" alt-text="Configurazione della funzione C sharp dell'Analisi di flusso di Azure":::
 
 4. Richiamare la funzione definita dall'utente nella query di analisi di flusso di Azure.
 
@@ -136,7 +136,7 @@ I passaggi seguenti illustrano come aggiungere la funzione UDF C# al progetto di
 
 5. Prima di inviare il processo ad Azure, configurare il percorso del pacchetto nel file di configurazione del processo, `JobConfig.json` , **CustomCodeStorage** sezione. Usare **Seleziona dalla sottoscrizione** in CodeLens per scegliere la sottoscrizione e scegliere l'account di archiviazione e il nome del contenitore nell'elenco a discesa. Lasciare il **percorso** predefinito. Questo passaggio non è necessario per i test locali.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-configure-storage-account.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-configure-storage-account.png" alt-text="Scegli percorso libreria":::
 
 ## <a name="develop-a-udf-in-visual-studio"></a>Sviluppare una funzione definita dall'utente in Visual Studio
 
@@ -166,39 +166,39 @@ Per fare riferimento a un progetto locale in Visual Studio:
 
 In questo esempio, **UDFTest** è un progetto di libreria di classi C# e **ASAUDFDemo** è il progetto di analisi di flusso di Azure, che fa riferimento a **UDFTest**.
 
-:::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+:::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png" alt-text="Progetto di Analisi di flusso di Azure in IoT Edge in Visual Studio":::
 
 1. Compilare il progetto C# che permetterà di aggiungere un riferimento alla funzione C# definita dall'utente dalla query di Analisi di flusso di Azure.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png" alt-text="Compilare un progetto di Analisi di flusso di Azure in IoT Edge in Visual Studio":::
 
 2. Aggiungere il riferimento al progetto C# nel progetto ASA. Fare clic con il pulsante destro del mouse sul nodo Riferimenti e scegliere Aggiungi riferimento.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png" alt-text="Aggiungere un riferimento a un progetto C# in Visual Studio":::
 
 3. Scegliere il nome del progetto C# dall'elenco.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png" alt-text="Scegliere il nome del progetto C# dall'elenco dei riferimenti":::
 
 4. **UDFTest** verrà visualizzato nell'elenco **Riferimenti** in **Esplora soluzioni**.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png" alt-text="Visualizzare il riferimento della funzione definita dall'utente in Esplora soluzioni":::
 
 5. Fare clic con il pulsante destro del mouse sulla cartella **Funzioni** e scegliere **Nuovo elemento**.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png" alt-text="Aggiungere il nuovo elemento alle funzioni nella soluzione Edge di Analisi di flusso di Azure":::
 
 6. Aggiungere una funzione C# **SquareFunction.json** al progetto di Analisi di flusso di Azure.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png" alt-text="Selezionare la funzione CSharp dagli elementi Edge di Analisi di flusso di Azure in Visual Studio":::
 
 7. Per aprire la finestra di dialogo di configurazione, fare doppio clic sulla funzione in **Esplora soluzioni**.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png" alt-text="Configurazione di una funzione C sharp in Visual Studio":::
 
 8. Nella configurazione della funzione C# scegliere **Carica dal riferimento al progetto ASA** e i nomi di assembly, classe e metodo correlati dall'elenco a discesa. Per fare riferimento ai metodi, ai tipi e alle funzioni nella query di analisi di flusso, le classi devono essere definite come *pubbliche* e gli oggetti devono essere definiti come *pubblici statici*.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png" alt-text="Progetto di analisi di flusso di Azure in Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png" alt-text="Configurazione della funzione di analisi di flusso C Sharp Visual Studio":::
 
 ## <a name="existing-packages"></a>Pacchetti esistenti
 
@@ -223,7 +223,7 @@ Espandere la sezione **Configurazione di codice definito dall'utente** e compila
 
 ## <a name="user-logging"></a>Registrazione utente
 
-Il meccanismo di registrazione consente di acquisire informazioni personalizzate mentre un processo è in esecuzione. È possibile utilizzare i dati di log per eseguire il debug o valutare la correttezza del codice personalizzato in tempo reale.
+Il meccanismo di registrazione consente di acquisire informazioni personalizzate mentre un processo è in esecuzione. È possibile usare i dati di log per eseguire il debug o valutare la correttezza del codice personalizzato in tempo reale.
 
 La `StreamingContext` classe consente di pubblicare informazioni di diagnostica utilizzando la `StreamingDiagnostics.WriteError` funzione. Il codice seguente illustra l'interfaccia esposta da analisi di flusso di Azure.
 
@@ -257,7 +257,7 @@ Il `StreamingContext` valore non deve essere passato dalla query SQL. Analisi di
 SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
 ```
 
-È possibile accedere ai messaggi di log tramite i [log di diagnostica](data-errors.md).
+È possibile accedere ai messaggi dei log tramite i [log di diagnostica](data-errors.md).
 
 ## <a name="limitations"></a>Limitazioni
 

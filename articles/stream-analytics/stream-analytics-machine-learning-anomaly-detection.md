@@ -1,18 +1,17 @@
 ---
 title: Rilevamento anomalie in Analisi di flusso di Azure
 description: Questo articolo descrive come rilevare le anomalie usando Analisi di flusso di Azure e Azure Machine Learning insieme.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c7cb8e40bc9a8f6664d8286ad368e2613495878b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023398"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020299"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -119,7 +118,7 @@ Le prestazioni di questi modelli dipendono dalle dimensioni della cronologia, da
 * **Carico dell'evento** : maggiore è il **carico dell'evento**, maggiore è il lavoro eseguito dai modelli, che influisca sul consumo della CPU. Il processo può essere scalato orizzontalmente in modo imbarazzante, supponendo che sia opportuno che la logica di business usi più partizioni di input.
 * Partizionamento a livello di **funzione**  -  Il **partizionamento a livello di funzione** viene eseguito usando ```PARTITION BY``` all'interno della chiamata di funzione di rilevamento anomalie. Questo tipo di partizionamento aggiunge un overhead, in quanto lo stato deve essere mantenuto per più modelli nello stesso momento. Il partizionamento a livello di funzione viene usato in scenari come il partizionamento a livello di dispositivo.
 
-### <a name="relationship"></a>Relazione
+### <a name="relationship"></a>Relationship
 Le dimensioni della cronologia, la durata della finestra e il carico totale degli eventi sono correlate nel modo seguente:
 
 windowDuration (in MS) = 1000 * historySize/(Totale eventi di input al secondo/numero di partizioni di input)

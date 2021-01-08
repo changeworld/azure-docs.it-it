@@ -1,17 +1,17 @@
 ---
 title: Confronto delle funzionalità di analisi di flusso di Azure
 description: Questo articolo mette a confronto le funzionalità supportate per i processi cloud e IoT Edge di analisi di flusso di Azure in portale di Azure, Visual Studio e Visual Studio Code.
-author: mamccrea
-ms.author: mamccrea
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 2fbaaac0095622f14d5bc0033b7787bec8ec2fa2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018288"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020537"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Confronto delle funzionalità di analisi di flusso di Azure
 
@@ -23,14 +23,14 @@ Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cl
 ## <a name="cloud-job-features"></a>Funzionalità del processo cloud
 
 
-|Funzionalità  |Portale  |Visual Studio  |Visual Studio Code  |
+|Feature  |Portale  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Multipiattaforma     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Creazione di script     |Sì         |Sì         |Sì         |
 |Script IntelliSense     |Evidenziazione della sintassi         |Evidenziazione della sintassi</br>Completamento del codice</br>Marcatore errore         |Evidenziazione della sintassi</br>Completamento del codice</br>Marcatore errore         |
 |Definire tutti i tipi di input, output e configurazioni di processo     |Sì         |Sì         |Sì         |
 |Controllo del codice sorgente     |No         |Sì         |Sì         |
-|Supporto CI/CD     |Partial         |Sì         |Sì         |
+|Supporto CI/CD     |Parziale         |Sì         |Sì         |
 |Condividere input e output tra più query     |No         |Sì         |Sì         |
 |Test di query con un file di esempio     |Sì         |Sì        |Sì         |
 |Test locali dei dati in tempo reale     |No         |Sì       |Sì      |
@@ -53,7 +53,7 @@ Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cl
 
 ## <a name="iot-edge-job-features"></a>Funzionalità del processo di IoT Edge
 
-|Funzionalità  |Portale  |Visual Studio  |Visual Studio Code  |
+|Feature  |Portale  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Creazione di processi     |Sì         |Sì         |No         |
 |Controllo del codice sorgente     |No         |Sì         |No         |

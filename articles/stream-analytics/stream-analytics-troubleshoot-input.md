@@ -1,19 +1,18 @@
 ---
 title: Risoluzione dei problemi delle connessioni di input in Analisi di flusso di Azure
 description: Questo articolo descrive alcune tecniche per la risoluzione dei problemi delle connessioni di input nei processi di Analisi di flusso di Azure.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123286"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019908"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
@@ -75,11 +74,11 @@ Per aggiungere un nuovo gruppo di consumer all'istanza dell'hub eventi, seguire 
 
 2. Individuare il proprio hub eventi.
 
-3. Selezionare **Hub eventi** nell'intestazione **Entità** .
+3. Selezionare **Hub eventi** nell'intestazione **Entità**.
 
 4. Selezionare il nome dell'hub eventi.
 
-5. Nella pagina **Istanza di Hub eventi** selezionare **Gruppi di consumer** nell'intestazione **Entità** . Viene elencato un gruppo di consumer denominato **$Default** .
+5. Nella pagina **Istanza di Hub eventi** selezionare **Gruppi di consumer** nell'intestazione **Entità**. Viene elencato un gruppo di consumer denominato **$Default**.
 
 6. Selezionare **+ Gruppo di consumer** per aggiungere un nuovo gruppo di consumer. 
 

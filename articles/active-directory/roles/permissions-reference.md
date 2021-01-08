@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 6da053bb04e5ee3f2b2b307c382f2695663669e5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976827"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020656"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -87,6 +87,14 @@ Il ruolo [Amministratore dell'autenticazione con privilegi](#privileged-authenti
 >* I proprietari del gruppo di sicurezza e del gruppo di Microsoft 365, che possono gestire l'appartenenza ai gruppi. Tali gruppi potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche in Azure Active Directory o altrove.
 >* Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
 >* Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
+
+### <a name="attack-payload-author"></a>[Autore del payload di attacco](#attack-payload-author-permissions)
+
+Gli utenti con questo ruolo possono creare payload di attacco ma non avviarli o pianificarli. I payload di attacco sono quindi disponibili per tutti gli amministratori del tenant che possono usarli per creare una simulazione.
+
+### <a name="attack-simulation-administrator"></a>[Amministratore simulazione di attacco](#attack-simulation-administrator-permissions)
+
+Gli utenti con questo ruolo possono creare e gestire tutti gli aspetti della creazione della simulazione di attacco, l'avvio o la pianificazione di una simulazione e la verifica dei risultati della simulazione. I membri di questo ruolo dispongono di questo accesso per tutte le simulazioni nel tenant.
 
 ### <a name="azure-devops-administrator"></a>[Amministratore di Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -489,6 +497,10 @@ Gli utenti con questo ruolo possono gestire i [dispositivi certificati](https://
 
 gli utenti in questo ruolo possono gestire tutti gli aspetti del carico di lavoro Microsoft Teams tramite l'interfaccia di amministrazione di Microsoft Teams e Skype for Business e i rispettivi moduli di PowerShell. Sono inclusi, tra le altre aree, tutti gli strumenti di gestione correlati a telefonia, messaggistica, riunioni e i team stessi. Questo ruolo concede inoltre la possibilità di creare e gestire tutti i gruppi di Microsoft 365, gestire i ticket di supporto e monitorare l'integrità dei servizi.
 
+### <a name="usage-summary-reports-reader"></a>[Lettore report di riepilogo utilizzo](#usage-summary-reports-reader-permissions)
+
+Gli utenti con questo ruolo possono accedere ai dati aggregati a livello di tenant e alle informazioni dettagliate associate nel Microsoft 365 interfaccia di amministrazione per il Punteggio di utilizzo e produttività, ma non possono accedere a dettagli o informazioni dettagliate a livello di utente. Nel centro di amministrazione Microsoft 365 per i due report, si distingue tra i dati aggregati a livello di tenant e i dettagli a livello di utente. Questo ruolo offre un livello di protezione aggiuntivo per i singoli dati identificabili dall'utente, richiesti sia dai clienti che dai team legali. 
+
 ### <a name="user-administrator"></a>[Amministratore utenti](#user-administrator-permissions)
 
 Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti degli utenti con alcune restrizioni (vedere la tabella) e possono aggiornare i criteri di scadenza delle password. Possono anche creare e gestire tutti i gruppi. Il ruolo consente anche di creare e gestire visualizzazioni utente, gestire i ticket di supporto e monitorare l'integrità del servizio. Gli amministratori degli utenti non sono autorizzati a gestire alcune proprietà utente per gli utenti con la maggior parte dei ruoli di amministratore. L'utente con questo ruolo non ha le autorizzazioni per gestire l'autenticazione MFA. I ruoli che rappresentano eccezioni a questa restrizione sono elencati nella tabella seguente.
@@ -591,6 +603,25 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'G
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.directory/users/password/update | Aggiornare le password per tutti gli utenti dell'organizzazione Microsoft 365. Per informazioni dettagliate, vedere la documentazione online. |
+
+### <a name="attack-payload-author-permissions"></a>Autorizzazioni autore payload di attacco
+
+Consente di creare payload di attacco che possono essere distribuiti da un amministratore in un secondo momento.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| Microsoft. office365. protectionCenter/attackSimulator/payload/allProperties/allTasks | Creare e gestire i payload di attacco nel simulatore di attacco. |
+| Microsoft. office365. protectionCenter/attackSimulator/Reports/allProperties/Read | Leggere i report sulla simulazione degli attacchi, le risposte e il training associato. |
+
+### <a name="attack-simulation-administrator-permissions"></a>Autorizzazioni di amministratore della simulazione di attacco
+
+Consente di creare e gestire tutti gli aspetti delle campagne di simulazione di attacco.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| Microsoft. office365. protectionCenter/attackSimulator/payload/allProperties/allTasks | Creare e gestire i payload di attacco nel simulatore di attacco. |
+| Microsoft. office365. protectionCenter/attackSimulator/Reports/allProperties/Read | Leggere i report sulla simulazione degli attacchi, le risposte e il training associato. |
+| Microsoft. office365. protectionCenter/attackSimulator/Simulation/allProperties/allTasks | Creare e gestire modelli di simulazione di attacco nel simulatore di attacco. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Autorizzazioni per l'amministratore di Azure DevOps
 
@@ -1876,6 +1907,14 @@ Può gestire il servizio Microsoft Teams.
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | Microsoft. teams/allEntities/allProperties/allTasks | Gestire tutte le risorse nei team. |
 
+### <a name="usage-summary-reports-reader-permissions"></a>Autorizzazioni di lettura report Riepilogo utilizzo
+Può visualizzare solo le aggregazioni a livello di tenant nell'analisi dell'utilizzo di M365 e il Punteggio di produttività.
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| Microsoft. office365. usageReports/allEntities/standard/Read | Leggere report sull'utilizzo di Office 365 aggregati a livello di tenant. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal.|
+
 ### <a name="user-administrator-permissions"></a>Autorizzazioni per l'amministratore utenti
 Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione delle password per gli amministratori con limitazioni.
 
@@ -1922,6 +1961,8 @@ DisplayName grafico | Nome visualizzato portale di Azure | directoryRoleTemplate
 Amministratore di applicazioni | Amministratore di applicazioni | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Sviluppatore di applicazioni | Sviluppatore di applicazioni | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Amministratore dell'autenticazione | Amministratore dell'autenticazione | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Autore del payload di attacco | Autore del payload di attacco | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
+Amministratore simulazione di attacco | Amministratore simulazione di attacco | c430b396-e693-46cc-96f3-db01bf8bb62a
 Amministratore di Azure DevOps | Amministratore di Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Amministratore di Azure Information Protection | Amministratore di Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Amministratore dei set di chiavi IEF B2C | Amministratore dei set di chiavi IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1985,6 +2026,7 @@ Tecnico di supporto comunicazioni Teams | Tecnico di supporto comunicazioni Team
 Specialista di supporto comunicazioni Teams | Specialista di supporto comunicazioni Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Amministratore di dispositivi di Teams | Amministratore di dispositivi di Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Amministratore del servizio Teams | Amministratore del servizio Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Lettore report di riepilogo utilizzo | Lettore report di riepilogo utilizzo | 75934031-6c7e-415a-99d7-48dbd49e875e
 Utente | Non viene visualizzato perché non può essere usato | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Amministratore account utente | Amministratore utenti | fe930be7-5e62-47db-91af-98c3a49a38b1
 Aggiunta di dispositivi all'area di lavoro | Deprecato | c34f683f-4d5a-4403-affd-6615e00e3a7f

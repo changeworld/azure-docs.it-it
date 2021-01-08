@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009161"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933099"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 
@@ -195,7 +195,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 1. Fare clic su **Accesso condizionale**.
 1. Fare clic su **Nuovi criteri**.
-1. È ora possibile visualizzare l'app F5 come risorsa per i criteri della CA e applicare qualsiasi accesso condizionale, tra cui autenticazione a più fattori, controllo di accesso in base al dispositivo o criteri di protezione delle identità.
+1. È ora possibile visualizzare l'app F5 come risorsa per i criteri di accesso condizionale e applicare qualsiasi accesso condizionale, tra cui autenticazione a più fattori, controllo di accesso in base al dispositivo o criteri di protezione delle identità.
 
 ## <a name="configure-f5-sso"></a>Configurare l'accesso Single Sign-On di F5
 

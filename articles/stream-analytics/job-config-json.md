@@ -1,17 +1,17 @@
 ---
 title: JobConfig.jsdi analisi di flusso di Azure sui campi
 description: Questo articolo elenca i campi supportati per la JobConfig.jsdi analisi di flusso di Azure nel file usato per creare processi in Visual Studio Code.
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: bb1a1a0b9f3a5996af56ff2c4e2de91d78a6c260
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0eebd0b62e973572a40b7b141ae908046700ba3c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129338"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020486"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>JobConfig.jsdi analisi di flusso di Azure sui campi
 
@@ -37,7 +37,7 @@ I campi seguenti sono supportati nell' *JobConfig.jssu* file usato per [creare u
 }
 ```
 
-|Nome|Type|Obbligatoria|valore|
+|Nome|Tipo|Obbligatoria|valore|
 |----|----|--------|-----|
 |Impostazioni locali|stringa|No|Impostazioni locali dei dati del processo di analisi di flusso. Il valore deve corrispondere al nome di un oggetto supportato. Se non è specificato alcun valore, il valore predefinito è "en-US".|
 |OutputErrorPolicy|stringa|No|Indica i criteri da applicare agli eventi che arrivano all'output e che non possono essere scritti nella risorsa di archiviazione esterna a causa di un formato non valido (valori di colonna mancanti, valori di colonna di tipo o dimensione errata). -Arresta o Elimina|

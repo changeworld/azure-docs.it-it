@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ac6981d998f25b8df7cea553fe152d68cd43fee5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181425"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955519"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: Configurare Snowflake per il provisioning utenti automatico
 
@@ -159,6 +159,12 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
 * I token SCIM generati da Snowflake scadono dopo 6 mesi. Devono essere aggiornati prima che scadano per consentire alle sincronizzazioni del provisioning di continuare a funzionare. 
+
+## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
+
+* **Intervalli di indirizzi IP** 
+
+   Il servizio di provisioning di Azure AD usa attualmente particolari intervalli IP. Di conseguenza, se necessario, è possibile limitare altri intervalli IP e aggiungere gli intervalli IP particolari all'elenco elementi consentiti dell'applicazione per controllare il flusso del traffico dal servizio di provisioning di Azure AD all'applicazione. Vedere la documentazione in [Indirizzi IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
 
 ## <a name="change-log"></a>Registro delle modifiche
 
