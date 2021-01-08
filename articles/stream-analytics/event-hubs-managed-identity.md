@@ -1,17 +1,17 @@
 ---
 title: Usare identità gestite per accedere a hub eventi da un processo di analisi di flusso di Azure (anteprima)
 description: Questo articolo descrive come usare identità gestite per autenticare il processo di analisi di flusso di Azure nell'input e nell'output di hub eventi di Azure.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/04/2021
-ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4dc718f21f2ef3beabc31821bd60b571ac07be05
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895139"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018752"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Usare identità gestite per accedere a hub eventi da un processo di analisi di flusso di Azure (anteprima)
 
@@ -56,7 +56,7 @@ Per il processo di analisi di flusso per accedere all'hub eventi tramite identit
    |---------|-----|
    |Ruolo|Proprietario dei dati di Hub eventi di Azure|
    |Assegna accesso a|Utente, gruppo o entità servizio|
-   |Seleziona|Immettere il nome del processo di analisi di flusso|
+   |Select|Immettere il nome del processo di analisi di flusso|
 
    :::image type="content" source="media/event-hubs-managed-identity/add-role-assignment.png" alt-text="Aggiungere un'assegnazione di ruolo":::
 

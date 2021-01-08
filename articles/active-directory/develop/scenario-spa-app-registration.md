@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: e42b6b7ffa39110ce356094de690bb353a3fb10f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0050eb61aac53b69c74306b9aaab797d8adfa915
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107788"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017001"
 ---
 # <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: Registrazione delle app
 
@@ -27,10 +27,10 @@ Per registrare un'applicazione a pagina singola (SPA) in Microsoft Identity Plat
 
 Sia per le applicazioni basate su MSAL.js 1.0 che per quelle basate su MSAL.js 2.0, iniziare completando la procedura seguente per creare la registrazione iniziale dell'app.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
-1. In **Gestisci** selezionare **registrazioni app**  >  **nuova registrazione**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
 1. Scegliere i **tipi di account supportati** per l'applicazione. **NON** immettere un **URI di reindirizzamento**. Per una descrizione dei diversi tipi di conto, vedere la pagina relativa alla [registrazione di un'applicazione](quickstart-register-app.md).
 1. Selezionare **Registra** per creare la registrazione dell'app.
@@ -45,7 +45,7 @@ Configurare quindi la registrazione dell'app con un **URI di reindirizzamento** 
 Seguire questa procedura per aggiungere un URI di reindirizzamento per un'app che usa MSAL.js 2.0 o versione successiva. MSAL. JS 2.0+ supporta il flusso del codice di autorizzazione con PKCE e CORS in risposta alle [restrizioni dei cookie di terze parti del browser](reference-third-party-cookies-spas.md). Il flusso di concessione implicito non è supportato in MSAL.js 2.0+.
 
 1. Nel portale di Azure selezionare la registrazione dell'app creata in precedenza in [Creare la registrazione dell'app](#create-the-app-registration).
-1. In **Gestisci** selezionare **autenticazione**  >  **Aggiungi una piattaforma**.
+1. In **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma**.
 1. In **Applicazioni Web** selezionare il riquadro **Applicazione a pagina singola**.
 1. In **URI di reindirizzamento** immettere un [URI di reindirizzamento](reply-url.md). **NON** selezionare nessuna delle due caselle di controllo in **Concessione implicita**.
 1. Selezionare **Configura** per completare l'aggiunta dell'URI di reindirizzamento.
@@ -59,7 +59,7 @@ Seguire l' [esercitazione](tutorial-v2-javascript-auth-code.md) per altre istruz
 Seguire questa procedura per aggiungere un URI di reindirizzamento per un'app a pagina singola che usa MSAL.js 1.3 o versioni precedenti e il flusso di concessione implicita. Le applicazioni che usano MSAL.js 1.3 o versioni precedenti non supportano il flusso del codice di autenticazione.
 
 1. Nel portale di Azure selezionare la registrazione dell'app creata in precedenza in [Creare la registrazione dell'app](#create-the-app-registration).
-1. In **Gestisci** selezionare **autenticazione**  >  **Aggiungi una piattaforma**.
+1. In **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma**.
 1. In **Applicazioni Web** selezionare il riquadro **Applicazione a pagina singola**.
 1. In **URI di reindirizzamento** immettere un [URI di reindirizzamento](reply-url.md).
 1. Abilitare il **Flusso implicito**:

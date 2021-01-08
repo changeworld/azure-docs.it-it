@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d4112bd1d632ec21e2d8cb565027277eeb85452d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966446"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018260"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
 
@@ -67,7 +67,7 @@ Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla su
      > [!NOTE]
      > I valori di indirizzo IP e porta possono essere un valore singolo, intervallo di valori o un intervallo, ad esempio 80-1024, per porta. È possibile definire tutti i filtri desiderati.
 
-4. Selezionare **OK**.
+4. Seleziona **OK**.
 
 Una volta scaduto il limite di tempo impostato per l'acquisizione di pacchetti, l'acquisizione di pacchetti viene arrestata e può essere rivista. È anche possibile arrestare manualmente le sessioni delle acquisizioni di pacchetti.
 

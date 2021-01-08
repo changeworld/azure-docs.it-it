@@ -8,17 +8,17 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 962f6bcf7747a82749e7ccab95de34f7834a8372
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: f6cba0118a98ea50e8020b91b9c2064299ca4ccf
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814211"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019160"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Partnership con protezione DDoS di Azure standard
 Questo articolo descrive le opportunità di collaborazione abilitate dallo standard di protezione DDoS di Azure. Questo articolo è stato progettato per aiutare i responsabili dei prodotti e i ruoli di sviluppo aziendali a comprendere i percorsi di investimento e fornire informazioni sulle proposte di valore per i partner.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 Gli attacchi Distributed Denial of Service (DDoS) rappresentano una delle principali problematiche di disponibilità e sicurezza espresse dai clienti che spostano le applicazioni nel cloud. Con estorsione e hacktivism sono le motivazioni comuni dietro gli attacchi DDoS, sono state costantemente aumentate in base a tipo, scalabilità e frequenza di occorrenza poiché sono relativamente semplici e convenienti da avviare.
 
 Protezione DDoS di Azure fornisce contromisure contro le minacce DDoS più sofisticate, sfruttando la scala globale della rete di Azure. Il servizio fornisce funzionalità avanzate di mitigazione DDoS per applicazioni e risorse distribuite in reti virtuali.
@@ -94,4 +94,3 @@ Per configurare l'integrazione con protezione DDoS di Azure standard, è necessa
 Visualizzazione delle integrazioni partner esistenti:
 
 - [Barracuda WAF-As-a-Service](https://www.barracuda.com/waf-as-a-service)
-- [Azure cloud WAF da Radware](https://www.radware.com/resources/microsoft-azure/)

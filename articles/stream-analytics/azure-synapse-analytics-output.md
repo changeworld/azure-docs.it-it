@@ -1,18 +1,17 @@
 ---
 title: Output di analisi di sinapsi di Azure da analisi di flusso di Azure
 description: Questo articolo descrive Azure sinapsi Analytics come output per analisi di flusso di Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 65752321f94bfa1403839889ead284d46b5f7191
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7e85df8ae67624a253a9fb617629d7355109c210
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740063"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019602"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Output di analisi di sinapsi di Azure da analisi di flusso di Azure
 

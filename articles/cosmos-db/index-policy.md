@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903021"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019177"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -135,7 +135,7 @@ Per impostazione predefinita, Azure Cosmos DB non creerà indici spaziali. Se si
 
 ## <a name="composite-indexes"></a>Indici composti
 
-`ORDER BY`Per le query con una clausola con due o più proprietà è necessario un indice composto. È anche possibile definire un indice composito per migliorare le prestazioni di molte query di uguaglianza e di intervallo. Per impostazione predefinita, non sono definiti indici compositi, pertanto è necessario [aggiungere indici compositi](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) in base alle esigenze.
+`ORDER BY`Per le query con una clausola con due o più proprietà è necessario un indice composto. È anche possibile definire un indice composito per migliorare le prestazioni di molte query di uguaglianza e di intervallo. Per impostazione predefinita, non sono definiti indici compositi, pertanto è necessario [aggiungere indici compositi](how-to-manage-indexing-policy.md#composite-index) in base alle esigenze.
 
 A differenza dei percorsi inclusi o esclusi, non è possibile creare un percorso con il `/*` carattere jolly. Ogni percorso composito ha un implicito `/?` alla fine del percorso che non è necessario specificare. I percorsi compositi portano a un valore scalare ed è l'unico valore incluso nell'indice composto.
 
@@ -160,7 +160,7 @@ Quando si usano indici compositi per le query con una `ORDER BY` clausola con du
 
 Si consideri l'esempio seguente in cui viene definito un indice composito per le proprietà Name, Age e _ts:
 
-| **Indice composto**     | **Query di esempio `ORDER BY`**      | **Supportato da un indice composito?** |
+| **Indice composto**     | **Query di esempio `ORDER BY`**      | **È supportata da un indice composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
@@ -205,7 +205,7 @@ Quando si creano indici compositi per le query con filtri su più proprietà, ve
 
 Si considerino gli esempi seguenti in cui viene definito un indice composito per le proprietà Name, Age e timestamp:
 
-| **Indice composto**     | **Query di esempio**      | **Supportato da un indice composito?** |
+| **Indice composto**     | **Query di esempio**      | **È supportata da un indice composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
@@ -256,7 +256,7 @@ Quando si creano indici compositi per ottimizzare una query con un filtro e una 
 * Sono comunque valide tutte le considerazioni per la creazione di indici compositi per le `ORDER BY` query con più proprietà e per le query con filtri su più proprietà.
 
 
-| **Indice composto**                      | **Query di esempio `ORDER BY`**                                  | **Supportato da un indice composito?** |
+| **Indice composto**                      | **Query di esempio `ORDER BY`**                                  | **È supportata da un indice composto?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |

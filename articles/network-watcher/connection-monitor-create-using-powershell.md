@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 1d5f879ead35ef6d47b993ff833dc0b0595e3c6c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 99bcef2ba702235279c1327a2a5e51a8c6ab806d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861919"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018480"
 ---
 # <a name="create-a-connection-monitor-by-using-powershell"></a>Creare un monitoraggio della connessione tramite PowerShell
 
@@ -79,7 +79,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * **Location**: area in cui viene creato un monitoraggio della connessione.
 
-* **Endpoints**
+* **Endpoint**
     * **Nome**: nome univoco per ogni endpoint.
     * **ID risorsa**: per gli endpoint di Azure, l'ID risorsa fa riferimento all'id risorsa Azure Resource Manager per le macchine virtuali. Per gli endpoint non di Azure, l'ID risorsa fa riferimento all'ID di risorsa Azure Resource Manager per l'area di lavoro Log Analytics collegata a agenti non Azure.
     * **Address**: applicabile solo se l'ID risorsa non è specificato o se l'ID risorsa è nell'area di lavoro log Analytics. Se usato senza un ID di risorsa, può corrispondere all'URL o all'indirizzo IP di qualsiasi endpoint pubblico. Se usato con un ID di risorsa Log Analytics, si riferisce al nome di dominio completo dell'agente di monitoraggio.

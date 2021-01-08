@@ -1,18 +1,17 @@
 ---
 title: Scegliere una soluzione di elaborazione dei flussi in tempo reale in Azure
 description: Scopri come scegliere la tecnologia di elaborazione del flusso e dell'analisi in tempo reale per compilare l'applicazione in Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: a204aacc0061091e0a273581e766bb669d191f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c10a91971357001723adcb783253c9867cf6d87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903702"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019058"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Scegliere una tecnologia di elaborazione del flusso e analisi in tempo reale in Azure
 
@@ -52,7 +51,7 @@ Analisi di flusso di Azure è la tecnologia proprietaria di Microsoft ed è disp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un processo di analisi di flusso usando il portale di Azure](stream-analytics-quick-create-portal.md)
-* [Creare un processo di analisi di flusso usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Creare un processo di analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
-* [Creare un processo di analisi di flusso usando Visual Studio Code](quick-create-visual-studio-code.md)
+* [Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+* [Creare un processo di Analisi di flusso tramite Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Creare un processo di Analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
+* [Creare un processo di Analisi di flusso con Visual Studio Code](quick-create-visual-studio-code.md)

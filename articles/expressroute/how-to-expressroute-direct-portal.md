@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 56638f14565f76b0a2fc252b81dba3dae9e53dd8
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289432"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018939"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creare ExpressRoute direttamente usando il portale di Azure
 
@@ -21,16 +21,23 @@ ExpressRoute Direct ti permette di connetterti direttamente alla rete globale di
 
 ## <a name="before-you-begin"></a><a name="before"></a>Prima di iniziare
 
-Verificare che il provider di risorse **Microsoft. Network** sia registrato nella sottoscrizione. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse.
+Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscrizione. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
+
+* Scenari che si intende realizzare con **ExpressRoute Direct**
+* Preferenze di località. Per un elenco completo di tutte le località, vedere [Partner e località peer](expressroute-locations-providers.md)
+* Sequenza temporale per l'implementazione
+* Eventuali altre domande
+
+Al termine della registrazione, verificare che il provider di risorse **Microsoft. Network** sia registrato nella sottoscrizione. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse.
 
 1. Accedere alle impostazioni della sottoscrizione come descritto in [tipi e provider di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
-1. Nella sottoscrizione, per i **provider di risorse** , verificare che il provider **Microsoft. Network** indichi uno stato **registrato** . Se il provider di risorse Microsoft. Network non è presente nell'elenco dei provider registrati, aggiungerlo.
+1. Nella sottoscrizione, per i **provider di risorse**, verificare che il provider **Microsoft. Network** indichi uno stato **registrato** . Se il provider di risorse Microsoft. Network non è presente nell'elenco dei provider registrati, aggiungerlo.
 
 ## <a name="create-expressroute-direct"></a><a name="create-erdir"></a>Creazione di ExpressRoute Direct
 
 1. Nel menu [portale di Azure](https://portal.azure.com) o nella **Home** page selezionare **Crea una risorsa**.
 
-1. Nella pagina **nuovo** , nel **campo _Cerca nel Marketplace_*_ digitare _* ExpressRoute Direct** , quindi premere **invio** per ottenere i risultati della ricerca.
+1. Nella pagina **nuovo** , nel **campo _Cerca nel Marketplace_*_ digitare _* ExpressRoute Direct**, quindi premere **invio** per ottenere i risultati della ricerca.
 
 1. Nei risultati selezionare **ExpressRoute Direct**.
 
@@ -40,18 +47,18 @@ Verificare che il provider di risorse **Microsoft. Network** sia registrato nell
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/basics.png" alt-text="Pagina Informazioni di base":::
 
-    * **Sottoscrizione** : la sottoscrizione di Azure che si vuole usare per creare un nuovo ExpressRoute Direct. La risorsa di ExpressRoute Direct e circuiti di ExpressRoute devono essere nella stessa sottoscrizione.
-    * **Gruppo di risorse** : il gruppo di risorse di Azure in cui verrà creata la nuova risorsa ExpressRoute Direct. Se non esiste già un gruppo di risorse, è possibile crearne uno nuovo.
-    * **Area** : l'area pubblica di Azure in cui verrà creata la risorsa.
-    * **Nome** : il nome della nuova risorsa ExpressRoute Direct.
+    * **Sottoscrizione**: la sottoscrizione di Azure che si vuole usare per creare un nuovo ExpressRoute Direct. La risorsa di ExpressRoute Direct e circuiti di ExpressRoute devono essere nella stessa sottoscrizione.
+    * **Gruppo di risorse**: il gruppo di risorse di Azure in cui verrà creata la nuova risorsa ExpressRoute Direct. Se non esiste già un gruppo di risorse, è possibile crearne uno nuovo.
+    * **Area**: l'area pubblica di Azure in cui verrà creata la risorsa.
+    * **Nome**: il nome della nuova risorsa ExpressRoute Direct.
 
 1. Completare quindi i campi nella pagina di **configurazione** .
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Screenshot che mostra la pagina &quot;Crea ExpressRoute diretto&quot; con la scheda &quot;configurazione&quot; selezionata.":::
 
-    * **Località di peering** : la località di peering a cui ci si connetterà alla risorsa ExpressRoute Direct. Per ulteriori informazioni sulle località di peering, vedere [ExpressRoute locations](expressroute-locations-providers.md).
+    * **Località di peering**: la località di peering a cui ci si connetterà alla risorsa ExpressRoute Direct. Per ulteriori informazioni sulle località di peering, vedere [ExpressRoute locations](expressroute-locations-providers.md).
    * **Larghezza** di banda: la larghezza di banda della coppia di porte che si vuole riservare. ExpressRoute Direct supporta entrambe le opzioni di larghezza di banda di 10 GB e 100 GB. Se la larghezza di banda desiderata non è disponibile nella località di peering specificata, [aprire una richiesta di supporto nella portale di Azure](https://aka.ms/azsupt).
-   * **Incapsulamento** : ExpressRoute Direct supporta sia l'incapsulamento QinQ che Dot1Q.
+   * **Incapsulamento**: ExpressRoute Direct supporta sia l'incapsulamento QinQ che Dot1Q.
      * Se si seleziona QinQ, a ogni circuito di ExpressRoute viene assegnato dinamicamente un S-Tag e il circuito è univoco per tutta la risorsa di ExpressRoute Direct.
      *  Ogni C-Tag nel circuito deve essere univoco nel circuito, ma non in tutto ExpressRoute Direct.
      * Se si seleziona l'incapsulamento Dot1Q, è necessario gestire l'univocità del C-Tag (VLAN) nell'intera risorsa di ExpressRoute Direct.
@@ -77,7 +84,7 @@ Utilizzare questo processo per condurre un test di livello 1, verificando che og
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Collegamento 1" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
 
-1. Attivare o disabilitare l'impostazione **stato amministratore** su **abilitato** , quindi selezionare **Salva**.
+1. Attivare o disabilitare l'impostazione **stato amministratore** su **abilitato**, quindi selezionare **Salva**.
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Stato amministratore":::
 
@@ -99,7 +106,7 @@ Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscri
 
 La procedura seguente consente di creare un circuito ExpressRoute dal flusso di lavoro diretto di ExpressRoute. Se invece si preferisce, è anche possibile creare un circuito usando il flusso di lavoro del circuito normale, anche se non vi è alcun vantaggio nell'uso dei passaggi del flusso di lavoro del circuito regolare per questa configurazione. Vedere [creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md).
 
-1. Nella sezione **Impostazioni** dirette di ExpressRoute selezionare **circuiti** , quindi selezionare **+ Aggiungi**. 
+1. Nella sezione **Impostazioni** dirette di ExpressRoute selezionare **circuiti**, quindi selezionare **+ Aggiungi**. 
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Screenshot mostra le impostazioni ExpressRoute con i circuiti selezionati e Aggiungi evidenziato." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 

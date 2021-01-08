@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 18cedad34a6ca7d9a0ba18cd01c082f2878380a8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7938920459654bd59620ad0992f3a13db85ff4fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339819"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019012"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette di scrivere **stored procedure** , **trigger** e **funzioni definite dall'utente**. Quando si usa l'API SQL in Azure Cosmos DB, è possibile scrivere stored procedure, trigger e funzioni definite dall'utente (UDF) nel linguaggio JavaScript. È possibile scrivere la logica nel linguaggio JavaScript ed eseguirla all'interno del motore di database. È possibile creare ed eseguire trigger, stored procedure e UDF usando il [portale di Azure](https://portal.azure.com/), l'[API di query integrata nel linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md) e gli [SDK client dell'API SQL di Cosmos DB](sql-api-dotnet-samples.md). 
+L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente**. Quando si usa l'API SQL in Azure Cosmos DB, è possibile scrivere stored procedure, trigger e funzioni definite dall'utente (UDF) nel linguaggio JavaScript. È possibile scrivere la logica nel linguaggio JavaScript ed eseguirla all'interno del motore di database. È possibile creare ed eseguire trigger, stored procedure e UDF usando il [portale di Azure](https://portal.azure.com/), l'[API di query integrata nel linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md) e gli [SDK client dell'API SQL di Cosmos DB](sql-api-dotnet-samples.md). 
 
 Per chiamare una stored procedure, un trigger e le funzioni definite dall'utente, è necessario registrarla. Per altre informazioni, vedere [Come usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -284,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>Come scrivere i trigger
 
-Azure Cosmos DB supporta pre-trigger e post-trigger. I pre-trigger vengono eseguiti prima di modificare un elemento nel database e i post-trigger vengono eseguiti dopo la modifica di un elemento nel database.
+Azure Cosmos DB supporta pre-trigger e post-trigger. I pre-trigger vengono eseguiti prima di modificare un elemento di database e i post-trigger vengono eseguiti dopo la modifica di un elemento del database. I trigger non sono automatici. Devono essere specificati per ogni operazione del database in cui si desidera eseguirli.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>Pre-trigger
 

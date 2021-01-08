@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437151"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018072"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Eseguire la migrazione di centinaia di terabyte di dati ad Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Per risolvere i problemi descritti nella sezione precedente, è possibile usare 
 
 Lo strumento personalizzato usa la libreria dell'esecutore bulk e supporta la scalabilità orizzontale tra più client e per tenere traccia degli errori durante il processo di inserimento. Per utilizzare questo strumento, i dati di origine devono essere partizionati in file distinti in Azure Data Lake Storage (ADLS) in modo che i diversi ruoli di lavoro della migrazione possano acquisire ogni file e inserirli in Azure Cosmos DB. Lo strumento personalizzato si avvale di una raccolta separata che archivia i metadati relativi all'avanzamento della migrazione per ogni singolo file di origine in ADLS e tiene traccia degli eventuali errori associati.  
 
-Nell'immagine seguente viene descritto il processo di migrazione utilizzando questo strumento personalizzato. Lo strumento è in esecuzione in un set di macchine virtuali e ogni macchina virtuale esegue una query sulla raccolta di rilevamento in Azure Cosmos DB per acquisire un lease in una delle partizioni di dati di origine. Al termine di questa operazione, la partizione dei dati di origine viene letta dallo strumento e inserita in Azure Cosmos DB tramite la libreria dell'executor di massa. Successivamente, la raccolta di rilevamento viene aggiornata per registrare lo stato di inserimento dei dati e gli eventuali errori rilevati. Dopo l'elaborazione di una partizione di dati, lo strumento tenta di eseguire una query per la successiva partizione di origine disponibile. Continua a elaborare la partizione di origine successiva fino a quando non viene eseguita la migrazione di tutti i dati. Il codice sorgente per lo strumento è disponibile [qui](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
+Nell'immagine seguente viene descritto il processo di migrazione utilizzando questo strumento personalizzato. Lo strumento è in esecuzione in un set di macchine virtuali e ogni macchina virtuale esegue una query sulla raccolta di rilevamento in Azure Cosmos DB per acquisire un lease in una delle partizioni di dati di origine. Al termine di questa operazione, la partizione dei dati di origine viene letta dallo strumento e inserita in Azure Cosmos DB tramite la libreria dell'executor di massa. Successivamente, la raccolta di rilevamento viene aggiornata per registrare lo stato di inserimento dei dati e gli eventuali errori rilevati. Dopo l'elaborazione di una partizione di dati, lo strumento tenta di eseguire una query per la successiva partizione di origine disponibile. Continua a elaborare la partizione di origine successiva fino a quando non viene eseguita la migrazione di tutti i dati. Il codice sorgente per lo strumento è disponibile nell'Azure Cosmos DB repository di inserimento [bulk](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion) .  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Installazione dello strumento di migrazione" border="false":::

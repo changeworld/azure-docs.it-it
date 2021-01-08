@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 6540b5f93bebfe39253a88dc495a3613568f8926
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: e5fa4bde316f4b1677f78c65e913a6303a9f4735
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839733"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019143"
 ---
 # <a name="about-high-availability"></a>Informazioni sulla disponibilità elevata
 
@@ -52,7 +52,7 @@ Le procedure di installazione e configurazione vengono eseguite in quattro fasi 
 
 3. Installare un'appliance secondaria della console di gestione locale. Per ulteriori informazioni, vedere [informazioni sul Defender per l'installazione](how-to-install-software.md)di Internet.
 
-4. Associare le appliance della console di gestione locale primaria e secondaria, come descritto [qui](/create-the-primary-and-secondary-pair.md). La console di gestione locale primaria deve gestire almeno due sensori per eseguire la configurazione.
+4. Associare le appliance della console di gestione locale primaria e secondaria, come descritto [qui](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). La console di gestione locale primaria deve gestire almeno due sensori per eseguire la configurazione.
 
 ## <a name="high-availability-requirements"></a>Requisiti di disponibilità elevata
 

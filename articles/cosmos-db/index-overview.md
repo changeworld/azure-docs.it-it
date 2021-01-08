@@ -1,18 +1,18 @@
 ---
 title: Indicizzazione in Azure Cosmos DB
-description: Informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB e su diversi tipi di indici, ad esempio indici di intervallo, spaziali e composti supportati.
+description: Informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, diversi tipi di indici, ad esempio intervallo, spaziale e indici compositi supportati.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339756"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019234"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indicizzazione in Azure Cosmos DB - Panoramica
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -64,9 +64,9 @@ Ecco i percorsi per ogni proprietà dell'elemento di esempio descritto in preced
 
 Quando viene scritto un elemento, Azure Cosmos DB indicizza in modo efficace il percorso di ogni proprietà e il relativo valore corrispondente.
 
-## <a name="index-kinds"></a>Tipi di indice
+## <a name="types-of-indexes"></a><a id="index-types"></a>Tipi di indici
 
-Azure Cosmos DB attualmente supporta tre tipi di indice.
+Azure Cosmos DB supporta attualmente tre tipi di indici. È possibile configurare questi tipi di indice quando si definiscono i criteri di indicizzazione.
 
 ### <a name="range-index"></a>Indice di intervallo
 
@@ -122,11 +122,11 @@ L'indice di **intervallo** è basato su una struttura ad albero ordinata. Il tip
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Gli indici di intervallo possono essere usati in valori scalari (stringa o numero).
+Gli indici di intervallo possono essere usati in valori scalari (stringa o numero). I criteri di indicizzazione predefiniti per i contenitori appena creati applicano indici di intervallo per qualsiasi stringa o numero. Per informazioni su come configurare gli indici di intervallo, vedere [esempi di criteri di indicizzazione di intervalli](how-to-manage-indexing-policy.md#range-index)
 
 ### <a name="spatial-index"></a>Indice spaziale
 
-Gli indici **spaziali** consentono query efficienti su oggetti geospaziali , ad esempio punti, linee, poligoni e multipoligoni. Queste query usano le parole chiave ST_DISTANCE, ST_WITHIN, ST_INTERSECTS. Di seguito sono riportati alcuni esempi che usano il tipo di indice spaziale:
+Gli indici **spaziali** consentono query efficienti su oggetti geospaziali , ad esempio punti, linee, poligoni e multipoligoni. Queste query usano le parole chiave ST_DISTANCE, ST_WITHIN, ST_INTERSECTS. Di seguito sono riportati alcuni esempi in cui viene utilizzato il tipo di indice spaziale:
 
 - Query geospaziale distance:
 
@@ -146,11 +146,11 @@ Gli indici **spaziali** consentono query efficienti su oggetti geospaziali , ad 
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Gli indici spaziali possono essere usati su oggetti [GeoJSON](./sql-query-geospatial-intro.md) con formato corretto. Attualmente sono supportati gli oggetti Point, LineString, Polygon e MultiPolygon.
+Gli indici spaziali possono essere usati su oggetti [GeoJSON](./sql-query-geospatial-intro.md) con formato corretto. Attualmente sono supportati gli oggetti Point, LineString, Polygon e MultiPolygon. Per usare questo tipo di indice, impostare usando la `"kind": "Range"` proprietà quando si configurano i criteri di indicizzazione. Per informazioni su come configurare gli indici spaziali, vedere [esempi di criteri di indicizzazione spaziale](how-to-manage-indexing-policy.md#spatial-index)
 
 ### <a name="composite-indexes"></a>Indici composti
 
-Gli indici **composti** aumentano l'efficienza quando si eseguono operazioni su più campi. Il tipo di indice composto viene usato per:
+Gli indici **composti** aumentano l'efficienza quando si eseguono operazioni su più campi. Il tipo di indice composito viene usato per:
 
 - Query `ORDER BY` su più proprietà:
 
@@ -170,11 +170,13 @@ Gli indici **composti** aumentano l'efficienza quando si eseguono operazioni su 
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Purché un predicato del filtro usi uno dei tipi di indice, il motore di query lo valuterà prima di analizzare il resto. Se si dispone ad esempio di una query SQL come `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Fino a quando un predicato del filtro usa uno dei tipi di indice, il motore di query lo valuterà prima di analizzare il resto. Se si dispone ad esempio di una query SQL come `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * La query precedente filtra innanzitutto le voci in cui firstName = "Andrew" usando l'indice. Passa quindi tutte le voci firstName = "Andrew" tramite una pipeline successiva per valutare il predicato del filtro CONTAINS.
 
 * È possibile velocizzare le query ed evitare analisi complete del contenitore quando ci si serve di funzioni che non usano l'indice, ad esempio CONTAINS, aggiungendo altri predicati di filtro che usano l'indice. L'ordine delle clausole di filtro non è importante. Il motore di query consente di individuare i predicati più selettivi ed eseguire la query di conseguenza.
+
+Per informazioni su come configurare gli indici compositi, vedere [esempi di criteri di indicizzazione composita](how-to-manage-indexing-policy.md#composite-index)
 
 ## <a name="querying-with-indexes"></a>Esecuzione di query con indici
 

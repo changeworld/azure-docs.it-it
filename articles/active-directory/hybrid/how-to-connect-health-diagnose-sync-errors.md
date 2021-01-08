@@ -3,7 +3,7 @@ title: Azure Active Directory Connect Health - Diagnosticare gli errori di sincr
 description: Questo documento descrive il processo di diagnostica degli errori di sincronizzazione di attributi duplicati e la potenziale correzione degli scenari con oggetti orfani direttamente dal portale di Azure.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20f1e152d67e653b10b8378b7d667106c48dc116
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278684"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016933"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
@@ -148,7 +148,7 @@ L'utente basato su cloud in Azure AD non deve avere l'ancoraggio di origine. In 
 
 
 **D.** Quale autorizzazione è necessaria per applicare la correzione?  
-**R.** L' **amministratore globale**o il **collaboratore** di controllo degli accessi in base al ruolo di Azure dispone dell'autorizzazione per accedere al processo di diagnostica e risoluzione
+**R.** L' **amministratore globale** o il **collaboratore** di controllo degli accessi in base al ruolo di Azure dispone dell'autorizzazione per accedere al processo di diagnostica e risoluzione
 
 
 **D.** È necessario configurare Azure AD Connect o aggiornare l'agente di Azure AD Connect Health per questa funzionalità?  

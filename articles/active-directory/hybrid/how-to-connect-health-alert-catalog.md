@@ -3,7 +3,7 @@ title: Catalogo degli avvisi di Azure AD Connect Health | Microsoft Docs
 description: Questo documento illustra il catalogo di tutti gli avvisi in Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afca8d8fe13042e369b6aa58e527e1c976f143dd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8637c691f946c02176c441cfcf5ad5abbea10396
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411576"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016882"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Catalogo degli avvisi di Azure AD Connect Health 
 

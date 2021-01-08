@@ -3,19 +3,19 @@ title: Pianificare attività e flussi di lavoro ricorrenti
 description: Pianificare ed eseguire attività e flussi di lavoro automatizzati ricorrenti con il trigger di ricorrenza nelle app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: a9c6017ed46853b9dec991fc02097ee88c67a7cb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 12/18/2020
+ms.openlocfilehash: 9565ad1efc5ae3dc03b94c78ce8ce52e8dd48c65
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342182"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019194"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti con il trigger di ricorrenza nelle app per la logica di Azure
 
-Per eseguire regolarmente attività, processi o processi in base a una pianificazione specifica, è possibile avviare il flusso di lavoro dell'app per la logica con il trigger di **pianificazione della ricorrenza** predefinita. È possibile impostare una data e un'ora, nonché un fuso orario per l'avvio del flusso di lavoro e una ricorrenza per la ripetizione del flusso di lavoro. Se per qualsiasi motivo le ricorrenze non vengono perse, ad esempio a causa di rotture o flussi di lavoro disabilitati, questo trigger non elabora le ricorrenze perse ma riavvia le ricorrenze al successivo intervallo pianificato. Per altre informazioni sui trigger di pianificazione e sulle azioni predefinite, vedere [pianificare ed eseguire attività ricorrenti automatizzate, attività e flussi di lavoro con app per la logica di Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Per eseguire regolarmente attività, processi o processi in base a una pianificazione specifica, è possibile avviare il flusso di lavoro dell'app per la logica con il trigger di **ricorrenza** incorporato, che viene eseguito in modo nativo in app per la logica di Azure. È possibile impostare una data e un'ora, nonché un fuso orario per l'avvio del flusso di lavoro e una ricorrenza per la ripetizione del flusso di lavoro. Se il trigger non riceve ricorrenze per qualsiasi motivo, ad esempio a causa di rotture o flussi di lavoro disabilitati, questo trigger non elabora le ricorrenze perse ma riavvia le ricorrenze al successivo intervallo pianificato. Per altre informazioni sui trigger di pianificazione e sulle azioni predefinite, vedere [pianificare ed eseguire attività ricorrenti automatizzate, attività e flussi di lavoro con app per la logica di Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Ecco alcuni modelli supportati da questo trigger insieme a ricorrenze più avanzate e pianificazioni complesse:
 
@@ -40,7 +40,7 @@ Per le differenze tra questo trigger e il trigger della finestra temporale scorr
 
 * Conoscenze di base di [app per la logica](../logic-apps/logic-apps-overview.md). Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="add-recurrence-trigger"></a>Aggiungi trigger di ricorrenza
+## <a name="add-the-recurrence-trigger"></a>Aggiungere il trigger Ricorrenza
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
@@ -55,7 +55,7 @@ Per le differenze tra questo trigger e il trigger della finestra temporale scorr
    | Proprietà | Nome JSON | Obbligatoria | Tipo | Descrizione |
    |----------|-----------|----------|------|-------------|
    | **Interval** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi <br>-Settimana: 1-71 settimane <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
-   | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo** , **Minuto** , **Ora** , **Giorno** , **Settimana** o **Mese** |
+   | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
    ||||||
 
    > [!IMPORTANT]
@@ -64,7 +64,7 @@ Per le differenze tra questo trigger e il trigger della finestra temporale scorr
    > 
    > * Consente di specificare un'ora di inizio per la ricorrenza.
    > 
-   > * Consente di specificare le ore e i minuti di esecuzione della ricorrenza utilizzando l'oggetto **in queste ore** e le proprietà di **tali minuti** .
+   > * Specificare le ore e i minuti di esecuzione della ricorrenza utilizzando le proprietà denominate **in queste ore** e **in questi minuti**.
    > 
    > * Utilizzare il [trigger finestra temporale scorrevole](../connectors/connectors-native-sliding-window.md)anziché il trigger ricorrenza.
 
@@ -76,9 +76,9 @@ Per le differenze tra questo trigger e il trigger della finestra temporale scorr
    |----------|-----------|----------|------|-------------|
    | **Fuso orario** | `timeZone` | No | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
    | **Ora di inizio** | `startTime` | No | string | Specificare una data e un'ora di inizio, con un massimo di 49 anni nel futuro e rispettare la specifica di data e ora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)e ora UTC, ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset): <p><p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Quindi, ad esempio, se si desidera il 18 settembre 2020 alle 2:00 PM, specificare "2020-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2020-09-18T14:00:00Z" senza un fuso orario. <p><p>**Importante:** Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. Se si seleziona un valore di fuso orario, non è necessario aggiungere una "Z" alla fine del valore dell' **ora di inizio** . In caso contrario, app per la logica ignora il valore del fuso orario perché "Z" indica un formato di ora UTC. <p><p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **In questi giorni** | `weekDays` | No | Stringa o matrice di stringhe | Se si seleziona "Settimana", è possibile selezionare uno o più giorni in cui eseguire il flusso di lavoro: **Lunedì** , **Martedì** , **Mercoledì** , **Giovedì** , **Venerdì** , **Sabato** e **Domenica** |
-   | **A queste ore** | `hours` | No | Intero o matrice di intero | Se si seleziona "giorno" o "settimana", è possibile selezionare uno o più numeri interi da 0 a 23 come ore del giorno in cui si desidera eseguire il flusso di lavoro. <p><p>Se ad esempio si specifica "10", "12" e "14", si ottengono le 10:00, le 12.00 e le 14.00 per le ore del giorno, ma i minuti del giorno vengono calcolati in base all'inizio della ricorrenza. Per impostare minuti specifici del giorno, ad esempio 10:00 AM, 12:00 PM e 2:00 PM, specificare tali valori utilizzando la proprietà **in questi minuti** . |
-   | **A questi minuti** | `minutes` | No | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 59 come minuti dell'ora in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. <p>**Nota** : a volte, il timestamp per l'esecuzione attivata potrebbe variare fino a 1 minuto dall'ora pianificata. Se è necessario passare il timestamp esattamente come pianificato per le azioni successive, è possibile usare le espressioni modello per modificare il timestamp di conseguenza. Per altre informazioni, vedere [funzioni di data e ora per le espressioni](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
+   | **In questi giorni** | `weekDays` | No | Stringa o matrice di stringhe | Se si seleziona "Settimana", è possibile selezionare uno o più giorni in cui eseguire il flusso di lavoro: **Lunedì**, **Martedì**, **Mercoledì**, **Giovedì**, **Venerdì**, **Sabato** e **Domenica** |
+   | **A queste ore** | `hours` | No | Intero o matrice di intero | Se si seleziona "giorno" o "settimana", è possibile selezionare uno o più numeri interi da 0 a 23 come ore del giorno in cui si desidera eseguire il flusso di lavoro. <p><p>Se ad esempio si specifica "10", "12" e "14", si ottengono le 10:00, le 12.00 e le 14.00 per le ore del giorno, ma i minuti del giorno vengono calcolati in base all'inizio della ricorrenza. Per impostare minuti specifici del giorno, ad esempio 10:00 AM, 12:00 PM e 2:00 PM, specificare tali valori utilizzando la proprietà denominata **in questi minuti**. |
+   | **A questi minuti** | `minutes` | No | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 59 come minuti dell'ora in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. <p>**Nota**: a volte, il timestamp per l'esecuzione attivata potrebbe variare fino a 1 minuto dall'ora pianificata. Se è necessario passare il timestamp esattamente come pianificato per le azioni successive, è possibile usare le espressioni modello per modificare il timestamp di conseguenza. Per altre informazioni, vedere [funzioni di data e ora per le espressioni](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
    |||||
 
    Si supponga, ad esempio, che oggi sia venerdì 4 settembre 2020. Il trigger di ricorrenza seguente non viene attivato *prima* della data e dell'ora di inizio, ovvero venerdì 18 settembre 2020 alle 8:00 PST. Tuttavia, la pianificazione di ricorrenza è impostata solo per i lunedì alle 10:30, 12:30 e 14:30. La prima volta che il trigger viene attivato e crea un'istanza del flusso di lavoro dell'app per la logica, il lunedì alle 10:30 AM. Per altre informazioni sul funzionamento degli orari di inizio, vedere questi [esempi](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
@@ -124,6 +124,14 @@ Questo esempio illustra come una definizione di trigger di ricorrenza può appar
    }
 }
 ```
+
+<a name="daylight-saving-standard-time"></a>
+
+## <a name="trigger-recurrence-shift-between-daylight-saving-time-and-standard-time"></a>Spostamento di ricorrenza del trigger tra l'ora legale e l'ora solare
+
+I trigger predefiniti ricorrenti rispettano la pianificazione impostata, incluso il fuso orario specificato. Se non si seleziona un fuso orario, l'ora legale (DST) può influire sul momento dell'esecuzione dei trigger, ad esempio, spostando l'ora di inizio un'ora in avanti quando l'ora legale viene avviata e un'ora indietro al termine dell'ora legale.
+
+Per evitare questo spostamento in modo che l'app per la logica venga eseguita all'ora di inizio specificata, assicurarsi di selezionare un fuso orario. In questo modo, l'ora UTC per l'app per la logica viene spostata anche per contrastare il cambiamento di tempo stagionale. Tuttavia, in alcuni casi è possibile che si verifichino problemi quando il tempo si sposta. Per ulteriori informazioni ed esempi, vedere [ricorrenza per l'ora legale e l'ora solare](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

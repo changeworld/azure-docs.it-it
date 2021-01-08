@@ -1,19 +1,18 @@
 ---
 title: Leggere input in qualsiasi formato tramite deserializzatori personalizzati .NET in Analisi di flusso di Azure
 description: Questo articolo illustra il formato di serializzazione e le interfacce che definiscono deserializzatori .NET personalizzati per i processi cloud ed Edge di Analisi di flusso di Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 140a836882ad3abe048047120e4fe1ebc0a3067c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488435"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018157"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leggere input in qualsiasi formato tramite deserializzatori personalizzati .NET
 

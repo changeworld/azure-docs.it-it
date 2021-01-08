@@ -3,16 +3,15 @@ title: Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
 description: Questo articolo descrive i requisiti di installazione e come configurare gli strumenti di analisi di flusso di Azure per Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/22/2018
-ms.openlocfilehash: 464e8fbf624dfa84ec54bf6a7e0ce202d047e15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0077ac8465e8f785e772b384f26e0edc6874a1a0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045111"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018701"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
 
@@ -44,7 +43,7 @@ Dopo aver aggiunto il carico di lavoro, aggiornare gli strumenti. Questa procedu
 
 1. Selezionare **estensioni**  >  **Gestisci estensioni**.
 
-1. In **Gestisci estensioni**selezionare **aggiornamenti** e scegliere **Azure Data Lake e strumenti di analisi di flusso**.
+1. In **Gestisci estensioni** selezionare **aggiornamenti** e scegliere **Azure Data Lake e strumenti di analisi di flusso**.
 
 1. Selezionare **Aggiorna** per installare l'estensione più recente.
 

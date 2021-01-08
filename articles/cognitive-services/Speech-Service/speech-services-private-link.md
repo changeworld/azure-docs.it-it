@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: f905582615b16780fae179ba6a21bd4343bd47f3
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: d5822b6eeecfc61a5092519618ddfcaf88a625ae
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755804"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018531"
 ---
 # <a name="use-speech-service-through-a-private-endpoint"></a>Usare il servizio riconoscimento vocale tramite un endpoint privato
 
@@ -39,7 +39,7 @@ Per rimuovere gli endpoint privati in un secondo momento, ma continuare a usare 
 
 Per gli endpoint privati è necessario un [nome di sottodominio personalizzato di servizi cognitivi](../cognitive-services-custom-subdomains.md). Seguire le istruzioni riportate di seguito per crearne uno per la risorsa vocale.
 
-> [!CAUTION]
+> [!WARNING]
 > Una risorsa vocale con nome di dominio personalizzato abilitato usa un modo diverso per interagire con il servizio di riconoscimento vocale.
 > Probabilmente è necessario modificare il codice dell'applicazione sia per gli scenari di [endpoint privato abilitato](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) che per quelli [ **non** abilitati per gli endpoint privati](#use-speech-resource-with-custom-domain-name-without-private-endpoints) .
 >
@@ -56,7 +56,7 @@ Per creare un nome di dominio personalizzato tramite portale di Azure, attenersi
 1. Nel gruppo **Gestione risorse** nel riquadro di spostamento a sinistra fare clic su **rete**.
 1. Nella scheda **firewall e reti virtuali** fare clic su **genera nome di dominio personalizzato**. Viene visualizzato un nuovo pannello a destra con le istruzioni per creare un sottodominio personalizzato univoco per la risorsa.
 1. Nel pannello genera nome dominio personalizzato immettere una parte del nome di dominio personalizzato. Il dominio personalizzato completo sarà simile al seguente: `https://{your custom name}.cognitiveservices.azure.com` . 
-    **Dopo aver creato un nome di dominio personalizzato, non è _possibile_ modificarlo. Leggere di nuovo l'avviso di attenzione sopra riportato.** Dopo aver immesso il nome di dominio personalizzato, fare clic su **Salva**.
+    **Dopo aver creato un nome di dominio personalizzato, non è _possibile_ modificarlo. Leggere di nuovo l'avviso sopra riportato.** Dopo aver immesso il nome di dominio personalizzato, fare clic su **Salva**.
 1. Al termine dell'operazione, nel gruppo **Gestione risorse** fare clic su **chiavi ed endpoint**. Verificare che il nuovo nome dell'endpoint della risorsa venga avviato in questo modo:
 
     `https://{your custom name}.cognitiveservices.azure.com`
@@ -81,7 +81,7 @@ Prima di procedere, eseguire `Connect-AzAccount` per creare una connessione con 
 
 ## <a name="verify-custom-domain-name-is-available"></a>Verificare che il nome di dominio personalizzato sia disponibile
 
-È necessario verificare se il dominio personalizzato che si vuole usare sia disponibile. Seguire questa procedura per verificare che il dominio sia disponibile usando l'operazione [Controlla disponibilità dominio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) nell'API REST di servizi cognitivi.
+Controllare se il dominio personalizzato che si vuole usare è disponibile. Seguire questa procedura per verificare che il dominio sia disponibile usando l'operazione [Controlla disponibilità dominio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) nell'API REST di servizi cognitivi.
 
 > [!TIP]
 > Il codice riportato di seguito **non** funzionerà in Azure cloud Shell.
@@ -128,9 +128,9 @@ subdomainName        : my-custom-name
 
 Per abilitare il nome di dominio personalizzato per la risorsa vocale selezionata, viene usato il cmdlet [set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) .
 
-> [!CAUTION]
+> [!WARNING]
 > Quando il codice seguente viene eseguito correttamente, si creerà un nome di dominio personalizzato per la risorsa di riconoscimento vocale.
-> Questo nome **non può** essere modificato. Per altre informazioni, vedere l'avviso di **attenzione** sopra.
+> Questo nome **non può** essere modificato. Per ulteriori informazioni, vedere **l'avviso** sopra riportato.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
@@ -143,7 +143,7 @@ $subId = "Your Azure subscription Id"
 Set-AzContext -SubscriptionId $subId
 
 # Set the custom domain name to the selected resource.
-# CAUTION: THIS CANNOT BE CHANGED OR UNDONE!
+# WARNING: THIS CANNOT BE CHANGED OR UNDONE!
 Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
     -Name $speechResourceName -CustomSubdomainName $subdomainName
 ```
@@ -156,7 +156,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 ## <a name="verify-the-custom-domain-name-is-available"></a>Verificare che il nome di dominio personalizzato sia disponibile
 
-È necessario verificare se il dominio personalizzato che si vuole usare è gratuito. Si userà il metodo di [Verifica della disponibilità del dominio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) dall'API REST di servizi cognitivi.
+Controllare se il dominio personalizzato che si vuole usare è gratuito. Si userà il metodo di [Verifica della disponibilità del dominio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) dall'API REST di servizi cognitivi.
 
 Copiare il blocco di codice riportato di seguito, inserire il nome di dominio personalizzato preferito e salvarlo nel file `subdomain.json` .
 
@@ -201,7 +201,7 @@ az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Consente di impostare il nome di dominio personalizzato sulla risorsa selezionata. Sostituire i valori dei parametri di esempio con quelli effettivi ed eseguire il comando seguente.
 
-> [!CAUTION]
+> [!WARNING]
 > Al termine dell'esecuzione del comando riportato di seguito, si creerà un nome di dominio personalizzato per la risorsa di riconoscimento vocale. Questo nome **non può** essere modificato. Per altre informazioni, vedere l'avviso di attenzione sopra.
 
 ```azurecli
@@ -212,31 +212,31 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ## <a name="enable-private-endpoints"></a>Abilita endpoint privati
 
-Abilitare l'endpoint privato con portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
+È consigliabile usare la [zona DNS privata](../../dns/private-dns-overview.md) collegata alla rete virtuale con gli aggiornamenti necessari per gli endpoint privati, che vengono creati per impostazione predefinita durante il processo di provisioning. Tuttavia, se si usa il proprio server DNS, potrebbe essere necessario modificare la configurazione DNS, come illustrato in _DNS per gli endpoint privati_, di seguito. Decidere la strategia DNS _ *prima* di * eseguire il provisioning di endpoint privati per una risorsa vocale di produzione e testare le modifiche DNS, soprattutto se si usa il proprio server DNS.
 
-È consigliabile usare la [zona DNS privata](../../dns/private-dns-overview.md) collegata alla rete virtuale con gli aggiornamenti necessari per gli endpoint privati, che vengono creati per impostazione predefinita durante il processo di provisioning. Tuttavia, se si usa il proprio server DNS, potrebbe essere necessario apportare altre modifiche alla configurazione DNS. Vedere [la sezione DNS per endpoint privati](#dns-for-private-endpoints) . È consigliabile scegliere la strategia DNS _ *prima* di * eseguire il provisioning di endpoint privati per una risorsa vocale di produzione. Si consiglia anche di eseguire test preliminari, specialmente se si usa il proprio server DNS.
+Per creare endpoint privati, usare uno degli articoli seguenti. Gli articoli usano un'app Web come risorsa di esempio per abilitare con endpoint privati. Questi parametri verranno usati anziché quelli dell'articolo:
 
-Usare gli articoli seguenti per creare endpoint privati. Gli articoli usano un'app Web come risorsa di esempio per abilitare con endpoint privati. Usare invece i parametri seguenti:
-
-| Impostazione             | valore                                    |
+| Impostazione             | Valore                                    |
 |---------------------|------------------------------------------|
 | Tipo di risorsa       | **Microsoft. CognitiveServices/accounts** |
-| Risorsa            | **\<your-speech-resource-name>**         |
+| Resource            | **\<your-speech-resource-name>**         |
 | Sottorisorsa di destinazione | **account**                              |
 
 - [Creare un endpoint privato con il portale di Azure](../../private-link/create-private-endpoint-portal.md)
 - [Creare un endpoint privato usando Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [Creare un endpoint privato usando l'interfaccia della riga di comando](../../private-link/create-private-endpoint-cli.md)
 
-### <a name="dns-for-private-endpoints"></a>DNS per endpoint privati
+**DNS per endpoint privati:** Esaminare i principi generali del [DNS per gli endpoint privati nelle risorse di servizi cognitivi](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Verificare quindi che la configurazione DNS funzioni correttamente eseguendo questi controlli:
 
-Acquisire familiarità con i principi generali del [DNS per gli endpoint privati nelle risorse di servizi cognitivi](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Verificare quindi che la configurazione DNS funzioni correttamente (vedere le sottosezioni successive).
+### <a name="resolve-dns-from-the-virtual-network"></a>Risolvere il DNS dalla rete virtuale
 
-#### <a name="mandatory-check-dns-resolution-from-the-virtual-network"></a>(Controllo obbligatorio). Risoluzione DNS dalla rete virtuale
+Questo controllo è **obbligatorio**.
 
-`my-private-link-speech.cognitiveservices.azure.com`Per questa sezione verrà usato come nome DNS della risorsa vocale di esempio.
+Seguire questa procedura per testare la voce DNS personalizzata dalla rete virtuale.
 
-Accedere a una macchina virtuale che si trova nella rete virtuale a cui è stato collegato l'endpoint privato. Aprire il prompt dei comandi di Windows o la shell bash, eseguire `nslookup` e verificare che il nome di dominio personalizzato della risorsa venga risolto correttamente:
+1. Accedere a una macchina virtuale che si trova nella rete virtuale a cui è stato collegato l'endpoint privato. 
+1. Aprire il prompt dei comandi di Windows o la shell bash, eseguire `nslookup` e verificare che il nome di dominio personalizzato della risorsa venga risolto correttamente.
+
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -247,15 +247,16 @@ Name:    my-private-link-speech.privatelink.cognitiveservices.azure.com
 Address:  172.28.0.10
 Aliases:  my-private-link-speech.cognitiveservices.azure.com
 ```
-Verificare che l'indirizzo IP risolto corrisponda all'indirizzo dell'endpoint privato.
 
-#### <a name="optional-check-dns-resolution-from-other-networks"></a>(Controllo facoltativo). Risoluzione DNS da altre reti
+3. Verificare che l'indirizzo IP corrisponda all'indirizzo IP dell'endpoint privato.
 
-Questo controllo è necessario se si prevede di usare la risorsa di riconoscimento vocale dell'endpoint privato in modalità "ibrido", in cui è stata abilitata l'opzione accesso a *tutte le reti* o *reti selezionate e agli endpoint privati* nella sezione *rete* della risorsa. Se si prevede di accedere alla risorsa usando solo un endpoint privato, è possibile ignorare questa sezione.
+### <a name="resolve-dns-from-other-networks"></a>Risolvere il DNS da altre reti
 
-`my-private-link-speech.cognitiveservices.azure.com`Per questa sezione viene usato come nome DNS della risorsa vocale di esempio.
+Eseguire questa verifica solo se si prevede di usare la risorsa di riconoscimento vocale endpoint privato abilitato in modalità "ibrido", in cui è stata abilitata l'opzione di accesso a **tutte le reti** o **reti selezionate ed endpoint privati** nella sezione **rete** della risorsa. Se si prevede di accedere alla risorsa usando solo un endpoint privato, è possibile ignorare questa sezione.
 
-In qualsiasi computer collegato a una rete da cui si consente l'accesso alla risorsa, aprire il prompt dei comandi di Windows o la shell bash, eseguire il `nslookup` comando e verificare che il nome di dominio personalizzato della risorsa venga risolto correttamente:
+1. Accedere a un computer collegato a una rete autorizzata ad accedere alla risorsa.
+2. Aprire il prompt dei comandi di Windows o la shell bash, eseguire `nslookup` e verificare che il nome di dominio personalizzato della risorsa venga risolto correttamente.
+
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -269,11 +270,14 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
           westeurope.prod.vnet.cog.trafficmanager.net
 ```
 
-Si noti che l'indirizzo IP risolto punta a un endpoint proxy della rete virtuale, che invia il traffico di rete all'endpoint privato per la risorsa Servizi cognitivi. Il comportamento sarà diverso per una risorsa con un nome di dominio personalizzato ma *senza* endpoint privati. Per informazioni dettagliate, vedere [questa sezione](#dns-configuration) .
+3. Verificare che l'indirizzo IP corrisponda all'indirizzo IP dell'endpoint privato.
+
+> [!NOTE]
+> L'indirizzo IP risolto punta a un endpoint proxy della rete virtuale, che invia il traffico di rete all'endpoint privato per la risorsa Servizi cognitivi. Il comportamento sarà diverso per una risorsa con un nome di dominio personalizzato ma *senza* endpoint privati. Per informazioni dettagliate, vedere [questa sezione](#dns-configuration) .
 
 ## <a name="adjust-existing-applications-and-solutions"></a>Modificare le applicazioni e le soluzioni esistenti
 
-Una risorsa vocale con un dominio personalizzato abilitato usa un modo diverso per interagire con i servizi di riconoscimento vocale. Questo vale per una risorsa vocale abilitata per il dominio personalizzato [con](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) e [senza](#use-speech-resource-with-custom-domain-name-without-private-endpoints) endpoint privati. Nella sezione corrente vengono fornite le informazioni necessarie per entrambi i casi.
+Una risorsa vocale con un dominio personalizzato abilitato usa un modo diverso per interagire con i servizi di riconoscimento vocale. Questo vale per una risorsa vocale abilitata per il dominio personalizzato con e senza endpoint privati. Le informazioni contenute in questa sezione si applicano a entrambi gli scenari.
 
 ### <a name="use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled"></a>Usare una risorsa vocale con un nome di dominio personalizzato e un endpoint privato abilitato
 
@@ -320,9 +324,9 @@ E l'URL della richiesta di esempio precedente devono essere convertiti in:
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/transcriptions
 ```
-Questo URL deve essere raggiungibile dalla rete virtuale con l'endpoint privato collegato (purché la [risoluzione DNS sia corretta](#mandatory-check-dns-resolution-from-the-virtual-network)).
+Questo URL deve essere raggiungibile dalla rete virtuale con l'endpoint privato collegato (purché la [risoluzione DNS sia corretta](#resolve-dns-from-the virtual-network)).
 
-Quindi, in genere, dopo aver abilitato il nome di dominio personalizzato per una risorsa vocale, è necessario sostituire il nome host in tutti gli URL di richiesta con il nuovo nome host del dominio personalizzato. Tutte le altre parti della richiesta, come il percorso `/speechtotext/v3.0/transcriptions` nell'esempio precedente, rimangono invariate.
+In genere, dopo aver abilitato il nome di dominio personalizzato per una risorsa vocale, sostituire il nome host in tutti gli URL di richiesta con il nuovo nome host del dominio personalizzato. Tutte le altre parti della richiesta, come il percorso `/speechtotext/v3.0/transcriptions` nell'esempio precedente, rimangono invariate.
 
 > [!TIP]
 > Alcuni clienti hanno sviluppato applicazioni che usano la parte Region del nome DNS dell'endpoint regionale, ad esempio per inviare la richiesta alla risorsa vocale distribuita in una determinata area di Azure.
@@ -340,7 +344,7 @@ La descrizione dettagliata degli endpoint speciali e il modo in cui deve essere 
 Acquisire familiarità con il materiale nella sottosezione indicata nel paragrafo precedente e vedere l'esempio seguente. Nell'esempio viene descritta l'API REST di sintesi vocale; l'utilizzo dell'API REST di riconoscimento vocale per l'audio breve è completamente equivalente
 
 > [!NOTE]
-> Quando si usa l' **API REST di sintesi vocale per l'audio breve** negli scenari di endpoint privato, è necessario usare il token di autorizzazione [passato tramite](rest-speech-to-text.md#request-headers) l' `Authorization` [intestazione](rest-speech-to-text.md#request-headers). il passaggio della chiave di sottoscrizione vocale all'endpoint speciale tramite `Ocp-Apim-Subscription-Key` intestazione **non** funzionerà e genererà l'errore 401.
+> Quando si usa l' **API REST di sintesi vocale per l'audio breve** negli scenari di endpoint privati, usare un token di autorizzazione [passato](rest-speech-to-text.md#request-headers) all' `Authorization` [intestazione](rest-speech-to-text.md#request-headers). Il passaggio della chiave di sottoscrizione vocale all'endpoint speciale tramite `Ocp-Apim-Subscription-Key` intestazione **non** funzionerà e genererà l'errore 401.
 
 **Esempio di utilizzo dell'API REST di sintesi vocale.**
 
@@ -372,13 +376,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices
 
 #### <a name="speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk"></a>Risorsa vocale con nome di dominio personalizzato e endpoint privato. Utilizzo con l'SDK di riconoscimento vocale
 
-L'uso dell'SDK di riconoscimento vocale con il nome di dominio personalizzato e le risorse vocali abilitate per endpoint privato richiede la revisione e le modifiche probabilmente del codice dell'applicazione. Stiamo lavorando a un supporto più trasparente dello scenario di endpoint privato.
+L'uso dell'SDK di riconoscimento vocale con il nome di dominio personalizzato e le risorse vocali abilitate per endpoint privato richiede la revisione e le modifiche probabilmente del codice dell'applicazione.
 
 `my-private-link-speech.cognitiveservices.azure.com`Per questa sezione verrà usato come nome DNS della risorsa vocale di esempio (dominio personalizzato).
 
 ##### <a name="general-principle"></a>Principio generale
 
-In genere negli scenari SDK (oltre che negli scenari dell'API REST di sintesi vocale) vengono usati gli endpoint internazionali speciali per le diverse offerte di servizio. Il formato del nome DNS per questi endpoint è: </p>`{region}.{speech service offering}.speech.microsoft.com`
+In genere negli scenari SDK (oltre che negli scenari dell'API REST di sintesi vocale), le risorse vocali usano gli endpoint regionali dedicati per le diverse offerte di servizio. Il formato del nome DNS per questi endpoint è: </p>`{region}.{speech service offering}.speech.microsoft.com`
 
 Esempio: </p>`westeurope.stt.speech.microsoft.com`
 
@@ -395,72 +399,81 @@ Tutti i valori possibili per l'area (primo elemento del nome DNS) sono elencati 
 
 Quindi, l'esempio precedente ( `westeurope.stt.speech.microsoft.com` ) sta per l'endpoint di riconoscimento vocale nell'Europa occidentale.
 
-Gli endpoint privati abilitati per l'endpoint comunicano con servizi vocali tramite un proxy speciale e per il fatto che **gli URL di connessione dell'endpoint devono essere modificati**. Viene applicato il principio seguente: un URL dell'endpoint "standard" segue il modello di <p/>`{region}.{speech service offering}.speech.microsoft.com/{URL path}`
+Gli endpoint privati abilitati per l'endpoint comunicano con servizi vocali tramite un proxy speciale e per questo motivo **è necessario modificare gli URL di connessione dell'endpoint**. 
 
-Dovrà essere modificata in: <p/>`{your custom name}.cognitiveservices.azure.com/{speech service offering}/{URL path}`
+Un URL di endpoint "standard" ha un aspetto simile al seguente: <p/>`{region}.{speech service offering}.speech.microsoft.com/{URL path}`
 
-**Esempio 1.** L'applicazione sta comunicando usando l'URL seguente (riconoscimento vocale usando il modello di base per l'inglese Stati Uniti nell'Europa occidentale): 
+Un URL di endpoint privato ha un aspetto simile al seguente: <p/>`{your custom name}.cognitiveservices.azure.com/{speech service offering}/{URL path}`
+
+**Esempio 1.** L'applicazione sta comunicando usando l'URL seguente (riconoscimento vocale usando il modello di base per l'inglese Stati Uniti nell'Europa occidentale):
+
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
 
-Per usarlo nello scenario di endpoint privato abilitato quando il nome di dominio personalizzato della risorsa vocale è l' `my-private-link-speech.cognitiveservices.azure.com` URL deve essere modificato come segue:
+Per usarlo nello scenario di endpoint privato abilitato quando il nome di dominio personalizzato della risorsa vocale è è `my-private-link-speech.cognitiveservices.azure.com` necessario modificare l'URL in questo modo:
+
 ```
 wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
 
-È ora più vicino:
-- Il nome host `westeurope.stt.speech.microsoft.com` viene sostituito dal nome host del dominio personalizzato `my-private-link-speech.cognitiveservices.azure.com`
-- Il secondo elemento del nome DNS originale ( `stt` ) diventa il primo elemento del percorso URL e precede il percorso originale, ovvero l'URL originale `/speech/recognition/conversation/cognitiveservices/v1?language=en-US` diventa `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US`
- 
-**Esempio 2.** L'applicazione sta comunicando usando l'URL seguente (sintesi vocale usando il modello Voice personalizzato nell'Europa occidentale): 
+Si notino i dettagli:
+
+- Hostname `westeurope.stt.speech.microsoft.com` viene sostituito dal nome host del dominio personalizzato `my-private-link-speech.cognitiveservices.azure.com` .
+- Il secondo elemento del nome DNS originale ( `stt` ) diventa il primo elemento del percorso URL e precede il percorso originale. L'URL originale `/speech/recognition/conversation/cognitiveservices/v1?language=en-US` diventa quindi `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
+
+**Esempio 2.** L'applicazione usa l'URL seguente per sintetizzare la sintesi vocale nell'Europa occidentale usando un modello Voice personalizzato:
 ```http
 https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
-Per usarlo nello scenario di endpoint privato abilitato quando il nome di dominio personalizzato della risorsa vocale è l' `my-private-link-speech.cognitiveservices.azure.com` URL deve essere modificato come segue: 
+
+Di seguito è riportato un URL equivalente che usa un endpoint privato abilitato dove il nome di dominio personalizzato della risorsa vocale è `my-private-link-speech.cognitiveservices.azure.com` :
+
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
 
 Viene applicato lo stesso principio dell'esempio 1, ma questa volta è l'elemento chiave `voice` .
 
-##### <a name="modifying-applications"></a>Modifica di applicazioni
+##### <a name="modify-applications"></a>Modificare le applicazioni
 
-Per applicare il principio descritto nella sezione precedente al codice dell'applicazione, è necessario eseguire due operazioni principali:
+Per modificare il codice, attenersi alla procedura seguente:
 
-- Determinare l'URL dell'endpoint usato dall'applicazione
-- Modificare l'URL dell'endpoint come descritto nella sezione precedente e creare l' `SpeechConfig` istanza della classe usando questo URL modificato in modo esplicito
+**1. determinare l'URL dell'endpoint dell'applicazione**
 
-###### <a name="determine-application-endpoint-url"></a>Determinare l'URL dell'endpoint dell'applicazione
+- [Abilitare la registrazione per l'applicazione](how-to-use-logging.md) ed eseguirla per registrare l'attività.
+- Nel file di log cercare `SPEECH-ConnectionUrl` . Nelle righe corrispondenti il `value` parametro contiene l'URL completo usato dall'applicazione per raggiungere il servizio di riconoscimento vocale.
 
-- [Abilitare la registrazione per l'applicazione](how-to-use-logging.md) ed eseguirla per generare il log
-- Nel file di log cercare `SPEECH-ConnectionUrl` . La stringa conterrà il `value` parametro, che a sua volta conterrà l'URL completo usato dall'applicazione
+Esempio:
 
-Esempio di riga di un file di log con l'URL dell'endpoint:
 ```
 (114917): 41ms SPX_DBG_TRACE_VERBOSE:  property_bag_impl.cpp:138 ISpxPropertyBagImpl::LogPropertyAndValue: this=0x0000028FE4809D78; name='SPEECH-ConnectionUrl'; value='wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?traffictype=spx&language=en-US'
 ```
-L'URL usato dall'applicazione in questo esempio è il seguente:
+
+Quindi, l'URL usato dall'applicazione in questo esempio è:
+
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-###### <a name="create-speechconfig-instance-using-full-endpoint-url"></a>Crea `SpeechConfig` istanza usando l'URL completo dell'endpoint
+
+**2. creare un' `SpeechConfig` istanza usando l'URL completo dell'endpoint**
 
 Modificare l'endpoint specificato nella sezione precedente, come descritto in [principio generale](#general-principle) sopra.
 
-A questo punto è necessario modificare la modalità di creazione dell'istanza di `SpeechConfig` . È molto probabile che l'applicazione odierna stia usando un codice simile al seguente:
+Modificare ora la modalità di creazione dell'istanza di `SpeechConfig` . È molto probabile che l'applicazione odierna stia usando un codice simile al seguente:
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
 Questa operazione non funzionerà per la risorsa di sintesi vocale abilitata per endpoint privati a causa delle modifiche del nome host e dell'URL descritte nelle sezioni precedenti. Se si prova a eseguire l'applicazione esistente senza alcuna modifica usando la chiave di una risorsa abilitata per l'endpoint privato, si otterrà un errore di autenticazione (401).
 
-Per renderlo funzionante, è necessario modificare la modalità di creazione di un'istanza `SpeechConfig` della classe e utilizzare l'inizializzazione "da endpoint"/"con endpoint". Si supponga che siano state definite le due variabili seguenti:
+Per renderlo funzionante, modificare la modalità di creazione `SpeechConfig` dell'istanza della classe e utilizzare l'inizializzazione "da endpoint"/"con endpoint". Si supponga che siano state definite le due variabili seguenti:
 - `subscriptionKey` che contiene la chiave della risorsa di riconoscimento vocale endpoint privato abilitato
 - `endPoint` contenente l'URL completo dell'endpoint **modificato** (usando il tipo richiesto dal linguaggio di programmazione corrispondente). Nell'esempio questa variabile deve contenere
 ```
 wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-Quindi è necessario creare un'istanza della `SpeechConfig` classe come la seguente:
+
+Successivamente, creare un' `SpeechConfig` istanza:
 ```csharp
 var config = SpeechConfig.FromEndpoint(endPoint, subscriptionKey);
 ```
@@ -477,8 +490,9 @@ speech_config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=subscript
 ```objectivec
 SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:subscriptionKey];
 ```
+
 > [!TIP]
-> I parametri di query specificati nell'URI dell'endpoint non vengono modificati, anche se sono impostati da qualsiasi altra API. Se, ad esempio, la lingua di riconoscimento viene definita nell'URI come parametro di query "Language = en-US" e viene anche impostata su "ur-ur" tramite la proprietà corrispondente, l'impostazione della lingua nell'URI ha la precedenza e la lingua valida è "en-US". Solo i parametri non specificati nell'URI dell'endpoint possono essere impostati da altre API.
+> I parametri di query specificati nell'URI dell'endpoint non vengono modificati, anche se sono impostati da qualsiasi altra API. Se, ad esempio, la lingua di riconoscimento viene definita nell'URI come parametro di query "Language = en-US" e viene anche impostata su "ur-ur" tramite la proprietà corrispondente, viene utilizzata l'impostazione della lingua nell'URI e la lingua valida è "en-US". I parametri impostati nell'URI dell'endpoint accettano sempre precidence. Solo i parametri non specificati nell'URI dell'endpoint possono essere sostituiti da altre API.
 
 Dopo questa modifica, l'applicazione dovrebbe funzionare con le risorse di riconoscimento vocale private Enabled. Stiamo lavorando a un supporto più trasparente dello scenario di endpoint privato.
 
@@ -490,7 +504,7 @@ Questa sezione illustra come usare una risorsa di riconoscimento vocale con un n
 
 #### <a name="dns-configuration"></a>Configurazione del DNS
 
-Ricordare come un nome DNS di dominio personalizzato della risorsa di riconoscimento vocale dell'endpoint privato venga [risolto dalle reti pubbliche](#optional-check-dns-resolution-from-other-networks). In questo caso l'indirizzo IP risolto punta a un endpoint proxy VNet, che viene usato per l'invio del traffico di rete alla risorsa di servizi cognitivi abilitata per l'endpoint privato.
+Ricordare come un nome DNS di dominio personalizzato della risorsa di riconoscimento vocale dell'endpoint privato venga [risolto dalle reti pubbliche](#resolve-dns-from-other-networks). In questo caso l'indirizzo IP risolto punta a un endpoint proxy VNet, che viene usato per l'invio del traffico di rete alla risorsa di servizi cognitivi abilitata per l'endpoint privato.
 
 Tuttavia, quando si riesegue il provisioning di **tutti** gli endpoint privati delle risorse (o subito dopo l'abilitazione del nome di dominio personalizzato), viene eseguito il provisioning dell'indirizzo IP dell' [endpoint di servizi cognitivi](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)corrispondente.
 
@@ -510,7 +524,7 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
           apimgmttmdjylckcx6clmh2isu2wr38uqzm63s8n4ub2y3e6xs.trafficmanager.net
           cognitiveweprod-westeurope-01.regional.azure-api.net
 ```
-Confrontarlo con l'output di [questa sezione](#optional-check-dns-resolution-from-other-networks).
+Confrontarlo con l'output di [questa sezione](#resolve-dns-from-other-networks).
 
 #### <a name="speech-resource-with-custom-domain-name-without-private-endpoints-usage-with-rest-api"></a>Risorsa vocale con nome di dominio personalizzato senza endpoint privati. Uso con l'API REST
 
@@ -523,7 +537,7 @@ L'utilizzo dell'API REST di sintesi vocale v 3.0 è completamente equivalente al
 In questo caso l'API REST di riconoscimento vocale per l'utilizzo di brevi audio e l'API REST di sintesi vocale non presenta alcuna differenza rispetto al caso generale con un'eccezione per l'API REST di riconoscimento vocale per l'audio breve (vedere la nota di seguito). Entrambe le API devono essere usate come descritto in [API REST di sintesi vocale per la documentazione dell'API REST per audio breve](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e sintesi [vocale](rest-text-to-speech.md) .
 
 > [!NOTE]
-> Quando si usa l' **API REST di sintesi vocale per l'audio breve** negli scenari di dominio personalizzato, è necessario usare il token di autorizzazione [passato tramite](rest-speech-to-text.md#request-headers) l' `Authorization` [intestazione](rest-speech-to-text.md#request-headers). il passaggio della chiave di sottoscrizione vocale all'endpoint speciale tramite `Ocp-Apim-Subscription-Key` intestazione **non** funzionerà e genererà l'errore 401.
+> Quando si usa l' **API REST di sintesi vocale per l'audio breve** negli scenari di dominio personalizzato, usare un token di autorizzazione [passato](rest-speech-to-text.md#request-headers) all' `Authorization` [intestazione](rest-speech-to-text.md#request-headers). Il passaggio della chiave di sottoscrizione vocale all'endpoint speciale tramite `Ocp-Apim-Subscription-Key` intestazione **non** funzionerà e genererà l'errore 401.
 
 #### <a name="speech-resource-with-custom-domain-name-without-private-endpoints-usage-with-speech-sdk"></a>Risorsa vocale con nome di dominio personalizzato senza endpoint privati. Utilizzo con l'SDK di riconoscimento vocale
 
@@ -543,30 +557,29 @@ l'applicazione verrà terminata con l'errore di autenticazione (401).
 
 ##### <a name="modifying-applications"></a>Modifica di applicazioni
 
-Per abilitare l'applicazione per lo scenario della risorsa vocale con un nome di dominio personalizzato senza endpoint privati, è necessario eseguire le operazioni seguenti:
-- Richiedere un token di autorizzazione tramite l'API REST di servizi cognitivi
-- Creare un'istanza `SpeechConfig` della classe usando il metodo "from token di autorizzazione"/"con il token di autorizzazione" 
+Per consentire all'applicazione di usare una risorsa vocale con un nome di dominio personalizzato e senza endpoint privati, attenersi alla procedura seguente:
 
-###### <a name="request-authorization-token"></a>Richiedi token di autorizzazione
+**1. richiedere il token di autorizzazione dall'API REST di servizi cognitivi**
 
-Vedere [questo articolo](../authentication.md#authenticate-with-an-authentication-token) su come ottenere il token tramite l'API REST di servizi cognitivi. 
+[Questo articolo](../authentication.md#authenticate-with-an-authentication-token) illustra come ottenere il token usando l'API REST di servizi cognitivi.
 
 Usare il nome di dominio personalizzato nell'URL dell'endpoint, in questo esempio l'URL è:
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 ```
 > [!TIP]
-> È possibile trovare questo URL nella sezione *chiavi e endpoint* (gruppo di *Gestione risorse* ) della risorsa di riconoscimento vocale in portale di Azure.
+> Questo URL è reperibile in portale di Azure. Nella pagina delle risorse vocali, sotto il gruppo **Gestione risorse** selezionare **chiavi ed endpoint**.
 
-###### <a name="create-speechconfig-instance-using-authorization-token"></a>Crea `SpeechConfig` istanza usando il token di autorizzazione
+**2. creare un' `SpeechConfig` istanza usando il metodo "from token di autorizzazione"/"con token di autorizzazione".**
 
-È necessario creare un'istanza della `SpeechConfig` classe utilizzando il token di autorizzazione ottenuto nella sezione precedente. Si supponga che siano state definite le variabili seguenti:
+Creare un' `SpeechConfig` istanza usando il token di autorizzazione ottenuto nella sezione precedente. Si supponga che siano state definite le variabili seguenti:
 
-- `token` contenente il token di autorizzazione ottenuto nella sezione precedente
-- `azureRegion` contenente il nome dell' [area](regions.md) della risorsa vocale (esempio: `westeurope` )
-- `outError` (solo per i casi [Objective C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) )
+- `token`: token di autorizzazione ottenuto nella sezione precedente
+- `azureRegion`: nome dell' [area](regions.md) della risorsa vocale (esempio: `westeurope` )
+- `outError`: (solo per caso [Objective C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) )
 
-Quindi è necessario creare un'istanza della `SpeechConfig` classe come la seguente:
+Successivamente, creare un' `SpeechConfig` istanza:
+
 ```csharp
 var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
 ```
@@ -584,17 +597,21 @@ speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
 SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
 ```
 > [!NOTE]
-> Il chiamante deve verificare che il token di autorizzazione sia valido. Prima della scadenza del token di autorizzazione, il chiamante deve aggiornarlo chiamando questo Setter con un nuovo token valido. Poiché i valori di configurazione vengono copiati durante la creazione di un nuovo riconoscimento/sintetizzatore, il nuovo valore del token non verrà applicato ai sistemi di riconoscimento che sono già stati creati. Per i riconoscitori o i sintetizzatori creati in precedenza, è necessario impostare il token di autorizzazione del riconoscimento/sintetizzatore corrispondente per aggiornare il token. In caso contrario, i riconoscitori/sintetizzatori rileveranno errori durante il riconoscimento o la sintesi.
+> Il chiamante deve verificare che il token di autorizzazione sia valido.
+> Prima della scadenza del token di autorizzazione, il chiamante deve aggiornarlo chiamando questo Setter con un nuovo token valido.
+> Quando vengono copiati i valori di configurazione durante la creazione di un nuovo sistema di riconoscimento o di un sintetizzatore, il nuovo valore del token non verrà applicato ai sistemi di riconoscimento o ai sintetizzatori già creati.
+> Per questi elementi, impostare il token di autorizzazione del riconoscimento o del sintetizzatore corrispondente per aggiornare il token.
+> Se non si aggiorna il token, il riconoscitore o il sintetizzatore rileverà errori durante il funzionamento.
 
-Dopo questa modifica, l'applicazione dovrebbe funzionare con le risorse vocali abilitate per il nome di dominio personalizzato senza endpoint privati. Stiamo lavorando a un supporto più trasparente dello scenario di dominio personalizzato/endpoint privato.
+Dopo questa modifica, l'applicazione dovrebbe funzionare con le risorse vocali che usano un nome di dominio personalizzato senza endpoint privati.
 
 ## <a name="pricing"></a>Prezzi
 
 Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="learn-more"></a>Altre informazioni
 
-* Altre informazioni su [Collegamento privato di Azure](../../private-link/private-link-overview.md)
-* Altre informazioni sull' [SDK vocale](speech-sdk.md)
-* Altre informazioni sull' [API REST per sintesi vocale](rest-speech-to-text.md)
-* Altre informazioni sull' [API REST di sintesi vocale](rest-text-to-speech.md)
+* [Collegamento privato di Azure](../../private-link/private-link-overview.md)
+* [Speech SDK](speech-sdk.md)
+* [API REST di riconoscimento vocale](rest-speech-to-text.md)
+* [API REST di sintesi vocale](rest-text-to-speech.md)

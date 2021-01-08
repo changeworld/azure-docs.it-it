@@ -3,16 +3,15 @@ title: Eseguire il debug di query di analisi di flusso di Azure localmente usand
 description: Questo articolo descrive come eseguire il debug di query localmente usando il diagramma dei processi negli strumenti di analisi di flusso di Azure per Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d0e94fda1fb21be1a01516f4cecf657426ae867e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130987"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019449"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Eseguire il debug di query di analisi di flusso di Azure localmente usando il diagramma processi in Visual Studio
 
@@ -32,7 +31,7 @@ Usare questa [Guida introduttiva](stream-analytics-quick-create-vs.md) per infor
 > [!NOTE]
 > Se si esporta un processo in un progetto locale e si vuole eseguire il test in un flusso di input Live, è necessario specificare di nuovo le credenziali per tutti gli input.  
 
-Scegliere l'origine di input e di output nell'editor di script e selezionare **Esegui localmente** . Il diagramma del processo viene visualizzato sul lato destro.
+Scegliere l'origine di input e di output nell'editor di script e selezionare **Esegui localmente**. Il diagramma del processo viene visualizzato sul lato destro.
 
 ### <a name="view-the-intermediate-result-set"></a>Visualizzare il set di risultati intermedio  
 
