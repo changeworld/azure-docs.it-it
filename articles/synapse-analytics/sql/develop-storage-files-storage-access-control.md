@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400676"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746729"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -89,9 +89,67 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 
 \* È possibile usare un token di firma di accesso condiviso e l'identità di Azure AD per accedere a spazio di archiviazione non protetto con firewall.
 
-> [!IMPORTANT]
-> Quando si accede a uno spazio di archiviazione protetto da firewall, è possibile usare solo l'identità gestita. È necessario usare l'impostazione [Consenti servizi Microsoft attendibili](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [assegnare un ruolo di Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) in modo esplicito all'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per tale istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
->
+
+### <a name="querying-firewall-protected-storage"></a>Esecuzione di query su un account di archiviazione protetto da firewall
+
+Per accedere a un account di archiviazione protetto da firewall, è possibile usare l'**identità utente** o l'**identità gestita**.
+
+#### <a name="user-identity"></a>Identità utente
+
+Per accedere all'account di archiviazione protetto da firewall tramite l'identità utente, è possibile usare il modulo Az.Storage di PowerShell.
+#### <a name="configuration-via-powershell"></a>Configurazione tramite PowerShell
+
+Seguire questa procedura per configurare il firewall dell'account di archiviazione e aggiungere un'eccezione per l'area di lavoro di Synapse.
+
+1. Aprire o [installare PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+2. Installare il modulo Az. Storage aggiornato: 
+    ```powershell
+    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    ```
+    > [!IMPORTANT]
+    > Assicurarsi di usare la versione 3.0.1 o successiva. È possibile verificare la versione di Az.Storage eseguendo questo comando:  
+    > ```powershell 
+    > Get-Module -ListAvailable -Name  Az.Storage | select Version
+    > ```
+    > 
+
+3. Connettersi al tenant di Azure: 
+    ```powershell
+    Connect-AzAccount
+    ```
+4. Definire le variabili in PowerShell: 
+    - Nome del gruppo di risorse: è possibile trovarlo nel portale di Azure nella panoramica dell'area di lavoro di Synapse.
+    - Nome dell'account: nome dell'account di archiviazione protetto dalle regole del firewall.
+    - ID tenant: è possibile trovarlo nel portale di Azure in Azure Active Directory nelle informazioni sul tenant.
+    - ID risorsa: è possibile trovarlo nel portale di Azure nella panoramica dell'area di lavoro di Synapse.
+
+    ```powershell
+        $resourceGroupName = "<resource group name>"
+        $accountName = "<storage account name>"
+        $tenantId = "<tenant id>"
+        $resourceId = "<Synapse workspace resource id>"
+    ```
+    > [!IMPORTANT]
+    > Assicurarsi che l'ID risorsa corrisponda a questo modello.
+    >
+    > È importante scrivere **resourcegroups** in lettere minuscole.
+    > Esempio di un ID risorsa: 
+    > ```
+    > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
+    > ```
+    > 
+5. Aggiungere la regola di archiviazione di rete: 
+    ```powershell
+        Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+    ```
+6. Verificare che la regola sia stata applicata nell'account di archiviazione: 
+    ```powershell
+        $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+        $rule.ResourceAccessRules
+    ```
+
+#### <a name="managed-identity"></a>Identità gestita
+È necessario usare l'impostazione [Consenti servizi Microsoft attendibili](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [assegnare un ruolo di Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) in modo esplicito all'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per tale istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
 
 ## <a name="credentials"></a>Credenziali
 

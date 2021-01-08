@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533962"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617358"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -49,7 +49,7 @@ RDP Shortpath introduce la connessione diretta all'host di sessione di Desktop v
 
 ### <a name="azure-advisor-updates"></a>Aggiornamenti di Azure Advisor
 
-Azure Advisor ha una nuova raccomandazione per le linee guida sulla prossimità in Desktop virtuale Windows. Pe altre informazioni, visitare il [sito Web di Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
+Azure Advisor ha una nuova raccomandazione per le linee guida sulla prossimità in Desktop virtuale Windows e una nuova raccomandazione per ottimizzare le prestazioni nei pool di host con bilanciamento del carico in profondità. Pe altre informazioni, visitare il [sito Web di Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Ottobre 2020
 

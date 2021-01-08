@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione: Creare il modello predittivo con Machine Learning automatizzato (parte 1 di 2)'
+title: 'Esercitazione: Creare il modello predittivo con ML automatizzato (parte 1 di 2)'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare e distribuire modelli di Machine Learning automatizzato, in modo da poter usare il modello migliore per prevedere i risultati in Microsoft Power BI.
+description: Informazioni su come creare e distribuire modelli di Machine Learning automatizzato, in modo da poter usare il modello migliore per prevedere risultati in Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,130 +10,130 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 897f493edf6ccdebb25c201e8e4f9babfb0754c5
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 6dc99d58f15653e9d3f991622de3bb3388690459
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97370758"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814806"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-using-automated-machine-learning-part-1-of-2"></a>Esercitazione: Integrazione di Power BI: Creare il modello predittivo usando Machine Learning automatizzato (parte 1 di 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-automated-machine-learning-part-1-of-2"></a>Esercitazione: Integrazione di Power BI: creare il modello predittivo usando Machine Learning automatizzato (parte 1 di 2)
 
-Nella prima parte di questa esercitazione si eseguono il training e la distribuzione di un modello predittivo di Machine Learning usando Machine Learning automatizzato nello studio di Azure Machine Learning.  Nella parte 2 si userà quindi il modello con prestazioni migliori per prevedere i risultati in Microsoft Power BI.
+Nella prima parte di questa esercitazione si eseguono il training e la distribuzione di un modello predittivo di Machine Learning usando Machine Learning (ML) automatizzato nello studio di Azure Machine Learning.  Nella parte 2 si userà il modello con prestazioni migliori per prevedere i risultati in Microsoft Power BI.
 
 In questa esercitazione:
 
 > [!div class="checklist"]
-> * Creare un cluster di elaborazione di Azure Machine Learning
-> * Creare un set di dati
-> * Creare un'esecuzione di Machine Learning automatizzato
-> * Distribuire il modello migliore in un endpoint di assegnazione punteggi in tempo reale
+> * Creare un cluster di elaborazione di Azure Machine Learning.
+> * Creare un set di dati.
+> * Creare un'esecuzione di Machine Learning automatizzato.
+> * Distribuire il modello migliore in un endpoint di assegnazione punteggi in tempo reale.
 
 
-Esistono tre modi diversi per creare e distribuire il modello che verrà usato in Power BI.  Questo articolo illustra l'opzione C: Eseguire il training e la distribuzione di modelli usando Machine Learning automatizzato nello studio.  Questa opzione illustra un'esperienza di creazione senza codice che automatizza completamente la preparazione dei dati e il training dei modelli. 
+Esistono tre modi per creare e distribuire il modello che verrà usato in Power BI.  Questo articolo illustra l'opzione C: Eseguire il training e la distribuzione di modelli con Machine Learning automatizzato nello studio.  Questa opzione offre un'esperienza di creazione senza codice. Automatizza completamente la preparazione dei dati e il training dei modelli. 
 
-In alternativa è possibile scegliere:
+Tuttavia, è possibile usare una delle altre opzioni:
 
-* [Opzione A: Eseguire il training e la distribuzione di modelli tramite notebook](tutorial-power-bi-custom-model.md), un'esperienza di creazione code-first tramite notebook di Jupyter ospitati nello studio di Azure Machine Learning.
-* [Opzione B: Eseguire il training e la distribuzione di modelli con la finestra di progettazione](tutorial-power-bi-designer-model.md), un'esperienza di creazione a basso contenuto di codice usando la finestra di progettazione, un'interfaccia utente con trascinamento della selezione.
+* [Opzione A: Eseguire il training e la distribuzione di modelli con notebook di Jupyter](tutorial-power-bi-custom-model.md). Questa esperienza di creazione code-first usa notebook di Jupyter ospitati nello studio di Azure Machine Learning.
+* [Opzione B: Eseguire il training e la distribuzione di modelli con la finestra di progettazione di Azure Machine Learning](tutorial-power-bi-designer-model.md). Questa esperienza di creazione a basso contenuto di codice usa un'interfaccia utente con trascinamento della selezione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure ([è disponibile una versione di valutazione gratuita](https://aka.ms/AMLFree)). 
-- Un'area di lavoro di Azure Machine Learning. Se non è già disponibile un'area di lavoro, vedere l'articolo su [come creare un'area di lavoro di Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile creare una [versione di valutazione gratuita](https://aka.ms/AMLFree). 
+- Un'area di lavoro di Azure Machine Learning. Se non si ha un'area di lavoro, vedere [Creare e gestire le aree di lavoro di Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
 
-## <a name="create-compute-cluster"></a>Creare il cluster di elaborazione
+## <a name="create-a-compute-cluster"></a>Creare un cluster di elaborazione
 
-Machine Learning automatizzato esegue automaticamente il training di numerosi modelli di Machine Learning diversi per trovare l'algoritmo e i parametri "migliori". Azure Machine Learning parallelizza l'esecuzione del training dei modelli in un cluster di elaborazione.
+Machine Learning automatizzato esegue il training di molti modelli diversi di Machine Learning per trovare l'algoritmo e i parametri migliori. Azure Machine Learning parallelizza l'esecuzione del training dei modelli in un cluster di elaborazione.
 
-In [Azure Machine Learning Studio](https://ml.azure.com) selezionare **Calcolo** nel menu di sinistra e quindi la scheda **Cluster di elaborazione**. Selezionare **Nuovo**:
+Per iniziare, nel menu a sinistra dello [studio di Azure Machine Learning](https://ml.azure.com) selezionare **Calcolo**. Aprire la scheda **Cluster di elaborazione**. Quindi selezionare **Nuovo**:
 
-:::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot che mostra come creare un cluster di elaborazione":::
+:::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot che mostra come creare un cluster di elaborazione.":::
 
-Nella schermata **Crea cluster di elaborazione**:
+Nella pagina **Crea cluster di elaborazione**:
 
-1. Selezionare un valore per le dimensioni della macchina virtuale. Ai fini di questa esercitazione è possibile usare una macchina `Standard_D11_v2`.
-1. Selezionare **Avanti**
-1. Specificare un nome di ambiente di calcolo valido
-1. Mantenere **Numero minimo di nodi** impostato su 0
-1. Impostare **Numero massimo di nodi** su 4
-1. Selezionare **Crea**
+1. Selezionare una dimensione di VM. Per questa esercitazione, è possibile selezionare una VM **Standard_D11_v2**.
+1. Selezionare **Avanti**.
+1. Specificare un nome di ambiente di calcolo valido.
+1. Mantenere **Numero minimo di nodi** impostato su `0`.
+1. Impostare **Numero massimo di nodi** su `4`.
+1. Selezionare **Crea**.
 
-Lo stato del cluster è cambiato in **Creazione in corso**.
+Lo stato del cluster diventa **In fase di creazione**.
 
 >[!NOTE]
-> Il cluster creato include 0 nodi, di conseguenza non viene addebitato alcun costo di calcolo. Vengono addebitati solo i costi relativi all'esecuzione del processo di Machine Learning automatizzato. Il numero di nodi del cluster verrà impostato automaticamente su 0 dopo 120 secondi di inattività.
+> Il nuovo cluster ha 0 nodi, quindi non si incorre in costi di calcolo. Vengono addebitati costi solo quando viene eseguito il processo di Machine Learning automatizzato. Il numero di nodi del cluster torna automaticamente a 0 dopo 120 secondi di inattività.
 
 
-## <a name="create-dataset"></a>Creare set di dati
+## <a name="create-a-dataset"></a>Creare un set di dati
 
-In questa esercitazione si usa il [set di dati Diabetes](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html), disponibile nel [set di dati aperti di Azure](https://azure.microsoft.com/services/open-datasets/).
+In questa esercitazione si usa il [set di dati Diabetes](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). Questo set di dati è disponibile nei [set di dati aperti di Azure](https://azure.microsoft.com/services/open-datasets/).
 
-Per creare il set di dati, selezionare il menu di sinistra **Set di dati** e quindi **Crea set di dati**. Verranno visualizzate le opzioni seguenti:
+Per creare il set di dati, nel menu a sinistra selezionare **Set di dati**. Quindi selezionare **Crea set di dati**. Vengono visualizzate le opzioni seguenti:
 
-:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot che mostra come creare un nuovo set di dati":::
+:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot che mostra come creare un nuovo set di dati.":::
 
-Selezionare **Da set di dati aperti** e quindi nella schermata **Crea set di dati dai set di dati aperti**:
+Selezionare **Da set di dati aperti**. Quindi nella pagina **Crea set di dati dai set di dati aperti**:
 
-1. Cercare *diabetes* usando la barra di ricerca
-1. Selezionare **Sample: Diabetes**
-1. Selezionare **Avanti**
-1. Specificare un nome per il set di dati, ovvero *diabetes*
-1. Selezionare **Crea**
+1. Usare la barra di ricerca per trovare *diabetes*.
+1. Selezionare **Sample: Diabetes**.
+1. Selezionare **Avanti**.
+1. Assegnare al set di dati il nome *diabetes*.
+1. Selezionare **Crea**.
 
 Per esplorare i dati, selezionare il set di dati e quindi **Esplora**:
 
-:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot che mostra come esplorare il set di dati":::
+:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot che mostra come esplorare il set di dati.":::
 
-I dati includono 10 variabili di input della baseline, ad esempio età, sesso, indice di massa corporea, pressione sanguigna media e sei misurazioni sierologiche, nonché una variabile di destinazione denominata **Y** (misura quantitativa della progressione del diabete un anno dopo la baseline).
+I dati contengono 10 variabili di input di base, ad esempio età, sesso, indice di massa corporea, pressione sanguigna media e sei misurazioni del siero. Contengono inoltre una variabile di destinazione denominata **Y**. Questa variabile di destinazione è una misura quantitativa della progressione del diabete un anno dopo quello di riferimento.
 
-## <a name="create-automated-ml-run"></a>Creare l'esecuzione di Machine Learning automatizzato
+## <a name="create-an-automated-machine-learning-run"></a>Creare un'esecuzione di Machine Learning automatizzato
 
-In [Azure Machine Learning Studio](https://ml.azure.com) selezionare **ML automatizzato** nel menu di sinistra e quindi **Nuova esecuzione di ML automatizzato**:
+Nel menu a sinistra dello [studio di Azure Machine Learning](https://ml.azure.com) selezionare **ML automatizzato**. Quindi selezionare **Nuova esecuzione di ML automatizzato**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-run.png" alt-text="Screenshot che mostra come creare una nuova esecuzione di Machine Learning automatizzato":::
+:::image type="content" source="media/tutorial-power-bi/create-new-run.png" alt-text="Screenshot che mostra come creare una nuova esecuzione di Machine Learning automatizzato.":::
 
-Selezionare quindi il set di dati **diabetes** creato in precedenza e selezionare **Avanti**:
+Selezionare quindi il set di dati **diabetes** creato in precedenza. Selezionare **Avanti**:
 
-:::image type="content" source="media/tutorial-power-bi/select-dataset.png" alt-text="Screenshot che mostra come selezionare un set di dati":::
+:::image type="content" source="media/tutorial-power-bi/select-dataset.png" alt-text="Screenshot che mostra come selezionare un set di dati.":::
  
-Nella schermata **Configura esecuzione**:
+Nella pagina **Configura esecuzione**:
 
-1. In **Nome esperimento** selezionare **Crea nuovo**
-1. Assegnare un nome all'esperimento
-1. Nel campo Colonna di destinazione selezionare **Y**
+1. In **Nome esperimento** selezionare **Crea nuovo**.
+1. Assegnare un nome all'esperimento.
+1. Nel campo **Colonna di destinazione** selezionare **Y**.
 1. Nel campo **Seleziona cluster di elaborazione** selezionare il cluster di elaborazione creato in precedenza. 
 
-Il modulo completato dovrebbe essere simile al seguente:
+Il modulo completato sarà simile al seguente:
 
-:::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot che mostra come configurare Machine Learning automatizzato":::
+:::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot che mostra come configurare Machine Learning automatizzato.":::
 
-È infine necessario selezionare l'attività di Machine Learning da eseguire, ovvero **Regressione**:
+Infine, selezionare un'attività di Machine Learning. In questo caso, l'attività è **Regressione**:
 
-:::image type="content" source="media/tutorial-power-bi/configure-task.png" alt-text="Screenshot che mostra come configurare l'attività":::
+:::image type="content" source="media/tutorial-power-bi/configure-task.png" alt-text="Screenshot che mostra come configurare un'attività.":::
 
 Selezionare **Fine**.
 
 > [!IMPORTANT]
-> Il training dei 100 modelli diversi richiede circa 30 minuti in Machine Learning automatizzato.
+> Per completare il training dei 100 modelli in Machine Learning automatizzato, sono necessari circa 30 minuti.
 
 ## <a name="deploy-the-best-model"></a>Distribuire il modello migliore
 
-Al termine dell'esecuzione di Machine Learning automatizzato, è possibile visualizzare l'elenco di tutti i diversi modelli di Machine Learning usati per i tentativi selezionando la scheda **Modelli**. I modelli vengono ordinati in base alle prestazioni. Il modello con le prestazioni migliori verrà visualizzato per primo. Quando si seleziona il modello migliore, il pulsante **Distribuisci** risulterà abilitato:
+Al termine dell'esecuzione di Machine Learning automatizzato, è possibile visualizzare tutti i modelli usati per i tentativi selezionando la scheda **Modelli**. I modelli vengono ordinati in base alle prestazioni. Il modello con le prestazioni migliori verrà visualizzato per primo. Dopo aver selezionato il modello migliore, il pulsante **Distribuisci** risulterà abilitato:
 
-:::image type="content" source="media/tutorial-power-bi/list-models.png" alt-text="Screenshot che mostra l'elenco di modelli":::
+:::image type="content" source="media/tutorial-power-bi/list-models.png" alt-text="Screenshot che mostra l'elenco di modelli.":::
 
-Se si seleziona **Distribuisci**, viene visualizzata una schermata **Distribuisci un modello** :
+Selezionare **Distribuisci** per aprire la finestra **Distribuisci un modello**:
 
-1. Specificare un nome per il servizio modello, ovvero **diabetes-model**
-1. Selezionare **Servizio Azure Container**
-1. Selezionare **Distribuisci**
+1. Assegnare al modello il nome *diabetes-model*.
+1. Selezionare **Servizio Azure Container**.
+1. Selezionare **Distribuisci**.
 
-Verrà visualizzato un messaggio che indica che il modello è stato distribuito.
+Verrà visualizzato un messaggio che indica che il modello è stato distribuito correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come eseguire il training e distribuire un modello di Machine Learning usando Machine Learning automatizzato. Nell'esercitazione successiva viene spiegato come utilizzare questo modello da Power BI per assegnare il punteggio.
+In questa esercitazione è stato descritto come eseguire il training e la distribuzione di un modello di Machine Learning usando Machine Learning automatizzato. Nell'esercitazione successiva viene descritto come utilizzare questo modello in Power BI per assegnare punteggi.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Utilizzare il modello in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

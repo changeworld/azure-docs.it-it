@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 88cec878ca5d3ccab3a232888ff3a3c0b0faa1db
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518295"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705252"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con un modello di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
@@ -143,10 +143,10 @@ Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'ese
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment). Quando richiesto, specificare il nome utente, ad esempio *azureuser*, e la password usati come credenziali per ogni istanza di VM:
+Creare ora un set di scalabilità di macchine virtuali con [az deployment group create](/cli/azure/deployment/group). Quando richiesto, specificare il nome utente, ad esempio *azureuser*, e la password usati come credenziali per ogni istanza di VM:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```

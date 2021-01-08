@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335214"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680888"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Esercitazione: Copiare i dati dal dispositivo Azure Data Box tramite SMB (anteprima)
+# <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>Esercitazione: Copiare i dati da Azure Data Box tramite SMB
 
 Questa esercitazione descrive come connettersi al computer host e copiare i dati dal dispositivo Data Box in un server locale usando l'interfaccia utente Web locale. Il dispositivo Data Box contiene i dati esportati dall'account di archiviazione di Azure.
 
@@ -27,8 +27,6 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Prerequisiti
 > * Connettersi al Data Box
 > * Copiare i dati da Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.openlocfilehash: bc93c3643e329879e5118d1cfb61a356442df808
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7d93002af866aa653972182a13ea37d37e912ce8
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618426"
+ms.locfileid: "97630310"
 ---
 # <a name="tutorial-shard-data-on-worker-nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Partizionare i dati nei nodi di lavoro in Database di Azure per PostgreSQL - Hyperscale (Citus)
 
@@ -171,8 +171,8 @@ Come si può notare, le partizioni hanno dimensioni uguali. Dato che i posiziona
 
 Le righe nell'esempio `users` sono distribuite uniformemente a causa delle proprietà della colonna di distribuzione `email`.
 
-1. Il numero di indirizzi di posta elettronica è maggiore o uguale al numero di partizioni
-2. Il numero di righe per ogni indirizzo di posta elettronica è simile (in questo caso, esattamente una riga per ogni indirizzo, perché la colonna email è stata dichiarata come chiave)
+1. Il numero di indirizzi di posta elettronica è maggiore o uguale al numero di partizioni.
+2. Il numero di righe per ogni indirizzo di posta elettronica è simile (in questo caso, esattamente una riga per ogni indirizzo, perché la colonna email è stata dichiarata come chiave).
 
 Qualsiasi scelta di tabella e colonna di distribuzione in cui una delle proprietà ha esito negativo comporterà dimensioni dei dati non uniformi nei nodi di lavoro, ovvero una *asimmetria dei dati*.
 

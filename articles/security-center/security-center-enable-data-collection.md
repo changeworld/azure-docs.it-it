@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490058"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813616"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Provisioning automatico di agenti ed estensioni del Centro sicurezza di Azure
 
@@ -30,6 +30,17 @@ I dati vengono raccolti tramite:
 > Con la crescita del Centro sicurezza, sono aumentati anche i tipi di risorse che è possibile monitorare, oltre al numero di estensioni. Il provisioning automatico è stato ampliato per supportare tipi di risorsa aggiuntivi sfruttando le funzionalità di Criteri di Azure.
 
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Pagina di impostazioni del provisioning automatico del Centro sicurezza":::
+
+
+## <a name="availability"></a>Disponibilità
+
+| Aspetto                  | Dettagli                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Stato della versione:          | **Funzionalità**: il provisioning automatico è disponibile a livello generale<br>**Agente ed estensioni**: l'agente di Log Analytics per le VM di Azure è disponibile a livello generale, Microsoft Dependency Agent è disponibile in anteprima, il componente aggiuntivo Criteri per Kubernetes è disponibile a livello generale                |
+| Prezzi:                | Livello gratuito                                                                                                                                                                                                                         |
+| Destinazioni supportate: | ![Sì](./media/icons/yes-icon.png) Macchine virtuali non di Azure<br>![No](./media/icons/no-icon.png) Computer Azure Arc<br>![No](./media/icons/no-icon.png) Nodi Kubernetes<br>![No](./media/icons/no-icon.png) Set di scalabilità di macchine virtuali |
+| Cloud:                 | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov, governo cinese, altri governi                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
 
 
 ## <a name="why-use-auto-provisioning"></a>Perché usare il provisioning automatico?

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574157"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734199"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Esercitazione: Introduzione ad Azure Machine Learning nel proprio ambiente di sviluppo (parte 1 di 4)
 
@@ -65,6 +65,9 @@ tutorial
 
 - `tutorial`: directory di primo livello del progetto.
 - `.azureml`: sottodirectory nascosta per l'archiviazione dei file di configurazione di Azure Machine Learning.
+
+> [!TIP]
+> Se si usa un Mac, in una finestra del Finder premere **CMD+MAIUSC+.** per attivare la possibilità di vedere e creare directory che iniziano con un punto.  In alternativa, usare il terminale di comandi per creare la directory.
 
 
 > [!div class="nextstepaction"]

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/24/2020
+ms.date: 12/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 01f61eac31c388cd0bf8a857beb7a10944187c6b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1814555f738f37523c5b23ae729bf20bff62e1f9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027901"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679523"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
@@ -25,8 +25,8 @@ Quando si crea un servizio di Ricerca cognitiva, si ottiene:
 + Un motore di ricerca che esegue l'indicizzazione e le query
 + Uno spazio di archiviazione persistente per gli indici di ricerca creati e gestiti
 + Un linguaggio di query per la composizione di query semplici o complesse
-+ Analisi incentrata sull'intelligenza artificiale per creare contenuto ricercabile in immagini, testo non elaborato e file dell'applicazione
-+ Integrazione con Azure tramite indicizzatori di ricerca, automatizzando l'importazione e l'aggiornamento dei dati
++ [Arricchimenti tramite intelligenza artificiale](cognitive-search-concept-intro.md) per creare contenuto ricercabile in immagini, testo non elaborato e file dell'applicazione
++ Integrazione con altri servizi di Azure per dati, Machine Learning/intelligenza artificiale e sicurezza
 
 A livello di architettura, un servizio di ricerca risiede tra gli archivi dati esterni che contengono i dati non indicizzati e un'app client che invia richieste di query a un indice di ricerca e gestisce la risposta.
 
@@ -89,11 +89,11 @@ Tra i provider di servizi cloud, Ricerca cognitiva di Azure offre le migliori pr
 Ecco i principali vantaggi:
 
 + Integrazione dei dati in Azure (crawler) al livello di indicizzazione
-+ Portale di Azure per la gestione centralizzata
-+ Scalabilità, affidabilità e massima disponibilità proprie di Azure
-+ Elaborazione dei dati non elaborati tramite intelligenza artificiale per agevolare la ricerca, anche nel testo delle immagini, o individuazione di modelli in contenuto non strutturato.
++ Integrazione con il servizio Collegamento privato di Azure per supportare i requisiti di sicurezza al di fuori di Internet
++ Integrazione con l'elaborazione tramite intelligenza artificiale per rendere ricercabile il testo di tipi di contenuto non ricercabili.
 + Analisi linguistica e personalizzata, con analizzatori per una robusta ricerca full-text in 56 lingue
-+ [Funzionalità di base comuni per le app basate sulla ricerca](search-features-list.md): assegnazione dei punteggi, esplorazione in base a facet, suggerimenti, sinonimi, ricerca geografica e così via.
++ [Funzionalità critiche](search-features-list.md): linguaggio di query avanzato, ottimizzazione della pertinenza, facet, completamento automatico, sinonimi, ricerca geografica e composizione dei risultati.
++ Scalabilità, affidabilità e massima disponibilità proprie di Azure
 
 Tra i clienti, i casi in grado di sfruttare la gamma più ampia di funzionalità di Ricerca cognitiva di Azure includono cataloghi online, programmi line-of-business e applicazioni di individuazione di documenti.
 

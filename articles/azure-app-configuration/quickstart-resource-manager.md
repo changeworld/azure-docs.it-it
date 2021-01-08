@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 56505c95e65911cafbaaa403cd09332695439d97
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149007"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825667"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Avvio rapido: Creare un archivio di Configurazione app di Azure con un modello di Resource Manager
 
@@ -25,7 +25,7 @@ Questa guida di avvio rapido descrive come:
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
@@ -46,10 +46,10 @@ La guida di avvio rapido usa l'elemento `copy` per creare più istanze di una ri
 
 Nel modello sono definite due risorse di Azure:
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores): crea un archivio di Configurazione app.
-- Microsoft.AppConfiguration/configurationStores/keyValues: crea una coppia chiave-valore all'interno dell'archivio di Configurazione app.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): crea un archivio di Configurazione app.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): crea una coppia chiave-valore all'interno dell'archivio di Configurazione app.
 
-> [!NOTE]
+> [!TIP]
 > Il nome della risorsa `keyValues` è una combinazione di chiave ed etichetta. La chiave e l'etichetta sono unite dal delimitatore `$`. L'etichetta è facoltativa. Nell'esempio precedente la risorsa `keyValues` denominata `myKey` crea una coppia chiave-valore senza etichetta.
 >
 > La codifica percentuale, nota anche come codifica URL, consente di includere nelle chiavi o nelle etichette caratteri non consentiti nei nomi delle risorse del modello di Resource Manager. Neanche `%` è un carattere consentito, quindi al suo posto viene usato `~`. Per codificare correttamente un nome, seguire questa procedura:
@@ -59,6 +59,13 @@ Nel modello sono definite due risorse di Azure:
 > 3. Sostituire `%` con `~`.
 >
 > Ad esempio, per creare una coppia chiave-valore con il nome della chiave `AppName:DbEndpoint` e il nome dell'etichetta `Test`, il nome della risorsa dovrà essere `AppName~3ADbEndpoint$Test`.
+
+> [!NOTE]
+> Configurazione app consente l'accesso ai dati di coppie chiave-valore tramite un [collegamento privato](concept-private-endpoint.md) dalla rete virtuale. Per impostazione predefinita, quando la funzionalità è abilitata, tutte le richieste per i dati di Configurazione app sulla rete pubblica vengono negate. Poiché il modello di Resource Manager viene eseguito all'esterno della rete virtuale, l'accesso ai dati da un modello di questo tipo non è consentito. Per consentire l'accesso ai dati da un modello di Resource Manager quando si usa un collegamento privato, è possibile abilitare l'accesso alla rete pubblica usando il comando dell'interfaccia della riga di comando di Azure seguente. È importante considerare le implicazioni che l'abilitazione dell'accesso alla rete pubblica ha sulla sicurezza in questo scenario.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -84,9 +91,9 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Nella casella di ricerca del portale di Azure digitare **Configurazione app** . Selezionare **Configurazione app** nell'elenco.
+1. Nella casella di ricerca del portale di Azure digitare **Configurazione app**. Selezionare **Configurazione app** nell'elenco.
 1. Selezionare la risorsa di Configurazione app appena creata.
-1. In **Operazioni** fare clic su **Esplora configurazioni** .
+1. In **Operazioni** fare clic su **Esplora configurazioni**.
 1. Verificare che esistano due coppie chiave-valore.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

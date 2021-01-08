@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346657"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739655"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -256,6 +256,17 @@ In qualsiasi momento, è possibile esportare i dati delle etichette per la speri
 Il file COCO viene creato nell'archivio BLOB predefinito dell'area di lavoro di Azure Machine Learning in una cartella all'interno di *export/coco*. È possibile accedere al set di dati di Azure Machine Learning esportato nella sezione **Set di dati** di Machine Learning. La pagina Dettagli del set di dati fornisce anche il codice di esempio per accedere alle etichette da Python.
 
 ![Set di dati esportato](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Seguire questi suggerimenti se si riscontra uno di questi errori.
+
+|Problema  |Soluzione  |
+|---------|---------|
+|È possibile usare solo i set di dati creati negli archivi dati BLOB.     |  Si tratta di una limitazione nota della versione corrente.       |
+|Dopo la creazione del progetto, viene visualizzato il messaggio di inizializzazione in corso per molto tempo.     | Aggiornare manualmente la pagina. L'inizializzazione dovrebbe procedere a una velocità di circa 20 punti dati al secondo. La mancanza di aggiornamento automatico è un problema noto.         |
+|Quando si esaminano le immagini, quelle etichettate non vengono visualizzate.     |   Per caricare tutte le immagini etichettate, scegliere il pulsante **Primo**. Il pulsante **Primo** consente di tornare all'inizio dell'elenco, ma carica tutti i dati etichettati.      |
+|Premendo ESC durante l'etichettatura per il rilevamento oggetti, viene creata un'etichetta di dimensioni zero nell'angolo in alto a sinistra. L'invio di etichette in questo stato non riesce.     |   Eliminare l'etichetta facendo clic sul segno della croce corrispondente.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

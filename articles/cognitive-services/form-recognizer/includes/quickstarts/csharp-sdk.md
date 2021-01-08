@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: d7577668d87ecaf2d769136d64990f95fc212fe6
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4b44a8375bc13709959e2401f9d772fdeab00f52
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356529"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808607"
 ---
 > [!IMPORTANT]
 > Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
@@ -58,17 +58,24 @@ Build succeeded.
 
 Nella directory dell'applicazione installare la libreria client di Riconoscimento modulo per .NET con il comando seguente:
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
 
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
+> [!NOTE]
+> L'SDK 3.0.0 di Riconoscimento modulo corrisponde alla versione 2.0 dell'API
+
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
+
+> [!NOTE]
+> L'SDK 3.1.0 di Riconoscimento modulo corrisponde alla versione 2.1-preview dell'API
+
 ---
 
 > [!TIP]
@@ -89,9 +96,9 @@ Nella classe **Program** dell'applicazione creare le variabili per l'endpoint e 
 
 Nel metodo **Main** dell'applicazione aggiungere una chiamata alle attività asincrone usate in questa guida di avvio rapido. Verranno implementate in seguito.
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
 ---
@@ -127,7 +134,7 @@ Vedere gli esempi per [Eseguire il training di un modello](#train-a-custom-model
 
 Questi frammenti di codice mostrano come eseguire le attività seguenti con la libreria client di Riconoscimento modulo per .NET:
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
 
 * [Autenticare il client](#authenticate-the-client)
 * [Riconoscere il contenuto di un modulo](#recognize-form-content)
@@ -136,7 +143,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
 
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 
 * [Autenticare il client](#authenticate-the-client)
 * [Riconoscere il contenuto di un modulo](#recognize-form-content)
@@ -168,13 +175,15 @@ Ripetere i passaggi precedenti per un nuovo metodo che autentica un client di tr
 
 Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training e di test. Aggiungerli alla radice della classe **Program**.
 
-* Per recuperare l'URL di firma di accesso condiviso per i dati di training del modello personalizzato, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* Usare quindi i passaggi precedenti per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB.
+* [!INCLUDE [get SAS URL](../sas-instructions.md)]
+
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
+* Ripetere quindi i passaggi precedenti per ottenere l'URL di firma di accesso condiviso di un singolo documento nel contenitore di archiviazione BLOB. Salvarlo anche in un percorso temporaneo.
 * Infine, salvare l'URL delle immagini di esempio incluse di seguito, disponibili anche in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms). 
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
 
 ---
@@ -289,11 +298,15 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
-
 ## <a name="recognize-business-cards"></a>Riconoscere i biglietti da visita
+
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Questa funzionalità non è disponibile nella versione dell'API selezionata.
+
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
+
 
 Questa sezione illustra come riconoscere ed estrarre i campi comuni dai biglietti da visita in inglese, usando un modello già sottoposto a training.
 
@@ -308,7 +321,16 @@ Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni b
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
+---
+
 ## <a name="recognize-invoices"></a>Riconoscere le fatture
+
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Questa funzionalità non è disponibile nella versione dell'API selezionata.
+
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 
 Questa sezione illustra come riconoscere ed estrarre i campi comuni dagli scontrini, usando un modello già sottoposto a training.
 

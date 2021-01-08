@@ -7,18 +7,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
-ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96010895"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809565"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcolare le dimensioni di fatturazione totali di un contenitore BLOB
 
 Questo script calcola le dimensioni di un contenitore nell'archivio BLOB di Azure allo scopo di stimare i costi per la fatturazione. Lo script somma le dimensioni dei BLOB nel contenitore.
+
+> [!IMPORTANT]
+> Lo script di esempio fornito in questo articolo potrebbe non calcolare in modo preciso le dimensioni di fatturazione per gli snapshot dei BLOB.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -31,7 +34,7 @@ Questo script calcola le dimensioni di un contenitore nell'archivio BLOB di Azur
 
 La dimensione totale del contenitore BLOB include la dimensione del contenitore stesso e di tutti i BLOB in esso contenuti.
 
-Nelle sezioni seguenti viene illustrata la modalità di calcolo della capacità di archiviazione per i contenitori BLOB e i BLOB.  Nella sezione seguente Len(X) indica il numero di caratteri nella stringa.
+Nelle sezioni seguenti viene illustrata la modalità di calcolo della capacità di archiviazione per i contenitori BLOB e i BLOB. Nella sezione seguente Len(X) indica il numero di caratteri nella stringa.
 
 ### <a name="blob-containers"></a>Contenitori BLOB
 
@@ -44,6 +47,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 I dettagli sono indicati di seguito:
+
 * 48 byte di sovraccarico per ogni contenitore include ora dell'ultima modifica, autorizzazioni, impostazioni pubbliche e alcuni metadati di sistema.
 
 * Il nome del contenitore viene archiviato come Unicode. Considerare quindi il numero di caratteri e moltiplicare per 2.

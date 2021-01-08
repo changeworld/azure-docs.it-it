@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: rilevamento anomalie, Machine Learning, algoritmi
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999102"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705082"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -97,6 +97,6 @@ Per altre informazioni sugli algoritmi SR-CNN sviluppati da Microsoft, vedere il
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](quickstarts/detect-data-anomalies-csharp.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite Rilevamento anomalie](quickstarts/client-libraries.md)
 * [Demo online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) dell'API Rilevamento anomalie
 * [Informazioni di riferimento sulle API del servizio REST](https://aka.ms/anomaly-detector-rest-api-ref) dell'API Rilevamento anomalie

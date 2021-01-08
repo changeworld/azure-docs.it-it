@@ -10,22 +10,27 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 6bb1aafd942046faa77072d99af043ebd43b4a8a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2504efcbd79ab0e43f958b86564709b6ac6295a6
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589968"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733057"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault a un'app Web di Azure in .NET
 
 [Azure Key Vault](./overview.md) consente di archiviare credenziali e altri segreti con un maggiore livello di sicurezza. Per recuperare questi elementi, è tuttavia necessario eseguire l'autenticazione del codice con Key Vault. Le [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md) consentono di risolvere il problema assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza visualizzare le credenziali nel codice.
 
-In questa esercitazione si userà un'identità gestita per autenticare un'app Web di Azure con Azure Key Vault. Si userà la [libreria client dei segreti di Azure Key Vault per .NET](/dotnet/api/overview/azure/key-vault) e l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli). Valgono gli stessi principi di base se si usa il linguaggio di programmazione preferito, Azure PowerShell e/o il portale di Azure.
+In questa esercitazione si crea e si distribuisce un'applicazione Web di Azure nel [servizio app di Azure](https://docs.microsoft.com/azure/app-service/overview). Si userà un'identità gestita per autenticare l'app Web di Azure con un insieme di credenziali delle chiavi di Azure usando la [libreria client di segreti di Azure Key Vault per .NET](/dotnet/api/overview/azure/key-vault) e l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli). Valgono gli stessi principi di base se si usa il linguaggio di programmazione preferito, Azure PowerShell e/o il portale di Azure.
+
+Per altre informazioni sulle applicazioni Web del servizio app di Azure e sulla distribuzione presentate in questa esercitazione, vedere:
+- [Panoramica del Servizio app](https://docs.microsoft.com/azure/app-service/overview)
+- [Creare un'app Web ASP.NET Core nel servizio app di Azure](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+- [Distribuzione dell'archivio Git locale nel servizio app di Azure](https://docs.microsoft.com/azure/app-service/deploy-local-git)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
+Per completare questa esercitazione, sono necessari:
 
 * Una sottoscrizione di Azure. [Crearne una gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [.NET Core 3.1 SDK (o versione successiva)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
@@ -33,6 +38,8 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault](./overview.md). È possibile creare un insieme di credenziali delle chiavi usando il [portale di Azure](quick-create-portal.md), l'[interfaccia della riga di comando di Azure](quick-create-cli.md) o [Azure PowerShell](quick-create-powershell.md).
 * Un [segreto](../secrets/about-secrets.md) di Key Vault. È possibile creare un segreto tramite il [portale di Azure](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md) o l'[interfaccia della riga di comando di Azure](../secrets/quick-create-cli.md).
+
+Se l'applicazione Web è già stata distribuita nel servizio app di Azure, è possibile passare direttamente alle sezioni [Configurare l'accesso dell'app Web all'insieme di credenziali delle chiavi](#create-and-assign-a-managed-identity) e [Modificare il codice dell'applicazione Web](#modify-the-app-to-access-your-key-vault).
 
 ## <a name="create-a-net-core-app"></a>Creare un'app .NET Core
 In questo passaggio si configurerà il progetto .NET Core locale.
@@ -59,6 +66,8 @@ dotnet run
 In un Web browser passare all'app all'indirizzo `http://localhost:5000`.
 
 Verrà visualizzato il messaggio "Hello World!" Messaggio dell'app di esempio visualizzato nella pagina.
+
+Per altre informazioni sulla creazione di applicazioni Web per Azure, vedere [Creare un'app Web ASP.NET Core nel servizio app di Azure](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
 
 ## <a name="deploy-the-app-to-azure"></a>Distribuire l'app in Azure
 
@@ -218,6 +227,8 @@ http://<your-webapp-name>.azurewebsites.net
 ```
 
 Verrà visualizzato il messaggio "Hello World!" visualizzato in precedenza quando si è visitata la pagina `http://localhost:5000`.
+
+Per altre informazioni sulla distribuzione di applicazioni Web tramite Git, vedere [Distribuzione dell'archivio Git locale nel servizio app di Azure](https://docs.microsoft.com/azure/app-service/deploy-local-git)
  
 ## <a name="configure-the-web-app-to-connect-to-key-vault"></a>Configurare l'app Web per la connessione a Key Vault
 

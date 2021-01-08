@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/17/2020
 ms.author: banders
-ms.openlocfilehash: f0ace05d6a4df65282bd56cca8e7895b0dc24edf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686548"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673832"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per i contratti dei clienti Microsoft in Azure
 
@@ -32,7 +32,7 @@ La tabella seguente descrive i ruoli di fatturazione usati per gestire l'account
 |Proprietario del profilo di fatturazione|Consente di gestire tutti gli elementi per il profilo di fatturazione|
 |Collaboratore per il profilo di fatturazione|Consente di gestire tutti gli elementi ad eccezione delle autorizzazioni per il profilo di fatturazione|
 |Lettore per il profilo di fatturazione|Fornisce una visualizzazione di sola lettura di tutti gli elementi nel profilo di fatturazione|
-|Gestione fatture|Consente di visualizzare e pagare le fatture per il profilo di fatturazione|
+|Gestione fatture|Visualizzare le fatture per il profilo di fatturazione|
 |Proprietario della sezione della fattura|Consente di gestire tutti gli elementi nella sezione della fattura|
 |Collaboratore per la sezione della fattura|Consente di gestire tutti gli elementi ad eccezione delle autorizzazioni nella sezione della fattura|
 |Ruolo con autorizzazioni di lettura per la sezione della fattura|Fornisce una visualizzazione di sola lettura di tutti gli elementi nella sezione della fattura|

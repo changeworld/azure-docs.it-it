@@ -6,37 +6,36 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 2353d15707fe215bfcab7912f2a9c598c4af7e49
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75443685"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822013"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Esercitazione: Deserializzatori .NET personalizzati per Analisi di flusso di Azure
 
 Analisi di flusso di Azure offre [supporto incorporato per tre formati di dati](stream-analytics-parsing-json.md): JSON, CSV e Avro. Con i deserializzatori .NET personalizzati, è possibile leggere dati da altri formati, ad esempio [buffer di protocollo](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) e altri formati definiti dall'utente per i processi cloud ed Edge.
 
-Questa esercitazione illustra come creare un deserializzatore .NET personalizzato per un processo cloud di Analisi di flusso di Azure con Visual Studio. 
+Questa esercitazione illustra come creare un deserializzatore .NET personalizzato per un processo cloud di Analisi di flusso di Azure con Visual Studio. Per informazioni su come creare deserializzatori .NET in Visual Studio Code, vedere [Creare deserializzatori .NET per i processi di Analisi di flusso di Azure in Visual Studio Code](visual-studio-code-custom-deserializer.md).
 
-In questa esercitazione verranno illustrate le procedure per:
+In questa esercitazione viene illustrato come:
 
 > [!div class="checklist"]
 > * Creare un deserializzatore personalizzato per il buffer di protocollo.
 > * Creare un processo di Analisi di flusso di Azure in Visual Studio.
 > * Configurare un processo di analisi di flusso per l'uso del deserializzatore personalizzato.
-> * Eseguire un processo di analisi di flusso per testare il deserializzatore personalizzato.
+> * Eseguire un processo di Analisi di flusso in locale per eseguire il test e il debug del deserializzatore personalizzato.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) o [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata.
+* Installare [Visual Studio 2019 (consigliato)](https://www.visualstudio.com/downloads/) o [Visual Studio 2017](https://www.visualstudio.com/vs/older-downloads/). Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. 
 
-* [Installare gli strumenti di analisi di flusso per Visual Studio](stream-analytics-tools-for-visual-studio-install.md) o eseguire l'aggiornamento all'ultima versione. Sono supportate le versioni seguenti di Visual Studio:
-   * Visual Studio 2015
-   * Visual Studio 2017
+* [Installare gli strumenti di analisi di flusso per Visual Studio](stream-analytics-tools-for-visual-studio-install.md) o eseguire l'aggiornamento all'ultima versione. 
 
 * Aprire **Cloud Explorer** in Visual Studio e accedere alla propria sottoscrizione di Azure.
 
@@ -80,7 +79,7 @@ Il contenitore creato verrà usato per archiviare gli asset correlati al process
    |-------|---------------|
    |Source (Sorgente)|Archiviazione BLOB|
    |Risorsa|Scegliere l'origine dati dall'account corrente|
-   |Subscription|< sottoscrizione >|
+   |Sottoscrizione|< sottoscrizione >|
    |Account di archiviazione|< account di archiviazione >|
    |Contenitore|< contenitore di archiviazione >|
    |Formato di serializzazione eventi|Altro (Protobuf, XML, proprietario...)|
@@ -116,11 +115,13 @@ Il deserializzatore personalizzato per il processo di analisi di flusso è stato
 
 ## <a name="debug-your-deserializer"></a>Eseguire il debug del deserializzatore
 
-È possibile eseguire il debug del deserializzatore .NET in locale esattamente come si esegue il debug di codice .NET standard. 
+È possibile eseguire il debug del deserializzatore .NET in locale esattamente come si esegue il debug di codice .NET standard.
 
-1. Aggiungere punti di interruzione nella funzione.
+1. Fare clic con il pulsante destro del mouse sul nome del progetto **ProtobufCloudDeserializer** e impostarlo come progetto di avvio.
 
-2. Premere **F5** per avviare il debug. Il programma verrà interrotto in corrispondenza dei punti di interruzione nel modo previsto.
+2. Aggiungere punti di interruzione nella funzione.
+
+3. Premere **F5** per avviare il debug. Il programma verrà interrotto in corrispondenza dei punti di interruzione nel modo previsto.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

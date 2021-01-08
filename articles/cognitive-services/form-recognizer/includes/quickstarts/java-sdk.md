@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: d53863ccf71970cca3900707c844a2e5add050fa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6768f46f39920c975e7eccef72563fc0bb7e5180
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356512"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808590"
 ---
 > [!IMPORTANT]
 > Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
@@ -58,7 +58,7 @@ Questo argomento di avvio rapido usa l'utilità di gestione dipendenze Gradle. L
 
 Nel file *build.gradle.kts* del progetto includere la libreria client come istruzione `implementation`, unitamente ai plug-in e alle impostazioni necessari.
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -74,6 +74,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
+
+> [!NOTE]
+> L'SDK 3.0.0 di Riconoscimento modulo corrisponde alla versione 2.0 dell'API
+
 #### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
 ```kotlin
 plugins {
@@ -90,6 +94,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
 }
 ```
+
+> [!NOTE]
+> L'SDK 3.1.0 di Riconoscimento modulo corrisponde alla versione 2.1-preview dell'API
+
 ---
 
 ### <a name="create-a-java-file"></a>Creare un file Java
@@ -120,15 +128,17 @@ Nella classe **FormRecognizer** dell'applicazione creare le variabili per l'endp
 
 Nel metodo **main** dell'applicazione aggiungere le chiamate per i metodi usati in questa guida di avvio rapido. Verranno definiti in un secondo momento. Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training e di test.
 
-* Per recuperare l'URL di firma di accesso condiviso per i dati di training del modello personalizzato, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
 * Per ottenere un URL di un modulo da testare è possibile usare i passaggi precedenti per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB. In alternativa, prendere l'URL di un documento situato altrove.
 * Usare il metodo precedente per ottenere l'URL anche di un'immagine di una ricevuta.
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
@@ -165,14 +175,14 @@ Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il pri
 
 Questi frammenti di codice mostrano come eseguire le attività seguenti con la libreria client di Riconoscimento modulo per Java:
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
 * [Autenticare il client](#authenticate-the-client)
 * [Riconoscere il contenuto di un modulo](#recognize-form-content)
 * [Riconoscere le ricevute](#recognize-receipts)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 * [Autenticare il client](#authenticate-the-client)
 * [Riconoscere il contenuto di un modulo](#recognize-form-content)
 * [Riconoscere le ricevute](#recognize-receipts)
@@ -259,11 +269,14 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
-#### <a name="version-30"></a>[Versione 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[Versione 3.1 (anteprima)](#tab/preview)
-
 ## <a name="recognize-business-cards"></a>Riconoscere i biglietti da visita
+
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Questa funzionalità non è disponibile nella versione dell'API selezionata.
+
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 
 Questa sezione illustra come riconoscere ed estrarre i campi comuni dai biglietti da visita in inglese, usando un modello già sottoposto a training.
 
@@ -278,7 +291,16 @@ Il valore restituito è una raccolta di oggetti **RecognizedForm**, uno per ogni
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
+---
+
 ## <a name="recognize-invoices"></a>Riconoscere le fatture
+
+#### <a name="version-20"></a>[versione 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Questa funzionalità non è disponibile nella versione dell'API selezionata.
+
+#### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 
 Questa sezione illustra come riconoscere ed estrarre i campi comuni dagli scontrini, usando un modello già sottoposto a training.
 

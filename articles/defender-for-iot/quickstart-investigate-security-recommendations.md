@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 859f1c4a1ed1b3d9139307c52f44a14e3089e31f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 66b5694823096f0747ea099b631a53198a819816
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944393"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835041"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>Avvio rapido: Esaminare le raccomandazioni sulla sicurezza
 
@@ -33,11 +33,11 @@ A questo punto, procedere con l'esercitazione.
 
 Nell'elenco delle raccomandazioni dell'hub IoT vengono visualizzate tutte le raccomandazioni sulla sicurezza aggregate per l'hub IoT.
 
-1.  Nel portale di Azure aprire l' **hub IoT**  di cui si vogliono esaminare le nuove raccomandazioni.
+1.  Nel portale di Azure aprire l'**hub IoT** di cui si vogliono esaminare le nuove raccomandazioni.
 
-1.  Selezionare  **Raccomandazioni** nel menu  **Sicurezza** . Verranno visualizzate tutte le raccomandazioni sulla sicurezza per l'hub IoT, con quelle delle ultime 24 ore contrassegnate con il flag  **Nuova** . 
+1.  Scegliere **Raccomandazioni** dal menu **Sicurezza**. Verranno visualizzate tutte le raccomandazioni sulla sicurezza per l'hub IoT, con quelle delle ultime 24 ore contrassegnate con il flag **Nuova**. 
 
-    [ ![Esaminare le raccomandazioni sulla sicurezza con Centro sicurezza di Azure per IoT](media/quickstart/investigate-security-recommendations-inline.png)](media/quickstart/investigate-security-recommendations-expanded.png#lightbox)
+    :::image type="content" source="media/quickstart/investigate-security-recommendations-expanded.png#lightbox" alt-text="Esaminare le raccomandazioni sulla sicurezza con il Centro sicurezza di Azure per IoT](media/quickstart/investigate-security-recommendations-inline.png)":::
 
 
 1.  Selezionare e aprire qualsiasi raccomandazione nell'elenco per visualizzarne i dettagli ed eseguire il drill-down sulle specifiche.
@@ -46,21 +46,21 @@ Nell'elenco delle raccomandazioni dell'hub IoT vengono visualizzate tutte le rac
 
 Aprire ogni raccomandazione aggregata per visualizzare la relativa descrizione dettagliata, la procedura di correzione e l'ID di ogni dispositivo che ha attivato la raccomandazione. Sono riportati anche la gravità della raccomandazione e l'accesso per l'indagine diretta con Log Analytics.
 
-1.  Selezionare e aprire qualsiasi raccomandazione sulla sicurezza nell'elenco  **Hub IoT** \> **Sicurezza** \> **Raccomandazioni** .
+1.  Selezionare e aprire una qualsiasi raccomandazione sulla sicurezza da **Hub IoT** \> **Sicurezza** \> **Raccomandazioni**.
 
-1.  Esaminare la **descrizione**, la  **gravità** e i  **dettagli di tutti i dispositivi**  che hanno emesso questa raccomandazione nel periodo di aggregazione. 
+1.  Esaminare la **descrizione**, la **gravità** e i **dettagli dispositivo** di tutti i dispositivi che hanno emesso questa raccomandazione nel periodo di aggregazione. 
 
-1.  Dopo aver esaminato le specifiche della raccomandazione, usare le istruzioni della  **procedura di correzione manuale**  per correggere e risolvere il problema che ha causato la raccomandazione. 
+1.  Dopo aver esaminato le specifiche della raccomandazione, usare le istruzioni della **procedura di correzione manuale** per correggere e risolvere il problema che ha generato la raccomandazione. 
 
-    [ ![Applicare le correzioni delle raccomandazioni sulla sicurezza con Centro sicurezza di Azure per IoT](media/quickstart/remediate-security-recommendations-inline.png)](media/quickstart/remediate-security-recommendations-expanded.png#lightbox)
+    [ :::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="Correggere le raccomandazioni sulla sicurezza con il Centro sicurezza di Azure per IoT](media/quickstart/remediate-security-recommendations-inline.png)":::
 
 
 1.  Esplorare i dettagli delle raccomandazioni per un dispositivo specifico selezionando il dispositivo desiderato nella pagina di drill-down.
 
-    [ ![Esaminare le raccomandazioni sulla sicurezza specifiche per un dispositivo con Centro sicurezza di Azure per IoT](media/quickstart/explore-security-recommendation-detail-inline.png)](media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox)
+    [ :::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="Esaminare le raccomandazioni sulla sicurezza specifiche per un dispositivo con il Centro sicurezza di Azure per IoT](media/quickstart/explore-security-recommendation-detail-inline.png)":::
 
 
-1.  Se sono necessarie ulteriori indagini,  **esaminare la raccomandazione in Log Analytics**  usando l'apposito collegamento. 
+1.  Se sono necessarie ulteriori indagini, **esaminare la raccomandazione in Log Analytics** usando l'apposito collegamento. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

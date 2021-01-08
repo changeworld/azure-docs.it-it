@@ -3,12 +3,12 @@ title: Panoramica di Azure Arc
 description: Informazioni su Azure Arc e su come può essere usato dai clienti per abilitare la gestione e la governance delle risorse ibride con altri servizi e funzionalità di Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8f39dff16037b5f52a050b7d07193b0ad7cab93d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714159"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672687"
 ---
 # <a name="azure-arc-overview"></a>Panoramica di Azure Arc
 
@@ -50,7 +50,7 @@ Ecco i dettagli relativi ai prezzi per le funzionalità attualmente disponibili 
 
 ### <a name="arc-enabled-servers"></a>Server con abilitazione di Azure Arc
 
-La funzionalità del piano di controllo di Azure Arc viene offerta senza costi aggiuntivi.ad esempio:
+La funzionalità del piano di controllo di Azure Arc viene offerta senza costi aggiuntivi. ad esempio:
 
 * Organizzazione delle risorse tramite i gruppi di gestione di Azure e tag.g.
 
@@ -60,7 +60,7 @@ La funzionalità del piano di controllo di Azure Arc viene offerta senza costi a
 
 * Ambienti e automazione tramite i modelli e le estensioni.
 
-* Gestione aggiornamenti
+* Gestione degli aggiornamenti
 
 Tutti i servizi di Azure usati nei server con abilitazione di Arc, ad esempio Centro sicurezza di Azure o Monitoraggio di Azure, verranno addebitati in base ai prezzi del relativo servizio. Per altre informazioni, vedere la [pagina relativa ai prezzi di Azure](https://azure.microsoft.com/pricing/).
 
@@ -79,3 +79,5 @@ Nella fase di anteprima corrente i servizi dati con abilitazione di Azure Arc so
 * Per altre informazioni su Kubernetes con abilitazione di Arc, vedere la [panoramica](./kubernetes/overview.md) seguente
 
 * Per altre informazioni sui servizi dati con abilitazione di Arc, vedere la [panoramica](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/) seguente
+
+* Per sperimentare i servizi abilitati per Arc, vedere il [modello di verifica Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/)

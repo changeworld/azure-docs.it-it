@@ -3,15 +3,15 @@ title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft D
 description: Questo articolo fornisce una panoramica generale del bus di servizio di Azure, un broker di messaggi completamente gestito per l'integrazione aziendale.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 70e9d966a14f78866d72865eed4cbb2dfd6c18dd
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602717"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755736"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
-Il bus di servizio di Microsoft Azure è un broker di messaggi aziendale completamente gestito, con code di messaggi e argomenti con sottoscrizione pubblica. Il bus di servizio viene usato per disaccoppiare le applicazioni dai servizi, offrendo i vantaggi seguenti:
+Il bus di servizio di Microsoft Azure è un broker di messaggi aziendale completamente gestito, con code di messaggi e argomenti di pubblicazione-sottoscrizione. Il bus di servizio viene usato per disaccoppiare le applicazioni dai servizi, offrendo i vantaggi seguenti:
 
 - Bilanciamento del carico di lavoro tra ruoli di lavoro in competizione
 - Routing e trasferimento di dati in modo sicuro e controllo tra limiti di servizi e applicazioni

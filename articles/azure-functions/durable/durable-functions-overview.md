@@ -3,15 +3,15 @@ title: Panoramica di Funzioni permanenti - Azure
 description: Introduzione all'estensione Funzioni permanenti per Funzioni di Azure.
 author: cgillum
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669245"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763575"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
@@ -23,9 +23,11 @@ Durable Functions supporta attualmente i linguaggi seguenti:
 
 * **C#**: sia le [librerie di classe precompilate](../functions-dotnet-class-library.md) che lo [script C#](../functions-reference-csharp.md).
 * **JavaScript**: supportato per la versione 2.x del runtime di Funzioni di Azure. Richiede la versione 1.7.0 dell'estensione Durable Functions, o versione successiva. 
-* **Python**: richiede la versione 1.8.5 o successiva dell'estensione Durable Functions. Il supporto di Durable Functions è attualmente disponibile in anteprima pubblica.
+* **Python**: richiede la versione 2.3.1 o successiva dell'estensione Durable Functions. Il supporto di Durable Functions è attualmente disponibile in anteprima pubblica.
 * **F#**: librerie di classe precompilate e script F#. Lo script F# è supportato solo per la versione 1.x del runtime di Funzioni di Azure.
 * **PowerShell**: il supporto di Durable Functions è attualmente disponibile in anteprima pubblica. Supportato solo per la versione 3.x del runtime di Funzioni di Azure e PowerShell 7. Richiede la versione 2.2.2 dell'estensione Durable Functions o una versione successiva. Attualmente sono supportati solo i criteri seguenti: [Concatenamento di funzioni](#chaining), [fan-out/fan-in](#fan-in-out), [API HTTP asincrone](#async-http).
+
+Per accedere alle funzionalità e agli aggiornamenti più recenti, è consigliabile usare le versioni più recenti dell'estensione Durable Functions e le librerie Durable Functions specifiche del linguaggio. Altre informazioni sulle [versioni di Durable Functions](durable-functions-versions.md).
 
 Durable Functions ha l'obiettivo di supportare tutti i [linguaggi di Funzioni di Azure](../supported-languages.md). Vedere l'[elenco dei problemi di Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) per ottenere lo stato del lavoro più recente a supporto di linguaggi aggiuntivi.
 

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 671ca73cfa898be532521599d1211d2a8081eb4b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0d833c32000eb91511782184ef4455bc1973a714
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563263"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807910"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Domande frequenti su Azure Synapse Analytics
 
@@ -89,7 +89,7 @@ A: Attualmente è necessario ricreare manualmente le pipeline di Azure Data Fact
 
 ### <a name="q-what-is-the-difference-between-apache-spark-for-synapse-and-apache-spark"></a>D: Qual è la differenza tra Apache Spark per Synapse e Apache Spark?
 
-A: Apache Spark per Synapse è in realtà Apache Spark con l'aggiunta del supporto per l'integrazione con altri servizi (AAD, AzureML e così via), di altre librerie (mssparktuils, Hummingbird) e di configurazioni con prestazioni pre-ottimizzate.
+A: Apache Spark per Synapse è Apache Spark con l'aggiunta del supporto per l'integrazione con altri servizi (AAD, AzureML e così via), di altre librerie (mssparktuils, Hummingbird) e di configurazioni con prestazioni pre-ottimizzate.
 
 Il carico di lavoro attualmente in esecuzione in Apache Spark verrà eseguito in Apache Spark per Azure Synapse senza modifiche. 
 

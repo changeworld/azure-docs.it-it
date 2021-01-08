@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Creare il modello predittivo con trascinamento della selezione (parte 1 di 2)'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare e distribuire un modello predittivo di Machine Learning con la finestra di progettazione, in modo da poterlo usare per prevedere i risultati in Microsoft Power BI.
+description: Informazioni su come creare e distribuire un modello predittivo di Machine Learning usando la finestra di progettazione. In seguito è possibile usarlo per prevedere risultati in Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,160 +10,177 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: f0e1ffe60069a2379f8eddab1aae74db2b4eac50
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.custom: designer
+ms.openlocfilehash: 995979c7fe100637aa8e241489805fb09d6723f7
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97370662"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814789"
 ---
-# <a name="tutorial--power-bi-integration---drag-and-drop-to-create-the-predictive-model-part-1-of-2"></a>Esercitazione:  Integrazione di Power BI: creare il modello predittivo con trascinamento della selezione (parte 1 di 2)
+# <a name="tutorial-power-bi-integration---drag-and-drop-to-create-the-predictive-model-part-1-of-2"></a>Esercitazione: Integrazione di Power BI: creare il modello predittivo con trascinamento della selezione (parte 1 di 2)
 
-Nella prima parte di questa esercitazione si eseguono il training e la distribuzione di un modello predittivo di Machine Learning usando la finestra di progettazione di Azure Machine Learning, un'interfaccia utente con trascinamento della selezione a basso contenuto di codice. Nella parte 2 si userà quindi il modello per prevedere i risultati in Microsoft Power BI.
+Nella prima parte di questa esercitazione si eseguono il training e la distribuzione di un modello predittivo di Machine Learning usando la finestra di progettazione di Azure Machine Learning. La finestra di progettazione è un'interfaccia utente con trascinamento della selezione a basso contenuto di codice. Nella parte 2 si userà il modello per prevedere i risultati in Microsoft Power BI.
 
 In questa esercitazione:
 
 > [!div class="checklist"]
-> * Creare un'istanza di calcolo di Azure Machine Learning
-> * Creare un cluster di inferenza di Azure Machine Learning
-> * Creare un set di dati
-> * Eseguire il training di un modello di regressione
-> * Distribuire il modello in un endpoint di assegnazione punteggi in tempo reale
+> * Creare un'istanza di calcolo di Azure Machine Learning.
+> * Creare un cluster di inferenza di Azure Machine Learning.
+> * Creare un set di dati.
+> * Eseguire il training di un modello di regressione.
+> * Distribuire il modello in un endpoint di assegnazione punteggi in tempo reale.
 
 
-Esistono tre modi diversi per creare e distribuire il modello che verrà usato in Power BI.  Questo articolo illustra l'opzione B: Eseguire il training e la distribuzione di modelli con la finestra di progettazione.  Questa opzione mostra un'esperienza di creazione a basso contenuto di codice usando la finestra di progettazione, un'interfaccia utente con trascinamento della selezione.  
+Esistono tre modi per creare e distribuire il modello che verrà usato in Power BI.  Questo articolo illustra l'opzione B: Eseguire il training e la distribuzione di modelli con la finestra di progettazione.  Questa opzione offre un'esperienza di creazione a basso contenuto di codice che usa l'interfaccia della finestra di progettazione.  
 
-In alternativa è possibile scegliere:
+Tuttavia, è possibile usare una delle altre opzioni:
 
-* [Opzione A: Eseguire il training e la distribuzione di modelli tramite notebook](tutorial-power-bi-custom-model.md), un'esperienza di creazione code-first tramite notebook di Jupyter ospitati in Azure Machine Learning Studio.
-* [Opzione C: Eseguire il training e la distribuzione di modelli usando ML automatizzato](tutorial-power-bi-automated-model.md), un'esperienza di creazione senza codice che automatizza completamente la preparazione dei dati e il training dei modelli.
+* [Opzione A: Eseguire il training e la distribuzione di modelli con notebook di Jupyter](tutorial-power-bi-custom-model.md). Questa esperienza di creazione code-first usa notebook di Jupyter ospitati nello studio di Azure Machine Learning.
+* [Opzione C: Eseguire il training e la distribuzione di modelli con Machine Learning automatizzato](tutorial-power-bi-automated-model.md). Questa esperienza di creazione senza codice automatizza completamente la preparazione dei dati e il training dei modelli.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure ([è disponibile una versione di valutazione gratuita](https://aka.ms/AMLFree)). 
-- Un'area di lavoro di Azure Machine Learning. Se non è già disponibile un'area di lavoro, vedere l'articolo su [come creare un'area di lavoro di Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile creare una [versione di valutazione gratuita](https://aka.ms/AMLFree). 
+- Un'area di lavoro di Azure Machine Learning. Se non si ha un'area di lavoro, vedere [Creare e gestire le aree di lavoro di Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
 - Conoscenze di base dei flussi di lavoro di Machine Learning.
 
 
-## <a name="create-compute-for-training-and-scoring"></a>Creare un'istanza di calcolo per il training e l'assegnazione di punteggi
+## <a name="create-compute-to-train-and-score"></a>Creare l'istanza di calcolo per il training e l'assegnazione di punteggi
 
-In questa sezione si crea un'*istanza di calcolo*, che viene usata per il training dei modelli di Machine Learning. Si crea anche un *cluster di inferenza* che verrà usato per ospitare il modello distribuito per l'assegnazione di punteggi in tempo reale.
+In questa sezione si crea un'*istanza di calcolo*. Le istanze di calcolo vengono usate per eseguire il training di modelli di Machine Learning. Si crea anche un *cluster di inferenza* in cui ospitare il modello distribuito per l'assegnazione di punteggi in tempo reale.
 
-Accedere allo [studio di Azure Machine Learning](https://ml.azure.com) e selezionare **Calcolo** nel menu a sinistra, quindi **Nuovo**:
+Accedere allo [studio di Azure Machine Learning](https://ml.azure.com). Nel menu a sinistra selezionare **Calcolo** e quindi **Nuovo**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-compute.png" alt-text="Screenshot che mostra come creare un'istanza di calcolo":::
+:::image type="content" source="media/tutorial-power-bi/create-new-compute.png" alt-text="Screenshot che mostra come creare un'istanza di calcolo.":::
 
-Nella schermata **Crea istanza di calcolo** risultante selezionare le dimensioni della VM. Per questa esercitazione, selezionare `Standard_D11_v2` e quindi **Avanti**. Nella pagina Impostazioni specificare un nome valido per l'istanza di calcolo, quindi selezionare **Crea**. 
+Quindi, nella pagina **Crea istanza di calcolo** selezionare le dimensioni di una VM. Per questa esercitazione, selezionare una VM **Standard_D11_v2**. Fare quindi clic su **Avanti**. 
+
+Nella pagina **Impostazioni** assegnare un nome all'istanza di calcolo. Selezionare quindi **Crea**. 
 
 >[!TIP]
-> L'istanza di calcolo può essere usata anche per creare ed eseguire notebook.
+> È anche possibile usare l'istanza di calcolo per creare ed eseguire notebook.
 
-È ora possibile vedere che la colonna **Stato** dell'istanza di calcolo indica **Creazione**. Il provisioning della macchina virtuale richiederà circa 4 minuti. Durante l'attesa, selezionare la scheda **Cluster di inferenza** scheda nella pagina dell'istanza di calcolo e quindi **Nuovo**:
+Per l'istanza di calcolo la colonna **Stato** indica ora **In fase di creazione**. Il provisioning della macchina virtuale richiede circa 4 minuti. 
 
-:::image type="content" source="media/tutorial-power-bi/create-cluster.png" alt-text="Screenshot che mostra come creare un cluster di inferenza":::
+Durante l'attesa, nella pagina **Calcolo** selezionare la scheda **Cluster di inferenza**. Quindi selezionare **Nuovo**:
 
-Nella pagina **Crea cluster di inferenza** risultante selezionare un'area seguita dalle dimensioni della VM. Per questa esercitazione, selezionare `Standard_D11_v2`, quindi **Avanti**. Nella pagina **Configura impostazioni**:
+:::image type="content" source="media/tutorial-power-bi/create-cluster.png" alt-text="Screenshot che mostra come creare un cluster di inferenza.":::
 
-1. Specificare un nome di ambiente di calcolo valido
-1. Selezionare **Sviluppo/test** come scopo del cluster. Verrà creato un singolo nodo in cui ospitare il modello distribuito.
-1. Selezionare **Crea**
+Nella pagina **Crea cluster di inferenza** selezionare un'area e le dimensioni di una VM. Per questa esercitazione, selezionare una VM **Standard_D11_v2**. Fare quindi clic su **Avanti**. 
 
-È ora possibile vedere che la colonna **Stato** del cluster di inferenza indica **Creazione**. La distribuzione del cluster a nodo singolo richiederà circa 4 minuti.
+Nella pagina **Configura impostazioni**:
+
+1. Specificare un nome di ambiente di calcolo valido.
+1. Selezionare **Sviluppo/test** come scopo del cluster. Questa opzione crea un singolo nodo in cui ospitare il modello distribuito.
+1. Selezionare **Crea**.
+
+Per il cluster di inferenza la colonna **Stato** indica ora **In fase di creazione**. La distribuzione del cluster a nodo singolo richiede circa 4 minuti.
 
 ## <a name="create-a-dataset"></a>Creare un set di dati
 
-In questa esercitazione si usa il [set di dati Diabetes](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html), disponibile nei [set di dati aperti di Azure](https://azure.microsoft.com/services/open-datasets/).
+In questa esercitazione si usa il [set di dati Diabetes](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). Questo set di dati è disponibile nei [set di dati aperti di Azure](https://azure.microsoft.com/services/open-datasets/).
 
-Per creare il set di dati, selezionare il menu **Set di dati** a sinistra e quindi **Crea set di dati**. Verranno visualizzate le opzioni seguenti:
+Per creare il set di dati, nel menu a sinistra selezionare **Set di dati**. Quindi selezionare **Crea set di dati**. Vengono visualizzate le opzioni seguenti:
 
-:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot che mostra come creare un nuovo set di dati":::
+:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot che mostra come creare un nuovo set di dati.":::
 
-Selezionare **Da set di dati aperti** e quindi nella schermata **Crea set di dati dai set di dati aperti**:
+Selezionare **Da set di dati aperti**. Nella pagina **Crea set di dati dai set di dati aperti**:
 
-1. Cercare *diabetes* usando la barra di ricerca
-1. Selezionare **Sample: Diabetes**
-1. Selezionare **Avanti**
-1. Specificare un nome per il set di dati, ovvero *diabetes*
-1. Selezionare **Crea**
+1. Usare la barra di ricerca per trovare *diabetes*.
+1. Selezionare **Sample: Diabetes**.
+1. Selezionare **Avanti**.
+1. Assegnare al set di dati il nome *diabetes*.
+1. Selezionare **Crea**.
 
 Per esplorare i dati, selezionare il set di dati e quindi **Esplora**:
 
-:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot che mostra come esplorare il set di dati":::
+:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot che mostra come esplorare il set di dati.":::
 
-I dati includono 10 variabili di input della baseline, ad esempio età, sesso, indice di massa corporea, pressione sanguigna media e sei misurazioni sierologiche, nonché una variabile di destinazione denominata **Y** (misura quantitativa della progressione del diabete un anno dopo la baseline).
+I dati contengono 10 variabili di input di base, ad esempio età, sesso, indice di massa corporea, pressione sanguigna media e sei misurazioni del siero. Contengono inoltre una variabile di destinazione denominata **Y**. Questa variabile di destinazione è una misura quantitativa della progressione del diabete un anno dopo quello di riferimento.
 
-## <a name="create-a-machine-learning-model-using-designer"></a>Creare un modello di Machine Learning con la finestra di progettazione
+## <a name="create-a-machine-learning-model-by-using-the-designer"></a>Creare un modello di Machine Learning con la finestra di progettazione
 
-Dopo aver creato l'istanza di calcolo e i set di dati, è possibile passare alla creazione del modello di Machine Learning usando la finestra di progettazione. Nello studio di Azure Machine Learning selezionare **Finestra di progettazione** e quindi **Nuova pipeline**:
+Dopo aver creato l'istanza di calcolo e i set di dati, è possibile usare la finestra di progettazione per creare il modello di Machine Learning. Nello studio di Azure Machine Learning selezionare **Finestra di progettazione** e quindi **Nuova pipeline**:
 
-:::image type="content" source="media/tutorial-power-bi/create-designer.png" alt-text="Screenshot che mostra come creare una nuova pipeline":::
+:::image type="content" source="media/tutorial-power-bi/create-designer.png" alt-text="Screenshot che mostra come creare una nuova pipeline.":::
 
-Viene visualizzata un'*area di disegno vuota* che contiene anche un **menu Impostazioni**:
+Vengono visualizzati un'*area di disegno vuota* e un menu **Impostazioni**:
 
-:::image type="content" source="media/tutorial-power-bi/select-compute.png" alt-text="Screenshot che mostra come selezionare una destinazione di calcolo":::
+:::image type="content" source="media/tutorial-power-bi/select-compute.png" alt-text="Screenshot che mostra come selezionare una destinazione di calcolo.":::
 
-Nel **menu Impostazioni** scegliere **Seleziona destinazione di calcolo**, selezionare l'istanza di calcolo creata in precedenza e quindi **Salva**. In **Nome della bozza** specificare un nome più significativo, ad esempio *diabetes-model*, e immettere una descrizione.
+Nel menu **Impostazioni** scegliere **Seleziona destinazione di calcolo**. Selezionare l'istanza di calcolo creata in precedenza e quindi **Salva**. Sostituire **Nome della bozza** con un nome più significativo, ad esempio *diabetes-model*. Infine, immettere una descrizione.
 
-Quindi negli asset elencati espandere **Set di dati** e individuare il set di dati **diabetes**. Trascinare questo modulo nell'area di disegno:
+Nell'elenco degli asset espandere **Set di dati** e individuare il set di dati **diabetes**. Trascinare il componente nell'area di disegno:
 
-:::image type="content" source="media/tutorial-power-bi/drag-component.png" alt-text="Screenshot che illustra come trascinare un componente":::
+:::image type="content" source="media/tutorial-power-bi/drag-component.png" alt-text="Screenshot che mostra come trascinare un componente nell'area di disegno.":::
 
 Trascinare quindi i componenti seguenti nell'area di disegno:
 
-1. Regressione lineare (in **Algoritmi di Machine Learning**)
-1. Training modello (in **Training modello**)
+1. **Regressione lineare** (in **Algoritmi di Machine Learning**)
+1. **Training modello** (in **Training modello**)
 
-L'area di disegno avrà un aspetto analogo al seguente. Si noti che nella parte superiore e inferiore dei componenti sono presenti piccoli cerchi denominati porte, evidenziati in rosso di seguito:
+Nell'area di disegno si notino i cerchi nella parte superiore e inferiore dei componenti. Questi cerchi sono porte.
 
-:::image type="content" source="media/tutorial-power-bi/connections.png" alt-text="Screenshot che mostra i componenti non connessi":::
+:::image type="content" source="media/tutorial-power-bi/connections.png" alt-text="Screenshot che mostra le porte nei componenti non connessi.":::
  
-Successivamente, è necessario *collegare* questi componenti tra loro. Selezionare la porta nella parte inferiore del set di dati **diabetes** e trascinarla sulla porta a destra nella parte superiore del componente **Training modello**. Selezionare la porta nella parte inferiore del componente **Regressione lineare** e trascinarla sulla porta a sinistra nella parte superiore della porta **Training modello**.
+A questo punto *collegare* i componenti. Selezionare la porta nella parte inferiore del set di dati **diabetes**. Trascinarla sulla porta in alto a destra del componente **Training modello**. Selezionare la porta nella parte inferiore del componente **Regressione lineare**. Trascinarla sulla porta in alto a sinistra del componente **Training modello**.
 
-Scegliere la colonna nel set di dati da usare come variabile di etichetta (destinazione) da prevedere. Selezionare il componente **Training modello** e quindi **Modifica colonna**. Nella finestra di dialogo selezionare **Immettere il nome di colonna** e quindi **Y** nell'elenco a discesa:
+Scegliere la colonna del set di dati da usare come variabile di etichetta (destinazione) da prevedere. Selezionare il componente **Training modello** e quindi **Modifica colonna**. 
 
-:::image type="content" source="media/tutorial-power-bi/label-columns.png" alt-text="Screenshot che mostra come selezionare la colonna etichetta":::
+Nella finestra di dialogo selezionare **Immetti il nome di colonna** > **Y**:
+
+:::image type="content" source="media/tutorial-power-bi/label-columns.png" alt-text="Screenshot che mostra come selezionare una colonna di etichetta.":::
 
 Selezionare **Salva**. Il *flusso di lavoro* di Machine Learning sarà simile al seguente:
 
-:::image type="content" source="media/tutorial-power-bi/connected-diagram.png" alt-text="Screenshot che mostra i componenti connessi":::
+:::image type="content" source="media/tutorial-power-bi/connected-diagram.png" alt-text="Screenshot che mostra i componenti connessi.":::
 
-Selezionare **Invia** e quindi **Crea nuovo** in Esperimento. Specificare un nome per l'esperimento, quindi selezionare **Invia**.
+Selezionare **Submit** (Invia). In **Esperimento** selezionare **Crea nuovo**. Assegnare un nome all'esperimento e quindi selezionare **Invia**.
 
 >[!NOTE]
-> La prima esecuzione dell'esperimento dovrebbe richiedere circa 5 minuti. Le esecuzioni successive sono molto più veloci: la finestra di progettazione memorizza nella cache i componenti già eseguiti per ridurre la latenza.
+> La prima esecuzione dell'esperimento dovrebbe richiedere circa 5 minuti. Le esecuzioni successive sono molto più veloci, perché la finestra di progettazione memorizza nella cache i componenti già eseguiti per ridurre la latenza.
 
-Al termine dell'esperimento, viene visualizzato quanto segue:
+Al termine dell'esperimento, viene aperta questa visualizzazione:
 
-:::image type="content" source="media/tutorial-power-bi/completed-run.png" alt-text="Screenshot che mostra l'esecuzione completata":::
+:::image type="content" source="media/tutorial-power-bi/completed-run.png" alt-text="Screenshot che mostra l'esecuzione completata.":::
 
-È possibile esaminare i log dell'esperimento selezionando **Training modello** e quindi **Output e log**.
+Per esaminare i log dell'esperimento, selezionare **Training modello** e quindi **Output e log**.
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
-Per distribuire il modello, selezionare **Crea pipeline di inferenza** (nella parte superiore dell'area di disegno) e quindi **Pipeline di inferenza in tempo reale**:
+Per distribuire il modello, nella parte superiore dell'area di disegno selezionare **Crea pipeline di inferenza** > **Pipeline di inferenza in tempo reale**:
 
-:::image type="content" source="media/tutorial-power-bi/pipeline.png" alt-text="Screenshot che mostra la pipeline di inferenza in tempo reale":::
+:::image type="content" source="media/tutorial-power-bi/pipeline.png" alt-text="Screenshot che mostra dove selezionare una pipeline di inferenza in tempo reale.":::
  
-La pipeline include solo i componenti necessari per l'assegnazione di punteggi al modello. Quando si assegnano punteggi ai dati, i valori delle variabili di destinazione non saranno noti, quindi è possibile rimuovere **Y** dal set di dati. Per rimuovere Y, aggiungere all'area di disegno un componente **Selezionare le colonne nel set di dati**. Collegare il componente in modo che il set di dati diabetes corrisponda all'input e i risultati corrispondano all'output del componente **Punteggio del modello**:
+La pipeline include solo i componenti necessari per l'assegnazione di punteggi al modello. Quando si assegnano punteggi ai dati, non si conoscono i valori delle variabili di destinazione. È quindi possibile rimuovere **Y** dal set di dati. 
 
-:::image type="content" source="media/tutorial-power-bi/remove-column.png" alt-text="Screenshot che mostra la rimozione di una colonna":::
+Per rimuovere **Y**, aggiungere all'area di disegno un componente **Selezionare le colonne nel set di dati**. Collegare il componente in modo che il set di dati diabetes sia l'input. I risultati sono l'output nel componente **Score Model** (Punteggio modello):
 
-Selezionare il componente **Selezionare le colonne nel set di dati** nell'area di disegno e quindi **Modifica colonne**. Nella finestra di dialogo Seleziona colonne selezionare **Per nome** e quindi assicurarsi che siano selezionate tutte le variabili di input, ma **non** la destinazione:
+:::image type="content" source="media/tutorial-power-bi/remove-column.png" alt-text="Screenshot che mostra come rimuovere una colonna.":::
 
-:::image type="content" source="media/tutorial-power-bi/removal-settings.png" alt-text="Screenshot che mostra la rimozione di una colonna":::
+Selezionare il componente **Selezionare le colonne nel set di dati** nell'area di disegno e quindi **Modifica colonne**. 
 
-Selezionare **Salva**. Infine, selezionare il componente **Punteggio del modello** e assicurarsi che la casella di controllo **Append score columns to output** (Aggiungi le colonne del punteggio all'output) sia deselezionata. Vengono restituite solo le previsioni invece che gli input *e* le previsioni, riducendo la latenza:
+Nella finestra di dialogo **Seleziona colonne** scegliere **Per nome**. Assicurarsi quindi che siano selezionate tutte le variabili di input, ma che la destinazione *non* sia selezionata:
 
-:::image type="content" source="media/tutorial-power-bi/score-settings.png" alt-text="Screenshot che mostra le impostazioni del componente Punteggio del modello":::
+:::image type="content" source="media/tutorial-power-bi/removal-settings.png" alt-text="Screenshot che mostra come rimuovere le impostazioni delle colonne.":::
 
-Selezionare **Invia** nella parte superiore dell'area di disegno.
+Selezionare **Salva**. 
 
-Una volta eseguita correttamente la pipeline di inferenza, è possibile distribuire il modello nel cluster di inferenza. Selezionare **Distribuisci**. Viene visualizzata la finestra di dialogo **Configura endpoint in tempo reale**. Selezionare **Distribuisci nuovo endpoint in tempo reale**, assegnare all'endpoint il nome **my-diabetes-model**, selezionare l'inferenza creata in precedenza, quindi selezionare **Distribuisci**:
+Infine, selezionare il componente **Score Model** (Punteggio modello) e assicurarsi che la casella di controllo **Append score columns to output** (Aggiungi colonne dei punteggi all'output) sia deselezionata. Per ridurre la latenza, le previsioni vengono restituite senza gli input.
 
-:::image type="content" source="media/tutorial-power-bi/endpoint-settings.png" alt-text="Screenshot che mostra le impostazioni dell'endpoint in tempo reale":::
+:::image type="content" source="media/tutorial-power-bi/score-settings.png" alt-text="Screenshot che mostra le impostazioni del componente Score Model.":::
+
+Nella parte superiore dell'area di disegno selezionare **Invia**.
+
+Una volta eseguita correttamente la pipeline di inferenza, è possibile distribuire il modello nel cluster di inferenza. Selezionare **Distribuisci**. 
+
+Nella finestra di dialogo **Configura endpoint in tempo reale** selezionare **Distribuisci nuovo endpoint in tempo reale**. Assegnare all'endpoint il nome *my-diabetes-model*. Selezionare l'inferenza creata in precedenza e quindi **Distribuisci**:
+
+:::image type="content" source="media/tutorial-power-bi/endpoint-settings.png" alt-text="Screenshot che mostra le impostazioni dell'endpoint in tempo reale.":::
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come eseguire il training e distribuire un modello nella finestra di progettazione. Nella parte successiva viene descritto come utilizzare questo modello in Power BI per assegnare il punteggio.
+In questa esercitazione è stato illustrato come eseguire il training e distribuire un modello nella finestra di progettazione. Nella parte successiva viene descritto come utilizzare questo modello in Power BI per assegnare punteggi.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Utilizzare il modello in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

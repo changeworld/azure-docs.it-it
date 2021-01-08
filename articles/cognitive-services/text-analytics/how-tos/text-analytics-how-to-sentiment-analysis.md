@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505223"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673054"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedura: Analisi del sentiment e opinion mining
 
@@ -24,8 +24,6 @@ La funzionalità Analisi del sentiment dell'API Analisi del testo consente di ri
 I modelli di intelligenza artificiale usati dall'API vengono forniti dal servizio, quindi è sufficiente inviare contenuto per l'analisi.
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versioni e funzionalità di Analisi del sentiment
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | Funzionalità                                   | Analisi del sentiment v3 | Analisi del sentiment v3.1 (anteprima) |
 |-------------------------------------------|-----------------------|-----------------------------------|
@@ -47,7 +45,7 @@ Le etichette sono *positive*, *negative* e *neutral*. A livello di documento, pu
 | Nel documento è presente almeno una frase `negative` e almeno una frase `positive`.    | `mixed`                 |
 | Tutte le frasi del documento sono `neutral`.                                                  | `neutral`               |
 
-I punteggi di attendibilità sono compresi tra 1 e 0. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Per ogni documento o ogni frase, i punteggi stimati associati alle etichette (positive, negative e neutral) raggiungono il punteggio 1.
+I punteggi di attendibilità sono compresi tra 1 e 0. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Per ogni documento o ogni frase, i punteggi stimati associati alle etichette (positive, negative e neutral) raggiungono il punteggio 1. Per altre informazioni, vedere la [nota sulla trasparenza di Analisi del testo](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="opinion-mining"></a>Opinion mining
 

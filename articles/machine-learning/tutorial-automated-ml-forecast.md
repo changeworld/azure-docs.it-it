@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921848"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695447"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda con Machine Learning automatizzato
 
@@ -100,7 +100,7 @@ Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro
 
     1. Selezionare **Avanti**.
 
-## <a name="configure-experiment-run"></a>Configurare l'esecuzione dell'esperimento
+## <a name="configure-run"></a>Configurare l'esecuzione
 
 Dopo aver caricato e configurato i dati, configurare la destinazione di calcolo remota e selezionare la colonna di dati per cui eseguire la previsione.
 
@@ -111,14 +111,22 @@ Dopo aver caricato e configurato i dati, configurare la destinazione di calcolo 
 
     1. Selezionare **Create a new compute** (Crea nuovo calcolo) e configurare la destinazione di calcolo. ML automatizzato supporta solo destinazioni di calcolo di Azure Machine Learning. 
 
-        Campo | Descrizione | Valore per l'esercitazione
-        ----|---|---
-        Nome del calcolo |Un nome univoco che identifica il contesto di calcolo.|bike-compute
-        Tipo&nbsp;di macchina&nbsp;virtuale|Selezionare il tipo di macchina virtuale per il contesto di calcolo.|CPU (Central Processing Unit)
-        Dimensioni&nbsp;della macchina&nbsp;virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.|Standard_DS12_V2
-        Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
-        Secondi di inattività prima della riduzione | Tempo di inattività prima che il cluster venga ridotto automaticamente al numero minimo di nodi.|120 (impostazione predefinita)
-        Impostazioni avanzate | Impostazioni per la configurazione e l'autorizzazione di una rete virtuale per l'esperimento.| nessuno
+        1. Popolare il modulo **Macchina virtuale** per configurare l'ambiente di calcolo.
+
+            Campo | Descrizione | Valore per l'esercitazione
+            ----|---|---
+            Priorità delle&nbsp;macchine&nbsp;virtuali |Selezionare la priorità dell'esperimento| Dedicato
+            Tipo&nbsp;di macchina&nbsp;virtuale| Selezionare il tipo di macchina virtuale per il contesto di calcolo.|CPU (Central Processing Unit)
+            Dimensioni&nbsp;della macchina&nbsp;virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo. È disponibile un elenco di dimensioni consigliate in base al tipo di dati e di esperimento. |Standard_DS12_V2
+        
+        1. Selezionare **Avanti** per popolare il modulo **Configura impostazioni**.
+        
+             Campo | Descrizione | Valore per l'esercitazione
+            ----|---|---
+            Nome del calcolo |  Un nome univoco che identifica il contesto di calcolo. | bike-compute
+            Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
+            Secondi di inattività prima della riduzione | Tempo di inattività prima che il cluster venga ridotto automaticamente al numero minimo di nodi.|120 (impostazione predefinita)
+            Impostazioni avanzate | Impostazioni per la configurazione e l'autorizzazione di una rete virtuale per l'esperimento.| nessuno 
   
         1. Selezionare **Crea** per ottenere la destinazione di calcolo. 
 
@@ -145,7 +153,7 @@ Per completare l'esperimento di ML automatizzato, specificare il tipo di attivit
     Primary metric (Metrica principale)| Metrica di valutazione in base a cui verrà misurato l'algoritmo di Machine Learning.|Radice normalizzata dell'errore quadratico medio
     Modello esplicativo migliore| Mostra automaticamente il modello esplicativo migliore creato da ML automatizzato.| Abilitare
     Blocked algorithms (Algoritmi bloccati) | Algoritmi da escludere dal processo di training| Extreme Random Trees
-    Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello <br><br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_: specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. | <br><br>Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
+    Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello. <br><br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_: specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. | <br><br>Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
     Exit criterion (Esci da criterio)| Se viene soddisfatto un criterio, il processo di training viene arrestato. |Durata del&nbsp;processo&nbsp;di training (ore): 3 <br> Soglia&nbsp;punteggio&nbsp;metrica: nessuno
     Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 5
     Concorrenza| Il numero massimo di iterazioni parallele eseguite per ogni iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 6
@@ -154,11 +162,11 @@ Per completare l'esperimento di ML automatizzato, specificare il tipo di attivit
 
 ## <a name="run-experiment"></a>Eseguire esperimento
 
-Per eseguire l'esperimento, selezionare **Fine**. Viene visualizzata la schermata **Dettagli esecuzione** con l'indicazione **Stato dell'esecuzione** nella parte superiore accanto al numero di esecuzione. Questo stato viene aggiornato man mano che l'esperimento procede.
+Per eseguire l'esperimento, selezionare **Fine**. Viene visualizzata la schermata **Dettagli esecuzione** con l'indicazione **Stato dell'esecuzione** nella parte superiore accanto al numero di esecuzione. Questo stato viene aggiornato man mano che l'esperimento procede. Nell'angolo in alto a destra dello studio vengono anche visualizzare alcune notifiche che indicano lo stato dell'esperimento.
 
 >[!IMPORTANT]
 > La preparazione dell'esecuzione dell'esperimento richiede **10-15 minuti**.
-> Dopo l'avvio, **ogni iterazione richiede almeno 2-3 minuti**.  <br> <br>
+> Dopo l'avvio, **ogni iterazione richiede almeno 2-3 minuti**.<br> <br>
 > In produzione, questo processo richiede del tempo. Durante l'attesa, è consigliabile iniziare a esplorare gli algoritmi testati nella scheda **Modelli** non appena vengono completati. 
 
 ##  <a name="explore-models"></a>Esplorare i modelli
@@ -169,7 +177,7 @@ Mentre si aspetta il completamento di tutti i modelli dell'esperimento, selezion
 
 Nell'esempio seguente vengono esaminate le schede **Dettagli** e **Metriche** per visualizzare le proprietà, le metriche e i grafici delle prestazioni del modello selezionato. 
 
-![Dettagli esecuzione](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Dettagli esecuzione](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
@@ -232,7 +240,7 @@ In questa esercitazione è stato usato il servizio Machine Learning automatizzat
 Per la procedura di creazione di uno schema supportato da Power BI che facilita l'utilizzo del servizio Web appena distribuito, vedere questo articolo:
 
 > [!div class="nextstepaction"]
-> [Utilizzare un servizio Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Utilizzare un servizio Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
 + Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md).

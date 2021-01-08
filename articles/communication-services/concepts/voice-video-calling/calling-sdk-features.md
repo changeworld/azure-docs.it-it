@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505546"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680743"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -58,13 +58,13 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle
 |                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️   
 | Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="calling-client-library-browser-support"></a>Supporto browser per la libreria client per le chiamate
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Supporto della libreria client per la chiamate Javascript da parte del sistema operativo e del browser
 
 La tabella seguente rappresenta il set di versioni e browser supportati attualmente disponibili.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Libreria client per le chiamate** | Chrome*, nuovo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | Sistema operativo per iPad|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Libreria client per le chiamate** | Chrome*, nuovo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
 
 
 *Si noti che la versione più recente di Chrome è supportata in aggiunta alle due versioni precedenti.<br/>

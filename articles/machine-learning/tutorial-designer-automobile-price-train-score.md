@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575976"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796109"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione
 
@@ -272,7 +272,7 @@ Ora che la pipeline è completamente configurata, è possibile inviare un'esecuz
     > [!NOTE]
     > Gli esperimenti raggruppano esecuzioni di pipeline simili. Se una pipeline viene eseguita più volte, è possibile selezionare lo stesso esperimento per le esecuzioni successive.
 
-    1. Immettere un nome descrittivo per **Nome nuovo esperimento**.
+    1. Per **Nome nuovo esperimento**, immettere **Tutorial-CarPrices**.
 
     1. Selezionare **Submit** (Invia).
     

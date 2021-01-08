@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui segreti di Azure Key Vault - Azure Key Vault
-description: Panoramica dei dettagli di sviluppo e dell'interfaccia REST di Azure Key Vault per i segreti.
+description: Panoramica dei segreti di Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82930472"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705269"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informazioni sui segreti di Azure Key Vault
 
-Key Vault offre l'archiviazione sicura dei segreti, ad esempio password e stringhe di connessione di database.
+[Key Vault](../general/overview.md) offre l'archiviazione sicura dei segreti generici, ad esempio password e stringhe di connessione di database.
 
 Dal punto di vista dello sviluppo, le API di Key Vault accettano e restituiscono i valori dei segreti sotto forma di stringhe. Internamente, Key Vault archivia e gestisce i segreti come sequenze di ottetti (byte a 8 bit), con dimensioni massime di 25 kbyte ciascuno. Il servizio Key Vault non fornisce la semantica per i segreti. Accetta semplicemente i dati, li crittografa, li archivia e restituisce un identificatore di segreto ("id"). L'identificatore può essere usato per recuperare il segreto in un secondo momento.  
 
@@ -43,6 +43,8 @@ Sono disponibili altri attributi di sola lettura che sono inclusi in una rispost
 
 - *created*: IntDate, facoltativo. L’attributo creato indica quando è stata creata questa versione del segreto. Questo valore è null per i segreti creati prima dell'aggiunta di questo attributo. Il valore deve essere un numero contenente un valore IntDate.  
 - *updated*: IntDate, facoltativo. L’attributo aggiornato indica quando è stata aggiornata questa versione del segreto. Questo valore è null peri segreti aggiornati prima dell'aggiunta di questo attributo. Il valore deve essere un numero contenente un valore IntDate.
+
+Per informazioni sugli attributi comuni per ogni tipo di oggetto dell'insieme di credenziali delle chiavi, vedere [Panoramica di chiavi, segreti e certificati di Azure Key Vault](../general/about-keys-secrets-certificates.md)
 
 ### <a name="date-time-controlled-operations"></a>Operazioni controllate in base a data e ora
 
@@ -68,6 +70,12 @@ Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di 
 
 Per altre informazioni sull'uso dei segreti, vedere le [operazioni relative ai segreti nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy). 
 
+Guide pratiche per il controllo dell'accesso in Key Vault:
+- [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../general/assign-access-policy-cli.md)
+- [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite PowerShell](../general/assign-access-policy-powershell.md)
+- [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure](../general/assign-access-policy-portal.md)
+- [Fornire l'accesso a chiavi, certificati e segreti di Key Vault con un controllo degli accessi in base al ruolo di Azure (anteprima)](../general/rbac-guide.md)
+
 ## <a name="secret-tags"></a>Tag dei segreti  
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
 
@@ -76,14 +84,17 @@ Per altre informazioni sull'uso dei segreti, vedere le [operazioni relative ai s
 
 ## <a name="azure-storage-account-key-management"></a>Gestione delle chiavi dell'account di archiviazione di Azure
 
-Key Vault può gestire le chiavi dell'account di archiviazione Azure:
+Key Vault può gestire le chiavi dell'[account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview):
 
 - Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure. 
 - Key Vault rigenera (ruota) le chiavi con cadenza periodica.
 - I valori di chiave non vengono mai restituiti in risposta al chiamante.
 - Key Vault gestisce le chiavi sia degli account di archiviazione sia degli account di archiviazione classici.
 
-Per altre informazioni, vedere [Gestire le chiavi dell'account di archiviazione con Azure Key Vault](../secrets/overview-storage-keys.md).
+Per altre informazioni, vedere:
+- [Chiavi di accesso dell'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Gestione delle chiavi dell'account di archiviazione in Azure Key Vault](../secrets/overview-storage-keys.md))
+
 
 ## <a name="storage-account-access-control"></a>Controllo di accesso dell'account di archiviazione
 
@@ -109,11 +120,18 @@ Le autorizzazioni seguenti consentono di autorizzare un utente o un'entità di s
 
 Per altre informazioni, vedere le operazioni relative ai certificati in [Key Vault REST API reference](/rest/api/keyvault) (Riferimenti sull'API REST di Key Vault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
 
+Guide pratiche per il controllo dell'accesso in Key Vault:
+- [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../general/assign-access-policy-cli.md)
+- [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite PowerShell](../general/assign-access-policy-powershell.md)
+- [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure](../general/assign-access-policy-portal.md)
+- [Fornire l'accesso a chiavi, certificati e segreti di Key Vault con un controllo degli accessi in base al ruolo di Azure (anteprima)](../general/rbac-guide.md)
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni su Key Vault](../general/overview.md)
 - [Informazioni su chiavi, segreti e certificati](../general/about-keys-secrets-certificates.md)
 - [Informazioni sulle chiavi](../keys/about-keys.md)
 - [Informazioni sui certificati](../certificates/about-certificates.md)
-- [Autenticazione, richieste e risposte](../general/authentication-requests-and-responses.md)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/secure-your-key-vault.md)
 - [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](../general/developers-guide.md)

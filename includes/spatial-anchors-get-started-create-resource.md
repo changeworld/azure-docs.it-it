@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: 131b21ea7bc47df9654dd7c163eb22adb68e6678
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 596b73f8fb205b6a5681fecf3d00fd2a67c1f59f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185316"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97628706"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Creare una risorsa di Ancoraggi nello spazio
 
@@ -27,23 +27,23 @@ Selezionare **Ancoraggi nello spazio**, quindi selezionare **Crea**.
 
 Nel riquadro **Account ancoraggi nello spazio** procedere come segue:
 
-* Immettere un nome di risorsa univoco usando i normali caratteri alfanumerici.  
-* Selezionare la sottoscrizione a cui collegare la risorsa.  
-* Creare un gruppo di risorse selezionando **Crea nuovo**. Assegnare al gruppo il nome **myResourceGroup** e quindi selezionare **OK**.  
+* Immettere un nome di risorsa univoco usando i normali caratteri alfanumerici.
+* Selezionare la sottoscrizione a cui collegare la risorsa.
+* Creare un gruppo di risorse selezionando **Crea nuovo**. Assegnare al gruppo il nome **myResourceGroup** e quindi selezionare **OK**.
 
   [!INCLUDE [resource group intro text](resource-group.md)]
-  
-* Selezionare un'area in cui inserire la risorsa.  
+
+* Selezionare un'area in cui inserire la risorsa.
 * Selezionare **Nuovo** per iniziare a creare la risorsa.
 
 ![Screenshot del riquadro Ancoraggi nello spazio per la creazione di una risorsa.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-Dopo aver creato la risorsa, il portale di Azure indica che la distribuzione è stata completata. 
-   
+Dopo aver creato la risorsa, il portale di Azure indica che la distribuzione è stata completata.
+
 ![Screenshot che mostra la distribuzione della risorsa completata.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
-Selezionare **Vai alla risorsa**. È ora possibile visualizzare le proprietà della risorsa. 
-   
+Selezionare **Vai alla risorsa**. È ora possibile visualizzare le proprietà della risorsa.
+
 Copiare il valore di **ID account** della risorsa in un editor di testo per un uso successivo.
 
 ![Screenshot del riquadro di proprietà della risorsa.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
@@ -121,6 +121,80 @@ Per eliminare un account, usare il comando [az spatial-anchors-account delete](/
 
 ```azurecli
 az spatial-anchors-account delete --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
+```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Per iniziare, preparare l'ambiente per Azure PowerShell:
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
+
+> [!IMPORTANT]
+> Durante la fase di anteprima, è necessario installare il modulo **Az.MixedReality** di PowerShell separatamente usando il cmdlet `Install-Module`. Quando il modulo di PowerShell diventerà disponibile a livello generale, entrerà a far parte delle future versioni del modulo Az di PowerShell e sarà disponibile per impostazione predefinita all'interno di Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.MixedReality
+```
+
+1. Dopo aver eseguito l'accesso, usare il cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext) per selezionare la sottoscrizione in cui configurare l'account di ancoraggi nello spazio:
+
+   ```azurepowershell-interactive
+   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   ```
+
+1. Eseguire il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) per creare un gruppo di risorse oppure usarne uno esistente:
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name myResourceGroup -Location eastus2
+   ```
+
+   [!INCLUDE [resource group intro text](resource-group.md)]
+
+   Per visualizzare gli attuali account di ancoraggi nello spazio per un gruppo di risorse, usare il cmdlet [Get-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/get-azspatialanchorsaccount):
+
+   ```azurepowershell-interactive
+   Get-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup
+   ```
+
+   È anche possibile visualizzare gli account di ancoraggi nello spazio per la sottoscrizione:
+
+   ```azurepowershell-interactive
+   Get-AzSpatialAnchorsAccount
+   ```
+
+1. Eseguire il cmdlet [New-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/new-azspatialanchorsaccount) per creare l'account di ancoraggi nello spazio:
+
+   ```azurepowershell-interactive
+   New-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart -Location eastus2
+   ```
+
+1. Per visualizzare le proprietà della risorsa, usare il cmdlet [Get-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/get-azspatialanchorsaccount):
+
+   ```azurepowershell-interactive
+   Get-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart
+   ```
+
+   Copiare i valori delle proprietà **accountId** e **accountDomain** in un editor di testo per un uso successivo.
+
+1. Eseguire il cmdlet [Get-AzSpatialAnchorsAccountKey](/powershell/module/az.mixedreality/get-azspatialanchorsaccountkey) per ottenere le chiavi primaria e secondaria:
+
+   ```azurepowershell-interactive
+   Get-AzSpatialAnchorsAccountKey -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart
+   ```
+
+   Copiare i valori delle chiavi in un editor di testo per un uso successivo.
+
+   Se è necessario rigenerare le chiavi, usare il cmdlet [New-AzSpatialAnchorsAccountKey](/powershell/module/az.mixedreality/new-azspatialanchorsaccountkey):
+
+   ```azurepowershell-interactive
+   New-AzSpatialAnchorsAccountKey -ResourceGroupName myResourceGroup -Name MySpatialAnchorsQuickStart -Primary
+   New-AzSpatialAnchorsAccountKey -ResourceGroupName myResourceGroup -Name MySpatialAnchorsQuickStart -Secondary
+   ```
+
+Per eliminare un account, è possibile usare il cmdlet [Remove-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/remove-azspatialanchorsaccount):
+
+```azurepowershell-interactive
+Remove-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart
 ```
 
 ---

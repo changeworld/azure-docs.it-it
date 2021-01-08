@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2d748f787b40bb26e9faebb028d71c6c3e30ee55
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d5eba5486e7d26e62379e0112cd4b95322e6dae1
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516561"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705235"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con un modello di Azure
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:
@@ -76,10 +76,10 @@ Verrà usato il modello di esempio per creare un set di scalabilità e applicare
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment). Quando richiesto, specificare il nome utente e la password usati come credenziali per ogni istanza di VM:
+Creare ora un set di scalabilità di macchine virtuali con [az deployment group create](/cli/azure/deployment/group). Quando richiesto, specificare il nome utente e la password usati come credenziali per ogni istanza di VM:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -134,10 +134,10 @@ Per aggiornare la definizione dell'estensione Script personalizzato, modificare 
 }
 ```
 
-Applicare la configurazione dell'estensione Script personalizzato alle istanze di macchina virtuale nel set di scalabilità con [az group deployment create](/cli/azure/group/deployment). Questo modello *azuredeployv2.json* viene usato per applicare la versione aggiornata dell'applicazione. In pratica, si modifica il modello *azuredeploy.json* esistente per fare riferimento allo script di installazione aggiornato, come illustrato nella sezione precedente. Quando richiesto, immettere le stesse credenziali di nome utente e password usate quando si è creato il primo set di scalabilità:
+Applicare la configurazione dell'estensione per script personalizzati alle istanze di macchina virtuale nel set di scalabilità con [az deployment group create](/cli/azure/deployment/group). Questo modello *azuredeployv2.json* viene usato per applicare la versione aggiornata dell'applicazione. In pratica, si modifica il modello *azuredeploy.json* esistente per fare riferimento allo script di installazione aggiornato, come illustrato nella sezione precedente. Quando richiesto, immettere le stesse credenziali di nome utente e password usate quando si è creato il primo set di scalabilità:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```

@@ -3,14 +3,14 @@ title: Creare la prima funzione durevole in Azure con Python
 description: Creare e pubblicare un'istanza di Azure Durable Functions in Python con Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0cc321563de645aeb1d204b67b0ab72053d79c7e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012630"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763558"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Creare la prima funzione durevole in Python
 
@@ -40,7 +40,7 @@ Per completare questa esercitazione:
 
 In questa sezione si userà Visual Studio Code per creare un progetto di Funzioni di Azure locale. 
 
-1. In Visual Studio Code premere F1 o CTRL/CMD+MAIUSC+P per aprire il riquadro comandi. Nel riquadro comandi cercare e selezionare `Azure Functions: Create New Project...`.
+1. In Visual Studio Code premere F1 (o <kbd>CTRL/CMD+MAIUSC+P</kbd>) per aprire il riquadro comandi. Nel riquadro comandi cercare e selezionare `Azure Functions: Create New Project...`.
 
     ![Creare una funzione](media/quickstart-python-vscode/functions-create-project.png)
 
@@ -60,18 +60,33 @@ Se necessario, Visual Studio Code installa Azure Functions Core Tools. Crea inol
 
 Nella cartella radice viene creato anche un file requirements.txt, in cui sono specificati i pacchetti Python necessari per eseguire l'app per le funzioni.
 
+## <a name="update-azure-functions-extension-bundles-version"></a>Aggiornare la versione dei bundle di estensioni di Funzioni di Azure
+
+Funzioni di Azure per Python richiede la versione 2.x dei [bundle di estensioni di Funzioni di Azure](../functions-bindings-register.md#access-extensions-in-non-net-languages). I bundle di estensioni sono configurati in *host.json*.
+
+1. Aprire *host.json* nel progetto. Aggiornare la `version` del bundle di estensioni a `[2.*, 3.0.0)`. Questo valore specifica un intervallo di versioni maggiore o uguale a 2.0 e minore di 3.0.
+
+    ```json
+    "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+    }
+    ```
+
+1. Per applicare l'aggiornamento della versione dei bundle di estensioni è necessario ricaricare VS Code. Nel riquadro comandi cercare il comando *Sviluppatore: Ricarica finestra* ed eseguirlo.
+
 ## <a name="install-azure-functions-durable-from-pypi"></a>Installare azure-functions-durable da PyPI
 
 Quando è stato creato il progetto, l'estensione VS Code per Funzioni di Azure ha creato automaticamente un ambiente virtuale con la versione di Python selezionata. A questo punto si attiverà l'ambiente virtuale in un terminale e si installeranno alcune dipendenze richieste da Funzioni di Azure e Durable Functions.
 
-1. Aprire `requirements.txt` nell'editor e modificarne il contenuto come segue:
+1. Aprire *requirements.txt* nell'editor e modificarne il contenuto come segue:
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b6
+    azure-functions-durable>=1.0.0b12
     ```
 
-1. Aprire il terminale integrato dell'editor nella cartella corrente (`` Ctrl-Shift-` ``).
+1. Aprire il terminale integrato dell'editor nella cartella corrente (<kbd>CTRL+MAIUSC+`</kbd>).
 
 1. Nel terminale integrato attivare l'ambiente virtuale nella cartella corrente:
 
@@ -111,7 +126,7 @@ Per creare il codice della funzione durevole nel progetto si usa un modello.
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | Durable Functions Orchestrator | Creare un'orchestrazione Durable Functions |
     | Specificare un nome di funzione | HelloOrchestrator | Nome della funzione durevole |
@@ -126,7 +141,7 @@ Si aggiungerà ora la funzione dell'attività `Hello` cui viene fatto riferiment
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | Durable Functions Activity | Creare una funzione dell'attività |
     | Specificare un nome di funzione | Ciao | Nome della funzione dell'attività |
@@ -141,7 +156,7 @@ Si aggiungerà infine una funzione attivata tramite HTTP che avvia l'orchestrazi
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | Durable Functions Http Starter | Creare una funzione Http Starter |
     | Specificare un nome di funzione | DurableFunctionsHttpStart | Nome della funzione dell'attività |
@@ -166,7 +181,7 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
 1. Seguire le istruzioni e specificare le informazioni seguenti per creare un nuovo account di archiviazione in Azure.
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Seleziona sottoscrizione | *nome della sottoscrizione* | Selezionare la sottoscrizione ad Azure |
     | Select a storage account (Selezionare un account di archiviazione) | Creare un nuovo account di archiviazione. |  |
@@ -203,7 +218,7 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
     }
     ```
 
-1. Per interrompere il debug, premere **MAIUSC+F5** in VS Code.
+1. Per arrestare il debug, premere <kbd>MAIUSC+F5</kbd> in VS Code.
 
 Dopo aver verificato la corretta esecuzione della funzione nel computer locale, è possibile pubblicare il progetto in Azure.
 

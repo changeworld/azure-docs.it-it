@@ -12,18 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421703"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631160"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novità di Azure NetApp Files
 
 Il servizio Azure NetApp Files viene aggiornato regolarmente. Questo articolo fornisce un riepilogo delle nuove funzionalità e dei miglioramenti più recenti. 
+
+## <a name="december-2020"></a>Dicembre 2020
+
+* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (anteprima pubblica)    
+
+    Azure Application Consistent Snapshot Tool (AzAcSnap) è uno strumento da riga di comando che semplifica la protezione dei dati dei database di terze parti (SAP HANA) negli ambienti Linux (ad esempio SUSE e RHEL).   
+
+    AzAcSnap sfrutta le funzionalità di snapshot e replica del volume disponibili in Azure NetApp Files e in istanze Large di Azure. e in grado di offrire i vantaggi indicati di seguito.
+
+    * Protezione dei dati coerente con l'applicazione 
+    * Gestione del catalogo del database 
+    * Protezione dei volumi *ad hoc* 
+    * Clonazione dei volumi di archiviazione 
+    * Supporto del ripristino di emergenza 
 
 ## <a name="november-2020"></a>Novembre 2020
 

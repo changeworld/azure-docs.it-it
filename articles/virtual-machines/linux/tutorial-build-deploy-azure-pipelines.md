@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320201"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739706"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Azure DevOps Services e Azure Pipelines
 
@@ -91,7 +91,7 @@ Seguire i passaggi aggiuntivi descritti di seguito in base allo stack di runtime
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Per installare un'app JavaScript o un'app Node.js, è necessaria una VM Linux con server Web Nginx per distribuirla.
+Per installare un'app JavaScript o un'app Node.js, è necessaria una VM Linux con server Web Nginx per distribuire l'app.
 Se non si ha già una VM Linux con Nginx, crearne una ora in Azure usando la procedura descritta in [questo esempio](./quick-create-cli.md).
 
 * * * 
@@ -118,7 +118,7 @@ Le macchine virtuali possono essere aggiunte come risorse all'interno di [ambien
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. È possibile aggiungere tag alla VM come parte dello script di registrazione interattivo di PS oppure è anche possibile aggiungere/rimuovere gli stessi dalla visualizzazione risorse facendo clic sui tre puntini alla fine di ogni risorsa VM in questa visualizzazione.
+9. È possibile aggiungere tag alla VM come parte dello script di registrazione interattivo di PowerShell oppure è anche possibile aggiungere/rimuovere gli stessi dalla visualizzazione risorse facendo clic sui tre puntini alla fine di ogni risorsa VM in questa visualizzazione.
 
    I tag assegnati consentono di limitare la distribuzione a specifiche macchine virtuali quando l'ambiente viene usato in un processo di distribuzione. Ogni tag può essere composto da un massimo di 256 caratteri, ma non è previsto un limite per il numero di tag da usare.
 
@@ -202,7 +202,7 @@ Per altre informazioni, seguire la procedura descritta in [Compilare l'app Node.
 
 - Esaminare la pipeline per verificarne il funzionamento. Assicurarsi che tutti gli input predefiniti siano appropriati per il codice.
 
-- Selezionare **Salva ed esegui**, quindi **Esegui il commit direttamente nel ramo master** e infine di nuovo **Salva ed esegui**.
+- Selezionare **Salva ed esegui**, quindi **Commit directly to the main branch** (Esegui il commit direttamente nel ramo principale) e infine di nuovo **Salva ed esegui**.
 
 - Viene avviata una nuova esecuzione. Attendere che venga completata.
 

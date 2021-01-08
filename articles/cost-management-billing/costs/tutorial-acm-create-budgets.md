@@ -3,24 +3,24 @@ title: 'Esercitazione: Creare e gestire i budget di Azure'
 description: Questa esercitazione illustra come pianificare e controllare i costi dei servizi di Azure utilizzati.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c8b0265a72911688f08e0f8c4a39fa657f034472
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132806"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630140"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
 I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
 
-I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 8-24 ore e i budget vengono valutati a fronte di questi costi ogni 12-14 ore. Assicurarsi di acquisire familiarità con le specifiche di [Aggiornamenti dei dati relativi a costi e utilizzo](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quando viene raggiunta una soglia del budget, le notifiche di posta elettronica vengono generalmente inviate entro un'ora dalla valutazione.
+I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 8-24 ore e i budget vengono valutati a fronte di questi costi ogni 24 ore. Assicurarsi di acquisire familiarità con le specifiche di [Aggiornamenti dei dati relativi a costi e utilizzo](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quando viene raggiunta una soglia del budget, le notifiche di posta elettronica vengono generalmente inviate entro un'ora dalla valutazione.
 
 I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, trimestrale o annuale) per lo stesso importo di budget quando si seleziona una data di scadenza nel futuro. Dato che vengono reimpostati con lo stesso importo di budget, è necessario creare budget distinti se gli importi in valuta previsti differiscono per periodi futuri.
 

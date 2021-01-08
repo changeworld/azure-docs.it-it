@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f788c9e78790e6872870869e2bc153e1b1451e51
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566538"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845631"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -52,8 +52,6 @@ Ecco i componenti implementati dall'app di esempio *AdtSampleApp* dello scenario
 * Interfaccia console per chiamare l'API di Gemelli digitali di Azure
 * *SampleClientApp*: una soluzione di esempio di Gemelli digitali di Azure
 * *SampleFunctionsApp*: un'app di Funzioni di Azure che aggiorna il grafo di Gemelli digitali di Azure come risultato dei dati di telemetria provenienti da eventi dell'hub IoT e di Gemelli digitali di Azure
-
-Il progetto di esempio contiene anche un componente di autorizzazione interattivo. Ogni volta che si avvia il progetto, viene visualizzata una finestra del browser in cui viene chiesto di accedere con l'account Azure.
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>Creare un'istanza del grafo dei gemelli creato in precedenza
 
@@ -134,7 +132,7 @@ Per una destinazione specifica, scegliere **App per le funzioni di Azure (Window
 
 Nella pagina *Istanza di Funzioni* scegliere la propria sottoscrizione. Si dovrebbe popolare una finestra con i *gruppi di risorse* della sottoscrizione.
 
-Selezionare il gruppo di risorse dell'istanza e quindi *+ Crea una nuova applicazione di Funzioni di Azure*.
+Selezionare il gruppo di risorse dell'istanza e quindi premere *+* per creare una nuova funzione di Azure.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: Istanza di Funzioni (prima dell'app per le funzioni)":::
 

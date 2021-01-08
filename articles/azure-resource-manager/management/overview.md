@@ -4,12 +4,12 @@ description: Viene descritto come utilizzare Gestione risorse di Azure per la di
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032253"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858519"
 ---
 # <a name="what-is-azure-resource-manager"></a>Informazioni su Azure Resource Manager
 
@@ -33,7 +33,7 @@ Se non si ha esperienza con Azure Resource Manager, ecco alcuni termini con cui 
 
 * **risorsa** : elemento gestibile disponibile tramite Azure. Sono ad esempio risorse le macchine virtuali, gli account di archiviazione, le app Web, i database e le reti virtuali. Anche i gruppi di risorse, le sottoscrizioni, i gruppi di gestione e i tag sono esempi di risorse.
 * **gruppo di risorse** : contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse include le risorse che si vogliono gestire come gruppo. L'utente decide quali risorse appartengono a un gruppo in base alle esigenze specifiche dell'organizzazione. Vedere [Gruppi di risorse](#resource-groups).
-* **provider di risorse**: servizio che fornisce le risorse di Azure. Un provider di risorse comune è ad esempio Microsoft.Compute, che fornisce la risorsa macchina virtuale. Microsoft.Storage è un altro provider di risorse comune. Vedere [Provider e tipi di risorse](resource-providers-and-types.md).
+* **provider di risorse**: servizio che fornisce le risorse di Azure. Un provider di risorse comune è ad esempio `Microsoft.Compute`, che fornisce la risorsa macchina virtuale. `Microsoft.Storage` è un altro provider di risorse comune. Vedere [Provider e tipi di risorse](resource-providers-and-types.md).
 * **modello di Resource Manager**: file JSON (JavaScript Object Notation) che definisce una o più risorse da distribuire a un gruppo di risorse, a una sottoscrizione, a un gruppo di gestione o a un tenant. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto. Vedere [Panoramica della distribuzione di modelli](../templates/overview.md).
 * **sintassi dichiarativa** : sintassi che consente di indicare l'oggetto da creare senza dover scrivere la sequenza di comandi di programmazione per crearlo. Il modello di Resource Manager è un esempio di sintassi dichiarativa. Nel file vengono definite le proprietà per l'infrastruttura da distribuire in Azure.  Vedere [Panoramica della distribuzione di modelli](../templates/overview.md).
 
@@ -61,7 +61,7 @@ Azure offre quattro livelli relativi all'ambito: [gruppi di gestione](../../gove
 
 ![Livelli di gestione](./media/overview/scope-levels.png)
 
-Le impostazioni di gestione possono essere applicate a qualsiasi di questi livelli di ambito. Il livello selezionato determina l'estensione con cui viene applicata l'impostazione. I livelli inferiori ereditano le impostazioni dai livelli superiori. Ad esempio, quando si applicano [criteri](../../governance/policy/overview.md) alla sottoscrizione, tali criteri vengono applicati a tutti i gruppi di risorse e le risorse nella sottoscrizione. Quando si applicano criteri al gruppo di risorse, tali criteri vengono applicati al gruppo di risorse e a tutte le risorse che contiene. Tuttavia, un altro gruppo di risorse non disporrà di tale assegnazione di criteri.
+Le impostazioni di gestione possono essere applicate a qualsiasi di questi livelli di ambito. Il livello selezionato determina l'estensione con cui viene applicata l'impostazione. I livelli inferiori ereditano le impostazioni dai livelli superiori. Ad esempio, quando si applicano [criteri](../../governance/policy/overview.md) alla sottoscrizione, tali criteri vengono applicati a tutti i gruppi di risorse e le risorse nella sottoscrizione. Quando si applicano criteri al gruppo di risorse, questi criteri vengono applicati al gruppo di risorse e a tutte le risorse che contiene. Tuttavia, un altro gruppo di risorse non disporrà di tale assegnazione di criteri.
 
 È possibile distribuire i modelli in tenant, gruppi di gestione, sottoscrizioni o gruppi di risorse.
 
@@ -99,7 +99,7 @@ Esistono alcuni fattori importanti da considerare quando si definisce il gruppo 
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Resilienza di Azure Resource Manager
 
-Il servizio Azure Resource Manager è progettato per la resilienza e la disponibilità continua. Le operazioni a livello di Resource Manager e di piano di controllo (richieste inviate a management.azure.com) nell'API REST presentano le caratteristiche seguenti:
+Il servizio Azure Resource Manager è progettato per la resilienza e la disponibilità continua. Le operazioni a livello di Resource Manager e di piano di controllo (richieste inviate a `management.azure.com`) nell'API REST presentano le caratteristiche seguenti:
 
 * Sono distribuite tra le aree. Alcuni servizi sono disponibili a livello di area.
 

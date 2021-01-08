@@ -1,18 +1,18 @@
 ---
 title: Registrare e analizzare Database SQL di Azure
 description: Questa esercitazione descrive come analizzare Database SQL di Azure
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1fbeedd8643a777b29ebe4993eed7b664240621c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920280"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739791"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrare e analizzare Database SQL di Azure
 
@@ -28,7 +28,7 @@ L'origine dati Database SQL di Azure supporta le funzionalità seguenti:
 
 ### <a name="known-limitations"></a>Limitazioni note
 
-Azure Purview non supporta l'analisi di [viste](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Database SQL di Azure. 
+Azure Purview non supporta l'analisi di [viste](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) in Database SQL di Azure. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -89,7 +89,7 @@ Per consentire a Purview di usare l'entità servizio o l'**identità gestita** d
 L'entità servizio o l'identità gestita deve avere l'autorizzazione per ottenere metadati per il database, gli schemi e le tabelle. Deve inoltre essere in grado di eseguire query sulle tabelle per campionare la classificazione.
 
 - [Configurare e gestire l'autenticazione di Azure AD con Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Se si usa un'identità gestita, l'account Purview include la propria identità gestita, che è essenzialmente il nome di Purview specificato durante la creazione. È necessario creare un utente di Azure AD in Database SQL di Azure con l'identità gestita di Purview o la propria entità servizio seguendo l'esercitazione [Creare l'utente dell'entità servizio in Database SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). È necessario assegnare l'autorizzazione `db_owner` (**scelta consigliata**) all'identità. Esempio di sintassi SQL per creare l'utente e concedere l'autorizzazione:
+- Se si usa un'identità gestita, l'account Purview include la propria identità gestita, che è essenzialmente il nome di Purview specificato durante la creazione. È necessario creare un utente di Azure AD in Database SQL di Azure con l'identità gestita di Purview o la propria entità servizio seguendo l'esercitazione [Creare l'utente dell'entità servizio in Database SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). È necessario assegnare l'autorizzazione corretta (ad esempio `db_owner` o `db_datareader`) all'identità. Esempio di sintassi SQL per creare l'utente e concedere l'autorizzazione:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -100,7 +100,7 @@ L'entità servizio o l'identità gestita deve avere l'autorizzazione per ottener
     ```
 
     > [!Note]
-    > `Username` è la propria entità servizio o l'identità gestita di Purview
+    > `Username` è l'entità servizio dell'utente o l'identità gestita di Purview. Vedere altre informazioni sui [ruoli predefiniti del database e le relative funzionalità](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Aggiungere l'entità servizio all'insieme di credenziali delle chiavi e alle credenziali di Purview
 

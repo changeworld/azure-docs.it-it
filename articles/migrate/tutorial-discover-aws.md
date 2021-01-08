@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: ce86da7697341e769ada120dc7a941319b64fc18
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 935aa8297e8b244bfd05483f07aad3eadb485f1b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109539"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797078"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Esercitazione: Individuare le istanze di AWS con Valutazione server
 
@@ -42,7 +42,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 --- | ---
 **Appliance** | È necessario una macchina virtuale EC2 in cui eseguire l'appliance di Azure Migrate. La macchina deve soddisfare i requisiti seguenti:<br/><br/> - Windows Server 2016 installato. L'esecuzione dell'appliance in un computer con Windows Server 2019 non è supportata.<br/><br/> - 16 GB di RAM, otto CPU virtuali, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/><br/> - Un indirizzo IP statico o dinamico con accesso a Internet, direttamente o tramite un proxy.
 **Istanze di Windows** | Consentire le connessioni in ingresso sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa recuperare i metadati relativi a configurazione e prestazioni.
-**Istanze di Linux** | Consentire le connessioni in ingresso sulla porta 22 (TCP).
+**Istanze di Linux** | Consentire le connessioni in ingresso sulla porta 22 (TCP).<br/><br/> Le istanze dovranno usare `bash` come shell predefinita, altrimenti l'individuazione non riesce.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparare un account utente Azure
 
@@ -104,7 +104,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-aws/new-project.png)
 
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
 
 Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
@@ -222,11 +222,16 @@ Configurare l'appliance per la prima volta.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
 1. Incollare la **chiave del progetto Azure Migrate** copiata dal portale. Se non si dispone della chiave, passare a **Valutazione server > Individua > Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
-1. Fare clic su **Accedi**. Verrà aperto un prompt di accesso di Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
-1. Nella nuova scheda accedere con nome utente e la password di Azure.
+1. Per eseguire l'autenticazione con Azure, è necessario un codice del dispositivo. Facendo clic su **Accedi** si aprirà una finestra modale con il codice del dispositivo, come illustrato di seguito.
+
+    ![Finestra modale con il codice del dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Fare clic su **Copy code & Login** (Copia il codice e accedi) per copiare il codice del dispositivo e aprire una richiesta di accesso ad Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
+1. Nella nuova scheda incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
    
    L'accesso con un PIN non è supportato.
-3. Dopo aver eseguito l'accesso, tornare all'app Web. 
+3. Se si chiude la scheda per errore senza eseguire l'accesso, è necessario aggiornare la scheda del browser di gestione configurazione dell'appliance per abilitare di nuovo il pulsante di accesso.
+1. Dopo aver eseguito l'accesso, tornare nella scheda precedente di gestione configurazione dell'appliance.
 4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](./tutorial-discover-physical.md) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 
@@ -243,6 +248,10 @@ A questo punto, connettersi dall'appliance ai server fisici da individuare e avv
     - Azure Migrate supporta la chiave privata SSH generata dal comando ssh-keygen tramite algoritmi RSA, DSA, ECDSA e ed25519.
     - Attualmente Azure Migrate non supporta la chiave SSH basata su passphrase. Usare una chiave SSH senza passphrase.
     - Attualmente Azure Migrate non supporta il file di chiave privata SSH generato da PuTTy.
+    - Azure Migrate supporta il formato OpenSSH del file di chiave privata SSH, come illustrato di seguito:
+    
+    ![Formato supportato della chiave privata SSH](./media/tutorial-discover-physical/key-format.png)
+
 
 1. Se si vogliono aggiungere più credenziali contemporaneamente, fare clic su **Aggiungi altre** per salvare e aggiungere altre credenziali. Sono supportate più credenziali per l'individuazione di server fisici.
 1. In **Passaggio 2: Specificare i dettagli del server fisico o virtuale** fare clic su **Aggiungi origine di individuazione** per specificare **Indirizzo IP/FQDN** del server e il nome descrittivo per le credenziali per la connessione al server.

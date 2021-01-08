@@ -1,6 +1,6 @@
 ---
 title: Che cos'è la diagnostica per l'accesso di Azure AD? | Microsoft Docs
-description: Questo articolo fornisce una panoramica generale della diagnostica per l'accesso in Azure AD.
+description: Questo articolo fornisce una panoramica generale della diagnostica per l'accesso di Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,12 +17,12 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6aedf41fbf1ed0d70467a2efe97431fdecaa4fa
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e85de1edd94a0430a4b28b332d9e43b967afba76
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585914"
+ms.locfileid: "97608919"
 ---
 # <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>Che cos'è la diagnostica per l'accesso di Azure AD?
 

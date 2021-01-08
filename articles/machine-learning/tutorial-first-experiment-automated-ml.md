@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 90c827774f38f07b9791a6399a53b0304bbe28c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921895"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695196"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 
@@ -102,9 +102,7 @@ Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro
         Intestazioni di colonna| Indica come verranno considerate le intestazioni del set di dati, se presenti.| Tutti i file hanno le stesse intestazioni
         Ignora righe | Indica quante righe vengono eventualmente ignorate nel set di dati.| nessuno
 
-    1. Il modulo **Schema** consente di configurare ulteriormente i dati per questo esperimento. Per questo esempio, selezionare l'interruttore relativo alla caratteristica **day_of_week** in modo da non includerla per questo esperimento. Selezionare **Avanti**.
-
-        ![Configurazione della scheda Anteprima](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
+    1. Il modulo **Schema** consente di configurare ulteriormente i dati per questo esperimento. Per questo esempio, non vengono effettuate selezioni. Selezionare **Avanti**.
 
     1. Nel modulo **Conferma dettagli** verificare che le informazioni corrispondano a quelle con cui erano stati precedentemente popolati i moduli **Informazioni di base, Selezione archivio dati e file** e **Impostazioni e anteprima**.
     
@@ -112,32 +110,44 @@ Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro
     
     1. Selezionare il set di dati quando viene visualizzato nell'elenco.
     
-    1. Esaminare l'**anteprima dati** per assicurarsi di non avere incluso **day_of_week** e quindi scegliere **OK**.
+    1. Esaminare l'**anteprima dati** per assicurarsi di non avere incluso **day_of_week** e quindi selezionare **Chiudi**.
 
     1. Selezionare **Avanti**.
 
-## <a name="configure-experiment-run"></a>Configurare l'esecuzione dell'esperimento
+## <a name="configure-run"></a>Configurare l'esecuzione
 
 Dopo aver caricato e configurato i dati, è possibile configurare l'esperimento. Questa configurazione include attività di progettazione dell'esperimento, ad esempio la selezione delle dimensioni dell'ambiente di calcolo e la specifica della colonna da stimare. 
+
+1. Selezionare il pulsante di opzione **Crea nuovo**.
 
 1. Popolare il modulo **Configure Run** (Configura esecuzione) come segue:
     1. Immettere questo nome di esperimento: `my-1st-automl-experiment`
 
     1. Selezionare **y** come colonna di destinazione, che indica le stime da eseguire. Questa colonna indica se il client ha sottoscritto o meno un deposito a termine.
     
-    1. Selezionare **Create a new compute** (Crea nuovo calcolo) e configurare la destinazione di calcolo. Una destinazione di calcolo è un ambiente di risorse locale o basato sul cloud usato per eseguire lo script di training o per ospitare la distribuzione del servizio. Per questo esperimento viene usato un calcolo basato sul cloud. 
+    1. Selezionare **+ Crea un nuovo ambiente di calcolo** e configurare la destinazione di calcolo. Una destinazione di calcolo è un ambiente di risorse locale o basato sul cloud usato per eseguire lo script di training o per ospitare la distribuzione del servizio. Per questo esperimento viene usato un calcolo basato sul cloud. 
+        1. Popolare il modulo **Macchina virtuale** per configurare l'ambiente di calcolo.
 
-        Campo | Descrizione | Valore per l'esercitazione
-        ----|---|---
-        Nome del calcolo |Un nome univoco che identifica il contesto di calcolo.|automl-compute
-        Tipo&nbsp;di macchina&nbsp;virtuale| Selezionare il tipo di macchina virtuale per il contesto di calcolo.|CPU (Central Processing Unit)
-        Dimensioni&nbsp;della macchina&nbsp;virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.|Standard_DS12_V2
-        Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
-        Secondi di inattività prima della riduzione | Tempo di inattività prima che il cluster venga ridotto automaticamente al numero minimo di nodi.|120 (impostazione predefinita)
-        Impostazioni avanzate | Impostazioni per la configurazione e l'autorizzazione di una rete virtuale per l'esperimento.| nessuno
-        1. Selezionare **Crea** per ottenere la destinazione di calcolo. 
+            Campo | Descrizione | Valore per l'esercitazione
+            ----|---|---
+            Priorità delle&nbsp;macchine&nbsp;virtuali |Selezionare la priorità dell'esperimento| Dedicato
+            Tipo&nbsp;di macchina&nbsp;virtuale| Selezionare il tipo di macchina virtuale per il contesto di calcolo.|CPU (Central Processing Unit)
+            Dimensioni&nbsp;della macchina&nbsp;virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo. È disponibile un elenco di dimensioni consigliate in base al tipo di dati e di esperimento. |Standard_DS12_V2
+        
+        1. Selezionare **Avanti** per popolare il modulo **Configura impostazioni**.
+        
+            Campo | Descrizione | Valore per l'esercitazione
+            ----|---|---
+            Nome del calcolo |  Un nome univoco che identifica il contesto di calcolo. | automl-compute
+            Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
+            Secondi di inattività prima della riduzione | Tempo di inattività prima che il cluster venga ridotto automaticamente al numero minimo di nodi.|120 (impostazione predefinita)
+            Impostazioni avanzate | Impostazioni per la configurazione e l'autorizzazione di una rete virtuale per l'esperimento.| nessuno               
+
+        1. Selezionare **Crea** per creare la destinazione di calcolo. 
 
             **Il completamento dell'operazione richiede alcuni minuti.** 
+
+             ![Pagina Impostazioni](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
 
         1. Al termine della creazione, selezionare la nuova destinazione di calcolo dall'elenco a discesa.
 
@@ -159,14 +169,18 @@ Dopo aver caricato e configurato i dati, è possibile configurare l'esperimento.
         Concorrenza| Il numero massimo di iterazioni parallele eseguite per ogni iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 5
         
         Selezionare **Salva**.
+    
+    1. Selezionare **Visualizza impostazioni di definizione delle funzionalità**. Per questo esempio, selezionare l'interruttore relativo alla funzionalità **day_of_week** in modo da non includerla per la definizione delle funzionalità in questo esperimento.
 
-1. Selezionare **Fine** per eseguire l'esperimento. Verrà visualizzata la schermata **Dettagli esecuzione** con **Stato dell'esecuzione** nella parte superiore quando inizia la preparazione dell'esperimento.
+        ![Selezione della definizione delle funzionalità](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
+ 
+        Selezionare **Salva**.
+
+1. Selezionare **Fine** per eseguire l'esperimento. Verrà visualizzata la schermata **Dettagli esecuzione** con **Stato dell'esecuzione** nella parte superiore quando inizia la preparazione dell'esperimento. Questo stato viene aggiornato man mano che l'esperimento procede. Nell'angolo in alto a destra dello studio vengono anche visualizzare alcune notifiche che indicano lo stato dell'esperimento.
 
 >[!IMPORTANT]
 > La preparazione dell'esecuzione dell'esperimento richiede **10-15 minuti**.
-> Dopo l'avvio, **ogni iterazione richiede almeno 2-3 minuti**.  
-> Selezionare a intervalli regolari **Aggiorna** per visualizzare lo stato dell'esecuzione durante l'avanzamento dell'esperimento.
->
+> Dopo l'avvio, **ogni iterazione richiede almeno 2-3 minuti**.  <br> <br>
 > In produzione, è probabile che nell'attesa ci si allontani. Per questa esercitazione però è consigliabile iniziare a esplorare gli algoritmi testati nella scheda **Modelli** non appena vengono completati mentre gli altri sono ancora in esecuzione. 
 
 ##  <a name="explore-models"></a>Esplorare i modelli
@@ -238,7 +252,7 @@ Per mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni ed
 In questa esercitazione di Machine Learning automatizzato è stata usata l'interfaccia di ML automatizzato di Azure Machine Learning per creare e distribuire un modello di classificazione. Per altre informazioni e per i passaggi successivi, vedere questi articoli:
 
 > [!div class="nextstepaction"]
-> [Utilizzare un servizio Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Utilizzare un servizio Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
 + Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md).
