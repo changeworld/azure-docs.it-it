@@ -3,12 +3,12 @@ title: Distribuire le risorse con i modelli e l'API REST
 description: Usare Azure Resource Manager e l'API REST di Resource Manager per distribuire risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: d1c8a365153007d3337d922bc163ba3767eeddc9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 77192aff9ed4fe33269b5e11891c30e15bc312dd
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675409"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028965"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Distribuire le risorse con i modelli ARM e Azure Resource Manager API REST
 
@@ -20,13 +20,13 @@ Questo articolo illustra come usare l'API REST di Azure Resource Manager con mod
 
 La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizione di Azure, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
-* Per distribuire un **gruppo di risorse** , usare [Distribuzioni - Creare](/rest/api/resources/deployments/createorupdate). La richiesta viene inviata a:
+- Per distribuire un **gruppo di risorse**, usare [Distribuzioni - Creare](/rest/api/resources/deployments/createorupdate). La richiesta viene inviata a:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
-* Per distribuire una **sottoscrizione** , usare [Distribuzioni - Creare nell'ambito della sottoscrizione](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La richiesta viene inviata a:
+- Per distribuire una **sottoscrizione**, usare [Distribuzioni - Creare nell'ambito della sottoscrizione](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La richiesta viene inviata a:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -34,7 +34,7 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 
   Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-* Per eseguire la distribuzione in un **gruppo di gestione** , usare [Distribuzioni - Creare nell'ambito del gruppo di gestione](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La richiesta viene inviata a:
+- Per eseguire la distribuzione in un **gruppo di gestione**, usare [Distribuzioni - Creare nell'ambito del gruppo di gestione](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La richiesta viene inviata a:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -42,7 +42,7 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 
   Per altre informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [Creare risorse a livello di gruppo di gestione](deploy-to-management-group.md).
 
-* Per eseguire la distribuzione in un **tenant** , usare [Distribuzioni - Creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope). La richiesta viene inviata a:
+- Per eseguire la distribuzione in un **tenant**, usare [Distribuzioni - Creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope). La richiesta viene inviata a:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -83,7 +83,7 @@ Gli esempi contenuti in questo articolo usano distribuzioni di gruppi di risorse
 
    Nel corpo della richiesta specificare un collegamento al modello e al file dei parametri. Per altre informazioni sul file dei parametri, vedere [Creare il file di parametri di Resource Manager](parameter-files.md).
 
-   Si noti che la **modalità** è impostata su **Incrementale** . Per eseguire una distribuzione completa, impostare **mode** su **Complete** (Completo). Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
+   Si noti `mode` che la è impostata su **incrementale**. Per eseguire una distribuzione completa, impostare `mode` su **completa**. Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
 
    ```json
    {
@@ -122,9 +122,9 @@ Gli esempi contenuti in questo articolo usano distribuzioni di gruppi di risorse
    }
    ```
 
-    È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegating-access-with-a-shared-access-signature) (Delega dell'accesso con una firma di accesso condiviso).
+    È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [delega dell'accesso con una firma di accesso condiviso](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
-    Se è necessario fornire un valore sensibile per un parametro (ad esempio una password), aggiungere tale valore a un insieme di credenziali delle chiavi. Recuperare l'insieme di credenziali delle chiavi durante la distribuzione, come illustrato nell'esempio precedente. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](key-vault-parameter.md).
+    Se è necessario fornire un valore sensibile per un parametro (ad esempio una password), aggiungere tale valore a un insieme di credenziali delle chiavi. Recuperare l'insieme di credenziali delle chiavi durante la distribuzione, come illustrato nell'esempio precedente. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md).
 
 1. Anziché eseguire il collegamento ai file per il modello e i parametri, è possibile includerli nel corpo della richiesta. L'esempio seguente illustra il corpo della richiesta con il modello e i parametri inline:
 
@@ -217,4 +217,3 @@ Per evitare conflitti con le distribuzioni simultanee e per garantire voci univo
 - Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
 - Per altre informazioni sulla gestione delle operazioni REST asincrone, vedere [Track asynchronous Azure operations](../management/async-operations.md) (Tenere traccia delle operazioni asincrone di Azure).
 - Per altre informazioni sui modelli, vedere [Comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
-

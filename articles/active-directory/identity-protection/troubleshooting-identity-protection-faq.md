@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558930"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028897"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
@@ -35,7 +35,7 @@ Si è verificato un problema noto corrente che causa la latenza nel flusso di ri
 
 Se si è un cliente Azure AD Identity Protection, passare alla visualizzazione [utenti a rischio](howto-identity-protection-investigate-risk.md#risky-users) e fare clic su un utente a rischio. Nel cassetto nella parte inferiore della scheda ' cronologia dei rischi ' visualizzerà tutti gli eventi che hanno portato a una modifica dei rischi dell'utente. Per visualizzare tutti gli accessi a rischio per l'utente, fare clic su "accessi a rischio utente". Per visualizzare tutti i rilevamenti dei rischi per questo utente, fare clic su "rilevamento rischi utente".
 
-## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Perché l'accesso è stato bloccato ma la protezione delle identità non ha generato un rilevamento del rischio?
+### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Perché l'accesso è stato bloccato ma la protezione delle identità non ha generato un rilevamento del rischio?
 Gli accessi possono essere bloccati per diversi motivi. È importante notare che Identity Protection genera solo rilevamenti di rischio quando nella richiesta di autenticazione vengono usate le credenziali corrette. Se un utente utilizza credenziali non corrette, non verrà contrassegnato da Identity Protection poiché non si verifica alcun rischio di compromissione delle credenziali, a meno che un attore non valido utilizzi le credenziali corrette. Alcuni motivi per cui un utente può essere bloccato dalla firma che non genererà un rilevamento di Identity Protection includono:
 * L' **IP può essere bloccato** a causa di attività dannose dall'indirizzo IP. Il messaggio IP bloccato non distingue se le credenziali sono corrette o meno. Se l'indirizzo IP è bloccato e non vengono usate le credenziali corrette, non verrà generato un rilevamento di Identity Protection
 * Il blocco **[intelligente](../authentication/howto-password-smart-lockout.md)** può impedire l'accesso dell'account dopo più tentativi non riusciti
@@ -96,3 +96,7 @@ Dato che i rischi per l'utente sono cumulativi e non scadono, un utente può ave
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Cause per cui un accesso presenta un punteggio Elevato di "rischio di accesso (aggregato)" quando l'attività di rilevamento associata presenta un rischio basso o medio.
 
 Il punteggio elevato di rischio aggregato potrebbe essere basato su altre funzionalità di accesso o sul fatto che sono stati generati più rilevamenti per tale accesso. E viceversa, un accesso potrebbe avere un rischio di accesso (aggregato) di livello Medio anche se i rilevamenti associati a tale accesso sono di rischio Elevato.
+
+### <a name="what-is-the-difference-between-the-activity-from-anonymous-ip-address-and-anonymous-ip-address-detections"></a>Qual è la differenza tra l'"attività da indirizzo IP anonimo" e i rilevamenti "indirizzo IP anonimo"?
+
+L'origine del rilevamento "indirizzo IP anonimo" è Azure AD Identity Protection, mentre il rilevamento "attività da indirizzo IP anonimo" è integrato da MCAS (Microsoft Cloud App Security). Anche se hanno nomi molto simili ed è possibile che si verifichino sovrapposizioni in questi segnali, presentano rilevamenti di back-end distinti.

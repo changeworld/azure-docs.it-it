@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d083bc0b7726a284dcfd03e49d47c2a342db023c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ed909cf3feb17930b045dee1031ed5a6209b63d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461813"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029016"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -117,13 +117,15 @@ L'uso di Collegamento a Synapse non è consigliato se è necessario rispettare i
 
 ## <a name="limitations"></a>Limitazioni
 
-* Attualmente il collegamento ad Azure Synapse per Azure Cosmos DB è supportato per l'API SQL e l'API di Azure Cosmos DB per MongoDB. Non è supportato per l'API Gremlin e l'API Tabella. Il supporto per API Cassandra è in anteprima privata. per ulteriori informazioni, contattare il [team di collegamento di Azure sinapsi](mailto:cosmosdbsynapselink@microsoft.com).  
+* Il collegamento a sinapsi di Azure per Azure Cosmos DB è supportato per l'API SQL e l'API Azure Cosmos DB per MongoDB. Non è supportata per l'API Gremlin, API Cassandra e API Tabella. 
 
-* Attualmente, l'archivio analitico può essere abilitato solo per i nuovi contenitori. Per usare l'archivio analitico per i contenitori esistenti, migrare i dati dai contenitori esistenti ai nuovi contenitori usando [Azure Cosmos DB strumenti di migrazione](cosmosdb-migrationchoices.md). È possibile abilitare il collegamento sinapsi su account Azure Cosmos DB nuovi ed esistenti.
+* L'archivio analitico può essere abilitato solo per i nuovi contenitori. Per usare l'archivio analitico per i contenitori esistenti, migrare i dati dai contenitori esistenti ai nuovi contenitori usando [Azure Cosmos DB strumenti di migrazione](cosmosdb-migrationchoices.md). È possibile abilitare il collegamento sinapsi su account Azure Cosmos DB nuovi ed esistenti.
 
 * Per i contenitori con l'archivio analitico attivato, il backup automatico e il ripristino dei dati nell'archivio analitico non sono supportati in questo momento. Quando il collegamento sinapsi è abilitato in un account di database, Azure Cosmos DB continuerà a eseguire automaticamente i [backup](./online-backup-and-restore.md) dei dati nell'archivio transazionale (solo) dei contenitori all'intervallo di backup pianificato, come sempre. È importante notare che quando un contenitore con archivio analitico attivato viene ripristinato in un nuovo account, il contenitore verrà ripristinato solo con l'archivio transazionale e non è abilitato alcun archivio analitico. 
 
 * L'accesso all'archivio analitico di Azure Cosmos DB con Synapse SQL con provisioning non è attualmente disponibile.
+
+* L'isolamento di rete per l'archivio analitico di Azure Cosmso DB, che usa endpoint privati gestiti in Azure sinapsi Analytics, non è attualmente supportato.
 
 ## <a name="pricing"></a>Prezzi
 

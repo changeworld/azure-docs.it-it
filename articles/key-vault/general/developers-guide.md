@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b7980bfc58ed696a74d3da259e23fb7e428621a9
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904262"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028914"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -41,7 +41,7 @@ L'accesso al livello di gestione è controllato dal [controllo degli accessi in 
 
 | Interfaccia della riga di comando di Azure | PowerShell | API REST | Gestione risorse | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Riferimento](/cli/azure/keyvault)<br>[Guida introduttiva](quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault)<br>[Guida introduttiva](quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/)|[Riferimento](/azure/templates/microsoft.keyvault/vaults)|[Riferimento](/dotnet/api/microsoft.azure.management.keyvault)|[Riferimento](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Riferimento](/java/api/com.microsoft.azure.management.keyvault)|[Riferimento](/javascript/api/@azure/arm-keyvault)|
+|[Riferimento](/cli/azure/keyvault)<br>[Guida introduttiva](quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault)<br>[Guida introduttiva](quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/)|[Riferimento](/azure/templates/microsoft.keyvault/vaults)|[Riferimento](/dotnet/api/microsoft.azure.management.keyvault)<br>[Guida introduttiva](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[Riferimento](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Riferimento](/java/api/com.microsoft.azure.management.keyvault)|[Riferimento](/javascript/api/@azure/arm-keyvault)|
 
 Vedere [librerie client](client-libraries.md) per pacchetti di installazione e codice sorgente.
 
@@ -68,9 +68,13 @@ Gli scenari di autenticazione precedenti sono supportati dalla **libreria client
 Per ulteriori informazioni su libreria di Azure Identity client, vedere:
 
 ### <a name="azure-identity-client-libraries"></a>Librerie client di Azure Identity
+
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
+
+>[!Note]
+> [Libreria di autenticazione app](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) , consigliata per Key Vault .NET SDK versione 3, attualmente obsoleta. Seguire [AppAuthentication in Azure. informazioni aggiuntive sulla migrazione di identità](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) per la migrazione a Key Vault .NET SDK versione 4.
 
 Per esercitazioni su come eseguire l'autenticazione a Key Vault nelle applicazioni, vedere:
 - [Eseguire l'autenticazione a Key Vault nell'applicazione ospitata in una macchina virtuale in .NET](./tutorial-net-virtual-machine.md)
@@ -86,14 +90,14 @@ L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il cont
 
 | Interfaccia della riga di comando di Azure | PowerShell | API REST | Gestione risorse | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Riferimento](/cli/azure/keyvault/key)<br>[Guida introduttiva](../keys/quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault/)<br>[Guida introduttiva](../keys/quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/#key-operations)|N/D|[Riferimento](/dotnet/api/azure.security.keyvault.keys)|[Riferimento](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Guida introduttiva](../keys/quick-create-python.md)|[Riferimento](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Riferimento](/javascript/api/@azure/keyvault-keys/)|
+|[Riferimento](/cli/azure/keyvault/key)<br>[Guida introduttiva](../keys/quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault/)<br>[Guida introduttiva](../keys/quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/#key-operations)|[Riferimento](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Guida introduttiva](../keys/quick-create-template.md)|[Riferimento](/dotnet/api/azure.security.keyvault.keys)<br>[Guida introduttiva](../keys/quick-create-net.md)|[Riferimento](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Guida introduttiva](../keys/quick-create-python.md)|[Riferimento](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Guida introduttiva](../keys/quick-create-java.md)|[Riferimento](/javascript/api/@azure/keyvault-keys/)<br>[Guida introduttiva](../keys/quick-create-node.md)|
 
 **API e SDK per i certificati**
 
 
 | Interfaccia della riga di comando di Azure | PowerShell | API REST | Gestione risorse | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Riferimento](/cli/azure/keyvault/certificate)<br>[Guida introduttiva](../certificates/quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault)<br>[Guida introduttiva](../certificates/quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/#certificate-operations)|N/D|[Riferimento](/dotnet/api/azure.security.keyvault.certificates)|[Riferimento](/python/api/overview/azure/keyvault-certificates-readme)<br>[Guida introduttiva](../certificates/quick-create-python.md)|[Riferimento](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Riferimento](/javascript/api/@azure/keyvault-certificates/)|
+|[Riferimento](/cli/azure/keyvault/certificate)<br>[Guida introduttiva](../certificates/quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault)<br>[Guida introduttiva](../certificates/quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/#certificate-operations)|N/D|[Riferimento](/dotnet/api/azure.security.keyvault.certificates)<br>[Guida introduttiva](../certificates/quick-create-net.md)|[Riferimento](/python/api/overview/azure/keyvault-certificates-readme)<br>[Guida introduttiva](../certificates/quick-create-python.md)|[Riferimento](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[Guida introduttiva](../certificates/quick-create-java.md)|[Riferimento](/javascript/api/@azure/keyvault-certificates/)<br>[Guida introduttiva](../certificates/quick-create-node.md)|
 
 **API e SDK per i segreti**
 
@@ -119,7 +123,7 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 - [Accesso a un insieme di credenziali delle chiavi protetto da firewall](access-behind-firewall.md): per accedere a un insieme di credenziali delle chiavi, l'applicazione client dell'insieme di credenziali delle chiavi deve poter accedere a più endpoint per varie funzionalità.
 - Come distribuire certificati alle macchine virtuali da Key Vault [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) : un'applicazione cloud in esecuzione in una macchina virtuale in Azure necessita di un certificato. Come ottenere oggi il certificato per questa VM?
 - [Distribuzione di un certificato dell'app Web di Azure tramite Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
-- Assegnare un criterio di accesso[CLI](assign-access-policy-cli.md)(  |  [portale PowerShell](assign-access-policy-powershell.md)dell'interfaccia della riga di comando  |  [Portal](assign-access-policy-portal.md)). 
+- Assegnare un criterio di accesso[](assign-access-policy-cli.md)(  |  [portale PowerShell](assign-access-policy-powershell.md)dell'interfaccia della riga di comando  |  [](assign-access-policy-portal.md)). 
 - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](./key-vault-recovery.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.
 - [Passare valori protetti come password durante la distribuzione](../../azure-resource-manager/templates/key-vault-parameter.md) : se è necessario passare come parametro durante la distribuzione un valore protetto, ad esempio una password, è possibile archiviare tale valore come chiave privata in un insieme di credenziali delle chiavi di Azure e fare riferimento al valore in altri modelli di Resource Manager.
 
