@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3679bf9d55ddccefddb4bf3b2a96ec1b427315af
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663659"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013533"
 ---
 # <a name="using-an-app-service-environment"></a>Uso di un ambiente del servizio app
 
@@ -78,13 +78,20 @@ L'URL SCM viene usato per accedere alla console Kudu o per pubblicare l'app usan
 
 ### <a name="dns-configuration"></a>Configurazione del DNS 
 
-L'ambiente del servizio app usa endpoint privati per il traffico in ingresso e viene configurato automaticamente con le zone private di DNS di Azure. Se si vuole usare il proprio server DNS, è necessario aggiungere i record seguenti:
+L'ambiente del servizio app usa endpoint privati per il traffico in ingresso. Non viene configurata automaticamente con le zone private di DNS di Azure. Se si vuole usare il proprio server DNS, è necessario aggiungere i record seguenti:
 
 1. creare una zona per &lt;nome ambiente del servizio app&gt;.appserviceenvironment.net
 1. creare un record A in tale zona che punti * all'indirizzo IP in ingresso usato dall'endpoint privato dell'ambiente del servizio app
 1. creare un record A in tale zona che punti @ all'indirizzo IP in ingresso usato dall'endpoint privato dell'ambiente del servizio app
 1. creare una zona in &lt;nome ambiente del servizio app&gt;.appserviceenvironment.net denominata SCM
 1. creare un record A nell'area SCM che punti * all'indirizzo IP usato dall'endpoint privato dell'ambiente del servizio app
+
+Per configurare DNS nelle zone private di DNS di Azure:
+
+1. Creare una zona privata di DNS di Azure denominata <ASE name>.appserviceenvironment.net
+1. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
+1. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
+1. Creare un record A in tale zona che punta *.scm all'indirizzo IP del servizio ILB
 
 Le impostazioni DNS per il suffisso di dominio predefinito dell'ambiente del servizio app non limitano l'accesso delle app a tali nomi. È possibile impostare un nome di dominio personalizzato senza alcuna convalida per le app in un ambiente del servizio app. Se quindi si vuole creare una zona denominata *contoso.NET*, è possibile fare in modo che punti all'indirizzo IP in ingresso. Il nome del dominio personalizzato funziona per le richieste di app ma non per il sito scm. Il sito SCM è disponibile solo in *&lt; appname &gt; . SCM. &lt; asename &gt; . appserviceenvironment.NET*. 
 
@@ -125,7 +132,7 @@ Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app
 Per abilitare la registrazione nell'ambiente del servizio app:
 
 1. Nel portale passare a impostazioni di **diagnostica**.
-1. Selezionare **Aggiungi impostazioni di diagnostica**.
+1. Selezionare **Aggiungi impostazione di diagnostica**.
 1. Consente di specificare un nome per l'integrazione dei log.
 1. Selezionare e configurare le destinazioni dei log desiderate.
 1. Selezionare **AppServiceEnvironmentPlatformLogs**.

@@ -5,25 +5,25 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/07/2021
 ms.author: duau
-ms.openlocfilehash: 4b57dec32a3a008cadf68c19ea52353a23fb2cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0a39d65bf0f1bc5221cd5e46493c489f7630f8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397495"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012666"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Esempi di configurazione del router per l'impostazione e la gestione NAT
 
-Questa pagina fornisce esempi di configurazione NAT per i router Cisco ASA e Juniper SRX quando si usa ExpressRoute. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso.
+Questo articolo fornisce esempi di configurazione NAT per i router Cisco ASA e Juniper SRX quando si lavora con ExpressRoute. Queste configurazioni del router sono destinate ad esempi solo per istruzioni e non devono essere utilizzate così come sono. Dovrai collaborare con il fornitore per trovare le configurazioni appropriate per la tua rete.
 
 > [!IMPORTANT]
 > Gli esempi inclusi in questa pagina devono essere intesi solo come linee guida. È necessario collaborare con il team di vendita/tecnico del fornitore e il team di rete per ottenere le configurazioni appropriate in base alle specifiche esigenze. Microsoft non offre supporto per i problemi relativi alle configurazioni elencate in questa pagina. È necessario contattare il fornitore del dispositivo per assistenza.
 > 
 > 
 
-* Gli esempi di configurazione di router riportati di seguito si applicano al peering pubblico di Azure e al peering Microsoft. Non è necessario configurare NAT per il peering privato di Azure. Per altri dettagli, vedere [Peering di ExpressRoute](expressroute-circuit-peerings.md) e [Requisiti NAT di ExpressRoute](expressroute-nat.md).
+* Gli esempi di configurazione di router riportati di seguito si applicano al peering pubblico di Azure e al peering Microsoft. Non è possibile configurare NAT per il peering privato di Azure. Per altri dettagli, vedere [Peering di ExpressRoute](expressroute-circuit-peerings.md) e [Requisiti NAT di ExpressRoute](expressroute-nat.md).
 
 * È necessario usare pool di IP NAT separati per la connettività a Internet ed ExpressRoute. L'uso dello stesso pool di IP NAT a livello di Internet ed ExpressRoute comporterà un routing asimmetrico e la perdita di connettività.
 
@@ -361,5 +361,5 @@ Vedere gli esempi nella pagina [esempi di configurazione del routing](expressrou
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md) .
+Per altre informazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 

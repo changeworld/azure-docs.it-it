@@ -161,6 +161,6 @@
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-studio/'
     - name: Reti neurali personalizzate (Net#)
       href: azure-ml-netsharp-reference-guide.md

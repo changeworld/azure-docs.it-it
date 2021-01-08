@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
-ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619369"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013040"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Eseguire la migrazione Azure Active Directory Domain Services dal modello di rete virtuale classica a Gestione risorse
 
@@ -155,8 +155,8 @@ La migrazione al modello di distribuzione Gestione risorse e alla rete virtuale 
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Passaggio 1: aggiornare e individuare la nuova rete virtuale](#update-and-verify-virtual-network-settings) | Portale di Azure | 15 minuti | Nessun tempo di inattività necessario | N/D |
 | [Passaggio 2: preparare il dominio gestito per la migrazione](#prepare-the-managed-domain-for-migration) | PowerShell | 15-30 minuti in media | Il tempo di inattività di Azure AD DS viene avviato dopo il completamento di questo comando. | Rollback e ripristino disponibili. |
-| [Passaggio 3: spostare il dominio gestito in una rete virtuale esistente](#migrate-the-managed-domain) | PowerShell | da 1 a 3 ore in media | Un controller di dominio è disponibile al termine del comando. il tempo di inattività termina. | In caso di errore, sono disponibili sia il rollback (self-service) che il ripristino. |
-| [Passaggio 4: testare e attendere il controller di dominio di replica](#test-and-verify-connectivity-after-the-migration)| PowerShell e portale di Azure | 1 ora o più, a seconda del numero di test | Entrambi i controller di dominio sono disponibili e funzionano normalmente. | N/D. Una volta eseguita la migrazione della prima VM, non è possibile eseguire il rollback o il ripristino. |
+| [Passaggio 3: spostare il dominio gestito in una rete virtuale esistente](#migrate-the-managed-domain) | PowerShell | da 1 a 3 ore in media | Una volta completato il comando, è disponibile un controller di dominio. | In caso di errore, sono disponibili sia il rollback (self-service) che il ripristino. |
+| [Passaggio 4: testare e attendere il controller di dominio di replica](#test-and-verify-connectivity-after-the-migration)| PowerShell e portale di Azure | 1 ora o più, a seconda del numero di test | Entrambi i controller di dominio sono disponibili e funzionano normalmente. il tempo di inattività termina. | N/D. Una volta eseguita la migrazione della prima VM, non è possibile eseguire il rollback o il ripristino. |
 | [Passaggio 5-procedura di configurazione facoltativa](#optional-post-migration-configuration-steps) | portale di Azure e macchine virtuali | N/D | Nessun tempo di inattività necessario | N/D |
 
 > [!IMPORTANT]
@@ -262,16 +262,14 @@ In questa fase è possibile spostare facoltativamente altre risorse esistenti da
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>Testare e verificare la connettività dopo la migrazione
 
-La distribuzione e la disponibilità del secondo controller di dominio possono richiedere del tempo per l'uso nel dominio gestito.
+La distribuzione e la disponibilità del secondo controller di dominio possono richiedere del tempo per l'uso nel dominio gestito. Il secondo controller di dominio deve essere disponibile 1-2 ore dopo il completamento del cmdlet di migrazione. Con il modello di distribuzione Gestione risorse, le risorse di rete per il dominio gestito vengono visualizzate nell'portale di Azure o Azure PowerShell. Per verificare se il secondo controller di dominio è disponibile, esaminare la pagina delle **Proprietà** per il dominio gestito nella portale di Azure. Se vengono visualizzati due indirizzi IP, il secondo controller di dominio è pronto.
 
-Con il modello di distribuzione Gestione risorse, le risorse di rete per il dominio gestito vengono visualizzate nell'portale di Azure o Azure PowerShell. Per altre informazioni sulle risorse di rete, vedere [risorse di rete usate da Azure AD DS][network-resources].
-
-Quando è disponibile almeno un controller di dominio, completare i passaggi di configurazione seguenti per la connettività di rete con le macchine virtuali:
+Dopo che il secondo controller di dominio è disponibile, completare i passaggi di configurazione seguenti per la connettività di rete con le macchine virtuali:
 
 * **Aggiornare le impostazioni del server DNS** Per consentire ad altre risorse nella Gestione risorse rete virtuale di risolvere e utilizzare il dominio gestito, aggiornare le impostazioni DNS con gli indirizzi IP dei nuovi controller di dominio. Il portale di Azure può configurare automaticamente queste impostazioni.
 
     Per altre informazioni su come configurare la rete virtuale Gestione risorse, vedere [aggiornare le impostazioni DNS per la rete virtuale di Azure][update-dns].
-* **Riavviare le macchine virtuali appartenenti** a un dominio: gli indirizzi IP del server DNS per i controller di dominio Azure AD DS cambiano, riavviare tutte le macchine virtuali appartenenti a un dominio in modo che usino quindi le nuove impostazioni del server DNS. Se le impostazioni DNS sono state configurate manualmente da applicazioni o macchine virtuali, aggiornarle manualmente con i nuovi indirizzi IP del server DNS dei controller di dominio visualizzati nel portale di Azure.
+* **Riavviare le macchine virtuali appartenenti a un dominio (facoltativo)** Poiché gli indirizzi IP del server DNS per i controller di dominio Azure AD DS cambiano, è possibile riavviare tutte le macchine virtuali appartenenti a un dominio in modo che usino quindi le nuove impostazioni del server DNS. Se le impostazioni DNS sono state configurate manualmente da applicazioni o macchine virtuali, aggiornarle manualmente con i nuovi indirizzi IP del server DNS dei controller di dominio visualizzati nel portale di Azure. Il riavvio delle macchine virtuali appartenenti a un dominio impedisce problemi di connettività causati da indirizzi IP che non vengono aggiornati.
 
 Testare ora la connessione alla rete virtuale e la risoluzione dei nomi. In una VM connessa alla rete virtuale Gestione risorse o con peering, provare i test di comunicazione di rete seguenti:
 
@@ -280,7 +278,7 @@ Testare ora la connessione alla rete virtuale e la risoluzione dei nomi. In una 
 1. Verificare la risoluzione dei nomi del dominio gestito, ad esempio `nslookup aaddscontoso.com`
     * Specificare il nome DNS per il proprio dominio gestito per verificare che le impostazioni DNS siano corrette e risolte.
 
-Il secondo controller di dominio deve essere disponibile 1-2 ore dopo il completamento del cmdlet di migrazione. Per verificare se il secondo controller di dominio è disponibile, esaminare la pagina delle **Proprietà** per il dominio gestito nella portale di Azure. Se vengono visualizzati due indirizzi IP, il secondo controller di dominio è pronto.
+Per altre informazioni sulle altre risorse di rete, vedere [risorse di rete usate da Azure AD DS][network-resources].
 
 ## <a name="optional-post-migration-configuration-steps"></a>Procedura di configurazione post-migrazione facoltativa
 

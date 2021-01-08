@@ -53,7 +53,7 @@ Per configurare l'integrazione di Mozy Enterprise in Azure AD, è necessario agg
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -67,7 +67,7 @@ Per configurare l'integrazione di Mozy Enterprise in Azure AD, è necessario agg
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Mozy Enterprise usando un utente di test di nome **Britta Simon** .
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Mozy Enterprise usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Mozy Enterprise.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, è necessario completare le procedure di base seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Mozy Enterprise** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **Mozy Enterprise** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Mozy Enterprise Client](https://support.mozy.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Mozy Enterprise come amministratore.
 
-2. Nella sezione **Configuration** fare clic su **Authentication Policy** .
+2. Nella sezione **Configuration** fare clic su **Authentication Policy**.
    
     ![Screenshot che mostra l'opzione Authentication Policy selezionata da Configuration.](./media/mozy-enterprise-tutorial/ic777314.png "Authentication Policy")
 
@@ -132,27 +132,27 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
    
     ![Screenshot che mostra la sezione Authentication Policy in cui è possibile immettere i valori descritti.](./media/mozy-enterprise-tutorial/ic777315.png "Authentication Policy")
    
-    a. Selezionare **Directory Service** come **Provider** .
+    a. Selezionare **Directory Service** come **Provider**.
    
-    b. Selezionare **Use LDAP Push** .
+    b. Selezionare **Use LDAP Push**.
    
     c. Fare clic sulla scheda **SAML Authentication** .
    
-    d. Incollare il valore di **URL di accesso** , copiato dal portale di Azure, nella casella di testo **Authentication URL** (URL di autenticazione).
+    d. Incollare il valore di **URL di accesso**, copiato dal portale di Azure, nella casella di testo **Authentication URL** (URL di autenticazione).
    
-    e. Incollare il valore di **Identificatore Azure AD** , copiato dal portale di Azure, nella casella di testo **SAML Endpoint** (Endpoint SAML).
+    e. Incollare il valore di **Identificatore Azure AD**, copiato dal portale di Azure, nella casella di testo **SAML Endpoint** (Endpoint SAML).
    
     f. Aprire il certificato con codifica Base 64 scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollare l'intero certificato nella casella di testo **SAML Certificate** (Certificato SAML).
    
-    g. Selezionare **Abilita SSO per consentire agli amministratori di accedere con le proprie credenziali di rete** .
+    g. Selezionare **Abilita SSO per consentire agli amministratori di accedere con le proprie credenziali di rete**.
    
-    h. Fare clic su **Salva modifiche** .
+    h. Fare clic su **Salva modifiche**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -164,24 +164,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon** .
+    a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea** .
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mozy Enterprise.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Mozy Enterprise** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Mozy Enterprise**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Mozy Enterprise** .
+2. Nell'elenco delle applicazioni selezionare **Mozy Enterprise**.
 
     ![Collegamento di Mozy Enterprise nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -189,7 +189,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -197,7 +197,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-mozy-enterprise-test-user"></a>Creare un utente di test di Mozy Enterprise
 
@@ -229,7 +229,7 @@ Per consentire agli utenti di Azure AD di accedere a Mozy Enterprise, è necessa
    
     d. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'utente di Azure AD.
    
-    e. Selezionare **Send user instruction email** .
+    e. Selezionare **Send user instruction email**.
    
     f. Fare clic su **Add User(s)** .
 

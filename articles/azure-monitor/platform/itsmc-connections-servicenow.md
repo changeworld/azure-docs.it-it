@@ -1,142 +1,149 @@
 ---
 title: Connettere ServiceNow con IT Service Management Connector
-description: Questo articolo fornisce informazioni su come ServiceNow con IT Service Management Connector (connettore) in monitoraggio di Azure per monitorare e gestire centralmente gli elementi di lavoro ITSM.
+description: Informazioni su come connettere ServiceNow con IT Service Management Connector (connettore) in monitoraggio di Azure per monitorare e gestire centralmente gli elementi di lavoro ITSM.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 662c36e4f0082c376a6e250e9a0885f0cd225964
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 7d1b4b3542f6914d413a5e29e57baa15e7a53346
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729660"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012785"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Connettere ServiceNow con IT Service Management Connector
 
-Questo articolo fornisce informazioni su come configurare la connessione tra l'istanza di ServiceNow e IT Service Management Connector (connettore) in Log Analytics per gestire centralmente gli elementi di lavoro.
-
-Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto ServiceNow a Connettore di Gestione dei servizi IT in Azure.
+Questo articolo illustra come configurare la connessione tra un'istanza di ServiceNow e IT Service Management Connector (connettore) in Log Analytics, in modo da poter gestire centralmente gli elementi di lavoro di gestione dei servizi IT (ITSM).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Accertarsi di aver soddisfatto i prerequisiti seguenti:
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](./itsmc-definition.md#add-it-service-management-connector).
-- Versioni supportate di ServiceNow: Orlando, New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki, Ginevra.
-- Attualmente gli avvisi inviati da monitoraggio di Azure possono creare in ServiceNow uno dei seguenti elementi: eventi, eventi imprevisti o avvisi.
-> [!NOTE]
-> Attualmente Gestione dei servizi IT supporta solo l'offerta SaaS ufficiale di ServiceNow. Le distribuzioni private di ServiceNow non sono attualmente supportate. 
+Assicurarsi di soddisfare i prerequisiti seguenti per la connessione.
 
-**ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
-- Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere gli articoli seguenti:
+### <a name="itsmc-installation"></a>Installazione di connettore
 
-    - [Configurare OAuth per Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-    - [Set up OAuth for New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per New York)
-    - [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Madrid)
-    - [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Londra)
-    - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Kingston)
-    - [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Giacarta)
-    - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Istanbul)
-    - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth for Helsinki)
-    - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Ginevra)
-> [!NOTE]
-> Con la definizione della configurazione di OAuth è consigliabile eseguire le operazioni seguenti:
->
-> 1) **Aggiornare la durata del token di aggiornamento a 90 giorni (7.776.000 secondi):** Durante la [configurazione di OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) nella fase 2: [Creare un endpoint per consentire ai client di accedere all'istanza](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Dopo aver definito l'endpoint, nel pannello ServiceNow cercare System OAuth (OAuth di sistema), quindi selezionare Application Registry (Registro applicazione). Selezionare il nome di OAuth definito e aggiornare il campo della durata del token di aggiornamento a 7.776.000 (90 giorni in secondi).
-> Alla fine fare clic su Update (Aggiorna).
-> 2) **È consigliabile stabilire una procedura interna per assicurarsi che la connessione rimanga attiva:** in base alla durata del token di aggiornamento per l'aggiornamento del token. Assicurarsi di eseguire le operazioni seguenti prima della scadenza prevista del token di aggiornamento. È consigliabile un paio di giorni prima della scadenza del token di aggiornamento:
->
->     1. [Completare un processo di sincronizzazione manuale per la configurazione del Connettore di Gestione dei servizi IT](./itsmc-resync-servicenow.md)
->     2. Revocare il token di aggiornamento precedente, poiché per motivi di sicurezza, non è consigliabile conservare chiavi obsolete. Nel pannello ServiceNow cercare System OAuth (OAuth di sistema), quindi selezionare Manage Tokens (Gestisci token). Selezionare il token obsoleto dall'elenco in base al nome OAuth e alla data di scadenza.
-> ![Definizione di OAuth del sistema SNOW](media/itsmc-connections/snow-system-oauth.png)
->     3. Fare clic su Revoke Access (Revoca accesso ), quindi su Revoke (Revoca).
-
-- Installare l'app utente per l'integrazione di Microsoft Log Analytics (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )
-> [!NOTE]
-> CONNETTORE supporta solo l'app utente ufficiale per l'integrazione di Microsoft Log Analytics che viene scaricata da ServiceNow Store. CONNETTORE non supportano l'inserimento di codice nel lato ServiceNow o l'applicazione che non fa parte della soluzione ServiceNow ufficiale. 
-- Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
-
-## <a name="connection-procedure"></a>**Procedura di connessione**
-Seguire questa procedura per creare una connessione ServiceNow:
-
-
-1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
-
-2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
-    ![Nuova connessione](media/itsmc-connections/add-new-itsm-connection.png)
-
-3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
-
-4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
-
+Per informazioni sull'installazione di connettore, vedere [aggiungere la soluzione IT Service Management Connector](./itsmc-definition.md#add-it-service-management-connector).
 
 > [!NOTE]
-> Tutti questi parametri sono obbligatori.
+> CONNETTORE supporta solo l'offerta di Software as a Service (SaaS) ufficiale di ServiceNow. Le distribuzioni private di ServiceNow non sono supportate.
 
-| **Campo** | **Descrizione** |
-| --- | --- |
-| **Connection Name** (Nome connessione)   | Digitare un nome per l'istanza di ServiceNow da connettere a Connettore di Gestione dei servizi IT.  Questo nome viene usato in seguito in Log Analytics quando si configurano elementi di lavoro in questa istanza di Gestione dei servizi IT o si visualizzano analisi dei log dettagliate. |
-| **Tipo di partner**   | Selezionare **ServiceNow**. |
-| **Nome utente**   | Digitare il nome utente di integrazione creato nell'app ServiceNow per supportare la connessione a Connettore di Gestione dei servizi IT. Altre informazioni: [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app) (Creare il ruolo utente dell'app ServiceNow).|
-| **Password**   | Digitare la password associata a questo nome utente. **Nota**: il nome utente e la password vengono usati solo per generare i token di autenticazione e non vengono archiviati nel servizio Connettore di Gestione dei servizi IT.  |
-| **URL del server**   | Digitare l'URL dell'istanza di ServiceNow da connettere a Connettore di Gestione dei servizi IT. L'URL deve puntare a una versione SaaS supportata con suffisso ".servicenow.com".|
-| **ID client**   | Digitare l'ID client da usare per l'autenticazione OAuth2, generata in precedenza.  Per altre informazioni sulla generazione dell'ID client e del segreto:   [Installazione di OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
-| **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
-| **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di ServiceNow da sincronizzare con Azure Log Analytics tramite Connettore di Gestione dei servizi IT.  I valori selezionati vengono importati in Log Analytics.   **Opzioni:**  Eventi imprevisti e Richieste di modifica.|
-| **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+### <a name="oauth-setup"></a>Configurazione di OAuth
 
-![Connessione di ServiceNow](media/itsmc-connections/itsm-connection-servicenow-connection-latest.png)
+Le versioni supportate di ServiceNow includono Orlando, New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki e Ginevra.
 
-**Dopo la corretta connessione e la sincronizzazione**:
+Gli amministratori di ServiceNow devono generare un ID client e un segreto client per la relativa istanza di ServiceNow. Vedere le informazioni seguenti come richiesto:
 
-- Gli elementi di lavoro selezionati nell'istanza di ServiceNow vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- [Configurare OAuth per Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+- [Set up OAuth for New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per New York)
+- [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Madrid)
+- [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Londra)
+- [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Kingston)
+- [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Giacarta)
+- [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Istanbul)
+- [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth for Helsinki)
+- [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Ginevra)
 
-- È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di ServiceNow.
+Come parte della configurazione di OAuth, è consigliabile:
+
+1. [Creare un endpoint per consentire ai client di accedere all'istanza di](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
+
+1. Aggiornare la durata del token di aggiornamento:
+
+   1. Nel riquadro **ServiceNow** cercare **System OAuth**, quindi selezionare Registro di sistema **dell'applicazione**. 
+   1. Selezionare il nome del OAuth definito e modificare la **durata del token di aggiornamento** a **7.776.000 secondi** (90 giorni). 
+   1. Selezionare **Aggiorna**. 
+
+1. Stabilire una procedura interna per assicurarsi che la connessione rimanga attiva. Un paio di giorni prima della scadenza prevista della durata del token di aggiornamento, eseguire le operazioni seguenti:
+
+   1. [Completare un processo di sincronizzazione manuale per la configurazione del connettore ITSM](./itsmc-resync-servicenow.md).
+
+   1. Revocare al token di aggiornamento precedente. Non è consigliabile mantenere le chiavi obsolete per motivi di sicurezza. 
+   
+      1. Nel riquadro **ServiceNow** cercare **System OAuth**, quindi selezionare **Manage Tokens**. 
+      
+      1. Selezionare il token precedente dall'elenco in base al nome OAuth e alla data di scadenza.
+
+         ![Screenshot che mostra un elenco di token per OAuth.](media/itsmc-connections/snow-system-oauth.png)
+      1. Selezionare **REVOKE Access**  >  **Revoke**.
+
+## <a name="install-the-user-app-and-create-the-user-role"></a>Installare l'app utente e creare il ruolo utente
+
+Usare la procedura seguente per installare l'app utente del servizio ora e creare il ruolo utente di integrazione. Queste credenziali vengono usate per creare la connessione ServiceNow in Azure.
 
 > [!NOTE]
-> In ServiceNow è previsto un limite di velocità per le richieste all'ora. Per configurare il limite, usare questa impostazione definendo "limitazione della frequenza delle API REST in ingresso" nell'istanza di ServiceNow.
+> CONNETTORE supporta solo l'app utente ufficiale per l'integrazione di Microsoft Log Analytics che viene scaricata dall'archivio ServiceNow. CONNETTORE non supporta l'inserimento di codice sul lato ServiceNow o su qualsiasi applicazione che non fa parte della soluzione ServiceNow ufficiale. 
 
-## <a name="create-integration-user-role-in-servicenow-app"></a>Creare un ruolo utente di integrazione nell'app ServiceNow
-
-Seguire questa procedura:
-
-1. Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e installare l'**app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
+1. Visitare l' [Archivio ServiceNow](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e installare l' **app utente per ServiceNow e l'integrazione di Microsoft OMS** nell'istanza di ServiceNow.
    
    >[!NOTE]
-   >In base alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, OMS è ora denominato Log Analytics.     
-2. Dopo l'installazione, passare alla barra di spostamento sinistra dell'istanza di ServiceNow, eseguire una ricerca e selezionare Microsoft OMS Integrator.  
-3. Fare clic su **Installation Checklist** (Elenco di controllo installazione).
+   >Come parte della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, OMS è ora chiamato Log Analytics.     
+2. Dopo l'installazione, passare alla barra di spostamento a sinistra dell'istanza di ServiceNow e quindi cercare e selezionare **Microsoft OMS Integrator**.  
+3. Selezionare **elenco di controllo installazione**.
 
-   Lo stato visualizzato è **Not complete** (Non completato) se il ruolo utente deve essere ancora creato.
+   Lo stato viene visualizzato come  **non completato** perché il ruolo utente non è ancora stato creato.
 
-4. Nelle caselle di testo accanto a **Create integration user** (Crea utente di integrazione) immettere il nome dell'utente che può connettersi a Connettore di Gestione dei servizi IT in Azure.
-5. Immettere la password per questo utente e fare clic su **OK**.  
+4. Nella casella di testo accanto a **Crea utente di integrazione** immettere il nome dell'utente che può connettersi a connettore in Azure.
+5. Immettere la password per l'utente e quindi fare clic su **OK**.  
 
-> [!NOTE]
-> Queste credenziali vengono usate per creare la connessione di ServiceNow in Azure.
+L'utente appena creato viene visualizzato con i ruoli predefiniti assegnati:
 
-L'utente appena creato viene visualizzato con i ruoli predefiniti assegnati.
-
-**Ruoli predefiniti**:
 - personalize_choices
 - import_transformer
--   x_mioms_microsoft.user
--   itil
--   template_editor
--   view_changer
+- x_mioms_microsoft.user
+- itil
+- template_editor
+- view_changer
 
-Al termine della creazione dell'utente, lo stato di **Check Installation Checklist** (Controllo elenco di controllo installazione) viene impostato su Completed (Completato) e vengono elencati i dettagli del ruolo utente creato per l'app.
+Dopo aver creato l'utente, lo stato dell' **elenco di controllo dell'installazione** viene spostato su **completato** ed elenca i dettagli del ruolo utente creato per l'app.
 
 > [!NOTE]
-> Il connettore di Gestione dei servizi IT può inviare eventi imprevisti a ServiceNow senza che altri moduli siano installati nell'istanza di ServiceNow. Se si usa il modulo EventManagement nell'istanza di ServiceNow e si vuole creare gli eventi o avvisi in ServiceNow tramite il connettore, aggiungere i ruoli seguenti all'utente di integrazione:
+> CONNETTORE può inviare eventi imprevisti a ServiceNow senza che altri moduli siano installati nell'istanza di ServiceNow. Se si usa il modulo EventManagement nell'istanza di ServiceNow e si vuole creare eventi o avvisi in ServiceNow usando il connettore, aggiungere i ruoli seguenti all'utente di integrazione:
 > 
->    - evt_mgmt_integration
->    - evt_mgmt_operator  
+> - evt_mgmt_integration
+> - evt_mgmt_operator  
 
+## <a name="create-a-connection"></a>Creare una connessione
+Utilizzare la procedura seguente per creare una connessione ServiceNow.
+
+> [!NOTE]
+> Gli avvisi inviati da monitoraggio di Azure possono creare uno degli elementi seguenti in ServiceNow: eventi, eventi imprevisti o avvisi. 
+
+1. In portale di Azure passare a **tutte le risorse** e cercare **ServiceDesk (NomeAreadilavoro)**.
+
+2. In **origini dati dell'area di lavoro** selezionare **connessioni ITSM**.
+
+   ![Screenshot che mostra la selezione di un'origine dati.](media/itsmc-connections/add-new-itsm-connection.png)
+
+3. Nella parte superiore del riquadro di destra selezionare **Aggiungi**.
+
+4. Fornire le informazioni descritte nella tabella seguente e quindi fare clic su **OK**.
+
+   | **Campo** | **Descrizione** |
+   | --- | --- |
+   | **Connection Name** (Nome connessione)   | Immettere un nome per l'istanza di ServiceNow che si vuole connettere con connettore. Questo nome verrà usato più avanti in Log Analytics quando si configurano gli elementi di lavoro ITSM e si visualizzano analisi dettagliate. |
+   | **Tipo di partner**   | Selezionare **ServiceNow**. |
+   | **URL server**   | Immettere l'URL dell'istanza di ServiceNow che si desidera connettere a connettore. L'URL deve puntare a una versione SaaS supportata con il suffisso *. servicenow.com*.|
+   | **Nome utente**   | Immettere il nome utente di integrazione creato nell'app ServiceNow per supportare la connessione a connettore.|
+   | **Password**   | Immettere la password associata al nome utente. **Nota**: il nome utente e la password vengono usati solo per la generazione di token di autenticazione. Non vengono archiviati in nessun punto del servizio connettore.  |
+   | **ID client**   | Immettere l'ID client che si vuole usare per l'autenticazione OAuth2, che è stata generata in precedenza. Per ulteriori informazioni sulla generazione di un ID client e di un segreto, vedere la pagina relativa alla [configurazione di OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+   | **Segreto client**   | Immettere il segreto client generato per questo ID.   |
+   | **Ambito sincronizzazione dati (in giorni)** | Immettere il numero di giorni precedenti da cui si desiderano i dati. Il limite è di 120 giorni. |
+   | **Elementi di lavoro da sincronizzare**   | Selezionare gli elementi di lavoro ServiceNow che si vuole sincronizzare con Azure Log Analytics, tramite connettore. I valori selezionati vengono importati in Log Analytics. Le opzioni sono eventi imprevisti e richieste di modifica.|
+   | **Crea nuovo elemento di configurazione nel prodotto ITSM** | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Quando questa opzione è selezionata, connettore crea elementi di configurazione, se non esistono, nel sistema ITSM supportato. È disabilitata per impostazione predefinita. |
+
+![Screenshot delle caselle e delle opzioni per l'aggiunta di una connessione ServiceNow.](media/itsmc-connections/itsm-connection-servicenow-connection-latest.png)
+
+Quando la connessione e la sincronizzazione sono state completate correttamente:
+
+- Gli elementi di lavoro selezionati dall'istanza di ServiceNow vengono importati in Log Analytics. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro **IT Service Management Connector** .
+
+- È possibile creare eventi imprevisti da Log Analytics avvisi o record di log oppure dagli avvisi di Azure in questa istanza di ServiceNow.
+
+> [!NOTE]
+> ServiceNow ha un limite di frequenza per le richieste all'ora. Per configurare il limite, definire la **limitazione della frequenza delle API REST in ingresso** nell'istanza di ServiceNow.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica sul connettore ITSM](itsmc-overview.md)
 * [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
-* [Risolvere i problemi di Connettore di Gestione dei servizi IT](./itsmc-resync-servicenow.md)
+* [Risoluzione dei problemi nel connettore ITSM](./itsmc-resync-servicenow.md)

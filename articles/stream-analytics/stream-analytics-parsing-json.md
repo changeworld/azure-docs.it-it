@@ -2,24 +2,24 @@
 title: Analisi di dati JSON e Avro in Analisi di flusso di Azure
 description: Questo articolo descrive come operare su tipi di dati complessi come matrici e dati in formato JSON e CSV.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f6cb131fb3ff3cab4122aac5e1c6960dee4f8421
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123354"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012241"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizzare dati JSON e Avro in Analisi di flusso di Azure
 
 Analisi di flusso di Azure supporta l'elaborazione di eventi nei formati di dati CSV, JSON e Avro. Entrambi i dati JSON e Avro possono essere strutturati e possono contenere alcuni tipi complessi come oggetti annidati (record) e matrici. 
 
 >[!NOTE]
->I file AVRO creati da Acquisizione di Hub eventi si basano su un formato specifico che richiede l'uso della funzionalità del *deserializzatore personalizzato* . Per altre informazioni, vedere [Leggere input in qualsiasi formato tramite deserializzatori personalizzati .NET](./custom-deserializer-examples.md).
+>I file AVRO creati da Acquisizione di Hub eventi si basano su un formato specifico che richiede l'uso della funzionalità del *deserializzatore personalizzato*. Per altre informazioni, vedere [Leggere input in qualsiasi formato tramite deserializzatori personalizzati .NET](./custom-deserializer-examples.md).
 >
 >La deserializzazione di AVRO di Analisi di flusso non supporta il tipo mappa. Analisi di flusso non è in grado di leggere i BLOB di Acquisizione di Hub eventi perché questa funzionalità usa la mappa.
 
@@ -121,7 +121,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue** seleziona la proprietà in *SensorReadings* , il cui nome corrisponde al nome della proprietà proveniente dai dati di riferimento. Quindi viene estratto il valore associato da *SensorReadings* .
+**GetRecordPropertyValue** seleziona la proprietà in *SensorReadings*, il cui nome corrisponde al nome della proprietà proveniente dai dati di riferimento. Quindi viene estratto il valore associato da *SensorReadings*.
 
 Il risultato è:
 
@@ -207,7 +207,7 @@ return JSON.parse(string);
 
 I tipi di dati matrice sono una raccolta ordinata di valori. Di seguito sono descritte alcune operazioni tipiche sui valori di matrice. Questi esempi usano le funzioni [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics) e l'operatore [APPLY](/stream-analytics-query/apply-azure-stream-analytics).
 
-Ecco un esempio di eventi singolo. Sia `CustomSensor03` che `SensorMetadata` sono di tipo **matrice** :
+Ecco un esempio di eventi singolo. Sia `CustomSensor03` che `SensorMetadata` sono di tipo **matrice**:
 
 ```json
 {

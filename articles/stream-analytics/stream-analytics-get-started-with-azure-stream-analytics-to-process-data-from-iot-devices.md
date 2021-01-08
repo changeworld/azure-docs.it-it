@@ -1,18 +1,17 @@
 ---
 title: Elaborare flussi di dati in tempo reale con analisi di flusso di Azure
 description: Tag dei sensori IoT e flussi di dati con l'elaborazione dei dati in tempo reale e l'analisi di flusso
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 311aca139220622a0436d490e73a536c3fc898c9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a438401ff93c20d8759e6128936c3626bd3de484
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129015"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012683"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Elaborare flussi di dati in tempo reale con analisi di flusso di Azure
 
@@ -44,13 +43,13 @@ Per semplicità d'uso, questa guida introduttiva include un file di dati di esem
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
-1. Nella [portale di Azure](https://portal.azure.com)selezionare **+ Crea una risorsa** dal menu di spostamento a sinistra. Quindi selezionare **processo di analisi di flusso** da **Analytics** .
+1. Nella [portale di Azure](https://portal.azure.com)selezionare **+ Crea una risorsa** dal menu di spostamento a sinistra. Quindi selezionare **processo di analisi di flusso** da **Analytics**.
    
     ![Creare un nuovo processo di Analisi di flusso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
 1. Immettere un nome univoco per il processo e verificare che la sottoscrizione sia quella corretta per il processo. Creare un nuovo gruppo di risorse o selezionarne uno esistente dalla sottoscrizione.
 
-1. Selezionare una località per il processo. Usare la stessa località per il gruppo di risorse e tutte le risorse per aumentare la velocità di elaborazione e ridurre i costi. Dopo aver apportato le configurazioni, selezionare **Crea** .
+1. Selezionare una località per il processo. Usare la stessa località per il gruppo di risorse e tutte le risorse per aumentare la velocità di elaborazione e ridurre i costi. Dopo aver apportato le configurazioni, selezionare **Crea**.
    
     ![Informazioni sulla creazione di un nuovo processo di Analisi di flusso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
 
@@ -60,7 +59,7 @@ Il passaggio successivo dopo la creazione del processo consiste nel scrivere una
 Scaricare il [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
 ) da GitHub. Quindi, passare al processo di analisi di flusso di Azure nel portale di Azure.
 
-Selezionare **query** in **topologia processo** dal menu a sinistra. Selezionare quindi **carica input di esempio** . Caricare il `HelloWorldASA-InputStream.json` file e selezionare **OK** .
+Selezionare **query** in **topologia processo** dal menu a sinistra. Selezionare quindi **carica input di esempio**. Caricare il `HelloWorldASA-InputStream.json` file e selezionare **OK**.
 
 ![Riquadro query dashboard di Analisi di flusso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -125,7 +124,7 @@ HAVING Avg(temp)>100
 
 ![Query di filtro per 30 secondi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Verranno visualizzati i risultati che contengono solo 245 righe e i nomi dei sensori in cui la media moderata è maggiore di 100. La query raggruppa il flusso di eventi in base al nome del sensore ( **dspl** ) su una **finestra a cascata** di 30 secondi. Le query temporali devono indicare come si desidera eseguire il tempo. Utilizzando la clausola **timestamp by** , è stata specificata la colonna **OUTPUTTIME** per associare i tempi a tutti i calcoli temporali. Per informazioni dettagliate, vedere la pagina relativa alle [funzioni](/stream-analytics-query/windowing-azure-stream-analytics)di [gestione del tempo](/stream-analytics-query/time-management-azure-stream-analytics) e finestra.
+Verranno visualizzati i risultati che contengono solo 245 righe e i nomi dei sensori in cui la media moderata è maggiore di 100. La query raggruppa il flusso di eventi in base al nome del sensore (**dspl**) su una **finestra a cascata** di 30 secondi. Le query temporali devono indicare come si desidera eseguire il tempo. Utilizzando la clausola **timestamp by** , è stata specificata la colonna **OUTPUTTIME** per associare i tempi a tutti i calcoli temporali. Per informazioni dettagliate, vedere la pagina relativa alle [funzioni](/stream-analytics-query/windowing-azure-stream-analytics)di [gestione del tempo](/stream-analytics-query/time-management-azure-stream-analytics) e finestra.
 
 ### <a name="query-detect-absence-of-events"></a>Query: rilevare l'assenza di eventi
 
@@ -148,7 +147,7 @@ WHERE t2.dspl IS NULL
 
 ![Rilevare l'assenza di eventi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-In questo caso viene usato un **LEFT OUTER JOIN** per lo stesso flusso di dati (self-join). In caso di **INNER JOIN** viene restituito un risultato solo quando viene trovata una corrispondenza.  In caso di **LEFT OUTER JOIN** , se un evento del lato sinistro del join è senza corrispondenza viene restituita una riga con valore NULL per tutte le colonne del lato destro. Questa tecnica è molto utile per trovare un'assenza di eventi. Per ulteriori informazioni, vedere [join](/stream-analytics-query/join-azure-stream-analytics).
+In questo caso viene usato un **LEFT OUTER JOIN** per lo stesso flusso di dati (self-join). In caso di **INNER JOIN** viene restituito un risultato solo quando viene trovata una corrispondenza.  In caso di **LEFT OUTER JOIN**, se un evento del lato sinistro del join è senza corrispondenza viene restituita una riga con valore NULL per tutte le colonne del lato destro. Questa tecnica è molto utile per trovare un'assenza di eventi. Per ulteriori informazioni, vedere [join](/stream-analytics-query/join-azure-stream-analytics).
 
 ## <a name="conclusion"></a>Conclusione
 

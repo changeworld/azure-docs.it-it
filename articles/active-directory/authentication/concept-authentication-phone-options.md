@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744194"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012836"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metodi di autenticazione nelle opzioni del telefono Azure Active Directory
 
@@ -58,6 +58,8 @@ In caso di problemi con l'autenticazione tramite telefono in Azure AD, esaminare
 
 * "Hai raggiunto il limite per le chiamate di verifica" o "Hai raggiunto il limite per i codici di verifica del testo" durante l'accesso
    * Microsoft può limitare i tentativi di autenticazione ripetuti eseguiti dallo stesso utente in un breve periodo di tempo. Questa limitazione non si applica all'Microsoft Authenticator o al codice di verifica. Se sono stati raggiunti questi limiti, è possibile usare l'app Authenticator, il codice di verifica oppure provare ad accedere di nuovo in pochi minuti.
+* "Si è verificato un errore durante la verifica dell'account" durante l'accesso
+   * Microsoft può limitare o bloccare i tentativi di autenticazione vocale o SMS eseguiti dallo stesso utente, numero di telefono o organizzazione a causa di un numero elevato di tentativi di autenticazione vocale o SMS non riusciti. Se si verifica questo errore, è possibile provare un altro metodo, ad esempio l'app Authenticator o il codice di verifica, oppure rivolgersi all'amministratore per assistenza.
 * ID del chiamante bloccato su un solo dispositivo.
    * Esaminare i numeri bloccati configurati sul dispositivo.
 * Numero di telefono errato o codice internazionale o dell'area errato, oppure confusione tra il numero di telefono personale e il numero di telefono dell'ufficio.

@@ -3,17 +3,16 @@ title: Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azur
 description: Questo articolo descrive come eseguire meccanismi di query avanzati con aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e9695a268d1c6ec43a737afd36536e4ec2a41a41
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124765"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012479"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -83,7 +82,7 @@ L'alias di funzione rappresenta l'identificatore dell'aggregazione definita dall
 
 ### <a name="function-type"></a>Tipo di funzione
 
-Per l'aggregazione definita dall'utente, il tipo di funzione deve essere **UDA JavaScript** .
+Per l'aggregazione definita dall'utente, il tipo di funzione deve essere **UDA JavaScript**.
 
 ### <a name="output-type"></a>Tipo di output
 
@@ -123,7 +122,7 @@ Di seguito viene descritto il processo di creazione di un'aggregazione definita 
 A questo punto viene creata un'aggregazione JavaScript definita dall'utente in un processo ASA esistente eseguendo i passaggi seguenti.
 
 1. Accedere al portale di Azure e individuare il processo di Analisi di flusso di Azure esistente.
-1. Fare clic sul collegamento alle funzioni in **PROCESSO TOPOLOGIA** .
+1. Fare clic sul collegamento alle funzioni in **PROCESSO TOPOLOGIA**.
 1. Fare clic sull'icona **Aggiungi** per aggiungere una nuova funzione.
 1. Nella visualizzazione Nuova funzione selezionare **UDA JavaScript** nel campo Tipo di funzione. Nell'editor verrà visualizzato un modello UDA predefinito.
 1. Immettere "TWA" come alias dell'aggregazione definita dall'utente e modificare l'implementazione della funzione come indicato di seguito:

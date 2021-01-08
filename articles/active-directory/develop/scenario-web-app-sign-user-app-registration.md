@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 30d646ff7d4f97289ff238211418ac57cd8167a4
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7ca294d3d7764737d4e2be55aae25bc8ff08a8d1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107686"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011527"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
@@ -41,10 +41,10 @@ Per registrare l'applicazione, è possibile usare:
 > Il portale da usare varia a seconda che l'applicazione venga eseguita nel cloud pubblico Microsoft Azure o in un cloud nazionale o sovrano. Per altre informazioni, vedere [cloud nazionali](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. 
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
-1. In **Gestisci** selezionare **registrazioni app**  >  **nuova registrazione**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -76,7 +76,7 @@ Per registrare l'applicazione, è possibile usare:
     1. Immettere un **Nome** per l'applicazione, ad esempio `java-webapp`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento. 
     1. Selezionare **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
     1. Selezionare **Register (registra** ) per registrare l'applicazione.
-1. In **Gestisci** selezionare **autenticazione**  >  **Aggiungi una piattaforma**.
+1. In **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma**.
 1. Selezionare **Web**.
 1. Per **URI di reindirizzamento**, immettere lo stesso host e numero di porta, seguito da `/msal4jsample/secure/aad` per la pagina di accesso. 
 1. Selezionare **Configura**.

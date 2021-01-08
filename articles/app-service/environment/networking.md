@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 61059c3e0f9737df6ace338f4252a338ea1f200c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663843"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013490"
 ---
 # <a name="app-service-environment-networking"></a>Rete ambiente del servizio app
 
@@ -34,7 +34,11 @@ L'ambiente del servizio app dispone degli indirizzi seguenti in fase di creazion
 | Indirizzo in uscita di Windows | Le app di Windows in questo ambiente del servizio app utilizzeranno questo indirizzo, per impostazione predefinita, quando si effettuano chiamate in uscita a Internet. |
 | Indirizzo in uscita Linux | Per impostazione predefinita, le app Linux in questo ambiente del servizio app utilizzeranno questo indirizzo per eseguire chiamate in uscita a Internet. |
 
-Se si elimina l'endpoint privato usato dall'ambiente del servizio app, non è possibile raggiungere le app nell'ambiente del servizio app. Non eliminare la zona privata di DNS di Azure associata all'ambiente del servizio app.  
+Il ASEv3 contiene informazioni dettagliate sugli indirizzi usati dall'ambiente del servizio app nella parte relativa agli **indirizzi IP** del portale dell'ambiente del servizio app.
+
+![Interfaccia utente degli indirizzi ASE](./media/networking/networking-ip-addresses.png)
+
+Se si elimina l'endpoint privato usato dall'ambiente del servizio app, non è possibile raggiungere le app nell'ambiente del servizio app.  
 
 L'ambiente del servizio app usa gli indirizzi nella subnet in uscita per supportare l'infrastruttura usata dall'ambiente del servizio app. Quando si ridimensionano i piani di servizio app nell'ambiente del servizio app, si useranno più indirizzi. Le app nell'ambiente del servizio app non hanno indirizzi dedicati nella subnet in uscita. Gli indirizzi usati da un'app nella subnet in uscita da un'app cambieranno nel tempo.
 
@@ -48,7 +52,7 @@ A differenza di ASEv2, con ASEv3 è possibile impostare i gruppi di sicurezza di
 
 ## <a name="dns"></a>DNS
 
-Le app nell'ambiente del servizio app utilizzeranno il DNS con cui è configurata la VNet. Se si vuole che alcune app usino un server DNS diverso, è possibile impostarlo manualmente in base alle singole app con le impostazioni dell'app WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER. L'impostazione app WEBSITE_DNS_ALT_SERVER configura il server DNS secondario. Il server DNS secondario viene usato solo quando non è presente alcuna risposta dal server DNS primario. 
+Le app nell'ambiente del servizio app utilizzeranno il DNS con cui è configurata la VNet. Seguire le istruzioni riportate in [uso di un ambiente del servizio app](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) per configurare il server DNS in modo che punti all'ambiente del servizio app. Se si vuole che alcune app usino un server DNS diverso rispetto a quello con cui è configurata la VNet, è possibile impostarla manualmente in base all'app con le impostazioni dell'app WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER. L'impostazione app WEBSITE_DNS_ALT_SERVER configura il server DNS secondario. Il server DNS secondario viene usato solo quando non è presente alcuna risposta dal server DNS primario. 
 
 ## <a name="preview-limitation"></a>Limitazione anteprima
 

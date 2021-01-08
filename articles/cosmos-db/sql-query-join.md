@@ -1,25 +1,25 @@
 ---
 title: Query di JOIN SQL per Azure Cosmos DB
 description: Informazioni su come unire più tabelle in Azure Cosmos DB per eseguire query sui dati
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333835"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011394"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Join in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In un database relazionale, i join tra le tabelle sono il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL utilizza il modello di dati denormalizzato di elementi privi di schema, che è l'equivalente logico di un *self-join*.
 
-Gli inner join generano un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole.
+I join hanno come risultato un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -254,8 +254,10 @@ I risultati sono:
     ]
 ```
 
+Se la query include un JOIN e filtri, è possibile riscrivere parte della query come una [sottoquery](sql-query-subquery.md#optimize-join-expressions) per migliorare le prestazioni.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Introduzione](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Sottoquery](sql-query-subquery.md)
+- [Sottoquery:](sql-query-subquery.md)

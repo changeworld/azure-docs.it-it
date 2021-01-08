@@ -10,22 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948545"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011102"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Guida introduttiva: distribuire e gestire i log di flusso NSG usando criteri di Azure 
 
 ## <a name="overview"></a>Panoramica
-Criteri di Azure consente di imporre standard aziendali e di valutare la conformità su larga scala. I casi d'uso comuni per Criteri di Azure includono l'implementazione della governance per la coerenza delle risorse, la conformità alle normative, la sicurezza, i costi e la gestione. In questo articolo verranno usati due criteri predefiniti disponibili per i log di flusso NSG per gestire l'installazione dei log dei flussi. Il primo criterio contrassegna i gruppi senza i log di flusso abilitati. Il secondo criterio distribuisce automaticamente i log di flusso per gruppi senza i log di flusso abilitati. 
+Criteri di Azure è un servizio che consente di applicare gli standard aziendali e di valutare la conformità su larga scala. I casi d'uso comuni per Criteri di Azure includono l'implementazione della governance per la coerenza delle risorse, la conformità alle normative, la sicurezza, i costi e la gestione. In questo articolo verranno usati due criteri predefiniti disponibili per i log di flusso NSG per gestire l'installazione dei log dei flussi. Il primo criterio contrassegna i gruppi senza i log di flusso abilitati. Il secondo criterio distribuisce automaticamente i log di flusso per gruppi senza i log di flusso abilitati. 
 
 Se si sta creando un criterio di Azure per la prima volta, è possibile leggere: 
-- [Panoramica di criteri di Azure](../governance/policy/overview.md) 
+- [Panoramica di Criteri di Azure](../governance/policy/overview.md) 
 - [Esercitazione per la creazione di criteri](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
