@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449365"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734729"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Installare Azure Stack Edge Pro con GPU
 
@@ -166,7 +166,7 @@ Prima di iniziare a collegare il dispositivo, sono necessari gli elementi seguen
 - Almeno un cavo di rete 1-GbE RJ-45 per il collegamento all'interfaccia di gestione. Nel dispositivo sono presenti due interfacce di rete 1-GbE, una per la gestione e una per i dati.
 - Un cavo di rame 25-GbE SFP+ per ogni interfaccia di rete dati da configurare. Almeno una delle interfacce di rete dati tra PORT 2, PORT 3, PORT 4, PORT 5 e PORT 6 deve essere connessa a Internet (con connettività ad Azure).  
 - Accesso a due unità PDU (consigliato).
-- Almeno un commutatore di rete da 1-GbE per connettere un'interfaccia di rete da 1 GbE a Internet per i dati. L'interfaccia utente Web locale non sarà accessibile se il commutatore connesso non è da almeno 1-GbE. Se si usa l'interfaccia da 25/10 GbE per i dati, sarà necessario un commutatore da 25 GbE o 10 GbE. 
+- Almeno un commutatore di rete da 1-GbE per connettere un'interfaccia di rete da 1 GbE a Internet per i dati. L'interfaccia utente Web locale non sarà accessibile se il commutatore connesso non è da almeno 1 GbE. Se si usa l'interfaccia da 25/10 GbE per i dati, sarà necessario un commutatore da 25 GbE o 10 GbE.
 
 > [!NOTE]
 > - Se si connette una sola interfaccia di rete dati, per inviare dati ad Azure è consigliabile usare un'interfaccia di rete 25/10-GbE come PORT 3, PORT 4, PORT 5 o PORT 6. 
@@ -188,12 +188,12 @@ Nel dispositivo Azure Stack Edge Pro:
 
 - Il backplane ha due schede di rete corrispondenti alle 6 porte:
 
-    - **Scheda Microsoft QLogic Cavium 25 NDC personalizzata** - Dalla porta 1 alla porta 4.
+    - **Scheda Microsoft `Qlogic` Cavium 25G NDC personalizzata**  - Dalla porta 1 alla porta 4.
     - **Scheda di rete Mellanox Dual Port 25G ConnectX-4** -Porta 5 e porta 6.
 
 Per un elenco completo dei cavi, dei commutatori e dei ricetrasmettitori supportati per tali schede di rete, vedere:
 
-- [Qlogic Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) (Matrice di interoperabilità della scheda Qlogic Cavium 25G NDC).
+- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) (Matrice di interoperabilità della scheda Qlogic Cavium 25G NDC).
 - [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) (Prodotti compatibili con la scheda di rete Mellanox Dual Port 25G ConnectX-4).  
 
  
@@ -209,7 +209,7 @@ Per collegare il dispositivo per l'alimentazione e la rete, completare i passagg
 
         ![Pannello posteriore di un dispositivo cablato 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - Dispositivo con 3 slot PCI e due GPU
+    - Dispositivo con 3 slot PCI e 2 GPU
 
         ![Pannello posteriore di un dispositivo cablato 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 

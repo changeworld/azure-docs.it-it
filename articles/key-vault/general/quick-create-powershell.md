@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3407b9539047b5c683f304549977eace7b57341
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 73d247464f167040c6f7129bdf7014b877317fc5
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779006"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936261"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi con PowerShell
 
@@ -78,4 +78,5 @@ In questa guida di avvio rapido è stato creato un insieme di credenziali delle 
 
 - Leggere una [panoramica di Azure Key Vault](overview.md)
 - Vedere le informazioni di riferimento sui [cmdlet di Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Esaminare le [procedure consigliate per Azure Key Vault](best-practices.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](security-overview.md)
+

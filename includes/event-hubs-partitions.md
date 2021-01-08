@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ce906ad62b51956cb85f854846740fa09e06895d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97665124"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955646"
 ---
 Hub eventi organizza le sequenze di eventi in una o più partizioni. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Una partizione può essere considerata come "registro commit".
 
@@ -21,11 +21,11 @@ Le partizioni contengono dati dell'evento come il corpo dell'evento, un contenit
 
 ![Diagramma che visualizza la sequenza di eventi dai meno recenti ai più recenti.](./media/event-hubs-partitions/partition.png)
 
-Hub eventi è progettato per semplificare l'elaborazione di volumi molto elevati di eventi e il partizionamento contribuisce a questo scopo in due modi:
+Hub eventi è progettato per semplificare l'elaborazione di volumi elevati di eventi e il partizionamento contribuisce a questo scopo in due modi:
 
 Per prima cosa, anche se Hub eventi è un servizio PaaS, esiste una realtà fisica sottostante e per mantenere un log che preservi l'ordine degli eventi è necessario che questi eventi vengano tenuti insieme nell'archiviazione sottostante e nelle relative repliche e che il risultato sia un limite di velocità effettiva per tale log. Il partizionamento consente di usare più log paralleli per lo stesso hub eventi, moltiplicando così la capacità di velocità effettiva di I/O non elaborata disponibile.
 
-In secondo luogo, le applicazioni devono essere in grado di tenere il passo con l'elaborazione del volume di eventi inviati a un hub eventi. Questa operazione può essere piuttosto complessa e richiede una capacità di elaborazione parallela sostanziale e scale-out. La logica per le partizioni è uguale a quella descritta sopra: la capacità di un singolo processo di gestire gli eventi è limitata, pertanto sono necessari diversi processi e le partizioni rappresentano il modo in cui la soluzione invia tali processi, garantendo tuttavia che ogni evento abbia un proprietario di elaborazione ben definito. 
+In secondo luogo, le applicazioni devono essere in grado di tenere il passo con l'elaborazione del volume di eventi inviati a un hub eventi. Questa operazione può essere complessa e richiede una capacità di elaborazione parallela sostanziale e scale-out. La logica per le partizioni è uguale a quella descritta sopra: la capacità di un singolo processo di gestire gli eventi è limitata, pertanto sono necessari diversi processi e le partizioni rappresentano il modo in cui la soluzione invia tali processi, garantendo tuttavia che ogni evento abbia un proprietario di elaborazione ben definito. 
 
 Hub eventi mantiene gli eventi per un periodo di conservazione configurato che viene applicato a tutte le partizioni. Gli eventi vengono rimossi automaticamente al raggiungimento del periodo di conservazione. Se si specifica un periodo di conservazione di un giorno, l'evento diventerà non disponibile esattamente 24 ore dopo che è stato accettato. Non è possibile eliminare in modo esplicito gli eventi. 
 
@@ -51,7 +51,7 @@ La specifica di una chiave di partizione consente di mantenere insieme gli event
 
 Una sequenza di eventi identificata da una chiave di partizione è un *flusso*. Una partizione è un archivio di log multiplex per molti flussi di questo tipo. 
 
-Il numero di partizioni di un hub eventi può essere aumentato dopo la creazione dell'hub eventi, ma in tal caso la distribuzione dei flussi tra le partizioni cambierà perché il mapping delle chiavi di partizione alle partizioni cambia, quindi è consigliabile provare a evitare tali modifiche se l'ordine relativo degli eventi è importante nell'applicazione.
+Il numero di partizioni relativo a un hub eventi in un [cluster di Hub eventi dedicato](../articles/event-hubs/event-hubs-dedicated-overview.md) può essere [aumentato](../articles/event-hubs/dynamically-add-partitions.md) dopo la creazione dell'hub eventi, ma in tal caso la distribuzione dei flussi tra le partizioni cambierà perché il mapping delle chiavi di partizione alle partizioni cambia, di conseguenza è consigliabile provare a evitare tali modifiche se l'ordine relativo degli eventi è importante nell'applicazione.
 
 Si potrebbe essere tentati di impostare il numero di partizioni sul valore massimo consentito, ma tenere sempre presente che i flussi di eventi devono essere strutturati in modo da consentire di usufruire di più partizioni. Se è necessario preservare l'ordine assoluto in tutti gli eventi o solo in pochi sottoflussi, è possibile che non si riesca a sfruttare molte partizioni. Inoltre, molte partizioni rendono l'elaborazione più complessa. 
 

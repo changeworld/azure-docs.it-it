@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 365ed60e73be9bb2098022fa767f4ae54b93c37c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313774"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028081"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informazioni sull'appliance virtuale di rete in un hub WAN virtuale di Azure (anteprima)
 
 La rete WAN virtuale di Azure ha collaborato con i partner di rete per creare un'automazione che semplifica la connessione delle apparecchiature locali del cliente (CPE) a un gateway VPN di Azure nell'hub virtuale. Azure collabora con i partner di rete selezionati per consentire ai clienti di distribuire un'appliance virtuale di rete di terze parti direttamente nell'hub virtuale. Ciò consente ai clienti che desiderano connettere il proprio ramo CPE alla stessa appliance appliance virtuale di rete nell'hub virtuale, in modo che possano sfruttare le funzionalità di SD-WAN end-to-end proprietarie.
 
-Barracuda Networks è il primo partner a offrire un'offerta di appliance virtuale di rete che può essere distribuita direttamente nell'hub WAN virtuale con il prodotto [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan) . Azure sta lavorando con più partner, quindi aspettarsi che vengano seguite altre offerte.
+Barracuda Networks e Cisco Systems sono i primi partner a fornire i appliance virtuali che possono essere distribuiti direttamente nell'hub WAN virtuale.  Vedere [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan) e [Cisco Cloud OnRamp per più cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) per la rispettiva documentazione del prodotto. Azure collabora con altri partner, quindi aspettarsi che siano disponibili altre offerte.
 
 > [!NOTE]
 > Solo le offerte di appliance virtuale di rete disponibili per la distribuzione nell'hub WAN virtuale possono essere distribuite nell'hub WAN virtuale. Non possono essere distribuiti in una rete virtuale arbitraria in Azure.
@@ -50,7 +50,7 @@ I partner di appliance virtuale di dispositivi possono creare risorse diverse in
 * **Gruppo di risorse del cliente** : contiene un segnaposto per l'applicazione gestita. I partner possono usarlo per esporre le proprietà dei clienti che scelgono qui.
 * **Gruppo di risorse gestite** : i clienti non possono configurare o modificare direttamente le risorse in questo gruppo di risorse, perché questo è controllato dall'editore dell'applicazione gestita. Questo gruppo di risorse conterrà la risorsa **NetworkVirtualAppliances** .
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Panoramica del processo":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Gruppi di risorse dell'applicazione gestita":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Unità di infrastruttura NVA
 
@@ -93,11 +93,11 @@ Sfortunatamente, al momento non è disponibile la capacità di caricare nuove of
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>È possibile distribuire qualsiasi appliance virtuale di rete da Azure Marketplace nell'hub WAN virtuale?
 
-No. Al momento, è possibile distribuire solo [Barracuda CLOUDGEN WAN](https://aka.ms/BarracudaMarketPlaceOffer) nell'hub WAN virtuale.
+A questo punto, è possibile distribuire nell'hub WAN virtuale solo l'applicazione [Barracuda CLOUDGEN WAN](https://aka.ms/BarracudaMarketPlaceOffer) e [Cisco Cloud vWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) .
 
 ### <a name="what-is-the-cost-of-the-nva"></a>Qual è il costo dell'appliance virtuale di dispositivo?
 
-È necessario acquistare una licenza per l'appliance di rete virtuale Barracuda CloudGen da Barracuda. Per ulteriori informazioni sulle licenze, vedere [la pagina relativa alla rete WAN CloudGen di Barracuda](https://www.barracuda.com/products/cloudgenwan). Inoltre, si incorreranno anche addebiti da Microsoft per le unità di infrastruttura di appliance virtuale di dispositivo utilizzate e da qualsiasi altra risorsa. Per ulteriori informazioni, vedere [concetti relativi ai prezzi](pricing-concepts.md).
+È necessario acquistare una licenza per l'appliance virtuale di sistema dal fornitore dell'appliance virtuale di dispositivo.  Per la licenza Barracuda CloudGen WAN da Barracuda, vedere la [pagina WAN CloudGen di](https://www.barracuda.com/products/cloudgenwan)Barracuda. Attualmente Cisco offre solo il modello di licenza BYOL (Bring your own License) che deve essere acquistato direttamente da Cisco. Inoltre, si incorreranno anche addebiti da Microsoft per le unità di infrastruttura di appliance virtuale di dispositivo utilizzate e da qualsiasi altra risorsa. Per ulteriori informazioni, vedere [concetti relativi ai prezzi](pricing-concepts.md).
 
 ### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>È possibile distribuire un'appliance virtuale di dispositivo in un hub di base?
 
@@ -109,7 +109,7 @@ Sì. Barracuda CloudGen WAN può essere distribuito in un hub con il firewall di
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>È possibile connettere qualsiasi dispositivo CPE della filiale a Barracuda CloudGen WAN appliance virtuale di rete nell'hub?
 
-No. Barracuda CloudGen WAN è compatibile solo con i dispositivi di Barracuda CPE. Per altre informazioni sui requisiti della rete WAN CloudGen, vedere [la pagina WAN CloudGen di Barracuda](https://www.barracuda.com/products/cloudgenwan).
+No. Barracuda CloudGen WAN è compatibile solo con i dispositivi di Barracuda CPE. Per altre informazioni sui requisiti della rete WAN CloudGen, vedere [la pagina WAN CloudGen di Barracuda](https://www.barracuda.com/products/cloudgenwan). Per Cisco, esistono diversi dispositivi CPE SD-WAN compatibili. Vedere [Cisco Cloud OnRamp per la funzionalità multicloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documentazione per CPEs compatibile.
 
 ### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>Quali scenari di routing sono supportati con appliance virtuale di Hub nell'hub?
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207224"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724935"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Avvio rapido: Eseguire il rendering di un modello con Unity
 
@@ -74,8 +74,8 @@ Il modello predefinito di cui viene eseguito il rendering è un [modello di esem
 ![Informazioni sull'account Rendering remoto di Azure](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Il portale di Azure visualizza il dominio dell'account solo come *mixedreality.azure.com*. Questo non è sufficiente per stabilire correttamente una connessione.
-> Impostare **AccountDomain** su `<region>.mixedreality.azure.com`, dove `<region>` è [una delle aree disponibili nelle vicinanze](../reference/regions.md).
+> Impostare **AccountDomain** su `<region>.mixedreality.azure.com`, dove `<region>` è [una delle aree disponibili nelle vicinanze](../reference/regions.md).\
+> Impostare **AccountAuthenticationDomain** sul [dominio dell'account](../how-tos/create-an-account.md#retrieve-the-account-information) come visualizzato nel portale di Azure.
 
 In seguito si vuole distribuire il progetto in un HoloLens e connettersi al servizio Rendering remoto da tale dispositivo. Poiché non è disponibile un modo semplice per immettere le credenziali nel dispositivo, l'esempio dell'avvio rapido **salverà le credenziali nella scena Unity**.
 
@@ -92,9 +92,7 @@ Congratulazioni! Si sta ora visualizzando un modello di cui è stato eseguito il
 
 ## <a name="inspecting-the-scene"></a>Controllo della scena
 
-Una volta eseguita la connessione per il rendering remoto, il pannello Inspector viene aggiornato con informazioni aggiuntive sullo stato:
-
-![Riproduzione dell'esempio di Unity](./media/arr-sample-configure-session-running.png)
+Una volta eseguita la connessione per il rendering remoto, il pannello Inspector viene aggiornato con informazioni aggiuntive sullo stato: ![Riproduzione dell'esempio di Unity](./media/arr-sample-configure-session-running.png)
 
 È ora possibile esplorare il grafico della scena selezionando il nuovo nodo e facendo clic su **Show children** (Mostra elementi figlio) nella finestra Inspector.
 

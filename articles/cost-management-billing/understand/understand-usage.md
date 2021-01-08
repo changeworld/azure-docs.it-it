@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/04/2021
 ms.author: banders
-ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149367"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882501"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini nel file dei dati di utilizzo e addebiti di Azure
 
@@ -90,11 +90,11 @@ PublisherType | Tutti | Tipo di server di pubblicazione (valori: **Azure**, **AW
 Quantità | Tutti | Numero di unità acquistate o utilizzate.
 ReservationId | EA, Contratto del cliente Microsoft | Identificatore univoco per l'istanza di prenotazione acquistata.
 ReservationName | EA, Contratto del cliente Microsoft | Nome dell'istanza di prenotazione acquistata.
-ResourceGroup | Tutti | Nome del [gruppo di risorse](../../azure-resource-manager/management/overview.md) in cui si trova la risorsa. Non tutti gli addebiti provengono dalle risorse distribuite ai gruppi di risorse. Gli addebiti che non dispongono di un gruppo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
+ResourceGroup | Tutti | Nome del [gruppo di risorse](../../azure-resource-manager/management/overview.md) in cui si trova la risorsa. Non tutti gli addebiti provengono dalle risorse distribuite ai gruppi di risorse. Gli addebiti che non dispongono di un gruppo di risorse verranno visualizzati come null/vuoti, **Altri** o **Non applicabile**.
 ResourceId<sup>1</sup> | Tutti | Identificatore univoco della risorsa di [Azure Resource Manager](/rest/api/resources/resources).
 ResourceLocation | Tutti | Località del data center in cui viene eseguita la risorsa. Vedere Location.
-NomeRisorsa | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
-ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
+NomeRisorsa | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri** o **Non applicabile**.
+ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri** o **Non applicabile**.
 ServiceFamily | Contratto del cliente Microsoft | Famiglia di servizi a cui appartiene il servizio.
 ServiceInfo1 | Tutti | Metadati specifici del servizio.
 ServiceInfo2 | Tutti | Campo legacy con metadati specifici del servizio facoltativo.
@@ -126,10 +126,24 @@ UsageDate | Data
 UsageEnd | Data
 UsageStart | Data
 
-
 ## <a name="ensure-charges-are-correct"></a>Verificare che gli addebiti siano corretti
 
 Per altre informazioni sui dati di utilizzo dettagliati e sugli addebiti, vedere le informazioni sulla fattura [con pagamento in base al consumo](review-individual-bill.md) o sulla fattura del [contratto del cliente Microsoft](review-customer-agreement-bill.md).
+
+## <a name="unexpected-usage-or-charges"></a>Utilizzo o addebiti imprevisti
+
+Se si riscontrano utilizzi o addebiti non riconosciuti, è possibile adottare alcune misure per comprenderne il motivo:
+
+- Esaminare la fattura che include gli addebiti relativi alla risorsa
+- Esaminare gli addebiti fatturati in Analisi dei costi
+- Individuare le persone responsabili della risorsa e chiedere spiegazioni
+- Analizzare i log di controllo
+- Analizzare le autorizzazioni utente per l'ambito padre della risorsa
+- Creare una [richiesta di supporto di Azure](https://go.microsoft.com/fwlink/?linkid=2083458) per chiedere spiegazioni in merito agli addebiti
+
+Per altre informazioni, vedere [Analizzare gli addebiti imprevisti](analyze-unexpected-charges.md).
+
+Tenere presente che Azure non registra la maggior parte delle azioni utente, ma è Microsoft a registrare l'utilizzo delle risorse ai fini della fatturazione. Se si nota un picco di utilizzo in passato ma la registrazione non è stata abilitata, Microsoft non è in grado di individuarne il motivo. Abilitare la registrazione per il servizio di cui si vuole visualizzare l'aumento dell'utilizzo in modo che il team tecnico appropriato possa fornire assistenza per il problema.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

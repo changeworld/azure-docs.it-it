@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c28dbc25abfd701450cf9f232ea1a4b5e16841aa
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d1fa63da035cba35538d13ffe4c3897458364a65
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686192"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936652"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando PowerShell
 
@@ -117,4 +117,4 @@ In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in c
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere le informazioni di riferimento sui [cmdlet di Azure PowerShell Key Vault](/powershell/module/az.keyvault/#key_vault)
-- Esaminare le [procedure consigliate per Azure Key Vault](../general/best-practices.md)
+- Vedere [Panoramica della sicurezza di Key Vault](../general/security-overview.md)

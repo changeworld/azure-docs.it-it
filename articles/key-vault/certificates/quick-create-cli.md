@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55a25f4f40668172aa8a9c80dd08d9fafcef78af
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 2bb718d038dd7b3f5aa6f3bac1ce1de572c8e829
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516477"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936363"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con l'interfaccia della riga di comando di Azure
 
@@ -91,4 +91,4 @@ In questa guida di avvio rapido Ã¨ stata creata un'istanza di Key Vault in cui Ã
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere le informazioni di riferimento sui [comandi az keyvault dell'interfaccia della riga di comando di Azure](/cli/azure/keyvault?view=azure-cli-latest)
-- Esaminare le [procedure consigliate per Azure Key Vault](../general/best-practices.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)

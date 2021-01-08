@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/05/2021
+ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014873"
+ms.locfileid: "98028472"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -87,10 +87,12 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v1.0, ma non sono 
 | `given_name`  | Nome                      | Fornisce il nome dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato nell'account del servizio gestito e in Azure AD.  Richiede l'ambito `profile`. |
 | `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](../authentication/howto-authentication-use-email-signin.md) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece l' `preferred_username` attestazione seguente per visualizzare lo stato di accesso all'utente. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
 
+## <a name="v10-specific-optional-claims-set"></a>set di attestazioni facoltative specifiche v 1.0
+
+Alcuni dei miglioramenti del formato del token V2 sono disponibili per le app che usano il formato di token V1, perché contribuiscono a migliorare la sicurezza e l'affidabilità. Queste non diverranno effettive per i token ID richiesti dall'endpoint V2, né i token di accesso per le API che usano il formato di token V2. Si applicano solo a token JWT, non ai token SAML. 
 
 **Tabella 4: solo per le attestazioni facoltative v 1.0**
 
-Alcuni dei miglioramenti del formato del token V2 sono disponibili per le app che usano il formato di token V1, perché contribuiscono a migliorare la sicurezza e l'affidabilità. Queste non diverranno effettive per i token ID richiesti dall'endpoint V2, né i token di accesso per le API che usano il formato di token V2. 
 
 | Attestazione JWT     | Nome                            | Descrizione | Note |
 |---------------|---------------------------------|-------------|-------|
@@ -199,7 +201,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Tipo                       | Descrizione                                           |
+| Nome          | Type                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -212,7 +214,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
@@ -245,7 +247,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 
 **Configurazione di attestazioni facoltative dei gruppi tramite l'interfaccia utente:**
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app**.
@@ -258,7 +260,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 
 **Configurazione di attestazioni facoltative dei gruppi tramite il manifesto dell'applicazione:**
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
 1. Cercare e selezionare **Azure Active Directory**.
 1. Selezionare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco.
@@ -389,7 +391,7 @@ Nell'esempio seguente si userà l'interfaccia utente di **Configurazione del tok
 
 **Configurazione dell'interfaccia utente:**
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
 
 1. Cercare e selezionare **Azure Active Directory**.
@@ -412,7 +414,7 @@ Nell'esempio seguente si userà l'interfaccia utente di **Configurazione del tok
 
 **Configurazione del manifesto:**
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Dopo aver completato l'autenticazione, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
 1. Cercare e selezionare **Azure Active Directory**.
 1. Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco e selezionarla.

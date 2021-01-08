@@ -1,34 +1,34 @@
 ---
 title: 'Esercitazione: Eseguire il rendering di una scena nel cloud'
-description: Esercitazione - Come eseguire il rendering di una scena Autodesk 3ds Max con Arnold usando il servizio Rendering di Batch e l'interfaccia della riga di comando di Azure
+description: Informazioni su come eseguire il rendering di una scena Autodesk 3ds Max con Arnold usando il servizio Rendering di Batch e l'interfaccia della riga di comando di Azure
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 12/30/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 3518e074589284e6d6cd7432dc77ba8bdd457045
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106343"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827530"
 ---
-# <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
+# <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch
 
 Azure Batch offre funzionalità di rendering su scala cloud con pagamento in base al consumo. Azure Batch supporta app di rendering tra cui Autodesk Maya, 3ds Max, Arnold e V-Ray. Questa esercitazione descrive i passaggi necessari per eseguire il rendering di una breve scena con Batch usando l'interfaccia della riga di comando di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Caricare una scena nell'archiviazione di Azure
-> * Creare un pool di Batch per il rendering
-> * Eseguire il rendering di una scena a singolo frame
-> * Ridimensionare il pool ed eseguire il rendering di una scena a più frame
-> * Scaricare l'output sottoposto a rendering
+> - Caricare una scena nell'archiviazione di Azure
+> - Creare un pool di Batch per il rendering
+> - Eseguire il rendering di una scena a singolo frame
+> - Ridimensionare il pool ed eseguire il rendering di una scena a più frame
+> - Scaricare l'output sottoposto a rendering
 
 In questa esercitazione si eseguirà il rendering di una scena 3ds Max usando il renderer di ray tracing [Arnold](https://www.autodesk.com/products/arnold/overview). Il pool di Batch usa un'immagine del Marketplace con immagini e applicazioni di rendering pre-installate che offrono licenze con pagamento in base al consumo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
- - Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. **Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che offre un credito monetario.**
+- Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. **Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che offre un credito monetario.**
 
- - La scena 3ds Max di esempio per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), insieme a uno script Bash di esempio e ai file di configurazione JSON. La scena 3ds Max proviene dai [file di esempio di Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). I file di esempio di Autodesk 3ds Max sono disponibili con una licenza con dicitura "Attribuzione - Non commerciale - Condividi allo stesso modo" di Creative Commons. Copyright &copy; Autodesk, Inc.
+- La scena 3ds Max di esempio per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), insieme a uno script Bash di esempio e ai file di configurazione JSON. La scena 3ds Max proviene dai [file di esempio di Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). I file di esempio di Autodesk 3ds Max sono disponibili con una licenza con dicitura "Attribuzione - Non commerciale - Condividi allo stesso modo" di Creative Commons. Copyright &copy; Autodesk, Inc.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -36,13 +36,14 @@ In questa esercitazione si eseguirà il rendering di una scena 3ds Max usando il
 
 > [!TIP]
 > È possibile visualizzare i [modelli di processo Arnold](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames) nel repository GitHub dei modelli dell'estensione Azure Batch.
+
 ## <a name="create-a-batch-account"></a>Creare un account Batch
 
-Se non è già stato fatto, creare un gruppo di risorse, un account Batch e un account di archiviazione collegato nella sottoscrizione. 
+Se non è già stato fatto, creare un gruppo di risorse, un account Batch e un account di archiviazione collegato nella sottoscrizione.
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti orientali 2*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create \
     --name myResourceGroup \
     --location eastus2
@@ -57,9 +58,10 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
+
 Creare un account Batch con il comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). L'esempio seguente crea un account Batch denominato *mybatchaccount* in *myResourceGroup* e collega l'account di archiviazione creato.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch account create \
     --name mybatchaccount \
     --storage-account mystorageaccount \
@@ -69,12 +71,13 @@ az batch account create \
 
 Per creare e gestire pool e processi di calcolo, è necessario eseguire l'autenticazione con Batch. Accedere all'account con il comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). Dopo aver effettuato l'accesso, i comandi `az batch` useranno il contesto di questo account. L'esempio seguente usa l'autenticazione con chiave condivisa in base al nome account e alla chiave di Batch. Batch supporta anche l'autenticazione tramite [Azure Active Directory](batch-aad-auth.md), per autenticare singoli utenti o un'applicazione eseguita automaticamente.
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch account login \
     --name mybatchaccount \
     --resource-group myResourceGroup \
     --shared-key-auth
 ```
+
 ## <a name="upload-a-scene-to-storage"></a>Caricare una scena nell'archiviazione
 
 Per caricare la scena di input nell'archiviazione, prima di tutto è necessario accedere all'account di archiviazione e creare un contenitore di destinazione per i BLOB. Per accedere all'account di archiviazione di Azure, esportare le variabili di ambiente `AZURE_STORAGE_KEY` e `AZURE_STORAGE_ACCOUNT`. Il primo comando della shell Bash usa il comando [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) per ottenere la prima chiave dell'account. Dopo aver impostato queste variabili di ambiente, i comandi di archiviazione useranno l'account di questo contesto.
@@ -135,16 +138,18 @@ Creare un pool di Batch per il rendering usando il comando [az batch pool create
   "enableInterNodeCommunication": false 
 }
 ```
-Batch supporta nodi dedicati e nodi [per priorità bassa](batch-low-pri-vms.md), che possono essere usati entrambi nei pool. I nodi dedicati sono riservati per il pool. I nodi per priorità bassa vengono offerti a un prezzo ridotto usando la capacità in eccesso delle VM in Azure. I nodi per priorità bassa non sono disponibili se Azure non ha capacità sufficiente. 
+
+Batch supporta nodi dedicati e nodi [per priorità bassa](batch-low-pri-vms.md), che possono essere usati entrambi nei pool. I nodi dedicati sono riservati per il pool. I nodi per priorità bassa vengono offerti a un prezzo ridotto usando la capacità in eccesso delle VM in Azure. I nodi per priorità bassa non sono disponibili se Azure non ha capacità sufficiente.
 
 Il pool specificato contiene un unico nodo per priorità bassa che esegue un'immagine Windows Server con software per il servizio Rendering di Batch. Questo pool viene concesso in licenza per il rendering con 3ds Max e Arnold. In un passaggio successivo il pool verrà ridimensionato in base a un numero maggiore di nodi.
 
-Creare il pool passando il file JSON al comando `az batch pool create`:
+Se non è già stato effettuato l'accesso all'account Batch, usare il comando [az batch account login](/cli/azure/batch/account#az-batch-account-login) a tale scopo. Creare quindi il pool passando il file JSON al comando `az batch pool create`:
 
 ```azurecli-interactive
 az batch pool create \
     --json-file mypool.json
-``` 
+```
+
 Il provisioning del pool richiede pochi minuti. Per visualizzare lo stato del pool, eseguire il comando [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). Il comando seguente ottiene lo stato di allocazione del pool:
 
 ```azurecli-interactive
@@ -157,7 +162,7 @@ Continuare con i passaggi seguenti per creare un processo e le attività mentre 
 
 ## <a name="create-a-blob-container-for-output"></a>Creare un contenitore BLOB per l'output
 
-Negli esempi di questa esercitazione ogni attività nel processo di rendering crea un file di output. Prima di pianificare il processo, creare un contenitore BLOB nell'account di archiviazione come destinazione per i file di output. L'esempio seguente usa il comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) per creare il contenitore *job-myrenderjob* con accesso in lettura pubblico. 
+Negli esempi di questa esercitazione ogni attività nel processo di rendering crea un file di output. Prima di pianificare il processo, creare un contenitore BLOB nell'account di archiviazione come destinazione per i file di output. L'esempio seguente usa il comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) per creare il contenitore *job-myrenderjob* con accesso in lettura pubblico.
 
 ```azurecli-interactive
 az storage container create \
@@ -165,21 +170,19 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Per scrivere i file di output nel contenitore, Batch deve usare un token di firma di accesso condiviso. Creare il token con il comando [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Questo esempio crea un token per scrivere in qualsiasi contenitore BLOB nell'account e il token scade il 15 novembre 2020:
+Per scrivere i file di output nel contenitore, Batch deve usare un token di firma di accesso condiviso. Creare il token con il comando [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Questo esempio crea un token per scrivere in qualsiasi contenitore BLOB nell'account e il token scade il 15 novembre 2021:
 
 ```azurecli-interactive
 az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2020-11-15
+    --expiry 2021-11-15
 ```
 
 Annotare il token restituito dal comando, che sarà simile al seguente. Questo token verrà usato in uno dei passaggi seguenti.
 
-```
-se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
+`se=2021-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
 ## <a name="render-a-single-frame-scene"></a>Eseguire il rendering di una scena a singolo frame
 
@@ -202,11 +205,7 @@ L'attività specifica un comando di 3ds Max per eseguire il rendering di un sing
 Modificare gli elementi `blobSource` e `containerURL` nel file JSON in modo che includano il nome dell'account di archiviazione e il token di firma di accesso condiviso. 
 
 > [!TIP]
-> L'elemento `containerURL` termina con il token di firma di accesso condiviso ed è simile al seguente:
-> 
-> ```
-> https://mystorageaccount.blob.core.windows.net/job-myrenderjob/$TaskOutput?se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-> ```
+> L'elemento `containerURL` termina con il token di firma di accesso condiviso ed è simile al seguente: `https://mystorageaccount.blob.core.windows.net/job-myrenderjob/$TaskOutput?se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
 ```json
 {
@@ -250,7 +249,6 @@ az batch task create \
 
 Batch pianifica l'attività e l'attività viene eseguita non appena è disponibile un nodo nel pool.
 
-
 ### <a name="view-task-output"></a>Visualizzare l'output dell'attività
 
 L'esecuzione dell'attività richiede pochi minuti. Usare il comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) per visualizzare i dettagli sull'attività.
@@ -274,7 +272,6 @@ az storage blob download \
 Aprire *dragon.jpg* nel computer. L'immagine sottoposta a rendering sarà simile alla seguente:
 
 ![Frame 1 dragon sottoposto a rendering](./media/tutorial-rendering-cli/dragon-frame.png) 
-
 
 ## <a name="scale-the-pool"></a>Ridimensionare il pool
 
@@ -313,7 +310,7 @@ az batch task show \
     --job-id myrenderjob \
     --task-id mymultitask1
 ```
- 
+
 Le attività generano i file di output denominati *dragon0002.jpg* - *dragon0007.jpg* nei nodi di calcolo e li caricano nel contenitore *job-myrenderjob* all'interno dell'account di archiviazione. Per visualizzare l'output, scaricare i file in una cartella nel computer locale usando il comando [az storage blob download-batch](/cli/azure/storage/blob). Ad esempio:
 
 ```azurecli-interactive
@@ -326,12 +323,11 @@ Aprire uno dei file nel computer. Il frame 6 sottoposto a rendering sarà simile
 
 ![Frame 6 dragon sottoposto a rendering](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, è possibile eliminare il gruppo di risorse, l'account Batch, i pool e tutte le risorse correlate usando il comando [az group delete](/cli/azure/group#az-group-delete). Eliminare le risorse in questo modo:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
@@ -340,11 +336,11 @@ az group delete --name myResourceGroup
 In questa esercitazione si è appreso a:
 
 > [!div class="checklist"]
-> * Caricare scene nell'archiviazione di Azure
-> * Creare un pool di Batch per il rendering
-> * Eseguire il rendering di una scena a singolo frame con Arnold
-> * Ridimensionare il pool ed eseguire il rendering di una scena a più frame
-> * Scaricare l'output sottoposto a rendering
+> - Caricare scene nell'archiviazione di Azure
+> - Creare un pool di Batch per il rendering
+> - Eseguire il rendering di una scena a singolo frame con Arnold
+> - Ridimensionare il pool ed eseguire il rendering di una scena a più frame
+> - Scaricare l'output sottoposto a rendering
 
 Per altre informazioni sul rendering su scala cloud, vedere la documentazione sul rendering di Batch.
 

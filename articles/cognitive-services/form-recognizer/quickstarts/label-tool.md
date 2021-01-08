@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione di documenti
-ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96009331"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845546"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -106,7 +106,7 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
    Questo comando rende disponibile lo strumento di etichettatura campioni tramite un Web browser. Passare a `http://localhost:3000`.
 
 > [!NOTE]
-> È anche possibile etichettare i documenti ed eseguire il training dei modelli usando l'API REST Riconoscimento modulo. Per eseguire il training e l'analisi con l'API REST, vedere [Eseguire il training con le etichette usando l'API REST e Python](./python-labeled-data.md).
+> È anche possibile etichettare i documenti ed eseguire il training dei modelli usando l'API REST Riconoscimento modulo. Per eseguire il training e l'analisi con l'API REST, vedere [Eseguire il training con le etichette usando l'API REST e Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="set-up-input-data"></a>Configurare i dati di input
 
@@ -137,7 +137,9 @@ Compilare i campi con i valori seguenti:
 
 * **Nome visualizzato**: il nome visualizzato della connessione.
 * **Descrizione**: la descrizione del progetto.
-* **URL di firma di accesso condiviso**: l'URL di firma di accesso condiviso del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Impostare la scadenza su un'ora successiva a quella in cui verrà terminato l'uso del servizio. Assicurarsi che le autorizzazioni **Lettura**, **Scrittura**, **Eliminazione** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **URL di firma di accesso condiviso**: l'URL di firma di accesso condiviso del contenitore di archiviazione BLOB di Azure. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
@@ -223,7 +225,7 @@ Seguire i passaggi precedenti per etichettare almeno cinque moduli.
 
 ### <a name="specify-tag-value-types"></a>Specificare i tipi di valore di tag
 
-Facoltativamente, è possibile impostare il tipo di dati previsto per ogni tag. Aprire il menu di scelta rapida a destra di un tag e selezionare un tipo dal menu. Questa funzionalità consente all'algoritmo di rilevamento di creare determinati presupposti che consentiranno di migliorare l'accuratezza del rilevamento del testo. Garantisce inoltre che i valori rilevati vengano restituiti in un formato standardizzato nell'output JSON finale. 
+Facoltativamente, è possibile impostare il tipo di dati previsto per ogni tag. Aprire il menu di scelta rapida a destra di un tag e selezionare un tipo dal menu. Questa funzionalità consente all'algoritmo di rilevamento di creare determinati presupposti che consentiranno di migliorare l'accuratezza del rilevamento del testo. Garantisce inoltre che i valori rilevati vengano restituiti in un formato standardizzato nell'output JSON finale. Le informazioni sul tipo di valore vengono salvate nel file *fields.json* nello stesso percorso dei file di etichette.
 
 > [!div class="mx-imgBorder"]
 > ![Selezione del tipo di valore con lo strumento di etichettatura di esempio](../media/whats-new/formre-value-type.png)
@@ -266,7 +268,7 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
 
 Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina corrispondente. Quindi fare clic sul pulsante **Train** per iniziare il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
 
-* **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./curl-train-extract.md) o la [libreria client](./client-library.md).
+* **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./client-library.md?pivots=programming-language-rest-api) o la [libreria client](./client-library.md).
 * **Average Accuracy** (Accuratezza media): l'accuratezza media del modello. È possibile migliorare l'accuratezza del modello etichettando altri moduli ed eseguendo di nuovo il training per creare un nuovo modello. Per iniziare, è consigliabile etichettare cinque moduli ed aggiungerne altri se necessario.
 * L'elenco dei tag e l'accuratezza stimata per ognuno.
 
@@ -276,7 +278,7 @@ Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina cor
 Al termine del training, esaminare il valore di **Average Accuracy** (Accuratezza media). Se è basso, è necessario aggiungere altri documenti di input e ripetere i passaggi precedenti. I documenti già etichettati rimarranno nell'indice del progetto.
 
 > [!TIP]
-> È anche possibile eseguire il processo di training con una chiamata API REST. Per informazioni su come eseguire questa operazione, vedere [Eseguire il training con le etichette usando Python](./python-labeled-data.md).
+> È anche possibile eseguire il processo di training con una chiamata API REST. Per informazioni su come eseguire questa operazione, vedere [Eseguire il training con le etichette usando Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="compose-trained-models"></a>Comporre modelli con training
 
@@ -299,7 +301,7 @@ Per comporre modelli nello strumento di etichettatura campioni, fare clic sull'i
 Fare clic sull'icona Previsioni (lampadina) a sinistra per testare il modello. Caricare un documento modulo che non è stato usato nel processo di training. Fare quindi clic sul pulsante **Previsioni** a destra per ottenere le previsioni relative alle coppie chiave-valore per il modulo. Lo strumento applicherà i tag nei riquadri di selezione e segnalerà l'attendibilità di ognuno.
 
 > [!TIP]
-> È anche possibile eseguire l'API di analisi con una chiamata REST. Per informazioni su come eseguire questa operazione, vedere [Eseguire il training con le etichette usando Python](./python-labeled-data.md).
+> È anche possibile eseguire l'API di analisi con una chiamata REST. Per informazioni su come eseguire questa operazione, vedere [Eseguire il training con le etichette usando Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Migliorare i risultati
 
@@ -326,7 +328,7 @@ Infine, passare alla pagina principale (icona della casa) e fare clic su Open Cl
 In questo argomento di avvio rapido si è appreso come usare lo strumento di etichettatura campioni di Riconoscimento modulo per eseguire il training di un modello con dati etichettati manualmente. Per creare un'utilità personalizzata per etichettare i dati di training, usare le API REST relative ai dati di training etichettati.
 
 > [!div class="nextstepaction"]
-> [Eseguire il training con le etichette usando Python](./python-labeled-data.md)
+> [Eseguire il training con le etichette usando Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [Informazioni su Riconoscimento modulo](../overview.md)
-* [Avvio rapido: Usare la libreria client di Riconoscimento modulo](client-library.md)
+* [Avvio rapido di Riconoscimento modulo](client-library.md)

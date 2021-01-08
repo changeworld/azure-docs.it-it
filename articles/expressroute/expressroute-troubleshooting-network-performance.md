@@ -5,21 +5,21 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 12/20/2017
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: a021d658711e77c3e3be0df722223cefe506abba
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 35e080e0fe45c18ad6a6d5392e0c78b116853c3e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204589"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027469"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
 ## <a name="overview"></a>Panoramica
-Azure offre metodi stabili e veloci per connettersi ad Azure dalla rete locale. Metodi come VPN da sito a sito ed ExpressRoute vengono usati correttamente dai clienti di piccole e grandi dimensioni per eseguire le attività di business in Azure. Ma cosa succede quando le prestazioni non sono all'altezza delle aspettative o delle esperienze passate? Questo documento consente di standardizzare come testare e pianificare il proprio ambiente specifico.
+Azure offre un modo stabile e rapido per connettersi dalla rete locale ad Azure. Metodi come VPN da sito a sito ed ExpressRoute vengono usati correttamente dai clienti di piccole e grandi dimensioni per eseguire le attività di business in Azure. Ma cosa succede quando le prestazioni non sono all'altezza delle aspettative o delle esperienze passate? Questo articolo consente di standardizzare il modo in cui si esegue il test e la linea di base dell'ambiente specifico.
 
-Questo documento mostra come testare la latenza di rete e la larghezza di banda tra due host in modo semplice e coerente. Fornisce inoltre suggerimenti su come esaminare la rete di Azure e isolare le aree problematiche. Lo script e gli strumenti PowerShell presentati richiedono due host sulla rete (su ciascuna estremità del collegamento sottoposto a test). Uno degli host deve avere Windows Server o Windows Desktop, l'altro può avere Windows o Linux. 
+Si apprenderà come testare in modo semplice e coerente la latenza di rete e la larghezza di banda tra due host. Verranno anche fornite alcune indicazioni sui modi per esaminare la rete di Azure per isolare i punti problematici. Lo script e gli strumenti PowerShell presentati richiedono due host sulla rete (su ciascuna estremità del collegamento sottoposto a test). Uno degli host deve avere Windows Server o Windows Desktop, l'altro può avere Windows o Linux. 
 
 >[!NOTE]
 >L'approccio alla risoluzione dei problemi, gli strumenti e i metodi usati variano in base alle preferenze personali. Questo documento descrive gli strumenti e l'approccio usati più di frequente. L'approccio dell'utente sarà probabilmente diverso, è normale considerare diversi approcci per risolvere i problemi. Tuttavia, se non si dispone di un approccio consolidato, questo documento può introdurre l'utente allo sviluppo di metodi, strumenti e preferenze personalizzati per la risoluzione dei problemi di rete.
@@ -37,26 +37,28 @@ In generale, descriverò tre domini di routing di rete principali:
 - La rete aziendale (cloud rosa chiaro a sinistra)
 
 Diamo una breve occhiata a ciascun componente del diagramma, da destra a sinistra:
- - **Virtual Machine**: il server può avere più schede di interfaccia di rete. Verificare che le route statiche, le route predefinite e le impostazioni del sistema operativo stiano inviando e ricevendo il traffico nel modo previsto. Inoltre, ogni SKU della macchina virtuale ha una limitazione della larghezza di banda. Se si usa uno SKU della macchina virtuale più piccolo, il traffico è limitato dalla larghezza di banda disponibile per la scheda di interfaccia di rete. In genere nei test uso un DS5v2 (si consiglia quindi di eliminarlo al termine del test per risparmiare denaro) in modo da garantire una larghezza di banda sufficiente alla macchina virtuale.
+ - **Macchina virtuale** : il server può avere più schede di rete. Assicurarsi che le route statiche, le route predefinite e le impostazioni del sistema operativo stiano inviando e ricevendo traffico nel modo desiderato. Inoltre, ogni SKU della macchina virtuale ha una limitazione della larghezza di banda. Se si usa uno SKU della macchina virtuale più piccolo, il traffico è limitato dalla larghezza di banda disponibile per la scheda di interfaccia di rete. In genere nei test uso un DS5v2 (si consiglia quindi di eliminarlo al termine del test per risparmiare denaro) in modo da garantire una larghezza di banda sufficiente alla macchina virtuale.
  - **NIC**: assicurarsi di conoscere l'indirizzo IP privato assegnato alla scheda di interfaccia di rete.
  - **NIC NSG**: è possibile applicare gruppi di sicurezza di rete specifici a livello della scheda di interfaccia di rete. Verificare che il set di regole dei gruppi di sicurezza di rete sia appropriato per il traffico da passare. Ad esempio, assicurarsi che le porte 5201 per iPerf, 3389 per RDP o 22 per SSH siano aperte per consentire il passaggio del traffico di test.
  - **VNet Subnet**: la scheda di interfaccia di rete è assegnata a una subnet specifica. Assicurarsi di conoscere qual'è e quali sono le regole ad essa associate.
- - **Subnet NSG**: proprio come la scheda di interfaccia di rete, anche i gruppi di sicurezza di rete possono essere applicati alla subnet. Verificare che il set di regole dei gruppi di sicurezza di rete sia appropriato per il traffico da passare. (per il traffico che entra nella scheda di interfaccia di rete, si applica prima la Subnet NSG, poi la NIC NSG, mentre per il traffico che lascia la macchina virtuale, la NIC NSG viene applicata per prima, quindi entra in gioco la Subnet NSG).
- - **Subnet UDR**: le route definite dall'utente possono indirizzare il traffico verso un hop intermedio (ad esempio un firewall o un servizio di bilanciamento del carico). Verificare che sia presente una route definita dall'utente per il traffico e, in tal caso, dove va e cosa farà quell'hop successivo al proprio traffico. (ad esempio, un firewall può consentire il passaggio di un traffico mentre può negarne un altro tra gli stessi due host).
- - **Subnet gateway / NSG / UDR**: proprio come la subnet della macchina virtuale, la subnet del gateway può avere gruppi di sicurezza di rete e route definite dall'utente. Verificare la loro possibile presenza e il loro impatto sul traffico.
- - **VNet Gateway (ExpressRoute)**: dopo aver abilitato la VPN o il peering (ExpressRoute) non vi sono molte impostazioni che possono influenzare il routing del traffico o l'esistenza di questo routing. Se sono presenti più circuiti ExpressRoute o tunnel VPN collegati allo stesso VNet Gateway, è necessario conoscere l'impostazione del peso della connessione in quanto influisce sulle preferenze di connessione e sul percorso del traffico.
- - **Route Filter** (non illustrato): un filtro di routing si applica solo al Peering Microsoft su ExpressRoute, ma è fondamentale verificare che le route previste non vengano visualizzate sul Peering Microsoft. 
+ - **Subnet NSG**: proprio come la scheda di interfaccia di rete, anche i gruppi di sicurezza di rete possono essere applicati alla subnet. Verificare che il set di regole dei gruppi di sicurezza di rete sia appropriato per il traffico da passare. Per il traffico in ingresso verso la scheda di interfaccia di rete, viene applicata per prima la subnet NSG, quindi il NSG NIC. Quando il traffico è in uscita dalla macchina virtuale, il NSG NIC viene applicato per primo, quindi viene applicata la subnet NSG.
+ - **Subnet UdR** : le route User-Defined possono indirizzare il traffico a un hop intermedio, ad esempio un firewall o un servizio di bilanciamento del carico. Assicurarsi di avere a che fare con un UDR per il traffico. In tal caso, è necessario capire dove si trova e cosa verrà eseguito dall'hop successivo al traffico. Un firewall, ad esempio, potrebbe passare traffico e negare altro traffico tra gli stessi due host.
+ - **Subnet gateway / NSG / UDR**: proprio come la subnet della macchina virtuale, la subnet del gateway può avere gruppi di sicurezza di rete e route definite dall'utente. Assicurati di sapere se sono presenti e quali effetti hanno sul traffico.
+ - **VNet Gateway (ExpressRoute)**: dopo aver abilitato la VPN o il peering (ExpressRoute) non vi sono molte impostazioni che possono influenzare il routing del traffico o l'esistenza di questo routing. Se si dispone di un gateway VNet connesso a più circuiti ExpressRoute o tunnel VPN, è necessario tenere presenti le impostazioni relative al peso della connessione. Il peso della connessione influiscono sulle preferenze di connessione e determina il percorso richiesto dal traffico.
+ - **Filtro route** (non visualizzato): è necessario un filtro di route quando si usa il peering Microsoft tramite ExpressRoute. Se non vengono ricevute Route, controllare se il filtro di route è configurato e applicato correttamente al circuito.
 
-A questo punto si è nella parte WAN del collegamento. Questo dominio di routing può essere il provider di servizi, la WAN aziendale o Internet. Molti hop, tecnologie e aziende coinvolti in questi collegamenti possono rendere piuttosto difficile la risoluzione dei problemi. Spesso si fa in modo di escludere Azure e le reti aziendali prima di passare a questa moltitudine di aziende e hop.
+A questo punto si è nella parte WAN del collegamento. Questo dominio di routing può essere il provider di servizi, la WAN aziendale o Internet. Sono presenti molti hop, dispositivi e società interessati da questi collegamenti, che potrebbero renderli difficili da risolvere. È necessario prima di tutto escludere Azure e le reti aziendali prima di poter esaminare gli hop tra loro.
 
 Nel diagramma precedente all'estrema sinistra è collocata la rete aziendale dell'utente. A seconda delle dimensioni dell'azienda, questo dominio di routing può consolidare alcuni dispositivi di rete tra l'utente e la WAN o più livelli di dispositivi su una rete aziendale.
 
-Data la complessità di questi tre diversi ambienti di rete generali, è spesso ottimale iniziare dalle estremità e cercare di mostrare dove le prestazioni sono buone e dove invece si degradano. Questo approccio può aiutare a identificare quale dei tre domini di routing è problematico e quindi concentrare la risoluzione dei problemi su quell'ambiente specifico.
+Data la complessità di questi tre diversi ambienti di rete di alto livello. Spesso è ottimale iniziare dai bordi e provare a mostrare dove le prestazioni sono ottimali e la posizione in cui diminuisce. Questo approccio può facilitare l'identificazione del dominio di routing dei problemi dei tre. È quindi possibile concentrare la risoluzione dei problemi sull'ambiente specifico.
 
 ## <a name="tools"></a>Strumenti
-La maggior parte dei problemi di rete può essere analizzata e isolata usando strumenti di base come ping e traceroute. È raro che si debba arrivare a eseguire l'analisi dei pacchetti usando uno strumento come Wireshark. Per facilitare la risoluzione dei problemi, Azure Connectivity Toolkit (AzureCT) è stato sviluppato per inserire alcuni di questi strumenti in un unico pacchetto. Per il test delle prestazioni è preferibile usare iPerf e PSPing. iPerf è uno strumento di uso comune e viene eseguito sulla maggior parte dei sistemi operativi. iPerf è indicato per il test delle prestazioni di base ed è relativamente facile da usare. PSPing è uno strumento di test ping sviluppato da SysInternals. PSPing agevola l'esecuzione dei ping ICMP e TCP con un unico comando facile da usare. Entrambi questi strumenti sono leggeri e vengono "installati" semplicemente copiando i file in una directory sull'host.
+La maggior parte dei problemi di rete può essere analizzata e isolata usando strumenti di base come ping e traceroute. È raro che sia necessario approfondire l'analisi dei pacchetti usando strumenti come Wireshark. 
 
-Ho incluso tutti questi strumenti e questi metodi in un modulo PowerShell (AzureCT) che è possibile installare e usare.
+Per facilitare la risoluzione dei problemi, Azure Connectivity Toolkit (AzureCT) è stato sviluppato per inserire alcuni di questi strumenti in un unico pacchetto. Per i test delle prestazioni, strumenti quali iPerf e PSPing possono fornire informazioni sulla rete. iPerf è uno strumento comunemente usato per i test delle prestazioni di base ed è abbastanza semplice da usare. PSPing è uno strumento di test ping sviluppato da SysInternals. PSPing è in grado di eseguire sia ping ICMP che TCP per raggiungere un host remoto. Entrambi questi strumenti sono leggeri e vengono "installati" semplicemente copiando i file in una directory sull'host.
+
+Questi strumenti e metodi sono racchiusi in un modulo di PowerShell (AzureCT) che è possibile installare e usare.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT: Azure Connectivity Toolkit
 Il modulo PowerShell di AzureCT include due componenti: [Availability Testing][Availability Doc] (Test della disponibilità) e [Performance Testing][Performance Doc] (Test delle prestazioni). Poiché questo documento tratta solo il Performance Testing (Test delle prestazioni), occorre concentrarsi sui due comandi del Link Performance (Prestazioni dei collegamenti) inclusi in questo modulo PowerShell.
@@ -80,7 +82,7 @@ L'uso di questo kit di strumenti per il Performance Testing (Test delle prestazi
 
 3. Eseguire il test delle prestazioni
 
-    Sull'host remoto, è necessario prima installare ed eseguire iPerf in modalità server. Verificare inoltre che l'host remoto sia in ascolto sulla porta 3389 (RDP per Windows) o 22 (SSH per Linux) e che consenta il traffico sulla porta 5201 per iPerf. Se l'host remoto dispone di Windows, installare AzureCT ed eseguire il comando Install-LinkPerformance per configurare iPerf e le regole del firewall necessarie per avviare correttamente iPerf in modalità server. 
+    Sull'host remoto, è necessario prima installare ed eseguire iPerf in modalità server. Verificare inoltre che l'host remoto sia in ascolto sulla porta 3389 (RDP per Windows) o 22 (SSH per Linux) e che consenta il traffico sulla porta 5201 per iPerf. Se l'host remoto è Windows, installare AzureCT ed eseguire il comando Install-LinkPerformance. Il comando imposterà iPerf e le regole del firewall necessarie per avviare iPerf in modalità server. 
     
     Una volta che il computer remoto è pronto, aprire PowerShell sul computer locale e avviare il test:
     ```powershell
@@ -98,25 +100,25 @@ L'uso di questo kit di strumenti per il Performance Testing (Test delle prestazi
     I risultati dettagliati di tutti i test iPerf e PSPing si trovano in singoli file di testo nella directory degli strumenti di AzureCT in "C:\ACTTools".
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-Se il test delle prestazioni non fornisce i risultati attesi, può essere consigliabile adottare un approccio graduale passo dopo passo. Dato il numero di componenti nel percorso, un approccio sistematico di solito risolve i problemi più velocemente di un approccio empirico in cui lo stesso test può essere eseguito inutilmente più volte.
+Se il test delle prestazioni non restituisce i risultati previsti, capire perché dovrebbe essere un processo graduale progressivo. Dato il numero di componenti nel percorso, un approccio sistematico fornirà un percorso più rapido per la risoluzione rispetto al passaggio. Con la risoluzione dei problemi sistematicamente, è possibile evitare il test non necessario più volte.
 
 >[!NOTE]
 >Nello scenario qui illustrato è necessario risolvere un problema di prestazioni, non di connettività. La procedura sarebbe diversa se il traffico fosse completamente bloccato.
 >
 >
 
-Innanzitutto, occorre riconsiderare le proprie ipotesi. Le proprie aspettative sono ragionevoli? Ad esempio, se si dispone di un circuito ExpressRoute da 1 Gbps e di una latenza di 100 ms, non è ragionevole prevedere il traffico massimo di 1 Gbps, viste le caratteristiche di prestazioni del TCP sui collegamenti ad alta latenza. Vedere la sezione [Riferimenti](#references) per altre informazioni sulle ipotesi relative alle prestazioni.
+Innanzitutto, occorre riconsiderare le proprie ipotesi. Le proprie aspettative sono ragionevoli? Ad esempio, se si ha un circuito ExpressRoute da 1 Gbps e 100 ms di latenza. Non è ragionevole aspettarsi l'intero traffico di 1 Gbps, in base alle caratteristiche di prestazioni del protocollo TCP su collegamenti ad alta latenza. Vedere la sezione [Riferimenti](#references) per altre informazioni sulle ipotesi relative alle prestazioni.
 
-Successivamente è consigliabile iniziare dai margini dei domini di routing e provare a isolare il problema su un singolo dominio di routing primario: la rete aziendale, la WAN o la rete di Azure. Di solito si incolpa la "black box" nel percorso. Incolpare la black box è molto facile, ma questo può ritardare significativamente la risoluzione, specialmente se il problema si trova effettivamente in un'area in cui è possibile apportare modifiche. Assicurarsi di effettuare tutti i controlli necessari prima di contattare il provider di servizi o ISP.
+Si consiglia quindi di iniziare dagli spigoli tra i domini di routing e provare a isolare il problema in un singolo dominio di routing principale. È possibile iniziare dalla rete aziendale, la rete WAN o la rete di Azure. Spesso gli utenti accusano il "black box" nel percorso. Sebbene il black box sia facile da fare, è possibile che si verifichi un ritardo significativo della risoluzione. In particolare, se il problema si trova in un'area in cui è possibile apportare modifiche per risolvere il problema. Assicurarsi di effettuare tutti i controlli necessari prima di contattare il provider di servizi o ISP.
 
-Dopo aver identificato il dominio di routing principale che contiene il problema, è necessario creare un diagramma dell'area in questione. Che sia su una lavagna, un blocco note o Visio, un diagramma fornisce un concreto "piano di battaglia" per isolare il problema in modo metodico. È possibile pianificare i punti di test e aggiornare la mappa man mano che ci si allontana dalle aree o si approfondiscono le analisi durante l'avanzamento del test.
+Dopo aver identificato il dominio di routing principale che contiene il problema, è necessario creare un diagramma dell'area in questione. Con il disegno di un diagramma su una lavagna, un blocco note o Visio, è possibile usare metodicamente e isolare il problema. È possibile pianificare i punti di test e aggiornare la mappa man mano che ci si allontana dalle aree o si approfondiscono le analisi durante l'avanzamento del test.
 
 Dopo aver creato un diagramma è possibile iniziare a suddividere la rete in segmenti e circoscrivere il problema. Stabilire dove funziona e dove no. Continuare a spostare i punti di test per isolare il componente incriminato.
 
 Non dimenticare inoltre di esaminare gli altri livelli del modello OSI. È facile concentrarsi sulla rete e sui livelli 1-3 (livelli fisici, dati e rete), ma i problemi possono anche essere presenti nel livello 7, quello dell'applicazione. Mantenere la mente aperta e verificare le ipotesi.
 
 ## <a name="advanced-expressroute-troubleshooting"></a>Risoluzione avanzata dei problemi di ExpressRoute
-Se non si conoscono i perimetri del cloud, l'isolamento dei componenti di Azure può essere difficile. Quando si usa ExpressRoute, il perimetro è un componente di rete denominato Microsoft Enterprise Edge (MSEE). **Quando si usa ExpressRoute**, MSEE è il primo punto di contatto nella rete di Microsoft e l'ultimo hop fuori dalla rete Microsoft. Quando si crea un oggetto di connessione tra il gateway della rete virtuale e il circuito ExpressRoute, si sta effettivamente eseguendo una connessione a MSEE. Riconoscere MSEE come primo o ultimo hop (a seconda della direzione in cui si sta procedendo) è fondamentale per isolare i problemi di Azure Network, per dimostrare che il problema risiede in Azure o più a valle nella WAN o nella rete aziendale. 
+Se non si conoscono i perimetri del cloud, l'isolamento dei componenti di Azure può essere difficile. Quando si usa ExpressRoute, il perimetro è un componente di rete denominato Microsoft Enterprise Edge (MSEE). **Quando si usa ExpressRoute**, MSEE è il primo punto di contatto nella rete Microsoft e l'ultimo hop quando si esce dalla rete Microsoft. Quando si crea un oggetto di connessione tra il gateway della rete virtuale e il circuito ExpressRoute, si sta effettivamente eseguendo una connessione a MSEE. Riconoscendo il MSEE come primo o ultimo hop a seconda della direzione, il traffico è cruciale per isolare un problema di rete di Azure. Sapere quale direzione proverà se il problema si trova in Azure o più a valle nella rete WAN o nella rete aziendale. 
 
 ![2][2]
 
@@ -125,12 +127,12 @@ Se non si conoscono i perimetri del cloud, l'isolamento dei componenti di Azure 
 >
 >
 
-Se due reti virtuali (VNet A e B nel diagramma) sono connesse allo **stesso** circuito ExpressRoute, è possibile eseguire una serie di test per isolare il problema in Azure (oppure dimostrare che non si trova in Azure)
+Se due reti virtuali sono connesse allo **stesso** circuito ExpressRoute, è possibile eseguire una serie di test per isolare il problema in Azure.
  
 ### <a name="test-plan"></a>Piano di test
 1. Eseguire il test di Get-LinkPerformance tra VM1 e VM2. Questo test consente di comprendere se il problema è locale o meno. Se questo test produce risultati accettabili di latenza e larghezza di banda, è possibile contrassegnare la rete virtuale locale come corretta.
 2. Supponendo che il traffico della rete virtuale locale sia corretto, eseguire il test Get-LinkPerformance tra VM1 e VM3. Questo test esegue la connessione attraverso la rete Microsoft fino a MSEE e di nuovo verso Azure. Se questo test produce risultati accettabili di latenza e larghezza di banda, è possibile contrassegnare la rete di Azure come corretta.
-3. Se Azure viene escluso, è possibile eseguire una sequenza analoga di test sulla rete aziendale. Se anche questi test hanno esito positivo, è giunto il momento di collaborare con il proprio provider di servizi o ISP per eseguire la diagnosi della connessione della rete WAN. Esempio: Eseguire il test tra due filiali, o tra il desktop e un server del data center. A seconda di ciò che si sta testando, trovare gli endpoint (server, PC e così via) che possono verificare tale percorso.
+3. Se Azure è escluso, è possibile eseguire una sequenza simile di test sulla rete aziendale. Se anche questi test hanno esito positivo, è giunto il momento di collaborare con il proprio provider di servizi o ISP per eseguire la diagnosi della connessione della rete WAN. Esempio: Eseguire il test tra due filiali, o tra il desktop e un server del data center. A seconda di ciò che si sta testando, trovare gli endpoint, ad esempio i server e i PC client, che possono esercitare tale percorso.
 
 >[!IMPORTANT]
 > È fondamentale che per ogni test si prenda nota dell'ora del giorno in cui si esegue il test e che si registrino i risultati in una posizione comune (ad esempio OneNote o Excel). Ciascuna esecuzione dei test deve avere un output identico, in modo da poter confrontare i dati risultanti dalle esecuzioni dei test e da non avere "buchi" nei dati. La coerenza tra più test è la ragione principale per cui utilizzo AzureCT nella risoluzione dei problemi. Il *trucco* non sta negli scenari di caricamento esatti caricati, ma nel fatto di ottenere un *output di dati e test coerenti* da tutti i test. Registrare l'ora e avere dati coerenti ogni volta è particolarmente utile se in seguito si scopre che il problema è sporadico. Occorre essere accurati all'inizio della raccolta di dati, in modo da evitare di ripetere per ore i test degli stessi scenari (l'ho imparato a mie spese molti anni fa).
@@ -138,11 +140,11 @@ Se due reti virtuali (VNet A e B nel diagramma) sono connesse allo **stesso** ci
 >
 
 ## <a name="the-problem-is-isolated-now-what"></a>Il problema è stato isolato, ora cosa si deve fare?
-Più si riesce a isolare il problema più semplice sarà correggerlo, tuttavia spesso si arriva a un punto in cui non è più possibile proseguire ulteriormente con la risoluzione dei problemi. Esempio: si nota che il collegamento attraverso il proprio provider di servizi usa hop in Europa, mentre l'intero percorso dovrebbe essere in Asia. Questo è il momento in cui occorre contattare l'assistenza. Il contatto di assistenza varia in base al dominio di routing su cui è stato isolato il problema, o meglio ancora, il componente specifico identificato come interessato.
+Più si isola il problema più rapidamente è possibile trovare la soluzione. A volte si raggiunge un punto in cui non è più possibile proseguire con la risoluzione dei problemi. Ad esempio, viene visualizzato il collegamento all'interno del provider di servizi con hop in Europa, ma si prevede che il percorso rimanga in Asia. A questo punto, è necessario coinvolgere qualcuno per assistenza. Gli utenti che si chiedono dipendono dal dominio di routing a cui si isola il problema. Se è possibile restringere il componente a un componente specifico che sarebbe ancora migliore.
 
-Per problemi di rete aziendale, il reparto IT interno o un provider di servizi di supporto per la rete (ad esempio il produttore dell'hardware) può offrire assistenza nella configurazione del dispositivo o nella riparazione dell'hardware.
+Per i problemi relativi alla rete aziendale, il reparto IT interno o il provider di servizi può essere utile per la configurazione del dispositivo o il ripristino dell'hardware.
 
-Per quel che riguarda la WAN, la condivisione dei risultati del test con il provider di servizi o l'ISP può aiutarli a tenere tutto sotto controllo e impedire che riprendano alcuni dei test già effettuati. Non occorre offendersi se decidessero di verificare di persona i risultati già ottenuti. "Fidati, ma controlla" è un buon motto quando si tratta di risolvere i problemi dai risultati forniti da altre persone.
+Per la rete WAN, la condivisione dei risultati dei test con il provider di servizi o ISP consentirà di iniziare. In questo modo si eviterà anche di duplicare le stesse operazioni già eseguite. Non offendersi se vogliono verificare i risultati. "Fidati, ma controlla" è un buon motto quando si tratta di risolvere i problemi dai risultati forniti da altre persone.
 
 Con Azure, una volta isolato il problema nel modo più preciso possibile, è necessario esaminare la [Documentazione di Microsoft Azure][Network Docs] e quindi, se ancora necessario, [aprire un ticket di supporto][Ticket Link].
 
@@ -160,7 +162,7 @@ Configurazione di test:
  - Un circuito ExpressRoute Premium da 10 Gbps nella posizione identificata con Peering privato abilitato.
  - Una rete virtuale di Azure con un gateway UltraPerformance nella regione specificata.
  - Una macchina virtuale DS5v2 che esegue Windows Server 2016 sulla rete virtuale. La macchina virtuale non è stata aggiunta a un dominio ed è stata generata dall'immagine di Azure predefinita (nessuna ottimizzazione o personalizzazione) con AzureCT installato.
- - Tutti i test sono stati eseguiti usando il comando Get-LinkPerformance di AzureCT, con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. Ad esempio:
+ - Tutti i test usano il comando AzureCT Get-LinkPerformance con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. Ad esempio:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -177,7 +179,7 @@ Configurazione di test:
 >
 >
 
-| ExpressRoute<br/>Località|Azure<br/>Region | Distanza<br/>stimata (km) | Latenza|1 Sessione<br/>Larghezza di banda | Massimo<br/>Larghezza di banda |
+| ExpressRoute<br/>Location|Azure<br/>Region | Distanza<br/>stimata (km) | Latenza|1 Sessione<br/>Larghezza di banda | Massimo<br/>Larghezza di banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | West US 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
 | Seattle | Stati Uniti occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
@@ -194,7 +196,7 @@ Configurazione di test:
 | Seattle | Brasile meridionale *   | 10.930 km | 189 ms |   8,2 Mbit/sec |   699 Mbit/sec |
 | Seattle | India meridionale      | 12.918 km | 202 ms |   7,7 Mbit/sec |   634 Mbit/sec |
 
-\* La latenza in Brasile è un buon esempio in cui la distanza in linea d'aria differisce notevolmente dalla distanza in fibra ottica. Mentre la latenza dovrebbe normalmente essere di circa 160 ms, è di 189 ms. Questa differenza rispetto alle mie aspettative potrebbe indicare un problema di rete da qualche parte, ma molto probabilmente la fibra ottica in Brasile non va in linea retta e percorre circa 1.000 km in più per arrivare da Seattle.
+\* La latenza in Brasile è un buon esempio in cui la distanza in linea d'aria differisce notevolmente dalla distanza in fibra ottica. La latenza prevista si trova nel quartiere 160 ms, ma è effettivamente 189 ms. La differenza nella latenza sembrerebbe indicare un problema di rete in un punto qualsiasi. Ma la realtà è che la linea Fiber non passa al Brasile in una linea retta. Quindi, è necessario aspettarsi un ulteriore 1.000 km di viaggio per raggiungere il Brasile da Seattle.
 
 ## <a name="next-steps"></a>Passaggi successivi
 1. Scaricare Azure Connectivity Toolkit da GitHub all'indirizzo [https://aka.ms/AzCT][ACT]

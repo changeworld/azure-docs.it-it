@@ -4,12 +4,12 @@ description: Informazioni su come gestire l'interazione umana e i timeout nell'e
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335755"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028304"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
@@ -45,7 +45,7 @@ L'articolo illustra le funzioni seguenti nell'app di esempio:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `CurrentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta a `Task.WhenAny` .
+> In primo luogo potrebbe non essere ovvio, ma questo agente di orchestrazione non viola il [vincolo deterministico dell'orchestrazione](durable-functions-code-constraints.md). È deterministica perché la `CurrentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta a `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,20 @@ Di seguito è riportato il codice che implementa la funzione:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `currentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta a `context.df.Task.any` .
+> In primo luogo potrebbe non essere ovvio, ma questo agente di orchestrazione non viola il [vincolo deterministico dell'orchestrazione](durable-functions-code-constraints.md). È deterministica perché la `currentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta a `context.df.Task.any` .
+
+# <a name="python"></a>[Python](#tab/python)
+
+La funzione **E4_SmsPhoneVerification** usa il codice *function.json* standard per le funzioni dell'agente di orchestrazione.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
+
+Di seguito è riportato il codice che implementa la funzione:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
+
+> [!NOTE]
+> In primo luogo potrebbe non essere ovvio, ma questo agente di orchestrazione non viola il [vincolo deterministico dell'orchestrazione](durable-functions-code-constraints.md). È deterministica perché la `currentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta a `context.df.Task.any` .
 
 ---
 
@@ -94,6 +107,16 @@ Il codice *function.json* viene definito come segue:
 Ecco il codice che genera il codice di richiesta a quattro cifre e invia il messaggio SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+Il codice *function.json* viene definito come segue:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
+
+Ecco il codice che genera il codice di richiesta a quattro cifre e invia il messaggio SMS:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 

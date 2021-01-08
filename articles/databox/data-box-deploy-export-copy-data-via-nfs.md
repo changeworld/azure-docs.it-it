@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 64bb5e94c4b18626d1f85d7e61252aae74202eb9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91660845"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680613"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>Esercitazione: Copiare dati da Azure Data Box tramite NFS (anteprima)
+# <a name="tutorial-copy-data-from-azure-data-box-via-nfs"></a>Esercitazione: Copiare i dati da Azure Data Box tramite NFS
 
 Questa esercitazione descrive come connettersi al computer host e copiare i dati dall'interfaccia utente Web locale del dispositivo Data Box in un server dati locale tramite NFS. I dati del dispositivo Data Box vengono esportati dall'account di archiviazione di Azure.
 
@@ -26,8 +26,6 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Prerequisiti
 > * Connettersi al Data Box
 > * Copiare i dati da Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -79,11 +77,11 @@ Dopo aver stabilito la connessione alle condivisioni Data Box, il passaggio succ
 
 [!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
- È ora possibile iniziare la copia dei dati. Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) e [Ultracopier](https://ultracopier.first-world.info/).  
+ È ora possibile iniziare la copia dei dati. Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [`rsync`](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) o [Ultracopier](https://ultracopier.first-world.info/).  
 
 Il comando `cp` è una delle opzioni migliori per copiare una directory. Per altre informazioni sulla sintassi, vedere [cp man-pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
+Se si usa l'opzione `rsync` per una copia multithread, seguire queste indicazioni:
 
 * Installare il pacchetto **CIFS Utils** o **NFS Utils** in base al file system usato dal client Linux.
 
@@ -91,7 +89,7 @@ Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
 
     `sudo apt-get install nfs-utils`
 
-* Installare **Rsync** e **Parallel** (varia in base alla versione distribuita di Linux).
+* Installare `rsync` e **Parallel** (varia in base alla versione distribuita di Linux).
 
     `sudo apt-get install rsync`
    

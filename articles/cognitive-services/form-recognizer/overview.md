@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione dati automatica, elaborazione di documenti, immissione automatica di dati, elaborazione di moduli
-ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353681"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845534"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -108,23 +108,21 @@ Il modello di biglietto da visita consente di estrarre informazioni quali il nom
 
 Per iniziare a estrarre dati dai moduli, usare lo [strumento Riconoscimento modulo di esempio](https://fott.azurewebsites.net/) o seguire una guida di avvio rapido. È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
 
-* [Guide di avvio rapido sulle librerie client](./quickstarts/client-library.md) (tutti i linguaggi, più scenari)
+* [Avvio rapido per la libreria client/API REST](./quickstarts/client-library.md) (tutti i linguaggi, più scenari)
 * Avvii rapidi per l'interfaccia utente Web
   * [Training con etichette - Strumenti di etichettatura campioni](quickstarts/label-tool.md)
-* Avvii rapidi per REST
+* Esempi REST (GitHub)
  * Estrarre testo, contrassegni di selezione e strutture di tabelle dai documenti
-    * [Estrarre i dati del layout - Python](quickstarts/python-layout.md)
+    * [Estrarre i dati del layout - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Eseguire il training di modelli personalizzati ed estrarre i dati dei moduli
-    * [Training senza etichette - cURL](quickstarts/curl-train-extract.md)
-    * [Training senza etichette - Python](quickstarts/python-train-extract.md)
-    * [Training con etichette - Python](quickstarts/python-labeled-data.md)
+    * [Training senza etichette - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [Training con etichette - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Estrarre dati dalle fatture
-    * [Estrarre dati dalle fatture - Python](quickstarts/python-invoices.md)
+    * [Estrarre dati dalle fatture - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Estrarre dati dalle ricevute di vendita
-    * [Estrarre dati dalle ricevute - cURL](quickstarts/curl-receipts.md)
-    * [Estrarre dati dalle ricevute - Python](quickstarts/python-receipts.md)
+    * [Estrarre dati dalle ricevute - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Estrarre dati dai biglietti da visita
-    * [Estrarre dati dai biglietti da visita - Python](quickstarts/python-business-cards.md)
+    * [Estrarre dati dai biglietti da visita - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>Esaminare le API REST
 
@@ -162,4 +160,4 @@ Come per tutti i servizi cognitivi, gli sviluppatori che usano il servizio di ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Completare una [guida di avvio rapido sulla libreria client](quickstarts/client-library.md) per apprendere come scrivere un'app di elaborazione moduli con Riconoscimento modulo nel linguaggio preferito.
+Completare una [guida di avvio rapido](quickstarts/client-library.md) per apprendere come scrivere un'app di elaborazione moduli con Riconoscimento modulo nel linguaggio preferito.

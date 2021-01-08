@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007094"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936210"
 ---
 # <a name="app-service-overview"></a>Panoramica del Servizio app di Azure
 
@@ -45,6 +45,12 @@ Il servizio app può anche ospitare le app Web in modo nativo in Linux per gli s
 ### <a name="built-in-languages-and-frameworks"></a>Linguaggi e framework predefiniti
 
 Il servizio app in Linux supporta numerose immagini predefinite specifiche del linguaggio. È sufficiente distribuire il codice. Le lingue supportate comprendono: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) per visualizzare i linguaggi più recenti e le versioni supportate. Se il runtime richiesto dall'applicazione non è supportato nelle immagini predefinite, è possibile distribuirlo con un contenitore personalizzato.
+
+I runtime obsoleti vengono rimossi periodicamente dai pannelli Crea e Configurazione di App Web nel portale. Questi runtime vengono nascosti nel portale quando sono deprecati dall'organizzazione che li gestisce oppure è stato riscontrato che presentano vulnerabilità significative. Queste opzioni vengono nascoste per indirizzare i clienti verso i runtime più recenti che garantiranno migliori risultati. 
+
+Quando un runtime obsoleto viene nascosto nel portale, tutti i siti esistenti che usano tale versione continueranno a essere eseguiti. Se un runtime viene rimosso completamente dalla piattaforma del servizio app, i proprietari della sottoscrizione di Azure riceveranno una notifica tramite posta elettronica prima della rimozione.
+
+Se è necessario creare un'altra app Web con una versione obsoleta del runtime che non viene più visualizzata nel portale, vedere le guide alla configurazione del linguaggio per istruzioni su come ottenere la versione del runtime del sito. È possibile usare l'interfaccia della riga di comando di Azure per creare un altro sito con lo stesso runtime. In alternativa, è possibile usare il pulsante **Esporta modello** nel pannello dell'app Web nel portale per esportare un modello di ARM del sito. È possibile riutilizzare questo modello per distribuire un nuovo sito con lo stesso runtime e la stessa configurazione.
 
 ### <a name="limitations"></a>Limitazioni
 

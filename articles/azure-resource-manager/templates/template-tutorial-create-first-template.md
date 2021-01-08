@@ -2,16 +2,16 @@
 title: 'Esercitazione: Creare e distribuire un modello'
 description: Creare il primo modello di Azure Resource Manager (modello di ARM). L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 001a20c38a82d053ae22a2614a32f0be9d8aabce
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107024"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656989"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
@@ -19,7 +19,7 @@ Questa esercitazione presenta i modelli di Azure Resource Manager (modelli ARM) 
 
 Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono stati esaminati tutti gli elementi fondamentali di un modello di Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
 
-Per informazioni sui vantaggi derivanti dall'uso dei modelli e sul motivo per cui è consigliabile automatizzare la distribuzione con i modelli, vedere [Panoramica dei modelli di ARM](overview.md).
+Per informazioni sui vantaggi derivanti dall'uso dei modelli e sul motivo per cui è consigliabile automatizzare la distribuzione con i modelli, vedere [Panoramica dei modelli di ARM](overview.md). Per informazioni sui modelli di ARM tramite un set guidato di moduli in Microsoft Learn, vedere [Distribuire e gestire le risorse in Azure usando i modelli di ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

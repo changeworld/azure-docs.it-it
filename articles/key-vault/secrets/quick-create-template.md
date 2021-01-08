@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1cbe5f986ca36ecc3b45cf4bb7ecffa7067a27bd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896430"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936618"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando un modello di Resource Manager
 
@@ -82,15 +82,15 @@ Altri esempi di modelli per Azure Key Vault sono disponibili in [Modelli di avvi
 
     Se non diversamente specificato, usare il valore predefinito per creare l'insieme di credenziali delle chiavi e un segreto.
 
-    * **Sottoscrizione** : selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse** : selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
-    * **Località** : selezionare una località. Ad esempio **Stati Uniti centrali**.
-    * **Nome insieme di credenziali delle chiavi** : immettere un nome per l'insieme di credenziali delle chiavi. Il nome deve essere globalmente univoco all'interno dello spazio dei nomi .vault.azure.net. Sarà necessario nella sezione successiva per convalidare la distribuzione.
-    * **ID tenant** : viene recuperato automaticamente dalla funzione del modello. Non modificare il valore predefinito.
-    * **ID oggetto utente AD** : immettere l'ID oggetto utente di Azure AD recuperato nella sezione [Prerequisiti](#prerequisites).
-    * **Nome segreto** : immettere un nome per il segreto archiviato nell'insieme di credenziali delle chiavi, ad esempio **adminpassword**.
-    * **Valore del segreto** : immettere il valore del segreto. Se si archivia una password, è consigliabile usare la password generata che è stata creata nella sezione Prerequisiti.
-    * **Accetto le condizioni riportate sopra** : selezionare questa casella.
+    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+    * **Gruppo di risorse**: selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
+    * **Località**: selezionare una località. Ad esempio **Stati Uniti centrali**.
+    * **Nome insieme di credenziali delle chiavi**: immettere un nome per l'insieme di credenziali delle chiavi. Il nome deve essere globalmente univoco all'interno dello spazio dei nomi .vault.azure.net. Sarà necessario nella sezione successiva per convalidare la distribuzione.
+    * **ID tenant**: viene recuperato automaticamente dalla funzione del modello. Non modificare il valore predefinito.
+    * **ID oggetto utente AD**: immettere l'ID oggetto utente di Azure AD recuperato nella sezione [Prerequisiti](#prerequisites).
+    * **Nome segreto**: immettere un nome per il segreto archiviato nell'insieme di credenziali delle chiavi, ad esempio **adminpassword**.
+    * **Valore del segreto**: immettere il valore del segreto. Se si archivia una password, è consigliabile usare la password generata che è stata creata nella sezione Prerequisiti.
+    * **Accetto le condizioni riportate sopra**: selezionare questa casella.
 3. Selezionare **Acquisto**. Al termine della distribuzione dell'insieme di credenziali delle chiavi, si riceverà una notifica:
 
     ![Modello di Resource Manager, integrazione di Key Vault, notifica nel portale per la distribuzione](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
@@ -134,7 +134,7 @@ L'output sarà simile al seguente:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive ed esercitazioni relative a Key Vault si basano su questa guida introduttiva. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide di avvio rapido ed esercitazioni relative a Key Vault si basano su questa guida di avvio rapido. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'istanza di Key Vault e le risorse correlate. Per eliminare il gruppo di risorse con l'interfaccia della riga di comando di Azure oppure con Azure PowerShell:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
@@ -162,4 +162,4 @@ In questa guida di avvio rapido sono stati creati un insieme di credenziali dell
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere altre informazioni su [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Esaminare le [procedure consigliate per Azure Key Vault](../general/best-practices.md)
+- Vedere [Panoramica della sicurezza di Key Vault](../general/security-overview.md)

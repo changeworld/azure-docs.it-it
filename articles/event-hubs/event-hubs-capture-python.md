@@ -2,13 +2,13 @@
 title: Leggere i dati acquisiti da Hub eventi di Azure in un'app Python (ultima versione)
 description: Questo articolo illustra come scrivere codice Python per acquisire i dati inviati a un hub eventi e leggere i dati degli eventi acquisiti da un account di archiviazione di Azure.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: f513b35e300141f16ee4c4880bc54aaf37945d65
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.date: 01/04/2021
+ms.openlocfilehash: acc2ce04add5fd837e9edc789e9616a9f04fb4b9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109913"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883198"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Acquisire i dati di Hub eventi in Archiviazione di Azure e leggerli con Python (azure-eventhub)
 
@@ -27,7 +27,11 @@ Questa guida introduttiva spiega come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Python 2.7 e 3.5 o versione successiva con PIP installato e aggiornato.  
+- Python con PIP e i pacchetti seguenti installati. Il codice riportato nell'articolo è stato testato con queste versioni. 
+    - Python 3.7
+    - azure-eventhub 5.2.0
+    - azure-storage-blob 12.6.0
+    - avro-python3 1.10.1
 - Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.  
 - Uno spazio dei nomi di Hub eventi e un hub eventi attivi.
 [Creare uno spazio dei nomi di Hub eventi e un hub eventi al suo interno](event-hubs-create.md). Prendere nota del nome dello spazio dei nomi di Hub eventi, del nome dell'hub eventi e della chiave di accesso primaria per lo spazio dei nomi. Per ottenere la chiave di accesso, vedere [Ottenere una stringa di connessione di Hub eventi](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Il nome della chiave predefinita è *RootManageSharedAccessKey*. Per questo argomento di avvio rapido, è necessaria solo la chiave primaria. La stringa di connessione non è necessaria.  
@@ -155,6 +159,13 @@ In questo esempio i dati acquisiti vengono archiviati in archiviazione BLOB di A
    pip install azure-eventhub
    pip install avro-python3
    ```
+
+    > [!NOTE]
+    > Il codice riportato nell'articolo è stato testato con queste versioni. 
+    > - Python 3.7
+    > - azure-eventhub 5.2.0
+    > - azure-storage-blob 12.6.0
+    > - avro-python3 1.10.1
 2. Passare alla directory in cui sono stati salvati i file *sender.py* e *capturereader.py* ed eseguire questo comando:
    
    ```

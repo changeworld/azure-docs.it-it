@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento delle immagini, identificatore di immagini, app per il riconoscimento delle immagini, visione personalizzata
-ms.openlocfilehash: 7274fed961c4bbac8841e1c741f54031614cea5c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 12877f2d43f9b8f864871e5a5ab050aa0eeb61e2
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562991"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814602"
 ---
 # <a name="what-is-custom-vision"></a>Informazioni su Visione personalizzata
 
@@ -51,4 +51,4 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere la guida [Come creare un classificatore](getting-started-build-a-classifier.md) per iniziare a usare Visione personalizzata nel portale Web oppure completare una [guida di avvio rapido con la libreria client](quickstarts/image-classification.md) per implementare gli scenari di base nel codice.
+Vedere la guida [Come creare un classificatore](getting-started-build-a-classifier.md) per iniziare a usare Visione personalizzata nel portale Web oppure completare una [guida di avvio rapido](quickstarts/image-classification.md) per implementare gli scenari di base nel codice.

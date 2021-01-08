@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2018
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16a86982813b667ed5c761da27c8e9e5a43ab6cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322496"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028064"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute Copertura globale usando l'interfaccia della riga di comando di Azure
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identificare i circuiti ExpressRoute per la configurazione
 
-È possibile abilitare ExpressRoute Copertura globale tra due circuiti ExpressRoute diversi, purché si trovino in paesi o aree geografiche supportate e siano stati creati in percorsi di peering diversi. Se la sottoscrizione include entrambi i circuiti, è possibile scegliere uno dei due per eseguire la configurazione, come spiegato più avanti in questo articolo. Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario avere l'autorizzazione da una sottoscrizione di Azure e passare la relativa chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
+È possibile abilitare ExpressRoute Copertura globale tra due circuiti ExpressRoute. I circuiti devono trovarsi nei paesi/aree geografiche supportati e sono stati creati in località di peering diverse. Se la sottoscrizione è proprietaria di entrambi i circuiti, è possibile selezionare uno dei due circuiti per eseguire la configurazione. Tuttavia, se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario creare una chiave di autorizzazione da uno dei circuiti. Utilizzando la chiave di autorizzazione generata dal primo circuito è possibile abilitare Copertura globale sul secondo circuito.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Abilitare la connettività tra le reti locali
 
@@ -58,7 +58,7 @@ Quando si esegue il comando per abilitare la connettività, tenere presenti i re
 
   > /subscriptions/{id_sottoscrizione}/resourceGroups/{gruppo_risorse}/providers/Microsoft.Network/expressRouteCircuits/{nome_circuito}
 
-* *address-prefix* deve essere una subnet IPv4 "/29" (ad esempio, "10.0.0.0/29"). Gli indirizzi IP di questa subnet vengono usati per stabilire la connettività tra i due circuiti ExpressRoute. Evitare di usare indirizzi inclusi in questa subnet nelle reti virtuali di Azure o nelle reti locali.
+* *address-prefix* deve essere una subnet IPv4 "/29" (ad esempio, "10.0.0.0/29"). Gli indirizzi IP di questa subnet vengono usati per stabilire la connettività tra i due circuiti ExpressRoute. Non è possibile usare gli indirizzi in questa subnet nelle reti virtuali di Azure o nelle reti locali.
 
 Eseguire il comando dell'interfaccia della riga di comando seguente per connettere due circuiti ExpressRoute:
 
@@ -94,7 +94,7 @@ Al termine di questa operazione, si avrà connettività tra le reti locali su en
 
 ## <a name="enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions"></a>Abilitare la connettività tra circuiti ExpressRoute in sottoscrizioni di Azure diverse
 
-Se i due circuiti non sono inclusi nella stessa sottoscrizione di Azure, è necessaria l'autorizzazione. Nella configurazione seguente si genera l'autorizzazione nella sottoscrizione del circuito 2 e si passa la chiave di autorizzazione al circuito 1.
+Se i due circuiti non sono inclusi nella stessa sottoscrizione di Azure, è necessaria l'autorizzazione. Nella configurazione seguente viene generata l'autorizzazione nella sottoscrizione del circuito 2. Passare quindi la chiave di autorizzazione al circuito 1.
 
 1. Generare una chiave di autorizzazione:
 

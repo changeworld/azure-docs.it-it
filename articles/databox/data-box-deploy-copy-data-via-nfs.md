@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: bbebe3b3f63e6ccbb5f351abfc9ba3b846ca6fbe
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: d53a619dc6ca5fb0f43f6097664f50bf22943928
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337662"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678892"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Esercitazione: Copiare dati in Azure Data Box tramite NFS
 
@@ -98,11 +98,11 @@ Una volta stabilita la connessione alle condivisioni del Data Box, è necessario
 > [!IMPORTANT]
 > Assicurarsi di mantenere una copia dei dati di origine fino a quando non è possibile confermare che Data Box ha trasferito i dati in Archiviazione di Azure.
 
-Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) e [Ultracopier](https://ultracopier.first-world.info/).  
+Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [`rsync`](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) o [Ultracopier](https://ultracopier.first-world.info/).  
 
 Il comando `cp` è una delle opzioni migliori per copiare una directory. Per altre informazioni sulla sintassi, vedere [cp man-pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
+Se si usa l'opzione `rsync` per una copia multithread, seguire queste indicazioni:
 
 * Installare il pacchetto **CIFS Utils** o **NFS Utils** in base al file system usato dal client Linux.
 
@@ -110,7 +110,7 @@ Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
 
     `sudo apt-get install nfs-utils`
 
-* Installare **Rsync** e **Parallel** (varia in base alla versione distribuita di Linux).
+* Installare `rsync` e **Parallel** (varia in base alla versione distribuita di Linux).
 
     `sudo apt-get install rsync`
    

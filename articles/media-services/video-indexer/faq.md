@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 721af069a76497576b92c4203a93656d19c283aa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217729"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028795"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Domande frequenti su Video Indexer
 
@@ -183,7 +183,7 @@ Esistono attualmente alcune sovrapposizioni nelle funzionalità offerte dall'API
 
 L'API di Video Indexer contiene un'API di autorizzazione e un'API delle operazioni. L'API di autorizzazione contiene chiamate che forniscono un token di accesso. Ogni chiamata all'API delle operazioni deve essere associata a un token di accesso, che corrisponde all'ambito di autorizzazione della chiamata.
 
-I token di accesso sono necessari per l'uso delle API di Video Indexer per motivi di sicurezza. Ciò garantisce che tutte le chiamate provengano dagli utenti che dispongono delle autorizzazioni di accesso all'account. 
+I token di accesso sono necessari per l'uso delle API di Video Indexer per motivi di sicurezza. Ciò garantisce che tutte le chiamate provengano dagli utenti che dispongono delle autorizzazioni di accesso all'account. 
 
 ### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Qual è la differenza tra i token di accesso account, i token di accesso utente e i token di accesso video?
 
@@ -197,7 +197,7 @@ I token di accesso scadono ogni ora, pertanto è necessario generare un nuovo to
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Quali sono le opzioni di accesso per il portale per sviluppatori di Video Indexer?
 
-È possibile accedere con Azure AD, account Microsoft, account Google o account Facebook. 
+Vedere la nota sulla versione relativa alle [informazioni di accesso](release-notes.md#october-2020).
 
 Dopo aver registrato l'account di posta elettronica usando un provider di identità, non è possibile usare questo account di posta elettronica con un altro provider di identità.
 
@@ -217,5 +217,5 @@ Sì, è disponibile una versione di valutazione gratuita di Video Indexer che co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Overview](video-indexer-overview.md)
+* [Panoramica](video-indexer-overview.md)
 * [Stack Overflow](https://stackoverflow.com/search?q=video-indexer)

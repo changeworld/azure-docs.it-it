@@ -2,13 +2,13 @@
 title: Configurazioni consigliate per client Apache Kafka-Hub eventi di Azure
 description: Questo articolo fornisce le configurazioni Apache Kafka consigliate per i client che interagiscono con hub eventi di Azure per Apache Kafka.
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097668"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028829"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurazioni consigliate per i client di Apache Kafka
 Ecco le configurazioni consigliate per l'uso di hub eventi di Azure da Apache Kafka applicazioni client. 
@@ -79,7 +79,7 @@ Controllare la tabella seguente di scenari comuni di errore correlati alla confi
 
 Sintomi | Problema | Soluzione
 ----|---|-----
-Errori di commit offset a causa del ribilanciamento | Il consumer è in attesa troppo a lungo tra le chiamate al polling () e il servizio sta avviando il consumo fuori dal gruppo. | Sono disponibili diverse opzioni: <ul><li>aumenta il timeout della sessione</li><li>Riduci dimensioni batch messaggi per velocizzare l'elaborazione</li><li>migliorare la parallelizzazione di elaborazione per evitare il blocco di consumer. polling ()</li></ul> L'applicazione di una combinazione dei tre è probabilmente più saggia.
+Errori di commit offset a causa del ribilanciamento | Il consumer è in attesa troppo a lungo tra le chiamate al polling () e il servizio sta avviando il consumo fuori dal gruppo. | Sono disponibili diverse opzioni: <ul><li>Aumenta timeout elaborazione polling ( `max.poll.interval.ms` )</li><li>Riduci dimensioni batch messaggi per velocizzare l'elaborazione</li><li>Migliorare la parallelizzazione di elaborazione per evitare il blocco di consumer. polling ()</li></ul> L'applicazione di una combinazione dei tre è probabilmente più saggia.
 Eccezioni di rete con velocità effettiva elevata | Si sta usando Java client + default max. Request. size?  Le richieste potrebbero essere troppo grandi. | Vedere le configurazioni Java precedenti.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07b511182950095c356887d72ffde75ac098674d
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 82eaa597796bf3772faa90a9dbc4151da935c46a
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904753"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027724"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Eseguire la migrazione di risorse IaaS dal modello classico al Azure Resource Manager usando PowerShell
 
@@ -265,7 +265,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 Al termine della migrazione delle macchine virtuali, eseguire i controlli dei prerequisiti seguenti prima di eseguire la migrazione degli account di archiviazione.
 
 > [!NOTE]
-> Se all'account di archiviazione non è associato alcun disco o dati della macchina virtuale, è possibile passare direttamente alla sezione "convalida degli account di archiviazione e avvio della migrazione".
+> Se all'account di archiviazione non è associato alcun disco o dati della macchina virtuale, è possibile passare direttamente alla sezione "convalida degli account di archiviazione e avvio della migrazione". Si noti anche che l'eliminazione dei dischi classici, delle immagini di VM o delle immagini del sistema operativo non comporta la rimozione dei file VHD di origine nell'account di archiviazione. Tuttavia, interrompe il lease nei file VHD in modo che possano essere riutilizzati per creare dischi ARM o immagini dopo la migrazione.
 
 * Controlli dei prerequisiti se è stata eseguita la migrazione di qualsiasi macchina virtuale o l'account di archiviazione ha risorse disco:
     * Eseguire la migrazione di macchine virtuali i cui dischi sono archiviati nell'account di archiviazione.

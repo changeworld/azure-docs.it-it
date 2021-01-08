@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916661"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028642"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -44,12 +44,15 @@ Video Indexer supporta il rilevamento, il raggruppamento e il riconoscimento di 
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Modifiche authenticatication sito Web pianificato Video Indexer
 
-A partire dal 1 ° gennaio 2021, non sarà più possibile iscriversi e accedere al sito Web di [video Indexer](https://www.videoindexer.ai/) (offerta di valutazione) con Facebook o LinkedIn.
+A partire dal 1 ° marzo 2021, non sarà più possibile iscriversi e accedere al sito Web [video Indexer](https://www.videoindexer.ai/) usando Facebook o LinkedIn.
 
 Sarà possibile effettuare l'iscrizione e l'accesso con uno di questi provider: Azure AD, Microsoft e Google.
 
 > [!NOTE]
-> Si consiglia di esportare il contenuto prima del 1 ° gennaio 2021, poiché gli account connessi a LinkedIn e Facebook verranno eliminati e il contenuto non sarà più accessibile.
+> Gli account Video Indexer connessi a LinkedIn e Facebook non saranno accessibili dopo il 1 ° marzo 2021. 
+> 
+> È necessario [invitare](invite-users.md) un Azure ad, Microsoft o Google email di cui si è proprietari per l'account video indexer, in modo che sia ancora possibile accedervi.<br/>
+> In alternativa, è possibile creare un account a pagamento e migrare i dati.
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -322,4 +325,4 @@ Oltre al formato di didascalia chiuso già supportato (SRT, VTT e TTML), Video I
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](video-indexer-overview.md)
+[Panoramica](video-indexer-overview.md)

@@ -8,29 +8,31 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636946"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028223"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
 Video Indexer consolida diverse tecnologie di intelligenza artificiale audio e video offerte da Microsoft in un unico servizio integrato, semplificando così lo sviluppo. Le API sono progettate per consentire agli sviluppatori di concentrarsi sull'uso delle tecnologie di intelligenza artificiale per i contenuti multimediali senza doversi preoccupare della scalabilità, della portata globale, della disponibilità e dell'affidabilità delle piattaforme cloud. È possibile usare l'API per caricare file, ottenere informazioni dettagliate sui video, ottenere gli URL dei widget delle informazioni dettagliate e del lettore incorporabili e altro ancora.
 
-Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (senza limiti di quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2.400 minuti di indicizzazione gratuita per gli utenti di API. Con un'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Si paga per minuti indicizzati. per altre informazioni, vedere [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
+Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (senza limiti di quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2.400 minuti di indicizzazione gratuita per gli utenti di API. Con un'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Si pagano i minuti indicizzati. Per altre informazioni, vedere [Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
 Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio dall'[API Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>Eseguire la sottoscrizione all'API
 
 1. Accedere al [portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/).
+
+    Esaminare una nota sulla versione relativa alle [informazioni di accesso](release-notes.md#october-2020).
     
-    ![Accedere al portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Accedere al portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * È necessario usare lo stesso provider usato per l'iscrizione a Video Indexer.
@@ -40,14 +42,14 @@ Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio d
 
     Selezionare la scheda [Prodotti](https://api-portal.videoindexer.ai/products). Selezionare quindi Autorizzazione ed eseguire la sottoscrizione.
     
-    ![Scheda Prodotti nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Scheda Prodotti nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > I nuovi utenti sono automaticamente sottoscritti per l'autorizzazione.
     
     Una volta effettuata la sottoscrizione, è possibile trovare la sottoscrizione in **prodotti**  ->  **autorizzazione**. Nella pagina sottoscrizione sono disponibili le chiavi primarie e secondarie. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
 
-    ![Sottoscrizione e chiavi nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Sottoscrizione e chiavi nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > L'utente di Video Indexer può usare una chiave di sottoscrizione singola per connetterti a più account Video Indexer. È quindi possibile collegare questi account Video Indexer a diversi account Servizi multimediali.
@@ -59,12 +61,12 @@ Una volta eseguita la sottoscrizione per l'API di autorizzazione, è possibile o
 Ogni chiamata all'API delle operazioni deve essere associata a un token di accesso, che corrisponde all'ambito di autorizzazione della chiamata.
 
 - Livello utente: i token di accesso a livello di utente consentono di eseguire operazioni a livello **utente**. ad esempio ottenere gli account associati.
-- Livello account: i token di accesso a livello di account consentono di eseguire operazioni a livello di **account** o a livello di **video** , ad esempio caricare video, elencare tutti i video, ottenere informazioni dettagliate sui video e così via.
-- Livello video: i token di accesso a livello di video consentono di eseguire operazioni su uno specifico **video** , ad esempio ottenere informazioni dettagliate sul video, scaricare i sottotitoli, ottenere i widget e così via.
+- Livello account: i token di accesso a livello di account consentono di eseguire operazioni a livello di **account** o a livello di **video**, ad esempio caricare video, elencare tutti i video, ottenere informazioni dettagliate sui video e così via.
+- Livello video: i token di accesso a livello di video consentono di eseguire operazioni su uno specifico **video**, ad esempio ottenere informazioni dettagliate sul video, scaricare i sottotitoli, ottenere i widget e così via.
 
 È possibile definire se i token devono essere di sola lettura o se devono consentire le modifiche specificando **allowEdit=true/false**.
 
-Per la maggior parte degli scenari da server a server, in genere si userà lo stesso token di **account** , perché consente di eseguire sia le operazioni a livello di **account** che le operazioni a livello di **video**. Se però si prevede di effettuare chiamate lato client a Video Indexer (ad esempio da JavaScript), può essere preferibile usare un token di accesso **video** , in modo da impedire ai client di ottenere l'accesso all'intero account. È sempre per questo motivo che, quando si incorpora codice client di Video Indexer nel client, ad esempio usando **Get Insights Widget** (Ottieni widget informazioni dettagliate) o **Get Player Widget** (Ottieni widget lettore), è necessario fornire un token di accesso **video**.
+Per la maggior parte degli scenari da server a server, in genere si userà lo stesso token di **account**, perché consente di eseguire sia le operazioni a livello di **account** che le operazioni a livello di **video**. Se però si prevede di effettuare chiamate lato client a Video Indexer (ad esempio da JavaScript), può essere preferibile usare un token di accesso **video**, in modo da impedire ai client di ottenere l'accesso all'intero account. È sempre per questo motivo che, quando si incorpora codice client di Video Indexer nel client, ad esempio usando **Get Insights Widget** (Ottieni widget informazioni dettagliate) o **Get Player Widget** (Ottieni widget lettore), è necessario fornire un token di accesso **video**.
 
 Per semplificare le operazioni, è possibile usare l'API **Autorizzazione** > **GetAccounts** per ottenere gli account senza prima ottenere un token utente. È anche possibile richiedere di ottenere gli account con token validi, in modo da evitare una chiamata aggiuntiva per ottenere un token di account.
 

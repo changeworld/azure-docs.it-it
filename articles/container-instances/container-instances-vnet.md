@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un gruppo di contenitori in una re
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746904"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028880"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -20,7 +20,7 @@ Questo articolo illustra come usare il comando [AZ container create][az-containe
 Per gli scenari e le limitazioni di rete, vedere [scenari di rete virtuale e risorse per istanze di contenitore di Azure](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> La distribuzione del gruppo di contenitori in una rete virtuale è disponibile a livello generale per i contenitori Linux, nella maggior parte delle aree in cui sono disponibili istanze di contenitore di Azure. Per informazioni dettagliate, vedere [aree e disponibilità delle risorse](container-instances-virtual-network-concepts.md#where-to-deploy). 
+> La distribuzione del gruppo di contenitori in una rete virtuale è disponibile a livello generale per i contenitori Linux, nella maggior parte delle aree in cui sono disponibili istanze di contenitore di Azure. Per informazioni dettagliate, vedere [aree e disponibilità delle risorse][container-regions]. 
 
 Gli esempi in questo articolo sono formattati per la shell bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, modificare di conseguenza i caratteri di continuazione di riga.
 
@@ -69,7 +69,7 @@ Per distribuire un gruppo di contenitori in una rete virtuale esistente:
 
 Nell'esempio seguente viene distribuito un secondo gruppo di contenitori nella stessa subnet creata in precedenza e viene verificata la comunicazione tra le due istanze del contenitore.
 
-Ottenere per prima cosa l'indirizzo IP del primo gruppo di contenitori distribuito, ovvero *appcontainer* :
+Ottenere per prima cosa l'indirizzo IP del primo gruppo di contenitori distribuito, ovvero *appcontainer*:
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -83,7 +83,7 @@ L'output Visualizza l'indirizzo IP del gruppo di contenitori nella subnet privat
 10.0.0.4
 ```
 
-A questo punto impostare `CONTAINER_GROUP_IP` sull'indirizzo IP recuperato con il comando `az container show` ed eseguire il comando `az container create` seguente. Questo secondo contenitore, *commchecker* , esegue un'immagine basata su Alpine Linux ed esegue `wget` sull'indirizzo IP della subnet privata del primo gruppo di contenitori.
+A questo punto impostare `CONTAINER_GROUP_IP` sull'indirizzo IP recuperato con il comando `az container show` ed eseguire il comando `az container create` seguente. Questo secondo contenitore, *commchecker*, esegue un'immagine basata su Alpine Linux ed esegue `wget` sull'indirizzo IP della subnet privata del primo gruppo di contenitori.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ Output di esempio:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Dopo aver ottenuto l'ID del profilo di rete, copiare il codice YAML seguente in un nuovo file denominato *vnet-deploy-aci.yaml* . In `networkProfile` sostituire il valore `id` con l'ID recuperato, quindi salvare il file. Il codice YAML seguente crea un gruppo di contenitori denominato *appcontaineryaml* nella rete virtuale.
+Dopo aver ottenuto l'ID del profilo di rete, copiare il codice YAML seguente in un nuovo file denominato *vnet-deploy-aci.yaml*. In `networkProfile` sostituire il valore `id` con l'ID recuperato, quindi salvare il file. Il codice YAML seguente crea un gruppo di contenitori denominato *appcontaineryaml* nella rete virtuale.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ Questa funzionalità richiede attualmente diversi comandi aggiuntivi per elimina
 Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gruppo di risorse contenente la rete virtuale e la subnet da eliminare. Se non è stato usato il nome suggerito in precedenza, aggiornare il nome della rete virtuale `aci-vnet` . Lo script viene formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, è necessario modificare di conseguenza l'assegnazione di variabili e le funzioni di accesso.
 
 > [!WARNING]
-> Questo script elimina le risorse. Elimina la rete virtuale e tutte le subnet contenute. Verificare che non sia più necessaria *alcuna* risorsa nella rete virtuale, ad esempio le subnet che contiene, prima di eseguire lo script. Dopo l'eliminazione, **tali risorse non sono recuperabili** .
+> Questo script elimina le risorse. Elimina la rete virtuale e tutte le subnet contenute. Verificare che non sia più necessaria *alcuna* risorsa nella rete virtuale, ad esempio le subnet che contiene, prima di eseguire lo script. Dopo l'eliminazione, **tali risorse non sono recuperabili**.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
@@ -238,3 +238,4 @@ Per distribuire una nuova rete virtuale, subnet, profilo di rete e gruppo di con
 [az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[container-regions]: container-instances-region-availability.md

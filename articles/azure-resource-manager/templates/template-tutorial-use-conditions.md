@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f044863be7d0bfaaad57d3974a1d2856b27927ea
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: bc6dc5b385a39ddb1c4f1663649ea21e5ed14767
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589135"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669313"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
@@ -34,6 +34,8 @@ Questa esercitazione illustra solo uno scenario di base relativo all'uso delle c
 * [Distribuire una risorsa in modo condizionale in un modello di Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Funzioni di modello: If](./template-functions-logical.md#if).
 * [Funzioni di confronto per i modelli di Azure Resource Manager](./template-functions-comparison.md)
+
+Per un modulo Microsoft Learn che illustra le condizioni, vedere [Gestire distribuzioni cloud complesse usando le funzionalità avanzate dei modelli di ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

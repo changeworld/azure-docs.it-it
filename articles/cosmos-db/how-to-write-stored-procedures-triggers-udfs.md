@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 7938920459654bd59620ad0992f3a13db85ff4fb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019012"
+ms.locfileid: "98028863"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -284,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>Come scrivere i trigger
 
-Azure Cosmos DB supporta pre-trigger e post-trigger. I pre-trigger vengono eseguiti prima di modificare un elemento di database e i post-trigger vengono eseguiti dopo la modifica di un elemento del database. I trigger non sono automatici. Devono essere specificati per ogni operazione del database in cui si desidera eseguirli.
+Azure Cosmos DB supporta pre-trigger e post-trigger. I pre-trigger vengono eseguiti prima di modificare un elemento nel database e i post-trigger vengono eseguiti dopo la modifica di un elemento nel database. I trigger non vengono eseguiti automaticamente, ma devono essere specificati per ogni operazione del database in cui si desidera eseguirli. Dopo aver definito un trigger, è necessario [registrarsi e chiamare un pre-trigger](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) usando gli SDK Azure Cosmos DB.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>Pre-trigger
 

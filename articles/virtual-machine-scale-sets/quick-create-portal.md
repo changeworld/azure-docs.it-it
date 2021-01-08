@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87077555"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913728"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 
@@ -35,7 +35,7 @@ Creare prima di tutto un servizio Load Balancer Standard pubblico usando il port
 1. Nella casella di ricerca digitare **bilanciamento del carico**. Nei risultati della ricerca di **Marketplace** selezionare **Load Balancer**.
 1. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti:
 
-    | Impostazione                 | valore   |
+    | Impostazione                 | Valore   |
     | ---| ---|
     | Subscription  | Selezionare la propria sottoscrizione.    |    
     | Resource group | Selezionare **Crea nuovo** e digitare *myVMSSResourceGroup* nella casella di testo.|
@@ -60,13 +60,12 @@ Creare prima di tutto un servizio Load Balancer Standard pubblico usando il port
 1. Nella scheda **Nozioni di base**, sotto **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e quindi scegliere **Crea nuovo** gruppo di risorse. Digitare *myVMSSResourceGroup* per il nome e quindi selezionare **OK**. 
 1. Digitare *myScaleSet* come nome del set di scalabilità.
 1. In **Area** selezionare un'area vicina a quella in cui si risiede.
-1. Lasciare invariato il valore predefinito **Macchine virtuali del set di scalabilità** per **Orchestrator**.
 1. Selezionare un'immagine del marketplace per **Immagine**. In questo esempio è stata scelta l'immagine *Ubuntu Server 18.04 LTS*.
 1. Immettere il nome utente desiderato e selezionare il tipo di autenticazione preferito.
    - Il valore del campo **Password** deve avere una lunghezza di almeno 12 caratteri e soddisfare tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Per altre informazioni, fare riferimento ai [requisiti relativi a nome utente e password](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - Se si seleziona un'immagine del disco del sistema operativo Linux, è invece possibile scegliere **Chiave pubblica SSH**. Specificare solo la chiave pubblica, ad esempio *~/.ssh/id_rsa.pub*. Per [creare e usare chiavi SSH](../virtual-machines/linux/mac-create-ssh-keys.md), è possibile usare Azure Cloud Shell nel portale.
    
-    ![Creare un set di scalabilità di macchine virtuali](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+    :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="Immagine che mostra le opzioni di creazione per i set di scalabilità nel portale di Azure.":::
 
 1. Selezionare **Avanti** per passare alle altre pagine. 
 1. Lasciare invariate le impostazioni predefinite per le pagine **Istanza** e **Dischi**.

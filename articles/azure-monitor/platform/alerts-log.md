@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696069"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028999"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -33,7 +33,7 @@ Questo articolo illustra come creare e gestire gli avvisi di log con monitoraggi
 
 Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
-1. Passare alla risorsa su cui si vuole inviare l'avviso.
+1. Passare alla risorsa su cui si vuole inviare l'avviso. Prendere in considerazione la configurazione di regole di avviso per più risorse selezionando una sottoscrizione o un ambito del gruppo di risorse laddove possibile. L'invio di avvisi su più risorse riduce i costi e la necessità di gestire più regole di avviso.
 1. In **monitoraggio** selezionare **log**.
 1. Eseguire una query sui dati del log che possono indicare il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/example-queries.md) per capire cosa è possibile individuare o [iniziare a scrivere una query personalizzata](../log-query/log-analytics-tutorial.md). È anche possibile trovare [informazioni su come creare query di avviso ottimizzate](alerts-log-query.md).
 1. Premere il pulsante "+ nuovo regola di avviso" per avviare il flusso di creazione dell'avviso.
@@ -79,7 +79,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Facoltativamente, è anche possibile impostare il [numero di violazioni per attivare un avviso](alerts-unified-log.md#number-of-violations-to-trigger-alert) utilizzando **violazioni totali o consecutive**.
 
-1. Selezionare **Fine**. 
+1. Selezionare **Operazione completata**. 
 
 1. Definire il **nome** e la **Descrizione** della regola di avviso e selezionare la **gravità** dell'avviso. Questi dettagli vengono usati in tutte le azioni di avviso. Inoltre, è possibile scegliere di non attivare la regola di avviso durante la creazione selezionando **Abilita regola al momento della creazione**.
 
@@ -155,7 +155,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
     1. Scegliere la [suddivisione degli avvisi in base alle dimensioni](alerts-unified-log.md#split-by-alert-dimensions), se necessario: 
        - La **colonna ID risorsa** viene selezionata automaticamente, se rilevata, e modifica il contesto dell'avviso attivato sulla risorsa del record. 
        - La **colonna ID risorsa** può essere deselezionata per generare avvisi per la sottoscrizione o i gruppi di risorse. La deselezione è utile quando i risultati della query sono basati su risorse incrociate. Ad esempio, una query che verifica se il 80% delle macchine virtuali del gruppo di risorse sta riscontrando un utilizzo elevato della CPU.
-       - È possibile selezionare anche fino a sei suddivisioni aggiuntive per qualsiasi tipo di colonna numerico o di testo utilizzando la tabella dimensioni.
+       - È inoltre possibile selezionare fino a sei altre suddivisioni per qualsiasi tipo di colonna numerico o di testo utilizzando la tabella dimensioni.
        - Gli avvisi vengono generati separatamente in base alla suddivisione in base a combinazioni univoche e il payload degli avvisi include queste informazioni.
     
         ![Selezione dei parametri di aggregazione e suddivisione](media/alerts-log/select-aggregation-parameters-and-splitting.png)

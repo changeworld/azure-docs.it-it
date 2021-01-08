@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207530"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724139"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Esercitazione: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
 
@@ -255,6 +255,14 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -262,7 +270,7 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -279,7 +287,7 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -369,7 +377,7 @@ La parte più importante di questa classe dal punto di vista di Rendering remoto
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Qui viene creato un nuovo oggetto **AzureFrontendAccountInfo** usando il dominio dell'account, l'ID account e il token di accesso. Questo token viene quindi usato dal servizio Rendering remoto di Azure per eseguire query, creare e partecipare alle sessioni di rendering remoto, purché l'utente sia autorizzato in base alle autorizzazioni basate sul ruolo configurate in precedenza.
+Qui viene creato un nuovo oggetto **AzureFrontendAccountInfo** usando il dominio dell'account, l'ID account, il dominio di autenticazione dell'account e il token di accesso. Questo token viene quindi usato dal servizio Rendering remoto di Azure per eseguire query, creare e partecipare alle sessioni di rendering remoto, purché l'utente sia autorizzato in base alle autorizzazioni basate sul ruolo configurate in precedenza.
 
 Con questa modifica, lo stato corrente dell'applicazione e il relativo accesso alle risorse di Azure sono come segue:
 
@@ -391,6 +399,7 @@ Nell'editor di Unity, se l'autenticazione di AAD è attiva, sarà necessario ese
     * L'**ID client dell'applicazione di Active Directory** è l'*ID applicazione (client)* trovato nella registrazione dell'app di AAD (vedere l'immagine seguente).
     * L'**ID tenant di Azure** è l'*ID directory (tenant)* trovato nella registrazione dell'app di AAD (vedere l'immagine seguente).
     * L'**ID account di Rendering remoto di Azure** è lo stesso **ID account** usato per **RemoteRenderingCoordinator**.
+    * Il **dominio di autenticazione dell'account** è lo stesso usato in **RemoteRenderingCoordinator**.
 
     ![Screenshot che evidenzia l'ID applicazione (client) e l'ID della directory (tenant).](./media/app-overview-data.png)
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 54ac683dcc2b124c4a6410b2e8449fa7e969ce8c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d41c186a5d239ad7228c37902f5691085e43dbf
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464908"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631245"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Mini R
 
@@ -40,7 +40,7 @@ Per distribuire Azure Stack Edge Mini R, fare riferimento alle esercitazioni seg
 |  | |
 |**Esercitazioni sulla distribuzione** |Queste esercitazioni sono necessarie per distribuire il dispositivo Azure Stack Edge Mini R nell'ambiente di produzione. |
 |**[1. Preparare il portale di Azure per il dispositivo](azure-stack-edge-mini-r-deploy-prep.md)** |Creare e configurare la risorsa Azure Stack Edge prima di installare il dispositivo fisico. |
-|**[2. Installare il dispositivo](azure-stack-edge-mini-r-deploy-install.md)**|Disimballare, installare in rack e cablare il dispositivo fisico.  |
+|**[2. Installare il dispositivo](azure-stack-edge-mini-r-deploy-install.md)**|Controllare e cablare il dispositivo fisico.  |
 |**[3. Connettersi al dispositivo](azure-stack-edge-mini-r-deploy-connect.md)** |Dopo aver installato il dispositivo, connettersi all'interfaccia utente Web locale del dispositivo.  |
 |**[4. Configurare le impostazioni di rete](azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)** |Configurare la rete, incluse la rete di calcolo e le impostazioni del proxy Web per il dispositivo.   |
 |**[5. Configurare le impostazioni del dispositivo](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |Assegnare un nome di dispositivo e un dominio DNS, configurare il server di aggiornamento e l'ora del dispositivo. |

@@ -6,18 +6,21 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956501"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653113"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Aggiungere un certificato TLS/SSL nel Servizio app di Azure
 
 [Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questo articolo illustra come creare, caricare o importare un certificato privato o un certificato pubblico nel servizio app. 
 
 Dopo aver aggiunto il certificato all'app del servizio app o all'[app per le funzioni](../azure-functions/index.yml), è possibile [proteggere un nome DNS personalizzato con tale certificato](configure-ssl-bindings.md) o [usarlo nel codice dell'applicazione](configure-ssl-certificate-in-code.md).
+
+> [!NOTE]
+> Un certificato caricato in un'app viene archiviato in un'unità di distribuzione associata alla combinazione di gruppo di risorse e area dell'app (internamente denominata *spazio Web*). In questo modo il certificato viene reso accessibile ad altre app nella stessa combinazione di gruppo di risorse e area. 
 
 La tabella seguente elenca le opzioni disponibili per aggiungere certificati nel servizio app:
 

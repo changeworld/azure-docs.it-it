@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 034f2b3884d732487a9f7aff4d14740691983885
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 269ecdf8998707ac375339edb4e11bb24380e27d
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536779"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027707"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -27,7 +27,7 @@ Un'area di lavoro Log Analytics offre:
 * Isolamento dei dati tramite la concessione di diritti di accesso a utenti diversi dopo una delle strategie di progettazione consigliate.
 * Ambito per la configurazione di impostazioni quali il piano [tariffario](./manage-cost-storage.md#changing-pricing-tier), la [conservazione](./manage-cost-storage.md#change-the-data-retention-period)e la [capsulatura dei dati](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
-Le aree di lavoro sono ospitate in un cluster fisico. Per impostazione predefinita, il sistema sta creando e gestendo questi cluster. I clienti che inseriscono più di 4 TB al giorno dovranno creare i propri cluster dedicati per le aree di lavoro, consentendo un controllo migliore e una velocità di inserimento superiore.
+Le aree di lavoro sono ospitate in cluster fisici. Per impostazione predefinita, il sistema sta creando e gestendo questi cluster. I clienti che inseriscono più di 4 TB al giorno dovranno creare i propri cluster dedicati per le aree di lavoro, consentendo un controllo migliore e una velocità di inserimento superiore.
 
 Questo articolo fornisce una panoramica dettagliata delle considerazioni relative alla progettazione e alla migrazione, alla panoramica del controllo di accesso e alla comprensione delle implementazioni di progettazione consigliate per l'organizzazione IT.
 
@@ -99,7 +99,7 @@ Monitoraggio di Azure determina automaticamente la modalità corretta a seconda 
 
 Nella tabella seguente sono riepilogate le modalità di accesso:
 
-| Problema | Area di lavoro-contesto | Contesto di risorsa |
+| Problema | Contesto area di lavoro | Contesto risorse |
 |:---|:---|:---|
 | Per chi è destinato ogni modello? | Amministrazione centrale. Amministratori che devono configurare la raccolta di dati e gli utenti che devono accedere a una vasta gamma di risorse. Attualmente necessaria anche per gli utenti che devono accedere ai log per le risorse esterne ad Azure. | Team di applicazioni. Amministratori delle risorse di Azure da monitorare. |
 | Cosa richiede un utente per visualizzare i log? | Autorizzazioni per l'area di lavoro. Vedere **autorizzazioni dell'area di lavoro** in [gestire l'accesso tramite le autorizzazioni dell'area di lavoro](manage-access.md#manage-access-using-workspace-permissions) | Accesso in lettura alla risorsa. Vedere **autorizzazioni** per le risorse in [gestire l'accesso tramite le autorizzazioni di Azure](manage-access.md#manage-access-using-azure-permissions). Le autorizzazioni possono essere ereditate, ad esempio dal gruppo di risorse contenitore, o assegnate direttamente alla risorsa. L'autorizzazione ai log per la risorsa verrà assegnata automaticamente. |

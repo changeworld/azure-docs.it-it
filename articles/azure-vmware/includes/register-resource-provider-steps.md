@@ -2,21 +2,35 @@
 title: Registrare il provider di risorse della soluzione Azure VMware
 description: Procedura per registrare il provider di risorse della soluzione Azure VMware.
 ms.topic: include
-ms.date: 09/21/2020
-ms.openlocfilehash: 96d15546c5102a69a0b19f92de33d35d2e9ab6c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/24/2020
+ms.openlocfilehash: 7d24ce86f24c941c7d48d3b73576dcdfda120f51
+ms.sourcegitcommit: 489ce69c0ff3f5188889ecfef5ffa76f7121e0d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575742"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97770826"
 ---
 <!-- Used in avs-deployment.md and tutorial-create-private-cloud.md -->
 
-Per usare la soluzione Azure VMware, è prima necessario registrare il provider di risorse con la sottoscrizione.
+Per usare la soluzione Azure VMware, è prima necessario registrare il provider di risorse con la sottoscrizione.  
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
 
 ```azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
->[!TIP]
->In alternativa è possibile usare l'interfaccia utente grafica per registrare il provider di risorse **Microsoft.AVS**.  Per altre informazioni, vedere l'articolo [Registrare il provider di risorse e i tipi di risorse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).  
+
+### <a name="azure-portal"></a>Portale di Azure
+ 
+1. Accedere al [portale di Azure](https://portal.azure.com).
+
+1. Selezionare **Tutti i servizi** nel menu del portale di Azure.
+
+1. Nella casella **Tutti i servizi** immettere **sottoscrizione** e quindi selezionare **Sottoscrizioni**.
+
+1. Selezionare la sottoscrizione dall'elenco per visualizzarla.
+
+1. Selezionare **Provider di risorse** e immettere **Microsoft.AVS** nella ricerca. 
+ 
+1. Se il provider di risorse non è registrato, selezionare **Registra**.

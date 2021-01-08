@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589101"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683491"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato
 
@@ -34,13 +34,15 @@ Questa esercitazione illustra le attività seguenti:
 > * Eseguire il debug dello script non riuscito
 > * Pulire le risorse
 
+Per un modulo Microsoft Learn che illustra gli script di distribuzione, vedere [Estendere i modelli di ARM usando gli script di distribuzione](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 * **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene usata per eseguire gli script di distribuzione. Per crearne una, vedere [Identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
+* **Identità gestita assegnata dall'utente**. Questa identità viene usata per eseguire azioni specifiche di Azure nello script. Per crearne una, vedere [Identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -253,7 +255,7 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
 
     La risorsa `deploymentScripts` dipende dalla risorsa dell'insieme di credenziali delle chiavi e dalla risorsa di assegnazione di ruolo. Ha queste proprietà:
 
-    * `identity`: lo script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script.
+    * `identity`: lo script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire le operazioni nello script.
     * `kind`: specificare il tipo di script. Attualmente sono supportati solo gli script di PowerShell.
     * `forceUpdateTag`: determinare se lo script di distribuzione deve essere eseguito anche se l'origine dello script non è stata modificata. Può essere il timestamp corrente o un GUID. Per altre informazioni, vedere [Eseguire lo script più di una volta](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion`: specifica la versione del modulo di Azure PowerShell da usare. Attualmente, lo script di distribuzione supporta la versione 2.7.0, 2.8.0 e 3.0.0.

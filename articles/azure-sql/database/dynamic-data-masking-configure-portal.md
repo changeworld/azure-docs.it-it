@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e551925bbd1426256a81ac2ca3f245af7697245b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791053"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028013"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introduzione alla funzione Maschera dati dinamica del database SQL nel portale di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92791053"
 Questo articolo illustra come implementare la funzione [Maschera dati dinamica](dynamic-data-masking-overview.md) con il portale di Azure. È anche possibile implementare tale funzione tramite [cmdlet del database SQL di Azure](/powershell/module/az.sql/) o l'[API REST](/rest/api/sql/).
 
 > [!NOTE]
-> Non è possibile impostare questa funzionalità usando il portale per le sinapsi di Azure (usare PowerShell o l'API REST) o SQL Istanza gestita. Per altre informazioni, vedere [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+> Non è possibile impostare questa funzionalità usando il portale per SQL Istanza gestita (usare PowerShell o l'API REST). Per altre informazioni, vedere [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configurare il mascheramento dei dati dinamici per il database tramite il portale di Azure
 
@@ -38,11 +38,11 @@ Questo articolo illustra come implementare la funzione [Maschera dati dinamica](
 
     ![Screenshot che mostra la pagina di configurazione Dynamic Data Masking.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
-5. Per aggiungere una maschera a una colonna del database, nella parte superiore della pagina di configurazione **Maschera dati dinamica** fare clic su **Aggiungi maschera** per aprire la pagina di configurazione **Aggiungi regola di maschera** .
+5. Per aggiungere una maschera a una colonna del database, nella parte superiore della pagina di configurazione **Maschera dati dinamica** fare clic su **Aggiungi maschera** per aprire la pagina di configurazione **Aggiungi regola di maschera**.
 
     ![Screenshot che mostra la pagina di configurazione Aggiungi regola di maschera.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. Selezionare lo **schema** , la **tabella** e la **colonna** per definire i campi designati a cui verrà applicata la maschera.
+6. Selezionare lo **schema**, la **tabella** e la **colonna** per definire i campi designati a cui verrà applicata la maschera.
 7. **Selezionare la modalità di maschera** dall'elenco di categorie di maschera dati sensibili.
 
     ![Screenshot che mostra le categorie di maschera dati sensibili nella sezione selezionare la modalità di maschera.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)

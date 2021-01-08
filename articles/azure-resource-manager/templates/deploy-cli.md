@@ -3,12 +3,12 @@ title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676188"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028149"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -18,19 +18,19 @@ I comandi di distribuzione modificati nell'interfaccia della riga di comando di 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare Cloud Shell. Per altre informazioni, vedere [distribuire modelli ARM da cloud Shell](deploy-cloud-shell.md).
+Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare Azure Cloud Shell. Per altre informazioni, vedere [distribuire modelli ARM da Azure cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Ambito della distribuzione
 
 La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
-* Per eseguire la distribuzione in un **gruppo di risorse** , usare [AZ Deployment Group create](/cli/azure/deployment/group#az-deployment-group-create):
+* Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Deployment Group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Per eseguire la distribuzione in una **sottoscrizione** , usare [AZ Deployment Sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
+* Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment Sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -38,7 +38,7 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 
   Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-* Per eseguire la distribuzione in un **gruppo di gestione** , usare [AZ Deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
+* Per eseguire la distribuzione in un **gruppo di gestione**, usare [AZ Deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -46,7 +46,7 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 
   Per altre informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [Creare risorse a livello di gruppo di gestione](deploy-to-management-group.md).
 
-* Per eseguire la distribuzione in un **tenant** , usare [AZ Deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+* Per eseguire la distribuzione in un **tenant**, usare [AZ Deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -169,7 +169,7 @@ Per passare i valori dei parametri, è possibile usare i parametri inline o un f
 
 ### <a name="inline-parameters"></a>Parametri inline
 
-Per passare i parametri inline, specificare i valori in `parameters`. Ad esempio, per passare una stringa e una matrice a un modello in una shell Bash, usare:
+Per passare i parametri inline, specificare i valori in `parameters`. Ad esempio, per passare una stringa e una matrice a un modello in una shell bash, usare:
 
 ```azurecli-interactive
 az deployment group create \
@@ -191,7 +191,7 @@ az deployment group create \
 
 Ottenere un valore di parametro da un file è utile quando è necessario fornire i valori di configurazione. Ad esempio, è possibile fornire i valori [cloud-init per una macchina virtuale Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-Il formato arrayContent.json è:
+Il _arrayContent.jsnel_ formato è:
 
 ```json
 [
@@ -228,7 +228,7 @@ Invece di passare i parametri come valori inline nello script, può risultare pi
 
 Per altre informazioni sul file dei parametri, vedere [Creare il file di parametri di Resource Manager](parameter-files.md).
 
-Per passare un file dei parametri locale, usare `@` per specificare un file locale denominato storage.parameters.json.
+Per passare un file di parametri locale, usare `@` per specificare un file locale denominato _storage.parameters.json_.
 
 ```azurecli-interactive
 az deployment group create \

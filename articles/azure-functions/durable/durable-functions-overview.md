@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763575"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931722"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
@@ -697,7 +697,7 @@ Per offrire garanzie di esecuzione affidabili e a esecuzione prolungata, le funz
 
 ## <a name="billing"></a>Fatturazione
 
-La fatturazione di Durable Functions è analoga a quella delle Funzioni di Azure. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/). Quando si eseguono le funzioni dell'agente di orchestrazione nel [piano a consumo](../functions-scale.md#consumption-plan) di Funzioni di Azure, è necessario tenere presenti alcuni aspetti della fatturazione. Per altre informazioni, vedere l'articolo sulla [fatturazione di Durable Functions](durable-functions-billing.md).
+La fatturazione di Durable Functions è analoga a quella delle Funzioni di Azure. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/). Quando si eseguono le funzioni dell'agente di orchestrazione nel [piano a consumo](../consumption-plan.md) di Funzioni di Azure, è necessario tenere presenti alcuni aspetti della fatturazione. Per altre informazioni, vedere l'articolo sulla [fatturazione di Durable Functions](durable-functions-billing.md).
 
 ## <a name="jump-right-in"></a>Per iniziare immediatamente
 

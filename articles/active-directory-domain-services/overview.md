@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/03/2020
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 99a207810f51949b0da0e78b1cb0e0a7f8bc95e3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 765aa10e57c472d7a1af0952364783bb1d711078
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027340"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861512"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Che cos'è Azure Active Directory Domain Services?
 
@@ -41,7 +41,7 @@ In un ambiente ibrido con un ambiente Active Directory Domain Services locale, [
 
 ![Sincronizzazione in Azure AD Domain Services con Azure AD e Active Directory Domain Services in locale usando AD Connect](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-Azure AD DS replica le informazioni relative alle identità da Azure AD e usa quindi tenant di Azure AD solo cloud o sincronizzati con un ambiente di Active Directory Domain Services locale. Lo stesso set di funzionalità di Azure Active Directory Domain Services è disponibile per entrambi gli ambienti.
+Azure AD DS replica le informazioni relative alle identità da Azure AD e usa quindi tenant di Azure AD solo cloud o sincronizzati con un ambiente di Azure Active Directory Domain Services locale. Lo stesso set di funzionalità di Azure Active Directory Domain Services è disponibile per entrambi gli ambienti.
 
 * Se è già presente un ambiente di Active Directory Domain Services locale, è possibile sincronizzare le informazioni degli account utente per fornire agli utenti un'identità coerente. Per altre informazioni, vedere [Sincronizzazione di oggetti e credenziali in un dominio gestito][synchronization].
 * Per gli ambienti solo cloud, non è necessario un ambiente di Active Directory Domain Services locale tradizionale per usare i servizi di gestione delle identità centralizzati di Azure Active Directory Domain Services.

@@ -4,12 +4,12 @@ description: Informazioni su come implementare un monitoraggio con stato usando 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77562123"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028421"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -72,6 +72,9 @@ Di seguito è riportato il codice che implementa la funzione:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+È disponibile un'esercitazione diversa per il modello di monitoraggio in Python. vedere [qui](durable-functions-monitor-python.md).
+
 ---
 
 Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
@@ -83,8 +86,7 @@ Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 5. Crea un timer durevole per riprendere l'orchestrazione all'intervallo di polling successivo. L'esempio usa un valore hardcoded per ragioni di brevità.
 6. Continua l'esecuzione fino all'ora UTC corrente che supera l'ora di scadenza del monitoraggio oppure viene inviato un avviso SMS.
 
-È possibile eseguire contemporaneamente più istanze dell'agente di orchestrazione chiamando la funzione dell'agente di orchestrazione più volte. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso.
-
+È possibile eseguire contemporaneamente più istanze dell'agente di orchestrazione chiamando la funzione dell'agente di orchestrazione più volte. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso. Si noti infine che la funzione dell'agente di orchestrazione *non* è in esecuzione in attesa del timer, quindi non viene addebitato alcun costo.
 ### <a name="e3_getisclear-activity-function"></a>Funzione E3_GetIsClear Activity
 
 In modo analogo agli altri esempi, le funzioni di attività helper sono normali funzioni che usano l'associazione di trigger `activityTrigger`. La funzione **E3_GetIsClear** ottiene le condizioni meteo correnti usando l'API Weather Underground e determina se il tempo è sereno.
@@ -102,6 +104,9 @@ Il codice *function.json* viene definito come segue:
 Di seguito ne viene riportata l'implementazione.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+È disponibile un'esercitazione diversa per il modello di monitoraggio in Python. vedere [qui](durable-functions-monitor-python.md).
 
 ---
 
@@ -125,6 +130,9 @@ Il codice *function.json* è semplice:
 Di seguito è disponibile il codice che invia l'SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+È disponibile un'esercitazione diversa per il modello di monitoraggio in Python. vedere [qui](durable-functions-monitor-python.md).
 
 ---
 
@@ -169,7 +177,7 @@ L'istanza **E3_Monitor** viene avviata ed esegue una query delle condizioni mete
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-L'orchestrazione [terminerà](durable-functions-instance-management.md) quando verrà raggiunto il timeout o verrà rilevato tempo sereno. È anche possibile usare `TerminateAsync` (.NET) o `terminate` (JavaScript) in un'altra funzione o richiamare il webhook HTTP POST **terminatePostUri** a cui si è fatto riferimento nella risposta 202 precedente, sostituendo `{text}` con il motivo della terminazione:
+L'orchestrazione viene completata una volta raggiunto il timeout o sono stati rilevati cieli chiari. È anche possibile usare l' `terminate` API all'interno di un'altra funzione o richiamare il webhook http post **terminatePostUri** a cui si fa riferimento nella risposta 202 precedente. Per usare il webhook, sostituire `{text}` con il motivo della terminazione anticipata. L'URL HTTP POST sarà approssimativamente simile al seguente:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

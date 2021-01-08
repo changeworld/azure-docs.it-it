@@ -1,18 +1,18 @@
 ---
 title: Distribuire modelli con Cloud Shell
-description: Usare Azure Resource Manager e Cloud Shell per distribuire le risorse in Azure. Le risorse vengono definite in un modello di Azure Resource Manager.
+description: Usare Azure Resource Manager e Azure Cloud Shell per distribuire le risorse in Azure. Le risorse sono definite in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: d0b519955cb877f5fb9640cc0cf95a898e1743ef
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c67251a33b6197603be27086bcc6cd047e0c414b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681507"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028608"
 ---
-# <a name="deploy-arm-templates-from-cloud-shell"></a>Distribuire modelli ARM da Cloud Shell
+# <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Distribuire modelli ARM da Azure Cloud Shell
 
-È possibile usare [cloud Shell](../../cloud-shell/overview.md) per distribuire un modello di Azure Resource Manager (modello ARM). È possibile distribuire un modello ARM archiviato in remoto oppure un modello ARM archiviato nell'account di archiviazione locale per Cloud Shell.
+È possibile usare [Azure cloud Shell](../../cloud-shell/overview.md) per distribuire un modello di Azure Resource Manager (modello ARM). È possibile distribuire un modello ARM archiviato in remoto oppure un modello ARM archiviato nell'account di archiviazione locale per Cloud Shell.
 
 È possibile eseguire la distribuzione in qualsiasi ambito. Questo articolo illustra la distribuzione in un gruppo di risorse.
 
@@ -22,7 +22,7 @@ Per distribuire un modello esterno, specificare l'URI del modello, proprio come 
 
 1. Aprire il prompt dei Cloud Shell.
 
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Apri Cloud Shell":::
 
 1. Per distribuire il modello, usare i comandi seguenti:
 
@@ -62,31 +62,31 @@ Per distribuire un modello locale, è prima necessario caricare il modello nell'
 
 1. Selezionare l'account di archiviazione per Cloud Shell.
 
-   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Selezionare l'account di archiviazione":::
 
-1. Selezionare **condivisioni file** .
+1. Selezionare **condivisioni file**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Seleziona condivisioni file":::
 
 1. Selezionare la condivisione file predefinita per Cloud Shell. Il formato del nome della condivisione file è `cs-<user>-<domain>-com-<uniqueGuid>` .
 
-   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Condivisione file predefinita":::
 
 1. Aggiungere una nuova directory che contenga i modelli. Selezionare la directory.
 
-   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Aggiungere un'istanza di Active Directory":::
 
-1. Selezionare **Carica** .
+1. Selezionare **Carica**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Carica modello":::
 
 1. Trovare e caricare il modello.
 
-   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Selezionare il modello":::
 
 1. Aprire il prompt dei Cloud Shell.
 
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Aprire Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Apri Cloud Shell":::
 
 1. Passare alla directory **CloudDrive** Passare alla directory aggiunta per contenere i modelli.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580254"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740658"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in Hyper-V
 
@@ -92,10 +92,11 @@ Per creare un dispositivo virtuale, è necessario quanto segue:
 Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor.
 
 1. Nell'host di Windows Server copiare l'immagine del dispositivo virtuale in un'unità locale. Si tratta dell'immagine VHDX scaricata tramite il portale di Azure. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
+
 2. Aprire **Gestione server**. Nell'angolo in alto a destra fare clic su **Strumenti** e selezionare **Console di gestione di Hyper-V**.
 
-    ![Selezionare Console di gestione di Hyper-V in Server Manager](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
-  
+    ![Selezionare Console di gestione di Hyper-V in Server Manager](./media/data-box-gateway-deploy-provision-hyperv/image1.png)
+
 3. Nella **Console di gestione di Hyper-V**, nel riquadro dell'ambito, fare clic con il pulsante destro del mouse sul nodo del sistema per aprire il menu di scelta rapida e quindi fare clic su **Nuovo** > **Macchina virtuale**.
 
    ![Creare una nuova macchina virtuale nella console di gestione di Hyper-V](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
@@ -152,6 +153,11 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 21. Viene nuovamente visualizzata la pagina **Impostazioni**. Fare clic su **OK** per chiudere la pagina **Impostazioni** e tornare alla finestra Console di gestione di Hyper-V.
 
     ![Pagina Impostazioni](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+
+La macchina virtuale è ora completamente configurata.
+
+> [!NOTE]
+> Non è possibile effettuare il provisioning di un nuovo Data Box Gateway copiando il disco rigido virtuale configurato. È necessario effettuare il provisioning di ogni nuovo dispositivo virtuale Data Box Gateway da un'immagine del dispositivo virtuale per Hyper-V scaricata dal portale di Azure.
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Avviare il dispositivo virtuale e ottenere l'IP
 

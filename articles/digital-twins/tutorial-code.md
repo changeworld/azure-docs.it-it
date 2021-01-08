@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 96533c1742e8ad5fde9796ea2073f6e402ac8dcf
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 22600f6519a44e71ae5c4b59b0165401b54e55fd
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862382"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964542"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Esercitazione: Scrivere codice con le API di Gemelli digitali di Azure
 
@@ -60,9 +60,6 @@ Tenere aperta la finestra di comando perché si continuerà a usarla nell'intera
 Successivamente, **aggiungere due dipendenze al progetto** che saranno necessarie per l'uso con Gemelli digitali di Azure. Usare i collegamenti seguenti per passare ai pacchetti in NuGet, dove è possibile trovare i comandi della console (inclusa l'interfaccia della riga di comando di .NET) per aggiungere ogni pacchetto al progetto.
 * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Questo è il pacchetto per l'[SDK Gemelli digitali di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Aggiungere l'ultima versione.
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Questa libreria fornisce strumenti che consentono di eseguire l'autenticazione in Azure. Aggiungere la versione 1.2.2.
-
->[!NOTE]
-> Attualmente esiste un [problema noto](troubleshoot-known-issues.md#issue-with-default-azure-credential-authentication-on-azureidentity-130) che influisce sulla possibilità di usare Azure.Identity versione 1.3.0 con questa esercitazione. Usare la versione 1.2.2 se il problema persiste.
 
 ## <a name="get-started-with-project-code"></a>Iniziare a scrivere il codice del progetto
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d3d5fd34ee6c1d73429af63693094acdaed6c9d2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7d1e4018382d26e4df289838ffbb03f1c87505e6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784610"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935020"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Avvio rapido: Libreria client delle chiavi di Azure Key Vault per Python
 
@@ -86,7 +86,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS o Linux
@@ -134,7 +134,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-Assicurarsi che il codice della sezione precedente sia incluso in un file denominato *kv_keys.py* . Eseguire quindi il codice con il comando seguente:
+Assicurarsi che il codice della sezione precedente sia incluso in un file denominato *kv_keys.py*. Eseguire quindi il codice con il comando seguente:
 
 ```terminal
 python kv_keys.py
@@ -211,5 +211,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Panoramica dell'insieme di credenziali chiave di Azure](../general/overview.md)
 - [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/secure-your-key-vault.md)
 - [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- [Procedure consigliate per Azure Key Vault](../general/best-practices.md)
+- [Panoramica della sicurezza di Key Vault](../general/security-overview.md)
 - [Eseguire l'autenticazione con Key Vault](../general/authentication.md)

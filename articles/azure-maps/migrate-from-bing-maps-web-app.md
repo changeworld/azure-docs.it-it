@@ -9,29 +9,46 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 6037deb484ca966ab3a54cc60b0d53ac8299d500
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: ef2c69409ce3f479338ffc9d418b3469f197ad30
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590002"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679393"
 ---
-# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Esercitazione - Eseguire la migrazione di un'app Web da Bing Maps
+# <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Esercitazione: Eseguire la migrazione di un'app Web da Bing Maps
 
-Le app Web che usano Bing Maps spesso usano Bing Maps V8 JavaScript SDK. Azure Maps Web SDK è l'SDK basato su Azure idoneo per la migrazione. Web SDK di Mappe di Azure consente di personalizzare le mappe interattive con contenuto e immagini personali per la visualizzazione in applicazioni Web o per dispositivi mobili. Questo controllo usa WebGL, consentendo di eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con questo SDK usando JavaScript o TypeScript.
+Le app Web che usano Bing Maps spesso usano Bing Maps V8 JavaScript SDK. Azure Maps Web SDK è l'SDK basato su Azure idoneo per la migrazione. Web SDK di Mappe di Azure consente di personalizzare le mappe interattive con contenuto e immagini personali per la visualizzazione in applicazioni Web o per dispositivi mobili. Questo controllo usa WebGL, consentendo di eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con questo SDK usando JavaScript o TypeScript. In questa esercitazione verranno illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Caricare una mappa
+> * Localizzare una mappa
+> * Aggiungere puntine, polilinee e poligoni.
+> * Visualizzare informazioni in un popup o in una casella informativa
+> * Caricare e visualizzare dati KML e GeoJSON
+> * Puntine cluster
+> * Sovrapporre un livello tessera
+> * Visualizzare i dati sul traffico
+> * Aggiungere un overlay sul terreno
 
 Se si esegue la migrazione di un'applicazione Web esistente, verificare se usa una libreria di controllo mappa open source, ad esempio Cesium, Leaflet e OpenLayers. In caso affermativo e se si preferisce continuare a usare la libreria, è possibile connetterla ai servizi tessera di Mappe di Azure ([tessere stradali](/rest/api/maps/render/getmaptile) \| [tessere satellitari](/rest/api/maps/render/getmapimagerytile)). I collegamenti seguenti puntano a informazioni dettagliate su come usare Mappe di Azure in alcune librerie di controlli mappa open source di uso comune.
 
--   Cesium: controllo mappa 3D per il Web. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentazione](https://cesiumjs.org/)
--   Leaflet: controllo mappa 2D leggero per il Web. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentazione](https://leafletjs.com/)
--   OpenLayers: controllo mappa 2D per il Web che supporta le proiezioni. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentazione](https://openlayers.org/)
+* Cesium: controllo mappa 3D per il Web. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentazione](https://cesiumjs.org/)
+* Leaflet: controllo mappa 2D leggero per il Web. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentazione](https://leafletjs.com/)
+* OpenLayers: controllo mappa 2D per il Web che supporta le proiezioni. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentazione](https://openlayers.org/)
 
 Se si sviluppa con un framework JavaScript, può risultare utile uno dei progetti open source seguenti:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps): wrapper di Angular 10 intorno alle mappe di Azure.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components): componente Blazor di Mappe di Azure.
-- [Componente React di Mappe di Azure](https://github.com/WiredSolutions/react-azure-maps): wrapper React per il controllo di Mappe di Azure.
-- [Mappe di Azure per Vue](https://github.com/rickyruiz/vue-azure-maps): componente di Mappe di Azure per l'applicazione Vue.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps): wrapper di Angular 10 intorno alle mappe di Azure.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components): componente Blazor di Mappe di Azure.
+* [Componente React di Mappe di Azure](https://github.com/WiredSolutions/react-azure-maps): wrapper React per il controllo di Mappe di Azure.
+* [Mappe di Azure per Vue](https://github.com/rickyruiz/vue-azure-maps): componente di Mappe di Azure per l'applicazione Vue.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+2. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="key-features-support"></a>Supporto delle funzionalità principali
 
@@ -68,24 +85,24 @@ Mappe di Azure include anche molti [moduli open source per l'SDK Web](open-sourc
 
 Di seguito sono riportate alcune delle principali differenze tra Bing Maps SDK e Azure Maps Web SDK da tenere presenti:
 
--   Oltre a fornire un endpoint ospitato per l'accesso ad Azure Maps Web SDK, è disponibile anche un pacchetto NPM per incorporare Web SDK nelle app, se si preferisce. Per altre informazioni, vedere questa [documentazione](./how-to-use-map-control.md). Questo pacchetto include anche le definizioni TypeScript.
--   Bing Maps include due rami ospitati dell'SDK, Release e Experimental. Il ramo Experimental può ricevere più aggiornamenti al giorno quando viene implementato un nuovo sviluppo. Mappe di Azure ospita solo un ramo Release, mentre le funzionalità sperimentali vengono create come moduli personalizzati nel progetto di esempi di codice di Mappe di Azure open source. Bing Maps aveva anche un ramo bloccato che veniva aggiornato con una minore frequenza, riducendo in tal modo il rischio di modifiche di rilievo dovute a una versione. In Mappe di Azure è possibile usare il modulo NPM e puntare a qualsiasi versione secondaria precedente.
+* Oltre a fornire un endpoint ospitato per l'accesso ad Azure Maps Web SDK, è disponibile anche un pacchetto NPM per incorporare Web SDK nelle app, se si preferisce. Per altre informazioni, vedere questa [documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control). Questo pacchetto include anche le definizioni TypeScript.
+* Bing Maps include due rami ospitati dell'SDK, Release e Experimental. Il ramo Experimental può ricevere più aggiornamenti al giorno quando viene implementato un nuovo sviluppo. Mappe di Azure ospita solo un ramo Release, mentre le funzionalità sperimentali vengono create come moduli personalizzati nel progetto di esempi di codice di Mappe di Azure open source. Bing Maps aveva anche un ramo bloccato che veniva aggiornato con una minore frequenza, riducendo in tal modo il rischio di modifiche di rilievo dovute a una versione. In Mappe di Azure è possibile usare il modulo NPM e puntare a qualsiasi versione secondaria precedente.
 
 > [!TIP]
 > Mappe di Azure pubblica sia le versioni minimizzate che non minimizzate dell'SDK. È sufficiente rimuovere `.min` dai nomi file. La versione non minimizzata è utile per il debug di problemi, ma assicurarsi di usare quella minimizzata in produzione per sfruttare le dimensioni ridotte dei file.
 
--   Dopo aver creato un'istanza della classe Map in Mappe di Azure, il codice deve attendere l'attivazione dell'evento `ready` o `load` delle mappe prima di interagire con la mappa. Questi eventi assicurano che tutte le risorse delle mappe siano state caricate e siano pronte per l'accesso.
--   Entrambe le piattaforme usano un sistema a tessere simile per le mappe di base, tuttavia le dimensioni delle tessere in Bing Maps sono di 256 pixel mentre quelle di Mappe di Azure sono di 512 pixel. Di conseguenza, per ottenere la stessa visualizzazione mappa di Bing Maps, in Mappe di Azure è necessario sottrarre 1 dal livello di zoom usato in Bing Maps.
--   Le coordinate in Bing Maps sono identificate da `latitude, longitude`, mentre Mappe di Azure usa `longitude, latitude`. Questo formato è in linea con lo standard `[x, y]` seguito dalla maggior parte delle piattaforme GIS.
+* Dopo aver creato un'istanza della classe Map in Mappe di Azure, il codice deve attendere l'attivazione dell'evento `ready` o `load` delle mappe prima di interagire con la mappa. Questi eventi assicurano che tutte le risorse delle mappe siano state caricate e siano pronte per l'accesso.
+* Entrambe le piattaforme usano un sistema a tessere simile per le mappe di base, tuttavia le dimensioni delle tessere in Bing Maps sono di 256 pixel mentre quelle di Mappe di Azure sono di 512 pixel. Di conseguenza, per ottenere la stessa visualizzazione mappa di Bing Maps, in Mappe di Azure è necessario sottrarre 1 dal livello di zoom usato in Bing Maps.
+* Le coordinate in Bing Maps sono identificate da `latitude, longitude`, mentre Mappe di Azure usa `longitude, latitude`. Questo formato è in linea con lo standard `[x, y]` seguito dalla maggior parte delle piattaforme GIS.
 
--   Le forme in Azure Maps Web SDK sono basate sullo schema GeoJSON. Le classi helper vengono esposte tramite lo spazio dei nomi [atlas.data](/javascript/api/azure-maps-control/atlas.data). È disponibile anche la classe [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) che può essere usata per eseguire il wrapping di oggetti GeoJSON e semplificarne l'aggiornamento e la gestione grazie al binding dei dati.
--   Le coordinate in Mappe di Azure sono definite come oggetti Position che possono essere specificati come una semplice matrice di numeri nel formato `[longitude, latitude]` o `new atlas.data.Position(longitude, latitude)`.
+* Le forme in Azure Maps Web SDK sono basate sullo schema GeoJSON. Le classi helper vengono esposte tramite lo spazio dei nomi [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). È disponibile anche la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) che può essere usata per eseguire il wrapping di oggetti GeoJSON e semplificarne l'aggiornamento e la gestione grazie al binding dei dati.
+* Le coordinate in Mappe di Azure sono definite come oggetti Position che possono essere specificati come una semplice matrice di numeri nel formato `[longitude, latitude]` o `new atlas.data.Position(longitude, latitude)`.
 
 > [!TIP]
 > La classe Position include una funzione helper statica per l'importazione di coordinate in formato `latitude, longitude`. La funzione [atlas.data.Position.fromLatLng](/javascript/api/azure-maps-control/atlas.data.position) può spesso sostituire la funzione `new Microsoft.Maps.Location` nel codice di Bing Maps.
 
--   Anziché specificare le informazioni di stile per ogni forma aggiunta alla mappa, Mappe di Azure separa gli stili dai dati. I dati vengono archiviati in origini dati e vengono connessi a livelli di rendering usati da Mappe di Azure per il rendering dei dati. Questo approccio offre un vantaggio significativo in termini di prestazioni. Molti livelli supportano inoltre lo stile basato sui dati in cui è possibile aggiungere la logica di business alle opzioni di stile del livello che modificano il rendering delle singole forme all'interno di un livello in base alle proprietà definite nella forma.
--   Mappe di Azure include diverse funzioni matematiche spaziali utili nello spazio dei nomi `atlas.math`, che però sono diverse da quelle usate nel modulo di matematica spaziale di Bing Maps. La differenza principale è che Mappe di Azure non prevede funzioni predefinite per operazioni binarie come l'unione e l'intersezione, ma poiché si basa su GeoJSON, che è uno standard aperto, sono disponibili molte librerie open source. Una delle opzioni più diffuse che funziona bene con Mappe di Azure e offre una grande quantità di funzionalità matematiche spaziali è [turf js](http://turfjs.org/).
+* Anziché specificare le informazioni di stile per ogni forma aggiunta alla mappa, Mappe di Azure separa gli stili dai dati. I dati vengono archiviati in origini dati e vengono connessi a livelli di rendering usati da Mappe di Azure per il rendering dei dati. Questo approccio offre un vantaggio significativo in termini di prestazioni. Molti livelli supportano inoltre lo stile basato sui dati in cui è possibile aggiungere la logica di business alle opzioni di stile del livello che modificano il rendering delle singole forme all'interno di un livello in base alle proprietà definite nella forma.
+* Mappe di Azure include diverse funzioni matematiche spaziali utili nello spazio dei nomi `atlas.math`, che però sono diverse da quelle usate nel modulo di matematica spaziale di Bing Maps. La differenza principale è che Mappe di Azure non prevede funzioni predefinite per operazioni binarie come l'unione e l'intersezione, ma poiché si basa su GeoJSON, che è uno standard aperto, sono disponibili molte librerie open source. Una delle opzioni più diffuse che funziona bene con Mappe di Azure e offre una grande quantità di funzionalità matematiche spaziali è [turf js](http://turfjs.org/).
 
 Per un elenco dettagliato di termini associati a Mappe di Azure, vedere anche il [Glossario di Mappe di Azure](./glossary.md).
 
@@ -95,41 +112,40 @@ Di seguito è riportata una raccolta di esempi di codice per ogni piattaforma ch
 
 **Argomenti**
 
-- [Caricare una mappa](#load-a-map)
-- [Localizzare la mappa](#localizing-the-map)
-- [Impostare la visualizzazione mappa](#setting-the-map-view)
-- [Aggiungere una puntina](#adding-a-pushpin)
-- [Aggiungere una puntina personalizzata](#adding-a-custom-pushpin)
-- [Aggiungere una polilinea](#adding-a-polyline)
-- [Aggiungere un poligono](#adding-a-polygon)
-- [Visualizzare una casella informativa](#display-an-infobox)
-- [Raggruppamento di puntine](#pushpin-clustering)
-- [Aggiungere una mappa termica](#add-a-heat-map)
-- [Sovrapporre un livello tessera](#overlay-a-tile-layer)
-- [Visualizzare i dati sul traffico](#show-traffic-data)
-- [Aggiungere un overlay sul terreno](#add-a-ground-overlay)
-- [Aggiungere dati KML alla mappa](#add-kml-data-to-the-map)
-- [Aggiungere strumenti di disegno](#add-drawing-tools)
-
+* [Caricare una mappa](#load-a-map)
+* [Localizzare la mappa](#localizing-the-map)
+* [Impostare la visualizzazione mappa](#setting-the-map-view)
+* [Aggiungere una puntina](#adding-a-pushpin)
+* [Aggiungere una puntina personalizzata](#adding-a-custom-pushpin)
+* [Aggiungere una polilinea](#adding-a-polyline)
+* [Aggiungere un poligono](#adding-a-polygon)
+* [Visualizzare una casella informativa](#display-an-infobox)
+* [Raggruppamento di puntine](#pushpin-clustering)
+* [Aggiungere una mappa termica](#add-a-heat-map)
+* [Sovrapporre un livello tessera](#overlay-a-tile-layer)
+* [Visualizzare i dati sul traffico](#show-traffic-data)
+* [Aggiungere un overlay sul terreno](#add-a-ground-overlay)
+* [Aggiungere dati KML alla mappa](#add-kml-data-to-the-map)
+* [Aggiungere strumenti di disegno](#add-drawing-tools)
 
 ### <a name="load-a-map"></a>Caricare una mappa
 
 Il caricamento di una mappa in entrambi gli SDK implica la stessa serie di passaggi:
 
--   Aggiungere un riferimento a Map SDK.
--   Aggiungere un tag `div` al corpo della pagina che fungerà da segnaposto per la mappa.
--   Creare una funzione JavaScript che viene chiamata quando la pagina è stata caricata.
--   Creare un'istanza della rispettiva classe Map.
+* Aggiungere un riferimento a Map SDK.
+* Aggiungere un tag `div` al corpo della pagina che fungerà da segnaposto per la mappa.
+* Creare una funzione JavaScript che viene chiamata quando la pagina è stata caricata.
+* Creare un'istanza della rispettiva classe Map.
 
 **Alcune differenze principali**
 
--   Bing Maps richiede che venga specificata una chiave di account nel riferimento allo script dell'API o come opzione di mappa. Le credenziali di autenticazione per Mappe di Azure vengono specificate come opzioni della classe Map. Può trattarsi di una chiave di sottoscrizione o delle informazioni di Azure Active Directory.
--   Bing Maps accetta una funzione di callback nel riferimento allo script dell'API, che viene usata per chiamare una funzione di inizializzazione per caricare la mappa. Con Mappe di Azure è necessario usare l'evento OnLoad della pagina.
--   Quando si usa un ID per fare riferimento all'elemento `div` in cui verrà eseguito il rendering della mappa, Bing Maps usa un selettore HTML, ovvero `#myMap`, mentre Mappe di Azure usa solo il valore ID, ovvero `myMap`.
--   Le coordinate in Mappe di Azure sono definite come oggetti Position che possono essere specificati come una semplice matrice di numeri nel formato `[longitude, latitude]`.
--   Il livello di zoom in Mappe di Azure è inferiore di un livello rispetto all'esempio di Bing Maps, a causa della differenza tra le dimensioni del sistema di tessere tra le piattaforme.
--   Per impostazione predefinita, Mappe di Azure non aggiunge alcun controllo di spostamento all'area della mappa, ad esempio pulsanti di zoom e pulsanti di stile della mappa. Esistono tuttavia controlli per l'aggiunta della selezione dello stile della mappa, pulsanti di zoom, bussola o controllo rotazione e un controllo dell'inclinazione.
--   In Mappe di Azure viene aggiunto un gestore eventi per monitorare l'evento `ready` dell'istanza della mappa. Verrà attivato quando la mappa ha completato il caricamento del contesto WebGL e di tutte le risorse necessarie. Il codice post-caricamento può essere aggiunto in questo gestore eventi.
+* Bing Maps richiede che venga specificata una chiave di account nel riferimento allo script dell'API o come opzione di mappa. Le credenziali di autenticazione per Mappe di Azure vengono specificate come opzioni della classe Map. Può trattarsi di una chiave di sottoscrizione o delle informazioni di Azure Active Directory.
+* Bing Maps accetta una funzione di callback nel riferimento allo script dell'API, che viene usata per chiamare una funzione di inizializzazione per caricare la mappa. Con Mappe di Azure è necessario usare l'evento OnLoad della pagina.
+* Quando si usa un ID per fare riferimento all'elemento `div` in cui verrà eseguito il rendering della mappa, Bing Maps usa un selettore HTML, ovvero `#myMap`, mentre Mappe di Azure usa solo il valore ID, ovvero `myMap`.
+* Le coordinate in Mappe di Azure sono definite come oggetti Position che possono essere specificati come una semplice matrice di numeri nel formato `[longitude, latitude]`.
+* Il livello di zoom in Mappe di Azure è inferiore di un livello rispetto all'esempio di Bing Maps, a causa della differenza tra le dimensioni del sistema di tessere tra le piattaforme.
+* Per impostazione predefinita, Mappe di Azure non aggiunge alcun controllo di spostamento all'area della mappa, ad esempio pulsanti di zoom e pulsanti di stile della mappa. Esistono tuttavia controlli per l'aggiunta della selezione dello stile della mappa, pulsanti di zoom, bussola o controllo rotazione e un controllo dell'inclinazione.
+* In Mappe di Azure viene aggiunto un gestore eventi per monitorare l'evento `ready` dell'istanza della mappa. Verrà attivato quando la mappa ha completato il caricamento del contesto WebGL e di tutte le risorse necessarie. Il codice post-caricamento può essere aggiunto in questo gestore eventi.
 
 Gli esempi seguenti illustrano come caricare una mappa di base in modo che sia centrata su New York alle coordinate (longitudine:-73.985, latitudine: 40.747) con un livello di zoom 12 in Bing Maps.
 
@@ -152,7 +168,7 @@ Il codice seguente è un esempio di come visualizzare una mappa di Bing Maps cen
         function initMap() {
             map = new Microsoft.Maps.Map('#myMap', {
                 credentials: '<Your Bing Maps Key>',
-          center: new Microsoft.Maps.Location(40.747, -73.985),
+                center: new Microsoft.Maps.Location(40.747, -73.985),
                 zoom: 12
             });
         }
@@ -169,9 +185,7 @@ Il codice seguente è un esempio di come visualizzare una mappa di Bing Maps cen
 
 Se si esegue questo codice in un browser verrà visualizzata una mappa simile all'immagine seguente:
 
-<center>
-
-![Mappa di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-load-map.jpg)</center>
+![Mappa di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-load-map.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -209,10 +223,10 @@ Il codice seguente illustra come caricare una mappa con la stessa visualizzazion
             map.events.add('ready', function () {
                 //Add zoom and map style controls to top right of map.
                 map.controls.add([
-                    new atlas.control.StyleControl(),
-                    new atlas.control.ZoomControl()
-                ], {
-                    position: 'top-right'
+                        new atlas.control.StyleControl(),
+                        new atlas.control.ZoomControl()
+                    ], {
+                        position: 'top-right'
                 });
             });
         }
@@ -226,18 +240,16 @@ Il codice seguente illustra come caricare una mappa con la stessa visualizzazion
 
 Se si esegue questo codice in un browser verrà visualizzata una mappa simile all'immagine seguente:
 
-<center>
+![Mappa di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-load-map.jpg)
 
-![Mappa di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-load-map.jpg)</center>
-
-La documentazione dettagliata su come configurare e usare il controllo mappa di Mappe di Azure in un'app Web, è disponibile [qui](./how-to-use-map-control.md).
+La documentazione dettagliata su come configurare e usare il controllo mappa di Mappe di Azure in un'app Web, è disponibile [qui](how-to-use-map-control.md).
 
 > [!TIP]
 > Mappe di Azure pubblica sia le versioni minimizzate che non minimizzate dell'SDK. Rimuovere `.min` dai nomi file. La versione non minimizzata è utile per il debug di problemi, ma assicurarsi di usare quella minimizzata in produzione per sfruttare le dimensioni ridotte dei file.
 
 **Risorse aggiuntive**
 
--   Mappe di Azure fornisce anche i controlli di spostamento per la rotazione e l'inclinazione della visualizzazione mappa come illustrato [qui](./map-add-controls.md).
+* Mappe di Azure fornisce anche i controlli di spostamento per la rotazione e l'inclinazione della visualizzazione mappa come illustrato [qui](map-add-controls.md).
 
 ### <a name="localizing-the-map"></a>Localizzare la mappa
 
@@ -253,13 +265,11 @@ Per localizzare Bing Maps, la lingua e l'area geografica vengono specificate con
 
 Ecco un esempio di Bing Maps con la lingua impostata su "fr-FR".
 
-<center>
-
-![Mappa di Bing Maps localizzata](media/migrate-bing-maps-web-app/bing-maps-localized-map.jpg)</center>
+![Mappa di Bing Maps localizzata](media/migrate-bing-maps-web-app/bing-maps-localized-map.jpg)
 
 **Dopo: Mappe di Azure**
 
-Mappe di Azure offre solo le opzioni per impostare la lingua e la visualizzazione locale della mappa. Non viene usato un parametro relativo al mercato per limitare le funzionalità. È possibile impostare la lingua e la visualizzane locale della mappa in due modi diversi. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei nomi `atlas` globale, per cui tutte le istanze dei controlli mappa dell'app usano queste impostazioni per impostazione predefinita. Il codice seguente imposta la lingua su francese ("fr-FR") e la visualizzazione locale su `"auto"`:
+Mappe di Azure offre solo le opzioni per impostare la lingua e la visualizzazione locale della mappa. Non viene usato un parametro relativo al mercato per limitare le funzionalità. È possibile impostare la lingua e la visualizzane locale della mappa in due modi diversi. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei nomi `atlas` globale, per cui tutte le istanze dei controlli mappa dell'app usano queste impostazioni per impostazione predefinita. Il codice seguente imposta la lingua su francese ("fr-FR") e la visualizzazione locale su `"Auto"`:
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -285,9 +295,7 @@ map = new atlas.Map('myMap', {
 
 Di seguito è riportato un esempio di Mappe di Azure con la lingua impostata su "fr" e l'area utente impostata su "fr-FR".
 
-<center>
-
-![Mappa di Mappe di Azure localizzata](media/migrate-bing-maps-web-app/bing-maps-localized-map.jpg)</center>
+![Mappa di Mappe di Azure localizzata](media/migrate-bing-maps-web-app/bing-maps-localized-map.jpg)
 
 ### <a name="setting-the-map-view"></a>Impostare la visualizzazione mappa
 
@@ -308,9 +316,7 @@ map.setView({
 });
 ```
 
-<center>
-
-![Impostazione della visualizzazione mappa in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-set-map-view.jpg)</center>
+![Impostazione della visualizzazione mappa in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-set-map-view.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -327,9 +333,7 @@ map.setStyle({
 });
 ```
 
-<center>
-
-![Impostazione della visualizzazione mappa in Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-set-map-view.jpg)</center>
+![Impostazione della visualizzazione mappa in Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-set-map-view.jpg)
 
 **Risorse aggiuntive**
 
@@ -340,9 +344,9 @@ map.setStyle({
 
 In Mappe di Azure è possibile eseguire il rendering dei dati dei punti sulla mappa in diversi modi:
 
--   Indicatori HTML: il rendering dei punti viene eseguito usando elementi DOM tradizionali. Gli indicatori HTML supportano il trascinamento.
--   Livello simbolo: il rendering dei punti viene eseguito con un'icona e/o un testo all'interno del contesto WebGL.
--   Livello bolla: il rendering dei punti viene eseguito come cerchi sulla mappa. I raggi dei cerchi possono essere ridimensionati in base alle proprietà nei dati.
+* Indicatori HTML: il rendering dei punti viene eseguito usando elementi DOM tradizionali. Gli indicatori HTML supportano il trascinamento.
+* Livello simbolo: il rendering dei punti viene eseguito con un'icona e/o un testo all'interno del contesto WebGL.
+* Livello bolla: il rendering dei punti viene eseguito come cerchi sulla mappa. I raggi dei cerchi possono essere ridimensionati in base alle proprietà nei dati.
 
 Il rendering dei livelli simbolo e bolla viene eseguito nel contesto WebGL. Questi livelli possono eseguire il rendering di set di punti molto grandi sulla mappa e richiedono che i dati siano archiviati in un'origine dati. È necessario aggiungere le origini dati e i livelli di rendering alla mappa dopo che è stato attivato l'evento `ready`. Il rendering dei marcatori HTML viene eseguito come elementi DOM all'interno della pagina, senza l'uso di un'origine dati. Maggiore è il numero di elementi DOM della pagina, più lenta sarà la pagina. Se si esegue il rendering di più di qualche centinaio di punti su una mappa, è consigliabile usare uno dei livelli di rendering.
 
@@ -374,9 +378,7 @@ var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(51.5, -0.2)
 map.entities.add(pushpin);
 ```
 
-<center>
-
-![Aggiunta di puntine in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-add-pushpin.jpg)</center>
+![Aggiunta di puntine in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-add-pushpin.jpg)
 
 **Dopo: Mappe di Azure con indicatori HTML**
 
@@ -390,9 +392,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-<center>
-
-![Marcatore aggiunto a Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-add-pushpin.jpg)</center>
+![Marcatore aggiunto a Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-add-pushpin.jpg)
 
 **Dopo: Mappe di Azure con un livello simbolo**
 
@@ -456,9 +456,7 @@ Quando si usa un livello simbolo, è necessario aggiungere i dati a un'origine d
 </html>
 ```
 
-<center>
-
-![Livello simboli aggiunto a Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-add-pushpin.jpg)</center>
+![Livello simboli aggiunto a Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-add-pushpin.jpg)
 
 **Risorse aggiuntive**
 
@@ -481,7 +479,6 @@ Quando si usa un livello simbolo, è necessario aggiungere i dati a un'origine d
 |:-----------------------------------------------------------------------:|
 | yellow-pushpin.png                                                        |
 
-
 **Prima: Bing Maps**
 
 In Bing Maps viene creato un marcatore personalizzato passando un URL a un'immagine nelle opzioni `icon` di una puntina da disegno. L'opzione `anchor` si usa per allineare il punto dell'immagine della puntina con la coordinata sulla mappa. Il valore di ancoraggio in Bing Maps è relativo all'angolo in alto a sinistra dell'immagine.
@@ -497,9 +494,7 @@ layer.add(pushpin);
 map.layers.insert(layer);
 ```
 
-<center>
-
-![Aggiunta di una puntina personalizzata in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-add-custom-pushpin.jpg)</center>
+![Aggiunta di una puntina personalizzata in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-add-custom-pushpin.jpg)
 
 **Dopo: Mappe di Azure con indicatori HTML**
 
@@ -517,9 +512,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-<center>
-
-![Aggiunta di un marcatore personalizzato di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-add-custom-marker.jpg)</center>
+![Aggiunta di un marcatore personalizzato di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-add-custom-marker.jpg)
 
 **Dopo: Mappe di Azure con un livello simbolo**
 
@@ -584,9 +577,7 @@ I livelli simbolo in Mappe di Azure supportano anche le immagini personalizzate,
 </html>
 ```
 
-<center>
-
-![Aggiunta del livello di simboli personalizzato in Bing Maps](media/migrate-bing-maps-web-app/azure-maps-add-custom-symbol-layer.jpg)</center>
+![Aggiunta del livello di simboli personalizzato in Bing Maps](media/migrate-bing-maps-web-app/azure-maps-add-custom-symbol-layer.jpg)
 
 > [!TIP]
 > Per creare un rendering dei punti personalizzato e avanzato, usare più livelli di rendering contemporaneamente. Se ad esempio si desidera visualizzare più puntine da disegno con la stessa icona su cerchi colorati diversi, anziché creare più immagini per ogni colore è possibile sovrapporre un livello simbolo su un livello bolla e impostare i livelli affinché facciano riferimento alla stessa origine dati. Questa procedura risulta molto più efficiente rispetto a creare e gestire numerose immagini diverse.
@@ -631,9 +622,7 @@ layer.add(polyline);
 map.layers.insert(layer);
 ```
 
-<center>
-
-![Polilinea di Bing Azure](media/migrate-bing-maps-web-app/bing-maps-line.jpg)</center>
+![Polilinea di Bing Azure](media/migrate-bing-maps-web-app/bing-maps-line.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -662,9 +651,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-<center>
-
-![Linea di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-line.jpg)</center>
+![Linea di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-line.jpg)
 
 **Risorse aggiuntive**
 
@@ -702,9 +689,7 @@ layer.add(polygon);
 map.layers.insert(layer);
 ```
 
-<center>
-
-![Poligono di Bing Azure](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg)</center>
+![Poligono di Bing Azure](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -738,9 +723,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-<center>
-
-![Poligono di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg)</center>
+![Poligono di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg)
 
 **Risorse aggiuntive**
 
@@ -780,9 +763,7 @@ Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {
 });
 ```
 
-<center>
-
-![Casella informativa di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-infobox.jpg)</center>
+![Casella informativa di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-infobox.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -811,9 +792,7 @@ map.events.add('click', marker, function () {
 });
 ```
 
-<center>
-
-![Finestra popup di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-popup.jpg)</center>
+![Finestra popup di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-popup.jpg)
 
 > [!NOTE]
 > Per eseguire la stessa operazione con un livello di simboli, bolle, linee o poligoni, passare il livello nel codice dell'evento maps invece di un marcatore.
@@ -883,7 +862,7 @@ In Bing Maps i dati GeoJSON possono essere caricati usando il modulo GeoJSON. Le
             var clusterSize = cluster.containedPushpins.length;
 
             var radius = 20;    //Default radius to 20 pixels.
-            var fillColor = 'lime';   //Default to lime green.
+            var fillColor = 'lime';     //Default to lime green.
 
             if (clusterSize >= 750) {
                 radius = 40;   //If point_count >= 750, radius is 40 pixels.
@@ -917,18 +896,16 @@ In Bing Maps i dati GeoJSON possono essere caricati usando il modulo GeoJSON. Le
 </html>
 ```
 
-<center>
-
-![Raggruppamento di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-clustering.jpg)</center>
+![Raggruppamento di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-clustering.jpg)
 
 **Dopo: Mappe di Azure**
 
 In Mappe di Azure i dati vengono aggiunti e gestiti da un'origine dati. I livelli si connettono alle origini dati ed eseguono il rendering dei dati in essi contenuti. La classe `DataSource` in Mappe di Azure fornisce numerose opzioni di clustering.
 
--   `cluster`: indica all'origine dati di raggruppare i dati dei punti. 
--   `clusterRadius`: raggio in pixel in base a cui raggruppare i punti.
--   `clusterMaxZoom`: livello massimo di zoom in cui si verifica il raggruppamento. Se si usa un livello di zoom maggiore di questo valore, viene eseguito il rendering di tutti i punti come simboli.
--   `clusterProperties`: definisce le proprietà personalizzate che vengono calcolate usando le espressioni in tutti i punti all'interno di ogni cluster e aggiunte alle proprietà di ogni punto del cluster.
+* `cluster`: indica all'origine dati di raggruppare i dati dei punti. 
+* `clusterRadius`: raggio in pixel in base a cui raggruppare i punti.
+* `clusterMaxZoom`: livello massimo di zoom in cui si verifica il raggruppamento. Se si usa un livello di zoom maggiore di questo valore, viene eseguito il rendering di tutti i punti come simboli.
+* `clusterProperties`: definisce le proprietà personalizzate che vengono calcolate usando le espressioni in tutti i punti all'interno di ogni cluster e aggiunte alle proprietà di ogni punto del cluster.
 
 Quando il clustering è abilitato, l'origine dati invierà i punti dati in cluster e non in cluster ai livelli per il rendering. L'origine dati è in grado di raggruppare centinaia di migliaia di punti dati. Un punto dati in cluster presenta le proprietà seguenti:
 
@@ -1045,9 +1022,7 @@ I dati GeoJSON possono essere importati direttamente in Mappe di Azure usando la
 </html>
 ```
 
-<center>
-
-![Clustering di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-clustering.jpg)</center>
+![Clustering di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-clustering.jpg)
 
 **Risorse aggiuntive**
 
@@ -1113,9 +1088,7 @@ Per creare una mappa termica in Bing Maps, caricare l'apposito modulo. Allo stes
 </html>
 ```
 
-<center>
-
-![Mappa termica di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-heatmap.jpg)</center>
+![Mappa termica di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-heatmap.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -1177,9 +1150,7 @@ In Mappe di Azure caricare i dati GeoJSON in un'origine dati e connettere l'orig
 </html>
 ```
 
-<center>
-
-![Mappa termica di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-heatmap.jpg)</center>
+![Mappa termica di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-heatmap.jpg)
 
 **Risorse aggiuntive**
 
@@ -1207,9 +1178,7 @@ var weatherTileLayer = new Microsoft.Maps.TileLayer({
 map.layers.insert(weatherTileLayer);
 ```
 
-<center>
-
-![Mappa termica ponderato di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-weighted-heatmap.jpg)</center>
+![Mappa termica ponderato di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-weighted-heatmap.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -1217,7 +1186,7 @@ In Mappe di Azure è possibile aggiungere un livello tessera alla mappa con la s
 
 > [!TIP]
 > In Mappe di Azure è possibile eseguire facilmente il rendering dei livelli sotto altri livelli, inclusi i livelli mappa di base. Spesso è consigliabile eseguire il rendering dei livelli tessera sotto le etichette della mappa in modo che siano facili da leggere. La funzione `map.layers.add` accetta un secondo parametro che corrisponde all'ID del secondo livello sotto il quale inserire il nuovo livello. Per inserire un livello di tessere sotto le etichette della mappa, è possibile usare il codice seguente:
-> 
+>
 > `map.layers.add(myTileLayer, "labels");`
 
 ```javascript
@@ -1229,9 +1198,7 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-<center>
-
-![Mappa termica ponderata di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-weighted-heatmap.jpg)</center>
+![Mappa termica ponderata di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-weighted-heatmap.jpg)
 
 > [!TIP]
 > È possibile acquisire le richieste delle tessere tramite l'opzione `transformRequest` della mappa. Questo consentirà di modificare o aggiungere intestazioni alla richiesta, se necessario.
@@ -1257,9 +1224,7 @@ Microsoft.Maps.loadModule('Microsoft.Maps.Traffic', function () {
 });
 ```
 
-<center>
-
-![Traffico in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-traffic.jpg)</center>
+![Traffico in Bing Maps](media/migrate-bing-maps-web-app/bing-maps-traffic.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -1272,15 +1237,11 @@ map.setTraffic({
 });
 ```
 
-<center>
-
-![Traffico in Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-traffic.jpg)</center>
+![Traffico in Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-traffic.jpg)
 
 Se si fa clic su un'icona del traffico in Mappe di Azure, vengono visualizzate informazioni aggiuntive in una finestra popup.
 
-<center>
-
-![Popup sul traffico di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-traffic-popup.jpg)</center>
+![Popup sul traffico di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-traffic-popup.jpg)
 
 **Risorse aggiuntive**
 
@@ -1335,9 +1296,7 @@ Quando si crea un overlay sul terreno in Bing Maps, è necessario specificare l'
 
 Se si esegue questo codice in un browser verrà visualizzata una mappa simile all'immagine seguente:
 
-<center>
-
-![Overlay sul terreno di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-ground-overlay.jpg)</center>
+![Overlay sul terreno di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-ground-overlay.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -1398,9 +1357,7 @@ In Mappe di Azure è possibile sovrapporre le immagini con riferimenti geografic
 </html>
 ```
 
-<center>
-
-![Overlay sul terreno di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-ground-overlay.jpg)</center>
+![Overlay sul terreno di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-ground-overlay.jpg)
 
 **Risorse aggiuntive**
 
@@ -1433,7 +1390,7 @@ Se si esegue questo codice in un browser verrà visualizzata una mappa simile al
                 center: new Microsoft.Maps.Location(40.747, -73.985),
                 zoom: 12
             });
-
+                
             Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
                 var callback = function (dataset) {
                     if (dataset.shapes) {
@@ -1461,9 +1418,7 @@ Se si esegue questo codice in un browser verrà visualizzata una mappa simile al
 </html>
 ```
 
-<center>
-
-![KML di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-kml.jpg)</center>
+![KML di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-kml.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -1558,9 +1513,7 @@ In Mappe di Azure, GeoJSON è il formato dati principale usato nell'SDK Web, alt
 </html>
 ```
 
-<center>
-
-![KML di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-kml.jpg)</center>
+![KML di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-kml.jpg)
 
 **Risorse aggiuntive**
 
@@ -1617,9 +1570,7 @@ In Bing Maps il modulo `DrawingTools` viene caricato usando la funzione `Microso
 
 ```
 
-<center>
-
-![Strumenti di disegno di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-drawing-tools.jpg)</center>
+![Strumenti di disegno di Bing Maps](media/migrate-bing-maps-web-app/bing-maps-drawing-tools.jpg)
 
 **Dopo: Mappe di Azure**
 
@@ -1649,8 +1600,8 @@ In Mappe di Azure il modulo di strumenti di disegno deve essere caricato carican
             //Initialize a map instance.
             map = new atlas.Map('myMap', {
                 view: 'Auto',
-                
-                //Add your Azure Maps key to the map SDK. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
+
+                //Add your Azure Maps key to the map SDK. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.                
                 authOptions: {
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
@@ -1674,9 +1625,7 @@ In Mappe di Azure il modulo di strumenti di disegno deve essere caricato carican
 </html>
 ```
 
-<center>
-
-![Strumenti di disegno di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg)</center>
+![Strumenti di disegno di Mappe di Azure](media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg)
 
 > [!TIP]
 > Nei livelli di Mappe di Azure gli strumenti di disegno offrono molte possibilità per il disegno di forme. Ad esempio, quando si disegna un poligono, l'utente può fare clic per aggiungere ogni punto oppure tenere premuto il pulsante del mouse e trascinarlo per disegnare un tragitto. Questa funzionalità può essere modificata con l'opzione `interactionType` di `DrawingManager`.
@@ -1686,7 +1635,7 @@ In Mappe di Azure il modulo di strumenti di disegno deve essere caricato carican
 -   [Documentazione](./set-drawing-options.md)
 -   [Esempi di codice](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 Esaminare i [moduli open source di Azure Maps Web SDK](open-source-projects.md#open-web-sdk-modules). Questi moduli offrono una grande quantità di funzionalità aggiuntive e sono completamente personalizzabili.
 
@@ -1733,3 +1682,14 @@ Altre informazioni su Azure Maps Web SDK.
 
 > [!div class="nextstepaction"]
 > [Documentazione di riferimento per l'API del servizio Azure Maps Web SDK](/javascript/api/azure-maps-control/)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Non è possibile pulire le risorse.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sulla migrazione da Bing Maps a Mappe di Azure.
+
+> [!div class="nextstepaction"]
+> [Eseguire la migrazione di un servizio Web](migrate-from-bing-maps-web-services.md)
