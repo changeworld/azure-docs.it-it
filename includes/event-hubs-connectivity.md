@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dac82692c76d9d36b1f25d7b93b5c3a2e2400672
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002793"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978898"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
 È possibile usare i protocolli seguenti con hub eventi di Azure per inviare e ricevere eventi:
@@ -72,7 +72,7 @@ Se si usa la **ridondanza della zona** per lo spazio dei nomi, è necessario ese
     > [!NOTE]
     > L'indirizzo IP restituito dal `nslookup` comando non è un indirizzo IP statico. Tuttavia rimane costante fino a quando la distribuzione sottostante non viene eliminata o spostata in un cluster diverso.
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Dove è possibile trovare gli indirizzi IP client che inviano o ricevono messaggi nello spazio dei nomi?
+### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>Quali indirizzi IP client inviano o ricevono eventi dallo spazio dei nomi?
 Per prima cosa, abilitare il [filtro IP](../articles/event-hubs/event-hubs-ip-filtering.md) nello spazio dei nomi. 
 
 Abilitare quindi i log di diagnostica per [gli eventi di connessione alla rete virtuale di hub eventi](../articles/event-hubs/event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguendo le istruzioni riportate nell' [Abilitazione dei log di diagnostica](../articles/event-hubs/event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verrà visualizzato l'indirizzo IP per il quale la connessione viene negata.
@@ -92,3 +92,6 @@ Abilitare quindi i log di diagnostica per [gli eventi di connessione alla rete v
 
 > [!IMPORTANT]
 > I log di rete virtuale vengono generati solo se lo spazio dei nomi consente l'accesso da **indirizzi IP specifici** (regole di filtro IP). Se non si vuole limitare l'accesso allo spazio dei nomi usando queste funzionalità e si vuole comunque ottenere i log di rete virtuale per tenere traccia degli indirizzi IP dei client che si connettono allo spazio dei nomi di hub eventi, è possibile usare la soluzione alternativa seguente: abilitare il filtro IP e aggiungere l'intervallo IPv4 totale indirizzabile (1.0.0.0/1-255.0.0.0/1). Hub eventi non supporta gli intervalli di indirizzi IPv6. 
+
+> [!NOTE]
+> Attualmente, non è possibile determinare l'indirizzo IP di origine di un singolo messaggio o evento. 

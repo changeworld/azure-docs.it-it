@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: b565bf3bae61cf92133b957bb75fdae9545c030e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad32204739d728006362ef55657a2f433be7aefc
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81421774"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978829"
 ---
-Per trasmettere in streaming un formato audio compresso al servizio di riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream` . Quindi, creare un oggetto `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
+Per configurare l'SDK vocale per accettare l'input audio compresso, creare `PullAudioInputStream` o `PushAudioInputStream` . Quindi, creare un oggetto `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
 
 Si supponga di disporre di una classe di flusso di input denominata `pushStream` e che usi Opus/OGG. Il codice potrebbe essere simile al seguente:
 

@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
-ms.openlocfilehash: 3000709f19b53eb6e79b4dae0559040ca025c9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58d547995d39505da18a6bca1a6c3925b95252a6
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282739"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978836"
 ---
-Per trasmettere in streaming un formato audio compresso al servizio di riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream` . Quindi, creare un oggetto `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
+Per configurare l'SDK vocale per accettare l'input audio compresso, creare `PullAudioInputStream` o `PushAudioInputStream` . Quindi, creare un oggetto `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
 
 Si supponga che il caso d'uso venga usato `PullStream` per un `MP3` file. Il codice potrebbe essere simile al seguente:
 
