@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496034"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051582"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure
 
@@ -31,7 +31,7 @@ Questa procedura comprende:
     * Si estenderà questo dispositivo gemello con un endpoint e una route aggiuntivi. Si aggiungerà anche un'altra funzione all'app per le funzioni da questa esercitazione. 
 * Seguire l'esercitazione sulle mappe di Azure [*: usare Azure Maps Creator per creare mappe interne*](../azure-maps/tutorial-creator-indoor-maps.md) per creare una mappa di Azure Maps indoor con uno *stato di funzionalità*.
     * Le [funzionalità statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) sono raccolte di proprietà dinamiche (Stati) assegnate alle funzionalità del set di dati, ad esempio sale o apparecchiature. Nell'esercitazione sulle mappe di Azure precedente, lo stato della funzionalità archivia lo stato della chat in una mappa.
-    * Sono necessari l'ID *degli Stati* della funzionalità e l' *ID sottoscrizione*di Azure maps.
+    * Sono necessari l'ID *degli Stati* della funzionalità e l' *ID sottoscrizione* di Azure maps.
 
 ### <a name="topology"></a>Topologia
 
@@ -78,60 +78,7 @@ Vedere il documento seguente per informazioni di riferimento: [*trigger di grigl
 
 Sostituire il codice della funzione con il codice seguente. Escluderà solo gli aggiornamenti agli spazi gemelli, leggerà la temperatura aggiornata e invierà le informazioni a Maps di Azure.
 
-```C#
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoMaps
-    {   //Read maps credentials from application settings on function startup
-        private static string statesetID = Environment.GetEnvironmentVariable("statesetID");
-        private static string subscriptionKey = Environment.GetEnvironmentVariable("subscription-key");
-        private static HttpClient httpClient = new HttpClient();
-
-        [FunctionName("ProcessDTUpdatetoMaps")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-            log.LogInformation("Reading event from twinID:" + eventGridEvent.Subject.ToString() + ": " +
-                eventGridEvent.EventType.ToString() + ": " + message["data"]);
-
-            //Parse updates to "space" twins
-            if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in your map. 
-                //Replace this line with your logic for retrieving featureID. 
-                string featureID = "UNIT103";
-
-                //Iterate through the properties that have changed
-                foreach (var operation in message["data"]["patch"])
-                {
-                    if (operation["op"].ToString() == "replace" && operation["path"].ToString() == "/Temperature")
-                    {   //Update the maps feature stateset
-                        var postcontent = new JObject(new JProperty("States", new JArray(
-                            new JObject(new JProperty("keyName", "temperature"),
-                                 new JProperty("value", operation["value"].ToString()),
-                                 new JProperty("eventTimestamp", DateTime.Now.ToString("s"))))));
-
-                        var response = await httpClient.PostAsync(
-                            $"https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetID}&featureID={featureID}&subscription-key={subscriptionKey}",
-                            new StringContent(postcontent.ToString()));
-
-                        log.LogInformation(await response.Content.ReadAsStringAsync());
-                    }
-                }
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateMaps.cs":::
 
 È necessario impostare due variabili di ambiente nell'app per le funzioni. Una è la [chiave di sottoscrizione primaria di Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)e l'altra è l' [ID degli Stati di Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
@@ -145,14 +92,14 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 Per visualizzare la temperatura di aggiornamento Live, attenersi alla procedura seguente:
 
 1. Iniziare a inviare i dati delle cose simulate eseguendo il progetto **DeviceSimulator** dall'esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Le istruzioni per questa operazione sono disponibili nella sezione [*configurare ed eseguire la simulazione*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
-2. Usare [il modulo **Azure Maps indoor** ](../azure-maps/how-to-use-indoor-module.md) per eseguire il rendering delle mappe interne create in Azure Maps Creator.
+2. Usare [il modulo **Azure Maps indoor**](../azure-maps/how-to-use-indoor-module.md) per eseguire il rendering delle mappe interne create in Azure Maps Creator.
     1. Copiare il codice HTML dall' [*esempio: usare la sezione del modulo Maps*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) indoor dell'esercitazione sulle mappe interne [*: usare il modulo mappe interne di Azure Maps*](../azure-maps/how-to-use-indoor-module.md) in un file locale.
     1. Sostituire *tilesetId* e *STATESETID* nel file HTML locale con i valori.
     1. Aprire il file nel browser.
 
 Entrambi gli esempi inviano la temperatura in un intervallo compatibile, quindi dovrebbe essere visualizzato il colore della stanza 121 aggiornamento sulla mappa ogni 30 secondi.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, in cui è evidenziata l'integrazione delle mappe interne":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Mappa di Office che mostra la stanza 121 arancione colorato":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Archiviare le informazioni sulle mappe nei dispositivi gemelli digitali di Azure
 

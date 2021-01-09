@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97091990"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048318"
 ---
 # <a name="train-machine-learning-models"></a>Eseguire il training di modelli di Machine Learning
 Apache Spark in Azure sinapsi Analytics consente l'apprendimento automatico con Big Data, offrendo la possibilità di ottenere informazioni preziose da grandi quantità di dati strutturati, non strutturati e in rapida evoluzione. Sono disponibili diverse opzioni per il training di modelli di Machine Learning con Azure Spark in Azure sinapsi Analytics: Apache Spark MLlib, Azure Machine Learning e diverse altre librerie open source. 
@@ -58,6 +58,6 @@ Quando si usa Machine Learning automatiche in Azure sinapsi Analytics, è possib
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo offre una panoramica delle diverse opzioni per il training dei modelli di machine learning all'interno di Apache Spark pool in Azure sinapsi Analytics. Per altre informazioni sul training del modello, vedere l'esercitazione seguente:
 
-- Eseguire esperimenti di Machine Learning automatici usando Azure Machine Learning e Azure sinapsi Analytics: esercitazione di Machine Learning [automatizzata](./spark/../apache-spark-autoscale.md) 
-- Eseguire esperimenti di SparkML: [esercitazione su Apache SparkML](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Eseguire esperimenti di Machine Learning automatici usando Azure Machine Learning e Azure sinapsi Analytics: esercitazione di Machine Learning [automatizzata](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- Eseguire esperimenti di SparkML: [esercitazione su Apache SparkML](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - Visualizzare le librerie predefinite: [runtime di Azure sinapsi Analytics](../spark/apache-spark-version-support.md)

@@ -2,14 +2,14 @@
 title: Configurare monitoraggio di Azure per i dati dinamici dei contenitori (anteprima) | Microsoft Docs
 description: Questo articolo descrive come configurare la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830786"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050783"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -29,8 +29,6 @@ Questo articolo illustra come configurare l'autenticazione per controllare l'acc
 - Cluster AKS abilitato per il controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC)
 - Azure Active Directory cluster AKS integrato.
 
->[!NOTE]
->I cluster AKS abilitati come [cluster privati](https://azure.microsoft.com/updates/aks-private-cluster/) non sono supportati con questa funzionalità. Questa funzionalità si basa sull'accesso diretto all'API Kubernetes tramite un server proxy dal browser. L'abilitazione della sicurezza di rete per bloccare l'API Kubernetes da questo proxy bloccherà il traffico.
 
 ## <a name="authentication-model"></a>Modello di autenticazione
 

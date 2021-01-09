@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db13884e3deed8e990d21d82e215a1e837371275
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76694588"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052960"
 ---
 ## <a name="lifecycle"></a>Ciclo di vita
 
 Nella scheda **ciclo** di vita specificare quando scade l'assegnazione di un utente al pacchetto di accesso. È inoltre possibile specificare se gli utenti possono estenderne le assegnazioni.
 
-1. Nella sezione relativa alla **scadenza** impostare le **assegnazioni dei pacchetti di accesso scadono** a **Data**, **numero di giorni**o **mai**.
+1. Nella sezione relativa alla **scadenza** impostare le **assegnazioni dei pacchetti di accesso scadono** a **Data**, **numero di giorni** o **mai**.
 
-    Per la **Data**di scadenza, selezionare una data di scadenza in futuro.
+    Per la **Data** di scadenza, selezionare una data di scadenza in futuro.
 
     Per **numero di giorni**, specificare un numero compreso tra 0 e 3660 giorni.
 
@@ -33,7 +33,7 @@ Nella scheda **ciclo** di vita specificare quando scade l'assegnazione di un ute
 
 1. Per consentire all'utente di estendere le assegnazioni, impostare **Consenti agli utenti di estendere l'accesso** a **Sì**.
 
-    Se nel criterio sono consentite le estensioni, l'utente riceverà un messaggio di posta elettronica 14 giorni e anche 1 giorno prima che l'assegnazione del pacchetto di accesso sia impostata in modo da scadere per richiedere l'estensione dell'assegnazione. Se l'utente invia una richiesta per estendere l'accesso, la data di estensione deve essere in corrispondenza o prima della scadenza delle assegnazioni come definito nei criteri utilizzati per concedere all'utente l'accesso al pacchetto di accesso. Se, ad esempio, il criterio indica che le assegnazioni sono impostate per scadere il 30 giugno, l'estensione massima che un utente può richiedere è il 30 giugno.
+    Se nel criterio sono consentite le estensioni, l'utente riceverà un messaggio di posta elettronica di 14 giorni e anche un giorno prima che l'assegnazione del pacchetto di accesso sia impostata come scaduta, richiedendo loro di estendere l'assegnazione. L'utente deve essere ancora nell'ambito dei criteri al momento della richiesta di un'estensione. Inoltre, se i criteri hanno una data di fine esplicita per le assegnazioni e un utente invia una richiesta per estendere l'accesso, la data di estensione nella richiesta deve essere in corrispondenza o prima della scadenza delle assegnazioni, come definito nei criteri usati per concedere all'utente l'accesso al pacchetto di accesso. Se, ad esempio, il criterio indica che le assegnazioni sono impostate per scadere il 30 giugno, l'estensione massima che un utente può richiedere è il 30 giugno.
 
     Se l'accesso di un utente viene esteso, non sarà in grado di richiedere il pacchetto di accesso dopo la data di estensione specificata (data impostata nel fuso orario dell'utente che ha creato il criterio).
 

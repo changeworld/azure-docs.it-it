@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705371"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049780"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Crittografia IPSec in transito per Azure HDInsight
 
@@ -24,7 +24,7 @@ Azure HDInsight offre un'ampia gamma di funzionalità di sicurezza per la protez
 
 La crittografia dei computer inattivi è coperta dalla crittografia lato server negli account di archiviazione di Azure, nonché dalla crittografia del disco nelle macchine virtuali di Azure che fanno parte del cluster HDInsight.
 
-La crittografia dei dati in transito in HDInsight viene eseguita con [Transport Layer Security (TLS)](../transport-layer-security.md) per accedere ai gateway del cluster e a [Internet Protocol Security (IPSec)](https://wikipedia.org/wiki/IPsec) tra i nodi del cluster. È possibile abilitare facoltativamente IPSec tra tutti i nodi head, i nodi del ruolo di lavoro, i nodi perimetrali e i nodi Zookeeper. Non è abilitata per il traffico tra i nodi gateway o [ID Broker](./identity-broker.md) che sono macchine virtuali basate su Windows e altri nodi basati su Linux nel cluster.
+La crittografia dei dati in transito in HDInsight viene eseguita con [Transport Layer Security (TLS)](../transport-layer-security.md) per accedere ai gateway del cluster e a [Internet Protocol Security (IPSec)](https://wikipedia.org/wiki/IPsec) tra i nodi del cluster. È possibile abilitare facoltativamente IPSec tra tutti i nodi head, i nodi del ruolo di lavoro, i nodi perimetrali, i nodi Zookeeper, nonché i nodi gateway e [ID Broker](./identity-broker.md) .
 
 ## <a name="enable-encryption-in-transit"></a>Abilitare la crittografia in transito
 

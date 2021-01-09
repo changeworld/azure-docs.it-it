@@ -4,21 +4,24 @@ description: Informazioni su come interagiscono l'API Tabella di Azure Cosmos DB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 01/08/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 5e586ae8a6b6a4010419254ce3e380f377d370f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c2b2a9a03a654e8ccba58e62a1d017cd11db5abc
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101092"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050758"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Sviluppo con l'API di tabella di Azure Cosmos DB e Archiviazione tabelle di Azure
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 L'API di tabella di Azure Cosmos DB e Archiviazione tabelle di Azure condividono lo stesso modello di dati di tabella ed espongono le stesse operazioni di creazione, eliminazione, aggiornamento ed esecuzione di query tramite i relativi SDK.
+
+> [!NOTE]
+> La [modalità di capacità serverless](serverless.md) è ora disponibile nell'API Tabella di Azure Cosmos DB.
 
 [!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 

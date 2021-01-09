@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: 3f5c3400f319a3f9d5f1544457b009f90d479634
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760334"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049831"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Come scegliere tra la velocità effettiva con provisioning e senza server
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,11 +25,11 @@ Azure Cosmos DB è disponibile in due modalità di capacità diverse: [velocità
 | Criteri | Velocità effettiva con provisioning | Senza server |
 | --- | --- | --- |
 | Stato | Disponibile a livello generale | In anteprima |
-| Ideale per | Carichi di lavoro cruciali che richiedono prestazioni prevedibili | Carichi di lavoro di piccole e medie dimensioni con traffico chiaro e intermittente difficile da prevedere |
+| Ideale per | Carichi di lavoro con traffico sostenuto che richiedono prestazioni prevedibili | Carichi di lavoro con traffico intermittente o imprevedibile e rapporto di traffico medio-picco basso |
 | Funzionamento | Per ogni contenitore viene effettuato il provisioning di una quantità di velocità effettiva espressa in [unità richiesta](request-units.md) al secondo. Ogni secondo, questa quantità di unità richiesta è disponibile per le operazioni del database. La velocità effettiva con provisioning può essere aggiornata manualmente o modificata automaticamente con la [scalabilità](provision-throughput-autoscale.md)automatica. | È possibile eseguire le operazioni di database sui contenitori senza dover effettuare il provisioning di alcuna capacità. |
 | Distribuzione geografica | Disponibile (numero illimitato di aree di Azure) | Non disponibile (gli account senza server possono essere eseguiti solo in un'area di Azure) |
 | Dimensione massima di archiviazione per ogni contenitore | Nessuna limitazione | 50 GB |
-| Prestazioni | disponibilità da 99,99% a 99,999% coperta dal contratto di contratto<br>Latenza < 10 ms per letture di punti e scritture coperte dal contratto di contratto<br>velocità effettiva garantita del 99,99% coperta dal contratto di contratto | disponibilità da 99,9% a 99,99% coperta dal contratto di contratto<br>Latenza < 10 ms per letture di punti e < 30 ms per scritture coperte da SLO<br>ingrandimento del 95% incluso in SLO |
+| Prestazioni | Latenza < 10 ms per letture di punti e scritture coperte dal contratto di contratto | Latenza < 10 ms per letture di punti e < 30 ms per scritture coperte da SLO |
 | Modello di fatturazione | Per le UR/s con provisioning, la fatturazione viene eseguita su base oraria, indipendentemente dal numero di UR utilizzate. | La fatturazione viene eseguita su base oraria per la quantità di ur utilizzate dalle operazioni del database. |
 
 > [!IMPORTANT]

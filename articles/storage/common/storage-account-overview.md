@@ -1,20 +1,20 @@
 ---
 title: Panoramica dell'account di archiviazione
 titleSuffix: Azure Storage
-description: Leggere una panoramica degli account di archiviazione in archiviazione di Azure. Verificare la denominazione degli account, i livelli di prestazioni, i livelli di accesso, la ridondanza, la crittografia, gli endpoint e altro ancora.
+description: Informazioni sui diversi tipi di account di archiviazione in archiviazione di Azure. Verificare la denominazione degli account, i livelli di prestazioni, i livelli di accesso, la ridondanza, la crittografia, gli endpoint e altro ancora.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 01/08/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357382"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051225"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -24,7 +24,40 @@ Per informazioni su come creare un account di archiviazione di Azure, vedere [Cr
 
 ## <a name="types-of-storage-accounts"></a>Tipi di account di archiviazione
 
-[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
+Archiviazione di Azure offre diversi tipi di account di archiviazione. Ogni tipo supporta caratteristiche diverse e ha uno specifico modello di prezzi. È importante tenere in considerazione tali differenze prima di creare un account di archiviazione per determinare il tipo di account ottimale per le proprie applicazioni. I tipi di account di archiviazione sono i seguenti:
+
+- **Account per utilizzo generico v2**: tipo di account di archiviazione Basic per BLOB, file, code e tabelle. Consigliato per la maggior parte degli scenari che usano Archiviazione di Azure.
+- **Account per utilizzo generico v1**: tipo di account legacy per BLOB, file, code e tabelle. Laddove è possibile, preferire account per utilizzo generico v2.
+- **Account BlockBlobStorage**: account di archiviazione con caratteristiche di prestazioni Premium per i BLOB in blocchi e i BLOB di aggiunta. Consigliato per scenari con percentuali di transazioni elevate o scenari che usano oggetti di dimensioni inferiori o che richiedono una latenza di archiviazione costantemente bassa.
+- **Account FileStorage**: account di archiviazione solo file con caratteristiche di prestazioni Premium. Consigliato per applicazioni di livello aziendale o a prestazioni elevate.
+- **Account BlobStorage**: account di archiviazione solo BLOB legacy. Laddove è possibile, preferire account per utilizzo generico v2.
+
+La tabella seguente descrive i tipi di account di archiviazione, i servizi supportati e i modelli di distribuzione supportati per ogni tipo di conto:
+
+| Tipo di account di archiviazione | Servizi supportati | Opzioni di ridondanza | Modello di distribuzione<sup>1</sup> |
+|--|--|--|--|
+| Utilizzo generico v2 | BLOB, file, code, tabelle, dischi e Data Lake Gen2<sup>2</sup> | CON ridondanza locale, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Gestione risorse |
+| Utilizzo generico v1 | BLOB, file, coda, tabella e disco | LRS, GRS, RA-GRS | Resource Manager, classica |
+| BlockBlobStorage | BLOB (solo BLOB in blocchi e BLOB di accodamento) | CON ridondanza locale, ZRS<sup>3</sup> | Gestione risorse |
+| FileStorage | Solo file | CON ridondanza locale, ZRS<sup>3</sup> | Gestione risorse |
+| BlobStorage | BLOB (solo BLOB in blocchi e BLOB di accodamento) | LRS, GRS, RA-GRS | Gestione risorse |
+
+<sup>1</sup>È consigliabile usare il modello di distribuzione Azure Resource Manager. Gli account di archiviazione che usano il modello di distribuzione classico possono comunque essere creati in alcune posizioni e gli account classici esistenti continuano a essere supportati. Per altre informazioni, vedere [Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse](../../azure-resource-manager/management/deployment-models.md).
+
+<sup>2</sup> Azure Data Lake Storage Gen2 è un set di funzionalità dedicate a Big Data Analytics, basate sull'archiviazione BLOB di Azure. Data Lake Storage Gen2 è supportato solo per gli account di archiviazione per utilizzo generico V2 con lo spazio dei nomi gerarchico abilitato. Per altre informazioni su Data Lake Storage Gen2, vedere [Introduzione ad Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+
+<sup>3</sup> L'archiviazione con ridondanza della zona (ZRS) e l'archiviazione con ridondanza della zona geografica (GZRS/RA-GZRS) sono disponibili solo per gli account per utilizzo generico standard v2, BlockBlobStorage e filestorage in determinate aree. Per altre informazioni sulle opzioni di ridondanza di Archiviazione di Azure, vedere [Ridondanza dell'archiviazione](storage-redundancy.md).
+
+### <a name="storage-account-redundancy"></a>Ridondanza dell'account di archiviazione
+
+Le opzioni di ridondanza per un account di archiviazione includono:
+
+- **Archiviazione con ridondanza locale (con ridondanza locale)**: strategia di ridondanza semplice e a basso costo. I dati vengono copiati in modo sincrono per tre volte all'interno di un'unica posizione fisica nell'area primaria.
+- **Archiviazione con ridondanza della zona (ZRS)**: ridondanza per gli scenari che richiedono una disponibilità elevata. I dati vengono copiati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria.
+- **Archiviazione con ridondanza geografica**: ridondanza tra più aree per la protezione da interruzioni a livello di area. I dati vengono copiati in modo sincrono per tre volte all'interno dell'area primaria e quindi copiati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
+- **Archiviazione con ridondanza della zona geografica (GZRS)**: ridondanza per gli scenari che richiedono disponibilità elevata e durabilità massima. I dati vengono copiati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria e quindi copiati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS).
+
+Per altre informazioni sulle opzioni di ridondanza in Archiviazione di Azure, vedere [Ridondanza di Archiviazione di Azure](storage-redundancy.md).
 
 ### <a name="general-purpose-v2-accounts"></a>Account per utilizzo generico v2
 
@@ -83,7 +116,17 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 
 ## <a name="performance-tiers"></a>Livelli di prestazioni
 
-A seconda del tipo di account di archiviazione creato, è possibile scegliere tra i livelli di prestazioni standard e Premium.
+A seconda del tipo di account di archiviazione creato, è possibile scegliere tra i livelli di prestazioni standard e Premium. La tabella seguente riepiloga i livelli di prestazioni disponibili per il tipo di account di archiviazione.
+
+| Tipo di account di archiviazione | Livelli di prestazioni supportati |
+|--|--|
+| Utilizzo generico v2 | Standard, Premium<sup>1</sup> |
+| Utilizzo generico v1 | Standard, Premium<sup>1</sup> |
+| BlockBlobStorage | Premium |
+| FileStorage | Premium |
+| BlobStorage | Standard |
+
+<sup>1</sup> Le prestazioni Premium per gli account per utilizzo generico V2 e per utilizzo generico V1 sono disponibili solo per i BLOB di pagine e dischi. Le prestazioni Premium per i BLOB in blocchi o di aggiunta sono disponibili solo per gli account BlockBlobStorage. Le prestazioni Premium per i file sono disponibili solo per gli account FileStorage.
 
 ### <a name="general-purpose-storage-accounts"></a>Account di archiviazione per utilizzo generico
 
@@ -112,12 +155,20 @@ I livelli di accesso disponibili sono i seguenti:
 
 Se viene apportata una modifica al modello di utilizzo dei dati, è possibile passare da un livello di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
+La tabella seguente illustra i livelli di accesso disponibili per i BLOB in ogni tipo di account di archiviazione.
+
+| Tipo di account di archiviazione | Livelli di accesso supportati |
+|--|--|
+| Utilizzo generico v2 | Frequente, ad accesso sporadico, archivio<sup>1</sup> |
+| Utilizzo generico v1 | N/D |
+| BlockBlobStorage | N/D |
+| FileStorage | N/D |
+| BlobStorage | Frequente, ad accesso sporadico, archivio<sup>1</sup> |
+
+<sup>1</sup> la suddivisione in livelli di archiviazione e a livello di BLOB supporta solo BLOB in blocchi. Il livello di archiviazione archivio è disponibile solo a livello di singolo BLOB, non a livello di account di archiviazione. Per altre informazioni, vedere [livelli di accesso per archiviazione BLOB di Azure-accesso frequente,](../blobs/storage-blob-storage-tiers.md)accesso sporadico e archivio.
+
 > [!IMPORTANT]
-> La modifica del livello di accesso per un account di archiviazione o un BLOB esistente può comportare costi aggiuntivi. Per altre informazioni, vedere la sezione [Fatturazione dell'account di archiviazione](#storage-account-billing).
-
-## <a name="redundancy"></a>Ridondanza
-
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+> La modifica del livello di accesso per un account di archiviazione o un BLOB esistente può comportare costi aggiuntivi. Per ulteriori informazioni, vedere la pagina relativa alla [fatturazione dell'account di archiviazione](#storage-account-billing).
 
 ## <a name="encryption"></a>Crittografia
 
@@ -127,13 +178,15 @@ Tutti i dati nell'account di archiviazione vengono crittografati sul lato del se
 
 Un account di archiviazione offre uno spazio dei nomi univoco in Azure per i dati. Tutti gli oggetti archiviati in Archiviazione di Azure hanno un indirizzo che include il nome univoco dell'account. La combinazione del nome dell'account e dell'endpoint di servizio di Archiviazione di Azure costituisce gli endpoint per l'account di archiviazione.
 
-Ad esempio, se l'account di archiviazione per utilizzo generico si chiama *mystorageaccount*, gli endpoint predefiniti per tale account sono:
+La tabella seguente elenca gli endpoint per ognuno dei servizi di archiviazione di Azure.
 
-- Archiviazione BLOB: `https://*mystorageaccount*.blob.core.windows.net`
-- Archivio tabelle: `https://*mystorageaccount*.table.core.windows.net`
-- Archiviazione code: `https://*mystorageaccount*.queue.core.windows.net`
-- File di Azure: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (USA il [driver ABFS ottimizzato in modo specifico per Big Data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)).
+| Servizio di archiviazione | Endpoint |
+|--|--|
+| Archiviazione BLOB | `https://<storage-account>.blob.core.windows.net` |
+| Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| File di Azure | `https://<storage-account>.file.core.windows.net` |
+| Archiviazione code | `https://<storage-account>.queue.core.windows.net` |
+| Archiviazione tabelle | `https://<storage-account>.table.core.windows.net` |
 
 > [!NOTE]
 > Gli account di archiviazione BLOB e BLOB in blocchi espongono solo l'endpoint del servizio BLOB.
@@ -184,7 +237,17 @@ Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informaz
 
 ## <a name="storage-account-billing"></a>Fatturazione dell'account di archiviazione
 
-[!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+Fatturazione di archiviazione di Azure in base all'utilizzo dell'account di archiviazione. Tutti gli oggetti in un account di archiviazione vengono fatturati insieme come gruppo. I costi di archiviazione vengono calcolati in base ai fattori seguenti:
+
+- L'**area** si riferisce all'area geografica in cui si trova l'account.
+- Il **tipo di account** si riferisce al tipo di account di archiviazione in uso.
+- Il **livello di accesso** si riferisce al criterio di utilizzo dei dati specificato per l'account di archiviazione BLOB o v2 per utilizzo generico.
+- La **capacità** si riferisce alla quantità di allocazione dell'account di archiviazione usata per archiviare i dati.
+- La **replica** determina il numero di copie dei dati conservate contemporaneamente e le posizioni di archiviazione.
+- Le **transazioni** si riferiscono a tutte le operazioni di lettura e scrittura in Archiviazione di Azure.
+- I **dati in uscita** si riferiscono ai dati trasferiti all'esterno di un'area di Azure. Quando un'applicazione che non è in esecuzione nella stessa area geografica accede ai dati dell'account di archiviazione, viene addebitata un importo per i dati in uscita. Per informazioni sull'uso dei gruppi di risorse per raggruppare i dati e i servizi nella stessa area per ridurre gli addebiti per il traffico in uscita, vedere [Informazioni sul gruppo di risorse di Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group).
+
+La pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) fornisce informazioni dettagliate sui prezzi in base a tipo di account, capacità di archiviazione, replica e transazioni. Nella pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/) vengono fornite informazioni dettagliate sui prezzi per il trasferimento dei dati in uscita. È possibile usare la pagina per il [calcolo dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) per stimare i costi.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927318"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050562"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Windows 
 
@@ -21,6 +21,40 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 * I clienti che usufruiscono dei vantaggi del supporto tecnico Premier possono aprire una richiesta di supporto con [Premier](https://premier.microsoft.com/).
 * I clienti con un contratto di supporto tecnico di Azure possono aprire una richiesta di supporto nel [portale di Azure](https://manage.windowsazure.com/?getsupport=true).
 * Visitare la pagina di feedback Log Analytics per esaminare le idee e i bug inviati o per inviarne uno [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) nuovo. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Strumento per la risoluzione dei problemi Log Analytics
+
+Lo strumento di risoluzione dei problemi di Windows Agent Log Analytics è una raccolta di script di PowerShell progettati per facilitare la ricerca e la diagnosi dei problemi relativi all'agente di Log Analytics. Viene incluso automaticamente con l'agente durante l'installazione. Eseguire lo strumento deve essere il primo passaggio per la diagnosi di un problema.
+
+### <a name="how-to-use"></a>Uso
+1. Aprire il prompt di PowerShell come amministratore nel computer in cui è installato Log Analytics Agent.
+1. Passare alla directory in cui si trova lo strumento.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Eseguire lo script principale usando questo comando:
+   * `.\GetAgentInfo.ps1`
+1. Selezionare uno scenario di risoluzione dei problemi.
+1. Seguire le istruzioni nella console. Nota: i passaggi dei log di traccia richiedono l'intervento manuale per arrestare la raccolta dei log. In base alla riproducibilità del problema, attendere la durata e premere ' per arrestare la raccolta dei log e procedere con il passaggio successivo.
+
+   Il percorso del file dei risultati viene registrato al completamento e viene aperta una nuova finestra di Esplora risorse.
+
+### <a name="installation"></a>Installazione
+Lo strumento per la risoluzione dei problemi viene incluso automaticamente durante l'installazione dell'agente di Log Analytics Build 10.20.18053.0 e versioni successive.
+
+### <a name="scenarios-covered"></a>Scenari possibili
+Di seguito è riportato un elenco di scenari controllati dallo strumento per la risoluzione dei problemi:
+
+- Agente che non segnala dati o dati heartbeat mancanti
+- Distribuzione dell'estensione dell'agente non riuscita
+- Arresto anomalo dell'agente
+- Agente con utilizzo elevato di CPU/memoria
+- Errori di installazione/disinstallazione
+- Problema dei log personalizzati
+- Problema del gateway OMS
+- Problemi relativi ai contatori delle prestazioni
+- Raccogli tutti i log
+
+>[!NOTE]
+>Eseguire lo strumento per la risoluzione dei problemi quando si verifica un problema. Quando si apre un ticket, i log sono inizialmente utili per aiutare il team di supporto a risolvere i problemi più rapidamente.
 
 ## <a name="important-troubleshooting-sources"></a>Principali origini per la risoluzione dei problemi
 
@@ -59,7 +93,7 @@ Esistono diversi modi per verificare se l'agente è in grado di comunicare corre
 
     ![Risultati dell'esecuzione dello strumento TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filtrare il registro eventi *Operations Manager* per **origini evento**  -  *servizio integrità moduli*, *HealthService*e *connettore del servizio* e filtrare per *avviso* a **livello di evento** ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
+- Filtrare il registro eventi *Operations Manager* per **origini evento**  -  *servizio integrità moduli*, *HealthService* e *connettore del servizio* e filtrare per *avviso* a **livello di evento** ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
 
     |ID evento |Source (Sorgente) |Descrizione |Soluzione |
     |---------|-------|------------|-----------|

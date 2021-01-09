@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091804"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049814"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Richiesta di servizio non riuscita. Stato: 403 (accesso negato)
 
@@ -25,7 +25,7 @@ Questo errore può verificarsi in molti tipi di richieste di servizio che richie
 
 ### <a name="cause-1"></a>Causare #1
 
-In genere, questo errore indica che le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per il servizio non sono configurate correttamente. Per molte azioni per un'istanza di Azure Digital Twins è necessario avere il ruolo di *proprietario dei dati di Azure Digital gemelli* nell' **istanza che si sta tentando di gestire** . 
+In genere, questo errore indica che le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per il servizio non sono configurate correttamente. Per molte azioni per un'istanza di Azure Digital Twins è necessario avere il ruolo di *proprietario dei dati di Azure Digital gemelli* nell' **istanza che si sta tentando di gestire**. 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -44,7 +44,7 @@ La prima soluzione consiste nel verificare che l'utente di Azure disponga del ru
 Si noti che questo ruolo è diverso da...
 * Nome precedente per questo ruolo durante la fase di anteprima, proprietario di dispositivi *digitali gemelli di Azure (anteprima)* (il ruolo è lo stesso, ma il nome è stato modificato)
 * ruolo *proprietario* nell'intera sottoscrizione di Azure. Il *proprietario dei dati di Azure Digital gemelli* è un ruolo nei dispositivi gemelli digitali di Azure ed è limitato a questa singola istanza di Azure Digital gemelli.
-* il ruolo di *proprietario* nei dispositivi gemelli digitali di Azure. Si tratta di due ruoli di gestione distinti di Azure Digital gemelli e il *proprietario dei dati di Azure Digital gemelli* è il ruolo da usare per la gestione durante l'anteprima.
+* il ruolo di *proprietario* nei dispositivi gemelli digitali di Azure. Si tratta di due ruoli di gestione distinti di Azure Digital gemelli e il *proprietario dei dati di Azure Digital gemelli* è il ruolo da usare per la gestione.
 
 #### <a name="check-current-setup"></a>Controllare l'installazione corrente
 
@@ -52,7 +52,7 @@ Si noti che questo ruolo è diverso da...
 
 #### <a name="fix-issues"></a>Risolvere i problemi 
 
-Se non si dispone di questa assegnazione di ruolo, un utente con un ruolo proprietario nella **sottoscrizione di Azure** deve eseguire il comando seguente per concedere all'utente di Azure il ruolo di *proprietario dei dati di Azure Digital gemelli* nell'istanza di **Azure Digital gemelli** . 
+Se non si dispone di questa assegnazione di ruolo, un utente con un ruolo proprietario nella **sottoscrizione di Azure** deve eseguire il comando seguente per concedere all'utente di Azure il ruolo di *proprietario dei dati di Azure Digital gemelli* nell'istanza di **Azure Digital gemelli**. 
 
 Se si è un proprietario della sottoscrizione, è possibile eseguire questo comando manualmente. In caso contrario, contattare un proprietario per eseguire questo comando per conto dell'utente.
 
@@ -60,7 +60,7 @@ Se si è un proprietario della sottoscrizione, è possibile eseguire questo coma
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Per altri dettagli su questo requisito del ruolo e il processo di assegnazione, vedere la [sezione *configurare le autorizzazioni di accesso dell'utente*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) in *procedura: configurare un'istanza e l'autenticazione (CLI o portale)* .
+Per altri dettagli su questo requisito del ruolo e il processo di assegnazione, vedere la [sezione *configurare le autorizzazioni di accesso dell'utente*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) in *procedura: configurare un'istanza e l'autenticazione (CLI o portale)*.
 
 Se questa assegnazione di ruolo è già stata usata *e* si sta usando una registrazione dell'app Azure ad per autenticare un'app client, è possibile passare alla soluzione successiva se questa soluzione non ha risolto il problema 403.
 
@@ -80,11 +80,11 @@ Verrà visualizzata la registrazione dell'app appena creata nell'elenco. Selezio
 
 Prima di tutto, verificare che le impostazioni delle autorizzazioni di Azure Digital Twins siano state impostate correttamente nella registrazione. A tale scopo, selezionare *manifesto* dalla barra dei menu per visualizzare il codice manifesto della registrazione dell'app. Scorrere fino alla fine della finestra del codice e cercare questi campi sotto `requiredResourceAccess` . I valori devono corrispondere a quelli dello screenshot seguente:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Registrazioni app pagina nella portale di Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Visualizzazione del portale del manifesto per la registrazione dell'app Azure AD":::
 
 Selezionare quindi *autorizzazioni API* dalla barra dei menu per verificare che la registrazione dell'app contenga le autorizzazioni di lettura/scrittura per i dispositivi gemelli digitali di Azure. Verrà visualizzata una voce simile alla seguente:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Registrazioni app pagina nella portale di Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Visualizzazione del portale delle autorizzazioni API per la registrazione dell'app Azure AD, che mostra l'accesso in lettura/scrittura per i dispositivi gemelli digitali di Azure":::
 
 #### <a name="fix-issues"></a>Risolvere i problemi
 

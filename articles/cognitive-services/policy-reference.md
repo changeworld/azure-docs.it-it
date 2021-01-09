@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Servizi cognitivi di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Servizi cognitivi di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fcad257055a36f536c4b53f9082550cb349031ef
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d5008a71061d6e578059d0c881f027761b2ce001
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984745"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048649"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Definizioni di criteri predefiniti di Criteri di Azure per Servizi cognitivi di Azure
 
