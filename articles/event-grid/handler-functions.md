@@ -1,31 +1,31 @@
 ---
-title: Funzione di Azure come gestore dell'evento per gli eventi di Griglia di eventi di Azure
-description: Spiega in che modo usare le funzioni di Azure come gestori degli eventi di Griglia di eventi.
+title: Usare una funzione in Azure come gestore eventi per gli eventi di griglia di eventi di Azure
+description: Viene descritto come usare le funzioni create in e ospitate da funzioni di Azure come gestori eventi per gli eventi di griglia di eventi.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145750"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034969"
 ---
-# <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Funzione di Azure come gestore dell'evento per gli eventi di Griglia di eventi
+# <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Usare una funzione come gestore eventi per gli eventi di griglia di eventi
 
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue un'azione per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è **Funzioni di Azure**. 
 
 
-Per usare una funzione di Azure come gestore per gli eventi, seguire uno degli approcci seguenti: 
+Per usare una funzione in Azure come gestore per gli eventi, seguire uno degli approcci seguenti: 
 
--   Usare il [trigger griglia di eventi](../azure-functions/functions-bindings-event-grid-trigger.md).  Specificare la **funzione di Azure** come tipo di **endpoint**. Specificare quindi l'app per le funzioni di Azure e la funzione che gestirà gli eventi. 
--   Usare il [trigger http](../azure-functions/functions-bindings-http-webhook.md).  Specificare l' **hook Web** come **tipo di endpoint**. Specificare quindi l'URL per la funzione di Azure che gestirà gli eventi. 
+-   Usare il [trigger griglia di eventi](../azure-functions/functions-bindings-event-grid-trigger.md).  Specificare la **funzione di Azure** come tipo di **endpoint**. Specificare quindi l'app per le funzioni e la funzione che gestirà gli eventi. 
+-   Usare il [trigger http](../azure-functions/functions-bindings-http-webhook.md).  Specificare l' **hook Web** come **tipo di endpoint**. Specificare quindi l'URL per la funzione che gestirà gli eventi. 
 
 Si consiglia di utilizzare il primo approccio (trigger griglia di eventi) in quanto presenta i vantaggi seguenti rispetto al secondo approccio:
 -   Griglia di eventi convalida automaticamente i trigger di Griglia di eventi. Con i trigger HTTP generici è necessario implementare autonomamente la [risposta di convalida](webhook-event-delivery.md).
 -   Griglia di eventi regola automaticamente la velocità con cui gli eventi vengono recapitati a una funzione attivata da un evento di griglia di eventi in base alla frequenza percepita in cui la funzione può elaborare gli eventi. Questa funzionalità di corrispondenza della velocità evita gli errori di recapito derivanti dall'impossibilità di una funzione di elaborare gli eventi in quanto la velocità di elaborazione degli eventi della funzione può variare nel tempo. Per migliorare l'efficienza a una velocità effettiva elevata, abilitare l'invio in batch alla sottoscrizione di eventi. Per altre informazioni, vedere [abilitare](#enable-batching)la suddivisione in batch.
 
     > [!NOTE]
-    > Attualmente, non è possibile usare un trigger di griglia di eventi per un'app funzioni di Azure quando l'evento viene recapitato nello schema **CloudEvents** . È necessario usare invece un trigger HTTP.
+    > Attualmente, non è possibile usare un trigger di griglia di eventi per un'app per le funzioni quando l'evento viene recapitato nello schema **CloudEvents** . È necessario usare invece un trigger HTTP.
 
 ## <a name="tutorials"></a>Esercitazioni
 
@@ -69,7 +69,7 @@ Al momento della creazione di una sottoscrizione nell'interfaccia utente, nella 
 
 È possibile aggiornare questi valori per una sottoscrizione esistente nella scheda **funzionalità** della pagina dell' **argomento griglia di eventi** . 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Abilitare la suddivisione in batch al momento della creazione di una sottoscrizione":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Abilita batch dopo la creazione":::
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 È possibile impostare **maxEventsPerBatch** e **preferredBatchSizeInKilobytes** in un modello di Azure Resource Manager. Per ulteriori informazioni, vedere il [riferimento al modello eventSubscriptions di Microsoft. EventGrid](/azure/templates/microsoft.eventgrid/eventsubscriptions).

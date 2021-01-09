@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608511"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035224"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
-Usare le [azioni di GitHub](https://github.com/features/actions) per definire un flusso di lavoro per compilare e distribuire automaticamente il codice nell'app per le funzioni di Azure. 
+Usare le [azioni di GitHub](https://github.com/features/actions) per definire un flusso di lavoro per compilare e distribuire automaticamente il codice nell'app per le funzioni in funzioni di Azure. 
 
 Nelle azioni di GitHub un [flusso di lavoro](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) è un processo automatico definito nel repository GitHub. Questo processo spiega a GitHub come compilare e distribuire il progetto di app per le funzioni su GitHub. 
 
@@ -26,7 +26,7 @@ Per un flusso di lavoro di funzioni di Azure, il file è costituito da tre sezio
 | Sezione | Attività |
 | ------- | ----- |
 | **autenticazione** | Scaricare un profilo di pubblicazione.<br/>Creare un segreto GitHub.|
-| **Build** | Configurare l'ambiente.<br/>Compilare l'app per le funzioni.|
+| **Compila** | Configurare l'ambiente.<br/>Compilare l'app per le funzioni.|
 | **Distribuzione** | Distribuire l'app per le funzioni.|
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -187,6 +187,7 @@ Nell'esempio seguente viene illustrata la parte del flusso di lavoro che compila
 ---
 
 ## <a name="deploy-the-function-app"></a>Distribuire l'app per le funzioni
+
 Usare l' `Azure/functions-action` azione per distribuire il codice in un'app per le funzioni. Questa azione ha tre parametri:
 
 |Parametro |Spiegazione  |
@@ -202,7 +203,7 @@ Nell'esempio seguente viene utilizzata la versione 1 di `functions-action` e una
 Configurare un flusso di lavoro .NET Linux che usa un profilo di pubblicazione.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -241,7 +242,7 @@ jobs:
 Configurare un flusso di lavoro di Windows .NET che usa un profilo di pubblicazione.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -283,7 +284,7 @@ jobs:
 Configurare un flusso di lavoro Java Linux che usa un profilo di pubblicazione.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -325,7 +326,7 @@ jobs:
 Configurare un flusso di lavoro di Windows Java che usa un profilo di pubblicazione.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -369,7 +370,7 @@ jobs:
 Configurare un flusso di lavoro di Node.JS Linux che usa un profilo di pubblicazione.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -411,7 +412,7 @@ jobs:
 Configurare un flusso di lavoro di Node.JS Windows che usa un profilo di pubblicazione.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -455,7 +456,7 @@ jobs:
 Configurare un flusso di lavoro Python Linux che usa un profilo di pubblicazione.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]

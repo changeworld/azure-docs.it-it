@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 327ab63a048e08328cd5b1334b0a697a61ced6c8
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 85600bbee15dadcce7315300ffde481cbfc2e255
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346334"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034714"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -433,6 +433,9 @@ Le proprietà seguenti sono supportate per l'archiviazione BLOB di Azure in `sto
     }
 ]
 ```
+
+> [!NOTE]
+> Il `$logs` contenitore, che viene creato automaticamente quando analisi archiviazione è abilitato per un account di archiviazione, non viene visualizzato quando viene eseguita un'operazione di elenco di contenitori tramite l'interfaccia utente Data Factory. Il percorso del file deve essere fornito direttamente per Data Factory per l'utilizzo di file dal `$logs` contenitore.
 
 ### <a name="blob-storage-as-a-sink-type"></a>Archiviazione BLOB come tipo di sink
 

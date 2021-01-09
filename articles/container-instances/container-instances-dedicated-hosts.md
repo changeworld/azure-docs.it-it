@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68b9b31cdfb55e8150b05e3efd35389320905cdc
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825610"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034272"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Eseguire la distribuzione in host dedicati
 
@@ -19,6 +19,9 @@ ms.locfileid: "91825610"
 Lo SKU dedicato è adatto per i carichi di lavoro del contenitore che richiedono l'isolamento del carico di lavoro dal punto di vista del server fisico.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+> [!NOTE]
+> A causa di alcune limitazioni correnti, è garantito che non tutte le richieste di aumento dei limiti siano approvate.
 
 * Il limite predefinito per qualsiasi sottoscrizione per l'uso dello SKU dedicato è 0. Se si vuole usare questo SKU per le distribuzioni di contenitori di produzione, creare un [richiesta di supporto di Azure][azure-support] per aumentare il limite.
 

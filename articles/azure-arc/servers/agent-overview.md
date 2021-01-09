@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 12/21/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 86d524665b70725108324b1d88521a4c3cb8ff05
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723270"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033966"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -68,6 +68,8 @@ Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente su
 ### <a name="azure-subscription-and-service-limits"></a>Limiti del servizio e della sottoscrizione di Azure
 
 Prima di configurare i computer con i server abilitati per Azure Arc, esaminare i limiti della [sottoscrizione](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager e dei [gruppi di risorse](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) per pianificare il numero di computer da connettere.
+
+I server abilitati per Azure Arc supportano fino a 5.000 istanze di computer in un gruppo di risorse.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocollo Transport Layer Security 1,2
 

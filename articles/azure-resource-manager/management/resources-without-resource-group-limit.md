@@ -2,20 +2,19 @@
 title: Risorse senza limite di 800 conteggi
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 10/28/2020
-ms.openlocfilehash: c2d5797a7ec354f41d510ec6e884968bf9dbdbcd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 01/08/2021
+ms.openlocfilehash: 6a63fd7e41c03b542f4a43b483243702c5be5f14
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672365"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034935"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
 
 Per impostazione predefinita, è possibile distribuire fino a 800 istanze di un tipo di risorsa in ogni gruppo di risorse. Tuttavia, alcuni tipi di risorse sono esenti dal limite dell'istanza 800. Questo articolo elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse. Tutti gli altri tipi di risorse sono limitati a 800 istanze.
 
 Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rimuovere il limite dell'istanza 800. Questi tipi di risorse sono indicati in questo articolo.
-
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -105,6 +104,11 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * software
 * softwareUpdateProfile
 * softwareUpdates
+
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+
+* computer: supporta fino a 5.000 istanze
+* estensioni: supporta un numero illimitato di istanze di estensione della macchina virtuale
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 

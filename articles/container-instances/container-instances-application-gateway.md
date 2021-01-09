@@ -3,12 +3,12 @@ title: Indirizzo IP statico per il gruppo di contenitori
 description: Creare un gruppo di contenitori in una rete virtuale e usare un gateway applicazione di Azure per esporre un indirizzo IP front-end statico a un'app Web in contenitori
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0131780fdb04a71837d5ae9bf5498bf2bd499f8a
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260780"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035054"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Esporre un indirizzo IP statico per un gruppo di contenitori
 
@@ -100,6 +100,9 @@ ACI_IP=$(az container show \
   --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv)
 ```
+
+> [!IMPORTANT]
+> Se il gruppo di contenitori viene arrestato, avviato o riavviato, l'indirizzo IP privato del gruppo di contenitori è soggetto a modifiche. In tal caso, sarà necessario aggiornare la configurazione del gateway applicazione.
 
 ## <a name="create-application-gateway"></a>Creare il gateway applicazione
 

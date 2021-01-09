@@ -3,12 +3,12 @@ title: Scenari di utilizzo di una rete virtuale
 description: Scenari, risorse e limitazioni per la distribuzione di gruppi di contenitori in una rete virtuale di Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882433"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033830"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenari e risorse della rete virtuale
 
@@ -33,6 +33,7 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 * **Azure Load Balancer** l'inserimento di un Azure Load Balancer davanti alle istanze di contenitore in un gruppo di contenitori in rete non è supportato
 * **Peering di rete virtuale globale** : il peering globale (connessione di reti virtuali tra aree di Azure) non è supportato
 * **IP pubblico o etichetta DNS** : i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'esposizione di contenitori direttamente a Internet con un indirizzo IP pubblico o un nome di dominio completo
+* **NAT della rete virtuale** : i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'uso di una risorsa gateway NAT per la connettività Internet in uscita.
 
 ## <a name="other-limitations"></a>Altre limitazioni
 

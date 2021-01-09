@@ -3,14 +3,14 @@ title: Usare il servizio Azure Kubernetes con il contratto di servizio relativo 
 description: Informazioni sull'offerta opzionale del contratto di servizio relativo al tempo di attività per il server API del servizio Azure Kubernetes.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 95728ca14b96adf7396ca13888107477d953b2a9
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607340"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033337"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -26,7 +26,7 @@ I clienti possono comunque creare cluster gratuiti senza limiti con un obiettivo
 ## <a name="region-availability"></a>Aree di disponibilità
 
 * Il contratto di servizio per il tempo di esecuzione è disponibile nelle aree pubbliche e nelle aree di Azure per enti pubblici in cui [è supportato](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
-* Il contratto di servizio per il tempo di esecuzione è disponibile per i [cluster AKS privati][private-clusters] in tutte le aree in cui è supportato AKS.
+* Il contratto di servizio per il tempo di esecuzione è disponibile per i [cluster AKS privati][private-clusters] in tutte le aree pubbliche in cui è supportato AKS.
 
 ## <a name="sla-terms-and-conditions"></a>Termini e condizioni del contratto di servizio
 

@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bf6ebd01a18a0ebf0ab5dd7d7ac3aa34256b4696
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0b32efe3738dedbe8178889b3e9008964d485b00
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936805"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034918"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -20,7 +20,7 @@ Per gli sviluppatori di Express.js, Node.js o JavaScript, se non si ha familiari
 
 | Introduzione | Concetti| Apprendimento guidato |
 | -- | -- | -- | 
-| <ul><li>[Node.js funzione utilizzando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunzioneNode.js con terminale/prompt dei comandi](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js funzione utilizzando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunzioneNode.js con terminale/prompt dei comandi](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Nozioni fondamentali sulle funzioni JavaScript
 

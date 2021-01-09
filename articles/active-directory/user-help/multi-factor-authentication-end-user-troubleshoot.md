@@ -13,12 +13,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: caa2c66d66cce09f5b5b0fe0948ab924389d756e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cb5e3463eda5d77bbbdefe223954105fd125c71
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033783"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033983"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemi comuni con la verifica a due fattori e l'account aziendale o dell'istituto di istruzione
 
@@ -74,7 +74,7 @@ Non ricevere il codice di verifica è un problema comune. Il problema è in gene
 
 Soluzione | Informazioni aggiuntive
 --------- | ------------
-Usare l'app Microsoft Authenticator o i codici di verifica | Si sta ricevendo il messaggio di errore "è stato raggiunto il limite per le chiamate di verifica" o "è stato raggiunto il limite sui codici di verifica del testo" durante l'accesso. <br/><br/>Microsoft può limitare i tentativi di autenticazione ripetuti eseguiti dallo stesso utente in un breve periodo di tempo. Questa limitazione non si applica all'Microsoft Authenticator o al codice di verifica. Se sono stati raggiunti questi limiti, è possibile usare l'app Authenticator, il codice di verifica oppure provare ad accedere di nuovo in pochi minuti.
+Usare l'app Microsoft Authenticator o i codici di verifica | Si sta ricevendo il messaggio di errore "è stato raggiunto il limite per le chiamate di verifica" o "è stato raggiunto il limite sui codici di verifica del testo" durante l'accesso. <br/><br/>Microsoft può limitare i tentativi di autenticazione ripetuti eseguiti dallo stesso utente in un breve periodo di tempo. Questa limitazione non si applica all'Microsoft Authenticator o al codice di verifica. Se sono stati raggiunti questi limiti, è possibile usare l'app Authenticator, il codice di verifica oppure provare ad accedere di nuovo in pochi minuti. <br/><br/> Si è verificato un messaggio di errore durante la verifica dell'account durante l'accesso. <br/><br/> Microsoft può limitare o bloccare i tentativi di autenticazione vocale o SMS eseguiti dallo stesso utente, numero di telefono o organizzazione a causa di un numero elevato di tentativi di autenticazione vocale o SMS non riusciti. Se si verifica questo errore, è possibile provare un altro metodo, ad esempio l'app Authenticator o il codice di verifica, oppure rivolgersi all'amministratore per assistenza.
 Riavviare il dispositivo mobile | A volte il dispositivo necessita solo di un aggiornamento. Quando si riavvia il dispositivo, tutti i processi e i servizi in background vengono terminati. Il riavvio arresta anche i componenti principali del dispositivo. Ogni servizio o componente viene aggiornato al riavvio del dispositivo.
 Verificare la correttezza delle informazioni di sicurezza | Assicurarsi che le informazioni per il metodo di verifica di sicurezza siano accurate, in particolare i numeri di telefono. Se si specifica un numero di telefono errato, tutti gli avvisi verranno inviati a tale numero. Fortunatamente, l'utente di tale numero non sarà in grado di eseguire alcuna operazione con gli avvisi, ma si continuerà a non poter accedere al proprio account. Per assicurarsi che le informazioni siano corrette, vedere le istruzioni riportate nell'articolo [Gestire le impostazioni del metodo di verifica a due fattori](multi-factor-authentication-end-user-manage-settings.md).
 Verificare che le notifiche siano abilitate | Verificare che nel dispositivo mobile siano attivate le notifiche. Assicurarsi che siano consentite le modalità di notifica seguenti: <br/><br/> &bull; Chiamate telefoniche <br/> &bull; App di autenticazione <br/> &bull; App per la messaggistica testuale <br/><br/> Assicurarsi che queste modalità creino un avviso _visibile_ sul dispositivo.

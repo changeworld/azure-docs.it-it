@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8364e67e71143729e97c5253f0dfd7b30a1e5c2f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: d088a2834f5acb643e4f626d02b49954cc9fa3c2
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559821"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033570"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -92,8 +92,9 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | MarkAsFailureOnStatusCode5xx | No | Indica se una richiesta a un servizio esterno deve essere contrassegnata come non riuscita se il codice di stato http è compreso nell'intervallo 5xx. Il valore predefinito è `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indica se i metadati OIDC devono essere individuati tramite l'autorità di certificazione nel token JWT. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
-|token_endpoint_auth_method| No| Specifica il modo in cui Azure AD B2C invia l'intestazione di autenticazione all'endpoint del token. Valori possibili: `client_secret_post` (impostazione predefinita), `private_key_jwt` (anteprima pubblica) e `client_secret_basic` (anteprima pubblica). Per altre informazioni, vedere la [sezione autenticazione client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-|SingleLogoutEnabled| No| Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-behavior.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` .|
+| token_endpoint_auth_method | No | Specifica il modo in cui Azure AD B2C invia l'intestazione di autenticazione all'endpoint del token. Valori possibili: `client_secret_post` (impostazione predefinita) e `client_secret_basic` (anteprima pubblica). Per altre informazioni, vedere la [sezione autenticazione client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+| token_signing_algorithm | No | Algoritmo di firma usato per le asserzioni client quando il **token_endpoint_auth_method** metadati è impostato su `private_key_jwt` . Valori possibili: `RS256` (impostazione predefinita). |
+| SingleLogoutEnabled | No | Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-overview.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` . |
 
 ```xml
 <Metadata>
@@ -124,7 +125,8 @@ L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |
+| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. Questa chiave crittografica è obbligatoria solo se i metadati di **response_types** sono impostati su `code` e **token_endpoint_auth_method** è impostato su `client_secret_post` o `client_secret_basic` . In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |
+| assertion_signing_key | Sì | Chiave privata RSA che verrà usata per firmare l'asserzione client. Questa chiave crittografica è obbligatoria solo se il **token_endpoint_auth_method** metadati è impostato su `private_key_jwt` . |
 
 ## <a name="redirect-uri"></a>Uri di reindirizzamento
 

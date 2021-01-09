@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e4463b932c95e224981b74093effbb355de24f6b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.custom: fasttrack-edit
+ms.openlocfilehash: fed1e31380381b864530b3fa0b9e8c0886737d04
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509819"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033609"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operazioni disponibili per Azure AD B2C
 
@@ -39,7 +40,7 @@ Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l
 - [Aggiungere](/graph/api/authentication-post-phonemethods)
 - [Ottieni](/graph/api/b2cauthenticationmethodspolicy-get)
 - [Aggiornamento](/graph/api/b2cauthenticationmethodspolicy-update)
-- [Eliminazione](/graph/api/phoneauthenticationmethod-delete)
+- [Elimina](/graph/api/phoneauthenticationmethod-delete)
 
 Per altre informazioni sulla gestione del numero di telefono dell'accesso dell'utente con l'API Microsoft Graph, vedere [metodi di autenticazione B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
 
@@ -57,10 +58,10 @@ Gestire i provider di identità disponibili per i flussi utente nel tenant del A
 
 Configurare criteri predefiniti per l'iscrizione, l'accesso, l'iscrizione e l'accesso combinati, la reimpostazione della password e l'aggiornamento del profilo.
 
-- [Elencare i flussi utente](/graph/api/identityuserflow-list)
-- [Creare un flusso utente](/graph/api/identityuserflow-post-userflows)
-- [Ottenere un flusso utente](/graph/api/identityuserflow-get)
-- [Eliminare un flusso utente](/graph/api/identityuserflow-delete)
+- [Elencare i flussi utente](/graph/api/identitycontainer-list-b2cuserflows)
+- [Creare un flusso utente](/graph/api/identitycontainer-post-b2cuserflows)
+- [Ottenere un flusso utente](/graph/api/b2cidentityuserflow-get)
+- [Eliminare un flusso utente](/graph/api/b2cidentityuserflow-delete)
 
 ## <a name="custom-policies"></a>Criteri personalizzati
 

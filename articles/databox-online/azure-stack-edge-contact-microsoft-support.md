@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696035"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033949"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Aprire un ticket di supporto per Azure Stack Edge Pro e Azure Data Box Gateway
 
@@ -78,7 +78,7 @@ Queste informazioni si applicano solo al dispositivo Azure Stack. Di seguito è 
     * Viene inviata un'unità sostituibile sul campo per il componente hardware in cui si è verificato l'errore. Attualmente, le unità di alimentazione e le unità SSD sono le uniche FRU supportate.
     * Solo le unità sostituibili sul campo vengono sostituite entro il giorno lavorativo successivo. Per tutti gli altri componenti, è necessaria la spedizione di un'unità di sostituzione completa del sistema.
 
-3. Se viene generato un ticket di supporto prima dell'ora locale 4:30 PM (dal lunedì al venerdì), un tecnico in sede invia il giorno lavorativo successivo alla località per eseguire una sostituzione della FRU. Una sostituzione completa del sistema richiede in genere molto più tempo perché le parti vengono spedite dalla nostra fabbrica e possono essere soggette a ritardi di trasporto e di dogana.
+3. Se è stato determinato che la sostituzione di una FRU è necessaria entro l'ora locale di 1 PM (dal lunedì al venerdì), un tecnico in sede invia il giorno lavorativo successivo alla propria sede per eseguire una sostituzione della FRU. Una sostituzione completa del sistema richiede in genere molto più tempo perché le parti vengono spedite dalla nostra fabbrica e possono essere soggette a ritardi di trasporto e di dogana.
 
 ## <a name="manage-a-support-request"></a>Gestire una richiesta di supporto
 

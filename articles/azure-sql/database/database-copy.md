@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 10/30/2020
-ms.openlocfilehash: 53e62d790514bd3fb5bef93788fa78944db28c2c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127740"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035139"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -43,7 +43,7 @@ Se si usano accessi a livello di server per l'accesso ai dati e si copia il data
 
 ## <a name="copy-using-the-azure-portal"></a>Copiare usando il portale di Azure
 
-Per copiare un database tramite il portale di Azure, aprire la pagina per il database e quindi fare clic su **Copia** .
+Per copiare un database tramite il portale di Azure, aprire la pagina per il database e quindi fare clic su **Copia**.
 
    ![Copia del database](./media/database-copy/database-copy.png)
 
@@ -135,6 +135,46 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 È possibile utilizzare la procedura descritta nella sezione [copiare un database SQL in un server diverso](#copy-to-a-different-server) per copiare il database in un server in una sottoscrizione diversa tramite T-SQL. Assicurarsi di utilizzare un account di accesso con lo stesso nome e la stessa password del proprietario del database di origine. Inoltre, l'account di accesso deve essere un membro del `dbmanager` ruolo o un amministratore del server, sia nel server di origine che in quello di destinazione.
 
+```sql
+Step# 1
+Create login and user in the master database of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+
+Step# 2
+Create the user in the source database and grant dbowner permission to the database.
+
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'db_owner','loginname'
+GO
+
+Step# 3
+Capture the SID of the user “loginname” from master database
+
+SELECT [sid] FROM sysusers WHERE [name] = 'loginname'
+
+Step# 4
+Connect to Destination server.
+Create login and user in the master database, same as of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server]
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'dbmanager','loginname'
+GO
+
+Step# 5
+Execute the copy of database script from the destination server using the credentials created
+
+CREATE DATABASE new_database_name
+AS COPY OF source_server_name.source_database_name
+```
+
 > [!NOTE]
 > Il [portale di Azure](https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure non supportano la copia del database in una sottoscrizione diversa.
 
@@ -143,10 +183,10 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
-Monitorare il processo di copia eseguendo una query sulle viste [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Mentre è in corso la copia, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **Copying** .
+Monitorare il processo di copia eseguendo una query sulle viste [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Mentre è in corso la copia, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **Copying**.
 
-* Se la copia ha esito negativo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **sospetta** . Eseguire l'istruzione DROP sul nuovo database e riprovare in un secondo momento.
-* Se la copia ha esito positivo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **online** . La copia è stata completata e il nuovo database è un database standard, che può essere modificato indipendentemente dal database di origine.
+* Se la copia ha esito negativo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **sospetta**. Eseguire l'istruzione DROP sul nuovo database e riprovare in un secondo momento.
+* Se la copia ha esito positivo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **online**. La copia è stata completata e il nuovo database è un database standard, che può essere modificato indipendentemente dal database di origine.
 
 > [!NOTE]
 > Se si decide di annullare il processo di copia mentre è in corso, eseguire l'istruzione [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) nel nuovo database.
@@ -192,7 +232,7 @@ Per informazioni sulla gestione di utenti e account di accesso quando si copia u
 
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](database-copy.md).
 
-| Codice errore | Gravità | Descrizione |
+| Codice di errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 40635 |16 |Il client con indirizzo IP '%.&#x2a;ls' è temporaneamente disabilitato. |
 | 40637 |16 |La creazione della copia del database è attualmente disabilitata. |

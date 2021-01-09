@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 1d2ba6dbbcc2b8674718912f00b1d1ec58e1c4c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936091"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034510"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -1083,7 +1083,7 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
 
 1. Prima che l'app per la logica possa usare un'identità gestita, seguire la procedura descritta in [Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure](../logic-apps/create-managed-service-identity.md). Questa procedura abilita l'identità gestita nell'app per la logica e imposta l'accesso dell'identità sulla risorsa di destinazione.
 
-1. Prima che una funzione di Azure possa usare un'identità gestita, [abilitare l'autenticazione per le funzioni di Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+1. Prima che una funzione di Azure possa usare un'identità gestita, [abilitare l'autenticazione per le funzioni di Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
 1. Nel trigger o nell'azione in cui si vuole usare l'identità gestita specificare i valori delle proprietà seguenti:
 

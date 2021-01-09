@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832778"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033354"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
 
@@ -51,13 +51,13 @@ Usare la procedura seguente per distribuire un modulo di sicurezza Defender for 
 
 1. Dal portale di Azure aprire **Marketplace**.
 
-1. Selezionare **Internet delle cose**, quindi cercare **Defender per** l'IT e selezionarlo.
+1. Selezionare **Internet delle cose**, quindi cercare il **Centro sicurezza di Azure** e selezionarlo.
 
    :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Seleziona Defender per le cose":::
 
-1. Fare clic su **Crea** per configurare la distribuzione.
+1. Selezionare **Crea** per configurare la distribuzione.
 
-1. Scegliere la **sottoscrizione** di Azure dell'hub Internet delle cose, quindi selezionare l' **Hub** Internet.<br>Selezionare **Distribuisci in un dispositivo** per fare riferimento a un singolo dispositivo o selezionare **Distribuisci su scala** per fare riferimento a più dispositivi, quindi fare clic su **Crea**. Per ulteriori informazioni sulla distribuzione su larga scala, vedere [How to deploy](../iot-edge/how-to-deploy-at-scale.md).
+1. Scegliere la **sottoscrizione** di Azure dell'hub Internet delle cose, quindi selezionare l' **Hub** Internet.<br>Selezionare **Distribuisci in un dispositivo** per fare riferimento a un singolo dispositivo oppure selezionare **Distribuisci su scala** per fare riferimento a più dispositivi e selezionare **Crea**. Per ulteriori informazioni sulla distribuzione su larga scala, vedere [How to deploy](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >Se è stata selezionata l'opzione **Distribuisci su scala**, aggiungere il nome e i dettagli del dispositivo prima di continuare con la scheda **Aggiungi moduli** nelle istruzioni seguenti.
@@ -68,7 +68,7 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
 
 1. Selezionare il modulo **AzureSecurityCenterforIoT** .
 1. Nella scheda **Impostazioni modulo** modificare il **nome** in **azureiotsecurity**.
-1. Nella scheda **variabili ambiente** aggiungere una variabile, se necessario (ad esempio, livello di debug).
+1. Nella scheda **variabili di ambiente** aggiungere una variabile, se necessario (ad esempio, è possibile aggiungere il *livello di debug* e impostarlo su uno dei valori seguenti: "Fatal", "Error", "Warning" o "Information").
 1. Nella scheda **Crea opzioni del contenitore** aggiungere la configurazione seguente:
 
     ``` json
@@ -112,8 +112,12 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
 #### <a name="step-2-runtime-settings"></a>Passaggio 2: impostazioni di runtime
 
 1. Selezionare **le impostazioni di runtime**.
-1. In **Hub Edge** modificare l' **immagine** in **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
-1. Verificare che **Crea opzioni** sia impostato sulla configurazione seguente:
+2. In **Hub Edge** modificare l' **immagine** in **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+
+    >[!Note]
+    > Attualmente è supportata la versione 1.0.8.3 o precedente.
+
+3. Verificare che **Crea opzioni** sia impostato sulla configurazione seguente:
 
     ``` json
     {
@@ -139,9 +143,9 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
     }
     ```
 
-1. Selezionare **Salva**.
+4. Selezionare **Salva**.
 
-1. Selezionare **Avanti**.
+5. Selezionare **Avanti**.
 
 #### <a name="step-3-specify-routes"></a>Passaggio 3: specificare le route
 
