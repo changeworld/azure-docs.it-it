@@ -8,18 +8,19 @@ ms.topic: include
 ms.date: 09/16/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e2a1eb8524c9d9a4b0ae603da3c05fbb20900111
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bbf0530c1a7f1a747d456d87efc106418f23b7ba
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995482"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052962"
 ---
 SMB multicanale per le condivisioni file di Azure presenta attualmente le restrizioni seguenti:
 - Può essere utilizzato solo con account di archiviazione con ridondanza locale.
 - Supportato solo per i client Windows. 
 - Il numero massimo di canali è quattro.
 - SMB diretto non è supportato.
+- Gli endpoint privati per gli account di archiviazione non sono supportati.
 - Per gli account di archiviazione con autenticazione Active Directory Domain Services locale (AD DS) o Azure AD DS [basata sull'identità](../articles/storage/files/storage-files-active-directory-overview.md) abilitata per file di Azure, i client SMB non saranno in grado di utilizzare Esplora file di Windows per configurare le autorizzazioni NTFS per directory e file.
     - Usare invece lo strumento [icacls](/windows-server/administration/windows-commands/icacls) di Windows o il comando [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl?view=powershell-7) per configurare le autorizzazioni.
 

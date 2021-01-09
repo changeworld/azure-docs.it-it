@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f491bbe61e8574a7275d9ef5c87d05fa61dc7c4
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 6c4f23406c97d647002fbb3ab4a3544866303cf4
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035309"
+ms.locfileid: "98051344"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connetti le app per le funzioni in Azure per l'elaborazione dei dati
 
@@ -72,90 +72,43 @@ Per la configurazione della pipeline di Azure SDK per configurare correttamente 
 
 **Opzione 2. Aggiungere pacchetti utilizzando `dotnet` lo strumento da riga di comando:**
 
+In alternativa, è possibile usare i `dotnet add` comandi seguenti in uno strumento da riga di comando:
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.2.2
 dotnet add package System.Net.Http
 dotnet add package Azure.Core.Pipeline
 ```
+
+Quindi, aggiungere altre due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. Usare i collegamenti seguenti per passare ai pacchetti in NuGet, dove è possibile trovare i comandi della console (inclusa l'interfaccia della riga di comando di .NET) per aggiungere la versione più recente di ogni pacchetto al progetto.
+ * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Questo è il pacchetto per l'[SDK Gemelli digitali di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+ * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Questa libreria fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
+
 Successivamente, nel Esplora soluzioni di Visual Studio aprire il file _Function.cs_ in cui è presente il codice di esempio e aggiungere le istruzioni _using_ seguenti alla funzione. 
 
-```csharp
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
+
 ## <a name="add-authentication-code-to-the-function"></a>Aggiungere il codice di autenticazione alla funzione
 
 Verranno ora dichiarate le variabili a livello di classe e verrà aggiunto il codice di autenticazione che consente alla funzione di accedere ai dispositivi gemelli digitali di Azure. Si aggiungerà quanto segue alla funzione nel file {nome funzione}. cs.
 
 * Leggere l'URL del servizio ADT come variabile di ambiente. È consigliabile leggere l'URL del servizio da una variabile di ambiente, anziché impostarlo come hardcoded nella funzione.
-```csharp     
-private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-```
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+
 * Variabile statica per la quale deve essere contenuta un'istanza di HttpClient. HttpClient è relativamente costoso da creare ed è consigliabile evitare di eseguire questa operazione per ogni chiamata di funzione.
-```csharp
-private static readonly HttpClient httpClient = new HttpClient();
-```
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+
 * È possibile usare le credenziali di identità gestite in funzioni di Azure.
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-```
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+
 * Aggiungere una variabile locale _DigitalTwinsClient_ all'interno della funzione per ospitare l'istanza del client di Azure Digital Twins nel progetto di funzione. Non *rendere questa* variabile statica all'interno della classe.
-```csharp
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-```
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+
 * Aggiungere un controllo null per _adtInstanceUrl_ ed eseguire il wrapping della logica della funzione in un blocco try catch per intercettare eventuali eccezioni.
 
 Una volta apportate queste modifiche, il codice della funzione sarà simile al seguente:
 
-```csharp
-// Default URL for triggering event grid function in the local environment.
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-
-namespace adtIngestFunctionSample
-{
-    public class Function1
-    {
-        //Your Digital Twin URL is stored in an application setting in Azure Functions
-        private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static readonly HttpClient httpClient = new HttpClient();
-
-        [FunctionName("TwinsFunction")]
-        public void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.Data.ToString());
-            if (adtInstanceUrl == null) log.LogError("Application setting \"ADT_SERVICE_URL\" not set");
-            try
-            {
-                //Authenticate with Digital Twins
-                ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-                DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-                log.LogInformation($"ADT service client connection created.");
-                /*
-                * Add your business logic here
-                */
-            }
-            catch (Exception e)
-            {
-                log.LogError(e.Message);
-            }
-
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
 ## <a name="publish-the-function-app-to-azure"></a>Pubblicare l'app per le funzioni in Azure
 

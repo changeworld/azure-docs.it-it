@@ -3,12 +3,12 @@ title: Onboarding come partner di griglia di eventi di Azure usando portale di A
 description: Usare portale di Azure per l'onboarding di un partner di griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349387"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050953"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Onboarding come partner di griglia di eventi di Azure usando il portale di Azure
 Questo articolo descrive il modo in cui i provider SaaS di terze parti, noti anche come autori di eventi o partner, vengono caricati in griglia di eventi per poter pubblicare eventi dai rispettivi servizi e come tali eventi vengono utilizzati dagli utenti finali.
@@ -112,7 +112,6 @@ Per completare i passaggi rimanenti, verificare di avere:
     1. Nella sezione **Dettagli canale** eseguire le operazioni seguenti:
         1. Per **nome canale evento** immettere un nome per il canale dell'evento. 
         1. Immettere l' **origine**. Vedere le [specifiche degli eventi Cloud 1,0](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) per ottenere un'idea di un valore appropriato per l'origine. Vedere anche [questo esempio di schema di eventi Cloud](cloud-event-schema.md#sample-event-using-cloudevents-schema).
-        1. Immettere l'origine (cosa è?).
     1. Nella sezione **Dettagli destinazione** immettere i dettagli per l'argomento partner di destinazione che verrà creato per questo canale di eventi. 
         1. Immettere l' **ID della sottoscrizione** in cui verrà creato l'argomento del partner. 
         1. Immettere il **nome del gruppo di risorse** in cui verrà creata la risorsa dell'argomento partner. 

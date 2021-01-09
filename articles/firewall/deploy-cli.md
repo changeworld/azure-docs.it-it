@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 6993bd10caf2f7e489de8074e311f75710b83d82
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4d611a6d575fbc94a555006882f77e5a31753164
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659438"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051452"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
 
@@ -48,7 +48,7 @@ Se si preferisce, è possibile completare questa procedura usando il [portale di
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Questo articolo richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="set-up-the-network"></a>Configurare la rete
 
@@ -67,7 +67,7 @@ az group create --name Test-FW-RG --location eastus
 Questa rete virtuale ha tre subnet.
 
 > [!NOTE]
-> La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
