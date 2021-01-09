@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494991"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044476"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (CLI)
 
@@ -35,12 +35,12 @@ Questa versione di questo articolo esegue manualmente questa procedura, una alla
 ## <a name="create-the-azure-digital-twins-instance"></a>Creare l'istanza di Azure Digital Twins
 
 In questa sezione si creerà **una nuova istanza di Azure Digital Twins** usando il comando cloud Shell. È necessario fornire:
-* Un gruppo di risorse in cui distribuirlo. Se non si dispone già di un gruppo di risorse esistente, è possibile crearne uno ora con questo comando:
+* Gruppo di risorse in cui verrà distribuita l'istanza. Se non si dispone già di un gruppo di risorse esistente, è possibile crearne uno ora con questo comando:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Area per la distribuzione. Per visualizzare le aree che supportano i dispositivi gemelli digitali di Azure, visitare i [*prodotti Azure disponibili in base all'area*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Nome dell'istanza. Il nome della nuova istanza deve essere univoco all'interno dell'area per la sottoscrizione. Ciò significa che se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome scelto, verrà chiesto di selezionare un nome diverso.
+* Nome dell'istanza. Se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome specificato, verrà chiesto di selezionare un nome diverso.
 
 Usare questi valori nel comando seguente per creare l'istanza:
 
@@ -54,7 +54,7 @@ Se l'istanza è stata creata correttamente, il risultato in Cloud Shell sarà si
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="finestra di comando con la creazione corretta del gruppo di risorse e dell'istanza di Azure Digital Twins":::
 
-Prendere nota dei nomi *host*, *nome*e *ResourceGroup* dell'istanza di Azure Digital Twins dall'output. Questi sono tutti i valori importanti che potrebbero essere necessari quando si continua a usare l'istanza di Azure Digital Twins, per configurare l'autenticazione e le risorse di Azure correlate. Se altri utenti eseguiranno la programmazione in base all'istanza, è necessario condividerli con questi valori.
+Prendere nota dei nomi **host**, **nome** e **ResourceGroup** dell'istanza di Azure Digital Twins dall'output. Questi sono tutti i valori importanti che potrebbero essere necessari quando si continua a usare l'istanza di Azure Digital Twins, per configurare l'autenticazione e le risorse di Azure correlate. Se altri utenti eseguiranno la programmazione in base all'istanza, è necessario condividerli con questi valori.
 
 > [!TIP]
 > È possibile visualizzare queste proprietà, insieme a tutte le proprietà dell'istanza, in qualsiasi momento eseguendo `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -78,9 +78,9 @@ Il risultato di questo comando è l'output delle informazioni sull'assegnazione 
 >
 > Assegnare il ruolo usando invece l' *ID oggetto* dell'utente. Questo problema può verificarsi per gli utenti di [account Microsoft personali (MSAS)](https://account.microsoft.com/account). 
 >
-> Utilizzare la [pagina portale di Azure di Azure Active Directory utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) per selezionare l'account utente e aprirne i dettagli. Copiare il valore *ObjectID*dell'utente:
+> Utilizzare la [pagina portale di Azure di Azure Active Directory utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) per selezionare l'account utente e aprirne i dettagli. Copiare il valore *ObjectID* dell'utente:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="finestra di comando con la creazione corretta del gruppo di risorse e dell'istanza di Azure Digital Twins" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Visualizzazione della pagina utente in portale di Azure evidenziando il GUID nel campo ' ID oggetto '" lightbox="media/includes/user-id.png":::
 >
 > Quindi, ripetere il comando elenco assegnazione ruolo usando l' *ID oggetto* dell'utente per il `assignee` parametro precedente.
 

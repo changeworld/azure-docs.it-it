@@ -3,14 +3,14 @@ title: Sicurezza dei dati di automazione di Azure
 description: Questo articolo illustra in che modo automazione di Azure protegge la privacy e protegge i dati.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/20/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87004648"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046040"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 
@@ -26,11 +26,9 @@ Per garantire la sicurezza dei dati in transito in automazione di Azure, si cons
 
 * Nodi DSC
 
-Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. A partire da settembre 2020, si inizia a applicare TLS 1,2 e versioni successive del protocollo di crittografia.
+Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. Non è consigliabile impostare in modo esplicito l'agente perché usi solo il protocollo TLS 1.2, a meno che non sia assolutamente necessario. Questa scelta potrebbe causare l'interruzione delle funzionalità di sicurezza a livello di piattaforma che consentono di rilevare automaticamente e sfruttare i vantaggi di protocolli più recenti e più sicuri quando saranno disponibili, ad esempio TLS 1.3.
 
-Non è consigliabile impostare in modo esplicito l'agente perché usi solo il protocollo TLS 1.2, a meno che non sia assolutamente necessario. Questa scelta potrebbe causare l'interruzione delle funzionalità di sicurezza a livello di piattaforma che consentono di rilevare automaticamente e sfruttare i vantaggi di protocolli più recenti e più sicuri quando saranno disponibili, ad esempio TLS 1.3.
-
-Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windows e Linux, che è una dipendenza per il ruolo di lavoro ibrido per Runbook, vedere [Panoramica di log Analytics Agent-TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windows e Linux, che è una dipendenza per il ruolo di lavoro ibrido per Runbook, vedere [Panoramica di log Analytics Agent-TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Indicazioni specifiche in base alla piattaforma
 
@@ -51,7 +49,7 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 |:--- |:--- |
 | Account |Un account viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente. |
 | Asset |Un asset viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente o 30 giorni dopo l'eliminazione di un account che possiede l'asset. Gli asset includono variabili, pianificazioni, credenziali, certificati, pacchetti Python 2 e connessioni. |
-| Nodi DSC |Un nodo DSC viene rimosso in modo permanente 30 giorni dopo l'annullamento della registrazione dall'account di Automazione tramite il portale di Azure o il cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) in Windows PowerShell. I nodi vengono rimossi in modo permanente anche 30 giorni dopo aver eliminato l'account che possiede il nodo. |
+| Nodi DSC |Un nodo DSC viene rimosso in modo permanente 30 giorni dopo l'annullamento della registrazione dall'account di Automazione tramite il portale di Azure o il cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) in Windows PowerShell. I nodi vengono rimossi in modo permanente anche 30 giorni dopo aver eliminato l'account che possiede il nodo. |
 | Processi |Un processo viene eliminato e rimosso definitivamente 30 giorni dopo la modifica, ad esempio dopo il completamento, l'arresto o la sospensione del processo. |
 | Moduli |Un modulo viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente o 30 giorni dopo l'eliminazione di un account che possiede il modulo. |
 | Configurazioni di nodo/File MOF |Una configurazione di nodo precedente verrà rimossa definitivamente 30 giorni dopo che viene generata una nuova configurazione di nodo. |
@@ -80,7 +78,7 @@ Non è possibile recuperare il valore delle variabili crittografate o i campi pa
 
 ### <a name="dsc-configurations"></a>Configurazioni DSC
 
-È possibile esportare le configurazioni DSC in file di script tramite il portale di Azure o il cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) in Windows PowerShell. È possibile importare e usare queste configurazioni in un altro account di Automazione.
+È possibile esportare le configurazioni DSC in file di script tramite il portale di Azure o il cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) in Windows PowerShell. È possibile importare e usare queste configurazioni in un altro account di Automazione.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replica geografica in Automazione di Azure
 

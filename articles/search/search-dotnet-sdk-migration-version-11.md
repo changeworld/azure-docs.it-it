@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/07/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 260df85f3e380e40d153fc17ce77bd56ca068982
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c5f070f59df69bb186041af450e6ca922469d960
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532823"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043745"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Eseguire l'aggiornamento ad Azure ricerca cognitiva .NET SDK versione 11
 
@@ -30,8 +30,7 @@ Di seguito sono riportate alcune differenze principali che si noterà nella nuov
 + Tre client invece di due: `SearchClient` , `SearchIndexClient` , `SearchIndexerClient`
 + Denominare le differenze in una gamma di API e piccole differenze strutturali che semplificano alcune attività
 
-> [!NOTE]
-> Esaminare il [**log**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) delle modifiche per un elenco dettagliato delle modifiche in .NET SDK versione 11.
+Oltre a questo articolo, è possibile esaminare il [log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) delle modifiche per un elenco dettagliato delle modifiche in .NET SDK versione 11.
 
 ## <a name="package-and-library-consolidation"></a>Consolidamento di pacchetti e librerie
 
@@ -81,7 +80,7 @@ Oltre alle differenze dei client (annotate in precedenza e quindi omesse qui), p
 | [StandardTokenizer](/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (anche `StandardTokenizerV2` a `LuceneStandardTokenizerV2` ) |
 | [TokenInfo](/dotnet/api/microsoft.azure.search.models.tokeninfo) | [AnalyzedTokenInfo](/dotnet/api/azure.search.documents.indexes.models.analyzedtokeninfo) |
 | [Tokenizer](/dotnet/api/microsoft.azure.search.models.tokenizer) | [LexicalTokenizer](/dotnet/api/azure.search.documents.indexes.models.lexicaltokenizer) (anche `TokenizerName` a `LexicalTokenizerName` ) |
-| [SynonymMap. Format](/dotnet/api/microsoft.azure.search.models.synonymmap.format) | No. Rimuovere i riferimenti a `Format` . |
+| [SynonymMap. Format](/dotnet/api/microsoft.azure.search.models.synonymmap.format) | Nessuno. Rimuovere i riferimenti a `Format` . |
 
 Le definizioni dei campi sono semplificate: [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield), [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield), [ComplexField](/dotnet/api/azure.search.documents.indexes.models.complexfield) sono nuove API per la creazione di definizioni di campo.
 
@@ -110,6 +109,41 @@ Le definizioni dei campi sono semplificate: [SearchableField](/dotnet/api/azure.
 | [DocumentSuggestResult](/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](/dotnet/api/azure.search.documents.models.suggestresults-1) |
 | [SearchParameters](/dotnet/api/microsoft.azure.search.models.searchparameters) |  [SearchOptions hanno](/dotnet/api/azure.search.documents.searchoptions)  |
 
+### <a name="json-serialization"></a>Serializzazione JSON
+
+Per impostazione predefinita, Azure SDK USA [System.Text.Js](/dotnet/api/system.text.json) per la serializzazione JSON, basandosi sulle funzionalità di tali API per gestire le trasformazioni del testo implementate in precedenza tramite una classe [SerializePropertyNamesAsCamelCaseAttribute](/dotnet/api/microsoft.azure.search.models.serializepropertynamesascamelcaseattribute) nativa, che non ha alcuna controparte nella nuova libreria.
+
+Per serializzare i nomi delle proprietà in camelCase, è possibile usare [JsonPropertyNameAttribute](/dotnet/api/system.text.json.serialization.jsonpropertynameattribute) (simile a [questo esempio](https://github.com/Azure/azure-sdk-for-net/tree/d263f23aa3a28ff4fc4366b8dee144d4c0c3ab10/sdk/search/Azure.Search.Documents#use-c-types-for-search-results)).
+
+In alternativa, è possibile impostare un [JsonNamingPolicy](/dotnet/api/system.text.json.jsonnamingpolicy) fornito in [JsonSerializerOptions](/dotnet/api/system.text.json.jsonserializeroptions). Il System.Text.Jsseguente nell'esempio di codice, tratto dal [file Leggimi Microsoft. Azure. Core. Spatial](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial/README.md#deserializing-documents) illustra l'uso di CamelCase senza dover attribuire ogni proprietà:
+
+```csharp
+// Get the Azure Cognitive Search endpoint and read-only API key.
+Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
+AzureKeyCredential credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
+
+// Create serializer options with our converter to deserialize geographic points.
+JsonSerializerOptions serializerOptions = new JsonSerializerOptions
+{
+    Converters =
+    {
+        new MicrosoftSpatialGeoJsonConverter()
+    },
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+};
+
+SearchClientOptions clientOptions = new SearchClientOptions
+{
+    Serializer = new JsonObjectSerializer(serializerOptions)
+};
+
+SearchClient client = new SearchClient(endpoint, "mountains", credential, clientOptions);
+Response<SearchResults<Mountain>> results = client.Search<Mountain>("Rainier");
+```
+
+Se si usa Newtonsoft.Jsper la serializzazione JSON, è possibile passare i criteri di denominazione globali usando attributi simili o usando le proprietà in [JsonSerializerSettings](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm). Per un esempio equivalente a quello precedente, vedere l' [esempio di deserializzazione dei documenti](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md) nella Newtonsoft.Jsnel file Leggimi.
+
+
 <a name="WhatsNew"></a>
 
 ## <a name="whats-in-version-11"></a>Novità della versione 11
@@ -135,7 +169,7 @@ La versione 11,1 aggiunge gli elementi seguenti:
 Le seguenti funzionalità della versione 10 non sono ancora disponibili nella versione 11. Se queste funzionalità sono necessarie, è necessario tener conto della migrazione fino a quando non sono supportate.
 
 + tipi geospaziali
-+ [Archivio conoscenze](knowledge-store-concept-intro.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
 
 <a name="UpgradeSteps"></a>
 
@@ -202,7 +236,7 @@ I passaggi seguenti consentono di iniziare a eseguire una migrazione del codice 
 
 <a name="ListOfChanges"></a>
 
-## <a name="breaking-changes-in-version-11"></a>Modifiche di rilievo nella versione 11
+## <a name="breaking-changes"></a>Modifiche di rilievo
 
 Date le modifiche apportate alle librerie e alle API, un aggiornamento alla versione 11 non è semplice e costituisce una modifica sostanziale nel senso che il codice non sarà più compatibile con le versioni precedenti. Per una revisione approfondita delle differenze, vedere il [log delle modifiche](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) per `Azure.Search.Documents` .
 

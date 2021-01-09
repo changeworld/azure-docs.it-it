@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 90a425fe64424c946a02f3c113889b62b58fbeb4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032321"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044374"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -44,7 +44,7 @@ Nella pagina *Crea risorsa* seguente inserire i valori indicati di seguito:
 * **Sottoscrizione**: la sottoscrizione di Azure in uso
   - **Gruppo di risorse**: gruppo di risorse in cui distribuire l'istanza. Se non è già presente un gruppo di risorse esistente, è possibile crearne uno selezionando il collegamento *Crea nuovo* e immettendo un nome per un nuovo gruppo di risorse
 * **Location**: area abilitata per i dispositivi gemelli di Azure per la distribuzione. Per altri dettagli sul supporto regionale, visita i [*prodotti Azure disponibili in base all'area (gemelli digitali di Azure)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Nome della risorsa**: un nome per l'istanza di Azure Digital gemelli. Il nome della nuova istanza deve essere univoco all'interno dell'area per la sottoscrizione. Ciò significa che se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome scelto, verrà chiesto di selezionare un nome diverso.
+* **Nome della risorsa**: un nome per l'istanza di Azure Digital gemelli. Se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome specificato, verrà chiesto di selezionare un nome diverso.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Inserire i valori descritti per creare una risorsa di dispositivi gemelli digitali di Azure":::
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705065"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045513"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
@@ -27,7 +27,7 @@ Questo articolo illustra come configurare il firewall di Azure per controllare l
 
 ## <a name="azure-firewall"></a>Firewall di Azure
 
-Quando si usa il firewall di Azure, usare __Network Address Translation di destinazione (DNAT)__ per creare regole NAT per il traffico in ingresso. Per il traffico in uscita, creare regole di __rete__ e/o __applicazione__ . Queste raccolte di regole sono descritte più dettagliatamente in informazioni sui [concetti di Azure firewall](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts).
+Quando si usa il firewall di Azure, usare __Network Address Translation di destinazione (DNAT)__ per creare regole NAT per il traffico in ingresso. Per il traffico in uscita, creare regole di __rete__ e/o __applicazione__ . Queste raccolte di regole sono descritte più dettagliatamente in informazioni sui [concetti di Azure firewall](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
 ### <a name="inbound-configuration"></a>Configurazione in ingresso
 

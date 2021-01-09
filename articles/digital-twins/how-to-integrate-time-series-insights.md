@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 58d101bb93b4635e362c5ec78a03a659b71b63da
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 22ee57592af838a236d75fa7f56a0c8e1ed89403
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495273"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046548"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrare i dispositivi gemelli digitali di Azure con Azure Time Series Insights
 
@@ -82,7 +82,7 @@ Esercitazione sui gemelli digitali di Azure [*: connettere una soluzione end-to-
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-Prima di procedere, prendere nota dello *spazio dei nomi* e del *gruppo di risorse*dell'hub eventi, perché verranno usati di nuovo per creare un altro hub eventi più avanti in questo articolo.
+Prima di procedere, prendere nota dello *spazio dei nomi* e del *gruppo di risorse* dell'hub eventi, perché verranno usati di nuovo per creare un altro hub eventi più avanti in questo articolo.
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure 
 
@@ -94,51 +94,7 @@ Per altre informazioni sull'uso di hub eventi con funzioni di Azure, vedere [*tr
 
 All'interno dell'app per le funzioni pubblicata, sostituire il codice della funzione con il codice seguente.
 
-```C#
-using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
-using System.Text;
-using System.Collections.Generic;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoTSI
-    { 
-        [FunctionName("ProcessDTUpdatetoTSI")]
-        public static async Task Run(
-            [EventHubTrigger("twins-event-hub", Connection = "EventHubAppSetting-Twins")]EventData myEventHubMessage, 
-            [EventHub("tsi-event-hub", Connection = "EventHubAppSetting-TSI")]IAsyncCollector<string> outputEvents, 
-            ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(myEventHubMessage.Body));
-            log.LogInformation("Reading event:" + message.ToString());
-
-            // Read values that are replaced or added
-            Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
-            foreach (var operation in message["patch"]) {
-                if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
-                {
-                    //Convert from JSON patch path to a flattened property for TSI
-                    //Example input: /Front/Temperature
-                    //        output: Front.Temperature
-                    string path = operation["path"].ToString().Substring(1);                    
-                    path = path.Replace("/", ".");                    
-                    tsiUpdate.Add(path, operation["value"]);
-                }
-            }
-            //Send an update if updates exist
-            if (tsiUpdate.Count>0){
-                tsiUpdate.Add("$dtId", myEventHubMessage.Properties["cloudEvents:subject"]);
-                await outputEvents.AddAsync(JsonConvert.SerializeObject(tsiUpdate));
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
 Da qui, la funzione invierà gli oggetti JSON creati a un secondo hub eventi, a cui ci si connetterà Time Series Insights.
 
@@ -202,14 +158,14 @@ A questo punto, è necessario impostare le variabili di ambiente nell'app per le
 Si procederà quindi alla configurazione di un'istanza di Time Series Insights per ricevere i dati dal secondo hub eventi. Seguire questa procedura e per altre informazioni su questo processo, vedere [*esercitazione: configurare un ambiente Azure Time Series Insights PAYG Gen2*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
 1. Nella portale di Azure iniziare a creare una risorsa Time Series Insights. 
-    1. Selezionare il piano tariffario **PAYG (anteprima)** .
+    1. Selezionare il piano tariffario **Gen2 (L1)** .
     2. È necessario scegliere un ID della **serie temporale** per questo ambiente. L'ID della serie temporale può essere composto da un massimo di tre valori che verranno usati per la ricerca dei dati in Time Series Insights. Per questa esercitazione, è possibile usare **$dtId**. Per altre informazioni sulla selezione di un valore ID, vedere [*procedure consigliate per la scelta di un ID di serie temporale*](../time-series-insights/how-to-select-tsid.md).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, evidenziando Time Series Insights":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Il portale di creazione UX per un ambiente Time Series Insights. Il piano tariffario Gen2 (L1) è selezionato e il nome della proprietà ID della serie temporale è $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
 
 2. Selezionare **Next: origine evento** e selezionare le informazioni di hub eventi riportate sopra. Sarà inoltre necessario creare un nuovo gruppo di consumer di hub eventi.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, evidenziando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Il portale di creazione UX per un'origine evento Time Series Insights ambiente. Si sta creando un'origine evento con le informazioni sull'hub eventi riportate sopra. Si sta creando anche un nuovo gruppo di consumer." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Iniziare a inviare i dati dell'Internet di Azure ai dispositivi gemelli digitali
 
@@ -221,21 +177,21 @@ Se si usa l'esercitazione end-to-end ([*esercitazione: connettere una soluzione 
 
 A questo punto, i dati devono essere propagati nell'istanza di Time Series Insights, pronti per essere analizzati. Per esplorare i dati in arrivo, attenersi alla procedura riportata di seguito.
 
-1. Aprire l'istanza di Time Series Insights nell' [portale di Azure](https://portal.azure.com) (è possibile cercare il nome dell'istanza nella barra di ricerca del portale). Visitare l' *URL di Time Series Insights Explorer* visualizzato nella panoramica dell'istanza.
+1. Aprire l'istanza di Time Series Insights nell' [portale di Azure](https://portal.azure.com) (è possibile cercare il nome dell'istanza nella barra di ricerca del portale). Visitare lo *strumento di esplorazione di Time Series Insights* mostrato nella panoramica dell'istanza.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, evidenziando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Selezionare l'URL di Time Series Insights Explorer nella scheda Panoramica dell'ambiente Time Series Insights":::
 
-2. Nella finestra di esplorazione si vedranno i tre gemelli di Azure Digital gemelli mostrati a sinistra. Selezionare _**thermostat67**_, selezionare **temperatura**e quindi fare clic su **Aggiungi**.
+2. Nella finestra di esplorazione si vedranno i tre gemelli di Azure Digital gemelli mostrati a sinistra. Selezionare _**thermostat67**_, selezionare **temperatura** e quindi fare clic su **Aggiungi**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, evidenziando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Selezionare * * thermostat67 * *, selezionare * * temperature * * e quindi premere * * Aggiungi * *":::
 
-3. Si dovrebbero ora visualizzare le letture della temperatura iniziali dal termostato, come mostrato di seguito. La stessa lettura della temperatura viene aggiornata per *room21* e *floor1*ed è possibile visualizzare i flussi di dati in parallelo.
+3. Si dovrebbero ora visualizzare le letture della temperatura iniziali dal termostato, come mostrato di seguito. La stessa lettura della temperatura viene aggiornata per *room21* e *floor1* ed è possibile visualizzare i flussi di dati in parallelo.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, evidenziando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="I dati relativi alla temperatura iniziale sono grafici in TSI Explorer. Si tratta di una riga di valori casuali compresa tra 68 e 85":::
 
 4. Se si consente l'esecuzione della simulazione per un periodo di tempo più lungo, la visualizzazione sarà simile alla seguente:
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, evidenziando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="I dati relativi alla temperatura per ogni gemello sono rappresentati in tre linee parallele di colori diversi.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

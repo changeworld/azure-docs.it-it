@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c2620b52c426871b0ec85e3db237be2d373d42f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458695"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045411"
 ---
 # <a name="add-tags-to-digital-twins"></a>Aggiungere tag ai dispositivi gemelli digitali 
 
@@ -32,23 +32,7 @@ I tag del marcatore sono modellati come mappa [DTDL](https://github.com/Azure/op
 
 Di seguito è riportato un Estratto di un modello di dispositivo gemello che implementa un tag del marcatore come proprietà:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### <a name="add-marker-tags-to-digital-twins"></a>Aggiungere i tag del marcatore ai dispositivi gemelli digitali
 
@@ -56,11 +40,7 @@ Quando la `tags` proprietà fa parte del modello di un gemello digitale, è poss
 
 Di seguito è riportato un esempio che popola il marcatore `tags` per tre dispositivi gemelli:
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
 ### <a name="query-with-marker-tags"></a>Query con tag marcatore
 
@@ -68,15 +48,11 @@ Una volta aggiunti i tag ai dispositivi gemelli digitali, è possibile usare i t
 
 Ecco una query per ottenere tutti i dispositivi gemelli contrassegnati come "rossi": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 È anche possibile combinare i tag per query più complesse. Ecco una query per ottenere tutti i gemelli che sono rotondi e non rossi: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>Tag Value 
 
@@ -88,23 +64,7 @@ I tag di valore vengono modellati come mappa [DTDL](https://github.com/Azure/ope
 
 Di seguito è riportato un Estratto di un modello di dispositivo gemello che implementa un tag di valore come proprietà:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### <a name="add-value-tags-to-digital-twins"></a>Aggiungere tag valore ai dispositivi gemelli digitali
 
@@ -112,11 +72,7 @@ Come per i tag del marcatore, è possibile impostare il tag value in un disposit
 
 Di seguito è riportato un esempio che popola il valore `tags` per tre dispositivi gemelli:
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
 
 Si noti che `red` e `purple` vengono usati come tag del marcatore in questo esempio.
 
@@ -124,17 +80,13 @@ Si noti che `red` e `purple` vengono usati come tag del marcatore in questo esem
 
 Come per i tag del marcatore, è possibile usare i tag di valore per filtrare i gemelli nelle query. È anche possibile usare i tag di valore e i tag del marcatore.
 
-Nell'esempio precedente `red` viene usato come tag del marcatore. Ecco una query per ottenere tutti i dispositivi gemelli contrassegnati come "rossi": 
+Nell'esempio precedente `red` viene usato come tag del marcatore. Tenere presente che si tratta di una query per ottenere tutti i dispositivi gemelli contrassegnati come "rossi": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Ecco una query per ottenere tutte le entità di dimensioni ridotte (tag di valore) e non rosse: 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

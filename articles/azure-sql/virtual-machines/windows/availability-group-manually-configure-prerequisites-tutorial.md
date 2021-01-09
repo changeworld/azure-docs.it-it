@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a9a2f9d999a51f2b4600e8379d4a8913675b338
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360017"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044289"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Esercitazione: prerequisiti per la creazione di gruppi di disponibilità in SQL Server in macchine virtuali di Azure
 
@@ -57,7 +57,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
    ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Selezionare **gruppo di risorse**.
-5. Selezionare **Crea**.
+5. Selezionare **Create** (Crea).
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
 7. Se si hanno più sottoscrizioni di Azure, verificare che la sottoscrizione sia la sottoscrizione di Azure in cui si vuole creare il gruppo di disponibilità.
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
@@ -102,7 +102,7 @@ Per creare la rete virtuale nel portale di Azure:
 
    L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
 
-5. Selezionare **Crea**.
+5. Selezionare **Create** (Crea).
 
    ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -539,7 +539,7 @@ Ripetere i passaggi nell'altra VM di SQL Server.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Ottimizzazione delle soglie di rete del cluster di failover
 
-Quando si eseguono nodi del cluster di failover Windows in macchine virtuali di Azure con SQL Server AlwaysOn, è consigliabile modificare l'impostazione del cluster in uno stato di monitoraggio più rilassato.  In questo modo il cluster risulta molto più stabile e affidabile.  Per informazioni dettagliate, vedere [IaaS con SQL AlwaysOn-ottimizzazione delle soglie di rete del cluster di failover](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+Quando si eseguono nodi del cluster di failover Windows in macchine virtuali di Azure con SQL Server gruppi di disponibilità, modificare l'impostazione del cluster in uno stato di monitoraggio più rilassato.  In questo modo il cluster risulta molto più stabile e affidabile.  Per informazioni dettagliate, vedere [IaaS con SQL Server-ottimizzazione delle soglie di rete del cluster di failover](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configurare il firewall in ogni macchina virtuale di SQL Server

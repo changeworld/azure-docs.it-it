@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: c5086eee805ffbcdf0741eae4db405b1bcbe8692
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: d39bc35d1edcbcfef4c7774259112ec5144efa15
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760360"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044357"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB senza server (anteprima)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,16 +31,13 @@ Quando si utilizza Azure Cosmos DB, tutte le operazioni di database hanno un cos
 
 ## <a name="use-cases"></a>Casi d'uso
 
-Azure Cosmos DB gli scenari più adatti per i server in cui ci si aspetta:
-
-- **Traffico basso, intermittente e imprevedibile**: poiché la capacità di provisioning in tali situazioni non è necessaria e può essere dispendiosa in termini di costi
-- **Prestazioni moderate**: poiché i contenitori senza server hanno [caratteristiche specifiche delle prestazioni](#performance)
-
-Per questi motivi, è necessario considerare Azure Cosmos DB senza server nelle situazioni seguenti:
+Azure Cosmos DB gli scenari più adatti per i server in cui si prevede un **traffico intermittente e non prevedibile** con tempi di inattività prolungati. Poiché la capacità di provisioning in tali situazioni non è necessaria e può essere dispendiosa in termini di costi, Azure Cosmos DB senza server deve essere considerata nei casi d'uso seguenti:
 
 - Introduzione a Azure Cosmos DB
-- Sviluppo, test e creazione di prototipi di nuove applicazioni
-- Esecuzione di applicazioni di piccole e medie dimensioni con traffico intermittente difficile da prevedere
+- Esecuzione di applicazioni con
+    - un traffico intermittente molto difficile da prevedere o
+    - bassa (<10%) rapporto di traffico medio-picco
+- Sviluppo, test, creazione di prototipi e esecuzione in applicazioni di produzione nuove in cui il modello di traffico è sconosciuto
 - Integrazione con servizi di calcolo senza server come [funzioni di Azure](../azure-functions/functions-overview.md)
 
 Per altre indicazioni su come scegliere l'offerta più adatta ai casi d'uso, vedere l'articolo [come scegliere tra velocità effettiva con provisioning e senza server](throughput-serverless.md) .
@@ -74,14 +71,7 @@ Quando si Esplora il riquadro **metriche** dell'account, si troverà un grafico 
 
 ## <a name="performance"></a><a id="performance"></a>Prestazioni
 
-Le risorse senza server producono caratteristiche specifiche delle prestazioni diverse da quelle offerte dalle risorse della velocità effettiva con provisioning:
-
-- **Disponibilità**: dopo che l'offerta senza server diventa disponibile a livello generale, la disponibilità di contenitori senza server sarà coperta da un contratto di servizio (SLA) del 99,9% quando non vengono usati zone di disponibilità (ridondanza della zona). Il contratto di contratto è 99,99% quando si utilizzano zone di disponibilità.
-- **Latenza**: dopo che l'offerta senza server diventa disponibile a livello generale, la latenza dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) di 10 millisecondi o meno per le scritture di punti e 30 millisecondi o meno per le Scritture. Un'operazione di lettura di punti consiste nel recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione.
-- Espansione **: dopo** che l'offerta senza server diventa disponibile a livello generale, l'espansione dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) del 95%. Ciò significa che è possibile ottenere la massima espansione per almeno il 95% del tempo.
-
-> [!NOTE]
-> Come qualsiasi anteprima di Azure, Azure Cosmos DB senza server è escluso dai contratti di servizio (SLA). Le caratteristiche di prestazioni menzionate in precedenza sono fornite come anteprima dell'offerta che verrà garantita dall'offerta quando disponibile a livello generale.
+Le risorse senza server producono caratteristiche specifiche delle prestazioni diverse da quelle offerte dalle risorse della velocità effettiva con provisioning. Una volta che l'offerta senza server diventa disponibile a livello generale, la latenza dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) di 10 millisecondi o meno per le scritture di punti e 30 millisecondi o meno per le Scritture. Un'operazione di lettura di punti consiste nel recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

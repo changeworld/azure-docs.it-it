@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461023"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045258"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
 
-Eventi diversi nei dispositivi gemelli digitali di Azure producono **notifiche**che consentono al back-end della soluzione di essere informati quando si verificano azioni diverse. Questi vengono quindi [indirizzati](concepts-route-events.md) a posizioni diverse all'interno e all'esterno dei dispositivi gemelli digitali di Azure che possono usare queste informazioni per intervenire.
+Eventi diversi nei dispositivi gemelli digitali di Azure producono **notifiche** che consentono al back-end della soluzione di essere informati quando si verificano azioni diverse. Questi vengono quindi [indirizzati](concepts-route-events.md) a posizioni diverse all'interno e all'esterno dei dispositivi gemelli digitali di Azure che possono usare queste informazioni per intervenire.
 
 Esistono diversi tipi di notifiche che possono essere generate e i messaggi di notifica possono avere un aspetto diverso a seconda del tipo di evento che li ha generati. In questo articolo vengono fornite informazioni dettagliate sui diversi tipi di messaggi e sull'aspetto che potrebbero essere simili.
 
@@ -103,7 +103,7 @@ Le notifiche del ciclo di vita vengono attivate nei casi seguenti:
 
 Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 
-| Nome | Valore |
+| Nome | valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` è univoco per ogni evento distinto. |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET* |
@@ -189,7 +189,7 @@ Le **notifiche di modifica delle relazioni** vengono attivate quando viene creat
 
 Ecco i campi nel corpo di una notifica di modifica del bordo.
 
-| Nome    | Valore |
+| Nome    | valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'istanza di Azure Digital Twins, ad esempio *mydigitaltwins.westus2.azuredigitaltwins.NET* |
@@ -245,7 +245,7 @@ Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifich
 
 Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
 
-| Nome    | Valore |
+| Nome    | valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET*
@@ -262,20 +262,7 @@ Il corpo della `Twin.Update` notifica è un documento di patch JSON contenente l
 
 Si immagini ad esempio che un dispositivo gemello digitale è stato aggiornato con la seguente patch.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 La notifica corrispondente, se eseguita in modo sincrono dal servizio, ad esempio i gemelli digitali di Azure che aggiornano un dispositivo gemello digitale, avrà un corpo simile al seguente:
 

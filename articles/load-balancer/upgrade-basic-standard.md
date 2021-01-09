@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938512"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045394"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Aggiornare Load Balancer pubblico di Azure
 [Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](./skus.md#skus).
@@ -120,10 +120,6 @@ Il completamento dello script richiede in genere circa 5-10 minuti e potrebbe ri
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Lo script di Azure PowerShell passa anche il traffico dal Load Balancer di base al Load Balancer Standard appena creato?
 
 Sì. Lo script di Azure PowerShell non solo Aggiorna l'indirizzo IP pubblico, copia la configurazione da base a Load Balancer Standard, ma esegue anche la migrazione della macchina virtuale a dietro il Load Balancer pubblico standard appena creato. 
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Si sono verificati alcuni problemi con l'uso di questo script. Come è possibile ottenere assistenza?
-  
-È possibile inviare un messaggio di posta elettronica a slbupgradesupport@microsoft.com , aprire un caso di supporto con il supporto tecnico di Azure o eseguire entrambe le operazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

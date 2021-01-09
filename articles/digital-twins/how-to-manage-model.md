@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534756"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045241"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -36,40 +36,12 @@ Si consideri un esempio in cui un ospedale vuole rappresentare digitalmente le l
 
 Il primo passaggio per la soluzione consiste nel creare modelli per rappresentare gli aspetti dell'ospedale. Una stanza del paziente in questo scenario potrebbe essere descritta come segue:
 
-```json
-{
-  "@id": "dtmi:com:contoso:PatientRoom;1",
-  "@type": "Interface",
-  "@context": "dtmi:dtdl:context;2",
-  "displayName": "Patient Room",
-  "contents": [
-    {
-      "@type": "Property",
-      "name": "visitorCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashPercentage",
-      "schema": "double"
-    },
-    {
-      "@type": "Relationship",
-      "name": "hasDevices"
-    }
-  ]
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/PatientRoom.json":::
 
 > [!NOTE]
 > Si tratta di un corpo di esempio per un file con estensione JSON in cui un modello viene definito e salvato, da caricare come parte di un progetto client. La chiamata all'API REST, d'altra parte, accetta una matrice di definizioni di modello come quella precedente (mappata a un `IEnumerable<string>` in .NET SDK). Quindi, per usare direttamente questo modello nell'API REST, racchiuderlo tra parentesi quadre.
 
-Questo modello definisce un nome e un ID univoco per la stanza del paziente e le proprietà per rappresentare il numero di visitatori e lo stato di lavaggio a mano (questi contatori verranno aggiornati dai sensori di movimento e dai dosatori SOAP intelligenti e verranno usati insieme per calcolare una proprietà *percentuale lavare* ). Il modello definisce anche una relazione *hasDevices* , che verrà usata per connettere i dispositivi [gemelli digitali](concepts-twins-graph.md) basati su questo modello di *chat* ai dispositivi effettivi.
+Questo modello definisce un nome e un ID univoco per la stanza del paziente e le proprietà per rappresentare il numero di visitatori e lo stato di lavaggio a mano (questi contatori verranno aggiornati dai sensori di movimento e dai dosatori SOAP intelligenti e verranno usati insieme per calcolare una proprietà *percentuale lavare* ). Il modello definisce anche una relazione *hasDevices*, che verrà usata per connettere i dispositivi [gemelli digitali](concepts-twins-graph.md) basati su questo modello di *chat* ai dispositivi effettivi.
 
 Seguendo questo metodo, è possibile scegliere di definire i modelli per il reparto, le zone o l'ospedale.
 
@@ -86,48 +58,16 @@ Una volta creati i modelli, è possibile caricarli nell'istanza di Azure Digital
 
 Quando si è pronti per caricare un modello, è possibile usare il frammento di codice seguente:
 
-```csharp
-// 'client' is an instance of DigitalTwinsClient
-// Read model file into string (not part of SDK)
-StreamReader r = new StreamReader("MyModelFile.json");
-string dtdl = r.ReadToEnd(); r.Close();
-string[] dtdls = new string[] { dtdl };
-client.CreateModels(dtdls);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
 Si noti che il `CreateModels` metodo accetta più file in un'unica transazione. Di seguito è riportato un esempio per illustrare:
 
-```csharp
-var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
-
-List<string> dtdlStrings = new List<string>();
-foreach (string fileName in dtdlFiles)
-{
-    // Read model file into string (not part of SDK)
-    StreamReader r = new StreamReader(fileName);
-    string dtdl = r.ReadToEnd(); r.Close();
-    dtdlStrings.Add(dtdl);
-}
-client.CreateModels(dtdlStrings);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
 I file di modello possono contenere più di un singolo modello. In questo caso, i modelli devono essere inseriti in una matrice JSON. Ad esempio:
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet",
-    "@type": "Interface",
-    //...
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon",
-    "@type": "Interface",
-    //...
-  }
-]
-```
- 
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
+
 Al caricamento, i file di modello vengono convalidati dal servizio.
 
 ## <a name="retrieve-models"></a>Recuperare i modelli
@@ -141,18 +81,7 @@ Ecco le opzioni seguenti:
 
 Di seguito sono riportate alcune chiamate di esempio:
 
-```csharp
-// 'client' is a valid DigitalTwinsClient object
-
-// Get a single model, metadata and data
-DigitalTwinsModelData md1 = client.GetModel(id);
-
-// Get a list of the metadata of all available models
-Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
-
-// Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
 Le chiamate API per recuperare i modelli restituiscono tutti `DigitalTwinsModelData` gli oggetti. `DigitalTwinsModelData` contiene i metadati relativi al modello archiviato nell'istanza di Azure Digital Twins, ad esempio nome, DTMI e data di creazione del modello. `DigitalTwinsModelData`Inoltre, l'oggetto include facoltativamente il modello stesso. A seconda dei parametri, è quindi possibile utilizzare le chiamate di recupero per recuperare solo i metadati (utile negli scenari in cui si desidera visualizzare un elenco di interfacce utente di strumenti disponibili, ad esempio) o l'intero modello.
 
@@ -208,12 +137,7 @@ Si tratta di funzionalità separate che non influiscano tra loro, anche se posso
 
 Ecco il codice per rimuovere le autorizzazioni per un modello:
 
-```csharp
-// 'client' is a valid DigitalTwinsClient  
-client.DecommissionModel(dtmiOfPlanetInterface);
-// Write some code that deletes or transitions digital twins
-//...
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
 
 Lo stato di rimozione delle autorizzazioni di un modello è incluso nei `ModelData` record restituiti dalle API per il recupero del modello.
 
@@ -244,10 +168,8 @@ Anche se un modello soddisfa i requisiti per eliminarlo immediatamente, è consi
 6. Eliminare il modello 
 
 Per eliminare un modello, utilizzare la chiamata seguente:
-```csharp
-// 'client' is a valid DigitalTwinsClient
-await client.DeleteModelAsync(IDToDelete);
-```
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
 #### <a name="after-deletion-twins-without-models"></a>Dopo l'eliminazione: gemelli senza modelli
 

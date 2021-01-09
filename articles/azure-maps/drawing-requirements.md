@@ -3,23 +3,23 @@ title: Creazione di requisiti per i pacchetti in Microsoft Azure Maps Creator (a
 description: Informazioni sui requisiti del pacchetto di disegno per convertire i file di progettazione della struttura per eseguire il mapping dei dati
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 1/08/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903463"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044782"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
 
 > [!IMPORTANT]
-> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> I servizi Creator di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile convertire i pacchetti di disegno caricati in dati della mappa usando il [servizio di conversione mappe di Azure](/rest/api/maps/conversion). Questo articolo descrive i requisiti del pacchetto di disegni per l'API di conversione. Per altre informazioni, è possibile scaricare il [pacchetto di disegni](https://github.com/Azure-Samples/am-creator-indoor-data-examples) di esempio.
@@ -41,7 +41,7 @@ Per un riferimento semplice, di seguito sono riportati alcuni termini e definizi
 | Livello | Un livello DWG di AutoCAD.|
 | Level | Un'area di un edificio a un'elevazione impostata, ad esempio il piano. |
 | Xref  |Un file in formato DWG di AutoCAD (. dwg), associato al disegno primario come riferimento esterno.  |
-| Funzionalità | Un oggetto che combina una figura geometrica con informazioni aggiuntive di metadati. |
+| Funzionalità | Oggetto che combina una geometria con più informazioni sui metadati. |
 | Classi di funzionalità | Un progetto comune per le caratteristiche. Ad esempio, un' *unità* è una classe di funzionalità e un *ufficio* è una funzionalità. |
 
 ## <a name="drawing-package-structure"></a>Struttura del pacchetto di disegno
@@ -49,9 +49,9 @@ Per un riferimento semplice, di seguito sono riportati alcuni termini e definizi
 Un pacchetto di disegni è un archivio ZIP che contiene i file seguenti:
 
 * File DWG in formato DWG di AutoCAD.
-* Un file _manifest.json_ per una singola struttura.
+* _manifest.jssu_ file che descrive i file DWG nel pacchetto di disegno.
 
-È possibile organizzare i file DWG in qualsiasi modo all'interno della cartella, ma il file manifesto deve risiedere nella directory radice della cartella. È necessario comprimere la cartella in un unico file di archivio con estensione zip. Le sezioni successive illustrano in dettaglio i requisiti per i file DWG, il file manifesto e il contenuto di questi file.  
+Il pacchetto di disegno deve essere compresso in un unico file di archivio con estensione zip. I file DWG possono essere organizzati in qualsiasi modo all'interno del pacchetto, ma il file manifesto deve risiedere nella directory radice del pacchetto compresso. Le sezioni successive illustrano in dettaglio i requisiti per i file DWG, il file manifesto e il contenuto di questi file.
 
 ## <a name="dwg-files-requirements"></a>Requisiti dei file DWG
 
@@ -60,6 +60,7 @@ Un pacchetto di disegni è un archivio ZIP che contiene i file seguenti:
 * Deve definire i livelli _Exterior_ e _Unit_. Facoltativamente, può definire i livelli facoltativi seguenti: _Wall_, _door_, _UnitLabel_, _zone_ e _ZoneLabel_.
 * Non deve contenere caratteristiche di più livelli.
 * Non deve contenere caratteristiche di più strutture.
+* Deve fare riferimento allo stesso sistema di misurazione e all'unità di misura degli altri file DWG nel pacchetto di disegno.
 
 Il [servizio di conversione di Mappe di Azure](/rest/api/maps/conversion) può estrarre le classi di caratteristiche seguenti da un file DWG:
 
@@ -78,19 +79,19 @@ I livelli DWG devono inoltre rispettare i criteri seguenti:
 
 * Le origini dei disegni per tutti i file DWG devono essere allineate alla stessa latitudine e alla stessa longitudine.
 * Ogni livello deve avere lo stesso orientamento degli altri.
-* I poligoni ad intersezione automatica vengono corretti automaticamente e il servizio di [conversione mappe di Azure](/rest/api/maps/conversion) genera un avviso. È necessario controllare manualmente i risultati corretti, perché potrebbero non corrispondere ai risultati previsti.
+* I poligoni ad intersezione automatica vengono corretti automaticamente e il servizio di [conversione mappe di Azure](/rest/api/maps/conversion) genera un avviso. È consigliabile ispezionare manualmente i risultati corretti, perché potrebbero non corrispondere ai risultati previsti.
 
-Tutte le entità livello devono essere di uno dei tipi seguenti: linea, polilinea, poligono, arco circolare, cerchio o testo (riga singola). Qualsiasi altro tipo di entità viene ignorato.
+Tutte le entità livello devono essere di uno dei tipi seguenti: linea, polilinea, poligono, arco circolare, cerchio, ellisse (chiusa) o testo (riga singola). Qualsiasi altro tipo di entità viene ignorato.
 
-Nella tabella seguente vengono descritti i tipi di entità supportati e le funzionalità supportate per ogni livello. Se un livello contiene tipi di entità non supportati, il [servizio di conversione mappe di Azure](/rest/api/maps/conversion) ignora tali entità.  
+La tabella seguente illustra i tipi di entità supportati e le funzionalità di mapping convertite per ogni livello. Se un livello contiene tipi di entità non supportati, il [servizio di conversione mappe di Azure](/rest/api/maps/conversion) ignora tali entità.  
 
-| Livello | Tipi di entità | Funzionalità |
+| Livello | Tipi di entità | Funzionalità convertite |
 | :----- | :-------------------| :-------
-| [Exterior](#exterior-layer) | Poligono, polilinea (chiusa), cerchio | Levels
-| [Unità](#unit-layer) |  Poligono, polilinea (chiusa), cerchio | Penetrazioni verticali, unità
-| [Wall](#wall-layer)  | Poligono, polilinea (chiusa), cerchio | Non applicabile. Per altre informazioni, vedere il [livello Wall](#wall-layer).
+| [Exterior](#exterior-layer) | Poligono, polilinea (chiusa), cerchio, ellisse (chiusa) | Levels
+| [Unità](#unit-layer) |  Poligono, polilinea (chiusa), cerchio, ellisse (chiusa) | Penetrazioni verticali, unità
+| [Wall](#wall-layer)  | Poligono, polilinea (chiusa), cerchio, ellisse (chiusa) | Non applicabile. Per altre informazioni, vedere il [livello Wall](#wall-layer).
 | [Door](#door-layer) | Poligono, polilinea, linea, arco circolare, cerchio | Aperture
-| [Zona](#zone-layer) | Poligono, polilinea (chiusa), cerchio | Zona
+| [Zona](#zone-layer) | Poligono, polilinea (chiusa), cerchio, ellisse (chiusa) | Zona
 | [UnitLabel](#unitlabel-layer) | Testo (riga singola) | Non applicabile. Questo livello può aggiungere proprietà solo alle caratteristiche di unità del livello Unit. Per altre informazioni, vedere il [livello UnitLabel](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Testo (riga singola) | Non applicabile. Questo livello può aggiungere proprietà solo alle caratteristiche di zona del livello ZonesLayer. Per ulteriori informazioni, vedere il [livello ZoneLabel](#zonelabel-layer).
 
@@ -102,8 +103,10 @@ Il file DWG per ogni livello deve contenere un livello per definirne il perimetr
 
 Indipendentemente dal numero di disegni di entità presenti nel livello esterno, il [set di dati di struttura risultante](tutorial-creator-indoor-maps.md#create-a-feature-stateset) conterrà solo una funzionalità di livello per ogni file DWG. Inoltre:
 
-* Gli esterni devono essere disegnati come poligono, polilinea (chiusa) o cerchio.
+* Gli esterni devono essere disegnati come poligono, polilinea (chiusa), cerchio o ellisse (chiusa).
 * Gli esterni possono sovrapporsi, ma vengono risolti in un'unica geometria.
+* La funzionalità del livello risultante deve essere almeno 4 metri quadrati.
+* La funzionalità del livello risultante non può essere maggiore di 400 metri quadrati.
 
 Se il livello contiene più polilinee sovrapposte, le polilinee vengono dissolte in una funzionalità a un solo livello. In alternativa, se il livello contiene più polilinee non sovrapposte, la funzionalità del livello risultante avrà una rappresentazione multipoligonale.
 
@@ -111,9 +114,11 @@ Se il livello contiene più polilinee sovrapposte, le polilinee vengono dissolte
 
 ### <a name="unit-layer"></a>Livello Unit
 
-Il file DWG per ogni livello definisce un livello contenente unità. Le unità sono spazi esplorabili nell'edificio, ad esempio uffici, corridoi, scale e ascensori. Il livello unità dovrà rispettare i requisiti seguenti:
+Il file DWG per ogni livello definisce un livello contenente unità. Le unità sono spazi esplorabili nell'edificio, ad esempio uffici, corridoi, scale e ascensori. Se la `VerticalPenetrationCategory` proprietà è definita, le unità navigabili che si estendono su più livelli, ad esempio ascensore e scale, vengono convertite in funzionalità di penetrazione verticale. Sono state assegnate le funzionalità di penetrazione verticali che si sovrappongono `setid` .
 
-* Le unità devono essere disegnate come poligono, polilinea (chiusa) o cerchio.
+Il livello unità dovrà rispettare i requisiti seguenti:
+
+* Le unità devono essere disegnate come poligono, polilinea (chiusa), cerchio o ellisse (chiusa).
 * Le unità devono rientrare nei limiti del perimetro esterno della struttura.
 * Le unità non devono sovrapporsi parzialmente.
 * Le unità non devono contenere figure geometriche che si auto-intersecano.
@@ -126,7 +131,7 @@ Assegnare un nome a un'unità creando un oggetto testo nel livello UnitLabel, qu
 
 Il file DWG per ogni livello può contenere un livello che definisce gli extent fisici di muri, colonne e altre strutture di compilazione.
 
-* I muri devono essere disegnati come poligono, polilinea (chiusa) o cerchio.
+* I muri devono essere disegnati come poligono, polilinea (chiusa), cerchio o ellisse (chiusa).
 * Il livello parete o i livelli devono contenere solo la geometria interpretata come struttura di compilazione.
 
 È possibile vedere un esempio di livello muri nel pacchetto di [disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -141,9 +146,9 @@ Gli sportelli aperti in un set di dati di Maps di Azure sono rappresentati come 
 
 ### <a name="zone-layer"></a>Livello Zone
 
-Il file DWG per ogni livello può contenere un livello di zona che definisce gli extent fisici delle zone. Una zona può essere uno spazio vuoto interno o un cortile.
+Il file DWG per ogni livello può contenere un livello di zona che definisce gli extent fisici delle zone. Una zona è uno spazio non navigabile che può essere denominato e sottoposto a rendering. Le zone possono estendersi su più livelli e raggruppate insieme usando la proprietà zoneSetId.
 
-* Le zone devono essere disegnate come poligono, polilinea (chiusa) o cerchio.
+* Le zone devono essere disegnate come poligono, polilinea (chiusa) o ellisse (chiusa).
 * Le zone possono sovrapporsi.
 * Le zone possono rientrare o essere esterne al perimetro esterno della struttura.
 
@@ -153,7 +158,7 @@ Assegnare un nome a una zona creando un oggetto testo nel livello ZoneLabel e in
 
 ### <a name="unitlabel-layer"></a>Livello UnitLabel
 
-Il file DWG per ogni livello può contenere un livello UnitLabel. Il livello UnitLabel aggiunge una proprietà Name alle unità estratte dal livello unità. Per le unità con una proprietà name possono essere specificati dettagli aggiuntivi nel file manifesto.
+Il file DWG per ogni livello può contenere un livello UnitLabel. Il livello UnitLabel aggiunge una proprietà Name alle unità estratte dal livello unità. Le unità con una proprietà Name possono avere più dettagli specificati nel file manifesto.
 
 * Le etichette di unità devono essere entità di testo a riga singola.
 * Le etichette di unità devono rientrare nei limiti della rispettiva unità.
@@ -163,7 +168,7 @@ Il file DWG per ogni livello può contenere un livello UnitLabel. Il livello Uni
 
 ### <a name="zonelabel-layer"></a>Livello ZoneLabel
 
-Il file DWG per ogni livello può contenere un livello ZoneLabel. Questo livello aggiunge una proprietà name alle zone estratte dal livello Zone. Per le zone con una proprietà name possono essere specificati dettagli aggiuntivi nel file manifesto.
+Il file DWG per ogni livello può contenere un livello ZoneLabel. Questo livello aggiunge una proprietà name alle zone estratte dal livello Zone. Le zone con una proprietà Name possono avere più dettagli specificati nel file manifesto.
 
 * Le etichette di zone essere entità di testo a riga singola.
 * Le etichette di zone devono rientrare nei limiti della rispettiva zona.
@@ -179,23 +184,23 @@ I percorsi dei file nell' `buildingLevels` oggetto del file manifesto devono ess
 
 Sebbene esistano requisiti quando si utilizzano gli oggetti manifesto, non tutti gli oggetti sono obbligatori. La tabella seguente Mostra gli oggetti obbligatori e facoltativi per la versione 1,1 del [servizio di conversione mappe di Azure](/rest/api/maps/conversion).
 
-| Oggetto | Obbligatoria | Description |
+| Oggetto | Obbligatoria | Descrizione |
 | :----- | :------- | :------- |
 | `version` | true |Versione dello schema del manifesto. Attualmente è supportata solo la versione 1,1.|
 | `directoryInfo` | true | Descrive le informazioni geografiche e di contatto della struttura. Può anche essere usato per descrivere informazioni geografiche e di contatto di un occupante. |
 | `buildingLevels` | true | Specifica i livelli degli edifici e i file che contengono la progettazione dei livelli. |
 | `georeference` | true | Contiene informazioni geografiche numeriche per il disegno della struttura. |
 | `dwgLayers` | true | Elenca i nomi dei livelli e ogni livello elenca i nomi delle rispettive caratteristiche. |
-| `unitProperties` | false | Può essere usato per inserire metadati aggiuntivi per le caratteristiche delle unità. |
-| `zoneProperties` | false | Può essere usato per inserire metadati aggiuntivi per le caratteristiche delle zone. |
+| `unitProperties` | false | Può essere usato per inserire più metadati per le funzionalità di unità. |
+| `zoneProperties` | false | Può essere usato per inserire più metadati per le funzionalità della zona. |
 
 Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 ### `directoryInfo`
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-| `name`      | stringa | true   |  Nome dell'edificio. |
+| `name`      | string | true   |  Nome dell'edificio. |
 | `streetAddress`|    string |    false    | Indirizzo dell'edificio. |
 |`unit`     | string    |  false    |  Unità dell'edificio. |
 | `locality` |    string |    false |    Nome di un'area, un quartiere o un'area geografica. Ad esempio, "Overlake" o "Central District". La località non fa parte dell'indirizzo postale. |
@@ -214,17 +219,17 @@ Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-|`levelName`    |stringa    |true |    Nome descrittivo del livello. Ad esempio: piano 1, lobby, parcheggio blu o seminterrato.|
+|`levelName`    |string    |true |    Nome descrittivo del livello. Ad esempio: piano 1, lobby, parcheggio blu o seminterrato.|
 |`ordinal` | integer |    true | Determina l'ordine verticale dei livelli. Ogni struttura deve avere un livello con ordinal 0. |
 |`heightAboveFacilityAnchor` | NUMERIC | false |    Altezza del livello superiore all'ancoraggio in metri. |
 | `verticalExtent` | NUMERIC | false | Altezza da piano a soffitto (spessore) del livello in metri. |
-|`filename` |    stringa |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
+|`filename` |    string |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
 
 ### `georeference`
 
-| Proprietà  | Type | Obbligatoria | Description |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
 |`lat`    | NUMERIC |    true |    Rappresentazione decimale della latitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |NUMERIC|    true|    Rappresentazione decimale della longitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`). |
@@ -232,7 +237,7 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 ### `dwgLayers`
 
-| Proprietà  | Type | Obbligatoria | Description |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |`exterior`    |matrice di stringhe|    true|    Nomi dei livelli che definiscono il profilo di compilazione esterno.|
 |`unit`|    matrice di stringhe|    true|    Nomi dei livelli che definiscono le unità.|
@@ -246,9 +251,9 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-|`unitName`    |stringa    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando `unitName` viene trovata una corrispondenza tra etichette nei `unitLabel` livelli. |
+|`unitName`    |string    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando `unitName` viene trovata una corrispondenza tra etichette nei `unitLabel` livelli. |
 |`categoryName`|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |`navigableBy`| matrice di stringhe |    false    |Indica i tipi di agenti mobili che possono attraversare l'unità. Questa proprietà informa le funzionalità wayfinding. I valori consentiti sono:,,, `pedestrian` `wheelchair` `machine` `bicycle` , `automobile` , `hiredAuto` , `bus` , `railcar` , `emergency` , `ferry` , `boat` e `disallowed` .|
 |`routeThroughBehavior`|    string|    false    |Il comportamento del percorso attraverso l'unità. I calori consentiti sono `disallowed`, `allowed` e `preferred`. Il valore predefinito è `allowed`.|
@@ -260,15 +265,15 @@ L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 |`verticalPenetrationDirection`|    string|    false    |Se la proprietà `verticalPenetrationCategory` è definita, facoltativamente definire la direzione valida dello spostamento. I valori consentiti sono: `lowToHigh` ,, `highToLow` `both` e `closed` . Il valore predefinito è `both`.|
 | `nonPublic` | bool | false | Indica se l'unità è aperta al pubblico. |
 | `isRoutable` | bool | false | Quando questa proprietà è impostata su `false` , non è possibile passare all'unità. Il valore predefinito è `true`. |
-| `isOpenArea` | bool | false | Consente all'agente di esplorazione di accedere all'unità senza la necessità di un'apertura collegata all'unità. Per impostazione predefinita, questo valore è impostato su `true` per le unità senza aperture e `false` per le unità con aperture. L'impostazione `isOpenArea` manuale `false` su su un'unità senza aperture genera un avviso. Ciò è dovuto al fatto che l'unità risultante non sarà raggiungibile da un agente navigante.|
+| `isOpenArea` | bool | false | Consente all'agente di esplorazione di accedere all'unità senza la necessità di un'apertura collegata all'unità. Per impostazione predefinita, questo valore è impostato su `true` per le unità senza aperture e `false` per le unità con aperture. L'impostazione `isOpenArea` manuale `false` su su un'unità senza aperture genera un avviso, perché l'unità risultante non sarà raggiungibile da un agente navigante.|
 
 ### `zoneProperties`
 
 L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-|zoneName        |stringa    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
+|zoneName        |string    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Nome alternativo della zona.  |
 |zoneNameSubtitle|    string |    false    |Sottotitolo della zona. |
@@ -276,7 +281,7 @@ L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
 ### <a name="sample-drawing-package-manifest"></a>Manifesto del pacchetto di disegni di esempio
 
-Di seguito è riportato un file manifesto di esempio per il pacchetto di disegno di esempio. Per scaricare l'intero pacchetto, vedere [esempio di pacchetto di disegno](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+Di seguito è riportato il file manifesto per il pacchetto di disegno di esempio. Per scaricare l'intero pacchetto, vedere [esempio di pacchetto di disegno](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 #### <a name="manifest-file"></a>File manifesto
 

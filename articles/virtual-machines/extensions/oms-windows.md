@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967925"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046822"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale Log Analytics per Windows
 
@@ -37,6 +37,7 @@ La tabella seguente fornisce un mapping della versione dell'estensione della mac
 
 | Log Analytics versione bundle agente Windows | Versione dell'estensione della macchina virtuale Log Analytics Windows | Data di rilascio | Note sulla versione |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18053| 1.0.18053.0 | Ottobre 2020   | <ul><li>Nuovo strumento di risoluzione dei problemi dell'agente</li><li>Aggiornamenti per il modo in cui l'agente gestisce le modifiche ai certificati nei servizi di Azure</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | Agosto 2020   | <ul><li>Risolve un problema in Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | Aprile 2020   | <ul><li>Abilita la connettività sul collegamento privato usando gli ambiti di collegamento privato di monitoraggio di Azure</li><li>Aggiunge la limitazione di inserimento per evitare un improvviso afflusso accidentale di inserimenti in un'area di lavoro</li><li>Aggiunge il supporto per altre aree e cloud di Azure per enti pubblici</li><li>Risolve un bug in cui si è verificato un arresto anomalo HealthService.exe</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzo 2020   | <ul><li>Aggiunge il supporto per la firma del codice SHA-2</li><li>Migliora l'installazione e la gestione delle estensioni VM</li><li>Risolve un bug in Azure Arc per l'integrazione dei server</li><li>Aggiunge uno strumento integrato per la risoluzione dei problemi per il supporto tecnico</li><li>Aggiunge il supporto per altre aree di Azure per enti pubblici</li> |
