@@ -1,15 +1,15 @@
 ---
 title: Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 description: Come distribuire e configurare una rete del Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651567"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060317"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 
@@ -105,8 +105,8 @@ Per iniziare a distribuire i componenti di rete dell'infrastruttura iperledger, 
     - **Kubernetes Version**: scegliere la versione di Kubernetes che verrà distribuita nel cluster. In base all'area selezionata nella scheda **nozioni di base** , le versioni supportate disponibili potrebbero cambiare.
     - **Prefisso DNS**: immettere un prefisso per il nome del Domain Name System (DNS) per il cluster AKS. Si userà DNS per connettersi all'API Kubernetes quando si gestiscono i contenitori dopo aver creato il cluster.
     - **Dimensioni del nodo**: per le dimensioni del nodo Kubernetes, è possibile scegliere dall'elenco delle unità di mantenimento delle scorte (SKU) delle macchine virtuali disponibili in Azure. Per prestazioni ottimali, si consiglia la versione standard DS3 V2.
-    - **Numero di nodi: immettere**il numero di nodi Kubernetes da distribuire nel cluster. Si consiglia di mantenere questo numero di nodi uguale o superiore al numero di nodi dell'infrastruttura iperledger specificati nella scheda **Impostazioni infrastruttura** .
-    - **ID client dell'entità servizio**: immettere l'ID client di un'entità servizio esistente o crearne uno nuovo. Per l'autenticazione AKS è necessaria un'entità servizio. Vedere i [passaggi per creare un'entità servizio](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Numero di nodi: immettere** il numero di nodi Kubernetes da distribuire nel cluster. Si consiglia di mantenere questo numero di nodi uguale o superiore al numero di nodi dell'infrastruttura iperledger specificati nella scheda **Impostazioni infrastruttura** .
+    - **ID client dell'entità servizio**: immettere l'ID client di un'entità servizio esistente o crearne uno nuovo. Per l'autenticazione AKS è necessaria un'entità servizio. Vedere i [passaggi per creare un'entità servizio](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Segreto client dell'entità servizio**: immettere il segreto client dell'entità servizio specificata nell'ID client per l'entità servizio.
     - **Conferma segreto client**: confermare il segreto client per l'entità servizio.
     - **Abilitare il monitoraggio dei contenitori**: scegliere di abilitare il monitoraggio di AKS, che consente di effettuare il push dei log AKS nell'area di lavoro log Analytics specificata.
@@ -359,7 +359,7 @@ Ad esempio:
 ```
 
 La `<collectionConfigJSONFilePath>` parte è il percorso del file JSON che contiene le raccolte definite per la creazione di un'istanza di dati privati chaincode. È possibile trovare il file JSON di configurazione di una raccolta di esempio relativo alla directory *azhlfTool* nel percorso seguente: `./samples/chaincode/src/private_marbles/collections_config.json` .
-Passare `<transientArgs>` come JSON valido in formato stringa. Escape per i caratteri speciali. ad esempio `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+Passare `<transientArgs>` come JSON valido in formato stringa. Escape per i caratteri speciali. Ad esempio: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Eseguire il comando una sola volta da una qualsiasi organizzazione peer nel canale. Dopo che la transazione è stata inviata correttamente all'ordinatore, l'ordinatore distribuisce questa transazione a tutte le organizzazioni peer nel canale. Viene quindi creata un'istanza di Chaincode in tutti i nodi peer di tutte le organizzazioni peer nel canale.  
@@ -391,25 +391,37 @@ Se si usa *azhlfTool* per installare chaincode, passare tutti i nomi dei nodi pe
 
 Passare il nome della funzione di query e l'elenco di argomenti separati da spazi  `<queryFunction>`   rispettivamente in e  `<queryFuncArgs>`   . Riprendendo chaincode_example02. go chaincode come riferimento, per eseguire una query sul valore di "a" nello stato del mondo, impostare  `<queryFunction>`   su  `query` e  `<queryArgs>` su `"a"` .  
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
-Eseguire i comandi seguenti per trovare la versione della distribuzione del modello.
+### <a name="find-deployed-version"></a>Trova versione distribuita
 
-Impostare le variabili di ambiente in base al gruppo di risorse in cui è stato distribuito il modello.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Eseguire il comando seguente per stampare la versione del modello.
+Eseguire i comandi seguenti per trovare la versione della distribuzione del modello. Impostare le variabili di ambiente in base al gruppo di risorse in cui è stato distribuito il modello.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### <a name="patch-previous-version"></a>Patch versione precedente
+
+Se si verificano problemi con l'esecuzione di chaincode in qualsiasi distribuzione della versione modello riportata di seguito v 3.0.0, seguire questa procedura per applicare patch ai nodi peer con una correzione.
+
+Scaricare lo script di distribuzione peer.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Eseguire lo script usando il comando seguente sostituendo i parametri del peer.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Attendere che tutti i nodi peer vengano corretti. È sempre possibile controllare lo stato dei nodi peer, in un'istanza diversa della shell, usando il comando seguente.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti

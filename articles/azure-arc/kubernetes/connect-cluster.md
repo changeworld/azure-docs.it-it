@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Connettere un cluster Kubernetes abilitato per Azure Arc con Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 7f402d86ac1287753bc2deab53b24bb796644992
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8155ed709045626dee44fb499304ff5244a61b54
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97583933"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060249"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Connettere un cluster Kubernetes abilitato per Azure Arc (anteprima)
 
@@ -30,7 +30,7 @@ Verificare che siano disponibili i requisiti seguenti:
 * È necessario un file kubeconfig per accedere al cluster e al ruolo di amministratore del cluster nel cluster per la distribuzione degli agenti Kubernetes abilitati per Arc.
 * L'utente o l'entità servizio usata con i comandi `az login` e `az connectedk8s connect` deve avere le autorizzazioni 'Read' (Lettura) e 'Write' (Scrittura) per il tipo di risorsa 'Microsoft.Kubernetes/connectedclusters'. Il ruolo "cluster Kubernetes-caricamento di Azure Arc" dispone di queste autorizzazioni e può essere usato per assegnazioni di ruolo all'utente o all'entità servizio.
 * Helm 3 è necessario per l'onboarding del cluster usando l'estensione connectedk8s. Per soddisfare questo requisito, [installare la versione più recente di Helm 3](https://helm.sh/docs/intro/install) .
-* L'interfaccia della riga di comando di Azure versione 2.3 + è necessaria per l'installazione delle estensioni dell'interfaccia della riga di comando Kubernetes [Installare l'interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure o eseguire l'aggiornamento alla versione più recente per assicurarsi che l'interfaccia della riga di comando di Azure versione 2.3
+* L'interfaccia della riga di comando di Azure versione 2.15 + è necessaria per l'installazione di Azure Arc Enabled Kubernetes Extensions. [Installare l'interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure o eseguire l'aggiornamento alla versione più recente per assicurarsi di avere la versione 2.15 di Azure.
 * Installare le estensioni dell'interfaccia della riga di comando di Arc Enabled Kubernetes:
   
   Installare l'estensione `connectedk8s`, che consente di connettere i cluster Kubernetes ad Azure:

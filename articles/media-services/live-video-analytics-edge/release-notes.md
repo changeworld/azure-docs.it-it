@@ -3,12 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400846"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059977"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -33,7 +33,7 @@ Questa versione è la versione di aggiornamento dell'anteprima pubblica di anali
 * Aggiunta del supporto per l'utilizzo di più processori di estensione HTTP e processore di estensione gRPC per ogni topologia Graph.
 * Aggiunta del supporto per la gestione dello spazio su disco per i nodi sink.
 * `MediaGraphGrpcExtension` il nodo supporta ora la proprietà [extensionConfiguration](grpc-extension-protocol.md) per l'uso di più modelli di intelligenza artificiale all'interno di un singolo server gRPC.
-* Aggiunta del supporto per la raccolta di metriche del modulo di analisi video in tempo reale nel [formato Prometeo](https://prometheus.io/docs/practices/naming/) 
+* Aggiunta del supporto per la raccolta di metriche del modulo di analisi video in tempo reale nel [formato Prometeo](https://prometheus.io/docs/practices/naming/). Scopri di più su come [raccogliere metriche e visualizzare i dati in monitoraggio di Azure.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
 * Il processore del filtro della frequenza del frame è **deprecato**.  
     * La gestione della frequenza dei fotogrammi è ora disponibile all'interno dei nodi del processore dell'estensione Graph.
 

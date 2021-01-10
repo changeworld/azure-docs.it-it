@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: c2c16e6b5be4e187a776f75454ecf9377da911e3
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: da6c53675378fcf9d395debe750bb97738763a09
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763179"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059518"
 ---
 # <a name="peering-service-partners"></a>Partner del servizio di peering
 
@@ -44,6 +44,8 @@ La tabella in questo articolo fornisce informazioni sui partner di connettività
 | [SingTel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
 | [NAP africano](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europa|
+| [Reti CMC](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
+| [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |Africa|
 
 > [!NOTE]
 >Per ulteriori informazioni sull'integrazione con il programma peering service partner, rivolgersi a peeringservice@microsoft.com .

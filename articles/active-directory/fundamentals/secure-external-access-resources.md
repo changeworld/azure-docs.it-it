@@ -1,5 +1,5 @@
 ---
-title: Protezione dell'accesso esterno alle risorse in Azure Active Directory
+title: Sicurezza della collaborazione esterna in Azure Active Directory
 description: Guida per architetti e amministratori IT sulla protezione dell'accesso esterno alle risorse interne
 services: active-directory
 author: BarbaraSelden
@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39300c887245a99dce2913661f6492c85a1e6722
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7f09d2050617cbda539eee9fcda1ecfb204a015a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743963"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059280"
 ---
-# <a name="securing-external-access-to-resources"></a>Protezione dell'accesso esterno alle risorse
+# <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Sicurezza della collaborazione esterna in Azure Active Directory e Microsoft 365
 
 Una collaborazione sicura con partner esterni garantisce che i partner esterni corretti dispongano dell'accesso appropriato alle risorse interne per il periodo di tempo corretto. Grazie a un approccio di governance olistico, è possibile ridurre i rischi per la sicurezza, rispettare gli obiettivi di conformità e assicurarsi di conoscere chi ha accesso.
 
@@ -43,7 +43,7 @@ Questo set di documenti è progettato per consentire di passare da una collabora
 Vedere gli articoli seguenti sulla protezione dell'accesso esterno alle risorse. Si consiglia di eseguire le azioni nell'ordine elencato.
 
 
-1. [Determinare la postura di sicurezza desiderata per l'accesso esterno](1-secure-access-posture.md)
+1. [Determinare il comportamento di sicurezza per l'accesso esterno](1-secure-access-posture.md)
 
 2. [Individua lo stato corrente](2-secure-access-current-state.md)
 

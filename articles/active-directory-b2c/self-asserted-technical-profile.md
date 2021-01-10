@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509701"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059059"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -208,8 +208,8 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 | setting.showCancelButton | No | Visualizza il pulsante Annulla. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.showContinueButton | No | Visualizza il pulsante Continua. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | impostazione. showSignupLink <sup>2</sup>| No | Visualizza il pulsante di iscrizione. I valori possibili sono: `true` (impostazione predefinita) o `false` |
-| impostazione. forgotPasswordLinkLocation <sup>2</sup>| No| Visualizza il collegamento password dimenticata. Valori possibili: `AfterInput` (impostazione predefinita) il collegamento viene visualizzato nella parte inferiore della pagina o `None` rimuove il collegamento password dimenticata.|
-| impostazione. enableRememberMe <sup>2</sup>| No| Visualizza la casella [di controllo Mantieni l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) . Valori possibili: `true` o `false` (impostazione predefinita). |
+| impostazione. forgotPasswordLinkLocation <sup>2</sup>| No| Visualizza il collegamento password dimenticata. Valori possibili: `AfterLabel` (impostazione predefinita) Visualizza il collegamento immediatamente dopo l'etichetta o dopo il campo di input della password quando non è presente alcuna etichetta,  `AfterInput` Visualizza il collegamento dopo il campo di input della password, `AfterButtons` Visualizza il collegamento nella parte inferiore del form dopo i pulsanti oppure `None` rimuove il collegamento password dimenticata.|
+| impostazione. enableRememberMe <sup>2</sup>| No| Visualizza la casella [di controllo Mantieni l'accesso](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) . Valori possibili: `true` , o `false` (impostazione predefinita). |
 | impostazione. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Consente di migliorare l'esperienza utente, attendendo che l'utente interrompa la digitazione, quindi convalidare il valore. Valore predefinito 2000 millisecondi. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 

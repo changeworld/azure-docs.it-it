@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ecd7c3b034a65fa239248bf0e286181475376da2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963477"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059348"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durata del token configurabile nella piattaforma di identità Microsoft (anteprima)
 
@@ -121,9 +121,9 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 | --- | --- | --- | --- | --- | --- |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
 | Validità massima token di aggiornamento a fattore singolo |MaxAgeSingleFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
-| Validità massima token di aggiornamento a più fattori |MaxAgeMultiFactor |Token di aggiornamento (per tutti gli utenti) | 180 giorni |10 minuti |180 giorni<sup>1</sup> |
+| Validità massima token di aggiornamento a più fattori |MaxAgeMultiFactor |Token di aggiornamento (per tutti gli utenti) | Fino a revoca |10 minuti |180 giorni<sup>1</sup> |
 | Validità massima token di sessione a fattore singolo |MaxAgeSessionSingleFactor |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
-| Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor |Token di sessione (permanenti e non permanenti) | 180 giorni |10 minuti | 180 giorni<sup>1</sup> |
+| Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor |Token di sessione (permanenti e non permanenti) | Fino a revoca |10 minuti | 180 giorni<sup>1</sup> |
 
 * <sup>1</sup> La durata esplicita massima che è possibile impostare per questi attributi è 365 giorni.
 

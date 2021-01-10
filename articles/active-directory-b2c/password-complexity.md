@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 11a45adfda306b2ab843725b6aaa28a5e6c026a6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: f9748d0d278375029fc9875f5b36674d19ad871a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614252"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058974"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Consente di accettare solo cifre (PIN) o l'intero set di caratteri.
 Consente di controllare i requisiti di lunghezza della password.
 
 - Il valore **Lunghezza minima** deve essere almeno 4.
-- Il valore **Lunghezza massima** deve essere maggiore o uguale alla lunghezza minima e può essere al massimo di 64 caratteri.
+- La **lunghezza massima** deve essere maggiore o uguale alla lunghezza minima e può essere di 256 caratteri.
 
 ### <a name="character-classes"></a>Classi di caratteri
 

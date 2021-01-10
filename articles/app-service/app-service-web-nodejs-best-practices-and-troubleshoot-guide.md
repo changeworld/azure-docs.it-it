@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763945"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060161"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -245,9 +245,8 @@ L'applicazione genera eccezioni non rilevate. Controllare il file `d:\\home\\Log
 Tempi prolungati di avvio dell'applicazione sono dovuti a un numero elevato di file nel nodo \_modules. L'applicazione tenta di caricare la maggior parte di questi file all'avvio. Per impostazione predefinita, poiché i file sono archiviati nella condivisione di rete in Servizio app di Azure, il caricamento di un numero eccessivo di file può richiedere tempo.
 Ecco alcune soluzione per velocizzare questo processo:
 
-1. Assicurarsi che sia disponibile una struttura di dipendenze semplice, senza dipendenze duplicate, usando npm3 per installare i moduli.
-2. Provare a eseguire il caricamento lazy di node\_modules e non caricare tutti i moduli all'avvio dell'applicazione. Per i moduli di caricamento lazy, la chiamata a require('module') deve essere effettuata quando è effettivamente necessario che il modulo sia incluso nella funzione prima della prima esecuzione del codice del modulo.
-3. Servizio app di Azure offre una funzionalità definita cache locale. Questa funzionalità copia il contenuto dalla condivisione di rete nel disco locale sulla macchina virtuale. Poiché i file sono locali, il tempo di caricamento di node\_modules risulta molto più veloce.
+1. Provare a eseguire il caricamento lazy di node\_modules e non caricare tutti i moduli all'avvio dell'applicazione. Per i moduli di caricamento lazy, la chiamata a require('module') deve essere effettuata quando è effettivamente necessario che il modulo sia incluso nella funzione prima della prima esecuzione del codice del modulo.
+2. Servizio app di Azure offre una funzionalità definita cache locale. Questa funzionalità copia il contenuto dalla condivisione di rete nel disco locale sulla macchina virtuale. Poiché i file sono locali, il tempo di caricamento di node\_modules risulta molto più veloce.
 
 ## <a name="iisnode-http-status-and-substatus"></a>Stato e stato secondario HTTP di IISNODE
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826633"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059722"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -101,7 +101,7 @@ Questa sezione descrive le funzionalità e le limitazioni dello SKU v2 che lo di
 |Autenticazione del certificato|Non supportato.<br>Per altre informazioni, vedere [Panoramica di TLS end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportate|
 |Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Supportata (scenari specifici). In anteprima.<br> Per altre informazioni sugli scenari supportati, vedere [Panoramica della configurazione del gateway applicazione](configuration-infrastructure.md#supported-user-defined-routes).|
-|Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Contatori delle prestazioni in Diagnostica di Azure|Non supportato.<br>Usare le metriche di Azure.|
 |Fatturazione|Inizio della fatturazione pianificato per il 1° luglio 2019.|
 |Modalità FIPS|Attualmente non supportati.|

@@ -1,22 +1,22 @@
 ---
-title: Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
+title: Gestire l'indicizzazione nell'API di Azure Cosmos DB per MongoDB
 description: Questo articolo presenta una panoramica delle funzionalità di indicizzazione Azure Cosmos DB usando l'API Azure Cosmos DB per MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369291"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060089"
 ---
-# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
+# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API di Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 L'API di Azure Cosmos DB per MongoDB sfrutta le funzionalità di gestione degli indici principali di Azure Cosmos DB. Questo articolo è incentrato su come aggiungere indici usando l'API di Azure Cosmos DB per MongoDB. È anche possibile leggere una [Panoramica dell'indicizzazione in Azure Cosmos DB](index-overview.md) pertinente in tutte le API.
@@ -29,6 +29,16 @@ Per indicizzare campi aggiuntivi, applicare i comandi di gestione dell'indice Mo
 
 Per applicare un ordinamento a una query, è necessario creare un indice sui campi utilizzati nell'operazione di ordinamento.
 
+### <a name="editing-indexing-policy"></a>Modifica dei criteri di indicizzazione
+
+Si consiglia di modificare i criteri di indicizzazione nel Esplora dati all'interno del portale di Azure.
+. È possibile aggiungere indici con singoli campi e caratteri jolly dall'editor dei criteri di indicizzazione nel Esplora dati:
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Editor dei criteri di indicizzazione":::
+
+> [!NOTE]
+> Non è possibile creare indici composti utilizzando l'editor dei criteri di indicizzazione nel Esplora dati.
+
 ## <a name="index-types"></a>Tipi di indice
 
 ### <a name="single-field"></a>Campo singolo
@@ -36,6 +46,10 @@ Per applicare un ordinamento a una query, è necessario creare un indice sui cam
 È possibile creare indici in qualsiasi singolo campo. L'ordinamento dell'indice del campo singolo non è rilevante. Il comando che segue crea un indice nel campo `name` :
 
 `db.coll.createIndex({name:1})`
+
+È possibile creare lo stesso indice di campo singolo `name` nel portale di Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Aggiungi indice nome nell'editor dei criteri di indicizzazione":::
 
 Una query usa più indici dei campi singoli, se disponibili. È possibile creare fino a 500 indici di campi singoli per ogni contenitore.
 
@@ -54,7 +68,7 @@ Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.find().sort({name:1,age:1})`
 
-È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ad esempio:
+È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ecco un esempio:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -135,6 +149,10 @@ Ecco come è possibile creare un indice con caratteri jolly in tutti i campi:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
+È anche possibile creare indici con caratteri jolly usando il Esplora dati nel portale di Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Aggiungere un indice con caratteri jolly nell'editor dei criteri di indicizzazione":::
+
 > [!NOTE]
 > Se si sta iniziando a sviluppare, è **consigliabile iniziare** con un indice con caratteri jolly in tutti i campi. Questo può semplificare lo sviluppo e semplificare l'ottimizzazione delle query.
 
@@ -148,9 +166,9 @@ Gli indici con caratteri jolly non supportano i tipi di indice o le proprietà s
 - TTL
 - Univoco
 
-**Diversamente da MongoDB** , nell'API Azure Cosmos DB per MongoDB **non** è possibile usare gli indici con caratteri jolly per:
+**Diversamente da MongoDB**, nell'API Azure Cosmos DB per MongoDB **non** è possibile usare gli indici con caratteri jolly per:
 
-- Creazione di un indice con caratteri jolly che include più campi specifici
+- Creare un indice con carattere jolly che include più campi specifici
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -162,7 +180,7 @@ Gli indici con caratteri jolly non supportano i tipi di indice o le proprietà s
     }
 )`
 
-- Creazione di un indice con caratteri jolly che escluda più campi specifici
+- Creare un indice con carattere jolly che esclude più campi specifici
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -174,7 +192,7 @@ Gli indici con caratteri jolly non supportano i tipi di indice o le proprietà s
     }
 )`
 
-In alternativa, è possibile creare più indici jolly.
+In alternativa, è possibile creare più indici con carattere jolly.
 
 ## <a name="index-properties"></a>Proprietà degli indici
 

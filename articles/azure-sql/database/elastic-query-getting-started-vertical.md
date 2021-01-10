@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90f89e72193c26b71859076b99c448a6e2d4c4c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792124"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060085"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ L'autorizzazione ALTER ANY EXTERNAL DATA SOURCE è obbligatoria. Questa autorizz
 
 ## <a name="create-the-sample-databases"></a>Creare i database di esempio
 
-Per iniziare, creare due database, **Customers** e **Orders** , nello stesso server o in server diversi.
+Per iniziare, creare due database, **Customers** e **Orders**, nello stesso server o in server diversi.
 
 Eseguire le query seguenti sul database **Orders** per creare la tabella **OrderInformation** e inserire i dati di esempio.
 
@@ -77,6 +77,7 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
+    "Master_key_password" è una password complessa a scelta usata per crittografare le credenziali di connessione. 
     Il nome utente e la password devono corrispondere al nome utente e alla password usati per l'accesso al database Customers.
     L'autenticazione tramite Azure Active Directory con query elastiche non è attualmente supportata.
 

@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: 31cf89cb66dfbc404d65f8fc09b96c03e1be2f8f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401324"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060232"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Risolvere i problemi di analisi video in tempo reale su IoT Edge
 
@@ -65,6 +65,8 @@ Dopo che l'analisi video in tempo reale su IoT Edge modulo è stata distribuita 
     * 406 - Il dispositivo è offline o non invia segnalazioni sullo stato.
     * 500 - Si è verificato un errore nel runtime di IoT Edge.
 
+    > [!TIP]
+    > Se si verificano problemi durante l'esecuzione di Azure IoT Edge moduli nell'ambiente, usare **[Azure IOT Edge passaggi di diagnostica standard](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** come guida per la risoluzione dei problemi e la diagnostica.
 ### <a name="post-deployment-direct-method-error-code"></a>Post-distribuzione: codice di errore diretto del metodo
 1. Se si ottiene uno stato `501 code` , verificare che il nome del metodo diretto sia accurato. Se il nome del metodo e il payload della richiesta sono accurati, è necessario ottenere risultati con codice di esito positivo = 200. 
 1. Se il payload della richiesta non è accurato, si otterranno uno stato `400 code` e un payload di risposta che indica il codice di errore e il messaggio che dovrebbero aiutare a diagnosticare il problema con la chiamata al metodo diretto.
@@ -93,6 +95,8 @@ L'analisi video in tempo reale viene distribuita come modulo IoT Edge sul dispos
 * [L'analisi video in tempo reale o qualsiasi altro modulo di IOT Edge personalizzato non riesce a inviare un messaggio all'Hub Edge con errore 404](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
 * [Il modulo IOT Edge viene distribuito correttamente, quindi scompare dal dispositivo](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
+    > [!TIP]
+    > Se si verificano problemi durante l'esecuzione di Azure IoT Edge moduli nell'ambiente, usare **[Azure IOT Edge passaggi di diagnostica standard](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** come guida per la risoluzione dei problemi e la diagnostica.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Analisi video in tempo reale utilizzo di moduli esterni
 
 L'analisi di video in tempo reale tramite i processori di estensione del grafico multimediale può estendere il grafico multimediale per inviare e ricevere dati da altri moduli IoT Edge usando protocolli HTTP o gRPC. Come [esempio specifico](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), questo grafico multimediale può inviare fotogrammi video come immagini a un modulo di inferenza esterno, ad esempio Yolo V3 e ricevere risultati analitici basati su JSON usando il protocollo http. In una topologia di questo tipo, la destinazione per gli eventi è principalmente l'hub Internet. In situazioni in cui non vengono visualizzati gli eventi di inferenza nell'hub, verificare quanto segue:
@@ -209,7 +213,7 @@ Per configurare l'analisi video in tempo reale sul modulo IoT Edge per generare 
 
 1. Selezionare **Aggiorna**.
 1. Selezionare **Rivedi e crea**. Un messaggio di convalida con esito positivo viene pubblicato sotto un banner verde.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Aggiornare l' **identità del modulo gemello** per puntare al parametro DebugLogsDirectory, che fa riferimento alla directory in cui vengono raccolti i log:
 
     a. Nella tabella **modules** selezionare **lvaEdge**.  

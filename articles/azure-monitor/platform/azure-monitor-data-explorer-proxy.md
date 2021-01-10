@@ -1,18 +1,18 @@
 ---
 title: Eseguire query tra risorse in Azure Esplora dati usando monitoraggio di Azure
 description: Usare monitoraggio di Azure per eseguire query tra prodotti tra Esplora dati di Azure, aree di lavoro Log Analytics e applicazioni Application Insights classiche in monitoraggio di Azure.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: cb586d15e762f88620fe0c91152af41b3f607d74
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674430"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060453"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Eseguire query tra risorse in Azure Esplora dati usando monitoraggio di Azure
 Monitoraggio di Azure supporta query tra servizi tra Esplora dati di Azure, [Application Insights](/azure/azure-monitor/app/app-insights-overview)e [log Analytics](/azure/azure-monitor/platform/data-platform-logs). È quindi possibile eseguire query nel cluster di Azure Esplora dati usando gli strumenti Log Analytics/Application Insights e farvi riferimento in una query tra servizi. Questo articolo illustra come eseguire una query tra servizi.
@@ -22,7 +22,7 @@ Il diagramma seguente illustra il flusso tra servizi di monitoraggio di Azure:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagramma che mostra il flusso di query tra un utente, monitoraggio di Azure, un proxy e Esplora dati di Azure.":::
 
 >[!NOTE]
-> La query tra servizi di monitoraggio di Azure è in anteprima privata. Allowlisting è obbligatorio. Per eventuali domande, contattare il [team del servizio](mailto:ADXProxy@microsoft.com) .
+> La query tra servizi di monitoraggio di Azure è in versione di anteprima pubblica. Per eventuali domande, contattare il [team del servizio](mailto:ADXProxy@microsoft.com) .
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Eseguire query tra le risorse Log Analytics o Application Insights e Azure Esplora dati
 

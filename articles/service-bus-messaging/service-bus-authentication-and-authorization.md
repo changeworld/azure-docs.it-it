@@ -3,12 +3,12 @@ title: Autenticazione e autorizzazione del bus di servizio di Azure | Documentaz
 description: Autenticare le app sul bus di servizio usando l'autenticazione con firma di accesso condiviso (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517281"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060215"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
 Esistono due modi per autenticare e autorizzare l'accesso alle risorse del bus di servizio di Azure: Azure Activity directory (Azure AD) e le firme di accesso condiviso (SAS). Questo articolo fornisce informazioni dettagliate sull'uso di questi due tipi di meccanismi di sicurezza. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974664"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060640"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -87,7 +87,7 @@ La visualizzazione predefinita include tutte le metriche dell'applicazione di un
 
 Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 
-### <a name="error"></a>Errore
+### <a name="error"></a>Errore di
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
@@ -114,7 +114,7 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|------|-----------------------------|------|---------|
->| Utilizzo della CPU       | utilizzo CPU      | Millisecondi | Quantità di tempo utilizzata dal processo per la CPU. |
+>| Utilizzo della CPU       | utilizzo CPU      | Percentuale      | Percentuale di utilizzo della CPU del processo rispetto a tutte le risorse della CPU di sistema [0-100]. |
 >| Working set     | working-set    | Megabyte    | Quantità di working set utilizzata dal processo. |
 >| Dimensioni heap GC    | GC-heap-dimensioni   | Megabyte    | Dimensioni totali dell'heap restituite dal Garbage Collector. |
 >| Conteggio GC di generazione 0  | gen-0-GC-count | Conteggio        | Numero di Garbage Collection di generazione 0 al secondo. |
@@ -156,7 +156,7 @@ Per altre informazioni, vedere [contatori DotNet](/dotnet/core/diagnostics/dotne
 
 Per altre informazioni, vedere [contatori DotNet](/dotnet/core/diagnostics/dotnet-counters).
 
-### <a name="session"></a>sessione
+### <a name="session"></a>Sessione
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
@@ -167,7 +167,7 @@ Per altre informazioni, vedere [contatori DotNet](/dotnet/core/diagnostics/dotne
 >| Tomcat. Sessions. rifiutato | Tomcat. Sessions. rifiutato | Conteggio | Numero di sessioni che non sono state create perché è stato raggiunto il numero massimo di sessioni attive. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Conteggio | Conteggio attivo sessione Tomcat |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Avvio rapido: Monitoraggio di app Azure Spring Cloud con log, metriche e traccia](spring-cloud-quickstart-logs-metrics-tracing.md)
 
