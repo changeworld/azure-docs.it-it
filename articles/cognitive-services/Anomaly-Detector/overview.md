@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 01/05/2021
 ms.author: mbullwin
 keywords: rilevamento anomalie, Machine Learning, algoritmi
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705082"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901369"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -83,8 +83,17 @@ Dopo aver eseguito l'iscrizione:
 
 Per altre informazioni sugli algoritmi SR-CNN sviluppati da Microsoft, vedere il documento (accettato da KDD 2019) relativo al [servizio Microsoft per il rilevamento delle anomalie nelle serie temporali](https://arxiv.org/abs/1906.03821).
 
-
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="service-availability-and-redundancy"></a>Disponibilità e ridondanza del servizio
+
+### <a name="is-the-anomaly-detector-service-zone-resilient"></a>Il servizio Rilevamento anomalie è con resilienza della zona?
+
+Sì. Il servizio Rilevamento anomalie è con resilienza della zona per impostazione predefinita.
+
+### <a name="how-do-i-configure-the-anomaly-detector-service-to-be-zone-resilient"></a>Come si configura il servizio Rilevamento anomalie in modo da abilitare la resilienza della zona?
+
+Non è necessaria alcuna configurazione del cliente per abilitare la resilienza della zona. La resilienza della zona per le risorse di Rilevamento anomalie è disponibile per impostazione predefinita e viene gestita dal servizio stesso.
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
 

@@ -4,13 +4,13 @@ description: Questo articolo viene aggiornato regolarmente e include le novità 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/15/2020
-ms.openlocfilehash: 52f8aad0a429d3378d46265fab719b1cb9f07fd0
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.date: 01/05/2021
+ms.openlocfilehash: 4591bc26c848032d1c0f8b96720c4ec66b9b064d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813191"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916355"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
@@ -20,7 +20,8 @@ Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione,
 
 ### <a name="december-2020"></a>Dicembre 2020
 
-* Tutti gli utenti LUIS devono [eseguire la migrazione a una risorsa LUIS authorint](luis-migration-authoring.md)
+* Tutti gli utenti di LUIS devono [eseguire la migrazione a una risorsa di creazione LUIS](luis-migration-authoring.md)
+* Nuovi [endpoint di valutazione](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) che consentono di inviare test in batch tramite l'API REST e di ottenere i risultati dell'accuratezza per finalità ed entità. Disponibile a partire dall'endpoint LUIS v3.0-preview.
 
 ### <a name="june-2020"></a>Giugno 2020
 

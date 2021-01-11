@@ -146,11 +146,15 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
-        - name: Risolvere gli errori di distribuzione comuni
+        - name: Stato del probe di integrità
+          href: load-balancer-troubleshoot-health-probe-status.md
+        - name: Traffico del pool back-end (VM)
+          href: load-balancer-troubleshoot-backend-traffic.md
+        - name: Errori di distribuzione comuni
           href: load-balancer-common-deployment-errors.md
-        - name: Risolvere i problemi comuni delle connessioni in uscita
+        - name: Problemi comuni delle connessioni in uscita
           href: troubleshoot-outbound-connection.md
-        - name: Risolvere i problemi di integrità e di disponibilità delle risorse in ingresso
+        - name: Problemi di integrità e di disponibilità delle risorse in ingresso
           href: troubleshoot-rhc.md
 - name: Informazioni di riferimento
   items:
